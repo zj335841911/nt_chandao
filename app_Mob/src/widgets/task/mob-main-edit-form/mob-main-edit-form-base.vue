@@ -635,25 +635,18 @@
     :disabled="detailsModel.mailto.disabled"
     :error="detailsModel.mailto.error" 
     :isEmptyCaption="false">
-        <app-mob-select-drop-down 
-    name='mailto' 
-    valueitem='' 
-    style="" 
-    editortype="dropdown" 
-    :formState="formState"
-    :data="data"
-    :context="context"
+        <app-mob-select 
+    tag="UserRealName"
+    codeListType="DYNAMIC" 
+    :isCache="false" 
+    :disabled="detailsModel.mailto.disabled" 
+    :data="data" 
+    :context="context" 
+    :viewparams="viewparams"
+    :value="data.mailto"  
     :navigateContext ='{ } '
     :navigateParam ='{ } '
-    :viewparams="viewparams"
-    :itemParam='{ }' 
-    :disabled="detailsModel.mailto.disabled"
-    :service="service"
-    :acParams="{ }"
-    :value="data.mailto" 
-    @formitemvaluechange="onFormItemValueChange"
-    @change="($event)=>this.data.mailto = $event">
-</app-mob-select-drop-down>
+    @change="($event)=>this.data.mailto = $event" />
 </app-form-item>
 
 
@@ -743,12 +736,12 @@
     :error="detailsModel.estimate.error" 
     :isEmptyCaption="false">
         <app-mob-input 
-    class="app-form-item-input"  
-        type="text"  
+    class="app-form-item-number" 
+        type="number"  
     :value="data.estimate"
     unit="小时"
     :disabled="detailsModel.estimate.disabled" 
-    @change="($event)=>this.data.estimate = $event" />
+    @change="($event)=>this.data.estimate = $event"/>
 </app-form-item>
 
 
@@ -769,21 +762,40 @@
     :error="detailsModel.consumed.error" 
     :isEmptyCaption="false">
         <app-mob-input 
-    class="app-form-item-input"  
-        type="text"  
+    class="app-form-item-number" 
+        type="number"  
     :value="data.consumed"
     unit="小时"
     :disabled="detailsModel.consumed.disabled" 
-    @change="($event)=>this.data.consumed = $event" />
+    @change="($event)=>this.data.consumed = $event"/>
 </app-form-item>
 
 
 
-!!!!模版产生代码错误:----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: ${P.getEditorCode(item, "EDITOR.vue")...  [in template "TEMPLCODE_en_US" at line 38, column 9]
-----
-无法获取指定编辑器[TEXTBOX]发布代码[FORMITEM][EDITOR.vue]模板
+<app-form-item 
+    name='left' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="left_item"  
+    :itemValue="this.data.left" 
+    v-show="detailsModel.left.visible" 
+    :itemRules="this.rules.left" 
+    :caption="$t('task.mobmainedit_form.details.left')"  
+    :labelWidth="100"  
+    :isShowCaption="true"
+    :disabled="detailsModel.left.disabled"
+    :error="detailsModel.left.error" 
+    :isEmptyCaption="false">
+        <app-mob-input 
+    class="app-form-item-number" 
+        type="number"  
+    :value="data.left"
+    unit="小时"
+    :disabled="detailsModel.left.disabled" 
+    @change="($event)=>this.data.left = $event"/>
+</app-form-item>
+
 
     
 </app-form-group>
