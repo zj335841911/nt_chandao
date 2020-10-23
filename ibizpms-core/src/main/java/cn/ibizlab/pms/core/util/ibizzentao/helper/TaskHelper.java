@@ -113,6 +113,10 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         Task old =new Task();
         CachedBeanCopier.copy(this.get(et.getId()), old);
 
+        if (et.getStory() != 0 && et.getStory() != old.getStory()){
+            et.setStoryversion(et.getZtstory().getVersion());
+        }
+
         if (StringUtils.compare(et.getStatus(), "done") == 0) {
             et.setLeft(0.0);
             if (StringUtils.isBlank(et.getFinishedby())) {
@@ -122,14 +126,14 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
                 et.setFinisheddate(ZTDateUtil.now());
         } else if (StringUtils.compare(et.getStatus(), "cancel") == 0) {
             if (StringUtils.isBlank(et.getClosedby())) {
-                et.setClosedby(AuthenticationUser.getAuthenticationUser().getUsername());
+                et.setCanceledby(AuthenticationUser.getAuthenticationUser().getUsername());
             }
             if (et.getCanceleddate() == null)
                 et.setCanceleddate(ZTDateUtil.now());
         } else if (StringUtils.compare(et.getStatus(), "closed") == 0) {
             if (et.getClosedreason() == null || et.getClosedreason().equals(""))  throw new RuntimeException("关闭原因不能为空");
             if (StringUtils.compare(et.getClosedreason(),"cancel") == 0){
-                if (et.getFinishedby() != null || et.getFinisheddate() != null){
+                if (!StringUtils.isEmpty(et.getFinishedby()) || et.getFinisheddate() != null){
                     throw new RuntimeException("由谁完成和完成时间必须为空!");
                 }
                 else {
@@ -138,15 +142,9 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
                 }
             }
 
-
-//            if (StringUtils.isBlank(et.getCanceledby())) {
-//                et.setCanceledby(AuthenticationUser.getAuthenticationUser().getUsername());
-//            }
-//            if (et.getCloseddate() == null)
-//                et.setCloseddate(ZTDateUtil.now());
         }
         else if (StringUtils.compare(et.getStatus(),"wait") == 0 || StringUtils.compare(et.getStatus(),"doing") == 0) {
-            if (et.getFinishedby() != null || et.getFinisheddate() != null){
+            if (!StringUtils.isEmpty(et.getFinishedby()) || et.getFinisheddate() != null){
                 throw new RuntimeException("该任务状态下，实际完成和由谁完成必须为空!");
             }
         }
@@ -158,9 +156,10 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         if (et.getConsumed() > 0 && et.getLeft() > 0 && StringUtils.compare(et.getStatus(), "wait") == 0)
             et.setStatus("doing");
 
-        if (StringUtils.compare(et.getStatus(), "wait") == 0 && et.getLeft() == old.getLeft() && et.getConsumed() == 0) {
+        if (StringUtils.compare(et.getStatus(), "wait") == 0 && et.getLeft() == old.getLeft() && et.getConsumed() == 0 && et.getEstimate() != 0) {
             et.setLeft(et.getEstimate());
         }
+
 
         if (et.getConsumed() > old.getConsumed())
             throw new RuntimeException("总计消耗必须大于之前消耗");
@@ -179,7 +178,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
             for (TaskTeam team : teams) {
                 accounts.add(team.getAccount());
             }
-            if (!statusStr.contains(et.getStatus()) && !accounts.contains(et.getAssignedto())) throw new RuntimeException("当前状态的多人任务不能指派给任务团队以外的成员。");
+            if (!statusStr.contains(et.getStatus()) && !accounts.contains(et.getAssignedto()) && !et.getAssignedto().equals("")) throw new RuntimeException("当前状态的多人任务不能指派给任务团队以外的成员。");
             int i = 0;
             for (TaskTeam taskTeam : teams) {
 //                Team team = new Team();
