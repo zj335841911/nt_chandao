@@ -1,5 +1,5 @@
 <template>
-<ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobeditview': true, 'product-plan-mob-edit-view': true }">
+<ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobeditview': true, 'release-edit-mob-edit-view': true }">
     
     <ion-header>
         <ion-toolbar v-show="titleStatus" class="ionoc-view-header">
@@ -10,6 +10,12 @@
                 </ion-button>
             </ion-buttons>
             <ion-title class="view-title"><label class="title-label"><ion-icon v-if="model.icon" :name="model.icon"></ion-icon> <img v-else-if="model.iconcls" :src="model.iconcls" alt=""> {{$t(model.srfCaption)}}</label></ion-title>
+            <ion-buttons slot="end">
+                                <div class="app-toolbar-container ">
+                    <div class="app-quick-toolbar toolbar-right-bottons">
+                    </div>
+                </div>
+            </ion-buttons>
         </ion-toolbar>
 
     
@@ -18,7 +24,7 @@
     <ion-content>
                 <view_form
             :viewState="viewState"
-            viewName="ProductPlanMobEditView"  
+            viewName="ReleaseEditMobEditView"  
             :viewparams="viewparams" 
             :context="context" 
             :autosave="false" 
@@ -42,31 +48,6 @@
             @closeview="closeView($event)">
         </view_form>
     </ion-content>
-    <ion-footer class="view-footer">
-                <div  class = "fab_container">
-            <ion-button v-if="getToolBarLimit" @click="popUpGroup(true)" class="app-view-toolbar-button"><ion-icon name="chevron-up-circle-outline"></ion-icon></ion-button>
-            <van-popup v-if="getToolBarLimit" class="popup" v-model="showGrop" round position="bottom">
-                <div class="container">
-                    <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_mobmainedit.disabled}" v-show="righttoolbarModels.deuiaction1_mobmainedit.visabled">
-                <ion-button :disabled="righttoolbarModels.deuiaction1_mobmainedit.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_mobmainedit' }, $event)" size="large">
-                    <ion-icon name="edit"></ion-icon>
-                <span class="btn-inner-text">{{$t('productplan.mobeditviewrighttoolbar_toolbar.deuiaction1_mobmainedit.caption')}}</span>
-                </ion-button>
-                <span class="btn-out-text">{{$t('productplan.mobeditviewrighttoolbar_toolbar.deuiaction1_mobmainedit.caption')}}</span>
-            </div>
-        
-                    <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_mobdelete.disabled}" v-show="righttoolbarModels.deuiaction1_mobdelete.visabled">
-                <ion-button :disabled="righttoolbarModels.deuiaction1_mobdelete.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_mobdelete' }, $event)" size="large">
-                    <ion-icon name="remove"></ion-icon>
-                <span class="btn-inner-text">{{$t('productplan.mobeditviewrighttoolbar_toolbar.deuiaction1_mobdelete.caption')}}</span>
-                </ion-button>
-                <span class="btn-out-text">{{$t('productplan.mobeditviewrighttoolbar_toolbar.deuiaction1_mobdelete.caption')}}</span>
-            </div>
-        
-                </div>
-            </van-popup>
-        </div>
-    </ion-footer>
 </ion-page>
 </template>
 
@@ -74,47 +55,47 @@
 import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
 import { Subject } from 'rxjs';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import ProductPlanService from '@/app-core/service/product-plan/product-plan-service';
+import ReleaseService from '@/app-core/service/release/release-service';
 
 import MobEditViewEngine from '@engine/view/mob-edit-view-engine';
-import ProductPlanUIService from '@/ui-service/product-plan/product-plan-ui-action';
+import ReleaseUIService from '@/ui-service/release/release-ui-action';
 
 @Component({
     components: {
     },
 })
-export default class ProductPlanMobEditViewBase extends Vue {
+export default class ReleaseEditMobEditViewBase extends Vue {
 
     /**
      * 全局 ui 服务
      *
      * @type {GlobalUiService}
-     * @memberof ProductPlanMobEditViewBase
+     * @memberof ReleaseEditMobEditViewBase
      */
     protected globaluiservice: GlobalUiService = new GlobalUiService();
 
     /**
      * 实体服务对象
      *
-     * @type {ProductPlanService}
-     * @memberof ProductPlanMobEditViewBase
+     * @type {ReleaseService}
+     * @memberof ReleaseEditMobEditViewBase
      */
-    protected appEntityService: ProductPlanService = new ProductPlanService();
+    protected appEntityService: ReleaseService = new ReleaseService();
 
     /**
      * 实体UI服务对象
      *
-     * @type ProductPlanUIService
-     * @memberof ProductPlanMobEditViewBase
+     * @type ReleaseUIService
+     * @memberof ReleaseEditMobEditViewBase
      */
-    public appUIService: ProductPlanUIService = new ProductPlanUIService(this.$store);
+    public appUIService: ReleaseUIService = new ReleaseUIService(this.$store);
 
     /**
      * 数据变化
      *
      * @param {*} val
      * @returns {*}
-     * @memberof ProductPlanMobEditViewBase
+     * @memberof ReleaseEditMobEditViewBase
      */
     @Emit() 
     protected viewDatasChange(val: any):any {
@@ -125,7 +106,7 @@ export default class ProductPlanMobEditViewBase extends Vue {
      * 视图上下文
      *
      * @type {string}
-     * @memberof ProductPlanMobEditViewBase
+     * @memberof ReleaseEditMobEditViewBase
      */
     @Prop() protected _context!: string;
 
@@ -133,7 +114,7 @@ export default class ProductPlanMobEditViewBase extends Vue {
      * 视图参数
      *
      * @type {string}
-     * @memberof ProductPlanMobEditViewBase
+     * @memberof ReleaseEditMobEditViewBase
      */
     @Prop() protected _viewparams!: string;
 
@@ -141,7 +122,7 @@ export default class ProductPlanMobEditViewBase extends Vue {
      * 视图默认使用
      *
      * @type {boolean}
-     * @memberof ProductPlanMobEditViewBase
+     * @memberof ReleaseEditMobEditViewBase
      */
     @Prop({ default: "routerView" }) protected viewDefaultUsage!: string;
 
@@ -149,15 +130,15 @@ export default class ProductPlanMobEditViewBase extends Vue {
 	 * 视图标识
 	 *
 	 * @type {string}
-	 * @memberof ProductPlanMobEditViewBase
+	 * @memberof ReleaseEditMobEditViewBase
 	 */
-	protected viewtag: string = 'fa666a1ef668f58d01a55f0925d7e0fe';
+	protected viewtag: string = '30df85f6893d47efa69fbb2580f7ea6c';
 
     /**
      * 视图上下文
      *
      * @type {*}
-     * @memberof ProductPlanMobEditViewBase
+     * @memberof ReleaseEditMobEditViewBase
      */
     protected context: any = {};
 
@@ -165,7 +146,7 @@ export default class ProductPlanMobEditViewBase extends Vue {
      * 视图参数
      *
      * @type {*}
-     * @memberof ProductPlanMobEditViewBase
+     * @memberof ReleaseEditMobEditViewBase
      */
     protected viewparams: any = {};
 
@@ -173,14 +154,14 @@ export default class ProductPlanMobEditViewBase extends Vue {
      * 是否为子视图
      *
      * @type {boolean}
-     * @memberof ProductPlanMobEditViewBase
+     * @memberof ReleaseEditMobEditViewBase
      */
     @Prop({ default: false }) protected isChildView?: boolean;
 
     /**
      * 标题状态
      *
-     * @memberof ProductPlanMobEditViewBase
+     * @memberof ReleaseEditMobEditViewBase
      */
     public titleStatus :boolean = true;
 
@@ -189,7 +170,7 @@ export default class ProductPlanMobEditViewBase extends Vue {
      *
      * @protected
      * @type {*}
-     * @memberof ProductPlanMobEditViewBase
+     * @memberof ReleaseEditMobEditViewBase
      */
     protected navContext: any = {};
 
@@ -198,7 +179,7 @@ export default class ProductPlanMobEditViewBase extends Vue {
      *
      * @protected
      * @type {*}
-     * @memberof ProductPlanMobEditViewBase
+     * @memberof ReleaseEditMobEditViewBase
      */
     protected navParam: any = {};
 
@@ -206,16 +187,16 @@ export default class ProductPlanMobEditViewBase extends Vue {
      * 视图模型数据
      *
      * @type {*}
-     * @memberof ProductPlanMobEditViewBase
+     * @memberof ReleaseEditMobEditViewBase
      */
     protected model: any = {
-        srfTitle: '产品计划移动端编辑视图',
-        srfCaption: 'productplan.views.mobeditview.caption',
+        srfTitle: '发布移动端编辑视图',
+        srfCaption: 'release.views.editmobeditview.caption',
         srfSubCaption: '',
         dataInfo: '',
-        viewname:'productplan.mobeditview',
+        viewname:'release.editmobeditview',
         iconcls: '',
-        icon: ''
+        icon: 'flag-o'
     }
 
     /**
@@ -223,7 +204,7 @@ export default class ProductPlanMobEditViewBase extends Vue {
      *
      * @param {string} newVal
      * @param {string} oldVal
-     * @memberof  ProductPlanMobEditViewBase
+     * @memberof  ReleaseEditMobEditViewBase
      */
     @Watch('_context')
     on_context(newVal: string, oldVal: string) {
@@ -251,7 +232,7 @@ export default class ProductPlanMobEditViewBase extends Vue {
     /**
      * 设置工具栏状态
      *
-     * @memberof ProductPlanMobEditViewBase
+     * @memberof ReleaseEditMobEditViewBase
      */
     public setViewTitleStatus(){
         const thirdPartyName = this.$store.getters.getThirdPartyName();
@@ -264,7 +245,7 @@ export default class ProductPlanMobEditViewBase extends Vue {
      * 容器模型
      *
      * @type {*}
-     * @memberof ProductPlanMobEditViewBase
+     * @memberof ReleaseEditMobEditViewBase
      */
     protected containerModel: any = {
         view_form: { name: 'form', type: 'FORM' },
@@ -275,7 +256,7 @@ export default class ProductPlanMobEditViewBase extends Vue {
      * 视图状态订阅对象
      *
      * @type {Subject<{action: string, data: any}>}
-     * @memberof ProductPlanMobEditViewBase
+     * @memberof ReleaseEditMobEditViewBase
      */
     protected viewState: Subject<ViewState> = new Subject();
 
@@ -284,69 +265,20 @@ export default class ProductPlanMobEditViewBase extends Vue {
      * 是否显示标题
      *
      * @type {string}
-     * @memberof ProductPlanMobEditViewBase
+     * @memberof ReleaseEditMobEditViewBase
      */
     @Prop({default:true}) protected showTitle?: boolean;
 
 
 
    /**
-    * 工具栏 ProductPlanMobEditView 模型
+    * 工具栏 ReleaseEditMobEditView 模型
     *
     * @type {*}
-    * @memberof ProductPlanMobEditView
+    * @memberof ReleaseEditMobEditView
     */
     public righttoolbarModels: any = {
-            deuiaction1_mobmainedit: { name: 'deuiaction1_mobmainedit', caption: '编辑', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__PROP_EDIT_BUT', uiaction: { tag: 'MobMainEdit', target: 'SINGLEKEY' } },
-
-            deuiaction1_mobdelete: { name: 'deuiaction1_mobdelete', caption: '删除', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__PROP_DELETE_BUT', uiaction: { tag: 'MobDelete', target: 'SINGLEKEY' } },
-
     };
-
-    /**
-     * 工具栏显示状态
-     *
-     * @type {boolean}
-     * @memberof ProductPlanMobEditView 
-     */
-    public righttoolbarShowState: boolean = false;
-
-    /**
-     * 工具栏权限
-     *
-     * @type {boolean}
-     * @memberof ProductPlanMobEditView 
-     */
-    get getToolBarLimit() {
-        let toolBarVisable:boolean = false;
-        if(this.righttoolbarModels){
-            Object.keys(this.righttoolbarModels).forEach((tbitem:any)=>{
-                if(this.righttoolbarModels[tbitem].type !== 'ITEMS' && this.righttoolbarModels[tbitem].visabled === true){
-                    toolBarVisable = true;
-                    return;
-                }
-            })
-        }
-        return toolBarVisable;
-    }
-
-    /**
-     * 工具栏分组是否显示的条件
-     *
-     * @type {boolean}
-     * @memberof ProductPlanMobEditView 
-     */
-    public showGrop = false;
-
-    /**
-     * 工具栏分组是否显示的方法
-     *
-     * @type {boolean}
-     * @memberof ProductPlanMobEditView 
-     */
-    public popUpGroup (falg:boolean = false) {
-        this.showGrop = falg;
-    }
 
     
 
@@ -354,14 +286,14 @@ export default class ProductPlanMobEditViewBase extends Vue {
     /**
      * 工具栏模型集合名
      *
-     * @memberof ProductPlanMobEditViewBase
+     * @memberof ReleaseEditMobEditViewBase
      */
     public toolbarModelList:any = ['righttoolbarModels',]
 
     /**
      * 解析视图参数
      *
-     * @memberof ProductPlanMobEditViewBase
+     * @memberof ReleaseEditMobEditViewBase
      */
     protected parseViewParam(): void {
         const { context, param } = this.$viewTool.formatNavigateViewParam(this, true);
@@ -374,7 +306,7 @@ export default class ProductPlanMobEditViewBase extends Vue {
      *
      * @readonly
      * @type {boolean}
-     * @memberof ProductPlanMobEditViewBase
+     * @memberof ReleaseEditMobEditViewBase
      */
     get isShowBackButton(): boolean {
         // 存在路由，非路由使用，嵌入
@@ -388,21 +320,21 @@ export default class ProductPlanMobEditViewBase extends Vue {
      * 视图引擎
      *
      * @type {Engine}
-     * @memberof ProductPlanMobEditViewBase
+     * @memberof ReleaseEditMobEditViewBase
      */
     protected engine: MobEditViewEngine = new MobEditViewEngine();
 
     /**
      * 引擎初始化
      *
-     * @memberof ProductPlanMobEditViewBase
+     * @memberof ReleaseEditMobEditViewBase
      */
     protected engineInit(): void {
         this.engine.init({
             view: this,
             form: this.$refs.form,
-            keyPSDEField: 'productplan',
-            majorPSDEField: 'title',
+            keyPSDEField: 'release',
+            majorPSDEField: 'name',
             isLoadDefault: true,
         });
     }
@@ -410,7 +342,7 @@ export default class ProductPlanMobEditViewBase extends Vue {
     /**
      * Vue声明周期
      *
-     * @memberof ProductPlanMobEditViewBase
+     * @memberof ReleaseEditMobEditViewBase
      */
     protected created() {
         this.afterCreated();
@@ -419,7 +351,7 @@ export default class ProductPlanMobEditViewBase extends Vue {
     /**
      * 执行created后的逻辑
      *
-     * @memberof ProductPlanMobEditViewBase
+     * @memberof ReleaseEditMobEditViewBase
      */    
     protected afterCreated(){
         const secondtag = this.$util.createUUID();
@@ -439,7 +371,7 @@ export default class ProductPlanMobEditViewBase extends Vue {
     /**
      * 销毁之前
      *
-     * @memberof ProductPlanMobEditViewBase
+     * @memberof ReleaseEditMobEditViewBase
      */
     protected beforeDestroy() {
         this.$store.commit('viewaction/removeView', this.viewtag);
@@ -448,10 +380,9 @@ export default class ProductPlanMobEditViewBase extends Vue {
     /**
      * Vue声明周期
      *
-     * @memberof ProductPlanMobEditViewBase
+     * @memberof ReleaseEditMobEditViewBase
      */
     public activated() {
-        this.popUpGroup();
         this.thirdPartyInit();
     }
 
@@ -460,7 +391,7 @@ export default class ProductPlanMobEditViewBase extends Vue {
     /**
      * Vue声明周期(组件初始化完毕)
      *
-     * @memberof ProductPlanMobEditViewBase
+     * @memberof ReleaseEditMobEditViewBase
      */
     protected mounted() {
         this.afterMounted();
@@ -470,7 +401,7 @@ export default class ProductPlanMobEditViewBase extends Vue {
     /**
      * 执行mounted后的逻辑
      * 
-     * @memberof ProductPlanMobEditViewBase
+     * @memberof ReleaseEditMobEditViewBase
      */
     protected afterMounted(){
         const _this: any = this;
@@ -485,7 +416,7 @@ export default class ProductPlanMobEditViewBase extends Vue {
     /**
      * 第三方容器初始化
      * 
-     * @memberof ProductPlanMobEditViewBase
+     * @memberof ReleaseEditMobEditViewBase
      */
     protected  thirdPartyInit(){
         if(!this.isChildView){
@@ -497,7 +428,7 @@ export default class ProductPlanMobEditViewBase extends Vue {
     /**
      * 销毁视图回调
      *
-     * @memberof ProductPlanMobEditViewBase
+     * @memberof ReleaseEditMobEditViewBase
      */
     protected destroyed(){
         this.afterDestroyed();
@@ -506,7 +437,7 @@ export default class ProductPlanMobEditViewBase extends Vue {
     /**
      * 执行destroyed后的逻辑
      * 
-     * @memberof ProductPlanMobEditViewBase
+     * @memberof ReleaseEditMobEditViewBase
      */
     protected afterDestroyed(){
         if (this.viewDefaultUsage !== "indexView" && Object.keys(localStorage).length > 0) {
@@ -524,7 +455,7 @@ export default class ProductPlanMobEditViewBase extends Vue {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof ProductPlanMobEditViewBase
+     * @memberof ReleaseEditMobEditViewBase
      */
     protected form_save($event: any, $event2?: any) {
         this.engine.onCtrlEvent('form', 'save', $event);
@@ -535,7 +466,7 @@ export default class ProductPlanMobEditViewBase extends Vue {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof ProductPlanMobEditViewBase
+     * @memberof ReleaseEditMobEditViewBase
      */
     protected form_beforeload($event: any, $event2?: any) {
         this.engine.onCtrlEvent('form', 'beforeload', $event);
@@ -546,7 +477,7 @@ export default class ProductPlanMobEditViewBase extends Vue {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof ProductPlanMobEditViewBase
+     * @memberof ReleaseEditMobEditViewBase
      */
     protected form_remove($event: any, $event2?: any) {
         this.engine.onCtrlEvent('form', 'remove', $event);
@@ -557,7 +488,7 @@ export default class ProductPlanMobEditViewBase extends Vue {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof ProductPlanMobEditViewBase
+     * @memberof ReleaseEditMobEditViewBase
      */
     protected form_beforesave($event: any, $event2?: any) {
         this.engine.onCtrlEvent('form', 'beforesave', $event);
@@ -568,98 +499,18 @@ export default class ProductPlanMobEditViewBase extends Vue {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof ProductPlanMobEditViewBase
+     * @memberof ReleaseEditMobEditViewBase
      */
     protected form_load($event: any, $event2?: any) {
         this.engine.onCtrlEvent('form', 'load', $event);
     }
 
-    /**
-     * righttoolbar 部件 click 事件
-     *
-     * @param {*} [args={}]
-     * @param {*} $event
-     * @memberof ProductPlanMobEditViewBase
-     */
-    protected righttoolbar_click($event: any, $event2?: any) {
-        if (Object.is($event.tag, 'deuiaction1_mobmainedit')) {
-            this.righttoolbar_deuiaction1_mobmainedit_click($event, '', $event2);
-        }
-        if (Object.is($event.tag, 'deuiaction1_mobdelete')) {
-            this.righttoolbar_deuiaction1_mobdelete_click($event, '', $event2);
-        }
-    }
-
-
-    /**
-     * 逻辑事件
-     *
-     * @protected
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @returns {Promise<any>}
-     * @memberof ProductPlanMobEditViewBase
-     */
-    protected async righttoolbar_deuiaction1_mobmainedit_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
-        // 参数
-
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let contextJO: any = {};
-        let paramJO: any = {};
-        
-        xData = this.$refs.form;
-        if (xData.getDatas && xData.getDatas instanceof Function) {
-            datas = [...xData.getDatas()];
-        }
-        // 界面行为
-        const curUIService: any = await this.globaluiservice.getService('productplan_ui_action');
-        if (curUIService) {
-            curUIService.ProductPlan_MobMainEdit(datas, contextJO, paramJO, $event, xData, this);
-        }
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @protected
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @returns {Promise<any>}
-     * @memberof ProductPlanMobEditViewBase
-     */
-    protected async righttoolbar_deuiaction1_mobdelete_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
-        // 参数
-
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let contextJO: any = {};
-        let paramJO: any = {};
-        
-        xData = this.$refs.form;
-        if (xData.getDatas && xData.getDatas instanceof Function) {
-            datas = [...xData.getDatas()];
-        }
-        // 界面行为
-        const curUIService: any = await this.globaluiservice.getService('productplan_ui_action');
-        if (curUIService) {
-            curUIService.ProductPlan_MobDelete(datas, contextJO, paramJO, $event, xData, this);
-        }
-    }
 
     /**
      * 第三方关闭视图
      *
      * @param {any[]} args
-     * @memberof ProductPlanMobEditViewBase
+     * @memberof ReleaseEditMobEditViewBase
      */
     public quitFun() {
         if (!sessionStorage.getItem("firstQuit")) {  // 首次返回时
@@ -683,7 +534,7 @@ export default class ProductPlanMobEditViewBase extends Vue {
      * 关闭视图
      *
      * @param {any[]} args
-     * @memberof ProductPlanMobEditViewBase
+     * @memberof ReleaseEditMobEditViewBase
      */
     protected async closeView(args: any[]): Promise<any> {
         if(this.$store.state.searchformStatus){
@@ -713,7 +564,7 @@ export default class ProductPlanMobEditViewBase extends Vue {
      *
      * @readonly
      * @type {(number | null)}
-     * @memberof ProductPlanMobEditViewBase
+     * @memberof ReleaseEditMobEditViewBase
      */
     get refreshdata(): number | null {
         return this.$store.getters['viewaction/getRefreshData'](this.viewtag);
@@ -725,7 +576,7 @@ export default class ProductPlanMobEditViewBase extends Vue {
      * @param {*} newVal
      * @param {*} oldVal
      * @returns
-     * @memberof ProductPlanMobEditViewBase
+     * @memberof ReleaseEditMobEditViewBase
      */
     @Watch('refreshdata')
     onRefreshData(newVal: any, oldVal: any) {
@@ -746,7 +597,7 @@ export default class ProductPlanMobEditViewBase extends Vue {
      * 保存
      *
      * @protected
-     * @memberof ProductPlanMobEditViewBase
+     * @memberof ReleaseEditMobEditViewBase
      */
     protected defSave(): void {
         const _this: any = this;
@@ -790,5 +641,5 @@ export default class ProductPlanMobEditViewBase extends Vue {
 </script>
 
 <style lang='less'>
-@import './product-plan-mob-edit-view.less';
+@import './release-edit-mob-edit-view.less';
 </style>

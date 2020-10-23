@@ -1,5 +1,5 @@
 <template>
-    <div ref='form' class="app-form productplan-form ">
+    <div ref='form' class="app-form release-form ">
                 
 
 <app-form-group 
@@ -9,22 +9,7 @@
     uiStyle="DEFAULT" 
     v-show="detailsModel.group1.visible" 
     :uiActionGroup="detailsModel.group1.uiActionGroup" 
-    :caption="$t('productplan.mobmaintable_form.details.group1')" 
-    :isShowCaption="false" 
-    :titleBarCloseMode="0" 
-    :isInfoGroupMode="false" 
-    :data="transformData(data)"
-    :uiService="deUIService"
-    @groupuiactionclick="groupUIActionClick($event)">
-    
-<app-form-group 
-    class='' 
-    layoutType='TABLE_24COL' 
-    titleStyle='' 
-    uiStyle="DEFAULT" 
-    v-show="detailsModel.grouppanel1.visible" 
-    :uiActionGroup="detailsModel.grouppanel1.uiActionGroup" 
-    :caption="$t('productplan.mobmaintable_form.details.grouppanel1')" 
+    :caption="$t('release.mobeditform_form.details.group1')" 
     :isShowCaption="false" 
     :titleBarCloseMode="0" 
     :isInfoGroupMode="false" 
@@ -33,81 +18,24 @@
     @groupuiactionclick="groupUIActionClick($event)">
     
 <app-form-item 
-    name='branch' 
+    name='productname' 
     class='' 
     uiStyle="DEFAULT"  
     labelPos="LEFT" 
-    ref="branch_item"  
-    :itemValue="this.data.branch" 
-    v-show="detailsModel.branch.visible" 
-    :itemRules="this.rules.branch" 
-    :caption="$t('productplan.mobmaintable_form.details.branch')"  
+    ref="productname_item"  
+    :itemValue="this.data.productname" 
+    v-show="detailsModel.productname.visible" 
+    :itemRules="this.rules.productname" 
+    :caption="$t('release.mobeditform_form.details.productname')"  
     :labelWidth="100"  
     :isShowCaption="true"
-    :disabled="detailsModel.branch.disabled"
-    :error="detailsModel.branch.error" 
+    :disabled="detailsModel.productname.disabled"
+    :error="detailsModel.productname.error" 
     :isEmptyCaption="false">
-        <app-mob-select 
-    tag="ProductBranch"
-    codeListType="DYNAMIC" 
-    :isCache="false" 
-    :disabled="detailsModel.branch.disabled" 
-    :data="data" 
-    :context="context" 
-    :viewparams="viewparams"
-    :value="data.branch"  
-    :navigateContext ='{ "product": "%product%" } '
-    :navigateParam ='{ "product": "%product%" } '
-    @change="($event)=>this.data.branch = $event" />
-</app-form-item>
-
-
-
-<app-form-item 
-    name='title' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="title_item"  
-    :itemValue="this.data.title" 
-    v-show="detailsModel.title.visible" 
-    :itemRules="this.rules.title" 
-    :caption="$t('productplan.mobmaintable_form.details.title')"  
-    :labelWidth="100"  
-    :isShowCaption="true"
-    :disabled="detailsModel.title.disabled"
-    :error="detailsModel.title.error" 
-    :isEmptyCaption="false">
-        <app-mob-input 
-    class="app-form-item-input"  
-        type="text"  
-    :value="data.title"
-    unit=""
-    :disabled="detailsModel.title.disabled" 
-    @change="($event)=>this.data.title = $event" />
-</app-form-item>
-
-
-
-<app-form-item 
-    name='oldtitle' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="oldtitle_item"  
-    :itemValue="this.data.oldtitle" 
-    v-show="detailsModel.oldtitle.visible" 
-    :itemRules="this.rules.oldtitle" 
-    :caption="$t('productplan.mobmaintable_form.details.oldtitle')"  
-    :labelWidth="10"  
-    :isShowCaption="true"
-    :disabled="detailsModel.oldtitle.disabled"
-    :error="detailsModel.oldtitle.error" 
-    :isEmptyCaption="true">
         <app-mob-span  
-        v-if="data.oldtitle" 
+        v-if="data.productname" 
     :context="context" 
-    :value="data.oldtitle" 
+    :value="data.productname" 
     :itemParam="{}"/>
 </app-form-item>
 
@@ -118,9 +46,9 @@
     layoutType='TABLE_24COL' 
     titleStyle='' 
     uiStyle="DEFAULT" 
-    v-show="detailsModel.grouppanel2.visible" 
-    :uiActionGroup="detailsModel.grouppanel2.uiActionGroup" 
-    :caption="$t('productplan.mobmaintable_form.details.grouppanel2')" 
+    v-show="detailsModel.grouppanel1.visible" 
+    :uiActionGroup="detailsModel.grouppanel1.uiActionGroup" 
+    :caption="$t('release.mobeditform_form.details.grouppanel1')" 
     :isShowCaption="false" 
     :titleBarCloseMode="0" 
     :isInfoGroupMode="false" 
@@ -129,102 +57,112 @@
     @groupuiactionclick="groupUIActionClick($event)">
     
 <app-form-item 
-    name='begin' 
+    name='name' 
     class='' 
     uiStyle="DEFAULT"  
     labelPos="LEFT" 
-    ref="begin_item"  
-    :itemValue="this.data.begin" 
-    v-show="detailsModel.begin.visible" 
-    :itemRules="this.rules.begin" 
-    :caption="$t('productplan.mobmaintable_form.details.begin')"  
+    ref="name_item"  
+    :itemValue="this.data.name" 
+    v-show="detailsModel.name.visible" 
+    :itemRules="this.rules.name" 
+    :caption="$t('release.mobeditform_form.details.name')"  
     :labelWidth="100"  
     :isShowCaption="true"
-    :disabled="detailsModel.begin.disabled"
-    :error="detailsModel.begin.error" 
+    :disabled="detailsModel.name.disabled"
+    :error="detailsModel.name.error" 
+    :isEmptyCaption="false">
+        <app-mob-input 
+    class="app-form-item-input"  
+        type="text"  
+    :value="data.name"
+    unit=""
+    :disabled="detailsModel.name.disabled" 
+    @change="($event)=>this.data.name = $event" />
+</app-form-item>
+
+
+
+<app-form-item 
+    name='marker' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="marker_item"  
+    :itemValue="this.data.marker" 
+    v-show="detailsModel.marker.visible" 
+    :itemRules="this.rules.marker" 
+    :caption="$t('release.mobeditform_form.details.marker')"  
+    :labelWidth="100"  
+    :isShowCaption="true"
+    :disabled="detailsModel.marker.disabled"
+    :error="detailsModel.marker.error" 
+    :isEmptyCaption="false">
+        <app-mob-select 
+    tag="YesNo"
+    codeListType="STATIC" 
+    :isCache="false" 
+    :disabled="detailsModel.marker.disabled" 
+    :data="data" 
+    :context="context" 
+    :viewparams="viewparams"
+    :value="data.marker"  
+    :navigateContext ='{ } '
+    :navigateParam ='{ } '
+    @change="($event)=>this.data.marker = $event" />
+</app-form-item>
+
+
+
+<app-form-item 
+    name='buildname' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="buildname_item"  
+    :itemValue="this.data.buildname" 
+    v-show="detailsModel.buildname.visible" 
+    :itemRules="this.rules.buildname" 
+    :caption="$t('release.mobeditform_form.details.buildname')"  
+    :labelWidth="100"  
+    :isShowCaption="true"
+    :disabled="detailsModel.buildname.disabled"
+    :error="detailsModel.buildname.error" 
+    :isEmptyCaption="false">
+        <app-mob-select 
+    :disabled="detailsModel.buildname.disabled" 
+    :data="data" 
+    :context="context" 
+    :viewparams="viewparams"
+    :value="data.buildname"  
+    :navigateContext ='{ } '
+    :navigateParam ='{ } '
+    @change="($event)=>this.data.buildname = $event" />
+</app-form-item>
+
+
+
+<app-form-item 
+    name='date' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="date_item"  
+    :itemValue="this.data.date" 
+    v-show="detailsModel.date.visible" 
+    :itemRules="this.rules.date" 
+    :caption="$t('release.mobeditform_form.details.date')"  
+    :labelWidth="100"  
+    :isShowCaption="true"
+    :disabled="detailsModel.date.disabled"
+    :error="detailsModel.date.error" 
     :isEmptyCaption="false">
         <app-mob-datetime-picker 
     displayFormat="YYYY-MM-DD"
     class="app-form-item-datetime" 
-    :value="data.begin" 
-    :disabled="detailsModel.begin.disabled"
-    @change="($event)=>this.data.begin = $event"/>
+    :value="data.date" 
+    :disabled="detailsModel.date.disabled"
+    @change="($event)=>this.data.date = $event"/>
 </app-form-item>
-
-
-
-<app-form-item 
-    name='future' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="future_item"  
-    :itemValue="this.data.future" 
-    v-show="detailsModel.future.visible" 
-    :itemRules="this.rules.future" 
-    :caption="$t('productplan.mobmaintable_form.details.future')"  
-    :labelWidth="100"  
-    :isShowCaption="true"
-    :disabled="detailsModel.future.disabled"
-    :error="detailsModel.future.error" 
-    :isEmptyCaption="false">
-        
-</app-form-item>
-
-
-
-<app-form-item 
-    name='end' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="end_item"  
-    :itemValue="this.data.end" 
-    v-show="detailsModel.end.visible" 
-    :itemRules="this.rules.end" 
-    :caption="$t('productplan.mobmaintable_form.details.end')"  
-    :labelWidth="100"  
-    :isShowCaption="true"
-    :disabled="detailsModel.end.disabled"
-    :error="detailsModel.end.error" 
-    :isEmptyCaption="false">
-        <app-mob-datetime-picker 
-    displayFormat="YYYY-MM-DD"
-    class="app-form-item-datetime" 
-    :value="data.end" 
-    :disabled="detailsModel.end.disabled"
-    @change="($event)=>this.data.end = $event"/>
-</app-form-item>
-
-
-
-<app-form-item 
-    name='delta' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="delta_item"  
-    :itemValue="this.data.delta" 
-    v-show="detailsModel.delta.visible" 
-    :itemRules="this.rules.delta" 
-    :caption="$t('productplan.mobmaintable_form.details.delta')"  
-    :labelWidth="16"  
-    :isShowCaption="true"
-    :disabled="detailsModel.delta.disabled"
-    :error="detailsModel.delta.error" 
-    :isEmptyCaption="true">
-        <app-mob-radio-list 
-    style="width: 100%;" 
-        type="static" 
-    tag="Zt__delta"
-    :value="data.delta"  
-    :disabled="detailsModel.delta.disabled" 
-    @change="($event)=>this.data.delta = $event"/>
-</app-form-item>
-
-
-    
-</app-form-group>
 
 
     
@@ -241,13 +179,46 @@
     :itemValue="this.data.desc" 
     v-show="detailsModel.desc.visible" 
     :itemRules="this.rules.desc" 
-    :caption="$t('productplan.mobmaintable_form.details.desc')"  
+    :caption="$t('release.mobeditform_form.details.desc')"  
     :labelWidth="100"  
     :isShowCaption="true"
     :error="detailsModel.desc.error" 
     :isEmptyCaption="false">
-        <app-mob-rich-text-editor-pms :formState="formState" :value="data.desc" @change="(val) =>{this.data.desc =val}" :disabled="detailsModel.desc.disabled" :data="JSON.stringify(this.data)"  name="desc" :uploadparams='{objecttype:"productplan",version:"editor"}' :exportparams='{objecttype:"productplan",version:"editor"}'  style=""/>
+        <app-mob-rich-text-editor-pms :formState="formState" :value="data.desc" @change="(val) =>{this.data.desc =val}" :disabled="detailsModel.desc.disabled" :data="JSON.stringify(this.data)"  name="desc" :uploadparams='{objecttype:"release",objectid:"%id%",version:"editor"}' :exportparams='{objecttype:"release",objectid:"%id%",version:"editor"}'  style=""/>
 
+</app-form-item>
+
+
+
+<app-form-item 
+    name='files' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="files_item"  
+    :itemValue="this.data.files" 
+    v-show="detailsModel.files.visible" 
+    :itemRules="this.rules.files" 
+    :caption="$t('release.mobeditform_form.details.files')"  
+    :labelWidth="100"  
+    :isShowCaption="true"
+    :disabled="detailsModel.files.disabled"
+    :error="detailsModel.files.error" 
+    :isEmptyCaption="false">
+        <app-mob-file-upload 
+    name='files' 
+    style="overflow: auto;" 
+    :multiple="true" 
+    :formState="formState" 
+    :ignorefieldvaluechange="ignorefieldvaluechange" 
+    :data="JSON.stringify(this.data)" 
+    :value="data.files" 
+    :disabled="detailsModel.files.disabled" 
+    :context="context" 
+    :viewparams="viewparams" 
+    :uploadParam='{}' 
+    :exportParam='{}' 
+    @formitemvaluechange="onFormItemValueChange" />
 </app-form-item>
 
 
@@ -265,11 +236,11 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import ProductPlanService from '@/app-core/service/product-plan/product-plan-service';
-import MobMainTableService from '@/app-core/ctrl-service/product-plan/mob-main-table-form-service';
+import ReleaseService from '@/app-core/service/release/release-service';
+import MobEditFormService from '@/app-core/ctrl-service/release/mob-edit-form-form-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
-import ProductPlanUIService from '@/ui-service/product-plan/product-plan-ui-action';
+import ReleaseUIService from '@/ui-service/release/release-ui-action';
 
 import { FormButtonModel, FormPageModel, FormItemModel, FormDRUIPartModel, FormPartModel, FormGroupPanelModel, FormIFrameModel, FormRowItemModel, FormTabPageModel, FormTabPanelModel, FormUserControlModel } from '@/model/form-detail';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
@@ -280,13 +251,13 @@ import {  Util } from '@/ibiz-core/utils';
     components: {
     }
 })
-export default class MobMainTableBase extends Vue implements ControlInterface {
+export default class MobEditFormBase extends Vue implements ControlInterface {
 
     /**
      * 名称
      *
      * @type {string}
-     * @memberof MobMainTable
+     * @memberof MobEditForm
      */
     @Prop() protected name?: string;
 
@@ -294,7 +265,7 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
      * 视图名称
      *
      * @type {string}
-     * @memberof MobMainTable
+     * @memberof MobEditForm
      */
     @Prop() protected viewName!: string;
 
@@ -303,7 +274,7 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
      * 视图通讯对象
      *
      * @type {Subject<ViewState>}
-     * @memberof MobMainTable
+     * @memberof MobEditForm
      */
     @Prop() protected viewState!: Subject<ViewState>;
 
@@ -311,7 +282,7 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
      * 应用上下文
      *
      * @type {*}
-     * @memberof MobMainTable
+     * @memberof MobEditForm
      */
     @Prop({ default: {} }) protected context?: any;
 
@@ -319,7 +290,7 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
      * 视图参数
      *
      * @type {*}
-     * @memberof MobMainTable
+     * @memberof MobEditForm
      */
     @Prop({ default: {} }) protected viewparams?: any;
 
@@ -328,7 +299,7 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
      *
      * @protected
      * @type {(Subscription | undefined)}
-     * @memberof MobMainTable
+     * @memberof MobEditForm
      */
     protected viewStateEvent: Subscription | undefined;
 
@@ -336,7 +307,7 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
      * 获取部件类型
      *
      * @returns {string}
-     * @memberof MobMainTable
+     * @memberof MobEditForm
      */
     protected getControlType(): string {
         return 'FORM'
@@ -346,7 +317,7 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
      * 全局 ui 服务
      *
      * @type {GlobalUiService}
-     * @memberof MobMainTable
+     * @memberof MobEditForm
      */
     protected globaluiservice: GlobalUiService = new GlobalUiService();
 
@@ -355,7 +326,7 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
      * 转化数据
      *
      * @param {any} args
-     * @memberof  MobMainTableBase
+     * @memberof  MobEditFormBase
      */
     public transformData(args: any) {
         let _this: any = this;
@@ -367,33 +338,33 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
     /**
      * 建构部件服务对象
      *
-     * @type {MobMainTableService}
-     * @memberof MobMainTable
+     * @type {MobEditFormService}
+     * @memberof MobEditForm
      */
-    protected service: MobMainTableService = new MobMainTableService({$store:this.$store});
+    protected service: MobEditFormService = new MobEditFormService({$store:this.$store});
 
     /**
      * 实体服务对象
      *
-     * @type {ProductPlanService}
-     * @memberof MobMainTable
+     * @type {ReleaseService}
+     * @memberof MobEditForm
      */
-    protected appEntityService: ProductPlanService = new ProductPlanService();
+    protected appEntityService: ReleaseService = new ReleaseService();
 
     /**
      * 界面UI服务对象
      *
-     * @type {ProductPlanUIService}
-     * @memberof MobMainTableBase
+     * @type {ReleaseUIService}
+     * @memberof MobEditFormBase
      */  
-    public deUIService:ProductPlanUIService = new ProductPlanUIService(this.$store);
+    public deUIService:ReleaseUIService = new ReleaseUIService(this.$store);
     
 
     /**
      * 关闭视图
      *
      * @param {any[]} args
-     * @memberof MobMainTable
+     * @memberof MobEditForm
      */
     protected closeView(args: any[]): void {
         let _this: any = this;
@@ -404,7 +375,7 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
     /**
      * 工作流审批意见控件绑定值
      *
-     * @memberof MobMainTable
+     * @memberof MobEditForm
      */
     @Prop() srfwfmemo?: string;
 
@@ -412,7 +383,7 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
      * 获取多项数据
      *
      * @returns {any[]}
-     * @memberof MobMainTable
+     * @memberof MobEditForm
      */
     public getDatas(): any[] {
         return [this.data];
@@ -422,7 +393,7 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
      * 获取单项树
      *
      * @returns {*}
-     * @memberof MobMainTable
+     * @memberof MobEditForm
      */
     public getData(): any {
         return this.data;
@@ -432,7 +403,7 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
      * 是否默认保存
      *
      * @type {boolean}
-     * @memberof MobMainTable
+     * @memberof MobEditForm
      */
     @Prop({ default: false }) protected autosave?: boolean;
 
@@ -440,7 +411,7 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
      * 显示处理提示
      *
      * @type {boolean}
-     * @memberof MobMainTable
+     * @memberof MobEditForm
      */
     @Prop({ default: true }) protected showBusyIndicator!: boolean;
 
@@ -448,7 +419,7 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
      * 部件行为--submit
      *
      * @type {string}
-     * @memberof MobMainTable
+     * @memberof MobEditForm
      */
     @Prop() protected WFSubmitAction!: string;
     
@@ -456,7 +427,7 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
      * 部件行为--start
      *
      * @type {string}
-     * @memberof MobMainTable
+     * @memberof MobEditForm
      */
     @Prop() protected WFStartAction!: string;
     
@@ -464,7 +435,7 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
      * 部件行为--update
      *
      * @type {string}
-     * @memberof MobMainTable
+     * @memberof MobEditForm
      */
     @Prop() protected updateAction!: string;
     
@@ -472,7 +443,7 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
      * 部件行为--remove
      *
      * @type {string}
-     * @memberof MobMainTable
+     * @memberof MobEditForm
      */
     @Prop() protected removeAction!: string;
     
@@ -480,7 +451,7 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
      * 部件行为--loaddraft
      *
      * @type {string}
-     * @memberof MobMainTable
+     * @memberof MobEditForm
      */
     @Prop() protected loaddraftAction!: string;
     
@@ -488,7 +459,7 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
      * 部件行为--load
      *
      * @type {string}
-     * @memberof MobMainTable
+     * @memberof MobEditForm
      */
     @Prop() protected loadAction!: string;
     
@@ -496,7 +467,7 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
      * 部件行为--create
      *
      * @type {string}
-     * @memberof MobMainTable
+     * @memberof MobEditForm
      */
     @Prop() protected createAction!: string;
 
@@ -504,7 +475,7 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
      * 部件行为--create
      *
      * @type {string}
-     * @memberof MobMainTable
+     * @memberof MobEditForm
      */
     @Prop() protected searchAction!: string;
 
@@ -512,7 +483,7 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
      * 视图标识
      *
      * @type {string}
-     * @memberof MobMainTable
+     * @memberof MobEditForm
      */
     @Prop() protected viewtag!: string;
 
@@ -520,7 +491,7 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
      * 表单状态
      *
      * @type {Subject<any>}
-     * @memberof MobMainTable
+     * @memberof MobEditForm
      */
     protected formState: Subject<any> = new Subject();
 
@@ -528,7 +499,7 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
      * 忽略表单项值变化
      *
      * @type {boolean}
-     * @memberof MobMainTable
+     * @memberof MobEditForm
      */
     protected ignorefieldvaluechange: boolean = false;
 
@@ -537,7 +508,7 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
      *
      * @private
      * @type {Subject<any>}
-     * @memberof MobMainTable
+     * @memberof MobEditForm
      */
     private dataChang: Subject<any> = new Subject();
 
@@ -546,7 +517,7 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
      *
      * @private
      * @type {(Subscription | undefined)}
-     * @memberof MobMainTable
+     * @memberof MobEditForm
      */
     private dataChangEvent: Subscription | undefined;
 
@@ -555,7 +526,7 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
      *
      * @private
      * @type {*}
-     * @memberof MobMainTable
+     * @memberof MobEditForm
      */
     private oldData: any = {};
 
@@ -563,7 +534,7 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
      * 表单数据对象
      *
      * @type {*}
-     * @memberof MobMainTable
+     * @memberof MobEditForm
      */
     protected data: any = {
         srforikey: null,
@@ -574,23 +545,22 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
         srfdeid: null,
         srfsourcekey: null,
         product: null,
-        branch: null,
-        title: null,
-        oldtitle: null,
-        begin: null,
-        future: null,
-        end: null,
-        delta: null,
+        productname: null,
+        name: null,
+        marker: null,
+        buildname: null,
+        date: null,
         desc: null,
+        files: null,
         id: null,
-        productplan: null,
+        release: null,
     };
 
     /**
       * 当前执行的行为逻辑
       *
       * @type {string}
-      * @memberof MobMainTable
+      * @memberof MobEditForm
       */
     protected currentAction: string = "";
 
@@ -598,7 +568,7 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
       * 关系界面计数器
       *
       * @type {number}
-      * @memberof MobMainTable
+      * @memberof MobEditForm
       */
     protected drcounter: number = 0;
 
@@ -606,7 +576,7 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
       * 表单保存回调存储对象
       *
       * @type {any}
-      * @memberof MobMainTable
+      * @memberof MobEditForm
       */
     protected saveState:any ;
 
@@ -614,7 +584,7 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
       * 异常信息缓存
       *
       * @type {any}
-      * @memberof MobMainTable
+      * @memberof MobEditForm
       */
     public errorCache :any = {};
 
@@ -622,12 +592,17 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
      * 属性值规则
      *
      * @type {*}
-     * @memberof MobMainTable
+     * @memberof MobEditForm
      */
     protected rules: any = {
-        title: [
-            { required: true, type: 'string', message: '名称 值不能为空', trigger: 'change' },
-            { required: true, type: 'string', message: '名称 值不能为空', trigger: 'blur' },
+        name: [
+            { required: true, type: 'string', message: '发布名称 值不能为空', trigger: 'change' },
+            { required: true, type: 'string', message: '发布名称 值不能为空', trigger: 'blur' },
+        ],
+        date: [
+            { required: true, type: 'string', message: '发布日期 值不能为空', trigger: 'change' },
+            { required: true, type: 'string', message: '发布日期 值不能为空', trigger: 'blur' },
+            {validator:(rule:any, value:any)=>{return this.verifyDeRules("date").isPast}}
         ],
     }
 
@@ -635,9 +610,20 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
      * 属性值规则
      *
      * @type {*}
-     * @memberof MobMainTableBase
+     * @memberof MobEditFormBase
      */
     public deRules:any = {
+                date:[
+                  {
+                      type:"SIMPLE",
+                      condOP:"LTANDEQ",
+                      ruleInfo:"发布日期不能大于当前日期", 
+                      isKeyCond:false,
+                      paramType:"CURTIME",
+                      isNotMode:false,
+                      deName:"date",
+                  },
+                ],
     };
 
     /**
@@ -715,22 +701,20 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
      * 详情模型集合
      *
      * @type {*}
-     * @memberof MobMainTable
+     * @memberof MobEditForm
      */
     protected detailsModel: any = {
-        grouppanel2: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel2', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'productplan.mobmaintable_form', extractMode: 'ITEM', details: [] } })
+        grouppanel1: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'release.mobeditform_form', extractMode: 'ITEM', details: [] } })
 , 
-        grouppanel1: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'productplan.mobmaintable_form', extractMode: 'ITEM', details: [] } })
-, 
-        group1: new FormGroupPanelModel({ caption: 'productplan基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'productplan.mobmaintable_form', extractMode: 'ITEM', details: [] } })
+        group1: new FormGroupPanelModel({ caption: 'release基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'release.mobeditform_form', extractMode: 'ITEM', details: [] } })
 , 
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this })
 , 
         srforikey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srforikey', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        srfkey: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'srfkey', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
+        srfkey: new FormItemModel({ caption: 'ID', detailType: 'FORMITEM', name: 'srfkey', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
 , 
-        srfmajortext: new FormItemModel({ caption: '名称', detailType: 'FORMITEM', name: 'srfmajortext', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        srfmajortext: new FormItemModel({ caption: '发布名称', detailType: 'FORMITEM', name: 'srfmajortext', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         srftempmode: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srftempmode', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -742,23 +726,21 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
 , 
         product: new FormItemModel({ caption: '产品', detailType: 'FORMITEM', name: 'product', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        branch: new FormItemModel({ caption: '平台/分支', detailType: 'FORMITEM', name: 'branch', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        productname: new FormItemModel({ caption: '产品名称', detailType: 'FORMITEM', name: 'productname', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        title: new FormItemModel({ caption: '名称', detailType: 'FORMITEM', name: 'title', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        name: new FormItemModel({ caption: '发布名称', detailType: 'FORMITEM', name: 'name', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        oldtitle: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'oldtitle', visible: false, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        marker: new FormItemModel({ caption: '里程碑', detailType: 'FORMITEM', name: 'marker', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        begin: new FormItemModel({ caption: '开始日期', detailType: 'FORMITEM', name: 'begin', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        buildname: new FormItemModel({ caption: '版本', detailType: 'FORMITEM', name: 'buildname', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        future: new FormItemModel({ caption: '待定', detailType: 'FORMITEM', name: 'future', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        end: new FormItemModel({ caption: '结束日期', detailType: 'FORMITEM', name: 'end', visible: false, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        delta: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'delta', visible: false, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        date: new FormItemModel({ caption: '发布日期', detailType: 'FORMITEM', name: 'date', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         desc: new FormItemModel({ caption: '描述', detailType: 'FORMITEM', name: 'desc', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
+        files: new FormItemModel({ caption: '附件', detailType: 'FORMITEM', name: 'files', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        id: new FormItemModel({ caption: 'ID', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
 , 
     };
 
@@ -767,7 +749,7 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof MobMainTable
+     * @memberof MobEditForm
      */
     @Watch('data.srforikey')
     onSrforikeyChange(newVal: any, oldVal: any) {
@@ -779,7 +761,7 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof MobMainTable
+     * @memberof MobEditForm
      */
     @Watch('data.srfkey')
     onSrfkeyChange(newVal: any, oldVal: any) {
@@ -791,7 +773,7 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof MobMainTable
+     * @memberof MobEditForm
      */
     @Watch('data.srfmajortext')
     onSrfmajortextChange(newVal: any, oldVal: any) {
@@ -803,7 +785,7 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof MobMainTable
+     * @memberof MobEditForm
      */
     @Watch('data.srftempmode')
     onSrftempmodeChange(newVal: any, oldVal: any) {
@@ -815,7 +797,7 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof MobMainTable
+     * @memberof MobEditForm
      */
     @Watch('data.srfuf')
     onSrfufChange(newVal: any, oldVal: any) {
@@ -827,7 +809,7 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof MobMainTable
+     * @memberof MobEditForm
      */
     @Watch('data.srfdeid')
     onSrfdeidChange(newVal: any, oldVal: any) {
@@ -839,7 +821,7 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof MobMainTable
+     * @memberof MobEditForm
      */
     @Watch('data.srfsourcekey')
     onSrfsourcekeyChange(newVal: any, oldVal: any) {
@@ -851,7 +833,7 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof MobMainTable
+     * @memberof MobEditForm
      */
     @Watch('data.product')
     onProductChange(newVal: any, oldVal: any) {
@@ -859,87 +841,63 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
     }
 
     /**
-     * 监控表单属性 branch 值
+     * 监控表单属性 productname 值
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof MobMainTable
+     * @memberof MobEditForm
      */
-    @Watch('data.branch')
-    onBranchChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'branch', newVal: newVal, oldVal: oldVal });
+    @Watch('data.productname')
+    onProductnameChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'productname', newVal: newVal, oldVal: oldVal });
     }
 
     /**
-     * 监控表单属性 title 值
+     * 监控表单属性 name 值
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof MobMainTable
+     * @memberof MobEditForm
      */
-    @Watch('data.title')
-    onTitleChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'title', newVal: newVal, oldVal: oldVal });
+    @Watch('data.name')
+    onNameChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'name', newVal: newVal, oldVal: oldVal });
     }
 
     /**
-     * 监控表单属性 oldtitle 值
+     * 监控表单属性 marker 值
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof MobMainTable
+     * @memberof MobEditForm
      */
-    @Watch('data.oldtitle')
-    onOldtitleChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'oldtitle', newVal: newVal, oldVal: oldVal });
+    @Watch('data.marker')
+    onMarkerChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'marker', newVal: newVal, oldVal: oldVal });
     }
 
     /**
-     * 监控表单属性 begin 值
+     * 监控表单属性 buildname 值
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof MobMainTable
+     * @memberof MobEditForm
      */
-    @Watch('data.begin')
-    onBeginChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'begin', newVal: newVal, oldVal: oldVal });
+    @Watch('data.buildname')
+    onBuildnameChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'buildname', newVal: newVal, oldVal: oldVal });
     }
 
     /**
-     * 监控表单属性 future 值
+     * 监控表单属性 date 值
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof MobMainTable
+     * @memberof MobEditForm
      */
-    @Watch('data.future')
-    onFutureChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'future', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 end 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobMainTable
-     */
-    @Watch('data.end')
-    onEndChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'end', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 delta 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobMainTable
-     */
-    @Watch('data.delta')
-    onDeltaChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'delta', newVal: newVal, oldVal: oldVal });
+    @Watch('data.date')
+    onDateChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'date', newVal: newVal, oldVal: oldVal });
     }
 
     /**
@@ -947,7 +905,7 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof MobMainTable
+     * @memberof MobEditForm
      */
     @Watch('data.desc')
     onDescChange(newVal: any, oldVal: any) {
@@ -955,11 +913,23 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
     }
 
     /**
+     * 监控表单属性 files 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobEditForm
+     */
+    @Watch('data.files')
+    onFilesChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'files', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
      * 监控表单属性 id 值
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof MobMainTable
+     * @memberof MobEditForm
      */
     @Watch('data.id')
     onIdChange(newVal: any, oldVal: any) {
@@ -972,15 +942,9 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
      *
      * @private
      * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
-     * @memberof MobMainTable
+     * @memberof MobEditForm
      */
     private resetFormData({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
-        if (Object.is(name, 'future')) {
-            this.onFormItemValueChange({ name: 'end', value: null });
-        }
-        if (Object.is(name, 'future')) {
-            this.onFormItemValueChange({ name: 'delta', value: null });
-        }
     }
 
     /**
@@ -1004,7 +968,7 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
      *
      * @private
      * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
-     * @memberof MobMainTable
+     * @memberof MobEditForm
      */
     private async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }){
                 
@@ -1022,44 +986,11 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
 
 
 
-        if (Object.is(name, '') || Object.is(name, 'oldtitle')) {
-            let ret = false;
-            const _oldtitle = this.data.oldtitle;
-            if (this.$verify.testCond(_oldtitle, 'ISNOTNULL', '')) {
-                ret = true;
-            }
-            this.detailsModel.oldtitle.setVisible(ret);
-        }
-
-
-
-        if (Object.is(name, '') || Object.is(name, 'future')) {
-            let ret = false;
-            const _future = this.data.future;
-            if (this.$verify.testCond(_future, 'ISNULL', '')) {
-                ret = true;
-            }
-            this.detailsModel.end.setVisible(ret);
-        }
-
-        if (Object.is(name, '') || Object.is(name, 'future')) {
-            let ret = false;
-            const _future = this.data.future;
-            if (this.$verify.testCond(_future, 'ISNULL', '')) {
-                ret = true;
-            }
-            this.detailsModel.delta.setVisible(ret);
-        }
 
 
 
 
-        if (Object.is(name, 'delta')) {
-            const details: string[] = ['end'];
-            if(await this.validItem('delta', this.data['delta'])){
-                this.updateFormItems('GetPlanEnd', this.data, details, true);
-            }
-        }
+
     }
 
 
@@ -1091,7 +1022,7 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
      * @public
      * @param {{ filter: string}} { filter}
      * @returns {void}
-     * @memberof MobMainTable
+     * @memberof MobEditForm
      */
     public async validAll(filter:string = "defult") {
         let validateState = true;
@@ -1114,7 +1045,7 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
      * @private
      * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
      * @returns {void}
-     * @memberof MobMainTable
+     * @memberof MobEditForm
      */
     private formDataChange({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
         if (this.ignorefieldvaluechange) {
@@ -1132,7 +1063,7 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
      * @private
      * @param {*} [data={}]
      * @param {string} [action]
-     * @memberof MobMainTable
+     * @memberof MobEditForm
      */
     private onFormLoad(data: any = {},action:string): void {
         this.setFormEnableCond(data);
@@ -1148,7 +1079,7 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
      *
      * @param {*} [_datas={}]
      * @param {string} [action]
-     * @memberof MobMainTable
+     * @memberof MobEditForm
      */
     protected fillForm(_datas: any = {},action:string): void {
         this.ignorefieldvaluechange = true;
@@ -1173,7 +1104,7 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
      *
      * @protected
      * @param {*} data
-     * @memberof MobMainTable
+     * @memberof MobEditForm
      */
     protected setFormEnableCond(data: any): void {
         Object.values(this.detailsModel).forEach((detail: any) => {
@@ -1189,7 +1120,7 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
      * 重置草稿表单状态
      *
      * @private
-     * @memberof MobMainTable
+     * @memberof MobEditForm
      */
     private resetDraftFormStates(): void {
         const form: any = this.$refs.form;
@@ -1201,7 +1132,7 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
     /**
      * 重置校验结果
      *
-     * @memberof MobMainTable
+     * @memberof MobEditForm
      */
     protected resetValidates(): void {
         Object.values(this.detailsModel).forEach((detail: any) => {
@@ -1217,7 +1148,7 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
      * 填充校验结果 （后台）
      *
      * @param {any[]} fieldErrors
-     * @memberof MobMainTable
+     * @memberof MobEditForm
      */
     protected fillValidates(fieldErrors: any[]): void {
         fieldErrors.forEach((error: any) => {
@@ -1235,7 +1166,7 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
      * 获取全部值
      *
      * @returns {*}
-     * @memberof MobMainTable
+     * @memberof MobEditForm
      */
     protected getValues(): any {
         return this.data;
@@ -1246,7 +1177,7 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
      *
      * @param {{ name: string, value: any }} $event
      * @returns {void}
-     * @memberof MobMainTable
+     * @memberof MobEditForm
      */
     protected onFormItemValueChange($event: { name: string, value: any }): void {
         if (!$event) {
@@ -1264,7 +1195,7 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
      * @param {string} name
      * @param {*} value
      * @returns {void}
-     * @memberof MobMainTable
+     * @memberof MobEditForm
      */
     protected setDataItemValue(name: string, value: any): void {
         if (!name || Object.is(name, '') || !this.data.hasOwnProperty(name)) {
@@ -1282,7 +1213,7 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
      * 分组界面行为事件
      *
      * @param {*} $event
-     * @memberof MobMainTable
+     * @memberof MobEditForm
      */
     protected groupUIActionClick($event: any): void {
         if (!$event) {
@@ -1294,7 +1225,7 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
     /**
      * Vue声明周期(处理组件的输入属性)
      *
-     * @memberof MobMainTable
+     * @memberof MobEditForm
      */
     protected created(): void {
         this.afterCreated();
@@ -1303,7 +1234,7 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
     /**
      * 执行created后的逻辑
      *
-     *  @memberof MobMainTable
+     *  @memberof MobEditForm
      */    
     protected afterCreated(){
         if (this.viewState) {
@@ -1356,7 +1287,7 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
     /**
      * vue 生命周期
      *
-     * @memberof MobMainTable
+     * @memberof MobEditForm
      */
     protected destroyed() {
         this.afterDestroy();
@@ -1365,7 +1296,7 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
     /**
      * 执行destroyed后的逻辑
      *
-     * @memberof MobMainTable
+     * @memberof MobEditForm
      */
     protected afterDestroy() {
         if (this.viewStateEvent) {
@@ -1380,7 +1311,7 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
      * 拷贝内容
      *
      * @param {*} [arg={}]
-     * @memberof @memberof MobMainTable
+     * @memberof @memberof MobEditForm
      */
     protected copy(arg: any = {}): void {
         this.loadDraft(arg);
@@ -1390,7 +1321,7 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
      * 部件刷新
      *
      * @param {any[]} args
-     * @memberof MobMainTable
+     * @memberof MobEditForm
      */
     protected refresh(args: any[]): void {
         let arg: any = {};
@@ -1413,7 +1344,7 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
      *
      * @param {*} [arg={}]
      * @returns {void}
-     * @memberof MobMainTable
+     * @memberof MobEditForm
      */
     protected autoLoad(arg: any = {}): void {
         if (arg.srfkey && !Object.is(arg.srfkey, '')) {
@@ -1435,7 +1366,7 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
      * @private
      * @param {*} [opt={}]
      * @returns {Promise<any>}
-     * @memberof MobMainTable
+     * @memberof MobEditForm
      */
     private async load(opt: any = {}): Promise<any> {
         if (!this.loadAction) {
@@ -1463,7 +1394,7 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
      * 加载草稿
      *
      * @param {*} [opt={}]
-     * @memberof MobMainTable
+     * @memberof MobEditForm
      */
     protected async loadDraft(opt: any = {}): Promise<any> {
         if (!this.loaddraftAction) {
@@ -1475,8 +1406,8 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
         const response: any = await this.service.loadDraft(this.loaddraftAction, { ...this.context }, arg, this.showBusyIndicator);
         if (response && response.status === 200) {
             const data = response.data;
-            if(data.productplan){
-                Object.assign(this.context, { productplan: data.productplan });
+            if(data.release){
+                Object.assign(this.context, { release: data.release });
             }
             this.resetDraftFormStates();
             this.onFormLoad(data, 'loadDraft');
@@ -1497,7 +1428,7 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
      * @protected
      * @param {*} [opt={}]
      * @returns {Promise<any>}
-     * @memberof MobMainTable
+     * @memberof MobEditForm
      */
     protected async autoSave(opt: any = {}): Promise<any> {
         if (!await this.validAll()) {
@@ -1541,7 +1472,7 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
      * @param {boolean} [showResultInfo]
      * @param {boolean} [isStateNext=true] 是否下发通知
      * @returns {Promise<any>}
-     * @memberof MobMainTable
+     * @memberof MobEditForm
      */
     protected async save(opt: any = {}, showResultInfo?: boolean, isStateNext: boolean = true): Promise<any> {
         showResultInfo = showResultInfo === undefined ? true : false;
@@ -1582,7 +1513,7 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
             if(!opt.saveEmit){
                 this.$emit('save', data);
             }                
-            AppCenterService.notifyMessage({name:"ProductPlan",action:'appRefresh',data:data});
+            AppCenterService.notifyMessage({name:"Release",action:'appRefresh',data:data});
             this.$store.dispatch('viewaction/datasaved', { viewtag: this.viewtag });
             this.$nextTick(() => {
                 this.formState.next({ type: 'save', data: data });
@@ -1624,7 +1555,7 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
             this.$emit('remove', data);
             this.formState.next({ type: 'remove', data: data });
             this.data.ismodify = false;
-            AppCenterService.notifyMessage({name:"ProductPlan",action:'appRefresh',data:data});
+            AppCenterService.notifyMessage({name:"Release",action:'appRefresh',data:data});
             this.$notice.success((data.srfmajortext ? data.srfmajortext : '') + '&nbsp;'+ this.$t('app.message.deleteSccess'));
         } else if (response && response.status !== 401) {
             const { error: _data } = response;
@@ -1639,7 +1570,7 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
      * @protected
      * @param {*} data
      * @returns {Promise<any>}
-     * @memberof MobMainTable
+     * @memberof MobEditForm
      */
     protected async wfstart(data: any): Promise<any> {
         const _this: any = this;
@@ -1648,7 +1579,7 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
         let response: any = await this.service.wfstart(_this.WFStartAction, { ...this.context }, arg, this.showBusyIndicator);
         if (response && response.status === 200) {
             this.$notice.success('工作流启动成功');
-            AppCenterService.notifyMessage({name:"ProductPlan",action:'appRefresh',data:data});
+            AppCenterService.notifyMessage({name:"Release",action:'appRefresh',data:data});
         } else if (response && response.status !== 401) {
             this.$notice.error('工作流启动失败, ' + response.error.message);
         }
@@ -1663,7 +1594,7 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
      * @param {*} linkItem
      * @param {*} datas
      * @returns {Promise<any>}
-     * @memberof MobMainTable
+     * @memberof MobEditForm
      */
     protected async wfsubmit(data: any, linkItem: any, datas: any): Promise<any> {
         const arg: any = { ...data };
@@ -1675,7 +1606,7 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
         const response: any = await this.service.wfsubmit(this.currentAction, { ...this.context }, datas, this.showBusyIndicator, arg);
         if (response && response.status === 200) {
             this.$notice.success('工作流提交成功');
-            AppCenterService.notifyMessage({name:"ProductPlan",action:'appRefresh',data:data});
+            AppCenterService.notifyMessage({name:"Release",action:'appRefresh',data:data});
         } else if (response && response.status !== 401) {
             this.$notice.error('工作流提交失败, ' + response.error.message);
             return response;
@@ -1691,7 +1622,7 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
      * @param {string[]} updateDetails 更新项
      * @param {boolean} [showloading] 是否显示加载状态
      * @returns {Promise<any>}
-     * @memberof MobMainTable
+     * @memberof MobEditForm
      */
     protected async updateFormItems(mode: string, data: any = {}, updateDetails: string[], showloading?: boolean): Promise<any> {
         if (!mode || (mode && Object.is(mode, ''))) {
@@ -1713,7 +1644,7 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
             this.fillForm(_data, 'updateFormItem');
             this.formLogic({ name: '', newVal: null, oldVal: null });
             this.dataChang.next(JSON.stringify(this.data));
-            AppCenterService.notifyMessage({name:"ProductPlan",action:'appRefresh',data:data});
+            AppCenterService.notifyMessage({name:"Release",action:'appRefresh',data:data});
             this.$nextTick(() => {
                 this.formState.next({ type: 'updateformitem', ufimode: arg.srfufimode, data: _data });
             });
@@ -1732,7 +1663,7 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
      * 回车事件
      *
      * @param {*} $event
-     * @memberof MobMainTable
+     * @memberof MobEditForm
      */
     protected onEnter($event: any): void {
     }
@@ -1743,7 +1674,7 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
      * @protected
      * @param {any[]} data
      * @returns {Promise<any>}
-     * @memberof MobMainTable
+     * @memberof MobEditForm
      */
     protected async saveAndExit(data: any[]): Promise<any> {
         const arg: any = { ...data[0] };
@@ -1761,7 +1692,7 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
      * @protected
      * @param {any[]} data
      * @returns {Promise<any>}
-     * @memberof MobMainTable
+     * @memberof MobEditForm
      */
     protected async saveAndNew(data: any[]): Promise<any> {
         let arg: any = { ...data[0] };
@@ -1780,7 +1711,7 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
      * @protected
      * @param {any[]} data
      * @returns {Promise<any>}
-     * @memberof MobMainTable
+     * @memberof MobEditForm
      */
     protected async removeAndExit(data: any[]): Promise<any> {
         let arg: any = { ...data[0] };
@@ -1795,7 +1726,7 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
     * 关系界面数据保存完成
     *
     * @param {any} $event
-    * @memberof MobMainTable
+    * @memberof MobEditForm
     */
     protected drdatasaved($event:any){
         let _this = this;
@@ -1818,14 +1749,14 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
 
     /**
      * 新建默认值
-     * @memberof MobMainTable
+     * @memberof MobEditForm
      */
     public createDefault(){                    
     }
 
         /**
      * 更新默认值
-     * @memberof MobMainTableBase
+     * @memberof MobEditFormBase
      */
     public updateDefault(){                    
     }
@@ -1854,5 +1785,5 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
 </script>
 
 <style lang='less'>
-@import './mob-main-table-form.less';
+@import './mob-edit-form-form.less';
 </style>

@@ -165,11 +165,20 @@ ion-toolbar {
 
 // 图标
 .ibiz-button-icon {
-  font-size: 16px;
-  margin: 4px;
+  font-size: 4em;
+  margin: 4em;
 }
 
 // 主背景色
 ion-content {
   --background: @color-main-background;
+}
+
+// 下拉样式
+.action-sheet-button-inner, .action-sheet-button-inner.sc-ion-action-sheet-ios {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
