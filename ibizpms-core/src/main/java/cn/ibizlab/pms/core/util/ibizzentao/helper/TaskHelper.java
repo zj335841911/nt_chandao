@@ -217,7 +217,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
             et.setFinishedby("");
         }
 
-//        computeHours4Multiple(old, et, teams, false);
+        //computeHours4Multiple(old, et, teams, false);
 
         this.internalUpdate(et);
         boolean changeParent = false;
@@ -283,10 +283,11 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
     public boolean delete(Long key) {
         boolean bOk = false;
         Task old = this.get(key);
+        if (old.getParent() < 0) throw  new RuntimeException("不能删除父任务");
         bOk = super.delete(key);
         if (old.getParent() != 0) {
             updateParentStatus(old, old.getParent(), false);
-            actionHelper.create("project", old.getParent(), "deleteChildrenTask", "", String.valueOf(old.getId()), null, true);
+            actionHelper.create("project", old.getParent(), "deleteChildrenTask", "", "", null, true);
         }
         if (old.getFrombug() != 0) {
             Bug bug = new Bug();
