@@ -518,6 +518,15 @@ public class TaskDTO extends DTOBase implements Serializable {
     @Size(min = 0, max = 1000, message = "内容长度必须小于等于[1000]")
     private String files;
 
+    /**
+     * 属性 [USERNAMES]
+     *
+     */
+    @JSONField(name = "usernames")
+    @JsonProperty("usernames")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String usernames;
+
 
     /**
      * 设置 [CANCELEDBY]

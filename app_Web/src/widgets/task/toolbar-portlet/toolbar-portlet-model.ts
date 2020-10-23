@@ -186,6 +186,9 @@ export default class ToolbarModel {
       {
         name: 'files',
       },
+      {
+        name: 'usernames',
+      },
     ]
   }
 

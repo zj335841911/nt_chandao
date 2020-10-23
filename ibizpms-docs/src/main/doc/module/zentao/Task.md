@@ -79,6 +79,7 @@ hide members
 |任务状态|STATUS1|SSCODELIST|&nbsp;|
 |任务类型|TASKTYPE|SSCODELIST|&nbsp;|
 |附件|FILES|TEXT|&nbsp;|
+|团队用户|USERNAMES|TEXT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -141,6 +142,7 @@ hide members
 |任务状态|默认规则|内容长度必须小于等于[200]|
 |任务类型|默认规则|内容长度必须小于等于[200]|
 |附件|默认规则|内容长度必须小于等于[1000]|
+|团队用户|默认规则|内容长度必须小于等于[100]|
 
 ## 状态控制
 
@@ -247,6 +249,7 @@ hide members
 |删除工时|用户自定义|&nbsp;|
 |编辑工时|用户自定义|&nbsp;|
 |完成|用户自定义|&nbsp;|
+|获取团队成员|实体处理逻辑|&nbsp;|
 |暂停|用户自定义|&nbsp;|
 |工时录入|用户自定义|&nbsp;|
 |继续|用户自定义|&nbsp;重启挂起的任务|
@@ -324,6 +327,39 @@ hide footbox
 |1|开始 | 
 |2|获取需求版本 |
 <center>更新需求版本</center>
+* 获取团队成员 (getUsernames)
+  
+   
+
+{% plantuml %}
+hide footbox
+
+任务 -> 任务: 任务团队
+任务 -> 任务: 项目团队
+{% endplantuml %}
+
+| 步骤       | 操作        |
+| --------   | --------   |
+|0|开始 | 
+|1|任务团队 |
+|1|开始 | 
+|2|项目团队 |
+<center>获取团队成员</center>
+* 获取团队成员（草稿） (getUsernamesDraft)
+  
+   
+
+{% plantuml %}
+hide footbox
+
+任务 -> 任务: 项目团队
+{% endplantuml %}
+
+| 步骤       | 操作        |
+| --------   | --------   |
+|0|开始 | 
+|1|项目团队 |
+<center>获取团队成员（草稿）</center>
 * 行为[Update]主状态拒绝逻辑 (Update__MSDeny)
   
    

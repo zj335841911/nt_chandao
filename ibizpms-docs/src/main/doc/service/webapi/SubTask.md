@@ -300,6 +300,25 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | [SubTaskDTO](#SubTaskDTO)：任务实体传输对象 |
 
+### 获取团队成员
+#### 访问路径
+/subtasks/{subtask_id}/getusernames
+
+#### 请求方法
+PUT
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | subtask_id | Long | 任务主键ID |
+| 2 | subtaskdto | [SubTaskDTO](#SubTaskDTO) | 任务实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| -- | -- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [SubTaskDTO](#SubTaskDTO)：任务实体传输对象 |
+
 ### 暂停
 #### 访问路径
 /subtasks/{subtask_id}/pause
@@ -1202,6 +1221,26 @@ POST
 
 #### 请求方法
 POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | task_id | Long | 任务主键ID |
+| 2 | subtask_id | Long | 任务主键ID |
+| 3 | subtaskdto | [SubTaskDTO](#SubTaskDTO) | 任务实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| -- | -- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [SubTaskDTO](#SubTaskDTO)：任务实体传输对象 |
+
+### 获取团队成员
+#### 访问路径
+/tasks/{task_id}/subtasks/{subtask_id}/getusernames
+
+#### 请求方法
+PUT
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -2165,6 +2204,26 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | [SubTaskDTO](#SubTaskDTO)：任务实体传输对象 |
 
+### 获取团队成员
+#### 访问路径
+/stories/{story_id}/tasks/{task_id}/subtasks/{subtask_id}/getusernames
+
+#### 请求方法
+PUT
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 需求主键ID |/r/n| 2 | task_id | Long | 任务主键ID |
+| 3 | subtask_id | Long | 任务主键ID |
+| 4 | subtaskdto | [SubTaskDTO](#SubTaskDTO) | 任务实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| -- | -- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [SubTaskDTO](#SubTaskDTO)：任务实体传输对象 |
+
 ### 暂停
 #### 访问路径
 /stories/{story_id}/tasks/{task_id}/subtasks/{subtask_id}/pause
@@ -3100,6 +3159,26 @@ POST
 
 #### 请求方法
 POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 项目主键ID |/r/n| 2 | task_id | Long | 任务主键ID |
+| 3 | subtask_id | Long | 任务主键ID |
+| 4 | subtaskdto | [SubTaskDTO](#SubTaskDTO) | 任务实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| -- | -- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [SubTaskDTO](#SubTaskDTO)：任务实体传输对象 |
+
+### 获取团队成员
+#### 访问路径
+/projects/{project_id}/tasks/{task_id}/subtasks/{subtask_id}/getusernames
+
+#### 请求方法
+PUT
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -4063,6 +4142,26 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | [SubTaskDTO](#SubTaskDTO)：任务实体传输对象 |
 
+### 获取团队成员
+#### 访问路径
+/products/{product_id}/stories/{story_id}/tasks/{task_id}/subtasks/{subtask_id}/getusernames
+
+#### 请求方法
+PUT
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 产品主键ID |/r/n| 2 | story_id | Long | 需求主键ID |/r/n| 3 | task_id | Long | 任务主键ID |
+| 4 | subtask_id | Long | 任务主键ID |
+| 5 | subtaskdto | [SubTaskDTO](#SubTaskDTO) | 任务实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| -- | -- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [SubTaskDTO](#SubTaskDTO)：任务实体传输对象 |
+
 ### 暂停
 #### 访问路径
 /products/{product_id}/stories/{story_id}/tasks/{task_id}/subtasks/{subtask_id}/pause
@@ -4759,7 +4858,8 @@ POST
 | 53 | status1 | String | 允许 | 任务状态 |
 | 54 | tasktype | String | 允许 | 任务类型 |
 | 55 | files | String | 允许 | 附件 |
-| 56 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 56 | usernames | String | 允许 | 团队用户 |
+| 57 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### TaskSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
