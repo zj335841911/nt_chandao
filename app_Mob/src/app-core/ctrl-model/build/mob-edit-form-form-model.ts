@@ -56,6 +56,11 @@ export class MobEditFormModel {
                 dataType: 'PICKUPTEXT',
             },
             {
+                name: 'product',
+                prop: 'product',
+                dataType: 'PICKUP',
+            },
+            {
                 name: 'name',
                 prop: 'name',
                 dataType: 'TEXT',
@@ -94,11 +99,6 @@ export class MobEditFormModel {
                 name: 'id',
                 prop: 'id',
                 dataType: 'ACID',
-            },
-            {
-                name: 'product',
-                prop: 'product',
-                dataType: 'PICKUP',
             },
             {
                 name: 'build',

@@ -10,22 +10,6 @@
                 </ion-button>
             </ion-buttons>
             <ion-title class="view-title"><label class="title-label"><ion-icon v-if="model.icon" :name="model.icon"></ion-icon> <img v-else-if="model.iconcls" :src="model.iconcls" alt=""> {{$t(model.srfCaption)}}</label></ion-title>
-            <ion-buttons slot="end">
-                                <div class="app-toolbar-container ">
-                    <div class="app-quick-toolbar toolbar-right-bottons">
-                            <ion-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction1_mobeditbuild.visabled" :disabled="righttoolbarModels.deuiaction1_mobeditbuild.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_mobeditbuild' }, $event)" >
-                        <ion-icon class="ibiz-button-icon" name="edit"> </ion-icon>
-                    {{$t('build.mobeditviewrighttoolbar_toolbar.deuiaction1_mobeditbuild.caption')}}
-                    </ion-button>
-                
-                            <ion-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction1_mobdelete.visabled" :disabled="righttoolbarModels.deuiaction1_mobdelete.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_mobdelete' }, $event)" >
-                        <ion-icon class="ibiz-button-icon" name="remove"> </ion-icon>
-                    {{$t('build.mobeditviewrighttoolbar_toolbar.deuiaction1_mobdelete.caption')}}
-                    </ion-button>
-                
-                    </div>
-                </div>
-            </ion-buttons>
         </ion-toolbar>
 
     
@@ -58,6 +42,31 @@
             @closeview="closeView($event)">
         </view_form>
     </ion-content>
+    <ion-footer class="view-footer">
+                <div  class = "fab_container">
+            <ion-button v-if="getToolBarLimit" @click="popUpGroup(true)" class="app-view-toolbar-button"><ion-icon name="chevron-up-circle-outline"></ion-icon></ion-button>
+            <van-popup v-if="getToolBarLimit" class="popup" v-model="showGrop" round position="bottom">
+                <div class="container">
+                    <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_mobeditbuild.disabled}" v-show="righttoolbarModels.deuiaction1_mobeditbuild.visabled">
+                <ion-button :disabled="righttoolbarModels.deuiaction1_mobeditbuild.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_mobeditbuild' }, $event)" size="large">
+                    <ion-icon name="edit"></ion-icon>
+                <span class="btn-inner-text">{{$t('build.mobeditviewrighttoolbar_toolbar.deuiaction1_mobeditbuild.caption')}}</span>
+                </ion-button>
+                <span class="btn-out-text">{{$t('build.mobeditviewrighttoolbar_toolbar.deuiaction1_mobeditbuild.caption')}}</span>
+            </div>
+        
+                    <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_mobdelete.disabled}" v-show="righttoolbarModels.deuiaction1_mobdelete.visabled">
+                <ion-button :disabled="righttoolbarModels.deuiaction1_mobdelete.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_mobdelete' }, $event)" size="large">
+                    <ion-icon name="remove"></ion-icon>
+                <span class="btn-inner-text">{{$t('build.mobeditviewrighttoolbar_toolbar.deuiaction1_mobdelete.caption')}}</span>
+                </ion-button>
+                <span class="btn-out-text">{{$t('build.mobeditviewrighttoolbar_toolbar.deuiaction1_mobdelete.caption')}}</span>
+            </div>
+        
+                </div>
+            </van-popup>
+        </div>
+    </ion-footer>
 </ion-page>
 </template>
 
@@ -294,6 +303,51 @@ export default class BuildMobEditViewBase extends Vue {
 
     };
 
+    /**
+     * 工具栏显示状态
+     *
+     * @type {boolean}
+     * @memberof BuildMobEditView 
+     */
+    public righttoolbarShowState: boolean = false;
+
+    /**
+     * 工具栏权限
+     *
+     * @type {boolean}
+     * @memberof BuildMobEditView 
+     */
+    get getToolBarLimit() {
+        let toolBarVisable:boolean = false;
+        if(this.righttoolbarModels){
+            Object.keys(this.righttoolbarModels).forEach((tbitem:any)=>{
+                if(this.righttoolbarModels[tbitem].type !== 'ITEMS' && this.righttoolbarModels[tbitem].visabled === true){
+                    toolBarVisable = true;
+                    return;
+                }
+            })
+        }
+        return toolBarVisable;
+    }
+
+    /**
+     * 工具栏分组是否显示的条件
+     *
+     * @type {boolean}
+     * @memberof BuildMobEditView 
+     */
+    public showGrop = false;
+
+    /**
+     * 工具栏分组是否显示的方法
+     *
+     * @type {boolean}
+     * @memberof BuildMobEditView 
+     */
+    public popUpGroup (falg:boolean = false) {
+        this.showGrop = falg;
+    }
+
     
 
 
@@ -397,6 +451,7 @@ export default class BuildMobEditViewBase extends Vue {
      * @memberof BuildMobEditViewBase
      */
     public activated() {
+        this.popUpGroup();
         this.thirdPartyInit();
     }
 

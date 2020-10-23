@@ -47,28 +47,27 @@
     :disabled="detailsModel.productname.disabled"
     :error="detailsModel.productname.error" 
     :isEmptyCaption="false">
-        <app-mob-picker
-    name='productname'
-    deMajorField='productname'
-    deKeyField='productid'
-    valueitem='product' 
-    editortype="" 
-    style=""  
+        <app-mob-select-drop-down 
+    name='productname' 
+    deMajorField='name'
+    deKeyField='id'
+    valueitem='' 
+    style="" 
+    editortype="dropdown" 
     :formState="formState"
     :data="data"
     :context="context"
-    :viewparams="viewparams"
     :navigateContext ='{ "srfparentkey": "%project%" } '
     :navigateParam ='{ "srfparentkey": "%project%" } '
+    :viewparams="viewparams"
     :itemParam='{ }' 
     :disabled="detailsModel.productname.disabled"
     :service="service"
     :acParams="{ serviceName: 'product', interfaceName: 'FetchCurProject'}"
     :value="data.productname" 
-    :pickupView="{ viewname: 'product-mob-pickup-view', title: '产品移动端数据选择视图', deResParameters: [], parameters: [{ pathName: 'products', parameterName: 'product' }, { pathName: 'mobpickupview', parameterName: 'mobpickupview' } ], placement:'' }"
-    @formitemvaluechange="onFormItemValueChange">
-</app-mob-picker>
-
+    @formitemvaluechange="onFormItemValueChange"
+    @change="($event)=>this.data.productname = $event">
+</app-mob-select-drop-down>
 </app-form-item>
 
 
@@ -587,6 +586,7 @@ export default class MobEditFormBase extends Vue implements ControlInterface {
         srfsourcekey: null,
         project: null,
         productname: null,
+        product: null,
         name: null,
         builder: null,
         date: null,
@@ -595,7 +595,6 @@ export default class MobEditFormBase extends Vue implements ControlInterface {
         files: null,
         desc: null,
         id: null,
-        product: null,
         build: null,
     };
 
@@ -767,6 +766,8 @@ export default class MobEditFormBase extends Vue implements ControlInterface {
 , 
         productname: new FormItemModel({ caption: '产品', detailType: 'FORMITEM', name: 'productname', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
+        product: new FormItemModel({ caption: '产品', detailType: 'FORMITEM', name: 'product', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
         name: new FormItemModel({ caption: '名称编号', detailType: 'FORMITEM', name: 'name', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         builder: new FormItemModel({ caption: '构建者', detailType: 'FORMITEM', name: 'builder', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
@@ -782,8 +783,6 @@ export default class MobEditFormBase extends Vue implements ControlInterface {
         desc: new FormItemModel({ caption: '描述', detailType: 'FORMITEM', name: 'desc', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         id: new FormItemModel({ caption: 'id', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
-, 
-        product: new FormItemModel({ caption: '产品', detailType: 'FORMITEM', name: 'product', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
     };
 
@@ -896,6 +895,18 @@ export default class MobEditFormBase extends Vue implements ControlInterface {
     }
 
     /**
+     * 监控表单属性 product 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobEditForm
+     */
+    @Watch('data.product')
+    onProductChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'product', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
      * 监控表单属性 name 值
      *
      * @param {*} newVal
@@ -989,18 +1000,6 @@ export default class MobEditFormBase extends Vue implements ControlInterface {
     @Watch('data.id')
     onIdChange(newVal: any, oldVal: any) {
         this.formDataChange({ name: 'id', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 product 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobEditForm
-     */
-    @Watch('data.product')
-    onProductChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'product', newVal: newVal, oldVal: oldVal });
     }
 
 
