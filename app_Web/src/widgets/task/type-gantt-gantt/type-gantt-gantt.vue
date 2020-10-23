@@ -3,7 +3,7 @@
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { TypeGanttGanttBase } from './type-gantt-gantt-base';
-import GanttElastic from "ibiz-gantt-elastic/src/GanttElastic.vue";
+import GanttElastic from "ibz-gantt-elastic/src/GanttElastic.vue";
  
 
 /**
