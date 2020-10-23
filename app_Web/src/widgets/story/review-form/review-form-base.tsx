@@ -276,7 +276,7 @@ export class ReviewEditFormBase extends EditFormControlBase {
             if (this.$verify.testCond(_result, 'NOTEQ', 'revert')) {
                 ret = false;
             }
-            this.rules.preversion.some((rule: any) => {
+            this.rules().preversion.some((rule: any) => {
                 if (rule.hasOwnProperty('required')) {
                     rule.required = ret;
                 }
@@ -298,7 +298,7 @@ export class ReviewEditFormBase extends EditFormControlBase {
             if (this.$verify.testCond(_result, 'NOTEQ', 'reject')) {
                 ret = false;
             }
-            this.rules.closedreason.some((rule: any) => {
+            this.rules().closedreason.some((rule: any) => {
                 if (rule.hasOwnProperty('required')) {
                     rule.required = ret;
                 }

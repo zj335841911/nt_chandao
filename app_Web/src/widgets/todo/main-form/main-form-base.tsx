@@ -322,7 +322,7 @@ export class MainEditFormBase extends EditFormControlBase {
             if (this.$verify.testCond(_type, 'NOTEQ', 'task')) {
                 ret = false;
             }
-            this.rules.task.some((rule: any) => {
+            this.rules().task.some((rule: any) => {
                 if (rule.hasOwnProperty('required')) {
                     rule.required = ret;
                 }
@@ -344,7 +344,7 @@ export class MainEditFormBase extends EditFormControlBase {
             if (this.$verify.testCond(_type, 'NOTEQ', 'story')) {
                 ret = false;
             }
-            this.rules.story.some((rule: any) => {
+            this.rules().story.some((rule: any) => {
                 if (rule.hasOwnProperty('required')) {
                     rule.required = ret;
                 }
@@ -366,7 +366,7 @@ export class MainEditFormBase extends EditFormControlBase {
             if (this.$verify.testCond(_type, 'NOTEQ', 'bug')) {
                 ret = false;
             }
-            this.rules.bug.some((rule: any) => {
+            this.rules().bug.some((rule: any) => {
                 if (rule.hasOwnProperty('required')) {
                     rule.required = ret;
                 }
@@ -388,7 +388,7 @@ export class MainEditFormBase extends EditFormControlBase {
             if (this.$verify.testCond(_type, 'NOTEQ', 'custom') && this.$verify.testCond(_type, 'ISNOTNULL', '')) {
                 ret = false;
             }
-            this.rules.name.some((rule: any) => {
+            this.rules().name.some((rule: any) => {
                 if (rule.hasOwnProperty('required')) {
                     rule.required = ret;
                 }

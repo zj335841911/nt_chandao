@@ -273,7 +273,7 @@ export class PendingSubmissionEditFormBase extends EditFormControlBase {
             if (this.$verify.testCond(_multiple, 'EQ', '1')) {
                 ret = false;
             }
-            this.rules.assignedto.some((rule: any) => {
+            this.rules().assignedto.some((rule: any) => {
                 if (rule.hasOwnProperty('required')) {
                     rule.required = ret;
                 }
