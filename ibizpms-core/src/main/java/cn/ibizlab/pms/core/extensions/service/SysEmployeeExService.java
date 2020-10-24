@@ -52,7 +52,8 @@ public class SysEmployeeExService extends SysEmployeeServiceImpl {
         Map<String,Object> params = context.getParams();
         if(params.get("srfparentkey") != null && !"0".equals(params.get("srfparentkey"))) {
             // 项目团队
-            context.setN_username_notin(getAccounts("project", params.get("srfparentkey")));
+            context.setN_username_notin(getAccounts("project", params.get("srfparentkey"), params.get("account") != null ?  params.get("account").toString() : null));
+
         }
         return super.searchDefault(context);
     }
@@ -109,6 +110,21 @@ public class SysEmployeeExService extends SysEmployeeServiceImpl {
                 accounts += ";";
             }
             accounts += team.getAccount();
+        }
+        return accounts;
+    }
+
+    public String getAccounts(String type, Object root, String account) {
+        String accounts = "";
+        List<Team> list = teamHelper.list(new QueryWrapper<Team>().eq("type", type).eq("root", root));
+
+        for(Team team : list) {
+            if(account == null || !team.getAccount().equals(account)) {
+                if (!"".equals(accounts)) {
+                    accounts += ";";
+                }
+                accounts += team.getAccount();
+            }
         }
         return accounts;
     }
