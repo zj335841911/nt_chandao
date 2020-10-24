@@ -27,6 +27,9 @@ export default class MyWorkModel {
 				name: 'myetasks',
 			},
 			{
+				name: 'account',
+			},
+			{
 				name: 'mystorys',
 			},
 			{
