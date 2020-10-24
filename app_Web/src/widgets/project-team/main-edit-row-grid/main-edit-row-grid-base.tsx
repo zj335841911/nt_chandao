@@ -291,6 +291,7 @@ export class Main_EditRowGridBase extends GridControlBase {
      */
     public getGridRowModel(){
         return {
+          id: new FormItemModel(),
           limited: new FormItemModel(),
           days: new FormItemModel(),
           hours: new FormItemModel(),
@@ -307,6 +308,10 @@ export class Main_EditRowGridBase extends GridControlBase {
      * @memberof Main_EditRowGridBase
      */
     public rules: any = {
+        id: [
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '编号 值不能为空', trigger: 'change' },
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '编号 值不能为空', trigger: 'blur' },
+        ],
         limited: [
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '受限用户 值不能为空', trigger: 'change' },
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '受限用户 值不能为空', trigger: 'blur' },
