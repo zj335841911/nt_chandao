@@ -5793,36 +5793,36 @@ FROM
 ### DEFAULT(DEFAULT)<div id="IbzProjectMember_Default"></div>
 ```sql
 SELECT
-(select t2.realname from zt_team t left JOIN zt_user t2 on t2.account = t.account where t.type = 'project' and t.root = t1.id order by t.id asc LIMIT 4,1) AS `FIFTHMEMBER`,
-(select t2.realname from zt_team t left JOIN zt_user t2 on t2.account = t.account where t.type = 'project' and t.root = t1.id order by t.id asc LIMIT 3,1) AS `FOURTHMEMBER`,
-(select t2.realname from zt_team t left JOIN zt_user t2 on t2.account = t.account where t.type = 'project' and t.root = t1.id order by t.id asc LIMIT 0,1) AS `FRISTMEMBER`,
+(select t.account from zt_team t where t.type = 'project' and t.root = t1.id order by t.id asc LIMIT 4,1) AS `FIFTHMEMBER`,
+(select t.account from zt_team t where t.type = 'project' and t.root = t1.id order by t.id asc LIMIT 3,1) AS `FOURTHMEMBER`,
+(select t.account from zt_team t where t.type = 'project' and t.root = t1.id order by t.id asc LIMIT 0,1) AS `FRISTMEMBER`,
 t1.`ID`,
 t1.`NAME`,
-( SELECT CONCAT( t.realname,'（项目负责人）') FROM zt_user t WHERE t.account = t1.PM ) AS `PM`,
-( SELECT CONCAT( t.realname,'（产品负责人）') FROM zt_user t WHERE t.account = t1.PO ) AS `PO`,
-( SELECT CONCAT( t.realname,'（测试负责人）') FROM zt_user t WHERE t.account = t1.QD ) AS `QD`,
-( SELECT CONCAT( t.realname,'（发布负责人）') FROM zt_user t WHERE t.account = t1.RD ) AS `RD`,
-(select t2.realname from zt_team t left JOIN zt_user t2 on t2.account = t.account where t.type = 'project' and t.root = t1.id order by t.id asc LIMIT 1,1) AS `SECONDMEMBER`,
-(select t2.realname from zt_team t left JOIN zt_user t2 on t2.account = t.account where t.type = 'project' and t.root = t1.id order by t.id asc LIMIT 5,1) AS `SIXTHMEMBER`,
-(select t2.realname from zt_team t left JOIN zt_user t2 on t2.account = t.account where t.type = 'project' and t.root = t1.id order by t.id asc LIMIT 2,1) AS `THIRDMEMBER`
+t1.PM AS `PM`,
+t1.PO AS `PO`,
+t1.QD AS `QD`,
+t1.RD AS `RD`,
+(select t.account from zt_team t where t.type = 'project' and t.root = t1.id order by t.id asc LIMIT 1,1) AS `SECONDMEMBER`,
+(select t.account from zt_team t where t.type = 'project' and t.root = t1.id order by t.id asc LIMIT 5,1) AS `SIXTHMEMBER`,
+(select t.account from zt_team t where t.type = 'project' and t.root = t1.id order by t.id asc LIMIT 2,1) AS `THIRDMEMBER`
 FROM `zt_project` t1 
 
 ```
 ### 默认（全部数据）(VIEW)<div id="IbzProjectMember_View"></div>
 ```sql
 SELECT
-(select t2.realname from zt_team t left JOIN zt_user t2 on t2.account = t.account where t.type = 'project' and t.root = t1.id order by t.id asc LIMIT 4,1) AS `FIFTHMEMBER`,
-(select t2.realname from zt_team t left JOIN zt_user t2 on t2.account = t.account where t.type = 'project' and t.root = t1.id order by t.id asc LIMIT 3,1) AS `FOURTHMEMBER`,
-(select t2.realname from zt_team t left JOIN zt_user t2 on t2.account = t.account where t.type = 'project' and t.root = t1.id order by t.id asc LIMIT 0,1) AS `FRISTMEMBER`,
+(select t.account from zt_team t where t.type = 'project' and t.root = t1.id order by t.id asc LIMIT 4,1) AS `FIFTHMEMBER`,
+(select t.account from zt_team t where t.type = 'project' and t.root = t1.id order by t.id asc LIMIT 3,1) AS `FOURTHMEMBER`,
+(select t.account from zt_team t where t.type = 'project' and t.root = t1.id order by t.id asc LIMIT 0,1) AS `FRISTMEMBER`,
 t1.`ID`,
 t1.`NAME`,
-( SELECT CONCAT( t.realname,'（项目负责人）') FROM zt_user t WHERE t.account = t1.PM ) AS `PM`,
-( SELECT CONCAT( t.realname,'（产品负责人）') FROM zt_user t WHERE t.account = t1.PO ) AS `PO`,
-( SELECT CONCAT( t.realname,'（测试负责人）') FROM zt_user t WHERE t.account = t1.QD ) AS `QD`,
-( SELECT CONCAT( t.realname,'（发布负责人）') FROM zt_user t WHERE t.account = t1.RD ) AS `RD`,
-(select t2.realname from zt_team t left JOIN zt_user t2 on t2.account = t.account where t.type = 'project' and t.root = t1.id order by t.id asc LIMIT 1,1) AS `SECONDMEMBER`,
-(select t2.realname from zt_team t left JOIN zt_user t2 on t2.account = t.account where t.type = 'project' and t.root = t1.id order by t.id asc LIMIT 5,1) AS `SIXTHMEMBER`,
-(select t2.realname from zt_team t left JOIN zt_user t2 on t2.account = t.account where t.type = 'project' and t.root = t1.id order by t.id asc LIMIT 2,1) AS `THIRDMEMBER`
+t1.PM AS `PM`,
+t1.PO AS `PO`,
+t1.QD AS `QD`,
+t1.RD AS `RD`,
+(select t.account from zt_team t where t.type = 'project' and t.root = t1.id order by t.id asc LIMIT 1,1) AS `SECONDMEMBER`,
+(select t.account from zt_team t where t.type = 'project' and t.root = t1.id order by t.id asc LIMIT 5,1) AS `SIXTHMEMBER`,
+(select t.account from zt_team t where t.type = 'project' and t.root = t1.id order by t.id asc LIMIT 2,1) AS `THIRDMEMBER`
 FROM `zt_project` t1 
 
 ```
