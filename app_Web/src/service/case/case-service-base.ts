@@ -1012,7 +1012,7 @@ export default class CaseServiceBase extends EntityService {
         }
         masterData.ibzcasesteps = ibzcasestepsData;
             Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/cases/${context.case}/confirmchange`,data,isloading);
+            let res:any = await Http.getInstance().put(`/products/${context.product}/stories/${context.story}/cases/${context.case}/confirmchange`,data,isloading);
                         this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps?res.data.casesteps:[]));
             this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps?res.data.ibzcasesteps:[]));
 
@@ -1053,7 +1053,7 @@ export default class CaseServiceBase extends EntityService {
         }
         masterData.ibzcasesteps = ibzcasestepsData;
             Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/stories/${context.story}/cases/${context.case}/confirmchange`,data,isloading);
+            let res:any = await Http.getInstance().put(`/stories/${context.story}/cases/${context.case}/confirmchange`,data,isloading);
                         this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps?res.data.casesteps:[]));
             this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps?res.data.ibzcasesteps:[]));
 
@@ -1094,13 +1094,13 @@ export default class CaseServiceBase extends EntityService {
         }
         masterData.ibzcasesteps = ibzcasestepsData;
             Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/products/${context.product}/cases/${context.case}/confirmchange`,data,isloading);
+            let res:any = await Http.getInstance().put(`/products/${context.product}/cases/${context.case}/confirmchange`,data,isloading);
                         this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps?res.data.casesteps:[]));
             this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps?res.data.ibzcasesteps:[]));
 
             return res;
         }
-            let res:any = Http.getInstance().post(`/cases/${context.case}/confirmchange`,data,isloading);
+            let res:any = Http.getInstance().put(`/cases/${context.case}/confirmchange`,data,isloading);
             return res;
     }
 

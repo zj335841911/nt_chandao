@@ -191,7 +191,7 @@ POST
 /cases/{case_id}/confirmchange
 
 #### 请求方法
-POST
+PUT
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -1387,7 +1387,7 @@ POST
 /products/{product_id}/cases/{case_id}/confirmchange
 
 #### 请求方法
-POST
+PUT
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -2638,7 +2638,7 @@ POST
 /stories/{story_id}/cases/{case_id}/confirmchange
 
 #### 请求方法
-POST
+PUT
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -3889,7 +3889,7 @@ POST
 /products/{product_id}/stories/{story_id}/cases/{case_id}/confirmchange
 
 #### 请求方法
-POST
+PUT
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
