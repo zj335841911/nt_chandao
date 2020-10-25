@@ -9923,9 +9923,7 @@ WHERE t1.DELETED = '0'
 select t1.* from (select t1.* from (SELECT
 	t1.`BRANCH`,
 	t1.`DELETED`,
-	t1.`GRADE`,
 	t1.`ID`,
-	( CASE WHEN EXISTS ( SELECT 1 FROM ZT_MODULE WHERE PARENT = t1.`ID` ) THEN FALSE ELSE TRUE END ) AS `ISLEAF`,
 	CONCAT(
 	'/',
 	(
@@ -9941,13 +9939,9 @@ GROUP BY
 	) 
 	) AS `NAME`,
 	t1.`ORDER`,
-	t1.`OWNER`,
 	t1.`PARENT`,
-	t21.`NAME` AS `PARENTNAME`,
 	t1.`PATH`,
 	t1.`ROOT`,
-	t11.`NAME` AS `ROOTNAME`,
-	t1.`SHORT`,
 	t1.`TYPE` 
 FROM
 	`zt_module` t1
@@ -9958,9 +9952,7 @@ FROM
 	select t1.* from (SELECT
 	t1.`BRANCH`,
 	t1.`DELETED`,
-	t1.`GRADE`,
 	t1.`ID`,
-	( CASE WHEN EXISTS ( SELECT 1 FROM ZT_MODULE WHERE PARENT = t1.`ID` ) THEN FALSE ELSE TRUE END ) AS `ISLEAF`,
 	CONCAT(
 	'/',
 	(
@@ -9976,20 +9968,16 @@ GROUP BY
 	) 
 	) AS `NAME`,
 	t1.`ORDER`,
-	t1.`OWNER`,
 	t1.`PARENT`,
-	t21.`NAME` AS `PARENTNAME`,
 	t1.`PATH`,
 	t1.`ROOT`,
-	t11.`NAME` AS `ROOTNAME`,
-	t1.`SHORT`,
 	t1.`TYPE` 
 FROM
 	`zt_module` t1
 	LEFT JOIN zt_product t11 ON t1.ROOT = t11.ID
 	LEFT JOIN zt_module t21 ON t1.PARENT = t21.ID
 	where t1.type = 'task' and t1.deleted = '0' order by t1.path asc) t1
-UNION
+	UNION
 	select 
 	0 as branch,
 	'0' as deleted,
@@ -10000,7 +9988,7 @@ UNION
   ',0,' as path,
  #{srf.webcontext.project} as root,
   'task' as type	
-) t1
+	) t1
 WHERE t1.DELETED = '0' 
 ( ( t1.`type` = 'task' and t1.`ROOT` = ${srfwebcontext('project','{"defname":"ROOT","dename":"IBZ_PROJECTMODULE"}')} )  or 
 (${srfwebcontext('allmodules','{"defname":"ROOT","dename":"IBZ_PROJECTMODULE"}')} = '1' and t1.`type` = 'story' and t1.`root` in (select product from zt_projectproduct where project =  ${srfwebcontext('project','{"defname":"ROOT","dename":"IBZ_PROJECTMODULE"}')}))  or (t1.`id` = ${srfwebcontext('module','{"defname":"ROOT","dename":"IBZ_PROJECTMODULE"}')})) 
