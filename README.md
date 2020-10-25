@@ -1,65 +1,43 @@
-# iBizPMS（iBiz软件生产管理）
-
-iBizPMS（iBiz Production Management System 软件生产管理）是iBiz对于软件生产管理的思考与探索所建立的项目，是iBiz软件生产体系的重要组成部分（管理模块）。它覆盖了软件生产从开始到结束，再到新的开始，往复循环，为软件生产提供有效的管理途径以及协调各阶段内、各阶段之间的信息与资源。它可以说是整个软件生产过程的“协调者”和“管理者”。
-
-iBizPMS参照并增强[禅道]( https://www.zentao.net/)的项目管理业务模型的基础上使用iBiz生产模式重新开发的一套软件生产管理工具，提供全新的界面风格、现代化软件架构（采取中台模式、SpringBoot+VUE前后台分离架构），增强/增加了服务化特性（微服务功能分解--不同功能交给更专业的系统/服务去完成、与其它系统功能协同）、定制化能力（流程定制、表单定制、界面定制等）、移动端办公（钉钉H5微应用、钉钉待办与消息等）。
-
-iBizPMS与iBiz生产运行系统群（统一用户、统一认证、统一工作流等）、商业套件系统群（OA、CRM、EAM、EHR等）进行连通，实现一体化软件生态系统。
+# iBiz企业项目管理（iBizPMS）
 
 ## 介绍
 
-一、思考
+iBiz企业项目管理（iBiz Production Management System，简称iBizPMS）是iBiz生态的重要组成部分，不仅提供了完整的项目管理功能，还增强了工作数据（过程数据与结果数据）的管理。iBizPMS与iBiz生产运行系统群（统一用户、统一认证、统一工作流等）、商业套件系统群（OA、CRM、EAM、EHR等）进行数据连通，实现一体化软件生态系统。当然，iBizPMS不仅只是支持与iBiz生态中的各个系统/服务，还支持与其它系统的数据连通（插件形式、接口形式等）。
 
-在日常软件开发的过程中，由于项目管理软件的出现，使得软件过程变得清晰，与此同时不可避免的是，引入之后就需要花费更多的时间与精力，导致实际使用时，对于一些团队而言显得有些鸡肋甚至是负担，便失去了它原本的立意。
+iBizPMS代码完全开源，支持系统功能、系统流程、界面表现的高度定制，以及支持以扩展与增强插件方式进行功能补充与升级，进而衍生出功能更为专注的轻应用（也可以称为微应用）。
 
-另外，传统的项目管理软件对于实际生产的过程性生产物（即开发的代码、展示效果、各阶段或者各小组之间的信息一致性等等）无法进行管理（并非单纯的关联），使得它对于真正使用者来说便有了距离感。
+iBizPMS使用了现代化软件架构，采取中台模式，前端技术使用Vue，后端技术使用Spring Boot/Cloud，界面提供了多种VSCode主题风格。
 
-二、探索
+iBizPMS重要特性：
 
-iBiz希望将软件生产管理与日常生产融为一体，即在生产过程中，自然而然地为管理提供有效的管理数据支持。
+- **微服务化**：系统本身更专注于项目管理功能，其它各个功能交给更专业的系统/服务去完成，做到真正意义上的协同办公。
+- **高度定制**：代码完全开源， 可以定制系统功能、系统流程、界面表现等。
+- **插件中心**：提供以插件方式对系统进行补充与升级，所有插件均提供在插件中心。
+- **应用中心**：基于iBizPMS服务，提供更专注于单项功能的轻应用，所有的轻应用提供在应用中心。
+- **移动办公**：支持app，同时也支持集成钉钉、企业微信等主流协同办公app的H5微应用以及待办消息推送。
+- **数据迁移**：支持从禅道、JIRA等类似管理系统中将数据迁移至iBizPMS，也支持excel、csv等方式的数据导入。
 
-iBiz以模型驱动开发，模型数据（需求数据、设计数据、开发数据、测试数据等等）存在于整个软件过程中，对于团队成员是公开透明且一致的，日常工作产生的数据已经存在于模型库里，这样便不需要成员腾出大部分时间进行软件管理数据的填写与汇报，也不会因为理解偏差没有及时发现而产生不必要返工（即时预览成果物）。
+## iBiz软件过程
 
-正是得益于iBiz生产体系理念，iBiz探索着逐步将希望变成可能、变成实现。
+![flow1](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/flow1_v3.png)
 
-三、开始
+## iBizPMS运行
 
-> If I have been able to see further, it was only because I stood on the shoulders of giants. 
->
-> --By Isaac Newton
+![flow3](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/flow3_v3.png)
 
-牛顿曾经说过：“站在巨人的肩膀上，你能看得更远！”。
+## iBizPMS生态
 
-市面上已经有很多很成熟的项目管理软件，例如国外的JIRA、国内的禅道等等。他们在项目管理上面有着丰富的经验以及见解，iBiz在结合自己软件生产理念（模型驱动）、自身开源理念、国人使用习惯等等方面的原因，决定以 禅道（开源版 ） 的为基础，结合各自企业或个人的生产体系，生产出一个更为完善的软件生产管理的软件，也就是iBizPMS。
-
-四、邀请
-
-iBizPMS是一个刚刚起步的项目，它与其它项目有所不同的是，它是一个管理软件，它可以用于自身管理自己的软件开发过程，所以我们决定将它的“诞生”过程一同共享出来，并且诚意邀请大家一起参与进来，同时也能为iBizPMS提供宝贵的建议与意见（如何快速建立[issue](#快速建立issue)？），共同让iBizPMS越来越贴近于大家所需。
-
-项目实时动态可参照[附录-里程碑](#里程碑)信息。
-
-## PMS流程
-
-![flow1](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/flow1_v2.png)
-
-## PMS与禅道
-
-![flow2](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/flow2_v3.png)
-
-## PMS运行
-
-![flow3](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/flow3_v2.png)
-
-## PMS生态
-
-![flow4](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/flow4_v3.png)
+![flow4](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/flow4_v4.png)
 
 ## 特性
 
 ### 项目管理功能
 
-- 参照禅道的项目管理模型重新开发，全面代码重写，数据库兼容
-- 增强禅道原有模型，扩展禅道数据库
+- 需求管理
+- 任务管理
+- Bug管理
+- 用例管理
+- 计划发布
 
 ### 移动办公
 
@@ -96,13 +74,67 @@ iBizPMS是一个刚刚起步的项目，它与其它项目有所不同的是，�
 - 代码定制：技术选型等
 - 业务定制：业务模型的扩展等
 
+### 插件中心
+
+- 提供以插件方式对系统进行补充与升级
+- iBiz提供的iBizPMS官方插件库
+- 用户开发的iBizPMS插件库
+
+### 应用中心
+
+- 基于iBizPMS服务，提供更专注于单项功能的轻应用
+- iBiz提供的iBizPMS官方应用库（例如iBizTODO）
+- 用户开发的iBizPMS应用库
+
 ### 采用主流框架技术
 
 - 后台：Spring Boot、Spring Cloud
 
 - 前端：Vue
 
+## 插件中心
+
+iBizPMS提供了插件内置接口（暂未开放），开发者便可以以插件方式对系统进行补充与升级。
+
+### 安装
+
+- 在线插件：iBizPMS运行时，可通过插件中心，下载并安装插件中心所开放的插件。
+
+- 本地插件：引入插件jar，通过pom的配置安装插件；也可以通过插件中心，导入本地插件。
+
+### 卸载
+
+- 在线插件：iBizPMS运行时，可通过插件中心，卸载已安装的插件。
+- 本地插件：移除相关pom配置，移除引入的插件jar；也可以通过插件中心，移除本地插件。
+
+### 官方插件
+
+暂未开放。
+
+## 应用中心
+
+基于iBizPMS服务，提供更专注于单项功能的轻应用。
+
+### 安装
+
+- 在线应用：iBizPMS运行时，可通过插件中心，下载并安装插件中心所开放的应用。
+
+- 本地应用：引入插件jar，通过pom的配置安装插件；也可以通过插件中心，导入本地应用。
+
+### 卸载
+
+- 在线应用：iBizPMS运行时，可通过插件中心，卸载已安装的应用。
+- 本地应用：移除相关pom配置，移除引入的插件jar；也可以通过插件中心，移除本地应用。
+
+### 官方应用
+
+| 应用     | 说明                                                         | 演示地址                                   |
+| -------- | ------------------------------------------------------------ | ------------------------------------------ |
+| iBizTODO | 基于iBizPMS服务打造出的Plus应用系统。<br>专注于轻量级任务管理，更高效地任务安排与相关进度管理。 | http://todo.ibizlab.cn/<br>ibzadmin/123456 |
+
 ## 技术框架
+
+iBizPMS使用了现代化软件架构，采取中台模式，前端技术使用Vue，后端技术使用Spring Boot/Cloud，界面提供了多种VSCode主题风格
 
 **后台技术架构**：[iBiz4j Spring R7](http://demo.ibizlab.cn/ibizr7sfstdtempl/ibiz4jr7)
 
@@ -164,9 +196,8 @@ iBizPMS是一个刚刚起步的项目，它与其它项目有所不同的是，�
 
 ## 开发环境
 
-- [禅道 12.3.1]( https://www.zentao.net/download/zentaopms12.3.1-80220.html ) （开源版）：版本尽量保持一致，避免数据结构以及功能上存在差异
-
 - JDK
+
 - Maven
 - Node.js
 - Yarn
@@ -364,23 +395,9 @@ iBizPMS是一个刚刚起步的项目，它与其它项目有所不同的是，�
 >
 > **系统文档与相关手册也在逐步完善中。**
 
-### 基于PMS的轻应用
+### 即将到来
 
-#### iBizTODO
-
-基于iBizPMS服务打造出的Plus应用系统，专注于轻量级任务管理，更高效地任务安排与相关进度管理。
-
-演示Demo地址： http://todo.ibizlab.cn/ 
-
-账号密码： ibzadmin/123456 
-
-![comingsoon1](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/comingsoon1.png)
-
-![comingsoon2](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/comingsoon2.png)
-
-![comingsoon3](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/comingsoon3.png)
-
-![comingsoon4](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/comingsoon4.png)
+- 插件式开发模式：iBizPMS未来会提供插件内置接口，开发者便可以以插件方式对系统进行补充与升级。
 
 ### 快速建立issue
 
