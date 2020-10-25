@@ -91,21 +91,20 @@
 <i-col class="form-layout-container" v-show="detailsModel.po.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 21, offset: 0 }">
     <app-form-item name='po' :itemRules="this.rules().po" class='' :caption="$t('entities.product.main_form.details.po')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.po.error" :isEmptyCaption="false" labelPos="LEFT">
     
-<app-group-select
-  name="po"
-  :value='data.po'
-  valueitem=""
-  url="/sysorganizations/${selected-orgid}/sysemployees/picker"
-  
-  :multiple="false"
-  filter="srforgid"
-  :fillmap="{'id':'','label':'po'}"
-  :disabled="detailsModel.po.disabled"
-  :data="data"
-  :context="context"
-  @formitemvaluechange="onFormItemValueChange.apply(_self, arguments)">
-</app-group-select>
-
+<dropdown-list 
+    v-model="data.po"
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.po.disabled"
+    valueType="string"
+    tag='UserRealName'
+    codelistType='DYNAMIC'
+    placeholder='请选择...'
+    
+/>
 </app-form-item>
 
 </i-col>
