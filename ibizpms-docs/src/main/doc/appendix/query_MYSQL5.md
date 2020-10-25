@@ -12089,7 +12089,7 @@ LEFT JOIN zt_product t31 ON t1.PRODUCT = t31.ID
 LEFT JOIN zt_branch t41 ON t1.BRANCH = t41.ID
 WHERE t1.DELETED = '0' 
 (t1.`id` in (select tt.`story` from zt_projectstory tt where tt.`project` = ${srfdatacontext('project','{"defname":"ID","dename":"ZT_RELEASE"}')}) or ${srfdatacontext('project','{"defname":"ID","dename":"ZT_RELEASE"}')} is null) 
-(t1.module = ${srfdatacontext('module ','{"defname":"ID","dename":"ZT_RELEASE"}')} or ${srfdatacontext('module ','{"defname":"ID","dename":"ZT_RELEASE"}')}  = '0' or ${srfdatacontext('module ','{"defname":"ID","dename":"ZT_RELEASE"}')} is null) 
+(t1.module = #{srf.datacontext.module} or #{srf.datacontext.module}  = '0' or #{srf.datacontext.module} is null) 
 
 ```
 ### 默认（全部数据）(VIEW)<div id="Story_View"></div>
