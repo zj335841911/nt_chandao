@@ -183,6 +183,9 @@ export default class MainDashboardModel {
       {
         name: 'isfavorites',
       },
+      {
+        name: 'modulename1',
+      },
     ]
   }
 

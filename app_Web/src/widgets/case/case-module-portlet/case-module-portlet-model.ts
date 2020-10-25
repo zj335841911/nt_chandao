@@ -183,6 +183,9 @@ export default class CaseModuleModel {
       {
         name: 'isfavorites',
       },
+      {
+        name: 'modulename1',
+      },
     ]
   }
 

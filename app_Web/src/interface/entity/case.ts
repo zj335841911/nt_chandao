@@ -453,4 +453,12 @@ export interface Case {
      * @memberof Case
      */
     isfavorites?: any;
+
+    /**
+     * 模块名称
+     *
+     * @returns {*}
+     * @memberof Case
+     */
+    modulename1?: any;
 }

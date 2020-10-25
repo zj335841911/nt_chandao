@@ -80,6 +80,7 @@ hide members
 |用例库|LIBNAME|PICKUPTEXT|&nbsp;|
 |测试用例结果|LASTRUNRESULT1|SSCODELIST|&nbsp;|
 |是否收藏|ISFAVORITES|TEXT|&nbsp;|
+|模块名称|MODULENAME1|TEXT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -140,6 +141,7 @@ hide members
 |用例库|默认规则|内容长度必须小于等于[255]|
 |测试用例结果|默认规则|内容长度必须小于等于[200]|
 |是否收藏|默认规则|内容长度必须小于等于[200]|
+|模块名称|默认规则|内容长度必须小于等于[200]|
 
 ## 状态控制
 

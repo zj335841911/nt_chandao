@@ -3305,6 +3305,19 @@
     "data_length":200,
     "key_field":0,
     "major_field":0
+    },
+    {
+    "fieldname":"MODULENAME1" ,
+    "codename":"Modulename1",
+    "field_logic_name":"模块名称",
+    "entity_name":"Case",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":200,
+    "key_field":0,
+    "major_field":0
     }
     ],
     "subEntitys":[

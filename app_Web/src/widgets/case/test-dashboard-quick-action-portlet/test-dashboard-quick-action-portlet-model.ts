@@ -183,6 +183,9 @@ export default class TestDashboardQuickActionModel {
       {
         name: 'isfavorites',
       },
+      {
+        name: 'modulename1',
+      },
     ]
   }
 

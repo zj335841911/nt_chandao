@@ -183,6 +183,9 @@ export default class CaseLastrunnerModel {
       {
         name: 'isfavorites',
       },
+      {
+        name: 'modulename1',
+      },
     ]
   }
 

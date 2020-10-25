@@ -183,6 +183,9 @@ export default class DashboardQuickActionModel {
       {
         name: 'isfavorites',
       },
+      {
+        name: 'modulename1',
+      },
     ]
   }
 

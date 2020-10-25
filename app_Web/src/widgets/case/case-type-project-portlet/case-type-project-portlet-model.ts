@@ -183,6 +183,9 @@ export default class CaseTypeProjectModel {
       {
         name: 'isfavorites',
       },
+      {
+        name: 'modulename1',
+      },
     ]
   }
 

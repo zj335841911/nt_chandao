@@ -6405,6 +6405,7 @@ CREATE TABLE `zt_build`(
 | BRANCH        | 平台/分支  |       |   8   | &nbsp; |
 | LASTRUNNER        | 执行人  | VARCHAR      |   30   | &nbsp; |
 | FROMCASEVERSION        | 来源用例版本  | INTEGER      |   8   | &nbsp; |
+| MODULENAME1        | 模块名称  | VARCHAR      |   200   | &nbsp; |
 | PRODUCT        | 所属产品  |       |   8   | &nbsp; |
 | RESULTFALICNT        | 测试失败数  | INTEGER      |   -1   | &nbsp; |
 | MODULENAME        | 模块名称  | VARCHAR      |   60   | &nbsp; |

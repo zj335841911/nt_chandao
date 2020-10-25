@@ -56,6 +56,7 @@ export default {
     libname: "用例库",
     lastrunresult1: "测试用例结果",
     isfavorites: "是否收藏",
+    modulename1: "模块名称",
   },
 	views: {
 		editview: {
@@ -406,6 +407,7 @@ export default {
 			productname: "产品名称", 
 			module: "所属模块", 
 			modulename: "模块名称", 
+			modulename1: "模块名称", 
 			type: "用例类型", 
 			stage: "适用阶段", 
 			pri: "优先级", 

@@ -183,6 +183,9 @@ export default class MainDetailModel {
       {
         name: 'isfavorites',
       },
+      {
+        name: 'modulename1',
+      },
     ]
   }
 
