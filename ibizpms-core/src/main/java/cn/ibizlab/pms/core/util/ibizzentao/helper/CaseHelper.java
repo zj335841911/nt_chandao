@@ -237,7 +237,8 @@ public class CaseHelper extends ZTBaseHelper<CaseMapper, Case> {
         TestRun testRun = new TestRun();
         testRun.setVersion(cas.getVersion());
         Map<String,Object> param = new HashMap<>();
-        param.put("case",cas.getId());
+        param.put("`case`",cas.getId());
+        param.put("task", et.getTask());
         testRunHelper.update(testRun,(Wrapper) testRun.getUpdateWrapper(true).allEq(param));
         // throw new RuntimeException("未实现");
         return et;

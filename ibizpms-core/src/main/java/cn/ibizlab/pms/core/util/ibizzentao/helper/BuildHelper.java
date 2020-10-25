@@ -13,7 +13,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 @Component
 public class BuildHelper extends ZTBaseHelper<BuildMapper, Build> {
@@ -54,10 +56,24 @@ public class BuildHelper extends ZTBaseHelper<BuildMapper, Build> {
 
     @Transactional
     public Build linkStory(Build et) {
-        Build build = get(et.getId());
-        if (et.get("stories") == null)
+
+        if (et.getId() == null)
             return et;
-        for (String storyId : et.get("stories").toString().split(",")) {
+        Build build = get(et.getId());
+        String stories = "";
+        if(et.getStories() != null && !"".equals(et.getStories()))
+            stories = et.getStories();
+        else if(et.get("srfactionparam") != null) {
+            ArrayList<Map> list = (ArrayList) et.get("srfactionparam");
+            for (Map data : list) {
+                if (stories.length() > 0)
+                    stories += ",";
+                stories += data.get("id");
+            }
+        }
+        if("".equals(stories))
+            return et;
+        for (String storyId : stories.split(",")) {
             if (StringUtils.isBlank(build.getStories())) {
                 build.setStories(storyId);
                 internalUpdate(build);

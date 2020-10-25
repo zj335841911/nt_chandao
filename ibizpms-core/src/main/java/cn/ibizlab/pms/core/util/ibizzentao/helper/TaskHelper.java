@@ -68,6 +68,10 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         if(et.getStory() != null && et.getStory() != 0l) {
             et.setStoryversion(storyHelper.get(et.getStory()).getVersion());
         }
+        if(et.getAssignedto() != null && !"".equals(et.getAssignedto()))
+            et.setAssigneddate(ZTDateUtil.now());
+        else
+            et.setAssigneddate(new Timestamp(-28800000l));
         bOk = super.create(et);
         fileHelper.updateObjectID(et.getId(), null, null);
 
