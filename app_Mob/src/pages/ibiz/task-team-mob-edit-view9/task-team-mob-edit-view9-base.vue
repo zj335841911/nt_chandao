@@ -350,7 +350,7 @@ export default class TaskTeamMobEditView9Base extends Vue {
         this.parseViewParam();
         this.setViewTitleStatus();
         if (this.panelState) {
-            this.panelState.subscribe((res: any) => {
+            this.panelStateEvent.subscribe((res: any) => {
                 if (Object.is(res.tag, 'meditviewpanel')) {
                     if (Object.is(res.action, 'save')) {
                         this.viewState.next({ tag: 'form', action: 'save', data: res.data });
@@ -438,8 +438,8 @@ export default class TaskTeamMobEditView9Base extends Vue {
      * @memberof TaskTeamMobEditView9Base
      */
     protected afterDestroyed(){
-        if (this.panelState) {
-            this.panelState.unsubscribe();
+        if (this.panelStateEvent) {
+            this.panelStateEvent.unsubscribe();
         }
 
     }
@@ -588,12 +588,20 @@ export default class TaskTeamMobEditView9Base extends Vue {
 
 
     /**
-     * 面板定于对象
+     * 面板通知对象
      *
      * @type {Subject<ViewState>}
      * @memberof TaskTeamMobEditView9Base
      */
     @Prop() public panelState ?:Subject<ViewState>;
+
+    /**
+     * 面板订阅对象
+     *
+     * @type {Subject<ViewState>}
+     * @memberof TaskTeamMobEditView9Base
+     */
+    public panelStateEvent: Subscription | undefined;
 
 
 }
