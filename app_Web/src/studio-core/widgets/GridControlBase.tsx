@@ -1207,7 +1207,11 @@ export class GridControlBase extends MDControlBase {
             const curColumn:any = this.allColumns.find((item:any) =>{
                 return item.name === name;
             })
-            return data.srfuf == 1 ? (curColumn.enableCond & 2) !== 2 : (curColumn.enableCond & 1) !== 1
+            if(curColumn.hasOwnProperty('enableCond')){
+                return data.srfuf == 1 ? (curColumn.enableCond & 2) !== 2 : (curColumn.enableCond & 1) !== 1
+            }else{
+                return false;
+            }
         }
     }
 
