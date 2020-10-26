@@ -89,30 +89,6 @@
 
 
 
-<app-form-item 
-    name='oldtitle' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="oldtitle_item"  
-    :itemValue="this.data.oldtitle" 
-    v-show="detailsModel.oldtitle.visible" 
-    :itemRules="this.rules.oldtitle" 
-    :caption="$t('productplan.mobmaintable_form.details.oldtitle')"  
-    :labelWidth="10"  
-    :isShowCaption="true"
-    :disabled="detailsModel.oldtitle.disabled"
-    :error="detailsModel.oldtitle.error" 
-    :isEmptyCaption="true">
-        <app-mob-span  
-        v-if="data.oldtitle" 
-    :context="context" 
-    :value="data.oldtitle" 
-    :itemParam="{}"/>
-</app-form-item>
-
-
-
 <app-form-group 
     class='' 
     layoutType='TABLE_24COL' 
@@ -128,6 +104,36 @@
     :uiService="deUIService"
     @groupuiactionclick="groupUIActionClick($event)">
     
+<app-form-item 
+    name='future' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="future_item"  
+    :itemValue="this.data.future" 
+    v-show="detailsModel.future.visible" 
+    :itemRules="this.rules.future" 
+    :caption="$t('productplan.mobmaintable_form.details.future')"  
+    :labelWidth="100"  
+    :isShowCaption="true"
+    :disabled="detailsModel.future.disabled"
+    :error="detailsModel.future.error" 
+    :isEmptyCaption="false">
+        <app-mob-check-list 
+    type="static"  
+    tag="Date_disable"
+    :disabled="detailsModel.future.disabled" 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :value="data.future"   
+    :navigateContext ='{ } '
+    :navigateParam ='{ } '
+    @change="($event)=>this.data.future = $event"/>
+</app-form-item>
+
+
+
 <app-form-item 
     name='begin' 
     class='' 
@@ -154,25 +160,32 @@
 
 
 <app-form-item 
-    name='future' 
+    name='delta' 
     class='' 
     uiStyle="DEFAULT"  
     labelPos="LEFT" 
-    ref="future_item"  
-    :itemValue="this.data.future" 
-    v-show="detailsModel.future.visible" 
-    :itemRules="this.rules.future" 
-    :caption="$t('productplan.mobmaintable_form.details.future')"  
+    ref="delta_item"  
+    :itemValue="this.data.delta" 
+    v-show="detailsModel.delta.visible" 
+    :itemRules="this.rules.delta" 
+    :caption="$t('productplan.mobmaintable_form.details.delta')"  
     :labelWidth="100"  
     :isShowCaption="true"
-    :disabled="detailsModel.future.disabled"
-    :error="detailsModel.future.error" 
+    :disabled="detailsModel.delta.disabled"
+    :error="detailsModel.delta.error" 
     :isEmptyCaption="false">
-        <app-mob-switch 
-    class="app-form-item-switch" 
-    :value="data.future"  
-    :disabled="detailsModel.future.disabled"
-    @change="($event)=>this.data.future = $event" />
+        <app-mob-select 
+    tag="Zt__delta"
+    codeListType="STATIC" 
+    :isCache="false" 
+    :disabled="detailsModel.delta.disabled" 
+    :data="data" 
+    :context="context" 
+    :viewparams="viewparams"
+    :value="data.delta"  
+    :navigateContext ='{ } '
+    :navigateParam ='{ } '
+    @change="($event)=>this.data.delta = $event" />
 </app-form-item>
 
 
@@ -198,32 +211,6 @@
     :value="data.end" 
     :disabled="detailsModel.end.disabled"
     @change="($event)=>this.data.end = $event"/>
-</app-form-item>
-
-
-
-<app-form-item 
-    name='delta' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="delta_item"  
-    :itemValue="this.data.delta" 
-    v-show="detailsModel.delta.visible" 
-    :itemRules="this.rules.delta" 
-    :caption="$t('productplan.mobmaintable_form.details.delta')"  
-    :labelWidth="16"  
-    :isShowCaption="true"
-    :disabled="detailsModel.delta.disabled"
-    :error="detailsModel.delta.error" 
-    :isEmptyCaption="true">
-        <app-mob-radio-list 
-    style="width: 100%;" 
-        type="static" 
-    tag="Zt__delta"
-    :value="data.delta"  
-    :disabled="detailsModel.delta.disabled" 
-    @change="($event)=>this.data.delta = $event"/>
 </app-form-item>
 
 
@@ -581,10 +568,10 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
         branch: null,
         title: null,
         oldtitle: null,
-        begin: null,
         future: null,
-        end: null,
+        begin: null,
         delta: null,
+        end: null,
         desc: null,
         id: null,
         productplan: null,
@@ -752,13 +739,13 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
 , 
         oldtitle: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'oldtitle', visible: false, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        begin: new FormItemModel({ caption: '开始日期', detailType: 'FORMITEM', name: 'begin', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
         future: new FormItemModel({ caption: '待定', detailType: 'FORMITEM', name: 'future', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        end: new FormItemModel({ caption: '结束日期', detailType: 'FORMITEM', name: 'end', visible: false, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        begin: new FormItemModel({ caption: '开始日期', detailType: 'FORMITEM', name: 'begin', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        delta: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'delta', visible: false, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        delta: new FormItemModel({ caption: '周期', detailType: 'FORMITEM', name: 'delta', visible: false, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        end: new FormItemModel({ caption: '结束日期', detailType: 'FORMITEM', name: 'end', visible: false, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         desc: new FormItemModel({ caption: '描述', detailType: 'FORMITEM', name: 'desc', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -899,18 +886,6 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
     }
 
     /**
-     * 监控表单属性 begin 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobMainTable
-     */
-    @Watch('data.begin')
-    onBeginChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'begin', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
      * 监控表单属性 future 值
      *
      * @param {*} newVal
@@ -923,15 +898,15 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
     }
 
     /**
-     * 监控表单属性 end 值
+     * 监控表单属性 begin 值
      *
      * @param {*} newVal
      * @param {*} oldVal
      * @memberof MobMainTable
      */
-    @Watch('data.end')
-    onEndChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'end', newVal: newVal, oldVal: oldVal });
+    @Watch('data.begin')
+    onBeginChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'begin', newVal: newVal, oldVal: oldVal });
     }
 
     /**
@@ -944,6 +919,18 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
     @Watch('data.delta')
     onDeltaChange(newVal: any, oldVal: any) {
         this.formDataChange({ name: 'delta', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 end 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMainTable
+     */
+    @Watch('data.end')
+    onEndChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'end', newVal: newVal, oldVal: oldVal });
     }
 
     /**
@@ -980,10 +967,10 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
      */
     private resetFormData({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
         if (Object.is(name, 'future')) {
-            this.onFormItemValueChange({ name: 'end', value: null });
+            this.onFormItemValueChange({ name: 'delta', value: null });
         }
         if (Object.is(name, 'future')) {
-            this.onFormItemValueChange({ name: 'delta', value: null });
+            this.onFormItemValueChange({ name: 'end', value: null });
         }
     }
 
@@ -1036,14 +1023,13 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
         }
 
 
-
         if (Object.is(name, '') || Object.is(name, 'future')) {
             let ret = false;
             const _future = this.data.future;
-            if (this.$verify.testCond(_future, 'ISNULL', '')) {
+            if (this.$verify.testCond(_future, 'EQ', 'on')) {
                 ret = true;
             }
-            this.detailsModel.end.setVisible(ret);
+            this.detailsModel.begin.setDisabled(!ret);
         }
 
         if (Object.is(name, '') || Object.is(name, 'future')) {
@@ -1055,8 +1041,24 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
             this.detailsModel.delta.setVisible(ret);
         }
 
+        if (Object.is(name, '') || Object.is(name, 'future')) {
+            let ret = false;
+            const _future = this.data.future;
+            if (this.$verify.testCond(_future, 'ISNULL', '')) {
+                ret = true;
+            }
+            this.detailsModel.end.setVisible(ret);
+        }
 
 
+
+
+        if (Object.is(name, 'begin')) {
+            const details: string[] = ['end'];
+            if(await this.validItem('begin', this.data['begin'])){
+                this.updateFormItems('GetPlanEnd', this.data, details, true);
+            }
+        }
 
         if (Object.is(name, 'delta')) {
             const details: string[] = ['end'];

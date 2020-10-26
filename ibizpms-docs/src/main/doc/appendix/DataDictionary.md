@@ -356,6 +356,18 @@
 |iBiz需求模块|iBizReqModule|&nbsp;|
 <center>表 需求模块类型</center>
 
+## 测试单快速分组（移动端）
+
+| 数据项        |    数据值   |  备注  |
+| --------   |------------| --------- | 
+|全部|ALL|&nbsp;|
+|待测测试单|ICREATE|&nbsp;|
+|测试中测试单|IREVIEW|&nbsp;|
+|更多|MORE|&nbsp;|
+|被阻塞测试单|ICLOSE|&nbsp;|
+|已测测试单|Tested|&nbsp;|
+<center>表 测试单快速分组（移动端）</center>
+
 ## 不需要评审（新建）
 
 | 数据项        |    数据值   |  备注  |
