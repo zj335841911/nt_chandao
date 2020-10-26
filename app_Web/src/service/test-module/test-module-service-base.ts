@@ -234,10 +234,13 @@ export default class TestModuleServiceBase extends EntityService {
      */
     public async RemoveModule(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.testmodule){
-            let res:any = Http.getInstance().delete(`/products/${context.product}/testmodules/${context.testmodule}/removemodule`,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().delete(`/products/${context.product}/testmodules/${context.testmodule}/removemodule`,data,isloading);
+            
             return res;
         }
-            let res:any = Http.getInstance().delete(`/testmodules/${context.testmodule}/removemodule`,isloading);
+            let res:any = Http.getInstance().delete(`/testmodules/${context.testmodule}/removemodule`,data,isloading);
             return res;
     }
 
