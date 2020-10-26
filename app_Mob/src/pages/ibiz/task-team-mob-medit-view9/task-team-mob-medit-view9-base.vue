@@ -262,7 +262,7 @@ export default class TaskTeamMobMEditView9Base extends Vue {
      * @memberof TaskTeamMobMEditView9Base
      */
     protected parseViewParam(): void {
-        const { context, param } = this.$viewTool.formatNavigateViewParam(this, true);
+        const { context, param } = this.$viewTool.formatNavigateViewParam(this, false);
         this.context = { ...context };
         this.viewparams = { ...param }
     }
