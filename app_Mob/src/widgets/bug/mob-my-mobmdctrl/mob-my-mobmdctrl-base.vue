@@ -25,7 +25,7 @@
                     </ion-item-sliding>
                 </template>
             </ion-list>
-            <ion-list class="items" ref="ionlist">
+            <ion-list class="items" ref="ionlist" @touchmove="gotouchmove" @touchstart="gotouchstart"  @touchend="gotouchend">
                 <template v-if="(viewType == 'DEMOBMDVIEW') && controlStyle != 'SWIPERVIEW' ">
                     <div class="selectall">
                         <ion-checkbox :checked="selectAllIschecked"  v-show="showCheack"  @ionChange="checkboxAll"></ion-checkbox>
@@ -931,10 +931,10 @@ export default class Mob_MyBase extends Vue implements ControlInterface {
      */
     public onPress(){
         let _this = this;
-        window.addEventListener('contextmenu',(e:any)=>{
-            _this.onCheackChange();
-            e.preventDefault();
-        });
+        // window.addEventListener('contextmenu',(e:any)=>{
+        //    _this.onCheackChange();
+        //    e.preventDefault();
+        // });
     }
 
     /**
@@ -1461,6 +1461,53 @@ export default class Mob_MyBase extends Vue implements ControlInterface {
         }
       }
     }
+
+    /**
+     * 长按定时器
+     *
+     * @memberof Mob_MyBase
+     */
+    public timeOutEvent :number = 0;
+
+    /**
+     * 开始长按
+     *
+     * @memberof Mob_MyBase
+     */
+    public gotouchstart(){
+        let _this = this;
+        clearTimeout(this.timeOutEvent); //清除定时器
+        this.timeOutEvent = 0;
+        this.timeOutEvent = setTimeout(() => {
+            if(_this.timeOutEvent > 0){
+                _this.showCheack = !_this.showCheack;
+            }
+            console.log(this.timeOutEvent);
+            this.timeOutEvent = 0
+        }, 2000); //这里设置定时
+    }
+
+    /**
+     * touchmove
+     *  如果手指有移动，则取消所有事件，此时说明用户只是要移动而不是长按
+     *
+     * @memberof Mob_MyBase
+     */
+    public gotouchmove() {
+        clearTimeout(this.timeOutEvent); //清除定时器
+        this.timeOutEvent = 0;
+    }
+
+    /**
+     * touchend
+     * 结束长按
+     *
+     * @memberof Mob_MyBase
+     */
+    public gotouchend() {
+        this.timeOutEvent = 0;
+    }
+
 }
 </script>
 

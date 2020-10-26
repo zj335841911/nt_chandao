@@ -1,13 +1,18 @@
 <template>
     <div  class="app-mob-mdctrl product-mdctrl ">
         <div class="app-mob-mdctrl-mdctrl" ref="mdctrl">
-                <ion-list class="items" ref="ionlist">
+                <ion-list class="items" ref="ionlist" @touchstart="gotouchstart"  @touchend="gotouchend">
+                    <div class="selectall">
+                        <ion-checkbox :checked="selectAllIschecked"  v-show="showCheack"  @ionChange="checkboxAll"></ion-checkbox>
+                        <ion-label class="selectal-label" v-show="showCheack">全选</ion-label>
+                    </div>
                   <template v-if="(viewType == 'DEMOBMDVIEW9') && controlStyle != 'SWIPERVIEW' ">
+                      <ion-checkbox slot="start" :checked="item.checked" v-show="showCheack" @click.stop="checkboxSelect(item)"></ion-checkbox>
                       <app-list-index-text :item="item" :index="item.id" @clickItem="item_click"></app-list-index-text>
                       <ion-button v-if="!isTempMode && !allLoaded && needLoadMore" class="loadmore_btn"   @click="loadBottom">{{$t('app.button.loadmore')}}</ion-button>
                   </template>
                 </ion-list>
-                <ion-list class="items" ref="ionlist">
+                <ion-list class="items" ref="ionlist" @touchmove="gotouchmove" @touchstart="gotouchstart"  @touchend="gotouchend">
                   <ion-item-sliding  :ref="item.srfkey" v-for="item in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
                             <ion-item-option v-show="item.EditMob.visabled" :disabled="item.EditMob.disabled" color="primary" @click="mdctrl_click($event, 'u89c41af', item)"><ion-icon v-if="item.EditMob.icon && item.EditMob.isShowIcon" :name="item.EditMob.icon"></ion-icon><ion-label v-if="item.EditMob.isShowCaption">详情</ion-label></ion-item-option>
@@ -874,10 +879,10 @@ export default class MobBase extends Vue implements ControlInterface {
      */
     public onPress(){
         let _this = this;
-        window.addEventListener('contextmenu',(e:any)=>{
-            _this.onCheackChange();
-            e.preventDefault();
-        });
+        // window.addEventListener('contextmenu',(e:any)=>{
+        //    _this.onCheackChange();
+        //    e.preventDefault();
+        // });
     }
 
     /**
@@ -1400,6 +1405,53 @@ export default class MobBase extends Vue implements ControlInterface {
         }
       }
     }
+
+    /**
+     * 长按定时器
+     *
+     * @memberof MobBase
+     */
+    public timeOutEvent :number = 0;
+
+    /**
+     * 开始长按
+     *
+     * @memberof MobBase
+     */
+    public gotouchstart(){
+        let _this = this;
+        clearTimeout(this.timeOutEvent); //清除定时器
+        this.timeOutEvent = 0;
+        this.timeOutEvent = setTimeout(() => {
+            if(_this.timeOutEvent > 0){
+                _this.showCheack = !_this.showCheack;
+            }
+            console.log(this.timeOutEvent);
+            this.timeOutEvent = 0
+        }, 2000); //这里设置定时
+    }
+
+    /**
+     * touchmove
+     *  如果手指有移动，则取消所有事件，此时说明用户只是要移动而不是长按
+     *
+     * @memberof MobBase
+     */
+    public gotouchmove() {
+        clearTimeout(this.timeOutEvent); //清除定时器
+        this.timeOutEvent = 0;
+    }
+
+    /**
+     * touchend
+     * 结束长按
+     *
+     * @memberof MobBase
+     */
+    public gotouchend() {
+        this.timeOutEvent = 0;
+    }
+
 }
 </script>
 
