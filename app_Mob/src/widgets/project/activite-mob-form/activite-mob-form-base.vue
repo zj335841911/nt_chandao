@@ -32,8 +32,12 @@
     :disabled="detailsModel.begin.disabled"
     :error="detailsModel.begin.error" 
     :isEmptyCaption="false">
-        !!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 6, column 6:
-#if is an existing directive, but the tag is malformed.  (See FreeMarker Manual / Directive Reference.)
+        <app-mob-datetime-picker 
+    class="app-form-item-datetime" 
+    :value="data.begin" 
+    displayFormat="YYYY-MM-DD HH:mm:ss"
+    :disabled="detailsModel.begin.disabled"
+    @change="($event)=>this.data.begin = $event"/>
 </app-form-item>
 
 
@@ -53,8 +57,12 @@
     :disabled="detailsModel.end.disabled"
     :error="detailsModel.end.error" 
     :isEmptyCaption="false">
-        !!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 6, column 6:
-#if is an existing directive, but the tag is malformed.  (See FreeMarker Manual / Directive Reference.)
+        <app-mob-datetime-picker 
+    class="app-form-item-datetime" 
+    :value="data.end" 
+    displayFormat="YYYY-MM-DD HH:mm:ss"
+    :disabled="detailsModel.end.disabled"
+    @change="($event)=>this.data.end = $event"/>
 </app-form-item>
 
 
