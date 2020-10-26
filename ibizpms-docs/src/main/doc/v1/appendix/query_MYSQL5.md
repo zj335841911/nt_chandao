@@ -451,7 +451,7 @@ SELECT
 	t1.`TOTASK`,
 	t1.`TYPE`,
 	t1.`V1`,
-	t1.`V2`,
+	case when t1.`status` = 'resolved' then '10' else '20' end as V2,
 	( CASE WHEN t1.DEADLINE = '0000-00-00' THEN 0 ELSE datediff( t1.deadline, now( ) ) END ) AS overduebugs 
 FROM
 	`zt_bug` t1
