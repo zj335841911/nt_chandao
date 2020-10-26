@@ -133,6 +133,7 @@ export class SubStoryNewGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: true,
+            enableCond: 3 ,
         },
         {
             name: 'plan',
@@ -141,6 +142,7 @@ export class SubStoryNewGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: true,
+            enableCond: 3 ,
         },
         {
             name: 'title',
@@ -149,6 +151,7 @@ export class SubStoryNewGridBase extends GridControlBase {
             show: true,
             unit: 'STAR',
             isEnableRowEdit: true,
+            enableCond: 3 ,
         },
         {
             name: 'spec',
@@ -157,6 +160,7 @@ export class SubStoryNewGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: true,
+            enableCond: 3 ,
         },
         {
             name: 'pri',
@@ -165,6 +169,7 @@ export class SubStoryNewGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: true,
+            enableCond: 3 ,
         },
         {
             name: 'estimate',
@@ -173,6 +178,7 @@ export class SubStoryNewGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: true,
+            enableCond: 3 ,
         },
         {
             name: 'neednotreview',
@@ -181,6 +187,7 @@ export class SubStoryNewGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: true,
+            enableCond: 3 ,
         },
         {
             name: 'product',
@@ -189,6 +196,7 @@ export class SubStoryNewGridBase extends GridControlBase {
             show: false,
             unit: 'PX',
             isEnableRowEdit: true,
+            enableCond: 3 ,
         },
         {
             name: 'parent',
@@ -197,6 +205,7 @@ export class SubStoryNewGridBase extends GridControlBase {
             show: false,
             unit: 'PX',
             isEnableRowEdit: true,
+            enableCond: 3 ,
         },
     ]
 

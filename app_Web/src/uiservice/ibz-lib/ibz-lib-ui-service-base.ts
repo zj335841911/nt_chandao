@@ -89,11 +89,24 @@ export default class IbzLibUIServiceBase extends UIService {
      * @memberof  IbzLibUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set(':',{viewname:'editview9',srfappde:'ibzlibs',component:'ibz-lib-edit-view9'});
-        this.allViewMap.set(':',{viewname:'openlibview',srfappde:'ibzlibs',component:'ibz-lib-open-lib-view'});
-        this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'ibzlibs',component:'ibz-lib-edit-view'});
-        this.allViewMap.set('MDATAVIEW:',{viewname:'gridview',srfappde:'ibzlibs',component:'ibz-lib-grid-view'});
-        this.allViewMap.set(':',{viewname:'tabexpview',srfappde:'ibzlibs',component:'ibz-lib-tab-exp-view'});
+        this.allViewMap.set('EDITVIEW:', {
+            viewname: 'editview',
+            srfappde: 'ibzlibs',
+            component: 'ibz-lib-edit-view',
+            openmode: 'DRAWER_LEFT',
+            title: '用例库',
+            width: 0,
+            height: 0
+        });
+        this.allViewMap.set('MDATAVIEW:', {
+            viewname: 'gridview',
+            srfappde: 'ibzlibs',
+            component: 'ibz-lib-grid-view',
+            openmode: '',
+            title: '用例库',
+            width: 0,
+            height: 0
+        });
     }
 
     /**

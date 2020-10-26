@@ -89,18 +89,24 @@ export default class TodoUIServiceBase extends UIService {
      * @memberof  TodoUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set(':',{viewname:'baseeditview9',srfappde:'todos',component:'todo-base-edit-view9'});
-        this.allViewMap.set(':',{viewname:'dashboardview_link',srfappde:'todos',component:'todo-dashboard-view-link'});
-        this.allViewMap.set(':',{viewname:'assigntoview',srfappde:'todos',component:'todo-assign-to-view'});
-        this.allViewMap.set(':',{viewname:'closeview',srfappde:'todos',component:'todo-close-view'});
-        this.allViewMap.set(':',{viewname:'desceditview9',srfappde:'todos',component:'todo-desc-edit-view9'});
-        this.allViewMap.set(':',{viewname:'finishview',srfappde:'todos',component:'todo-finish-view'});
-        this.allViewMap.set(':',{viewname:'todocreateview',srfappde:'todos',component:'todo-todo-create-view'});
-        this.allViewMap.set('MDATAVIEW:',{viewname:'gridview',srfappde:'todos',component:'todo-grid-view'});
-        this.allViewMap.set(':',{viewname:'gridview9',srfappde:'todos',component:'todo-grid-view9'});
-        this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'todos',component:'todo-edit-view'});
-        this.allViewMap.set(':',{viewname:'dashboardview',srfappde:'todos',component:'todo-dashboard-view'});
-        this.allViewMap.set(':',{viewname:'activiteview',srfappde:'todos',component:'todo-activite-view'});
+        this.allViewMap.set('MDATAVIEW:', {
+            viewname: 'gridview',
+            srfappde: 'todos',
+            component: 'todo-grid-view',
+            openmode: 'POPUPMODAL',
+            title: '待办事宜表',
+            width: 0,
+            height: 0
+        });
+        this.allViewMap.set('EDITVIEW:', {
+            viewname: 'editview',
+            srfappde: 'todos',
+            component: 'todo-edit-view',
+            openmode: 'DRAWER_RIGHT',
+            title: '待办事宜表',
+            width: 0,
+            height: 0
+        });
     }
 
     /**

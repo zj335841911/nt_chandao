@@ -141,6 +141,7 @@ export class OpenItemsGridBase extends GridControlBase {
             show: true,
             unit: 'STAR',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'currproject',
@@ -149,6 +150,7 @@ export class OpenItemsGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'productplancnt',
@@ -157,6 +159,7 @@ export class OpenItemsGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'releasecnt',
@@ -165,6 +168,7 @@ export class OpenItemsGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'activestorycnt',
@@ -173,6 +177,7 @@ export class OpenItemsGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'activebugcnt',
@@ -181,6 +186,7 @@ export class OpenItemsGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
     ]
 

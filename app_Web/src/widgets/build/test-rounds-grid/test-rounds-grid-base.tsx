@@ -125,6 +125,7 @@ export class TestRoundsGridBase extends GridControlBase {
             show: false,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'productname',
@@ -133,6 +134,7 @@ export class TestRoundsGridBase extends GridControlBase {
             show: false,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'name',
@@ -141,6 +143,7 @@ export class TestRoundsGridBase extends GridControlBase {
             show: true,
             unit: 'STAR',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'scmpath',
@@ -149,6 +152,7 @@ export class TestRoundsGridBase extends GridControlBase {
             show: false,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'filepath',
@@ -157,6 +161,7 @@ export class TestRoundsGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'builder',
@@ -165,6 +170,7 @@ export class TestRoundsGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'date',
@@ -173,6 +179,7 @@ export class TestRoundsGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
     ]
 

@@ -42,7 +42,7 @@
     :ignorefieldvaluechange="ignorefieldvaluechange"
     viewname='story-plan-sub-grid-view' 
     :data="JSON.stringify(this.data)" 
-    @drdatasaved="drdatasaved($event)"
+    @drdatasaved="drdatasaved.apply(_self, arguments)"
     style="overflow: auto;">
 </app-form-druipart>
 
@@ -88,7 +88,7 @@
     :ignorefieldvaluechange="ignorefieldvaluechange"
     viewname='bug-plan-sub-grid-view' 
     :data="JSON.stringify(this.data)" 
-    @drdatasaved="drdatasaved($event)"
+    @drdatasaved="drdatasaved.apply(_self, arguments)"
     style="overflow: auto;">
 </app-form-druipart>
 
@@ -172,7 +172,7 @@
     :ignorefieldvaluechange="ignorefieldvaluechange"
     viewname='product-plan-sub-plan-grid-view' 
     :data="JSON.stringify(this.data)" 
-    @drdatasaved="drdatasaved($event)"
+    @drdatasaved="drdatasaved.apply(_self, arguments)"
     style="overflow: auto;">
 </app-form-druipart>
 
@@ -212,7 +212,7 @@
     :ignorefieldvaluechange="ignorefieldvaluechange"
     viewname='action-add-comment-history-list-view' 
     :data="JSON.stringify(this.data)" 
-    @drdatasaved="drdatasaved($event)"
+    @drdatasaved="drdatasaved.apply(_self, arguments)"
     style="overflow: auto;">
 </app-form-druipart>
 

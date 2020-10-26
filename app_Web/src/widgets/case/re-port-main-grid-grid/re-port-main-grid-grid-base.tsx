@@ -125,6 +125,7 @@ export class RePortMainGridGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'pri',
@@ -133,6 +134,7 @@ export class RePortMainGridGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'title',
@@ -141,6 +143,7 @@ export class RePortMainGridGridBase extends GridControlBase {
             show: true,
             unit: 'STAR',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'type',
@@ -149,6 +152,7 @@ export class RePortMainGridGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'openedby',
@@ -157,6 +161,7 @@ export class RePortMainGridGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'lastrunner',
@@ -165,6 +170,7 @@ export class RePortMainGridGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'lastrundate',
@@ -173,6 +179,7 @@ export class RePortMainGridGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'lastrunresult',
@@ -181,6 +188,7 @@ export class RePortMainGridGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'status1',
@@ -189,6 +197,7 @@ export class RePortMainGridGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'tobugcnt',
@@ -197,6 +206,7 @@ export class RePortMainGridGridBase extends GridControlBase {
             show: false,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'resultcnt',
@@ -205,6 +215,7 @@ export class RePortMainGridGridBase extends GridControlBase {
             show: false,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'casesteps',
@@ -213,6 +224,7 @@ export class RePortMainGridGridBase extends GridControlBase {
             show: false,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'lastrunresult1',
@@ -221,6 +233,7 @@ export class RePortMainGridGridBase extends GridControlBase {
             show: false,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
     ]
 

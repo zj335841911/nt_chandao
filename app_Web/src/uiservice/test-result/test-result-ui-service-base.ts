@@ -89,11 +89,15 @@ export default class TestResultUIServiceBase extends UIService {
      * @memberof  TestResultUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'testresults',component:'test-result-edit-view'});
-        this.allViewMap.set(':',{viewname:'meditview9',srfappde:'testresults',component:'test-result-medit-view9'});
-        this.allViewMap.set(':',{viewname:'gridview9',srfappde:'testresults',component:'test-result-grid-view9'});
-        this.allViewMap.set(':',{viewname:'testtaskmeditview9',srfappde:'testresults',component:'test-result-test-task-medit-view9'});
-        this.allViewMap.set(':',{viewname:'editview9',srfappde:'testresults',component:'test-result-edit-view9'});
+        this.allViewMap.set('EDITVIEW:', {
+            viewname: 'editview',
+            srfappde: 'testresults',
+            component: 'test-result-edit-view',
+            openmode: '',
+            title: '测试结果',
+            width: 0,
+            height: 0
+        });
     }
 
     /**

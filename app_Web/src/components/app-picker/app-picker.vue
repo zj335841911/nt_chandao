@@ -458,10 +458,10 @@ export default class AppPicker extends Vue {
      */
     public onClear($event: any): void {
         if (this.valueitem) {
-            this.$emit('formitemvaluechange', { name: this.valueitem, value: '' });
+            this.$emit('formitemvaluechange', { name: this.valueitem, value: null });
         }
         if (this.name) {
-            this.$emit('formitemvaluechange', { name: this.name, value: '' });
+            this.$emit('formitemvaluechange', { name: this.name, value: null });
         }
         this.$forceUpdate();
     }

@@ -1,3 +1,4 @@
+import { OpenViewService } from '@/studio-core';
 import { Store } from 'vuex';
 
 /**
@@ -16,6 +17,14 @@ export default class UIService {
      * @memberof UIService
      */
     private $store: Store<any> | null = null;
+
+    /**
+     * 界面打开服务
+     *
+     * @protected
+     * @memberof UIService
+     */
+    protected openViewService: OpenViewService = new OpenViewService();
 
     /**
      * 所依赖权限服务

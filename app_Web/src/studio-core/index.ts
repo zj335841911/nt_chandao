@@ -89,12 +89,14 @@ import { AppService } from './service/app-service/AppService';
 import { FooterItemsService } from './service/FooterItemsService';
 import { TopItemsService } from './service/TopItemsService';
 import { UIStateService } from './service/UIStateService';
+import { OpenViewService } from './service/OpenViewService';
 export {
     acc,
     AppService,
     FooterItemsService,
     TopItemsService,
-    UIStateService
+    UIStateService,
+    OpenViewService
 }
 // 服务 End
 // 指令 Start
@@ -117,6 +119,7 @@ export const StudioCore = {
         v.prototype.$footerRenderService = new FooterItemsService();
         v.prototype.$topRenderService = new TopItemsService();
         v.prototype.$uiState = new UIStateService();
+        v.prototype.$openViewService = new OpenViewService();
         // 注册组件
         v.component('app-layout', AppLayout);
         v.component('app-header', AppHeader);

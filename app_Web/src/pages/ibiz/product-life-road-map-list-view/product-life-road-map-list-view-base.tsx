@@ -1,6 +1,6 @@
 
 import { Subject } from 'rxjs';
-import { ViewTool } from '@/utils';
+import { UIActionTool, ViewTool } from '@/utils';
 import { ListViewBase } from '@/studio-core';
 import ProductLifeService from '@/service/product-life/product-life-service';
 import ProductLifeAuthService from '@/authservice/product-life/product-life-auth-service';

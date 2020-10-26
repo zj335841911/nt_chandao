@@ -3,6 +3,7 @@ import { AppService } from "../service/app-service/AppService";
 import { FooterItemsService } from "../service/FooterItemsService";
 import { UIStateService } from "../service/UIStateService";
 import { TopItemsService } from "../service/TopItemsService";
+import { OpenViewService } from "..";
 
 declare module "vue/types/vue" {
     interface Vue {
@@ -10,7 +11,8 @@ declare module "vue/types/vue" {
         $appService: AppService,
         $footerRenderService: FooterItemsService,
         $topRenderService: TopItemsService,
-        $uiState: UIStateService
+        $uiState: UIStateService,
+        $openViewService: OpenViewService,
     }
 }
 

@@ -89,12 +89,24 @@ export default class ProductPlanUIServiceBase extends UIService {
      * @memberof  ProductPlanUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set(':',{viewname:'maintabexp',srfappde:'productplans',component:'product-plan-main-tab-exp'});
-        this.allViewMap.set(':',{viewname:'maineditview',srfappde:'productplans',component:'product-plan-main-edit-view'});
-        this.allViewMap.set('MDATAVIEW:',{viewname:'gridview',srfappde:'productplans',component:'product-plan-grid-view'});
-        this.allViewMap.set(':',{viewname:'projectgridview9',srfappde:'productplans',component:'product-plan-project-grid-view9'});
-        this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'productplans',component:'product-plan-edit-view'});
-        this.allViewMap.set(':',{viewname:'maindataeditview',srfappde:'productplans',component:'product-plan-main-data-edit-view'});
+        this.allViewMap.set('MDATAVIEW:', {
+            viewname: 'gridview',
+            srfappde: 'productplans',
+            component: 'product-plan-grid-view',
+            openmode: '',
+            title: '产品计划',
+            width: 0,
+            height: 0
+        });
+        this.allViewMap.set('EDITVIEW:', {
+            viewname: 'editview',
+            srfappde: 'productplans',
+            component: 'product-plan-edit-view',
+            openmode: 'DRAWER_RIGHT',
+            title: '产品计划',
+            width: 0,
+            height: 0
+        });
     }
 
     /**

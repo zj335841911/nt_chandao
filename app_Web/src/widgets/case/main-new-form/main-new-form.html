@@ -185,7 +185,7 @@
     :ignorefieldvaluechange="ignorefieldvaluechange"
     viewname='case-step-main-grid-view9-edit-mode' 
     :data="JSON.stringify(this.data)" 
-    @drdatasaved="drdatasaved($event)"
+    @drdatasaved="drdatasaved.apply(_self, arguments)"
     style="overflow: auto;">
 </app-form-druipart>
 

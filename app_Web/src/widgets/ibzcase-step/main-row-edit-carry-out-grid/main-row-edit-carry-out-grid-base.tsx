@@ -141,6 +141,7 @@ export class Main_RowEdit_CarryOutGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'expect',
@@ -149,6 +150,7 @@ export class Main_RowEdit_CarryOutGridBase extends GridControlBase {
             show: true,
             unit: 'STAR',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'steps',
@@ -157,6 +159,7 @@ export class Main_RowEdit_CarryOutGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: true,
+            enableCond: 3 ,
         },
         {
             name: 'reals',
@@ -165,6 +168,7 @@ export class Main_RowEdit_CarryOutGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: true,
+            enableCond: 3 ,
         },
     ]
 

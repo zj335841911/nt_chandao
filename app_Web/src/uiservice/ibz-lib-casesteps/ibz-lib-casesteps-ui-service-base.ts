@@ -89,7 +89,6 @@ export default class IbzLibCasestepsUIServiceBase extends UIService {
      * @memberof  IbzLibCasestepsUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set(':',{viewname:'infogridview9',srfappde:'ibzlibcasesteps',component:'ibz-lib-case-steps-info-grid-view9'});
     }
 
     /**

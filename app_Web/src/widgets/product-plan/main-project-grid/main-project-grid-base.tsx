@@ -149,6 +149,7 @@ export class MainProjectGridBase extends GridControlBase {
             show: true,
             unit: 'STAR',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
     ]
 

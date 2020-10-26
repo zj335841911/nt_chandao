@@ -89,8 +89,6 @@ export default class IBZTaskTeamUIServiceBase extends UIService {
      * @memberof  IBZTaskTeamUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set(':',{viewname:'gridview9',srfappde:'ibztaskteams',component:'task-team-grid-view9'});
-        this.allViewMap.set(':',{viewname:'gridview9_edit',srfappde:'ibztaskteams',component:'task-team-grid-view9-edit'});
     }
 
     /**

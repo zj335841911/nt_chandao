@@ -120,7 +120,7 @@
     :ignorefieldvaluechange="ignorefieldvaluechange"
     viewname='product-sum-po-chart-view9' 
     :data="JSON.stringify(this.data)" 
-    @drdatasaved="drdatasaved($event)"
+    @drdatasaved="drdatasaved.apply(_self, arguments)"
     style="height:300px;overflow: auto;">
 </app-form-druipart>
 
@@ -154,7 +154,7 @@
     :ignorefieldvaluechange="ignorefieldvaluechange"
     viewname='product-sum-qa-chart-view9' 
     :data="JSON.stringify(this.data)" 
-    @drdatasaved="drdatasaved($event)"
+    @drdatasaved="drdatasaved.apply(_self, arguments)"
     style="height:300px;overflow: auto;">
 </app-form-druipart>
 
@@ -188,7 +188,7 @@
     :ignorefieldvaluechange="ignorefieldvaluechange"
     viewname='project-chart-view9' 
     :data="JSON.stringify(this.data)" 
-    @drdatasaved="drdatasaved($event)"
+    @drdatasaved="drdatasaved.apply(_self, arguments)"
     style="height:300px;overflow: auto;">
 </app-form-druipart>
 
@@ -231,7 +231,7 @@
     :ignorefieldvaluechange="ignorefieldvaluechange"
     viewname='project-grid-view9' 
     :data="JSON.stringify(this.data)" 
-    @drdatasaved="drdatasaved($event)"
+    @drdatasaved="drdatasaved.apply(_self, arguments)"
     style="height:300px;overflow: auto;">
 </app-form-druipart>
 
@@ -265,7 +265,7 @@
     :ignorefieldvaluechange="ignorefieldvaluechange"
     viewname='product-sum-usr2-grid-view' 
     :data="JSON.stringify(this.data)" 
-    @drdatasaved="drdatasaved($event)"
+    @drdatasaved="drdatasaved.apply(_self, arguments)"
     style="height:300px;overflow: auto;">
 </app-form-druipart>
 
@@ -299,7 +299,7 @@
     :ignorefieldvaluechange="ignorefieldvaluechange"
     viewname='product-sum-usr3-grid-view' 
     :data="JSON.stringify(this.data)" 
-    @drdatasaved="drdatasaved($event)"
+    @drdatasaved="drdatasaved.apply(_self, arguments)"
     style="height:300px;overflow: auto;">
 </app-form-druipart>
 
@@ -343,7 +343,7 @@
     :ignorefieldvaluechange="ignorefieldvaluechange"
     viewname='user-year-work-stats-dashboard-view' 
     :data="JSON.stringify(this.data)" 
-    @drdatasaved="drdatasaved($event)"
+    @drdatasaved="drdatasaved.apply(_self, arguments)"
     style="overflow: auto;">
 </app-form-druipart>
 
@@ -377,7 +377,7 @@
     :ignorefieldvaluechange="ignorefieldvaluechange"
     viewname='user-year-work-stats-qadashboard-view' 
     :data="JSON.stringify(this.data)" 
-    @drdatasaved="drdatasaved($event)"
+    @drdatasaved="drdatasaved.apply(_self, arguments)"
     style="overflow: auto;">
 </app-form-druipart>
 
@@ -411,7 +411,7 @@
     :ignorefieldvaluechange="ignorefieldvaluechange"
     viewname='user-year-work-stats-podashboard-view' 
     :data="JSON.stringify(this.data)" 
-    @drdatasaved="drdatasaved($event)"
+    @drdatasaved="drdatasaved.apply(_self, arguments)"
     style="overflow: auto;">
 </app-form-druipart>
 

@@ -89,12 +89,24 @@ export default class ReleaseUIServiceBase extends UIService {
      * @memberof  ReleaseUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set(':',{viewname:'optionview',srfappde:'releases',component:'release-option-view'});
-        this.allViewMap.set(':',{viewname:'maininfoview',srfappde:'releases',component:'release-main-info-view'});
-        this.allViewMap.set('MDATAVIEW:',{viewname:'gridview',srfappde:'releases',component:'release-grid-view'});
-        this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'releases',component:'release-edit-view'});
-        this.allViewMap.set(':',{viewname:'maintabexpview',srfappde:'releases',component:'release-main-tab-exp-view'});
-        this.allViewMap.set(':',{viewname:'quickcreateview',srfappde:'releases',component:'release-quick-create-view'});
+        this.allViewMap.set('MDATAVIEW:', {
+            viewname: 'gridview',
+            srfappde: 'releases',
+            component: 'release-grid-view',
+            openmode: '',
+            title: '发布',
+            width: 0,
+            height: 0
+        });
+        this.allViewMap.set('EDITVIEW:', {
+            viewname: 'editview',
+            srfappde: 'releases',
+            component: 'release-edit-view',
+            openmode: 'DRAWER_RIGHT',
+            title: '发布',
+            width: 0,
+            height: 0
+        });
     }
 
     /**

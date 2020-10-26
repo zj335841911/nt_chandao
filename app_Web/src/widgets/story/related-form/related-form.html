@@ -36,7 +36,7 @@
     :ignorefieldvaluechange="ignorefieldvaluechange"
     viewname='task-grid-view9-story-related' 
     :data="JSON.stringify(this.data)" 
-    @drdatasaved="drdatasaved($event)"
+    @drdatasaved="drdatasaved.apply(_self, arguments)"
     style="overflow: auto;">
 </app-form-druipart>
 
@@ -78,7 +78,7 @@
     :ignorefieldvaluechange="ignorefieldvaluechange"
     viewname='story-grid-view9-related' 
     :data="JSON.stringify(this.data)" 
-    @drdatasaved="drdatasaved($event)"
+    @drdatasaved="drdatasaved.apply(_self, arguments)"
     style="overflow: auto;">
 </app-form-druipart>
 
@@ -104,7 +104,7 @@
     :ignorefieldvaluechange="ignorefieldvaluechange"
     viewname='story-grid-view9-child' 
     :data="JSON.stringify(this.data)" 
-    @drdatasaved="drdatasaved($event)"
+    @drdatasaved="drdatasaved.apply(_self, arguments)"
     style="overflow: auto;">
 </app-form-druipart>
 
@@ -134,7 +134,7 @@
     :ignorefieldvaluechange="ignorefieldvaluechange"
     viewname='bug-grid-view9-story-form-bug' 
     :data="JSON.stringify(this.data)" 
-    @drdatasaved="drdatasaved($event)"
+    @drdatasaved="drdatasaved.apply(_self, arguments)"
     style="overflow: auto;">
 </app-form-druipart>
 
@@ -169,7 +169,7 @@
     :ignorefieldvaluechange="ignorefieldvaluechange"
     viewname='bug-grid-view9-story-related' 
     :data="JSON.stringify(this.data)" 
-    @drdatasaved="drdatasaved($event)"
+    @drdatasaved="drdatasaved.apply(_self, arguments)"
     style="overflow: auto;">
 </app-form-druipart>
 
@@ -204,7 +204,7 @@
     :ignorefieldvaluechange="ignorefieldvaluechange"
     viewname='case-grid-view9-story-related' 
     :data="JSON.stringify(this.data)" 
-    @drdatasaved="drdatasaved($event)"
+    @drdatasaved="drdatasaved.apply(_self, arguments)"
     style="overflow: auto;">
 </app-form-druipart>
 

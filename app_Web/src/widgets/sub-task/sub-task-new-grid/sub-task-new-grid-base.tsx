@@ -141,6 +141,7 @@ export class SubTaskNewGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: true,
+            enableCond: 3 ,
         },
         {
             name: 'storyname',
@@ -149,6 +150,7 @@ export class SubTaskNewGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: true,
+            enableCond: 3 ,
         },
         {
             name: 'name',
@@ -157,6 +159,7 @@ export class SubTaskNewGridBase extends GridControlBase {
             show: true,
             unit: 'STAR',
             isEnableRowEdit: true,
+            enableCond: 3 ,
         },
         {
             name: 'type',
@@ -165,6 +168,7 @@ export class SubTaskNewGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: true,
+            enableCond: 3 ,
         },
         {
             name: 'assignedto',
@@ -173,6 +177,7 @@ export class SubTaskNewGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: true,
+            enableCond: 3 ,
         },
         {
             name: 'estimate',
@@ -181,6 +186,7 @@ export class SubTaskNewGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: true,
+            enableCond: 3 ,
         },
         {
             name: 'eststarted',
@@ -189,6 +195,7 @@ export class SubTaskNewGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: true,
+            enableCond: 3 ,
         },
         {
             name: 'deadline',
@@ -197,6 +204,7 @@ export class SubTaskNewGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: true,
+            enableCond: 3 ,
         },
         {
             name: 'desc',
@@ -205,6 +213,7 @@ export class SubTaskNewGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: true,
+            enableCond: 3 ,
         },
         {
             name: 'pri',
@@ -213,6 +222,7 @@ export class SubTaskNewGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: true,
+            enableCond: 3 ,
         },
     ]
 

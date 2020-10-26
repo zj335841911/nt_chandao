@@ -89,7 +89,6 @@ export default class IbzLibCaseStepTmpUIServiceBase extends UIService {
      * @memberof  IbzLibCaseStepTmpUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set(':',{viewname:'gridview9',srfappde:'ibzlibcasesteptmps',component:'ibz-lib-case-steps-grid-view9'});
     }
 
     /**

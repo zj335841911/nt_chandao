@@ -89,7 +89,6 @@ export default class IBZTaskEstimateUIServiceBase extends UIService {
      * @memberof  IBZTaskEstimateUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set(':',{viewname:'gridview9',srfappde:'ibztaskestimates',component:'task-estimate-grid-view9'});
     }
 
     /**
