@@ -913,6 +913,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         newTask.setLastediteddate(ZTDateUtil.now());
         newTask.setLasteditedby(AuthenticationUser.getAuthenticationUser().getUsername());
         newTask.setConsumed(et.getTotaltime() != null ? et.getTotaltime() : (et.getConsumed() + et.getCurrentconsumed()));
+        newTask.setCurrentconsumed(et.getCurrentconsumed());
         double consumed = 0;
         if (teams.size() == 0){
             newTask.setLeft(0d);
@@ -921,6 +922,11 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
             newTask.setFinishedby(AuthenticationUser.getAuthenticationUser().getUsername());
              consumed = et.getConsumed() - old.getConsumed();
             if (consumed < 0) throw  new RuntimeException("总计消耗必须大于原消耗");
+
+            if (et.getAssignedto() == null || et.getAssignedto().equals("")){
+                newTask.setAssignedto(old.getOpenedby());
+            }
+            else newTask.setAssignedto(et.getAssignedto());
         }
         else {
             for (Team team : teams) {
@@ -931,10 +937,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
                 }
             }
         }
-        if (et.getAssignedto() == null || et.getAssignedto().equals("")){
-            newTask.setAssignedto(AuthenticationUser.getAuthenticationUser().getUsername());
-        }
-        else newTask.setAssignedto(et.getAssignedto());
+
 
 
         //Task
@@ -957,7 +960,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
             for (Team team : teams) {
                 if (StringUtils.compare(team.getAccount(), old.getAssignedto()) == 0) {
                     team.setLeft(0.0);
-                    team.setConsumed(newTask.getConsumed());
+                    team.setConsumed(newTask.getCurrentconsumed() + team.getConsumed());
                     teamHelper.internalUpdate(team);
                 }
             }
