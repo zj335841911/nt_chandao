@@ -1,5 +1,15 @@
-!!!!模版产生代码错误:----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: #if item.getMemo?? && item.getMemo()?...  [in template "CODETEMPL_en_US" at line 4, column 1]
-----
-null
+# 数据字典-任务快速分组（Task_quickpacket）
+## 字典说明
+任务快速分组
+
+## 所属模块
+[禅道模块](../module/zentao)
+
+## 关联实体
+[任务](../module/zentao/Task)
+
+## 字典类型
+STATIC
+
+
+

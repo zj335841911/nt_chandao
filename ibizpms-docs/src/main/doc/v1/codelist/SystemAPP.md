@@ -1,5 +1,15 @@
-!!!!模版产生代码错误:----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: #if item.getMemo?? && item.getMemo()?...  [in template "CODETEMPL_en_US" at line 4, column 1]
-----
-null
+# 数据字典-系统应用（SystemAPP）
+## 字典说明
+系统应用
+
+## 所属模块
+[iBiz系统模型](../module/ibizsysmodel)
+
+## 关联实体
+[系统应用](../module/ibizsysmodel/PSSysApp)
+
+## 字典类型
+DYNAMIC
+
+
+

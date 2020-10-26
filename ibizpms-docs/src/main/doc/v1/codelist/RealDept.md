@@ -1,5 +1,15 @@
-!!!!模版产生代码错误:----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: #if item.getMemo?? && item.getMemo()?...  [in template "CODETEMPL_en_US" at line 4, column 1]
-----
-null
+# 数据字典-真实部门（RealDept）
+## 字典说明
+真实部门
+
+## 所属模块
+[iBiz增强模块](../module/ibiz)
+
+## 关联实体
+[部门](../module/ou/SysDepartment)
+
+## 字典类型
+DYNAMIC
+
+
+

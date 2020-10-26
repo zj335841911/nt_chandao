@@ -1,5 +1,15 @@
-!!!!模版产生代码错误:----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: #if item.getMemo?? && item.getMemo()?...  [in template "CODETEMPL_en_US" at line 4, column 1]
-----
-null
+# 数据字典-需求模块类型（Ibizpro_storymodule__type）
+## 字典说明
+需求模块类型
+
+## 所属模块
+[iBizPro模块](../module/ibizpro)
+
+## 关联实体
+[需求模块](../module/ibizpro/IBZProStoryModule)
+
+## 字典类型
+STATIC
+
+
+
