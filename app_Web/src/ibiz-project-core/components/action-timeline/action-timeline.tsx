@@ -3,6 +3,7 @@ import moment from 'moment';
 import { ActionItem } from '../../interface';
 import { ActionTimelineItem } from './action-timeline-interface';
 import './action-timeline.less';
+import CodeListService from "@service/app/codelist-service";
 
 /**
  * 动态时间轴展示模式
@@ -33,6 +34,14 @@ export class ActionTimeline extends Vue {
     protected $items: ActionTimelineItem[] = [];
 
     /**
+     * 代码表服务对象
+     *
+     * @type {CodeListService}
+     * @memberof AppCheckBox
+     */  
+    public codeListService:CodeListService = new CodeListService({ $store: this.$store });
+
+    /**
      * 排序模式
      *
      * @type {('asc' | 'desc')}
@@ -50,6 +59,13 @@ export class ActionTimeline extends Vue {
     @Prop({ default: () => [] })
     public items!: ActionItem[];
 
+    /**
+     * 列表模型
+     * 
+     * @memberof ActionTimeline
+     */
+    @Prop()
+    public listModel!: any[];
     /**
      * 数据变更
      *
@@ -128,6 +144,8 @@ export class ActionTimeline extends Vue {
                 if (data2) {
                     item.objectTypeText = data2.text;
                 }
+                //根据列数据模型处理列表项代码表
+                this.listItemCodelist(item);
                 const m = moment(item.date);
                 const date = m.format('YYYY-MM-DD');
                 if (!param[date]) {
@@ -147,6 +165,42 @@ export class ActionTimeline extends Vue {
                 this.dayMap.set(key, param[key]);
             }
             this.$forceUpdate();
+        }
+    }
+
+    /**
+     * 列表项代码表处理
+     * 
+     * 
+     */
+    public listItemCodelist(item: any){
+        if(this.listModel && this.listModel.length > 0){
+            this.listModel.forEach((listItem:any)=>{
+                for(const key in item){
+                    if(Object.is(key,listItem.name) && listItem.codelist){
+                        if(Object.is(listItem.codelist.codelistType,"STATIC")){
+                            const codelist = this.$store.getters.getCodeListItems(listItem.codelist.tag);
+                            if(codelist){
+                                const data = codelist.find((code:any) => Object.is(code.value, item[key]));
+                                if(data){
+                                    item[key] = data.text;
+                                }
+                            }
+                        }else if(Object.is(listItem.codelist.codelistType,"DYNAMIC")){
+                            this.codeListService.getItems(listItem.codelist.tag).then((codelist:any)=>{
+                                if(codelist){
+                                    const data = codelist.find((code:any) => Object.is(code.value, item[key]));
+                                    if(data){
+                                        item[key] = data.text;
+                                    }
+                                }
+                            }).catch((error:any) => {
+                                console.log(`----${listItem.codelist.tag}----代码表不存在`);
+                            });
+                        }
+                    }
+                }
+            })
         }
     }
 
