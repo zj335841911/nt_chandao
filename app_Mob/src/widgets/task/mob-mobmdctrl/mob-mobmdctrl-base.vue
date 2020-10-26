@@ -32,7 +32,7 @@
             <ion-list class="items" ref="ionlist" @touchmove="gotouchmove" @touchstart="gotouchstart"  @touchend="gotouchend">
                 <template v-if="(viewType == 'DEMOBMDVIEW') && controlStyle != 'SWIPERVIEW' ">
                     <div class="selectall">
-                        <ion-checkbox :checked="selectAllIschecked"  v-show="showCheack"  @ionChange="checkboxAll"></ion-checkbox>
+                        <ion-checkbox slot="start" :checked="selectAllIschecked"  v-show="showCheack"  @ionChange="checkboxAll"></ion-checkbox>
                         <ion-label class="selectal-label" v-show="showCheack">全选</ion-label>
                     </div>
                       <ion-item-sliding  :ref="item.srfkey" v-for="item in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">

@@ -28,7 +28,7 @@
             <ion-list class="items" ref="ionlist" @touchmove="gotouchmove" @touchstart="gotouchstart"  @touchend="gotouchend">
                 <template v-if="(viewType == 'DEMOBMDVIEW') && controlStyle != 'SWIPERVIEW' ">
                     <div class="selectall">
-                        <ion-checkbox :checked="selectAllIschecked"  v-show="showCheack"  @ionChange="checkboxAll"></ion-checkbox>
+                        <ion-checkbox slot="start" :checked="selectAllIschecked"  v-show="showCheack"  @ionChange="checkboxAll"></ion-checkbox>
                         <ion-label class="selectal-label" v-show="showCheack">全选</ion-label>
                     </div>
                       <div class="item-grouped" v-for="obj in group_data" :key="obj.index">
