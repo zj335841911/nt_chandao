@@ -89,8 +89,15 @@ export default class ProjectTeamUIServiceBase extends UIService {
      * @memberof  ProjectTeamUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set('MDATAVIEW:',{viewname:'maingridview',srfappde:'projectteams',component:'project-team-main-grid-view'});
-        this.allViewMap.set(':',{viewname:'maingridview_editrow',srfappde:'projectteams',component:'project-team-main-grid-view-edit-row'});
+        this.allViewMap.set('MDATAVIEW:', {
+            viewname: 'maingridview',
+            srfappde: 'projectteams',
+            component: 'project-team-main-grid-view',
+            openmode: '',
+            title: '项目团队',
+            width: 0,
+            height: 0
+        });
     }
 
     /**

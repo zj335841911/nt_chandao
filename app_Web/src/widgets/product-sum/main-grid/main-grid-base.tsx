@@ -133,6 +133,7 @@ export class MainGridBase extends GridControlBase {
             show: true,
             unit: 'STAR',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'po',
@@ -141,6 +142,7 @@ export class MainGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'plan',
@@ -149,6 +151,7 @@ export class MainGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'begin',
@@ -157,6 +160,7 @@ export class MainGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'end',
@@ -165,6 +169,7 @@ export class MainGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'waitstorycnt',
@@ -173,6 +178,7 @@ export class MainGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'activestorycnt',
@@ -181,6 +187,7 @@ export class MainGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'changedstorycnt',
@@ -189,6 +196,7 @@ export class MainGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'closedstorycnt',
@@ -197,6 +205,7 @@ export class MainGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'storycnt',
@@ -205,6 +214,7 @@ export class MainGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
     ]
 

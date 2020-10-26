@@ -238,6 +238,7 @@ export class ProjectMainGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'title',
@@ -246,6 +247,7 @@ export class ProjectMainGridBase extends GridControlBase {
             show: true,
             unit: 'STAR',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'createdby',
@@ -254,6 +256,7 @@ export class ProjectMainGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'createddate',
@@ -262,6 +265,7 @@ export class ProjectMainGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'projectname',
@@ -270,6 +274,7 @@ export class ProjectMainGridBase extends GridControlBase {
             show: true,
             unit: 'STAR',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'tasks',
@@ -278,6 +283,7 @@ export class ProjectMainGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'uagridcolumn1',
@@ -286,6 +292,7 @@ export class ProjectMainGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
     ]
 

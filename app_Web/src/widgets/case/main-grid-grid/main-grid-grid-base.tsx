@@ -349,6 +349,7 @@ export class MainGridGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'pri',
@@ -357,6 +358,7 @@ export class MainGridGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'title',
@@ -365,6 +367,7 @@ export class MainGridGridBase extends GridControlBase {
             show: true,
             unit: 'STAR',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'type',
@@ -373,6 +376,7 @@ export class MainGridGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'openedby',
@@ -381,6 +385,7 @@ export class MainGridGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'lastrunner',
@@ -389,6 +394,7 @@ export class MainGridGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'lastrundate',
@@ -397,6 +403,7 @@ export class MainGridGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'lastrunresult',
@@ -405,6 +412,7 @@ export class MainGridGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'status1',
@@ -413,6 +421,7 @@ export class MainGridGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'tobugcnt',
@@ -421,6 +430,7 @@ export class MainGridGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'resultcnt',
@@ -429,6 +439,7 @@ export class MainGridGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'casesteps',
@@ -437,6 +448,7 @@ export class MainGridGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'uagridcolumn1',
@@ -445,6 +457,7 @@ export class MainGridGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
     ]
 

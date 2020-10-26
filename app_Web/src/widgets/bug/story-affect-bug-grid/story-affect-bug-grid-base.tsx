@@ -149,6 +149,7 @@ export class StoryAffectBugGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'title',
@@ -157,6 +158,7 @@ export class StoryAffectBugGridBase extends GridControlBase {
             show: true,
             unit: 'STAR',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'status',
@@ -165,6 +167,7 @@ export class StoryAffectBugGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'openedby',
@@ -173,6 +176,7 @@ export class StoryAffectBugGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'resolvedby',
@@ -181,6 +185,7 @@ export class StoryAffectBugGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'resolution',
@@ -189,6 +194,7 @@ export class StoryAffectBugGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'lasteditedby',
@@ -197,6 +203,7 @@ export class StoryAffectBugGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
     ]
 

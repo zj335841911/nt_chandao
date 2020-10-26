@@ -45,7 +45,7 @@
     :ignorefieldvaluechange="ignorefieldvaluechange"
     viewname='case-step-carry-out-edit-mode' 
     :data="JSON.stringify(this.data)" 
-    @drdatasaved="drdatasaved($event)"
+    @drdatasaved="drdatasaved.apply(_self, arguments)"
     style="overflow: auto;">
 </app-form-druipart>
 
@@ -134,7 +134,7 @@
     :ignorefieldvaluechange="ignorefieldvaluechange"
     viewname='test-result-test-task-medit-view9' 
     :data="JSON.stringify(this.data)" 
-    @drdatasaved="drdatasaved($event)"
+    @drdatasaved="drdatasaved.apply(_self, arguments)"
     style="overflow: auto;">
 </app-form-druipart>
 

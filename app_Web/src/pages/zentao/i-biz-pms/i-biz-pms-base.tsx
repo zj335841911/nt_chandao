@@ -204,6 +204,7 @@ export class IBizPMSBase extends Vue {
    * @memberof IBizPMSBase
    */
   protected created() {
+    this.$openViewService.init(this);
     this.left_exp = this.handleMenusResource(this.left_exp);
     this.bottom_exp = this.handleMenusResource(this.bottom_exp);
     this.top_menus = this.handleMenusResource(this.top_menus);

@@ -938,12 +938,8 @@ export class GridControlBase extends MDControlBase {
             this.selections.push(JSON.parse(JSON.stringify($event)));
             const refs: any = this.$refs;
             if (refs.multipleTable) {
-                if(this.isSingleSelect){
-                    refs.multipleTable.clearSelection();
-                    refs.multipleTable.setCurrentRow($event);
-                }else{
-                    refs.multipleTable.toggleRowSelection($event); 
-                }
+                refs.multipleTable.clearSelection();
+                refs.multipleTable.toggleRowSelection($event);
             }
         } else {
             this.selections.splice(selectIndex, 1);
@@ -1200,6 +1196,21 @@ export class GridControlBase extends MDControlBase {
         });
         return isSelected ? "grid-selected-row" : "";
     }
+
+    /**
+     * 获取表格列禁用状态
+     *
+     * @memberof GridControlBase
+     */
+    public  getColumnDisabled(data:any,name:string){
+        if(this.allColumns || Array.isArray(this.allColumns)){
+            const curColumn:any = this.allColumns.find((item:any) =>{
+                return item.name === name;
+            })
+            return data.srfuf == 1 ? (curColumn.enableCond & 2) !== 2 : (curColumn.enableCond & 1) !== 1
+        }
+    }
+
 
     /**
      * 新建默认值

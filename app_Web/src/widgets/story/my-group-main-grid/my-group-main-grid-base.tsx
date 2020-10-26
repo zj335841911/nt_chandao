@@ -357,6 +357,7 @@ export class MyGroupMainGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'pri',
@@ -365,6 +366,7 @@ export class MyGroupMainGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'prodoctname',
@@ -373,6 +375,7 @@ export class MyGroupMainGridBase extends GridControlBase {
             show: true,
             unit: 'STAR',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'title',
@@ -381,6 +384,7 @@ export class MyGroupMainGridBase extends GridControlBase {
             show: true,
             unit: 'STAR',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'plan',
@@ -389,6 +393,7 @@ export class MyGroupMainGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'openedby',
@@ -397,6 +402,7 @@ export class MyGroupMainGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'assignedto',
@@ -405,6 +411,7 @@ export class MyGroupMainGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'estimate',
@@ -413,6 +420,7 @@ export class MyGroupMainGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'status',
@@ -421,6 +429,7 @@ export class MyGroupMainGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'stage',
@@ -429,6 +438,7 @@ export class MyGroupMainGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'modulename',
@@ -437,6 +447,7 @@ export class MyGroupMainGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'uagridcolumn1',
@@ -445,6 +456,7 @@ export class MyGroupMainGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
     ]
 

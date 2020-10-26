@@ -109,6 +109,7 @@ export class LineGridBase extends GridControlBase {
             show: true,
             unit: 'STAR',
             isEnableRowEdit: true,
+            enableCond: 3 ,
         },
         {
             name: 'short',
@@ -117,6 +118,7 @@ export class LineGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: true,
+            enableCond: 3 ,
         },
     ]
 

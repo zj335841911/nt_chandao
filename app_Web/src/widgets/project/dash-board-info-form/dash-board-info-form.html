@@ -90,7 +90,7 @@ tag='Project__status' codelistType='STATIC' :data="data" :context="context" :vie
     :ignorefieldvaluechange="ignorefieldvaluechange"
     viewname='product-project-grid-view9' 
     :data="JSON.stringify(this.data)" 
-    @drdatasaved="drdatasaved($event)"
+    @drdatasaved="drdatasaved.apply(_self, arguments)"
     style="height:150px;overflow: auto;">
 </app-form-druipart>
 
@@ -125,7 +125,7 @@ tag='Project__status' codelistType='STATIC' :data="data" :context="context" :vie
     :ignorefieldvaluechange="ignorefieldvaluechange"
     viewname='product-plan-project-grid-view9' 
     :data="JSON.stringify(this.data)" 
-    @drdatasaved="drdatasaved($event)"
+    @drdatasaved="drdatasaved.apply(_self, arguments)"
     style="height:150px;overflow: auto;">
 </app-form-druipart>
 

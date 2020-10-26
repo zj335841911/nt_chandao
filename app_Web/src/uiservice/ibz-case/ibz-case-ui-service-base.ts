@@ -89,15 +89,24 @@ export default class IbzCaseUIServiceBase extends UIService {
      * @memberof  IbzCaseUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set(':',{viewname:'newediteditview9',srfappde:'ibzcases',component:'ibz-case-new-edit-edit-view9'});
-        this.allViewMap.set(':',{viewname:'editeditview',srfappde:'ibzcases',component:'ibz-case-edit-edit-view'});
-        this.allViewMap.set('MDATAVIEW:',{viewname:'gridview',srfappde:'ibzcases',component:'ibz-case-grid-view'});
-        this.allViewMap.set(':',{viewname:'opencaseview',srfappde:'ibzcases',component:'ibz-case-open-case-view'});
-        this.allViewMap.set(':',{viewname:'infoeditview9',srfappde:'ibzcases',component:'ibz-case-info-edit-view9'});
-        this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'ibzcases',component:'ibz-case-edit-view'});
-        this.allViewMap.set(':',{viewname:'maineditview9',srfappde:'ibzcases',component:'ibz-case-main-edit-view9'});
-        this.allViewMap.set(':',{viewname:'dashboardview',srfappde:'ibzcases',component:'ibz-case-dashboard-view'});
-        this.allViewMap.set(':',{viewname:'neweditview',srfappde:'ibzcases',component:'ibz-case-new-edit-view'});
+        this.allViewMap.set('MDATAVIEW:', {
+            viewname: 'gridview',
+            srfappde: 'ibzcases',
+            component: 'ibz-case-grid-view',
+            openmode: '',
+            title: '测试用例',
+            width: 0,
+            height: 0
+        });
+        this.allViewMap.set('EDITVIEW:', {
+            viewname: 'editview',
+            srfappde: 'ibzcases',
+            component: 'ibz-case-edit-view',
+            openmode: '',
+            title: '测试用例',
+            width: 0,
+            height: 0
+        });
     }
 
     /**

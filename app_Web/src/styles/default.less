@@ -4,6 +4,7 @@
 @import '../theme/app-dark.less';
 @import '../theme/app-light.less';
 @import '../theme/app-dark-white.less';
+@import './app-code-list.less';
 @import './var.css';
 @import './vue-transition.less';
 
@@ -599,6 +600,8 @@ div::-webkit-scrollbar-thumb {
 
     // 表单分组
     .ivu-card.app-form-group {
+        // 临时添加表单分组样式padding
+        padding: 0 3px;
         background: var(--view-background-color);
         color: var(--view-font-color);
 
@@ -1328,7 +1331,8 @@ div::-webkit-scrollbar-thumb {
 
         .single-card-data.selected,
         .single-card-data:hover {
-            transform: scale(1.1);
+            transform: translateY(-2%);
+            box-shadow: 0 0.08333rem 0.5rem 0 rgba(0,0,0,.1);
         }
 
         .single-card-data {

@@ -141,6 +141,7 @@ export class BatchNewGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: true,
+            enableCond: 3 ,
         },
         {
             name: 'storyname',
@@ -149,6 +150,7 @@ export class BatchNewGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: true,
+            enableCond: 3 ,
         },
         {
             name: 'title',
@@ -157,6 +159,7 @@ export class BatchNewGridBase extends GridControlBase {
             show: true,
             unit: 'STAR',
             isEnableRowEdit: true,
+            enableCond: 3 ,
         },
         {
             name: 'type',
@@ -165,6 +168,7 @@ export class BatchNewGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: true,
+            enableCond: 3 ,
         },
     ]
 

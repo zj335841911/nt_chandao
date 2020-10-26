@@ -298,6 +298,7 @@ export class Main_BuildSubGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'pri',
@@ -306,6 +307,7 @@ export class Main_BuildSubGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'confirmed',
@@ -314,6 +316,7 @@ export class Main_BuildSubGridBase extends GridControlBase {
             show: false,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'title',
@@ -322,6 +325,7 @@ export class Main_BuildSubGridBase extends GridControlBase {
             show: true,
             unit: 'STAR',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'status',
@@ -330,6 +334,7 @@ export class Main_BuildSubGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'openedby',
@@ -338,6 +343,7 @@ export class Main_BuildSubGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'assignedto',
@@ -346,6 +352,7 @@ export class Main_BuildSubGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'resolvedby',
@@ -354,6 +361,7 @@ export class Main_BuildSubGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'resolution',
@@ -362,6 +370,7 @@ export class Main_BuildSubGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'uagridcolumn1',
@@ -370,6 +379,7 @@ export class Main_BuildSubGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'isfavorites',
@@ -378,6 +388,7 @@ export class Main_BuildSubGridBase extends GridControlBase {
             show: false,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
     ]
 

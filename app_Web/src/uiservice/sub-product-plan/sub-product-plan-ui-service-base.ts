@@ -89,9 +89,6 @@ export default class SubProductPlanUIServiceBase extends UIService {
      * @memberof  SubProductPlanUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set(':',{viewname:'subplancreateview',srfappde:'subproductplans',component:'product-plan-sub-plan-create-view'});
-        this.allViewMap.set(':',{viewname:'subplangridview',srfappde:'subproductplans',component:'product-plan-sub-plan-grid-view'});
-        this.allViewMap.set(':',{viewname:'subplaneditview',srfappde:'subproductplans',component:'product-plan-sub-plan-edit-view'});
     }
 
     /**

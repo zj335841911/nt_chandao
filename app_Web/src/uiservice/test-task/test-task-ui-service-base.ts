@@ -89,23 +89,24 @@ export default class TestTaskUIServiceBase extends UIService {
      * @memberof  TestTaskUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set(':',{viewname:'myygridview',srfappde:'testtasks',component:'test-task-my-ygrid-view'});
-        this.allViewMap.set(':',{viewname:'gridview9_untested',srfappde:'testtasks',component:'test-task-grid-view9-un-tested'});
-        this.allViewMap.set(':',{viewname:'mydgridview',srfappde:'testtasks',component:'test-task-my-dgrid-view'});
-        this.allViewMap.set(':',{viewname:'blockoptionview',srfappde:'testtasks',component:'test-task-block-option-view'});
-        this.allViewMap.set(':',{viewname:'editview9_detail',srfappde:'testtasks',component:'test-task-edit-view9-detail'});
-        this.allViewMap.set(':',{viewname:'editview_committest',srfappde:'testtasks',component:'test-task-edit-view-commit-test'});
-        this.allViewMap.set(':',{viewname:'projectneweditview',srfappde:'testtasks',component:'test-task-project-new-edit-view'});
-        this.allViewMap.set(':',{viewname:'maintabexpview',srfappde:'testtasks',component:'test-task-main-tab-exp-view'});
-        this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'testtasks',component:'test-task-edit-view'});
-        this.allViewMap.set(':',{viewname:'editview9_info',srfappde:'testtasks',component:'test-task-edit-view9-info'});
-        this.allViewMap.set(':',{viewname:'projectgridview',srfappde:'testtasks',component:'test-task-project-grid-view'});
-        this.allViewMap.set(':',{viewname:'maindashboardview',srfappde:'testtasks',component:'test-task-main-dashboard-view'});
-        this.allViewMap.set(':',{viewname:'activiteoptionview',srfappde:'testtasks',component:'test-task-activite-option-view'});
-        this.allViewMap.set('MDATAVIEW:',{viewname:'gridview',srfappde:'testtasks',component:'test-task-grid-view'});
-        this.allViewMap.set(':',{viewname:'closeoptionview',srfappde:'testtasks',component:'test-task-close-option-view'});
-        this.allViewMap.set(':',{viewname:'startoptionview',srfappde:'testtasks',component:'test-task-start-option-view'});
-        this.allViewMap.set(':',{viewname:'editview_edit',srfappde:'testtasks',component:'test-task-edit-view-edit'});
+        this.allViewMap.set('EDITVIEW:', {
+            viewname: 'editview',
+            srfappde: 'testtasks',
+            component: 'test-task-edit-view',
+            openmode: 'DRAWER_RIGHT',
+            title: '测试版本',
+            width: 0,
+            height: 0
+        });
+        this.allViewMap.set('MDATAVIEW:', {
+            viewname: 'gridview',
+            srfappde: 'testtasks',
+            component: 'test-task-grid-view',
+            openmode: '',
+            title: '测试版本',
+            width: 0,
+            height: 0
+        });
     }
 
     /**

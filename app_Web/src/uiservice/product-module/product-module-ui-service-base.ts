@@ -89,11 +89,24 @@ export default class ProductModuleUIServiceBase extends UIService {
      * @memberof  ProductModuleUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set(':',{viewname:'gridviewbranch',srfappde:'productmodules',component:'product-module-grid-view-branch'});
-        this.allViewMap.set('MDATAVIEW:',{viewname:'gridview',srfappde:'productmodules',component:'product-module-grid-view'});
-        this.allViewMap.set(':',{viewname:'treeexpview',srfappde:'productmodules',component:'product-module-tree-exp-view'});
-        this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'productmodules',component:'product-module-edit-view'});
-        this.allViewMap.set(':',{viewname:'quickcfgview',srfappde:'productmodules',component:'product-module-quick-cfg-view'});
+        this.allViewMap.set('MDATAVIEW:', {
+            viewname: 'gridview',
+            srfappde: 'productmodules',
+            component: 'product-module-grid-view',
+            openmode: '',
+            title: '需求模块',
+            width: 0,
+            height: 0
+        });
+        this.allViewMap.set('EDITVIEW:', {
+            viewname: 'editview',
+            srfappde: 'productmodules',
+            component: 'product-module-edit-view',
+            openmode: 'DRAWER_RIGHT',
+            title: '需求模块',
+            width: 0,
+            height: 0
+        });
     }
 
     /**

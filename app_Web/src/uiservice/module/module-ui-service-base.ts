@@ -89,12 +89,33 @@ export default class ModuleUIServiceBase extends UIService {
      * @memberof  ModuleUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'modules',component:'module-edit-view'});
-        this.allViewMap.set(':',{viewname:'treeexpview',srfappde:'modules',component:'module-tree-exp-view'});
-        this.allViewMap.set('MDATAVIEW:',{viewname:'gridview',srfappde:'modules',component:'module-grid-view'});
-        this.allViewMap.set(':',{viewname:'linegridview',srfappde:'modules',component:'module-line-grid-view'});
-        this.allViewMap.set(':',{viewname:'pickupgridview',srfappde:'modules',component:'module-pickup-grid-view'});
-        this.allViewMap.set('PICKUPVIEW:',{viewname:'pickupview',srfappde:'modules',component:'module-pickup-view'});
+        this.allViewMap.set('EDITVIEW:', {
+            viewname: 'editview',
+            srfappde: 'modules',
+            component: 'module-edit-view',
+            openmode: 'DRAWER_TOP',
+            title: '模块',
+            width: 0,
+            height: 0
+        });
+        this.allViewMap.set('MDATAVIEW:', {
+            viewname: 'gridview',
+            srfappde: 'modules',
+            component: 'module-grid-view',
+            openmode: '',
+            title: '模块',
+            width: 0,
+            height: 0
+        });
+        this.allViewMap.set('PICKUPVIEW:', {
+            viewname: 'pickupview',
+            srfappde: 'modules',
+            component: 'module-pickup-view',
+            openmode: '',
+            title: '模块',
+            width: 0,
+            height: 0
+        });
     }
 
     /**

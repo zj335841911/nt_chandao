@@ -111,21 +111,11 @@ export class EditFormControlBase extends FormControlBase {
                     this.removeAndExit(data);
                 }
                 if (Object.is('panelaction', action)) {
-                    this.panelAction(data.action,data.emitAction,data.data);
+                    this.panelAction(data.action, data.emitAction, data.data);
                 }
             });
         }
-        this.dataChang
-            .pipe(
-                debounceTime(300),
-                distinctUntilChanged()
-            ).subscribe((data: any) => {
-                if (this.autosave) {
-                    this.autoSave();
-                }
-                const state = !Object.is(JSON.stringify(this.oldData), JSON.stringify(this.data)) ? true : false;
-                this.$store.commit('viewaction/setViewDataChange', { viewtag: this.viewtag, viewdatachange: state });
-            });
+        this.subDataChange();
         this.accLocalTags.push(this.$acc.commandLocal((data: any) => {
             if (data && this.data.srfkey === data.srfkey && (!data.___localUpdateDate || this.data.___localUpdateDate !== data.___localUpdateDate)) {
                 const appview = this.$store.getters['viewaction/getAppView'](this.viewtag);
@@ -143,6 +133,26 @@ export class EditFormControlBase extends FormControlBase {
             }
         }, 'update', this.appDeName.toUpperCase()));
         this.fillDetailModels();
+    }
+
+    /**
+     * 订阅数据变更，处理视图状态
+     *
+     * @protected
+     * @memberof EditFormControlBase
+     */
+    protected subDataChange(): void {
+        this.dataChang
+            .pipe(
+                debounceTime(300),
+                distinctUntilChanged()
+            ).subscribe((data: any) => {
+                if (this.autosave) {
+                    this.autoSave();
+                }
+                const state = !Object.is(JSON.stringify(this.oldData), JSON.stringify(this.data)) ? true : false;
+                this.$store.commit('viewaction/setViewDataChange', { viewtag: this.viewtag, viewdatachange: state });
+            });
     }
 
     /**
@@ -262,7 +272,7 @@ export class EditFormControlBase extends FormControlBase {
         const arg: any = { ...opt };
         const data = this.getValues();
         Object.assign(arg, data);
-        if(this.viewparams && this.viewparams.copymode) {
+        if (this.viewparams && this.viewparams.copymode) {
             data.srfuf = '0';
         }
         const action: any = Object.is(data.srfuf, '1') ? this.updateAction : this.createAction;
@@ -337,7 +347,7 @@ export class EditFormControlBase extends FormControlBase {
                 this.saveState = resolve;
                 return;
             }
-            if(this.viewparams && this.viewparams.copymode) {
+            if (this.viewparams && this.viewparams.copymode) {
                 data.srfuf = '0';
             }
             const action: any = Object.is(data.srfuf, '1') ? this.updateAction : this.createAction;
@@ -630,15 +640,15 @@ export class EditFormControlBase extends FormControlBase {
      * 
      * @memberof EditFormControlBase
      */
-    public panelAction(action:string,emitAction:string,data:any ={},showloading?:boolean):void{
+    public panelAction(action: string, emitAction: string, data: any = {}, showloading?: boolean): void {
         if (!action || (action && Object.is(action, ''))) {
             return;
         }
         const arg: any = { ...data };
         const formdata = this.getValues();
         Object.assign(arg, formdata);
-        Object.assign(arg,this.viewparams);
-        const post: Promise<any> = this.service.frontLogic(action,JSON.parse(JSON.stringify(this.context)),arg, showloading);
+        Object.assign(arg, this.viewparams);
+        const post: Promise<any> = this.service.frontLogic(action, JSON.parse(JSON.stringify(this.context)), arg, showloading);
         post.then((response: any) => {
             if (!response.status || response.status !== 200) {
                 if (response.data) {
@@ -647,7 +657,7 @@ export class EditFormControlBase extends FormControlBase {
                 return;
             }
             const data = response.data;
-            this.onFormLoad(data,emitAction);
+            this.onFormLoad(data, emitAction);
             this.$emit(emitAction, data);
             this.$nextTick(() => {
                 this.formState.next({ type: emitAction, data: data });
@@ -744,19 +754,22 @@ export class EditFormControlBase extends FormControlBase {
      * @memberof FormControlBase
      */
     public drdatasaved($event: any) {
-        this.drcounter--;
-        if (this.drcounter > 0) {
+        const _this:any = this;
+        _this.drcounter--;
+        if (_this.drcounter > 0) {
             return;
         }
-        this.save(this.drsaveopt, undefined, false).then((res) => {
-            this.saveState(res);
-            this.drsaveopt = {};
-            if (Object.is(this.currentAction, "saveAndNew")) {
-                this.ResetData(res);
-                this.loadDraft({});
-            } else if (Object.is(this.currentAction, "saveAndExit")) {
+        _this.save(_this.drsaveopt, undefined, false).then((res:any) => {
+            if(_this.saveState){
+                _this.saveState(res);
+            }
+            _this.drsaveopt = {};
+            if (Object.is(_this.currentAction, "saveAndNew")) {
+                _this.ResetData(res);
+                _this.loadDraft({});
+            } else if (Object.is(_this.currentAction, "saveAndExit")) {
                 if (res) {
-                    this.closeView(res.data);
+                    _this.closeView(res.data);
                 }
             }
         });

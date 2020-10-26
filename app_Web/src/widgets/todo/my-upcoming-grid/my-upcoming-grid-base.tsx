@@ -157,6 +157,7 @@ export class MyUpcomingGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'begin',
@@ -165,6 +166,7 @@ export class MyUpcomingGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'pri',
@@ -173,6 +175,7 @@ export class MyUpcomingGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'name',
@@ -181,6 +184,7 @@ export class MyUpcomingGridBase extends GridControlBase {
             show: true,
             unit: 'STAR',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
     ]
 

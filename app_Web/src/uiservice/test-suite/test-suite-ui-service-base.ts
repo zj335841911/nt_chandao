@@ -89,10 +89,24 @@ export default class TestSuiteUIServiceBase extends UIService {
      * @memberof  TestSuiteUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set(':',{viewname:'editview9',srfappde:'testsuites',component:'test-suite-edit-view9'});
-        this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'testsuites',component:'test-suite-edit-view'});
-        this.allViewMap.set('MDATAVIEW:',{viewname:'gridview',srfappde:'testsuites',component:'test-suite-grid-view'});
-        this.allViewMap.set(':',{viewname:'maindashboardview',srfappde:'testsuites',component:'test-suite-main-dashboard-view'});
+        this.allViewMap.set('EDITVIEW:', {
+            viewname: 'editview',
+            srfappde: 'testsuites',
+            component: 'test-suite-edit-view',
+            openmode: 'DRAWER_RIGHT',
+            title: '测试套件',
+            width: 0,
+            height: 0
+        });
+        this.allViewMap.set('MDATAVIEW:', {
+            viewname: 'gridview',
+            srfappde: 'testsuites',
+            component: 'test-suite-grid-view',
+            openmode: '',
+            title: '测试套件',
+            width: 0,
+            height: 0
+        });
     }
 
     /**

@@ -89,8 +89,24 @@ export default class EmployEeloadUIServiceBase extends UIService {
      * @memberof  EmployEeloadUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'employeeloads',component:'employeeloadedit-view'});
-        this.allViewMap.set('MDATAVIEW:',{viewname:'gridview',srfappde:'employeeloads',component:'employeeloadgrid-view'});
+        this.allViewMap.set('EDITVIEW:', {
+            viewname: 'editview',
+            srfappde: 'employeeloads',
+            component: 'employeeloadedit-view',
+            openmode: '',
+            title: '员工负载表',
+            width: 0,
+            height: 0
+        });
+        this.allViewMap.set('MDATAVIEW:', {
+            viewname: 'gridview',
+            srfappde: 'employeeloads',
+            component: 'employeeloadgrid-view',
+            openmode: '',
+            title: '员工负载表',
+            width: 0,
+            height: 0
+        });
     }
 
     /**

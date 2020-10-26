@@ -133,6 +133,7 @@ export class InvolvedProjectGridBase extends GridControlBase {
             show: true,
             unit: 'STAR',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'storycnt',
@@ -141,6 +142,7 @@ export class InvolvedProjectGridBase extends GridControlBase {
             show: true,
             unit: 'STAR',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'ycompletetaskcnt',
@@ -149,6 +151,7 @@ export class InvolvedProjectGridBase extends GridControlBase {
             show: true,
             unit: 'STAR',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'bugcnt',
@@ -157,6 +160,7 @@ export class InvolvedProjectGridBase extends GridControlBase {
             show: true,
             unit: 'STAR',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
     ]
 

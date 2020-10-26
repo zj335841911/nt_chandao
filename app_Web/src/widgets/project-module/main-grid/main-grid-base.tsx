@@ -173,6 +173,7 @@ export class MainGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: true,
+            enableCond: 3 ,
         },
         {
             name: 'short',
@@ -181,6 +182,7 @@ export class MainGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: true,
+            enableCond: 3 ,
         },
         {
             name: 'uagridcolumn1',
@@ -189,6 +191,7 @@ export class MainGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
     ]
 

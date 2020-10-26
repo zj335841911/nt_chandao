@@ -3,9 +3,9 @@
         <span v-if="ifEmpty">{{$t('codelist.'+tag+'.empty')}}</span>
         <template v-if="!ifEmpty">
           <template v-for="(item, index) in items">
-              <span>{{ index != 0 ? textSeparator : ''}}</span>
+              <span v-if="index != 0">{{textSeparator}}</span>
               <i v-if="item.iconCls" :class="item.iconCls"></i>
-              <span :class="item.textCls" :style="{color:item.color}">{{isUseLangres ? $t(item.text) : item.text}}</span>
+              <span :class="item.class" :style="{color:item.color}">{{isUseLangres ? $t(item.text) : item.text}}</span>
           </template>
         </template>
     </div>

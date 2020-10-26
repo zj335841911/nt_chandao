@@ -43,7 +43,7 @@
     :ignorefieldvaluechange="ignorefieldvaluechange"
     viewname='file-list-view9' 
     :data="JSON.stringify(this.data)" 
-    @drdatasaved="drdatasaved($event)"
+    @drdatasaved="drdatasaved.apply(_self, arguments)"
     style="overflow: auto;">
 </app-form-druipart>
 
@@ -93,7 +93,7 @@
     :ignorefieldvaluechange="ignorefieldvaluechange"
     viewname='case-grid-view9-story-related' 
     :data="JSON.stringify(this.data)" 
-    @drdatasaved="drdatasaved($event)"
+    @drdatasaved="drdatasaved.apply(_self, arguments)"
     style="overflow: auto;">
 </app-form-druipart>
 

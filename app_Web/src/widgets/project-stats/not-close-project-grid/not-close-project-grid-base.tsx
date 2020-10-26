@@ -141,6 +141,7 @@ export class NotCloseProjectGridBase extends GridControlBase {
             show: true,
             unit: 'STAR',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'end',
@@ -149,6 +150,7 @@ export class NotCloseProjectGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'status',
@@ -157,6 +159,7 @@ export class NotCloseProjectGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'totalestimate',
@@ -165,6 +168,7 @@ export class NotCloseProjectGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'totalconsumed',
@@ -173,6 +177,7 @@ export class NotCloseProjectGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'totalleft',
@@ -181,6 +186,7 @@ export class NotCloseProjectGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'totalwh',
@@ -189,6 +195,7 @@ export class NotCloseProjectGridBase extends GridControlBase {
             show: false,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
         {
             name: 'progress',
@@ -197,6 +204,7 @@ export class NotCloseProjectGridBase extends GridControlBase {
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
+            enableCond: 3 ,
         },
     ]
 

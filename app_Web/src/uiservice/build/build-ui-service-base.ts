@@ -89,13 +89,24 @@ export default class BuildUIServiceBase extends UIService {
      * @memberof  BuildUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set(':',{viewname:'optionview',srfappde:'builds',component:'build-option-view'});
-        this.allViewMap.set(':',{viewname:'editformeditview',srfappde:'builds',component:'build-edit-form-edit-view'});
-        this.allViewMap.set('MDATAVIEW:',{viewname:'maingridview',srfappde:'builds',component:'build-main-grid-view'});
-        this.allViewMap.set(':',{viewname:'testroundsgridview',srfappde:'builds',component:'build-test-rounds-grid-view'});
-        this.allViewMap.set(':',{viewname:'mainview',srfappde:'builds',component:'build-main-view'});
-        this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'builds',component:'build-edit-view'});
-        this.allViewMap.set(':',{viewname:'maintabexpview',srfappde:'builds',component:'build-main-tab-exp-view'});
+        this.allViewMap.set('MDATAVIEW:', {
+            viewname: 'maingridview',
+            srfappde: 'builds',
+            component: 'build-main-grid-view',
+            openmode: '',
+            title: '版本',
+            width: 0,
+            height: 0
+        });
+        this.allViewMap.set('EDITVIEW:', {
+            viewname: 'editview',
+            srfappde: 'builds',
+            component: 'build-edit-view',
+            openmode: 'DRAWER_RIGHT',
+            title: '版本',
+            width: 0,
+            height: 0
+        });
     }
 
     /**

@@ -118,7 +118,7 @@
 
 <script lang='ts'>
 import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
-import { Subject } from 'rxjs';
+import { Subject, Subscription } from 'rxjs';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
 import { CodeListService } from "@/ibiz-core";
 import StoryService from '@/app-core/service/story/story-service';
@@ -1156,7 +1156,7 @@ export default class StoryMobMDViewBase extends Vue {
      * @memberof StoryMobMDViewBase
      */
     public loadQuickGroupModel(){
-        let quickGroupCodeList:any = {tag:'Story__quickpacket',codelistType:'STATIC'};
+        let quickGroupCodeList:any = {tag:'MobStoryQuickGroup',codelistType:'STATIC'};
         if(quickGroupCodeList.tag && Object.is(quickGroupCodeList.codelistType,"STATIC")){
             const codelist = this.$store.getters.getCodeList(quickGroupCodeList.tag);
             if (codelist) {
