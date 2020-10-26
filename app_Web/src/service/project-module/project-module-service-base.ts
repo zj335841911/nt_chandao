@@ -236,11 +236,11 @@ export default class ProjectModuleServiceBase extends EntityService {
         if(context.project && context.projectmodule){
             let masterData:any = {};
             Object.assign(data,masterData);
-            let res:any = await Http.getInstance().delete(`/projects/${context.project}/projectmodules/${context.projectmodule}/removemodule`,data,isloading);
+            let res:any = await Http.getInstance().put(`/projects/${context.project}/projectmodules/${context.projectmodule}/removemodule`,data,isloading);
             
             return res;
         }
-            let res:any = Http.getInstance().delete(`/projectmodules/${context.projectmodule}/removemodule`,data,isloading);
+            let res:any = Http.getInstance().put(`/projectmodules/${context.projectmodule}/removemodule`,data,isloading);
             return res;
     }
 

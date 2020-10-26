@@ -133,7 +133,7 @@ public class ProductModuleResource {
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductModule-RemoveModule-all')")
     @ApiOperation(value = "删除模块", tags = {"需求模块" },  notes = "删除模块")
-	@RequestMapping(method = RequestMethod.DELETE, value = "/productmodules/{productmodule_id}/removemodule")
+	@RequestMapping(method = RequestMethod.PUT, value = "/productmodules/{productmodule_id}/removemodule")
     public ResponseEntity<ProductModuleDTO> removeModule(@PathVariable("productmodule_id") Long productmodule_id, @RequestBody ProductModuleDTO productmoduledto) {
         ProductModule domain = productmoduleMapping.toDomain(productmoduledto);
         domain.setId(productmodule_id);
@@ -399,7 +399,7 @@ public class ProductModuleResource {
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductModule-RemoveModule-all')")
     @ApiOperation(value = "根据产品需求模块", tags = {"需求模块" },  notes = "根据产品需求模块")
-	@RequestMapping(method = RequestMethod.DELETE, value = "/products/{product_id}/productmodules/{productmodule_id}/removemodule")
+	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/productmodules/{productmodule_id}/removemodule")
     public ResponseEntity<ProductModuleDTO> removeModuleByProduct(@PathVariable("product_id") Long product_id, @PathVariable("productmodule_id") Long productmodule_id, @RequestBody ProductModuleDTO productmoduledto) {
         ProductModule domain = productmoduleMapping.toDomain(productmoduledto);
         domain.setRoot(product_id);

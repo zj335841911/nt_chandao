@@ -172,7 +172,7 @@ POST
 /testmodules/{testmodule_id}/removemodule
 
 #### 请求方法
-DELETE
+PUT
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -616,7 +616,7 @@ POST
 /products/{product_id}/testmodules/{testmodule_id}/removemodule
 
 #### 请求方法
-DELETE
+PUT
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |

@@ -429,7 +429,7 @@ mock.onPost(new RegExp(/^\/projectmodules\/?([a-zA-Z0-9\-\;]{0,35})\/fix$/)).rep
 
     
 // RemoveModule
-mock.onDelete(new RegExp(/^\/projects\/([a-zA-Z0-9\-\;]{1,35})\/projectmodules\/([a-zA-Z0-9\-\;]{1,35})\/removemodule$/)).reply((config: any) => {
+mock.onPut(new RegExp(/^\/projects\/([a-zA-Z0-9\-\;]{1,35})\/projectmodules\/([a-zA-Z0-9\-\;]{1,35})\/removemodule$/)).reply((config: any) => {
     console.groupCollapsed("实体:projectmodule 方法: RemoveModule");
     console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
@@ -455,7 +455,7 @@ mock.onDelete(new RegExp(/^\/projects\/([a-zA-Z0-9\-\;]{1,35})\/projectmodules\/
 });
         
 // RemoveModule
-mock.onDelete(new RegExp(/^\/projectmodules\/?([a-zA-Z0-9\-\;]{0,35})\/removemodule$/)).reply((config: any) => {
+mock.onPut(new RegExp(/^\/projectmodules\/?([a-zA-Z0-9\-\;]{0,35})\/removemodule$/)).reply((config: any) => {
     console.groupCollapsed("实体:projectmodule 方法: RemoveModule");
     console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
