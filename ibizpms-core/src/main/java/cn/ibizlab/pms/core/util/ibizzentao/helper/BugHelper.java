@@ -90,19 +90,17 @@ public class BugHelper extends ZTBaseHelper<BugMapper, Bug> {
     @Transactional
     public Bug assignTo(Bug et) {
         String comment = StringUtils.isNotBlank(et.getComment()) ? et.getComment() : "";
-        Bug old = this.get(et.getId());
-        et.setConfirmed(1);
-
+        Bug old = new Bug();
+        CachedBeanCopier.copy(get(et.getId()), old);
+//        et.setConfirmed(1);
         if(StringUtils.isBlank(et.getAssignedto()))
             et.setAssignedto(AuthenticationUser.getAuthenticationUser().getUsername());
         this.internalUpdate(et);
         List<History> changes = ChangeUtil.diff(old, et);
-        if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
-            Action action = actionHelper.create("bug", et.getId(), "bugConfirmed",
-                    comment, "", null, true);
-            if (changes.size() > 0)
-                actionHelper.logHistory(action.getId(), changes);
-        }
+        Action action = actionHelper.create("bug", et.getId(), "assigned",
+                comment, et.getAssignedto(), null, true);
+        if (changes.size() > 0)
+            actionHelper.logHistory(action.getId(), changes);
         return et;
     }
 

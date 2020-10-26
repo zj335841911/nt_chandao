@@ -281,7 +281,7 @@ public class ProjectHelper extends ZTBaseHelper<ProjectMapper, Project> {
             projectStory.setVersion(story.getVersion());
             projectStory.setOrder(++order);
             projectStoryHelper.create(projectStory);
-
+            storyHelper.setStage(story);
             actionHelper.create("story", story.getId(), "linked2project",
                     "", String.valueOf(et.getId()), null, true);
         }
@@ -325,6 +325,7 @@ public class ProjectHelper extends ZTBaseHelper<ProjectMapper, Project> {
             projectTeam.setType("project");
             Team team = new Team();
             CachedBeanCopier.copy(projectTeam, team);
+            team.setId(null);
             teamHelper.create(team);
         }
         return et;

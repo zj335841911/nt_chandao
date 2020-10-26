@@ -64,9 +64,12 @@ public class ModuleHelper extends ZTBaseHelper<ModuleMapper, Module> {
             et.setOrder(maxModule.getOrder()+10);
         }
 
-
-
         this.internalUpdate(et);
+        List<Module> list = this.list(new QueryWrapper<Module>().like("path", "," + et.getId() + ",").ne("id", et.getId()));
+        for (Module module : list) {
+            module.setPath(module.getPath().replace(("," + et.getId() + ","), path.toString()));
+            this.internalUpdate(module);
+        }
 
         return bOk;
     }
