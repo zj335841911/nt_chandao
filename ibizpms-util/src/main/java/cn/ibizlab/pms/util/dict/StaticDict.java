@@ -34,23 +34,7 @@ public class StaticDict {
         }
     }
 
-    /**
-     * 代码表[页面参数]
-     */
-    @Getter
-    public enum CodeList64 {
 
-        private String value;
-        private String text;
-        private String valueSeparator="";
-        private String textSeparator="";
-        private String emptyText="";
-
-        CodeList64(String value , String text) {
-            this.value=value;
-            this.text = text;
-        }
-    }
 
     /**
      * 代码表[文档库权限]
@@ -313,24 +297,6 @@ public class StaticDict {
     }
 
     /**
-     * 代码表[同构汇总表时间维度]
-     */
-    @Getter
-    public enum CodeList95 {
-
-        private String value;
-        private String text;
-        private String valueSeparator="";
-        private String textSeparator="";
-        private String emptyText="";
-
-        CodeList95(String value , String text) {
-            this.value=value;
-            this.text = text;
-        }
-    }
-
-    /**
      * 代码表[区块模块]
      */
     @Getter
@@ -518,7 +484,7 @@ public class StaticDict {
     @Getter
     public enum CodeList60 {
         VALUE_LIKE("LIKE","LIKE大小写敏感"),
-        VALUE_=("=","=（含其它）大小写敏感"),
+        VALUE_("=","=（含其它）大小写敏感"),
         VALUE_LIKESPLIT("LIKESPLIT","LIKE分解");
 
         private String value;
@@ -627,23 +593,6 @@ public class StaticDict {
         }
     }
 
-    /**
-     * 代码表[系统内置菜单]
-     */
-    @Getter
-    public enum CodeList79 {
-
-        private String value;
-        private String text;
-        private String valueSeparator="";
-        private String textSeparator="";
-        private String emptyText="";
-
-        CodeList79(String value , String text) {
-            this.value=value;
-            this.text = text;
-        }
-    }
 
 
     /**
@@ -1322,29 +1271,6 @@ public class StaticDict {
         }
     }
 
-    /**
-     * 代码表[需求颜色]
-     */
-    @Getter
-    public enum Story__color {
-        VALUE_#3da7f5("#3da7f5","#3da7f5"),
-        VALUE_#75c941("#75c941","#75c941"),
-        VALUE_#2dbdb2("#2dbdb2","#2dbdb2"),
-        VALUE_#797ec9("#797ec9","#797ec9"),
-        VALUE_#ffaf38("#ffaf38","#ffaf38"),
-        VALUE_#ff4e3e("#ff4e3e","#ff4e3e");
-
-        private String value;
-        private String text;
-        private String valueSeparator="";
-        private String textSeparator="";
-        private String emptyText="";
-
-        Story__color(String value , String text) {
-            this.value=value;
-            this.text = text;
-        }
-    }
 
 
     /**
@@ -1597,33 +1523,6 @@ public class StaticDict {
         private String emptyText="";
 
         CodeList37(String value , String text) {
-            this.value=value;
-            this.text = text;
-        }
-    }
-
-    /**
-     * 代码表[实体规则处理_操作逻辑]
-     */
-    @Getter
-    public enum CodeList111 {
-        VALUE_=("=","等于"),
-        VALUE_<>("<>","不等于"),
-        VALUE_>=(">=","大于等于"),
-        VALUE_>(">","大于"),
-        VALUE_<=("<=","小于等于"),
-        VALUE_<("<","小于"),
-        VALUE_LIKE("LIKE","文本匹配"),
-        VALUE_ISNULL("ISNULL","为空"),
-        VALUE_ISNOTNULL("ISNOTNULL","不为空");
-
-        private String value;
-        private String text;
-        private String valueSeparator="";
-        private String textSeparator="";
-        private String emptyText="";
-
-        CodeList111(String value , String text) {
             this.value=value;
             this.text = text;
         }
@@ -2012,9 +1911,7 @@ public class StaticDict {
         VALUE_story_reviewed_reject("story_reviewed_reject","拒绝"),
         VALUE_story_reviewed_revert("story_reviewed_revert","撤销变更"),
         VALUE_story_reviewed_clarify("story_reviewed_clarify","有待明确"),
-        VALUE_story_reviewed_pass("story_reviewed_pass","确认通过"),
-        VALUE_ release_changestatus_terminate(" release_changestatus_terminate","停止维护"),
-        VALUE_ release_changestatus_normal(" release_changestatus_normal","正常");
+        VALUE_story_reviewed_pass("story_reviewed_pass","确认通过");
 
         private String value;
         private String text;
@@ -2353,49 +2250,9 @@ public class StaticDict {
         }
     }
 
-    /**
-     * 代码表[DB2触发器代码模式]
-     */
-    @Getter
-    public enum CodeList67 {
-        VALUE_For Each Row("For Each Row","For Each Row"),
-        VALUE_For Each Statement("For Each Statement","For Each Statement");
 
-        private String value;
-        private String text;
-        private String valueSeparator="";
-        private String textSeparator="";
-        private String emptyText="";
 
-        CodeList67(String value , String text) {
-            this.value=value;
-            this.text = text;
-        }
-    }
 
-    /**
-     * 代码表[任务颜色]
-     */
-    @Getter
-    public enum Task__color {
-        VALUE_#3da7f5("#3da7f5","#3da7f5"),
-        VALUE_#75c941("#75c941","#75c941"),
-        VALUE_#2dbdb2("#2dbdb2","#2dbdb2"),
-        VALUE_#797ec9("#797ec9","#797ec9"),
-        VALUE_#ffaf38("#ffaf38","#ffaf38"),
-        VALUE_#ff4e3e("#ff4e3e","#ff4e3e");
-
-        private String value;
-        private String text;
-        private String valueSeparator="";
-        private String textSeparator="";
-        private String emptyText="";
-
-        Task__color(String value , String text) {
-            this.value=value;
-            this.text = text;
-        }
-    }
 
     /**
      * 代码表[功能类型]
@@ -2610,29 +2467,6 @@ public class StaticDict {
         }
     }
 
-    /**
-     * 代码表[Bug颜色]
-     */
-    @Getter
-    public enum Bug__color {
-        VALUE_#3da7f5("#3da7f5","#3da7f5"),
-        VALUE_#75c941("#75c941","#75c941"),
-        VALUE_#2dbdb2("#2dbdb2","#2dbdb2"),
-        VALUE_#797ec9("#797ec9","#797ec9"),
-        VALUE_#ffaf38("#ffaf38","#ffaf38"),
-        VALUE_#ff4e3e("#ff4e3e","#ff4e3e");
-
-        private String value;
-        private String text;
-        private String valueSeparator="";
-        private String textSeparator="";
-        private String emptyText="";
-
-        Bug__color(String value , String text) {
-            this.value=value;
-            this.text = text;
-        }
-    }
 
     /**
      * 代码表[是否（蓝、红）]
@@ -2860,25 +2694,6 @@ public class StaticDict {
         }
     }
 
-    /**
-     * 代码表[文件编码]
-     */
-    @Getter
-    public enum CodeList39 {
-        VALUE_ANSI("ANSI","ANSI"),
-        VALUE_UTF-8("UTF-8","UTF-8");
-
-        private String value;
-        private String text;
-        private String valueSeparator="";
-        private String textSeparator="";
-        private String emptyText="";
-
-        CodeList39(String value , String text) {
-            this.value=value;
-            this.text = text;
-        }
-    }
 
     /**
      * 代码表[输入辅助_控件参数]
@@ -3405,23 +3220,7 @@ public class StaticDict {
         }
     }
 
-    /**
-     * 代码表[应用界面主题]
-     */
-    @Getter
-    public enum CodeList58 {
 
-        private String value;
-        private String text;
-        private String valueSeparator="";
-        private String textSeparator="";
-        private String emptyText="";
-
-        CodeList58(String value , String text) {
-            this.value=value;
-            this.text = text;
-        }
-    }
 
     /**
      * 代码表[文档类型]
@@ -3739,29 +3538,7 @@ public class StaticDict {
 
 
 
-    /**
-     * 代码表[测试用例颜色]
-     */
-    @Getter
-    public enum Testcase__color {
-        VALUE_#3da7f5("#3da7f5","#3da7f5"),
-        VALUE_#75c941("#75c941","#75c941"),
-        VALUE_#2dbdb2("#2dbdb2","#2dbdb2"),
-        VALUE_#797ec9("#797ec9","#797ec9"),
-        VALUE_#ffaf38("#ffaf38","#ffaf38"),
-        VALUE_#ff4e3e("#ff4e3e","#ff4e3e");
 
-        private String value;
-        private String text;
-        private String valueSeparator="";
-        private String textSeparator="";
-        private String emptyText="";
-
-        Testcase__color(String value , String text) {
-            this.value=value;
-            this.text = text;
-        }
-    }
 
     /**
      * 代码表[项目阶段]
@@ -3952,35 +3729,6 @@ public class StaticDict {
         }
     }
 
-    /**
-     * 代码表[语言资源类型]
-     */
-    @Getter
-    public enum CodeList55 {
-        VALUE_DEF.LNAME("DEF.LNAME","实体属性逻辑名称"),
-        VALUE_CL.ITEM.LNAME("CL.ITEM.LNAME","代码表项"),
-        VALUE_TBB.TEXT("TBB.TEXT","工具栏按钮文本"),
-        VALUE_TBB.TOOLTIP("TBB.TOOLTIP","工具栏按钮提示"),
-        VALUE_MENUITEM.CAPTION("MENUITEM.CAPTION","菜单项文本"),
-        VALUE_PAGE.HEADER("PAGE.HEADER","界面头部标题"),
-        VALUE_PAGE.COMMON("PAGE.COMMON","界面常规"),
-        VALUE_CONTROL("CONTROL","控件文本"),
-        VALUE_ERROR.STD("ERROR.STD","标准错误"),
-        VALUE_CTRL("CTRL","处理逻辑"),
-        VALUE_COMMON("COMMON","通用"),
-        VALUE_OTHER("OTHER","其它");
-
-        private String value;
-        private String text;
-        private String valueSeparator="";
-        private String textSeparator="";
-        private String emptyText="";
-
-        CodeList55(String value , String text) {
-            this.value=value;
-            this.text = text;
-        }
-    }
 
     /**
      * 代码表[测试用例状态]
@@ -4049,230 +3797,6 @@ public class StaticDict {
         }
     }
 
-    /**
-     * 代码表[时区]
-     */
-    @Getter
-    public enum CodeList59 {
-        VALUE_Etc_GMT_12("Etc/GMT+12","(UTC-12:00)GMT-12:00"),
-        VALUE_Etc_GMT_11("Etc/GMT+11","(UTC-11:00)GMT-11:00"),
-        VALUE_MIT("MIT","(UTC-11:00)West Samoa Time"),
-        VALUE_Pacific_Midway("Pacific/Midway","(UTC-11:00)Samoa Standard Time"),
-        VALUE_Pacific_Niue("Pacific/Niue","(UTC-11:00)Niue Time"),
-        VALUE_America_Adak("America/Adak","(UTC-10:00)Hawaii-Aleutian Standard Time"),
-        VALUE_Etc_GMT_10("Etc/GMT+10","(UTC-10:00)GMT-10:00"),
-        VALUE_HST("HST","(UTC-10:00)Hawaii Standard Time"),
-        VALUE_Pacific_Fakaofo("Pacific/Fakaofo","(UTC-10:00)Tokelau Time"),
-        VALUE_Pacific_Rarotonga("Pacific/Rarotonga","(UTC-10:00)Cook Is. Time"),
-        VALUE_Pacific_Tahiti("Pacific/Tahiti","(UTC-10:00)Tahiti Time"),
-        VALUE_Pacific_Marquesas("Pacific/Marquesas","(UTC-9:00)Marquesas Time"),
-        VALUE_AST("AST","(UTC-9:00)Alaska Standard Time"),
-        VALUE_Etc_GMT_9("Etc/GMT+9","(UTC-9:00)GMT-09:00"),
-        VALUE_Pacific_Gambier("Pacific/Gambier","(UTC-9:00)Gambier Time"),
-        VALUE_America_Dawson("America/Dawson","(UTC-8:00)Pacific Standard Time"),
-        VALUE_Etc_GMT_8("Etc/GMT+8","(UTC-8:00)GMT-08:00"),
-        VALUE_Pacific_Pitcairn("Pacific/Pitcairn","(UTC-8:00)Pitcairn Standard Time"),
-        VALUE_America_Boise("America/Boise","(UTC-7:00)Mountain Standard Time"),
-        VALUE_Etc_GMT_7("Etc/GMT+7","(UTC-7:00)GMT-07:00"),
-        VALUE_America_Belize("America/Belize","(UTC-6:00)Central Standard Time"),
-        VALUE_Chile_EasterIsland("Chile/EasterIsland","(UTC-6:00)Easter Is. Time"),
-        VALUE_Etc_GMT_6("Etc/GMT+6","(UTC-6:00)GMT-06:00"),
-        VALUE_Pacific_Galapagos("Pacific/Galapagos","(UTC-6:00)Galapagos Time"),
-        VALUE_America_Atikokan("America/Atikokan","(UTC-5:00)Eastern Standard Time"),
-        VALUE_America_Bogota("America/Bogota","(UTC-5:00)Colombia Time"),
-        VALUE_America_Eirunepe("America/Eirunepe","(UTC-5:00)Acre Time"),
-        VALUE_America_Guayaquil("America/Guayaquil","(UTC-5:00)Ecuador Time"),
-        VALUE_America_Havana("America/Havana","(UTC-5:00)Cuba Standard Time"),
-        VALUE_America_Lima("America/Lima","(UTC-5:00)Peru Time"),
-        VALUE_Etc_GMT_5("Etc/GMT+5","(UTC-5:00)GMT-05:00"),
-        VALUE_America_Caracas("America/Caracas","(UTC-4:00)Venezuela Time"),
-        VALUE_America_Anguilla("America/Anguilla","(UTC-4:00)Atlantic Standard Time"),
-        VALUE_America_Asuncion("America/Asuncion","(UTC-4:00)Paraguay Time"),
-        VALUE_America_Boa_Vista("America/Boa_Vista","(UTC-4:00)Amazon Time"),
-        VALUE_America_Guyana("America/Guyana","(UTC-4:00)Guyana Time"),
-        VALUE_America_La_Paz("America/La_Paz","(UTC-4:00)Bolivia Time"),
-        VALUE_America_Santiago("America/Santiago","(UTC-4:00)Chile Time"),
-        VALUE_Atlantic_Stanley("Atlantic/Stanley","(UTC-4:00)Falkland Is. Time"),
-        VALUE_Etc_GMT_4("Etc/GMT+4","(UTC-4:00)GMT-04:00"),
-        VALUE_America_St_Johns("America/St_Johns","(UTC-3:00)Newfoundland Standard Time"),
-        VALUE_AGT("AGT","(UTC-3:00)Argentine Time"),
-        VALUE_America_Araguaina("America/Araguaina","(UTC-3:00)Brasilia Time"),
-        VALUE_America_Cayenne("America/Cayenne","(UTC-3:00)French Guiana Time"),
-        VALUE_America_Godthab("America/Godthab","(UTC-3:00)Western Greenland Time"),
-        VALUE_America_Miquelon("America/Miquelon","(UTC-3:00)Pierre & Miquelon Standard Time"),
-        VALUE_America_Montevideo("America/Montevideo","(UTC-3:00)Uruguay Time"),
-        VALUE_America_Paramaribo("America/Paramaribo","(UTC-3:00)Suriname Time"),
-        VALUE_Antarctica_Rothera("Antarctica/Rothera","(UTC-3:00)Rothera Time"),
-        VALUE_Etc_GMT_3("Etc/GMT+3","(UTC-3:00)GMT-03:00"),
-        VALUE_America_Noronha("America/Noronha","(UTC-2:00)Fernando de Noronha Time"),
-        VALUE_Atlantic_South_Georgia("Atlantic/South_Georgia","(UTC-2:00)South Georgia Standard Time"),
-        VALUE_Etc_GMT_2("Etc/GMT+2","(UTC-2:00)GMT-02:00"),
-        VALUE_America_Scoresbysund("America/Scoresbysund","(UTC-1:00)Eastern Greenland Time"),
-        VALUE_Atlantic_Azores("Atlantic/Azores","(UTC-1:00)Azores Time"),
-        VALUE_Atlantic_Cape_Verde("Atlantic/Cape_Verde","(UTC-1:00)Cape Verde Time"),
-        VALUE_Etc_GMT_1("Etc/GMT+1","(UTC-1:00)GMT-01:00"),
-        VALUE_Africa_Abidjan("Africa/Abidjan","(UTC0:00)Greenwich Mean Time"),
-        VALUE_Africa_Accra("Africa/Accra","(UTC0:00)Ghana Mean Time"),
-        VALUE_Africa_Casablanca("Africa/Casablanca","(UTC0:00)Western European Time"),
-        VALUE_Etc_GMT("Etc/GMT","(UTC0:00)GMT+00:00"),
-        VALUE_Etc_UCT("Etc/UCT","(UTC0:00)Coordinated Universal Time"),
-        VALUE_Africa_Algiers("Africa/Algiers","(UTC+1:00)Central European Time"),
-        VALUE_Africa_Bangui("Africa/Bangui","(UTC+1:00)Western African Time"),
-        VALUE_Etc_GMT-1("Etc/GMT-1","(UTC+1:00)GMT+01:00"),
-        VALUE_MET("MET","(UTC+1:00)Middle Europe Time"),
-        VALUE_ART("ART","(UTC+2:00)Eastern European Time"),
-        VALUE_Africa_Blantyre("Africa/Blantyre","(UTC+2:00)Central African Time"),
-        VALUE_Africa_Johannesburg("Africa/Johannesburg","(UTC+2:00)South Africa Standard Time"),
-        VALUE_Asia_Jerusalem("Asia/Jerusalem","(UTC+2:00)Israel Standard Time"),
-        VALUE_Etc_GMT-2("Etc/GMT-2","(UTC+2:00)GMT+02:00"),
-        VALUE_Africa_Addis_Ababa("Africa/Addis_Ababa","(UTC+3:00)Eastern African Time"),
-        VALUE_Antarctica_Syowa("Antarctica/Syowa","(UTC+3:00)Syowa Time"),
-        VALUE_Asia_Aden("Asia/Aden","(UTC+3:00)Arabia Standard Time"),
-        VALUE_Etc_GMT-3("Etc/GMT-3","(UTC+3:00)GMT+03:00"),
-        VALUE_Europe_Moscow("Europe/Moscow","(UTC+3:00)Moscow Standard Time"),
-        VALUE_Europe_Volgograd("Europe/Volgograd","(UTC+3:00)Volgograd Time"),
-        VALUE_Asia_Riyadh87("Asia/Riyadh87","(UTC+3:00)GMT+03:07"),
-        VALUE_Asia_Tehran("Asia/Tehran","(UTC+3:00)Iran Standard Time"),
-        VALUE_Asia_Baku("Asia/Baku","(UTC+4:00)Azerbaijan Time"),
-        VALUE_Asia_Dubai("Asia/Dubai","(UTC+4:00)Gulf Standard Time"),
-        VALUE_Asia_Tbilisi("Asia/Tbilisi","(UTC+4:00)Georgia Time"),
-        VALUE_Asia_Yerevan("Asia/Yerevan","(UTC+4:00)Armenia Time"),
-        VALUE_Etc_GMT-4("Etc/GMT-4","(UTC+4:00)GMT+04:00"),
-        VALUE_Europe_Samara("Europe/Samara","(UTC+4:00)Samara Time"),
-        VALUE_Indian_Mahe("Indian/Mahe","(UTC+4:00)Seychelles Time"),
-        VALUE_Indian_Mauritius("Indian/Mauritius","(UTC+4:00)Mauritius Time"),
-        VALUE_Indian_Reunion("Indian/Reunion","(UTC+4:00)Reunion Time"),
-        VALUE_Asia_Kabul("Asia/Kabul","(UTC+4:00)Afghanistan Time"),
-        VALUE_Asia_Aqtau("Asia/Aqtau","(UTC+5:00)Aqtau Time"),
-        VALUE_Asia_Aqtobe("Asia/Aqtobe","(UTC+5:00)Aqtobe Time"),
-        VALUE_Asia_Ashgabat("Asia/Ashgabat","(UTC+5:00)Turkmenistan Time"),
-        VALUE_Asia_Dushanbe("Asia/Dushanbe","(UTC+5:00)Tajikistan Time"),
-        VALUE_Asia_Karachi("Asia/Karachi","(UTC+5:00)Pakistan Time"),
-        VALUE_Asia_Oral("Asia/Oral","(UTC+5:00)Oral Time"),
-        VALUE_Asia_Samarkand("Asia/Samarkand","(UTC+5:00)Uzbekistan Time"),
-        VALUE_Asia_Yekaterinburg("Asia/Yekaterinburg","(UTC+5:00)Yekaterinburg Time"),
-        VALUE_Etc_GMT-5("Etc/GMT-5","(UTC+5:00)GMT+05:00"),
-        VALUE_Indian_Kerguelen("Indian/Kerguelen","(UTC+5:00)French Southern & Antarctic Lands Time"),
-        VALUE_Indian_Maldives("Indian/Maldives","(UTC+5:00)Maldives Time"),
-        VALUE_Asia_Calcutta("Asia/Calcutta","(UTC+5:00)India Standard Time"),
-        VALUE_Asia_Katmandu("Asia/Katmandu","(UTC+5:00)Nepal Time"),
-        VALUE_Antarctica_Mawson("Antarctica/Mawson","(UTC+6:00)Mawson Time"),
-        VALUE_Antarctica_Vostok("Antarctica/Vostok","(UTC+6:00)Vostok Time"),
-        VALUE_Asia_Almaty("Asia/Almaty","(UTC+6:00)Alma-Ata Time"),
-        VALUE_Asia_Bishkek("Asia/Bishkek","(UTC+6:00)Kirgizstan Time"),
-        VALUE_Asia_Dacca("Asia/Dacca","(UTC+6:00)Bangladesh Time"),
-        VALUE_Asia_Novosibirsk("Asia/Novosibirsk","(UTC+6:00)Novosibirsk Time"),
-        VALUE_Asia_Omsk("Asia/Omsk","(UTC+6:00)Omsk Time"),
-        VALUE_Asia_Qyzylorda("Asia/Qyzylorda","(UTC+6:00)Qyzylorda Time"),
-        VALUE_Asia_Thimbu("Asia/Thimbu","(UTC+6:00)Bhutan Time"),
-        VALUE_Etc_GMT-6("Etc/GMT-6","(UTC+6:00)GMT+06:00"),
-        VALUE_Indian_Chagos("Indian/Chagos","(UTC+6:00)Indian Ocean Territory Time"),
-        VALUE_Asia_Rangoon("Asia/Rangoon","(UTC+6:00)Myanmar Time"),
-        VALUE_Indian_Cocos("Indian/Cocos","(UTC+6:00)Cocos Islands Time"),
-        VALUE_Antarctica_Davis("Antarctica/Davis","(UTC+7:00)Davis Time"),
-        VALUE_Asia_Bangkok("Asia/Bangkok","(UTC+7:00)Indochina Time"),
-        VALUE_Asia_Hovd("Asia/Hovd","(UTC+7:00)Hovd Time"),
-        VALUE_Asia_Jakarta("Asia/Jakarta","(UTC+7:00)West Indonesia Time"),
-        VALUE_Asia_Krasnoyarsk("Asia/Krasnoyarsk","(UTC+7:00)Krasnoyarsk Time"),
-        VALUE_Etc_GMT-7("Etc/GMT-7","(UTC+7:00)GMT+07:00"),
-        VALUE_Indian_Christmas("Indian/Christmas","(UTC+7:00)Christmas Island Time"),
-        VALUE_Antarctica_Casey("Antarctica/Casey","(UTC+8:00)Western Standard Time (Australia)"),
-        VALUE_Asia_Brunei("Asia/Brunei","(UTC+8:00)Brunei Time"),
-        VALUE_Asia_Choibalsan("Asia/Choibalsan","(UTC+8:00)Choibalsan Time"),
-        VALUE_Asia_Shanghai("Asia/Shanghai","(UTC+8:00)China Standard Time"),
-        VALUE_Asia_Hong_Kong("Asia/Hong_Kong","(UTC+8:00)Hong Kong Time"),
-        VALUE_Asia_Irkutsk("Asia/Irkutsk","(UTC+8:00)Irkutsk Time"),
-        VALUE_Asia_Kuala_Lumpur("Asia/Kuala_Lumpur","(UTC+8:00)Malaysia Time"),
-        VALUE_Asia_Makassar("Asia/Makassar","(UTC+8:00)Central Indonesia Time"),
-        VALUE_Asia_Manila("Asia/Manila","(UTC+8:00)Philippines Time"),
-        VALUE_Asia_Singapore("Asia/Singapore","(UTC+8:00)Singapore Time"),
-        VALUE_Asia_Ulaanbaatar("Asia/Ulaanbaatar","(UTC+8:00)Ulaanbaatar Time"),
-        VALUE_Etc_GMT-8("Etc/GMT-8","(UTC+8:00)GMT+08:00"),
-        VALUE_Australia_Eucla("Australia/Eucla","(UTC+8:00)Central Western Standard Time (Australia)"),
-        VALUE_Asia_Dili("Asia/Dili","(UTC+9:00)Timor-Leste Time"),
-        VALUE_Asia_Jayapura("Asia/Jayapura","(UTC+9:00)East Indonesia Time"),
-        VALUE_Asia_Pyongyang("Asia/Pyongyang","(UTC+9:00)Korea Standard Time"),
-        VALUE_Asia_Tokyo("Asia/Tokyo","(UTC+9:00)Japan Standard Time"),
-        VALUE_Asia_Yakutsk("Asia/Yakutsk","(UTC+9:00)Yakutsk Time"),
-        VALUE_Etc_GMT-9("Etc/GMT-9","(UTC+9:00)GMT+09:00"),
-        VALUE_Pacific_Palau("Pacific/Palau","(UTC+9:00)Palau Time"),
-        VALUE_ACT("ACT","(UTC+9:00)Central Standard Time (Northern Territory)"),
-        VALUE_Australia_Adelaide("Australia/Adelaide","(UTC+9:00)Central Standard Time (South Australia)"),
-        VALUE_Australia_Broken_Hill("Australia/Broken_Hill","(UTC+9:00)Central Standard Time (South Australia/New South Wales)"),
-        VALUE_AET("AET","(UTC+10:00)Eastern Standard Time (New South Wales)"),
-        VALUE_Antarctica_DumontDUrville("Antarctica/DumontDUrville","(UTC+10:00)Dumont-d|Urville Time"),
-        VALUE_Asia_Sakhalin("Asia/Sakhalin","(UTC+10:00)Sakhalin Time"),
-        VALUE_Asia_Vladivostok("Asia/Vladivostok","(UTC+10:00)Vladivostok Time"),
-        VALUE_Australia_Brisbane("Australia/Brisbane","(UTC+10:00)Eastern Standard Time (Queensland)"),
-        VALUE_Australia_Hobart("Australia/Hobart","(UTC+10:00)Eastern Standard Time (Tasmania)"),
-        VALUE_Australia_Melbourne("Australia/Melbourne","(UTC+10:00)Eastern Standard Time (Victoria)"),
-        VALUE_Etc_GMT-10("Etc/GMT-10","(UTC+10:00)GMT+10:00"),
-        VALUE_Pacific_Guam("Pacific/Guam","(UTC+10:00)Chamorro Standard Time"),
-        VALUE_Pacific_Port_Moresby("Pacific/Port_Moresby","(UTC+10:00)Papua New Guinea Time"),
-        VALUE_Pacific_Truk("Pacific/Truk","(UTC+10:00)Truk Time"),
-        VALUE_Australia_LHI("Australia/LHI","(UTC+10:00)Lord Howe Standard Time"),
-        VALUE_Asia_Magadan("Asia/Magadan","(UTC+11:00)Magadan Time"),
-        VALUE_Etc_GMT-11("Etc/GMT-11","(UTC+11:00)GMT+11:00"),
-        VALUE_Pacific_Efate("Pacific/Efate","(UTC+11:00)Vanuatu Time"),
-        VALUE_Pacific_Guadalcanal("Pacific/Guadalcanal","(UTC+11:00)Solomon Is. Time"),
-        VALUE_Pacific_Kosrae("Pacific/Kosrae","(UTC+11:00)Kosrae Time"),
-        VALUE_Pacific_Noumea("Pacific/Noumea","(UTC+11:00)New Caledonia Time"),
-        VALUE_Pacific_Ponape("Pacific/Ponape","(UTC+11:00)Ponape Time"),
-        VALUE_Pacific_Norfolk("Pacific/Norfolk","(UTC+11:00)Norfolk Time"),
-        VALUE_Antarctica_McMurdo("Antarctica/McMurdo","(UTC+12:00)New Zealand Standard Time"),
-        VALUE_Asia_Anadyr("Asia/Anadyr","(UTC+12:00)Anadyr Time"),
-        VALUE_Asia_Kamchatka("Asia/Kamchatka","(UTC+12:00)Petropavlovsk-Kamchatski Time"),
-        VALUE_Etc_GMT-12("Etc/GMT-12","(UTC+12:00)GMT+12:00"),
-        VALUE_Kwajalein("Kwajalein","(UTC+12:00)Marshall Islands Time"),
-        VALUE_Pacific_Fiji("Pacific/Fiji","(UTC+12:00)Fiji Time"),
-        VALUE_Pacific_Funafuti("Pacific/Funafuti","(UTC+12:00)Tuvalu Time"),
-        VALUE_Pacific_Nauru("Pacific/Nauru","(UTC+12:00)Nauru Time"),
-        VALUE_Pacific_Tarawa("Pacific/Tarawa","(UTC+12:00)Gilbert Is. Time"),
-        VALUE_Pacific_Wake("Pacific/Wake","(UTC+12:00)Wake Time"),
-        VALUE_Pacific_Wallis("Pacific/Wallis","(UTC+12:00)Wallis & Futuna Time"),
-        VALUE_NZ-CHAT("NZ-CHAT","(UTC+12:00)Chatham Standard Time"),
-        VALUE_Etc_GMT-13("Etc/GMT-13","(UTC+13:00)GMT+13:00"),
-        VALUE_Pacific_Enderbury("Pacific/Enderbury","(UTC+13:00)Phoenix Is. Time"),
-        VALUE_Pacific_Tongatapu("Pacific/Tongatapu","(UTC+13:00)Tonga Time"),
-        VALUE_Etc_GMT-14("Etc/GMT-14","(UTC+14:00)GMT+14:00"),
-        VALUE_Pacific_Kiritimati("Pacific/Kiritimati","(UTC+14:00)Line Is. Time");
-
-        private String value;
-        private String text;
-        private String valueSeparator="";
-        private String textSeparator="";
-        private String emptyText="";
-
-        CodeList59(String value , String text) {
-            this.value=value;
-            this.text = text;
-        }
-    }
-
-    /**
-     * 代码表[任务状态（查看）]
-     */
-    @Getter
-    public enum TaskStatusCK {
-        VALUE_wait("wait","未开始"),
-        VALUE_doing("doing","进行中"),
-        VALUE_done("done","已完成"),
-        VALUE_pause("pause","已暂停"),
-        VALUE_cancel("cancel","已取消"),
-        VALUE_closed("closed","已关闭"),
-        VALUE_storychange("storychange","需求变更");
-
-        private String value;
-        private String text;
-        private String valueSeparator="";
-        private String textSeparator="";
-        private String emptyText="";
-
-        TaskStatusCK(String value , String text) {
-            this.value=value;
-            this.text = text;
-        }
-    }
 
     /**
      * 代码表[输入辅助_图表参数]
@@ -5192,23 +4716,7 @@ public class StaticDict {
         }
     }
 
-    /**
-     * 代码表[数据库存储区域]
-     */
-    @Getter
-    public enum CodeList105 {
 
-        private String value;
-        private String text;
-        private String valueSeparator="";
-        private String textSeparator="";
-        private String emptyText="";
-
-        CodeList105(String value , String text) {
-            this.value=value;
-            this.text = text;
-        }
-    }
 
     /**
      * 代码表[页面样式]
@@ -5522,23 +5030,6 @@ public class StaticDict {
         }
     }
 
-    /**
-     * 代码表[工作时间代码表]
-     */
-    @Getter
-    public enum CodeList49 {
-
-        private String value;
-        private String text;
-        private String valueSeparator="";
-        private String textSeparator="";
-        private String emptyText="";
-
-        CodeList49(String value , String text) {
-            this.value=value;
-            this.text = text;
-        }
-    }
 
     /**
      * 代码表[表格每页记录数]
@@ -5820,23 +5311,6 @@ public class StaticDict {
         }
     }
 
-    /**
-     * 代码表[页面参数类型]
-     */
-    @Getter
-    public enum CodeList78 {
-
-        private String value;
-        private String text;
-        private String valueSeparator="";
-        private String textSeparator="";
-        private String emptyText="";
-
-        CodeList78(String value , String text) {
-            this.value=value;
-            this.text = text;
-        }
-    }
 
 
     /**
@@ -5942,38 +5416,6 @@ public class StaticDict {
         private String emptyText="";
 
         Im_message__contentType(String value , String text) {
-            this.value=value;
-            this.text = text;
-        }
-    }
-
-    /**
-     * 代码表[实体数据处理_变量名称]
-     */
-    @Getter
-    public enum CodeList109 {
-        VALUE_%DEFAULT%("%DEFAULT%","默认变量"),
-        VALUE_%ENV%("%ENV%","环境变量"),
-        VALUE_PARAM1("PARAM1","变量1"),
-        VALUE_PARAM2("PARAM2","变量2"),
-        VALUE_PARAM3("PARAM3","变量3"),
-        VALUE_PARAM4("PARAM4","变量4"),
-        VALUE_PARAM5("PARAM5","变量5"),
-        VALUE_%LAST%("%LAST%","历史值"),
-        VALUE_%GLOBAL1%("%GLOBAL1%","全局变量1"),
-        VALUE_%GLOBAL2%("%GLOBAL2%","全局变量2"),
-        VALUE_%GLOBAL3%("%GLOBAL3%","全局变量3"),
-        VALUE_%GLOBAL4%("%GLOBAL4%","全局变量4"),
-        VALUE_%GLOBAL5%("%GLOBAL5%","全局变量5"),
-        VALUE_%BRINST%("%BRINST%","全局规则引擎实例变量");
-
-        private String value;
-        private String text;
-        private String valueSeparator="";
-        private String textSeparator="";
-        private String emptyText="";
-
-        CodeList109(String value , String text) {
             this.value=value;
             this.text = text;
         }
