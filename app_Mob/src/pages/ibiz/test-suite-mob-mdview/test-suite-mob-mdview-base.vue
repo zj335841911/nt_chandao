@@ -75,8 +75,8 @@
             createAction="Create"
             fetchAction="FetchDefault" 
             :isMutli="!isSingleSelect"
-            :showCheack="showCheack"
-            @showCheackChange="showCheackChange"
+            :isChoose="isChoose"
+            @isChooseChange="isChooseChange"
             :isTempMode="false"
             :isEnableChoose="false"
             name="mdctrl"  
@@ -95,7 +95,7 @@
         </ion-infinite-scroll>
     </ion-content>
     <ion-footer class="view-footer">
-                <div v-show="!showCheack" class = "fab_container">
+                <div v-show="!isChoose" class = "fab_container">
                 <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1.disabled}" v-show="righttoolbarModels.deuiaction1.visabled">
                 <ion-button :disabled="righttoolbarModels.deuiaction1.disabled" @click="righttoolbar_click({ tag: 'deuiaction1' }, $event)" size="large">
                     <ion-icon name="add"></ion-icon>
@@ -1029,8 +1029,8 @@ export default class TestSuiteMobMDViewBase extends Vue {
      *
      * @memberof TestSuiteMobMDViewBase
      */
-    public showCheackChange(value:any){
-        this.showCheack = value;
+    public isChooseChange(value:any){
+        this.isChoose = value;
     }
 
     /**
@@ -1038,14 +1038,14 @@ export default class TestSuiteMobMDViewBase extends Vue {
      *
      * @memberof TestSuiteMobMDViewBase
      */
-    public showCheack = false;
+    public isChoose = false;
 
     /**
      * 取消选择状态
      * @memberof TestSuiteMobMDViewBase
      */
     public cancelSelect() {
-        this.showCheackChange(false);
+        this.isChooseChange(false);
     }
 
     /**

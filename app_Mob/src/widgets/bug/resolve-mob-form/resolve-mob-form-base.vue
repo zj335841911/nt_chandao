@@ -112,6 +112,7 @@
         <app-mob-datetime-picker 
     class="app-form-item-datetime" 
     :value="data.resolveddate" 
+    displayFormat="YYYY-MM-DD HH:mm:ss"
     :disabled="detailsModel.resolveddate.disabled"
     @change="($event)=>this.data.resolveddate = $event"/>
 </app-form-item>

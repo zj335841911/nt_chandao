@@ -74,6 +74,7 @@
         <app-mob-datetime-picker 
     class="app-form-item-datetime" 
     :value="data.revieweddate" 
+    displayFormat="YYYY-MM-DD HH:mm:ss"
     :disabled="detailsModel.revieweddate.disabled"
     @change="($event)=>this.data.revieweddate = $event"/>
 </app-form-item>

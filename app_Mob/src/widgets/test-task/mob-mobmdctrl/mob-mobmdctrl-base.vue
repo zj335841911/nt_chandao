@@ -3,9 +3,10 @@
         <div class="app-mob-mdctrl-mdctrl" ref="mdctrl">
             <ion-list class="items" ref="ionlist">
                 <template v-if="(viewType == 'DEMOBMDVIEW9') && controlStyle != 'SWIPERVIEW' ">
-                    <div class="selectall">
-                        <ion-checkbox :checked="selectAllIschecked"  v-show="showCheack"  @ionChange="checkboxAll"></ion-checkbox>
-                        <ion-label class="selectal-label" v-show="showCheack">全选</ion-label>
+                    <div class="selectall" v-show="isChoose">
+                        <ion-checkbox :checked="selectAllIschecked" @ionChange="checkboxAll"></ion-checkbox>
+                        <ion-label class="selectal-label">全选</ion-label>
+                        <ion-label class="exit_select-label" @click="onCheackChange">退出选择</ion-label>
                     </div>
                     <ion-item-sliding ref="sliding" v-for="item in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
@@ -16,18 +17,19 @@
                         </ion-item-options>
                         <div style="width:100%;">
                             <ion-item class="ibz-ionic-item">
-                                <ion-checkbox  class="iconcheck" v-show="showCheack" @click.stop="checkboxSelect(item)"></ion-checkbox>
+                                <ion-checkbox slot="start" class="iconcheck" v-show="isChoose" @click.stop="checkboxSelect(item)"></ion-checkbox>
                                 <layout_mdctrl_itempanel :context="{}" :viewparams="{}" :item="item"></layout_mdctrl_itempanel>
                             </ion-item>
                         </div>
                     </ion-item-sliding>
                 </template>
             </ion-list>
-            <ion-list class="items" ref="ionlist">
+            <ion-list class="items" ref="ionlist" @touchmove="gotouchmove" @touchstart="gotouchstart"  @touchend="gotouchend">
                 <template v-if="(viewType == 'DEMOBMDVIEW') && controlStyle != 'SWIPERVIEW' ">
-                    <div class="selectall">
-                        <ion-checkbox :checked="selectAllIschecked"  v-show="showCheack"  @ionChange="checkboxAll"></ion-checkbox>
-                        <ion-label class="selectal-label" v-show="showCheack">全选</ion-label>
+                    <div class="selectall" v-show="isChoose">
+                        <ion-checkbox slot="start" :checked="selectAllIschecked" @ionChange="checkboxAll"></ion-checkbox>
+                        <ion-label class="selectal-label">全选</ion-label>
+                        <ion-label class="exit_select-label" @click="onCheackChange">退出选择</ion-label>
                     </div>
                       <ion-item-sliding  :ref="item.srfkey" v-for="item in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
@@ -38,7 +40,7 @@
                         </ion-item-options>
                         <div style="width:100%;">
                             <ion-item class="ibz-ionic-item">
-                                <ion-checkbox  class="iconcheck" v-show="showCheack" @click.stop="checkboxSelect(item)"></ion-checkbox>
+                                <ion-checkbox slot="start" class="iconcheck" v-show="isChoose" @click.stop="checkboxSelect(item)"></ion-checkbox>
                                 <layout_mdctrl_itempanel :context="{}" :viewparams="{}" :item="item"></layout_mdctrl_itempanel>
                             </ion-item>
                         </div>
@@ -79,7 +81,7 @@
                         <ion-item v-for="(item, index) of items" :key="index" class="app-mob-mdctrl-item" >
                         <div style="width:100%;">
                             <ion-item class="ibz-ionic-item">
-                                <ion-checkbox  class="iconcheck" v-show="showCheack" @click.stop="checkboxSelect(item)"></ion-checkbox>
+                                <ion-checkbox slot="start" class="iconcheck" v-show="isChoose" @click.stop="checkboxSelect(item)"></ion-checkbox>
                                 <layout_mdctrl_itempanel :context="{}" :viewparams="{}" :item="item"></layout_mdctrl_itempanel>
                             </ion-item>
                         </div>
@@ -90,7 +92,7 @@
                         <ion-item v-for="(item, index) of items" :key="index" class="app-mob-mdctrl-item"  @click="onSimpleSelChange(item)">
                         <div style="width:100%;">
                             <ion-item class="ibz-ionic-item">
-                                <ion-checkbox  class="iconcheck" v-show="showCheack" @click.stop="checkboxSelect(item)"></ion-checkbox>
+                                <ion-checkbox slot="start" class="iconcheck" v-show="isChoose" @click.stop="checkboxSelect(item)"></ion-checkbox>
                                 <layout_mdctrl_itempanel :context="{}" :viewparams="{}" :item="item"></layout_mdctrl_itempanel>
                             </ion-item>
                         </div>
@@ -865,10 +867,10 @@ export default class MobBase extends Vue implements ControlInterface {
      */
     public onPress(){
         let _this = this;
-        window.addEventListener('contextmenu',(e:any)=>{
-            _this.onCheackChange();
-            e.preventDefault();
-        });
+        // window.addEventListener('contextmenu',(e:any)=>{
+        //    _this.onCheackChange();
+        //    e.preventDefault();
+        // });
     }
 
     /**
@@ -877,7 +879,7 @@ export default class MobBase extends Vue implements ControlInterface {
      * @memberof Mob
      */
     public onCheackChange(){
-        this.$emit('showCheackChange', !this.showCheack);
+        this.$emit('isChooseChange', !this.isChoose);
     }
 
     /**
@@ -1022,7 +1024,7 @@ export default class MobBase extends Vue implements ControlInterface {
     * @memberof Mob
     */
     public item_click(item:any){
-        if(this.showCheack){
+        if(this.isChoose){
             let count = this.selectedArray.findIndex((i) => {
             return i.mobentityid == item.mobentityid;
         });
@@ -1258,7 +1260,7 @@ export default class MobBase extends Vue implements ControlInterface {
      *
      * @memberof Mdctrl
      */
-    @Prop({default:false}) showCheack?: boolean;
+    @Prop({default:false}) isChoose?: boolean;
 
     /**
      * 选中或取消事件
@@ -1388,6 +1390,53 @@ export default class MobBase extends Vue implements ControlInterface {
         }
       }
     }
+
+    /**
+     * 长按定时器
+     *
+     * @memberof MobBase
+     */
+    public timeOutEvent :number = 0;
+
+    /**
+     * 开始长按
+     *
+     * @memberof MobBase
+     */
+    public gotouchstart(){
+        let _this = this;
+        clearTimeout(this.timeOutEvent); //清除定时器
+        this.timeOutEvent = 0;
+        this.timeOutEvent = setTimeout(() => {
+            if(_this.timeOutEvent > 0){
+                this.onCheackChange();
+            }
+            console.log(this.timeOutEvent);
+            this.timeOutEvent = 0
+        }, 2000); //这里设置定时
+    }
+
+    /**
+     * touchmove
+     *  如果手指有移动，则取消所有事件，此时说明用户只是要移动而不是长按
+     *
+     * @memberof MobBase
+     */
+    public gotouchmove() {
+        clearTimeout(this.timeOutEvent); //清除定时器
+        this.timeOutEvent = 0;
+    }
+
+    /**
+     * touchend
+     * 结束长按
+     *
+     * @memberof MobBase
+     */
+    public gotouchend() {
+        this.timeOutEvent = 0;
+    }
+
 }
 </script>
 

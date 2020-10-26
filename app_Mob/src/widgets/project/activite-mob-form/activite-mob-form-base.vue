@@ -35,6 +35,7 @@
         <app-mob-datetime-picker 
     class="app-form-item-datetime" 
     :value="data.begin" 
+    displayFormat="YYYY-MM-DD HH:mm:ss"
     :disabled="detailsModel.begin.disabled"
     @change="($event)=>this.data.begin = $event"/>
 </app-form-item>
@@ -59,6 +60,7 @@
         <app-mob-datetime-picker 
     class="app-form-item-datetime" 
     :value="data.end" 
+    displayFormat="YYYY-MM-DD HH:mm:ss"
     :disabled="detailsModel.end.disabled"
     @change="($event)=>this.data.end = $event"/>
 </app-form-item>

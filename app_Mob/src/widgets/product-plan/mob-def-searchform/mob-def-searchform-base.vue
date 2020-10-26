@@ -81,6 +81,7 @@
         <app-mob-datetime-picker 
     class="app-form-item-datetime" 
     :value="data.n_begin_gtandeq" 
+    displayFormat="YYYY-MM-DD HH:mm:ss"
     :disabled="detailsModel.n_begin_gtandeq.disabled"
     @change="($event)=>this.data.n_begin_gtandeq = $event"/>
 </app-form-item2>
@@ -106,6 +107,7 @@
         <app-mob-datetime-picker 
     class="app-form-item-datetime" 
     :value="data.n_end_ltandeq" 
+    displayFormat="YYYY-MM-DD HH:mm:ss"
     :disabled="detailsModel.n_end_ltandeq.disabled"
     @change="($event)=>this.data.n_end_ltandeq = $event"/>
 </app-form-item2>

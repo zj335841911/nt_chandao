@@ -43,8 +43,8 @@
             createAction="Create"
             fetchAction="FetchDefault" 
             :isMutli="!isSingleSelect"
-            :showCheack="showCheack"
-            @showCheackChange="showCheackChange"
+            :isChoose="isChoose"
+            @isChooseChange="isChooseChange"
             :isTempMode="false"
             :isEnableChoose="false"
             name="mdctrl"  
@@ -812,8 +812,8 @@ export default class ProductStatsMobMDViewBase extends Vue {
      *
      * @memberof ProductStatsMobMDViewBase
      */
-    public showCheackChange(value:any){
-        this.showCheack = value;
+    public isChooseChange(value:any){
+        this.isChoose = value;
     }
 
     /**
@@ -821,14 +821,14 @@ export default class ProductStatsMobMDViewBase extends Vue {
      *
      * @memberof ProductStatsMobMDViewBase
      */
-    public showCheack = false;
+    public isChoose = false;
 
     /**
      * 取消选择状态
      * @memberof ProductStatsMobMDViewBase
      */
     public cancelSelect() {
-        this.showCheackChange(false);
+        this.isChooseChange(false);
     }
 
     /**

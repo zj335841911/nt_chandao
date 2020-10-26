@@ -75,6 +75,7 @@
         <app-mob-datetime-picker 
     class="app-form-item-datetime" 
     :value="data.n_date_ltandeq" 
+    displayFormat="YYYY-MM-DD HH:mm:ss"
     :disabled="detailsModel.n_date_ltandeq.disabled"
     @change="($event)=>this.data.n_date_ltandeq = $event"/>
 </app-form-item2>

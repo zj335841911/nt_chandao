@@ -66,24 +66,24 @@ export class MobMainTableModel {
                 dataType: 'TEXT',
             },
             {
-                name: 'begin',
-                prop: 'begin',
-                dataType: 'DATE',
-            },
-            {
                 name: 'future',
                 prop: 'future',
                 dataType: 'SSCODELIST',
             },
             {
-                name: 'end',
-                prop: 'end',
+                name: 'begin',
+                prop: 'begin',
                 dataType: 'DATE',
             },
             {
                 name: 'delta',
                 prop: 'delta',
                 dataType: 'SSCODELIST',
+            },
+            {
+                name: 'end',
+                prop: 'end',
+                dataType: 'DATE',
             },
             {
                 name: 'desc',

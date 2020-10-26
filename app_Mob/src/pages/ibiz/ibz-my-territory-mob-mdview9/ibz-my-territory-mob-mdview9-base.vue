@@ -21,8 +21,8 @@
             createAction="Create"
             fetchAction="FetchMyWorkMob" 
             :isMutli="!isSingleSelect"
-            :showCheack="showCheack"
-            @showCheackChange="showCheackChange"
+            :isChoose="isChoose"
+            @isChooseChange="isChooseChange"
             :isTempMode="false"
             :isEnableChoose="false"
             :needLoadMore="false"
@@ -722,8 +722,8 @@ export default class IbzMyTerritoryMobMDView9Base extends Vue {
      *
      * @memberof IbzMyTerritoryMobMDView9Base
      */
-    public showCheackChange(value:any){
-        this.showCheack = value;
+    public isChooseChange(value:any){
+        this.isChoose = value;
     }
 
     /**
@@ -731,14 +731,14 @@ export default class IbzMyTerritoryMobMDView9Base extends Vue {
      *
      * @memberof IbzMyTerritoryMobMDView9Base
      */
-    public showCheack = false;
+    public isChoose = false;
 
     /**
      * 取消选择状态
      * @memberof IbzMyTerritoryMobMDView9Base
      */
     public cancelSelect() {
-        this.showCheackChange(false);
+        this.isChooseChange(false);
     }
 
     /**

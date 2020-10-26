@@ -19,8 +19,8 @@
             createAction="Create"
             fetchAction="" 
             :isMutli="!isSingleSelect"
-            :showCheack="showCheack"
-            @showCheackChange="showCheackChange"
+            :isChoose="isChoose"
+            @isChooseChange="isChooseChange"
             :isTempMode="false"
             :isEnableChoose="false"
             :needLoadMore="false"
@@ -844,8 +844,8 @@ export default class BugAssMobMDView9Base extends Vue {
      *
      * @memberof BugAssMobMDView9Base
      */
-    public showCheackChange(value:any){
-        this.showCheack = value;
+    public isChooseChange(value:any){
+        this.isChoose = value;
     }
 
     /**
@@ -853,14 +853,14 @@ export default class BugAssMobMDView9Base extends Vue {
      *
      * @memberof BugAssMobMDView9Base
      */
-    public showCheack = false;
+    public isChoose = false;
 
     /**
      * 取消选择状态
      * @memberof BugAssMobMDView9Base
      */
     public cancelSelect() {
-        this.showCheackChange(false);
+        this.isChooseChange(false);
     }
 
     /**

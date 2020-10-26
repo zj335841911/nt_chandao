@@ -645,10 +645,10 @@ export default class MobBase extends Vue implements ControlInterface {
      */
     public onPress(){
         let _this = this;
-        window.addEventListener('contextmenu',(e:any)=>{
-            _this.onCheackChange();
-            e.preventDefault();
-        });
+        // window.addEventListener('contextmenu',(e:any)=>{
+        //    _this.onCheackChange();
+        //    e.preventDefault();
+        // });
     }
 
     /**
@@ -657,7 +657,7 @@ export default class MobBase extends Vue implements ControlInterface {
      * @memberof Mob
      */
     public onCheackChange(){
-        this.$emit('showCheackChange', !this.showCheack);
+        this.$emit('isChooseChange', !this.isChoose);
     }
 
     /**
@@ -801,7 +801,7 @@ export default class MobBase extends Vue implements ControlInterface {
     * @memberof Mob
     */
     public item_click(item:any){
-        if(this.showCheack){
+        if(this.isChoose){
             let count = this.selectedArray.findIndex((i) => {
             return i.mobentityid == item.mobentityid;
         });
@@ -1025,7 +1025,7 @@ export default class MobBase extends Vue implements ControlInterface {
      *
      * @memberof Mdctrl
      */
-    @Prop({default:false}) showCheack?: boolean;
+    @Prop({default:false}) isChoose?: boolean;
 
     /**
      * 选中或取消事件
@@ -1151,6 +1151,53 @@ export default class MobBase extends Vue implements ControlInterface {
         }
       }
     }
+
+    /**
+     * 长按定时器
+     *
+     * @memberof MobBase
+     */
+    public timeOutEvent :number = 0;
+
+    /**
+     * 开始长按
+     *
+     * @memberof MobBase
+     */
+    public gotouchstart(){
+        let _this = this;
+        clearTimeout(this.timeOutEvent); //清除定时器
+        this.timeOutEvent = 0;
+        this.timeOutEvent = setTimeout(() => {
+            if(_this.timeOutEvent > 0){
+                this.onCheackChange();
+            }
+            console.log(this.timeOutEvent);
+            this.timeOutEvent = 0
+        }, 2000); //这里设置定时
+    }
+
+    /**
+     * touchmove
+     *  如果手指有移动，则取消所有事件，此时说明用户只是要移动而不是长按
+     *
+     * @memberof MobBase
+     */
+    public gotouchmove() {
+        clearTimeout(this.timeOutEvent); //清除定时器
+        this.timeOutEvent = 0;
+    }
+
+    /**
+     * touchend
+     * 结束长按
+     *
+     * @memberof MobBase
+     */
+    public gotouchend() {
+        this.timeOutEvent = 0;
+    }
+
 }
 </script>
 

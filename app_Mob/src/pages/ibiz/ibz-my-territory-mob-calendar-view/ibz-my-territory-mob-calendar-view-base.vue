@@ -13,8 +13,8 @@
             :viewparams="viewparams" 
             :context="context" 
             :showBusyIndicator="true"  
-            :showCheack="showCheack"
-            @showCheackChange="showCheackChange"
+            :isChoose="isChoose"
+            @isChooseChange="isChooseChange"
             name="calendar"  
             ref='calendar' 
             @load="calendar_load($event)"  
@@ -548,8 +548,8 @@ export default class IbzMyTerritoryMobCalendarViewBase extends Vue {
      *
      * @memberof IbzMyTerritoryMobCalendarViewBase
      */
-    public showCheackChange(value:any){
-        this.showCheack = value;
+    public isChooseChange(value:any){
+        this.isChoose = value;
     }
 
     /**
@@ -557,14 +557,14 @@ export default class IbzMyTerritoryMobCalendarViewBase extends Vue {
      *
      * @memberof IbzMyTerritoryMobCalendarViewBase
      */
-    public showCheack = false;
+    public isChoose = false;
 
     /**
      * 取消选择状态
      * @memberof IbzMyTerritoryMobCalendarViewBase
      */
     public cancelSelect() {
-        this.showCheackChange(false);
+        this.isChooseChange(false);
     }
 
 

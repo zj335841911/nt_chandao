@@ -269,7 +269,7 @@ export default class TaskEstimateMobEditView9Base extends Vue {
      * @memberof TaskEstimateMobEditView9Base
      */
     protected parseViewParam(): void {
-        const { context, param } = this.$viewTool.formatNavigateViewParam(this, true);
+        const { context, param } = this.$viewTool.formatNavigateViewParam(this, false);
         this.context = { ...context };
         this.viewparams = { ...param }
     }

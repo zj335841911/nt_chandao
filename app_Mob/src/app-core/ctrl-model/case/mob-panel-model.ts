@@ -183,6 +183,9 @@ export class MobModel {
       {
         name: 'isfavorites',
       },
+      {
+        name: 'modulename1',
+      },
     ]
   }
 

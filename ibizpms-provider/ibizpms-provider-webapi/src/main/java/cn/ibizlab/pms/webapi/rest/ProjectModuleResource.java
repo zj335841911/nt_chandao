@@ -133,7 +133,7 @@ public class ProjectModuleResource {
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectModule-RemoveModule-all')")
     @ApiOperation(value = "删除模块", tags = {"任务模块" },  notes = "删除模块")
-	@RequestMapping(method = RequestMethod.DELETE, value = "/projectmodules/{projectmodule_id}/removemodule")
+	@RequestMapping(method = RequestMethod.PUT, value = "/projectmodules/{projectmodule_id}/removemodule")
     public ResponseEntity<ProjectModuleDTO> removeModule(@PathVariable("projectmodule_id") Long projectmodule_id, @RequestBody ProjectModuleDTO projectmoduledto) {
         ProjectModule domain = projectmoduleMapping.toDomain(projectmoduledto);
         domain.setId(projectmodule_id);
@@ -410,7 +410,7 @@ public class ProjectModuleResource {
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectModule-RemoveModule-all')")
     @ApiOperation(value = "根据项目任务模块", tags = {"任务模块" },  notes = "根据项目任务模块")
-	@RequestMapping(method = RequestMethod.DELETE, value = "/projects/{project_id}/projectmodules/{projectmodule_id}/removemodule")
+	@RequestMapping(method = RequestMethod.PUT, value = "/projects/{project_id}/projectmodules/{projectmodule_id}/removemodule")
     public ResponseEntity<ProjectModuleDTO> removeModuleByProject(@PathVariable("project_id") Long project_id, @PathVariable("projectmodule_id") Long projectmodule_id, @RequestBody ProjectModuleDTO projectmoduledto) {
         ProjectModule domain = projectmoduleMapping.toDomain(projectmoduledto);
         domain.setRoot(project_id);

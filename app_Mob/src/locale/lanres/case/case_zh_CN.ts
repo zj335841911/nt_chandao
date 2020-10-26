@@ -56,6 +56,7 @@ export default {
     libname: "用例库",
     lastrunresult1: "测试用例结果",
     isfavorites: "是否收藏",
+    modulename1: "模块名称",
   },
 	views: {
 		mobmdview: {
