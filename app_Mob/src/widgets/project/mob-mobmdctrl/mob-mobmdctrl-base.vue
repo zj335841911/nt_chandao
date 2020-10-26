@@ -22,9 +22,11 @@
                         </ion-item-options>
                     <ion-item>
                       <template v-if="(viewType == 'DEMOBMDVIEW') && controlStyle != 'SWIPERVIEW' ">
+                          <ion-checkbox slot="start" :checked="item.checked" v-show="showCheack" @click.stop="checkboxSelect(item)"></ion-checkbox>
                           <app-list-index-text :item="item" :index="item.id" @clickItem="item_click"></app-list-index-text>
                       </template>
                       <template v-else-if="(viewType == 'DEMOBMDVIEW9')">
+                          <ion-checkbox slot="start" :checked="item.checked" v-show="showCheack" @click.stop="checkboxSelect(item)"></ion-checkbox>
                           <app-list-index-text :item="item" :index="item.id" @clickItem="item_click"></app-list-index-text>
                       </template>
                       <template v-else-if="(viewType == 'DEMOBMDVIEW' || viewType == 'DEMOBMDVIEW9') && controlStyle === 'SWIPERVIEW'">
