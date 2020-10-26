@@ -276,12 +276,7 @@ export class ReviewEditFormBase extends EditFormControlBase {
             if (this.$verify.testCond(_result, 'NOTEQ', 'revert')) {
                 ret = false;
             }
-            this.rules().preversion.some((rule: any) => {
-                if (rule.hasOwnProperty('required')) {
-                    rule.required = ret;
-                }
-                return false;
-            });
+            this.detailsModel.preversion.required = ret;
         }
         if (Object.is(name, '') || Object.is(name, 'result')) {
             let ret = false;
@@ -298,12 +293,7 @@ export class ReviewEditFormBase extends EditFormControlBase {
             if (this.$verify.testCond(_result, 'NOTEQ', 'reject')) {
                 ret = false;
             }
-            this.rules().closedreason.some((rule: any) => {
-                if (rule.hasOwnProperty('required')) {
-                    rule.required = ret;
-                }
-                return false;
-            });
+            this.detailsModel.closedreason.required = ret;
         }
 
 

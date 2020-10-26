@@ -257,12 +257,7 @@ export class ResolveEditFormBase extends EditFormControlBase {
             if (this.$verify.testCond(_createbuild, 'EQ', '1')) {
                 ret = false;
             }
-            this.rules().resolvedbuild.some((rule: any) => {
-                if (rule.hasOwnProperty('required')) {
-                    rule.required = ret;
-                }
-                return false;
-            });
+            this.detailsModel.resolvedbuild.required = ret;
         }
         if (Object.is(name, '') || Object.is(name, 'createbuild')) {
             let ret = false;
@@ -279,12 +274,7 @@ export class ResolveEditFormBase extends EditFormControlBase {
             if (this.$verify.testCond(_createbuild, 'ISNULL', '')) {
                 ret = false;
             }
-            this.rules().buildproject.some((rule: any) => {
-                if (rule.hasOwnProperty('required')) {
-                    rule.required = ret;
-                }
-                return false;
-            });
+            this.detailsModel.buildproject.required = ret;
         }
         if (Object.is(name, '') || Object.is(name, 'createbuild')) {
             let ret = false;
@@ -301,12 +291,7 @@ export class ResolveEditFormBase extends EditFormControlBase {
             if (this.$verify.testCond(_createbuild, 'ISNULL', '')) {
                 ret = false;
             }
-            this.rules().buildname.some((rule: any) => {
-                if (rule.hasOwnProperty('required')) {
-                    rule.required = ret;
-                }
-                return false;
-            });
+            this.detailsModel.buildname.required = ret;
         }
         if (Object.is(name, '') || Object.is(name, 'createbuild')) {
             let ret = false;

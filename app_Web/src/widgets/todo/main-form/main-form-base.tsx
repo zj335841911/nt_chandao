@@ -322,12 +322,7 @@ export class MainEditFormBase extends EditFormControlBase {
             if (this.$verify.testCond(_type, 'NOTEQ', 'task')) {
                 ret = false;
             }
-            this.rules().task.some((rule: any) => {
-                if (rule.hasOwnProperty('required')) {
-                    rule.required = ret;
-                }
-                return false;
-            });
+            this.detailsModel.task.required = ret;
         }
         if (Object.is(name, '') || Object.is(name, 'type')) {
             let ret = false;
@@ -344,12 +339,7 @@ export class MainEditFormBase extends EditFormControlBase {
             if (this.$verify.testCond(_type, 'NOTEQ', 'story')) {
                 ret = false;
             }
-            this.rules().story.some((rule: any) => {
-                if (rule.hasOwnProperty('required')) {
-                    rule.required = ret;
-                }
-                return false;
-            });
+            this.detailsModel.story.required = ret;
         }
         if (Object.is(name, '') || Object.is(name, 'type')) {
             let ret = false;
@@ -366,12 +356,7 @@ export class MainEditFormBase extends EditFormControlBase {
             if (this.$verify.testCond(_type, 'NOTEQ', 'bug')) {
                 ret = false;
             }
-            this.rules().bug.some((rule: any) => {
-                if (rule.hasOwnProperty('required')) {
-                    rule.required = ret;
-                }
-                return false;
-            });
+            this.detailsModel.bug.required = ret;
         }
         if (Object.is(name, '') || Object.is(name, 'type')) {
             let ret = false;
@@ -388,12 +373,7 @@ export class MainEditFormBase extends EditFormControlBase {
             if (this.$verify.testCond(_type, 'NOTEQ', 'custom') && this.$verify.testCond(_type, 'ISNOTNULL', '')) {
                 ret = false;
             }
-            this.rules().name.some((rule: any) => {
-                if (rule.hasOwnProperty('required')) {
-                    rule.required = ret;
-                }
-                return false;
-            });
+            this.detailsModel.name.required = ret;
         }
         if (Object.is(name, '') || Object.is(name, 'type')) {
             let ret = false;

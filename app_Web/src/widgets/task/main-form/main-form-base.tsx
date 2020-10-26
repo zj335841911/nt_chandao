@@ -288,12 +288,7 @@ export class MainEditFormBase extends EditFormControlBase {
             if (this.$verify.testCond(_multiple, 'EQ', '1')) {
                 ret = false;
             }
-            this.rules().assignedto.some((rule: any) => {
-                if (rule.hasOwnProperty('required')) {
-                    rule.required = ret;
-                }
-                return false;
-            });
+            this.detailsModel.assignedto.required = ret;
         }
         if (Object.is(name, '') || Object.is(name, 'multiple')) {
             let ret = false;
