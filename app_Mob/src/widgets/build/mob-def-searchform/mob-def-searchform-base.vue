@@ -72,11 +72,8 @@
     :disabled="detailsModel.n_date_ltandeq.disabled"  
     :error="detailsModel.n_date_ltandeq.error" 
     :isEmptyCaption="false">
-        <app-mob-datetime-picker 
-    class="app-form-item-datetime" 
-    :value="data.n_date_ltandeq" 
-    :disabled="detailsModel.n_date_ltandeq.disabled"
-    @change="($event)=>this.data.n_date_ltandeq = $event"/>
+        !!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 6, column 6:
+#if is an existing directive, but the tag is malformed.  (See FreeMarker Manual / Directive Reference.)
 </app-form-item2>
 
 
