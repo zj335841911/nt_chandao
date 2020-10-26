@@ -1112,6 +1112,24 @@
 |async|async|&nbsp;|
 <center>表 ZT_WEBHOOK__SENDTYPE</center>
 
+## 需求快速分组（移动端）
+
+| 数据项        |    数据值   |  备注  |
+| --------   |------------| --------- | 
+|所有|ALL|&nbsp;|
+|未关闭|UNCLOSED|&nbsp;|
+|指给我|TOME|&nbsp;|
+|我创建|ICREATE|&nbsp;|
+|更多|MORE|&nbsp;|
+|我评审|IREVIEW|&nbsp;|
+|草稿|DRAFT|&nbsp;|
+|我关闭|ICLOSE|&nbsp;|
+|激活|ACTIVED|&nbsp;|
+|已变更|CHANGED|&nbsp;|
+|待关闭|TOBECLOSED|&nbsp;|
+|已关闭|CLOSED|&nbsp;|
+<center>表 需求快速分组（移动端）</center>
+
 ## 功能测试快速分组
 
 | 数据项        |    数据值   |  备注  |

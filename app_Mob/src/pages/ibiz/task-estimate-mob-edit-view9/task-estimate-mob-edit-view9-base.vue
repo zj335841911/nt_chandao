@@ -40,7 +40,7 @@
 
 <script lang='ts'>
 import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
-import { Subject } from 'rxjs';
+import { Subject, Subscription } from 'rxjs';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
 import IbzTaskestimateService from '@/app-core/service/ibz-taskestimate/ibz-taskestimate-service';
 
