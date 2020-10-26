@@ -2,10 +2,10 @@
     <div  class="app-mob-mdctrl product-mdctrl ">
         <div class="app-mob-mdctrl-mdctrl" ref="mdctrl">
                 <ion-list class="items" ref="ionlist" @touchstart="gotouchstart"  @touchend="gotouchend">
-                    <div class="selectall">
-                        <ion-checkbox :checked="selectAllIschecked"  v-show="isChoose"  @ionChange="checkboxAll"></ion-checkbox>
-                        <ion-label class="selectal-label" v-show="isChoose">全选</ion-label>
-                        <ion-label class="exit_select-label" v-show="isChoose" @click="onCheackChange">退出选择</ion-label>
+                    <div class="selectall" v-show="isChoose">
+                        <ion-checkbox :checked="selectAllIschecked" @ionChange="checkboxAll"></ion-checkbox>
+                        <ion-label class="selectal-label">全选</ion-label>
+                        <ion-label class="exit_select-label"  @click="onCheackChange">退出选择</ion-label>
                     </div>
                   <template v-if="(viewType == 'DEMOBMDVIEW9') && controlStyle != 'SWIPERVIEW' ">
                       <ion-checkbox slot="start" :checked="item.checked" v-show="isChoose" @click.stop="checkboxSelect(item)"></ion-checkbox>
