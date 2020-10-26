@@ -333,7 +333,7 @@ export default class TaskEstimateMobEditView9Base extends Vue {
         this.parseViewParam();
         this.setViewTitleStatus();
         if (this.panelState) {
-            this.panelStateEvent.subscribe((res: any) => {
+            this.panelStateEvent = this.panelState.subscribe((res: any) => {
                 if (Object.is(res.tag, 'meditviewpanel')) {
                     if (Object.is(res.action, 'save')) {
                         this.viewState.next({ tag: 'form', action: 'save', data: res.data });
