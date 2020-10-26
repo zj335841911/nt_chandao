@@ -8762,7 +8762,7 @@ FROM
 	`zt_productplan` t1
 	LEFT JOIN zt_productplan t11 ON t1.PARENT = t11.ID
 	LEFT JOIN zt_product t31 ON t1.product = t31.id 
-	LEFT JOIN zt_projectproduct t21 ON t31.id = t21.product
+	LEFT JOIN zt_projectproduct t21 ON t31.id = t21.product and t1.id = t21.plan
 WHERE ( t21.`PROJECT` = ${srfdatacontext('srfparentkey','{"defname":"PROJECT","dename":"ZT_PROJECTPRODUCT"}')} ) 
 t1.DELETED = '0' 
 
