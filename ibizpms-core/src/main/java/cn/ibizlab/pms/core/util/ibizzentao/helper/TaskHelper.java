@@ -706,6 +706,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         Task newTask = new Task();
         newTask.setId(et.getId());
         newTask.setConsumed(et.getConsumed());
+        newTask.setRealstarted(get(et.getRealstarted(),ZTDateUtil.now()));
         if (newTask.getConsumed() < old.getConsumed()){
             throw new RuntimeException("总计消耗必须大于原先消耗");
         }
@@ -1062,7 +1063,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
             return et;
         et = this.get(et.getId());
         double consumed = 0;
-        double teamLeft = -1;
+        double teamLeft = 0;
         double taskLeft = 0d;
         Timestamp nowDate = ZTDateUtil.now();
         String sql = String.format("select * from zt_taskestimate where task = %1$s order by date desc LIMIT 0,1", et.getId());
@@ -1070,7 +1071,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         Timestamp lastDate = null;
         if(list.size() > 0)
             lastDate = list.get(0).getTimestamp("date");
-            teamLeft = list.get(0).getDoubleValue("left");  //最新一次记录工时的剩余
+            //teamLeft = list.get(0).getDoubleValue("left");  //最新一次记录工时的剩余
 
         Long actionid = 0l;
         boolean isNew = false;
@@ -1096,11 +1097,11 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
             for(Team team : teams) {
                 if(AuthenticationUser.getAuthenticationUser().getUsername().equals(team.getAccount()) && team.getConsumed() != null) {
                     myconsumed = team.getConsumed();
-                    if (!isNew) teamLeft += team.getLeft();
                 }
                 else {
                     taskLeft += team.getLeft();
                 }
+                if (!isNew) teamLeft += team.getLeft();
             }
             Team team = new Team();
             team.setConsumed(myconsumed + consumed);
