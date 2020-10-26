@@ -125,11 +125,15 @@ public class CaseHelper extends ZTBaseHelper<CaseMapper, Case> {
 
     @Transactional
     public Case linkCase(Case et) {
-        TestTask testTask = new TestTask();
-        testTask.setId(Long.parseLong(et.getTask()));
+        if (et.getTask() == null)
+            return et;
         if (et.get("ids") == null)
             return et;
+        TestTask testTask = new TestTask();
+        testTask.setId(Long.parseLong(et.getTask().split(",")[0]));
+
         testTask.set("cases",et.get("ids"));
+        testTask.set("versions", et.get("versions"));
         testTaskHelper.linkCase(testTask);
         return et ;
     }
@@ -242,6 +246,7 @@ public class CaseHelper extends ZTBaseHelper<CaseMapper, Case> {
         TestSuite testSuite = new TestSuite();
         testSuite.setId(Long.parseLong(et.get("suite").toString().split(",")[0]));
         testSuite.set("cases",et.get("ids"));
+        testSuite.set("versions", et.get("versions"));
         testSuiteHelper.linkCase(testSuite);
         return et ;
     }

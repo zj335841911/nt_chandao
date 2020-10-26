@@ -321,6 +321,7 @@ public class BugHelper extends ZTBaseHelper<BugMapper, Bug> {
         Build build = new Build();
         build.setId(Long.parseLong(et.get("builds").toString().split(",")[0]));
         build.set("bugs", et.get("ids"));
+        build.set("resolvedby", et.getResolvedby());
         buildHelper.linkBug(build);
 
         return et;

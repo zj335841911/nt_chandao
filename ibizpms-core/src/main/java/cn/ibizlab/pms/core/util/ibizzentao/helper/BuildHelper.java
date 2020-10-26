@@ -1,12 +1,11 @@
 package cn.ibizlab.pms.core.util.ibizzentao.helper;
 
 import cn.ibizlab.pms.core.util.ibizzentao.common.ChangeUtil;
-import cn.ibizlab.pms.core.zentao.domain.Action;
-import cn.ibizlab.pms.core.zentao.domain.Build;
-import cn.ibizlab.pms.core.zentao.domain.History;
-import cn.ibizlab.pms.core.zentao.domain.Product;
+import cn.ibizlab.pms.core.util.ibizzentao.common.ZTDateUtil;
+import cn.ibizlab.pms.core.zentao.domain.*;
 import cn.ibizlab.pms.core.zentao.mapper.BuildMapper;
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
+import cn.ibizlab.pms.util.security.AuthenticationUser;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +24,9 @@ public class BuildHelper extends ZTBaseHelper<BuildMapper, Build> {
 
     @Autowired
     FileHelper fileHelper;
+
+    @Autowired
+    BugHelper bugHelper;
 
     @Override
     @Transactional
@@ -113,18 +115,46 @@ public class BuildHelper extends ZTBaseHelper<BuildMapper, Build> {
         Build build = get(et.getId());
         if (et.get("bugs") == null)
             return et;
+        String[] resolvedbys = et.get("resolvedby").toString().split(",");
+        int i = 0;
         for (String bugId : et.get("bugs").toString().split(",")) {
+            String bug = "";
             if (StringUtils.isBlank(build.getBugs())) {
-                build.setBugs(bugId);
-                internalUpdate(build);
+                bug = bugId;
             } else {
                 if (!("," + build.getBugs() + ",").contains("," + bugId + ",")) {
-                    build.setBugs(build.getBugs() + "," + bugId);
-                    internalUpdate(build);
-                    actionHelper.create("bug", Long.parseLong(bugId), "linked2bug",
-                            "", String.valueOf(build.getId()), null, true);
-                }
+                    bug = build.getBugs() + "," + bugId;
+                }else
+                    bug = build.getBugs();
             }
+            build.setBugs(bug);
+            internalUpdate(build);
+
+            actionHelper.create("bug", Long.parseLong(bugId), "linked2bug",
+                    "", String.valueOf(build.getId()), null, true);
+            Bug bugs = bugHelper.get(Long.parseLong(bugId));
+            if("resolved".equals(bugs.getStatus()) || "closed".equals(bugs.getStatus())) {
+                i ++;
+                continue;
+            }
+            String resolvedby = AuthenticationUser.getAuthenticationUser().getUsername();
+            if(resolvedbys.length > i && resolvedbys[i] != null && !"".equals(resolvedbys[i])) {
+                resolvedby = resolvedbys[i];
+            }
+            Bug newBug = new Bug();
+            newBug.setId(Long.parseLong(bugId));
+            newBug.setStatus("resolved");
+            newBug.setResolveddate(ZTDateUtil.now());
+            newBug.setResolvedby(resolvedby);
+            newBug.setConfirmed(1);
+            newBug.setAssignedto(bugs.getOpenedby());
+            newBug.setAssigneddate(ZTDateUtil.now());
+            newBug.setLasteditedby(AuthenticationUser.getAuthenticationUser().getUsername());
+            newBug.setLastediteddate(ZTDateUtil.now());
+            newBug.setResolution("fixed");
+            newBug.setResolvedbuild(String.valueOf(et.getId()));
+            bugHelper.internalUpdate(newBug);
+            i ++;
         }
         return et;
     }

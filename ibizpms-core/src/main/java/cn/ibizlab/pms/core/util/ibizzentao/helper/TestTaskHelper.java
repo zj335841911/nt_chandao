@@ -138,17 +138,24 @@ public class TestTaskHelper extends ZTBaseHelper<TestTaskMapper, TestTask> {
     public TestTask linkCase(TestTask et) {
         if (et.get("cases") == null)
             return et;
+        int i = 0;
+        String[] versions = et.get("versions").toString().split(",");
         for (String caseId : et.get("cases").toString().split(",")) {
             Case cas = caseHelper.get(Long.parseLong(caseId));
-            TestRun testRun = testRunHelper.getOne(new QueryWrapper<TestRun>().eq("task",et.getId()).eq("`case`",cas.getId()).eq("`version`",cas.getVersion()).last("limit 0,1"));
+            Integer version = cas.getVersion();
+            if(versions.length > i && versions[i] != null && !"".equals(versions[i])) {
+                version = Integer.parseInt(versions[i]);
+            }
+            TestRun testRun = testRunHelper.getOne(new QueryWrapper<TestRun>().eq("task",et.getId()).eq("`case`",cas.getId()).eq("`version`", version).last("limit 0,1"));
             if(testRun==null){
                 testRun = new TestRun();
                 testRun.setTask(et.getId());
                 testRun.setIbizcase(cas.getId());
-                testRun.setVersion(cas.getVersion());
+                testRun.setVersion(version);
                 testRun.setStatus("wait");
                 testRunHelper.create(testRun) ;
             }
+            i ++;
         }
         return et ;
     }
