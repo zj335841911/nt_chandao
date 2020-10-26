@@ -3446,7 +3446,36 @@ const datas: Array<any> = [
         ]
     },
     {
-        srfkey: 'Bug__quickpacket',
+        srfkey: 'Task__closed_reason',
+        emptytext: '未定义',
+        "codelisttype":"static",
+        items: [
+            {
+                id: 'done',
+                label: '已完成',
+                text: '已完成',
+                value: 'done',
+                disabled: false,
+            },
+            {
+                id: 'cancel',
+                label: '已取消',
+                text: '已取消',
+                value: 'cancel',
+                disabled: false,
+            },
+        ]
+    },
+    {
+        "srfkey": "UserRealNameProject",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"SysEmployee",
+        "appdedataset":"FetchProjectTeamUser",
+        "items": []
+    },
+    {
+        srfkey: 'MobBugQuickGroup',
         emptytext: '未定义',
         "codelisttype":"static",
         items: [
@@ -3469,6 +3498,13 @@ const datas: Array<any> = [
                 label: '由我创建',
                 text: '由我创建',
                 value: 'ICREATE',
+                disabled: false,
+            },
+            {
+                id: 'MORE',
+                label: '更多',
+                text: '更多',
+                value: 'MORE',
                 disabled: false,
             },
             {
@@ -3500,13 +3536,6 @@ const datas: Array<any> = [
                 disabled: false,
             },
             {
-                id: 'MORE',
-                label: '更多',
-                text: '更多',
-                value: 'MORE',
-                disabled: false,
-            },
-            {
                 id: 'UNCONFIRMED',
                 label: '未确认',
                 text: '未确认',
@@ -3528,35 +3557,6 @@ const datas: Array<any> = [
                 disabled: false,
             },
         ]
-    },
-    {
-        srfkey: 'Task__closed_reason',
-        emptytext: '未定义',
-        "codelisttype":"static",
-        items: [
-            {
-                id: 'done',
-                label: '已完成',
-                text: '已完成',
-                value: 'done',
-                disabled: false,
-            },
-            {
-                id: 'cancel',
-                label: '已取消',
-                text: '已取消',
-                value: 'cancel',
-                disabled: false,
-            },
-        ]
-    },
-    {
-        "srfkey": "UserRealNameProject",
-        "emptytext": "未定义",
-        "codelisttype":"dynamic",
-        "appdataentity":"SysEmployee",
-        "appdedataset":"FetchProjectTeamUser",
-        "items": []
     },
     {
         srfkey: 'Bug__severity_mob',
