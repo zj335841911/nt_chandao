@@ -5,7 +5,7 @@
                 <ion-row>
                     <template v-for="item in items">
                         <ion-col size="3" :key="item.id">
-                            <ion-tab-button @click="selectItem(item.name)">
+                            <ion-tab-button @click="selectItem(item.name)" :class="item.textcls?item.textcls:''">
                                 <template v-if="item.icon != ''">
                                     <img :src="item.icon" />
                                 </template>
