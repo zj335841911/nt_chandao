@@ -117,6 +117,13 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         Task old =new Task();
         CachedBeanCopier.copy(this.get(et.getId()), old);
 
+        if (et.getStatus().equals("done") && (et.getConsumed() == null)) throw new RuntimeException("任务完成状态消耗不能为空");
+        if (!et.getStatus().equals("cancel") && (et.getName() == null || et.getType() == null)) throw new RuntimeException("非取消状态，任务名和类型不能为空！");
+        if ((et.getStatus().equals("doing") ||et.getStatus().equals("pause"))&& et.getLeft() == 0 && StringUtils.compare(et.getMultiple(),"0") == 0) {
+            throw  new RuntimeException("预计剩余不能为0");
+        }
+
+
         if (et.getStory() != 0 && et.getStory() != old.getStory()){
             et.setStoryversion(et.getZtstory().getVersion());
         }
@@ -147,17 +154,13 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
             }
 
         }
-        else if (StringUtils.compare(et.getStatus(),"wait") == 0 || StringUtils.compare(et.getStatus(),"doing") == 0) {
-            if (!StringUtils.isEmpty(et.getFinishedby()) || et.getFinisheddate() != null){
-                throw new RuntimeException("该任务状态下，实际完成和由谁完成必须为空!");
-            }
-        }
+
 
         if (StringUtils.compare(et.getAssignedto(), old.getAssignedto()) != 0) {
             et.setAssigneddate(ZTDateUtil.now());
         }
 
-        if (et.getConsumed() > 0 && et.getLeft() > 0 && StringUtils.compare(et.getStatus(), "wait") == 0)
+        if (et.getConsumed() > 0 && et.getLeft() > 0 && StringUtils.compare(et.getStatus(), "wait") == 0 && StringUtils.compare(multiple,"1") != 0)
             et.setStatus("doing");
 
         if (StringUtils.compare(et.getStatus(), "wait") == 0 && et.getLeft() == old.getLeft() && et.getConsumed() == 0 && et.getEstimate() != 0) {
@@ -198,7 +201,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
                 if (StringUtils.compare(et.getStatus(), "done") == 0)
                     taskTeam.setLeft(0.0);
                 if (et.getAssignedto() == null || et.getAssignedto().equals("")) {
-                    et.setAssignedto(AuthenticationUser.getAuthenticationUser().getUsername());
+                    et.setAssignedto(taskTeam.getAccount());
                     et.setAssigneddate(ZTDateUtil.now());
                 }
                 i++;
@@ -217,7 +220,6 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
             }
         }
 
-        if (!et.getStatus().equals("cancel") && (et.getName() == null || et.getType() == null)) throw new RuntimeException("非取消状态，任务名和类型不能为空！");
         if (et.getStatus().equals("wait") || et.getStatus().equals("doing")){
             et.setFinishedby("");
             et.setFinisheddate(null);
@@ -227,8 +229,8 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
             et.setCloseddate(null);
             et.setClosedreason("");
         }
-        if (et.getStatus().equals("done") && (et.getConsumed() == null)) throw new RuntimeException("任务完成状态消耗不能为空");
         if (et.getStatus().equals("done")){
+            et.setEstimate(0d);
             et.setCanceledby("");
             et.setCanceleddate(null);
         }
@@ -237,7 +239,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
             et.setFinishedby("");
         }
 
-        //computeHours4Multiple(old, et, teams, false);
+
 
         this.internalUpdate(et);
         boolean changeParent = false;
@@ -330,7 +332,6 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
             Timestamp now = ZTDateUtil.now();
             Task currentTask = task != null ? task : new Task();
             if (currentTask.getStatus() == null) currentTask.setStatus(old.getStatus());
-            currentTask.setAssignedto(old.getAssignedto());
             if (task.getAssignedto() != null) {
                 currentTask.setAssignedto(task.getAssignedto());
             }
@@ -368,12 +369,12 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
                     currentTask.setFinishedby("");
                     currentTask.setFinisheddate(null);
                 }
-                if (currentTask.getConsumed() > 0 && currentTask.getLeft() > 0) {
+                if (currentTask.getConsumed() > 0 && currentTask.getLeft() > 0 && StringUtils.compare(currentTask.getMultiple(),"1") != 0) {
                     currentTask.setStatus("doing");
                     currentTask.setFinishedby("");
                     currentTask.setFinisheddate(null);
                 }
-                if (currentTask.getConsumed() > 0 && currentTask.getLeft() == 0) {
+                if (currentTask.getConsumed() > 0 && currentTask.getLeft() == 0 && StringUtils.compare(currentTask.getMultiple(),"1") != 0) {
                     boolean flag = false;
                     for (TaskTeam team : teams) {
                         if (team.getAccount().equals(currentTask.getAssignedto())) {
@@ -420,7 +421,6 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
             }
             currentTask.setId(old.getId());
             this.internalUpdate(currentTask);
-
         }
     }
 
@@ -906,51 +906,64 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         String comment = StringUtils.isNotBlank(et.getComment()) ? et.getComment() : "";
         Task old =new Task();
         CachedBeanCopier.copy(this.get(et.getId()), old);
+        List<Team> teams = teamHelper.list(new QueryWrapper<Team>().eq("root", et.getId()).eq("type","task"));
         Task newTask = new Task();
         newTask.setId(et.getId());
-
-        newTask.setLeft(0d);
-        newTask.setStatus("done");
-//        newTask.setAssignedto(et.getAssignedto());
         newTask.setAssigneddate(ZTDateUtil.now());
-        newTask.setFinisheddate(ZTDateUtil.now());
         newTask.setLastediteddate(ZTDateUtil.now());
-        newTask.setFinishedby(AuthenticationUser.getAuthenticationUser().getUsername());
         newTask.setLasteditedby(AuthenticationUser.getAuthenticationUser().getUsername());
         newTask.setConsumed(et.getTotaltime() != null ? et.getTotaltime() : (et.getConsumed() + et.getCurrentconsumed()));
+        double consumed = 0;
+        if (teams.size() == 0){
+            newTask.setLeft(0d);
+            newTask.setStatus("done");
+            newTask.setFinisheddate(ZTDateUtil.now());
+            newTask.setFinishedby(AuthenticationUser.getAuthenticationUser().getUsername());
+             consumed = et.getConsumed() - old.getConsumed();
+            if (consumed < 0) throw  new RuntimeException("总计消耗必须大于原消耗");
+        }
+        else {
+            for (Team team : teams) {
+                if (team.getAccount().equals(AuthenticationUser.getAuthenticationUser().getUsername())){
+                    consumed = et.getConsumed() - team.getConsumed();
+                    if (consumed < 0) throw  new RuntimeException("总计消耗必须大于原消耗");
+                    break;
+                }
+            }
+        }
         if (et.getAssignedto() == null || et.getAssignedto().equals("")){
             newTask.setAssignedto(AuthenticationUser.getAuthenticationUser().getUsername());
         }
         else newTask.setAssignedto(et.getAssignedto());
 
-        if(et.getCurrentconsumed() <= 0) {
-            throw new RuntimeException("总计消耗必须大于原消耗");
-        }
-        List<Team> teams = teamHelper.list(new QueryWrapper<Team>().eq("root", et.getId()).eq("type","task"));
+
         //Task
         TaskEstimate taskEstimate = new TaskEstimate();
         taskEstimate.setTask(newTask.getId());
         taskEstimate.setAccount(AuthenticationUser.getAuthenticationUser().getUsername());
-        taskEstimate.setDate(newTask.getFinisheddate());
+        taskEstimate.setDate(ZTDateUtil.now());
         taskEstimate.setLeft(0.0);
-        taskEstimate.setConsumed(et.getCurrentconsumed());
+        taskEstimate.setConsumed(consumed == 0 ? et.getCurrentconsumed() : consumed);
 
         if (teams.size() > 0) {
             for (Team team : teams) {
                 if (StringUtils.compare(team.getAccount(), taskEstimate.getAccount()) != 0)
                     taskEstimate.setLeft(taskEstimate.getLeft() + team.getLeft());
             }
-            computeHours4Multiple(old, newTask, null, false);
         }
         taskEstimateHelper.create(taskEstimate);
 
-        for (Team team : teams) {
-            if (StringUtils.compare(team.getAccount(), old.getAssignedto()) == 0) {
-                team.setLeft(0.0);
-                team.setConsumed(newTask.getConsumed());
-                teamHelper.internalUpdate(team);
+        if (teams.size() > 0) {
+            for (Team team : teams) {
+                if (StringUtils.compare(team.getAccount(), old.getAssignedto()) == 0) {
+                    team.setLeft(0.0);
+                    team.setConsumed(newTask.getConsumed());
+                    teamHelper.internalUpdate(team);
+                }
             }
+            computeHours4Multiple(old, newTask, null, false);
         }
+
         this.internalUpdate(newTask);
 
         if (old.getParent() > 0)
@@ -1017,14 +1030,14 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         List<TaskEstimate> taskEstimates = new ArrayList<>();
         Timestamp earliestTime = null;
         if (et.getTaskestimate() != null && et.getTaskestimate().size() > 0) {
-            boolean flag = true;
-            for (TaskEstimate taskEstimate: et.getTaskestimate()) {
-                if (taskEstimate.getConsumed() == null || taskEstimate.getLeft() == null){
-                    flag = false;
-                    break;
-                }
-            }
-            if (!flag) throw new RuntimeException("请填写剩余或总计消耗");
+//            boolean flag = true;
+//            for (TaskEstimate taskEstimate: et.getTaskestimate()) {
+//                if (taskEstimate.getConsumed() == null || taskEstimate.getLeft() == null){
+//                    flag = false;
+//                    break;
+//                }
+//            }
+//            if (!flag) throw new RuntimeException("请填写剩余或总计消耗");
             for (TaskEstimate taskEstimate : et.getTaskestimate()) {
                 taskEstimate.setTask(et.getId());
                 taskEstimate.setDate(ZTDateUtil.now());
@@ -1046,15 +1059,18 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
             return et;
         et = this.get(et.getId());
         double consumed = 0;
-        double left = et.getLeft();
+        double teamLeft = -1;
+        double taskLeft = 0d;
         Timestamp nowDate = ZTDateUtil.now();
         String sql = String.format("select * from zt_taskestimate where task = %1$s order by date desc LIMIT 0,1", et.getId());
         List<JSONObject> list = taskService.select(sql, null);
         Timestamp lastDate = null;
         if(list.size() > 0)
             lastDate = list.get(0).getTimestamp("date");
+            teamLeft = list.get(0).getDoubleValue("left");  //最新一次记录工时的剩余
 
         Long actionid = 0l;
+        boolean isNew = false;
         for(TaskEstimate taskEstimate : taskEstimates) {
             taskEstimateHelper.create(taskEstimate);
             consumed += taskEstimate.getConsumed();
@@ -1063,18 +1079,40 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
                     taskEstimate.getWork(), String.valueOf(taskEstimate.getConsumed()), null, true);
             actionid = action.getId();
             if(lastDate == null || lastDate.getTime() <= taskEstimate.getDate().getTime()) {
-                left = taskEstimate.getLeft();
+                isNew = true;
+                teamLeft = taskEstimate.getLeft();
                 lastDate = taskEstimate.getDate();
             }
 
         }
+
+        // 团队任务
+        List<Team> teams = teamHelper.list(new QueryWrapper<Team>().eq("root", et.getId()).eq("type","task"));
+        if(teams.size() > 0) {
+            double myconsumed = 0d;
+            for(Team team : teams) {
+                if(AuthenticationUser.getAuthenticationUser().getUsername().equals(team.getAccount()) && team.getConsumed() != null) {
+                    myconsumed = team.getConsumed();
+                    if (!isNew) teamLeft += team.getLeft();
+                }
+                else {
+                    taskLeft += team.getLeft();
+                }
+            }
+            Team team = new Team();
+            team.setConsumed(myconsumed + consumed);
+            team.setLeft(teamLeft);
+            teamHelper.update(team, new QueryWrapper<Team>().eq("root", et.getId()).eq("type", "task").eq("account", AuthenticationUser.getAuthenticationUser().getUsername()));
+        }
+
         Task task = new Task();
+        taskLeft += teamLeft;
+        task.setLeft(taskLeft);
         task.setConsumed(et.getConsumed() + consumed);
-        task.setLeft(left);
         task.setLasteditedby(AuthenticationUser.getAuthenticationUser().getLoginname());
         task.setLastediteddate(nowDate);
         task.setId(et.getId());
-        if(left == 0) {
+        if(taskLeft == 0) {
             task.setStatus("done");
             task.setAssignedto(et.getOpenedby());
             task.setAssigneddate(nowDate);
@@ -1090,21 +1128,6 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
             task.setAssignedto(AuthenticationUser.getAuthenticationUser().getLoginname());
             task.setAssigneddate(nowDate);
         }
-        // 团队任务
-        List<Team> teams = teamHelper.list(new QueryWrapper<Team>().eq("root", et.getId()).eq("type","task"));
-        if(teams.size() > 0) {
-            double myconsumed = 0d;
-            for(Team team : teams) {
-                if(AuthenticationUser.getAuthenticationUser().getUsername().equals(team.getAccount()) && team.getConsumed() != null) {
-                    myconsumed = team.getConsumed();
-                    break;
-                }
-            }
-            Team team = new Team();
-            team.setConsumed(myconsumed + consumed);
-            teamHelper.update(team, new QueryWrapper<Team>().eq("root", et.getId()).eq("type", "task").eq("account", AuthenticationUser.getAuthenticationUser().getUsername()));
-        }
-
         this.internalUpdate(task);
 
         List<History> changes = ChangeUtil.diff(et, task);

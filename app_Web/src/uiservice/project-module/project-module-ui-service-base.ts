@@ -309,7 +309,7 @@ export default class ProjectModuleUIServiceBase extends UIService {
         
         const backend = () => {
             const curService:ProjectModuleService =  new ProjectModuleService();
-            curService.RemoveModule(context,data, true).then((response: any) => {
+            curService.Remove(context,data, true).then((response: any) => {
                 if (!response || response.status !== 200) {
                     actionContext.$Notice.error({ title: '错误', desc: response.message });
                     return;
