@@ -1166,7 +1166,7 @@ export default class TestTaskMobMDViewBase extends Vue {
      * @memberof TestTaskMobMDViewBase
      */
     public loadQuickGroupModel(){
-        let quickGroupCodeList:any = {tag:'TestQuickpacket',codelistType:'STATIC'};
+        let quickGroupCodeList:any = {tag:'MobTestQuickpacket',codelistType:'STATIC'};
         if(quickGroupCodeList.tag && Object.is(quickGroupCodeList.codelistType,"STATIC")){
             const codelist = this.$store.getters.getCodeList(quickGroupCodeList.tag);
             if (codelist) {
