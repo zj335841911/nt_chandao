@@ -14,6 +14,7 @@
 *** 统计
 *** 年度统计
 *** 用例库
+*** 用户
 *** iBiz软件生产管理
 ** 左侧分页导航
 *** 产品
@@ -43,6 +44,7 @@
 |统计|[查看功能](func/IbzMyTerritoryStatsTabExpView.md)|
 |年度统计|[查看功能](func/UserYearWorkStatsEditView.md)|
 |用例库|[查看功能](func/IbzLibGridView.md)|
+|用户|-|
 |iBiz软件生产管理|[查看功能](func/ProductHtmlView.md)|
 |左侧分页导航|-|
 |产品|[查看功能](func/ProductLeftSidebarListView.md)|

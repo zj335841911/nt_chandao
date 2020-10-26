@@ -203,6 +203,26 @@ export default class ZentaoModel {
                 }
                 ,
                 		        {
+                	id: 'dd9b338bb75db00a0974af4a4669e432',
+                	name: 'menuitem11',
+                	text: '用户',
+                	type: 'MENUITEM',
+                	counterid: '',
+                	tooltip: '用户',
+                	expanded: false,
+                	separator: false,
+                	hidden: false,
+                	hidesidebar: false,
+                	opendefault: false,
+                	iconcls: '',
+                	icon: '',
+                	textcls: '',
+                	appfunctag: 'AppFunc2',
+                	appfuncyype: 'OPENHTMLPAGE',
+                	authtag:'Web-zentao-menuitem11',
+                }
+                ,
+                		        {
                 	id: 'b6196a3350c20e3bba9943cfba16be09',
                 	name: 'menuitem7',
                 	text: 'iBiz软件生产管理',
@@ -569,6 +589,10 @@ export default class ZentaoModel {
             parameters: [
                 { pathName: 'testportalview', parameterName: 'testportalview' },
             ],
+        },
+        {
+            appfunctag: 'AppFunc2',
+            appfuncyype: 'OPENHTMLPAGE',
         },
         {
             appfunctag: 'Auto11',

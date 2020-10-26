@@ -7202,7 +7202,7 @@
                 "value": "All",
                 
                 "disabled": false,
-                "default": true
+                "default": false
             }
             , {
                 "id": "UNCLOSED",
@@ -7213,7 +7213,7 @@
                 "value": "UNCLOSED",
                 
                 "disabled": false,
-                "default": false
+                "default": true
             }
             , {
                 "id": "ICREATE",

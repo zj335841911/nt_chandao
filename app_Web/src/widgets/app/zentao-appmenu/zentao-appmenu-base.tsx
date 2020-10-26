@@ -42,6 +42,8 @@ export class ZentaoBase extends Vue {
                     this.clickAuto10(item); break;
                 case 'Auto9': 
                     this.clickAuto9(item); break;
+                case 'AppFunc2': 
+                    this.clickAppFunc2(item); break;
                 case 'Auto11': 
                     this.clickAuto11(item); break;
                 case '_2': 
@@ -270,6 +272,17 @@ export class ZentaoBase extends Vue {
         this.$nextTick(function(){
             this.$router.push(path);
         })
+    }
+    /**
+     * 人员管理
+     *
+     * @param {*} [item={}]
+     * @memberof Zentao
+     */
+    public clickAppFunc2(item: any = {}){
+       const localdata: any = this.$store.getters.getLocalData();
+       const url = `http://172.16.240.110:10001/#/index/null/sysdepartments/null/treeexpview`;
+       window.open(url, '_blank');
     }
     
     /**
