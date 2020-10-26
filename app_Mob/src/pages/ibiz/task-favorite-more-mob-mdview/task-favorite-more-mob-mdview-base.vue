@@ -84,8 +84,8 @@
             createAction="Create"
             fetchAction="FetchMyFavorites" 
             :isMutli="!isSingleSelect"
-            :showCheack="showCheack"
-            @showCheackChange="showCheackChange"
+            :isChoose="isChoose"
+            @isChooseChange="isChooseChange"
             :isTempMode="false"
             :isEnableChoose="false"
             name="mdctrl"  
@@ -955,8 +955,8 @@ export default class TaskFavoriteMoreMobMDViewBase extends Vue {
      *
      * @memberof TaskFavoriteMoreMobMDViewBase
      */
-    public showCheackChange(value:any){
-        this.showCheack = value;
+    public isChooseChange(value:any){
+        this.isChoose = value;
     }
 
     /**
@@ -964,14 +964,14 @@ export default class TaskFavoriteMoreMobMDViewBase extends Vue {
      *
      * @memberof TaskFavoriteMoreMobMDViewBase
      */
-    public showCheack = false;
+    public isChoose = false;
 
     /**
      * 取消选择状态
      * @memberof TaskFavoriteMoreMobMDViewBase
      */
     public cancelSelect() {
-        this.showCheackChange(false);
+        this.isChooseChange(false);
     }
 
     /**

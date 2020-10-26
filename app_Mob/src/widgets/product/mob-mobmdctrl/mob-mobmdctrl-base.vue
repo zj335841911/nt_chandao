@@ -3,11 +3,12 @@
         <div class="app-mob-mdctrl-mdctrl" ref="mdctrl">
                 <ion-list class="items" ref="ionlist" @touchstart="gotouchstart"  @touchend="gotouchend">
                     <div class="selectall">
-                        <ion-checkbox :checked="selectAllIschecked"  v-show="showCheack"  @ionChange="checkboxAll"></ion-checkbox>
-                        <ion-label class="selectal-label" v-show="showCheack">全选</ion-label>
+                        <ion-checkbox :checked="selectAllIschecked"  v-show="isChoose"  @ionChange="checkboxAll"></ion-checkbox>
+                        <ion-label class="selectal-label" v-show="isChoose">全选</ion-label>
+                        <ion-label class="exit_select-label" v-show="isChoose" @click="onCheackChange">退出选择</ion-label>
                     </div>
                   <template v-if="(viewType == 'DEMOBMDVIEW9') && controlStyle != 'SWIPERVIEW' ">
-                      <ion-checkbox slot="start" :checked="item.checked" v-show="showCheack" @click.stop="checkboxSelect(item)"></ion-checkbox>
+                      <ion-checkbox slot="start" :checked="item.checked" v-show="isChoose" @click.stop="checkboxSelect(item)"></ion-checkbox>
                       <app-list-index-text :item="item" :index="item.id" @clickItem="item_click"></app-list-index-text>
                       <ion-button v-if="!isTempMode && !allLoaded && needLoadMore" class="loadmore_btn"   @click="loadBottom">{{$t('app.button.loadmore')}}</ion-button>
                   </template>
@@ -23,11 +24,11 @@
                         </ion-item-options>
                     <ion-item>
                       <template v-if="(viewType == 'DEMOBMDVIEW') && controlStyle != 'SWIPERVIEW' ">
-                          <ion-checkbox slot="start" :checked="item.checked" v-show="showCheack" @click.stop="checkboxSelect(item)"></ion-checkbox>
+                          <ion-checkbox slot="start" :checked="item.checked" v-show="isChoose" @click.stop="checkboxSelect(item)"></ion-checkbox>
                           <app-list-index-text :item="item" :index="item.id" @clickItem="item_click"></app-list-index-text>
                       </template>
                       <template v-else-if="(viewType == 'DEMOBMDVIEW9')">
-                          <ion-checkbox slot="start" :checked="item.checked" v-show="showCheack" @click.stop="checkboxSelect(item)"></ion-checkbox>
+                          <ion-checkbox slot="start" :checked="item.checked" v-show="isChoose" @click.stop="checkboxSelect(item)"></ion-checkbox>
                           <app-list-index-text :item="item" :index="item.id" @clickItem="item_click"></app-list-index-text>
                       </template>
                       <template v-else-if="(viewType == 'DEMOBMDVIEW' || viewType == 'DEMOBMDVIEW9') && controlStyle === 'SWIPERVIEW'">
@@ -893,7 +894,7 @@ export default class MobBase extends Vue implements ControlInterface {
      * @memberof Mob
      */
     public onCheackChange(){
-        this.$emit('showCheackChange', !this.showCheack);
+        this.$emit('isChooseChange', !this.isChoose);
     }
 
     /**
@@ -1037,7 +1038,7 @@ export default class MobBase extends Vue implements ControlInterface {
     * @memberof Mob
     */
     public item_click(item:any){
-        if(this.showCheack){
+        if(this.isChoose){
             let count = this.selectedArray.findIndex((i) => {
             return i.mobentityid == item.mobentityid;
         });
@@ -1276,7 +1277,7 @@ export default class MobBase extends Vue implements ControlInterface {
      *
      * @memberof Mdctrl
      */
-    @Prop({default:false}) showCheack?: boolean;
+    @Prop({default:false}) isChoose?: boolean;
 
     /**
      * 选中或取消事件
@@ -1426,7 +1427,7 @@ export default class MobBase extends Vue implements ControlInterface {
         this.timeOutEvent = 0;
         this.timeOutEvent = setTimeout(() => {
             if(_this.timeOutEvent > 0){
-                _this.showCheack = !_this.showCheack;
+                this.onCheackChange();
             }
             console.log(this.timeOutEvent);
             this.timeOutEvent = 0

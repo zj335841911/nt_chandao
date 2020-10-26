@@ -80,8 +80,8 @@
             createAction="Create"
             fetchAction="FetchDefault" 
             :isMutli="!isSingleSelect"
-            :showCheack="showCheack"
-            @showCheackChange="showCheackChange"
+            :isChoose="isChoose"
+            @isChooseChange="isChooseChange"
             @pageTotalChange="pageTotalChange($event)"
             :isTempMode="false"
             :isEnableChoose="false"
@@ -983,8 +983,8 @@ export default class CaseMobMDViewBase extends Vue {
      *
      * @memberof CaseMobMDViewBase
      */
-    public showCheackChange(value:any){
-        this.showCheack = value;
+    public isChooseChange(value:any){
+        this.isChoose = value;
     }
 
     /**
@@ -992,14 +992,14 @@ export default class CaseMobMDViewBase extends Vue {
      *
      * @memberof CaseMobMDViewBase
      */
-    public showCheack = false;
+    public isChoose = false;
 
     /**
      * 取消选择状态
      * @memberof CaseMobMDViewBase
      */
     public cancelSelect() {
-        this.showCheackChange(false);
+        this.isChooseChange(false);
     }
 
     /**

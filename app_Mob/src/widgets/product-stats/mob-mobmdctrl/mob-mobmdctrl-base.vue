@@ -657,7 +657,7 @@ export default class MobBase extends Vue implements ControlInterface {
      * @memberof Mob
      */
     public onCheackChange(){
-        this.$emit('showCheackChange', !this.showCheack);
+        this.$emit('isChooseChange', !this.isChoose);
     }
 
     /**
@@ -801,7 +801,7 @@ export default class MobBase extends Vue implements ControlInterface {
     * @memberof Mob
     */
     public item_click(item:any){
-        if(this.showCheack){
+        if(this.isChoose){
             let count = this.selectedArray.findIndex((i) => {
             return i.mobentityid == item.mobentityid;
         });
@@ -1025,7 +1025,7 @@ export default class MobBase extends Vue implements ControlInterface {
      *
      * @memberof Mdctrl
      */
-    @Prop({default:false}) showCheack?: boolean;
+    @Prop({default:false}) isChoose?: boolean;
 
     /**
      * 选中或取消事件
@@ -1170,7 +1170,7 @@ export default class MobBase extends Vue implements ControlInterface {
         this.timeOutEvent = 0;
         this.timeOutEvent = setTimeout(() => {
             if(_this.timeOutEvent > 0){
-                _this.showCheack = !_this.showCheack;
+                this.onCheackChange();
             }
             console.log(this.timeOutEvent);
             this.timeOutEvent = 0

@@ -75,8 +75,8 @@
             createAction="Create"
             fetchAction="FetchProjectStories" 
             :isMutli="!isSingleSelect"
-            :showCheack="showCheack"
-            @showCheackChange="showCheackChange"
+            :isChoose="isChoose"
+            @isChooseChange="isChooseChange"
             :isTempMode="false"
             :isEnableChoose="false"
             name="mdctrl"  
@@ -95,7 +95,7 @@
         </ion-infinite-scroll>
     </ion-content>
     <ion-footer class="view-footer">
-                <div v-show="!showCheack" class = "fab_container">
+                <div v-show="!isChoose" class = "fab_container">
         </div>
         
     </ion-footer>
@@ -986,8 +986,8 @@ export default class StoryMobMDViewCurProjectBase extends Vue {
      *
      * @memberof StoryMobMDViewCurProjectBase
      */
-    public showCheackChange(value:any){
-        this.showCheack = value;
+    public isChooseChange(value:any){
+        this.isChoose = value;
     }
 
     /**
@@ -995,14 +995,14 @@ export default class StoryMobMDViewCurProjectBase extends Vue {
      *
      * @memberof StoryMobMDViewCurProjectBase
      */
-    public showCheack = false;
+    public isChoose = false;
 
     /**
      * 取消选择状态
      * @memberof StoryMobMDViewCurProjectBase
      */
     public cancelSelect() {
-        this.showCheackChange(false);
+        this.isChooseChange(false);
     }
 
     /**

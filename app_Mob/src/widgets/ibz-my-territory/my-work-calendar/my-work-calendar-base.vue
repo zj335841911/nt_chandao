@@ -815,7 +815,7 @@ export default class MyWorkBase extends Vue implements ControlInterface {
      *
      * @memberof MyWork
      */
-    @Prop({default:false}) showCheack?: boolean;
+    @Prop({default:false}) isChoose?: boolean;
 
     /**
      * 选中或取消事件

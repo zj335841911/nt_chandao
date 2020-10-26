@@ -4,12 +4,13 @@
             <ion-list class="items" ref="ionlist">
                 <template v-if="(viewType == 'DEMOBMDVIEW9') && controlStyle != 'SWIPERVIEW' ">
                     <div class="selectall">
-                        <ion-checkbox :checked="selectAllIschecked"  v-show="showCheack"  @ionChange="checkboxAll"></ion-checkbox>
-                        <ion-label class="selectal-label" v-show="showCheack">全选</ion-label>
+                        <ion-checkbox :checked="selectAllIschecked"  v-show="isChoose"  @ionChange="checkboxAll"></ion-checkbox>
+                        <ion-label class="selectal-label" v-show="isChoose">全选</ion-label>
+                        <ion-label class="exit_select-label" v-show="isChoose" @click="onCheackChange">退出选择</ion-label>
                     </div>
                     <ion-item-sliding ref="sliding" v-for="item in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
                         <ion-item>
-                            <ion-checkbox slot="start" :checked="item.checked" v-show="showCheack" @click.stop="checkboxSelect(item)"></ion-checkbox>
+                            <ion-checkbox slot="start" :checked="item.checked" v-show="isChoose" @click.stop="checkboxSelect(item)"></ion-checkbox>
                             <!-- 列表视图样式 -->
                             <app-list-index-text :dataItemNames = "[]" :item="item" :index="item.srfkey" major="realname" v-if="controlStyle.substring(0,8) === 'LISTVIEW'"></app-list-index-text>
                                 <!-- 图标视图样式 -->
@@ -21,12 +22,13 @@
             <ion-list class="items" ref="ionlist" @touchmove="gotouchmove" @touchstart="gotouchstart"  @touchend="gotouchend">
                 <template v-if="(viewType == 'DEMOBMDVIEW') && controlStyle != 'SWIPERVIEW' ">
                     <div class="selectall">
-                        <ion-checkbox slot="start" :checked="selectAllIschecked"  v-show="showCheack"  @ionChange="checkboxAll"></ion-checkbox>
-                        <ion-label class="selectal-label" v-show="showCheack">全选</ion-label>
+                        <ion-checkbox slot="start" :checked="selectAllIschecked"  v-show="isChoose"  @ionChange="checkboxAll"></ion-checkbox>
+                        <ion-label class="selectal-label" v-show="isChoose">全选</ion-label>
+                        <ion-label class="exit_select-label" v-show="isChoose" @click="onCheackChange">退出选择</ion-label>
                     </div>
                       <ion-item-sliding  :ref="item.srfkey" v-for="item in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
                         <ion-item>
-                            <ion-checkbox slot="start" :checked="item.checked" v-show="showCheack" @click.stop="checkboxSelect(item)"></ion-checkbox>
+                            <ion-checkbox slot="start" :checked="item.checked" v-show="isChoose" @click.stop="checkboxSelect(item)"></ion-checkbox>
                             <!-- 列表视图样式 -->
                             <app-list-index-text :dataItemNames = "[]" :item="item" :index="item.srfkey" major="realname" v-if="controlStyle.substring(0,8) === 'LISTVIEW'"></app-list-index-text>
                             <!-- 图标视图样式 -->
@@ -735,7 +737,7 @@ export default class MobBase extends Vue implements ControlInterface {
      * @memberof Mob
      */
     public onCheackChange(){
-        this.$emit('showCheackChange', !this.showCheack);
+        this.$emit('isChooseChange', !this.isChoose);
     }
 
     /**
@@ -879,7 +881,7 @@ export default class MobBase extends Vue implements ControlInterface {
     * @memberof Mob
     */
     public item_click(item:any){
-        if(this.showCheack){
+        if(this.isChoose){
             let count = this.selectedArray.findIndex((i) => {
             return i.mobentityid == item.mobentityid;
         });
@@ -1115,7 +1117,7 @@ export default class MobBase extends Vue implements ControlInterface {
      *
      * @memberof Mdctrl
      */
-    @Prop({default:false}) showCheack?: boolean;
+    @Prop({default:false}) isChoose?: boolean;
 
     /**
      * 选中或取消事件
@@ -1260,7 +1262,7 @@ export default class MobBase extends Vue implements ControlInterface {
         this.timeOutEvent = 0;
         this.timeOutEvent = setTimeout(() => {
             if(_this.timeOutEvent > 0){
-                _this.showCheack = !_this.showCheack;
+                this.onCheackChange();
             }
             console.log(this.timeOutEvent);
             this.timeOutEvent = 0

@@ -24,8 +24,8 @@
             createAction="Create"
             fetchAction="FetchDefault" 
             :isMutli="!isSingleSelect"
-            :showCheack="showCheack"
-            @showCheackChange="showCheackChange"
+            :isChoose="isChoose"
+            @isChooseChange="isChooseChange"
             :isTempMode="false"
             :isEnableChoose="false"
             :needLoadMore="false"
@@ -718,8 +718,8 @@ export default class CaseStepMobMDView9Base extends Vue {
      *
      * @memberof CaseStepMobMDView9Base
      */
-    public showCheackChange(value:any){
-        this.showCheack = value;
+    public isChooseChange(value:any){
+        this.isChoose = value;
     }
 
     /**
@@ -727,14 +727,14 @@ export default class CaseStepMobMDView9Base extends Vue {
      *
      * @memberof CaseStepMobMDView9Base
      */
-    public showCheack = false;
+    public isChoose = false;
 
     /**
      * 取消选择状态
      * @memberof CaseStepMobMDView9Base
      */
     public cancelSelect() {
-        this.showCheackChange(false);
+        this.isChooseChange(false);
     }
 
     /**
