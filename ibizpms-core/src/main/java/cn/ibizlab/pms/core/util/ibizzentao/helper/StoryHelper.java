@@ -232,7 +232,7 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
             for (ProjectStory projectStory : projectStories) {
                 projects.add(projectStory.getProject());
             }
-            List<ProjectProduct> projectProducts = peojectProductHelper.list(new QueryWrapper<ProjectProduct>().eq("product", old.getProduct()).in("project", projects));
+            List<ProjectProduct> projectProducts = peojectProductHelper.list(new QueryWrapper<ProjectProduct>().eq("product", old.getProduct()).in("project", projects).ne("product", et.getProduct()));
             for (ProjectProduct projectProduct : projectProducts) {
                 projectProduct.setProduct(et.getProduct());
                 peojectProductHelper.create(projectProduct);

@@ -5223,7 +5223,44 @@
         ]
     }, 
     {
-        "srfkey": "Bug__quickpacket",
+        "srfkey": "Task__closed_reason",
+        "emptytext": "未定义",
+        "codelisttype":"static",
+        "items": [
+             {
+                "id": "done",
+                "label": "已完成",
+                "text": "已完成",
+                "default": false,
+                "data": "",
+                "value": "done",
+                "isValueNumber":false,
+                
+                "disabled": false
+            }
+            , {
+                "id": "cancel",
+                "label": "已取消",
+                "text": "已取消",
+                "default": false,
+                "data": "",
+                "value": "cancel",
+                "isValueNumber":false,
+                
+                "disabled": false
+            }
+        ]
+    }, 
+    {
+        "srfkey": "UserRealNameProject",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"SysEmployee",
+        "appdedataset":"FetchProjectTeamUser",
+        "items": []
+    }, 
+    {
+        "srfkey": "MobBugQuickGroup",
         "emptytext": "未定义",
         "codelisttype":"static",
         "items": [
@@ -5261,6 +5298,17 @@
                 "disabled": false
             }
             , {
+                "id": "MORE",
+                "label": "更多",
+                "text": "更多",
+                "default": false,
+                "data": "",
+                "value": "MORE",
+                "isValueNumber":false,
+                
+                "disabled": false
+            }
+            , {
                 "id": "TOME",
                 "label": "指派给我",
                 "text": "指派给我",
@@ -5268,7 +5316,7 @@
                 "data": {"n_assignedto_eq":"%srfloginname%"},
                 "value": "TOME",
                 "isValueNumber":false,
-                
+                "pvalue": "MORE",
                 "disabled": false
             }
             , {
@@ -5279,7 +5327,7 @@
                 "data": {"n_resolvedby_eq":"%srfloginname%"},
                 "value": "BYME",
                 "isValueNumber":false,
-                
+                "pvalue": "MORE",
                 "disabled": false
             }
             , {
@@ -5290,7 +5338,7 @@
                 "data": {"n_status_eq":"resolved"},
                 "value": "WAITCLOSED",
                 "isValueNumber":false,
-                
+                "pvalue": "MORE",
                 "disabled": false
             }
             , {
@@ -5301,18 +5349,7 @@
                 "data": {"n_status_eq":"active"},
                 "value": "UNRESOLVED",
                 "isValueNumber":false,
-                
-                "disabled": false
-            }
-            , {
-                "id": "MORE",
-                "label": "更多",
-                "text": "更多",
-                "default": false,
-                "data": "",
-                "value": "MORE",
-                "isValueNumber":false,
-                
+                "pvalue": "MORE",
                 "disabled": false
             }
             , {
@@ -5349,43 +5386,6 @@
                 "disabled": false
             }
         ]
-    }, 
-    {
-        "srfkey": "Task__closed_reason",
-        "emptytext": "未定义",
-        "codelisttype":"static",
-        "items": [
-             {
-                "id": "done",
-                "label": "已完成",
-                "text": "已完成",
-                "default": false,
-                "data": "",
-                "value": "done",
-                "isValueNumber":false,
-                
-                "disabled": false
-            }
-            , {
-                "id": "cancel",
-                "label": "已取消",
-                "text": "已取消",
-                "default": false,
-                "data": "",
-                "value": "cancel",
-                "isValueNumber":false,
-                
-                "disabled": false
-            }
-        ]
-    }, 
-    {
-        "srfkey": "UserRealNameProject",
-        "emptytext": "未定义",
-        "codelisttype":"dynamic",
-        "appdataentity":"SysEmployee",
-        "appdedataset":"FetchProjectTeamUser",
-        "items": []
     }, 
     {
         "srfkey": "Bug__severity_mob",

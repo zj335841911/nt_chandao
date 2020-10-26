@@ -7,6 +7,7 @@ import cn.ibizlab.pms.core.zentao.mapper.CaseMapper;
 import cn.ibizlab.pms.core.zentao.service.IStoryService;
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
 import cn.ibizlab.pms.util.security.AuthenticationUser;
+import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import lombok.extern.slf4j.Slf4j;
@@ -153,29 +154,43 @@ public class CaseHelper extends ZTBaseHelper<CaseMapper, Case> {
         if(caseId == null || caseId == 0l) return;
         Long runId = et.getId();
 
-        Map<Integer,Map<String,String>> stepResults = new HashMap<>();
+        Map<Integer, Object> stepResults = new HashMap<>();
         List<CaseStep> caseSteps = et.getCasestep();
         et = this.get(caseId);
         String caseResult = "pass";
 
         if(caseSteps != null) {
             for(CaseStep caseStep : caseSteps) {
+                if(caseStep.getSteps() == null || "".equals(caseStep.getSteps())) {
+                    if(caseStep.getReals() == null || "".equals(caseStep.getReals())) {
+                        caseStep.setSteps("pass");
+                    }else {
+                        caseStep.setSteps("fail");
+                    }
+                }
                 if(!"n/a".equals(caseStep.getSteps()) && !"pass".equals(caseStep.getSteps())) {
                     caseResult = caseStep.getSteps();
                     break;
                 }
             }
             for(CaseStep caseStep : caseSteps) {
-                Map<String, String> results = new HashMap<>();
-                results.put("result",caseStep.getSteps());
-                results.put("real",caseStep.getReals());
-                stepResults.put(Integer.parseInt(String.valueOf(caseStep.getId())), results);
+                if(caseStep.getSteps() == null || "".equals(caseStep.getSteps())) {
+                    if(caseStep.getReals() == null || "".equals(caseStep.getReals())) {
+                        caseStep.setSteps("pass");
+                    }else {
+                        caseStep.setSteps("fail");
+                    }
+                }
+                Map<String, String> jsonObject = new HashMap<>();
+                jsonObject.put("real",caseStep.getReals() != null ? caseStep.getReals() : "");
+                jsonObject.put("result",caseStep.getSteps());
+                stepResults.put(Integer.parseInt(String.valueOf(caseStep.getId())), jsonObject);
             }
         }
-        PHPSerializer phpSerializer = new PHPSerializer();
+        PHPSerializerHelper phpSerializer = new PHPSerializerHelper();
         String ss = "";
         try {
-            ss = new String(phpSerializer.serialize(stepResults),"UTF-8");
+            ss = new String(phpSerializer.serialize(stepResults), "UTF-8");
        } catch (Exception e) {
             e.printStackTrace();
         }

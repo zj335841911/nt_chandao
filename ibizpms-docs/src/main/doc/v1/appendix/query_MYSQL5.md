@@ -8762,7 +8762,7 @@ FROM
 	`zt_productplan` t1
 	LEFT JOIN zt_productplan t11 ON t1.PARENT = t11.ID
 	LEFT JOIN zt_product t31 ON t1.product = t31.id 
-	LEFT JOIN zt_projectproduct t21 ON t31.id = t21.product
+	LEFT JOIN zt_projectproduct t21 ON t31.id = t21.product and t1.id = t21.plan
 WHERE ( t21.`PROJECT` = ${srfdatacontext('srfparentkey','{"defname":"PROJECT","dename":"ZT_PROJECTPRODUCT"}')} ) 
 t1.DELETED = '0' 
 
@@ -11812,8 +11812,8 @@ t1.`DUPLICATESTORY`,
 t1.`ESTIMATE`,
 t1.`FROMBUG`,
 t1.`ID`,
-(select (case when COUNT(t.IBZ_FAVORITESID) > 0 then 1 else 0 end ) as ISFAVORITES from T_IBZ_FAVORITES t where t.TYPE = 'story' and t.ACCOUNT = #{srf.sessioncontext.srfloginname} and t.OBJECTID = t1.id) AS `ISFAVORITES`,
-(CASE WHEN EXISTS (SELECT 1 FROM ZT_STORY WHERE  PARENT = t1.`ID` AND DELETED = '0') THEN FALSE ELSE TRUE  END ) AS `ISLEAF`,
+0 AS `ISFAVORITES`,
+FALSE AS `ISLEAF`,
 t1.`KEYWORDS`,
 t1.`LASTEDITEDBY`,
 t1.`LASTEDITEDDATE`,
@@ -11843,23 +11843,25 @@ t1.`TOBUG`,
 t1.`TYPE`,
 t1.`VERSION`,
 t1.`VERSION` AS `VERSIONC`,
-(case when t1.parent in (-1) and t1.stage = 'wait' then '1' when t1.parent in (0) and t1.stage = 'wait' then '2'  else '0' end) AS isChild
+'0' AS isChild
 FROM `zt_story` t1 
 LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID 
 LEFT JOIN zt_story t21 ON t1.PARENT = t21.ID 
 LEFT JOIN zt_product t31 ON t1.PRODUCT = t31.ID 
-LEFT JOIN zt_branch t41 ON t1.BRANCH = t41.ID 
-
-WHERE 
-t1.DELETED = '0' 
-AND
-	t1.id IN ( select tt3.story from zt_release  tt1 
+LEFT JOIN zt_branch t41 ON t1.BRANCH = t41.ID
+WHERE t1.DELETED = '0' 
+(t1.id IN ( select tt3.story from zt_release  tt1 
 LEFT JOIN zt_build tt2 on tt1.build = tt2.id  
 LEFT JOIN zt_projectstory tt3 on tt3.project = tt2.project
-where tt1.id =${srfdatacontext('release','{"defname":"ID","dename":"ZT_BUILD"}')} ) 
-	AND t1.product = ${srfdatacontext('product','{"defname":"ID","dename":"ZT_BUILD"}')}
+where tt1.id =  #{srf.datacontext.release}
+)  or (select tt2.project from zt_release  tt1 
+LEFT JOIN zt_build tt2 on tt1.build = tt2.id where tt1.id =  #{srf.datacontext.release}
+) = 0)
+	AND t1.product =  #{srf.datacontext.product}
 	AND not FIND_IN_SET (
-t1.ID,(SELECT STORIES FROM ZT_RELEASE WHERE ID = ${srfdatacontext('release','{"defname":"ID","dename":"ZT_BUILD"}')}))
+t1.ID,(SELECT STORIES FROM ZT_RELEASE WHERE ID =  #{srf.datacontext.release}
+)) 
+
 ```
 ### 获取产品发布相关需求(ReleaseStories)<div id="Story_ReleaseStories"></div>
 ```sql

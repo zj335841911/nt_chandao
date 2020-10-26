@@ -220,6 +220,23 @@
 |4|4|&nbsp;|
 <center>表 项目优先级</center>
 
+## Bug快速分组（移动端）
+
+| 数据项        |    数据值   |  备注  |
+| --------   |------------| --------- | 
+|所有|All|&nbsp;|
+|未关闭|UNCLOSED|&nbsp;|
+|由我创建|ICREATE|&nbsp;|
+|更多|MORE|&nbsp;|
+|指派给我|TOME|&nbsp;|
+|由我解决|BYME|&nbsp;|
+|待关闭|WAITCLOSED|&nbsp;|
+|未解决|UNRESOLVED|&nbsp;|
+|未确认|UNCONFIRMED|&nbsp;|
+|未指派|UNASSIGNED|&nbsp;|
+|过期Bug|EXPIREDBUG|&nbsp;|
+<center>表 Bug快速分组（移动端）</center>
+
 ## 任务关闭原因
 
 | 数据项        |    数据值   |  备注  |

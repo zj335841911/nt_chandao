@@ -62,7 +62,7 @@ export default {
 			uagridcolumn1: "操作",
 		},
 		uiactions: {
-        projectmodule_removemodule: "删除",
+        remove: "Remove",
 		},
 	},
 	maingridviewtoolbar_toolbar: {
