@@ -9,6 +9,7 @@ import cn.ibizlab.pms.core.ibizpro.service.IIBZProStoryModuleService;
 //import cn.ibizlab.pms.util.ibizsysmodel.domain.PSModule;
 //import cn.ibizlab.pms.util.ibizsysmodel.filter.PSModuleSearchContext;
 //import cn.ibizlab.pms.util.ibizsysmodel.service.IPSModuleService;
+import cn.ibizlab.pms.core.util.ibizzentao.helper.ModuleHelper;
 import lombok.extern.slf4j.Slf4j;
 import cn.ibizlab.pms.core.ibiz.domain.ProductModule;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,10 +36,18 @@ public class ProductModuleExService extends ProductModuleServiceImpl {
     @Autowired
     IIBZProStoryModuleService iIBZProStoryModuleService;
 
+    @Autowired
+    ModuleHelper moduleHelper;
+
 
     @Override
     protected Class currentModelClass() {
         return com.baomidou.mybatisplus.core.toolkit.ReflectionKit.getSuperClassGenericType(this.getClass().getSuperclass(), 1);
+    }
+
+    @Override
+    public boolean remove(Long key) {
+        return moduleHelper.delete(key);
     }
 
     /**
