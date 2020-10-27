@@ -100,15 +100,15 @@ export default class Main2Model {
           dataType: 'TEXT',
         },
         {
+          name: 'srfdataaccaction',
+          prop: 'id',
+          dataType: 'ACID',
+        },
+        {
           name: 'srfkey',
           prop: 'id',
           dataType: 'ACID',
           isEditable:true
-        },
-        {
-          name: 'srfdataaccaction',
-          prop: 'id',
-          dataType: 'ACID',
         },
         {
           name: 'story',
@@ -119,6 +119,11 @@ export default class Main2Model {
           name: 'project',
           prop: 'project',
           dataType: 'PICKUP',
+        },
+        {
+          name: 'isfavorites',
+          prop: 'isfavorites',
+          dataType: 'TEXT',
         },
         {
           name: 'task',
