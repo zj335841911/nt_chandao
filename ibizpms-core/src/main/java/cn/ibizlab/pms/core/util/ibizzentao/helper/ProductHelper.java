@@ -6,7 +6,9 @@ import cn.ibizlab.pms.core.zentao.domain.DocLib;
 import cn.ibizlab.pms.core.zentao.domain.History;
 import cn.ibizlab.pms.core.zentao.domain.Product;
 import cn.ibizlab.pms.core.zentao.mapper.ProductMapper;
+import cn.ibizlab.pms.core.zentao.service.IProductService;
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
+import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import org.apache.commons.lang3.StringUtils;
@@ -14,7 +16,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 @Component
@@ -29,11 +33,23 @@ public class ProductHelper extends ZTBaseHelper<ProductMapper, Product> {
     @Autowired
     DocLibHelper docLibHelper;
 
+    @Autowired
+    IProductService productService;
+
     String[] diffAttrs = {"desc"};
 
     @Transactional
     public boolean create(Product et) {
 
+        // 校验产品名称和产品代号
+        String sql = "select * from zt_product where `name` = #{et.name} or `code` = #{et.code}";
+        Map<String,Object> param = new HashMap<>();
+        param.put("name", et.getName());
+        param.put("code", et.getCode());
+        List<JSONObject> nameList = productService.select(sql,param);
+        if(!nameList.isEmpty() && nameList.size() > 0) {
+            throw new RuntimeException(String.format("[产品名称：%1$s]或[产品代号：%2$s]已经存在。如果您确定该记录已删除，请联系管理员恢复。", et.getName(), et.getCode()));
+        }
         fileHelper.processImgURL(et, null, null);
         if (!this.retBool(this.baseMapper.insert(et)))
             return false;
@@ -67,6 +83,16 @@ public class ProductHelper extends ZTBaseHelper<ProductMapper, Product> {
      */
     @Transactional
     public boolean edit(Product et) {
+        // 校验产品名称和产品代号
+        String sql = "select * from zt_product where (`name` = #{et.name} or `code` = #{et.code}) and `id` <> #{et.id}";
+        Map<String,Object> param = new HashMap<>();
+        param.put("name", et.getName());
+        param.put("code", et.getCode());
+        param.put("id", et.getId());
+        List<JSONObject> nameList = productService.select(sql,param);
+        if(!nameList.isEmpty() && nameList.size() > 0) {
+            throw new RuntimeException(String.format("[产品名称：%1$s]或[产品代号：%2$s]已经存在。如果您确定该记录已删除，请联系管理员恢复。", et.getName(), et.getCode()));
+        }
         Product old = new Product();
         CachedBeanCopier.copy(this.get(et.getId()), old);
 

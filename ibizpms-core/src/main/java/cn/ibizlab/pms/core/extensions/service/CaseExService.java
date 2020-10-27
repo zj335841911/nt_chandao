@@ -53,73 +53,22 @@ public class CaseExService extends CaseServiceImpl {
         return et;
     }
 
-//    @Override
-//    @Transactional
-//    public Case testsuitelinkCase(Case et) {
-//        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
-//        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
-//        JSONObject jo = (JSONObject) JSONObject.toJSON(et);
-//
-//        if(et.get("suite") != null) {
-//            jo.put("id", String.valueOf(et.get("suite")).split(",")[0]);
-//        }
-//        JSONArray jsonArray = new JSONArray();
-//
-//        if(et.get("ids") != null && et.get("versions") != null) {
-//            String[] cases = String.valueOf(et.get("ids")).split(",");
-//            String[] versions = String.valueOf(et.get("versions")).split(",");
-//            if(cases.length == versions.length) {
-//                for(int i = 0; i < cases.length; i ++) {
-//                    JSONObject jsonObject = new JSONObject();
-//                    jsonObject.put("cases", cases[i]);
-//                    jsonObject.put("versions", versions[i]);
-//                    jsonArray.add(jsonObject);
-//                }
-//            }
-//
-//        }
-//        jo.put("srfarray", jsonArray);
-//        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTCaseHelper.testsuitelinkCase(zentaoSid, jo, rst);
-//        if (bRst && rst.getEtId() != null) {
-//            et = this.get(rst.getEtId());
-//        }
-//        et.set("ztrst", rst);
-//        return et;
-//    }
-//
-//    @Override
-//    @Transactional
-//    public Case linkCase(Case et) {
-//        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
-//        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
-//        JSONObject jo = (JSONObject) JSONObject.toJSON(et);
-//
-//        if(et.get("task") != null) {
-//            jo.put("id", String.valueOf(et.get("task")).split(",")[0]);
-//        }
-//        JSONArray jsonArray = new JSONArray();
-//
-//        if(et.get("ids") != null && et.get("versions") != null) {
-//            String[] cases = String.valueOf(et.get("ids")).split(",");
-//            String[] versions = String.valueOf(et.get("versions")).split(",");
-//            if(cases.length == versions.length) {
-//                for(int i = 0; i < cases.length; i ++) {
-//                    JSONObject jsonObject = new JSONObject();
-//                    jsonObject.put("cases", cases[i]);
-//                    jsonObject.put("versions", versions[i]);
-//                    jsonArray.add(jsonObject);
-//                }
-//            }
-//
-//        }
-//        jo.put("srfarray", jsonArray);
-//        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTCaseHelper.linkCase(zentaoSid, jo, rst);
-//        if (bRst && rst.getEtId() != null) {
-//            et = this.get(rst.getEtId());
-//        }
-//        et.set("ztrst", rst);
-//        return et;
-//    }
+    @Override
+    @Transactional
+    public Case getTestTaskCNTRun(Case et) {
+        String task = et.getTask();
+        et = this.get(et.getId());
+        Map<String, Object> parm = new HashMap<>();
+        parm.put("case", et.getId());
+        parm.put("task", task);
+        String failSql = "select t.* from zt_testresult t left join zt_testrun t11 on t.run = t11.id where  t.`case` = #{et.case} and t11.task = #{et.task}  and t.caseResult in('fail','blocked') ";
+        String Sql = "select t.* from zt_testresult t left join zt_testrun t11 on t.run = t11.id where  t.`case` = #{et.case} and t11.task = #{et.task}  ";
+        et.setResultcnt(this.select(Sql,parm).size());
+        et.setResultfalicnt(this.select(failSql, parm).size());
+        //自定义代码
+        return et;
+    }
+
 
 }
 

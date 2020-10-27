@@ -5,6 +5,7 @@ import cn.ibizlab.pms.core.util.ibizzentao.common.ChangeUtil;
 import cn.ibizlab.pms.core.util.ibizzentao.common.ZTDateUtil;
 import cn.ibizlab.pms.core.zentao.domain.*;
 import cn.ibizlab.pms.core.zentao.mapper.ProjectMapper;
+import cn.ibizlab.pms.core.zentao.service.IProjectService;
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
 import cn.ibizlab.pms.util.security.AuthenticationUser;
 import com.alibaba.fastjson.JSONArray;
@@ -50,12 +51,22 @@ public class ProjectHelper extends ZTBaseHelper<ProjectMapper, Project> {
     @Autowired
     TeamHelper teamHelper;
 
+    @Autowired
+    IProjectService projectService;
+
     String[] diffAttrs = {"desc"};
 
     @Override
     @Transactional
     public boolean create(Project et) {
-
+        String sql = "select * from zt_project where (`name` = #{et.name} or `code` = #{et.code})";
+        Map<String,Object> param = new HashMap<>();
+        param.put("name", et.getName());
+        param.put("code", et.getCode());
+        List<JSONObject> nameList = projectService.select(sql,param);
+        if(!nameList.isEmpty() && nameList.size() > 0) {
+            throw new RuntimeException(String.format("[项目名称：%1$s]或[项目代号：%2$s]已经存在。如果您确定该记录已删除，请联系管理员恢复。", et.getName(), et.getCode()));
+        }
         JSONArray projectproducts = JSONArray.parseArray(et.getSrfarray());
         fileHelper.processImgURL(et, null, null);
         et.setCloseddate(new Timestamp(-28800000l));
@@ -118,6 +129,15 @@ public class ProjectHelper extends ZTBaseHelper<ProjectMapper, Project> {
 
     @Transactional
     public boolean edit(Project et) {
+        String sql = "select * from zt_project where (`name` = #{et.name} or `code` = #{et.code}) and `id` <> #{et.id}";
+        Map<String,Object> param = new HashMap<>();
+        param.put("name", et.getName());
+        param.put("code", et.getCode());
+        param.put("id", et.getId());
+        List<JSONObject> nameList = projectService.select(sql,param);
+        if(!nameList.isEmpty() && nameList.size() > 0) {
+            throw new RuntimeException(String.format("[项目名称：%1$s]或[项目代号：%2$s]已经存在。如果您确定该记录已删除，请联系管理员恢复。", et.getName(), et.getCode()));
+        }
         String comment = et.getComment() == null ? "" : et.getComment();
         JSONArray projectproducts = JSONArray.parseArray(et.getSrfarray());
         Project old = new Project();
@@ -150,8 +170,8 @@ public class ProjectHelper extends ZTBaseHelper<ProjectMapper, Project> {
         //Team 处理
 
         List<History> changes = ChangeUtil.diff(old, et,null,null,diffAttrs);
+        Action action = actionHelper.create("project", et.getId(), "edited", comment, "", null, true);
         if (changes.size() > 0) {
-            Action action = actionHelper.create("project", et.getId(), "edited", comment, "", null, true);
             actionHelper.logHistory(action.getId(), changes);
         }
 
@@ -326,6 +346,7 @@ public class ProjectHelper extends ZTBaseHelper<ProjectMapper, Project> {
             Team team = new Team();
             CachedBeanCopier.copy(projectTeam, team);
             team.setId(null);
+            team.setJoin(ZTDateUtil.now());
             teamHelper.create(team);
         }
         return et;

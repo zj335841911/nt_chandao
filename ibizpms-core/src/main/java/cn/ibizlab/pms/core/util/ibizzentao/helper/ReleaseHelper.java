@@ -133,7 +133,7 @@ public class ReleaseHelper extends ZTBaseHelper<ReleaseMapper, Release> {
         et = this.get(et.getId());
         Release release = new Release();
         release.setId(et.getId());
-        release.setBugs(bugs);
+        release.setBugs(et.getBugs() + "," + bugs);
         Product product = productHelper.get(et.getProduct());
         internalUpdate(release);
 
@@ -204,7 +204,7 @@ public class ReleaseHelper extends ZTBaseHelper<ReleaseMapper, Release> {
         et = this.get(et.getId());
         Release release = new Release();
         release.setId(et.getId());
-        release.setStories(stories);
+        release.setStories(et.getStories() + "," + stories);
         Product product = productHelper.get(et.getProduct());
         internalUpdate(release);
 

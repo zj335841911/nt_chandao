@@ -50,8 +50,8 @@ public class TestSuiteHelper extends ZTBaseHelper<TestSuiteMapper, TestSuite> {
             return false;
 
         List<History> changes = ChangeUtil.diff(old, et,null,null,new String[]{"desc"});
+        Action action = actionHelper.create("testsuite", et.getId(), "edited", "", "", null, true);
         if (changes.size() > 0) {
-            Action action = actionHelper.create("testsuite", et.getId(), "edited", "", "", null, true);
             actionHelper.logHistory(action.getId(), changes);
         }
         return true;

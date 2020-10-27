@@ -179,6 +179,7 @@ public class BugHelper extends ZTBaseHelper<BugMapper, Bug> {
             build.setProject(Long.parseLong(et.getBuildproject()));
             build.setName(et.getBuildname());
             build.setDate(ZTDateUtil.now());
+            build.setProduct(et.getProduct());
             build.setBuilder(AuthenticationUser.getAuthenticationUser().getUsername());
             buildHelper.create(build);
             et.setResolvedbuild(String.valueOf(build.getId()));
@@ -198,7 +199,7 @@ public class BugHelper extends ZTBaseHelper<BugMapper, Bug> {
         buildLinkBug(et);
 
         //release关联
-        Release release = releaseHelper.getOne(new QueryWrapper<Release>().eq("build", et.getResolvedbuild()));
+        Release release = releaseHelper.getOne(new QueryWrapper<Release>().eq("build", et.getResolvedbuild()).eq("product", et.getProduct()).ne("build", 0).last(" LIMIT 0,1 "));
         if (release != null) {
             et.set("release", release.getId());
             linkBug(et);

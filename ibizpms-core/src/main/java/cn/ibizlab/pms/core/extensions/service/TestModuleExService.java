@@ -23,15 +23,4 @@ public class TestModuleExService extends TestModuleServiceImpl {
         return moduleHelper.delete(key);
     }
 
-    @Override
-    @Transactional
-    public boolean create(TestModule et) {
-//        fillParentData(et);
-        et.setDeleted("0");
-        if(!this.retBool(this.baseMapper.insert(et)))
-            return false;
-        CachedBeanCopier.copy(get(et.getId()),et);
-        fixpathLogic.execute(et);
-        return true;
-    }
 }
