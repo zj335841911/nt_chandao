@@ -281,6 +281,7 @@ export default {
 			product: '所属产品', 
 			branchname: '平台/分支', 
 			modulename1: '所属模块名称', 
+			version: '版本号', 
 			title: '需求名称', 
 			type: '需求类型', 
 			pri: '优先级', 

@@ -76,6 +76,11 @@ export class MobMainModel {
                 dataType: 'TEXT',
             },
             {
+                name: 'version',
+                prop: 'version',
+                dataType: 'INT',
+            },
+            {
                 name: 'title',
                 prop: 'title',
                 dataType: 'TEXT',

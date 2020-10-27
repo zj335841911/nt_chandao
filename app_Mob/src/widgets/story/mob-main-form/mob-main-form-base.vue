@@ -93,6 +93,34 @@
 
 
 <app-form-item 
+    name='version' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="version_item"  
+    :itemValue="this.data.version" 
+    v-show="detailsModel.version.visible" 
+    :itemRules="this.rules.version" 
+    :caption="$t('story.mobmain_form.details.version')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.version.disabled"
+    :error="detailsModel.version.error" 
+    :isEmptyCaption="false">
+        <app-mob-select 
+    :disabled="detailsModel.version.disabled" 
+    :data="data" 
+    :context="context" 
+    :viewparams="viewparams"
+    :value="data.version"  
+    :navigateContext ='{ } '
+    :navigateParam ='{ } '
+    @change="($event)=>this.data.version = $event" />
+</app-form-item>
+
+
+
+<app-form-item 
     name='title' 
     class='' 
     uiStyle="DEFAULT"  
@@ -514,7 +542,7 @@
     class='' 
     parameterName='story' 
     refviewtype='DEMOBMDVIEW9'  
-    refreshitems='' 
+    refreshitems='version' 
     viewname='file-mob-mdview9' 
     v-show="detailsModel.druipart2.visible" 
     :caption="$t('story.mobmain_form.details.druipart2')"  
@@ -528,7 +556,7 @@
     :context="context" 
     :viewparams="viewparams" 
     :navigateContext ='{ } ' 
-    :navigateParam ='{ } ' 
+    :navigateParam ='{ "n_extra_eq": "%version%", "objecttype": "story" } ' 
     :ignorefieldvaluechange="ignorefieldvaluechange" 
     :data="JSON.stringify(this.data)"  
     @drdatasaved="drdatasaved($event)"/>
@@ -910,6 +938,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
         product: null,
         branchname: null,
         modulename1: null,
+        version: null,
         title: null,
         type: null,
         pri: null,
@@ -1095,6 +1124,8 @@ export default class MobMainBase extends Vue implements ControlInterface {
         branchname: new FormItemModel({ caption: '平台/分支', detailType: 'FORMITEM', name: 'branchname', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         modulename1: new FormItemModel({ caption: '所属模块名称', detailType: 'FORMITEM', name: 'modulename1', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        version: new FormItemModel({ caption: '版本号', detailType: 'FORMITEM', name: 'version', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         title: new FormItemModel({ caption: '需求名称', detailType: 'FORMITEM', name: 'title', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -1286,6 +1317,18 @@ export default class MobMainBase extends Vue implements ControlInterface {
     @Watch('data.modulename1')
     onModulename1Change(newVal: any, oldVal: any) {
         this.formDataChange({ name: 'modulename1', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 version 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMain
+     */
+    @Watch('data.version')
+    onVersionChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'version', newVal: newVal, oldVal: oldVal });
     }
 
     /**
@@ -1564,6 +1607,14 @@ export default class MobMainBase extends Vue implements ControlInterface {
 
 
 
+
+
+        if (Object.is(name, 'version')) {
+            const details: string[] = ['title', 'spec', 'verify'];
+            if(await this.validItem('version', this.data['version'])){
+                this.updateFormItems('GetStorySpecs', this.data, details, true);
+            }
+        }
     }
 
 
