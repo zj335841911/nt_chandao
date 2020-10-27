@@ -47,28 +47,27 @@
     :disabled="detailsModel.projecttname.disabled"
     :error="detailsModel.projecttname.error" 
     :isEmptyCaption="false">
-        <app-mob-picker
-    name='projecttname'
-    deMajorField='projectname'
-    deKeyField='projectid'
-    valueitem='project' 
-    editortype="" 
-    style=""  
+        <app-mob-select-drop-down 
+    name='projecttname' 
+    deMajorField='name'
+    deKeyField='id'
+    valueitem='' 
+    style="" 
+    editortype="dropdown" 
     :formState="formState"
     :data="data"
     :context="context"
-    :viewparams="viewparams"
     :navigateContext ='{ "product": "%product%" } '
     :navigateParam ='{ "product": "%product%" } '
+    :viewparams="viewparams"
     :itemParam='{ }' 
     :disabled="detailsModel.projecttname.disabled"
     :service="service"
     :acParams="{ serviceName: 'project', interfaceName: 'FetchBugProject'}"
     :value="data.projecttname" 
-    :pickupView="{ viewname: 'project-mob-pickup-view', title: '项目移动端数据选择视图', deResParameters: [], parameters: [{ pathName: 'projects', parameterName: 'project' }, { pathName: 'mobpickupview', parameterName: 'mobpickupview' } ], placement:'' }"
-    @formitemvaluechange="onFormItemValueChange">
-</app-mob-picker>
-
+    @formitemvaluechange="onFormItemValueChange"
+    @change="($event)=>this.data.projecttname = $event">
+</app-mob-select-drop-down>
 </app-form-item>
 
 
@@ -88,28 +87,15 @@
     :disabled="detailsModel.buildname.disabled"
     :error="detailsModel.buildname.error" 
     :isEmptyCaption="false">
-        <app-mob-picker
-    name='buildname'
-    deMajorField='buildname'
-    deKeyField='buildid'
-    valueitem='build' 
-    editortype="" 
-    style=""  
-    :formState="formState"
-    :data="data"
-    :context="context"
+        <app-mob-select 
+    :disabled="detailsModel.buildname.disabled" 
+    :data="data" 
+    :context="context" 
     :viewparams="viewparams"
+    :value="data.buildname"  
     :navigateContext ='{ } '
     :navigateParam ='{ } '
-    :itemParam='{ }' 
-    :disabled="detailsModel.buildname.disabled"
-    :service="service"
-    :acParams="{ serviceName: 'build', interfaceName: 'FetchTestBuild'}"
-    :value="data.buildname" 
-    :pickupView="{ viewname: 'build-mob-pickup-view', title: '版本移动端数据选择视图', deResParameters: [{ pathName: 'products', parameterName: 'product' }, ], parameters: [{ pathName: 'builds', parameterName: 'build' }, { pathName: 'mobpickupview', parameterName: 'mobpickupview' } ], placement:'' }"
-    @formitemvaluechange="onFormItemValueChange">
-</app-mob-picker>
-
+    @change="($event)=>this.data.buildname = $event" />
 </app-form-item>
 
 
@@ -708,8 +694,6 @@ export default class MobEditFormBase extends Vue implements ControlInterface {
         comment: null,
         mailto: null,
         id: null,
-        project: null,
-        build: null,
         testtask: null,
     };
 
@@ -908,10 +892,6 @@ export default class MobEditFormBase extends Vue implements ControlInterface {
         mailto: new FormItemModel({ caption: '抄送给', detailType: 'FORMITEM', name: 'mailto', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
-, 
-        project: new FormItemModel({ caption: '所属项目', detailType: 'FORMITEM', name: 'project', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        build: new FormItemModel({ caption: '版本', detailType: 'FORMITEM', name: 'build', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
     };
 
@@ -1155,30 +1135,6 @@ export default class MobEditFormBase extends Vue implements ControlInterface {
         this.formDataChange({ name: 'id', newVal: newVal, oldVal: oldVal });
     }
 
-    /**
-     * 监控表单属性 project 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobEditForm
-     */
-    @Watch('data.project')
-    onProjectChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'project', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 build 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobEditForm
-     */
-    @Watch('data.build')
-    onBuildChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'build', newVal: newVal, oldVal: oldVal });
-    }
-
 
     /**
      * 重置表单项值
@@ -1215,8 +1171,6 @@ export default class MobEditFormBase extends Vue implements ControlInterface {
      */
     private async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }){
                 
-
-
 
 
 

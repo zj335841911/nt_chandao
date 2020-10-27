@@ -57,12 +57,6 @@ export class MobEditFormService extends FormServiceBase {
             const response: any = await service.FetchBugProject(data);
             return this.doItems(response);
         }
-        if (Object.is(serviceName, 'BuildService') && Object.is(interfaceName, 'FetchTestBuild')) {
-            const service: any = await this.getService('build');
-            await this.onBeforeAction(interfaceName, context, data, isLoading);
-            const response: any = await service.FetchTestBuild(data);
-            return this.doItems(response);
-        }
         return [];
     }
 

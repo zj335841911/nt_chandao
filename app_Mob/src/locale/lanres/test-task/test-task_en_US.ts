@@ -206,8 +206,6 @@ export default {
 			comment: '备注', 
 			mailto: '抄送给', 
 			id: '编号', 
-			project: '所属项目', 
-			build: '版本', 
 		},
 		uiactions: {
 		},
