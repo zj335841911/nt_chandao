@@ -1038,7 +1038,7 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
         if (Object.is(name, '') || Object.is(name, 'future')) {
             let ret = false;
             const _future = this.data.future;
-            if (this.$verify.testCond(_future, 'ISNULL', '')) {
+            if (this.$verify.testCond(_future, 'EQ', 'on')) {
                 ret = true;
             }
             this.detailsModel.delta.setVisible(ret);
@@ -1047,7 +1047,7 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
         if (Object.is(name, '') || Object.is(name, 'future')) {
             let ret = false;
             const _future = this.data.future;
-            if (this.$verify.testCond(_future, 'ISNULL', '')) {
+            if (this.$verify.testCond(_future, 'EQ', 'on')) {
                 ret = true;
             }
             this.detailsModel.end.setVisible(ret);

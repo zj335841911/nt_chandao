@@ -19631,6 +19631,7 @@
     "field_logic_name":"由谁创建",
     "entity_name":"Product",
     "field_type":"TEXT",
+    "dict":"UserRealName",
     "nullable":1,
     "physical_field":1,
     "data_type":"VARCHAR",
