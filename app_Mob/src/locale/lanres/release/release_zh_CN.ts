@@ -140,6 +140,10 @@ export default {
 		},
 	},
 	editmobeditviewrighttoolbar_toolbar: {
+		tbitem1: {
+			caption: '保存',
+			tip: '保存',
+		},
 	},
 	mobeditviewrighttoolbar_toolbar: {
 		deuiaction1_mobactive: {
