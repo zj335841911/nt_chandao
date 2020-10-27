@@ -109,7 +109,7 @@ export class PanelControlBase extends ControlBase {
      * @param {*} oldVal
      * @memberof PanelControlBase
      */
-    @Watch('inputData', { immediate: true })
+    @Watch('inputData', { immediate: true,deep: true })
     async onInputDataChange(newVal: any, oldVal: any) {
         if (newVal) {
             await this.computedUIData(newVal);
@@ -136,27 +136,10 @@ export class PanelControlBase extends ControlBase {
      * @memberof PanelControlBase
      */
     public async computedUIData(newVal: any) {
-        let codelistArray: Array<any> = [];
         if ((this.dataModel.getDataItems instanceof Function) && this.dataModel.getDataItems().length > 0) {
             this.dataModel.getDataItems().forEach((item: any) => {
-                if (item.codelist) {
-                    codelistArray.push(item.codelist);
-                }
+                this.data[item.name] = newVal[item.prop];
             })
-            if (codelistArray.length > 0) {
-                let res: any = await this.getAllCodeList(codelistArray);
-                this.dataModel.getDataItems().forEach((item: any) => {
-                    if (item.codelist) {
-                        this.data[item.name] = res.get(item.codelist.tag).get(newVal[item.prop]);
-                    } else {
-                        this.data[item.name] = newVal[item.prop];
-                    }
-                })
-            } else {
-                this.dataModel.getDataItems().forEach((item: any) => {
-                    this.data[item.name] = newVal[item.prop];
-                })
-            }
         }
     }
 

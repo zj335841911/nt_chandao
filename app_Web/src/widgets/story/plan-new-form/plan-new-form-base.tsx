@@ -114,6 +114,10 @@ export class PlanNewEditFormBase extends EditFormControlBase {
      */
     public rules():any{
         return {
+        prodoctname: [
+            { required: this.detailsModel.prodoctname.required, type: 'string', message: '所属产品 值不能为空', trigger: 'change' },
+            { required: this.detailsModel.prodoctname.required, type: 'string', message: '所属产品 值不能为空', trigger: 'blur' },
+        ],
         title: [
             { required: this.detailsModel.title.required, type: 'string', message: '需求名称 值不能为空', trigger: 'change' },
             { required: this.detailsModel.title.required, type: 'string', message: '需求名称 值不能为空', trigger: 'blur' },
@@ -161,7 +165,7 @@ export class PlanNewEditFormBase extends EditFormControlBase {
 
         module: new FormItemModel({ caption: '所属模块', detailType: 'FORMITEM', name: 'module', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 
-        prodoctname: new FormItemModel({ caption: '所属产品', detailType: 'FORMITEM', name: 'prodoctname', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+        prodoctname: new FormItemModel({ caption: '所属产品', detailType: 'FORMITEM', name: 'prodoctname', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:true, disabled: false, enableCond: 3 }),
 
         branch: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'branch', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 
