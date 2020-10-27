@@ -2748,12 +2748,6 @@ CREATE TABLE `zt_branch`(
 | OPENEDBY        | 由谁创建  | VARCHAR      |   200   | &nbsp; |
 | V2        | v2  | VARCHAR      |   40   | &nbsp; |
 | CASE        | 相关用例  |       |   8   | &nbsp; |
-| COMMENT        | 备注  | CLOB      |   1,048,576   | &nbsp; |
-| FILES        | 附件  | VARCHAR      |   1,000   | &nbsp; |
-| MOBIMAGE        | 移动端图片  | VARCHAR      |   4,000   | &nbsp; |
-| BUILDNAME        | 版本名称  | VARCHAR      |   100   | &nbsp; |
-| BUILDPROJECT        | 版本项目  | VARCHAR      |   200   | &nbsp; |
-| CREATEBUILD        | 创建版本  | INTEGER      |   -1   | &nbsp; |
 
 
 
@@ -4598,13 +4592,6 @@ CREATE TABLE `zt_bug`(
 | PRODUCT        | 产品  |       |   8   | &nbsp; |
 | STORIES        | 完成的需求  | CLOB      |   65,535   | &nbsp; |
 | PROJECT        | 所属项目  |       |   8   | &nbsp; |
-| IDS        | Bug版本健值  | VARCHAR      |   100   | &nbsp; |
-| FILES        | 附件  | VARCHAR      |   1,000   | &nbsp; |
-| REBUILD        | 重新构建  | INTEGER      |   -1   | &nbsp; |
-| RELEASETYPE        | 运行模式  | VARCHAR      |   200   | &nbsp; |
-| FRONTAPPLICATION        | 系统应用  | VARCHAR      |   200   | &nbsp; |
-| BACKGROUNDID        | 后台体系  | VARCHAR      |   200   | &nbsp; |
-| SQLID        | 运行数据库  | VARCHAR      |   200   | &nbsp; |
 
 
 
@@ -6425,10 +6412,6 @@ CREATE TABLE `zt_build`(
 | OPENEDDATE        | 创建日期  | DATETIME      |   -1   | &nbsp; |
 | MODULE        | 所属模块  |       |   -1   | &nbsp; |
 | STEPCNT        | 用例步骤数  | INTEGER      |   -1   | &nbsp; |
-| CASESTEPS        | 用例步骤集合  | CLOB      |   1,048,576   | &nbsp; |
-| COMMENT        | 备注  | CLOB      |   1,048,576   | &nbsp; |
-| ASSIGNEDTO        | 指派给  | VARCHAR      |   200   | &nbsp; |
-| TASK        | 属性  | VARCHAR      |   100   | &nbsp; |
 
 
 
@@ -7354,10 +7337,6 @@ CREATE TABLE `zt_case`(
 | EXPECT        | 预期  | CLOB      |   65,535   | &nbsp; |
 | DESC        | 步骤  | CLOB      |   65,535   | &nbsp; |
 | CASESTEPID        | 用例步骤编号  |       |   -1   | &nbsp; |
-| REALS        | 实际情况  | VARCHAR      |   100   | &nbsp; |
-| STEPS        | 测试结果  | VARCHAR      |   200   | &nbsp; |
-| FILES        | 附件  | VARCHAR      |   100   | &nbsp; |
-| RUNID        | 执行编号  | INTEGER      |   -1   | &nbsp; |
 
 
 
@@ -16210,10 +16189,6 @@ CREATE TABLE `zt_doclib`(
 | NAME        | 任务名  | VARCHAR      |   100   | &nbsp; |
 | PROJECTNAME        | 项目  | VARCHAR      |   90   | &nbsp; |
 | LEFT        | 剩余工时  | INTEGER      |   -1   | &nbsp; |
-| DEPT        | 部门  | VARCHAR      |   200   | &nbsp; |
-| BEGIN        | 属性  | DATETIME      |   -1   | &nbsp; |
-| END        | 结束  | DATETIME      |   -1   | &nbsp; |
-| WORKDAY        | 工作日天数  | INTEGER      |   -1   | &nbsp; |
 
 
 
@@ -24210,10 +24185,6 @@ CREATE TABLE `zt_product`(
 | IBIZ_ID        | IBIZ标识  | VARCHAR      |   100   | &nbsp; |
 | VERSION        | 版本号  | INTEGER      |   6   | &nbsp; |
 | LASTEDITEDBY        | 最后修改者  | VARCHAR      |   100   | &nbsp; |
-| PROJECT        | 项目  | VARCHAR      |   100   | &nbsp; |
-| SPEC        | 需求描述  | VARCHAR      |   100   | &nbsp; |
-| VERIFY        | 验收标准  | VARCHAR      |   100   | &nbsp; |
-| COMMENT        | 备注  | CLOB      |   1,048,576   | &nbsp; |
 
 
 
@@ -27822,7 +27793,6 @@ CREATE TABLE `T_IBZPRO_SYSTEM`(
 | ID        | ID  |       |   20   | 主键&nbsp; |
 | COMMITER        | 源代码账户  | VARCHAR      |   100   | &nbsp; |
 | ACCOUNT        | 账户  | VARCHAR      |   30   | &nbsp; |
-| TOKEN        | token  | VARCHAR      |   100   | &nbsp; |
 
 
 
@@ -29606,7 +29576,6 @@ CREATE TABLE `T_IBZPRO_SYSTEM`(
 | STAGE        | 适用阶段  | VARCHAR      |   2,000   | &nbsp; |
 | SCRIPTEDDATE        | scriptedDate  | DATETIME      |   -1   | &nbsp; |
 | SCRIPTLOCATION        | scriptLocation  | VARCHAR      |   255   | &nbsp; |
-| COMMENT        | 备注  | CLOB      |   1,048,576   | &nbsp; |
 
 
 
@@ -32301,8 +32270,6 @@ CREATE TABLE `zt_testsuite`(
 | EXPECT        | 预期  | CLOB      |   65,535   | &nbsp; |
 | ID        | 编号  |       |   8   | 主键&nbsp; |
 | DESC        | 步骤  | CLOB      |   65,535   | &nbsp; |
-| REALS        | 实际情况  | VARCHAR      |   100   | &nbsp; |
-| FILES        | 附件  | VARCHAR      |   100   | &nbsp; |
 
 
 
@@ -33181,8 +33148,6 @@ CREATE TABLE `zt_testsuite`(
 | ID        | 编号  |       |   8   | 主键&nbsp; |
 | CASE        | 用例编号  |       |   8   | &nbsp; |
 | EXPECT        | 预期  | CLOB      |   65,535   | &nbsp; |
-| FILES        | 附件  | VARCHAR      |   100   | &nbsp; |
-| REALS        | 实际情况  | VARCHAR      |   100   | &nbsp; |
 
 
 
@@ -34974,20 +34939,6 @@ CREATE TABLE `zt_testsuite`(
 | BIRTHDAY        | birthday  | DATETIME      |   -1   | &nbsp; |
 | VISITS        | 访问次数  | INTEGER      |   -1   | &nbsp; |
 | COMMITER        | 源代码账户  | VARCHAR      |   100   | &nbsp; |
-| MYTASKS        | 我的任务  | INTEGER      |   -1   | &nbsp; |
-| MYBUGS        | 我的bugs  | INTEGER      |   -1   | &nbsp; |
-| MYEBUGS        | 我的过期bug数  | VARCHAR      |   100   | &nbsp; |
-| MYSTORYS        | 我的需求数  | INTEGER      |   -1   | &nbsp; |
-| PRODUCTS        | 未关闭产品数  | INTEGER      |   -1   | &nbsp; |
-| EPROJECTS        | 过期项目数  | VARCHAR      |   100   | &nbsp; |
-| PROJECTS        | 未关闭项目数  | INTEGER      |   -1   | &nbsp; |
-| MYETASKS        | 我的过期任务数  | VARCHAR      |   100   | &nbsp; |
-| MYTODOCNT        | 我的待办数  | INTEGER      |   -1   | &nbsp; |
-| MYFAVORITESTORYS        | 我收藏的需求数  | INTEGER      |   -1   | &nbsp; |
-| MYFAVORITEBUGS        | 我收藏的bugs  | INTEGER      |   -1   | &nbsp; |
-| MYFAVORITETASKS        | 我收藏的任务  | INTEGER      |   -1   | &nbsp; |
-| MYFAVORITES        | 我的收藏  | INTEGER      |   -1   | &nbsp; |
-| MYTERRITORYCNT        | 我的地盘  | INTEGER      |   -1   | &nbsp; |
 
 
 
@@ -61038,11 +60989,6 @@ CREATE TABLE `zt_module`(
 | DELETED        | 已删除  | VARCHAR      |   1   | &nbsp; |
 | LINE        | 产品线  |       |   8   | &nbsp; |
 | PRODUCTPLANCNT        | 计划总数  | INTEGER      |   -1   | &nbsp; |
-| COMMENT        | 备注  | CLOB      |   1,048,576   | &nbsp; |
-| SRFCOUNT        | 属性  | INTEGER      |   -1   | &nbsp; |
-| MOBIMAGE        | 移动端图片  | VARCHAR      |   4,000   | &nbsp; |
-| TESTTASKCNT        | 测试单数  | INTEGER      |   -1   | &nbsp; |
-| TESTSUITECNT        | 套件数  | INTEGER      |   -1   | &nbsp; |
 
 
 
@@ -64623,8 +64569,6 @@ CREATE TABLE `zt_module`(
 | ID        | 编号  |       |   8   | 主键&nbsp; |
 | ESTIMATECNT        | 工时数  | INTEGER      |   -1   | &nbsp; |
 | BEGIN        | 开始日期  | DATETIME      |   -1   | &nbsp; |
-| DELTA        | 周期  | VARCHAR      |   200   | &nbsp; |
-| OLDTITLE        | 上一次计划名称  | VARCHAR      |   100   | &nbsp; |
 
 
 
@@ -65541,7 +65485,6 @@ CREATE TABLE `zt_productplan`(
 | RELEASEDSTORYCNT        | 已发布需求数  | INTEGER      |   -1   | &nbsp; |
 | BUGCNT        | 所有Bug数  | INTEGER      |   -1   | &nbsp; |
 | UNCONFIRMBUGCNT        | 未确认Bug数  | INTEGER      |   -1   | &nbsp; |
-| ISTOP        | 是否置顶  | INTEGER      |   -1   | &nbsp; |
 
 
 
@@ -66423,8 +66366,6 @@ CREATE TABLE `zt_productplan`(
 | WAITSTORYCNT        | 草稿  | INTEGER      |   -1   | &nbsp; |
 | CLOSEDSTORYCNT        | 已关闭  | INTEGER      |   -1   | &nbsp; |
 | CHANGEDSTORYCNT        | 已变更  | INTEGER      |   -1   | &nbsp; |
-| BEGIN        | 开始日期  | VARCHAR      |   100   | &nbsp; |
-| END        | 结束日期  | VARCHAR      |   100   | &nbsp; |
 
 
 
@@ -67346,34 +67287,6 @@ CREATE TABLE `zt_product`(
 | CODE        | 项目代号  | VARCHAR      |   45   | &nbsp; |
 | DESC        | 项目描述  | CLOB      |   65,535   | &nbsp; |
 | TASKCNT        | 任务总数  | INTEGER      |   -1   | &nbsp; |
-| PRODUCTS        | 关联产品  | VARCHAR      |   100   | &nbsp; |
-| BRANCHS        | 关联产品平台集合  | VARCHAR      |   100   | &nbsp; |
-| PLANS        | 关联计划  | VARCHAR      |   100   | &nbsp; |
-| SRFARRAY        | 关联数据数组  | VARCHAR      |   100   | &nbsp; |
-| COMMENT        | 备注  | CLOB      |   1,048,576   | &nbsp; |
-| PERIOD        | 时间段  | VARCHAR      |   200   | &nbsp; |
-| ACCOUNT        | 项目团队成员  | VARCHAR      |   200   | &nbsp; |
-| JOIN        | 加盟日  | DATETIME      |   -1   | &nbsp; |
-| HOURS        | 可用工时/天  |       |   -1   | &nbsp; |
-| ROLE        | 角色  | VARCHAR      |   100   | &nbsp; |
-| MOBIMAGE        | 移动端图片  | VARCHAR      |   4,000   | &nbsp; |
-| ACCOUNTS        | 项目团队相关成员  | VARCHAR      |   100   | &nbsp; |
-| DEPT        | 选择部门  | VARCHAR      |   200   | &nbsp; |
-| MANAGEMEMBERS        | 复制团队  | VARCHAR      |   200   | &nbsp; |
-| BUILDCNT        | 版本总数  | INTEGER      |   -1   | &nbsp; |
-| TEAMCNT        | 团队成员总数  | INTEGER      |   -1   | &nbsp; |
-| ALLTASKCNT        | 所有任务数  | INTEGER      |   -1   | &nbsp; |
-| UNCLOSETASKCNT        | 未关闭任务数  | INTEGER      |   -1   | &nbsp; |
-| ASSTOMYTASKCNT        | 指派给我任务数  | INTEGER      |   -1   | &nbsp; |
-| UNSTARTTASKCNT        | 未开始任务数  | INTEGER      |   -1   | &nbsp; |
-| MORETASKCNT        | 更多任务数  | INTEGER      |   -1   | &nbsp; |
-| YSTARTASKCNT        | 进行中任务数  | INTEGER      |   -1   | &nbsp; |
-| UNCOMPLETETASKCNT        | 未完成任务数  | INTEGER      |   -1   | &nbsp; |
-| YCOMPLETETASKCNT        | 已完成任务数  | INTEGER      |   -1   | &nbsp; |
-| MYCOMPLETETASKCNT        | 我完成任务数  | INTEGER      |   -1   | &nbsp; |
-| CLOSETASKCNT        | 关闭任务数  | INTEGER      |   -1   | &nbsp; |
-| CANCELTASKCNT        | 取消任务数  | INTEGER      |   -1   | &nbsp; |
-| STORYCHANGECNT        | 需求变更数  | INTEGER      |   -1   | &nbsp; |
 
 
 
@@ -70089,9 +70002,6 @@ CREATE TABLE `zt_module`(
 | FINISHBUGCNT        | 已解决Bug总数  | INTEGER      |   -1   | &nbsp; |
 | TOTALLEFT        | 任务预计剩余总工时  | DOUBLE      |   -1   | &nbsp; |
 | TOTALCONSUMED        | 任务消耗总工时  | DOUBLE      |   -1   | &nbsp; |
-| TIME        | 工时  | DOUBLE      |   -1   | &nbsp; |
-| TYPE        | 工时类型  | VARCHAR      |   100   | &nbsp; |
-| ISTOP        | 是否置顶  | INTEGER      |   -1   | &nbsp; |
 
 
 
@@ -73645,12 +73555,6 @@ CREATE TABLE `zt_team`(
 | NAME        | 发布名称  | VARCHAR      |   255   | &nbsp; |
 | STATUS        | 状态  | VARCHAR      |   20   | &nbsp; |
 | BUILDNAME        | 版本  | VARCHAR      |   150   | &nbsp; |
-| FILES        | 附件  | VARCHAR      |   1,000   | &nbsp; |
-| BACKGROUNDID        | 后台体系  | VARCHAR      |   200   | &nbsp; |
-| SQLID        | 运行数据库  | VARCHAR      |   200   | &nbsp; |
-| FRONTAPPLICATION        | 系统应用  | VARCHAR      |   200   | &nbsp; |
-| REBUILD        | 重新构建  | INTEGER      |   -1   | &nbsp; |
-| RELEASETYPE        | 运行模式  | VARCHAR      |   200   | &nbsp; |
 
 
 
@@ -78986,14 +78890,6 @@ CREATE TABLE `zt_release`(
 | ISCHILD        | 是否可以细分  | VARCHAR      |   200   | &nbsp; |
 | STATUS        | 当前状态  | VARCHAR      |   200   | &nbsp; |
 | BRANCHNAME        | 平台/分支  | VARCHAR      |   255   | &nbsp; |
-| SPEC        | 需求描述  | VARCHAR      |   100   | &nbsp; |
-| VERIFY        | 验收标准  | VARCHAR      |   100   | &nbsp; |
-| RESULT        | 评审结果  | VARCHAR      |   200   | &nbsp; |
-| COMMENT        | 备注  | CLOB      |   1,048,576   | &nbsp; |
-| FILES        | 附件  | VARCHAR      |   1,000   | &nbsp; |
-| PROJECT        | 项目  |       |   -1   | &nbsp; |
-| PREVERSION        | 之前的版本  | INTEGER      |   -1   | &nbsp; |
-| NEEDNOTREVIEW        | 不需要评审  | VARCHAR      |   4,000   | &nbsp; |
 
 
 
@@ -82572,8 +82468,6 @@ CREATE TABLE `zt_suitecase`(
 | PDEPTID        | 上级部门标识  | VARCHAR      |   100   | &nbsp; |
 | UPDATEMAN        | 更新人  | VARCHAR      |   60   | &nbsp; |
 | LEADERNAME        | 分管领导  | VARCHAR      |   100   | &nbsp; |
-| PDEPTNAME        | 上级部门  | VARCHAR      |   100   | &nbsp; |
-| ORGNAME        | 单位  | VARCHAR      |   100   | &nbsp; |
 
 
 
@@ -84386,14 +84280,6 @@ CREATE TABLE `zt_suitecase`(
 | CLOSEDBY        | 由谁关闭  | VARCHAR      |   30   | &nbsp; |
 | NAME        | 任务名称  | VARCHAR      |   255   | &nbsp; |
 | TASKTYPE        | 任务类型  | VARCHAR      |   200   | &nbsp; |
-| COMMENT        | 备注  | CLOB      |   1,048,576   | &nbsp; |
-| CURRENTCONSUMED        | 本次消耗  | DOUBLE      |   -1   | &nbsp; |
-| TOTALTIME        | 总计耗时  | DOUBLE      |   -1   | &nbsp; |
-| ALLMODULES        | 所有模块  | VARCHAR      |   100   | &nbsp; |
-| TASKTEAMS        | 项目团队成员  | CLOB      |   1,048,576   | &nbsp; |
-| IBZTASKESTIMATES        | 工时  | CLOB      |   1,048,576   | &nbsp; |
-| FILES        | 附件  | VARCHAR      |   1,000   | &nbsp; |
-| USERNAMES        | 团队用户  | VARCHAR      |   100   | &nbsp; |
 
 
 
@@ -89831,10 +89717,6 @@ CREATE TABLE `zt_module`(
 | BEGIN        | 开始时间  | DATETIME      |   -1   | &nbsp; |
 | ID        | 编号  |       |   8   | 主键&nbsp; |
 | BUGS        | 测试的Bug  | CLOB      |   65,535   | &nbsp; |
-| COMMENT        | 备注  | CLOB      |   1,048,576   | &nbsp; |
-| OVERVIEWS        | 概况  | CLOB      |   1,048,576   | &nbsp; |
-| FILES        | 附件  | VARCHAR      |   1,000   | &nbsp; |
-| PRODUCTCNT        | 项目报告产品数  | INTEGER      |   -1   | &nbsp; |
 
 
 
@@ -90746,8 +90628,6 @@ CREATE TABLE `zt_testreport`(
 | LASTRUNNER        | 最后执行人  | VARCHAR      |   30   | &nbsp; |
 | ID        | 编号  |       |   8   | 主键&nbsp; |
 | MODULE        | 所属模块  |       |   -1   | &nbsp; |
-| TASK        | 属性  | VARCHAR      |   100   | &nbsp; |
-| TITLE        | 用例名称  | VARCHAR      |   255   | &nbsp; |
 
 
 
@@ -93445,7 +93325,6 @@ CREATE TABLE `zt_testsuite`(
 | DELETED        | 已删除  | VARCHAR      |   1   | &nbsp; |
 | DESC        | 描述  | CLOB      |   65,535   | &nbsp; |
 | AUTO        | auto  | VARCHAR      |   10   | &nbsp; |
-| COMMENT        | 备注  | CLOB      |   1,048,576   | &nbsp; |
 
 
 
@@ -94360,16 +94239,6 @@ CREATE TABLE `zt_testtask`(
 | PRIVATE        | 私人事务  | INTEGER      |   -1   | &nbsp; |
 | CLOSEDBY        | 由谁关闭  | VARCHAR      |   30   | &nbsp; |
 | CYCLE        | 周期  | INTEGER      |   3   | &nbsp; |
-| CONFIG_DAY        | 间隔天数  | INTEGER      |   -1   | &nbsp; |
-| CONFIG_BEFOREDAYS        | 提前  | INTEGER      |   -1   | &nbsp; |
-| CONFIG_WEEK        | 周期设置周几  | VARCHAR      |   4,000   | &nbsp; |
-| CONFIG_MONTH        | 周期设置月  | VARCHAR      |   4,000   | &nbsp; |
-| CONFIG_TYPE        | 周期类型  | VARCHAR      |   200   | &nbsp; |
-| CONFIG_END        | 过期时间  | DATETIME      |   -1   | &nbsp; |
-| BUG        | 待办名称  | VARCHAR      |   100   | &nbsp; |
-| TASK        | 待办名称  | VARCHAR      |   100   | &nbsp; |
-| STORY        | 待办名称  | VARCHAR      |   100   | &nbsp; |
-| DATE_DISABLE        | 待定  | VARCHAR      |   100   | &nbsp; |
 
 
 
