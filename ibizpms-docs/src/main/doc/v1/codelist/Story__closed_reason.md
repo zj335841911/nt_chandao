@@ -1,24 +1,8 @@
-# 数据字典-需求关闭原因（Story__closed_reason）
-## 字典说明
-需求关闭原因
+!!!!模版产生代码错误:----
+Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
+----
 
-## 基本说明
-| 项目 | 说明 |
-| -- | -- |
-| 数值类型 | 字符串 |
-| 支持多选 | 否 |
-| 多选分隔符 | 无 |
-| 支持缓存 | 是 |
-| 缓存超时时长 | 无 |
-
-## 取值范围
-| 序号 | 数值 | 文本 | 父值 | 排序值 | 提示信息 | 是否显示空白 | 默认选择 | 说明 |
-| -- | -- | -- | -- | -- | -- | -- | -- |
-| 1 | done | 已完成 |  | -1 |  | 否 | 否 | 已完成 |
-| 2 | subdivided | 已细分 |  | -1 |  | 否 | 否 | 已细分 |
-| 3 | duplicate | 重复 |  | -1 |  | 否 | 否 | 重复 |
-| 4 | postponed | 延期 |  | -1 |  | 否 | 否 | 延期 |
-| 5 | willnotdo | 不做 |  | -1 |  | 否 | 否 | 不做 |
-| 6 | cancel | 已取消 |  | -1 |  | 否 | 否 | 已取消 |
-| 7 | bydesign | 设计如此 |  | -1 |  | 否 | 否 | 设计如此 |
-
+----
+FTL stack trace ("~" means nesting-related):
+	- Failed at: ${printLineStr(codeItem, codeItemInde...  [in template "CODETEMPL_en_US" at line 44, column 1]
+----

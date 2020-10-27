@@ -1,25 +1,8 @@
-# 数据字典-任务类型（Task__type）
-## 字典说明
-任务类型
+!!!!模版产生代码错误:----
+Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
+----
 
-## 基本说明
-| 项目 | 说明 |
-| -- | -- |
-| 数值类型 | 字符串 |
-| 支持多选 | 否 |
-| 多选分隔符 | 无 |
-| 支持缓存 | 是 |
-| 缓存超时时长 | 无 |
-
-## 取值范围
-| 序号 | 数值 | 文本 | 父值 | 排序值 | 提示信息 | 是否显示空白 | 默认选择 | 说明 |
-| -- | -- | -- | -- | -- | -- | -- | -- |
-| 1 | design | 设计 |  | -1 |  | 否 | 否 | 设计 |
-| 2 | devel | 开发 |  | -1 |  | 否 | 否 | 开发 |
-| 3 | test | 测试 |  | -1 |  | 否 | 否 | 测试 |
-| 4 | study | 研究 |  | -1 |  | 否 | 否 | 研究 |
-| 5 | discuss | 讨论 |  | -1 |  | 否 | 否 | 讨论 |
-| 6 | ui | 界面 |  | -1 |  | 否 | 否 | 界面 |
-| 7 | affair | 事务 |  | -1 |  | 否 | 否 | 事务 |
-| 8 | misc | 其他 |  | -1 |  | 否 | 否 | 其他 |
-
+----
+FTL stack trace ("~" means nesting-related):
+	- Failed at: ${printLineStr(codeItem, codeItemInde...  [in template "CODETEMPL_en_US" at line 44, column 1]
+----

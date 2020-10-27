@@ -1,24 +1,8 @@
-# 数据字典-来源区块（Block__source_block）
-## 字典说明
-来源区块
+!!!!模版产生代码错误:----
+Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
+----
 
-## 基本说明
-| 项目 | 说明 |
-| -- | -- |
-| 数值类型 | 字符串 |
-| 支持多选 | 否 |
-| 多选分隔符 | 无 |
-| 支持缓存 | 是 |
-| 缓存超时时长 | 无 |
-
-## 取值范围
-| 序号 | 数值 | 文本 | 父值 | 排序值 | 提示信息 | 是否显示空白 | 默认选择 | 说明 |
-| -- | -- | -- | -- | -- | -- | -- | -- |
-| 1 | statistic | 统计 |  | -1 |  | 否 | 否 | 需要补充模块信息 |
-| 2 | overview | 总览 |  | -1 |  | 否 | 否 | 总览 |
-| 3 | list | 列表 |  | -1 |  | 否 | 否 | 列表 |
-| 4 | task | 任务 |  | -1 |  | 否 | 否 | 任务 |
-| 5 | bug | bug |  | -1 |  | 否 | 否 | bug |
-| 6 | case | 用例 |  | -1 |  | 否 | 否 | 用例 |
-| 7 | testtask | 测试版本 |  | -1 |  | 否 | 否 | 测试版本 |
-
+----
+FTL stack trace ("~" means nesting-related):
+	- Failed at: ${printLineStr(codeItem, codeItemInde...  [in template "CODETEMPL_en_US" at line 44, column 1]
+----
