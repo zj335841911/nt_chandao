@@ -1,10 +1,35 @@
-!!!!模版产生代码错误:----
-Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
-----
+# 数据字典-运行模式（RELEASE_Type）
+## 字典说明
+运行模式
 
-----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: ${codeItem.getParentCodeItem().getTex...  [in template "CODETEMPL_en_US" at line 53, column 168]
-	- Reached through: #assign printLineStr = "| ${codeItemI...  [in template "CODETEMPL_en_US" in function "printCodeItem" at line 53, column 5]
-	- Reached through: ${printCodeItem(codeItem, codeItemInd...  [in template "CODETEMPL_en_US" at line 44, column 1]
-----
+## 基本说明
+| 项目 | 说明 |
+| -- | -- |
+| 数值类型 | 字符串 |
+| 支持多选 | 否 |
+| 多选分隔符 | 无 |
+| 支持缓存 | 是 |
+| 缓存超时时长 | 无 |
+
+## 取值范围
+| 序号 | 数值 | 文本 | 父值 | 排序值 | 提示信息 | 是否显示空白 | 默认选择 | 说明 |
+| -- | -- | -- | -- | -- | -- | -- | -- |
+| 1 | DEPLOYPKG | 部署系统组件到仓库 |  | -1 |  | 否 | 否 | 部署系统组件到仓库
+
+| 2 | PACKMOBAPP | 打包移动应用 |  | -1 |  | 否 | 否 | 打包移动应用
+
+| 3 | PACKVER | 打包版本 |  | -1 |  | 否 | 否 | 打包版本
+
+| 4 | PUBCODE | 代码发布 |  | -1 |  | 否 | 否 | 代码发布
+
+| 5 | PUBCODE2 | 代码发布（模板开发） |  | -1 |  | 否 | 否 | 代码发布（模板开发）
+
+| 6 | STARTMSAPI | 启动微服务 |  | -1 |  | 否 | 否 | 启动微服务
+
+| 7 | STARTMSAPP | 启动微服务应用 |  | -1 |  | 否 | 否 | 启动微服务应用
+
+| 8 | STARTMSFUNC | 启动微服务功能 |  | -1 |  | 否 | 否 | 启动微服务功能
+
+| 9 | STARTX | 启动系统 |  | -1 |  | 否 | 否 | 启动系统
+
+

@@ -1,10 +1,63 @@
-!!!!模版产生代码错误:----
-Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
-----
+# 数据字典-附件对象类型（File__object_type）
+## 字典说明
+附件对象类型
 
-----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: ${codeItem.getParentCodeItem().getTex...  [in template "CODETEMPL_en_US" at line 53, column 168]
-	- Reached through: #assign printLineStr = "| ${codeItemI...  [in template "CODETEMPL_en_US" in function "printCodeItem" at line 53, column 5]
-	- Reached through: ${printCodeItem(codeItem, codeItemInd...  [in template "CODETEMPL_en_US" at line 44, column 1]
-----
+## 基本说明
+| 项目 | 说明 |
+| -- | -- |
+| 数值类型 | 字符串 |
+| 支持多选 | 否 |
+| 多选分隔符 | 无 |
+| 支持缓存 | 是 |
+| 缓存超时时长 | 无 |
+
+## 取值范围
+| 序号 | 数值 | 文本 | 父值 | 排序值 | 提示信息 | 是否显示空白 | 默认选择 | 说明 |
+| -- | -- | -- | -- | -- | -- | -- | -- |
+| 1 | product | 产品 |  | -1 |  | 否 | 否 | 多语言支持
+
+| 2 | story | 需求 |  | -1 |  | 否 | 否 | 多语言支持
+
+| 3 | productplan | 计划 |  | -1 |  | 否 | 否 | 计划
+
+| 4 | release | 发布 |  | -1 |  | 否 | 否 | 发布
+
+| 5 | project | 项目 |  | -1 |  | 否 | 否 | 项目
+
+| 6 | task | 任务 |  | -1 |  | 否 | 否 | 任务
+
+| 7 | build | 版本 |  | -1 |  | 否 | 否 | 版本
+
+| 8 | bug | Bug |  | -1 |  | 否 | 否 | Bug
+
+| 9 | case | 用例 |  | -1 |  | 否 | 否 | 用例
+
+| 10 | caseresult | 用例结果 |  | -1 |  | 否 | 否 | 用例结果
+
+| 11 | stepresult | 用例步骤 |  | -1 |  | 否 | 否 | 用例步骤
+
+| 12 | testtask | 测试单 |  | -1 |  | 否 | 否 | 测试单
+
+| 13 | user | 用户 |  | -1 |  | 否 | 否 | 用户
+
+| 14 | doc | 文档 |  | -1 |  | 否 | 否 | 文档
+
+| 15 | doclib | 文档库 |  | -1 |  | 否 | 否 | 文档库
+
+| 16 | todo | 待办 |  | -1 |  | 否 | 否 | 待办
+
+| 17 | branch | 分支 |  | -1 |  | 否 | 否 | 分支
+
+| 18 | module | 模块 |  | -1 |  | 否 | 否 | 模块
+
+| 19 | testsuite | 套件 |  | -1 |  | 否 | 否 | 套件
+
+| 20 | caselib | 用例库 |  | -1 |  | 否 | 否 | 用例库
+
+| 21 | testreport | 报告 |  | -1 |  | 否 | 否 | 报告
+
+| 22 | entry | 应用 |  | -1 |  | 否 | 否 | 应用
+
+| 23 | webhook | Webhook |  | -1 |  | 否 | 否 | Webhook
+
+

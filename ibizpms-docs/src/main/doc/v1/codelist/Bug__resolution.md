@@ -1,10 +1,33 @@
-!!!!模版产生代码错误:----
-Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
-----
+# 数据字典-Bug解决方案（Bug__resolution）
+## 字典说明
+Bug解决方案
 
-----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: ${codeItem.getParentCodeItem().getTex...  [in template "CODETEMPL_en_US" at line 53, column 168]
-	- Reached through: #assign printLineStr = "| ${codeItemI...  [in template "CODETEMPL_en_US" in function "printCodeItem" at line 53, column 5]
-	- Reached through: ${printCodeItem(codeItem, codeItemInd...  [in template "CODETEMPL_en_US" at line 44, column 1]
-----
+## 基本说明
+| 项目 | 说明 |
+| -- | -- |
+| 数值类型 | 字符串 |
+| 支持多选 | 否 |
+| 多选分隔符 | 无 |
+| 支持缓存 | 是 |
+| 缓存超时时长 | 无 |
+
+## 取值范围
+| 序号 | 数值 | 文本 | 父值 | 排序值 | 提示信息 | 是否显示空白 | 默认选择 | 说明 |
+| -- | -- | -- | -- | -- | -- | -- | -- |
+| 1 | bydesign | 设计如此 |  | -1 |  | 否 | 否 | 设计如此
+
+| 2 | duplicate | 重复Bug |  | -1 |  | 否 | 否 | 重复Bug
+
+| 3 | external | 外部原因 |  | -1 |  | 否 | 否 | 外部原因
+
+| 4 | fixed | 已解决 |  | -1 |  | 否 | 否 | 已解决
+
+| 5 | notrepro | 无法重现 |  | -1 |  | 否 | 否 | 无法重现
+
+| 6 | postponed | 延期处理 |  | -1 |  | 否 | 否 | 延期处理
+
+| 7 | willnotfix | 不予解决 |  | -1 |  | 否 | 否 | 不予解决
+
+| 8 | tostory | 转为需求 |  | -1 |  | 否 | 否 | 转为{$lang->storyCommon}   需要支持多语言
+
+

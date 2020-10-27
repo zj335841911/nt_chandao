@@ -1,10 +1,59 @@
-!!!!模版产生代码错误:----
-Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
-----
+# 数据字典-Bug浏览器（Bug__browser）
+## 字典说明
+Bug浏览器
 
-----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: ${codeItem.getParentCodeItem().getTex...  [in template "CODETEMPL_en_US" at line 53, column 168]
-	- Reached through: #assign printLineStr = "| ${codeItemI...  [in template "CODETEMPL_en_US" in function "printCodeItem" at line 53, column 5]
-	- Reached through: ${printCodeItem(codeItem, codeItemInd...  [in template "CODETEMPL_en_US" at line 44, column 1]
-----
+## 基本说明
+| 项目 | 说明 |
+| -- | -- |
+| 数值类型 | 字符串 |
+| 支持多选 | 否 |
+| 多选分隔符 | 无 |
+| 支持缓存 | 是 |
+| 缓存超时时长 | 无 |
+
+## 取值范围
+| 序号 | 数值 | 文本 | 父值 | 排序值 | 提示信息 | 是否显示空白 | 默认选择 | 说明 |
+| -- | -- | -- | -- | -- | -- | -- | -- |
+| 1 | all | 全部 |  | -1 |  | 否 | 否 | 全部
+
+| 2 | ie | IE系列 |  | -1 |  | 否 | 否 | IE系列
+
+| 3 | ie11 | IE11 |  | -1 |  | 否 | 否 | IE11
+
+| 4 | ie10 | IE10 |  | -1 |  | 否 | 否 | IE10
+
+| 5 | ie9 | IE9 |  | -1 |  | 否 | 否 | IE9
+
+| 6 | ie8 | IE8 |  | -1 |  | 否 | 否 | IE8
+
+| 7 | ie7 | IE7 |  | -1 |  | 否 | 否 | IE7
+
+| 8 | ie6 | IE6 |  | -1 |  | 否 | 否 | IE6
+
+| 9 | chrome | chrome |  | -1 |  | 否 | 否 | chrome
+
+| 10 | firefox | firefox系列 |  | -1 |  | 否 | 否 | firefox系列
+
+| 11 | firefox4 | firefox4 |  | -1 |  | 否 | 否 | firefox4
+
+| 12 | firefox3 | firefox3 |  | -1 |  | 否 | 否 | firefox3
+
+| 13 | firefox2 | firefox2 |  | -1 |  | 否 | 否 | firefox2
+
+| 14 | opera | opera系列 |  | -1 |  | 否 | 否 | opera系列
+
+| 15 | opera11 | opera11 |  | -1 |  | 否 | 否 | opera11
+
+| 16 | oprea10 | oprea10 |  | -1 |  | 否 | 否 | oprea10
+
+| 17 | opera9 | opera9 |  | -1 |  | 否 | 否 | opera9
+
+| 18 | safari | safari |  | -1 |  | 否 | 否 | safari
+
+| 19 | maxthon | 傲游 |  | -1 |  | 否 | 否 | 傲游
+
+| 20 | uc | UC |  | -1 |  | 否 | 否 | UC
+
+| 21 | others | 其他 |  | -1 |  | 否 | 否 | 其他
+
+
