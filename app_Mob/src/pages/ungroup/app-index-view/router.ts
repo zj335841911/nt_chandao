@@ -532,6 +532,20 @@ const router = new Router({
                     component: () => import('@pages/ibiz/action-mob-mdview9/action-mob-mdview9.vue'),
                 },
                 {
+                    path: 'files/:file?/mobmdview9',
+                    name: 'file_mobmdview9',
+                    meta: {
+                        caption: 'file.views.mobmdview9.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'files', parameterName: 'file' },
+                            { pathName: 'mobmdview9', parameterName: 'mobmdview9' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/file-mob-mdview9/file-mob-mdview9.vue'),
+                },
+                {
                     path: 'projects/:project?/testtasks/:testtask?/editnewmobeditview',
                     name: 'testtask_editnewmobeditview',
                     meta: {

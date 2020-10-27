@@ -12,6 +12,7 @@ export const PageComponents = {
         Vue.component('test-task-mob-option-view-block', () => import('@pages/zentao/test-task-mob-option-view-block/test-task-mob-option-view-block.vue'));
         Vue.component('test-task-new-mob-edit-view', () => import('@pages/ibiz/test-task-new-mob-edit-view/test-task-new-mob-edit-view.vue'));
         Vue.component('action-mob-mdview9', () => import('@pages/ibiz/action-mob-mdview9/action-mob-mdview9.vue'));
+        Vue.component('file-mob-mdview9', () => import('@pages/zentao/file-mob-mdview9/file-mob-mdview9.vue'));
         Vue.component('test-task-edit-new-mob-edit-view', () => import('@pages/ibiz/test-task-edit-new-mob-edit-view/test-task-edit-new-mob-edit-view.vue'));
         Vue.component('build-mob-edit-view', () => import('@pages/ibiz/build-mob-edit-view/build-mob-edit-view.vue'));
         Vue.component('bug-edit-new-mob-edit-view', () => import('@pages/ibiz/bug-edit-new-mob-edit-view/bug-edit-new-mob-edit-view.vue'));
