@@ -13689,7 +13689,7 @@ t1.`TYPE`
 FROM `zt_testsuite` t1 
 
 WHERE t1.DELETED = '0' 
-( t1.`TYPE` = 'public' ) 
+( ( t1.`TYPE` = 'public' ) ) 
 
 ```
 ### 默认（全部数据）(VIEW)<div id="TestSuite_View"></div>
