@@ -771,6 +771,7 @@ export default {
 			isfavorites: "是否收藏",
 		},
 		uiactions: {
+        bug_assingtobug: "指派",
         bug_confirmbug: "确认",
         bug_resolvebug: "解决",
         bug_closebug: "关闭",

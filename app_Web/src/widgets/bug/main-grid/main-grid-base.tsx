@@ -76,6 +76,34 @@ export class MainGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
+    public grid_assignedto_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:BugUIService  = new BugUIService();
+        curUIService.Bug_AssingToBug(datas,contextJO, paramJO,  $event, xData,this,"Bug");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
     public grid_uagridcolumn1_ua4634db_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
@@ -300,6 +328,7 @@ export class MainGridBase extends GridControlBase {
      * @memberof MainBase
      */  
     public ActionModel: any = {
+        AssingToBug: { name: 'AssingToBug',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__BUG_ASSIGNTO_BUT', actiontarget: 'SINGLEKEY'},
         ConfirmBug: { name: 'ConfirmBug',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__BUG_CONFIRM_BUT', actiontarget: 'SINGLEKEY'},
         ResolveBug: { name: 'ResolveBug',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__BUG_RESOLVE_BUT', actiontarget: 'SINGLEKEY'},
         CloseBug: { name: 'CloseBug',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__BUG_CLOSE_BUT', actiontarget: 'SINGLEKEY'},
@@ -600,6 +629,9 @@ export class MainGridBase extends GridControlBase {
      */
 	public uiAction(row: any, tag: any, $event: any): void {
         $event.stopPropagation();
+        if(Object.is('AssingToBug', tag)) {
+            this.grid_assignedto_click(row, tag, $event);
+        }
         if(Object.is('ConfirmBug', tag)) {
             this.grid_uagridcolumn1_ua4634db_click(row, tag, $event);
         }
