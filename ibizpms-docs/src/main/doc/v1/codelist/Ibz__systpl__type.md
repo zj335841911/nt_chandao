@@ -16,4 +16,3 @@ IBIZ模板类型
 | -- | -- | -- | -- | -- | -- | -- | -- |
 | 1 | tpltype__freemarker | Freemarker |  |  |  | 否 | 否 | Freemarker |
 
-
