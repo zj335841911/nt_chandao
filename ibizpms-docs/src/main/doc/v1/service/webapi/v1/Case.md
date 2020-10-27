@@ -243,6 +243,25 @@ GET
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | [CaseDTO](#CaseDTO)：测试用例实体传输对象 |
 
+### 获取测试单执行结果
+#### 访问路径
+/cases/{case_id}/gettesttaskcntrun
+
+#### 请求方法
+PUT
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | case_id | Long | 测试用例主键ID |
+| 2 | casedto | [CaseDTO](#CaseDTO) | 测试用例实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| -- | -- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [CaseDTO](#CaseDTO)：测试用例实体传输对象 |
+
 ### 测试单关联测试用例
 #### 访问路径
 /cases/{case_id}/linkcase
@@ -1428,6 +1447,26 @@ POST
 
 #### 请求方法
 GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 产品主键ID |
+| 2 | case_id | Long | 测试用例主键ID |
+| 3 | casedto | [CaseDTO](#CaseDTO) | 测试用例实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| -- | -- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [CaseDTO](#CaseDTO)：测试用例实体传输对象 |
+
+### 获取测试单执行结果
+#### 访问路径
+/products/{product_id}/cases/{case_id}/gettesttaskcntrun
+
+#### 请求方法
+PUT
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -2693,6 +2732,26 @@ GET
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | [CaseDTO](#CaseDTO)：测试用例实体传输对象 |
 
+### 获取测试单执行结果
+#### 访问路径
+/stories/{story_id}/cases/{case_id}/gettesttaskcntrun
+
+#### 请求方法
+PUT
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 需求主键ID |
+| 2 | case_id | Long | 测试用例主键ID |
+| 3 | casedto | [CaseDTO](#CaseDTO) | 测试用例实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| -- | -- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [CaseDTO](#CaseDTO)：测试用例实体传输对象 |
+
 ### 测试单关联测试用例
 #### 访问路径
 /stories/{story_id}/cases/{case_id}/linkcase
@@ -3930,6 +3989,26 @@ POST
 
 #### 请求方法
 GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 产品主键ID |/r/n| 2 | story_id | Long | 需求主键ID |
+| 3 | case_id | Long | 测试用例主键ID |
+| 4 | casedto | [CaseDTO](#CaseDTO) | 测试用例实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| -- | -- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [CaseDTO](#CaseDTO)：测试用例实体传输对象 |
+
+### 获取测试单执行结果
+#### 访问路径
+/products/{product_id}/stories/{story_id}/cases/{case_id}/gettesttaskcntrun
+
+#### 请求方法
+PUT
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |

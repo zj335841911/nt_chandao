@@ -12,7 +12,7 @@
     :caption="$t('bug.mobmaindataedit_form.details.group1')" 
     :isShowCaption="false" 
     :titleBarCloseMode="0" 
-    :isInfoGroupMode="false" 
+    :isInfoGroupMode="true" 
     :data="transformData(data)"
     :uiService="deUIService"
     @groupuiactionclick="groupUIActionClick($event)">
@@ -27,7 +27,7 @@
     :caption="$t('bug.mobmaindataedit_form.details.grouppanel1')" 
     :isShowCaption="false" 
     :titleBarCloseMode="0" 
-    :isInfoGroupMode="false" 
+    :isInfoGroupMode="true" 
     :data="transformData(data)"
     :uiService="deUIService"
     @groupuiactionclick="groupUIActionClick($event)">
@@ -47,13 +47,11 @@
     :disabled="detailsModel.title.disabled"
     :error="detailsModel.title.error" 
     :isEmptyCaption="false">
-        <app-mob-input 
-    class="app-form-item-input"  
-        type="text"  
-    :value="data.title"
-    unit=""
-    :disabled="detailsModel.title.disabled" 
-    @change="($event)=>this.data.title = $event" />
+        <app-mob-span  
+        v-if="data.title" 
+    :context="context" 
+    :value="data.title" 
+    :itemParam="{}"/>
 </app-form-item>
 
 
@@ -72,7 +70,7 @@
     :caption="$t('bug.mobmaindataedit_form.details.grouppanel2')" 
     :isShowCaption="false" 
     :titleBarCloseMode="0" 
-    :isInfoGroupMode="false" 
+    :isInfoGroupMode="true" 
     :data="transformData(data)"
     :uiService="deUIService"
     @groupuiactionclick="groupUIActionClick($event)">
@@ -87,7 +85,7 @@
     :caption="$t('bug.mobmaindataedit_form.details.grouppanel3')" 
     :isShowCaption="true" 
     :titleBarCloseMode="0" 
-    :isInfoGroupMode="false" 
+    :isInfoGroupMode="true" 
     :data="transformData(data)"
     :uiService="deUIService"
     @groupuiactionclick="groupUIActionClick($event)">
@@ -258,18 +256,14 @@
     :disabled="detailsModel.type.disabled"
     :error="detailsModel.type.error" 
     :isEmptyCaption="false">
-        <app-mob-select 
+        <app-mob-span  
+        codeListType="STATIC" 
     tag="Bug__type"
-    codeListType="STATIC" 
     :isCache="false" 
-    :disabled="detailsModel.type.disabled" 
-    :data="data" 
+    v-if="data.type" 
     :context="context" 
-    :viewparams="viewparams"
-    :value="data.type"  
-    :navigateContext ='{ } '
-    :navigateParam ='{ } '
-    @change="($event)=>this.data.type = $event" />
+    :value="data.type" 
+    :itemParam="{}"/>
 </app-form-item>
 
 
@@ -289,18 +283,14 @@
     :disabled="detailsModel.severity.disabled"
     :error="detailsModel.severity.error" 
     :isEmptyCaption="false">
-        <app-mob-select 
+        <app-mob-span  
+        codeListType="STATIC" 
     tag="Bug__severity"
-    codeListType="STATIC" 
     :isCache="false" 
-    :disabled="detailsModel.severity.disabled" 
-    :data="data" 
+    v-if="data.severity" 
     :context="context" 
-    :viewparams="viewparams"
-    :value="data.severity"  
-    :navigateContext ='{ } '
-    :navigateParam ='{ } '
-    @change="($event)=>this.data.severity = $event" />
+    :value="data.severity" 
+    :itemParam="{}"/>
 </app-form-item>
 
 
@@ -320,18 +310,14 @@
     :disabled="detailsModel.pri.disabled"
     :error="detailsModel.pri.error" 
     :isEmptyCaption="false">
-        <app-mob-select 
+        <app-mob-span  
+        codeListType="STATIC" 
     tag="Bug__pri"
-    codeListType="STATIC" 
     :isCache="false" 
-    :disabled="detailsModel.pri.disabled" 
-    :data="data" 
+    v-if="data.pri" 
     :context="context" 
-    :viewparams="viewparams"
-    :value="data.pri"  
-    :navigateContext ='{ } '
-    :navigateParam ='{ } '
-    @change="($event)=>this.data.pri = $event" />
+    :value="data.pri" 
+    :itemParam="{}"/>
 </app-form-item>
 
 
@@ -351,18 +337,14 @@
     :disabled="detailsModel.status.disabled"
     :error="detailsModel.status.error" 
     :isEmptyCaption="false">
-        <app-mob-select 
+        <app-mob-span  
+        codeListType="STATIC" 
     tag="Bug__status"
-    codeListType="STATIC" 
     :isCache="false" 
-    :disabled="detailsModel.status.disabled" 
-    :data="data" 
+    v-if="data.status" 
     :context="context" 
-    :viewparams="viewparams"
-    :value="data.status"  
-    :navigateContext ='{ } '
-    :navigateParam ='{ } '
-    @change="($event)=>this.data.status = $event" />
+    :value="data.status" 
+    :itemParam="{}"/>
 </app-form-item>
 
 
@@ -433,18 +415,14 @@
     :disabled="detailsModel.confirmed.disabled"
     :error="detailsModel.confirmed.error" 
     :isEmptyCaption="false">
-        <app-mob-select 
+        <app-mob-span  
+        codeListType="STATIC" 
     tag="YesNo2"
-    codeListType="STATIC" 
     :isCache="false" 
-    :disabled="detailsModel.confirmed.disabled" 
-    :data="data" 
+    v-if="data.confirmed" 
     :context="context" 
-    :viewparams="viewparams"
-    :value="data.confirmed"  
-    :navigateContext ='{ } '
-    :navigateParam ='{ } '
-    @change="($event)=>this.data.confirmed = $event" />
+    :value="data.confirmed" 
+    :itemParam="{}"/>
 </app-form-item>
 
 
@@ -520,18 +498,14 @@
     :disabled="detailsModel.os.disabled"
     :error="detailsModel.os.error" 
     :isEmptyCaption="false">
-        <app-mob-select 
+        <app-mob-span  
+        codeListType="STATIC" 
     tag="Bug__os"
-    codeListType="STATIC" 
     :isCache="false" 
-    :disabled="detailsModel.os.disabled" 
-    :data="data" 
+    v-if="data.os" 
     :context="context" 
-    :viewparams="viewparams"
-    :value="data.os"  
-    :navigateContext ='{ } '
-    :navigateParam ='{ } '
-    @change="($event)=>this.data.os = $event" />
+    :value="data.os" 
+    :itemParam="{}"/>
 </app-form-item>
 
 
@@ -551,18 +525,14 @@
     :disabled="detailsModel.browser.disabled"
     :error="detailsModel.browser.error" 
     :isEmptyCaption="false">
-        <app-mob-select 
+        <app-mob-span  
+        codeListType="STATIC" 
     tag="Bug__browser"
-    codeListType="STATIC" 
     :isCache="false" 
-    :disabled="detailsModel.browser.disabled" 
-    :data="data" 
+    v-if="data.browser" 
     :context="context" 
-    :viewparams="viewparams"
-    :value="data.browser"  
-    :navigateContext ='{ } '
-    :navigateParam ='{ } '
-    @change="($event)=>this.data.browser = $event" />
+    :value="data.browser" 
+    :itemParam="{}"/>
 </app-form-item>
 
 
@@ -582,13 +552,11 @@
     :disabled="detailsModel.keywords.disabled"
     :error="detailsModel.keywords.error" 
     :isEmptyCaption="false">
-        <app-mob-input 
-    class="app-form-item-input"  
-        type="text"  
-    :value="data.keywords"
-    unit=""
-    :disabled="detailsModel.keywords.disabled" 
-    @change="($event)=>this.data.keywords = $event" />
+        <app-mob-span  
+        v-if="data.keywords" 
+    :context="context" 
+    :value="data.keywords" 
+    :itemParam="{}"/>
 </app-form-item>
 
 
@@ -640,7 +608,7 @@
     :caption="$t('bug.mobmaindataedit_form.details.grouppanel4')" 
     :isShowCaption="true" 
     :titleBarCloseMode="0" 
-    :isInfoGroupMode="false" 
+    :isInfoGroupMode="true" 
     :data="transformData(data)"
     :uiService="deUIService"
     @groupuiactionclick="groupUIActionClick($event)">
@@ -779,7 +747,7 @@
     :caption="$t('bug.mobmaindataedit_form.details.grouppanel5')" 
     :isShowCaption="true" 
     :titleBarCloseMode="0" 
-    :isInfoGroupMode="false" 
+    :isInfoGroupMode="true" 
     :data="transformData(data)"
     :uiService="deUIService"
     @groupuiactionclick="groupUIActionClick($event)">
@@ -887,18 +855,14 @@
     :disabled="detailsModel.resolution.disabled"
     :error="detailsModel.resolution.error" 
     :isEmptyCaption="false">
-        <app-mob-select 
+        <app-mob-span  
+        codeListType="STATIC" 
     tag="Bug__resolution"
-    codeListType="STATIC" 
     :isCache="false" 
-    :disabled="detailsModel.resolution.disabled" 
-    :data="data" 
+    v-if="data.resolution" 
     :context="context" 
-    :viewparams="viewparams"
-    :value="data.resolution"  
-    :navigateContext ='{ } '
-    :navigateParam ='{ } '
-    @change="($event)=>this.data.resolution = $event" />
+    :value="data.resolution" 
+    :itemParam="{}"/>
 </app-form-item>
 
 
@@ -918,18 +882,14 @@
     :disabled="detailsModel.resolvedbuild.disabled"
     :error="detailsModel.resolvedbuild.error" 
     :isEmptyCaption="false">
-        <app-mob-select 
+        <app-mob-span  
+        codeListType="DYNAMIC" 
     tag="CurProductBuild"
-    codeListType="DYNAMIC" 
     :isCache="false" 
-    :disabled="detailsModel.resolvedbuild.disabled" 
-    :data="data" 
+    v-if="data.resolvedbuild" 
     :context="context" 
-    :viewparams="viewparams"
-    :value="data.resolvedbuild"  
-    :navigateContext ='{ "bugproduct": "%product%", "bugproject": "%project%" } '
-    :navigateParam ='{ "bugproject": "%project%", "bugproduct": "%product%" } '
-    @change="($event)=>this.data.resolvedbuild = $event" />
+    :value="data.resolvedbuild" 
+    :itemParam="{}"/>
 </app-form-item>
 
 
@@ -980,18 +940,14 @@
     :disabled="detailsModel.lasteditedby.disabled"
     :error="detailsModel.lasteditedby.error" 
     :isEmptyCaption="false">
-        <app-mob-select 
+        <app-mob-span  
+        codeListType="DYNAMIC" 
     tag="UserRealName"
-    codeListType="DYNAMIC" 
     :isCache="false" 
-    :disabled="detailsModel.lasteditedby.disabled" 
-    :data="data" 
+    v-if="data.lasteditedby" 
     :context="context" 
-    :viewparams="viewparams"
-    :value="data.lasteditedby"  
-    :navigateContext ='{ } '
-    :navigateParam ='{ } '
-    @change="($event)=>this.data.lasteditedby = $event" />
+    :value="data.lasteditedby" 
+    :itemParam="{}"/>
 </app-form-item>
 
 
@@ -1079,7 +1035,7 @@
     :caption="$t('bug.mobmaindataedit_form.details.grouppanel6')" 
     :isShowCaption="false" 
     :titleBarCloseMode="0" 
-    :isInfoGroupMode="false" 
+    :isInfoGroupMode="true" 
     :data="transformData(data)"
     :uiService="deUIService"
     @groupuiactionclick="groupUIActionClick($event)">
@@ -1523,10 +1479,6 @@ export default class MobMainDataEditBase extends Vue implements ControlInterface
      * @memberof MobMainDataEdit
      */
     protected rules: any = {
-        title: [
-            { required: true, type: 'string', message: 'Bug标题 值不能为空', trigger: 'change' },
-            { required: true, type: 'string', message: 'Bug标题 值不能为空', trigger: 'blur' },
-        ],
         openedbuild: [
             { required: true, type: 'string', message: '影响版本 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '影响版本 值不能为空', trigger: 'blur' },
