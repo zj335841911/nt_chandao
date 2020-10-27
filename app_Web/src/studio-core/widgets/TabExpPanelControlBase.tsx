@@ -110,6 +110,7 @@ export class TabExpPanelControlBase extends ExpControlBase {
         if (!$event) {
             return;
         }
+        this.isInit = [];
         this.isInit[$event] = true;
         if (!this.viewState) {
             return;

@@ -126,7 +126,7 @@ export class TreeExpBarControlBase extends ExpControlBase {
      * @memberof TreeExpBarControlBase
      */
     public onDrViewDatasChange($event: any): void {
-        this.viewState.next({ tag: 'treeexpbar_tree', action: 'refresh_current', data: {} });
+        this.viewState.next({ tag: 'treeexpbar_tree', action: 'refresh_parent', data: {} });
     }
 
     /**

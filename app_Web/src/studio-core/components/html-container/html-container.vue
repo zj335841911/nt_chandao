@@ -106,7 +106,7 @@ export default class HtmlContainer extends Vue {
     }
     .img-modal {
         position: fixed;
-        z-index: 1;
+        z-index: 1000000;
         top: 0;
         left: 0;
         bottom: 0;
@@ -120,6 +120,7 @@ export default class HtmlContainer extends Vue {
         align-items: center;
         .thum-img {
             max-width: 100%;
+            max-height: 100%;
         }
     }
 </style>
