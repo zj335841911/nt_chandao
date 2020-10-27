@@ -1615,7 +1615,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
         if (Object.is(name, 'version')) {
             const details: string[] = ['title', 'spec', 'verify'];
             if(await this.validItem('version', this.data['version'])){
-                this.updateFormItems('GetStorySpecs', this.data, details, true);
+                this.updateFormItems('GetStorySpec', this.data, details, true);
             }
         }
     }
