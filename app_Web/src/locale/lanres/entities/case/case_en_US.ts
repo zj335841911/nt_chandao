@@ -408,6 +408,7 @@ export default {
 			module: "所属模块", 
 			modulename: "模块名称", 
 			modulename1: "模块名称", 
+			storyname: "相关需求", 
 			type: "用例类型", 
 			stage: "适用阶段", 
 			pri: "优先级", 
@@ -421,6 +422,7 @@ export default {
 			lasteditedby: "最后修改者", 
 			lastediteddate: "于", 
 			id: "用例编号", 
+			story: "相关需求", 
 		},
 		uiactions: {
 		},

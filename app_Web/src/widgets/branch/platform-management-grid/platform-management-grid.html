@@ -50,7 +50,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('order')">
-                <el-table-column show-overflow-tooltip :prop="'order'" :label="$t('entities.branch.platformmanagement_grid.columns.order')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'order'" :label="$t('entities.branch.platformmanagement_grid.columns.order')" :width="100"  :align="'left'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.branch.platformmanagement_grid.columns.order')}}
