@@ -608,7 +608,20 @@
     :disabled="detailsModel.mailto.disabled"
     :error="detailsModel.mailto.error" 
     :isEmptyCaption="false">
-        
+        <app-mob-check-list 
+    orMode="str"
+    valueSeparator=","
+    textSeparator=","
+    type="dynamic"  
+    tag="UserRealName"
+    :disabled="detailsModel.mailto.disabled" 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :value="data.mailto"   
+    :navigateContext ='{ } '
+    :navigateParam ='{ } '
+    @change="($event)=>this.data.mailto = $event"/>
 </app-form-item>
 
 
