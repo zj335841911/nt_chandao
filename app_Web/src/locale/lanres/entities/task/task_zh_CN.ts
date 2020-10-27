@@ -602,7 +602,7 @@ export default {
 			task_assigntask: "指派",
 			task_starttask: "开始",
 			task_activation: "激活",
-			task_workhours: "工时",
+			task_workhours1: "工时",
 			task_donetask: "完成",
 			task_closetask: "关闭",
 			task_mainedit: "编辑",

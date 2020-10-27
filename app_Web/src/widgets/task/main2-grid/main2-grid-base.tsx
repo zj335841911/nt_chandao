@@ -160,7 +160,7 @@ export class Main2GridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_u1569448_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_u919bc8f_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -177,7 +177,7 @@ export class Main2GridBase extends GridControlBase {
         }
         // 界面行为
         const curUIService:TaskUIService  = new TaskUIService();
-        curUIService.Task_WorkHours(datas,contextJO, paramJO,  $event, xData,this,"Task");
+        curUIService.Task_WorkHours1(datas,contextJO, paramJO,  $event, xData,this,"Task");
     }
 
     /**
@@ -275,7 +275,7 @@ export class Main2GridBase extends GridControlBase {
         AssignTask: { name: 'AssignTask',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_ASSIGN_BUT', actiontarget: 'SINGLEKEY'},
         StartTask: { name: 'StartTask',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_START_BUT', actiontarget: 'SINGLEKEY'},
         Activation: { name: 'Activation',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_ACTIVATION_BUT', actiontarget: 'SINGLEKEY'},
-        WorkHours: { name: 'WorkHours',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_CONSUM_BUT', actiontarget: 'SINGLEKEY'},
+        WorkHours1: { name: 'WorkHours1',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: '', actiontarget: 'SINGLEKEY'},
         DoneTask: { name: 'DoneTask',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_COMPLETE_BUT', actiontarget: 'SINGLEKEY'},
         CloseTask: { name: 'CloseTask',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_CLOSE_BUT', actiontarget: 'SINGLEKEY'},
         MainEdit: { name: 'MainEdit',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_EDIT_BUT', actiontarget: 'SINGLEKEY'}
@@ -525,8 +525,8 @@ export class Main2GridBase extends GridControlBase {
         if(Object.is('Activation', tag)) {
             this.grid_uagridcolumn1_ua7e2c7c_click(row, tag, $event);
         }
-        if(Object.is('WorkHours', tag)) {
-            this.grid_uagridcolumn1_u1569448_click(row, tag, $event);
+        if(Object.is('WorkHours1', tag)) {
+            this.grid_uagridcolumn1_u919bc8f_click(row, tag, $event);
         }
         if(Object.is('DoneTask', tag)) {
             this.grid_uagridcolumn1_uefcbbb0_click(row, tag, $event);
