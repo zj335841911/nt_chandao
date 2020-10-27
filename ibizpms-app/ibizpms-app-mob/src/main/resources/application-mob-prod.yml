@@ -51,6 +51,10 @@ zuul:
       path: /dynadashboards/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
+    zt_storyspec:
+      path: /storyspecs/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
     zt_action:
       path: /actions/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}

@@ -3870,8 +3870,8 @@ const datas: Array<any> = [
         "srfkey": "CurStory",
         "emptytext": "未定义",
         "codelisttype":"dynamic",
-        "appdataentity":"",
-        "appdedataset":"",
+        "appdataentity":"StorySpec",
+        "appdedataset":"FetchVersion",
         "items": []
     },
     {

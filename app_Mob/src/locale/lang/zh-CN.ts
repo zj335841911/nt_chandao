@@ -9,6 +9,7 @@ import taskestimate_zh_CN from '@locale/lanres/task-estimate/task-estimate_zh_CN
 import module_zh_CN from '@locale/lanres/module/module_zh_CN';
 import product_zh_CN from '@locale/lanres/product/product_zh_CN';
 import dynadashboard_zh_CN from '@locale/lanres/dyna-dashboard/dyna-dashboard_zh_CN';
+import storyspec_zh_CN from '@locale/lanres/story-spec/story-spec_zh_CN';
 import action_zh_CN from '@locale/lanres/action/action_zh_CN';
 import casestep_zh_CN from '@locale/lanres/case-step/case-step_zh_CN';
 import productline_zh_CN from '@locale/lanres/product-line/product-line_zh_CN';
@@ -179,6 +180,7 @@ export default {
     module: module_zh_CN,
     product: product_zh_CN,
     dynadashboard: dynadashboard_zh_CN,
+    storyspec: storyspec_zh_CN,
     action: action_zh_CN,
     casestep: casestep_zh_CN,
     productline: productline_zh_CN,
