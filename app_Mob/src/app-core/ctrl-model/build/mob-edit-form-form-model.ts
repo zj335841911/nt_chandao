@@ -96,11 +96,6 @@ export class MobEditFormModel {
                 dataType: 'ACID',
             },
             {
-                name: 'product',
-                prop: 'product',
-                dataType: 'PICKUP',
-            },
-            {
                 name: 'build',
                 prop: 'id',
                 dataType: 'FONTKEY',

@@ -47,28 +47,15 @@
     :disabled="detailsModel.productname.disabled"
     :error="detailsModel.productname.error" 
     :isEmptyCaption="false">
-        <app-mob-picker
-    name='productname'
-    deMajorField='productname'
-    deKeyField='productid'
-    valueitem='product' 
-    editortype="" 
-    style=""  
-    :formState="formState"
-    :data="data"
-    :context="context"
+        <app-mob-select 
+    :disabled="detailsModel.productname.disabled" 
+    :data="data" 
+    :context="context" 
     :viewparams="viewparams"
+    :value="data.productname"  
     :navigateContext ='{ "srfparentkey": "%project%" } '
     :navigateParam ='{ "srfparentkey": "%project%" } '
-    :itemParam='{ }' 
-    :disabled="detailsModel.productname.disabled"
-    :service="service"
-    :acParams="{ serviceName: 'product', interfaceName: 'FetchCurProject'}"
-    :value="data.productname" 
-    :pickupView="{ viewname: 'product-mob-pickup-view', title: '产品移动端数据选择视图', deResParameters: [], parameters: [{ pathName: 'products', parameterName: 'product' }, { pathName: 'mobpickupview', parameterName: 'mobpickupview' } ], placement:'' }"
-    @formitemvaluechange="onFormItemValueChange">
-</app-mob-picker>
-
+    @change="($event)=>this.data.productname = $event" />
 </app-form-item>
 
 
@@ -595,7 +582,6 @@ export default class MobEditFormBase extends Vue implements ControlInterface {
         files: null,
         desc: null,
         id: null,
-        product: null,
         build: null,
     };
 
@@ -782,8 +768,6 @@ export default class MobEditFormBase extends Vue implements ControlInterface {
         desc: new FormItemModel({ caption: '描述', detailType: 'FORMITEM', name: 'desc', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         id: new FormItemModel({ caption: 'id', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
-, 
-        product: new FormItemModel({ caption: '产品', detailType: 'FORMITEM', name: 'product', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
     };
 
@@ -991,18 +975,6 @@ export default class MobEditFormBase extends Vue implements ControlInterface {
         this.formDataChange({ name: 'id', newVal: newVal, oldVal: oldVal });
     }
 
-    /**
-     * 监控表单属性 product 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobEditForm
-     */
-    @Watch('data.product')
-    onProductChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'product', newVal: newVal, oldVal: oldVal });
-    }
-
 
     /**
      * 重置表单项值
@@ -1039,7 +1011,6 @@ export default class MobEditFormBase extends Vue implements ControlInterface {
      */
     private async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }){
                 
-
 
 
 

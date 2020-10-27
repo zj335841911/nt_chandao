@@ -13,7 +13,7 @@ export default class ProductBranch_Cache {
      * @type boolean
      * @memberof ProductBranch_Cache
      */
-    public isEnableCache:boolean = true;
+    public isEnableCache:boolean = false;
 
     /**
      * 过期时间
@@ -37,7 +37,7 @@ export default class ProductBranch_Cache {
      * @type any
      * @memberof ProductBranch_Cache
      */
-    public cacheTimeout:any = 600;
+    public cacheTimeout:any = -1;
 
     /**
      * 代码表模型对象
