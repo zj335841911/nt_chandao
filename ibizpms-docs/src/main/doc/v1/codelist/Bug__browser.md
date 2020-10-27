@@ -14,46 +14,46 @@ Bug浏览器
 ## 取值范围
 | 序号 | 数值 | 文本 | 父值 | 排序值 | 提示信息 | 是否显示空白 | 默认选择 | 说明 |
 | -- | -- | -- | -- | -- | -- | -- | -- |
-| 1 | all | 全部 |  |  |  | 否 | 否 | 全部
+| 1 | all | 全部 |  |  |  | 否 | 否 | 全部 |
 
-| 2 | ie | IE系列 |  |  |  | 否 | 否 | IE系列
+| 2 | ie | IE系列 |  |  |  | 否 | 否 | IE系列 |
 
-| 3 | ie11 | IE11 |  |  |  | 否 | 否 | IE11
+| 3 | ie11 | IE11 |  |  |  | 否 | 否 | IE11 |
 
-| 4 | ie10 | IE10 |  |  |  | 否 | 否 | IE10
+| 4 | ie10 | IE10 |  |  |  | 否 | 否 | IE10 |
 
-| 5 | ie9 | IE9 |  |  |  | 否 | 否 | IE9
+| 5 | ie9 | IE9 |  |  |  | 否 | 否 | IE9 |
 
-| 6 | ie8 | IE8 |  |  |  | 否 | 否 | IE8
+| 6 | ie8 | IE8 |  |  |  | 否 | 否 | IE8 |
 
-| 7 | ie7 | IE7 |  |  |  | 否 | 否 | IE7
+| 7 | ie7 | IE7 |  |  |  | 否 | 否 | IE7 |
 
-| 8 | ie6 | IE6 |  |  |  | 否 | 否 | IE6
+| 8 | ie6 | IE6 |  |  |  | 否 | 否 | IE6 |
 
-| 9 | chrome | chrome |  |  |  | 否 | 否 | chrome
+| 9 | chrome | chrome |  |  |  | 否 | 否 | chrome |
 
-| 10 | firefox | firefox系列 |  |  |  | 否 | 否 | firefox系列
+| 10 | firefox | firefox系列 |  |  |  | 否 | 否 | firefox系列 |
 
-| 11 | firefox4 | firefox4 |  |  |  | 否 | 否 | firefox4
+| 11 | firefox4 | firefox4 |  |  |  | 否 | 否 | firefox4 |
 
-| 12 | firefox3 | firefox3 |  |  |  | 否 | 否 | firefox3
+| 12 | firefox3 | firefox3 |  |  |  | 否 | 否 | firefox3 |
 
-| 13 | firefox2 | firefox2 |  |  |  | 否 | 否 | firefox2
+| 13 | firefox2 | firefox2 |  |  |  | 否 | 否 | firefox2 |
 
-| 14 | opera | opera系列 |  |  |  | 否 | 否 | opera系列
+| 14 | opera | opera系列 |  |  |  | 否 | 否 | opera系列 |
 
-| 15 | opera11 | opera11 |  |  |  | 否 | 否 | opera11
+| 15 | opera11 | opera11 |  |  |  | 否 | 否 | opera11 |
 
-| 16 | oprea10 | oprea10 |  |  |  | 否 | 否 | oprea10
+| 16 | oprea10 | oprea10 |  |  |  | 否 | 否 | oprea10 |
 
-| 17 | opera9 | opera9 |  |  |  | 否 | 否 | opera9
+| 17 | opera9 | opera9 |  |  |  | 否 | 否 | opera9 |
 
-| 18 | safari | safari |  |  |  | 否 | 否 | safari
+| 18 | safari | safari |  |  |  | 否 | 否 | safari |
 
-| 19 | maxthon | 傲游 |  |  |  | 否 | 否 | 傲游
+| 19 | maxthon | 傲游 |  |  |  | 否 | 否 | 傲游 |
 
-| 20 | uc | UC |  |  |  | 否 | 否 | UC
+| 20 | uc | UC |  |  |  | 否 | 否 | UC |
 
-| 21 | others | 其他 |  |  |  | 否 | 否 | 其他
+| 21 | others | 其他 |  |  |  | 否 | 否 | 其他 |
 
 
