@@ -66,6 +66,28 @@ export class StoryPickupGridViewBase extends PickupGridViewBase {
      */
     public appUIService: StoryUIService = new StoryUIService(this.$store);
 
+	/**
+	 * 自定义视图导航上下文集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof StoryPickupGridViewBase
+	 */
+    protected customViewNavContexts: any = {
+        'N_STATUS_NOTEQ': { isRawValue: true, value: 'closed' }
+    };
+
+	/**
+	 * 自定义视图导航参数集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof StoryPickupGridViewBase
+	 */
+    protected customViewParams: any = {
+        'n_status_noteq': { isRawValue: true, value: 'closed' }
+    };
+
     /**
      * 视图模型数据
      *
