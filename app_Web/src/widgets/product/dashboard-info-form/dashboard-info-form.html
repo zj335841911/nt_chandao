@@ -77,7 +77,7 @@ tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," te
     <app-form-item name='createdby' :itemRules="this.rules().createdby" class='' :caption="$t('entities.product.dashboardinfo_form.details.createdby')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.createdby.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <app-span name='createdby' :value="data.createdby" dataType="TEXT"     :precision="0"
-:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
+tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
 </app-span>
 
 </app-form-item>
