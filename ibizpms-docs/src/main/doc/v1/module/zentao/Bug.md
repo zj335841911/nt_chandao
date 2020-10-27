@@ -179,14 +179,20 @@ hide members
 
 ## 状态控制
 
-|Bug状态||是否收藏|行为控制模式| 控制行为 | 操作标识控制模式 | 控制操作 |
-| --------   || --------   | ------------|------------|------------|------------|
-|Value||Value2| 允许| 关联Bug（解决Bug）<br>Create<br>转需求<br>指派<br>Update<br>关联Bug（遗留Bug）<br>版本批量解除关联Bug<br>确认<br>解除关联Bug<br>Get<br>解决<br>批量解除关联Bug<br>解除关联Bug<br>批量解除关联Bug<br>关联Bug<br>版本解除关联Bug<br>Remove<br> | 不允许 | SRFUR__PROP_LBUG_BUT<br>SRFUR__BUG_ACTIVATE_BUT<br>SRFUR__BUG_CLOSE_BUT<br>SRFUR__BUG_FAVOR_BUT<br> |
-|Value||Value2| 允许|  | 不允许 | SRFUR__BUG_ACTIVATE_BUT<br>SRFUR__PROP_LBUG_BUT<br>SRFUR__BUG_CLOSE_BUT<br>SRFUR__BUG_NFAVOR_BUT<br> |
-|Value||Value2| 允许| 关联Bug（解决Bug）<br>指派<br>Create<br>Get<br>关联Bug<br>激活<br>Update<br>版本关联Bug<br>解除关联Bug<br>批量解除关联Bug<br>Remove<br>解除关联Bug<br>版本批量解除关联Bug<br>关联Bug（遗留Bug）<br>批量解除关联Bug<br>版本解除关联Bug<br>转需求<br> | 不允许 | SRFUR__PROP_LBUG_BUT<br>SRFUR__BUG_CONFIRM_BUT<br>SRFUR__BUG_RESOLVE_BUT<br>SRFUR__BUG_CLOSE_BUT<br>SRFUR__BUG_TOSTORY_BUT<br>SRFUR__BUG_FAVOR_BUT<br> |
-|Value||Value2| 允许|  | 不允许 | SRFUR__BUG_CONFIRM_BUT<br>SRFUR__BUG_RESOLVE_BUT<br>SRFUR__BUG_CLOSE_BUT<br>SRFUR__BUG_TOSTORY_BUT<br>SRFUR__PROP_LBUG_BUT<br>SRFUR__BUG_NFAVOR_BUT<br> |
-|Value||Value2| 允许| Remove<br>关闭<br>Get<br>激活<br>关联Bug<br>指派<br>版本关联Bug<br>转需求<br>版本解除关联Bug<br>关联Bug（解决Bug）<br>Create<br>Update<br>批量解除关联Bug<br>批量解除关联Bug<br>关联Bug（遗留Bug）<br>解除关联Bug<br>版本批量解除关联Bug<br>解除关联Bug<br> | 不允许 | SRFUR__PROP_LBUG_BUT<br>SRFUR__BUG_RESOLVE_BUT<br>SRFUR__BUG_FAVOR_BUT<br>SRFUR__BUG_CONFIRM_BUT<br> |
-|Value||Value2| 允许|  | 不允许 | SRFUR__BUG_RESOLVE_BUT<br>SRFUR__BUG_NFAVOR_BUT<br>SRFUR__PROP_LBUG_BUT<br>SRFUR__BUG_CONFIRM_BUT<br> |
+|Bug状态||是否收藏||是否确认|行为控制模式| 控制行为 | 操作标识控制模式 | 控制操作 |
+| --------   || --------   || --------   | ------------|------------|------------|------------|
+|Value||Value2||Value3| 允许| 关联Bug（解决Bug）<br>Create<br>转需求<br>指派<br>Update<br>关联Bug（遗留Bug）<br>版本批量解除关联Bug<br>确认<br>解除关联Bug<br>Get<br>解决<br>批量解除关联Bug<br>解除关联Bug<br>批量解除关联Bug<br>关联Bug<br>版本解除关联Bug<br>Remove<br> | 不允许 | SRFUR__PROP_LBUG_BUT<br>SRFUR__BUG_ACTIVATE_BUT<br>SRFUR__BUG_CLOSE_BUT<br>SRFUR__BUG_FAVOR_BUT<br> |
+|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__BUG_ACTIVATE_BUT<br>SRFUR__PROP_LBUG_BUT<br>SRFUR__BUG_CLOSE_BUT<br>SRFUR__BUG_FAVOR_BUT<br>SRFUR__BUG_CONFIRM_BUT<br> |
+|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__BUG_ACTIVATE_BUT<br>SRFUR__PROP_LBUG_BUT<br>SRFUR__BUG_CLOSE_BUT<br>SRFUR__BUG_NFAVOR_BUT<br> |
+|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__BUG_CLOSE_BUT<br>SRFUR__BUG_CONFIRM_BUT<br>SRFUR__PROP_LBUG_BUT<br>SRFUR__BUG_NFAVOR_BUT<br>SRFUR__BUG_ACTIVATE_BUT<br> |
+|Value||Value2||Value3| 允许| 关联Bug（解决Bug）<br>指派<br>Create<br>Get<br>关联Bug<br>激活<br>Update<br>版本关联Bug<br>解除关联Bug<br>批量解除关联Bug<br>Remove<br>解除关联Bug<br>版本批量解除关联Bug<br>关联Bug（遗留Bug）<br>批量解除关联Bug<br>版本解除关联Bug<br>转需求<br> | 不允许 | SRFUR__PROP_LBUG_BUT<br>SRFUR__BUG_CONFIRM_BUT<br>SRFUR__BUG_RESOLVE_BUT<br>SRFUR__BUG_CLOSE_BUT<br>SRFUR__BUG_TOSTORY_BUT<br>SRFUR__BUG_FAVOR_BUT<br> |
+|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__PROP_LBUG_BUT<br>SRFUR__BUG_RESOLVE_BUT<br>SRFUR__BUG_FAVOR_BUT<br>SRFUR__BUG_CLOSE_BUT<br>SRFUR__BUG_CONFIRM_BUT<br>SRFUR__BUG_TOSTORY_BUT<br> |
+|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__BUG_CONFIRM_BUT<br>SRFUR__BUG_RESOLVE_BUT<br>SRFUR__BUG_CLOSE_BUT<br>SRFUR__BUG_TOSTORY_BUT<br>SRFUR__PROP_LBUG_BUT<br>SRFUR__BUG_NFAVOR_BUT<br> |
+|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__BUG_CLOSE_BUT<br>SRFUR__BUG_RESOLVE_BUT<br>SRFUR__BUG_TOSTORY_BUT<br>SRFUR__BUG_NFAVOR_BUT<br>SRFUR__BUG_CONFIRM_BUT<br>SRFUR__PROP_LBUG_BUT<br> |
+|Value||Value2||Value3| 允许| Remove<br>关闭<br>Get<br>激活<br>关联Bug<br>指派<br>版本关联Bug<br>转需求<br>版本解除关联Bug<br>关联Bug（解决Bug）<br>Create<br>Update<br>批量解除关联Bug<br>批量解除关联Bug<br>关联Bug（遗留Bug）<br>解除关联Bug<br>版本批量解除关联Bug<br>解除关联Bug<br> | 不允许 | SRFUR__PROP_LBUG_BUT<br>SRFUR__BUG_RESOLVE_BUT<br>SRFUR__BUG_FAVOR_BUT<br>SRFUR__BUG_CONFIRM_BUT<br> |
+|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__PROP_LBUG_BUT<br>SRFUR__BUG_FAVOR_BUT<br>SRFUR__BUG_RESOLVE_BUT<br>SRFUR__BUG_CONFIRM_BUT<br> |
+|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__BUG_RESOLVE_BUT<br>SRFUR__BUG_NFAVOR_BUT<br>SRFUR__PROP_LBUG_BUT<br>SRFUR__BUG_CONFIRM_BUT<br> |
+|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__BUG_CONFIRM_BUT<br>SRFUR__BUG_RESOLVE_BUT<br>SRFUR__BUG_NFAVOR_BUT<br>SRFUR__PROP_LBUG_BUT<br> |
 
 Bug状态
 
@@ -197,6 +203,12 @@ Bug状态
 |已关闭|closed|
 是否收藏
 
+是否确认
+
+| 状态        |    状态值   |
+| --------   |------------|
+|是|1|
+|否|0|
 
 ## 行为
 | 行为    | 类型    |  说明  |
