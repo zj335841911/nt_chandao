@@ -967,6 +967,9 @@ export default class MobMainTableBase extends Vue implements ControlInterface {
      */
     private resetFormData({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
         if (Object.is(name, 'future')) {
+            this.onFormItemValueChange({ name: 'begin', value: null });
+        }
+        if (Object.is(name, 'future')) {
             this.onFormItemValueChange({ name: 'delta', value: null });
         }
         if (Object.is(name, 'future')) {
