@@ -219,4 +219,14 @@ export class MainEditFormBase extends EditFormControlBase {
         this.form_button1_click(null, null, $event);
 
     }
+
+    /**
+     * 新建默认值
+     * @memberof MainEditFormBase
+     */
+    public createDefault(){                    
+        if (this.data.hasOwnProperty('type')) {
+            this.data['type'] = 'normal';
+        }
+    }
 }

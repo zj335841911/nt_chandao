@@ -13335,7 +13335,8 @@ FROM `zt_module` t1
 LEFT JOIN zt_module t11 ON t1.PARENT = t11.ID 
 LEFT JOIN zt_product t21 ON t1.ROOT = t21.ID 
 
-WHERE ( t1.`TYPE` = 'story'  AND  t1.`DELETED` = '0' ) 
+WHERE t1.DELETED = '0' 
+( t1.`TYPE` = 'story'  AND  t1.`DELETED` = '0' ) 
 
 ```
 ### 父模块(ParentModule)<div id="TestModule_ParentModule"></div>
@@ -13400,7 +13401,8 @@ FROM `zt_module` t1
 LEFT JOIN zt_module t11 ON t1.PARENT = t11.ID 
 LEFT JOIN zt_product t21 ON t1.ROOT = t21.ID 
 
-WHERE ( t1.`TYPE` = 'story'  AND  ( t1.`PARENT` IS NULL  OR  t1.`PARENT` = 0 ) ) 
+WHERE t1.DELETED = '0' 
+( t1.`TYPE` = 'story'  AND  ( t1.`PARENT` IS NULL  OR  t1.`PARENT` = 0 ) ) 
 
 ```
 ### 根模块_无分支(Root_NoBranch)<div id="TestModule_Root_NoBranch"></div>
@@ -13425,7 +13427,8 @@ FROM `zt_module` t1
 LEFT JOIN zt_module t11 ON t1.PARENT = t11.ID 
 LEFT JOIN zt_product t21 ON t1.ROOT = t21.ID 
 
-WHERE ( t1.`TYPE` = 'story'  AND  t1.`BRANCH` = 0  AND  ( t1.`PARENT` IS NULL  OR  t1.`PARENT` = 0 ) ) 
+WHERE t1.DELETED = '0' 
+( t1.`TYPE` = 'story'  AND  t1.`BRANCH` = 0  AND  ( t1.`PARENT` IS NULL  OR  t1.`PARENT` = 0 ) ) 
 
 ```
 ### TestModule(TestModule)<div id="TestModule_TestModule"></div>
@@ -13475,6 +13478,8 @@ t1.`TYPE`
 FROM `zt_module` t1 
 LEFT JOIN zt_module t11 ON t1.PARENT = t11.ID 
 LEFT JOIN zt_product t21 ON t1.ROOT = t21.ID 
+
+WHERE t1.DELETED = '0' 
 
 ```
 
