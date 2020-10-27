@@ -13689,7 +13689,7 @@ t1.`TYPE`
 FROM `zt_testsuite` t1 
 
 WHERE t1.DELETED = '0' 
-( ( t1.`TYPE` = 'public' ) ) 
+( ( t1.`TYPE` = 'public'  OR  (t1.`type` = 'private' and t1.addedBy =  #{srf.sessioncontext.srfloginname})  OR  ( t1.`TYPE` = 'private'  AND  t1.`ADDEDBY` =  ${srfsessioncontext('srfloginname','{"defname":"ADDEDBY","dename":"ZT_TESTSUITE"}')} ) ) ) 
 
 ```
 ### 默认（全部数据）(VIEW)<div id="TestSuite_View"></div>
