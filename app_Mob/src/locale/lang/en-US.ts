@@ -9,6 +9,7 @@ import taskestimate_en_US from '@locale/lanres/task-estimate/task-estimate_en_US
 import module_en_US from '@locale/lanres/module/module_en_US';
 import product_en_US from '@locale/lanres/product/product_en_US';
 import dynadashboard_en_US from '@locale/lanres/dyna-dashboard/dyna-dashboard_en_US';
+import storyspec_en_US from '@locale/lanres/story-spec/story-spec_en_US';
 import action_en_US from '@locale/lanres/action/action_en_US';
 import casestep_en_US from '@locale/lanres/case-step/case-step_en_US';
 import productline_en_US from '@locale/lanres/product-line/product-line_en_US';
@@ -178,6 +179,7 @@ export default {
     module: module_en_US,
     product: product_en_US,
     dynadashboard: dynadashboard_en_US,
+    storyspec: storyspec_en_US,
     action: action_en_US,
     casestep: casestep_en_US,
     productline: productline_en_US,

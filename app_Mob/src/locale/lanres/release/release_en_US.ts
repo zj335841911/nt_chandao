@@ -140,6 +140,10 @@ export default {
 		},
 	},
 	editmobeditviewrighttoolbar_toolbar: {
+		tbitem1: {
+			caption: 'Save And Close',
+			tip: 'tbitem1',
+		},
 	},
 	mobeditviewrighttoolbar_toolbar: {
 		deuiaction1_mobactive: {

@@ -108,6 +108,9 @@
     :error="detailsModel.version.error" 
     :isEmptyCaption="false">
         <app-mob-select 
+    tag="CurStory"
+    codeListType="DYNAMIC" 
+    :isCache="false" 
     :disabled="detailsModel.version.disabled" 
     :data="data" 
     :context="context" 
