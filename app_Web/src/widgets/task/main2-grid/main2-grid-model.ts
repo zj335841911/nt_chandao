@@ -42,6 +42,16 @@ export default class Main2Model {
           dataType: 'TEXT',
         },
         {
+          name: 'deadline',
+          prop: 'deadline',
+          dataType: 'DATE',
+        },
+        {
+          name: 'assignedto',
+          prop: 'assignedto',
+          dataType: 'TEXT',
+        },
+        {
           name: 'status1',
           prop: 'status1',
           dataType: 'SSCODELIST',

@@ -943,6 +943,11 @@ export default {
         "investigate": "研究中",
         "empty": "",
     },
+    TestsuiteTypeNew: {
+        "private": "私有",
+        "public": "公开",
+        "empty": "",
+    },
     Story__quickpacket: {
         "ALL": "所有",
         "UNCLOSED": "未关闭",

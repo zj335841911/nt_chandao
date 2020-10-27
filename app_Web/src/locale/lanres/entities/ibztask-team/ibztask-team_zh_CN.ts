@@ -26,15 +26,6 @@ export default {
       		title: "团队",
 		},
 	},
-	maineditrow_grid: {
-		nodata: "",
-		columns: {
-			account: "用户",
-			estimate: "预计",
-		},
-		uiactions: {
-		},
-	},
 	mainedit_grid: {
 		nodata: "",
 		columns: {
@@ -46,13 +37,22 @@ export default {
 		uiactions: {
 		},
 	},
-	gridview9toolbar_toolbar: {
+	maineditrow_grid: {
+		nodata: "",
+		columns: {
+			account: "用户",
+			estimate: "预计",
+		},
+		uiactions: {
+		},
+	},
+	gridview9_edittoolbar_toolbar: {
 		deuiaction2: {
 			caption: "新建行",
 			tip: "新建行",
 		},
 	},
-	gridview9_edittoolbar_toolbar: {
+	gridview9toolbar_toolbar: {
 		deuiaction2: {
 			caption: "新建行",
 			tip: "新建行",

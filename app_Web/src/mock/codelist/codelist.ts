@@ -6964,6 +6964,33 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
+        srfkey: "TestsuiteTypeNew",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "private",
+                label: "私有",
+                text: "私有",
+                "data":"",
+                "codename":"Private",
+                value: "private",
+                
+                disabled: false,
+            },
+            {
+                id: "public",
+                label: "公开",
+                text: "公开",
+                "data":"",
+                "codename":"Public",
+                value: "public",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
         srfkey: "Story__quickpacket",
         emptytext: "未定义",
         "codelisttype":"static",

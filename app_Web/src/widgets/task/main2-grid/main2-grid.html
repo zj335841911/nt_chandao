@@ -71,6 +71,32 @@
                     </template>
                 </el-table-column>
             </template>
+            <template v-if="getColumnState('deadline')">
+                <el-table-column show-overflow-tooltip :prop="'deadline'" :label="$t('entities.task.main2_grid.columns.deadline')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.task.main2_grid.columns.deadline')}}
+                      </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                        <app-format-data format="YYYY-MM-DD" :data="row.deadline"></app-format-data>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('assignedto')">
+                <el-table-column show-overflow-tooltip :prop="'assignedto'" :label="$t('entities.task.main2_grid.columns.assignedto')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.task.main2_grid.columns.assignedto')}}
+                      </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                        <template >
+            <codelist :value="row.assignedto" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
+                        </template>
+                    </template>
+                </el-table-column>
+            </template>
             <template v-if="getColumnState('status1')">
                 <el-table-column show-overflow-tooltip :prop="'status1'" :label="$t('entities.task.main2_grid.columns.status1')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
@@ -82,6 +108,53 @@
                         <template >
             <codelist :value="row.status1" tag='TaskStatusCK' codelistType='STATIC' ></codelist>
                         </template>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('uagridcolumn1')">
+                <el-table-column :column-key="'uagridcolumn1'" fixed="right" :label="$t('entities.task.main2_grid.columns.uagridcolumn1')" :width="100"  :align="'right'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.task.main2_grid.columns.uagridcolumn1')}}
+                      </span>
+                    </template>
+                    <template slot-scope="scope">
+                        <div style="text-align: center;">
+                          <a v-show="scope.row.AssignTaskDash.visabled" :disabled="scope.row.AssignTaskDash.disabled" @click="uiAction(scope.row, 'AssignTaskDash', $event)" :title="$t('entities.task.main2_grid.uiactions.task_assigntaskdash')">
+                            <i class=''></i>
+                            
+                          </a>
+                          <divider v-show="scope.row.StartTaskDash.visabled" type='vertical'></divider>
+                          <a v-show="scope.row.StartTaskDash.visabled" :disabled="scope.row.StartTaskDash.disabled" @click="uiAction(scope.row, 'StartTaskDash', $event)" :title="$t('entities.task.main2_grid.uiactions.task_starttaskdash')">
+                            <i class='fa fa-play-circle-o'></i>
+                            
+                          </a>
+                          <divider v-show="scope.row.ActivationDash.visabled" type='vertical'></divider>
+                          <a v-show="scope.row.ActivationDash.visabled" :disabled="scope.row.ActivationDash.disabled" @click="uiAction(scope.row, 'ActivationDash', $event)" :title="$t('entities.task.main2_grid.uiactions.task_activationdash')">
+                            <i class=''></i>
+                            
+                          </a>
+                          <divider v-show="scope.row.WorkHours.visabled" type='vertical'></divider>
+                          <a v-show="scope.row.WorkHours.visabled" :disabled="scope.row.WorkHours.disabled" @click="uiAction(scope.row, 'WorkHours', $event)" :title="$t('entities.task.main2_grid.uiactions.task_workhours')">
+                            <i class=''></i>
+                            
+                          </a>
+                          <divider v-show="scope.row.DoneTaskDash.visabled" type='vertical'></divider>
+                          <a v-show="scope.row.DoneTaskDash.visabled" :disabled="scope.row.DoneTaskDash.disabled" @click="uiAction(scope.row, 'DoneTaskDash', $event)" :title="$t('entities.task.main2_grid.uiactions.task_donetaskdash')">
+                            <i class='fa fa-check-square-o'></i>
+                            
+                          </a>
+                          <divider v-show="scope.row.CloseTaskDash.visabled" type='vertical'></divider>
+                          <a v-show="scope.row.CloseTaskDash.visabled" :disabled="scope.row.CloseTaskDash.disabled" @click="uiAction(scope.row, 'CloseTaskDash', $event)" :title="$t('entities.task.main2_grid.uiactions.task_closetaskdash')">
+                            <i class='fa fa-power-off'></i>
+                            
+                          </a>
+                          <divider v-show="scope.row.MainEditDash.visabled" type='vertical'></divider>
+                          <a v-show="scope.row.MainEditDash.visabled" :disabled="scope.row.MainEditDash.disabled" @click="uiAction(scope.row, 'MainEditDash', $event)" :title="$t('entities.task.main2_grid.uiactions.task_maineditdash')">
+                            <i class='fa fa-edit'></i>
+                            
+                          </a>
+                        </div>
                     </template>
                 </el-table-column>
             </template>
