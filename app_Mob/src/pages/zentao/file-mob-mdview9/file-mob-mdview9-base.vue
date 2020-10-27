@@ -17,7 +17,7 @@
             loaddraftAction=""
             loadAction="Get"
             createAction="Create"
-            fetchAction="FetchDefault" 
+            fetchAction="FetchType" 
             :isMutli="!isSingleSelect"
             :isChoose="isChoose"
             @isChooseChange="isChooseChange"
