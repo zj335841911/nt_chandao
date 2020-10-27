@@ -1,6 +1,31 @@
-!!!!模版产生代码错误:----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: #assign printLineStr += srflistpos(co...  [in template "CODETEMPL_en_US" in function "printCodeItem" at line 61, column 9]
-	- Reached through: #assign printLineStr += printCodeItem...  [in template "CODETEMPL_en_US" in function "printCodeItem" at line 86, column 13]
-	- Reached through: ${printCodeItem(codeItem, codeItemInd...  [in template "CODETEMPL_en_US" at line 44, column 1]
-----
+# 数据字典-测试单快速分组（移动端）（MobTestQuickpacket）
+## 字典说明
+测试单快速分组（移动端）
+
+## 基本说明
+| 项目 | 说明 |
+| -- | -- |
+| 数值类型 | 字符串 |
+| 支持多选 | 否 |
+| 多选分隔符 | 无 |
+| 支持缓存 | 是 |
+| 缓存超时时长 | 无 |
+
+## 取值范围
+| 序号 | 数值 | 文本 | 父值 | 排序值 | 提示信息 | 是否显示空白 | 默认选择 | 说明 |
+| -- | -- | -- | -- | -- | -- | -- | -- |
+| 1 | ALL | 全部 |  |  |  | 否 | 是 | 全部
+
+| 2 | ICREATE | 待测测试单 |  |  |  | 否 | 否 | 待测测试单
+
+| 3 | IREVIEW | 测试中测试单 |  |  |  | 否 | 否 | 测试中测试单
+
+| 4 | MORE | 更多 |  |  |  | 否 | 否 | 更多
+| 4-1 | ICLOSE | 被阻塞测试单 | 更多（MORE） |  |  | 否 | 否 | 被阻塞测试单
+| 4-2 | Tested | 已测测试单 | 更多（MORE） |  |  | 否 | 否 | 已测测试单
+
+| 5 | ICLOSE | 被阻塞测试单 | 更多（MORE） |  |  | 否 | 否 | 被阻塞测试单
+
+| 6 | Tested | 已测测试单 | 更多（MORE） |  |  | 否 | 否 | 已测测试单
+
+

@@ -1,6 +1,32 @@
-!!!!模版产生代码错误:----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: #assign printLineStr += srflistpos(co...  [in template "CODETEMPL_en_US" in function "printCodeItem" at line 61, column 9]
-	- Reached through: #assign printLineStr += printCodeItem...  [in template "CODETEMPL_en_US" in function "printCodeItem" at line 86, column 13]
-	- Reached through: ${printCodeItem(codeItem, codeItemInd...  [in template "CODETEMPL_en_US" at line 44, column 1]
-----
+# 数据字典-项目快速分组（Project_quickpacket）
+## 字典说明
+项目快速分组
+
+## 基本说明
+| 项目 | 说明 |
+| -- | -- |
+| 数值类型 | 字符串 |
+| 支持多选 | 否 |
+| 多选分隔符 | 无 |
+| 支持缓存 | 是 |
+| 缓存超时时长 | 无 |
+
+## 取值范围
+| 序号 | 数值 | 文本 | 父值 | 排序值 | 提示信息 | 是否显示空白 | 默认选择 | 说明 |
+| -- | -- | -- | -- | -- | -- | -- | -- |
+| 1 | All | 所有 |  |  |  | 否 | 否 | 所有
+
+| 2 | wait | 未开始 |  |  |  | 否 | 是 | 未开始
+
+| 3 | MORE | 更多 |  |  |  | 否 | 否 | 更多
+| 3-1 | doing | 进行中 | 更多（MORE） |  |  | 否 | 否 | 进行中
+| 3-2 | suspended | 已挂起 | 更多（MORE） |  |  | 否 | 否 | 已挂起
+| 3-3 | closed | 已关闭 | 更多（MORE） |  |  | 否 | 否 | 已关闭
+
+| 4 | doing | 进行中 | 更多（MORE） |  |  | 否 | 否 | 进行中
+
+| 5 | suspended | 已挂起 | 更多（MORE） |  |  | 否 | 否 | 已挂起
+
+| 6 | closed | 已关闭 | 更多（MORE） |  |  | 否 | 否 | 已关闭
+
+

@@ -1,6 +1,46 @@
-!!!!模版产生代码错误:----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: #assign printLineStr += srflistpos(co...  [in template "CODETEMPL_en_US" in function "printCodeItem" at line 61, column 9]
-	- Reached through: #assign printLineStr += printCodeItem...  [in template "CODETEMPL_en_US" in function "printCodeItem" at line 86, column 13]
-	- Reached through: ${printCodeItem(codeItem, codeItemInd...  [in template "CODETEMPL_en_US" at line 44, column 1]
-----
+# 数据字典-需求快速分组（Story__quickpacket）
+## 字典说明
+需求快速分组
+
+## 基本说明
+| 项目 | 说明 |
+| -- | -- |
+| 数值类型 | 字符串 |
+| 支持多选 | 否 |
+| 多选分隔符 | 无 |
+| 支持缓存 | 是 |
+| 缓存超时时长 | 无 |
+
+## 取值范围
+| 序号 | 数值 | 文本 | 父值 | 排序值 | 提示信息 | 是否显示空白 | 默认选择 | 说明 |
+| -- | -- | -- | -- | -- | -- | -- | -- |
+| 1 | ALL | 所有 |  |  |  | 否 | 否 | 所有
+
+| 2 | UNCLOSED | 未关闭 |  |  |  | 否 | 是 | 未关闭
+
+| 3 | TOME | 指给我 |  |  |  | 否 | 否 | 指给我
+
+| 4 | ICREATE | 我创建 |  |  |  | 否 | 否 | 我创建
+
+| 5 | IREVIEW | 我评审 |  |  |  | 否 | 否 | 我评审
+
+| 6 | DRAFT | 草稿 |  |  |  | 否 | 否 | 草稿
+
+| 7 | MORE | 更多 |  |  |  | 否 | 否 | 更多
+| 7-1 | ICLOSE | 我关闭 | 更多（MORE） |  |  | 否 | 否 | 我关闭
+| 7-2 | ACTIVED | 激活 | 更多（MORE） |  |  | 否 | 否 | 激活
+| 7-3 | CHANGED | 已变更 | 更多（MORE） |  |  | 否 | 否 | 已变更
+| 7-4 | TOBECLOSED | 待关闭 | 更多（MORE） |  |  | 否 | 否 | 待关闭
+| 7-5 | CLOSED | 已关闭 | 更多（MORE） |  |  | 否 | 否 | 已关闭
+
+| 8 | ICLOSE | 我关闭 | 更多（MORE） |  |  | 否 | 否 | 我关闭
+
+| 9 | ACTIVED | 激活 | 更多（MORE） |  |  | 否 | 否 | 激活
+
+| 10 | CHANGED | 已变更 | 更多（MORE） |  |  | 否 | 否 | 已变更
+
+| 11 | TOBECLOSED | 待关闭 | 更多（MORE） |  |  | 否 | 否 | 待关闭
+
+| 12 | CLOSED | 已关闭 | 更多（MORE） |  |  | 否 | 否 | 已关闭
+
+

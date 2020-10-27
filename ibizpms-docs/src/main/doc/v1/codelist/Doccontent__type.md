@@ -14,16 +14,16 @@
 ## 取值范围
 | 序号 | 数值 | 文本 | 父值 | 排序值 | 提示信息 | 是否显示空白 | 默认选择 | 说明 |
 | -- | -- | -- | -- | -- | -- | -- | -- |
-| 1 | html | 富文本 |  | -1 |  | 否 | 否 | 富文本
+| 1 | html | 富文本 |  |  |  | 否 | 否 | 富文本
 
-| 2 | markdown | Markdown |  | -1 |  | 否 | 否 | Markdown
+| 2 | markdown | Markdown |  |  |  | 否 | 否 | Markdown
 
-| 3 | url | 链接 |  | -1 |  | 否 | 否 | 链接
+| 3 | url | 链接 |  |  |  | 否 | 否 | 链接
 
-| 4 | word | Word |  | -1 |  | 否 | 否 | Word
+| 4 | word | Word |  |  |  | 否 | 否 | Word
 
-| 5 | ppt | PPT |  | -1 |  | 否 | 否 | PPT
+| 5 | ppt | PPT |  |  |  | 否 | 否 | PPT
 
-| 6 | excel | Excel |  | -1 |  | 否 | 否 | Excel
+| 6 | excel | Excel |  |  |  | 否 | 否 | Excel
 
 

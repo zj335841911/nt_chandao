@@ -1,6 +1,48 @@
-!!!!模版产生代码错误:----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: #assign printLineStr += srflistpos(co...  [in template "CODETEMPL_en_US" in function "printCodeItem" at line 61, column 9]
-	- Reached through: #assign printLineStr += printCodeItem...  [in template "CODETEMPL_en_US" in function "printCodeItem" at line 86, column 13]
-	- Reached through: ${printCodeItem(codeItem, codeItemInd...  [in template "CODETEMPL_en_US" at line 44, column 1]
-----
+# 数据字典-任务快速分组（Task_quickpacket）
+## 字典说明
+任务快速分组
+
+## 基本说明
+| 项目 | 说明 |
+| -- | -- |
+| 数值类型 | 字符串 |
+| 支持多选 | 否 |
+| 多选分隔符 | 无 |
+| 支持缓存 | 是 |
+| 缓存超时时长 | 无 |
+
+## 取值范围
+| 序号 | 数值 | 文本 | 父值 | 排序值 | 提示信息 | 是否显示空白 | 默认选择 | 说明 |
+| -- | -- | -- | -- | -- | -- | -- | -- |
+| 1 | All | 所有 |  |  |  | 否 | 否 | 所有
+
+| 2 | UNCLOSED | 未关闭 |  |  |  | 否 | 是 | 未关闭
+
+| 3 | TOME | 指派给我 |  |  |  | 否 | 否 | 指派给我
+
+| 4 | storychange | 需求变更 |  |  |  | 否 | 否 | 需求变更
+
+| 5 | MORE | 更多 |  |  |  | 否 | 否 | 更多
+| 5-1 | NOTSTARTED | 未开始 | 更多（MORE） |  |  | 否 | 否 | 未开始
+| 5-2 | INPROGRESS | 进行中 | 更多（MORE） |  |  | 否 | 否 | 进行中
+| 5-3 | UNACCOMPLISHED | 未完成 | 更多（MORE） |  |  | 否 | 否 | 未完成
+| 5-4 | IFINISHED | 我完成 | 更多（MORE） |  |  | 否 | 否 | 我完成
+| 5-5 | COMPLETED | 已完成 | 更多（MORE） |  |  | 否 | 否 | 已完成
+| 5-6 | CLOSED | 已关闭 | 更多（MORE） |  |  | 否 | 否 | 已关闭
+| 5-7 | CANCELLED | 已取消 | 更多（MORE） |  |  | 否 | 否 | 已取消
+
+| 6 | NOTSTARTED | 未开始 | 更多（MORE） |  |  | 否 | 否 | 未开始
+
+| 7 | INPROGRESS | 进行中 | 更多（MORE） |  |  | 否 | 否 | 进行中
+
+| 8 | UNACCOMPLISHED | 未完成 | 更多（MORE） |  |  | 否 | 否 | 未完成
+
+| 9 | IFINISHED | 我完成 | 更多（MORE） |  |  | 否 | 否 | 我完成
+
+| 10 | COMPLETED | 已完成 | 更多（MORE） |  |  | 否 | 否 | 已完成
+
+| 11 | CLOSED | 已关闭 | 更多（MORE） |  |  | 否 | 否 | 已关闭
+
+| 12 | CANCELLED | 已取消 | 更多（MORE） |  |  | 否 | 否 | 已取消
+
+
