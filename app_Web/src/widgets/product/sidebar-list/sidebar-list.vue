@@ -18,5 +18,21 @@ import { SidebarListBase } from './sidebar-list-base';
     }
 })
 @VueLifeCycleProcessing()
-export default class SidebarList extends SidebarListBase { }
+export default class SidebarList extends SidebarListBase {
+
+    /**
+     * 刷新
+     *
+     * @param {*} [args]
+     * @memberof ListControlBase
+     */
+    public refresh(args?: any) {
+        if(args){
+            this.load(args);
+        }else{
+            this.isAddBehind = true;
+            this.load(args);
+        }
+    }
+}
 </script>

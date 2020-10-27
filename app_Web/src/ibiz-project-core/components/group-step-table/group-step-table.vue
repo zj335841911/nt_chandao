@@ -157,8 +157,33 @@ export default class GroupStepTable extends Vue {
                 num = 1;
                 data.order_num = order++;
             }
+            //解析表格项代码表
+            this.gridItemCodelist(data);
         });
         return datas;
+    }
+
+    /**
+     * 解析表格项代码表
+     * 
+     * @memberof GroupStepTable
+     */
+    public gridItemCodelist(item: any){
+        if(this.cols && this.cols.length > 0){
+            this.cols.forEach((col: any)=>{
+                for(const key in item){
+                    if(Object.is(key,col.name) && col.codelistId){
+                        let codelist: any = this.$store.getters.getCodeList(col.codelistId);
+                        if(codelist){
+                            const data = codelist.items.find((code:any) => Object.is(code.value, item[key]));
+                            if(data){
+                                item[key] = data.text;
+                            }
+                        }
+                    }
+                }
+            })
+        }
     }
 
     /**
