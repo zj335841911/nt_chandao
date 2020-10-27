@@ -96,7 +96,7 @@
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
-                            <a @click="uiAction(row, 'AssignTask', $event)">
+                            <a v-show="row.AssignTask.visabled" :disabled="row.AssignTask.disabled" :style="{'display': 'block'}" @click="uiAction(row, 'AssignTask', $event)">
             <codelist :value="row.assignedto" tag='UserRealNameW' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
                             </a>
                         </template>

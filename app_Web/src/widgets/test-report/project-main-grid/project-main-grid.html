@@ -45,7 +45,7 @@
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <a @click="uiAction(row, 'Edit', $event)">
+                        <a v-show="row.Edit.visabled" :disabled="row.Edit.disabled" :style="{'display': 'block'}" @click="uiAction(row, 'Edit', $event)">
                         <span>{{row.title}}</span>
                         </a>
                     </template>
