@@ -47,15 +47,27 @@
     :disabled="detailsModel.productname.disabled"
     :error="detailsModel.productname.error" 
     :isEmptyCaption="false">
-        <app-mob-select 
-    :disabled="detailsModel.productname.disabled" 
-    :data="data" 
-    :context="context" 
-    :viewparams="viewparams"
-    :value="data.productname"  
+        <app-mob-select-drop-down 
+    name='productname' 
+    deMajorField='name'
+    deKeyField='id'
+    valueitem='' 
+    style="" 
+    editortype="dropdown" 
+    :formState="formState"
+    :data="data"
+    :context="context"
     :navigateContext ='{ "srfparentkey": "%project%" } '
     :navigateParam ='{ "srfparentkey": "%project%" } '
-    @change="($event)=>this.data.productname = $event" />
+    :viewparams="viewparams"
+    :itemParam='{ }' 
+    :disabled="detailsModel.productname.disabled"
+    :service="service"
+    :acParams="{ serviceName: 'product', interfaceName: 'FetchCurProject'}"
+    :value="data.productname" 
+    @formitemvaluechange="onFormItemValueChange"
+    @change="($event)=>this.data.productname = $event">
+</app-mob-select-drop-down>
 </app-form-item>
 
 
