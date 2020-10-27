@@ -61,21 +61,6 @@ export class MobMainDataEditModel {
                 dataType: 'TEXT',
             },
             {
-                name: 'steps',
-                prop: 'steps',
-                dataType: 'LONGTEXT',
-            },
-            {
-                name: 'comment',
-                prop: 'comment',
-                dataType: 'HTMLTEXT',
-            },
-            {
-                name: 'files',
-                prop: 'files',
-                dataType: 'TEXT',
-            },
-            {
                 name: 'product',
                 prop: 'product',
                 dataType: 'PICKUP',
@@ -239,6 +224,21 @@ export class MobMainDataEditModel {
                 name: 'lasteditedby',
                 prop: 'lasteditedby',
                 dataType: 'SSCODELIST',
+            },
+            {
+                name: 'steps',
+                prop: 'steps',
+                dataType: 'LONGTEXT',
+            },
+            {
+                name: 'comment',
+                prop: 'comment',
+                dataType: 'HTMLTEXT',
+            },
+            {
+                name: 'files',
+                prop: 'files',
+                dataType: 'TEXT',
             },
             {
                 name: 'bug',

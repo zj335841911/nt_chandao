@@ -66,161 +66,6 @@
 </app-form-item>
 
 
-
-<app-form-group 
-    class='' 
-    layoutType='TABLE_24COL' 
-    titleStyle='' 
-    uiStyle="DEFAULT" 
-    v-show="detailsModel.grouppanel6.visible" 
-    :uiActionGroup="detailsModel.grouppanel6.uiActionGroup" 
-    :caption="$t('task.mobmainedit_form.details.grouppanel6')" 
-    :isShowCaption="true" 
-    :titleBarCloseMode="0" 
-    :isInfoGroupMode="false" 
-    :data="transformData(data)"
-    :uiService="deUIService"
-    @groupuiactionclick="groupUIActionClick($event)">
-    
-<app-form-item 
-    name='desc' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="NONE" 
-    ref="desc_item"  
-    :itemValue="this.data.desc" 
-    v-show="detailsModel.desc.visible" 
-    :itemRules="this.rules.desc" 
-    :caption="$t('task.mobmainedit_form.details.desc')"  
-    :labelWidth="0"  
-    :isShowCaption="false"
-    :error="detailsModel.desc.error" 
-    :isEmptyCaption="false">
-        <app-mob-rich-text-editor-pms :formState="formState" :value="data.desc" @change="(val) =>{this.data.desc =val}" :disabled="detailsModel.desc.disabled" :data="JSON.stringify(this.data)"  name="desc" :uploadparams='{objecttype:"task",objectid: "%id%",version:"editor"}' :exportparams='{objecttype:"task",objectid: "%id%",version:"editor"}'  style=""/>
-
-</app-form-item>
-
-
-    
-</app-form-group>
-
-
-
-<app-form-group 
-    class='' 
-    layoutType='TABLE_24COL' 
-    titleStyle='' 
-    uiStyle="DEFAULT" 
-    v-show="detailsModel.grouppanel7.visible" 
-    :uiActionGroup="detailsModel.grouppanel7.uiActionGroup" 
-    :caption="$t('task.mobmainedit_form.details.grouppanel7')" 
-    :isShowCaption="true" 
-    :titleBarCloseMode="0" 
-    :isInfoGroupMode="false" 
-    :data="transformData(data)"
-    :uiService="deUIService"
-    @groupuiactionclick="groupUIActionClick($event)">
-    
-<app-form-item 
-    name='comment' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="NONE" 
-    ref="comment_item"  
-    :itemValue="this.data.comment" 
-    v-show="detailsModel.comment.visible" 
-    :itemRules="this.rules.comment" 
-    :caption="$t('task.mobmainedit_form.details.comment')"  
-    :labelWidth="0"  
-    :isShowCaption="false"
-    :error="detailsModel.comment.error" 
-    :isEmptyCaption="false">
-        <app-mob-rich-text-editor-pms :formState="formState" :value="data.comment" @change="(val) =>{this.data.comment =val}" :disabled="detailsModel.comment.disabled" :data="JSON.stringify(this.data)"  name="comment" :uploadparams='{objecttype:"task",objectid: "%id%",version:"editor"}' :exportparams='{objecttype:"task",objectid: "%id%",version:"editor"}'  style=""/>
-
-</app-form-item>
-
-
-    
-</app-form-group>
-
-
-
-<app-form-item 
-    name='files' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="TOP" 
-    ref="files_item"  
-    :itemValue="this.data.files" 
-    v-show="detailsModel.files.visible" 
-    :itemRules="this.rules.files" 
-    :caption="$t('task.mobmainedit_form.details.files')"  
-    :labelWidth="100"  
-    :isShowCaption="true"
-    :disabled="detailsModel.files.disabled"
-    :error="detailsModel.files.error" 
-    :isEmptyCaption="false">
-        <app-mob-file-upload 
-    name='files' 
-    style="overflow: auto;" 
-    :multiple="true" 
-    :formState="formState" 
-    :ignorefieldvaluechange="ignorefieldvaluechange" 
-    :data="JSON.stringify(this.data)" 
-    :value="data.files" 
-    :disabled="detailsModel.files.disabled" 
-    :context="context" 
-    :viewparams="viewparams" 
-    :uploadParam='{}' 
-    :exportParam='{}' 
-    @formitemvaluechange="onFormItemValueChange" />
-</app-form-item>
-
-
-
-<app-form-group 
-    class='' 
-    layoutType='TABLE_24COL' 
-    titleStyle='' 
-    uiStyle="DEFAULT" 
-    v-show="detailsModel.grouppanel2.visible" 
-    :uiActionGroup="detailsModel.grouppanel2.uiActionGroup" 
-    :caption="$t('task.mobmainedit_form.details.grouppanel2')" 
-    :isShowCaption="false" 
-    :titleBarCloseMode="0" 
-    :isInfoGroupMode="false" 
-    :data="transformData(data)"
-    :uiService="deUIService"
-    @groupuiactionclick="groupUIActionClick($event)">
-    
-<app-form-druipart
-    class='' 
-    parameterName='task' 
-    refviewtype='DEMOBMDVIEW9'  
-    refreshitems='' 
-    viewname='action-mob-mdview9' 
-    v-show="detailsModel.druipart1.visible" 
-    :caption="$t('task.mobmainedit_form.details.druipart1')"  
-    paramItem='task' 
-    style="" 
-    :formState="formState" 
-    :parentdata='{"srfparentdename":"ZT_TASK","SRFPARENTTYPE":"CUSTOM"}' 
-    :parameters="[
-    ]" 
-    tempMode='0'
-    :context="context" 
-    :viewparams="viewparams" 
-    :navigateContext ='{ } ' 
-    :navigateParam ='{ } ' 
-    :ignorefieldvaluechange="ignorefieldvaluechange" 
-    :data="JSON.stringify(this.data)"  
-    @drdatasaved="drdatasaved($event)"/>
-
-
-    
-</app-form-group>
-
-
     
 </app-form-group>
 
@@ -1060,6 +905,161 @@
 </app-form-item>
 
 
+
+<app-form-group 
+    class='' 
+    layoutType='TABLE_24COL' 
+    titleStyle='' 
+    uiStyle="DEFAULT" 
+    v-show="detailsModel.grouppanel6.visible" 
+    :uiActionGroup="detailsModel.grouppanel6.uiActionGroup" 
+    :caption="$t('task.mobmainedit_form.details.grouppanel6')" 
+    :isShowCaption="true" 
+    :titleBarCloseMode="0" 
+    :isInfoGroupMode="false" 
+    :data="transformData(data)"
+    :uiService="deUIService"
+    @groupuiactionclick="groupUIActionClick($event)">
+    
+<app-form-item 
+    name='desc' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="NONE" 
+    ref="desc_item"  
+    :itemValue="this.data.desc" 
+    v-show="detailsModel.desc.visible" 
+    :itemRules="this.rules.desc" 
+    :caption="$t('task.mobmainedit_form.details.desc')"  
+    :labelWidth="0"  
+    :isShowCaption="false"
+    :error="detailsModel.desc.error" 
+    :isEmptyCaption="false">
+        <app-mob-rich-text-editor-pms :formState="formState" :value="data.desc" @change="(val) =>{this.data.desc =val}" :disabled="detailsModel.desc.disabled" :data="JSON.stringify(this.data)"  name="desc" :uploadparams='{objecttype:"task",objectid: "%id%",version:"editor"}' :exportparams='{objecttype:"task",objectid: "%id%",version:"editor"}'  style=""/>
+
+</app-form-item>
+
+
+    
+</app-form-group>
+
+
+
+<app-form-group 
+    class='' 
+    layoutType='TABLE_24COL' 
+    titleStyle='' 
+    uiStyle="DEFAULT" 
+    v-show="detailsModel.grouppanel7.visible" 
+    :uiActionGroup="detailsModel.grouppanel7.uiActionGroup" 
+    :caption="$t('task.mobmainedit_form.details.grouppanel7')" 
+    :isShowCaption="true" 
+    :titleBarCloseMode="0" 
+    :isInfoGroupMode="false" 
+    :data="transformData(data)"
+    :uiService="deUIService"
+    @groupuiactionclick="groupUIActionClick($event)">
+    
+<app-form-item 
+    name='comment' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="NONE" 
+    ref="comment_item"  
+    :itemValue="this.data.comment" 
+    v-show="detailsModel.comment.visible" 
+    :itemRules="this.rules.comment" 
+    :caption="$t('task.mobmainedit_form.details.comment')"  
+    :labelWidth="0"  
+    :isShowCaption="false"
+    :error="detailsModel.comment.error" 
+    :isEmptyCaption="false">
+        <app-mob-rich-text-editor-pms :formState="formState" :value="data.comment" @change="(val) =>{this.data.comment =val}" :disabled="detailsModel.comment.disabled" :data="JSON.stringify(this.data)"  name="comment" :uploadparams='{objecttype:"task",objectid: "%id%",version:"editor"}' :exportparams='{objecttype:"task",objectid: "%id%",version:"editor"}'  style=""/>
+
+</app-form-item>
+
+
+    
+</app-form-group>
+
+
+
+<app-form-item 
+    name='files' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="TOP" 
+    ref="files_item"  
+    :itemValue="this.data.files" 
+    v-show="detailsModel.files.visible" 
+    :itemRules="this.rules.files" 
+    :caption="$t('task.mobmainedit_form.details.files')"  
+    :labelWidth="100"  
+    :isShowCaption="true"
+    :disabled="detailsModel.files.disabled"
+    :error="detailsModel.files.error" 
+    :isEmptyCaption="false">
+        <app-mob-file-upload 
+    name='files' 
+    style="overflow: auto;" 
+    :multiple="true" 
+    :formState="formState" 
+    :ignorefieldvaluechange="ignorefieldvaluechange" 
+    :data="JSON.stringify(this.data)" 
+    :value="data.files" 
+    :disabled="detailsModel.files.disabled" 
+    :context="context" 
+    :viewparams="viewparams" 
+    :uploadParam='{}' 
+    :exportParam='{}' 
+    @formitemvaluechange="onFormItemValueChange" />
+</app-form-item>
+
+
+
+<app-form-group 
+    class='' 
+    layoutType='TABLE_24COL' 
+    titleStyle='' 
+    uiStyle="DEFAULT" 
+    v-show="detailsModel.grouppanel2.visible" 
+    :uiActionGroup="detailsModel.grouppanel2.uiActionGroup" 
+    :caption="$t('task.mobmainedit_form.details.grouppanel2')" 
+    :isShowCaption="false" 
+    :titleBarCloseMode="0" 
+    :isInfoGroupMode="false" 
+    :data="transformData(data)"
+    :uiService="deUIService"
+    @groupuiactionclick="groupUIActionClick($event)">
+    
+<app-form-druipart
+    class='' 
+    parameterName='task' 
+    refviewtype='DEMOBMDVIEW9'  
+    refreshitems='' 
+    viewname='action-mob-mdview9' 
+    v-show="detailsModel.druipart1.visible" 
+    :caption="$t('task.mobmainedit_form.details.druipart1')"  
+    paramItem='task' 
+    style="" 
+    :formState="formState" 
+    :parentdata='{"srfparentdename":"ZT_TASK","SRFPARENTTYPE":"CUSTOM"}' 
+    :parameters="[
+    ]" 
+    tempMode='0'
+    :context="context" 
+    :viewparams="viewparams" 
+    :navigateContext ='{ } ' 
+    :navigateParam ='{ } ' 
+    :ignorefieldvaluechange="ignorefieldvaluechange" 
+    :data="JSON.stringify(this.data)"  
+    @drdatasaved="drdatasaved($event)"/>
+
+
+    
+</app-form-group>
+
+
     
 </app-form-group>
 
@@ -1390,9 +1390,6 @@ export default class MobMainEditBase extends Vue implements ControlInterface {
         id: null,
         name: null,
         multiple: null,
-        desc: null,
-        comment: null,
-        files: null,
         projectname: null,
         project: null,
         module: null,
@@ -1422,6 +1419,9 @@ export default class MobMainEditBase extends Vue implements ControlInterface {
         closedby: null,
         closedreason: null,
         closeddate: null,
+        desc: null,
+        comment: null,
+        files: null,
         task: null,
     };
 
@@ -1561,14 +1561,6 @@ export default class MobMainEditBase extends Vue implements ControlInterface {
      * @memberof MobMainEdit
      */
     protected detailsModel: any = {
-        grouppanel6: new FormGroupPanelModel({ caption: '任务描述', detailType: 'GROUPPANEL', name: 'grouppanel6', visible: true, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'task.mobmainedit_form', extractMode: 'ITEM', details: [] } })
-, 
-        grouppanel7: new FormGroupPanelModel({ caption: '备注', detailType: 'GROUPPANEL', name: 'grouppanel7', visible: true, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'task.mobmainedit_form', extractMode: 'ITEM', details: [] } })
-, 
-        druipart1: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart1', visible: true, isShowCaption: true, form: this })
-, 
-        grouppanel2: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel2', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'task.mobmainedit_form', extractMode: 'ITEM', details: [] } })
-, 
         group1: new FormGroupPanelModel({ caption: '任务基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'task.mobmainedit_form', extractMode: 'ITEM', details: [] } })
 , 
         druipart2: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart2', visible: true, isShowCaption: true, form: this })
@@ -1578,6 +1570,14 @@ export default class MobMainEditBase extends Vue implements ControlInterface {
         grouppanel1: new FormGroupPanelModel({ caption: '基本信息', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'task.mobmainedit_form', extractMode: 'ITEM', details: [] } })
 , 
         grouppanel4: new FormGroupPanelModel({ caption: '工时信息', detailType: 'GROUPPANEL', name: 'grouppanel4', visible: true, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'task.mobmainedit_form', extractMode: 'ITEM', details: [] } })
+, 
+        grouppanel6: new FormGroupPanelModel({ caption: '任务描述', detailType: 'GROUPPANEL', name: 'grouppanel6', visible: true, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'task.mobmainedit_form', extractMode: 'ITEM', details: [] } })
+, 
+        grouppanel7: new FormGroupPanelModel({ caption: '备注', detailType: 'GROUPPANEL', name: 'grouppanel7', visible: true, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'task.mobmainedit_form', extractMode: 'ITEM', details: [] } })
+, 
+        druipart1: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart1', visible: true, isShowCaption: true, form: this })
+, 
+        grouppanel2: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel2', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'task.mobmainedit_form', extractMode: 'ITEM', details: [] } })
 , 
         grouppanel5: new FormGroupPanelModel({ caption: '任务的一生', detailType: 'GROUPPANEL', name: 'grouppanel5', visible: true, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'task.mobmainedit_form', extractMode: 'ITEM', details: [] } })
 , 
@@ -1606,12 +1606,6 @@ export default class MobMainEditBase extends Vue implements ControlInterface {
         name: new FormItemModel({ caption: '任务名称', detailType: 'FORMITEM', name: 'name', visible: true, isShowCaption: false, form: this, disabled: false, enableCond: 3 })
 , 
         multiple: new FormItemModel({ caption: '多人任务', detailType: 'FORMITEM', name: 'multiple', visible: false, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        desc: new FormItemModel({ caption: '任务描述', detailType: 'FORMITEM', name: 'desc', visible: true, isShowCaption: false, form: this, disabled: false, enableCond: 3 })
-, 
-        comment: new FormItemModel({ caption: '备注', detailType: 'FORMITEM', name: 'comment', visible: true, isShowCaption: false, form: this, disabled: false, enableCond: 3 })
-, 
-        files: new FormItemModel({ caption: '附件', detailType: 'FORMITEM', name: 'files', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         projectname: new FormItemModel({ caption: '所属项目', detailType: 'FORMITEM', name: 'projectname', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -1670,6 +1664,12 @@ export default class MobMainEditBase extends Vue implements ControlInterface {
         closedreason: new FormItemModel({ caption: '关闭原因', detailType: 'FORMITEM', name: 'closedreason', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         closeddate: new FormItemModel({ caption: '关闭时间', detailType: 'FORMITEM', name: 'closeddate', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        desc: new FormItemModel({ caption: '任务描述', detailType: 'FORMITEM', name: 'desc', visible: true, isShowCaption: false, form: this, disabled: false, enableCond: 3 })
+, 
+        comment: new FormItemModel({ caption: '备注', detailType: 'FORMITEM', name: 'comment', visible: true, isShowCaption: false, form: this, disabled: false, enableCond: 3 })
+, 
+        files: new FormItemModel({ caption: '附件', detailType: 'FORMITEM', name: 'files', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
     };
 
@@ -1803,42 +1803,6 @@ export default class MobMainEditBase extends Vue implements ControlInterface {
     @Watch('data.multiple')
     onMultipleChange(newVal: any, oldVal: any) {
         this.formDataChange({ name: 'multiple', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 desc 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobMainEdit
-     */
-    @Watch('data.desc')
-    onDescChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'desc', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 comment 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobMainEdit
-     */
-    @Watch('data.comment')
-    onCommentChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'comment', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 files 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobMainEdit
-     */
-    @Watch('data.files')
-    onFilesChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'files', newVal: newVal, oldVal: oldVal });
     }
 
     /**
@@ -2189,6 +2153,42 @@ export default class MobMainEditBase extends Vue implements ControlInterface {
         this.formDataChange({ name: 'closeddate', newVal: newVal, oldVal: oldVal });
     }
 
+    /**
+     * 监控表单属性 desc 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMainEdit
+     */
+    @Watch('data.desc')
+    onDescChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'desc', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 comment 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMainEdit
+     */
+    @Watch('data.comment')
+    onCommentChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'comment', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 files 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMainEdit
+     */
+    @Watch('data.files')
+    onFilesChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'files', newVal: newVal, oldVal: oldVal });
+    }
+
 
     /**
      * 重置表单项值
@@ -2227,10 +2227,6 @@ export default class MobMainEditBase extends Vue implements ControlInterface {
                 
 
 
-
-
-
-
         if (Object.is(name, '') || Object.is(name, 'multiple')) {
             let ret = false;
             const _multiple = this.data.multiple;
@@ -2255,6 +2251,10 @@ export default class MobMainEditBase extends Vue implements ControlInterface {
 
 
 
+
+
+
+
         if (Object.is(name, '') || Object.is(name, 'parent')) {
             let ret = false;
             const _parent = this.data.parent;
@@ -2263,9 +2263,6 @@ export default class MobMainEditBase extends Vue implements ControlInterface {
             }
             this.detailsModel.multiple.setVisible(ret);
         }
-
-
-
 
 
 
@@ -2319,6 +2316,9 @@ export default class MobMainEditBase extends Vue implements ControlInterface {
             }
             this.detailsModel.left.setDisabled(!ret);
         }
+
+
+
 
 
 

@@ -295,11 +295,11 @@ export default {
 	},
 	mobmaindataedit_form: {
 		details: {
-			druipart1: '', 
-			grouppanel6: '历史记录', 
 			grouppanel1: '分组面板', 
 			grouppanel3: '基本信息', 
 			grouppanel4: '项目/需求/任务', 
+			druipart1: '', 
+			grouppanel6: '历史记录', 
 			grouppanel5: 'Bug的一生', 
 			grouppanel2: '分组面板', 
 			group1: 'Bug基本信息', 
@@ -314,9 +314,6 @@ export default {
 			srfsourcekey: '', 
 			id: 'Bug编号', 
 			title: 'Bug标题', 
-			steps: '重现步骤', 
-			comment: '备注', 
-			files: '附件', 
 			product: '所属产品', 
 			productname: '产品', 
 			branch: '', 
@@ -350,6 +347,9 @@ export default {
 			resolvedbuild: '解决版本', 
 			closedby: '由谁关闭', 
 			lasteditedby: '最后修改者', 
+			steps: '重现步骤', 
+			comment: '备注', 
+			files: '附件', 
 		},
 		uiactions: {
 		},

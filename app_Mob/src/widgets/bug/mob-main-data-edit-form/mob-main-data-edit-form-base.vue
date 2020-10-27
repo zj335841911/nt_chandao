@@ -57,123 +57,6 @@
 </app-form-item>
 
 
-
-<app-form-item 
-    name='steps' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="TOP" 
-    ref="steps_item"  
-    :itemValue="this.data.steps" 
-    v-show="detailsModel.steps.visible" 
-    :itemRules="this.rules.steps" 
-    :caption="$t('bug.mobmaindataedit_form.details.steps')"  
-    :labelWidth="100"  
-    :isShowCaption="true"
-    :error="detailsModel.steps.error" 
-    :isEmptyCaption="false">
-        <app-mob-rich-text-editor-pms :formState="formState" :value="data.steps" @change="(val) =>{this.data.steps =val}" :disabled="detailsModel.steps.disabled" :data="JSON.stringify(this.data)"  name="steps" :uploadparams='{objecttype:"bug",version:"editor"}' :exportparams='{objecttype:"bug",version:"editor"}'  style=""/>
-
-</app-form-item>
-
-
-
-<app-form-item 
-    name='comment' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="TOP" 
-    ref="comment_item"  
-    :itemValue="this.data.comment" 
-    v-show="detailsModel.comment.visible" 
-    :itemRules="this.rules.comment" 
-    :caption="$t('bug.mobmaindataedit_form.details.comment')"  
-    :labelWidth="100"  
-    :isShowCaption="true"
-    :error="detailsModel.comment.error" 
-    :isEmptyCaption="false">
-        <app-mob-rich-text-editor-pms :formState="formState" :value="data.comment" @change="(val) =>{this.data.comment =val}" :disabled="detailsModel.comment.disabled" :data="JSON.stringify(this.data)"  name="comment" :uploadparams='{objecttype:"bug",version:"editor"}' :exportparams='{objecttype:"bug",version:"editor"}'  style=""/>
-
-</app-form-item>
-
-
-
-<app-form-item 
-    name='files' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="TOP" 
-    ref="files_item"  
-    :itemValue="this.data.files" 
-    v-show="detailsModel.files.visible" 
-    :itemRules="this.rules.files" 
-    :caption="$t('bug.mobmaindataedit_form.details.files')"  
-    :labelWidth="100"  
-    :isShowCaption="true"
-    :disabled="detailsModel.files.disabled"
-    :error="detailsModel.files.error" 
-    :isEmptyCaption="false">
-        <app-mob-file-upload 
-    name='files' 
-    style="overflow: auto;" 
-    :multiple="true" 
-    :formState="formState" 
-    :ignorefieldvaluechange="ignorefieldvaluechange" 
-    :data="JSON.stringify(this.data)" 
-    :value="data.files" 
-    :disabled="detailsModel.files.disabled" 
-    :context="context" 
-    :viewparams="viewparams" 
-    :uploadParam='{}' 
-    :exportParam='{}' 
-    @formitemvaluechange="onFormItemValueChange" />
-</app-form-item>
-
-
-
-<app-form-group 
-    class='' 
-    layoutType='TABLE_24COL' 
-    titleStyle='' 
-    uiStyle="DEFAULT" 
-    v-show="detailsModel.grouppanel6.visible" 
-    :uiActionGroup="detailsModel.grouppanel6.uiActionGroup" 
-    :caption="$t('bug.mobmaindataedit_form.details.grouppanel6')" 
-    :isShowCaption="false" 
-    :titleBarCloseMode="0" 
-    :isInfoGroupMode="false" 
-    :data="transformData(data)"
-    :uiService="deUIService"
-    @groupuiactionclick="groupUIActionClick($event)">
-    
-<app-form-druipart
-    class='' 
-    parameterName='bug' 
-    refviewtype='DEMOBMDVIEW9'  
-    refreshitems='' 
-    viewname='action-mob-mdview9' 
-    v-show="detailsModel.druipart1.visible" 
-    :caption="$t('bug.mobmaindataedit_form.details.druipart1')"  
-    paramItem='bug' 
-    style="" 
-    :formState="formState" 
-    :parentdata='{"srfparentdename":"ZT_BUG","SRFPARENTTYPE":"CUSTOM"}' 
-    :parameters="[
-    ]" 
-    tempMode='0'
-    :context="context" 
-    :viewparams="viewparams" 
-    :navigateContext ='{ } ' 
-    :navigateParam ='{ } ' 
-    :ignorefieldvaluechange="ignorefieldvaluechange" 
-    :data="JSON.stringify(this.data)"  
-    @drdatasaved="drdatasaved($event)"/>
-
-
-    
-</app-form-group>
-
-
     
 </app-form-group>
 
@@ -1100,6 +983,123 @@
 </app-form-item>
 
 
+
+<app-form-item 
+    name='steps' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="TOP" 
+    ref="steps_item"  
+    :itemValue="this.data.steps" 
+    v-show="detailsModel.steps.visible" 
+    :itemRules="this.rules.steps" 
+    :caption="$t('bug.mobmaindataedit_form.details.steps')"  
+    :labelWidth="100"  
+    :isShowCaption="true"
+    :error="detailsModel.steps.error" 
+    :isEmptyCaption="false">
+        <app-mob-rich-text-editor-pms :formState="formState" :value="data.steps" @change="(val) =>{this.data.steps =val}" :disabled="detailsModel.steps.disabled" :data="JSON.stringify(this.data)"  name="steps" :uploadparams='{objecttype:"bug",version:"editor"}' :exportparams='{objecttype:"bug",version:"editor"}'  style=""/>
+
+</app-form-item>
+
+
+
+<app-form-item 
+    name='comment' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="TOP" 
+    ref="comment_item"  
+    :itemValue="this.data.comment" 
+    v-show="detailsModel.comment.visible" 
+    :itemRules="this.rules.comment" 
+    :caption="$t('bug.mobmaindataedit_form.details.comment')"  
+    :labelWidth="100"  
+    :isShowCaption="true"
+    :error="detailsModel.comment.error" 
+    :isEmptyCaption="false">
+        <app-mob-rich-text-editor-pms :formState="formState" :value="data.comment" @change="(val) =>{this.data.comment =val}" :disabled="detailsModel.comment.disabled" :data="JSON.stringify(this.data)"  name="comment" :uploadparams='{objecttype:"bug",version:"editor"}' :exportparams='{objecttype:"bug",version:"editor"}'  style=""/>
+
+</app-form-item>
+
+
+
+<app-form-item 
+    name='files' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="TOP" 
+    ref="files_item"  
+    :itemValue="this.data.files" 
+    v-show="detailsModel.files.visible" 
+    :itemRules="this.rules.files" 
+    :caption="$t('bug.mobmaindataedit_form.details.files')"  
+    :labelWidth="100"  
+    :isShowCaption="true"
+    :disabled="detailsModel.files.disabled"
+    :error="detailsModel.files.error" 
+    :isEmptyCaption="false">
+        <app-mob-file-upload 
+    name='files' 
+    style="overflow: auto;" 
+    :multiple="true" 
+    :formState="formState" 
+    :ignorefieldvaluechange="ignorefieldvaluechange" 
+    :data="JSON.stringify(this.data)" 
+    :value="data.files" 
+    :disabled="detailsModel.files.disabled" 
+    :context="context" 
+    :viewparams="viewparams" 
+    :uploadParam='{}' 
+    :exportParam='{}' 
+    @formitemvaluechange="onFormItemValueChange" />
+</app-form-item>
+
+
+
+<app-form-group 
+    class='' 
+    layoutType='TABLE_24COL' 
+    titleStyle='' 
+    uiStyle="DEFAULT" 
+    v-show="detailsModel.grouppanel6.visible" 
+    :uiActionGroup="detailsModel.grouppanel6.uiActionGroup" 
+    :caption="$t('bug.mobmaindataedit_form.details.grouppanel6')" 
+    :isShowCaption="false" 
+    :titleBarCloseMode="0" 
+    :isInfoGroupMode="false" 
+    :data="transformData(data)"
+    :uiService="deUIService"
+    @groupuiactionclick="groupUIActionClick($event)">
+    
+<app-form-druipart
+    class='' 
+    parameterName='bug' 
+    refviewtype='DEMOBMDVIEW9'  
+    refreshitems='' 
+    viewname='action-mob-mdview9' 
+    v-show="detailsModel.druipart1.visible" 
+    :caption="$t('bug.mobmaindataedit_form.details.druipart1')"  
+    paramItem='bug' 
+    style="" 
+    :formState="formState" 
+    :parentdata='{"srfparentdename":"ZT_BUG","SRFPARENTTYPE":"CUSTOM"}' 
+    :parameters="[
+    ]" 
+    tempMode='0'
+    :context="context" 
+    :viewparams="viewparams" 
+    :navigateContext ='{ } ' 
+    :navigateParam ='{ } ' 
+    :ignorefieldvaluechange="ignorefieldvaluechange" 
+    :data="JSON.stringify(this.data)"  
+    @drdatasaved="drdatasaved($event)"/>
+
+
+    
+</app-form-group>
+
+
     
 </app-form-group>
 
@@ -1433,9 +1433,6 @@ export default class MobMainDataEditBase extends Vue implements ControlInterface
         srfsourcekey: null,
         id: null,
         title: null,
-        steps: null,
-        comment: null,
-        files: null,
         product: null,
         productname: null,
         branch: null,
@@ -1469,6 +1466,9 @@ export default class MobMainDataEditBase extends Vue implements ControlInterface
         resolvedbuild: null,
         closedby: null,
         lasteditedby: null,
+        steps: null,
+        comment: null,
+        files: null,
         bug: null,
     };
 
@@ -1608,15 +1608,15 @@ export default class MobMainDataEditBase extends Vue implements ControlInterface
      * @memberof MobMainDataEdit
      */
     protected detailsModel: any = {
-        druipart1: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart1', visible: true, isShowCaption: true, form: this })
-, 
-        grouppanel6: new FormGroupPanelModel({ caption: '历史记录', detailType: 'GROUPPANEL', name: 'grouppanel6', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'bug.mobmaindataedit_form', extractMode: 'ITEM', details: [] } })
-, 
         grouppanel1: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'bug.mobmaindataedit_form', extractMode: 'ITEM', details: [] } })
 , 
         grouppanel3: new FormGroupPanelModel({ caption: '基本信息', detailType: 'GROUPPANEL', name: 'grouppanel3', visible: true, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'bug.mobmaindataedit_form', extractMode: 'ITEM', details: [] } })
 , 
         grouppanel4: new FormGroupPanelModel({ caption: '项目/需求/任务', detailType: 'GROUPPANEL', name: 'grouppanel4', visible: true, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'bug.mobmaindataedit_form', extractMode: 'ITEM', details: [] } })
+, 
+        druipart1: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart1', visible: true, isShowCaption: true, form: this })
+, 
+        grouppanel6: new FormGroupPanelModel({ caption: '历史记录', detailType: 'GROUPPANEL', name: 'grouppanel6', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'bug.mobmaindataedit_form', extractMode: 'ITEM', details: [] } })
 , 
         grouppanel5: new FormGroupPanelModel({ caption: 'Bug的一生', detailType: 'GROUPPANEL', name: 'grouppanel5', visible: true, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'bug.mobmaindataedit_form', extractMode: 'ITEM', details: [] } })
 , 
@@ -1645,12 +1645,6 @@ export default class MobMainDataEditBase extends Vue implements ControlInterface
         id: new FormItemModel({ caption: 'Bug编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
 , 
         title: new FormItemModel({ caption: 'Bug标题', detailType: 'FORMITEM', name: 'title', visible: true, isShowCaption: false, form: this, disabled: false, enableCond: 3 })
-, 
-        steps: new FormItemModel({ caption: '重现步骤', detailType: 'FORMITEM', name: 'steps', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        comment: new FormItemModel({ caption: '备注', detailType: 'FORMITEM', name: 'comment', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        files: new FormItemModel({ caption: '附件', detailType: 'FORMITEM', name: 'files', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         product: new FormItemModel({ caption: '所属产品', detailType: 'FORMITEM', name: 'product', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -1717,6 +1711,12 @@ export default class MobMainDataEditBase extends Vue implements ControlInterface
         closedby: new FormItemModel({ caption: '由谁关闭', detailType: 'FORMITEM', name: 'closedby', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         lasteditedby: new FormItemModel({ caption: '最后修改者', detailType: 'FORMITEM', name: 'lasteditedby', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
+, 
+        steps: new FormItemModel({ caption: '重现步骤', detailType: 'FORMITEM', name: 'steps', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        comment: new FormItemModel({ caption: '备注', detailType: 'FORMITEM', name: 'comment', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        files: new FormItemModel({ caption: '附件', detailType: 'FORMITEM', name: 'files', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
     };
 
@@ -1838,42 +1838,6 @@ export default class MobMainDataEditBase extends Vue implements ControlInterface
     @Watch('data.title')
     onTitleChange(newVal: any, oldVal: any) {
         this.formDataChange({ name: 'title', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 steps 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobMainDataEdit
-     */
-    @Watch('data.steps')
-    onStepsChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'steps', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 comment 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobMainDataEdit
-     */
-    @Watch('data.comment')
-    onCommentChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'comment', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 files 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobMainDataEdit
-     */
-    @Watch('data.files')
-    onFilesChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'files', newVal: newVal, oldVal: oldVal });
     }
 
     /**
@@ -2270,6 +2234,42 @@ export default class MobMainDataEditBase extends Vue implements ControlInterface
     @Watch('data.lasteditedby')
     onLasteditedbyChange(newVal: any, oldVal: any) {
         this.formDataChange({ name: 'lasteditedby', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 steps 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMainDataEdit
+     */
+    @Watch('data.steps')
+    onStepsChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'steps', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 comment 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMainDataEdit
+     */
+    @Watch('data.comment')
+    onCommentChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'comment', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 files 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMainDataEdit
+     */
+    @Watch('data.files')
+    onFilesChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'files', newVal: newVal, oldVal: oldVal });
     }
 
 

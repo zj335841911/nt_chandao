@@ -119,11 +119,17 @@
     :disabled="detailsModel.future.disabled"
     :error="detailsModel.future.error" 
     :isEmptyCaption="false">
-        <app-mob-switch 
-    class="app-form-item-switch" 
-    :value="data.future"  
-    :disabled="detailsModel.future.disabled"
-    @change="($event)=>this.data.future = $event" />
+        <app-mob-check-list 
+    type="static"  
+    tag="Date_disable"
+    :disabled="detailsModel.future.disabled" 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :value="data.future"   
+    :navigateContext ='{ } '
+    :navigateParam ='{ } '
+    @change="($event)=>this.data.future = $event"/>
 </app-form-item>
 
 

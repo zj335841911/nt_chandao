@@ -66,19 +66,6 @@ export class MobMainEditModel {
                 dataType: 'TEXT',
             },
             {
-                name: 'desc',
-                prop: 'desc',
-                dataType: 'LONGTEXT',
-            },
-            {
-                name: 'comment',
-                prop: 'comment',
-                dataType: 'HTMLTEXT',
-            },
-            {
-                name: 'files',
-            },
-            {
                 name: 'projectname',
                 prop: 'projectname',
                 dataType: 'PICKUPTEXT',
@@ -222,6 +209,19 @@ export class MobMainEditModel {
                 name: 'closeddate',
                 prop: 'closeddate',
                 dataType: 'DATETIME',
+            },
+            {
+                name: 'desc',
+                prop: 'desc',
+                dataType: 'LONGTEXT',
+            },
+            {
+                name: 'comment',
+                prop: 'comment',
+                dataType: 'HTMLTEXT',
+            },
+            {
+                name: 'files',
             },
             {
                 name: 'task',

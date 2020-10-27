@@ -31,50 +31,6 @@
                           <ion-checkbox slot="start" :checked="item.checked" v-show="isChoose" @click.stop="checkboxSelect(item)"></ion-checkbox>
                           <app-list-index-text :item="item" :index="item.id" @clickItem="item_click"></app-list-index-text>
                       </template>
-                      <template v-else-if="(viewType == 'DEMOBMDVIEW' || viewType == 'DEMOBMDVIEW9') && controlStyle === 'SWIPERVIEW'">
-                          <app-list-index-text :item="item" :index="item.id" @clickItem="item_click"></app-list-index-text>
-                      </template>
-                                      <template v-else-if="viewType == 'DEMOBWFMDVIEW' || viewType == 'DEMOBWFDYNAEXPMDVIEW'">
-                    <li v-for="item in items" @click="goPage(item)" :key="item.srfkey" class="app-mob-mdctrl-item">
-                        <van-panel :title="item.srfmajortext ">
-                            <div class="van-cell van-panel__header" >
-                                <div class="van-cell__title time">
-                                    <div class="van-cell__label">
-                                        {{ item.starttime }}
-                                    </div>
-                                </div>
-                                <div class="van-cell__title subtitle">
-                                    <span>步骤</span>
-                                    <div class="van-cell__label">
-                                        {{ item.wfstep }}
-                                    </div>
-                                </div>
-                                <div class="van-cell__title content" >
-                                    <span>{{item.startusername}}</span>
-                                    <div class="van-cell__label">
-                                        {{ item.documentcentername }}
-                                    </div>
-                                </div>
-                            </div>
-                        </van-panel>
-                    </li>
-                </template>
-                      <template v-else>
-                    <ion-list  v-model="selectedArray"   v-if="isMutli" class="pickUpList">
-                        <ion-item v-for="(item, index) of items" :key="index" class="app-mob-mdctrl-item" >
-                            <ion-checkbox color="secondary" :value="item.srfkey" @ionChange="checkboxChange"  slot="end"></ion-checkbox>
-                            <ion-label>{{item.name}}</ion-label>
-                        </ion-item>
-                    </ion-list>
-                    <div class="pickUpList">
-                    <ion-radio-group  :value="selectedValue" v-if="!isMutli">
-                        <ion-item v-for="(item, index) of items" :key="index" class="app-mob-mdctrl-item"  @click="onSimpleSelChange(item)">
-                            <ion-label>{{item.name}}</ion-label>
-                            <ion-radio slot="end" :value="item.srfkey"></ion-radio>
-                        </ion-item>
-                    </ion-radio-group>
-                    </div>
-                      </template>
                     </ion-item>
                   </ion-item-sliding>
                 </ion-list>
@@ -949,6 +905,7 @@ export default class MobBase extends Vue implements ControlInterface {
 
         this.$emit('load', (response.data && response.data.records) ? response.data.records : []);
         this.pageTotal = response.data.total;
+        this.$emit('pageTotalChange',this.pageTotal);
         if (type == 'top') {
             this.items = [];
             this.items = response.data.records;

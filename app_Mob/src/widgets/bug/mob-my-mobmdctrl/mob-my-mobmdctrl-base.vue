@@ -1000,6 +1000,7 @@ export default class Mob_MyBase extends Vue implements ControlInterface {
 
         this.$emit('load', (response.data && response.data.records) ? response.data.records : []);
         this.pageTotal = response.data.total;
+        this.$emit('pageTotalChange',this.pageTotal);
         if (type == 'top') {
             this.items = [];
             this.items = response.data.records;
