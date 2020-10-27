@@ -186,6 +186,9 @@ export default class TotalCurOpenedCaseModel {
       {
         name: 'modulename1',
       },
+      {
+        name: 'files',
+      },
     ]
   }
 

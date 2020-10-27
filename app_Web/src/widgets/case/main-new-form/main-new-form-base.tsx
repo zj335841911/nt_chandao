@@ -105,6 +105,7 @@ export class MainNewEditFormBase extends EditFormControlBase {
         precondition: null,
         keywords: null,
         id: null,
+        files: null,
         case:null,
     };
 
@@ -192,6 +193,8 @@ export class MainNewEditFormBase extends EditFormControlBase {
         keywords: new FormItemModel({ caption: '关键词', detailType: 'FORMITEM', name: 'keywords', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 
         id: new FormItemModel({ caption: '用例编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 0 }),
+
+        files: new FormItemModel({ caption: '附件', detailType: 'FORMITEM', name: 'files', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 
     };
 

@@ -186,6 +186,9 @@ export default class DashboardQuickActionModel {
       {
         name: 'modulename1',
       },
+      {
+        name: 'files',
+      },
     ]
   }
 

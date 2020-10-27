@@ -104,6 +104,7 @@ export class MainEditEditFormBase extends EditFormControlBase {
         storyname: null,
         type: null,
         stage: null,
+        version: null,
         pri: null,
         status: null,
         keywords: null,
@@ -204,6 +205,8 @@ export class MainEditEditFormBase extends EditFormControlBase {
         type: new FormItemModel({ caption: '用例类型', detailType: 'FORMITEM', name: 'type', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 
         stage: new FormItemModel({ caption: '适用阶段', detailType: 'FORMITEM', name: 'stage', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+
+        version: new FormItemModel({ caption: '用例版本', detailType: 'FORMITEM', name: 'version', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 
         pri: new FormItemModel({ caption: '优先级', detailType: 'FORMITEM', name: 'pri', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 

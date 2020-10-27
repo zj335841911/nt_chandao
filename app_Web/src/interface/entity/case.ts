@@ -461,4 +461,12 @@ export interface Case {
      * @memberof Case
      */
     modulename1?: any;
+
+    /**
+     * 附件
+     *
+     * @returns {*}
+     * @memberof Case
+     */
+    files?: any;
 }

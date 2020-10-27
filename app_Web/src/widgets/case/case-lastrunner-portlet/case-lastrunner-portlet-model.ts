@@ -186,6 +186,9 @@ export default class CaseLastrunnerModel {
       {
         name: 'modulename1',
       },
+      {
+        name: 'files',
+      },
     ]
   }
 

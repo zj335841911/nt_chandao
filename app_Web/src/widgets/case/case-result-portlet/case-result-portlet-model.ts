@@ -186,6 +186,9 @@ export default class CaseResultModel {
       {
         name: 'modulename1',
       },
+      {
+        name: 'files',
+      },
     ]
   }
 

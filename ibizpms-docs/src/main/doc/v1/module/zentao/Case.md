@@ -81,6 +81,7 @@ hide members
 |测试用例结果|LASTRUNRESULT1|SSCODELIST|&nbsp;|
 |是否收藏|ISFAVORITES|TEXT|&nbsp;|
 |模块名称|MODULENAME1|TEXT|&nbsp;|
+|附件|FILES|TEXT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -142,6 +143,7 @@ hide members
 |测试用例结果|默认规则|内容长度必须小于等于[200]|
 |是否收藏|默认规则|内容长度必须小于等于[200]|
 |模块名称|默认规则|内容长度必须小于等于[200]|
+|附件|默认规则|内容长度必须小于等于[1000]|
 
 ## 状态控制
 

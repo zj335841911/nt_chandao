@@ -186,6 +186,9 @@ export default class CaseModuleProjectModel {
       {
         name: 'modulename1',
       },
+      {
+        name: 'files',
+      },
     ]
   }
 

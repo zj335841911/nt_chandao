@@ -186,6 +186,9 @@ export default class TestDashboardQuickActionModel {
       {
         name: 'modulename1',
       },
+      {
+        name: 'files',
+      },
     ]
   }
 

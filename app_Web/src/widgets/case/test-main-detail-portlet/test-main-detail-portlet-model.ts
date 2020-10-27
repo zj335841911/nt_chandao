@@ -186,6 +186,9 @@ export default class TestMainDetailModel {
       {
         name: 'modulename1',
       },
+      {
+        name: 'files',
+      },
     ]
   }
 

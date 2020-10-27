@@ -5082,8 +5082,9 @@ POST
 | 54 | lastrunresult1 | String | 允许 | 测试用例结果 |
 | 55 | isfavorites | String | 允许 | 是否收藏 |
 | 56 | modulename1 | String | 允许 | 模块名称 |
-| 57 | ibzcasesteps | List<[IBZCaseStepDTO}](#IBZCaseStepDTO})> | 允许 | 用例步骤 |
-| 58 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 57 | files | String | 允许 | 附件 |
+| 58 | ibzcasesteps | List<[IBZCaseStepDTO}](#IBZCaseStepDTO})> | 允许 | 用例步骤 |
+| 59 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### IBZCaseStepDTO
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

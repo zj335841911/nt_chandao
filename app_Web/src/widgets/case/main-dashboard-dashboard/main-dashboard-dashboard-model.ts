@@ -186,6 +186,9 @@ export default class MainDashboardModel {
       {
         name: 'modulename1',
       },
+      {
+        name: 'files',
+      },
     ]
   }
 

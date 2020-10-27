@@ -57,6 +57,7 @@ export default {
     lastrunresult1: "测试用例结果",
     isfavorites: "是否收藏",
     modulename1: "模块名称",
+    files: "附件",
   },
 	views: {
 		editview: {
@@ -239,6 +240,7 @@ export default {
 			precondition: "前置条件", 
 			keywords: "关键词", 
 			id: "用例编号", 
+			files: "附件", 
 		},
 		uiactions: {
 		},
@@ -378,6 +380,7 @@ export default {
 			storyname: "需求名称", 
 			type: "用例类型", 
 			stage: "适用阶段", 
+			version: "用例版本", 
 			pri: "优先级", 
 			status: "用例状态", 
 			keywords: "关键词", 

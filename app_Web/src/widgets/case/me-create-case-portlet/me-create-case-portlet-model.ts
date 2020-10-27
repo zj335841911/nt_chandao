@@ -186,6 +186,9 @@ export default class MeCreateCaseModel {
       {
         name: 'modulename1',
       },
+      {
+        name: 'files',
+      },
     ]
   }
 

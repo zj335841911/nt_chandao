@@ -186,6 +186,9 @@ export default class MainInfoModel {
       {
         name: 'modulename1',
       },
+      {
+        name: 'files',
+      },
     ]
   }
 
