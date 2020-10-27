@@ -52,6 +52,16 @@ export default class Main2Model {
           dataType: 'TEXT',
         },
         {
+          name: 'consumed',
+          prop: 'consumed',
+          dataType: 'FLOAT',
+        },
+        {
+          name: 'left',
+          prop: 'left',
+          dataType: 'FLOAT',
+        },
+        {
           name: 'status1',
           prop: 'status1',
           dataType: 'SSCODELIST',
@@ -101,13 +111,13 @@ export default class Main2Model {
           dataType: 'ACID',
         },
         {
-          name: 'project',
-          prop: 'project',
+          name: 'story',
+          prop: 'story',
           dataType: 'PICKUP',
         },
         {
-          name: 'story',
-          prop: 'story',
+          name: 'project',
+          prop: 'project',
           dataType: 'PICKUP',
         },
         {

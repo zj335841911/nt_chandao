@@ -375,6 +375,24 @@ export class Main2GridBase extends GridControlBase {
             enableCond: 3 ,
         },
         {
+            name: 'consumed',
+            label: '总计消耗',
+            langtag: 'entities.task.main2_grid.columns.consumed',
+            show: true,
+            unit: 'PX',
+            isEnableRowEdit: false,
+            enableCond: 3 ,
+        },
+        {
+            name: 'left',
+            label: '预计剩余',
+            langtag: 'entities.task.main2_grid.columns.left',
+            show: true,
+            unit: 'PX',
+            isEnableRowEdit: false,
+            enableCond: 3 ,
+        },
+        {
             name: 'status1',
             label: '任务状态',
             langtag: 'entities.task.main2_grid.columns.status1',
@@ -431,6 +449,8 @@ export class Main2GridBase extends GridControlBase {
         'name':false,
         'deadline':false,
         'assignedto':false,
+        'consumed':false,
+        'left':false,
         'status1':false,
         'uagridcolumn1':false,
     };

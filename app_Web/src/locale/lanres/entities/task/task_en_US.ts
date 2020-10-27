@@ -593,6 +593,8 @@ export default {
 			name: "任务名称",
 			deadline: "截止日期",
 			assignedto: "指派给",
+			consumed: "总计消耗",
+			left: "预计剩余",
 			status1: "任务状态",
 			uagridcolumn1: "操作",
 		},
