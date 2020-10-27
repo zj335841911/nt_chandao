@@ -559,7 +559,7 @@
     :context="context" 
     :viewparams="viewparams" 
     :navigateContext ='{ } ' 
-    :navigateParam ='{ "n_extra_eq": "%version%", "objecttype": "story" } ' 
+    :navigateParam ='{ } ' 
     :ignorefieldvaluechange="ignorefieldvaluechange" 
     :data="JSON.stringify(this.data)"  
     @drdatasaved="drdatasaved($event)"/>
