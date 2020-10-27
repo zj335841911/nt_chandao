@@ -1275,8 +1275,8 @@ export default class CaseUIServiceBase extends UIService {
             }
             const view: any = {
                 viewname: 'case-exc-edit-view', 
-                height: 850, 
-                width: 1350,  
+                height: 0, 
+                width: 0,  
                 title: actionContext.$t('entities.case.views.exceditview.title'),
             };
             openPopupModal(view, data);
@@ -1563,8 +1563,8 @@ export default class CaseUIServiceBase extends UIService {
             }
             const view: any = {
                 viewname: 'case-exc-edit-view', 
-                height: 850, 
-                width: 1350,  
+                height: 0, 
+                width: 0,  
                 title: actionContext.$t('entities.case.views.exceditview.title'),
             };
             openPopupModal(view, data);
