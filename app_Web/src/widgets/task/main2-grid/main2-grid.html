@@ -52,7 +52,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('name')">
-                <el-table-column show-overflow-tooltip :prop="'name'" :label="$t('entities.task.main2_grid.columns.name')" :min-width="1"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'name'" :label="$t('entities.task.main2_grid.columns.name')" :width="180"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.task.main2_grid.columns.name')}}
@@ -112,7 +112,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('uagridcolumn1')">
-                <el-table-column :column-key="'uagridcolumn1'" fixed="right" :label="$t('entities.task.main2_grid.columns.uagridcolumn1')" :width="100"  :align="'right'">
+                <el-table-column :column-key="'uagridcolumn1'" fixed="right" :label="$t('entities.task.main2_grid.columns.uagridcolumn1')" :width="250"  :align="'right'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.task.main2_grid.columns.uagridcolumn1')}}
