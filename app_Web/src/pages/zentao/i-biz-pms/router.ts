@@ -250,20 +250,6 @@ const router = new Router({
                     component: () => import('@pages/zentao/story-main-view9/story-main-view9.vue'),
                 },
                 {
-                    path: 'products/:product?/pickupgridview/:pickupgridview?',
-                    meta: {
-                        caption: 'entities.product.views.pickupgridview.caption',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'products', parameterName: 'product' },
-                            { pathName: 'pickupgridview', parameterName: 'pickupgridview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/product-pickup-grid-view/product-pickup-grid-view.vue'),
-                },
-                {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/pickupgridview4/:pickupgridview4?',
                     meta: {
                         caption: 'entities.bug.views.pickupgridview4.caption',
@@ -8306,20 +8292,6 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/task-cancel-task-view/task-cancel-task-view.vue'),
-                },
-                {
-                    path: 'products/:product?/pickupview/:pickupview?',
-                    meta: {
-                        caption: 'entities.product.views.pickupview.caption',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'products', parameterName: 'product' },
-                            { pathName: 'pickupview', parameterName: 'pickupview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/product-pickup-view/product-pickup-view.vue'),
                 },
                 {
                     path: 'projects/:project?/planaddeditview/:planaddeditview?',

@@ -12,26 +12,25 @@
         <i-col class="form-layout-container" v-show="detailsModel.productname.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='productname' :itemRules="this.rules().productname" class='' :caption="$t('entities.build.editform_form.details.productname')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.productname.error" :isEmptyCaption="false" labelPos="LEFT">
     
-  <app-picker 
-    :formState="formState"
-    :data="data"
-    :context="context"
-    :viewparams="viewparams"
-    :localContext ='{ SRFPARENTKEY:"%project%" }' 
-    :localParam ='{ srfparentkey:"%project%" }' 
-    :disabled="detailsModel.productname.disabled"
-    name='productname'
-    deMajorField='name'
-    deKeyField='product'
-    :service="service"
-    :acParams="{ serviceName: 'ProductService', interfaceName: 'FetchCurProject'}"
-    valueitem='product' 
-    :value="data.productname"
-    :pickupView="{ viewname: 'product-pickup-view', title: $t('entities.product.views.pickupview.title'), deResParameters: [], parameters: [{ pathName: 'products', parameterName: 'product' }, { pathName: 'pickupview', parameterName: 'pickupview' } ], placement:'' }"
-    style=""  
-    @formitemvaluechange="onFormItemValueChange($event)">
-  </app-picker>
-
+<app-picker  
+  :formState="formState"
+  :data="data"
+  :context="context"
+  :viewparams="viewparams"
+  :localContext ='{ SRFPARENTKEY:"%project%" }' 
+  :localParam ='{ srfparentkey:"%project%" }' 
+  :disabled="detailsModel.productname.disabled"
+  name='productname'
+  deMajorField='name'
+  deKeyField='product'
+  :service="service"
+  :acParams="{ serviceName: 'ProductService', interfaceName: 'FetchCurProject'}"
+  valueitem='product'
+  :value="data.productname"
+  editortype="dropdown"
+  style=""
+  @formitemvaluechange="onFormItemValueChange($event)">
+</app-picker>
 </app-form-item>
 
 </i-col>

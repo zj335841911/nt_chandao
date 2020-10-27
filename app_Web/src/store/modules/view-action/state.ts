@@ -1533,7 +1533,6 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                '7df0f0deee91304e0350f00baa8a92d6',
             ],
         },
         {
@@ -1860,16 +1859,6 @@ export const viewstate: any = {
             ],
         },
         {
-            viewtag: '7df0f0deee91304e0350f00baa8a92d6',
-            viewmodule: 'zentao',
-            viewname: 'ProductPickupView',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-                '8d53a973712c13f448efb8e2182ccc0b',
-            ],
-        },
-        {
             viewtag: '7e9dfdd36617a43790494790f58117ec',
             viewmodule: 'ibiz',
             viewname: 'ProductSumUsr2GridView',
@@ -2142,15 +2131,6 @@ export const viewstate: any = {
                 'ea141fddc78fd1af4d06e494baf12cc1',
                 '35ba93bac795e0deb7297d2d471b7180',
                 '507c506d62dc910a814332e6ae242266',
-            ],
-        },
-        {
-            viewtag: '8d53a973712c13f448efb8e2182ccc0b',
-            viewmodule: 'zentao',
-            viewname: 'ProductPickupGridView',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
             ],
         },
         {
@@ -3594,7 +3574,6 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                '7df0f0deee91304e0350f00baa8a92d6',
             ],
         },
         {
