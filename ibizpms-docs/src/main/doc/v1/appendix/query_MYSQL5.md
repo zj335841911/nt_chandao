@@ -3063,6 +3063,7 @@ t1.`STORYVERSION`,
 t1.`SUBSTATUS`,
 t1.`TITLE`,
 t1.`TYPE`,
+t41.task as task,
 t1.`VERSION`,
 t41.assignedTo as assignedTo,
 (case when t1.version > t41.version then 'casechange' else t41.`status` end) as `status1`

@@ -141,19 +141,24 @@ export default class TestMainGridModel {
           dataType: 'SSCODELIST',
         },
         {
+          name: 'task',
+          prop: 'task',
+          dataType: 'TEXT',
+        },
+        {
           name: 'product',
           prop: 'product',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'lib',
+          prop: 'lib',
           dataType: 'PICKUP',
         },
         {
           name: 'lastrunresult1',
           prop: 'lastrunresult1',
           dataType: 'SSCODELIST',
-        },
-        {
-          name: 'lib',
-          prop: 'lib',
-          dataType: 'PICKUP',
         },
         {
           name: 'branch',
