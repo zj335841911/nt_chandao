@@ -246,6 +246,8 @@ export default {
 	maininfo_form: {
 		details: {
 			druipart1: "用例步骤", 
+			druipart2: "", 
+			grouppanel1: "附件", 
 			group1: "测试用例基本信息", 
 			formpage1: "基本信息", 
 			srfupdatedate: "修改日期", 
