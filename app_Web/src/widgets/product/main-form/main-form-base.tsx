@@ -135,10 +135,14 @@ export class MainEditFormBase extends EditFormControlBase {
         name: [
             { required: this.detailsModel.name.required, type: 'string', message: '产品名称 值不能为空', trigger: 'change' },
             { required: this.detailsModel.name.required, type: 'string', message: '产品名称 值不能为空', trigger: 'blur' },
+            {validator:(rule:any, value:any)=>{return this.verifyDeRules("name").isPast},message: this.verifyDeRules("name").infoMessage, trigger: 'change' },
+            {validator:(rule:any, value:any)=>{return this.verifyDeRules("name").isPast},message: this.verifyDeRules("name").infoMessage, trigger: 'blur' },
         ],
         code: [
             { required: this.detailsModel.code.required, type: 'string', message: '产品代号 值不能为空', trigger: 'change' },
             { required: this.detailsModel.code.required, type: 'string', message: '产品代号 值不能为空', trigger: 'blur' },
+            {validator:(rule:any, value:any)=>{return this.verifyDeRules("code").isPast},message: this.verifyDeRules("code").infoMessage, trigger: 'change' },
+            {validator:(rule:any, value:any)=>{return this.verifyDeRules("code").isPast},message: this.verifyDeRules("code").infoMessage, trigger: 'blur' },
         ],
         }
     }
@@ -150,6 +154,26 @@ export class MainEditFormBase extends EditFormControlBase {
      * @memberof MainBase
      */
     public deRules:any = {
+                name:[
+                  {
+                      type:"VALUERANGE",
+                      condOP:"",
+                      ruleInfo:"『产品名称』已经有这条记录了。如果您确定该记录已删除，请到后台-数据-回收站还原。", 
+                      isKeyCond:false,
+                      isNotMode:false,
+                      deName:"name",
+                  },
+                ],
+                code:[
+                  {
+                      type:"VALUERANGE",
+                      condOP:"",
+                      ruleInfo:"『产品代号』已经有这条记录了。如果您确定该记录已删除，请到后台-数据-回收站还原。", 
+                      isKeyCond:false,
+                      isNotMode:false,
+                      deName:"code",
+                  },
+                ],
     };
 
     /**

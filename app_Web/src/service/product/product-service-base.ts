@@ -308,6 +308,21 @@ export default class ProductServiceBase extends EntityService {
     }
 
     /**
+     * FetchCheckNameOrCode接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductServiceBase
+     */
+    public async FetchCheckNameOrCode(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/products/fetchchecknameorcode`,tempData,isloading);
+        return res;
+    }
+
+    /**
      * FetchCurProject接口方法
      *
      * @param {*} [context={}]
