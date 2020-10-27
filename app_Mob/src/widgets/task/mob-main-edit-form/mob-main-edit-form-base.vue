@@ -334,9 +334,9 @@
 <app-form-druipart
     class='' 
     parameterName='task' 
-    refviewtype='DEMOBMEDITVIEW9'  
+    refviewtype='DEMOBMDVIEW9'  
     refreshitems='' 
-    viewname='task-team-mob-medit-view9' 
+    viewname='task-team-mob-mdview9' 
     v-show="detailsModel.druipart2.visible" 
     :caption="$t('task.mobmainedit_form.details.druipart2')"  
     paramItem='task' 
@@ -346,7 +346,7 @@
     :parameters="[
         { pathName: 'tasks', parameterName: 'task' },
     ]" 
-    tempMode='2'
+    tempMode='0'
     :context="context" 
     :viewparams="viewparams" 
     :navigateContext ='{ } ' 
