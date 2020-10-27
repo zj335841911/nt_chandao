@@ -678,7 +678,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         newTask.setStatus("doing");
         newTask.setLeft(et.getLeft() != null ? et.getLeft() : 0d);
         newTask.setConsumed(et.getConsumed() != null ? et.getConsumed() : 0d);
-        newTask.setRealstarted(et.getRealstarted());
+        newTask.setRealstarted(get(et.getRealstarted(),ZTDateUtil.now()));
         if (StringUtils.compare(old.getAssignedto(), AuthenticationUser.getAuthenticationUser().getUsername()) != 0)
             newTask.setAssigneddate(ZTDateUtil.now());
         if (newTask.getLeft() == 0) {
@@ -1057,14 +1057,6 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         List<TaskEstimate> taskEstimates = new ArrayList<>();
         Timestamp earliestTime = null;
         if (et.getTaskestimate() != null && et.getTaskestimate().size() > 0) {
-//            boolean flag = true;
-//            for (TaskEstimate taskEstimate: et.getTaskestimate()) {
-//                if (taskEstimate.getConsumed() == null || taskEstimate.getLeft() == null){
-//                    flag = false;
-//                    break;
-//                }
-//            }
-//            if (!flag) throw new RuntimeException("请填写剩余或总计消耗");
             for (TaskEstimate taskEstimate : et.getTaskestimate()) {
                 taskEstimate.setTask(et.getId());
                 taskEstimate.setDate(ZTDateUtil.now());
