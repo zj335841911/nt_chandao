@@ -90,6 +90,7 @@ hide members
 |由谁创建|默认规则|内容长度必须小于等于[30]|
 |当前系统版本|默认规则|内容长度必须小于等于[20]|
 |子状态|默认规则|内容长度必须小于等于[30]|
+|产品代号|产品代号重复值校验|『产品代号』已经有这条记录了。如果您确定该记录已删除，请到后台-数据-回收站还原。|
 |产品代号|默认规则|内容长度必须小于等于[45]|
 |创建日期|默认规则|默认规则|
 |产品线|默认规则|内容长度必须小于等于[60]|
@@ -279,6 +280,7 @@ hide footbox
 | 查询编号 | 查询名称       | 默认查询 |   备注|
 | --------  | --------   | --------   | ----- |
 |AllList|全部产品([MYSQL5](../../appendix/query_MYSQL5.md#Product_AllList))|否|&nbsp;用户（非管理员）相关的全部产品|
+|CheckNameOrCode|校验产品名称或产品代号是否已经存在([MYSQL5](../../appendix/query_MYSQL5.md#Product_CheckNameOrCode))|否|&nbsp;|
 |CURPROJECT|当前项目([MYSQL5](../../appendix/query_MYSQL5.md#Product_CurProject))|否|&nbsp;|
 |CurUer|当前用户([MYSQL5](../../appendix/query_MYSQL5.md#Product_CurUer))|否|&nbsp;|
 |DEFAULT|DEFAULT([MYSQL5](../../appendix/query_MYSQL5.md#Product_Default))|否|&nbsp;|
@@ -290,6 +292,7 @@ hide footbox
 
 | 集合编号 | 集合名称   |  包含查询  | 默认集合 |   备注|
 | --------  | --------   | -------- | --------   | ----- |
+|CheckNameOrCode|校验产品名称或产品代号是否已经存在|CheckNameOrCode|否|&nbsp;|
 |CURPROJECT|当前项目|CURPROJECT|否|&nbsp;|
 |CurUer|当前用户|CurUer|否|&nbsp;|
 |DEFAULT|DEFAULT|DEFAULT|是|&nbsp;|

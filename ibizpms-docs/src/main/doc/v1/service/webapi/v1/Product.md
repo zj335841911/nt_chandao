@@ -279,6 +279,42 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | true：处理成功。false：处理失败。 |
 
+### 获取校验产品名称或产品代号是否已经存在
+#### 访问路径
+/products/fetchchecknameorcode
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | context | [ProductSearchContext](#ProductSearchContext) | 产品查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| -- | -- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[ProductDTO](#ProductDTO)>：产品实体传输对象列表 |
+
+### 查询校验产品名称或产品代号是否已经存在
+#### 访问路径
+/products/searchchecknameorcode
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | context | [ProductSearchContext](#ProductSearchContext) | 产品查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| -- | -- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[ProductDTO](#ProductDTO)>：产品实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
 ### 获取当前项目
 #### 访问路径
 /products/fetchcurproject

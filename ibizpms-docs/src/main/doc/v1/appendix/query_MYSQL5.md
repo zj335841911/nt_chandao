@@ -7923,6 +7923,13 @@ WHERE t1.DELETED = '0'
 ( t1.`STATUS` <> 'closed' ) 
 
 ```
+### 校验产品名称或产品代号是否已经存在(CheckNameOrCode)<div id="Product_CheckNameOrCode"></div>
+```sql
+SELECT
+t1.id
+FROM `zt_product` t1 
+
+```
 ### 当前项目(CURPROJECT)<div id="Product_CurProject"></div>
 ```sql
 SELECT
