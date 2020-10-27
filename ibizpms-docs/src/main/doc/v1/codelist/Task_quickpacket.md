@@ -18,12 +18,12 @@
 | 2 | UNCLOSED | 未关闭 |  |  |  | 否 | 是 | 未关闭 |
 | 3 | TOME | 指派给我 |  |  |  | 否 | 否 | 指派给我 |
 | 4 | storychange | 需求变更 |  |  |  | 否 | 否 | 需求变更 |
-| 5 | MORE | 更多 |  |  |  | 否 | 否 | 更多 || 5-1 | NOTSTARTED | 未开始 | 更多（MORE） |  |  | 否 | 否 | 未开始 || 5-2 | INPROGRESS | 进行中 | 更多（MORE） |  |  | 否 | 否 | 进行中 || 5-3 | UNACCOMPLISHED | 未完成 | 更多（MORE） |  |  | 否 | 否 | 未完成 || 5-4 | IFINISHED | 我完成 | 更多（MORE） |  |  | 否 | 否 | 我完成 || 5-5 | COMPLETED | 已完成 | 更多（MORE） |  |  | 否 | 否 | 已完成 || 5-6 | CLOSED | 已关闭 | 更多（MORE） |  |  | 否 | 否 | 已关闭 || 5-7 | CANCELLED | 已取消 | 更多（MORE） |  |  | 否 | 否 | 已取消 |
-| 6 | NOTSTARTED | 未开始 | 更多（MORE） |  |  | 否 | 否 | 未开始 |
-| 7 | INPROGRESS | 进行中 | 更多（MORE） |  |  | 否 | 否 | 进行中 |
-| 8 | UNACCOMPLISHED | 未完成 | 更多（MORE） |  |  | 否 | 否 | 未完成 |
-| 9 | IFINISHED | 我完成 | 更多（MORE） |  |  | 否 | 否 | 我完成 |
-| 10 | COMPLETED | 已完成 | 更多（MORE） |  |  | 否 | 否 | 已完成 |
-| 11 | CLOSED | 已关闭 | 更多（MORE） |  |  | 否 | 否 | 已关闭 |
-| 12 | CANCELLED | 已取消 | 更多（MORE） |  |  | 否 | 否 | 已取消 |
+| 5 | MORE | 更多 |  |  |  | 否 | 否 | 更多 || 5-1 | NOTSTARTED | 未开始 | 更多（MORE） |  |  | 否 | 否 | 未开始 |
+| 5-2 | INPROGRESS | 进行中 | 更多（MORE） |  |  | 否 | 否 | 进行中 |
+| 5-3 | UNACCOMPLISHED | 未完成 | 更多（MORE） |  |  | 否 | 否 | 未完成 |
+| 5-4 | IFINISHED | 我完成 | 更多（MORE） |  |  | 否 | 否 | 我完成 |
+| 5-5 | COMPLETED | 已完成 | 更多（MORE） |  |  | 否 | 否 | 已完成 |
+| 5-6 | CLOSED | 已关闭 | 更多（MORE） |  |  | 否 | 否 | 已关闭 |
+| 5-7 | CANCELLED | 已取消 | 更多（MORE） |  |  | 否 | 否 | 已取消 |
+
 

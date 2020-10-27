@@ -17,12 +17,12 @@ Bug快速分组（移动端）
 | 1 | All | 所有 |  |  |  | 否 | 否 | 所有 |
 | 2 | UNCLOSED | 未关闭 |  |  |  | 否 | 是 | 未关闭 |
 | 3 | ICREATE | 由我创建 |  |  |  | 否 | 否 | 由我创建 |
-| 4 | MORE | 更多 |  |  |  | 否 | 否 | 更多 || 4-1 | TOME | 指派给我 | 更多（MORE） |  |  | 否 | 否 | 指派给我 || 4-2 | BYME | 由我解决 | 更多（MORE） |  |  | 否 | 否 | 由我解决 || 4-3 | WAITCLOSED | 待关闭 | 更多（MORE） |  |  | 否 | 否 | 待关闭 || 4-4 | UNRESOLVED | 未解决 | 更多（MORE） |  |  | 否 | 否 | 未解决 || 4-5 | UNCONFIRMED | 未确认 | 更多（MORE） |  |  | 否 | 否 | 未确认 || 4-6 | UNASSIGNED | 未指派 | 更多（MORE） |  |  | 否 | 否 | 未指派 || 4-7 | EXPIREDBUG | 过期Bug | 更多（MORE） |  |  | 否 | 否 | 过期Bug |
-| 5 | TOME | 指派给我 | 更多（MORE） |  |  | 否 | 否 | 指派给我 |
-| 6 | BYME | 由我解决 | 更多（MORE） |  |  | 否 | 否 | 由我解决 |
-| 7 | WAITCLOSED | 待关闭 | 更多（MORE） |  |  | 否 | 否 | 待关闭 |
-| 8 | UNRESOLVED | 未解决 | 更多（MORE） |  |  | 否 | 否 | 未解决 |
-| 9 | UNCONFIRMED | 未确认 | 更多（MORE） |  |  | 否 | 否 | 未确认 |
-| 10 | UNASSIGNED | 未指派 | 更多（MORE） |  |  | 否 | 否 | 未指派 |
-| 11 | EXPIREDBUG | 过期Bug | 更多（MORE） |  |  | 否 | 否 | 过期Bug |
+| 4 | MORE | 更多 |  |  |  | 否 | 否 | 更多 || 4-1 | TOME | 指派给我 | 更多（MORE） |  |  | 否 | 否 | 指派给我 |
+| 4-2 | BYME | 由我解决 | 更多（MORE） |  |  | 否 | 否 | 由我解决 |
+| 4-3 | WAITCLOSED | 待关闭 | 更多（MORE） |  |  | 否 | 否 | 待关闭 |
+| 4-4 | UNRESOLVED | 未解决 | 更多（MORE） |  |  | 否 | 否 | 未解决 |
+| 4-5 | UNCONFIRMED | 未确认 | 更多（MORE） |  |  | 否 | 否 | 未确认 |
+| 4-6 | UNASSIGNED | 未指派 | 更多（MORE） |  |  | 否 | 否 | 未指派 |
+| 4-7 | EXPIREDBUG | 过期Bug | 更多（MORE） |  |  | 否 | 否 | 过期Bug |
+
 

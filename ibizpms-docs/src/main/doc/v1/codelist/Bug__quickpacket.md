@@ -21,8 +21,8 @@ Bug快速分组
 | 5 | BYME | 由我解决 |  |  |  | 否 | 否 | 由我解决 |
 | 6 | WAITCLOSED | 待关闭 |  |  |  | 否 | 否 | 待关闭 |
 | 7 | UNRESOLVED | 未解决 |  |  |  | 否 | 否 | 未解决 |
-| 8 | MORE | 更多 |  |  |  | 否 | 否 | 更多 || 8-1 | UNCONFIRMED | 未确认 | 更多（MORE） |  |  | 否 | 否 | 未确认 || 8-2 | UNASSIGNED | 未指派 | 更多（MORE） |  |  | 否 | 否 | 未指派 || 8-3 | EXPIREDBUG | 过期Bug | 更多（MORE） |  |  | 否 | 否 | 过期Bug |
-| 9 | UNCONFIRMED | 未确认 | 更多（MORE） |  |  | 否 | 否 | 未确认 |
-| 10 | UNASSIGNED | 未指派 | 更多（MORE） |  |  | 否 | 否 | 未指派 |
-| 11 | EXPIREDBUG | 过期Bug | 更多（MORE） |  |  | 否 | 否 | 过期Bug |
+| 8 | MORE | 更多 |  |  |  | 否 | 否 | 更多 || 8-1 | UNCONFIRMED | 未确认 | 更多（MORE） |  |  | 否 | 否 | 未确认 |
+| 8-2 | UNASSIGNED | 未指派 | 更多（MORE） |  |  | 否 | 否 | 未指派 |
+| 8-3 | EXPIREDBUG | 过期Bug | 更多（MORE） |  |  | 否 | 否 | 过期Bug |
+
 
