@@ -4,5 +4,7 @@ Tip: If the failing expression is known to be legally refer to something that's 
 
 ----
 FTL stack trace ("~" means nesting-related):
-	- Failed at: ${printLineStr(codeItem, codeItemInde...  [in template "CODETEMPL_en_US" at line 44, column 1]
+	- Failed at: ${codeItem.getParentCodeItem().getTex...  [in template "CODETEMPL_en_US" at line 53, column 168]
+	- Reached through: #assign printLineStr = "| ${codeItemI...  [in template "CODETEMPL_en_US" in function "printCodeItem" at line 53, column 5]
+	- Reached through: ${printCodeItem(codeItem, codeItemInd...  [in template "CODETEMPL_en_US" at line 44, column 1]
 ----
