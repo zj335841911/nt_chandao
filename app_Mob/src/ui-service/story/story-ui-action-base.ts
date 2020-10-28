@@ -4,6 +4,7 @@ import EntityUIActionBase from '@/utils/ui-service-base/entity-ui-action-base';
 import { Util, Loading } from '@/ibiz-core/utils';
 import { Notice } from '@/utils';
 import { Environment } from '@/environments/environment';
+import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 /**
  * 需求UI服务对象基类
  *
@@ -324,6 +325,7 @@ export default class StoryUIActionBase extends EntityUIActionBase {
                 this.notice.success('移除成功');
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
+                    AppCenterService.notifyMessage({name:"Story",action:'appRefresh',data:args});
                 }
             } else {
                 this.notice.error('系统异常！');
@@ -377,6 +379,7 @@ export default class StoryUIActionBase extends EntityUIActionBase {
                 this.notice.success('取消收藏成功！');
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
+                    AppCenterService.notifyMessage({name:"Story",action:'appRefresh',data:args});
                 }
             } else {
                 this.notice.error('系统异常！');
@@ -430,6 +433,7 @@ export default class StoryUIActionBase extends EntityUIActionBase {
                 this.notice.success('收藏成功！');
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
+                    AppCenterService.notifyMessage({name:"Story",action:'appRefresh',data:args});
                 }
             } else {
                 this.notice.error('系统异常！');
@@ -740,6 +744,7 @@ export default class StoryUIActionBase extends EntityUIActionBase {
                 this.notice.success('已删除');
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
+                    AppCenterService.notifyMessage({name:"Story",action:'appRefresh',data:args});
                 }
             } else {
                 this.notice.error('系统异常！');
@@ -848,6 +853,7 @@ export default class StoryUIActionBase extends EntityUIActionBase {
                 this.notice.success('已移除');
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
+                    AppCenterService.notifyMessage({name:"Story",action:'appRefresh',data:args});
                 }
             } else {
                 this.notice.error('系统异常！');

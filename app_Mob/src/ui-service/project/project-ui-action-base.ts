@@ -4,6 +4,7 @@ import EntityUIActionBase from '@/utils/ui-service-base/entity-ui-action-base';
 import { Util, Loading } from '@/ibiz-core/utils';
 import { Notice } from '@/utils';
 import { Environment } from '@/environments/environment';
+import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 /**
  * 项目UI服务对象基类
  *
@@ -231,6 +232,7 @@ export default class ProjectUIActionBase extends EntityUIActionBase {
                 this.notice.success('已删除');
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
+                    AppCenterService.notifyMessage({name:"Project",action:'appRefresh',data:args});
                 }
                 const { data: result } = response;
                 let _args: any[] = [];
@@ -296,6 +298,7 @@ export default class ProjectUIActionBase extends EntityUIActionBase {
                 this.notice.success('置顶成功！');
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
+                    AppCenterService.notifyMessage({name:"Project",action:'appRefresh',data:args});
                 }
             } else {
                 this.notice.error('系统异常！');
@@ -393,6 +396,7 @@ export default class ProjectUIActionBase extends EntityUIActionBase {
                 this.notice.success('取消置顶成功！');
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
+                    AppCenterService.notifyMessage({name:"Project",action:'appRefresh',data:args});
                 }
             } else {
                 this.notice.error('系统异常！');

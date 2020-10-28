@@ -4,6 +4,7 @@ import EntityUIActionBase from '@/utils/ui-service-base/entity-ui-action-base';
 import { Util, Loading } from '@/ibiz-core/utils';
 import { Notice } from '@/utils';
 import { Environment } from '@/environments/environment';
+import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 /**
  * 任务预计UI服务对象基类
  *
@@ -154,6 +155,7 @@ export default class TaskEstimateUIActionBase extends EntityUIActionBase {
                 this.notice.success('删除成功！');
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
+                    AppCenterService.notifyMessage({name:"TaskEstimate",action:'appRefresh',data:args});
                 }
             } else {
                 this.notice.error('系统异常！');
