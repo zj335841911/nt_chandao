@@ -186,6 +186,50 @@
 </app-form-group>
 
 
+
+<app-form-group 
+    class='' 
+    layoutType='TABLE_24COL' 
+    titleStyle='' 
+    uiStyle="DEFAULT" 
+    v-show="detailsModel.grouppanel2.visible" 
+    :uiActionGroup="detailsModel.grouppanel2.uiActionGroup" 
+    :caption="$t('release.mobmain_form.details.grouppanel2')" 
+    :isShowCaption="true" 
+    :titleBarCloseMode="0" 
+    :isInfoGroupMode="true" 
+    :data="transformData(data)"
+    :uiService="deUIService"
+    @groupuiactionclick="groupUIActionClick($event)">
+    
+<app-form-druipart
+    class='' 
+    parameterName='release' 
+    refviewtype='DEMOBMDVIEW9'  
+    refreshitems='' 
+    viewname='action-mob-mdview9' 
+    v-show="detailsModel.druipart2.visible" 
+    :caption="$t('release.mobmain_form.details.druipart2')"  
+    paramItem='release' 
+    style="" 
+    :formState="formState" 
+    :parentdata='{"srfparentdename":"ZT_RELEASE","SRFPARENTTYPE":"CUSTOM"}' 
+    :parameters="[
+    ]" 
+    tempMode='0'
+    :context="context" 
+    :viewparams="viewparams" 
+    :navigateContext ='{ } ' 
+    :navigateParam ='{ } ' 
+    :ignorefieldvaluechange="ignorefieldvaluechange" 
+    :data="JSON.stringify(this.data)"  
+    @drdatasaved="drdatasaved($event)"/>
+
+
+    
+</app-form-group>
+
+
     
 </app-form-group>
 
@@ -659,6 +703,10 @@ export default class MobMainBase extends Vue implements ControlInterface {
 , 
         grouppanel1: new FormGroupPanelModel({ caption: '附件', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'release.mobmain_form', extractMode: 'ITEM', details: [] } })
 , 
+        druipart2: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart2', visible: true, isShowCaption: true, form: this })
+, 
+        grouppanel2: new FormGroupPanelModel({ caption: '历史记录', detailType: 'GROUPPANEL', name: 'grouppanel2', visible: true, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'release.mobmain_form', extractMode: 'ITEM', details: [] } })
+, 
         group1: new FormGroupPanelModel({ caption: '发布基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'release.mobmain_form', extractMode: 'ITEM', details: [] } })
 , 
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this })
@@ -883,6 +931,8 @@ export default class MobMainBase extends Vue implements ControlInterface {
      */
     private async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }){
                 
+
+
 
 
 
@@ -1409,7 +1459,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
             return Promise.reject();
         }
         if (isStateNext) {
-            this.drcounter = 1;
+            this.drcounter = 2;
             if (this.drcounter !== 0) {
                 this.formState.next({ type: 'beforesave', data: arg });//先通知关系界面保存
                 this.saveState = Promise.resolve();

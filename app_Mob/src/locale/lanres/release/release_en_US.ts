@@ -74,6 +74,8 @@ export default {
 		details: {
 			druipart1: '', 
 			grouppanel1: '附件', 
+			druipart2: '', 
+			grouppanel2: '历史记录', 
 			group1: '发布基本信息', 
 			formpage1: '基本信息', 
 			srforikey: '', 
