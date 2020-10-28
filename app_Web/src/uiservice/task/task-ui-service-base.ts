@@ -1719,7 +1719,7 @@ export default class TaskUIServiceBase extends UIService {
                     actionContext.$Notice.error({ title: '错误', desc: response.message });
                     return;
                 }
-                actionContext.$Notice.success({ title: '成功', desc: '当前用户可以转交' });
+                actionContext.$Notice.success({ title: '成功', desc: '转交成功！' });
 
                 const _this: any = actionContext;
                 const { data: result } = response;
