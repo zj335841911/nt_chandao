@@ -191,7 +191,7 @@ export default class ProductPlanMobEditViewBase extends Vue {
      * @type {*}
      * @memberof ProductPlanMobEditViewBase
      */
-    protected navContext: any = {};
+    protected navContext: any = { 'objecttype': 'productplan', 'srfparentkey': '%productplan%' };
 
     /**
      * 视图导航参数
@@ -200,7 +200,7 @@ export default class ProductPlanMobEditViewBase extends Vue {
      * @type {*}
      * @memberof ProductPlanMobEditViewBase
      */
-    protected navParam: any = {};
+    protected navParam: any = { 'srfparentkey': '%productplan%', 'objecttype': 'productplan' };
 
     /**
      * 视图模型数据
