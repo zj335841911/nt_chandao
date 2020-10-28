@@ -626,6 +626,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                'b52bf86837838dcfd5b787fad0350f22',
                 '30df85f6893d47efa69fbb2580f7ea6c',
             ],
         },
