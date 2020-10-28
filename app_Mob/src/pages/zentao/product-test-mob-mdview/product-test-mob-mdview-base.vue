@@ -104,7 +104,22 @@
         </ion-infinite-scroll>
     </ion-content>
     <ion-footer class="view-footer">
+                <div v-show="isChoose" class="batch_btn">
+                        <div class="app-toolbar-container ">
+            <div class="app-quick-toolbar toolbar-left-bottons">
+                    <ion-button class="app-view-toolbar-button" v-show="mdctrl_batchtoolbarModels.deuiaction1.visabled" :disabled="mdctrl_batchtoolbarModels.deuiaction1.disabled" @click="mdctrl_batchtoolbar_click({ tag: 'deuiaction1' }, $event)" >
+                <ion-icon class="ibiz-button-icon" name="add"> </ion-icon>
+            
+            </ion-button>
         
+            </div>
+        </div>
+            <ion-button class="app-view-toolbar-button"  @click="cancelSelect" >
+                <ion-icon name="arrow-undo-outline"></ion-icon>
+                {{$t('app.button.cancel')}}
+            </ion-button>
+        </div>     
+
     </ion-footer>
 </ion-page>
 </template>
@@ -329,12 +344,27 @@ export default class ProductTestMobMDViewBase extends Vue {
 
 
 
+
+   /**
+    * 工具栏 ProductTestMobMDView 模型
+    *
+    * @type {*}
+    * @memberof ProductTestMobMDView
+    */
+    public mdctrl_batchtoolbarModels: any = {
+            deuiaction1: { name: 'deuiaction1', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__PROD_CREATE_BUT', uiaction: { tag: 'MobCreate', target: 'NONE' } },
+
+    };
+
+    
+
+
     /**
      * 工具栏模型集合名
      *
      * @memberof ProductTestMobMDViewBase
      */
-    public toolbarModelList:any = []
+    public toolbarModelList:any = ['mdctrl_batchtoolbarModels',]
 
     /**
      * 解析视图参数
@@ -977,6 +1007,12 @@ export default class ProductTestMobMDViewBase extends Vue {
       }
     }
 
+    public  mdctrl_batchtoolbar_click(tag:string,event:any) {
+       let mdctrl: any = this.$refs.mdctrl;
+        if(mdctrl && mdctrl. mdctrl_batchtoolbar_click instanceof Function){
+            mdctrl. mdctrl_batchtoolbar_click(tag,event);
+        }
+    }
 
 
 }

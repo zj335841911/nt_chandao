@@ -250,12 +250,27 @@ export default class ProductMobPickupMDViewBase extends Vue {
 
 
 
+
+   /**
+    * 工具栏 ProductMobPickupMDView 模型
+    *
+    * @type {*}
+    * @memberof ProductMobPickupMDView
+    */
+    public mdctrl_batchtoolbarModels: any = {
+            deuiaction1: { name: 'deuiaction1', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__PROD_CREATE_BUT', uiaction: { tag: 'MobCreate', target: 'NONE' } },
+
+    };
+
+    
+
+
     /**
      * 工具栏模型集合名
      *
      * @memberof ProductMobPickupMDViewBase
      */
-    public toolbarModelList:any = []
+    public toolbarModelList:any = ['mdctrl_batchtoolbarModels',]
 
     /**
      * 解析视图参数
