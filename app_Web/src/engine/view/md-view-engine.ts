@@ -362,7 +362,7 @@ export default class MDViewEngine extends ViewEngine {
         const state = args.length > 0 && !Object.is(args[0].srfkey, '') ? false : true;
         this.calcToolbarItemState(state, args.length);
         if(args && args.length > 0){
-            this.calcToolbarItemAuthState(this.transformData(args[0], args.length));
+            this.calcToolbarItemAuthState(this.transformData(args[0]), args.length);
         } else {
             this.calcToolbarItemAuthState(null);
         }
