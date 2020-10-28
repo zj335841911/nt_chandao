@@ -64,6 +64,7 @@ public interface ITaskService extends IService<Task>{
     Page<Task> searchMyFavorites(TaskSearchContext context) ;
     Page<Task> searchProjectTASK(TaskSearchContext context) ;
     Page<Task> searchRootTask(TaskSearchContext context) ;
+    Page<Task> searchTodoListTask(TaskSearchContext context) ;
     Page<HashMap> searchTypeGroup(TaskSearchContext context) ;
     List<Task> selectByModule(Long id) ;
     void removeByModule(Long id) ;

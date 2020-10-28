@@ -29489,6 +29489,47 @@
     "key_field":0,
     "show_order":1000,
     "major_field":0
+    },
+    {
+    "fieldname":"ISFINISHED" ,
+    "codename":"Isfinished",
+    "field_logic_name":"是否完成",
+    "entity_name":"Task",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"REPLYCOUNT" ,
+    "codename":"Replycount",
+    "field_logic_name":"回复数量",
+    "entity_name":"Task",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"HASDETAIL" ,
+    "codename":"Hasdetail",
+    "field_logic_name":"是否填写描述",
+    "entity_name":"Task",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
     }
     ],
     "subEntitys":[
