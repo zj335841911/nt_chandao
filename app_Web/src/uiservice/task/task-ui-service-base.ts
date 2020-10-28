@@ -1689,8 +1689,7 @@ export default class TaskUIServiceBase extends UIService {
         let parentContext:any = {};
         let parentViewParam:any = {};
         const _this: any = actionContext;
-        Object.assign(context,{ACTIONS:"checkForwardDash"});
-        Object.assign(params,{actions:"checkForwardDash"});
+        Object.assign(params,{actioninfo:"当前任务只有%1$s才可以转交。",actions:"checkForwardDash"});
         const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(context, { task: '%task%' });
