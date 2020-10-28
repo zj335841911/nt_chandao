@@ -100,13 +100,34 @@ public class CaseHelper extends ZTBaseHelper<CaseMapper, Case> {
         List<CaseStep> caseSteps = et.getCasestep() ;
         Case old = new Case();
         CachedBeanCopier.copy(this.get(et.getId()), old);
+        et.setStoryversion(old.getStoryversion());
 
-        et.setVersion(old.getVersion() + 1);
+        List<CaseStep> list = caseStepHelper.list(new QueryWrapper<CaseStep>().eq("`case`", et.getId()).eq("version", old.getVersion()));
+        boolean caseStepFlag = false;
+        if(list.size() == caseSteps.size()) {
+            int i = 0;
+            for(CaseStep caseStep : list) {
+                caseStep.setId(null);
+                caseStep.setParent(null);
+                List<History> changes = ChangeUtil.diff(caseStep, caseSteps.get(i));
+                if(changes.size() > 0){
+                    caseStepFlag = true;
+                    break;
+                }
+
+                i ++;
+            }
+        }else {
+            caseStepFlag = true;
+        }
+        if (caseStepFlag)
+            et.setVersion(old.getVersion() + 1);
+
         boolean bOk = super.edit(et);
         if (!bOk)
             return bOk;
-
-        createCaseStep(et,caseSteps);
+        if (caseStepFlag)
+            createCaseStep(et,caseSteps);
 
         List<History> changes = ChangeUtil.diff(old, et);
         if (changes.size() > 0) {

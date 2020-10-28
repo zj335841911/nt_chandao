@@ -24,6 +24,10 @@ public class TodoHelper extends ZTBaseHelper<TodoMapper, Todo> {
     @Autowired
     ActionHelper actionHelper;
 
+    public boolean hasDeleted(){
+        return false ;
+    }
+
     @Override
     @Transactional
     public boolean create(Todo et) {

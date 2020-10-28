@@ -1,15 +1,18 @@
 package cn.ibizlab.pms.core.extensions.service;
 
 import cn.ibizlab.pms.core.zentao.domain.CaseStep;
+import cn.ibizlab.pms.core.zentao.domain.File;
 import cn.ibizlab.pms.core.zentao.domain.TestRun;
 import cn.ibizlab.pms.core.zentao.filter.CaseStepSearchContext;
 import cn.ibizlab.pms.core.zentao.filter.TestRunSearchContext;
+import cn.ibizlab.pms.core.zentao.service.IFileService;
 import cn.ibizlab.pms.core.zentao.service.impl.CaseServiceImpl;
 import cn.ibizlab.pms.util.security.AuthenticationUser;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import lombok.extern.slf4j.Slf4j;
 import cn.ibizlab.pms.core.zentao.domain.Case;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -26,9 +29,59 @@ import java.util.*;
 @Service("CaseExService")
 public class CaseExService extends CaseServiceImpl {
 
+    @Autowired
+    IFileService iFileService;
+
     @Override
     protected Class currentModelClass() {
         return com.baomidou.mybatisplus.core.toolkit.ReflectionKit.getSuperClassGenericType(this.getClass().getSuperclass(), 1);
+    }
+
+    @Override
+    @Transactional
+    public boolean update(Case et) {
+        String files = et.getFiles();
+        boolean flag = cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.CaseHelper.class).edit(et);
+        if(flag && et.getId() != null && files != null) {
+            JSONArray jsonArray = JSONArray.parseArray(files);
+            List<File> list = new ArrayList<>();
+            for (int i = 0; i < jsonArray.size(); i ++) {
+                JSONObject jsonObject = jsonArray.getJSONObject(i);
+                File file = new File();
+                file.setId(jsonObject.getLongValue("id"));
+                file.setObjectid(et.getId());
+                file.setAddedby(et.getOpenedby());
+                file.setAddeddate(et.getOpeneddate());
+                file.setExtra(String.valueOf(et.getVersion()));
+                list.add(file);
+            }
+            iFileService.updateBatch(list);
+        }
+        return flag;
+    }
+
+    @Override
+    @Transactional
+    public boolean create(Case et) {
+        String files = et.getFiles();
+        boolean flag = cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.CaseHelper.class).create(et);
+        if(flag && et.getId() != null && files != null) {
+            JSONArray jsonArray = JSONArray.parseArray(files);
+            List<File> list = new ArrayList<>();
+            for (int i = 0; i < jsonArray.size(); i ++) {
+                JSONObject jsonObject = jsonArray.getJSONObject(i);
+                File file = new File();
+                file.setId(jsonObject.getLongValue("id"));
+                file.setObjectid(et.getId());
+                file.setAddedby(et.getOpenedby());
+                file.setAddeddate(et.getOpeneddate());
+                file.setExtra("1");
+                list.add(file);
+            }
+            iFileService.updateBatch(list);
+        }
+        return flag;
+
     }
 
     /**

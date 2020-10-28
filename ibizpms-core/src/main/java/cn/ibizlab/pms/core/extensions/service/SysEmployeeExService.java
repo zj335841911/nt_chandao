@@ -79,8 +79,10 @@ public class SysEmployeeExService extends SysEmployeeServiceImpl {
         Map<String,Object> params = context.getParams();
         if(params.get("srfparentkey") != null && !"0".equals(params.get("srfparentkey"))) {
             // 项目团队
-            context.setN_username_in(getAccounts("project", iTaskService.get(Long.parseLong(params.get("srfparentkey").toString()))));
-
+            context.setN_username_in(getAccounts("project", iTaskService.get(Long.parseLong(params.get("srfparentkey").toString())).getProject()));
+            if(params.get("account") != null) {
+                context.setN_username_notin(params.get("account").toString().replace(",",";"));
+            }
         }
         return super.searchDefault(context);
     }
