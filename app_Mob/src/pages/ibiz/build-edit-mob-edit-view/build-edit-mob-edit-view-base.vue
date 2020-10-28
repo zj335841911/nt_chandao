@@ -178,7 +178,7 @@ export default class BuildEditMobEditViewBase extends Vue {
      * @type {*}
      * @memberof BuildEditMobEditViewBase
      */
-    protected navContext: any = { 'objecttype': 'build', 'objectid': '%id%' };
+    protected navContext: any = {};
 
     /**
      * 视图导航参数
