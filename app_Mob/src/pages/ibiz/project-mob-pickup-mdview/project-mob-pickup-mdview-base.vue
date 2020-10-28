@@ -248,12 +248,25 @@ export default class ProjectMobPickupMDViewBase extends Vue {
     @Prop({default:true}) protected showTitle?: boolean;
 
 
+
+   /**
+    * 工具栏 ProjectMobPickupMDView 模型
+    *
+    * @type {*}
+    * @memberof ProjectMobPickupMDView
+    */
+    public mdctrl_batchtoolbarModels: any = {
+    };
+
+    
+
+
     /**
      * 工具栏模型集合名
      *
      * @memberof ProjectMobPickupMDViewBase
      */
-    public toolbarModelList:any = []
+    public toolbarModelList:any = ['mdctrl_batchtoolbarModels',]
 
     /**
      * 解析视图参数
