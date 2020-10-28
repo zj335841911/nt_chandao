@@ -173,7 +173,49 @@ export default class MobBase extends Vue implements ControlInterface {
             this.mdctrl_batchtoolbar_deuiaction1_click($event, 'mdctrl_batchtoolbar', $event2);
         }
     }
+
+    /**
+     * mdctrl_quicktoolbar 部件 click 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof Mob
+     */
+    protected mdctrl_quicktoolbar_click($event: any, $event2?: any) {
+        if (Object.is($event.tag, 'deuiaction1')) {
+            this.mdctrl_quicktoolbar_deuiaction1_click($event, 'mdctrl_quicktoolbar', $event2);
+        }
+    }
     
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof MdctrlBase
+     */
+    protected async mdctrl_quicktoolbar_deuiaction1_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+        // 参数
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        // 界面行为
+        this.globaluiservice.New(datas, contextJO, paramJO, $event, xData, this);
+    }
 
     /**
      * 逻辑事件
@@ -1288,6 +1330,7 @@ export default class MobBase extends Vue implements ControlInterface {
      * @memberof MobBase
      */  
     public ActionModel:any ={
+        New: { name: 'New',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALCREATE', target: '',icon:'file-text-o',},
         Remove: { name: 'Remove',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALDELETE', target: 'MULTIKEY',icon:'remove',},
         EditMod: { name: 'EditMod',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY',icon:'paper',isShowCaption:true,isShowIcon:true},
         ProjectTop: { name: 'ProjectTop',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'NOTOP', target: 'SINGLEKEY',icon:'hand-o-up',isShowCaption:true,isShowIcon:true},

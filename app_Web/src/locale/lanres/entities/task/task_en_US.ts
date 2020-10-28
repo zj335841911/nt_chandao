@@ -58,6 +58,9 @@ export default {
     tasktype: "任务类型",
     files: "附件",
     usernames: "团队用户",
+    isfinished: "是否完成",
+    replycount: "回复数量",
+    hasdetail: "是否填写描述",
   },
 	views: {
 		assigntaskview: {

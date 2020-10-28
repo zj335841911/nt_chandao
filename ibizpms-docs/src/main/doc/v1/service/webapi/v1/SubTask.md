@@ -886,6 +886,42 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | Page<[SubTaskDTO](#SubTaskDTO)>：任务实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
 
+### 获取todo列表查询
+#### 访问路径
+/subtasks/fetchtodolisttask
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | context | [TaskSearchContext](#TaskSearchContext) | 任务查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| -- | -- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[SubTaskDTO](#SubTaskDTO)>：任务实体传输对象列表 |
+
+### 查询todo列表查询
+#### 访问路径
+/subtasks/searchtodolisttask
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | context | [TaskSearchContext](#TaskSearchContext) | 任务查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| -- | -- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[SubTaskDTO](#SubTaskDTO)>：任务实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
 ### 获取任务类型分组
 #### 访问路径
 /subtasks/fetchtypegroup
@@ -1837,6 +1873,44 @@ GET
 ### 根据查询根任务
 #### 访问路径
 /tasks/{task_id}/subtasks/searchroottask
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | task_id | Long | 任务主键ID |
+| 2 | context | [TaskSearchContext](#TaskSearchContext) | 任务查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| -- | -- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[SubTaskDTO](#SubTaskDTO)>：任务实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 根据获取todo列表查询
+#### 访问路径
+/tasks/{task_id}/subtasks/fetchtodolisttask
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | task_id | Long | 任务主键ID |
+| 2 | context | [TaskSearchContext](#TaskSearchContext) | 任务查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| -- | -- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[SubTaskDTO](#SubTaskDTO)>：任务实体传输对象列表 |
+
+### 根据查询todo列表查询
+#### 访问路径
+/tasks/{task_id}/subtasks/searchtodolisttask
 
 #### 请求方法
 POST
@@ -2822,6 +2896,44 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | Page<[SubTaskDTO](#SubTaskDTO)>：任务实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
 
+### 根据获取todo列表查询
+#### 访问路径
+/stories/{story_id}/tasks/{task_id}/subtasks/fetchtodolisttask
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 需求主键ID |/r/n| 2 | task_id | Long | 任务主键ID |
+| 3 | context | [TaskSearchContext](#TaskSearchContext) | 任务查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| -- | -- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[SubTaskDTO](#SubTaskDTO)>：任务实体传输对象列表 |
+
+### 根据查询todo列表查询
+#### 访问路径
+/stories/{story_id}/tasks/{task_id}/subtasks/searchtodolisttask
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 需求主键ID |/r/n| 2 | task_id | Long | 任务主键ID |
+| 3 | context | [TaskSearchContext](#TaskSearchContext) | 任务查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| -- | -- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[SubTaskDTO](#SubTaskDTO)>：任务实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
 ### 根据获取任务类型分组
 #### 访问路径
 /stories/{story_id}/tasks/{task_id}/subtasks/fetchtypegroup
@@ -3775,6 +3887,44 @@ GET
 ### 根据查询根任务
 #### 访问路径
 /projects/{project_id}/tasks/{task_id}/subtasks/searchroottask
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 项目主键ID |/r/n| 2 | task_id | Long | 任务主键ID |
+| 3 | context | [TaskSearchContext](#TaskSearchContext) | 任务查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| -- | -- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[SubTaskDTO](#SubTaskDTO)>：任务实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 根据获取todo列表查询
+#### 访问路径
+/projects/{project_id}/tasks/{task_id}/subtasks/fetchtodolisttask
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 项目主键ID |/r/n| 2 | task_id | Long | 任务主键ID |
+| 3 | context | [TaskSearchContext](#TaskSearchContext) | 任务查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| -- | -- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[SubTaskDTO](#SubTaskDTO)>：任务实体传输对象列表 |
+
+### 根据查询todo列表查询
+#### 访问路径
+/projects/{project_id}/tasks/{task_id}/subtasks/searchtodolisttask
 
 #### 请求方法
 POST
@@ -4760,6 +4910,44 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | Page<[SubTaskDTO](#SubTaskDTO)>：任务实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
 
+### 根据获取todo列表查询
+#### 访问路径
+/products/{product_id}/stories/{story_id}/tasks/{task_id}/subtasks/fetchtodolisttask
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 产品主键ID |/r/n| 2 | story_id | Long | 需求主键ID |/r/n| 3 | task_id | Long | 任务主键ID |
+| 4 | context | [TaskSearchContext](#TaskSearchContext) | 任务查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| -- | -- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[SubTaskDTO](#SubTaskDTO)>：任务实体传输对象列表 |
+
+### 根据查询todo列表查询
+#### 访问路径
+/products/{product_id}/stories/{story_id}/tasks/{task_id}/subtasks/searchtodolisttask
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 产品主键ID |/r/n| 2 | story_id | Long | 需求主键ID |/r/n| 3 | task_id | Long | 任务主键ID |
+| 4 | context | [TaskSearchContext](#TaskSearchContext) | 任务查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| -- | -- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[SubTaskDTO](#SubTaskDTO)>：任务实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
 ### 根据获取任务类型分组
 #### 访问路径
 /products/{product_id}/stories/{story_id}/tasks/{task_id}/subtasks/fetchtypegroup
@@ -4859,7 +5047,10 @@ POST
 | 54 | tasktype | String | 允许 | 任务类型 |
 | 55 | files | String | 允许 | 附件 |
 | 56 | usernames | String | 允许 | 团队用户 |
-| 57 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 57 | isfinished | String | 允许 | 是否完成 |
+| 58 | replycount | Integer | 允许 | 回复数量 |
+| 59 | hasdetail | String | 允许 | 是否填写描述 |
+| 60 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### TaskSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

@@ -189,6 +189,15 @@ export default class ToolbarModel {
       {
         name: 'usernames',
       },
+      {
+        name: 'isfinished',
+      },
+      {
+        name: 'replycount',
+      },
+      {
+        name: 'hasdetail',
+      },
     ]
   }
 

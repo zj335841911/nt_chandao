@@ -1498,6 +1498,41 @@ export default class SubTaskServiceBase extends EntityService {
     }
 
     /**
+     * FetchTodoListTask接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubTaskServiceBase
+     */
+    public async FetchTodoListTask(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/fetchtodolisttask`,tempData,isloading);
+            return res;
+        }
+        if(context.project && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/subtasks/fetchtodolisttask`,tempData,isloading);
+            return res;
+        }
+        if(context.story && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/subtasks/fetchtodolisttask`,tempData,isloading);
+            return res;
+        }
+        if(context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/tasks/${context.task}/subtasks/fetchtodolisttask`,tempData,isloading);
+            return res;
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/subtasks/fetchtodolisttask`,tempData,isloading);
+        return res;
+    }
+
+    /**
      * FetchTypeGroup接口方法
      *
      * @param {*} [context={}]
@@ -1662,6 +1697,18 @@ export default class SubTaskServiceBase extends EntityService {
      * @memberof SubTaskServiceBase
      */
     public async FetchTempRootTask(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+    }
+
+    /**
+     * FetchTempTodoListTask接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubTaskServiceBase
+     */
+    public async FetchTempTodoListTask(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
     }
 
     /**

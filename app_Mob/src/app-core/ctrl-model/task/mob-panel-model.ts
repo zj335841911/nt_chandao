@@ -189,6 +189,15 @@ export class MobModel {
       {
         name: 'usernames',
       },
+      {
+        name: 'isfinished',
+      },
+      {
+        name: 'replycount',
+      },
+      {
+        name: 'hasdetail',
+      },
     ]
   }
 

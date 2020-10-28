@@ -469,4 +469,28 @@ export interface SubTask {
      * @memberof SubTask
      */
     usernames?: any;
+
+    /**
+     * 是否完成
+     *
+     * @returns {*}
+     * @memberof SubTask
+     */
+    isfinished?: any;
+
+    /**
+     * 回复数量
+     *
+     * @returns {*}
+     * @memberof SubTask
+     */
+    replycount?: any;
+
+    /**
+     * 是否填写描述
+     *
+     * @returns {*}
+     * @memberof SubTask
+     */
+    hasdetail?: any;
 }

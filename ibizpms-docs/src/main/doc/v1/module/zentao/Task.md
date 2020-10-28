@@ -80,6 +80,9 @@ hide members
 |任务类型|TASKTYPE|SSCODELIST|&nbsp;|
 |附件|FILES|TEXT|&nbsp;|
 |团队用户|USERNAMES|TEXT|&nbsp;|
+|是否完成|ISFINISHED|TEXT|&nbsp;|
+|回复数量|REPLYCOUNT|INT|&nbsp;|
+|是否填写描述|HASDETAIL|TEXT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -143,6 +146,9 @@ hide members
 |任务类型|默认规则|内容长度必须小于等于[200]|
 |附件|默认规则|内容长度必须小于等于[1000]|
 |团队用户|默认规则|内容长度必须小于等于[100]|
+|是否完成|默认规则|内容长度必须小于等于[100]|
+|回复数量|默认规则|默认规则|
+|是否填写描述|默认规则|内容长度必须小于等于[100]|
 
 ## 状态控制
 
@@ -1232,6 +1238,7 @@ hide footbox
 |MyFavorites|我的收藏([MYSQL5](../../appendix/query_MYSQL5.md#Task_MyFavorites))|否|&nbsp;|
 |ProjectTASK|项目任务([MYSQL5](../../appendix/query_MYSQL5.md#Task_ProjectTASK))|否|&nbsp;|
 |RootTask|根任务([MYSQL5](../../appendix/query_MYSQL5.md#Task_RootTask))|否|&nbsp;|
+|TodoListTask|todo任务列表查询([MYSQL5](../../appendix/query_MYSQL5.md#Task_TodoListTask))|否|&nbsp;|
 |TypeGroup|任务类型分组([MYSQL5](../../appendix/query_MYSQL5.md#Task_TypeGroup))|否|&nbsp;|
 |VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#Task_View))|否|&nbsp;|
 
@@ -1249,6 +1256,7 @@ hide footbox
 |MyFavorites|我的收藏|MyFavorites|否|&nbsp;|
 |ProjectTASK|项目任务|ProjectTASK|否|&nbsp;|
 |RootTask|根任务|RootTask|否|&nbsp;|
+|TodoListTask|todo列表查询|TodoListTask|否|&nbsp;|
 |TypeGroup|任务类型分组|TypeGroup|否|&nbsp;|
 
 ## 查询模式

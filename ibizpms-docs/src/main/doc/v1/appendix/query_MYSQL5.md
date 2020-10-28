@@ -12999,6 +12999,28 @@ t1.DELETED = '0'
 AND
 ( ( t1.`PARENT` = 0  OR  t1.`PARENT` IS NULL  OR  t1.`PARENT` = -1 ) )
 ```
+### todo任务列表查询(TodoListTask)<div id="Task_TodoListTask"></div>
+```sql
+select  t1.* from (SELECT
+	t1.id,
+	t1.`name`,
+	t1.pri,
+	t1.assignedTo,
+	t1.finishedBy,
+	t1.finishedDate,
+	t1.estStarted,
+	case when t1.`status` in ('done','closed') then '1' else '0' end AS isfinished,
+	(select count(1) from zt_action where objectType = 'task' and action = 'commented' and objectid = t1.id) AS ReplyCount,
+	case when t1.`desc` is null or t1.`desc` = '' then '0' else '1' end AS hasDetail,
+	t1.project,
+	t1.`TYPE` ,
+	t1.`status`,
+	t1.deleted
+FROM
+	`zt_task` t1) t1
+WHERE t1.deleted = '0' 
+
+```
 ### 任务类型分组(TypeGroup)<div id="Task_TypeGroup"></div>
 ```sql
 SELECT

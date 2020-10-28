@@ -218,7 +218,15 @@ export default {
 		uiactions: {
 		},
 	},
+	mobpickupmdviewmdctrl_quicktoolbar_toolbar: {
+	},
 	mobpickupmdviewmdctrl_batchtoolbar_toolbar: {
+	},
+	mobmdviewmdctrl_quicktoolbar_toolbar: {
+		deuiaction1: {
+			caption: '新建',
+			tip: '新建',
+		},
 	},
 	mobmdviewmdctrl_batchtoolbar_toolbar: {
 		deuiaction1: {

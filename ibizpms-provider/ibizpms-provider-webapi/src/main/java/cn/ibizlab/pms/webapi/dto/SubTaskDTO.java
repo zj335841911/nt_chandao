@@ -527,6 +527,32 @@ public class SubTaskDTO extends DTOBase implements Serializable {
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
     private String usernames;
 
+    /**
+     * 属性 [ISFINISHED]
+     *
+     */
+    @JSONField(name = "isfinished")
+    @JsonProperty("isfinished")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String isfinished;
+
+    /**
+     * 属性 [REPLYCOUNT]
+     *
+     */
+    @JSONField(name = "replycount")
+    @JsonProperty("replycount")
+    private Integer replycount;
+
+    /**
+     * 属性 [HASDETAIL]
+     *
+     */
+    @JSONField(name = "hasdetail")
+    @JsonProperty("hasdetail")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String hasdetail;
+
 
     /**
      * 设置 [CANCELEDBY]

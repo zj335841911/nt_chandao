@@ -189,6 +189,15 @@ export default class MainDetailModel {
       {
         name: 'usernames',
       },
+      {
+        name: 'isfinished',
+      },
+      {
+        name: 'replycount',
+      },
+      {
+        name: 'hasdetail',
+      },
     ]
   }
 
