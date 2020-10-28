@@ -270,15 +270,26 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
 
         this.internalUpdate(et);
         boolean changeParent = false;
-        if (et.getParent() != old.getParent())
+        if (!et.getParent().equals(old.getParent()))
             changeParent = true;
 
         if (old.getParent() > 0) {
             Task oldParent = this.get(old.getParent());
-            updateParentStatus(et, oldParent.getId(), changeParent);
+            updateParentStatus(et, oldParent.getId(), !changeParent);
             computeBeginAndEnd(oldParent);
             if (changeParent) {
-
+                int oldChildCount = this.count(new QueryWrapper<Task>().eq("parent",old.getParent()));
+                if (oldChildCount == 0) {
+                    Task task1 = new Task();
+                    task1.setId(old.getParent());
+                    task1.setParent(0l);
+                    this.internalUpdate(task1);
+                }
+                Task task2 = new Task();
+                task2.setId(old.getParent());
+                task2.setLasteditedby(AuthenticationUser.getAuthenticationUser().getUsername());
+                task2.setLastediteddate(ZTDateUtil.now());
+                this.internalUpdate(task2);
                 actionHelper.create("task", et.getId(), "unlinkParentTask", "", String.valueOf(old.getParent()), null, false);
 
                 Action action = actionHelper.create("task", old.getParent(), "unLinkChildrenTask", "", String.valueOf(et.getId()), null, false);
@@ -292,18 +303,29 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         }
 
         if (et.getParent() > 0) {
-            updateParentStatus(et, old.getParent(), changeParent);
+            Task parentTask = this.getById(et.getParent());
+            Task task2 = new Task();
+            task2.setId(et.getParent());
+            task2.setParent(-1L);
+            this.internalUpdate(task2);
+            updateParentStatus(et, et.getParent(), !changeParent);
             computeBeginAndEnd(this.get(old.getParent()));
             if (changeParent) {
-
+                Task task1 = new Task();
+                task1.setLasteditedby(AuthenticationUser.getAuthenticationUser().getUsername());
+                task1.setLastediteddate(ZTDateUtil.now());
+                task1.setId(et.getParent());
                 actionHelper.create("task", et.getId(), "linkParentTask", "", String.valueOf(et.getParent()), null, false);
-
-                actionHelper.create("task", et.getParent(), "linkChildTask", "", String.valueOf(et.getId()), null, false);
-
+                Action action1 = actionHelper.create("task", et.getParent(), "linkChildTask", "", String.valueOf(et.getId()), null, false);
+                Task newParentTask = this.getById(et.getParent());
+                List<History> changes = ChangeUtil.diff(parentTask,newParentTask);
+                if (changes.size() > 0) {
+                    actionHelper.logHistory(action1.getId(),changes);
+                }
             }
         }
 
-        fileHelper.updateObjectID(et.getId(), null, null);
+       // fileHelper.updateObjectID(et.getId(), null, "task");
 
 
 
@@ -353,6 +375,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
     public void computeHours4Multiple(Task old, Task task, List<TaskTeam> teams, boolean auto) {
         if (old == null) return;
         if (teams == null) {
+            //String sql = "select * from zt_team where root = %1$s and type = 'task' order by `order` Asc";
             teams = taskTeamHelper.list(new QueryWrapper<TaskTeam>().eq("root", old.getId()).eq("type", "task").orderByAsc("`order`"));
         }
         if (teams != null && teams.size() != 0) {
@@ -508,17 +531,19 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
     public void computeWorkingHours(Task et) {
         if(et.getId() == null)
             return;
-        String sql = String.format("select `id`,`estimate`,`consumed`,`left`, `status` from zt_task where parent = %1$s and `status` <> 'cancel'  and deleted = '0'", et.getId());
+
+        String sql = String.format("select * from zt_task where parent = %1$s and status <> 'cancel' and deleted = '0'",et.getId());
         List<JSONObject> list = taskService.select(sql,null);
+        //List<Task> list = this.list(new QueryWrapper<Task>().eq("parent",et.getId()).ne("status","cancel").eq("deleted","0"));
         if(list.size() == 0) return;
         double estimate = 0;
         double consumed = 0;
         double left = 0;
-        for(JSONObject jsonObject : list) {
-            estimate += jsonObject.getDoubleValue("estimate");
-            consumed += jsonObject.getDoubleValue("consumed");
-            if(!"closed".equals(jsonObject.getString("status"))) {
-                left += jsonObject.getDoubleValue("left");
+        for(JSONObject task1 : list) {
+            estimate += task1.getDoubleValue("estimate");
+            consumed += task1.getDoubleValue("consumed");
+            if(!"closed".equals(task1.getString("status"))) {
+                left += task1.getDoubleValue("left");
             }
         }
         Task task = new Task();
@@ -539,36 +564,34 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         if(oldParentTask.getParent() != -1) {
             Task pTask = new Task();
             pTask.setId(parentID);
-            pTask.setParent(-1l);
+            pTask.setParent(-1L);
             this.internalUpdate(pTask);
         }
         computeWorkingHours(oldParentTask);
-        String statusSql = String.format("select id,`status` from zt_task where parent = %1$s   and deleted = '0'", parentID);
 
-        List<JSONObject> statusList = taskService.select(statusSql, null);
-
-        if(statusList.size() == 0) {
+        String sql = String.format("select * from zt_task where parent = %1$s and deleted = '0'",parentID);
+        List<JSONObject> childTasks = taskService.select(sql,null);
+        //List<Task> childTasks = this.list(new QueryWrapper<Task>().eq("parent",parentID).eq("deleted",0));
+        if(childTasks.size() == 0) {
             Task pTask = new Task();
             pTask.setId(parentID);
-            pTask.setParent(0l);
+            pTask.setParent(0L);
             this.internalUpdate(pTask);
             return;
         }
 
         String status = "";
-        if(statusList.size() == 1) {
-            status = statusList.get(0).getString("status");
+        if(childTasks.size() == 1) {
+            status = childTasks.get(0).getString("status");
         }else {
-            String closedReasonSql = String.format("select closedReason from zt_task where parent = %1$s   and deleted = '0'", parentID);
-            List<JSONObject> closedReasonList = taskService.select(closedReasonSql, null);
+
             String strStatus = "";
-            for(JSONObject jsonObject : statusList) {
-                strStatus += jsonObject.getString("status") + ",";
-            }
             String strClose = "";
-            for(JSONObject jsonObject : closedReasonList) {
-                strClose += jsonObject.getString("closedReason") + ",";
+            for(JSONObject task: childTasks) {
+                strStatus += task.getString("status") + ",";
+                strClose += task.getString("closedReason") +",";
             }
+
             if(strStatus.contains("doing") || strStatus.contains("pause")) {
                 status = "doing";
             }else if((strStatus.contains("done") || strClose.contains("done")) && strStatus.contains("wait")) {
@@ -582,6 +605,14 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
             }else if(strStatus.contains("cancel")) {
                 status = "cancel";
             }
+        }
+        Task parentTask = this.getOne(new QueryWrapper<Task>().eq("id",parentID).eq("deleted",'0'));
+        if (parentTask == null){
+            Task task1 = new Task();
+            task1.setId(childTask.getId());
+            task1.setParent(0L);
+            this.internalUpdate(task1);
+            return;
         }
         //
         if(!"".equals(status) && !status.equals(oldParentTask.getStatus())) {
@@ -625,7 +656,8 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
             if(!changed) {
                 return;
             }
-            List<History> changes = ChangeUtil.diff(oldParentTask, this.get(parentID),null,null,null);
+
+            List<History> changes = ChangeUtil.diff(oldParentTask, this.get(parentID));
             String action = "";
             if("doing".equals(status) && !"wait".equals(oldParentTask.getStatus()) && !"pause".equals(oldParentTask.getStatus())) {
                 action = "Activated";
@@ -642,7 +674,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
             }else if("done".equals(status) && !"done".equals(oldParentTask.getStatus())) {
                 action = "Finished";
             }
-            if("".equals(action)) {
+            if(!"".equals(action)) {
                 Action action1 = actionHelper.create("task", parentID, action,
                         "", "", null, false);
                 if (changes.size() > 0)
@@ -768,7 +800,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         newTask.setLastediteddate(ZTDateUtil.now());
         newTask.setLasteditedby(AuthenticationUser.getAuthenticationUser().getUsername());
         this.internalUpdate(newTask);
-        if (old.getParent() > 0) this.updateParentStatus(newTask,newTask.getId(),true);
+        if (old.getParent() > 0) this.updateParentStatus(newTask,newTask.getParent(),true);
         List<History> changes = ChangeUtil.diff(old, newTask);
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
             Action action = actionHelper.create("task", newTask.getId(), "Paused",
@@ -841,20 +873,10 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         CachedBeanCopier.copy(this.get(et.getId()), old);
 
         Task newTask = new Task();
+        this.getActivateUpdateTask(et,newTask);
         newTask.setId(et.getId());
         newTask.setLeft(et.getLeft() != null ? et.getLeft() : 0.0d);
-        newTask.setAssignedto(et.getAssignedto().equals("closed")  ? "" : et.getAssignedto());
-        newTask.setAssigneddate(ZTDateUtil.now());
-        newTask.setStatus("doing");
-        newTask.setFinishedby("");
-        newTask.setFinisheddate(null);
-        newTask.setCanceledby("");
-        newTask.setCanceleddate(null);
-        newTask.setClosedby("");
-        newTask.setCloseddate(null);
-        newTask.setClosedreason("");
-        newTask.setLasteditedby(AuthenticationUser.getAuthenticationUser().getUsername());
-        newTask.setLastediteddate(ZTDateUtil.now());
+
         //team
         List<Team> teams = teamHelper.list(new QueryWrapper<Team>().eq("root", newTask.getId()).eq("type","task"));
         if (teams.size() > 0) {
@@ -874,15 +896,15 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         if (old.getParent() > 0)
             updateParentStatus(newTask, old.getParent(), true);
 
-        double left = newTask.getLeft();
-        newTask.setLeft(null);
-        if (old.getParent() == -1l) {
-            this.update(newTask,(Wrapper<Task>) et.getUpdateWrapper(true).eq("parent",newTask.getId()));
+        if (old.getParent() == -1L) {
+            Task task1 = new Task();
+            this.getActivateUpdateTask(et,task1);
+            this.update(task1,(Wrapper<Task>) task1.getUpdateWrapper(true).eq("parent",old.getId()));
             this.computeWorkingHours(newTask);
         }
-        newTask.setLeft(left);
-        newTask.setStatus1(old.getStatus1());
 
+
+        newTask.setStatus1(old.getStatus1());
         List<History> changes = ChangeUtil.diff(old, newTask);
         this.removeIgonreChanges(changes);
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
@@ -892,6 +914,21 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
                 actionHelper.logHistory(action.getId(), changes);
         }
         return newTask;
+    }
+
+    public void getActivateUpdateTask(Task et,Task newTask){
+        newTask.setAssignedto(et.getAssignedto() == null ? "" : et.getAssignedto());
+        newTask.setAssigneddate(ZTDateUtil.now());
+        newTask.setStatus("doing");
+        newTask.setFinishedby("");
+        newTask.setFinisheddate(null);
+        newTask.setCanceledby("");
+        newTask.setCanceleddate(null);
+        newTask.setClosedby("");
+        newTask.setCloseddate(null);
+        newTask.setClosedreason("");
+        newTask.setLasteditedby(AuthenticationUser.getAuthenticationUser().getUsername());
+        newTask.setLastediteddate(ZTDateUtil.now());
     }
 
     public void removeIgonreChanges(List<History> changes){
@@ -909,20 +946,18 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         CachedBeanCopier.copy(this.get(et.getId()), old);
 
         Task newTask = new Task();
+        this.setCancelNewTask(old,newTask);
         newTask.setId(et.getId());
-        newTask.setLastediteddate(ZTDateUtil.now());
-        newTask.setLasteditedby(AuthenticationUser.getAuthenticationUser().getUsername());
-        newTask.setStatus("cancel");
-        newTask.setAssignedto(old.getOpenedby());
-        newTask.setAssigneddate(ZTDateUtil.now());
-        newTask.setFinishedby("");
-        newTask.setFinisheddate(null);
-        newTask.setCanceledby(AuthenticationUser.getAuthenticationUser().getUsername());
-        newTask.setCanceleddate(ZTDateUtil.now());
-        this.internalUpdate(newTask);
 
+        this.internalUpdate(newTask);
         if (old.getParent() > 0)
             updateParentStatus(newTask, old.getParent(), true);
+
+        if (old.getParent() == -1L) {
+            Task childNewTask = new Task();
+            this.setCancelNewTask(old,childNewTask);
+            this.update(childNewTask,(Wrapper<Task>) childNewTask.getUpdateWrapper(true).eq("parent",old.getId()));
+        }
 
         List<History> changes = ChangeUtil.diff(old, newTask);
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
@@ -932,6 +967,19 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
                 actionHelper.logHistory(action.getId(), changes);
         }
         return newTask;
+    }
+
+    @Transactional
+    public void setCancelNewTask(Task old,Task newTask){
+        newTask.setLastediteddate(ZTDateUtil.now());
+        newTask.setLasteditedby(AuthenticationUser.getAuthenticationUser().getUsername());
+        newTask.setStatus("cancel");
+        newTask.setAssignedto(old.getOpenedby());
+        newTask.setAssigneddate(ZTDateUtil.now());
+        newTask.setFinishedby("");
+        newTask.setFinisheddate(null);
+        newTask.setCanceledby(AuthenticationUser.getAuthenticationUser().getUsername());
+        newTask.setCanceleddate(ZTDateUtil.now());
     }
 
     @Transactional
@@ -1086,12 +1134,12 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
             }
         }
         if (taskEstimates.size() == 0) return et;
-        et = this.get(et.getId());
+        //et = this.get(et.getId());
         double consumed = 0d;
         double teamLeft = 0d;
         double taskLeft = 0d;
         Timestamp nowDate = ZTDateUtil.now();
-        String sql = String.format("select * from zt_taskestimate where task = %1$s order by date desc LIMIT 0,1", et.getId());
+        String sql = String.format("select * from zt_taskestimate where task = %1$s order by date desc LIMIT 0,1", old.getId());
         List<JSONObject> list = taskService.select(sql, null);
         Timestamp lastDate = null;
         if(list.size() > 0)
@@ -1102,7 +1150,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
             taskEstimateHelper.create(taskEstimate);
             consumed += taskEstimate.getConsumed();
 
-            Action action = actionHelper.create("task", et.getId(), "RecordEstimate",
+            Action action = actionHelper.create("task", old.getId(), "RecordEstimate",
                     taskEstimate.getWork(), String.valueOf(taskEstimate.getConsumed()), null, true);
             actionid = action.getId();
             if(lastDate == null || lastDate.getTime() <= taskEstimate.getDate().getTime()) {
@@ -1114,7 +1162,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         }
 
         // 团队任务
-        List<Team> teams = teamHelper.list(new QueryWrapper<Team>().eq("root", et.getId()).eq("type","task"));
+        List<Team> teams = teamHelper.list(new QueryWrapper<Team>().eq("root", old.getId()).eq("type","task"));
         if(teams.size() > 0) {
             double myconsumed = 0d;
             for(Team team : teams) {
@@ -1129,7 +1177,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
             Team team = new Team();
             team.setConsumed(myconsumed + consumed);
             team.setLeft(teamLeft);
-            teamHelper.update(team, new QueryWrapper<Team>().eq("root", et.getId()).eq("type", "task").eq("account", AuthenticationUser.getAuthenticationUser().getUsername()));
+            teamHelper.update(team, new QueryWrapper<Team>().eq("root", old.getId()).eq("type", "task").eq("account", AuthenticationUser.getAuthenticationUser().getUsername()));
         }
         else {
             if (!isNew)  teamLeft = list.get(0).getDoubleValue("left");
@@ -1139,22 +1187,23 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         Task task = new Task();
         taskLeft += teamLeft;
         task.setLeft(taskLeft);
-        task.setConsumed(et.getConsumed() + consumed);
+        task.setConsumed(old.getConsumed() + consumed);
         task.setLasteditedby(AuthenticationUser.getAuthenticationUser().getLoginname());
         task.setLastediteddate(nowDate);
-        task.setId(et.getId());
+        task.setId(old.getId());
+        task.setParent(old.getParent());
         if(taskLeft == 0) {
             task.setStatus("done");
-            task.setAssignedto(et.getOpenedby());
+            task.setAssignedto(old.getOpenedby());
             task.setAssigneddate(nowDate);
             task.setFinisheddate(nowDate);
             task.setFinishedby(AuthenticationUser.getAuthenticationUser().getLoginname());
-        }else if("wait".equals(et.getStatus())) {
+        }else if("wait".equals(old.getStatus())) {
             task.setStatus("doing");
             task.setAssignedto(AuthenticationUser.getAuthenticationUser().getLoginname());
             task.setAssigneddate(nowDate);
             task.setRealstarted(nowDate);
-        }else if("pause".equals(et.getStatus())) {
+        }else if("pause".equals(old.getStatus())) {
             task.setStatus("doing");
             task.setAssignedto(AuthenticationUser.getAuthenticationUser().getLoginname());
             task.setAssigneddate(nowDate);
@@ -1162,16 +1211,16 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         if (teams.size() > 0) this.computeHours4Multiple(old,task,null,false);
         this.internalUpdate(task);
 
-        List<History> changes = ChangeUtil.diff(et, task);
+        List<History> changes = ChangeUtil.diff(old, task);
         if(actionid != null && changes.size() > 0)
             actionHelper.logHistory(actionid, changes);
-        if(et.getParent() > 0) {
-            updateParentStatus(et, et.getParent(), true);
+        if(old.getParent() > 0) {
+            updateParentStatus(task, task.getParent(), true);
         }
-        if(et.getStory() != null && et.getStory() != 0l) {
+        if(old.getStory() != null && old.getStory() != 0L) {
             storyHelper.setStage(et.getZtstory());
         }
-        return et;
+        return task;
     }
 
 
