@@ -125,7 +125,7 @@ export class MainEditGridBase extends GridControlBase {
             show: true,
             util: 'STAR',
             width: 100,
-            codelistId: 'UserRealNameTask'
+            codelistId: 'UserRealNameProject'
         },
         {
             name: 'estimate',
@@ -249,7 +249,7 @@ export class MainEditGridBase extends GridControlBase {
         return super.formatExcelData(filterVal, jsonData, [
             {
                 name: 'account',
-                srfkey: 'UserRealNameTask',
+                srfkey: 'UserRealNameProject',
                 codelistType : 'DYNAMIC',
                 textSeparator: ',',
                 renderMode: 'string',

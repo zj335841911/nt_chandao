@@ -63,7 +63,6 @@ export class CodeListRegister {
         this.allCodeList.set('BackendBuild', () => import('@/codelist/backend-build'));
         this.allCodeList.set('PlanCodeList', () => import('@/codelist/plan-code-list'));
         this.allCodeList.set('CurProductPlan', () => import('@/codelist/cur-product-plan'));
-        this.allCodeList.set('UserRealNameTask', () => import('@/codelist/user-real-name-task'));
         this.allCodeList.set('TestTask', () => import('@/codelist/test-task'));
         this.allCodeList.set('ProjectProductPlan', () => import('@/codelist/project-product-plan'));
         this.allCodeList.set('Product', () => import('@/codelist/product'));

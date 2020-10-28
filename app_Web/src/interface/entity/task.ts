@@ -469,4 +469,28 @@ export interface Task {
      * @memberof Task
      */
     usernames?: any;
+
+    /**
+     * 是否完成
+     *
+     * @returns {*}
+     * @memberof Task
+     */
+    isfinished?: any;
+
+    /**
+     * 回复数量
+     *
+     * @returns {*}
+     * @memberof Task
+     */
+    replycount?: any;
+
+    /**
+     * 是否填写描述
+     *
+     * @returns {*}
+     * @memberof Task
+     */
+    hasdetail?: any;
 }
