@@ -108,6 +108,10 @@ export class StartFormEditFormBase extends EditFormControlBase {
      */
     public rules():any{
         return {
+        consumed: [
+            {validator:(rule:any, value:any)=>{return this.verifyDeRules("consumed").isPast},message: this.verifyDeRules("consumed").infoMessage, trigger: 'change' },
+            {validator:(rule:any, value:any)=>{return this.verifyDeRules("consumed").isPast},message: this.verifyDeRules("consumed").infoMessage, trigger: 'blur' },
+        ],
         }
     }
 
@@ -118,6 +122,19 @@ export class StartFormEditFormBase extends EditFormControlBase {
      * @memberof StartFormBase
      */
     public deRules:any = {
+                consumed:[
+                  {
+                      type:"VALUERANGE2",
+                      condOP:"",
+                      ruleInfo:"预计剩余大于0", 
+                      isKeyCond:false,
+                      isNotMode:false,
+                      minValue:0,
+                      deName:"left",
+                      isIncludeMaxValue:false,
+                      isIncludeMinValue:false,
+                  },
+                ],
     };
 
     /**
