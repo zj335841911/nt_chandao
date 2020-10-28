@@ -1365,7 +1365,7 @@ export default class AssMobBase extends Vue implements ControlInterface {
             if(!opt.saveEmit){
                 this.$emit('save', data);
             }                
-            AppCenterService.notifyMessage({name:"Todo",action:'appRefresh',data:data:Object.assign(data,{appRefreshAction:action===this.updateAction?false:true})}});
+            AppCenterService.notifyMessage({name:"Todo",action:'appRefresh',data:Object.assign(data,{appRefreshAction:action===this.updateAction?false:true})});
             this.$store.dispatch('viewaction/datasaved', { viewtag: this.viewtag });
             this.$nextTick(() => {
                 this.formState.next({ type: 'save', data: data });

@@ -1518,7 +1518,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
             if(!opt.saveEmit){
                 this.$emit('save', data);
             }                
-            AppCenterService.notifyMessage({name:"Build",action:'appRefresh',data:data:Object.assign(data,{appRefreshAction:action===this.updateAction?false:true})}});
+            AppCenterService.notifyMessage({name:"Build",action:'appRefresh',data:Object.assign(data,{appRefreshAction:action===this.updateAction?false:true})});
             this.$store.dispatch('viewaction/datasaved', { viewtag: this.viewtag });
             this.$nextTick(() => {
                 this.formState.next({ type: 'save', data: data });
