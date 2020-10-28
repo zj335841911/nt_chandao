@@ -142,6 +142,46 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
     }
 
     @Transactional
+    public Task otherUpdate(Task et) {
+
+        Task newTask = new Task();
+        newTask.setId(et.getId());
+        if(et.getName() != null)
+            newTask.setName(et.getName());
+        if(et.getType() != null)
+            newTask.setType(et.getType());
+        if(et.getDeadline() != null)
+            newTask.setDeadline(et.getDeadline());
+        if(et.getPri() != null)
+            newTask.setPri(et.getPri());
+        if(et.getDesc() != null)
+            newTask.setDesc(et.getDesc());
+        Timestamp now = ZTDateUtil.now();
+        newTask.setLastediteddate(now);
+        newTask.setLasteditedby(AuthenticationUser.getAuthenticationUser().getUsername());
+        this.internalUpdate(newTask);
+        Task old = new Task();
+        CachedBeanCopier.copy(this.get(et.getId()), old);
+        old.setLastediteddate(now);
+        old.setLasteditedby(AuthenticationUser.getAuthenticationUser().getUsername());
+
+        List<History> changes = ChangeUtil.diff(old, newTask,null,null,diffAttrs);
+        this.removeIgonreChanges(changes);
+        if (changes.size() > 0) {
+            String strAction = "Edited";
+            if (changes.size() == 0) {
+                strAction = "Commented";
+            }
+            Action action = actionHelper.create("task", et.getId(), strAction,
+                    "", "", null, true);
+            if (changes.size() > 0)
+                actionHelper.logHistory(action.getId(), changes);
+        }
+
+        return et;
+    }
+
+    @Transactional
     public boolean edit(Task et) {
         String multiple = et.getMultiple();
         List<TaskTeam> teams = et.getTaskteam();
