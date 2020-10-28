@@ -172,7 +172,7 @@ export default class TestSuiteMobEditViewBase extends Vue {
      * @type {*}
      * @memberof TestSuiteMobEditViewBase
      */
-    protected navContext: any = {};
+    protected navContext: any = { 'objecttype': 'testsuite', 'srfparentkey': '%testsuite%' };
 
     /**
      * 视图导航参数
@@ -181,7 +181,7 @@ export default class TestSuiteMobEditViewBase extends Vue {
      * @type {*}
      * @memberof TestSuiteMobEditViewBase
      */
-    protected navParam: any = {};
+    protected navParam: any = { 'srfparentkey': '%testsuite%', 'objecttype': 'testsuite' };
 
     /**
      * 视图模型数据

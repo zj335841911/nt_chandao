@@ -159,6 +159,8 @@ export default {
 	},
 	mobmain_form: {
 		details: {
+			druipart1: '', 
+			grouppanel1: '历史记录', 
 			group1: '测试版本基本信息', 
 			formpage1: '基本信息', 
 			srforikey: '', 

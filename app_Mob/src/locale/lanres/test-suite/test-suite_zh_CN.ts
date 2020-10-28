@@ -44,6 +44,8 @@ export default {
 	},
 	mobmain_form: {
 		details: {
+			druipart1: '', 
+			grouppanel1: '历史记录', 
 			group1: '测试套件基本信息', 
 			formpage1: '基本信息', 
 			srfupdatedate: '最后编辑时间', 
