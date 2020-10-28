@@ -520,7 +520,9 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
                         currentTask.setFinishedlist(old.getFinishedlist() + "," + login);
                     }
                     if ((old.getStatus().equals("done") || old.getStatus().equals("closed")) && currentTask.getStatus().equals("doing") && old.getStatus() != null) {
-                        currentTask.setFinishedlist(old.getFinishedlist().substring(0, old.getFinishedlist().indexOf(old.getAssignedto())));
+                        if (old.getFinishedlist().length() >= old.getFinishedlist().indexOf(old.getAssignedto())){
+                            currentTask.setFinishedlist(old.getFinishedlist().substring(0, old.getFinishedlist().indexOf(old.getAssignedto())));
+                        }
                     }
                 }
             }
