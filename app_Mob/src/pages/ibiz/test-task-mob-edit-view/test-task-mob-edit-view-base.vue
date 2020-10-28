@@ -191,7 +191,7 @@ export default class TestTaskMobEditViewBase extends Vue {
      * @type {*}
      * @memberof TestTaskMobEditViewBase
      */
-    protected navContext: any = {};
+    protected navContext: any = { 'objecttype': 'testtask', 'srfparentkey': '%testtask%' };
 
     /**
      * 视图导航参数
@@ -200,7 +200,7 @@ export default class TestTaskMobEditViewBase extends Vue {
      * @type {*}
      * @memberof TestTaskMobEditViewBase
      */
-    protected navParam: any = {};
+    protected navParam: any = { 'srfparentkey': '%testtask%', 'objecttype': 'testtask' };
 
     /**
      * 视图模型数据
