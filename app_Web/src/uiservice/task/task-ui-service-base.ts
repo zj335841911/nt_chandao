@@ -1714,12 +1714,12 @@ export default class TaskUIServiceBase extends UIService {
         
         const backend = () => {
             const curService:TaskService =  new TaskService();
-            curService.TaskForward(context,data, true).then((response: any) => {
+            curService.TaskForward(context,data, false).then((response: any) => {
                 if (!response || response.status !== 200) {
                     actionContext.$Notice.error({ title: '错误', desc: response.message });
                     return;
                 }
-                actionContext.$Notice.success({ title: '成功', desc: '当前用户可以转件' });
+                actionContext.$Notice.success({ title: '成功', desc: '当前用户可以转交' });
 
                 const _this: any = actionContext;
                 const { data: result } = response;
