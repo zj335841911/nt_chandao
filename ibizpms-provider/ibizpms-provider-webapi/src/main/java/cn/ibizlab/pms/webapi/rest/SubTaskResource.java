@@ -324,7 +324,7 @@ public class SubTaskResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-TaskForward-all')")
-    @ApiOperation(value = "任务转交（判断当前用户是否可以转交）", tags = {"任务" },  notes = "任务转交（判断当前用户是否可以转交）")
+    @ApiOperation(value = "检查多人任务操作权限", tags = {"任务" },  notes = "检查多人任务操作权限")
 	@RequestMapping(method = RequestMethod.POST, value = "/subtasks/{subtask_id}/taskforward")
     public ResponseEntity<SubTaskDTO> taskForward(@PathVariable("subtask_id") Long subtask_id, @RequestBody SubTaskDTO subtaskdto) {
         Task domain = subtaskMapping.toDomain(subtaskdto);

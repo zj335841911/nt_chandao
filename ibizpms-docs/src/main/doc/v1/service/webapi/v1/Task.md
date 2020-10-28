@@ -507,7 +507,7 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | [TaskDTO](#TaskDTO)：任务实体传输对象 |
 
-### 任务转交（判断当前用户是否可以转交）
+### 检查多人任务操作权限
 #### 访问路径
 /tasks/{task_id}/taskforward
 
@@ -1527,7 +1527,7 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | [TaskDTO](#TaskDTO)：任务实体传输对象 |
 
-### 任务转交（判断当前用户是否可以转交）
+### 检查多人任务操作权限
 #### 访问路径
 /stories/{story_id}/tasks/{task_id}/taskforward
 
@@ -2574,7 +2574,7 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | [TaskDTO](#TaskDTO)：任务实体传输对象 |
 
-### 任务转交（判断当前用户是否可以转交）
+### 检查多人任务操作权限
 #### 访问路径
 /projects/{project_id}/tasks/{task_id}/taskforward
 
@@ -3621,7 +3621,7 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | [TaskDTO](#TaskDTO)：任务实体传输对象 |
 
-### 任务转交（判断当前用户是否可以转交）
+### 检查多人任务操作权限
 #### 访问路径
 /products/{product_id}/stories/{story_id}/tasks/{task_id}/taskforward
 

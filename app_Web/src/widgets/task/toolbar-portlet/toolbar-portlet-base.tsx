@@ -188,7 +188,7 @@ export class ToolbarPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public dashboard_sysportlet2_u0c66df9_click(params: any = {}, tag?: any, $event?: any) {
+    public dashboard_sysportlet2_u0fbdd1e_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -205,7 +205,7 @@ export class ToolbarPortletBase extends MainControlBase {
         }
         // 界面行为
         const curUIService:TaskUIService  = new TaskUIService();
-        curUIService.Task_StartTaskDash(datas,contextJO, paramJO,  $event, xData,this,"Task");
+        curUIService.Task_MStartTaskDash(datas,contextJO, paramJO,  $event, xData,this,"Task");
     }
 
     /**
@@ -216,7 +216,7 @@ export class ToolbarPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public dashboard_sysportlet2_ueb9fc78_click(params: any = {}, tag?: any, $event?: any) {
+    public dashboard_sysportlet2_ub4e1255_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -233,7 +233,7 @@ export class ToolbarPortletBase extends MainControlBase {
         }
         // 界面行为
         const curUIService:TaskUIService  = new TaskUIService();
-        curUIService.Task_WorkHours(datas,contextJO, paramJO,  $event, xData,this,"Task");
+        curUIService.Task_MWorkHours(datas,contextJO, paramJO,  $event, xData,this,"Task");
     }
 
     /**
@@ -514,8 +514,8 @@ export class ToolbarPortletBase extends MainControlBase {
         newsubtaskdash: {name: 'newsubtaskdash', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__TASK_SUBTASKS_BUT', uiaction: { tag: 'NewSubTaskDash', target: 'SINGLEKEY' } },
         assigntaskdash: {name: 'assigntaskdash', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__TASK_ASSIGN_BUT', uiaction: { tag: 'AssignTaskDash', target: 'SINGLEKEY' } },
         checkforwarddash: {name: 'checkforwarddash', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__TASK_FORWARD_BUT', uiaction: { tag: 'checkForwardDash', target: 'SINGLEKEY' } },
-        starttaskdash: {name: 'starttaskdash', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__TASK_START_BUT', uiaction: { tag: 'StartTaskDash', target: 'SINGLEKEY' } },
-        workhours: {name: 'workhours', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__TASK_CONSUM_BUT', uiaction: { tag: 'WorkHours', target: 'SINGLEKEY' } },
+        mstarttaskdash: {name: 'mstarttaskdash', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__TASK_START_BUT', uiaction: { tag: 'MStartTaskDash', target: 'SINGLEKEY' } },
+        mworkhours: {name: 'mworkhours', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__TASK_CONSUM_BUT', uiaction: { tag: 'MWorkHours', target: 'SINGLEKEY' } },
         pausetaskdash: {name: 'pausetaskdash', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__TASK_PAUSE_BUT', uiaction: { tag: 'PauseTaskDash', target: 'SINGLEKEY' } },
         restarttask: {name: 'restarttask', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__TASK_PROCEED_BUT', uiaction: { tag: 'ReStartTask', target: 'SINGLEKEY' } },
         activationdash: {name: 'activationdash', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__TASK_ACTIVATION_BUT', uiaction: { tag: 'ActivationDash', target: 'SINGLEKEY' } },
@@ -572,7 +572,7 @@ export class ToolbarPortletBase extends MainControlBase {
         visabled:true,
         disabled:false
         },
-        { viewlogicname:"dashboard_sysportlet2_u0c66df9_click",
+        { viewlogicname:"dashboard_sysportlet2_u0fbdd1e_click",
         text: "开始",
         iconcls: "fa fa-play-circle-o",
         icon: "",
@@ -582,10 +582,10 @@ export class ToolbarPortletBase extends MainControlBase {
         visabled:true,
         disabled:false
         },
-        { viewlogicname:"dashboard_sysportlet2_ueb9fc78_click",
+        { viewlogicname:"dashboard_sysportlet2_ub4e1255_click",
         text: "工时",
-        iconcls: null,
-        icon: null,
+        iconcls: "fa fa-clock-o",
+        icon: "",
         noprivdisplaymode: 2,
         dataaccaction:'SRFUR__TASK_CONSUM_BUT',
         actiontarget:'SINGLEKEY',
@@ -692,11 +692,11 @@ export class ToolbarPortletBase extends MainControlBase {
         if(Object.is($event,'dashboard_sysportlet2_ua1a722d_click')){
             this.dashboard_sysportlet2_ua1a722d_click(null);
         }
-        if(Object.is($event,'dashboard_sysportlet2_u0c66df9_click')){
-            this.dashboard_sysportlet2_u0c66df9_click(null);
+        if(Object.is($event,'dashboard_sysportlet2_u0fbdd1e_click')){
+            this.dashboard_sysportlet2_u0fbdd1e_click(null);
         }
-        if(Object.is($event,'dashboard_sysportlet2_ueb9fc78_click')){
-            this.dashboard_sysportlet2_ueb9fc78_click(null);
+        if(Object.is($event,'dashboard_sysportlet2_ub4e1255_click')){
+            this.dashboard_sysportlet2_ub4e1255_click(null);
         }
         if(Object.is($event,'dashboard_sysportlet2_u8c69bef_click')){
             this.dashboard_sysportlet2_u8c69bef_click(null);
