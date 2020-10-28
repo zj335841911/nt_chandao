@@ -108,8 +108,8 @@
                         <div class="app-toolbar-container ">
             <div class="app-quick-toolbar toolbar-left-bottons">
                     <ion-button class="app-view-toolbar-button" v-show="mdctrl_batchtoolbarModels.deuiaction1.visabled" :disabled="mdctrl_batchtoolbarModels.deuiaction1.disabled" @click="mdctrl_batchtoolbar_click({ tag: 'deuiaction1' }, $event)" >
-                <ion-icon class="ibiz-button-icon" name="add"> </ion-icon>
-            
+                <ion-icon class="ibiz-button-icon" name="remove"> </ion-icon>
+            {{$t('product.testmobmdviewmdctrl_batchtoolbar_toolbar.deuiaction1.caption')}}
             </ion-button>
         
             </div>
@@ -352,7 +352,7 @@ export default class ProductTestMobMDViewBase extends Vue {
     * @memberof ProductTestMobMDView
     */
     public mdctrl_batchtoolbarModels: any = {
-            deuiaction1: { name: 'deuiaction1', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__PROD_CREATE_BUT', uiaction: { tag: 'MobCreate', target: 'NONE' } },
+            deuiaction1: { name: 'deuiaction1', caption: '删除', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALDELETE', uiaction: { tag: 'Remove', target: 'MULTIKEY' } },
 
     };
 

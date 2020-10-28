@@ -76,34 +76,6 @@ export default {
 			caption: '产品',
 		},
 	},
-	mobnewfrom_form: {
-		details: {
-			grouppanel3: '分组面板', 
-			grouppanel1: '分组面板', 
-			group1: 'product基本信息', 
-			formpage1: '基本信息', 
-			srforikey: '', 
-			srfkey: '编号', 
-			srfmajortext: '产品名称', 
-			srftempmode: '', 
-			srfuf: '', 
-			srfdeid: '', 
-			srfsourcekey: '', 
-			name: '产品名称', 
-			code: '产品代号', 
-			line: '产品线', 
-			linename: '产品线', 
-			po: '产品负责人', 
-			qd: '测试负责人', 
-			rd: '发布负责人', 
-			type: '产品类型', 
-			desc: '产品描述	', 
-			acl: '访问控制', 
-			id: '编号', 
-		},
-		uiactions: {
-		},
-	},
 	mobmain_form: {
 		details: {
 			druipart1: '', 
@@ -157,6 +129,34 @@ export default {
 		uiactions: {
 		},
 	},
+	mobnewfrom_form: {
+		details: {
+			grouppanel3: '分组面板', 
+			grouppanel1: '分组面板', 
+			group1: 'product基本信息', 
+			formpage1: '基本信息', 
+			srforikey: '', 
+			srfkey: '编号', 
+			srfmajortext: '产品名称', 
+			srftempmode: '', 
+			srfuf: '', 
+			srfdeid: '', 
+			srfsourcekey: '', 
+			name: '产品名称', 
+			code: '产品代号', 
+			line: '产品线', 
+			linename: '产品线', 
+			po: '产品负责人', 
+			qd: '测试负责人', 
+			rd: '发布负责人', 
+			type: '产品类型', 
+			desc: '产品描述	', 
+			acl: '访问控制', 
+			id: '编号', 
+		},
+		uiactions: {
+		},
+	},
 	mobdef_searchform: {
 		details: {
 			formpage1: '常规条件', 
@@ -168,22 +168,12 @@ export default {
 		uiactions: {
 		},
 	},
-	newmobeditviewrighttoolbar_toolbar: {
-		tbitem1: {
-			caption: '保存',
-			tip: '保存',
-		},
-	},
 	mobpickupmdviewmdctrl_batchtoolbar_toolbar: {
-		deuiaction1: {
-			caption: '新建',
-			tip: '新建',
-		},
 	},
 	mobmdviewmdctrl_batchtoolbar_toolbar: {
 		deuiaction1: {
-			caption: '新建',
-			tip: '新建',
+			caption: '删除',
+			tip: '删除',
 		},
 	},
 	closemobeditviewrighttoolbar_toolbar: {
@@ -206,6 +196,12 @@ export default {
 			tip: '删除',
 		},
 	},
+	newmobeditviewrighttoolbar_toolbar: {
+		tbitem1: {
+			caption: '保存',
+			tip: '保存',
+		},
+	},
 	mobmdviewrighttoolbar_toolbar: {
 		deuiaction1: {
 			caption: '新建',
@@ -214,8 +210,8 @@ export default {
 	},
 	testmobmdviewmdctrl_batchtoolbar_toolbar: {
 		deuiaction1: {
-			caption: '新建',
-			tip: '新建',
+			caption: '删除',
+			tip: '删除',
 		},
 	},
 };

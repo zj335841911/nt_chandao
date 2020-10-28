@@ -214,10 +214,7 @@ export default class MobBase extends Vue implements ControlInterface {
             datas = [..._this.getDatas()];
         }
         // 界面行为
-        const curUIService: any = await this.globaluiservice.getService('product_ui_action');
-        if (curUIService) {
-            curUIService.Product_MobCreate(datas, contextJO, paramJO, $event, xData, this);
-        }
+        this.globaluiservice.Remove(datas, contextJO, paramJO, $event, xData, this);
     }
 
     /**
@@ -1338,7 +1335,7 @@ export default class MobBase extends Vue implements ControlInterface {
      * @memberof MobBase
      */  
     public ActionModel:any ={
-        MobCreate: { name: 'MobCreate',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__PROD_CREATE_BUT', target: 'NONE',icon:'add',},
+        Remove: { name: 'Remove',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALDELETE', target: 'MULTIKEY',icon:'remove',},
         EditMob: { name: 'EditMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY',icon:'paper',isShowCaption:true,isShowIcon:true},
         ProductTop: { name: 'ProductTop',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'NOTOP', target: 'SINGLEKEY',icon:'hand-o-up',isShowCaption:true,isShowIcon:true},
         CancelProductTop: { name: 'CancelProductTop',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'TOP', target: 'SINGLEKEY',icon:'hand-o-down',isShowCaption:true,isShowIcon:true},

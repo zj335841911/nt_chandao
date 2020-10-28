@@ -251,6 +251,8 @@ export default {
 		details: {
 			druipart1: '任务团队', 
 			grouppanel1: '分组面板', 
+			druipart3: '', 
+			grouppanel3: '附件', 
 			druipart2: '', 
 			grouppanel2: '历史记录', 
 			group1: '任务基本信息', 

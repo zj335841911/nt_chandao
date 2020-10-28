@@ -185,6 +185,7 @@ public class ProjectSearchContext extends QueryWrapperContext<Project> {
             this.getSearchCond().and( wrapper ->
                      wrapper.like("id", query)   
                         .or().like("name", query)            
+                        .or().like("code", query)            
             );
 		 }
 	}
