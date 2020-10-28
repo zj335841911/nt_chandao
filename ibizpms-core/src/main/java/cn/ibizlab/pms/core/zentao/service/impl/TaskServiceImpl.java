@@ -239,6 +239,12 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
 
         @Override
     @Transactional
+    public Task otherUpdate(Task et) {
+  			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.TaskHelper.class).otherUpdate(et);
+    }
+
+        @Override
+    @Transactional
     public Task pause(Task et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.TaskHelper.class).pause(et);
     }

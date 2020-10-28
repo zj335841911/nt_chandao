@@ -229,6 +229,11 @@ export default class MainEditModel {
         dataType: 'DATETIME',
       },
       {
+        name: 'tasktype',
+        prop: 'tasktype',
+        dataType: 'SSCODELIST',
+      },
+      {
         name: 'task',
         prop: 'id',
         dataType: 'FONTKEY',

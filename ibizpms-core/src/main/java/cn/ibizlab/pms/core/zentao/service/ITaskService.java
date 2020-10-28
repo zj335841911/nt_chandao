@@ -43,6 +43,7 @@ public interface ITaskService extends IService<Task>{
     Task editEstimate(Task et) ;
     Task finish(Task et) ;
     Task getUsernames(Task et) ;
+    Task otherUpdate(Task et) ;
     Task pause(Task et) ;
     Task recordEstimate(Task et) ;
     Task restart(Task et) ;

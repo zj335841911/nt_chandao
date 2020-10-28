@@ -386,6 +386,7 @@ export default {
 			closedby: "由谁关闭", 
 			closedreason: "关闭原因", 
 			closeddate: "关闭时间", 
+			tasktype: "任务类型", 
 		},
 		uiactions: {
 		},

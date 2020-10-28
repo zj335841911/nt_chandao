@@ -127,6 +127,7 @@ export class MainEditEditFormBase extends EditFormControlBase {
         closedby: null,
         closedreason: null,
         closeddate: null,
+        tasktype: null,
         task:null,
     };
 
@@ -241,7 +242,7 @@ export class MainEditEditFormBase extends EditFormControlBase {
 
         type: new FormItemModel({ caption: '任务类型', detailType: 'FORMITEM', name: 'type', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:true, disabled: false, enableCond: 3 }),
 
-        status: new FormItemModel({ caption: '任务状态', detailType: 'FORMITEM', name: 'status', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+        status: new FormItemModel({ caption: '任务状态', detailType: 'FORMITEM', name: 'status', visible: false, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 
         pri: new FormItemModel({ caption: '优先级', detailType: 'FORMITEM', name: 'pri', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 
@@ -274,6 +275,8 @@ export class MainEditEditFormBase extends EditFormControlBase {
         closedreason: new FormItemModel({ caption: '关闭原因', detailType: 'FORMITEM', name: 'closedreason', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 
         closeddate: new FormItemModel({ caption: '关闭时间', detailType: 'FORMITEM', name: 'closeddate', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+
+        tasktype: new FormItemModel({ caption: '任务类型', detailType: 'FORMITEM', name: 'tasktype', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 
     };
 
@@ -362,6 +365,14 @@ export class MainEditEditFormBase extends EditFormControlBase {
 
 
 
+        if (Object.is(name, '') || Object.is(name, 'tasktype')) {
+            let ret = false;
+            const _tasktype = this.data.tasktype;
+            if (this.$verify.testCond(_tasktype, 'NOTEQ', '20')) {
+                ret = true;
+            }
+            this.detailsModel.status.setVisible(ret);
+        }
 
 
 
@@ -393,6 +404,7 @@ export class MainEditEditFormBase extends EditFormControlBase {
             }
             this.detailsModel.left.setDisabled(!ret);
         }
+
 
 
 
