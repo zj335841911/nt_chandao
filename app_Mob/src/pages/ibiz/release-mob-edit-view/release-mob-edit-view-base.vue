@@ -207,7 +207,7 @@ export default class ReleaseMobEditViewBase extends Vue {
      * @type {*}
      * @memberof ReleaseMobEditViewBase
      */
-    protected navContext: any = {};
+    protected navContext: any = { 'objecttype': 'release', 'srfparentkey': '%release%' };
 
     /**
      * 视图导航参数
@@ -216,7 +216,7 @@ export default class ReleaseMobEditViewBase extends Vue {
      * @type {*}
      * @memberof ReleaseMobEditViewBase
      */
-    protected navParam: any = {};
+    protected navParam: any = { 'srfparentkey': '%release%', 'objecttype': 'release' };
 
     /**
      * 视图模型数据
