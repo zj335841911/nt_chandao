@@ -3,11 +3,6 @@
         <div class="app-mob-mdctrl-mdctrl" ref="mdctrl">
             <ion-list class="items" ref="ionlist">
                 <template v-if="(viewType == 'DEMOBMDVIEW9') && controlStyle != 'SWIPERVIEW' ">
-                    <div class="selectall" v-show="isChoose">
-                        <ion-checkbox :checked="selectAllIschecked" @ionChange="checkboxAll"></ion-checkbox>
-                        <ion-label class="selectal-label">全选</ion-label>
-                        <ion-label class="exit_select-label" @click="onCheackChange">退出选择</ion-label>
-                    </div>
                     <ion-item-sliding ref="sliding" v-for="item in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
                             <ion-item-option v-show="item.MobStart.visabled" :disabled="item.MobStart.disabled" color="primary" @click="mdctrl_click($event, 'uded835a', item)"><ion-icon v-if="item.MobStart.icon && item.MobStart.isShowIcon" :name="item.MobStart.icon"></ion-icon><ion-label v-if="item.MobStart.isShowCaption">开始</ion-label></ion-item-option>
@@ -26,11 +21,6 @@
             </ion-list>
             <ion-list class="items" ref="ionlist" @touchmove="gotouchmove" @touchstart="gotouchstart"  @touchend="gotouchend">
                 <template v-if="(viewType == 'DEMOBMDVIEW') && controlStyle != 'SWIPERVIEW' ">
-                    <div class="selectall" v-show="isChoose">
-                        <ion-checkbox slot="start" :checked="selectAllIschecked" @ionChange="checkboxAll"></ion-checkbox>
-                        <ion-label class="selectal-label">全选</ion-label>
-                        <ion-label class="exit_select-label" @click="onCheackChange">退出选择</ion-label>
-                    </div>
                       <ion-item-sliding  :ref="item.srfkey" v-for="item in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
                             <ion-item-option v-show="item.MobStart.visabled" :disabled="item.MobStart.disabled" color="primary" @click="mdctrl_click($event, 'uded835a', item)"><ion-icon v-if="item.MobStart.icon && item.MobStart.isShowIcon" :name="item.MobStart.icon"></ion-icon><ion-label v-if="item.MobStart.isShowCaption">开始</ion-label></ion-item-option>

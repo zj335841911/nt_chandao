@@ -115,6 +115,11 @@
         
         </div>
                 <div v-show="isChoose" class="batch_btn">
+                    <div class="selectall" v-show="isChoose">
+                        <ion-checkbox ></ion-checkbox>
+                        <ion-label class="selectal-label">全选</ion-label>
+                    </div>
+                    <div class="batch_btn_content">
                         <div class="app-toolbar-container ">
             <div class="app-quick-toolbar toolbar-left-bottons">
                     <ion-button class="app-view-toolbar-button" v-show="mdctrl_batchtoolbarModels.deuiaction1.visabled" :disabled="mdctrl_batchtoolbarModels.deuiaction1.disabled" @click="mdctrl_batchtoolbar_click({ tag: 'deuiaction1' }, $event)" >
@@ -124,10 +129,11 @@
         
             </div>
         </div>
-            <ion-button class="app-view-toolbar-button"  @click="cancelSelect" >
-                <ion-icon name="arrow-undo-outline"></ion-icon>
-                {{$t('app.button.cancel')}}
-            </ion-button>
+                <ion-button class="app-view-toolbar-button"  @click="cancelSelect" >
+                    <ion-icon name="arrow-undo-outline"></ion-icon>
+                    {{$t('app.button.cancel')}}
+                </ion-button>
+            </div> 
         </div>     
 
     </ion-footer>
