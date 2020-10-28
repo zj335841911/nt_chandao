@@ -187,7 +187,7 @@ export default class BugEditNewMobEditViewBase extends Vue {
      * @type {*}
      * @memberof BugEditNewMobEditViewBase
      */
-    protected navParam: any = {};
+    protected navParam: any = { 'objecttype': 'bug', 'objectid': '%id%' };
 
     /**
      * 视图模型数据

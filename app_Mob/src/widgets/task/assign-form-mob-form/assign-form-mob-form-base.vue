@@ -410,6 +410,16 @@ export default class AssignFormMobBase extends Vue implements ControlInterface {
      */
     protected formState: Subject<any> = new Subject();
 
+
+    /**
+     * 应用状态事件
+     *
+     * @public
+     * @type {(Subscription | undefined)}
+     * @memberof AssignFormMobBase
+     */
+    public appStateEvent: Subscription | undefined;
+
     /**
      * 忽略表单项值变化
      *
@@ -1157,6 +1167,16 @@ export default class AssignFormMobBase extends Vue implements ControlInterface {
                 const state = !Object.is(JSON.stringify(this.oldData), JSON.stringify(this.data)) ? true : false;
                 this.$store.commit('viewaction/setViewDataChange', { viewtag: this.viewtag, viewdatachange: state });
             });
+        if(AppCenterService && AppCenterService.getMessageCenter()){
+            this.appStateEvent = AppCenterService.getMessageCenter().subscribe(({ name, action, data }) =>{
+                if(!Object.is(name,"Task")){
+                    return;
+                }
+                if(Object.is(action,'appRefresh')){
+                    this.refresh([data]);
+                }
+            })
+        }
     }
 
     /**
@@ -1179,6 +1199,9 @@ export default class AssignFormMobBase extends Vue implements ControlInterface {
         }
         if (this.dataChangEvent) {
             this.dataChangEvent.unsubscribe();
+        }
+        if(this.appStateEvent){
+            this.appStateEvent.unsubscribe();
         }
     }
 

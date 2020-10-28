@@ -178,7 +178,7 @@ export default class ReleaseEditMobEditViewBase extends Vue {
      * @type {*}
      * @memberof ReleaseEditMobEditViewBase
      */
-    protected navContext: any = { 'objecttype': 'release', 'objectid': '%id%' };
+    protected navContext: any = {};
 
     /**
      * 视图导航参数
@@ -187,7 +187,7 @@ export default class ReleaseEditMobEditViewBase extends Vue {
      * @type {*}
      * @memberof ReleaseEditMobEditViewBase
      */
-    protected navParam: any = {};
+    protected navParam: any = { 'objecttype': 'release', 'objectid': '%id%' };
 
     /**
      * 视图模型数据
