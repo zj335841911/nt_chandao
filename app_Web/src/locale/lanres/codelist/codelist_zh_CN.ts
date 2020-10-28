@@ -622,6 +622,9 @@ export default {
         " release_changestatus_normal": "正常",
         "empty": "",
     },
+    UserRealNameTask: {
+        "empty": "",
+    },
     CodeList47: {
         "1": "1号",
         "2": "2号",
