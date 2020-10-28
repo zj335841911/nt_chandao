@@ -12,7 +12,7 @@ IBIZ模板类型
 | 缓存超时时长 | 无 |
 
 ## 取值范围
-| 序号 | 数值 | 文本 | 父值 | 排序值 | 提示信息 | 是否显示空白 | 默认选择 | 说明 |
+| 序号 | 数值 | 文本 | 父值 | 提示信息 | 是否显示空白 | 默认选择 | 说明 |
 | -- | -- | -- | -- | -- | -- | -- | -- |
-| 1 | tpltype__freemarker | Freemarker |  |  |  | 否 | 否 | Freemarker |
+| 1 | tpltype__freemarker | Freemarker |  |  | 否 | 否 | Freemarker |
 

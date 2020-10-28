@@ -12,14 +12,14 @@
 | 缓存超时时长 | 无 |
 
 ## 取值范围
-| 序号 | 数值 | 文本 | 父值 | 排序值 | 提示信息 | 是否显示空白 | 默认选择 | 说明 |
+| 序号 | 数值 | 文本 | 父值 | 提示信息 | 是否显示空白 | 默认选择 | 说明 |
 | -- | -- | -- | -- | -- | -- | -- | -- |
-| 1 | junit | JUnit |  |  |  | 否 | 否 | JUnit |
-| 2 | testng | TestNG |  |  |  | 否 | 否 | TestNG |
-| 3 | phpunit | PHPUnit |  |  |  | 否 | 否 | PHPUnit |
-| 4 | pytest | Pytest |  |  |  | 否 | 否 | Pytest |
-| 5 | jtest | JTest |  |  |  | 否 | 否 | JTest |
-| 6 | cppunit | CppUnit |  |  |  | 否 | 否 | CppUnit |
-| 7 | gtest | GTest |  |  |  | 否 | 否 | GTest |
-| 8 | qtest | QTest |  |  |  | 否 | 否 | QTest |
+| 1 | junit | JUnit |  |  | 否 | 否 | JUnit |
+| 2 | testng | TestNG |  |  | 否 | 否 | TestNG |
+| 3 | phpunit | PHPUnit |  |  | 否 | 否 | PHPUnit |
+| 4 | pytest | Pytest |  |  | 否 | 否 | Pytest |
+| 5 | jtest | JTest |  |  | 否 | 否 | JTest |
+| 6 | cppunit | CppUnit |  |  | 否 | 否 | CppUnit |
+| 7 | gtest | GTest |  |  | 否 | 否 | GTest |
+| 8 | qtest | QTest |  |  | 否 | 否 | QTest |
 
