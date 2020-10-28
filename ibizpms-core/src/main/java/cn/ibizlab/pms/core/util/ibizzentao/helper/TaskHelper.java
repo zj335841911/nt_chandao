@@ -68,15 +68,25 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
     public boolean create(Task et) {
         boolean bOk = false;
         String multiple = et.getMultiple();
+        String assibnedto = et.getAssignedto();
         List<TaskTeam> taskTeams = et.getTaskteam();
-        if (taskTeams.size() > 0) {
-            et.setAssignedto(taskTeams.get(0).getAccount());
+        if (taskTeams.size() > 0 && StringUtils.compare(multiple, "1") == 0) {
+            et.setAssignedto(null);
             double left = 0d;
             for (TaskTeam taskTeam : taskTeams) {
-                left += taskTeam.getEstimate();
+                if(et.getAssignedto() == null && taskTeam.getAccount() != null && "".equals(taskTeam.getAccount())) {
+                    et.setAssignedto(taskTeam.getAccount());
+                }
+                if(taskTeam.getEstimate() != null) {
+                    left += taskTeam.getEstimate();
+                }
+
             }
             et.setLeft(left);
             et.setEstimate(left);
+        }
+        if(et.getAssignedto() == null) {
+            et.setAssignedto(assibnedto);
         }
         fileHelper.processImgURL(et, null, null);
         if(et.getStory() != null && et.getStory() != 0l) {
