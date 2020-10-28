@@ -96,6 +96,8 @@ export default {
 			grouppanel1: '关联需求详情', 
 			druipart1: '', 
 			grouppanel2: '关联Bug详情', 
+			druipart3: '', 
+			grouppanel3: '历史记录', 
 			group1: '产品计划基本信息', 
 			formpage1: '基本信息', 
 			srforikey: '', 
