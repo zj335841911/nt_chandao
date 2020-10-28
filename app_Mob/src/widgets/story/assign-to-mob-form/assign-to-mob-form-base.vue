@@ -1086,10 +1086,10 @@ export default class AssignToMobBase extends Vue implements ControlInterface {
             });
         if(AppCenterService && AppCenterService.getMessageCenter()){
             this.appStateEvent = AppCenterService.getMessageCenter().subscribe(({ name, action, data }) =>{
-                if(!Object.is(name,"Story") && data.appRefreshAction){
+                if(!Object.is(name,"Story")){
                     return;
                 }
-                if(Object.is(action,'appRefresh')){
+                if(Object.is(action,'appRefresh') && data.appRefreshAction){
                     this.refresh([data]);
                 }
             })
@@ -1328,7 +1328,7 @@ export default class AssignToMobBase extends Vue implements ControlInterface {
             if(!opt.saveEmit){
                 this.$emit('save', data);
             }                
-            AppCenterService.notifyMessage({name:"Story",action:'appRefresh',data:Object.assign(data,{appRefreshAction:action===this.updateAction?false:true})});
+            AppCenterService.notifyMessage({name:"Story",action:'appRefresh',data:Object.assign(data,{appRefreshAction:action===this.createAction?false:true})});
             this.$store.dispatch('viewaction/datasaved', { viewtag: this.viewtag });
             this.$nextTick(() => {
                 this.formState.next({ type: 'save', data: data });
