@@ -160,7 +160,7 @@ export class ToolbarPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public dashboard_sysportlet2_u2697b90_click(params: any = {}, tag?: any, $event?: any) {
+    public dashboard_sysportlet2_ua1a722d_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -177,7 +177,7 @@ export class ToolbarPortletBase extends MainControlBase {
         }
         // 界面行为
         const curUIService:TaskUIService  = new TaskUIService();
-        curUIService.Task_ForwardDash(datas,contextJO, paramJO,  $event, xData,this,"Task");
+        curUIService.Task_checkForwardDash(datas,contextJO, paramJO,  $event, xData,this,"Task");
     }
 
     /**
@@ -513,7 +513,7 @@ export class ToolbarPortletBase extends MainControlBase {
         exit: {name: 'exit', actiontarget: '', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: '', uiaction: { tag: 'Exit', target: '' } },
         newsubtaskdash: {name: 'newsubtaskdash', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__TASK_SUBTASKS_BUT', uiaction: { tag: 'NewSubTaskDash', target: 'SINGLEKEY' } },
         assigntaskdash: {name: 'assigntaskdash', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__TASK_ASSIGN_BUT', uiaction: { tag: 'AssignTaskDash', target: 'SINGLEKEY' } },
-        forwarddash: {name: 'forwarddash', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__TASK_FORWARD_BUT', uiaction: { tag: 'ForwardDash', target: 'SINGLEKEY' } },
+        checkforwarddash: {name: 'checkforwarddash', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__TASK_FORWARD_BUT', uiaction: { tag: 'checkForwardDash', target: 'SINGLEKEY' } },
         starttaskdash: {name: 'starttaskdash', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__TASK_START_BUT', uiaction: { tag: 'StartTaskDash', target: 'SINGLEKEY' } },
         workhours: {name: 'workhours', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__TASK_CONSUM_BUT', uiaction: { tag: 'WorkHours', target: 'SINGLEKEY' } },
         pausetaskdash: {name: 'pausetaskdash', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__TASK_PAUSE_BUT', uiaction: { tag: 'PauseTaskDash', target: 'SINGLEKEY' } },
@@ -562,10 +562,10 @@ export class ToolbarPortletBase extends MainControlBase {
         visabled:true,
         disabled:false
         },
-        { viewlogicname:"dashboard_sysportlet2_u2697b90_click",
+        { viewlogicname:"dashboard_sysportlet2_ua1a722d_click",
         text: "转交",
-        iconcls: null,
-        icon: null,
+        iconcls: "fa fa-mail-forward",
+        icon: "",
         noprivdisplaymode: 2,
         dataaccaction:'SRFUR__TASK_FORWARD_BUT',
         actiontarget:'SINGLEKEY',
@@ -689,8 +689,8 @@ export class ToolbarPortletBase extends MainControlBase {
         if(Object.is($event,'dashboard_sysportlet2_ueb80090_click')){
             this.dashboard_sysportlet2_ueb80090_click(null);
         }
-        if(Object.is($event,'dashboard_sysportlet2_u2697b90_click')){
-            this.dashboard_sysportlet2_u2697b90_click(null);
+        if(Object.is($event,'dashboard_sysportlet2_ua1a722d_click')){
+            this.dashboard_sysportlet2_ua1a722d_click(null);
         }
         if(Object.is($event,'dashboard_sysportlet2_u0c66df9_click')){
             this.dashboard_sysportlet2_u0c66df9_click(null);

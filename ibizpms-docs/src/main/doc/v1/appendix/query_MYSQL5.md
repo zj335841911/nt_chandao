@@ -2519,7 +2519,6 @@ SELECT
 FROM
 	`zt_bug` t1
 	LEFT JOIN zt_product t11 ON t1.PRODUCT = t11.ID 
-       INNER JOIN zt_user t21 on t21.account = t1.assignedTo and t21.deleted = '0'
 WHERE
 	t1.deleted = '0' 
 	AND t1.assignedTo <> '' 
@@ -2538,7 +2537,6 @@ GROUP BY
 FROM
 	`zt_bug` t1
 	LEFT JOIN zt_product t11 ON t1.PRODUCT = t11.ID 
-        INNER JOIN zt_user t21 on t21.account = t1.assignedTo and t21.deleted = '0'
 WHERE
 	t1.deleted = '0' 
 	AND t1.assignedTo <> '' 
@@ -2581,7 +2579,6 @@ SELECT
 FROM
 	`zt_bug` t1
 	LEFT JOIN zt_product t11 ON t1.PRODUCT = t11.ID
-        INNER JOIN zt_user t21 on t21.account = t1.OPENEDBY and t21.deleted = '0'
 WHERE
 	t1.deleted = '0' 
 	) t1 

@@ -53,6 +53,7 @@ public interface ITaskService extends IService<Task>{
     Task sendMsgPreProcess(Task et) ;
     Task start(Task et) ;
     Task taskFavorites(Task et) ;
+    Task taskForward(Task et) ;
     Task taskNFavorites(Task et) ;
     Task updateStoryVersion(Task et) ;
     Page<Task> searchAssignedToMyTask(TaskSearchContext context) ;

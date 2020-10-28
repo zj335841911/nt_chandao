@@ -343,6 +343,13 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
 
     @Override
     @Transactional
+    public Task taskForward(Task et) {
+        //自定义代码
+        return et;
+    }
+
+    @Override
+    @Transactional
     public Task taskNFavorites(Task et) {
         taskcanclefavoritesLogic.execute(et);
          return et ;
