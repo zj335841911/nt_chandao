@@ -1,14 +1,14 @@
 <template>
     <div  class="app-mob-mdctrl product-mdctrl ">
         <div class="app-mob-mdctrl-mdctrl" ref="mdctrl">
-                <ion-list class="items" ref="ionlist" @touchstart="gotouchstart"  @touchend="gotouchend">
+                <ion-list class="items" ref="ionlist" @touchmove="gotouchmove" @touchstart="gotouchstart"  @touchend="gotouchend">
                   <template v-if="(viewType == 'DEMOBMDVIEW9') && controlStyle != 'SWIPERVIEW' ">
                       <ion-checkbox slot="start" :checked="item.checked" v-show="isChoose" @click.stop="checkboxSelect(item)"></ion-checkbox>
                       <app-list-index-text :item="item" :index="item.id" @clickItem="item_click"></app-list-index-text>
                       <ion-button v-if="!isTempMode && !allLoaded && needLoadMore" class="loadmore_btn"   @click="loadBottom">{{$t('app.button.loadmore')}}</ion-button>
                   </template>
                 </ion-list>
-                <ion-list class="items" ref="ionlist" @touchmove="gotouchmove" @touchstart="gotouchstart"  @touchend="gotouchend">
+                <ion-list class="items" ref="ionlist"  @touchmove="gotouchmove" @touchstart="gotouchstart"  @touchend="gotouchend">
                   <ion-item-sliding  :ref="item.srfkey" v-for="item in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
                             <ion-item-option v-show="item.EditMob.visabled" :disabled="item.EditMob.disabled" color="primary" @click="mdctrl_click($event, 'u89c41af', item)"><ion-icon v-if="item.EditMob.icon && item.EditMob.isShowIcon" :name="item.EditMob.icon"></ion-icon><ion-label v-if="item.EditMob.isShowCaption">详情</ion-label></ion-item-option>
@@ -19,23 +19,16 @@
                         </ion-item-options>
                     <ion-item>
                       <template v-if="(viewType == 'DEMOBMDVIEW') && controlStyle != 'SWIPERVIEW' ">
-                          <ion-checkbox slot="start" :checked="item.checked" v-show="isChoose" @click.stop="checkboxSelect(item)"></ion-checkbox>
+                        <ion-checkbox slot="start" :checked="item.checked" v-show="isChoose" @click.stop="checkboxSelect(item)"></ion-checkbox>
                           <app-list-index-text :item="item" :index="item.id" @clickItem="item_click"></app-list-index-text>
                       </template>
                       <template v-else-if="(viewType == 'DEMOBMDVIEW9')">
-                          <ion-checkbox slot="start" :checked="item.checked" v-show="isChoose" @click.stop="checkboxSelect(item)"></ion-checkbox>
+                        <ion-checkbox slot="start" :checked="item.checked" v-show="isChoose" @click.stop="checkboxSelect(item)"></ion-checkbox>
                           <app-list-index-text :item="item" :index="item.id" @clickItem="item_click"></app-list-index-text>
                       </template>
                     </ion-item>
                   </ion-item-sliding>
                 </ion-list>
-                <ion-infinite-scroll v-if="viewType == 'DEMOBMDVIEW'" :disabled="allLoaded" ref="loadmoreBottom" @ionInfinite="loadBottom" distince="1%">
-                    <ion-infinite-scroll-content
-                        loadingSpinner="bubbles"
-                        loadingText="正在加载数据">
-                    </ion-infinite-scroll-content>
-                </ion-infinite-scroll>    
-
             <div class="no-data" v-if="items.length == 0">暂无数据</div>
             <div class="scrollToTop" @click="scrollToTop" ref="scroll" v-show="isEnableScrollTop && showScrollButton"> <van-icon name="back-top" /></div>            
         </div>

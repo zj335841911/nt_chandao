@@ -21,7 +21,7 @@
                     </ion-item-sliding>
                 </template>
             </ion-list>
-            <ion-list class="items" ref="ionlist" @touchmove="gotouchmove" @touchstart="gotouchstart"  @touchend="gotouchend">
+            <ion-list class="items" ref="ionlist" >
                 <template v-if="(viewType == 'DEMOBMDVIEW') && controlStyle != 'SWIPERVIEW' ">
                       <div class="item-grouped" v-for="obj in group_data" :key="obj.index">
                       <van-collapse v-model="activeName" @change="changeCollapse">
