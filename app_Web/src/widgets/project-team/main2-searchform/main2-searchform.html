@@ -8,15 +8,21 @@
                   
           <i-col class="form-layout-container" v-show="detailsModel.n_account_eq.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 6, offset: 0 }">
               <app-form-item name='n_account_eq' :itemRules="this.rules.n_account_eq" class='' :caption="$t('entities.projectteam.main2_searchform.details.n_account_eq')" uiStyle="DEFAULT" :labelWidth="50" :isShowCaption="true" :error="detailsModel.n_account_eq.error" :isEmptyCaption="false" labelPos="LEFT">
-              <input-box 
-              v-model="data.n_account_eq"  
-              @enter="onEnter($event)"  
-                
-              :disabled="detailsModel.n_account_eq.disabled" 
-              type='text' 
-              style="width:100px;">
-          </input-box>
-          
+              
+          <dropdown-list 
+              v-model="data.n_account_eq"
+              :data="data"
+              :context="context"
+              :viewparams="viewparams"
+              :localContext ='{ }' 
+              :localParam ='{ }' 
+              :disabled="detailsModel.n_account_eq.disabled"
+              valueType="string"
+              tag='UserRealName'
+              codelistType='DYNAMIC'
+              placeholder='请选择...'
+              
+          />
           </app-form-item>
           
           </i-col>
