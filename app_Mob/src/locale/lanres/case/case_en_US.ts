@@ -70,6 +70,8 @@ export default {
 	mobmain_form: {
 		details: {
 			druipart1: '', 
+			druipart2: '', 
+			grouppanel1: '历史记录', 
 			group1: '测试用例基本信息', 
 			formpage1: '基本信息', 
 			srfupdatedate: '修改日期', 

@@ -172,7 +172,7 @@ export default class CaseMobEditViewBase extends Vue {
      * @type {*}
      * @memberof CaseMobEditViewBase
      */
-    protected navContext: any = { 'version': '%version%' };
+    protected navContext: any = { 'version': '%version%', 'objecttype': 'case', 'srfparentkey': '%case%' };
 
     /**
      * 视图导航参数
@@ -181,7 +181,7 @@ export default class CaseMobEditViewBase extends Vue {
      * @type {*}
      * @memberof CaseMobEditViewBase
      */
-    protected navParam: any = { 'version': '%version%' };
+    protected navParam: any = { 'srfparentkey': '%case%', 'objecttype': 'case', 'version': '%version%' };
 
     /**
      * 视图模型数据
