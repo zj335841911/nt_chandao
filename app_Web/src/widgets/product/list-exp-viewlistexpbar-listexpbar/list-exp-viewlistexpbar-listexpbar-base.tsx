@@ -119,7 +119,7 @@ export class ListExpViewlistexpbarListexpbarBase extends ListViewExpBarControlBa
      * @type {(string)}
      * @memberof ListExpViewlistexpbarBase
      */
-    public placeholder="产品名称，编号";
+    public placeholder="产品名称，编号，产品代号";
 
     /**
      * 呈现模式，可选值：horizontal或者vertical

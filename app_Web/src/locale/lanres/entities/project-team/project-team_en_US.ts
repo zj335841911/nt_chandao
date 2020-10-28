@@ -66,6 +66,14 @@ export default {
 		uiactions: {
 		},
 	},
+	main2_searchform: {
+		details: {
+			formpage1: "常规条件", 
+			n_account_eq: "用户", 
+		},
+		uiactions: {
+		},
+	},
 	maingridview_editrowtoolbar_toolbar: {
 		deuiaction2: {
 			caption: "新建行",
