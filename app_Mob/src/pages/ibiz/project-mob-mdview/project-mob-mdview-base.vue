@@ -383,6 +383,21 @@ export default class ProjectMobMDViewBase extends Vue {
     * @type {*}
     * @memberof ProjectMobMDView
     */
+    public mdctrl_quicktoolbarModels: any = {
+            deuiaction1: { name: 'deuiaction1', caption: '新建', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALCREATE', uiaction: { tag: 'New', target: '' } },
+
+    };
+
+    
+
+
+
+   /**
+    * 工具栏 ProjectMobMDView 模型
+    *
+    * @type {*}
+    * @memberof ProjectMobMDView
+    */
     public righttoolbarModels: any = {
             deuiaction1: { name: 'deuiaction1', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__PROJ_CREATE_BUT', uiaction: { tag: 'CreateMob', target: 'NONE' } },
 
@@ -441,7 +456,7 @@ export default class ProjectMobMDViewBase extends Vue {
      *
      * @memberof ProjectMobMDViewBase
      */
-    public toolbarModelList:any = ['mdctrl_batchtoolbarModels','righttoolbarModels',]
+    public toolbarModelList:any = ['mdctrl_batchtoolbarModels','mdctrl_quicktoolbarModels','righttoolbarModels',]
 
     /**
      * 解析视图参数
@@ -760,14 +775,13 @@ export default class ProjectMobMDViewBase extends Vue {
         let panelNavContext = { } ;
         //导航参数处理
         const { context: _context, param: _params } = this.$viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
-        const view: any = { 
-            viewname: 'project-mob-edit-view', 
-            height: 0, 
-            width: 0,  
-            title: '项目移动端编辑视图', 
-            placement: 'POPUPMODAL',
-        };
-        response = await this.globaluiservice.openService.openModal(view, _context, _params);
+        const deResParameters: any[] = [];
+        const parameters: any[] = [
+            { pathName: 'products', parameterName: 'product' },
+            { pathName: 'newmobeditview', parameterName: 'newmobeditview' },
+        ];
+        const routeParam: any = this.globaluiservice.openService.formatRouteParam(_context, deResParameters, parameters, args, _params);
+        response = await this.globaluiservice.openService.openView(routeParam);
         if (response) {
             if (!response || !Object.is(response.ret, 'OK')) {
                 return;
