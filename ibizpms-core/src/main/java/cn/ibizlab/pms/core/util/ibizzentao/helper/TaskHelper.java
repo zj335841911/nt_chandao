@@ -5,10 +5,7 @@ import cn.ibizlab.pms.core.util.ibizzentao.common.ChangeUtil;
 import cn.ibizlab.pms.core.util.ibizzentao.common.ZTDateUtil;
 import cn.ibizlab.pms.core.zentao.domain.*;
 import cn.ibizlab.pms.core.zentao.mapper.TaskMapper;
-import cn.ibizlab.pms.core.zentao.service.IProjectService;
-import cn.ibizlab.pms.core.zentao.service.IStoryService;
-import cn.ibizlab.pms.core.zentao.service.ITaskService;
-import cn.ibizlab.pms.core.zentao.service.ITeamService;
+import cn.ibizlab.pms.core.zentao.service.*;
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
 import cn.ibizlab.pms.util.security.AuthenticationUser;
 import com.alibaba.fastjson.JSONObject;
@@ -29,6 +26,8 @@ import java.util.List;
 @Slf4j
 public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
 
+    @Autowired
+    ITaskEstimateService taskEstimateService;
     @Autowired
     ITaskService taskService;
     @Autowired
@@ -131,6 +130,8 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
             this.internalUpdate(et);
 
         }
+
+
 
 
         actionHelper.create("task", et.getId(), "Opened", "", "", null, true);
@@ -1122,6 +1123,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         return newTask;
     }
 
+
     @Transactional
     public Task recordEstimate(Task et) {
         Task old = new Task();
@@ -1153,8 +1155,8 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         double teamLeft = 0d;
         double taskLeft = 0d;
         Timestamp nowDate = ZTDateUtil.now();
-        String sql = String.format("select * from zt_taskestimate where task = %1$s order by date desc LIMIT 0,1", old.getId());
-        List<JSONObject> list = taskService.select(sql, null);
+        String sql = String.format("select * from zt_taskestimate where task = %1$s order by date desc,id desc LIMIT 0,1", old.getId());
+        List<JSONObject> list = taskEstimateService.select(sql, null);
         Timestamp lastDate = null;
         if(list.size() > 0)
             lastDate = list.get(0).getTimestamp("date");
@@ -1319,10 +1321,12 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         if (parent >= 0) {
             updateParentStatus(old, parent,true);
             computeBeginAndEnd(this.get(old.getId()));
-            Task update = new Task();
-            update.setParent(-1l);
-            update.setId(parent);
-            this.internalUpdate(update);
+            if (old.getParent() != -1L){
+                Task update = new Task();
+                update.setParent(-1l);
+                update.setId(parent);
+                this.internalUpdate(update);
+            }
             Task newT = this.getById(parent);
             String regex = "^,*|,*$";
             childTasks = childTasks.replaceAll(regex, "");
