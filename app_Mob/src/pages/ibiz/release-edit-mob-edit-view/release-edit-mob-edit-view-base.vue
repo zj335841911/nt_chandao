@@ -178,7 +178,7 @@ export default class ReleaseEditMobEditViewBase extends Vue {
      * @type {*}
      * @memberof ReleaseEditMobEditViewBase
      */
-    protected navContext: any = {};
+    protected navContext: any = { 'objecttype': 'release', 'objectid': '%id%' };
 
     /**
      * 视图导航参数
