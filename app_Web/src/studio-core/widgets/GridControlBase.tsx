@@ -783,7 +783,7 @@ export class GridControlBase extends MDControlBase {
      * @memberof GridControlBase
      */
     public getCodelistValue(items: any[], value: any, codelist: any,) {
-        if (!value) {
+        if (!value && value !== 0 && value !== false) {
             return this.$t('codelist.' + codelist.srfkey + '.empty');
         }
         if (items) {

@@ -360,9 +360,9 @@ export default class MDViewEngine extends ViewEngine {
             this.setViewState2({ tag: tag, action: 'load', viewdata: args[0] });
         }
         const state = args.length > 0 && !Object.is(args[0].srfkey, '') ? false : true;
-        this.calcToolbarItemState(state);
+        this.calcToolbarItemState(state, args.length);
         if(args && args.length > 0){
-            this.calcToolbarItemAuthState(this.transformData(args[0]));
+            this.calcToolbarItemAuthState(this.transformData(args[0], args.length));
         } else {
             this.calcToolbarItemAuthState(null);
         }

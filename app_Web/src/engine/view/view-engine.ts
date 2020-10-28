@@ -154,10 +154,11 @@ export default class ViewEngine {
      * 计算工具栏状态
      *
      * @param {boolean} state
-     * @param {*} [dataaccaction]
+     * @param {number} [dataNum]
+     * @returns
      * @memberof ViewEngine
      */
-    public calcToolbarItemState(state: boolean, dataaccaction?: any) {
+    public calcToolbarItemState(state: boolean, dataNum?: number) {
         const _this: any = this;
         if (!_this.view.toolBarModels || Object.keys(_this.view.toolBarModels).length === 0) {
             return;
@@ -169,7 +170,11 @@ export default class ViewEngine {
             }
             const _item = _this.view.toolBarModels[key];
             if (_item.uiaction && (Object.is(_item.uiaction.target, 'SINGLEKEY') || Object.is(_item.uiaction.target, 'MULTIKEY'))) {
-                _item.disabled = state;
+                if(dataNum && dataNum > 1 && Object.is(_item.uiaction.target, 'SINGLEKEY')){
+                    _item.disabled = true;
+                }else{
+                    _item.disabled = state;
+                }
             }
             _item.visabled = true;
             if (_item.noprivdisplaymode && _item.noprivdisplaymode === 6) {
@@ -185,7 +190,7 @@ export default class ViewEngine {
      * @param {*} [dataaccaction]
      * @memberof ViewEngine
      */
-    public calcToolbarItemAuthState(data: any) {
+    public calcToolbarItemAuthState(data: any ,dataNum?: number) {
         const _this: any = this;
         for (const key in _this.view.toolBarModels) {
             if (!_this.view.toolBarModels.hasOwnProperty(key)) {
@@ -197,7 +202,7 @@ export default class ViewEngine {
                 if (_item.uiaction && (Object.is(_item.uiaction.target, 'NONE') || Object.is(_item.uiaction.target, ''))) {
                     dataActionResult = _this.view.appUIService.getResourceOPPrivs(_item['dataaccaction']);
                 } else {
-                    if (data && Object.keys(data).length > 0) {
+                    if (data && Object.keys(data).length > 0 && !(dataNum && dataNum > 1 && Object.is(_item.uiaction.target, 'SINGLEKEY')) ) {
                         dataActionResult = _this.view.appUIService.getAllOPPrivs(data)[_item['dataaccaction']];
                     }
                 }
