@@ -121,6 +121,11 @@ export default class MainEditModel {
         dataType: 'INT',
       },
       {
+        name: 'storyversion',
+        prop: 'storyversion',
+        dataType: 'PICKUPDATA',
+      },
+      {
         name: 'pri',
         prop: 'pri',
         dataType: 'NSCODELIST',

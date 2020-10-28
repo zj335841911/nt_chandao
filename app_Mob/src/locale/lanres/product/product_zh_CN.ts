@@ -168,6 +168,14 @@ export default {
 		uiactions: {
 		},
 	},
+	mobpickupmdviewmdctrl_batchtoolbar_toolbar: {
+	},
+	mobmdviewmdctrl_batchtoolbar_toolbar: {
+		deuiaction1: {
+			caption: '删除',
+			tip: '删除',
+		},
+	},
 	closemobeditviewrighttoolbar_toolbar: {
 		tbitem1: {
 			caption: '保存',
@@ -198,6 +206,12 @@ export default {
 		deuiaction1: {
 			caption: '新建',
 			tip: '新建',
+		},
+	},
+	testmobmdviewmdctrl_batchtoolbar_toolbar: {
+		deuiaction1: {
+			caption: '删除',
+			tip: '删除',
 		},
 	},
 };

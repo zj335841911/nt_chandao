@@ -99,6 +99,8 @@ export default {
 	},
 	mobmain_form: {
 		details: {
+			druipart2: '', 
+			grouppanel2: '附件', 
 			druipart1: '', 
 			grouppanel1: '历史记录', 
 			group1: '版本基本信息', 

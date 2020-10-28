@@ -4,6 +4,7 @@ import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { ProjectTeamMainGridViewBase } from './project-team-main-grid-view-base';
 import view_grid from '@widgets/project-team/main-grid/main-grid.vue';
+import view_searchform from '@widgets/project-team/main2-searchform/main2-searchform.vue';
 
 /**
  * 项目团队表格视图视图
@@ -15,6 +16,7 @@ import view_grid from '@widgets/project-team/main-grid/main-grid.vue';
 @Component({
     components: {
         view_grid, 
+        view_searchform, 
     }
 })
 @VueLifeCycleProcessing()

@@ -94,19 +94,20 @@ export class TestTabExpViewtabexppanelTabexppanelBase extends TabExpPanelControl
     /**
      * 实体权限服务对象
      *
+     * @protected
      * @type ProjectAuthServiceBase
      * @memberof TabExpViewtabexppanelBase
      */
-    public appAuthService: ProjectAuthService = new ProjectAuthService();
+    protected appAuthService: ProjectAuthService = new ProjectAuthService();
 
     /**
      * 分页面板权限标识存储对象
      *
-     * @public
+     * @protected
      * @type {*}
      * @memberof TestTabExpViewtabexppanelBase
      */
-    public authResourceObject:any = {'tabviewpanel':{resourcetag:null,visabled: true,disabled: false},'tabviewpanel3':{resourcetag:null,visabled: true,disabled: false},'tabviewpanel2':{resourcetag:'PROJ_TEST_TESTTASK',visabled: true,disabled: false}};
+    protected authResourceObject:any = {'tabviewpanel':{resourcetag:null,visabled: true,disabled: false},'tabviewpanel3':{resourcetag:null,visabled: true,disabled: false},'tabviewpanel2':{resourcetag:'PROJ_TEST_TESTTASK',visabled: true,disabled: false}};
 
     /**
      * 组件创建完毕
@@ -120,47 +121,5 @@ export class TestTabExpViewtabexppanelTabexppanelBase extends TabExpPanelControl
             Object.assign(this.context, { srfparentdename: 'Project', srfparentkey: this.context.project });
         }
         super.ctrlCreated();
-    }
-
-    /**
-     * 计算分页面板权限
-     *
-     * @memberof TestTabExpViewtabexppanelBase
-     */
-    public computedAuthPanel(data:any){
-        if(!data || Object.keys(data).length === 0){
-            return;
-        }
-        if(this.authResourceObject && Object.keys(this.authResourceObject).length >0){
-            Object.keys(this.authResourceObject).forEach((key:string) =>{
-                if(this.authResourceObject[key] && this.authResourceObject[key]['dataaccaction']){
-                    let tempUIAction:any = Util.deepCopy(this.authResourceObject[key]);
-                    let result: any[] = ViewTool.calcActionItemAuthState(data,[tempUIAction],this.appUIService);
-                    this.authResourceObject[key].visabled = this.computedPanelWithResource(key,tempUIAction.visabled);
-                    this.authResourceObject[key].disabled = this.computedPanelWithResource(key,tempUIAction.disabled);
-                }
-            })
-            const keys:any = Object.keys(this.authResourceObject);
-            for(let i=0;i<keys.length;i++){
-                if(this.authResourceObject[keys[i]].visabled){
-                    this.tabPanelClick(keys[i]);
-                    return;
-                }
-            }
-        }
-    }
-
-    /**
-     * 合入统一资源权限
-     *
-     * @memberof TestTabExpViewtabexppanelBase
-     */
-    public computedPanelWithResource(name:string,mainState:boolean){
-        if(!this.$store.getters['authresource/getEnablePermissionValid'])
-            return mainState === false?false:true;
-        if(!this.authResourceObject[name]) 
-            return mainState === false?false:true;
-        const resouceAuth:boolean = this.appAuthService.getResourcePermission(this.authResourceObject[name]['resourcetag']);
-        return !resouceAuth?false:mainState?true:false;
     }
 }

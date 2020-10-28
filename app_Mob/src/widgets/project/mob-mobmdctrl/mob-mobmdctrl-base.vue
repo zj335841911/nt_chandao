@@ -1,19 +1,14 @@
 <template>
     <div  class="app-mob-mdctrl project-mdctrl ">
         <div class="app-mob-mdctrl-mdctrl" ref="mdctrl">
-                <ion-list class="items" ref="ionlist" @touchstart="gotouchstart"  @touchend="gotouchend">
-                    <div class="selectall" v-show="isChoose">
-                        <ion-checkbox :checked="selectAllIschecked" @ionChange="checkboxAll"></ion-checkbox>
-                        <ion-label class="selectal-label">全选</ion-label>
-                        <ion-label class="exit_select-label"  @click="onCheackChange">退出选择</ion-label>
-                    </div>
+                <ion-list class="items" ref="ionlist" @touchmove="gotouchmove" @touchstart="gotouchstart"  @touchend="gotouchend">
                   <template v-if="(viewType == 'DEMOBMDVIEW9') && controlStyle != 'SWIPERVIEW' ">
                       <ion-checkbox slot="start" :checked="item.checked" v-show="isChoose" @click.stop="checkboxSelect(item)"></ion-checkbox>
                       <app-list-index-text :item="item" :index="item.id" @clickItem="item_click"></app-list-index-text>
                       <ion-button v-if="!isTempMode && !allLoaded && needLoadMore" class="loadmore_btn"   @click="loadBottom">{{$t('app.button.loadmore')}}</ion-button>
                   </template>
                 </ion-list>
-                <ion-list class="items" ref="ionlist" @touchmove="gotouchmove" @touchstart="gotouchstart"  @touchend="gotouchend">
+                <ion-list class="items" ref="ionlist"  @touchmove="gotouchmove" @touchstart="gotouchstart"  @touchend="gotouchend">
                   <ion-item-sliding  :ref="item.srfkey" v-for="item in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
                             <ion-item-option v-show="item.EditMod.visabled" :disabled="item.EditMod.disabled" color="primary" @click="mdctrl_click($event, 'ueeac2b8', item)"><ion-icon v-if="item.EditMod.icon && item.EditMod.isShowIcon" :name="item.EditMod.icon"></ion-icon><ion-label v-if="item.EditMod.isShowCaption">详情</ion-label></ion-item-option>
@@ -23,23 +18,16 @@
                         </ion-item-options>
                     <ion-item>
                       <template v-if="(viewType == 'DEMOBMDVIEW') && controlStyle != 'SWIPERVIEW' ">
-                          <ion-checkbox slot="start" :checked="item.checked" v-show="isChoose" @click.stop="checkboxSelect(item)"></ion-checkbox>
+                        <ion-checkbox slot="start" :checked="item.checked" v-show="isChoose" @click.stop="checkboxSelect(item)"></ion-checkbox>
                           <app-list-index-text :item="item" :index="item.id" @clickItem="item_click"></app-list-index-text>
                       </template>
                       <template v-else-if="(viewType == 'DEMOBMDVIEW9')">
-                          <ion-checkbox slot="start" :checked="item.checked" v-show="isChoose" @click.stop="checkboxSelect(item)"></ion-checkbox>
+                        <ion-checkbox slot="start" :checked="item.checked" v-show="isChoose" @click.stop="checkboxSelect(item)"></ion-checkbox>
                           <app-list-index-text :item="item" :index="item.id" @clickItem="item_click"></app-list-index-text>
                       </template>
                     </ion-item>
                   </ion-item-sliding>
                 </ion-list>
-                <ion-infinite-scroll v-if="viewType == 'DEMOBMDVIEW'" :disabled="allLoaded" ref="loadmoreBottom" @ionInfinite="loadBottom" distince="1%">
-                    <ion-infinite-scroll-content
-                        loadingSpinner="bubbles"
-                        loadingText="正在加载数据">
-                    </ion-infinite-scroll-content>
-                </ion-infinite-scroll>    
-
             <div class="no-data" v-if="items.length == 0">暂无数据</div>
             <div class="scrollToTop" @click="scrollToTop" ref="scroll" v-show="isEnableScrollTop && showScrollButton"> <van-icon name="back-top" /></div>            
         </div>
@@ -172,7 +160,49 @@ export default class MobBase extends Vue implements ControlInterface {
      * @memberof MobBase
      */  
     public deUIService:ProjectUIService = new ProjectUIService(this.$store);
+
+    /**
+     * mdctrl_batchtoolbar 部件 click 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof Mob
+     */
+    protected mdctrl_batchtoolbar_click($event: any, $event2?: any) {
+        if (Object.is($event.tag, 'deuiaction1')) {
+            this.mdctrl_batchtoolbar_deuiaction1_click($event, 'mdctrl_batchtoolbar', $event2);
+        }
+    }
     
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof MdctrlBase
+     */
+    protected async mdctrl_batchtoolbar_deuiaction1_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+        // 参数
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        // 界面行为
+        this.globaluiservice.Remove(datas, contextJO, paramJO, $event, xData, this);
+    }
 
     /**
      * 逻辑事件
@@ -1258,6 +1288,7 @@ export default class MobBase extends Vue implements ControlInterface {
      * @memberof MobBase
      */  
     public ActionModel:any ={
+        Remove: { name: 'Remove',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALDELETE', target: 'MULTIKEY',icon:'remove',},
         EditMod: { name: 'EditMod',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY',icon:'paper',isShowCaption:true,isShowIcon:true},
         ProjectTop: { name: 'ProjectTop',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'NOTOP', target: 'SINGLEKEY',icon:'hand-o-up',isShowCaption:true,isShowIcon:true},
         CancelProjectTop: { name: 'CancelProjectTop',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'TOP', target: 'SINGLEKEY',icon:'hand-o-down',isShowCaption:true,isShowIcon:true},

@@ -72,8 +72,9 @@ export default {
 	},
 	mobmain_form: {
 		details: {
+			druipart1: '', 
+			grouppanel1: '附件', 
 			group1: '发布基本信息', 
-			group2: '操作信息', 
 			formpage1: '基本信息', 
 			srforikey: '', 
 			srfkey: 'ID', 

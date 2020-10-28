@@ -168,6 +168,14 @@ export default {
 		uiactions: {
 		},
 	},
+	mobpickupmdviewmdctrl_batchtoolbar_toolbar: {
+	},
+	mobmdviewmdctrl_batchtoolbar_toolbar: {
+		deuiaction1: {
+			caption: 'Remove',
+			tip: 'deuiaction1',
+		},
+	},
 	closemobeditviewrighttoolbar_toolbar: {
 		tbitem1: {
 			caption: 'Save And Close',
@@ -197,6 +205,12 @@ export default {
 	mobmdviewrighttoolbar_toolbar: {
 		deuiaction1: {
 			caption: '新建',
+			tip: 'deuiaction1',
+		},
+	},
+	testmobmdviewmdctrl_batchtoolbar_toolbar: {
+		deuiaction1: {
+			caption: 'Remove',
 			tip: 'deuiaction1',
 		},
 	},

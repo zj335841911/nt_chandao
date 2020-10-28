@@ -381,6 +381,7 @@ export default {
 			type: "用例类型", 
 			stage: "适用阶段", 
 			version: "用例版本", 
+			storyversion: "需求版本", 
 			pri: "优先级", 
 			status: "用例状态", 
 			keywords: "关键词", 

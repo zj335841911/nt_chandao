@@ -3,14 +3,8 @@
         <div class="app-mob-mdctrl-mdctrl" ref="mdctrl">
             <ion-list class="items" ref="ionlist">
                 <template v-if="(viewType == 'DEMOBMDVIEW9') && controlStyle != 'SWIPERVIEW' ">
-                    <div class="selectall" v-show="isChoose">
-                        <ion-checkbox :checked="selectAllIschecked" @ionChange="checkboxAll"></ion-checkbox>
-                        <ion-label class="selectal-label">全选</ion-label>
-                        <ion-label class="exit_select-label" @click="onCheackChange">退出选择</ion-label>
-                    </div>
                     <ion-item-sliding ref="sliding" v-for="item in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
                         <ion-item>
-                            <ion-checkbox slot="start" :checked="item.checked" v-show="isChoose" @click.stop="checkboxSelect(item)"></ion-checkbox>
                             <!-- 列表视图样式 -->
                             <app-list-index-text :dataItemNames = "[]" :item="item" :index="item.srfkey" major="productlinename" v-if="controlStyle.substring(0,8) === 'LISTVIEW'"></app-list-index-text>
                                 <!-- 图标视图样式 -->
@@ -19,16 +13,10 @@
                     </ion-item-sliding>
                 </template>
             </ion-list>
-            <ion-list class="items" ref="ionlist" @touchmove="gotouchmove" @touchstart="gotouchstart"  @touchend="gotouchend">
+            <ion-list class="items" ref="ionlist" >
                 <template v-if="(viewType == 'DEMOBMDVIEW') && controlStyle != 'SWIPERVIEW' ">
-                    <div class="selectall" v-show="isChoose">
-                        <ion-checkbox slot="start" :checked="selectAllIschecked" @ionChange="checkboxAll"></ion-checkbox>
-                        <ion-label class="selectal-label">全选</ion-label>
-                        <ion-label class="exit_select-label" @click="onCheackChange">退出选择</ion-label>
-                    </div>
                       <ion-item-sliding  :ref="item.srfkey" v-for="item in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
                         <ion-item>
-                            <ion-checkbox slot="start" :checked="item.checked" v-show="isChoose" @click.stop="checkboxSelect(item)"></ion-checkbox>
                             <!-- 列表视图样式 -->
                             <app-list-index-text :dataItemNames = "[]" :item="item" :index="item.srfkey" major="productlinename" v-if="controlStyle.substring(0,8) === 'LISTVIEW'"></app-list-index-text>
                             <!-- 图标视图样式 -->

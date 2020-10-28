@@ -1,23 +1,23 @@
 <template>
   <van-overlay class="app-update-log" :show="show" @click="onClick">
     <div class="wrapper" @click.stop>
-        <div class="title">
-           V0.0.7.20200930 功能新增
+        <div class="version">
+           {{updateLog.version}}
         </div>
+        <div class="title">{{updateLog.title}}</div>
         <div class="content">
             <ol>
-                <li>1.测试报告</li>
-                <li>2.统计列表（匹配禅道开源版）</li>
+                <li v-for="(item,index) in updateLog.updateList" :key="index">{{index+1}}.{{item}}</li>
             </ol>
         </div>
     </div>
   </van-overlay>
 </template>
 <script lang="ts">
-import {Vue, Component, Prop, Provide, Emit, Watch} from "vue-property-decorator";
-
+import { Vue, Component, Prop, Provide, Emit, Watch } from "vue-property-decorator";
+import { updateLog } from './app-update-log';
 @Component({
-  components: {},
+    components: {},
 })
 export default class AppUpdateLog extends Vue {
 
@@ -27,19 +27,37 @@ export default class AppUpdateLog extends Vue {
      * @type {boolean}
      * @memberof AppUpdateLog
      */
-     public show :boolean = false;
+    public show: boolean = false;
 
-    public onClick(){
+    /**
+     * 蒙层点击
+     *
+     * @memberof AppUpdateLog
+     */
+    public onClick() {
         this.show = false;
-        localStorage.setItem("updateLogStatus",'true');
+        localStorage.setItem("updateLogStatus", 'true');
     }
 
-    created(){
+    /**
+     * 数据
+     *
+     * @memberof AppUpdateLog
+     */
+    public updateLog = updateLog;
+
+
+    /**
+     * 生命周期
+     *
+     * @memberof AppUpdateLog
+     */
+    created() {
         setTimeout(() => {
             this.show = true;
         }, 1500);
     }
-    
+
 }
 </script>
 <style lang = "less">

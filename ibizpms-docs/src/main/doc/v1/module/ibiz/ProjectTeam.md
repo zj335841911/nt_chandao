@@ -101,6 +101,7 @@ hide footbox
 ## 查询模式
 | 属性      |    搜索模式     |
 | --------   |------------|
+|用户(ACCOUNT)|EQ|
 |用户(ACCOUNT)|LIKE|
 |受限用户(LIMITED)|EQ|
 |团队类型(TYPE)|EQ|

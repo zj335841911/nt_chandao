@@ -250,12 +250,25 @@ export default class ProductMobPickupMDViewBase extends Vue {
 
 
 
+
+   /**
+    * 工具栏 ProductMobPickupMDView 模型
+    *
+    * @type {*}
+    * @memberof ProductMobPickupMDView
+    */
+    public mdctrl_batchtoolbarModels: any = {
+    };
+
+    
+
+
     /**
      * 工具栏模型集合名
      *
      * @memberof ProductMobPickupMDViewBase
      */
-    public toolbarModelList:any = []
+    public toolbarModelList:any = ['mdctrl_batchtoolbarModels',]
 
     /**
      * 解析视图参数

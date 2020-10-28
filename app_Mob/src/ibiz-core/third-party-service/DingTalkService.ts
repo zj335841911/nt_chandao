@@ -98,22 +98,24 @@ export class DingTalkService {
                     this.$isInit = true;
                     this.dd_ready();
                 });
-                dd.config({
-                    agentId: access_token.agentId, // 必填，微应用ID
-                    corpId: access_token.corpId, //必填，企业ID
-                    timeStamp: access_token.timeStamp, // 必填，生成签名的时间戳
-                    nonceStr: access_token.nonceStr, // 必填，生成签名的随机串
-                    signature: access_token.signature, // 必填，签名
-                    type: 0, //选填。0表示微应用的jsapi,1表示服务窗的jsapi；不填默认为0。该参数从dingtalk.js的0.8.3版本开始支持
-                    jsApiList: [
-                        "device.audio.startRecord",
-                        "device.audio.stopRecord",
-                        "device.audio.onRecordEnd",
-                        "device.audio.translateVoice",
-                    ], // 必填，需要使用的jsapi列表，注意：不要带dd。
-                });
+                if (access_token) {
+                    dd.config({
+                        agentId: access_token.agentId, // 必填，微应用ID
+                        corpId: access_token.corpId, //必填，企业ID
+                        timeStamp: access_token.timeStamp, // 必填，生成签名的时间戳
+                        nonceStr: access_token.nonceStr, // 必填，生成签名的随机串
+                        signature: access_token.signature, // 必填，签名
+                        type: 0, //选填。0表示微应用的jsapi,1表示服务窗的jsapi；不填默认为0。该参数从dingtalk.js的0.8.3版本开始支持
+                        jsApiList: [
+                            "device.audio.startRecord",
+                            "device.audio.stopRecord",
+                            "device.audio.onRecordEnd",
+                            "device.audio.translateVoice",
+                        ], // 必填，需要使用的jsapi列表，注意：不要带dd。
+                    });
+                }
                 dd.error((err: any) => {
-                    alert(`dd加载错误：${JSON.stringify(err)}`);
+                    // alert(`dd加载错误：${JSON.stringify(err)}`);
                 });
             });
         }
@@ -154,12 +156,13 @@ export class DingTalkService {
                         );
                         resolve(response.data);
                     } else {
-                        resolve(null);
+                        resolve(response);
                     }
                 })
                 .catch((response: any) => {
                     console.error(response);
-                    reject(null);
+                    // alert("sign"+JSON.stringify(response));
+                    reject(response);
                 });
         });
     }
@@ -211,20 +214,17 @@ export class DingTalkService {
      *
      * @memberof DingTalkService
      */
-    private startRecord() {
-        dd.device.audio.onRecordEnd({
-            onSuccess: (res: any) => {
-                res.duration; // 返回音频的时长，单位：秒
-            },
-            onFail: (err: any) => { },
-        });
-        this.dd.device.audio.startRecord({
-            onSuccess: () => {
-                //支持最长为300秒（包括）的音频录制，默认60秒(包括)。
-            },
-            onFail: (err: any) => {
-                alert(JSON.stringify(err));
-            },
+    private startRecord(): Promise<any> {
+        return new Promise((resolve, reject) => {
+            dd.device.audio.startRecord({
+                onSuccess: () => {
+                    resolve(true)
+                    //支持最长为300秒（包括）的音频录制，默认60秒(包括)。
+                },
+                onFail: () => {
+                    resolve(false)
+                },
+            });
         });
     }
 
@@ -242,7 +242,7 @@ export class DingTalkService {
                     resolve(res);
                 },
                 onFail: (err: any) => {
-                    alert(JSON.stringify(err));
+                    // alert(JSON.stringify(err));
                 },
             });
         });
@@ -255,7 +255,7 @@ export class DingTalkService {
      */
     private translateVoice(arg: any): Promise<any> {
         return new Promise((resolve, reject) => {
-            this.dd.device.audio.translateVoice({
+            dd.device.audio.translateVoice({
                 mediaId: arg.mediaId,
                 duration: arg.duration,
                 onSuccess: (res: any) => {
@@ -264,7 +264,7 @@ export class DingTalkService {
                     resolve(res);
                 },
                 onFail: (err: any) => {
-                    alert(JSON.stringify(err));
+                    // alert(JSON.stringify(err));
                 },
             });
         });
@@ -326,7 +326,7 @@ export class DingTalkService {
      * @memberof DingTalkService
      */
     private close() {
-        this.dd.biz.navigation.close({});
+        dd.biz.navigation.close({});
     }
 
     /**
@@ -335,7 +335,7 @@ export class DingTalkService {
      * @memberof DingTalkService
      */
     private setTitle(title: string) {
-        this.dd.biz.navigation.setTitle({
+        dd.biz.navigation.setTitle({
             title: title,
         });
     }

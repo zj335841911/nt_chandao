@@ -12,9 +12,9 @@
 | 缓存超时时长 | 无 |
 
 ## 取值范围
-| 序号 | 数值 | 文本 | 父值 | 排序值 | 提示信息 | 是否显示空白 | 默认选择 | 说明 |
+| 序号 | 数值 | 文本 | 父值 | 提示信息 | 是否显示空白 | 默认选择 | 说明 |
 | -- | -- | -- | -- | -- | -- | -- | -- |
-| 1 | pmsStoryModule | PMS需求模块 |  |  |  | 否 | 否 | PMS需求模块 |
-| 2 | iBizSysModule | iBiz系统模块 |  |  |  | 否 | 否 | iBiz系统模块 |
-| 3 | iBizReqModule | iBiz需求模块 |  |  |  | 否 | 否 | iBiz需求模块 |
+| 1 | pmsStoryModule | PMS需求模块 |  |  | 否 | 否 | PMS需求模块 |
+| 2 | iBizSysModule | iBiz系统模块 |  |  | 否 | 否 | iBiz系统模块 |
+| 3 | iBizReqModule | iBiz需求模块 |  |  | 否 | 否 | iBiz需求模块 |
 

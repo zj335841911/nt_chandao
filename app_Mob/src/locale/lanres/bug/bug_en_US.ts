@@ -153,6 +153,8 @@ export default {
 	},
 	mobmain_form: {
 		details: {
+			druipart2: '', 
+			grouppanel2: '附件', 
 			druipart1: '', 
 			grouppanel1: '变更历史', 
 			group1: 'Bug基本信息', 

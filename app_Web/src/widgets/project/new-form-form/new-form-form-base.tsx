@@ -290,4 +290,14 @@ export class NewFormEditFormBase extends EditFormControlBase {
             this.updateFormItems('UpdateProjectCycle', this.data, details, true);
         }
     }
+
+    /**
+     * 新建默认值
+     * @memberof NewFormEditFormBase
+     */
+    public createDefault(){                    
+        if (this.data.hasOwnProperty('type')) {
+            this.data['type'] = 'sprint';
+        }
+    }
 }
