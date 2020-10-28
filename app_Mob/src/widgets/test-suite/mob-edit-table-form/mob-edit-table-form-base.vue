@@ -1077,7 +1077,7 @@ export default class MobEditTableBase extends Vue implements ControlInterface {
             });
         if(AppCenterService && AppCenterService.getMessageCenter()){
             this.appStateEvent = AppCenterService.getMessageCenter().subscribe(({ name, action, data }) =>{
-                if(!Object.is(name,"TestSuite")){
+                if(!Object.is(name,"TestSuite") && data.appRefreshAction){
                     return;
                 }
                 if(Object.is(action,'appRefresh')){
@@ -1319,7 +1319,7 @@ export default class MobEditTableBase extends Vue implements ControlInterface {
             if(!opt.saveEmit){
                 this.$emit('save', data);
             }                
-            AppCenterService.notifyMessage({name:"TestSuite",action:'appRefresh',data:data});
+            AppCenterService.notifyMessage({name:"TestSuite",action:'appRefresh',data:data:Object.assign(data,{appRefreshAction:action===this.updateAction?false:true})}});
             this.$store.dispatch('viewaction/datasaved', { viewtag: this.viewtag });
             this.$nextTick(() => {
                 this.formState.next({ type: 'save', data: data });

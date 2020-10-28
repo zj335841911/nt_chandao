@@ -1039,7 +1039,7 @@ export default class ClosePauseCancelFormMobBase extends Vue implements ControlI
             });
         if(AppCenterService && AppCenterService.getMessageCenter()){
             this.appStateEvent = AppCenterService.getMessageCenter().subscribe(({ name, action, data }) =>{
-                if(!Object.is(name,"Task")){
+                if(!Object.is(name,"Task") && data.appRefreshAction){
                     return;
                 }
                 if(Object.is(action,'appRefresh')){
@@ -1281,7 +1281,7 @@ export default class ClosePauseCancelFormMobBase extends Vue implements ControlI
             if(!opt.saveEmit){
                 this.$emit('save', data);
             }                
-            AppCenterService.notifyMessage({name:"Task",action:'appRefresh',data:data});
+            AppCenterService.notifyMessage({name:"Task",action:'appRefresh',data:data:Object.assign(data,{appRefreshAction:action===this.updateAction?false:true})}});
             this.$store.dispatch('viewaction/datasaved', { viewtag: this.viewtag });
             this.$nextTick(() => {
                 this.formState.next({ type: 'save', data: data });
