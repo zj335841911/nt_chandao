@@ -74,7 +74,9 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
             et.setAssignedto(null);
             double left = 0d;
             for (TaskTeam taskTeam : taskTeams) {
-                if (et.getAssignedto() == null && taskTeam.getAccount() != null && "".equals(taskTeam.getAccount())) {
+                if(taskTeam.getAccount() == null || "".equals(taskTeam.getAccount()))
+                    continue;
+                if (et.getAssignedto() == null && taskTeam.getAccount() != null && !"".equals(taskTeam.getAccount())) {
                     et.setAssignedto(taskTeam.getAccount());
                 }
                 if (taskTeam.getEstimate() != null) {
@@ -107,6 +109,8 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
 
         if (StringUtils.compare(multiple, "1") == 0 && taskTeams != null && !taskTeams.isEmpty()) {
             for (TaskTeam taskTeam : taskTeams) {
+                if(taskTeam.getAccount() == null || "".equals(taskTeam.getAccount()))
+                    continue;
                 Team team = new Team();
                 team.setType("task");
                 team.setRoot(et.getId());
@@ -211,12 +215,16 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
             String statusStr = "done,closed,cancel";
             List<String> accounts = new ArrayList<>();
             for (TaskTeam team : teams) {
+                if(team.getAccount() == null || "".equals(team.getAccount()))
+                    continue;
                 accounts.add(team.getAccount());
             }
             if (!statusStr.contains(et.getStatus()) && !accounts.contains(et.getAssignedto()) && !et.getAssignedto().equals("")) throw new RuntimeException("当前状态的多人任务不能指派给任务团队以外的成员。");
             int i = 0;
             for (TaskTeam taskTeam : teams) {
 //                Team team = new Team();
+                if(taskTeam.getAccount() == null || "".equals(taskTeam.getAccount()))
+                    continue;
                 taskTeam.setType("task");
                 taskTeam.setRoot(et.getId());
                 taskTeam.setAccount(taskTeam.getAccount());
@@ -238,13 +246,18 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
 
 
         teamHelper.remove(new QueryWrapper<Team>().eq("root", et.getId()).eq("type", "task"));
-        if (StringUtils.compare(multiple,"1") == 0){
+        if (StringUtils.compare(multiple, "1") == 0 && teams != null && !teams.isEmpty()){
+            String assignedto = "";
             for (TaskTeam team : teams) {
+                if(team.getAccount() == null || "".equals(team.getAccount()))
+                    continue;
+                if("".equals(assignedto))
+                    assignedto = team.getAccount();
                 taskTeamHelper.create(team);
             }
             this.computeHours4Multiple(old,et,null,false);
             if (et.getStatus().equals("wait")){
-                et.setAssignedto(teams.get(0).getAccount());
+                et.setAssignedto(assignedto);
             }
         }
 
