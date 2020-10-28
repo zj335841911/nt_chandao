@@ -1,115 +1,407 @@
-# 用例步骤(ZT_CASESTEP)
+# 实体-用例步骤(ZT_CASESTEP)
+## 实体说明
+用例步骤
 
-  
+## 所属模块
+[禅道模块](../zentao)
 
-## 关系
-{% plantuml %}
-用例步骤 *-- 用例步骤 
-测试用例 *-- 用例步骤 
-用例步骤 *-- 用例步骤 
-hide members
-{% endplantuml %}
+## 实体属性
+| 序号 | 属性 | 属性名 | 数据类型 | 是否是主键 | 是否是外键 | 是否允许为空 | 关系属性（实体-属性） |
+| -- | -- | -- | -- | -- | -- |
+| 1 | [用例步骤类型](#属性-用例步骤类型（TYPE）) | TYPE | SSCODELIST | 否 | 否 | 是 | -- |
+| 2 | [编号](#属性-编号（ID）) | ID | ACID | 是 | 否 | 否 | -- |
+| 3 | [步骤](#属性-步骤（DESC）) | DESC | LONGTEXT | 否 | 否 | 是 | -- |
+| 4 | [预期](#属性-预期（EXPECT）) | EXPECT | LONGTEXT | 否 | 否 | 是 | -- |
+| 5 | [用例版本](#属性-用例版本（VERSION）) | VERSION | PICKUPDATA | 否 | 是 | 是 | [测试用例（ZT_CASE）](../zentao/Case) - [用例版本（VERSION）](../zentao/Case/#属性-用例版本（VERSION）) |
+| 6 | [用例](#属性-用例（CASE）) | CASE | PICKUP | 否 | 是 | 是 | [测试用例（ZT_CASE）](../zentao/Case) - [用例编号（ID）](../zentao/Case/#属性-用例编号（ID）) |
+| 7 | [分组用例步骤的组编号](#属性-分组用例步骤的组编号（PARENT）) | PARENT | PICKUP | 否 | 是 | 是 | [用例步骤（ZT_CASESTEP）](../zentao/CaseStep) - [编号（ID）](../zentao/CaseStep/#属性-编号（ID）) |
+| 8 | [实际情况](#属性-实际情况（REALS）) | REALS | TEXT | 否 | 是 | 是 | [用例步骤（ZT_CASESTEP）](../zentao/CaseStep) - [编号（ID）](../zentao/CaseStep/#属性-编号（ID）) |
+| 9 | [测试结果](#属性-测试结果（STEPS）) | STEPS | SSCODELIST | 否 | 是 | 是 | [用例步骤（ZT_CASESTEP）](../zentao/CaseStep) - [编号（ID）](../zentao/CaseStep/#属性-编号（ID）) |
+| 10 | [附件](#属性-附件（FILES）) | FILES | TEXT | 否 | 是 | 是 | [用例步骤（ZT_CASESTEP）](../zentao/CaseStep) - [编号（ID）](../zentao/CaseStep/#属性-编号（ID）) |
+| 11 | [执行编号](#属性-执行编号（RUNID）) | RUNID | INT | 否 | 是 | 是 | [用例步骤（ZT_CASESTEP）](../zentao/CaseStep) - [编号（ID）](../zentao/CaseStep/#属性-编号（ID）) |
+| 12 | [用例步骤编号](#属性-用例步骤编号（CASESTEPID）) | CASESTEPID | BIGINT | 否 | 是 | 是 | [用例步骤（ZT_CASESTEP）](../zentao/CaseStep) - [编号（ID）](../zentao/CaseStep/#属性-编号（ID）) |
 
-## 属性
+### 属性-用例步骤类型（TYPE）
+#### 属性说明
+用例步骤类型
 
-| 属性名称        |    中文名称    | 类型     |  备注  |
-| --------   |------------| -----   |  -------- | 
-|用例步骤类型|TYPE|SSCODELIST|&nbsp;|
-|编号|ID|ACID|&nbsp;|
-|步骤|DESC|LONGTEXT|&nbsp;|
-|预期|EXPECT|LONGTEXT|&nbsp;|
-|用例版本|VERSION|PICKUPDATA|&nbsp;|
-|用例|CASE|PICKUP|&nbsp;|
-|分组用例步骤的组编号|PARENT|PICKUP|&nbsp;|
-|实际情况|REALS|TEXT|&nbsp;|
-|测试结果|STEPS|SSCODELIST|&nbsp;|
-|附件|FILES|TEXT|&nbsp;|
-|执行编号|RUNID|INT|&nbsp;|
-|用例步骤编号|CASESTEPID|BIGINT|&nbsp;|
+#### 属性类型
+物理属性[实体属性]
 
-## 值规则
-| 属性名称    | 规则    |  说明  |
-| --------   |------------| ----- | 
-|用例步骤类型|默认规则|内容长度必须小于等于[10]|
-|编号|默认规则|默认规则|
-|步骤|默认规则|内容长度必须小于等于[65535]|
-|预期|默认规则|内容长度必须小于等于[65535]|
-|用例版本|默认规则|默认规则|
-|用例|默认规则|默认规则|
-|分组用例步骤的组编号|默认规则|默认规则|
-|实际情况|默认规则|内容长度必须小于等于[100]|
-|测试结果|默认规则|内容长度必须小于等于[200]|
-|附件|默认规则|内容长度必须小于等于[100]|
-|执行编号|默认规则|默认规则|
-|用例步骤编号|默认规则|默认规则|
+#### 数据类型
+SSCODELIST
 
-## 状态控制
+#### 是否允许为为空
+是
 
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 | step |
+
+#### 取值范围/公式
+参照数据字典【[用例步骤类型（Casestep__type）](../../codelist/Casestep__type)】
+
+#### 数据格式
 无
 
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [用例步骤（ZT_CASESTEP）](../zentao/CaseStep) |
+| 关系属性 | [编号（ID）](../zentao/CaseStep/#属性-编号（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
 
-## 行为
-| 行为    | 类型    |  说明  |
-| --------   |------------| ----- | 
-|Create|内置方法|&nbsp;|
-|CreateTemp|内置方法|&nbsp;|
-|CreateTempMajor|内置方法|&nbsp;|
-|Update|内置方法|&nbsp;|
-|UpdateTemp|内置方法|&nbsp;|
-|UpdateTempMajor|内置方法|&nbsp;|
-|Remove|内置方法|&nbsp;|
-|RemoveTemp|内置方法|&nbsp;|
-|RemoveTempMajor|内置方法|&nbsp;|
-|Get|内置方法|&nbsp;|
-|GetTemp|内置方法|&nbsp;|
-|GetTempMajor|内置方法|&nbsp;|
-|GetDraft|内置方法|&nbsp;|
-|GetDraftTemp|内置方法|&nbsp;|
-|GetDraftTempMajor|内置方法|&nbsp;|
-|CheckKey|内置方法|&nbsp;|
-|Save|内置方法|&nbsp;|
+### 属性-编号（ID）
+#### 属性说明
+编号
 
-## 处理逻辑
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+ACID
+
+#### 是否允许为为空
+否
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
 无
 
-## 查询集合
-
-* **查询**
-
-| 查询编号 | 查询名称       | 默认查询 |   备注|
-| --------  | --------   | --------   | ----- |
-|CurTest|当前测试步骤([MYSQL5](../../appendix/query_MYSQL5.md#CaseStep_CurTest))|否|&nbsp;|
-|DEFAULT|DEFAULT([MYSQL5](../../appendix/query_MYSQL5.md#CaseStep_Default))|是|&nbsp;|
-|DEFAULT1|DEFAULT1([MYSQL5](../../appendix/query_MYSQL5.md#CaseStep_Default1))|否|&nbsp;|
-|Mob|Mob([MYSQL5](../../appendix/query_MYSQL5.md#CaseStep_Mob))|否|&nbsp;|
-|Version|版本([MYSQL5](../../appendix/query_MYSQL5.md#CaseStep_Version))|否|&nbsp;|
-|Versions|版本1([MYSQL5](../../appendix/query_MYSQL5.md#CaseStep_Versions))|否|&nbsp;|
-|VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#CaseStep_View))|否|&nbsp;|
-
-* **数据集合**
-
-| 集合编号 | 集合名称   |  包含查询  | 默认集合 |   备注|
-| --------  | --------   | -------- | --------   | ----- |
-|CurTest|当前测试步骤|CurTest|否|&nbsp;|
-|DEFAULT|DEFAULT|DEFAULT|是|&nbsp;|
-|DEFAULT1|DEFAULT1|DEFAULT1|否|&nbsp;|
-|Mob|Mob|Mob|否|&nbsp;|
-|Version|版本|Version|否|&nbsp;|
-|Versions|版本1|Versions|否|&nbsp;|
-
-## 查询模式
-| 属性      |    搜索模式     |
-| --------   |------------|
-|用例步骤类型(TYPE)|EQ|
-|预期(EXPECT)|LIKE|
-|用例版本(VERSION)|EQ|
-|用例(CASE)|EQ|
-|分组用例步骤的组编号(PARENT)|EQ|
-|测试结果(STEPS)|EQ|
-
-## 导入模式
+#### 数据格式
 无
 
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [用例步骤（ZT_CASESTEP）](../zentao/CaseStep) |
+| 关系属性 | [编号（ID）](../zentao/CaseStep/#属性-编号（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
 
-## 导出模式
+### 属性-步骤（DESC）
+#### 属性说明
+步骤
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+LONGTEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 | #EMPTY |
+
+#### 取值范围/公式
 无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [用例步骤（ZT_CASESTEP）](../zentao/CaseStep) |
+| 关系属性 | [编号（ID）](../zentao/CaseStep/#属性-编号（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-预期（EXPECT）
+#### 属性说明
+预期
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+LONGTEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 | #EMPTY |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [用例步骤（ZT_CASESTEP）](../zentao/CaseStep) |
+| 关系属性 | [编号（ID）](../zentao/CaseStep/#属性-编号（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-用例版本（VERSION）
+#### 属性说明
+用例版本
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+PICKUPDATA
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 | 0 |
+
+#### 取值范围/公式
+参照数据字典【[当前用例版本（动态）（CurCaseVersion）](../../codelist/CurCaseVersion)】
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [测试用例（ZT_CASE）](../zentao/Case) |
+| 关系属性 | [用例版本（VERSION）](../zentao/Case/#属性-用例版本（VERSION）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-用例（CASE）
+#### 属性说明
+用例
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+PICKUP
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 | 0 |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [测试用例（ZT_CASE）](../zentao/Case) |
+| 关系属性 | [用例编号（ID）](../zentao/Case/#属性-用例编号（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-分组用例步骤的组编号（PARENT）
+#### 属性说明
+分组用例步骤的组编号
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+PICKUP
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 | 0 |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [用例步骤（ZT_CASESTEP）](../zentao/CaseStep) |
+| 关系属性 | [编号（ID）](../zentao/CaseStep/#属性-编号（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-实际情况（REALS）
+#### 属性说明
+实际情况
+
+#### 属性类型
+应用界面属性[虚拟属性，提供给页面显示的属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [用例步骤（ZT_CASESTEP）](../zentao/CaseStep) |
+| 关系属性 | [编号（ID）](../zentao/CaseStep/#属性-编号（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-测试结果（STEPS）
+#### 属性说明
+测试结果
+
+#### 属性类型
+应用界面属性[虚拟属性，提供给页面显示的属性]
+
+#### 数据类型
+SSCODELIST
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+参照数据字典【[测试结果（Testresult__result）](../../codelist/Testresult__result)】
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [用例步骤（ZT_CASESTEP）](../zentao/CaseStep) |
+| 关系属性 | [编号（ID）](../zentao/CaseStep/#属性-编号（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-附件（FILES）
+#### 属性说明
+附件
+
+#### 属性类型
+应用界面属性[虚拟属性，提供给页面显示的属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [用例步骤（ZT_CASESTEP）](../zentao/CaseStep) |
+| 关系属性 | [编号（ID）](../zentao/CaseStep/#属性-编号（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-执行编号（RUNID）
+#### 属性说明
+执行编号
+
+#### 属性类型
+应用界面属性[虚拟属性，提供给页面显示的属性]
+
+#### 数据类型
+INT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [用例步骤（ZT_CASESTEP）](../zentao/CaseStep) |
+| 关系属性 | [编号（ID）](../zentao/CaseStep/#属性-编号（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-用例步骤编号（CASESTEPID）
+#### 属性说明
+用例步骤编号
+
+#### 属性类型
+逻辑属性[虚拟属性，来自计算逻辑和计算公式]
+
+#### 数据类型
+BIGINT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+t1.id
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [用例步骤（ZT_CASESTEP）](../zentao/CaseStep) |
+| 关系属性 | [编号（ID）](../zentao/CaseStep/#属性-编号（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+

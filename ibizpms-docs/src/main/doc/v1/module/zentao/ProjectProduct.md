@@ -1,94 +1,275 @@
-# 项目产品(ZT_PROJECTPRODUCT)
+# 实体-项目产品(ZT_PROJECTPRODUCT)
+## 实体说明
+项目产品
 
-  
+## 所属模块
+[禅道模块](../zentao)
 
-## 关系
-{% plantuml %}
-产品的分支和平台信息 *-- 项目产品 
-产品计划 *-- 项目产品 
-产品 *-- 项目产品 
-项目 *-- 项目产品 
-hide members
-{% endplantuml %}
+## 实体属性
+| 序号 | 属性 | 属性名 | 数据类型 | 是否是主键 | 是否是外键 | 是否允许为空 | 关系属性（实体-属性） |
+| -- | -- | -- | -- | -- | -- |
+| 1 | [虚拟主键](#属性-虚拟主键（ID）) | ID | TEXT | 是 | 否 | 否 | -- |
+| 2 | [产品](#属性-产品（PRODUCTNAME）) | PRODUCTNAME | PICKUPTEXT | 否 | 是 | 是 | [产品（ZT_PRODUCT）](../zentao/Product) - [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
+| 3 | [项目](#属性-项目（PROJECTNAME）) | PROJECTNAME | PICKUPTEXT | 否 | 是 | 是 | [项目（ZT_PROJECT）](../zentao/Project) - [项目名称（NAME）](../zentao/Project/#属性-项目名称（NAME）) |
+| 4 | [计划名称](#属性-计划名称（PLANNAME）) | PLANNAME | PICKUPTEXT | 否 | 是 | 是 | [产品计划（ZT_PRODUCTPLAN）](../zentao/ProductPlan) - [名称（TITLE）](../zentao/ProductPlan/#属性-名称（TITLE）) |
+| 5 | [产品](#属性-产品（PRODUCT）) | PRODUCT | PICKUP | 否 | 是 | 否 | [产品（ZT_PRODUCT）](../zentao/Product) - [编号（ID）](../zentao/Product/#属性-编号（ID）) |
+| 6 | [产品计划](#属性-产品计划（PLAN）) | PLAN | PICKUP | 否 | 是 | 是 | [产品计划（ZT_PRODUCTPLAN）](../zentao/ProductPlan) - [编号（ID）](../zentao/ProductPlan/#属性-编号（ID）) |
+| 7 | [平台/分支](#属性-平台/分支（BRANCH）) | BRANCH | PICKUP | 否 | 是 | 是 | [产品的分支和平台信息（ZT_BRANCH）](../zentao/Branch) - [编号（ID）](../zentao/Branch/#属性-编号（ID）) |
+| 8 | [项目](#属性-项目（PROJECT）) | PROJECT | PICKUP | 否 | 是 | 否 | [项目（ZT_PROJECT）](../zentao/Project) - [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
 
-## 属性
+### 属性-虚拟主键（ID）
+#### 属性说明
+虚拟主键
 
-| 属性名称        |    中文名称    | 类型     |  备注  |
-| --------   |------------| -----   |  -------- | 
-|虚拟主键|ID|TEXT|&nbsp;|
-|产品|PRODUCTNAME|PICKUPTEXT|&nbsp;|
-|项目|PROJECTNAME|PICKUPTEXT|&nbsp;|
-|计划名称|PLANNAME|PICKUPTEXT|&nbsp;|
-|产品|PRODUCT|PICKUP|&nbsp;|
-|产品计划|PLAN|PICKUP|&nbsp;|
-|平台/分支|BRANCH|PICKUP|&nbsp;|
-|项目|PROJECT|PICKUP|&nbsp;|
+#### 属性类型
+逻辑属性[虚拟属性，来自计算逻辑和计算公式]
 
-## 值规则
-| 属性名称    | 规则    |  说明  |
-| --------   |------------| ----- | 
-|虚拟主键|默认规则|内容长度必须小于等于[200]|
-|产品|默认规则|内容长度必须小于等于[90]|
-|项目|默认规则|内容长度必须小于等于[90]|
-|计划名称|默认规则|内容长度必须小于等于[90]|
-|产品|默认规则|默认规则|
-|产品计划|默认规则|默认规则|
-|平台/分支|默认规则|默认规则|
-|项目|默认规则|默认规则|
+#### 数据类型
+TEXT
 
-## 状态控制
+#### 是否允许为为空
+否
 
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+concat(%1$s,'__',%2$s)
+
+#### 数据格式
 无
 
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
+| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
 
-## 行为
-| 行为    | 类型    |  说明  |
-| --------   |------------| ----- | 
-|Create|内置方法|&nbsp;|
-|Update|内置方法|&nbsp;|
-|Remove|内置方法|&nbsp;|
-|Get|内置方法|&nbsp;|
-|GetDraft|内置方法|&nbsp;|
-|CheckKey|内置方法|&nbsp;|
-|Save|内置方法|&nbsp;|
+### 属性-产品（PRODUCTNAME）
+#### 属性说明
+产品
 
-## 处理逻辑
+#### 属性类型
+链接属性[虚拟属性，映射关系实体的属性]
+
+#### 数据类型
+PICKUPTEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
 无
 
-## 查询集合
-
-* **查询**
-
-| 查询编号 | 查询名称       | 默认查询 |   备注|
-| --------  | --------   | --------   | ----- |
-|DEFAULT|DEFAULT([MYSQL5](../../appendix/query_MYSQL5.md#ProjectProduct_Default))|否|&nbsp;|
-|RelationPlan|关联计划([MYSQL5](../../appendix/query_MYSQL5.md#ProjectProduct_RelationPlan))|否|&nbsp;|
-|VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#ProjectProduct_View))|否|&nbsp;|
-
-* **数据集合**
-
-| 集合编号 | 集合名称   |  包含查询  | 默认集合 |   备注|
-| --------  | --------   | -------- | --------   | ----- |
-|DEFAULT|DEFAULT|DEFAULT|是|&nbsp;|
-|RelationPlan|关联计划|RelationPlan|否|&nbsp;|
-
-## 查询模式
-| 属性      |    搜索模式     |
-| --------   |------------|
-|产品(PRODUCTNAME)|EQ|
-|产品(PRODUCTNAME)|LIKE|
-|项目(PROJECTNAME)|EQ|
-|项目(PROJECTNAME)|LIKE|
-|计划名称(PLANNAME)|EQ|
-|计划名称(PLANNAME)|LIKE|
-|产品(PRODUCT)|EQ|
-|产品计划(PLAN)|EQ|
-|平台/分支(BRANCH)|EQ|
-|项目(PROJECT)|EQ|
-
-## 导入模式
+#### 数据格式
 无
 
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
+| 关系属性 | [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
 
-## 导出模式
+### 属性-项目（PROJECTNAME）
+#### 属性说明
+项目
+
+#### 属性类型
+链接属性[虚拟属性，映射关系实体的属性]
+
+#### 数据类型
+PICKUPTEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
 无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
+| 关系属性 | [项目名称（NAME）](../zentao/Project/#属性-项目名称（NAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-计划名称（PLANNAME）
+#### 属性说明
+计划名称
+
+#### 属性类型
+链接属性[虚拟属性，映射关系实体的属性]
+
+#### 数据类型
+PICKUPTEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [产品计划（ZT_PRODUCTPLAN）](../zentao/ProductPlan) |
+| 关系属性 | [名称（TITLE）](../zentao/ProductPlan/#属性-名称（TITLE）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-产品（PRODUCT）
+#### 属性说明
+产品
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+PICKUP
+
+#### 是否允许为为空
+否
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
+| 关系属性 | [编号（ID）](../zentao/Product/#属性-编号（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-产品计划（PLAN）
+#### 属性说明
+产品计划
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+PICKUP
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [产品计划（ZT_PRODUCTPLAN）](../zentao/ProductPlan) |
+| 关系属性 | [编号（ID）](../zentao/ProductPlan/#属性-编号（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-平台/分支（BRANCH）
+#### 属性说明
+平台/分支
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+PICKUP
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [产品的分支和平台信息（ZT_BRANCH）](../zentao/Branch) |
+| 关系属性 | [编号（ID）](../zentao/Branch/#属性-编号（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-项目（PROJECT）
+#### 属性说明
+项目
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+PICKUP
+
+#### 是否允许为为空
+否
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
+| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+

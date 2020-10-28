@@ -1,83 +1,330 @@
-# im_client(ZT_IM_CLIENT)
+# 实体-im_client(ZT_IM_CLIENT)
+## 实体说明
+im_client
 
-  
+## 所属模块
+[禅道模块](../zentao)
 
-## 关系
+## 实体属性
+| 序号 | 属性 | 属性名 | 数据类型 | 是否是主键 | 是否是外键 | 是否允许为空 | 关系属性（实体-属性） |
+| -- | -- | -- | -- | -- | -- |
+| 1 | [editedDate](#属性-editedDate（EDITEDDATE）) | EDITEDDATE | DATETIME | 否 | 否 | 是 | -- |
+| 2 | [strategy](#属性-strategy（STRATEGY）) | STRATEGY | TEXT | 否 | 否 | 是 | -- |
+| 3 | [createdDate](#属性-createdDate（CREATEDDATE）) | CREATEDDATE | DATETIME | 否 | 否 | 是 | -- |
+| 4 | [changeLog](#属性-changeLog（CHANGELOG）) | CHANGELOG | LONGTEXT | 否 | 否 | 是 | -- |
+| 5 | [version](#属性-version（VERSION）) | VERSION | TEXT | 否 | 否 | 是 | -- |
+| 6 | [downloads](#属性-downloads（DOWNLOADS）) | DOWNLOADS | LONGTEXT | 否 | 否 | 是 | -- |
+| 7 | [status](#属性-status（STATUS）) | STATUS | SSCODELIST | 否 | 否 | 是 | -- |
+| 8 | [desc](#属性-desc（DESC）) | DESC | TEXT | 否 | 否 | 是 | -- |
+| 9 | [id](#属性-id（ID）) | ID | ACID | 是 | 否 | 否 | -- |
+| 10 | [createdBy](#属性-createdBy（CREATEDBY）) | CREATEDBY | TEXT | 否 | 否 | 是 | -- |
+| 11 | [editedBy](#属性-editedBy（EDITEDBY）) | EDITEDBY | TEXT | 否 | 否 | 是 | -- |
+
+### 属性-editedDate（EDITEDDATE）
+#### 属性说明
+editedDate
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+DATETIME
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
 无
 
-## 属性
+#### 数据格式
+时间格式：yyyy-MM-dd HH:mm:ss
 
-| 属性名称        |    中文名称    | 类型     |  备注  |
-| --------   |------------| -----   |  -------- | 
-|editedDate|EDITEDDATE|DATETIME|&nbsp;|
-|strategy|STRATEGY|TEXT|&nbsp;|
-|createdDate|CREATEDDATE|DATETIME|&nbsp;|
-|changeLog|CHANGELOG|LONGTEXT|&nbsp;|
-|version|VERSION|TEXT|&nbsp;|
-|downloads|DOWNLOADS|LONGTEXT|&nbsp;|
-|status|STATUS|SSCODELIST|&nbsp;|
-|desc|DESC|TEXT|&nbsp;|
-|id|ID|ACID|&nbsp;|
-|createdBy|CREATEDBY|TEXT|&nbsp;|
-|editedBy|EDITEDBY|TEXT|&nbsp;|
-
-## 值规则
-| 属性名称    | 规则    |  说明  |
-| --------   |------------| ----- | 
-|editedDate|默认规则|默认规则|
-|strategy|默认规则|内容长度必须小于等于[10]|
-|createdDate|默认规则|默认规则|
-|changeLog|默认规则|内容长度必须小于等于[65535]|
-|version|默认规则|内容长度必须小于等于[30]|
-|downloads|默认规则|内容长度必须小于等于[65535]|
-|status|默认规则|内容长度必须小于等于[8]|
-|desc|默认规则|内容长度必须小于等于[100]|
-|id|默认规则|默认规则|
-|createdBy|默认规则|内容长度必须小于等于[30]|
-|editedBy|默认规则|内容长度必须小于等于[30]|
-
-## 状态控制
-
+#### 关系属性
 无
 
+### 属性-strategy（STRATEGY）
+#### 属性说明
+strategy
 
-## 行为
-| 行为    | 类型    |  说明  |
-| --------   |------------| ----- | 
-|Create|内置方法|&nbsp;|
-|Update|内置方法|&nbsp;|
-|Remove|内置方法|&nbsp;|
-|Get|内置方法|&nbsp;|
-|GetDraft|内置方法|&nbsp;|
-|CheckKey|内置方法|&nbsp;|
-|Save|内置方法|&nbsp;|
+#### 属性类型
+物理属性[实体属性]
 
-## 处理逻辑
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
 无
 
-## 查询集合
-
-* **查询**
-
-| 查询编号 | 查询名称       | 默认查询 |   备注|
-| --------  | --------   | --------   | ----- |
-|DEFAULT|DEFAULT([MYSQL5](../../appendix/query_MYSQL5.md#Im_client_Default))|否|&nbsp;|
-|VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#Im_client_View))|否|&nbsp;|
-
-* **数据集合**
-
-| 集合编号 | 集合名称   |  包含查询  | 默认集合 |   备注|
-| --------  | --------   | -------- | --------   | ----- |
-|DEFAULT|DEFAULT|DEFAULT|是|&nbsp;|
-
-## 查询模式
-| 属性      |    搜索模式     |
-| --------   |------------|
-|status(STATUS)|EQ|
-
-## 导入模式
+#### 数据格式
 无
 
-
-## 导出模式
+#### 关系属性
 无
+
+### 属性-createdDate（CREATEDDATE）
+#### 属性说明
+createdDate
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+DATETIME
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+时间格式：yyyy-MM-dd HH:mm:ss
+
+#### 关系属性
+无
+
+### 属性-changeLog（CHANGELOG）
+#### 属性说明
+changeLog
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+LONGTEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+无
+
+### 属性-version（VERSION）
+#### 属性说明
+version
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+无
+
+### 属性-downloads（DOWNLOADS）
+#### 属性说明
+downloads
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+LONGTEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+无
+
+### 属性-status（STATUS）
+#### 属性说明
+status
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+SSCODELIST
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+参照数据字典【[ZT_IM_CLIENT__STATUS（Im_client__status）](../../codelist/Im_client__status)】
+
+#### 数据格式
+无
+
+#### 关系属性
+无
+
+### 属性-desc（DESC）
+#### 属性说明
+desc
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+无
+
+### 属性-id（ID）
+#### 属性说明
+id
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+ACID
+
+#### 是否允许为为空
+否
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+无
+
+### 属性-createdBy（CREATEDBY）
+#### 属性说明
+createdBy
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+无
+
+### 属性-editedBy（EDITEDBY）
+#### 属性说明
+editedBy
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+无
+

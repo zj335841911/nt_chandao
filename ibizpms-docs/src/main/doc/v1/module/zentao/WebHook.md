@@ -1,98 +1,533 @@
-# 网页钩子(ZT_WEBHOOK)
+# 实体-网页钩子(ZT_WEBHOOK)
+## 实体说明
+网页钩子
 
-  
+## 所属模块
+[禅道模块](../zentao)
 
-## 关系
+## 实体属性
+| 序号 | 属性 | 属性名 | 数据类型 | 是否是主键 | 是否是外键 | 是否允许为空 | 关系属性（实体-属性） |
+| -- | -- | -- | -- | -- | -- |
+| 1 | [secret](#属性-secret（SECRET）) | SECRET | TEXT | 否 | 否 | 是 | -- |
+| 2 | [createdDate](#属性-createdDate（CREATEDDATE）) | CREATEDDATE | DATETIME | 否 | 否 | 是 | -- |
+| 3 | [actions](#属性-actions（ACTIONS）) | ACTIONS | LONGTEXT | 否 | 否 | 是 | -- |
+| 4 | [desc](#属性-desc（DESC）) | DESC | LONGTEXT | 否 | 否 | 是 | -- |
+| 5 | [contentType](#属性-contentType（CONTENTTYPE）) | CONTENTTYPE | TEXT | 否 | 否 | 是 | -- |
+| 6 | [type](#属性-type（TYPE）) | TYPE | TEXT | 否 | 否 | 是 | -- |
+| 7 | [id](#属性-id（ID）) | ID | ACID | 是 | 否 | 否 | -- |
+| 8 | [editedBy](#属性-editedBy（EDITEDBY）) | EDITEDBY | TEXT | 否 | 否 | 是 | -- |
+| 9 | [逻辑删除标志](#属性-逻辑删除标志（DELETED）) | DELETED | TEXT | 否 | 否 | 是 | -- |
+| 10 | [name](#属性-name（NAME）) | NAME | TEXT | 否 | 否 | 否 | -- |
+| 11 | [url](#属性-url（URL）) | URL | TEXT | 否 | 否 | 是 | -- |
+| 12 | [domain](#属性-domain（DOMAIN）) | DOMAIN | TEXT | 否 | 否 | 是 | -- |
+| 13 | [createdBy](#属性-createdBy（CREATEDBY）) | CREATEDBY | TEXT | 否 | 否 | 是 | -- |
+| 14 | [params](#属性-params（PARAMS）) | PARAMS | TEXT | 否 | 否 | 是 | -- |
+| 15 | [sendType](#属性-sendType（SENDTYPE）) | SENDTYPE | SSCODELIST | 否 | 否 | 是 | -- |
+| 16 | [products](#属性-products（PRODUCTS）) | PRODUCTS | LONGTEXT | 否 | 否 | 是 | -- |
+| 17 | [editedDate](#属性-editedDate（EDITEDDATE）) | EDITEDDATE | DATETIME | 否 | 否 | 是 | -- |
+| 18 | [projects](#属性-projects（PROJECTS）) | PROJECTS | LONGTEXT | 否 | 否 | 是 | -- |
+
+### 属性-secret（SECRET）
+#### 属性说明
+secret
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
 无
 
-## 属性
-
-| 属性名称        |    中文名称    | 类型     |  备注  |
-| --------   |------------| -----   |  -------- | 
-|secret|SECRET|TEXT|&nbsp;|
-|createdDate|CREATEDDATE|DATETIME|&nbsp;|
-|actions|ACTIONS|LONGTEXT|&nbsp;|
-|desc|DESC|LONGTEXT|&nbsp;|
-|contentType|CONTENTTYPE|TEXT|&nbsp;|
-|type|TYPE|TEXT|&nbsp;|
-|id|ID|ACID|&nbsp;|
-|editedBy|EDITEDBY|TEXT|&nbsp;|
-|逻辑删除标志|DELETED|TEXT|&nbsp;|
-|name|NAME|TEXT|&nbsp;|
-|url|URL|TEXT|&nbsp;|
-|domain|DOMAIN|TEXT|&nbsp;|
-|createdBy|CREATEDBY|TEXT|&nbsp;|
-|params|PARAMS|TEXT|&nbsp;|
-|sendType|SENDTYPE|SSCODELIST|&nbsp;|
-|products|PRODUCTS|LONGTEXT|&nbsp;|
-|editedDate|EDITEDDATE|DATETIME|&nbsp;|
-|projects|PROJECTS|LONGTEXT|&nbsp;|
-
-## 值规则
-| 属性名称    | 规则    |  说明  |
-| --------   |------------| ----- | 
-|secret|默认规则|内容长度必须小于等于[255]|
-|createdDate|默认规则|默认规则|
-|actions|默认规则|内容长度必须小于等于[65535]|
-|desc|默认规则|内容长度必须小于等于[65535]|
-|contentType|默认规则|内容长度必须小于等于[30]|
-|type|默认规则|内容长度必须小于等于[15]|
-|id|默认规则|默认规则|
-|editedBy|默认规则|内容长度必须小于等于[30]|
-|逻辑删除标志|默认规则|内容长度必须小于等于[1]|
-|name|默认规则|内容长度必须小于等于[50]|
-|url|默认规则|内容长度必须小于等于[255]|
-|domain|默认规则|内容长度必须小于等于[255]|
-|createdBy|默认规则|内容长度必须小于等于[30]|
-|params|默认规则|内容长度必须小于等于[100]|
-|sendType|默认规则|内容长度必须小于等于[5]|
-|products|默认规则|内容长度必须小于等于[65535]|
-|editedDate|默认规则|默认规则|
-|projects|默认规则|内容长度必须小于等于[65535]|
-
-## 状态控制
-
+#### 数据格式
 无
 
-
-## 行为
-| 行为    | 类型    |  说明  |
-| --------   |------------| ----- | 
-|Create|内置方法|&nbsp;|
-|Update|内置方法|&nbsp;|
-|Remove|内置方法|&nbsp;|
-|Get|内置方法|&nbsp;|
-|GetDraft|内置方法|&nbsp;|
-|CheckKey|内置方法|&nbsp;|
-|Save|内置方法|&nbsp;|
-
-## 处理逻辑
+#### 关系属性
 无
 
-## 查询集合
+### 属性-createdDate（CREATEDDATE）
+#### 属性说明
+createdDate
 
-* **查询**
+#### 属性类型
+物理属性[实体属性]
 
-| 查询编号 | 查询名称       | 默认查询 |   备注|
-| --------  | --------   | --------   | ----- |
-|DEFAULT|DEFAULT([MYSQL5](../../appendix/query_MYSQL5.md#WebHook_Default))|否|&nbsp;|
-|VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#WebHook_View))|否|&nbsp;|
+#### 数据类型
+DATETIME
 
-* **数据集合**
+#### 是否允许为为空
+是
 
-| 集合编号 | 集合名称   |  包含查询  | 默认集合 |   备注|
-| --------  | --------   | -------- | --------   | ----- |
-|DEFAULT|DEFAULT|DEFAULT|是|&nbsp;|
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
 
-## 查询模式
-| 属性      |    搜索模式     |
-| --------   |------------|
-|name(NAME)|LIKE|
-|sendType(SENDTYPE)|EQ|
-
-## 导入模式
+#### 取值范围/公式
 无
 
+#### 数据格式
+时间格式：yyyy-MM-dd HH:mm:ss
 
-## 导出模式
+#### 关系属性
 无
+
+### 属性-actions（ACTIONS）
+#### 属性说明
+actions
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+LONGTEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+无
+
+### 属性-desc（DESC）
+#### 属性说明
+desc
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+LONGTEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+无
+
+### 属性-contentType（CONTENTTYPE）
+#### 属性说明
+contentType
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 | application/json |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+无
+
+### 属性-type（TYPE）
+#### 属性说明
+type
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 | default |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+无
+
+### 属性-id（ID）
+#### 属性说明
+id
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+ACID
+
+#### 是否允许为为空
+否
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+无
+
+### 属性-editedBy（EDITEDBY）
+#### 属性说明
+editedBy
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+无
+
+### 属性-逻辑删除标志（DELETED）
+#### 属性说明
+逻辑删除标志
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 | 0 |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+无
+
+### 属性-name（NAME）
+#### 属性说明
+name
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+否
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+无
+
+### 属性-url（URL）
+#### 属性说明
+url
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+无
+
+### 属性-domain（DOMAIN）
+#### 属性说明
+domain
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+无
+
+### 属性-createdBy（CREATEDBY）
+#### 属性说明
+createdBy
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+无
+
+### 属性-params（PARAMS）
+#### 属性说明
+params
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+无
+
+### 属性-sendType（SENDTYPE）
+#### 属性说明
+sendType
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+SSCODELIST
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+参照数据字典【[ZT_WEBHOOK__SENDTYPE（Webhook__sendType）](../../codelist/Webhook__sendType)】
+
+#### 数据格式
+无
+
+#### 关系属性
+无
+
+### 属性-products（PRODUCTS）
+#### 属性说明
+products
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+LONGTEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+无
+
+### 属性-editedDate（EDITEDDATE）
+#### 属性说明
+editedDate
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+DATETIME
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+时间格式：yyyy-MM-dd HH:mm:ss
+
+#### 关系属性
+无
+
+### 属性-projects（PROJECTS）
+#### 属性说明
+projects
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+LONGTEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+无
+

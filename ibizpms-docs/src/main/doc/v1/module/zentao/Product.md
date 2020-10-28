@@ -1,320 +1,1331 @@
-# 产品(ZT_PRODUCT)
+# 实体-产品(ZT_PRODUCT)
+## 实体说明
+产品
 
-  
+## 所属模块
+[禅道模块](../zentao)
 
-## 关系
-{% plantuml %}
-产品 *-- Bug统计 
-产品 *-- 需求模块 
-产品 *-- 测试模块 
-产品 *-- 产品的分支和平台信息 
-产品 *-- Bug 
-产品 *-- 版本 
-产品 *-- 测试用例 
-产品 *-- 文档库 
-产品 *-- 文档 
-产品 *-- 产品计划 
-产品 *-- 项目产品 
-产品 *-- 项目中需要做的需求 
-产品 *-- 发布 
-产品 *-- 需求 
-产品 *-- 套件用例 
-产品 *-- 测试报告 
-产品 *-- 测试套件 
-产品 *-- 测试版本 
-模块 *-- 产品 
-hide members
-{% endplantuml %}
+## 实体属性
+| 序号 | 属性 | 属性名 | 数据类型 | 是否是主键 | 是否是外键 | 是否允许为空 | 关系属性（实体-属性） |
+| -- | -- | -- | -- | -- | -- |
+| 1 | [测试负责人](#属性-测试负责人（QD）) | QD | TEXT | 否 | 否 | 是 | -- |
+| 2 | [访问控制](#属性-访问控制（ACL）) | ACL | SSCODELIST | 否 | 否 | 是 | -- |
+| 3 | [产品名称](#属性-产品名称（NAME）) | NAME | TEXT | 否 | 否 | 否 | -- |
+| 4 | [编号](#属性-编号（ID）) | ID | ACID | 是 | 否 | 否 | -- |
+| 5 | [已删除](#属性-已删除（DELETED）) | DELETED | TEXT | 否 | 否 | 是 | -- |
+| 6 | [分组白名单](#属性-分组白名单（WHITELIST）) | WHITELIST | LONGTEXT | 否 | 否 | 是 | -- |
+| 7 | [发布负责人](#属性-发布负责人（RD）) | RD | TEXT | 否 | 否 | 是 | -- |
+| 8 | [排序](#属性-排序（ORDER）) | ORDER | INT | 否 | 否 | 是 | -- |
+| 9 | [产品类型](#属性-产品类型（TYPE）) | TYPE | SSCODELIST | 否 | 否 | 是 | -- |
+| 10 | [产品负责人](#属性-产品负责人（PO）) | PO | TEXT | 否 | 否 | 是 | -- |
+| 11 | [产品描述	](#属性-产品描述	（DESC）) | DESC | LONGTEXT | 否 | 否 | 是 | -- |
+| 12 | [状态](#属性-状态（STATUS）) | STATUS | SSCODELIST | 否 | 否 | 是 | -- |
+| 13 | [由谁创建](#属性-由谁创建（CREATEDBY）) | CREATEDBY | TEXT | 否 | 否 | 是 | -- |
+| 14 | [当前系统版本](#属性-当前系统版本（CREATEDVERSION）) | CREATEDVERSION | TEXT | 否 | 否 | 是 | -- |
+| 15 | [子状态](#属性-子状态（SUBSTATUS）) | SUBSTATUS | TEXT | 否 | 否 | 是 | -- |
+| 16 | [产品代号](#属性-产品代号（CODE）) | CODE | TEXT | 否 | 否 | 是 | -- |
+| 17 | [创建日期](#属性-创建日期（CREATEDDATE）) | CREATEDDATE | DATETIME | 否 | 否 | 是 | -- |
+| 18 | [产品线](#属性-产品线（LINENAME）) | LINENAME | PICKUPTEXT | 否 | 是 | 是 | [模块（ZT_MODULE）](../zentao/Module) - [模块名称（NAME）](../zentao/Module/#属性-模块名称（NAME）) |
+| 19 | [产品线](#属性-产品线（LINE）) | LINE | PICKUP | 否 | 是 | 是 | [模块（ZT_MODULE）](../zentao/Module) - [id（ID）](../zentao/Module/#属性-id（ID）) |
+| 20 | [未解决Bug数](#属性-未解决Bug数（ACTIVEBUGCNT）) | ACTIVEBUGCNT | INT | 否 | 是 | 是 | [模块（ZT_MODULE）](../zentao/Module) - [id（ID）](../zentao/Module/#属性-id（ID）) |
+| 21 | [计划总数](#属性-计划总数（PRODUCTPLANCNT）) | PRODUCTPLANCNT | INT | 否 | 是 | 是 | [模块（ZT_MODULE）](../zentao/Module) - [id（ID）](../zentao/Module/#属性-id（ID）) |
+| 22 | [发布总数](#属性-发布总数（RELEASECNT）) | RELEASECNT | INT | 否 | 是 | 是 | [模块（ZT_MODULE）](../zentao/Module) - [id（ID）](../zentao/Module/#属性-id（ID）) |
+| 23 | [激活需求数](#属性-激活需求数（ACTIVESTORYCNT）) | ACTIVESTORYCNT | INT | 否 | 是 | 是 | [模块（ZT_MODULE）](../zentao/Module) - [id（ID）](../zentao/Module/#属性-id（ID）) |
+| 24 | [未确认Bug数](#属性-未确认Bug数（UNCONFIRMBUGCNT）) | UNCONFIRMBUGCNT | INT | 否 | 是 | 是 | [模块（ZT_MODULE）](../zentao/Module) - [id（ID）](../zentao/Module/#属性-id（ID）) |
+| 25 | [未关闭Bug数](#属性-未关闭Bug数（NOTCLOSEDBUGCNT）) | NOTCLOSEDBUGCNT | INT | 否 | 是 | 是 | [模块（ZT_MODULE）](../zentao/Module) - [id（ID）](../zentao/Module/#属性-id（ID）) |
+| 26 | [备注](#属性-备注（COMMENT）) | COMMENT | HTMLTEXT | 否 | 是 | 是 | [模块（ZT_MODULE）](../zentao/Module) - [id（ID）](../zentao/Module/#属性-id（ID）) |
+| 27 | [相关Bug数](#属性-相关Bug数（RELATEDBUGCNT）) | RELATEDBUGCNT | INT | 否 | 是 | 是 | [模块（ZT_MODULE）](../zentao/Module) - [id（ID）](../zentao/Module/#属性-id（ID）) |
+| 28 | [已变更需求](#属性-已变更需求（CHANGEDSTORYCNT）) | CHANGEDSTORYCNT | INT | 否 | 是 | 是 | [模块（ZT_MODULE）](../zentao/Module) - [id（ID）](../zentao/Module/#属性-id（ID）) |
+| 29 | [草稿需求](#属性-草稿需求（DRAFTSTORYCNT）) | DRAFTSTORYCNT | INT | 否 | 是 | 是 | [模块（ZT_MODULE）](../zentao/Module) - [id（ID）](../zentao/Module/#属性-id（ID）) |
+| 30 | [已关闭需求](#属性-已关闭需求（CLOSEDSTORYCNT）) | CLOSEDSTORYCNT | INT | 否 | 是 | 是 | [模块（ZT_MODULE）](../zentao/Module) - [id（ID）](../zentao/Module/#属性-id（ID）) |
+| 31 | [关联项目数](#属性-关联项目数（RELATEDPROJECTS）) | RELATEDPROJECTS | INT | 否 | 是 | 是 | [模块（ZT_MODULE）](../zentao/Module) - [id（ID）](../zentao/Module/#属性-id（ID）) |
+| 32 | [文档数](#属性-文档数（DOCCNT）) | DOCCNT | INT | 否 | 是 | 是 | [模块（ZT_MODULE）](../zentao/Module) - [id（ID）](../zentao/Module/#属性-id（ID）) |
+| 33 | [BUILD数](#属性-BUILD数（BUILDCNT）) | BUILDCNT | INT | 否 | 是 | 是 | [模块（ZT_MODULE）](../zentao/Module) - [id（ID）](../zentao/Module/#属性-id（ID）) |
+| 34 | [用例数](#属性-用例数（CASECNT）) | CASECNT | INT | 否 | 是 | 是 | [模块（ZT_MODULE）](../zentao/Module) - [id（ID）](../zentao/Module/#属性-id（ID）) |
+| 35 | [属性](#属性-属性（SRFCOUNT）) | SRFCOUNT | INT | 否 | 是 | 是 | [模块（ZT_MODULE）](../zentao/Module) - [id（ID）](../zentao/Module/#属性-id（ID）) |
+| 36 | [移动端图片](#属性-移动端图片（MOBIMAGE）) | MOBIMAGE | TEXT | 否 | 是 | 是 | [模块（ZT_MODULE）](../zentao/Module) - [id（ID）](../zentao/Module/#属性-id（ID）) |
+| 37 | [排序](#属性-排序（ORDER1）) | ORDER1 | INT | 否 | 是 | 是 | [模块（ZT_MODULE）](../zentao/Module) - [id（ID）](../zentao/Module/#属性-id（ID）) |
+| 38 | [是否置顶](#属性-是否置顶（ISTOP）) | ISTOP | INT | 否 | 是 | 是 | [模块（ZT_MODULE）](../zentao/Module) - [id（ID）](../zentao/Module/#属性-id（ID）) |
+| 39 | [测试单数](#属性-测试单数（TESTTASKCNT）) | TESTTASKCNT | INT | 否 | 是 | 是 | [模块（ZT_MODULE）](../zentao/Module) - [id（ID）](../zentao/Module/#属性-id（ID）) |
+| 40 | [套件数](#属性-套件数（TESTSUITECNT）) | TESTSUITECNT | INT | 否 | 是 | 是 | [模块（ZT_MODULE）](../zentao/Module) - [id（ID）](../zentao/Module/#属性-id（ID）) |
 
-## 属性
+### 属性-测试负责人（QD）
+#### 属性说明
+测试负责人
 
-| 属性名称        |    中文名称    | 类型     |  备注  |
-| --------   |------------| -----   |  -------- | 
-|测试负责人|QD|TEXT|&nbsp;|
-|访问控制|ACL|SSCODELIST|&nbsp;|
-|产品名称|NAME|TEXT|&nbsp;|
-|编号|ID|ACID|&nbsp;|
-|已删除|DELETED|TEXT|&nbsp;|
-|分组白名单|WHITELIST|LONGTEXT|&nbsp;|
-|发布负责人|RD|TEXT|&nbsp;|
-|排序|ORDER|INT|&nbsp;|
-|产品类型|TYPE|SSCODELIST|&nbsp;|
-|产品负责人|PO|TEXT|&nbsp;|
-|产品描述	|DESC|LONGTEXT|&nbsp;|
-|状态|STATUS|SSCODELIST|&nbsp;|
-|由谁创建|CREATEDBY|TEXT|&nbsp;|
-|当前系统版本|CREATEDVERSION|TEXT|&nbsp;来自系统配置信息|
-|子状态|SUBSTATUS|TEXT|&nbsp;|
-|产品代号|CODE|TEXT|&nbsp;|
-|创建日期|CREATEDDATE|DATETIME|&nbsp;|
-|产品线|LINENAME|PICKUPTEXT|&nbsp;|
-|产品线|LINE|PICKUP|&nbsp;|
-|未解决Bug数|ACTIVEBUGCNT|INT|&nbsp;|
-|计划总数|PRODUCTPLANCNT|INT|&nbsp;|
-|发布总数|RELEASECNT|INT|&nbsp;|
-|激活需求数|ACTIVESTORYCNT|INT|&nbsp;|
-|未确认Bug数|UNCONFIRMBUGCNT|INT|&nbsp;|
-|未关闭Bug数|NOTCLOSEDBUGCNT|INT|&nbsp;|
-|备注|COMMENT|HTMLTEXT|&nbsp;|
-|相关Bug数|RELATEDBUGCNT|INT|&nbsp;|
-|已变更需求|CHANGEDSTORYCNT|INT|&nbsp;|
-|草稿需求|DRAFTSTORYCNT|INT|&nbsp;|
-|已关闭需求|CLOSEDSTORYCNT|INT|&nbsp;|
-|关联项目数|RELATEDPROJECTS|INT|&nbsp;|
-|文档数|DOCCNT|INT|&nbsp;|
-|BUILD数|BUILDCNT|INT|&nbsp;|
-|用例数|CASECNT|INT|&nbsp;|
-|属性|SRFCOUNT|INT|&nbsp;|
-|移动端图片|MOBIMAGE|TEXT|&nbsp;|
-|排序|ORDER1|INT|&nbsp;|
-|是否置顶|ISTOP|INT|&nbsp;|
-|测试单数|TESTTASKCNT|INT|&nbsp;|
-|套件数|TESTSUITECNT|INT|&nbsp;|
+#### 属性类型
+物理属性[实体属性]
 
-## 值规则
-| 属性名称    | 规则    |  说明  |
-| --------   |------------| ----- | 
-|测试负责人|默认规则|内容长度必须小于等于[30]|
-|访问控制|默认规则|内容长度必须小于等于[7]|
-|产品名称|产品名称重复值校验|『产品名称』已经有这条记录了。如果您确定该记录已删除，请到后台-数据-回收站还原。|
-|产品名称|默认规则|内容长度必须小于等于[90]|
-|编号|默认规则|默认规则|
-|已删除|默认规则|内容长度必须小于等于[1]|
-|分组白名单|默认规则|内容长度必须小于等于[65535]|
-|发布负责人|默认规则|内容长度必须小于等于[30]|
-|排序|默认规则|默认规则|
-|产品类型|默认规则|内容长度必须小于等于[30]|
-|产品负责人|默认规则|内容长度必须小于等于[30]|
-|产品描述	|默认规则|内容长度必须小于等于[65535]|
-|状态|默认规则|内容长度必须小于等于[30]|
-|由谁创建|默认规则|内容长度必须小于等于[30]|
-|当前系统版本|默认规则|内容长度必须小于等于[20]|
-|子状态|默认规则|内容长度必须小于等于[30]|
-|产品代号|产品代号重复值校验|『产品代号』已经有这条记录了。如果您确定该记录已删除，请到后台-数据-回收站还原。|
-|产品代号|默认规则|内容长度必须小于等于[45]|
-|创建日期|默认规则|默认规则|
-|产品线|默认规则|内容长度必须小于等于[60]|
-|产品线|默认规则|默认规则|
-|未解决Bug数|默认规则|默认规则|
-|计划总数|默认规则|默认规则|
-|发布总数|默认规则|默认规则|
-|激活需求数|默认规则|默认规则|
-|未确认Bug数|默认规则|默认规则|
-|未关闭Bug数|默认规则|默认规则|
-|备注|默认规则|内容长度必须小于等于[1048576]|
-|相关Bug数|默认规则|默认规则|
-|已变更需求|默认规则|默认规则|
-|草稿需求|默认规则|默认规则|
-|已关闭需求|默认规则|默认规则|
-|关联项目数|默认规则|默认规则|
-|文档数|默认规则|默认规则|
-|BUILD数|默认规则|默认规则|
-|用例数|默认规则|默认规则|
-|属性|默认规则|默认规则|
-|移动端图片|默认规则|内容长度必须小于等于[4000]|
-|排序|默认规则|默认规则|
-|是否置顶|默认规则|默认规则|
-|测试单数|默认规则|默认规则|
-|套件数|默认规则|默认规则|
+#### 数据类型
+TEXT
 
-## 状态控制
+#### 是否允许为为空
+是
 
-|状态||是否置顶|行为控制模式| 控制行为 | 操作标识控制模式 | 控制操作 |
-| --------   || --------   | ------------|------------|------------|------------|
-|Value||Value2| 允许| Get<br>Update<br>Save<br>Remove<br> | 不允许 | TOP<br>SRFUR__PROD_CLOSED_BUT<br> |
-|Value||Value2| 允许|  | 不允许 | NOTOP<br>SRFUR__PROD_CLOSED_BUT<br> |
-|Value||Value2| 允许| 关闭<br>Update<br>Get<br>Save<br>Remove<br> | 不允许 | TOP<br> |
-|Value||Value2| 允许|  | 不允许 | NOTOP<br> |
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 | #EMPTY |
 
+#### 取值范围/公式
+参照数据字典【[用户真实名称（动态）（UserRealName）](../../codelist/UserRealName)】
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [模块（ZT_MODULE）](../zentao/Module) |
+| 关系属性 | [id（ID）](../zentao/Module/#属性-id（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-访问控制（ACL）
+#### 属性说明
+访问控制
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+SSCODELIST
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 | open |
+
+#### 取值范围/公式
+参照数据字典【[产品访问控制（Product__acl）](../../codelist/Product__acl)】
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [模块（ZT_MODULE）](../zentao/Module) |
+| 关系属性 | [id（ID）](../zentao/Module/#属性-id（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-产品名称（NAME）
+#### 属性说明
+产品名称
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+否
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [模块（ZT_MODULE）](../zentao/Module) |
+| 关系属性 | [id（ID）](../zentao/Module/#属性-id（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-编号（ID）
+#### 属性说明
+编号
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+ACID
+
+#### 是否允许为为空
+否
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [模块（ZT_MODULE）](../zentao/Module) |
+| 关系属性 | [id（ID）](../zentao/Module/#属性-id（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-已删除（DELETED）
+#### 属性说明
+已删除
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 | 0 |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [模块（ZT_MODULE）](../zentao/Module) |
+| 关系属性 | [id（ID）](../zentao/Module/#属性-id（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-分组白名单（WHITELIST）
+#### 属性说明
+分组白名单
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+LONGTEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 | #EMPTY |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [模块（ZT_MODULE）](../zentao/Module) |
+| 关系属性 | [id（ID）](../zentao/Module/#属性-id（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-发布负责人（RD）
+#### 属性说明
+发布负责人
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 | #EMPTY |
+
+#### 取值范围/公式
+参照数据字典【[用户真实名称（动态）（UserRealName）](../../codelist/UserRealName)】
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [模块（ZT_MODULE）](../zentao/Module) |
+| 关系属性 | [id（ID）](../zentao/Module/#属性-id（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-排序（ORDER）
+#### 属性说明
+排序
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+INT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 | 0 |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [模块（ZT_MODULE）](../zentao/Module) |
+| 关系属性 | [id（ID）](../zentao/Module/#属性-id（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-产品类型（TYPE）
+#### 属性说明
+产品类型
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+SSCODELIST
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 | normal |
+
+#### 取值范围/公式
+参照数据字典【[产品类型（Product__type）](../../codelist/Product__type)】
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [模块（ZT_MODULE）](../zentao/Module) |
+| 关系属性 | [id（ID）](../zentao/Module/#属性-id（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-产品负责人（PO）
+#### 属性说明
+产品负责人
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 | #EMPTY |
+
+#### 取值范围/公式
+参照数据字典【[用户真实名称（动态）（UserRealName）](../../codelist/UserRealName)】
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [模块（ZT_MODULE）](../zentao/Module) |
+| 关系属性 | [id（ID）](../zentao/Module/#属性-id（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-产品描述	（DESC）
+#### 属性说明
+产品描述	
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+LONGTEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 | #EMPTY |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [模块（ZT_MODULE）](../zentao/Module) |
+| 关系属性 | [id（ID）](../zentao/Module/#属性-id（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-状态（STATUS）
+#### 属性说明
 状态
 
-| 状态        |    状态值   |
-| --------   |------------|
-|正常|normal|
-|结束|closed|
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+SSCODELIST
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 | normal |
+
+#### 取值范围/公式
+参照数据字典【[产品状态（Product__status）](../../codelist/Product__status)】
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [模块（ZT_MODULE）](../zentao/Module) |
+| 关系属性 | [id（ID）](../zentao/Module/#属性-id（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-由谁创建（CREATEDBY）
+#### 属性说明
+由谁创建
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+参照数据字典【[用户真实名称（动态）（UserRealName）](../../codelist/UserRealName)】
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [模块（ZT_MODULE）](../zentao/Module) |
+| 关系属性 | [id（ID）](../zentao/Module/#属性-id（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-当前系统版本（CREATEDVERSION）
+#### 属性说明
+来自系统配置信息
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 | #EMPTY |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [模块（ZT_MODULE）](../zentao/Module) |
+| 关系属性 | [id（ID）](../zentao/Module/#属性-id（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-子状态（SUBSTATUS）
+#### 属性说明
+子状态
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [模块（ZT_MODULE）](../zentao/Module) |
+| 关系属性 | [id（ID）](../zentao/Module/#属性-id（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-产品代号（CODE）
+#### 属性说明
+产品代号
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [模块（ZT_MODULE）](../zentao/Module) |
+| 关系属性 | [id（ID）](../zentao/Module/#属性-id（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-创建日期（CREATEDDATE）
+#### 属性说明
+创建日期
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+DATETIME
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+时间格式：yyyy-MM-dd HH:mm:ss
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [模块（ZT_MODULE）](../zentao/Module) |
+| 关系属性 | [id（ID）](../zentao/Module/#属性-id（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-产品线（LINENAME）
+#### 属性说明
+产品线
+
+#### 属性类型
+链接属性[虚拟属性，映射关系实体的属性]
+
+#### 数据类型
+PICKUPTEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [模块（ZT_MODULE）](../zentao/Module) |
+| 关系属性 | [模块名称（NAME）](../zentao/Module/#属性-模块名称（NAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-产品线（LINE）
+#### 属性说明
+产品线
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+PICKUP
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 | 0 |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [模块（ZT_MODULE）](../zentao/Module) |
+| 关系属性 | [id（ID）](../zentao/Module/#属性-id（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-未解决Bug数（ACTIVEBUGCNT）
+#### 属性说明
+未解决Bug数
+
+#### 属性类型
+逻辑属性[虚拟属性，来自计算逻辑和计算公式]
+
+#### 数据类型
+INT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+(SELECT COUNT(1) FROM ZT_BUG WHERE PRODUCT = %1$s AND `STATUS` = 'active' AND DELETED = '0')
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [模块（ZT_MODULE）](../zentao/Module) |
+| 关系属性 | [id（ID）](../zentao/Module/#属性-id（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-计划总数（PRODUCTPLANCNT）
+#### 属性说明
+计划总数
+
+#### 属性类型
+逻辑属性[虚拟属性，来自计算逻辑和计算公式]
+
+#### 数据类型
+INT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+(SELECT COUNT(1) FROM ZT_PRODUCTPLAN WHERE PRODUCT= %1$s AND DELETED = '0')
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [模块（ZT_MODULE）](../zentao/Module) |
+| 关系属性 | [id（ID）](../zentao/Module/#属性-id（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-发布总数（RELEASECNT）
+#### 属性说明
+发布总数
+
+#### 属性类型
+逻辑属性[虚拟属性，来自计算逻辑和计算公式]
+
+#### 数据类型
+INT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+(SELECT COUNT(1) FROM ZT_RELEASE WHERE PRODUCT= %1$s AND DELETED = '0')
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [模块（ZT_MODULE）](../zentao/Module) |
+| 关系属性 | [id（ID）](../zentao/Module/#属性-id（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-激活需求数（ACTIVESTORYCNT）
+#### 属性说明
+激活需求数
+
+#### 属性类型
+逻辑属性[虚拟属性，来自计算逻辑和计算公式]
+
+#### 数据类型
+INT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+(SELECT COUNT(1) FROM ZT_STORY WHERE PRODUCT = %1$s AND `STATUS`='active' AND DELETED = '0')
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [模块（ZT_MODULE）](../zentao/Module) |
+| 关系属性 | [id（ID）](../zentao/Module/#属性-id（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-未确认Bug数（UNCONFIRMBUGCNT）
+#### 属性说明
+未确认Bug数
+
+#### 属性类型
+逻辑属性[虚拟属性，来自计算逻辑和计算公式]
+
+#### 数据类型
+INT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+(SELECT COUNT(1) FROM ZT_BUG WHERE PRODUCT = %1$s AND `CONFIRMED` = 0 AND DELETED = '0')
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [模块（ZT_MODULE）](../zentao/Module) |
+| 关系属性 | [id（ID）](../zentao/Module/#属性-id（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-未关闭Bug数（NOTCLOSEDBUGCNT）
+#### 属性说明
+未关闭Bug数
+
+#### 属性类型
+逻辑属性[虚拟属性，来自计算逻辑和计算公式]
+
+#### 数据类型
+INT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+(SELECT COUNT(1) FROM ZT_BUG WHERE PRODUCT = %1$s AND `STATUS` <> 'closed' AND DELETED = '0')
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [模块（ZT_MODULE）](../zentao/Module) |
+| 关系属性 | [id（ID）](../zentao/Module/#属性-id（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-备注（COMMENT）
+#### 属性说明
+备注
+
+#### 属性类型
+应用界面属性[虚拟属性，提供给页面显示的属性]
+
+#### 数据类型
+HTMLTEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [模块（ZT_MODULE）](../zentao/Module) |
+| 关系属性 | [id（ID）](../zentao/Module/#属性-id（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-相关Bug数（RELATEDBUGCNT）
+#### 属性说明
+相关Bug数
+
+#### 属性类型
+逻辑属性[虚拟属性，来自计算逻辑和计算公式]
+
+#### 数据类型
+INT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+(SELECT COUNT(1) FROM ZT_BUG WHERE PRODUCT = %1$s AND DELETED = '0')
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [模块（ZT_MODULE）](../zentao/Module) |
+| 关系属性 | [id（ID）](../zentao/Module/#属性-id（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-已变更需求（CHANGEDSTORYCNT）
+#### 属性说明
+已变更需求
+
+#### 属性类型
+逻辑属性[虚拟属性，来自计算逻辑和计算公式]
+
+#### 数据类型
+INT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+(SELECT COUNT(1) FROM ZT_STORY WHERE PRODUCT = %1$s AND `STATUS`='changed' AND DELETED = '0')
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [模块（ZT_MODULE）](../zentao/Module) |
+| 关系属性 | [id（ID）](../zentao/Module/#属性-id（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-草稿需求（DRAFTSTORYCNT）
+#### 属性说明
+草稿需求
+
+#### 属性类型
+逻辑属性[虚拟属性，来自计算逻辑和计算公式]
+
+#### 数据类型
+INT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+(SELECT COUNT(1) FROM ZT_STORY WHERE PRODUCT = %1$s AND `STATUS`='draft' AND DELETED = '0')
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [模块（ZT_MODULE）](../zentao/Module) |
+| 关系属性 | [id（ID）](../zentao/Module/#属性-id（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-已关闭需求（CLOSEDSTORYCNT）
+#### 属性说明
+已关闭需求
+
+#### 属性类型
+逻辑属性[虚拟属性，来自计算逻辑和计算公式]
+
+#### 数据类型
+INT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+(SELECT COUNT(1) FROM ZT_STORY WHERE PRODUCT = %1$s AND `STATUS`='closed' AND DELETED = '0')
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [模块（ZT_MODULE）](../zentao/Module) |
+| 关系属性 | [id（ID）](../zentao/Module/#属性-id（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-关联项目数（RELATEDPROJECTS）
+#### 属性说明
+关联项目数
+
+#### 属性类型
+逻辑属性[虚拟属性，来自计算逻辑和计算公式]
+
+#### 数据类型
+INT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+(select count(1) from zt_projectproduct t inner join zt_project t2 on t2.id = t.project where t.product = t1.id and t2.deleted = '0')
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [模块（ZT_MODULE）](../zentao/Module) |
+| 关系属性 | [id（ID）](../zentao/Module/#属性-id（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-文档数（DOCCNT）
+#### 属性说明
+文档数
+
+#### 属性类型
+逻辑属性[虚拟属性，来自计算逻辑和计算公式]
+
+#### 数据类型
+INT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+(select count(1) from zt_doc t where t.product = t1.id and t.deleted = '0')
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [模块（ZT_MODULE）](../zentao/Module) |
+| 关系属性 | [id（ID）](../zentao/Module/#属性-id（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-BUILD数（BUILDCNT）
+#### 属性说明
+BUILD数
+
+#### 属性类型
+逻辑属性[虚拟属性，来自计算逻辑和计算公式]
+
+#### 数据类型
+INT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+(select count(1) from zt_build t where t.product = t1.id and t.deleted = '0')
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [模块（ZT_MODULE）](../zentao/Module) |
+| 关系属性 | [id（ID）](../zentao/Module/#属性-id（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-用例数（CASECNT）
+#### 属性说明
+用例数
+
+#### 属性类型
+逻辑属性[虚拟属性，来自计算逻辑和计算公式]
+
+#### 数据类型
+INT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+(select count(1) from zt_case t where t.product = t1.id and t.deleted = '0')
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [模块（ZT_MODULE）](../zentao/Module) |
+| 关系属性 | [id（ID）](../zentao/Module/#属性-id（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-属性（SRFCOUNT）
+#### 属性说明
+属性
+
+#### 属性类型
+应用界面属性[虚拟属性，提供给页面显示的属性]
+
+#### 数据类型
+INT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [模块（ZT_MODULE）](../zentao/Module) |
+| 关系属性 | [id（ID）](../zentao/Module/#属性-id（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-移动端图片（MOBIMAGE）
+#### 属性说明
+移动端图片
+
+#### 属性类型
+应用界面属性[虚拟属性，提供给页面显示的属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [模块（ZT_MODULE）](../zentao/Module) |
+| 关系属性 | [id（ID）](../zentao/Module/#属性-id（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-排序（ORDER1）
+#### 属性说明
+排序
+
+#### 属性类型
+逻辑属性[虚拟属性，来自计算逻辑和计算公式]
+
+#### 数据类型
+INT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+t1.`order`
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [模块（ZT_MODULE）](../zentao/Module) |
+| 关系属性 | [id（ID）](../zentao/Module/#属性-id（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-是否置顶（ISTOP）
+#### 属性说明
 是否置顶
 
+#### 属性类型
+逻辑属性[虚拟属性，来自计算逻辑和计算公式]
 
-## 行为
-| 行为    | 类型    |  说明  |
-| --------   |------------| ----- | 
-|Create|内置方法|&nbsp;|
-|Update|内置方法|&nbsp;|
-|Remove|内置方法|&nbsp;|
-|Get|内置方法|&nbsp;|
-|GetDraft|内置方法|&nbsp;|
-|取消置顶|实体处理逻辑|&nbsp;|
-|CheckKey|内置方法|&nbsp;|
-|关闭|用户自定义|&nbsp;|
-|产品移动端计数器方法|实体处理逻辑|&nbsp;|
-|移动端测试计数器|实体处理逻辑|&nbsp;|
-|置顶|实体处理逻辑|&nbsp;|
-|退出|用户自定义|&nbsp;|
-|Save|内置方法|&nbsp;|
-|向导使用|用户自定义|&nbsp;|
+#### 数据类型
+INT
 
-## 处理逻辑
-* 取消置顶 (CancelProductTop)
-  
-   
+#### 是否允许为为空
+是
 
-{% plantuml %}
-hide footbox
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
 
-产品 -> 产品: 删除置顶
-{% endplantuml %}
+#### 取值范围/公式
+'0'
 
-| 步骤       | 操作        |
-| --------   | --------   |
-|0|开始 | 
-|1|删除置顶 |
-<center>取消置顶</center>
-* 移动端产品计数器 (MobProductCounter)
-  
-   
-
-{% plantuml %}
-hide footbox
-
-产品 -> 产品: 发布数
-产品 -> 产品: 获取相关BUG数
-产品 -> 产品: 计划数
-产品 -> 产品: 获取需求数
-{% endplantuml %}
-
-| 步骤       | 操作        |
-| --------   | --------   |
-|1|发布数 |
-|1|开始 | 
-|2|获取相关BUG数 |
-|3|计划数 |
-|4|获取需求数 |
-<center>移动端产品计数器</center>
-* 移动端测试计数器 (MobProductTestCounter)
-  
-   
-
-{% plantuml %}
-hide footbox
-
-产品 -> 产品: 获取测试用例数
-产品 -> 产品: 获取相关BUG数
-产品 -> 产品: 套件数
-产品 -> 产品: 测试单数
-{% endplantuml %}
-
-| 步骤       | 操作        |
-| --------   | --------   |
-|1|获取测试用例数 |
-|1|开始 | 
-|2|获取相关BUG数 |
-|3|套件数 |
-|4|测试单数 |
-<center>移动端测试计数器</center>
-* 置顶 (ProductTop)
-  
-   
-
-{% plantuml %}
-hide footbox
-
-产品 -> 产品: 设置置顶数据
-产品 -> 产品: 获取置顶最大排序值
-产品 -> 置顶: save置顶
-{% endplantuml %}
-
-| 步骤       | 操作        |
-| --------   | --------   |
-|1|设置置顶数据 |
-|1|开始 | 
-|2|获取置顶最大排序值 |
-|3|save置顶 |
-<center>置顶</center>
-* 行为[Update]主状态拒绝逻辑 (Update__MSDeny)
-  
-   
-
-{% plantuml %}
-hide footbox
-
-产品 -> 产品: 准备临时参数
-产品 -> 产品: 获取数据
-产品 -> : 状态[关闭_已置顶]拒绝[Update]操作
-产品 -> : 状态[正常_已置顶]拒绝[Update]操作
-{% endplantuml %}
-
-| 步骤       | 操作        |
-| --------   | --------   |
-|0|开始 | 
-|1|准备临时参数 |
-|2|获取数据 |
-|3|状态[关闭_已置顶]拒绝[Update]操作 |
-|4|状态[正常_已置顶]拒绝[Update]操作 |
-<center>行为[Update]主状态拒绝逻辑</center>
-* 行为[Remove]主状态拒绝逻辑 (Remove__MSDeny)
-  
-   
-
-{% plantuml %}
-hide footbox
-
-产品 -> 产品: 准备临时参数
-产品 -> 产品: 获取数据
-产品 -> : 状态[关闭_已置顶]拒绝[Remove]操作
-产品 -> : 状态[正常_已置顶]拒绝[Remove]操作
-{% endplantuml %}
-
-| 步骤       | 操作        |
-| --------   | --------   |
-|0|开始 | 
-|1|准备临时参数 |
-|2|获取数据 |
-|3|状态[关闭_已置顶]拒绝[Remove]操作 |
-|4|状态[正常_已置顶]拒绝[Remove]操作 |
-<center>行为[Remove]主状态拒绝逻辑</center>
-
-## 查询集合
-
-* **查询**
-
-| 查询编号 | 查询名称       | 默认查询 |   备注|
-| --------  | --------   | --------   | ----- |
-|AllList|全部产品([MYSQL5](../../appendix/query_MYSQL5.md#Product_AllList))|否|&nbsp;用户（非管理员）相关的全部产品|
-|CheckNameOrCode|校验产品名称或产品代号是否已经存在([MYSQL5](../../appendix/query_MYSQL5.md#Product_CheckNameOrCode))|否|&nbsp;|
-|CURPROJECT|当前项目([MYSQL5](../../appendix/query_MYSQL5.md#Product_CurProject))|否|&nbsp;|
-|CurUer|当前用户([MYSQL5](../../appendix/query_MYSQL5.md#Product_CurUer))|否|&nbsp;|
-|DEFAULT|DEFAULT([MYSQL5](../../appendix/query_MYSQL5.md#Product_Default))|否|&nbsp;|
-|ProductPM|产品总览([MYSQL5](../../appendix/query_MYSQL5.md#Product_ProductPM))|否|&nbsp;|
-|StoryCURPROJECT|当前项目([MYSQL5](../../appendix/query_MYSQL5.md#Product_StoryCurProject))|否|&nbsp;|
-|VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#Product_View))|否|&nbsp;|
-
-* **数据集合**
-
-| 集合编号 | 集合名称   |  包含查询  | 默认集合 |   备注|
-| --------  | --------   | -------- | --------   | ----- |
-|CheckNameOrCode|校验产品名称或产品代号是否已经存在|CheckNameOrCode|否|&nbsp;|
-|CURPROJECT|当前项目|CURPROJECT|否|&nbsp;|
-|CurUer|当前用户|CurUer|否|&nbsp;|
-|DEFAULT|DEFAULT|DEFAULT|是|&nbsp;|
-|ProductPM|产品总览|ProductPM|否|&nbsp;|
-|StoryCURPROJECT|当前项目|StoryCURPROJECT|否|&nbsp;|
-
-## 查询模式
-| 属性      |    搜索模式     |
-| --------   |------------|
-|访问控制(ACL)|EQ|
-|产品名称(NAME)|LIKE|
-|编号(ID)|EQ|
-|产品类型(TYPE)|EQ|
-|状态(STATUS)|EQ|
-|状态(STATUS)|ISNOTNULL|
-|产品线(LINENAME)|EQ|
-|产品线(LINENAME)|LIKE|
-|产品线(LINE)|EQ|
-
-## 导入模式
+#### 数据格式
 无
 
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [模块（ZT_MODULE）](../zentao/Module) |
+| 关系属性 | [id（ID）](../zentao/Module/#属性-id（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
 
-## 导出模式
+### 属性-测试单数（TESTTASKCNT）
+#### 属性说明
+测试单数
+
+#### 属性类型
+应用界面属性[虚拟属性，提供给页面显示的属性]
+
+#### 数据类型
+INT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
 无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [模块（ZT_MODULE）](../zentao/Module) |
+| 关系属性 | [id（ID）](../zentao/Module/#属性-id（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-套件数（TESTSUITECNT）
+#### 属性说明
+套件数
+
+#### 属性类型
+应用界面属性[虚拟属性，提供给页面显示的属性]
+
+#### 数据类型
+INT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [模块（ZT_MODULE）](../zentao/Module) |
+| 关系属性 | [id（ID）](../zentao/Module/#属性-id（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+

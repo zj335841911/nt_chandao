@@ -1,97 +1,407 @@
-# 外部服务接口(PSSUBSYSSERVICEAPI)
+# 实体-外部服务接口(PSSUBSYSSERVICEAPI)
+## 实体说明
+外部服务接口
 
-  
+## 所属模块
+[iBiz系统模型](../ibizsysmodel)
 
-## 关系
-{% plantuml %}
-外部服务接口 *-- 实体 
-外部服务接口 *-- 外部接口实体 
-系统模块 *-- 外部服务接口 
-系统服务接口 *-- 外部服务接口 
-hide members
-{% endplantuml %}
+## 实体属性
+| 序号 | 属性 | 属性名 | 数据类型 | 是否是主键 | 是否是外键 | 是否允许为空 | 关系属性（实体-属性） |
+| -- | -- | -- | -- | -- | -- |
+| 1 | [外部服务接口名称](#属性-外部服务接口名称（PSSUBSYSSERVICEAPINAME）) | PSSUBSYSSERVICEAPINAME | TEXT | 否 | 否 | 是 | -- |
+| 2 | [建立人](#属性-建立人（CREATEMAN）) | CREATEMAN | TEXT | 否 | 否 | 否 | -- |
+| 3 | [外部服务接口标识](#属性-外部服务接口标识（PSSUBSYSSERVICEAPIID）) | PSSUBSYSSERVICEAPIID | GUID | 是 | 否 | 否 | -- |
+| 4 | [建立时间](#属性-建立时间（CREATEDATE）) | CREATEDATE | DATETIME | 否 | 否 | 否 | -- |
+| 5 | [更新时间](#属性-更新时间（UPDATEDATE）) | UPDATEDATE | DATETIME | 否 | 否 | 否 | -- |
+| 6 | [更新人](#属性-更新人（UPDATEMAN）) | UPDATEMAN | TEXT | 否 | 否 | 否 | -- |
+| 7 | [系统模块](#属性-系统模块（PSMODULENAME）) | PSMODULENAME | PICKUPTEXT | 否 | 是 | 是 | [系统模块（PSMODULE）](../ibizsysmodel/PSModule) - [系统模块名称（PSMODULENAME）](../ibizsysmodel/PSModule/#属性-系统模块名称（PSMODULENAME）) |
+| 8 | [系统模块](#属性-系统模块（PSMODULEID）) | PSMODULEID | PICKUP | 否 | 是 | 是 | [系统模块（PSMODULE）](../ibizsysmodel/PSModule) - [系统模块标识（PSMODULEID）](../ibizsysmodel/PSModule/#属性-系统模块标识（PSMODULEID）) |
+| 9 | [系统服务接口](#属性-系统服务接口（PSSYSSERVICEAPINAME）) | PSSYSSERVICEAPINAME | PICKUPTEXT | 否 | 是 | 是 | [系统服务接口（PSSYSSERVICEAPI）](../ibizsysmodel/PSSysServiceAPI) - [系统服务接口名称（PSSYSSERVICEAPINAME）](../ibizsysmodel/PSSysServiceAPI/#属性-系统服务接口名称（PSSYSSERVICEAPINAME）) |
+| 10 | [系统服务接口](#属性-系统服务接口（PSSYSSERVICEAPIID）) | PSSYSSERVICEAPIID | PICKUP | 否 | 是 | 是 | [系统服务接口（PSSYSSERVICEAPI）](../ibizsysmodel/PSSysServiceAPI) - [系统服务接口标识（PSSYSSERVICEAPIID）](../ibizsysmodel/PSSysServiceAPI/#属性-系统服务接口标识（PSSYSSERVICEAPIID）) |
+| 11 | [系统](#属性-系统（PSSYSTEMID）) | PSSYSTEMID | TEXT | 否 | 是 | 是 | [系统服务接口（PSSYSSERVICEAPI）](../ibizsysmodel/PSSysServiceAPI) - [系统服务接口标识（PSSYSSERVICEAPIID）](../ibizsysmodel/PSSysServiceAPI/#属性-系统服务接口标识（PSSYSSERVICEAPIID）) |
+| 12 | [系统](#属性-系统（PSSYSTEMNAME）) | PSSYSTEMNAME | TEXT | 否 | 是 | 是 | [系统服务接口（PSSYSSERVICEAPI）](../ibizsysmodel/PSSysServiceAPI) - [系统服务接口标识（PSSYSSERVICEAPIID）](../ibizsysmodel/PSSysServiceAPI/#属性-系统服务接口标识（PSSYSSERVICEAPIID）) |
 
-## 属性
+### 属性-外部服务接口名称（PSSUBSYSSERVICEAPINAME）
+#### 属性说明
+外部服务接口名称
 
-| 属性名称        |    中文名称    | 类型     |  备注  |
-| --------   |------------| -----   |  -------- | 
-|外部服务接口名称|PSSUBSYSSERVICEAPINAME|TEXT|&nbsp;|
-|建立人|CREATEMAN|TEXT|&nbsp;|
-|外部服务接口标识|PSSUBSYSSERVICEAPIID|GUID|&nbsp;|
-|建立时间|CREATEDATE|DATETIME|&nbsp;|
-|更新时间|UPDATEDATE|DATETIME|&nbsp;|
-|更新人|UPDATEMAN|TEXT|&nbsp;|
-|系统模块|PSMODULENAME|PICKUPTEXT|&nbsp;|
-|系统模块|PSMODULEID|PICKUP|&nbsp;|
-|系统服务接口|PSSYSSERVICEAPINAME|PICKUPTEXT|&nbsp;|
-|系统服务接口|PSSYSSERVICEAPIID|PICKUP|&nbsp;|
-|系统|PSSYSTEMID|TEXT|&nbsp;|
-|系统|PSSYSTEMNAME|TEXT|&nbsp;|
+#### 属性类型
+物理属性[实体属性]
 
-## 值规则
-| 属性名称    | 规则    |  说明  |
-| --------   |------------| ----- | 
-|外部服务接口名称|默认规则|内容长度必须小于等于[200]|
-|建立人|默认规则|内容长度必须小于等于[60]|
-|外部服务接口标识|默认规则|内容长度必须小于等于[100]|
-|建立时间|默认规则|默认规则|
-|更新时间|默认规则|默认规则|
-|更新人|默认规则|内容长度必须小于等于[60]|
-|系统模块|默认规则|内容长度必须小于等于[200]|
-|系统模块|默认规则|内容长度必须小于等于[100]|
-|系统服务接口|默认规则|内容长度必须小于等于[200]|
-|系统服务接口|默认规则|内容长度必须小于等于[100]|
-|系统|默认规则|内容长度必须小于等于[100]|
-|系统|默认规则|内容长度必须小于等于[100]|
+#### 数据类型
+TEXT
 
-## 状态控制
+#### 是否允许为为空
+是
 
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
 无
 
-
-## 行为
-| 行为    | 类型    |  说明  |
-| --------   |------------| ----- | 
-|Create|内置方法|&nbsp;|
-|Update|内置方法|&nbsp;|
-|Remove|内置方法|&nbsp;|
-|Get|内置方法|&nbsp;|
-|GetDraft|内置方法|&nbsp;|
-|CheckKey|内置方法|&nbsp;|
-|Save|内置方法|&nbsp;|
-
-## 处理逻辑
+#### 数据格式
 无
 
-## 查询集合
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [系统服务接口（PSSYSSERVICEAPI）](../ibizsysmodel/PSSysServiceAPI) |
+| 关系属性 | [系统服务接口标识（PSSYSSERVICEAPIID）](../ibizsysmodel/PSSysServiceAPI/#属性-系统服务接口标识（PSSYSSERVICEAPIID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
 
-* **查询**
+### 属性-建立人（CREATEMAN）
+#### 属性说明
+建立人
 
-| 查询编号 | 查询名称       | 默认查询 |   备注|
-| --------  | --------   | --------   | ----- |
-|DEFAULT|数据查询([MYSQL5](../../appendix/query_MYSQL5.md#PSSubSysServiceAPI_Default))|否|&nbsp;|
-|VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#PSSubSysServiceAPI_View))|否|&nbsp;|
+#### 属性类型
+物理属性[实体属性]
 
-* **数据集合**
+#### 数据类型
+TEXT
 
-| 集合编号 | 集合名称   |  包含查询  | 默认集合 |   备注|
-| --------  | --------   | -------- | --------   | ----- |
-|DEFAULT|数据集|DEFAULT|是|&nbsp;|
+#### 是否允许为为空
+否
 
-## 查询模式
-| 属性      |    搜索模式     |
-| --------   |------------|
-|外部服务接口名称(PSSUBSYSSERVICEAPINAME)|LIKE|
-|系统模块(PSMODULENAME)|EQ|
-|系统模块(PSMODULENAME)|LIKE|
-|系统模块(PSMODULEID)|EQ|
-|系统服务接口(PSSYSSERVICEAPINAME)|EQ|
-|系统服务接口(PSSYSSERVICEAPINAME)|LIKE|
-|系统服务接口(PSSYSSERVICEAPIID)|EQ|
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
 
-## 导入模式
+#### 取值范围/公式
+参照数据字典【[云系统操作者（SysOperator）](../../codelist/SysOperator)】
+
+#### 数据格式
 无
 
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [系统服务接口（PSSYSSERVICEAPI）](../ibizsysmodel/PSSysServiceAPI) |
+| 关系属性 | [系统服务接口标识（PSSYSSERVICEAPIID）](../ibizsysmodel/PSSysServiceAPI/#属性-系统服务接口标识（PSSYSSERVICEAPIID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
 
-## 导出模式
+### 属性-外部服务接口标识（PSSUBSYSSERVICEAPIID）
+#### 属性说明
+外部服务接口标识
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+GUID
+
+#### 是否允许为为空
+否
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
 无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [系统服务接口（PSSYSSERVICEAPI）](../ibizsysmodel/PSSysServiceAPI) |
+| 关系属性 | [系统服务接口标识（PSSYSSERVICEAPIID）](../ibizsysmodel/PSSysServiceAPI/#属性-系统服务接口标识（PSSYSSERVICEAPIID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-建立时间（CREATEDATE）
+#### 属性说明
+建立时间
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+DATETIME
+
+#### 是否允许为为空
+否
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+时间格式：yyyy-MM-dd HH:mm:ss
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [系统服务接口（PSSYSSERVICEAPI）](../ibizsysmodel/PSSysServiceAPI) |
+| 关系属性 | [系统服务接口标识（PSSYSSERVICEAPIID）](../ibizsysmodel/PSSysServiceAPI/#属性-系统服务接口标识（PSSYSSERVICEAPIID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-更新时间（UPDATEDATE）
+#### 属性说明
+更新时间
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+DATETIME
+
+#### 是否允许为为空
+否
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+时间格式：yyyy-MM-dd HH:mm:ss
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [系统服务接口（PSSYSSERVICEAPI）](../ibizsysmodel/PSSysServiceAPI) |
+| 关系属性 | [系统服务接口标识（PSSYSSERVICEAPIID）](../ibizsysmodel/PSSysServiceAPI/#属性-系统服务接口标识（PSSYSSERVICEAPIID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-更新人（UPDATEMAN）
+#### 属性说明
+更新人
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+否
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+参照数据字典【[云系统操作者（SysOperator）](../../codelist/SysOperator)】
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [系统服务接口（PSSYSSERVICEAPI）](../ibizsysmodel/PSSysServiceAPI) |
+| 关系属性 | [系统服务接口标识（PSSYSSERVICEAPIID）](../ibizsysmodel/PSSysServiceAPI/#属性-系统服务接口标识（PSSYSSERVICEAPIID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-系统模块（PSMODULENAME）
+#### 属性说明
+系统模块
+
+#### 属性类型
+链接属性[虚拟属性，映射关系实体的属性]
+
+#### 数据类型
+PICKUPTEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [系统模块（PSMODULE）](../ibizsysmodel/PSModule) |
+| 关系属性 | [系统模块名称（PSMODULENAME）](../ibizsysmodel/PSModule/#属性-系统模块名称（PSMODULENAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-系统模块（PSMODULEID）
+#### 属性说明
+系统模块
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+PICKUP
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [系统模块（PSMODULE）](../ibizsysmodel/PSModule) |
+| 关系属性 | [系统模块标识（PSMODULEID）](../ibizsysmodel/PSModule/#属性-系统模块标识（PSMODULEID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-系统服务接口（PSSYSSERVICEAPINAME）
+#### 属性说明
+系统服务接口
+
+#### 属性类型
+链接属性[虚拟属性，映射关系实体的属性]
+
+#### 数据类型
+PICKUPTEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [系统服务接口（PSSYSSERVICEAPI）](../ibizsysmodel/PSSysServiceAPI) |
+| 关系属性 | [系统服务接口名称（PSSYSSERVICEAPINAME）](../ibizsysmodel/PSSysServiceAPI/#属性-系统服务接口名称（PSSYSSERVICEAPINAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-系统服务接口（PSSYSSERVICEAPIID）
+#### 属性说明
+系统服务接口
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+PICKUP
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [系统服务接口（PSSYSSERVICEAPI）](../ibizsysmodel/PSSysServiceAPI) |
+| 关系属性 | [系统服务接口标识（PSSYSSERVICEAPIID）](../ibizsysmodel/PSSysServiceAPI/#属性-系统服务接口标识（PSSYSSERVICEAPIID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-系统（PSSYSTEMID）
+#### 属性说明
+系统
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [系统服务接口（PSSYSSERVICEAPI）](../ibizsysmodel/PSSysServiceAPI) |
+| 关系属性 | [系统服务接口标识（PSSYSSERVICEAPIID）](../ibizsysmodel/PSSysServiceAPI/#属性-系统服务接口标识（PSSYSSERVICEAPIID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-系统（PSSYSTEMNAME）
+#### 属性说明
+系统
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [系统服务接口（PSSYSSERVICEAPI）](../ibizsysmodel/PSSysServiceAPI) |
+| 关系属性 | [系统服务接口标识（PSSYSSERVICEAPIID）](../ibizsysmodel/PSSysServiceAPI/#属性-系统服务接口标识（PSSYSSERVICEAPIID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+

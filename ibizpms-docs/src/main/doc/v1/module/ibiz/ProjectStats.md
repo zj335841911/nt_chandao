@@ -1,121 +1,794 @@
-# 项目统计(IBZ_PROJECTSTATS)
+# 实体-项目统计(IBZ_PROJECTSTATS)
+## 实体说明
+项目统计
 
-  
+## 所属模块
+[iBiz增强模块](../ibiz)
 
-## 关系
+## 实体属性
+| 序号 | 属性 | 属性名 | 数据类型 | 是否是主键 | 是否是外键 | 是否允许为空 | 关系属性（实体-属性） |
+| -- | -- | -- | -- | -- | -- |
+| 1 | [项目编号](#属性-项目编号（ID）) | ID | ACID | 是 | 否 | 否 | -- |
+| 2 | [需求总数](#属性-需求总数（STORYCNT）) | STORYCNT | INT | 否 | 否 | 是 | -- |
+| 3 | [任务总数](#属性-任务总数（TASKCNT）) | TASKCNT | INT | 否 | 否 | 是 | -- |
+| 4 | [任务最初预计总工时](#属性-任务最初预计总工时（TOTALESTIMATE）) | TOTALESTIMATE | FLOAT | 否 | 否 | 是 | -- |
+| 5 | [任务消耗总工时](#属性-任务消耗总工时（TOTALCONSUMED）) | TOTALCONSUMED | FLOAT | 否 | 否 | 是 | -- |
+| 6 | [任务预计剩余总工时](#属性-任务预计剩余总工时（TOTALLEFT）) | TOTALLEFT | FLOAT | 否 | 否 | 是 | -- |
+| 7 | [未完成任务总数](#属性-未完成任务总数（UNDONETASKCNT）) | UNDONETASKCNT | INT | 否 | 否 | 是 | -- |
+| 8 | [关闭需求总数](#属性-关闭需求总数（CLOSEDSTORYCNT）) | CLOSEDSTORYCNT | INT | 否 | 否 | 是 | -- |
+| 9 | [Bug总数](#属性-Bug总数（BUGCNT）) | BUGCNT | INT | 否 | 否 | 是 | -- |
+| 10 | [未解决Bug总数](#属性-未解决Bug总数（ACTIVEBUGCNT）) | ACTIVEBUGCNT | INT | 否 | 否 | 是 | -- |
+| 11 | [未关闭需求总数](#属性-未关闭需求总数（UNCLOSEDSTORYCNT）) | UNCLOSEDSTORYCNT | INT | 否 | 否 | 是 | -- |
+| 12 | [已结束任务总数](#属性-已结束任务总数（FINISHTASKCNT）) | FINISHTASKCNT | INT | 否 | 否 | 是 | -- |
+| 13 | [已解决Bug总数](#属性-已解决Bug总数（FINISHBUGCNT）) | FINISHBUGCNT | INT | 否 | 否 | 是 | -- |
+| 14 | [已删除](#属性-已删除（DELETED）) | DELETED | TEXT | 否 | 否 | 是 | -- |
+| 15 | [工时](#属性-工时（TIME）) | TIME | FLOAT | 否 | 否 | 是 | -- |
+| 16 | [工时类型](#属性-工时类型（TYPE）) | TYPE | TEXT | 否 | 否 | 是 | -- |
+| 17 | [项目名称](#属性-项目名称（NAME）) | NAME | TEXT | 否 | 否 | 否 | -- |
+| 18 | [未确认Bug总数](#属性-未确认Bug总数（UNCONFIRMEDBUGCNT）) | UNCONFIRMEDBUGCNT | INT | 否 | 否 | 是 | -- |
+| 19 | [未关闭Bug总数](#属性-未关闭Bug总数（UNCLOSEDBUGCNT）) | UNCLOSEDBUGCNT | INT | 否 | 否 | 是 | -- |
+| 20 | [总工时](#属性-总工时（TOTALWH）) | TOTALWH | INT | 否 | 否 | 是 | -- |
+| 21 | [已发布需求数](#属性-已发布需求数（RELEASEDSTORYCNT）) | RELEASEDSTORYCNT | INT | 否 | 否 | 是 | -- |
+| 22 | [昨日完成任务数](#属性-昨日完成任务数（YESTERDAYCTASKCNT）) | YESTERDAYCTASKCNT | INT | 否 | 否 | 是 | -- |
+| 23 | [昨天解决Bug数](#属性-昨天解决Bug数（YESTERDAYRBUGCNT）) | YESTERDAYRBUGCNT | INT | 否 | 否 | 是 | -- |
+| 24 | [截止日期](#属性-截止日期（END）) | END | DATE | 否 | 否 | 是 | -- |
+| 25 | [状态](#属性-状态（STATUS）) | STATUS | TEXT | 否 | 否 | 是 | -- |
+| 26 | [项目排序](#属性-项目排序（ORDER1）) | ORDER1 | INT | 否 | 否 | 是 | -- |
+| 27 | [是否置顶](#属性-是否置顶（ISTOP）) | ISTOP | INT | 否 | 否 | 是 | -- |
+
+### 属性-项目编号（ID）
+#### 属性说明
+项目编号
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+ACID
+
+#### 是否允许为为空
+否
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
 无
 
-## 属性
-
-| 属性名称        |    中文名称    | 类型     |  备注  |
-| --------   |------------| -----   |  -------- | 
-|项目编号|ID|ACID|&nbsp;|
-|需求总数|STORYCNT|INT|&nbsp;|
-|任务总数|TASKCNT|INT|&nbsp;|
-|任务最初预计总工时|TOTALESTIMATE|FLOAT|&nbsp;|
-|任务消耗总工时|TOTALCONSUMED|FLOAT|&nbsp;|
-|任务预计剩余总工时|TOTALLEFT|FLOAT|&nbsp;|
-|未完成任务总数|UNDONETASKCNT|INT|&nbsp;|
-|关闭需求总数|CLOSEDSTORYCNT|INT|&nbsp;|
-|Bug总数|BUGCNT|INT|&nbsp;|
-|未解决Bug总数|ACTIVEBUGCNT|INT|&nbsp;|
-|未关闭需求总数|UNCLOSEDSTORYCNT|INT|&nbsp;|
-|已结束任务总数|FINISHTASKCNT|INT|&nbsp;|
-|已解决Bug总数|FINISHBUGCNT|INT|&nbsp;|
-|已删除|DELETED|TEXT|&nbsp;|
-|工时|TIME|FLOAT|&nbsp;界面使用|
-|工时类型|TYPE|TEXT|&nbsp;界面使用|
-|项目名称|NAME|TEXT|&nbsp;|
-|未确认Bug总数|UNCONFIRMEDBUGCNT|INT|&nbsp;|
-|未关闭Bug总数|UNCLOSEDBUGCNT|INT|&nbsp;|
-|总工时|TOTALWH|INT|&nbsp;|
-|已发布需求数|RELEASEDSTORYCNT|INT|&nbsp;|
-|昨日完成任务数|YESTERDAYCTASKCNT|INT|&nbsp;|
-|昨天解决Bug数|YESTERDAYRBUGCNT|INT|&nbsp;|
-|截止日期|END|DATE|&nbsp;|
-|状态|STATUS|TEXT|&nbsp;|
-|项目排序|ORDER1|INT|&nbsp;|
-|是否置顶|ISTOP|INT|&nbsp;|
-
-## 值规则
-| 属性名称    | 规则    |  说明  |
-| --------   |------------| ----- | 
-|项目编号|默认规则|默认规则|
-|需求总数|默认规则|默认规则|
-|任务总数|默认规则|默认规则|
-|任务最初预计总工时|默认规则|默认规则|
-|任务消耗总工时|默认规则|默认规则|
-|任务预计剩余总工时|默认规则|默认规则|
-|未完成任务总数|默认规则|默认规则|
-|关闭需求总数|默认规则|默认规则|
-|Bug总数|默认规则|默认规则|
-|未解决Bug总数|默认规则|默认规则|
-|未关闭需求总数|默认规则|默认规则|
-|已结束任务总数|默认规则|默认规则|
-|已解决Bug总数|默认规则|默认规则|
-|已删除|默认规则|内容长度必须小于等于[1]|
-|工时|默认规则|默认规则|
-|工时类型|默认规则|内容长度必须小于等于[100]|
-|项目名称|默认规则|内容长度必须小于等于[90]|
-|未确认Bug总数|默认规则|默认规则|
-|未关闭Bug总数|默认规则|默认规则|
-|总工时|默认规则|默认规则|
-|已发布需求数|默认规则|默认规则|
-|昨日完成任务数|默认规则|默认规则|
-|昨天解决Bug数|默认规则|默认规则|
-|截止日期|默认规则|默认规则|
-|状态|默认规则|内容长度必须小于等于[100]|
-|项目排序|默认规则|默认规则|
-|是否置顶|默认规则|默认规则|
-
-## 状态控制
-
+#### 数据格式
 无
 
-
-## 行为
-| 行为    | 类型    |  说明  |
-| --------   |------------| ----- | 
-|Create|内置方法|&nbsp;|
-|Update|内置方法|&nbsp;|
-|Remove|内置方法|&nbsp;|
-|Get|内置方法|&nbsp;|
-|GetDraft|内置方法|&nbsp;|
-|CheckKey|内置方法|&nbsp;|
-|Save|内置方法|&nbsp;|
-
-## 处理逻辑
+#### 关系属性
 无
 
-## 查询集合
+### 属性-需求总数（STORYCNT）
+#### 属性说明
+需求总数
 
-* **查询**
+#### 属性类型
+逻辑属性[虚拟属性，来自计算逻辑和计算公式]
 
-| 查询编号 | 查询名称       | 默认查询 |   备注|
-| --------  | --------   | --------   | ----- |
-|DEFAULT|DEFAULT([MYSQL5](../../appendix/query_MYSQL5.md#ProjectStats_Default))|否|&nbsp;|
-|NOOpenProduct|未关闭产品([MYSQL5](../../appendix/query_MYSQL5.md#ProjectStats_NoOpenProduct))|否|&nbsp;|
-|TASKTIME|任务工时消耗剩余查询([MYSQL5](../../appendix/query_MYSQL5.md#ProjectStats_TaskTime))|否|&nbsp;该查询主要供统计图表使用|
-|VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#ProjectStats_View))|否|&nbsp;|
+#### 数据类型
+INT
 
-* **数据集合**
+#### 是否允许为为空
+是
 
-| 集合编号 | 集合名称   |  包含查询  | 默认集合 |   备注|
-| --------  | --------   | -------- | --------   | ----- |
-|DEFAULT|DEFAULT|DEFAULT|是|&nbsp;|
-|NOOpenProduct|未关闭产品|NOOpenProduct|否|&nbsp;|
-|TASKTIME|任务工时消耗剩余查询|TASKTIME|否|&nbsp;|
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
 
-## 查询模式
-| 属性      |    搜索模式     |
-| --------   |------------|
-|项目名称(NAME)|LIKE|
-|状态(STATUS)|EQ|
-|状态(STATUS)|NOTEQ|
+#### 取值范围/公式
+(SELECT COUNT(1) FROM ZT_STORY LEFT JOIN ZT_PROJECTSTORY ON ZT_STORY.ID = ZT_PROJECTSTORY.STORY WHERE PROJECT = %1$s AND DELETED = '0')
 
-## 导入模式
+#### 数据格式
 无
 
-
-## 导出模式
+#### 关系属性
 无
+
+### 属性-任务总数（TASKCNT）
+#### 属性说明
+任务总数
+
+#### 属性类型
+逻辑属性[虚拟属性，来自计算逻辑和计算公式]
+
+#### 数据类型
+INT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+(SELECT COUNT(1) FROM ZT_TASK WHERE PROJECT = %1$s AND DELETED = '0')
+
+#### 数据格式
+无
+
+#### 关系属性
+无
+
+### 属性-任务最初预计总工时（TOTALESTIMATE）
+#### 属性说明
+任务最初预计总工时
+
+#### 属性类型
+逻辑属性[虚拟属性，来自计算逻辑和计算公式]
+
+#### 数据类型
+FLOAT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+(SELECT round(SUM(ESTIMATE),0) FROM ZT_TASK WHERE PROJECT = %1$s AND DELETED =  '0' AND ( `parent` = '' or `parent` = '0' or `parent` = '-1'))
+
+#### 数据格式
+无
+
+#### 关系属性
+无
+
+### 属性-任务消耗总工时（TOTALCONSUMED）
+#### 属性说明
+任务消耗总工时
+
+#### 属性类型
+逻辑属性[虚拟属性，来自计算逻辑和计算公式]
+
+#### 数据类型
+FLOAT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+(SELECT round(SUM(CONSUMED),0) FROM ZT_TASK WHERE PROJECT = %1$s AND DELETED = '0' AND ( `parent` = '' or `parent` = '0' or `parent` = '-1'))
+
+#### 数据格式
+无
+
+#### 关系属性
+无
+
+### 属性-任务预计剩余总工时（TOTALLEFT）
+#### 属性说明
+任务预计剩余总工时
+
+#### 属性类型
+逻辑属性[虚拟属性，来自计算逻辑和计算公式]
+
+#### 数据类型
+FLOAT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+(SELECT round(SUM(`LEFT`),0) FROM ZT_TASK WHERE PROJECT = %1$s AND DELETED = '0' AND ( `parent` = '' or `parent` = '0' or `parent` = '-1'))
+
+#### 数据格式
+无
+
+#### 关系属性
+无
+
+### 属性-未完成任务总数（UNDONETASKCNT）
+#### 属性说明
+未完成任务总数
+
+#### 属性类型
+逻辑属性[虚拟属性，来自计算逻辑和计算公式]
+
+#### 数据类型
+INT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+(SELECT COUNT(1) FROM ZT_TASK WHERE PROJECT = %1$s AND `STATUS` NOT IN ('done','cancel','closed') AND DELETED =  '0')
+
+#### 数据格式
+无
+
+#### 关系属性
+无
+
+### 属性-关闭需求总数（CLOSEDSTORYCNT）
+#### 属性说明
+关闭需求总数
+
+#### 属性类型
+逻辑属性[虚拟属性，来自计算逻辑和计算公式]
+
+#### 数据类型
+INT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+(SELECT COUNT(1) FROM ZT_STORY WHERE `STATUS` =  'closed' AND FIND_IN_SET (PRODUCT, (SELECT GROUP_CONCAT(PRODUCT) FROM ZT_PROJECTPRODUCT WHERE PROJECT= %1$s)) AND DELETED = '0' )
+
+#### 数据格式
+无
+
+#### 关系属性
+无
+
+### 属性-Bug总数（BUGCNT）
+#### 属性说明
+Bug总数
+
+#### 属性类型
+逻辑属性[虚拟属性，来自计算逻辑和计算公式]
+
+#### 数据类型
+INT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+(SELECT COUNT(1) FROM ZT_BUG WHERE PROJECT = %1$s AND DELETED = '0')
+
+#### 数据格式
+无
+
+#### 关系属性
+无
+
+### 属性-未解决Bug总数（ACTIVEBUGCNT）
+#### 属性说明
+未解决Bug总数
+
+#### 属性类型
+逻辑属性[虚拟属性，来自计算逻辑和计算公式]
+
+#### 数据类型
+INT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+(SELECT COUNT(1) FROM ZT_BUG WHERE PROJECT = %1$s AND `STATUS` = 'active' AND DELETED = '0')
+
+#### 数据格式
+无
+
+#### 关系属性
+无
+
+### 属性-未关闭需求总数（UNCLOSEDSTORYCNT）
+#### 属性说明
+未关闭需求总数
+
+#### 属性类型
+逻辑属性[虚拟属性，来自计算逻辑和计算公式]
+
+#### 数据类型
+INT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+(SELECT COUNT(1) FROM ZT_STORY LEFT JOIN ZT_PROJECTSTORY ON ZT_STORY.ID = ZT_PROJECTSTORY.STORY WHERE `STATUS` <>  'closed' AND PROJECT = %1$s AND DELETED = '0')
+
+#### 数据格式
+无
+
+#### 关系属性
+无
+
+### 属性-已结束任务总数（FINISHTASKCNT）
+#### 属性说明
+已结束任务总数
+
+#### 属性类型
+逻辑属性[虚拟属性，来自计算逻辑和计算公式]
+
+#### 数据类型
+INT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+(SELECT COUNT(1) FROM ZT_TASK WHERE PROJECT = %1$s AND `STATUS` IN ('done','cancel','closed') AND DELETED = '0')
+
+#### 数据格式
+无
+
+#### 关系属性
+无
+
+### 属性-已解决Bug总数（FINISHBUGCNT）
+#### 属性说明
+已解决Bug总数
+
+#### 属性类型
+逻辑属性[虚拟属性，来自计算逻辑和计算公式]
+
+#### 数据类型
+INT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+(SELECT COUNT(1) FROM ZT_BUG WHERE PROJECT = %1$s AND `STATUS` <> 'active' AND DELETED = '0')
+
+#### 数据格式
+无
+
+#### 关系属性
+无
+
+### 属性-已删除（DELETED）
+#### 属性说明
+已删除
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 | 0 |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+无
+
+### 属性-工时（TIME）
+#### 属性说明
+界面使用
+
+#### 属性类型
+应用界面属性[虚拟属性，提供给页面显示的属性]
+
+#### 数据类型
+FLOAT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+无
+
+### 属性-工时类型（TYPE）
+#### 属性说明
+界面使用
+
+#### 属性类型
+应用界面属性[虚拟属性，提供给页面显示的属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+无
+
+### 属性-项目名称（NAME）
+#### 属性说明
+项目名称
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+否
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+无
+
+### 属性-未确认Bug总数（UNCONFIRMEDBUGCNT）
+#### 属性说明
+未确认Bug总数
+
+#### 属性类型
+逻辑属性[虚拟属性，来自计算逻辑和计算公式]
+
+#### 数据类型
+INT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+(SELECT COUNT(1) FROM ZT_BUG WHERE PROJECT = %1$s AND `CONFIRMED` = 0 AND DELETED = '0')
+
+#### 数据格式
+无
+
+#### 关系属性
+无
+
+### 属性-未关闭Bug总数（UNCLOSEDBUGCNT）
+#### 属性说明
+未关闭Bug总数
+
+#### 属性类型
+逻辑属性[虚拟属性，来自计算逻辑和计算公式]
+
+#### 数据类型
+INT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+(SELECT COUNT(1) FROM ZT_BUG WHERE PROJECT = %1$s AND `STATUS` <> 'closed' AND DELETED = '0')
+
+#### 数据格式
+无
+
+#### 关系属性
+无
+
+### 属性-总工时（TOTALWH）
+#### 属性说明
+总工时
+
+#### 属性类型
+逻辑属性[虚拟属性，来自计算逻辑和计算公式]
+
+#### 数据类型
+INT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+((SELECT round(SUM( `LEFT` ),0) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0' AND ( `parent` = '' OR `parent` = '0' OR `parent` = '-1' ) ) + (SELECT round(SUM( CONSUMED ),0) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0' AND ( `parent` = '' OR `parent` = '0' OR `parent` = '-1' ) ))
+
+#### 数据格式
+无
+
+#### 关系属性
+无
+
+### 属性-已发布需求数（RELEASEDSTORYCNT）
+#### 属性说明
+已发布需求数
+
+#### 属性类型
+逻辑属性[虚拟属性，来自计算逻辑和计算公式]
+
+#### 数据类型
+INT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+(SELECT COUNT(1) FROM ZT_STORY LEFT JOIN ZT_PROJECTSTORY ON ZT_STORY.ID = ZT_PROJECTSTORY.STORY WHERE stage = 'released' AND PROJECT = t1.id AND DELETED = '0')
+
+#### 数据格式
+无
+
+#### 关系属性
+无
+
+### 属性-昨日完成任务数（YESTERDAYCTASKCNT）
+#### 属性说明
+昨日完成任务数
+
+#### 属性类型
+逻辑属性[虚拟属性，来自计算逻辑和计算公式]
+
+#### 数据类型
+INT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+(select COUNT(1) from zt_task t where t.deleted = '0' and t.project = t1.id and t.`status` = 'closed' and t.closedDate BETWEEN CONCAT(YEAR(DATE_ADD(now(),INTERVAL -1 day)),'-',month(DATE_ADD(now(),INTERVAL -1 day)),'-',day(DATE_ADD(now(),INTERVAL -1 day)),' 00:00:00') and CONCAT(YEAR(DATE_ADD(now(),INTERVAL -1 day)),'-',month(DATE_ADD(now(),INTERVAL -1 day)),'-',day(DATE_ADD(now(),INTERVAL -1 day)),' 23:59:59') )
+
+#### 数据格式
+无
+
+#### 关系属性
+无
+
+### 属性-昨天解决Bug数（YESTERDAYRBUGCNT）
+#### 属性说明
+昨天解决Bug数
+
+#### 属性类型
+逻辑属性[虚拟属性，来自计算逻辑和计算公式]
+
+#### 数据类型
+INT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+(SELECT COUNT( 1 ) FROM ZT_BUG WHERE PROJECT = t1.`ID` AND `STATUS` = 'resolved' AND DELETED = '0' and RESOLVEDDATE BETWEEN CONCAT(YEAR(DATE_ADD(now(),INTERVAL -1 day)),'-',month(DATE_ADD(now(),INTERVAL -1 day)),'-',day(DATE_ADD(now(),INTERVAL -1 day)),' 00:00:00') and CONCAT(YEAR(DATE_ADD(now(),INTERVAL -1 day)),'-',month(DATE_ADD(now(),INTERVAL -1 day)),'-',day(DATE_ADD(now(),INTERVAL -1 day)),' 23:59:59'))
+
+#### 数据格式
+无
+
+#### 关系属性
+无
+
+### 属性-截止日期（END）
+#### 属性说明
+截止日期
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+DATE
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+时间格式：yyyy-MM-dd
+
+#### 关系属性
+无
+
+### 属性-状态（STATUS）
+#### 属性说明
+状态
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+参照数据字典【[项目状态（Project__status）](../../codelist/Project__status)】
+
+#### 数据格式
+无
+
+#### 关系属性
+无
+
+### 属性-项目排序（ORDER1）
+#### 属性说明
+项目排序
+
+#### 属性类型
+逻辑属性[虚拟属性，来自计算逻辑和计算公式]
+
+#### 数据类型
+INT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+t1.`order`
+
+#### 数据格式
+无
+
+#### 关系属性
+无
+
+### 属性-是否置顶（ISTOP）
+#### 属性说明
+是否置顶
+
+#### 属性类型
+应用界面属性[虚拟属性，提供给页面显示的属性]
+
+#### 数据类型
+INT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+无
+

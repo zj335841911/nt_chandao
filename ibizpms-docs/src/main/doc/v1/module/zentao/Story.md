@@ -1,459 +1,1826 @@
-# 需求(ZT_STORY)
+# 实体-需求(ZT_STORY)
+## 实体说明
+需求
 
-  
+## 所属模块
+[禅道模块](../zentao)
 
-## 关系
-{% plantuml %}
-需求 *-- Bug 
-需求 *-- Bug 
-需求 *-- 测试用例 
-需求 *-- 项目中需要做的需求 
-需求 *-- 需求描述 
-需求 *-- 需求阶段 
-需求 *-- 需求 
-需求 *-- 任务 
-需求 *-- 需求 
-需求模块 *-- 需求 
-产品的分支和平台信息 *-- 需求 
-Bug *-- 需求 
-Bug *-- 需求 
-产品 *-- 需求 
-需求 *-- 需求 
-需求 *-- 需求 
-hide members
-{% endplantuml %}
+## 实体属性
+| 序号 | 属性 | 属性名 | 数据类型 | 是否是主键 | 是否是外键 | 是否允许为空 | 关系属性（实体-属性） |
+| -- | -- | -- | -- | -- | -- |
+| 1 | [指派给](#属性-指派给（ASSIGNEDTO）) | ASSIGNEDTO | TEXT | 否 | 否 | 是 | -- |
+| 2 | [细分需求](#属性-细分需求（CHILDSTORIES）) | CHILDSTORIES | SMCODELIST | 否 | 否 | 是 | -- |
+| 3 | [所属计划](#属性-所属计划（PLAN）) | PLAN | LONGTEXT | 否 | 否 | 是 | -- |
+| 4 | [版本号](#属性-版本号（VERSION）) | VERSION | INT | 否 | 否 | 是 | -- |
+| 5 | [指派日期](#属性-指派日期（ASSIGNEDDATE）) | ASSIGNEDDATE | DATETIME | 否 | 否 | 是 | -- |
+| 6 | [优先级](#属性-优先级（PRI）) | PRI | NSCODELIST | 否 | 否 | 是 | -- |
+| 7 | [相关需求](#属性-相关需求（LINKSTORIES）) | LINKSTORIES | SMCODELIST | 否 | 否 | 是 | -- |
+| 8 | [当前状态](#属性-当前状态（STATUS）) | STATUS | SSCODELIST | 否 | 否 | 是 | -- |
+| 9 | [预计工时](#属性-预计工时（ESTIMATE）) | ESTIMATE | FLOAT | 否 | 否 | 是 | -- |
+| 10 | [评审时间](#属性-评审时间（REVIEWEDDATE）) | REVIEWEDDATE | DATE | 否 | 否 | 是 | -- |
+| 11 | [需求名称](#属性-需求名称（TITLE）) | TITLE | TEXT | 否 | 否 | 否 | -- |
+| 12 | [来源备注](#属性-来源备注（SOURCENOTE）) | SOURCENOTE | TEXT | 否 | 否 | 是 | -- |
+| 13 | [由谁评审](#属性-由谁评审（REVIEWEDBY）) | REVIEWEDBY | SMCODELIST | 否 | 否 | 是 | -- |
+| 14 | [子状态](#属性-子状态（SUBSTATUS）) | SUBSTATUS | TEXT | 否 | 否 | 是 | -- |
+| 15 | [设置阶段者](#属性-设置阶段者（STAGEDBY）) | STAGEDBY | SSCODELIST | 否 | 否 | 是 | -- |
+| 16 | [由谁创建](#属性-由谁创建（OPENEDBY）) | OPENEDBY | SSCODELIST | 否 | 否 | 是 | -- |
+| 17 | [创建日期](#属性-创建日期（OPENEDDATE）) | OPENEDDATE | DATETIME | 否 | 否 | 是 | -- |
+| 18 | [编号](#属性-编号（ID）) | ID | ACID | 是 | 否 | 否 | -- |
+| 19 | [需求来源](#属性-需求来源（SOURCE）) | SOURCE | SSCODELIST | 否 | 否 | 是 | -- |
+| 20 | [关闭原因](#属性-关闭原因（CLOSEDREASON）) | CLOSEDREASON | SSCODELIST | 否 | 否 | 是 | -- |
+| 21 | [标题颜色](#属性-标题颜色（COLOR）) | COLOR | SSCODELIST | 否 | 否 | 是 | -- |
+| 22 | [抄送给](#属性-抄送给（MAILTO）) | MAILTO | SMCODELIST | 否 | 否 | 是 | -- |
+| 23 | [已删除](#属性-已删除（DELETED）) | DELETED | TEXT | 否 | 否 | 是 | -- |
+| 24 | [关键词](#属性-关键词（KEYWORDS）) | KEYWORDS | TEXT | 否 | 否 | 是 | -- |
+| 25 | [最后修改](#属性-最后修改（LASTEDITEDBY）) | LASTEDITEDBY | SSCODELIST | 否 | 否 | 是 | -- |
+| 26 | [所处阶段](#属性-所处阶段（STAGE）) | STAGE | SSCODELIST | 否 | 否 | 是 | -- |
+| 27 | [关闭日期	](#属性-关闭日期	（CLOSEDDATE）) | CLOSEDDATE | DATETIME | 否 | 否 | 是 | -- |
+| 28 | [由谁关闭](#属性-由谁关闭（CLOSEDBY）) | CLOSEDBY | SSCODELIST | 否 | 否 | 是 | -- |
+| 29 | [需求类型](#属性-需求类型（TYPE）) | TYPE | SSCODELIST | 否 | 否 | 是 | -- |
+| 30 | [最后修改日期](#属性-最后修改日期（LASTEDITEDDATE）) | LASTEDITEDDATE | DATETIME | 否 | 否 | 是 | -- |
+| 31 | [模块路径](#属性-模块路径（PATH）) | PATH | PICKUPDATA | 否 | 是 | 是 | [需求模块（IBZ_PRODUCTMODULE）](../ibiz/ProductModule) - [path（PATH）](../ibiz/ProductModule/#属性-path（PATH）) |
+| 32 | [父需求名称](#属性-父需求名称（PARENTNAME）) | PARENTNAME | PICKUPTEXT | 否 | 是 | 是 | [需求（ZT_STORY）](../zentao/Story) - [需求名称（TITLE）](../zentao/Story/#属性-需求名称（TITLE）) |
+| 33 | [所属模块名称](#属性-所属模块名称（MODULENAME）) | MODULENAME | PICKUPTEXT | 否 | 是 | 是 | [需求模块（IBZ_PRODUCTMODULE）](../ibiz/ProductModule) - [名称（NAME）](../ibiz/ProductModule/#属性-名称（NAME）) |
+| 34 | [产品名称](#属性-产品名称（PRODOCTNAME）) | PRODOCTNAME | PICKUPTEXT | 否 | 是 | 是 | [产品（ZT_PRODUCT）](../zentao/Product) - [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
+| 35 | [来源Bug](#属性-来源Bug（FROMBUG）) | FROMBUG | PICKUP | 否 | 是 | 是 | [Bug（ZT_BUG）](../zentao/Bug) - [Bug编号（ID）](../zentao/Bug/#属性-Bug编号（ID）) |
+| 36 | [父需求](#属性-父需求（PARENT）) | PARENT | PICKUP | 否 | 是 | 是 | [需求（ZT_STORY）](../zentao/Story) - [编号（ID）](../zentao/Story/#属性-编号（ID）) |
+| 37 | [所属模块](#属性-所属模块（MODULE）) | MODULE | PICKUP | 否 | 是 | 是 | [需求模块（IBZ_PRODUCTMODULE）](../ibiz/ProductModule) - [id（ID）](../ibiz/ProductModule/#属性-id（ID）) |
+| 38 | [所属产品](#属性-所属产品（PRODUCT）) | PRODUCT | PICKUP | 否 | 是 | 是 | [产品（ZT_PRODUCT）](../zentao/Product) - [编号（ID）](../zentao/Product/#属性-编号（ID）) |
+| 39 | [重复需求ID](#属性-重复需求ID（DUPLICATESTORY）) | DUPLICATESTORY | PICKUP | 否 | 是 | 是 | [需求（ZT_STORY）](../zentao/Story) - [编号（ID）](../zentao/Story/#属性-编号（ID）) |
+| 40 | [平台/分支](#属性-平台/分支（BRANCH）) | BRANCH | PICKUP | 否 | 是 | 是 | [产品的分支和平台信息（ZT_BRANCH）](../zentao/Branch) - [编号（ID）](../zentao/Branch/#属性-编号（ID）) |
+| 41 | [转Bug](#属性-转Bug（TOBUG）) | TOBUG | PICKUP | 否 | 是 | 是 | [Bug（ZT_BUG）](../zentao/Bug) - [Bug编号（ID）](../zentao/Bug/#属性-Bug编号（ID）) |
+| 42 | [需求描述](#属性-需求描述（SPEC）) | SPEC | TEXT | 否 | 是 | 是 | [Bug（ZT_BUG）](../zentao/Bug) - [Bug编号（ID）](../zentao/Bug/#属性-Bug编号（ID）) |
+| 43 | [验收标准](#属性-验收标准（VERIFY）) | VERIFY | TEXT | 否 | 是 | 是 | [Bug（ZT_BUG）](../zentao/Bug) - [Bug编号（ID）](../zentao/Bug/#属性-Bug编号（ID）) |
+| 44 | [评审结果](#属性-评审结果（RESULT）) | RESULT | SSCODELIST | 否 | 是 | 是 | [Bug（ZT_BUG）](../zentao/Bug) - [Bug编号（ID）](../zentao/Bug/#属性-Bug编号（ID）) |
+| 45 | [备注](#属性-备注（COMMENT）) | COMMENT | HTMLTEXT | 否 | 是 | 是 | [Bug（ZT_BUG）](../zentao/Bug) - [Bug编号（ID）](../zentao/Bug/#属性-Bug编号（ID）) |
+| 46 | [是否子需求](#属性-是否子需求（ISLEAF）) | ISLEAF | TEXT | 否 | 是 | 是 | [Bug（ZT_BUG）](../zentao/Bug) - [Bug编号（ID）](../zentao/Bug/#属性-Bug编号（ID）) |
+| 47 | [附件](#属性-附件（FILES）) | FILES | TEXT | 否 | 是 | 是 | [Bug（ZT_BUG）](../zentao/Bug) - [Bug编号（ID）](../zentao/Bug/#属性-Bug编号（ID）) |
+| 48 | [平台/分支](#属性-平台/分支（BRANCHNAME）) | BRANCHNAME | PICKUPTEXT | 否 | 是 | 是 | [产品的分支和平台信息（ZT_BRANCH）](../zentao/Branch) - [名称（NAME）](../zentao/Branch/#属性-名称（NAME）) |
+| 49 | [版本号](#属性-版本号（VERSIONC）) | VERSIONC | TEXT | 否 | 是 | 是 | [产品的分支和平台信息（ZT_BRANCH）](../zentao/Branch) - [名称（NAME）](../zentao/Branch/#属性-名称（NAME）) |
+| 50 | [所属模块名称](#属性-所属模块名称（MODULENAME1）) | MODULENAME1 | TEXT | 否 | 是 | 是 | [产品的分支和平台信息（ZT_BRANCH）](../zentao/Branch) - [名称（NAME）](../zentao/Branch/#属性-名称（NAME）) |
+| 51 | [项目](#属性-项目（PROJECT）) | PROJECT | BIGINT | 否 | 是 | 是 | [产品的分支和平台信息（ZT_BRANCH）](../zentao/Branch) - [名称（NAME）](../zentao/Branch/#属性-名称（NAME）) |
+| 52 | [之前的版本](#属性-之前的版本（PREVERSION）) | PREVERSION | INT | 否 | 是 | 是 | [产品的分支和平台信息（ZT_BRANCH）](../zentao/Branch) - [名称（NAME）](../zentao/Branch/#属性-名称（NAME）) |
+| 53 | [不需要评审](#属性-不需要评审（NEEDNOTREVIEW）) | NEEDNOTREVIEW | SMCODELIST | 否 | 是 | 是 | [产品的分支和平台信息（ZT_BRANCH）](../zentao/Branch) - [名称（NAME）](../zentao/Branch/#属性-名称（NAME）) |
+| 54 | [是否收藏](#属性-是否收藏（ISFAVORITES）) | ISFAVORITES | TEXT | 否 | 是 | 是 | [产品的分支和平台信息（ZT_BRANCH）](../zentao/Branch) - [名称（NAME）](../zentao/Branch/#属性-名称（NAME）) |
+| 55 | [是否可以细分](#属性-是否可以细分（ISCHILD）) | ISCHILD | TEXT | 否 | 是 | 是 | [产品的分支和平台信息（ZT_BRANCH）](../zentao/Branch) - [名称（NAME）](../zentao/Branch/#属性-名称（NAME）) |
 
-## 属性
+### 属性-指派给（ASSIGNEDTO）
+#### 属性说明
+指派给
 
-| 属性名称        |    中文名称    | 类型     |  备注  |
-| --------   |------------| -----   |  -------- | 
-|指派给|ASSIGNEDTO|TEXT|&nbsp;|
-|细分需求|CHILDSTORIES|SMCODELIST|&nbsp;|
-|所属计划|PLAN|LONGTEXT|&nbsp;|
-|版本号|VERSION|INT|&nbsp;每次更新内容，会自动加1（只有真正更新数据才会更新，例如打开编辑/变更需求，没有进行任何修改点击保存，是不会更新该笔数据）|
-|指派日期|ASSIGNEDDATE|DATETIME|&nbsp;|
-|优先级|PRI|NSCODELIST|&nbsp;|
-|相关需求|LINKSTORIES|SMCODELIST|&nbsp;|
-|当前状态|STATUS|SSCODELIST|&nbsp;|
-|预计工时|ESTIMATE|FLOAT|&nbsp;|
-|评审时间|REVIEWEDDATE|DATE|&nbsp;|
-|需求名称|TITLE|TEXT|&nbsp;|
-|来源备注|SOURCENOTE|TEXT|&nbsp;|
-|由谁评审|REVIEWEDBY|SMCODELIST|&nbsp;|
-|子状态|SUBSTATUS|TEXT|&nbsp;|
-|设置阶段者|STAGEDBY|SSCODELIST|&nbsp;|
-|由谁创建|OPENEDBY|SSCODELIST|&nbsp;|
-|创建日期|OPENEDDATE|DATETIME|&nbsp;|
-|编号|ID|ACID|&nbsp;|
-|需求来源|SOURCE|SSCODELIST|&nbsp;|
-|关闭原因|CLOSEDREASON|SSCODELIST|&nbsp;|
-|标题颜色|COLOR|SSCODELIST|&nbsp;|
-|抄送给|MAILTO|SMCODELIST|&nbsp;|
-|已删除|DELETED|TEXT|&nbsp;|
-|关键词|KEYWORDS|TEXT|&nbsp;|
-|最后修改|LASTEDITEDBY|SSCODELIST|&nbsp;|
-|所处阶段|STAGE|SSCODELIST|&nbsp;|
-|关闭日期	|CLOSEDDATE|DATETIME|&nbsp;|
-|由谁关闭|CLOSEDBY|SSCODELIST|&nbsp;|
-|需求类型|TYPE|SSCODELIST|&nbsp;|
-|最后修改日期|LASTEDITEDDATE|DATETIME|&nbsp;|
-|模块路径|PATH|PICKUPDATA|&nbsp;|
-|父需求名称|PARENTNAME|PICKUPTEXT|&nbsp;|
-|所属模块名称|MODULENAME|PICKUPTEXT|&nbsp;|
-|产品名称|PRODOCTNAME|PICKUPTEXT|&nbsp;|
-|来源Bug|FROMBUG|PICKUP|&nbsp;|
-|父需求|PARENT|PICKUP|&nbsp;|
-|所属模块|MODULE|PICKUP|&nbsp;|
-|所属产品|PRODUCT|PICKUP|&nbsp;|
-|重复需求ID|DUPLICATESTORY|PICKUP|&nbsp;|
-|平台/分支|BRANCH|PICKUP|&nbsp;|
-|转Bug|TOBUG|PICKUP|&nbsp;暂时没找到使用地方（页面操作了从需求转Bug也没有更新该字段）|
-|需求描述|SPEC|TEXT|&nbsp;|
-|验收标准|VERIFY|TEXT|&nbsp;|
-|评审结果|RESULT|SSCODELIST|&nbsp;|
-|备注|COMMENT|HTMLTEXT|&nbsp;|
-|是否子需求|ISLEAF|TEXT|&nbsp;|
-|附件|FILES|TEXT|&nbsp;|
-|平台/分支|BRANCHNAME|PICKUPTEXT|&nbsp;|
-|版本号|VERSIONC|TEXT|&nbsp;|
-|所属模块名称|MODULENAME1|TEXT|&nbsp;|
-|项目|PROJECT|BIGINT|&nbsp;|
-|之前的版本|PREVERSION|INT|&nbsp;|
-|不需要评审|NEEDNOTREVIEW|SMCODELIST|&nbsp;|
-|是否收藏|ISFAVORITES|TEXT|&nbsp;|
-|是否可以细分|ISCHILD|TEXT|&nbsp;|
+#### 属性类型
+物理属性[实体属性]
 
-## 值规则
-| 属性名称    | 规则    |  说明  |
-| --------   |------------| ----- | 
-|指派给|默认规则|内容长度必须小于等于[30]|
-|细分需求|默认规则|内容长度必须小于等于[255]|
-|所属计划|默认规则|内容长度必须小于等于[1048576]|
-|版本号|默认规则|默认规则|
-|指派日期|默认规则|默认规则|
-|优先级|默认规则|默认规则|
-|相关需求|默认规则|内容长度必须小于等于[255]|
-|当前状态|默认规则|内容长度必须小于等于[200]|
-|预计工时|默认规则|默认规则|
-|评审时间|默认规则|默认规则|
-|需求名称|默认规则|内容长度必须小于等于[255]|
-|来源备注|默认规则|内容长度必须小于等于[255]|
-|由谁评审|默认规则|内容长度必须小于等于[255]|
-|子状态|默认规则|内容长度必须小于等于[30]|
-|设置阶段者|默认规则|内容长度必须小于等于[200]|
-|由谁创建|默认规则|内容长度必须小于等于[200]|
-|创建日期|默认规则|默认规则|
-|编号|默认规则|默认规则|
-|需求来源|默认规则|内容长度必须小于等于[20]|
-|关闭原因|默认规则|内容长度必须小于等于[30]|
-|标题颜色|默认规则|内容长度必须小于等于[7]|
-|抄送给|默认规则|内容长度必须小于等于[65535]|
-|已删除|默认规则|内容长度必须小于等于[1]|
-|关键词|默认规则|内容长度必须小于等于[255]|
-|最后修改|默认规则|内容长度必须小于等于[200]|
-|所处阶段|默认规则|内容长度必须小于等于[200]|
-|关闭日期	|默认规则|默认规则|
-|由谁关闭|默认规则|内容长度必须小于等于[200]|
-|需求类型|默认规则|内容长度必须小于等于[30]|
-|最后修改日期|默认规则|默认规则|
-|模块路径|默认规则|内容长度必须小于等于[255]|
-|父需求名称|默认规则|内容长度必须小于等于[255]|
-|所属模块名称|默认规则|内容长度必须小于等于[60]|
-|产品名称|默认规则|内容长度必须小于等于[90]|
-|来源Bug|默认规则|默认规则|
-|父需求|默认规则|默认规则|
-|所属模块|默认规则|默认规则|
-|所属产品|默认规则|默认规则|
-|重复需求ID|默认规则|默认规则|
-|平台/分支|默认规则|默认规则|
-|转Bug|默认规则|默认规则|
-|需求描述|默认规则|内容长度必须小于等于[100]|
-|验收标准|默认规则|内容长度必须小于等于[100]|
-|评审结果|默认规则|内容长度必须小于等于[200]|
-|备注|默认规则|内容长度必须小于等于[1048576]|
-|是否子需求|默认规则|内容长度必须小于等于[200]|
-|附件|默认规则|内容长度必须小于等于[1000]|
-|平台/分支|默认规则|内容长度必须小于等于[255]|
-|版本号|默认规则|内容长度必须小于等于[200]|
-|所属模块名称|默认规则|内容长度必须小于等于[200]|
-|项目|默认规则|默认规则|
-|之前的版本|默认规则|默认规则|
-|不需要评审|默认规则|内容长度必须小于等于[4000]|
-|是否收藏|默认规则|内容长度必须小于等于[200]|
-|是否可以细分|默认规则|内容长度必须小于等于[200]|
+#### 数据类型
+TEXT
 
-## 状态控制
+#### 是否允许为为空
+是
 
-|当前状态||是否收藏||是否可以细分|行为控制模式| 控制行为 | 操作标识控制模式 | 控制操作 |
-| --------   || --------   || --------   | ------------|------------|------------|------------|
-|Value||Value2||Value3| 允许| 变更<br>版本解除关联需求<br>Get<br>发布批量解除关联需求<br>指派<br>发布解除关联需求<br>Remove<br>关闭<br>评审<br>Update<br>计划关联需求<br>项目批量解除关联需求<br>Save<br>计划解除关联需求<br>项目解除关联需求<br>项目关联需求-按计划关联<br>发布关联需求<br>项目关联需求<br>版本批量解除关联需求<br>计划批量解除关联需求<br>项目关联需求<br> | 不允许 | SRFUR__STORY_REVIEW_BUT<br>SRFUR__STORY_FAVOR_BUT<br>SRFUR__STORY_XQXF_BUT<br>SRFUR__STORY_ACTIVE_BUT<br> |
-|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__STORY_FAVOR_BUT<br>SRFUR__STORY_ASS_BUT<br>SRFUR__STORY_REVIEW_BUT<br>SRFUR__STORY_ACTIVE_BUT<br>SRFUR__STORY_CCASE_BUT<br>SRFUR__STORY_DELETE_BUT<br>SRFUR__STORY_CHANGED_BUT<br>SRFUR__STORY_CLOSED_BUT<br> |
-|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__STORY_FAVOR_BUT<br>SRFUR__STORY_ACTIVE_BUT<br>SRFUR__STORY_REVIEW_BUT<br> |
-|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__STORY_XQXF_BUT<br>SRFUR__STORY_REVIEW_BUT<br>SRFUR__STORY_NFAVOR_BUT<br>SRFUR__STORY_ACTIVE_BUT<br> |
-|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__STORY_CHANGED_BUT<br>SRFUR__STORY_NFAVOR_BUT<br>SRFUR__STORY_ACTIVE_BUT<br>SRFUR__STORY_CLOSED_BUT<br>SRFUR__STORY_DELETE_BUT<br>SRFUR__STORY_ASS_BUT<br>SRFUR__STORY_REVIEW_BUT<br>SRFUR__STORY_CCASE_BUT<br> |
-|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__STORY_REVIEW_BUT<br>SRFUR__STORY_ACTIVE_BUT<br>SRFUR__STORY_NFAVOR_BUT<br> |
-|Value||Value2||Value3| 允许| Remove<br>评审<br>指派<br>项目关联需求<br>Get<br>项目解除关联需求<br>关闭<br>项目关联需求<br>发布解除关联需求<br>Save<br>项目批量解除关联需求<br>Update<br>项目关联需求-按计划关联<br>发布关联需求<br>计划关联需求<br>变更<br>发布批量解除关联需求<br>计划批量解除关联需求<br>版本解除关联需求<br>计划解除关联需求<br>版本批量解除关联需求<br> | 不允许 | SRFUR__STORY_XQXF_BUT<br>SRFUR__STORY_ACTIVE_BUT<br>SRFUR__STORY_FAVOR_BUT<br> |
-|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__STORY_CHANGED_BUT<br>SRFUR__STORY_ASS_BUT<br>SRFUR__STORY_CCASE_BUT<br>SRFUR__STORY_ACTIVE_BUT<br>SRFUR__STORY_FAVOR_BUT<br>SRFUR__STORY_REVIEW_BUT<br>SRFUR__STORY_CLOSED_BUT<br>SRFUR__STORY_DELETE_BUT<br>SRFUR__STORY_XQXF_BUT<br> |
-|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__STORY_FAVOR_BUT<br>SRFUR__STORY_ACTIVE_BUT<br>SRFUR__STORY_XQXF_BUT<br> |
-|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__STORY_NFAVOR_BUT<br>SRFUR__STORY_XQXF_BUT<br>SRFUR__STORY_ACTIVE_BUT<br> |
-|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__STORY_ASS_BUT<br>SRFUR__STORY_ACTIVE_BUT<br>SRFUR__STORY_DELETE_BUT<br>SRFUR__STORY_REVIEW_BUT<br>SRFUR__STORY_CCASE_BUT<br>SRFUR__STORY_CHANGED_BUT<br>SRFUR__STORY_NFAVOR_BUT<br>SRFUR__STORY_XQXF_BUT<br>SRFUR__STORY_CLOSED_BUT<br> |
-|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__STORY_XQXF_BUT<br>SRFUR__STORY_ACTIVE_BUT<br>SRFUR__STORY_NFAVOR_BUT<br> |
-|Value||Value2||Value3| 允许| 项目关联需求<br>项目批量解除关联需求<br>激活<br>发布批量解除关联需求<br>指派<br>Get<br>计划解除关联需求<br>项目关联需求<br>发布解除关联需求<br>版本批量解除关联需求<br>项目解除关联需求<br>计划关联需求<br>Update<br>计划批量解除关联需求<br>Remove<br>版本解除关联需求<br>项目关联需求-按计划关联<br>Save<br>发布关联需求<br> | 不允许 | SRFUR__STORY_REVIEW_BUT<br>SRFUR__STORY_CHANGED_BUT<br>SRFUR__STORY_ASS_BUT<br>SRFUR__STORY_CLOSED_BUT<br>SRFUR__STORY_FAVOR_BUT<br>SRFUR__STORY_XQXF_BUT<br> |
-|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__STORY_DELETE_BUT<br>SRFUR__STORY_CHANGED_BUT<br>SRFUR__STORY_FAVOR_BUT<br>SRFUR__STORY_ASS_BUT<br>SRFUR__STORY_REVIEW_BUT<br>SRFUR__STORY_XQXF_BUT<br>SRFUR__STORY_CLOSED_BUT<br>SRFUR__STORY_CCASE_BUT<br> |
-|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__STORY_CLOSED_BUT<br>SRFUR__STORY_REVIEW_BUT<br>SRFUR__STORY_FAVOR_BUT<br>SRFUR__STORY_ASS_BUT<br>SRFUR__STORY_CHANGED_BUT<br>SRFUR__STORY_XQXF_BUT<br> |
-|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__STORY_NFAVOR_BUT<br>SRFUR__STORY_XQXF_BUT<br>SRFUR__STORY_CHANGED_BUT<br>SRFUR__STORY_ASS_BUT<br>SRFUR__STORY_REVIEW_BUT<br>SRFUR__STORY_CLOSED_BUT<br> |
-|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__STORY_REVIEW_BUT<br>SRFUR__STORY_CHANGED_BUT<br>SRFUR__STORY_XQXF_BUT<br>SRFUR__STORY_ASS_BUT<br>SRFUR__STORY_CLOSED_BUT<br>SRFUR__STORY_NFAVOR_BUT<br>SRFUR__STORY_DELETE_BUT<br>SRFUR__STORY_CCASE_BUT<br> |
-|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__STORY_REVIEW_BUT<br>SRFUR__STORY_CLOSED_BUT<br>SRFUR__STORY_ASS_BUT<br>SRFUR__STORY_NFAVOR_BUT<br>SRFUR__STORY_CHANGED_BUT<br>SRFUR__STORY_XQXF_BUT<br> |
-|Value||Value2||Value3| 允许| 发布解除关联需求<br>计划关联需求<br>计划批量解除关联需求<br>项目关联需求<br>项目关联需求<br>Get<br>激活<br>版本解除关联需求<br>项目关联需求-按计划关联<br>项目批量解除关联需求<br>Update<br>发布关联需求<br>项目解除关联需求<br>Save<br>指派<br>评审<br>Remove<br>变更<br>发布批量解除关联需求<br>计划解除关联需求<br>版本批量解除关联需求<br>关闭<br> | 不允许 | SRFUR__STORY_XQXF_BUT<br>SRFUR__STORY_FAVOR_BUT<br>SRFUR__STORY_ACTIVE_BUT<br> |
-|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__STORY_FAVOR_BUT<br>SRFUR__STORY_CCASE_BUT<br>SRFUR__STORY_ASS_BUT<br>SRFUR__STORY_CLOSED_BUT<br>SRFUR__STORY_XQXF_BUT<br>SRFUR__STORY_REVIEW_BUT<br>SRFUR__STORY_DELETE_BUT<br>SRFUR__STORY_ACTIVE_BUT<br>SRFUR__STORY_CHANGED_BUT<br> |
-|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__STORY_XQXF_BUT<br>SRFUR__STORY_FAVOR_BUT<br>SRFUR__STORY_ACTIVE_BUT<br> |
-|Value||Value2||Value3| 允许| 版本解除关联需求<br>项目解除关联需求<br>发布关联需求<br>关闭<br>计划解除关联需求<br>Get<br>Update<br>Remove<br>激活<br>项目解除关联需求<br>变更<br>Save<br>指派<br>项目关联需求<br>项目关联需求<br>计划关联需求<br>发布解除关联需求<br>版本解除关联需求<br>评审<br> | 不允许 | SRFUR__STORY_ACTIVE_BUT<br>SRFUR__STORY_XQXF_BUT<br>SRFUR__STORY_NFAVOR_BUT<br> |
-|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__STORY_DELETE_BUT<br>SRFUR__STORY_CHANGED_BUT<br>SRFUR__STORY_CCASE_BUT<br>SRFUR__STORY_XQXF_BUT<br>SRFUR__STORY_REVIEW_BUT<br>SRFUR__STORY_ACTIVE_BUT<br>SRFUR__STORY_NFAVOR_BUT<br>SRFUR__STORY_CLOSED_BUT<br>SRFUR__STORY_ASS_BUT<br> |
-|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__STORY_ACTIVE_BUT<br>SRFUR__STORY_NFAVOR_BUT<br>SRFUR__STORY_XQXF_BUT<br> |
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 | #EMPTY |
 
-当前状态
+#### 取值范围/公式
+参照数据字典【[用户真实名称（动态）（UserRealName）](../../codelist/UserRealName)】
 
-| 状态        |    状态值   |
-| --------   |------------|
-|草稿|draft|
-|激活|active|
-|已关闭|closed|
-|已变更|changed|
-是否收藏
-
-是否可以细分
-
-
-## 行为
-| 行为    | 类型    |  说明  |
-| --------   |------------| ----- | 
-|Create|内置方法|&nbsp;|
-|Update|内置方法|&nbsp;|
-|Remove|内置方法|&nbsp;|
-|Get|内置方法|&nbsp;|
-|GetDraft|内置方法|&nbsp;|
-|激活|用户自定义|&nbsp;|
-|全部推送|用户自定义|&nbsp;|
-|指派|用户自定义|&nbsp;需求指派|
-|批量指派|用户自定义|&nbsp;×，模板暂不支持批处理（参数）...|
-|批量变更平台/分支|用户自定义|&nbsp;×，模板暂不支持批处理（参数）...|
-|批量变更模块|用户自定义|&nbsp;×，模板暂不支持批处理（参数）...|
-|批量关联计划|用户自定义|&nbsp;×，模板暂不支持批处理（参数）...|
-|批量变更阶段|用户自定义|&nbsp;×，模板暂不支持批处理（参数）...|
-|批量关闭|用户自定义|&nbsp;×，模板暂不支持批处理（参数）...|
-|批量评审|用户自定义|&nbsp;×，模板暂不支持批处理（参数）...|
-|计划批量解除关联需求|用户自定义|&nbsp;|
-|bug转需求|用户自定义|&nbsp;|
-|版本批量解除关联需求|用户自定义|&nbsp;|
-|项目关联需求|用户自定义|&nbsp;|
-|版本解除关联需求|用户自定义|&nbsp;|
-|版本解除关联需求|实体处理逻辑|&nbsp;|
-|变更|用户自定义|&nbsp;需求变更|
-|CheckKey|内置方法|&nbsp;|
-|关闭|用户自定义|&nbsp;需求关闭|
-|获取需求描述|用户自定义|&nbsp;|
-|获取需求描述|实体处理逻辑|&nbsp;|
-|任务相关需求草稿方法|用户自定义|&nbsp;|
-|项目关联需求-按计划关联|用户自定义|&nbsp;|
-|计划关联需求|用户自定义|&nbsp;|
-|项目批量解除关联需求|用户自定义|&nbsp;|
-|项目关联需求|用户自定义|&nbsp;|
-|项目解除关联需求|用户自定义|&nbsp;|
-|项目解除关联需求|实体处理逻辑|&nbsp;|
-|推送|用户自定义|&nbsp;|
-|发布批量解除关联需求|用户自定义|&nbsp;|
-|发布关联需求|用户自定义|&nbsp;|
-|发布解除关联需求|用户自定义|&nbsp;|
-|重置由谁评审|用户自定义|&nbsp;|
-|评审|用户自定义|&nbsp;需求评审|
-|Save|内置方法|&nbsp;|
-|行为|用户自定义|&nbsp;|
-|发送消息前置处理|用户自定义|&nbsp;|
-|需求收藏|实体处理逻辑|&nbsp;|
-|取消收藏|实体处理逻辑|&nbsp;|
-|同步Ibz平台实体|用户自定义|&nbsp;|
-|转需求|用户自定义|&nbsp;|
-|计划解除关联需求|用户自定义|&nbsp;|
-
-## 处理逻辑
-* GetStorySpecs (GetStorySpecs)
-  
-   
-
-{% plantuml %}
-hide footbox
-
-需求 -> 需求: 获取数据
-需求 -> 需求: 处理
-需求 -> 需求: 参数
-{% endplantuml %}
-
-| 步骤       | 操作        |
-| --------   | --------   |
-|0|开始 | 
-|1|获取数据 |
-|2|处理 |
-|3|参数 |
-<center>GetStorySpecs</center>
-* 需求收藏 (StoryFavorites)
-  
-   当前用户收藏相关需求信息
-
-{% plantuml %}
-hide footbox
-
-需求 -> 需求: 设置收藏参数
-需求 -> 收藏: 创建收藏信息
-{% endplantuml %}
-
-| 步骤       | 操作        |
-| --------   | --------   |
-|0|开始 | 
-|1|设置收藏参数 |
-|2|创建收藏信息 |
-<center>需求收藏</center>
-* 需求取消收藏 (StoryNFavorites)
-  
-   当前用户收藏相关需求信息
-
-{% plantuml %}
-hide footbox
-
-需求 -> 需求: 取消收藏
-{% endplantuml %}
-
-| 步骤       | 操作        |
-| --------   | --------   |
-|0|开始 | 
-|1|取消收藏 |
-<center>需求取消收藏</center>
-* buildUnlinkStorys (buildUnlinkStorys)
-  
-   
-
-{% plantuml %}
-hide footbox
-
-需求 -> 需求: 处理
-需求 -> 需求: 参数
-{% endplantuml %}
-
-| 步骤       | 操作        |
-| --------   | --------   |
-|1|处理 |
-|1|开始 | 
-|2|参数 |
-<center>buildUnlinkStorys</center>
-* projectUnlinkStorys (projectUnlinkStorys)
-  
-   
-
-{% plantuml %}
-hide footbox
-
-需求 -> 需求: 准备参数
-需求 -> 需求: 处理
-{% endplantuml %}
-
-| 步骤       | 操作        |
-| --------   | --------   |
-|0|开始 | 
-|1|准备参数 |
-|2|处理 |
-<center>projectUnlinkStorys</center>
-* 发送通知 (sendNotice)
-  
-   
-
-{% plantuml %}
-hide footbox
-
-{% endplantuml %}
-
-| 步骤       | 操作        |
-| --------   | --------   |
-<center>发送通知</center>
-* 发送待办任务 (sendTodoTask)
-  
-   
-
-{% plantuml %}
-hide footbox
-
-{% endplantuml %}
-
-| 步骤       | 操作        |
-| --------   | --------   |
-<center>发送待办任务</center>
-
-## 查询集合
-
-* **查询**
-
-| 查询编号 | 查询名称       | 默认查询 |   备注|
-| --------  | --------   | --------   | ----- |
-|AssignedToMyStory|指派给我的需求([MYSQL5](../../appendix/query_MYSQL5.md#Story_AssignedToMyStory))|否|&nbsp;指派给我的需求（移动端使用）|
-|BugStory|Bug相关需求([MYSQL5](../../appendix/query_MYSQL5.md#Story_BugStory))|否|&nbsp;|
-|buildLinkCompletedStories|版本关联已完成的需求（选择数据源）([MYSQL5](../../appendix/query_MYSQL5.md#Story_BuildLinkCompletedStories))|否|&nbsp;版本主数据导航页面、【完成需求】分页。
-【添加需求】功能中，作为多项数据选择界面的数据源。|
-|BuildLinkableStories|版本可关联的需求（产品内）([MYSQL5](../../appendix/query_MYSQL5.md#Story_BuildLinkableStories))|否|&nbsp;根据【版本id】，获取当前【产品】中可选【需求列表】。
-【需求】数据必须是【激活状态】。
-用于【版本】界面行为【关联需求】。|
-|BuildStories|获取版本相关需求([MYSQL5](../../appendix/query_MYSQL5.md#Story_BuildStories))|否|&nbsp;获取指定版本中相关需求|
-|ByModule|通过模块查询([MYSQL5](../../appendix/query_MYSQL5.md#Story_ByModule))|否|&nbsp;|
-|CaseStory|相关用例需求([MYSQL5](../../appendix/query_MYSQL5.md#Story_CaseStory))|否|&nbsp;|
-|DEFAULT|DEFAULT([MYSQL5](../../appendix/query_MYSQL5.md#Story_Default))|否|&nbsp;|
-|GetProductStories|获取产品需求([MYSQL5](../../appendix/query_MYSQL5.md#Story_GetProductStories))|否|&nbsp;获取指定产品（含分支）中当前用户的相关需求|
-|MyCurOpenedStory|所创建需求数和对应的优先级及状态([MYSQL5](../../appendix/query_MYSQL5.md#Story_MyCurOpenedStory))|否|&nbsp;|
-|MyFavorites|我的收藏([MYSQL5](../../appendix/query_MYSQL5.md#Story_MyFavorites))|否|&nbsp;|
-|ParentDefault|数据查询([MYSQL5](../../appendix/query_MYSQL5.md#Story_ParentDefault))|否|&nbsp;|
-|projectLinkStory|项目关联需求([MYSQL5](../../appendix/query_MYSQL5.md#Story_ProjectLinkStory))|否|&nbsp;|
-|ProjectStories|项目相关需求([MYSQL5](../../appendix/query_MYSQL5.md#Story_ProjectStories))|否|&nbsp;|
-|ReleaseLinkableStories|版本可关联的完成的需求([MYSQL5](../../appendix/query_MYSQL5.md#Story_ReleaseLinkableStories))|否|&nbsp;|
-|ReleaseStories|获取产品发布相关需求([MYSQL5](../../appendix/query_MYSQL5.md#Story_ReleaseStories))|否|&nbsp;获取指定产品发布中相关需求|
-|ReportStories|报告完成需求([MYSQL5](../../appendix/query_MYSQL5.md#Story_ReportStories))|否|&nbsp;|
-|StoryChild|获取产品发布相关需求([MYSQL5](../../appendix/query_MYSQL5.md#Story_StoryChild))|否|&nbsp;获取指定产品发布中相关需求|
-|StoryRelated|获取产品发布相关需求([MYSQL5](../../appendix/query_MYSQL5.md#Story_StoryRelated))|否|&nbsp;获取指定产品发布中相关需求|
-|SubStory|需求细分([MYSQL5](../../appendix/query_MYSQL5.md#Story_SubStory))|否|&nbsp;|
-|TaskRelatedStory|任务相关需求([MYSQL5](../../appendix/query_MYSQL5.md#Story_TaskRelatedStory))|否|&nbsp;|
-|VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#Story_View))|否|&nbsp;|
-
-* **数据集合**
-
-| 集合编号 | 集合名称   |  包含查询  | 默认集合 |   备注|
-| --------  | --------   | -------- | --------   | ----- |
-|AssignedToMyStory|指派给我的需求|AssignedToMyStory|否|&nbsp;|
-|BugStory|Bug相关需求|BugStory|否|&nbsp;|
-|buildLinkCompletedStories|版本关联已完成的需求（选择数据源）|buildLinkCompletedStories|否|&nbsp;|
-|BuildLinkableStories|版本可关联的需求（产品内）|BuildLinkableStories|否|&nbsp;|
-|BuildStories|获取版本相关需求|BuildStories|否|&nbsp;|
-|ByModule|通过模块查询|ByModule|否|&nbsp;|
-|CaseStory|相关用例需求|CaseStory|否|&nbsp;|
-|DEFAULT|DEFAULT|DEFAULT|是|&nbsp;|
-|GetProductStories|获取产品需求|GetProductStories|否|&nbsp;|
-|MyCurOpenedStory|所创建需求数和对应的优先级及状态|MyCurOpenedStory|否|&nbsp;|
-|MyFavorites|我的收藏|MyFavorites|否|&nbsp;|
-|ParentDefault|数据查询|ParentDefault|否|&nbsp;|
-|projectLinkStory|项目关联需求|projectLinkStory|否|&nbsp;|
-|ProjectStories|项目相关需求|ProjectStories|否|&nbsp;|
-|ReleaseLinkableStories|版本可关联的完成的需求|ReleaseLinkableStories|否|&nbsp;|
-|ReleaseStories|获取产品发布相关需求|ReleaseStories|否|&nbsp;|
-|ReportStories|通过模块查询|ReportStories|否|&nbsp;|
-|StoryChild|获取产品发布相关需求|StoryChild|否|&nbsp;|
-|StoryRelated|获取产品发布相关需求|StoryRelated|否|&nbsp;|
-|SubStory|需求细分|SubStory|否|&nbsp;|
-|TaskRelatedStory|任务相关需求|TaskRelatedStory|否|&nbsp;|
-
-## 查询模式
-| 属性      |    搜索模式     |
-| --------   |------------|
-|指派给(ASSIGNEDTO)|EQ|
-|所属计划(PLAN)|EQ|
-|优先级(PRI)|EQ|
-|优先级(PRI)|GTANDEQ|
-|优先级(PRI)|LTANDEQ|
-|当前状态(STATUS)|EQ|
-|当前状态(STATUS)|NOTEQ|
-|需求名称(TITLE)|LIKE|
-|由谁评审(REVIEWEDBY)|EQ|
-|设置阶段者(STAGEDBY)|EQ|
-|由谁创建(OPENEDBY)|EQ|
-|编号(ID)|EQ|
-|编号(ID)|NOTEQ|
-|需求来源(SOURCE)|EQ|
-|关闭原因(CLOSEDREASON)|EQ|
-|标题颜色(COLOR)|EQ|
-|最后修改(LASTEDITEDBY)|EQ|
-|所处阶段(STAGE)|EQ|
-|所处阶段(STAGE)|NOTEQ|
-|由谁关闭(CLOSEDBY)|EQ|
-|需求类型(TYPE)|EQ|
-|模块路径(PATH)|LIKE|
-|父需求名称(PARENTNAME)|EQ|
-|父需求名称(PARENTNAME)|LIKE|
-|所属模块名称(MODULENAME)|EQ|
-|所属模块名称(MODULENAME)|LIKE|
-|产品名称(PRODOCTNAME)|EQ|
-|产品名称(PRODOCTNAME)|LIKE|
-|来源Bug(FROMBUG)|EQ|
-|父需求(PARENT)|EQ|
-|所属模块(MODULE)|EQ|
-|所属产品(PRODUCT)|EQ|
-|重复需求ID(DUPLICATESTORY)|EQ|
-|平台/分支(BRANCH)|EQ|
-|转Bug(TOBUG)|EQ|
-|评审结果(RESULT)|EQ|
-|平台/分支(BRANCHNAME)|EQ|
-|平台/分支(BRANCHNAME)|LIKE|
-|之前的版本(PREVERSION)|EQ|
-
-## 导入模式
+#### 数据格式
 无
 
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [产品的分支和平台信息（ZT_BRANCH）](../zentao/Branch) |
+| 关系属性 | [名称（NAME）](../zentao/Branch/#属性-名称（NAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
 
-## 导出模式
-* 数据导出
+### 属性-细分需求（CHILDSTORIES）
+#### 属性说明
+细分需求
 
-|ID|P|需求名称|计划|创建|指派|预计|状态|阶段|所属模块名称|所属模块|是否收藏|是否可以细分|所属产品|产品名称|
-| :------: | :------: | :------: | :------: | :------: | :------: | :------: | :------: | :------: | :------: | :------: | :------: | :------: | :------: | :------: |
-| - | - | - | - | - | - | - | - | - | - | - | - | - | - | - |
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+SMCODELIST
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 | #EMPTY |
+
+#### 取值范围/公式
+参照数据字典【[当前需求版本（动态）（CurStory）](../../codelist/CurStory)】
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [产品的分支和平台信息（ZT_BRANCH）](../zentao/Branch) |
+| 关系属性 | [名称（NAME）](../zentao/Branch/#属性-名称（NAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-所属计划（PLAN）
+#### 属性说明
+所属计划
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+LONGTEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 | #EMPTY |
+
+#### 取值范围/公式
+参照数据字典【[当前产品计划（动态）_缓存（CurProductPlan）](../../codelist/CurProductPlan)】
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [产品的分支和平台信息（ZT_BRANCH）](../zentao/Branch) |
+| 关系属性 | [名称（NAME）](../zentao/Branch/#属性-名称（NAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-版本号（VERSION）
+#### 属性说明
+每次更新内容，会自动加1（只有真正更新数据才会更新，例如打开编辑/变更需求，没有进行任何修改点击保存，是不会更新该笔数据）
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+INT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 | 1 |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [产品的分支和平台信息（ZT_BRANCH）](../zentao/Branch) |
+| 关系属性 | [名称（NAME）](../zentao/Branch/#属性-名称（NAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-指派日期（ASSIGNEDDATE）
+#### 属性说明
+指派日期
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+DATETIME
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+时间格式：yyyy-MM-dd HH:mm:ss
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [产品的分支和平台信息（ZT_BRANCH）](../zentao/Branch) |
+| 关系属性 | [名称（NAME）](../zentao/Branch/#属性-名称（NAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-优先级（PRI）
+#### 属性说明
+优先级
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+NSCODELIST
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 | 3 |
+
+#### 取值范围/公式
+参照数据字典【[需求优先级（Story__pri）](../../codelist/Story__pri)】
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [产品的分支和平台信息（ZT_BRANCH）](../zentao/Branch) |
+| 关系属性 | [名称（NAME）](../zentao/Branch/#属性-名称（NAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-相关需求（LINKSTORIES）
+#### 属性说明
+相关需求
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+SMCODELIST
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 | #EMPTY |
+
+#### 取值范围/公式
+参照数据字典【[关联需求（动态）（RelatedStory）](../../codelist/RelatedStory)】
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [产品的分支和平台信息（ZT_BRANCH）](../zentao/Branch) |
+| 关系属性 | [名称（NAME）](../zentao/Branch/#属性-名称（NAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-当前状态（STATUS）
+#### 属性说明
+当前状态
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+SSCODELIST
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 | draft |
+
+#### 取值范围/公式
+参照数据字典【[需求状态（Story__status）](../../codelist/Story__status)】
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [产品的分支和平台信息（ZT_BRANCH）](../zentao/Branch) |
+| 关系属性 | [名称（NAME）](../zentao/Branch/#属性-名称（NAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-预计工时（ESTIMATE）
+#### 属性说明
+预计工时
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+FLOAT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 | 0 |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [产品的分支和平台信息（ZT_BRANCH）](../zentao/Branch) |
+| 关系属性 | [名称（NAME）](../zentao/Branch/#属性-名称（NAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-评审时间（REVIEWEDDATE）
+#### 属性说明
+评审时间
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+DATE
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+时间格式：yyyy-MM-dd
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [产品的分支和平台信息（ZT_BRANCH）](../zentao/Branch) |
+| 关系属性 | [名称（NAME）](../zentao/Branch/#属性-名称（NAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-需求名称（TITLE）
+#### 属性说明
+需求名称
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+否
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [产品的分支和平台信息（ZT_BRANCH）](../zentao/Branch) |
+| 关系属性 | [名称（NAME）](../zentao/Branch/#属性-名称（NAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-来源备注（SOURCENOTE）
+#### 属性说明
+来源备注
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 | #EMPTY |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [产品的分支和平台信息（ZT_BRANCH）](../zentao/Branch) |
+| 关系属性 | [名称（NAME）](../zentao/Branch/#属性-名称（NAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-由谁评审（REVIEWEDBY）
+#### 属性说明
+由谁评审
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+SMCODELIST
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+参照数据字典【[用户真实名称（动态）（UserRealName）](../../codelist/UserRealName)】
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [产品的分支和平台信息（ZT_BRANCH）](../zentao/Branch) |
+| 关系属性 | [名称（NAME）](../zentao/Branch/#属性-名称（NAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-子状态（SUBSTATUS）
+#### 属性说明
+子状态
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [产品的分支和平台信息（ZT_BRANCH）](../zentao/Branch) |
+| 关系属性 | [名称（NAME）](../zentao/Branch/#属性-名称（NAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-设置阶段者（STAGEDBY）
+#### 属性说明
+设置阶段者
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+SSCODELIST
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 | #EMPTY |
+
+#### 取值范围/公式
+参照数据字典【[用户真实名称（动态）（UserRealName）](../../codelist/UserRealName)】
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [产品的分支和平台信息（ZT_BRANCH）](../zentao/Branch) |
+| 关系属性 | [名称（NAME）](../zentao/Branch/#属性-名称（NAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-由谁创建（OPENEDBY）
+#### 属性说明
+由谁创建
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+SSCODELIST
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+参照数据字典【[用户真实名称（动态）（UserRealName）](../../codelist/UserRealName)】
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [产品的分支和平台信息（ZT_BRANCH）](../zentao/Branch) |
+| 关系属性 | [名称（NAME）](../zentao/Branch/#属性-名称（NAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-创建日期（OPENEDDATE）
+#### 属性说明
+创建日期
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+DATETIME
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+时间格式：yyyy-MM-dd HH:mm:ss
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [产品的分支和平台信息（ZT_BRANCH）](../zentao/Branch) |
+| 关系属性 | [名称（NAME）](../zentao/Branch/#属性-名称（NAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-编号（ID）
+#### 属性说明
+编号
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+ACID
+
+#### 是否允许为为空
+否
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [产品的分支和平台信息（ZT_BRANCH）](../zentao/Branch) |
+| 关系属性 | [名称（NAME）](../zentao/Branch/#属性-名称（NAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-需求来源（SOURCE）
+#### 属性说明
+需求来源
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+SSCODELIST
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 | #EMPTY |
+
+#### 取值范围/公式
+参照数据字典【[需求来源（Story__source）](../../codelist/Story__source)】
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [产品的分支和平台信息（ZT_BRANCH）](../zentao/Branch) |
+| 关系属性 | [名称（NAME）](../zentao/Branch/#属性-名称（NAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-关闭原因（CLOSEDREASON）
+#### 属性说明
+关闭原因
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+SSCODELIST
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 | #EMPTY |
+
+#### 取值范围/公式
+参照数据字典【[需求关闭原因（Story__closed_reason）](../../codelist/Story__closed_reason)】
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [产品的分支和平台信息（ZT_BRANCH）](../zentao/Branch) |
+| 关系属性 | [名称（NAME）](../zentao/Branch/#属性-名称（NAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-标题颜色（COLOR）
+#### 属性说明
+标题颜色
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+SSCODELIST
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 | #EMPTY |
+
+#### 取值范围/公式
+参照数据字典【[需求颜色（Story__color）](../../codelist/Story__color)】
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [产品的分支和平台信息（ZT_BRANCH）](../zentao/Branch) |
+| 关系属性 | [名称（NAME）](../zentao/Branch/#属性-名称（NAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-抄送给（MAILTO）
+#### 属性说明
+抄送给
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+SMCODELIST
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+参照数据字典【[用户真实名称（动态）（UserRealName）](../../codelist/UserRealName)】
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [产品的分支和平台信息（ZT_BRANCH）](../zentao/Branch) |
+| 关系属性 | [名称（NAME）](../zentao/Branch/#属性-名称（NAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-已删除（DELETED）
+#### 属性说明
+已删除
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 | 0 |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [产品的分支和平台信息（ZT_BRANCH）](../zentao/Branch) |
+| 关系属性 | [名称（NAME）](../zentao/Branch/#属性-名称（NAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-关键词（KEYWORDS）
+#### 属性说明
+关键词
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 | #EMPTY |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [产品的分支和平台信息（ZT_BRANCH）](../zentao/Branch) |
+| 关系属性 | [名称（NAME）](../zentao/Branch/#属性-名称（NAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-最后修改（LASTEDITEDBY）
+#### 属性说明
+最后修改
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+SSCODELIST
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+参照数据字典【[用户真实名称（动态）（UserRealName）](../../codelist/UserRealName)】
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [产品的分支和平台信息（ZT_BRANCH）](../zentao/Branch) |
+| 关系属性 | [名称（NAME）](../zentao/Branch/#属性-名称（NAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-所处阶段（STAGE）
+#### 属性说明
+所处阶段
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+SSCODELIST
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 | wait |
+
+#### 取值范围/公式
+参照数据字典【[需求阶段（Story__stage）](../../codelist/Story__stage)】
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [产品的分支和平台信息（ZT_BRANCH）](../zentao/Branch) |
+| 关系属性 | [名称（NAME）](../zentao/Branch/#属性-名称（NAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-关闭日期	（CLOSEDDATE）
+#### 属性说明
+关闭日期	
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+DATETIME
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+时间格式：yyyy-MM-dd HH:mm:ss
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [产品的分支和平台信息（ZT_BRANCH）](../zentao/Branch) |
+| 关系属性 | [名称（NAME）](../zentao/Branch/#属性-名称（NAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-由谁关闭（CLOSEDBY）
+#### 属性说明
+由谁关闭
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+SSCODELIST
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 | #EMPTY |
+
+#### 取值范围/公式
+参照数据字典【[用户真实名称（动态）（UserRealName）](../../codelist/UserRealName)】
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [产品的分支和平台信息（ZT_BRANCH）](../zentao/Branch) |
+| 关系属性 | [名称（NAME）](../zentao/Branch/#属性-名称（NAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-需求类型（TYPE）
+#### 属性说明
+需求类型
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+SSCODELIST
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 | story |
+
+#### 取值范围/公式
+参照数据字典【[需求类型（Story__type）](../../codelist/Story__type)】
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [产品的分支和平台信息（ZT_BRANCH）](../zentao/Branch) |
+| 关系属性 | [名称（NAME）](../zentao/Branch/#属性-名称（NAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-最后修改日期（LASTEDITEDDATE）
+#### 属性说明
+最后修改日期
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+DATETIME
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+时间格式：yyyy-MM-dd HH:mm:ss
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [产品的分支和平台信息（ZT_BRANCH）](../zentao/Branch) |
+| 关系属性 | [名称（NAME）](../zentao/Branch/#属性-名称（NAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-模块路径（PATH）
+#### 属性说明
+模块路径
+
+#### 属性类型
+链接属性[虚拟属性，映射关系实体的属性]
+
+#### 数据类型
+PICKUPDATA
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [需求模块（IBZ_PRODUCTMODULE）](../ibiz/ProductModule) |
+| 关系属性 | [path（PATH）](../ibiz/ProductModule/#属性-path（PATH）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-父需求名称（PARENTNAME）
+#### 属性说明
+父需求名称
+
+#### 属性类型
+链接属性[虚拟属性，映射关系实体的属性]
+
+#### 数据类型
+PICKUPTEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [需求（ZT_STORY）](../zentao/Story) |
+| 关系属性 | [需求名称（TITLE）](../zentao/Story/#属性-需求名称（TITLE）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-所属模块名称（MODULENAME）
+#### 属性说明
+所属模块名称
+
+#### 属性类型
+链接属性[虚拟属性，映射关系实体的属性]
+
+#### 数据类型
+PICKUPTEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [需求模块（IBZ_PRODUCTMODULE）](../ibiz/ProductModule) |
+| 关系属性 | [名称（NAME）](../ibiz/ProductModule/#属性-名称（NAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-产品名称（PRODOCTNAME）
+#### 属性说明
+产品名称
+
+#### 属性类型
+链接属性[虚拟属性，映射关系实体的属性]
+
+#### 数据类型
+PICKUPTEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
+| 关系属性 | [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-来源Bug（FROMBUG）
+#### 属性说明
+来源Bug
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+PICKUP
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 | 0 |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [Bug（ZT_BUG）](../zentao/Bug) |
+| 关系属性 | [Bug编号（ID）](../zentao/Bug/#属性-Bug编号（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-父需求（PARENT）
+#### 属性说明
+父需求
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+PICKUP
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 | 0 |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [需求（ZT_STORY）](../zentao/Story) |
+| 关系属性 | [编号（ID）](../zentao/Story/#属性-编号（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-所属模块（MODULE）
+#### 属性说明
+所属模块
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+PICKUP
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 | 0 |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [需求模块（IBZ_PRODUCTMODULE）](../ibiz/ProductModule) |
+| 关系属性 | [id（ID）](../ibiz/ProductModule/#属性-id（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-所属产品（PRODUCT）
+#### 属性说明
+所属产品
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+PICKUP
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 | 0 |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
+| 关系属性 | [编号（ID）](../zentao/Product/#属性-编号（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-重复需求ID（DUPLICATESTORY）
+#### 属性说明
+重复需求ID
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+PICKUP
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 | 0 |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [需求（ZT_STORY）](../zentao/Story) |
+| 关系属性 | [编号（ID）](../zentao/Story/#属性-编号（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-平台/分支（BRANCH）
+#### 属性说明
+平台/分支
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+PICKUP
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 | 0 |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [产品的分支和平台信息（ZT_BRANCH）](../zentao/Branch) |
+| 关系属性 | [编号（ID）](../zentao/Branch/#属性-编号（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-转Bug（TOBUG）
+#### 属性说明
+暂时没找到使用地方（页面操作了从需求转Bug也没有更新该字段）
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+PICKUP
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 | 0 |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [Bug（ZT_BUG）](../zentao/Bug) |
+| 关系属性 | [Bug编号（ID）](../zentao/Bug/#属性-Bug编号（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-需求描述（SPEC）
+#### 属性说明
+需求描述
+
+#### 属性类型
+应用界面属性[虚拟属性，提供给页面显示的属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [Bug（ZT_BUG）](../zentao/Bug) |
+| 关系属性 | [Bug编号（ID）](../zentao/Bug/#属性-Bug编号（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-验收标准（VERIFY）
+#### 属性说明
+验收标准
+
+#### 属性类型
+应用界面属性[虚拟属性，提供给页面显示的属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [Bug（ZT_BUG）](../zentao/Bug) |
+| 关系属性 | [Bug编号（ID）](../zentao/Bug/#属性-Bug编号（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-评审结果（RESULT）
+#### 属性说明
+评审结果
+
+#### 属性类型
+应用界面属性[虚拟属性，提供给页面显示的属性]
+
+#### 数据类型
+SSCODELIST
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+参照数据字典【[需求评审结果（Story__review_result）](../../codelist/Story__review_result)】
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [Bug（ZT_BUG）](../zentao/Bug) |
+| 关系属性 | [Bug编号（ID）](../zentao/Bug/#属性-Bug编号（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-备注（COMMENT）
+#### 属性说明
+备注
+
+#### 属性类型
+应用界面属性[虚拟属性，提供给页面显示的属性]
+
+#### 数据类型
+HTMLTEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [Bug（ZT_BUG）](../zentao/Bug) |
+| 关系属性 | [Bug编号（ID）](../zentao/Bug/#属性-Bug编号（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-是否子需求（ISLEAF）
+#### 属性说明
+是否子需求
+
+#### 属性类型
+逻辑属性[虚拟属性，来自计算逻辑和计算公式]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+(CASE WHEN EXISTS (SELECT 1 FROM ZT_STORY WHERE  PARENT = %1$s AND DELETED = '0') THEN FALSE ELSE TRUE  END )
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [Bug（ZT_BUG）](../zentao/Bug) |
+| 关系属性 | [Bug编号（ID）](../zentao/Bug/#属性-Bug编号（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-附件（FILES）
+#### 属性说明
+附件
+
+#### 属性类型
+应用界面属性[虚拟属性，提供给页面显示的属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [Bug（ZT_BUG）](../zentao/Bug) |
+| 关系属性 | [Bug编号（ID）](../zentao/Bug/#属性-Bug编号（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-平台/分支（BRANCHNAME）
+#### 属性说明
+平台/分支
+
+#### 属性类型
+链接属性[虚拟属性，映射关系实体的属性]
+
+#### 数据类型
+PICKUPTEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [产品的分支和平台信息（ZT_BRANCH）](../zentao/Branch) |
+| 关系属性 | [名称（NAME）](../zentao/Branch/#属性-名称（NAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-版本号（VERSIONC）
+#### 属性说明
+版本号
+
+#### 属性类型
+逻辑属性[虚拟属性，来自计算逻辑和计算公式]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+t1.`VERSION`
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [产品的分支和平台信息（ZT_BRANCH）](../zentao/Branch) |
+| 关系属性 | [名称（NAME）](../zentao/Branch/#属性-名称（NAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-所属模块名称（MODULENAME1）
+#### 属性说明
+所属模块名称
+
+#### 属性类型
+逻辑属性[虚拟属性，来自计算逻辑和计算公式]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+(case when t1.module = '0' then '/' else (SELECT GROUP_CONCAT( tt.NAME SEPARATOR '>' ) FROM zt_module tt  WHERE FIND_IN_SET( tt.id, t11.path ) AND tt.type = 'story' GROUP BY	tt.root limit 0,1) end)
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [产品的分支和平台信息（ZT_BRANCH）](../zentao/Branch) |
+| 关系属性 | [名称（NAME）](../zentao/Branch/#属性-名称（NAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-项目（PROJECT）
+#### 属性说明
+项目
+
+#### 属性类型
+应用界面属性[虚拟属性，提供给页面显示的属性]
+
+#### 数据类型
+BIGINT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [产品的分支和平台信息（ZT_BRANCH）](../zentao/Branch) |
+| 关系属性 | [名称（NAME）](../zentao/Branch/#属性-名称（NAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-之前的版本（PREVERSION）
+#### 属性说明
+之前的版本
+
+#### 属性类型
+应用界面属性[虚拟属性，提供给页面显示的属性]
+
+#### 数据类型
+INT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [产品的分支和平台信息（ZT_BRANCH）](../zentao/Branch) |
+| 关系属性 | [名称（NAME）](../zentao/Branch/#属性-名称（NAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-不需要评审（NEEDNOTREVIEW）
+#### 属性说明
+不需要评审
+
+#### 属性类型
+应用界面属性[虚拟属性，提供给页面显示的属性]
+
+#### 数据类型
+SMCODELIST
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+参照数据字典【[不需要评审（NeedNotReview）](../../codelist/NeedNotReview)】
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [产品的分支和平台信息（ZT_BRANCH）](../zentao/Branch) |
+| 关系属性 | [名称（NAME）](../zentao/Branch/#属性-名称（NAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-是否收藏（ISFAVORITES）
+#### 属性说明
+是否收藏
+
+#### 属性类型
+逻辑属性[虚拟属性，来自计算逻辑和计算公式]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+0
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [产品的分支和平台信息（ZT_BRANCH）](../zentao/Branch) |
+| 关系属性 | [名称（NAME）](../zentao/Branch/#属性-名称（NAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-是否可以细分（ISCHILD）
+#### 属性说明
+是否可以细分
+
+#### 属性类型
+逻辑属性[虚拟属性，来自计算逻辑和计算公式]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+(case when t1.parent in (-1) and t1.stage = 'wait' then '1' when t1.parent in (0) and t1.stage = 'wait' then '2'  else '0' end)
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [产品的分支和平台信息（ZT_BRANCH）](../zentao/Branch) |
+| 关系属性 | [名称（NAME）](../zentao/Branch/#属性-名称（NAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+

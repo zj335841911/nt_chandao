@@ -1,86 +1,388 @@
-# 通知(ZT_NOTIFY)
+# 实体-通知(ZT_NOTIFY)
+## 实体说明
+通知
 
-  
+## 所属模块
+[禅道模块](../zentao)
 
-## 关系
+## 实体属性
+| 序号 | 属性 | 属性名 | 数据类型 | 是否是主键 | 是否是外键 | 是否允许为空 | 关系属性（实体-属性） |
+| -- | -- | -- | -- | -- | -- |
+| 1 | [createdDate](#属性-createdDate（CREATEDDATE）) | CREATEDDATE | DATETIME | 否 | 否 | 是 | -- |
+| 2 | [ccList](#属性-ccList（CCLIST）) | CCLIST | LONGTEXT | 否 | 否 | 是 | -- |
+| 3 | [failReason](#属性-failReason（FAILREASON）) | FAILREASON | LONGTEXT | 否 | 否 | 是 | -- |
+| 4 | [action](#属性-action（ACTION）) | ACTION | INT | 否 | 否 | 是 | -- |
+| 5 | [id](#属性-id（ID）) | ID | ACID | 是 | 否 | 否 | -- |
+| 6 | [createdBy](#属性-createdBy（CREATEDBY）) | CREATEDBY | TEXT | 否 | 否 | 是 | -- |
+| 7 | [status](#属性-status（STATUS）) | STATUS | TEXT | 否 | 否 | 是 | -- |
+| 8 | [subject](#属性-subject（SUBJECT）) | SUBJECT | TEXT | 否 | 否 | 是 | -- |
+| 9 | [objectID](#属性-objectID（OBJECTID）) | OBJECTID | INT | 否 | 否 | 是 | -- |
+| 10 | [data](#属性-data（DATA）) | DATA | LONGTEXT | 否 | 否 | 是 | -- |
+| 11 | [toList](#属性-toList（TOLIST）) | TOLIST | TEXT | 否 | 否 | 是 | -- |
+| 12 | [sendTime](#属性-sendTime（SENDTIME）) | SENDTIME | DATETIME | 否 | 否 | 是 | -- |
+| 13 | [objectType](#属性-objectType（OBJECTTYPE）) | OBJECTTYPE | TEXT | 否 | 否 | 是 | -- |
+
+### 属性-createdDate（CREATEDDATE）
+#### 属性说明
+createdDate
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+DATETIME
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
 无
 
-## 属性
+#### 数据格式
+时间格式：yyyy-MM-dd HH:mm:ss
 
-| 属性名称        |    中文名称    | 类型     |  备注  |
-| --------   |------------| -----   |  -------- | 
-|createdDate|CREATEDDATE|DATETIME|&nbsp;|
-|ccList|CCLIST|LONGTEXT|&nbsp;|
-|failReason|FAILREASON|LONGTEXT|&nbsp;|
-|action|ACTION|INT|&nbsp;|
-|id|ID|ACID|&nbsp;|
-|createdBy|CREATEDBY|TEXT|&nbsp;|
-|status|STATUS|TEXT|&nbsp;|
-|subject|SUBJECT|TEXT|&nbsp;|
-|objectID|OBJECTID|INT|&nbsp;|
-|data|DATA|LONGTEXT|&nbsp;|
-|toList|TOLIST|TEXT|&nbsp;|
-|sendTime|SENDTIME|DATETIME|&nbsp;|
-|objectType|OBJECTTYPE|TEXT|&nbsp;|
-
-## 值规则
-| 属性名称    | 规则    |  说明  |
-| --------   |------------| ----- | 
-|createdDate|默认规则|默认规则|
-|ccList|默认规则|内容长度必须小于等于[65535]|
-|failReason|默认规则|内容长度必须小于等于[65535]|
-|action|默认规则|默认规则|
-|id|默认规则|默认规则|
-|createdBy|默认规则|内容长度必须小于等于[30]|
-|status|默认规则|内容长度必须小于等于[10]|
-|subject|默认规则|内容长度必须小于等于[255]|
-|objectID|默认规则|默认规则|
-|data|默认规则|内容长度必须小于等于[65535]|
-|toList|默认规则|内容长度必须小于等于[255]|
-|sendTime|默认规则|默认规则|
-|objectType|默认规则|内容长度必须小于等于[50]|
-
-## 状态控制
-
+#### 关系属性
 无
 
+### 属性-ccList（CCLIST）
+#### 属性说明
+ccList
 
-## 行为
-| 行为    | 类型    |  说明  |
-| --------   |------------| ----- | 
-|Create|内置方法|&nbsp;|
-|Update|内置方法|&nbsp;|
-|Remove|内置方法|&nbsp;|
-|Get|内置方法|&nbsp;|
-|GetDraft|内置方法|&nbsp;|
-|CheckKey|内置方法|&nbsp;|
-|Save|内置方法|&nbsp;|
+#### 属性类型
+物理属性[实体属性]
 
-## 处理逻辑
+#### 数据类型
+LONGTEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
 无
 
-## 查询集合
-
-* **查询**
-
-| 查询编号 | 查询名称       | 默认查询 |   备注|
-| --------  | --------   | --------   | ----- |
-|DEFAULT|DEFAULT([MYSQL5](../../appendix/query_MYSQL5.md#Notify_Default))|否|&nbsp;|
-|VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#Notify_View))|否|&nbsp;|
-
-* **数据集合**
-
-| 集合编号 | 集合名称   |  包含查询  | 默认集合 |   备注|
-| --------  | --------   | -------- | --------   | ----- |
-|DEFAULT|DEFAULT|DEFAULT|是|&nbsp;|
-
-## 查询模式
-| 属性      |    搜索模式     |
-| --------   |------------|
-
-## 导入模式
+#### 数据格式
 无
 
-
-## 导出模式
+#### 关系属性
 无
+
+### 属性-failReason（FAILREASON）
+#### 属性说明
+failReason
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+LONGTEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+无
+
+### 属性-action（ACTION）
+#### 属性说明
+action
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+INT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+无
+
+### 属性-id（ID）
+#### 属性说明
+id
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+ACID
+
+#### 是否允许为为空
+否
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+无
+
+### 属性-createdBy（CREATEDBY）
+#### 属性说明
+createdBy
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+无
+
+### 属性-status（STATUS）
+#### 属性说明
+status
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 | wait |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+无
+
+### 属性-subject（SUBJECT）
+#### 属性说明
+subject
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+无
+
+### 属性-objectID（OBJECTID）
+#### 属性说明
+objectID
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+INT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+无
+
+### 属性-data（DATA）
+#### 属性说明
+data
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+LONGTEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+无
+
+### 属性-toList（TOLIST）
+#### 属性说明
+toList
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+无
+
+### 属性-sendTime（SENDTIME）
+#### 属性说明
+sendTime
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+DATETIME
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+时间格式：yyyy-MM-dd HH:mm:ss
+
+#### 关系属性
+无
+
+### 属性-objectType（OBJECTTYPE）
+#### 属性说明
+objectType
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+无
+

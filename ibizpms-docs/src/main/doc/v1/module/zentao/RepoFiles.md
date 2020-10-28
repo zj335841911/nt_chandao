@@ -1,79 +1,242 @@
-# repofiles(ZT_REPOFILES)
+# 实体-repofiles(ZT_REPOFILES)
+## 实体说明
+repofiles
 
-  
+## 所属模块
+[禅道模块](../zentao)
 
-## 关系
-{% plantuml %}
-repofiles *-- repofiles 
-repofiles *-- repofiles 
-hide members
-{% endplantuml %}
+## 实体属性
+| 序号 | 属性 | 属性名 | 数据类型 | 是否是主键 | 是否是外键 | 是否允许为空 | 关系属性（实体-属性） |
+| -- | -- | -- | -- | -- | -- |
+| 1 | [path](#属性-path（PATH）) | PATH | TEXT | 否 | 否 | 是 | -- |
+| 2 | [type](#属性-type（TYPE）) | TYPE | TEXT | 否 | 否 | 是 | -- |
+| 3 | [revision](#属性-revision（REVISION）) | REVISION | INT | 否 | 否 | 是 | -- |
+| 4 | [action](#属性-action（ACTION）) | ACTION | TEXT | 否 | 否 | 是 | -- |
+| 5 | [repo](#属性-repo（REPO）) | REPO | INT | 否 | 否 | 是 | -- |
+| 6 | [id](#属性-id（ID）) | ID | ACID | 是 | 否 | 否 | -- |
+| 7 | [parent](#属性-parent（PARENT）) | PARENT | PICKUP | 否 | 是 | 是 | [repofiles（ZT_REPOFILES）](../zentao/RepoFiles) - [id（ID）](../zentao/RepoFiles/#属性-id（ID）) |
 
-## 属性
+### 属性-path（PATH）
+#### 属性说明
+path
 
-| 属性名称        |    中文名称    | 类型     |  备注  |
-| --------   |------------| -----   |  -------- | 
-|path|PATH|TEXT|&nbsp;|
-|type|TYPE|TEXT|&nbsp;|
-|revision|REVISION|INT|&nbsp;|
-|action|ACTION|TEXT|&nbsp;|
-|repo|REPO|INT|&nbsp;|
-|id|ID|ACID|&nbsp;|
-|parent|PARENT|PICKUP|&nbsp;|
+#### 属性类型
+物理属性[实体属性]
 
-## 值规则
-| 属性名称    | 规则    |  说明  |
-| --------   |------------| ----- | 
-|path|默认规则|内容长度必须小于等于[255]|
-|type|默认规则|内容长度必须小于等于[20]|
-|revision|默认规则|默认规则|
-|action|默认规则|内容长度必须小于等于[1]|
-|repo|默认规则|默认规则|
-|id|默认规则|默认规则|
-|parent|默认规则|默认规则|
+#### 数据类型
+TEXT
 
-## 状态控制
+#### 是否允许为为空
+是
 
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
 无
 
-
-## 行为
-| 行为    | 类型    |  说明  |
-| --------   |------------| ----- | 
-|Create|内置方法|&nbsp;|
-|Update|内置方法|&nbsp;|
-|Remove|内置方法|&nbsp;|
-|Get|内置方法|&nbsp;|
-|GetDraft|内置方法|&nbsp;|
-|CheckKey|内置方法|&nbsp;|
-|Save|内置方法|&nbsp;|
-
-## 处理逻辑
+#### 数据格式
 无
 
-## 查询集合
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [repofiles（ZT_REPOFILES）](../zentao/RepoFiles) |
+| 关系属性 | [id（ID）](../zentao/RepoFiles/#属性-id（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
 
-* **查询**
+### 属性-type（TYPE）
+#### 属性说明
+type
 
-| 查询编号 | 查询名称       | 默认查询 |   备注|
-| --------  | --------   | --------   | ----- |
-|DEFAULT|DEFAULT([MYSQL5](../../appendix/query_MYSQL5.md#RepoFiles_Default))|否|&nbsp;|
-|VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#RepoFiles_View))|否|&nbsp;|
+#### 属性类型
+物理属性[实体属性]
 
-* **数据集合**
+#### 数据类型
+TEXT
 
-| 集合编号 | 集合名称   |  包含查询  | 默认集合 |   备注|
-| --------  | --------   | -------- | --------   | ----- |
-|DEFAULT|DEFAULT|DEFAULT|是|&nbsp;|
+#### 是否允许为为空
+是
 
-## 查询模式
-| 属性      |    搜索模式     |
-| --------   |------------|
-|parent(PARENT)|EQ|
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
 
-## 导入模式
+#### 取值范围/公式
 无
 
-
-## 导出模式
+#### 数据格式
 无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [repofiles（ZT_REPOFILES）](../zentao/RepoFiles) |
+| 关系属性 | [id（ID）](../zentao/RepoFiles/#属性-id（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-revision（REVISION）
+#### 属性说明
+revision
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+INT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [repofiles（ZT_REPOFILES）](../zentao/RepoFiles) |
+| 关系属性 | [id（ID）](../zentao/RepoFiles/#属性-id（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-action（ACTION）
+#### 属性说明
+action
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [repofiles（ZT_REPOFILES）](../zentao/RepoFiles) |
+| 关系属性 | [id（ID）](../zentao/RepoFiles/#属性-id（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-repo（REPO）
+#### 属性说明
+repo
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+INT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [repofiles（ZT_REPOFILES）](../zentao/RepoFiles) |
+| 关系属性 | [id（ID）](../zentao/RepoFiles/#属性-id（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-id（ID）
+#### 属性说明
+id
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+ACID
+
+#### 是否允许为为空
+否
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [repofiles（ZT_REPOFILES）](../zentao/RepoFiles) |
+| 关系属性 | [id（ID）](../zentao/RepoFiles/#属性-id（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-parent（PARENT）
+#### 属性说明
+parent
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+PICKUP
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [repofiles（ZT_REPOFILES）](../zentao/RepoFiles) |
+| 关系属性 | [id（ID）](../zentao/RepoFiles/#属性-id（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+

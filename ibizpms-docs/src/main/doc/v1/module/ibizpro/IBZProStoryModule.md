@@ -1,119 +1,473 @@
-# 需求模块(IBZPRO_STORYMODULE)
+# 实体-需求模块(IBZPRO_STORYMODULE)
+## 实体说明
+需求模块
 
-  
+## 所属模块
+[iBizPro模块](../ibizpro)
 
-## 关系
-{% plantuml %}
-需求模块 *-- 需求模块 
-需求模块 *-- 需求 
-平台产品 *-- 需求模块 
-需求模块 *-- 需求模块 
-hide members
-{% endplantuml %}
+## 实体属性
+| 序号 | 属性 | 属性名 | 数据类型 | 是否是主键 | 是否是外键 | 是否允许为空 | 关系属性（实体-属性） |
+| -- | -- | -- | -- | -- | -- |
+| 1 | [id](#属性-id（ID）) | ID | ACID | 是 | 否 | 否 | -- |
+| 2 | [名称](#属性-名称（NAME）) | NAME | TEXT | 否 | 否 | 否 | -- |
+| 3 | [编号](#属性-编号（ROOT）) | ROOT | PICKUP | 否 | 是 | 是 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) - [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
+| 4 | [IBIZ标识](#属性-IBIZ标识（IBIZ_ID）) | IBIZ_ID | TEXT | 否 | 是 | 是 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) - [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
+| 5 | [类型](#属性-类型（TYPE）) | TYPE | SSCODELIST | 否 | 是 | 是 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) - [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
+| 6 | [级别](#属性-级别（GRADE）) | GRADE | INT | 否 | 是 | 是 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) - [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
+| 7 | [路径](#属性-路径（PATH）) | PATH | TEXT | 否 | 是 | 是 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) - [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
+| 8 | [简称](#属性-简称（SHORT）) | SHORT | TEXT | 否 | 是 | 是 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) - [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
+| 9 | [id](#属性-id（PARENT）) | PARENT | PICKUP | 否 | 是 | 是 | [需求模块（IBZPRO_STORYMODULE）](../ibizpro/IBZProStoryModule) - [id（ID）](../ibizpro/IBZProStoryModule/#属性-id（ID）) |
+| 10 | [产品](#属性-产品（PRODUCTNAME）) | PRODUCTNAME | PICKUPTEXT | 否 | 是 | 是 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) - [产品名称（NAME）](../ibizpro/IBZProProduct/#属性-产品名称（NAME）) |
+| 11 | [owner](#属性-owner（OWNER）) | OWNER | TEXT | 否 | 是 | 是 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) - [产品名称（NAME）](../ibizpro/IBZProProduct/#属性-产品名称（NAME）) |
+| 12 | [collector](#属性-collector（COLLECTOR）) | COLLECTOR | LONGTEXT | 否 | 是 | 是 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) - [产品名称（NAME）](../ibizpro/IBZProProduct/#属性-产品名称（NAME）) |
+| 13 | [已删除](#属性-已删除（DELETED）) | DELETED | TEXT | 否 | 是 | 是 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) - [产品名称（NAME）](../ibizpro/IBZProProduct/#属性-产品名称（NAME）) |
+| 14 | [需求模块类型](#属性-需求模块类型（IBIZ_STORYTYPE）) | IBIZ_STORYTYPE | SSCODELIST | 否 | 是 | 是 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) - [产品名称（NAME）](../ibizpro/IBZProProduct/#属性-产品名称（NAME）) |
 
-## 属性
+### 属性-id（ID）
+#### 属性说明
+id
 
-| 属性名称        |    中文名称    | 类型     |  备注  |
-| --------   |------------| -----   |  -------- | 
-|id|ID|ACID|&nbsp;|
-|名称|NAME|TEXT|&nbsp;|
-|编号|ROOT|PICKUP|&nbsp;|
-|IBIZ标识|IBIZ_ID|TEXT|&nbsp;|
-|类型|TYPE|SSCODELIST|&nbsp;|
-|级别|GRADE|INT|&nbsp;|
-|路径|PATH|TEXT|&nbsp;从根到自己|
-|简称|SHORT|TEXT|&nbsp;|
-|id|PARENT|PICKUP|&nbsp;|
-|产品|PRODUCTNAME|PICKUPTEXT|&nbsp;|
-|owner|OWNER|TEXT|&nbsp;|
-|collector|COLLECTOR|LONGTEXT|&nbsp;|
-|已删除|DELETED|TEXT|&nbsp;|
-|需求模块类型|IBIZ_STORYTYPE|SSCODELIST|&nbsp;|
+#### 属性类型
+物理属性[实体属性]
 
-## 值规则
-| 属性名称    | 规则    |  说明  |
-| --------   |------------| ----- | 
-|id|默认规则|默认规则|
-|名称|默认规则|内容长度必须小于等于[60]|
-|编号|默认规则|默认规则|
-|IBIZ标识|默认规则|内容长度必须小于等于[100]|
-|类型|默认规则|内容长度必须小于等于[30]|
-|级别|默认规则|默认规则|
-|路径|默认规则|内容长度必须小于等于[255]|
-|简称|默认规则|内容长度必须小于等于[30]|
-|id|默认规则|默认规则|
-|产品|默认规则|内容长度必须小于等于[90]|
-|owner|默认规则|内容长度必须小于等于[30]|
-|collector|默认规则|内容长度必须小于等于[65535]|
-|已删除|默认规则|内容长度必须小于等于[1]|
-|需求模块类型|默认规则|内容长度必须小于等于[60]|
+#### 数据类型
+ACID
 
-## 状态控制
+#### 是否允许为为空
+否
 
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
 无
 
-
-## 行为
-| 行为    | 类型    |  说明  |
-| --------   |------------| ----- | 
-|Create|内置方法|&nbsp;|
-|Update|内置方法|&nbsp;|
-|Remove|内置方法|&nbsp;|
-|Get|内置方法|&nbsp;|
-|GetDraft|内置方法|&nbsp;|
-|CheckKey|内置方法|&nbsp;|
-|Save|内置方法|&nbsp;|
-|同步Ibz平台模块|用户自定义|&nbsp;|
-
-## 处理逻辑
-* 重建模块路径 (FixPath)
-  
-   
-
-{% plantuml %}
-hide footbox
-
-需求模块 -> 需求模块: 准备参数
-需求模块 -> 模块: 执行重建模块路径行为
-{% endplantuml %}
-
-| 步骤       | 操作        |
-| --------   | --------   |
-|0|开始 | 
-|1|准备参数 |
-|2|执行重建模块路径行为 |
-<center>重建模块路径</center>
-
-## 查询集合
-
-* **查询**
-
-| 查询编号 | 查询名称       | 默认查询 |   备注|
-| --------  | --------   | --------   | ----- |
-|DEFAULT|数据查询([MYSQL5](../../appendix/query_MYSQL5.md#IBZProStoryModule_Default))|否|&nbsp;|
-|VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#IBZProStoryModule_View))|否|&nbsp;|
-
-* **数据集合**
-
-| 集合编号 | 集合名称   |  包含查询  | 默认集合 |   备注|
-| --------  | --------   | -------- | --------   | ----- |
-|DEFAULT|数据集|DEFAULT|是|&nbsp;|
-
-## 查询模式
-| 属性      |    搜索模式     |
-| --------   |------------|
-|名称(NAME)|LIKE|
-|编号(ROOT)|EQ|
-|IBIZ标识(IBIZ_ID)|EQ|
-|类型(TYPE)|EQ|
-|id(PARENT)|EQ|
-|产品(PRODUCTNAME)|EQ|
-|产品(PRODUCTNAME)|LIKE|
-|需求模块类型(IBIZ_STORYTYPE)|EQ|
-
-## 导入模式
+#### 数据格式
 无
 
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
+| 关系属性 | [产品名称（NAME）](../ibizpro/IBZProProduct/#属性-产品名称（NAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
 
-## 导出模式
+### 属性-名称（NAME）
+#### 属性说明
+名称
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+否
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
 无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
+| 关系属性 | [产品名称（NAME）](../ibizpro/IBZProProduct/#属性-产品名称（NAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-编号（ROOT）
+#### 属性说明
+编号
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+PICKUP
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
+| 关系属性 | [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-IBIZ标识（IBIZ_ID）
+#### 属性说明
+IBIZ标识
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
+| 关系属性 | [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-类型（TYPE）
+#### 属性说明
+类型
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+SSCODELIST
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 | story |
+
+#### 取值范围/公式
+参照数据字典【[模块类型（Module__type）](../../codelist/Module__type)】
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
+| 关系属性 | [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-级别（GRADE）
+#### 属性说明
+级别
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+INT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 | 0 |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
+| 关系属性 | [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-路径（PATH）
+#### 属性说明
+从根到自己
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 | ， |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
+| 关系属性 | [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-简称（SHORT）
+#### 属性说明
+简称
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 | / |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
+| 关系属性 | [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-id（PARENT）
+#### 属性说明
+id
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+PICKUP
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [需求模块（IBZPRO_STORYMODULE）](../ibizpro/IBZProStoryModule) |
+| 关系属性 | [id（ID）](../ibizpro/IBZProStoryModule/#属性-id（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-产品（PRODUCTNAME）
+#### 属性说明
+产品
+
+#### 属性类型
+链接属性[虚拟属性，映射关系实体的属性]
+
+#### 数据类型
+PICKUPTEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
+| 关系属性 | [产品名称（NAME）](../ibizpro/IBZProProduct/#属性-产品名称（NAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-owner（OWNER）
+#### 属性说明
+owner
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 | / |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
+| 关系属性 | [产品名称（NAME）](../ibizpro/IBZProProduct/#属性-产品名称（NAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-collector（COLLECTOR）
+#### 属性说明
+collector
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+LONGTEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 | / |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
+| 关系属性 | [产品名称（NAME）](../ibizpro/IBZProProduct/#属性-产品名称（NAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-已删除（DELETED）
+#### 属性说明
+已删除
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 | 0 |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
+| 关系属性 | [产品名称（NAME）](../ibizpro/IBZProProduct/#属性-产品名称（NAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-需求模块类型（IBIZ_STORYTYPE）
+#### 属性说明
+需求模块类型
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+SSCODELIST
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+参照数据字典【[需求模块类型（Ibizpro_storymodule__type）](../../codelist/Ibizpro_storymodule__type)】
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
+| 关系属性 | [产品名称（NAME）](../ibizpro/IBZProProduct/#属性-产品名称（NAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+

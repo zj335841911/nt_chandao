@@ -1,171 +1,704 @@
-# 产品计划(ZT_PRODUCTPLAN)
+# 实体-产品计划(ZT_PRODUCTPLAN)
+## 实体说明
+产品计划
 
-  
+## 所属模块
+[禅道模块](../zentao)
 
-## 关系
-{% plantuml %}
-产品计划 *-- Bug 
-产品计划 *-- 项目产品 
-产品计划 *-- 产品计划 
-产品的分支和平台信息 *-- 产品计划 
-产品 *-- 产品计划 
-产品计划 *-- 产品计划 
-hide members
-{% endplantuml %}
+## 实体属性
+| 序号 | 属性 | 属性名 | 数据类型 | 是否是主键 | 是否是外键 | 是否允许为空 | 关系属性（实体-属性） |
+| -- | -- | -- | -- | -- | -- |
+| 1 | [名称](#属性-名称（TITLE）) | TITLE | TEXT | 否 | 否 | 否 | -- |
+| 2 | [编号](#属性-编号（ID）) | ID | ACID | 是 | 否 | 否 | -- |
+| 3 | [开始日期](#属性-开始日期（BEGIN）) | BEGIN | DATE | 否 | 否 | 是 | -- |
+| 4 | [描述](#属性-描述（DESC）) | DESC | LONGTEXT | 否 | 否 | 是 | -- |
+| 5 | [结束日期](#属性-结束日期（END）) | END | DATE | 否 | 否 | 是 | -- |
+| 6 | [已删除](#属性-已删除（DELETED）) | DELETED | TEXT | 否 | 否 | 否 | -- |
+| 7 | [排序](#属性-排序（ORDER）) | ORDER | LONGTEXT | 否 | 否 | 是 | -- |
+| 8 | [父计划名称](#属性-父计划名称（PARENTNAME）) | PARENTNAME | PICKUPTEXT | 否 | 是 | 是 | [产品计划（ZT_PRODUCTPLAN）](../zentao/ProductPlan) - [名称（TITLE）](../zentao/ProductPlan/#属性-名称（TITLE）) |
+| 9 | [平台/分支](#属性-平台/分支（BRANCH）) | BRANCH | PICKUP | 否 | 是 | 是 | [产品的分支和平台信息（ZT_BRANCH）](../zentao/Branch) - [编号（ID）](../zentao/Branch/#属性-编号（ID）) |
+| 10 | [父计划](#属性-父计划（PARENT）) | PARENT | PICKUP | 否 | 是 | 是 | [产品计划（ZT_PRODUCTPLAN）](../zentao/ProductPlan) - [编号（ID）](../zentao/ProductPlan/#属性-编号（ID）) |
+| 11 | [产品](#属性-产品（PRODUCT）) | PRODUCT | PICKUP | 否 | 是 | 是 | [产品（ZT_PRODUCT）](../zentao/Product) - [编号（ID）](../zentao/Product/#属性-编号（ID）) |
+| 12 | [状态](#属性-状态（STATUSS）) | STATUSS | TEXT | 否 | 是 | 是 | [产品（ZT_PRODUCT）](../zentao/Product) - [编号（ID）](../zentao/Product/#属性-编号（ID）) |
+| 13 | [待定](#属性-待定（FUTURE）) | FUTURE | SSCODELIST | 否 | 是 | 是 | [产品（ZT_PRODUCT）](../zentao/Product) - [编号（ID）](../zentao/Product/#属性-编号（ID）) |
+| 14 | [周期](#属性-周期（DELTA）) | DELTA | SSCODELIST | 否 | 是 | 是 | [产品（ZT_PRODUCT）](../zentao/Product) - [编号（ID）](../zentao/Product/#属性-编号（ID）) |
+| 15 | [上一次计划名称](#属性-上一次计划名称（OLDTITLE）) | OLDTITLE | TEXT | 否 | 是 | 是 | [产品（ZT_PRODUCT）](../zentao/Product) - [编号（ID）](../zentao/Product/#属性-编号（ID）) |
+| 16 | [需求数](#属性-需求数（STORYCNT）) | STORYCNT | INT | 否 | 是 | 是 | [产品（ZT_PRODUCT）](../zentao/Product) - [编号（ID）](../zentao/Product/#属性-编号（ID）) |
+| 17 | [bug数](#属性-bug数（BUGCNT）) | BUGCNT | INT | 否 | 是 | 是 | [产品（ZT_PRODUCT）](../zentao/Product) - [编号（ID）](../zentao/Product/#属性-编号（ID）) |
+| 18 | [是否过期](#属性-是否过期（ISEXPIRED）) | ISEXPIRED | YESNO | 否 | 是 | 是 | [产品（ZT_PRODUCT）](../zentao/Product) - [编号（ID）](../zentao/Product/#属性-编号（ID）) |
+| 19 | [工时数](#属性-工时数（ESTIMATECNT）) | ESTIMATECNT | INT | 否 | 是 | 是 | [产品（ZT_PRODUCT）](../zentao/Product) - [编号（ID）](../zentao/Product/#属性-编号（ID）) |
+| 20 | [开始日期](#属性-开始日期（BEGINSTR）) | BEGINSTR | TEXT | 否 | 是 | 是 | [产品（ZT_PRODUCT）](../zentao/Product) - [编号（ID）](../zentao/Product/#属性-编号（ID）) |
+| 21 | [结束日期](#属性-结束日期（ENDSTR）) | ENDSTR | TEXT | 否 | 是 | 是 | [产品（ZT_PRODUCT）](../zentao/Product) - [编号（ID）](../zentao/Product/#属性-编号（ID）) |
 
-## 属性
+### 属性-名称（TITLE）
+#### 属性说明
+名称
 
-| 属性名称        |    中文名称    | 类型     |  备注  |
-| --------   |------------| -----   |  -------- | 
-|名称|TITLE|TEXT|&nbsp;|
-|编号|ID|ACID|&nbsp;|
-|开始日期|BEGIN|DATE|&nbsp;|
-|描述|DESC|LONGTEXT|&nbsp;|
-|结束日期|END|DATE|&nbsp;|
-|已删除|DELETED|TEXT|&nbsp;|
-|排序|ORDER|LONGTEXT|&nbsp;|
-|父计划名称|PARENTNAME|PICKUPTEXT|&nbsp;|
-|平台/分支|BRANCH|PICKUP|&nbsp;|
-|父计划|PARENT|PICKUP|&nbsp;|
-|产品|PRODUCT|PICKUP|&nbsp;|
-|状态|STATUSS|TEXT|&nbsp;|
-|待定|FUTURE|SSCODELIST|&nbsp;|
-|周期|DELTA|SSCODELIST|&nbsp;|
-|上一次计划名称|OLDTITLE|TEXT|&nbsp;|
-|需求数|STORYCNT|INT|&nbsp;|
-|bug数|BUGCNT|INT|&nbsp;|
-|是否过期|ISEXPIRED|YESNO|&nbsp;|
-|工时数|ESTIMATECNT|INT|&nbsp;|
-|开始日期|BEGINSTR|TEXT|&nbsp;|
-|结束日期|ENDSTR|TEXT|&nbsp;|
+#### 属性类型
+物理属性[实体属性]
 
-## 值规则
-| 属性名称    | 规则    |  说明  |
-| --------   |------------| ----- | 
-|名称|默认规则|内容长度必须小于等于[90]|
-|编号|默认规则|默认规则|
-|开始日期|默认规则|默认规则|
-|描述|默认规则|内容长度必须小于等于[65535]|
-|结束日期|默认规则|默认规则|
-|已删除|默认规则|内容长度必须小于等于[1]|
-|排序|默认规则|内容长度必须小于等于[65535]|
-|父计划名称|默认规则|内容长度必须小于等于[90]|
-|平台/分支|默认规则|默认规则|
-|父计划|默认规则|默认规则|
-|产品|默认规则|默认规则|
-|状态|默认规则|内容长度必须小于等于[200]|
-|待定|默认规则|内容长度必须小于等于[200]|
-|周期|默认规则|内容长度必须小于等于[200]|
-|上一次计划名称|默认规则|内容长度必须小于等于[100]|
-|需求数|默认规则|默认规则|
-|bug数|默认规则|默认规则|
-|是否过期|默认规则|内容长度必须小于等于[200]|
-|工时数|默认规则|默认规则|
-|开始日期|默认规则|内容长度必须小于等于[200]|
-|结束日期|默认规则|内容长度必须小于等于[200]|
+#### 数据类型
+TEXT
 
-## 状态控制
+#### 是否允许为为空
+否
 
-|状态|行为控制模式| 控制行为 | 操作标识控制模式 | 控制操作 |
-| --------   | ------------|------------|------------|------------|
-|Value| 允许|  | 不允许 | SRFUR__PROP_CHILD_BUT<br> |
-|Value| 允许|  | 不允许 |  |
-|Value| 允许|  | 不允许 | SRFUR__PROP_DELETE_BUT<br> |
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
 
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
+| 关系属性 | [编号（ID）](../zentao/Product/#属性-编号（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-编号（ID）
+#### 属性说明
+编号
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+ACID
+
+#### 是否允许为为空
+否
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
+| 关系属性 | [编号（ID）](../zentao/Product/#属性-编号（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-开始日期（BEGIN）
+#### 属性说明
+开始日期
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+DATE
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+时间格式：yyyy-MM-dd
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
+| 关系属性 | [编号（ID）](../zentao/Product/#属性-编号（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-描述（DESC）
+#### 属性说明
+描述
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+LONGTEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 | #EMPTY |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
+| 关系属性 | [编号（ID）](../zentao/Product/#属性-编号（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-结束日期（END）
+#### 属性说明
+结束日期
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+DATE
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+时间格式：yyyy-MM-dd
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
+| 关系属性 | [编号（ID）](../zentao/Product/#属性-编号（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-已删除（DELETED）
+#### 属性说明
+已删除
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+否
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 | 0 |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
+| 关系属性 | [编号（ID）](../zentao/Product/#属性-编号（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-排序（ORDER）
+#### 属性说明
+排序
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+LONGTEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 | #EMPTY |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
+| 关系属性 | [编号（ID）](../zentao/Product/#属性-编号（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-父计划名称（PARENTNAME）
+#### 属性说明
+父计划名称
+
+#### 属性类型
+链接属性[虚拟属性，映射关系实体的属性]
+
+#### 数据类型
+PICKUPTEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [产品计划（ZT_PRODUCTPLAN）](../zentao/ProductPlan) |
+| 关系属性 | [名称（TITLE）](../zentao/ProductPlan/#属性-名称（TITLE）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-平台/分支（BRANCH）
+#### 属性说明
+平台/分支
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+PICKUP
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 | 0 |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [产品的分支和平台信息（ZT_BRANCH）](../zentao/Branch) |
+| 关系属性 | [编号（ID）](../zentao/Branch/#属性-编号（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-父计划（PARENT）
+#### 属性说明
+父计划
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+PICKUP
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 | 0 |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [产品计划（ZT_PRODUCTPLAN）](../zentao/ProductPlan) |
+| 关系属性 | [编号（ID）](../zentao/ProductPlan/#属性-编号（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-产品（PRODUCT）
+#### 属性说明
+产品
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+PICKUP
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 | 0 |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
+| 关系属性 | [编号（ID）](../zentao/Product/#属性-编号（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-状态（STATUSS）
+#### 属性说明
 状态
 
+#### 属性类型
+逻辑属性[虚拟属性，来自计算逻辑和计算公式]
 
-## 行为
-| 行为    | 类型    |  说明  |
-| --------   |------------| ----- | 
-|Create|内置方法|&nbsp;|
-|Update|内置方法|&nbsp;|
-|Remove|内置方法|&nbsp;|
-|Get|内置方法|&nbsp;|
-|GetDraft|内置方法|&nbsp;|
-|批量解除关联Bug|用户自定义|&nbsp;|
-|批量解除关联需求|用户自定义|&nbsp;|
-|CheckKey|内置方法|&nbsp;|
-|计算计划结束时间|用户自定义|&nbsp;|
-|关联Bug|用户自定义|&nbsp;|
-|关联需求|用户自定义|&nbsp;|
-|Save|内置方法|&nbsp;|
-|解除关联Bug|用户自定义|&nbsp;|
-|解除关联需求|用户自定义|&nbsp;|
+#### 数据类型
+TEXT
 
-## 处理逻辑
-* 获取开始日期和结束日期 (GetBedinANDEnd)
-  
-   
+#### 是否允许为为空
+是
 
-{% plantuml %}
-hide footbox
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
 
-产品计划 -> 产品计划: 设置待定
-{% endplantuml %}
+#### 取值范围/公式
+(case when t1.parent = -1 then 'parent' when t1.parent > 0 then  'chlid' else 'normal' end)
 
-| 步骤       | 操作        |
-| --------   | --------   |
-|0|开始 | 
-|1|设置待定 |
-<center>获取开始日期和结束日期</center>
-* 获取上一个计划的名称 (GetOldPlanName)
-  
-   
-
-{% plantuml %}
-hide footbox
-
-产品计划 -> 产品计划: 获取名称
-{% endplantuml %}
-
-| 步骤       | 操作        |
-| --------   | --------   |
-|0|开始 | 
-|1|获取名称 |
-<center>获取上一个计划的名称</center>
-
-## 查询集合
-
-* **查询**
-
-| 查询编号 | 查询名称       | 默认查询 |   备注|
-| --------  | --------   | --------   | ----- |
-|DEFAULT|DEFAULT([MYSQL5](../../appendix/query_MYSQL5.md#ProductPlan_Default))|否|&nbsp;|
-|DefaultParent|默认查询([MYSQL5](../../appendix/query_MYSQL5.md#ProductPlan_DefaultParent))|否|&nbsp;|
-|GetList|获取产品计划列表([MYSQL5](../../appendix/query_MYSQL5.md#ProductPlan_GetList))|否|&nbsp;获取当前用户的相关产品（分支）的计划|
-|PlanCodeList|计划（代码表）([MYSQL5](../../appendix/query_MYSQL5.md#ProductPlan_PlanCodeList))|否|&nbsp;|
-|ProjectPlan|项目计划列表([MYSQL5](../../appendix/query_MYSQL5.md#ProductPlan_ProjectPlan))|否|&nbsp;|
-|VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#ProductPlan_View))|否|&nbsp;|
-
-* **数据集合**
-
-| 集合编号 | 集合名称   |  包含查询  | 默认集合 |   备注|
-| --------  | --------   | -------- | --------   | ----- |
-|CurProductPlan|CurProductPlan|GetList|否|&nbsp;|
-|DEFAULT|DEFAULT|DEFAULT|是|&nbsp;|
-|DefaultParent|默认查询|DefaultParent|否|&nbsp;|
-|PlanCodeList|计划（代码表）|PlanCodeList|否|&nbsp;|
-|ProjectPlan|项目计划列表|ProjectPlan|否|&nbsp;|
-
-## 查询模式
-| 属性      |    搜索模式     |
-| --------   |------------|
-|名称(TITLE)|LIKE|
-|开始日期(BEGIN)|GTANDEQ|
-|结束日期(END)|LTANDEQ|
-|父计划名称(PARENTNAME)|EQ|
-|父计划名称(PARENTNAME)|LIKE|
-|平台/分支(BRANCH)|EQ|
-|父计划(PARENT)|EQ|
-|产品(PRODUCT)|EQ|
-|待定(FUTURE)|EQ|
-|周期(DELTA)|EQ|
-|是否过期(ISEXPIRED)|EQ|
-
-## 导入模式
+#### 数据格式
 无
 
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
+| 关系属性 | [编号（ID）](../zentao/Product/#属性-编号（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
 
-## 导出模式
+### 属性-待定（FUTURE）
+#### 属性说明
+待定
+
+#### 属性类型
+逻辑属性[虚拟属性，来自计算逻辑和计算公式]
+
+#### 数据类型
+SSCODELIST
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+参照数据字典【[日期_待定（Date_disable）](../../codelist/Date_disable)】
+
+#### 数据格式
 无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
+| 关系属性 | [编号（ID）](../zentao/Product/#属性-编号（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-周期（DELTA）
+#### 属性说明
+周期
+
+#### 属性类型
+应用界面属性[虚拟属性，提供给页面显示的属性]
+
+#### 数据类型
+SSCODELIST
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+参照数据字典【[时间周期（Zt__delta）](../../codelist/Zt__delta)】
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
+| 关系属性 | [编号（ID）](../zentao/Product/#属性-编号（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-上一次计划名称（OLDTITLE）
+#### 属性说明
+上一次计划名称
+
+#### 属性类型
+应用界面属性[虚拟属性，提供给页面显示的属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
+| 关系属性 | [编号（ID）](../zentao/Product/#属性-编号（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-需求数（STORYCNT）
+#### 属性说明
+需求数
+
+#### 属性类型
+逻辑属性[虚拟属性，来自计算逻辑和计算公式]
+
+#### 数据类型
+INT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+((select COUNT(t.id) from zt_story t where (t.plan = t1.id or (t.plan in (select t2.id from zt_productplan t2 where t2.parent = t1.id and t2.deleted = '0')) )  and t.deleted = '0' ))
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
+| 关系属性 | [编号（ID）](../zentao/Product/#属性-编号（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-bug数（BUGCNT）
+#### 属性说明
+bug数
+
+#### 属性类型
+逻辑属性[虚拟属性，来自计算逻辑和计算公式]
+
+#### 数据类型
+INT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+((select count(t.id) FROM zt_bug t where (t.plan = t1.id or (t.plan in (select t2.id from zt_productplan t2 where t2.parent = t1.id and t2.deleted = '0')) )  and t.deleted = '0'))
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
+| 关系属性 | [编号（ID）](../zentao/Product/#属性-编号（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-是否过期（ISEXPIRED）
+#### 属性说明
+是否过期
+
+#### 属性类型
+逻辑属性[虚拟属性，来自计算逻辑和计算公式]
+
+#### 数据类型
+YESNO
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+(case when t1.`end` > now() then '0' else '1' end)
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
+| 关系属性 | [编号（ID）](../zentao/Product/#属性-编号（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-工时数（ESTIMATECNT）
+#### 属性说明
+工时数
+
+#### 属性类型
+逻辑属性[虚拟属性，来自计算逻辑和计算公式]
+
+#### 数据类型
+INT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+(select sum(t.estimate) from zt_story t where (t.plan = t1.id or (t.plan in (select t2.id from zt_productplan t2 where t2.parent = t1.id and t2.deleted = '0')) )  and t.deleted = '0' )
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
+| 关系属性 | [编号（ID）](../zentao/Product/#属性-编号（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-开始日期（BEGINSTR）
+#### 属性说明
+开始日期
+
+#### 属性类型
+逻辑属性[虚拟属性，来自计算逻辑和计算公式]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+(case when t1.`begin` = '2030-01-01' then '待定' else t1.`begin` end)
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
+| 关系属性 | [编号（ID）](../zentao/Product/#属性-编号（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-结束日期（ENDSTR）
+#### 属性说明
+结束日期
+
+#### 属性类型
+逻辑属性[虚拟属性，来自计算逻辑和计算公式]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+(case when t1.`end` = '2030-01-01' then '待定' else t1.`end` end)
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
+| 关系属性 | [编号（ID）](../zentao/Product/#属性-编号（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+

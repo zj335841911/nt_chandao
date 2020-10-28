@@ -1,75 +1,214 @@
-# im_conference(ZT_IM_CONFERENCE)
+# 实体-im_conference(ZT_IM_CONFERENCE)
+## 实体说明
+im_conference
 
-  
+## 所属模块
+[禅道模块](../zentao)
 
-## 关系
+## 实体属性
+| 序号 | 属性 | 属性名 | 数据类型 | 是否是主键 | 是否是外键 | 是否允许为空 | 关系属性（实体-属性） |
+| -- | -- | -- | -- | -- | -- |
+| 1 | [status](#属性-status（STATUS）) | STATUS | SSCODELIST | 否 | 否 | 是 | -- |
+| 2 | [cgid](#属性-cgid（CGID）) | CGID | TEXT | 否 | 否 | 是 | -- |
+| 3 | [openedBy](#属性-openedBy（OPENEDBY）) | OPENEDBY | INT | 否 | 否 | 是 | -- |
+| 4 | [openedDate](#属性-openedDate（OPENEDDATE）) | OPENEDDATE | DATETIME | 否 | 否 | 是 | -- |
+| 5 | [id](#属性-id（ID）) | ID | ACID | 是 | 否 | 否 | -- |
+| 6 | [rid](#属性-rid（RID）) | RID | TEXT | 否 | 否 | 是 | -- |
+| 7 | [participants](#属性-participants（PARTICIPANTS）) | PARTICIPANTS | LONGTEXT | 否 | 否 | 是 | -- |
+
+### 属性-status（STATUS）
+#### 属性说明
+status
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+SSCODELIST
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+参照数据字典【[ZT_IM_CONFERENCE__STATUS（Im_conference__status）](../../codelist/Im_conference__status)】
+
+#### 数据格式
 无
 
-## 属性
-
-| 属性名称        |    中文名称    | 类型     |  备注  |
-| --------   |------------| -----   |  -------- | 
-|status|STATUS|SSCODELIST|&nbsp;|
-|cgid|CGID|TEXT|&nbsp;|
-|openedBy|OPENEDBY|INT|&nbsp;|
-|openedDate|OPENEDDATE|DATETIME|&nbsp;|
-|id|ID|ACID|&nbsp;|
-|rid|RID|TEXT|&nbsp;|
-|participants|PARTICIPANTS|LONGTEXT|&nbsp;|
-
-## 值规则
-| 属性名称    | 规则    |  说明  |
-| --------   |------------| ----- | 
-|status|默认规则|内容长度必须小于等于[6]|
-|cgid|默认规则|内容长度必须小于等于[40]|
-|openedBy|默认规则|默认规则|
-|openedDate|默认规则|默认规则|
-|id|默认规则|默认规则|
-|rid|默认规则|内容长度必须小于等于[24]|
-|participants|默认规则|内容长度必须小于等于[65535]|
-
-## 状态控制
-
+#### 关系属性
 无
 
+### 属性-cgid（CGID）
+#### 属性说明
+cgid
 
-## 行为
-| 行为    | 类型    |  说明  |
-| --------   |------------| ----- | 
-|Create|内置方法|&nbsp;|
-|Update|内置方法|&nbsp;|
-|Remove|内置方法|&nbsp;|
-|Get|内置方法|&nbsp;|
-|GetDraft|内置方法|&nbsp;|
-|CheckKey|内置方法|&nbsp;|
-|Save|内置方法|&nbsp;|
+#### 属性类型
+物理属性[实体属性]
 
-## 处理逻辑
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
 无
 
-## 查询集合
-
-* **查询**
-
-| 查询编号 | 查询名称       | 默认查询 |   备注|
-| --------  | --------   | --------   | ----- |
-|DEFAULT|DEFAULT([MYSQL5](../../appendix/query_MYSQL5.md#Im_conference_Default))|否|&nbsp;|
-|VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#Im_conference_View))|否|&nbsp;|
-
-* **数据集合**
-
-| 集合编号 | 集合名称   |  包含查询  | 默认集合 |   备注|
-| --------  | --------   | -------- | --------   | ----- |
-|DEFAULT|DEFAULT|DEFAULT|是|&nbsp;|
-
-## 查询模式
-| 属性      |    搜索模式     |
-| --------   |------------|
-|status(STATUS)|EQ|
-
-## 导入模式
+#### 数据格式
 无
 
-
-## 导出模式
+#### 关系属性
 无
+
+### 属性-openedBy（OPENEDBY）
+#### 属性说明
+openedBy
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+INT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 | 0 |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+无
+
+### 属性-openedDate（OPENEDDATE）
+#### 属性说明
+openedDate
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+DATETIME
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 | 0000-00-00 00:00:00 |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+时间格式：yyyy-MM-dd HH:mm:ss
+
+#### 关系属性
+无
+
+### 属性-id（ID）
+#### 属性说明
+id
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+ACID
+
+#### 是否允许为为空
+否
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+无
+
+### 属性-rid（RID）
+#### 属性说明
+rid
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+无
+
+### 属性-participants（PARTICIPANTS）
+#### 属性说明
+participants
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+LONGTEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+无
+

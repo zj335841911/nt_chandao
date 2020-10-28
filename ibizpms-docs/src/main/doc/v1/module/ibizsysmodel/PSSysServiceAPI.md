@@ -1,170 +1,1496 @@
-# 系统服务接口(PSSYSSERVICEAPI)
+# 实体-系统服务接口(PSSYSSERVICEAPI)
+## 实体说明
+系统服务接口
 
-  
+## 所属模块
+[iBiz系统模型](../ibizsysmodel)
 
-## 关系
-{% plantuml %}
-系统服务接口 *-- 外部服务接口 
-系统服务接口 *-- 系统应用 
-系统服务接口 *-- 系统运行会话 
-系统模块 *-- 系统服务接口 
-hide members
-{% endplantuml %}
+## 实体属性
+| 序号 | 属性 | 属性名 | 数据类型 | 是否是主键 | 是否是外键 | 是否允许为空 | 关系属性（实体-属性） |
+| -- | -- | -- | -- | -- | -- |
+| 1 | [系统服务接口标识](#属性-系统服务接口标识（PSSYSSERVICEAPIID）) | PSSYSSERVICEAPIID | GUID | 是 | 否 | 否 | -- |
+| 2 | [建立人](#属性-建立人（CREATEMAN）) | CREATEMAN | TEXT | 否 | 否 | 否 | -- |
+| 3 | [建立时间](#属性-建立时间（CREATEDATE）) | CREATEDATE | DATETIME | 否 | 否 | 否 | -- |
+| 4 | [系统服务接口名称](#属性-系统服务接口名称（PSSYSSERVICEAPINAME）) | PSSYSSERVICEAPINAME | TEXT | 否 | 否 | 是 | -- |
+| 5 | [更新时间](#属性-更新时间（UPDATEDATE）) | UPDATEDATE | DATETIME | 否 | 否 | 否 | -- |
+| 6 | [更新人](#属性-更新人（UPDATEMAN）) | UPDATEMAN | TEXT | 否 | 否 | 否 | -- |
+| 7 | [接口模式](#属性-接口模式（APIMODE）) | APIMODE | NSCODELIST | 否 | 否 | 是 | -- |
+| 8 | [接口标记](#属性-接口标记（APITAG）) | APITAG | TEXT | 否 | 否 | 是 | -- |
+| 9 | [接口类型](#属性-接口类型（APITYPE）) | APITYPE | SSCODELIST | 否 | 否 | 否 | -- |
+| 10 | [接口标记2](#属性-接口标记2（APITAG2）) | APITAG2 | TEXT | 否 | 否 | 是 | -- |
+| 11 | [认证客户端标识](#属性-认证客户端标识（AUTHCLIENTID）) | AUTHCLIENTID | TEXT | 否 | 否 | 是 | -- |
+| 12 | [认证token路径](#属性-认证token路径（AUTHCHECKTOKENURI）) | AUTHCHECKTOKENURI | TEXT | 否 | 否 | 是 | -- |
+| 13 | [认证客户端密钥](#属性-认证客户端密钥（AUTHCLIENTSECRET）) | AUTHCLIENTSECRET | TEXT | 否 | 否 | 是 | -- |
+| 14 | [认证模式](#属性-认证模式（AUTHMODE）) | AUTHMODE | SSCODELIST | 否 | 否 | 是 | -- |
+| 15 | [认证参数](#属性-认证参数（AUTHPARAM）) | AUTHPARAM | TEXT | 否 | 否 | 是 | -- |
+| 16 | [认证参数4](#属性-认证参数4（AUTHPARAM4）) | AUTHPARAM4 | TEXT | 否 | 否 | 是 | -- |
+| 17 | [认证参数2](#属性-认证参数2（AUTHPARAM2）) | AUTHPARAM2 | TEXT | 否 | 否 | 是 | -- |
+| 18 | [认证参数3](#属性-认证参数3（AUTHPARAM3）) | AUTHPARAM3 | TEXT | 否 | 否 | 是 | -- |
+| 19 | [配置标记](#属性-配置标记（CFGTAG）) | CFGTAG | TEXT | 否 | 否 | 是 | -- |
+| 20 | [配置模型存储标识](#属性-配置模型存储标识（CFGPSMODELSTORAGEID）) | CFGPSMODELSTORAGEID | TEXT | 否 | 否 | 是 | -- |
+| 21 | [代码名称](#属性-代码名称（CODENAME）) | CODENAME | TEXT | 否 | 否 | 否 | -- |
+| 22 | [默认实体行为请求方式](#属性-默认实体行为请求方式（DEFDEACTIONREQMETHOD）) | DEFDEACTIONREQMETHOD | SSCODELIST | 否 | 否 | 是 | -- |
+| 23 | [模型锁标志](#属性-模型锁标志（LOCKFLAG）) | LOCKFLAG | NSCODELIST | 否 | 否 | 是 | -- |
+| 24 | [默认查询请求方式](#属性-默认查询请求方式（DEFSELECTREQMETHOD）) | DEFSELECTREQMETHOD | SSCODELIST | 否 | 否 | 是 | -- |
+| 25 | [默认结果集请求方式](#属性-默认结果集请求方式（DEFDEDATASETREQMETHOD）) | DEFDEDATASETREQMETHOD | SSCODELIST | 否 | 否 | 是 | -- |
+| 26 | [平台预定义类型](#属性-平台预定义类型（PREDEFINEDTYPE）) | PREDEFINEDTYPE | SSCODELIST | 否 | 否 | 是 | -- |
+| 27 | [备注](#属性-备注（MEMO）) | MEMO | LONGTEXT_1000 | 否 | 否 | 是 | -- |
+| 28 | [服务参数](#属性-服务参数（SERVICEPARAM）) | SERVICEPARAM | TEXT | 否 | 否 | 是 | -- |
+| 29 | [服务代码名称](#属性-服务代码名称（SERVICECODENAME）) | SERVICECODENAME | TEXT | 否 | 否 | 是 | -- |
+| 30 | [服务参数4](#属性-服务参数4（SERVICEPARAM4）) | SERVICEPARAM4 | TEXT | 否 | 否 | 是 | -- |
+| 31 | [服务参数2](#属性-服务参数2（SERVICEPARAM2）) | SERVICEPARAM2 | TEXT | 否 | 否 | 是 | -- |
+| 32 | [服务参数3](#属性-服务参数3（SERVICEPARAM3）) | SERVICEPARAM3 | TEXT | 否 | 否 | 是 | -- |
+| 33 | [唯一标识](#属性-唯一标识（UNIQUETAG）) | UNIQUETAG | TEXT | 否 | 否 | 是 | -- |
+| 34 | [服务类型](#属性-服务类型（SERVICETYPE）) | SERVICETYPE | SSCODELIST | 否 | 否 | 是 | -- |
+| 35 | [用户分类](#属性-用户分类（USERCAT）) | USERCAT | SSCODELIST | 否 | 否 | 是 | -- |
+| 36 | [用户标记](#属性-用户标记（USERTAG）) | USERTAG | TEXT | 否 | 否 | 是 | -- |
+| 37 | [用户标记2](#属性-用户标记2（USERTAG2）) | USERTAG2 | TEXT | 否 | 否 | 是 | -- |
+| 38 | [用户标记4](#属性-用户标记4（USERTAG4）) | USERTAG4 | TEXT | 否 | 否 | 是 | -- |
+| 39 | [用户标记3](#属性-用户标记3（USERTAG3）) | USERTAG3 | TEXT | 否 | 否 | 是 | -- |
+| 40 | [是否启用](#属性-是否启用（VALIDFLAG）) | VALIDFLAG | YESNO | 否 | 否 | 否 | -- |
+| 41 | [版本](#属性-版本（VER）) | VER | INT | 否 | 否 | 否 | -- |
+| 42 | [系统模块](#属性-系统模块（PSMODULEID）) | PSMODULEID | PICKUP | 否 | 是 | 是 | [系统模块（PSMODULE）](../ibizsysmodel/PSModule) - [系统模块标识（PSMODULEID）](../ibizsysmodel/PSModule/#属性-系统模块标识（PSMODULEID）) |
+| 43 | [系统模块](#属性-系统模块（PSMODULENAME）) | PSMODULENAME | PICKUPTEXT | 否 | 是 | 是 | [系统模块（PSMODULE）](../ibizsysmodel/PSModule) - [系统模块名称（PSMODULENAME）](../ibizsysmodel/PSModule/#属性-系统模块名称（PSMODULENAME）) |
+| 44 | [系统](#属性-系统（PSSYSTEMID）) | PSSYSTEMID | TEXT | 否 | 是 | 是 | [系统模块（PSMODULE）](../ibizsysmodel/PSModule) - [系统模块名称（PSMODULENAME）](../ibizsysmodel/PSModule/#属性-系统模块名称（PSMODULENAME）) |
+| 45 | [系统](#属性-系统（PSSYSTEMNAME）) | PSSYSTEMNAME | TEXT | 否 | 是 | 是 | [系统模块（PSMODULE）](../ibizsysmodel/PSModule) - [系统模块名称（PSMODULENAME）](../ibizsysmodel/PSModule/#属性-系统模块名称（PSMODULENAME）) |
 
-## 属性
+### 属性-系统服务接口标识（PSSYSSERVICEAPIID）
+#### 属性说明
+系统服务接口标识
 
-| 属性名称        |    中文名称    | 类型     |  备注  |
-| --------   |------------| -----   |  -------- | 
-|系统服务接口标识|PSSYSSERVICEAPIID|GUID|&nbsp;|
-|建立人|CREATEMAN|TEXT|&nbsp;|
-|建立时间|CREATEDATE|DATETIME|&nbsp;|
-|系统服务接口名称|PSSYSSERVICEAPINAME|TEXT|&nbsp;|
-|更新时间|UPDATEDATE|DATETIME|&nbsp;|
-|更新人|UPDATEMAN|TEXT|&nbsp;|
-|接口模式|APIMODE|NSCODELIST|&nbsp;|
-|接口标记|APITAG|TEXT|&nbsp;|
-|接口类型|APITYPE|SSCODELIST|&nbsp;|
-|接口标记2|APITAG2|TEXT|&nbsp;|
-|认证客户端标识|AUTHCLIENTID|TEXT|&nbsp;|
-|认证token路径|AUTHCHECKTOKENURI|TEXT|&nbsp;|
-|认证客户端密钥|AUTHCLIENTSECRET|TEXT|&nbsp;|
-|认证模式|AUTHMODE|SSCODELIST|&nbsp;|
-|认证参数|AUTHPARAM|TEXT|&nbsp;|
-|认证参数4|AUTHPARAM4|TEXT|&nbsp;|
-|认证参数2|AUTHPARAM2|TEXT|&nbsp;|
-|认证参数3|AUTHPARAM3|TEXT|&nbsp;|
-|配置标记|CFGTAG|TEXT|&nbsp;|
-|配置模型存储标识|CFGPSMODELSTORAGEID|TEXT|&nbsp;|
-|代码名称|CODENAME|TEXT|&nbsp;|
-|默认实体行为请求方式|DEFDEACTIONREQMETHOD|SSCODELIST|&nbsp;|
-|模型锁标志|LOCKFLAG|NSCODELIST|&nbsp;|
-|默认查询请求方式|DEFSELECTREQMETHOD|SSCODELIST|&nbsp;|
-|默认结果集请求方式|DEFDEDATASETREQMETHOD|SSCODELIST|&nbsp;|
-|平台预定义类型|PREDEFINEDTYPE|SSCODELIST|&nbsp;|
-|备注|MEMO|LONGTEXT_1000|&nbsp;|
-|服务参数|SERVICEPARAM|TEXT|&nbsp;|
-|服务代码名称|SERVICECODENAME|TEXT|&nbsp;|
-|服务参数4|SERVICEPARAM4|TEXT|&nbsp;|
-|服务参数2|SERVICEPARAM2|TEXT|&nbsp;|
-|服务参数3|SERVICEPARAM3|TEXT|&nbsp;|
-|唯一标识|UNIQUETAG|TEXT|&nbsp;|
-|服务类型|SERVICETYPE|SSCODELIST|&nbsp;|
-|用户分类|USERCAT|SSCODELIST|&nbsp;|
-|用户标记|USERTAG|TEXT|&nbsp;|
-|用户标记2|USERTAG2|TEXT|&nbsp;|
-|用户标记4|USERTAG4|TEXT|&nbsp;|
-|用户标记3|USERTAG3|TEXT|&nbsp;|
-|是否启用|VALIDFLAG|YESNO|&nbsp;|
-|版本|VER|INT|&nbsp;|
-|系统模块|PSMODULEID|PICKUP|&nbsp;|
-|系统模块|PSMODULENAME|PICKUPTEXT|&nbsp;|
-|系统|PSSYSTEMID|TEXT|&nbsp;|
-|系统|PSSYSTEMNAME|TEXT|&nbsp;|
+#### 属性类型
+物理属性[实体属性]
 
-## 值规则
-| 属性名称    | 规则    |  说明  |
-| --------   |------------| ----- | 
-|系统服务接口标识|默认规则|内容长度必须小于等于[100]|
-|建立人|默认规则|内容长度必须小于等于[60]|
-|建立时间|默认规则|默认规则|
-|系统服务接口名称|默认规则|内容长度必须小于等于[200]|
-|更新时间|默认规则|默认规则|
-|更新人|默认规则|内容长度必须小于等于[60]|
-|接口模式|默认规则|默认规则|
-|接口标记|默认规则|内容长度必须小于等于[100]|
-|接口类型|默认规则|内容长度必须小于等于[40]|
-|接口标记2|默认规则|内容长度必须小于等于[100]|
-|认证客户端标识|默认规则|内容长度必须小于等于[100]|
-|认证token路径|默认规则|内容长度必须小于等于[500]|
-|认证客户端密钥|默认规则|内容长度必须小于等于[1000]|
-|认证模式|默认规则|内容长度必须小于等于[50]|
-|认证参数|默认规则|内容长度必须小于等于[200]|
-|认证参数4|默认规则|内容长度必须小于等于[100]|
-|认证参数2|默认规则|内容长度必须小于等于[200]|
-|认证参数3|默认规则|内容长度必须小于等于[100]|
-|配置标记|默认规则|内容长度必须小于等于[100]|
-|配置模型存储标识|默认规则|内容长度必须小于等于[100]|
-|代码名称|默认规则|内容长度必须小于等于[40]|
-|默认实体行为请求方式|默认规则|内容长度必须小于等于[20]|
-|模型锁标志|默认规则|默认规则|
-|默认查询请求方式|默认规则|内容长度必须小于等于[20]|
-|默认结果集请求方式|默认规则|内容长度必须小于等于[20]|
-|平台预定义类型|默认规则|内容长度必须小于等于[50]|
-|备注|默认规则|内容长度必须小于等于[2000]|
-|服务参数|默认规则|内容长度必须小于等于[200]|
-|服务代码名称|默认规则|内容长度必须小于等于[60]|
-|服务参数4|默认规则|内容长度必须小于等于[100]|
-|服务参数2|默认规则|内容长度必须小于等于[200]|
-|服务参数3|默认规则|内容长度必须小于等于[100]|
-|唯一标识|默认规则|内容长度必须小于等于[100]|
-|服务类型|默认规则|内容长度必须小于等于[30]|
-|用户分类|默认规则|内容长度必须小于等于[10]|
-|用户标记|默认规则|内容长度必须小于等于[200]|
-|用户标记2|默认规则|内容长度必须小于等于[200]|
-|用户标记4|默认规则|内容长度必须小于等于[50]|
-|用户标记3|默认规则|内容长度必须小于等于[50]|
-|是否启用|默认规则|默认规则|
-|版本|默认规则|默认规则|
-|系统模块|默认规则|内容长度必须小于等于[100]|
-|系统模块|默认规则|内容长度必须小于等于[200]|
-|系统|默认规则|内容长度必须小于等于[100]|
-|系统|默认规则|内容长度必须小于等于[100]|
+#### 数据类型
+GUID
 
-## 状态控制
+#### 是否允许为为空
+否
 
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
 无
 
-
-## 行为
-| 行为    | 类型    |  说明  |
-| --------   |------------| ----- | 
-|Create|内置方法|&nbsp;|
-|Update|内置方法|&nbsp;|
-|Remove|内置方法|&nbsp;|
-|Get|内置方法|&nbsp;|
-|GetDraft|内置方法|&nbsp;|
-|CheckKey|内置方法|&nbsp;|
-|Save|内置方法|&nbsp;|
-
-## 处理逻辑
+#### 数据格式
 无
 
-## 查询集合
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [系统模块（PSMODULE）](../ibizsysmodel/PSModule) |
+| 关系属性 | [系统模块名称（PSMODULENAME）](../ibizsysmodel/PSModule/#属性-系统模块名称（PSMODULENAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
 
-* **查询**
+### 属性-建立人（CREATEMAN）
+#### 属性说明
+建立人
 
-| 查询编号 | 查询名称       | 默认查询 |   备注|
-| --------  | --------   | --------   | ----- |
-|DEFAULT|数据查询([MYSQL5](../../appendix/query_MYSQL5.md#PSSysServiceAPI_Default))|否|&nbsp;|
-|VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#PSSysServiceAPI_View))|否|&nbsp;|
+#### 属性类型
+物理属性[实体属性]
 
-* **数据集合**
+#### 数据类型
+TEXT
 
-| 集合编号 | 集合名称   |  包含查询  | 默认集合 |   备注|
-| --------  | --------   | -------- | --------   | ----- |
-|DEFAULT|数据集|DEFAULT|是|&nbsp;|
+#### 是否允许为为空
+否
 
-## 查询模式
-| 属性      |    搜索模式     |
-| --------   |------------|
-|系统服务接口名称(PSSYSSERVICEAPINAME)|LIKE|
-|接口模式(APIMODE)|EQ|
-|接口类型(APITYPE)|EQ|
-|认证模式(AUTHMODE)|EQ|
-|默认实体行为请求方式(DEFDEACTIONREQMETHOD)|EQ|
-|模型锁标志(LOCKFLAG)|EQ|
-|默认查询请求方式(DEFSELECTREQMETHOD)|EQ|
-|默认结果集请求方式(DEFDEDATASETREQMETHOD)|EQ|
-|平台预定义类型(PREDEFINEDTYPE)|EQ|
-|服务类型(SERVICETYPE)|EQ|
-|用户分类(USERCAT)|EQ|
-|系统模块(PSMODULEID)|EQ|
-|系统模块(PSMODULENAME)|EQ|
-|系统模块(PSMODULENAME)|LIKE|
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
 
-## 导入模式
+#### 取值范围/公式
+参照数据字典【[云系统操作者（SysOperator）](../../codelist/SysOperator)】
+
+#### 数据格式
 无
 
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [系统模块（PSMODULE）](../ibizsysmodel/PSModule) |
+| 关系属性 | [系统模块名称（PSMODULENAME）](../ibizsysmodel/PSModule/#属性-系统模块名称（PSMODULENAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
 
-## 导出模式
+### 属性-建立时间（CREATEDATE）
+#### 属性说明
+建立时间
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+DATETIME
+
+#### 是否允许为为空
+否
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
 无
+
+#### 数据格式
+时间格式：yyyy-MM-dd HH:mm:ss
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [系统模块（PSMODULE）](../ibizsysmodel/PSModule) |
+| 关系属性 | [系统模块名称（PSMODULENAME）](../ibizsysmodel/PSModule/#属性-系统模块名称（PSMODULENAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-系统服务接口名称（PSSYSSERVICEAPINAME）
+#### 属性说明
+系统服务接口名称
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [系统模块（PSMODULE）](../ibizsysmodel/PSModule) |
+| 关系属性 | [系统模块名称（PSMODULENAME）](../ibizsysmodel/PSModule/#属性-系统模块名称（PSMODULENAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-更新时间（UPDATEDATE）
+#### 属性说明
+更新时间
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+DATETIME
+
+#### 是否允许为为空
+否
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+时间格式：yyyy-MM-dd HH:mm:ss
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [系统模块（PSMODULE）](../ibizsysmodel/PSModule) |
+| 关系属性 | [系统模块名称（PSMODULENAME）](../ibizsysmodel/PSModule/#属性-系统模块名称（PSMODULENAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-更新人（UPDATEMAN）
+#### 属性说明
+更新人
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+否
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+参照数据字典【[云系统操作者（SysOperator）](../../codelist/SysOperator)】
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [系统模块（PSMODULE）](../ibizsysmodel/PSModule) |
+| 关系属性 | [系统模块名称（PSMODULENAME）](../ibizsysmodel/PSModule/#属性-系统模块名称（PSMODULENAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-接口模式（APIMODE）
+#### 属性说明
+接口模式
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+NSCODELIST
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [系统模块（PSMODULE）](../ibizsysmodel/PSModule) |
+| 关系属性 | [系统模块名称（PSMODULENAME）](../ibizsysmodel/PSModule/#属性-系统模块名称（PSMODULENAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-接口标记（APITAG）
+#### 属性说明
+接口标记
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [系统模块（PSMODULE）](../ibizsysmodel/PSModule) |
+| 关系属性 | [系统模块名称（PSMODULENAME）](../ibizsysmodel/PSModule/#属性-系统模块名称（PSMODULENAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-接口类型（APITYPE）
+#### 属性说明
+接口类型
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+SSCODELIST
+
+#### 是否允许为为空
+否
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [系统模块（PSMODULE）](../ibizsysmodel/PSModule) |
+| 关系属性 | [系统模块名称（PSMODULENAME）](../ibizsysmodel/PSModule/#属性-系统模块名称（PSMODULENAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-接口标记2（APITAG2）
+#### 属性说明
+接口标记2
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [系统模块（PSMODULE）](../ibizsysmodel/PSModule) |
+| 关系属性 | [系统模块名称（PSMODULENAME）](../ibizsysmodel/PSModule/#属性-系统模块名称（PSMODULENAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-认证客户端标识（AUTHCLIENTID）
+#### 属性说明
+认证客户端标识
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [系统模块（PSMODULE）](../ibizsysmodel/PSModule) |
+| 关系属性 | [系统模块名称（PSMODULENAME）](../ibizsysmodel/PSModule/#属性-系统模块名称（PSMODULENAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-认证token路径（AUTHCHECKTOKENURI）
+#### 属性说明
+认证token路径
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [系统模块（PSMODULE）](../ibizsysmodel/PSModule) |
+| 关系属性 | [系统模块名称（PSMODULENAME）](../ibizsysmodel/PSModule/#属性-系统模块名称（PSMODULENAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-认证客户端密钥（AUTHCLIENTSECRET）
+#### 属性说明
+认证客户端密钥
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [系统模块（PSMODULE）](../ibizsysmodel/PSModule) |
+| 关系属性 | [系统模块名称（PSMODULENAME）](../ibizsysmodel/PSModule/#属性-系统模块名称（PSMODULENAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-认证模式（AUTHMODE）
+#### 属性说明
+认证模式
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+SSCODELIST
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [系统模块（PSMODULE）](../ibizsysmodel/PSModule) |
+| 关系属性 | [系统模块名称（PSMODULENAME）](../ibizsysmodel/PSModule/#属性-系统模块名称（PSMODULENAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-认证参数（AUTHPARAM）
+#### 属性说明
+认证参数
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [系统模块（PSMODULE）](../ibizsysmodel/PSModule) |
+| 关系属性 | [系统模块名称（PSMODULENAME）](../ibizsysmodel/PSModule/#属性-系统模块名称（PSMODULENAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-认证参数4（AUTHPARAM4）
+#### 属性说明
+认证参数4
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [系统模块（PSMODULE）](../ibizsysmodel/PSModule) |
+| 关系属性 | [系统模块名称（PSMODULENAME）](../ibizsysmodel/PSModule/#属性-系统模块名称（PSMODULENAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-认证参数2（AUTHPARAM2）
+#### 属性说明
+认证参数2
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [系统模块（PSMODULE）](../ibizsysmodel/PSModule) |
+| 关系属性 | [系统模块名称（PSMODULENAME）](../ibizsysmodel/PSModule/#属性-系统模块名称（PSMODULENAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-认证参数3（AUTHPARAM3）
+#### 属性说明
+认证参数3
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [系统模块（PSMODULE）](../ibizsysmodel/PSModule) |
+| 关系属性 | [系统模块名称（PSMODULENAME）](../ibizsysmodel/PSModule/#属性-系统模块名称（PSMODULENAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-配置标记（CFGTAG）
+#### 属性说明
+配置标记
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [系统模块（PSMODULE）](../ibizsysmodel/PSModule) |
+| 关系属性 | [系统模块名称（PSMODULENAME）](../ibizsysmodel/PSModule/#属性-系统模块名称（PSMODULENAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-配置模型存储标识（CFGPSMODELSTORAGEID）
+#### 属性说明
+配置模型存储标识
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [系统模块（PSMODULE）](../ibizsysmodel/PSModule) |
+| 关系属性 | [系统模块名称（PSMODULENAME）](../ibizsysmodel/PSModule/#属性-系统模块名称（PSMODULENAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-代码名称（CODENAME）
+#### 属性说明
+代码名称
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+否
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [系统模块（PSMODULE）](../ibizsysmodel/PSModule) |
+| 关系属性 | [系统模块名称（PSMODULENAME）](../ibizsysmodel/PSModule/#属性-系统模块名称（PSMODULENAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-默认实体行为请求方式（DEFDEACTIONREQMETHOD）
+#### 属性说明
+默认实体行为请求方式
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+SSCODELIST
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [系统模块（PSMODULE）](../ibizsysmodel/PSModule) |
+| 关系属性 | [系统模块名称（PSMODULENAME）](../ibizsysmodel/PSModule/#属性-系统模块名称（PSMODULENAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-模型锁标志（LOCKFLAG）
+#### 属性说明
+模型锁标志
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+NSCODELIST
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [系统模块（PSMODULE）](../ibizsysmodel/PSModule) |
+| 关系属性 | [系统模块名称（PSMODULENAME）](../ibizsysmodel/PSModule/#属性-系统模块名称（PSMODULENAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-默认查询请求方式（DEFSELECTREQMETHOD）
+#### 属性说明
+默认查询请求方式
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+SSCODELIST
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 | GET |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [系统模块（PSMODULE）](../ibizsysmodel/PSModule) |
+| 关系属性 | [系统模块名称（PSMODULENAME）](../ibizsysmodel/PSModule/#属性-系统模块名称（PSMODULENAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-默认结果集请求方式（DEFDEDATASETREQMETHOD）
+#### 属性说明
+默认结果集请求方式
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+SSCODELIST
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 | GET |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [系统模块（PSMODULE）](../ibizsysmodel/PSModule) |
+| 关系属性 | [系统模块名称（PSMODULENAME）](../ibizsysmodel/PSModule/#属性-系统模块名称（PSMODULENAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-平台预定义类型（PREDEFINEDTYPE）
+#### 属性说明
+平台预定义类型
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+SSCODELIST
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [系统模块（PSMODULE）](../ibizsysmodel/PSModule) |
+| 关系属性 | [系统模块名称（PSMODULENAME）](../ibizsysmodel/PSModule/#属性-系统模块名称（PSMODULENAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-备注（MEMO）
+#### 属性说明
+备注
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+LONGTEXT_1000
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [系统模块（PSMODULE）](../ibizsysmodel/PSModule) |
+| 关系属性 | [系统模块名称（PSMODULENAME）](../ibizsysmodel/PSModule/#属性-系统模块名称（PSMODULENAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-服务参数（SERVICEPARAM）
+#### 属性说明
+服务参数
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [系统模块（PSMODULE）](../ibizsysmodel/PSModule) |
+| 关系属性 | [系统模块名称（PSMODULENAME）](../ibizsysmodel/PSModule/#属性-系统模块名称（PSMODULENAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-服务代码名称（SERVICECODENAME）
+#### 属性说明
+服务代码名称
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [系统模块（PSMODULE）](../ibizsysmodel/PSModule) |
+| 关系属性 | [系统模块名称（PSMODULENAME）](../ibizsysmodel/PSModule/#属性-系统模块名称（PSMODULENAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-服务参数4（SERVICEPARAM4）
+#### 属性说明
+服务参数4
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [系统模块（PSMODULE）](../ibizsysmodel/PSModule) |
+| 关系属性 | [系统模块名称（PSMODULENAME）](../ibizsysmodel/PSModule/#属性-系统模块名称（PSMODULENAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-服务参数2（SERVICEPARAM2）
+#### 属性说明
+服务参数2
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [系统模块（PSMODULE）](../ibizsysmodel/PSModule) |
+| 关系属性 | [系统模块名称（PSMODULENAME）](../ibizsysmodel/PSModule/#属性-系统模块名称（PSMODULENAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-服务参数3（SERVICEPARAM3）
+#### 属性说明
+服务参数3
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [系统模块（PSMODULE）](../ibizsysmodel/PSModule) |
+| 关系属性 | [系统模块名称（PSMODULENAME）](../ibizsysmodel/PSModule/#属性-系统模块名称（PSMODULENAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-唯一标识（UNIQUETAG）
+#### 属性说明
+唯一标识
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [系统模块（PSMODULE）](../ibizsysmodel/PSModule) |
+| 关系属性 | [系统模块名称（PSMODULENAME）](../ibizsysmodel/PSModule/#属性-系统模块名称（PSMODULENAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-服务类型（SERVICETYPE）
+#### 属性说明
+服务类型
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+SSCODELIST
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [系统模块（PSMODULE）](../ibizsysmodel/PSModule) |
+| 关系属性 | [系统模块名称（PSMODULENAME）](../ibizsysmodel/PSModule/#属性-系统模块名称（PSMODULENAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-用户分类（USERCAT）
+#### 属性说明
+用户分类
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+SSCODELIST
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [系统模块（PSMODULE）](../ibizsysmodel/PSModule) |
+| 关系属性 | [系统模块名称（PSMODULENAME）](../ibizsysmodel/PSModule/#属性-系统模块名称（PSMODULENAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-用户标记（USERTAG）
+#### 属性说明
+用户标记
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [系统模块（PSMODULE）](../ibizsysmodel/PSModule) |
+| 关系属性 | [系统模块名称（PSMODULENAME）](../ibizsysmodel/PSModule/#属性-系统模块名称（PSMODULENAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-用户标记2（USERTAG2）
+#### 属性说明
+用户标记2
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [系统模块（PSMODULE）](../ibizsysmodel/PSModule) |
+| 关系属性 | [系统模块名称（PSMODULENAME）](../ibizsysmodel/PSModule/#属性-系统模块名称（PSMODULENAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-用户标记4（USERTAG4）
+#### 属性说明
+用户标记4
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [系统模块（PSMODULE）](../ibizsysmodel/PSModule) |
+| 关系属性 | [系统模块名称（PSMODULENAME）](../ibizsysmodel/PSModule/#属性-系统模块名称（PSMODULENAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-用户标记3（USERTAG3）
+#### 属性说明
+用户标记3
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [系统模块（PSMODULE）](../ibizsysmodel/PSModule) |
+| 关系属性 | [系统模块名称（PSMODULENAME）](../ibizsysmodel/PSModule/#属性-系统模块名称（PSMODULENAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-是否启用（VALIDFLAG）
+#### 属性说明
+是否启用
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+YESNO
+
+#### 是否允许为为空
+否
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 | 1 |
+
+#### 取值范围/公式
+参照数据字典【[是否（YESNO）（YesNo3）](../../codelist/YesNo3)】
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [系统模块（PSMODULE）](../ibizsysmodel/PSModule) |
+| 关系属性 | [系统模块名称（PSMODULENAME）](../ibizsysmodel/PSModule/#属性-系统模块名称（PSMODULENAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-版本（VER）
+#### 属性说明
+版本
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+INT
+
+#### 是否允许为为空
+否
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [系统模块（PSMODULE）](../ibizsysmodel/PSModule) |
+| 关系属性 | [系统模块名称（PSMODULENAME）](../ibizsysmodel/PSModule/#属性-系统模块名称（PSMODULENAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-系统模块（PSMODULEID）
+#### 属性说明
+系统模块
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+PICKUP
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [系统模块（PSMODULE）](../ibizsysmodel/PSModule) |
+| 关系属性 | [系统模块标识（PSMODULEID）](../ibizsysmodel/PSModule/#属性-系统模块标识（PSMODULEID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-系统模块（PSMODULENAME）
+#### 属性说明
+系统模块
+
+#### 属性类型
+链接属性[虚拟属性，映射关系实体的属性]
+
+#### 数据类型
+PICKUPTEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [系统模块（PSMODULE）](../ibizsysmodel/PSModule) |
+| 关系属性 | [系统模块名称（PSMODULENAME）](../ibizsysmodel/PSModule/#属性-系统模块名称（PSMODULENAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-系统（PSSYSTEMID）
+#### 属性说明
+系统
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [系统模块（PSMODULE）](../ibizsysmodel/PSModule) |
+| 关系属性 | [系统模块名称（PSMODULENAME）](../ibizsysmodel/PSModule/#属性-系统模块名称（PSMODULENAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-系统（PSSYSTEMNAME）
+#### 属性说明
+系统
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [系统模块（PSMODULE）](../ibizsysmodel/PSModule) |
+| 关系属性 | [系统模块名称（PSMODULENAME）](../ibizsysmodel/PSModule/#属性-系统模块名称（PSMODULENAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+

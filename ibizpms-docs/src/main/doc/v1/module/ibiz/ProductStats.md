@@ -1,142 +1,910 @@
-# 产品统计(IBZ_PRODUCTSTATS)
+# 实体-产品统计(IBZ_PRODUCTSTATS)
+## 实体说明
+产品统计
 
-  
+## 所属模块
+[iBiz增强模块](../ibiz)
 
-## 关系
+## 实体属性
+| 序号 | 属性 | 属性名 | 数据类型 | 是否是主键 | 是否是外键 | 是否允许为空 | 关系属性（实体-属性） |
+| -- | -- | -- | -- | -- | -- |
+| 1 | [产品编号](#属性-产品编号（ID）) | ID | ACID | 是 | 否 | 否 | -- |
+| 2 | [已删除](#属性-已删除（DELETED）) | DELETED | TEXT | 否 | 否 | 是 | -- |
+| 3 | [需求总数](#属性-需求总数（STORYCNT）) | STORYCNT | INT | 否 | 否 | 是 | -- |
+| 4 | [计划总数](#属性-计划总数（PRODUCTPLANCNT）) | PRODUCTPLANCNT | INT | 否 | 否 | 是 | -- |
+| 5 | [发布总数](#属性-发布总数（RELEASECNT）) | RELEASECNT | INT | 否 | 否 | 是 | -- |
+| 6 | [未开始需求数](#属性-未开始需求数（WAITSTORYCNT）) | WAITSTORYCNT | INT | 否 | 否 | 是 | -- |
+| 7 | [已计划需求数](#属性-已计划需求数（PLANNEDSTORYCNT）) | PLANNEDSTORYCNT | INT | 否 | 否 | 是 | -- |
+| 8 | [开发中需求数](#属性-开发中需求数（DEVELOPINGSTORYCNT）) | DEVELOPINGSTORYCNT | INT | 否 | 否 | 是 | -- |
+| 9 | [测试中需求数](#属性-测试中需求数（TESTINGSTORYCNT）) | TESTINGSTORYCNT | INT | 否 | 否 | 是 | -- |
+| 10 | [已发布需求数](#属性-已发布需求数（RELEASEDSTORYCNT）) | RELEASEDSTORYCNT | INT | 否 | 否 | 是 | -- |
+| 11 | [未过期计划数](#属性-未过期计划数（UNENDPRODUCTPLANCNT）) | UNENDPRODUCTPLANCNT | INT | 否 | 否 | 是 | -- |
+| 12 | [关联项目数](#属性-关联项目数（RESPROJECTCNT）) | RESPROJECTCNT | INT | 否 | 否 | 是 | -- |
+| 13 | [未完成关联项目数](#属性-未完成关联项目数（UNDONERESPROJECTCNT）) | UNDONERESPROJECTCNT | INT | 否 | 否 | 是 | -- |
+| 14 | [维护中发布数](#属性-维护中发布数（NORMALRELEASECNT）) | NORMALRELEASECNT | INT | 否 | 否 | 是 | -- |
+| 15 | [激活需求数](#属性-激活需求数（ACTIVESTORYCNT）) | ACTIVESTORYCNT | INT | 否 | 否 | 是 | -- |
+| 16 | [未解决Bug数](#属性-未解决Bug数（ACTIVEBUGCNT）) | ACTIVEBUGCNT | INT | 否 | 否 | 是 | -- |
+| 17 | [产品名称](#属性-产品名称（NAME）) | NAME | TEXT | 否 | 否 | 否 | -- |
+| 18 | [指派给我的Bug数](#属性-指派给我的Bug数（ASSIGNTOMEBUGCNT）) | ASSIGNTOMEBUGCNT | INT | 否 | 否 | 是 | -- |
+| 19 | [未关闭Bug数](#属性-未关闭Bug数（NOTCLOSEDBUGCNT）) | NOTCLOSEDBUGCNT | INT | 否 | 否 | 是 | -- |
+| 20 | [所有Bug数](#属性-所有Bug数（BUGCNT）) | BUGCNT | INT | 否 | 否 | 是 | -- |
+| 21 | [未确认Bug数](#属性-未确认Bug数（UNCONFIRMBUGCNT）) | UNCONFIRMBUGCNT | INT | 否 | 否 | 是 | -- |
+| 22 | [昨天关闭Bug数](#属性-昨天关闭Bug数（YESTERDAYCLOSEDBUGCNT）) | YESTERDAYCLOSEDBUGCNT | INT | 否 | 否 | 是 | -- |
+| 23 | [昨天确认Bug数](#属性-昨天确认Bug数（YESTERDAYCONFIRMBUGCNT）) | YESTERDAYCONFIRMBUGCNT | INT | 否 | 否 | 是 | -- |
+| 24 | [昨天解决Bug数](#属性-昨天解决Bug数（YESTERDAYRESOLVEDBUGCNT）) | YESTERDAYRESOLVEDBUGCNT | INT | 否 | 否 | 是 | -- |
+| 25 | [已延期](#属性-已延期（POSTPONEDPROJECTCNT）) | POSTPONEDPROJECTCNT | INT | 否 | 否 | 是 | -- |
+| 26 | [当前项目](#属性-当前项目（CURRPROJECT）) | CURRPROJECT | TEXT | 否 | 否 | 是 | -- |
+| 27 | [状态](#属性-状态（STATUS）) | STATUS | SSCODELIST | 否 | 否 | 是 | -- |
+| 28 | [产品代号](#属性-产品代号（CODE）) | CODE | TEXT | 否 | 否 | 是 | -- |
+| 29 | [产品类型](#属性-产品类型（TYPE）) | TYPE | SSCODELIST | 否 | 否 | 是 | -- |
+| 30 | [产品排序](#属性-产品排序（ORDER1）) | ORDER1 | INT | 否 | 否 | 是 | -- |
+| 31 | [是否置顶](#属性-是否置顶（ISTOP）) | ISTOP | INT | 否 | 否 | 是 | -- |
+
+### 属性-产品编号（ID）
+#### 属性说明
+产品编号
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+ACID
+
+#### 是否允许为为空
+否
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
 无
 
-## 属性
-
-| 属性名称        |    中文名称    | 类型     |  备注  |
-| --------   |------------| -----   |  -------- | 
-|产品编号|ID|ACID|&nbsp;|
-|已删除|DELETED|TEXT|&nbsp;|
-|需求总数|STORYCNT|INT|&nbsp;|
-|计划总数|PRODUCTPLANCNT|INT|&nbsp;|
-|发布总数|RELEASECNT|INT|&nbsp;|
-|未开始需求数|WAITSTORYCNT|INT|&nbsp;|
-|已计划需求数|PLANNEDSTORYCNT|INT|&nbsp;|
-|开发中需求数|DEVELOPINGSTORYCNT|INT|&nbsp;|
-|测试中需求数|TESTINGSTORYCNT|INT|&nbsp;|
-|已发布需求数|RELEASEDSTORYCNT|INT|&nbsp;|
-|未过期计划数|UNENDPRODUCTPLANCNT|INT|&nbsp;|
-|关联项目数|RESPROJECTCNT|INT|&nbsp;|
-|未完成关联项目数|UNDONERESPROJECTCNT|INT|&nbsp;|
-|维护中发布数|NORMALRELEASECNT|INT|&nbsp;|
-|激活需求数|ACTIVESTORYCNT|INT|&nbsp;|
-|未解决Bug数|ACTIVEBUGCNT|INT|&nbsp;|
-|产品名称|NAME|TEXT|&nbsp;|
-|指派给我的Bug数|ASSIGNTOMEBUGCNT|INT|&nbsp;|
-|未关闭Bug数|NOTCLOSEDBUGCNT|INT|&nbsp;|
-|所有Bug数|BUGCNT|INT|&nbsp;|
-|未确认Bug数|UNCONFIRMBUGCNT|INT|&nbsp;|
-|昨天关闭Bug数|YESTERDAYCLOSEDBUGCNT|INT|&nbsp;|
-|昨天确认Bug数|YESTERDAYCONFIRMBUGCNT|INT|&nbsp;|
-|昨天解决Bug数|YESTERDAYRESOLVEDBUGCNT|INT|&nbsp;|
-|已延期|POSTPONEDPROJECTCNT|INT|&nbsp;|
-|当前项目|CURRPROJECT|TEXT|&nbsp;|
-|状态|STATUS|SSCODELIST|&nbsp;|
-|产品代号|CODE|TEXT|&nbsp;|
-|产品类型|TYPE|SSCODELIST|&nbsp;|
-|产品排序|ORDER1|INT|&nbsp;|
-|是否置顶|ISTOP|INT|&nbsp;|
-
-## 值规则
-| 属性名称    | 规则    |  说明  |
-| --------   |------------| ----- | 
-|产品编号|默认规则|默认规则|
-|已删除|默认规则|内容长度必须小于等于[1]|
-|需求总数|默认规则|默认规则|
-|计划总数|默认规则|默认规则|
-|发布总数|默认规则|默认规则|
-|未开始需求数|默认规则|默认规则|
-|已计划需求数|默认规则|默认规则|
-|开发中需求数|默认规则|默认规则|
-|测试中需求数|默认规则|默认规则|
-|已发布需求数|默认规则|默认规则|
-|未过期计划数|默认规则|默认规则|
-|关联项目数|默认规则|默认规则|
-|未完成关联项目数|默认规则|默认规则|
-|维护中发布数|默认规则|默认规则|
-|激活需求数|默认规则|默认规则|
-|未解决Bug数|默认规则|默认规则|
-|产品名称|默认规则|内容长度必须小于等于[90]|
-|指派给我的Bug数|默认规则|默认规则|
-|未关闭Bug数|默认规则|默认规则|
-|所有Bug数|默认规则|默认规则|
-|未确认Bug数|默认规则|默认规则|
-|昨天关闭Bug数|默认规则|默认规则|
-|昨天确认Bug数|默认规则|默认规则|
-|昨天解决Bug数|默认规则|默认规则|
-|已延期|默认规则|默认规则|
-|当前项目|默认规则|内容长度必须小于等于[200]|
-|状态|默认规则|内容长度必须小于等于[60]|
-|产品代号|默认规则|内容长度必须小于等于[45]|
-|产品类型|默认规则|内容长度必须小于等于[60]|
-|产品排序|默认规则|默认规则|
-|是否置顶|默认规则|默认规则|
-
-## 状态控制
-
+#### 数据格式
 无
 
-
-## 行为
-| 行为    | 类型    |  说明  |
-| --------   |------------| ----- | 
-|Create|内置方法|&nbsp;|
-|Update|内置方法|&nbsp;|
-|Remove|内置方法|&nbsp;|
-|Get|内置方法|&nbsp;|
-|GetDraft|内置方法|&nbsp;|
-|CheckKey|内置方法|&nbsp;|
-|获取测试统计详情|内置方法|&nbsp;|
-|Save|内置方法|&nbsp;|
-
-## 处理逻辑
-* 获取当前用户的Bug数 (GetCurUserBugCnt)
-  
-   
-
-{% plantuml %}
-hide footbox
-
-产品统计 -> 产品统计: 获取bug数
-{% endplantuml %}
-
-| 步骤       | 操作        |
-| --------   | --------   |
-|0|开始 | 
-|1|获取bug数 |
-<center>获取当前用户的Bug数</center>
-
-## 查询集合
-
-* **查询**
-
-| 查询编号 | 查询名称       | 默认查询 |   备注|
-| --------  | --------   | --------   | ----- |
-|DEFAULT|DEFAULT([MYSQL5](../../appendix/query_MYSQL5.md#ProductStats_Default))|否|&nbsp;|
-|NoOpenProduct|未关闭产品([MYSQL5](../../appendix/query_MYSQL5.md#ProductStats_NoOpenProduct))|否|&nbsp;|
-|VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#ProductStats_View))|否|&nbsp;|
-
-* **数据集合**
-
-| 集合编号 | 集合名称   |  包含查询  | 默认集合 |   备注|
-| --------  | --------   | -------- | --------   | ----- |
-|DEFAULT|DEFAULT|DEFAULT|是|&nbsp;|
-|NoOpenProduct|未关闭产品|NoOpenProduct|否|&nbsp;|
-
-## 查询模式
-| 属性      |    搜索模式     |
-| --------   |------------|
-|产品名称(NAME)|LIKE|
-|状态(STATUS)|EQ|
-|产品类型(TYPE)|EQ|
-
-## 导入模式
+#### 关系属性
 无
 
+### 属性-已删除（DELETED）
+#### 属性说明
+已删除
 
-## 导出模式
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 | 0 |
+
+#### 取值范围/公式
 无
+
+#### 数据格式
+无
+
+#### 关系属性
+无
+
+### 属性-需求总数（STORYCNT）
+#### 属性说明
+需求总数
+
+#### 属性类型
+逻辑属性[虚拟属性，来自计算逻辑和计算公式]
+
+#### 数据类型
+INT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+(SELECT COUNT(1) FROM ZT_STORY WHERE PRODUCT = %1$s AND DELETED = '0')
+
+#### 数据格式
+无
+
+#### 关系属性
+无
+
+### 属性-计划总数（PRODUCTPLANCNT）
+#### 属性说明
+计划总数
+
+#### 属性类型
+逻辑属性[虚拟属性，来自计算逻辑和计算公式]
+
+#### 数据类型
+INT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+(SELECT COUNT(1) FROM ZT_PRODUCTPLAN WHERE PRODUCT= %1$s AND DELETED = '0')
+
+#### 数据格式
+无
+
+#### 关系属性
+无
+
+### 属性-发布总数（RELEASECNT）
+#### 属性说明
+发布总数
+
+#### 属性类型
+逻辑属性[虚拟属性，来自计算逻辑和计算公式]
+
+#### 数据类型
+INT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+(SELECT COUNT(1) FROM ZT_RELEASE WHERE PRODUCT= %1$s AND DELETED = '0')
+
+#### 数据格式
+无
+
+#### 关系属性
+无
+
+### 属性-未开始需求数（WAITSTORYCNT）
+#### 属性说明
+未开始需求数
+
+#### 属性类型
+逻辑属性[虚拟属性，来自计算逻辑和计算公式]
+
+#### 数据类型
+INT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+(SELECT COUNT(1) FROM ZT_STORY WHERE PRODUCT = %1$s AND STAGE = 'wait' AND DELETED = '0')
+
+#### 数据格式
+无
+
+#### 关系属性
+无
+
+### 属性-已计划需求数（PLANNEDSTORYCNT）
+#### 属性说明
+已计划需求数
+
+#### 属性类型
+逻辑属性[虚拟属性，来自计算逻辑和计算公式]
+
+#### 数据类型
+INT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+(SELECT COUNT(1) FROM ZT_STORY WHERE PRODUCT = %1$s AND STAGE = 'planned' AND DELETED ='0')
+
+#### 数据格式
+无
+
+#### 关系属性
+无
+
+### 属性-开发中需求数（DEVELOPINGSTORYCNT）
+#### 属性说明
+开发中需求数
+
+#### 属性类型
+逻辑属性[虚拟属性，来自计算逻辑和计算公式]
+
+#### 数据类型
+INT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+(SELECT COUNT(1) FROM ZT_STORY WHERE PRODUCT = %1$s AND STAGE = 'developing' AND DELETED = '0')
+
+#### 数据格式
+无
+
+#### 关系属性
+无
+
+### 属性-测试中需求数（TESTINGSTORYCNT）
+#### 属性说明
+测试中需求数
+
+#### 属性类型
+逻辑属性[虚拟属性，来自计算逻辑和计算公式]
+
+#### 数据类型
+INT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+(SELECT COUNT(1) FROM ZT_STORY WHERE PRODUCT = %1$s AND STAGE = 'testing' AND DELETED = '0')
+
+#### 数据格式
+无
+
+#### 关系属性
+无
+
+### 属性-已发布需求数（RELEASEDSTORYCNT）
+#### 属性说明
+已发布需求数
+
+#### 属性类型
+逻辑属性[虚拟属性，来自计算逻辑和计算公式]
+
+#### 数据类型
+INT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+(SELECT COUNT(1) FROM ZT_STORY WHERE PRODUCT = %1$s AND STAGE = 'released' AND DELETED = '0')
+
+#### 数据格式
+无
+
+#### 关系属性
+无
+
+### 属性-未过期计划数（UNENDPRODUCTPLANCNT）
+#### 属性说明
+未过期计划数
+
+#### 属性类型
+逻辑属性[虚拟属性，来自计算逻辑和计算公式]
+
+#### 数据类型
+INT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+(SELECT COUNT(1) FROM ZT_PRODUCTPLAN WHERE PRODUCT= %1$s  AND `END` > CURDATE() AND DELETED = '0')
+
+#### 数据格式
+无
+
+#### 关系属性
+无
+
+### 属性-关联项目数（RESPROJECTCNT）
+#### 属性说明
+关联项目数
+
+#### 属性类型
+逻辑属性[虚拟属性，来自计算逻辑和计算公式]
+
+#### 数据类型
+INT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+(SELECT COUNT(1) FROM ZT_PROJECT LEFT JOIN ZT_PROJECTPRODUCT ON  ZT_PROJECT.ID = ZT_PROJECTPRODUCT.project WHERE PRODUCT = %1$s AND DELETED = '0')
+
+#### 数据格式
+无
+
+#### 关系属性
+无
+
+### 属性-未完成关联项目数（UNDONERESPROJECTCNT）
+#### 属性说明
+未完成关联项目数
+
+#### 属性类型
+逻辑属性[虚拟属性，来自计算逻辑和计算公式]
+
+#### 数据类型
+INT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+(SELECT COUNT(1) FROM ZT_PROJECT LEFT JOIN ZT_PROJECTPRODUCT ON  ZT_PROJECT.ID = ZT_PROJECTPRODUCT.project WHERE PRODUCT = %1$s AND `STATUS` <> 'closed' AND DELETED = '0')
+
+#### 数据格式
+无
+
+#### 关系属性
+无
+
+### 属性-维护中发布数（NORMALRELEASECNT）
+#### 属性说明
+维护中发布数
+
+#### 属性类型
+逻辑属性[虚拟属性，来自计算逻辑和计算公式]
+
+#### 数据类型
+INT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+(SELECT COUNT(1) FROM ZT_RELEASE WHERE PRODUCT= %1$s AND  `STATUS`= 'normal' AND DELETED = '0')
+
+#### 数据格式
+无
+
+#### 关系属性
+无
+
+### 属性-激活需求数（ACTIVESTORYCNT）
+#### 属性说明
+激活需求数
+
+#### 属性类型
+逻辑属性[虚拟属性，来自计算逻辑和计算公式]
+
+#### 数据类型
+INT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+(SELECT COUNT(1) FROM ZT_STORY WHERE PRODUCT = %1$s AND `STATUS`='active' AND DELETED = '0')
+
+#### 数据格式
+无
+
+#### 关系属性
+无
+
+### 属性-未解决Bug数（ACTIVEBUGCNT）
+#### 属性说明
+未解决Bug数
+
+#### 属性类型
+逻辑属性[虚拟属性，来自计算逻辑和计算公式]
+
+#### 数据类型
+INT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+(SELECT COUNT(1) FROM ZT_BUG WHERE PRODUCT = %1$s AND `STATUS` = 'active' AND DELETED ='0')
+
+#### 数据格式
+无
+
+#### 关系属性
+无
+
+### 属性-产品名称（NAME）
+#### 属性说明
+产品名称
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+否
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+无
+
+### 属性-指派给我的Bug数（ASSIGNTOMEBUGCNT）
+#### 属性说明
+指派给我的Bug数
+
+#### 属性类型
+逻辑属性[虚拟属性，来自计算逻辑和计算公式]
+
+#### 数据类型
+INT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+1
+
+#### 数据格式
+无
+
+#### 关系属性
+无
+
+### 属性-未关闭Bug数（NOTCLOSEDBUGCNT）
+#### 属性说明
+未关闭Bug数
+
+#### 属性类型
+逻辑属性[虚拟属性，来自计算逻辑和计算公式]
+
+#### 数据类型
+INT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+(SELECT COUNT(1) FROM ZT_BUG WHERE PRODUCT = %1$s AND `STATUS` <> 'closed' AND DELETED = '0')
+
+#### 数据格式
+无
+
+#### 关系属性
+无
+
+### 属性-所有Bug数（BUGCNT）
+#### 属性说明
+所有Bug数
+
+#### 属性类型
+逻辑属性[虚拟属性，来自计算逻辑和计算公式]
+
+#### 数据类型
+INT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+(SELECT COUNT(1) FROM ZT_BUG WHERE PRODUCT = %1$s AND DELETED = '0')
+
+#### 数据格式
+无
+
+#### 关系属性
+无
+
+### 属性-未确认Bug数（UNCONFIRMBUGCNT）
+#### 属性说明
+未确认Bug数
+
+#### 属性类型
+逻辑属性[虚拟属性，来自计算逻辑和计算公式]
+
+#### 数据类型
+INT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+(SELECT COUNT(1) FROM ZT_BUG WHERE PRODUCT = %1$s AND `CONFIRMED` = 0 AND DELETED = '0')
+
+#### 数据格式
+无
+
+#### 关系属性
+无
+
+### 属性-昨天关闭Bug数（YESTERDAYCLOSEDBUGCNT）
+#### 属性说明
+昨天关闭Bug数
+
+#### 属性类型
+逻辑属性[虚拟属性，来自计算逻辑和计算公式]
+
+#### 数据类型
+INT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+(SELECT COUNT( 1 ) FROM ZT_BUG WHERE PRODUCT = t1.`ID`  AND DELETED = '0' and resolvedDate BETWEEN CONCAT(YEAR(DATE_ADD(now(),INTERVAL -1 day)),'-',month(DATE_ADD(now(),INTERVAL -1 day)),'-',day(DATE_ADD(now(),INTERVAL -1 day)),' 00:00:00') and CONCAT(YEAR(DATE_ADD(now(),INTERVAL -1 day)),'-',month(DATE_ADD(now(),INTERVAL -1 day)),'-',day(DATE_ADD(now(),INTERVAL -1 day)),' 23:59:59'))
+
+#### 数据格式
+无
+
+#### 关系属性
+无
+
+### 属性-昨天确认Bug数（YESTERDAYCONFIRMBUGCNT）
+#### 属性说明
+昨天确认Bug数
+
+#### 属性类型
+逻辑属性[虚拟属性，来自计算逻辑和计算公式]
+
+#### 数据类型
+INT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+5
+
+#### 数据格式
+无
+
+#### 关系属性
+无
+
+### 属性-昨天解决Bug数（YESTERDAYRESOLVEDBUGCNT）
+#### 属性说明
+昨天解决Bug数
+
+#### 属性类型
+逻辑属性[虚拟属性，来自计算逻辑和计算公式]
+
+#### 数据类型
+INT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+(SELECT COUNT( 1 ) FROM ZT_BUG WHERE PRODUCT = t1.`ID` AND `STATUS` = 'closed' AND DELETED = '0' and CLOSEDDATE BETWEEN CONCAT(YEAR(DATE_ADD(now(),INTERVAL -1 day)),'-',month(DATE_ADD(now(),INTERVAL -1 day)),'-',day(DATE_ADD(now(),INTERVAL -1 day)),' 00:00:00') and CONCAT(YEAR(DATE_ADD(now(),INTERVAL -1 day)),'-',month(DATE_ADD(now(),INTERVAL -1 day)),'-',day(DATE_ADD(now(),INTERVAL -1 day)),' 23:59:59'))
+
+#### 数据格式
+无
+
+#### 关系属性
+无
+
+### 属性-已延期（POSTPONEDPROJECTCNT）
+#### 属性说明
+已延期
+
+#### 属性类型
+逻辑属性[虚拟属性，来自计算逻辑和计算公式]
+
+#### 数据类型
+INT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+(SELECT COUNT(1) FROM ZT_PROJECT t2 LEFT JOIN ZT_PROJECTPRODUCT t ON t2.ID = t.project WHERE t.PRODUCT = t1.id AND t2.DELETED = '0' and t2.`status` in( 'wait','doing') and t2.`END` < now() )
+
+#### 数据格式
+无
+
+#### 关系属性
+无
+
+### 属性-当前项目（CURRPROJECT）
+#### 属性说明
+当前项目
+
+#### 属性类型
+逻辑属性[虚拟属性，来自计算逻辑和计算公式]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+(SELECT t.name FROM zt_project t,zt_projectproduct t2 WHERE t.id=t2.project and t2.product = t1.id limit 1)
+
+#### 数据格式
+无
+
+#### 关系属性
+无
+
+### 属性-状态（STATUS）
+#### 属性说明
+状态
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+SSCODELIST
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+参照数据字典【[产品状态（Product__status）](../../codelist/Product__status)】
+
+#### 数据格式
+无
+
+#### 关系属性
+无
+
+### 属性-产品代号（CODE）
+#### 属性说明
+产品代号
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+无
+
+### 属性-产品类型（TYPE）
+#### 属性说明
+产品类型
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+SSCODELIST
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+参照数据字典【[产品类型（Product__type）](../../codelist/Product__type)】
+
+#### 数据格式
+无
+
+#### 关系属性
+无
+
+### 属性-产品排序（ORDER1）
+#### 属性说明
+产品排序
+
+#### 属性类型
+逻辑属性[虚拟属性，来自计算逻辑和计算公式]
+
+#### 数据类型
+INT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+t1.`order`
+
+#### 数据格式
+无
+
+#### 关系属性
+无
+
+### 属性-是否置顶（ISTOP）
+#### 属性说明
+是否置顶
+
+#### 属性类型
+应用界面属性[虚拟属性，提供给页面显示的属性]
+
+#### 数据类型
+INT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+无
+

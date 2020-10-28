@@ -1,284 +1,2882 @@
-# 实体属性(PSDEFIELD)
+# 实体-实体属性(PSDEFIELD)
+## 实体说明
+实体属性
 
-  
+## 所属模块
+[iBiz系统模型](../ibizsysmodel)
 
-## 关系
-{% plantuml %}
-实体属性 *-- 实体属性 
-实体属性 *-- 实体属性 
-实体属性 *-- 实体属性 
-实体属性 *-- 实体属性 
-实体属性 *-- 实体属性 
-实体 *-- 实体属性 
-实体属性 *-- 实体属性 
-实体属性 *-- 实体属性 
-实体属性 *-- 实体属性 
-实体属性 *-- 实体属性 
-实体属性 *-- 实体属性 
-hide members
-{% endplantuml %}
+## 实体属性
+| 序号 | 属性 | 属性名 | 数据类型 | 是否是主键 | 是否是外键 | 是否允许为空 | 关系属性（实体-属性） |
+| -- | -- | -- | -- | -- | -- |
+| 1 | [实体属性标识](#属性-实体属性标识（PSDEFIELDID）) | PSDEFIELDID | GUID | 是 | 否 | 否 | -- |
+| 2 | [实体属性名称](#属性-实体属性名称（PSDEFIELDNAME）) | PSDEFIELDNAME | TEXT | 否 | 否 | 是 | -- |
+| 3 | [建立人](#属性-建立人（CREATEMAN）) | CREATEMAN | TEXT | 否 | 否 | 否 | -- |
+| 4 | [更新时间](#属性-更新时间（UPDATEDATE）) | UPDATEDATE | DATETIME | 否 | 否 | 否 | -- |
+| 5 | [更新人](#属性-更新人（UPDATEMAN）) | UPDATEMAN | TEXT | 否 | 否 | 否 | -- |
+| 6 | [建立时间](#属性-建立时间（CREATEDATE）) | CREATEDATE | DATETIME | 否 | 否 | 否 | -- |
+| 7 | [业务标记](#属性-业务标记（BIZTAG）) | BIZTAG | SSCODELIST | 否 | 否 | 是 | -- |
+| 8 | [允许为空](#属性-允许为空（ALLOWEMPTY）) | ALLOWEMPTY | YESNO | 否 | 否 | 否 | -- |
+| 9 | [审计信息格式](#属性-审计信息格式（AUDITINFOFORMAT）) | AUDITINFOFORMAT | TEXT | 否 | 否 | 是 | -- |
+| 10 | [检查递归](#属性-检查递归（CHECKRECURSION）) | CHECKRECURSION | YESNO | 否 | 否 | 是 | -- |
+| 11 | [代码名称](#属性-代码名称（CODENAME）) | CODENAME | TEXT | 否 | 否 | 是 | -- |
+| 12 | [数据库更新值模式](#属性-数据库更新值模式（DBVALUEMODE）) | DBVALUEMODE | SSCODELIST | 否 | 否 | 是 | -- |
+| 13 | [自定义导出范围](#属性-自定义导出范围（CUSTOMEXPORTSCOPE）) | CUSTOMEXPORTSCOPE | YESNO | 否 | 否 | 是 | -- |
+| 14 | [数据库新建值模式](#属性-数据库新建值模式（DBVALUEMODE2）) | DBVALUEMODE2 | SSCODELIST | 否 | 否 | 是 | -- |
+| 15 | [属性类型](#属性-属性类型（DEFTYPE）) | DEFTYPE | NSCODELIST | 否 | 否 | 否 | -- |
+| 16 | [属性默认值](#属性-属性默认值（DEFAULTVALUE）) | DEFAULTVALUE | TEXT | 否 | 否 | 是 | -- |
+| 17 | [重复值检查](#属性-重复值检查（DUPCHECKMODE）) | DUPCHECKMODE | SSCODELIST | 否 | 否 | 是 | -- |
+| 18 | [检查值范围](#属性-检查值范围（DUPCHECKVALUES）) | DUPCHECKVALUES | TEXT | 否 | 否 | 是 | -- |
+| 19 | [默认值类型](#属性-默认值类型（DVT）) | DVT | SSCODELIST | 否 | 否 | 是 | -- |
+| 20 | [启用审计](#属性-启用审计（ENABLEAUDIT）) | ENABLEAUDIT | YESNO | 否 | 否 | 是 | -- |
+| 21 | [动态模型类型](#属性-动态模型类型（DYNAMODELFLAG）) | DYNAMODELFLAG | NSCODELIST | 否 | 否 | 是 | -- |
+| 22 | [启用快速搜索](#属性-启用快速搜索（ENABLEQS）) | ENABLEQS | YESNO | 否 | 否 | 是 | -- |
+| 23 | [启用列权限控制](#属性-启用列权限控制（ENABLECOLPRIV）) | ENABLECOLPRIV | YESNO | 否 | 否 | 是 | -- |
+| 24 | [支持链接属性回写](#属性-支持链接属性回写（ENAWRITEBACK）) | ENAWRITEBACK | YESNO | 否 | 否 | 是 | -- |
+| 25 | [默认用户行为](#属性-默认用户行为（ENABLEUSERINPUT）) | ENABLEUSERINPUT | NMCODELIST | 否 | 否 | 是 | -- |
+| 26 | [支持临时数据](#属性-支持临时数据（ENABLETEMPDATA）) | ENABLETEMPDATA | YESNO | 否 | 否 | 是 | -- |
+| 27 | [扩展模式](#属性-扩展模式（EXTENDMODE）) | EXTENDMODE | NSCODELIST | 否 | 否 | 是 | -- |
+| 28 | [导出范围](#属性-导出范围（EXPORTSCOPE）) | EXPORTSCOPE | NMCODELIST | 否 | 否 | 是 | -- |
+| 29 | [逻辑属性参数](#属性-逻辑属性参数（FORMULAFIELDS）) | FORMULAFIELDS | TEXT | 否 | 否 | 是 | -- |
+| 30 | [外键属性](#属性-外键属性（FKEY）) | FKEY | YESNO | 否 | 否 | 是 | -- |
+| 31 | [逻辑字段格式](#属性-逻辑字段格式（FORMULAFORMAT）) | FORMULAFORMAT | TEXT | 否 | 否 | 是 | -- |
+| 32 | [数据导入识别](#属性-数据导入识别（IMPORTKEY）) | IMPORTKEY | YESNO | 否 | 否 | 是 | -- |
+| 33 | [数据导入次序](#属性-数据导入次序（IMPORTORDER）) | IMPORTORDER | INT | 否 | 否 | 是 | -- |
+| 34 | [索引类型属性](#属性-索引类型属性（INDEXTYPE）) | INDEXTYPE | YESNO | 否 | 否 | 是 | -- |
+| 35 | [长度](#属性-长度（LENGTH）) | LENGTH | INT | 否 | 否 | 是 | -- |
+| 36 | [数据导入标识](#属性-数据导入标识（IMPORTTAG）) | IMPORTTAG | TEXT | 否 | 否 | 是 | -- |
+| 37 | [模型锁模式](#属性-模型锁模式（LOCKFLAG）) | LOCKFLAG | NSCODELIST | 否 | 否 | 是 | -- |
+| 38 | [中文名称](#属性-中文名称（LOGICNAME）) | LOGICNAME | TEXT | 否 | 否 | 否 | -- |
+| 39 | [多表单识别属性](#属性-多表单识别属性（MULTIFORMFIELD）) | MULTIFORMFIELD | YESNO | 否 | 否 | 是 | -- |
+| 40 | [主信息属性](#属性-主信息属性（MAJORFIELD）) | MAJORFIELD | YESNO | 否 | 否 | 是 | -- |
+| 41 | [备注](#属性-备注（MEMO）) | MEMO | LONGTEXT_1000 | 否 | 否 | 是 | -- |
+| 42 | [排序值](#属性-排序值（ORDERVALUE）) | ORDERVALUE | INT | 否 | 否 | 是 | -- |
+| 43 | [空值排序](#属性-空值排序（NULLVALORDER）) | NULLVALORDER | SSCODELIST | 否 | 否 | 是 | -- |
+| 44 | [粘帖重置](#属性-粘帖重置（PASTERESET）) | PASTERESET | YESNO | 否 | 否 | 是 | -- |
+| 45 | [物理化属性](#属性-物理化属性（PHYSICALFIELD）) | PHYSICALFIELD | YESNO | 否 | 否 | 是 | -- |
+| 46 | [主键属性](#属性-主键属性（PKEY）) | PKEY | NSCODELIST | 否 | 否 | 是 | -- |
+| 47 | [浮点精度](#属性-浮点精度（PRECISION2）) | PRECISION2 | INT | 否 | 否 | 是 | -- |
+| 48 | [系统预置属性](#属性-系统预置属性（PREDEFINETYPE）) | PREDEFINETYPE | SSCODELIST | 否 | 否 | 是 | -- |
+| 49 | [数据类型](#属性-数据类型（PSDATATYPENAME）) | PSDATATYPENAME | TEXT | 否 | 否 | 否 | -- |
+| 50 | [查询输出](#属性-查询输出（QUERYCOLUMN）) | QUERYCOLUMN | YESNO | 否 | 否 | 是 | -- |
+| 51 | [数据类型](#属性-数据类型（PSDATATYPEID）) | PSDATATYPEID | TEXT | 否 | 否 | 否 | -- |
+| 52 | [服务代码名称](#属性-服务代码名称（SERVICECODENAME）) | SERVICECODENAME | TEXT | 否 | 否 | 是 | -- |
+| 53 | [主状态属性](#属性-主状态属性（STATEFIELD）) | STATEFIELD | SSCODELIST | 否 | 否 | 是 | -- |
+| 54 | [查询扩展选项](#属性-查询扩展选项（QUERYCS）) | QUERYCS | SMCODELIST | 否 | 否 | 是 | -- |
+| 55 | [字符长度](#属性-字符长度（STRLENGTH）) | STRLENGTH | INT | 否 | 否 | 是 | -- |
+| 56 | [字符转换](#属性-字符转换（STRINGCASE）) | STRINGCASE | SSCODELIST | 否 | 否 | 是 | -- |
+| 57 | [默认测试值](#属性-默认测试值（TESTDATA）) | TESTDATA | TEXT | 否 | 否 | 是 | -- |
+| 58 | [表名称](#属性-表名称（TABLENAME）) | TABLENAME | TEXT | 否 | 否 | 是 | -- |
+| 59 | [双字节字符](#属性-双字节字符（UNICODECHAR）) | UNICODECHAR | YESNO | 否 | 否 | 是 | -- |
+| 60 | [单位](#属性-单位（UNIT）) | UNIT | TEXT | 否 | 否 | 是 | -- |
+| 61 | [联合键值](#属性-联合键值（UNIONKEYVALUE）) | UNIONKEYVALUE | SSCODELIST | 否 | 否 | 是 | -- |
+| 62 | [更新旧值回填](#属性-更新旧值回填（UPDATEOVMODE）) | UPDATEOVMODE | SSCODELIST | 否 | 否 | 是 | -- |
+| 63 | [单位宽度](#属性-单位宽度（UNITWIDTH）) | UNITWIDTH | INT | 否 | 否 | 是 | -- |
+| 64 | [自定义参数](#属性-自定义参数（USERPARAMS）) | USERPARAMS | TEXT | 否 | 否 | 是 | -- |
+| 65 | [用户标记](#属性-用户标记（USERTAG）) | USERTAG | TEXT | 否 | 否 | 是 | -- |
+| 66 | [用户分类](#属性-用户分类（USERCAT）) | USERCAT | SSCODELIST | 否 | 否 | 是 | -- |
+| 67 | [用户标记3](#属性-用户标记3（USERTAG3）) | USERTAG3 | TEXT | 否 | 否 | 是 | -- |
+| 68 | [用户标记4](#属性-用户标记4（USERTAG4）) | USERTAG4 | TEXT | 否 | 否 | 是 | -- |
+| 69 | [用户标记2](#属性-用户标记2（USERTAG2）) | USERTAG2 | TEXT | 否 | 否 | 是 | -- |
+| 70 | [是否启用](#属性-是否启用（VALIDFLAG）) | VALIDFLAG | YESNO | 否 | 否 | 是 | -- |
+| 71 | [视图列级别](#属性-视图列级别（VIEWCOLLEVEL）) | VIEWCOLLEVEL | NSCODELIST | 否 | 否 | 是 | -- |
+| 72 | [值格式化](#属性-值格式化（VALUEFORMAT）) | VALUEFORMAT | TEXT | 否 | 否 | 是 | -- |
+| 73 | [范围属性2](#属性-范围属性2（NO2DUPCHKPSDEFNAME）) | NO2DUPCHKPSDEFNAME | PICKUPTEXT | 否 | 是 | 是 | [实体属性（PSDEFIELD）](../ibizsysmodel/PSDEField) - [实体属性名称（PSDEFIELDNAME）](../ibizsysmodel/PSDEField/#属性-实体属性名称（PSDEFIELDNAME）) |
+| 74 | [范围属性2](#属性-范围属性2（NO2DUPCHKPSDEFID）) | NO2DUPCHKPSDEFID | PICKUP | 否 | 是 | 是 | [实体属性（PSDEFIELD）](../ibizsysmodel/PSDEField) - [实体属性标识（PSDEFIELDID）](../ibizsysmodel/PSDEField/#属性-实体属性标识（PSDEFIELDID）) |
+| 75 | [范围属性3](#属性-范围属性3（NO3DUPCHKPSDEFNAME）) | NO3DUPCHKPSDEFNAME | PICKUPTEXT | 否 | 是 | 是 | [实体属性（PSDEFIELD）](../ibizsysmodel/PSDEField) - [实体属性名称（PSDEFIELDNAME）](../ibizsysmodel/PSDEField/#属性-实体属性名称（PSDEFIELDNAME）) |
+| 76 | [范围属性3](#属性-范围属性3（NO3DUPCHKPSDEFID）) | NO3DUPCHKPSDEFID | PICKUP | 否 | 是 | 是 | [实体属性（PSDEFIELD）](../ibizsysmodel/PSDEField) - [实体属性标识（PSDEFIELDID）](../ibizsysmodel/PSDEField/#属性-实体属性标识（PSDEFIELDID）) |
+| 77 | [值项属性](#属性-值项属性（VALUEPSDEFNAME）) | VALUEPSDEFNAME | PICKUPTEXT | 否 | 是 | 是 | [实体属性（PSDEFIELD）](../ibizsysmodel/PSDEField) - [实体属性名称（PSDEFIELDNAME）](../ibizsysmodel/PSDEField/#属性-实体属性名称（PSDEFIELDNAME）) |
+| 78 | [值项属性](#属性-值项属性（VALUEPSDEFID）) | VALUEPSDEFID | PICKUP | 否 | 是 | 是 | [实体属性（PSDEFIELD）](../ibizsysmodel/PSDEField) - [实体属性标识（PSDEFIELDID）](../ibizsysmodel/PSDEField/#属性-实体属性标识（PSDEFIELDID）) |
+| 79 | [关系属性](#属性-关系属性（DERPSDEFNAME）) | DERPSDEFNAME | PICKUPTEXT | 否 | 是 | 是 | [实体属性（PSDEFIELD）](../ibizsysmodel/PSDEField) - [实体属性名称（PSDEFIELDNAME）](../ibizsysmodel/PSDEField/#属性-实体属性名称（PSDEFIELDNAME）) |
+| 80 | [范围属性](#属性-范围属性（DUPCHKPSDEFID）) | DUPCHKPSDEFID | PICKUP | 否 | 是 | 是 | [实体属性（PSDEFIELD）](../ibizsysmodel/PSDEField) - [实体属性标识（PSDEFIELDID）](../ibizsysmodel/PSDEField/#属性-实体属性标识（PSDEFIELDID）) |
+| 81 | [关系属性](#属性-关系属性（DERPSDEFID）) | DERPSDEFID | PICKUP | 否 | 是 | 是 | [实体属性（PSDEFIELD）](../ibizsysmodel/PSDEField) - [实体属性标识（PSDEFIELDID）](../ibizsysmodel/PSDEField/#属性-实体属性标识（PSDEFIELDID）) |
+| 82 | [范围属性](#属性-范围属性（DUPCHKPSDEFNAME）) | DUPCHKPSDEFNAME | PICKUPTEXT | 否 | 是 | 是 | [实体属性（PSDEFIELD）](../ibizsysmodel/PSDEField) - [实体属性名称（PSDEFIELDNAME）](../ibizsysmodel/PSDEField/#属性-实体属性名称（PSDEFIELDNAME）) |
+| 83 | [实体](#属性-实体（PSDENAME）) | PSDENAME | PICKUPTEXT | 否 | 是 | 否 | [实体（PSDATAENTITY）](../ibizsysmodel/PSDataEntity) - [实体名称（PSDATAENTITYNAME）](../ibizsysmodel/PSDataEntity/#属性-实体名称（PSDATAENTITYNAME）) |
+| 84 | [实体](#属性-实体（PSDEID）) | PSDEID | PICKUP | 否 | 是 | 否 | [实体（PSDATAENTITY）](../ibizsysmodel/PSDataEntity) - [实体标识（PSDATAENTITYID）](../ibizsysmodel/PSDataEntity/#属性-实体标识（PSDATAENTITYID）) |
+| 85 | [PSSUBSYSSADEID](#属性-PSSUBSYSSADEID（PSSUBSYSSADEID）) | PSSUBSYSSADEID | PICKUPDATA | 否 | 是 | 是 | [实体（PSDATAENTITY）](../ibizsysmodel/PSDataEntity) - [子系统接口实体（PSSUBSYSSADEID）](../ibizsysmodel/PSDataEntity/#属性-子系统接口实体（PSSUBSYSSADEID）) |
+| 86 | [系统](#属性-系统（PSSYSTEMID）) | PSSYSTEMID | TEXT | 否 | 是 | 是 | [实体（PSDATAENTITY）](../ibizsysmodel/PSDataEntity) - [子系统接口实体（PSSUBSYSSADEID）](../ibizsysmodel/PSDataEntity/#属性-子系统接口实体（PSSUBSYSSADEID）) |
+| 87 | [系统](#属性-系统（PSSYSTEMNAME）) | PSSYSTEMNAME | TEXT | 否 | 是 | 是 | [实体（PSDATAENTITY）](../ibizsysmodel/PSDataEntity) - [子系统接口实体（PSSUBSYSSADEID）](../ibizsysmodel/PSDataEntity/#属性-子系统接口实体（PSSUBSYSSADEID）) |
 
-## 属性
+### 属性-实体属性标识（PSDEFIELDID）
+#### 属性说明
+实体属性标识
 
-| 属性名称        |    中文名称    | 类型     |  备注  |
-| --------   |------------| -----   |  -------- | 
-|实体属性标识|PSDEFIELDID|GUID|&nbsp;|
-|实体属性名称|PSDEFIELDNAME|TEXT|&nbsp;|
-|建立人|CREATEMAN|TEXT|&nbsp;|
-|更新时间|UPDATEDATE|DATETIME|&nbsp;|
-|更新人|UPDATEMAN|TEXT|&nbsp;|
-|建立时间|CREATEDATE|DATETIME|&nbsp;|
-|业务标记|BIZTAG|SSCODELIST|&nbsp;|
-|允许为空|ALLOWEMPTY|YESNO|&nbsp;|
-|审计信息格式|AUDITINFOFORMAT|TEXT|&nbsp;|
-|检查递归|CHECKRECURSION|YESNO|&nbsp;|
-|代码名称|CODENAME|TEXT|&nbsp;|
-|数据库更新值模式|DBVALUEMODE|SSCODELIST|&nbsp;|
-|自定义导出范围|CUSTOMEXPORTSCOPE|YESNO|&nbsp;|
-|数据库新建值模式|DBVALUEMODE2|SSCODELIST|&nbsp;|
-|属性类型|DEFTYPE|NSCODELIST|&nbsp;|
-|属性默认值|DEFAULTVALUE|TEXT|&nbsp;|
-|重复值检查|DUPCHECKMODE|SSCODELIST|&nbsp;|
-|检查值范围|DUPCHECKVALUES|TEXT|&nbsp;|
-|默认值类型|DVT|SSCODELIST|&nbsp;|
-|启用审计|ENABLEAUDIT|YESNO|&nbsp;|
-|动态模型类型|DYNAMODELFLAG|NSCODELIST|&nbsp;|
-|启用快速搜索|ENABLEQS|YESNO|&nbsp;|
-|启用列权限控制|ENABLECOLPRIV|YESNO|&nbsp;|
-|支持链接属性回写|ENAWRITEBACK|YESNO|&nbsp;|
-|默认用户行为|ENABLEUSERINPUT|NMCODELIST|&nbsp;|
-|支持临时数据|ENABLETEMPDATA|YESNO|&nbsp;|
-|扩展模式|EXTENDMODE|NSCODELIST|&nbsp;|
-|导出范围|EXPORTSCOPE|NMCODELIST|&nbsp;|
-|逻辑属性参数|FORMULAFIELDS|TEXT|&nbsp;|
-|外键属性|FKEY|YESNO|&nbsp;|
-|逻辑字段格式|FORMULAFORMAT|TEXT|&nbsp;|
-|数据导入识别|IMPORTKEY|YESNO|&nbsp;|
-|数据导入次序|IMPORTORDER|INT|&nbsp;|
-|索引类型属性|INDEXTYPE|YESNO|&nbsp;|
-|长度|LENGTH|INT|&nbsp;|
-|数据导入标识|IMPORTTAG|TEXT|&nbsp;|
-|模型锁模式|LOCKFLAG|NSCODELIST|&nbsp;|
-|中文名称|LOGICNAME|TEXT|&nbsp;|
-|多表单识别属性|MULTIFORMFIELD|YESNO|&nbsp;|
-|主信息属性|MAJORFIELD|YESNO|&nbsp;|
-|备注|MEMO|LONGTEXT_1000|&nbsp;|
-|排序值|ORDERVALUE|INT|&nbsp;|
-|空值排序|NULLVALORDER|SSCODELIST|&nbsp;|
-|粘帖重置|PASTERESET|YESNO|&nbsp;|
-|物理化属性|PHYSICALFIELD|YESNO|&nbsp;|
-|主键属性|PKEY|NSCODELIST|&nbsp;|
-|浮点精度|PRECISION2|INT|&nbsp;|
-|系统预置属性|PREDEFINETYPE|SSCODELIST|&nbsp;|
-|数据类型|PSDATATYPENAME|TEXT|&nbsp;|
-|查询输出|QUERYCOLUMN|YESNO|&nbsp;|
-|数据类型|PSDATATYPEID|TEXT|&nbsp;|
-|服务代码名称|SERVICECODENAME|TEXT|&nbsp;|
-|主状态属性|STATEFIELD|SSCODELIST|&nbsp;|
-|查询扩展选项|QUERYCS|SMCODELIST|&nbsp;|
-|字符长度|STRLENGTH|INT|&nbsp;|
-|字符转换|STRINGCASE|SSCODELIST|&nbsp;|
-|默认测试值|TESTDATA|TEXT|&nbsp;|
-|表名称|TABLENAME|TEXT|&nbsp;|
-|双字节字符|UNICODECHAR|YESNO|&nbsp;|
-|单位|UNIT|TEXT|&nbsp;|
-|联合键值|UNIONKEYVALUE|SSCODELIST|&nbsp;|
-|更新旧值回填|UPDATEOVMODE|SSCODELIST|&nbsp;|
-|单位宽度|UNITWIDTH|INT|&nbsp;|
-|自定义参数|USERPARAMS|TEXT|&nbsp;|
-|用户标记|USERTAG|TEXT|&nbsp;|
-|用户分类|USERCAT|SSCODELIST|&nbsp;|
-|用户标记3|USERTAG3|TEXT|&nbsp;|
-|用户标记4|USERTAG4|TEXT|&nbsp;|
-|用户标记2|USERTAG2|TEXT|&nbsp;|
-|是否启用|VALIDFLAG|YESNO|&nbsp;|
-|视图列级别|VIEWCOLLEVEL|NSCODELIST|&nbsp;|
-|值格式化|VALUEFORMAT|TEXT|&nbsp;|
-|范围属性2|NO2DUPCHKPSDEFNAME|PICKUPTEXT|&nbsp;|
-|范围属性2|NO2DUPCHKPSDEFID|PICKUP|&nbsp;|
-|范围属性3|NO3DUPCHKPSDEFNAME|PICKUPTEXT|&nbsp;|
-|范围属性3|NO3DUPCHKPSDEFID|PICKUP|&nbsp;|
-|值项属性|VALUEPSDEFNAME|PICKUPTEXT|&nbsp;|
-|值项属性|VALUEPSDEFID|PICKUP|&nbsp;|
-|关系属性|DERPSDEFNAME|PICKUPTEXT|&nbsp;|
-|范围属性|DUPCHKPSDEFID|PICKUP|&nbsp;|
-|关系属性|DERPSDEFID|PICKUP|&nbsp;|
-|范围属性|DUPCHKPSDEFNAME|PICKUPTEXT|&nbsp;|
-|实体|PSDENAME|PICKUPTEXT|&nbsp;|
-|实体|PSDEID|PICKUP|&nbsp;|
-|PSSUBSYSSADEID|PSSUBSYSSADEID|PICKUPDATA|&nbsp;|
-|系统|PSSYSTEMID|TEXT|&nbsp;|
-|系统|PSSYSTEMNAME|TEXT|&nbsp;|
+#### 属性类型
+物理属性[实体属性]
 
-## 值规则
-| 属性名称    | 规则    |  说明  |
-| --------   |------------| ----- | 
-|实体属性标识|默认规则|内容长度必须小于等于[100]|
-|实体属性名称|默认规则|内容长度必须小于等于[200]|
-|建立人|默认规则|内容长度必须小于等于[60]|
-|更新时间|默认规则|默认规则|
-|更新人|默认规则|内容长度必须小于等于[60]|
-|建立时间|默认规则|默认规则|
-|业务标记|默认规则|内容长度必须小于等于[30]|
-|允许为空|默认规则|默认规则|
-|审计信息格式|默认规则|内容长度必须小于等于[200]|
-|检查递归|默认规则|默认规则|
-|代码名称|默认规则|内容长度必须小于等于[60]|
-|数据库更新值模式|默认规则|内容长度必须小于等于[30]|
-|自定义导出范围|默认规则|默认规则|
-|数据库新建值模式|默认规则|内容长度必须小于等于[30]|
-|属性类型|默认规则|默认规则|
-|属性默认值|默认规则|内容长度必须小于等于[200]|
-|重复值检查|默认规则|内容长度必须小于等于[100]|
-|检查值范围|默认规则|内容长度必须小于等于[200]|
-|默认值类型|默认规则|内容长度必须小于等于[50]|
-|启用审计|默认规则|默认规则|
-|动态模型类型|默认规则|默认规则|
-|启用快速搜索|默认规则|默认规则|
-|启用列权限控制|默认规则|默认规则|
-|支持链接属性回写|默认规则|默认规则|
-|默认用户行为|默认规则|默认规则|
-|支持临时数据|默认规则|默认规则|
-|扩展模式|默认规则|默认规则|
-|导出范围|默认规则|默认规则|
-|逻辑属性参数|默认规则|内容长度必须小于等于[200]|
-|外键属性|默认规则|默认规则|
-|逻辑字段格式|默认规则|内容长度必须小于等于[500]|
-|数据导入识别|默认规则|默认规则|
-|数据导入次序|默认规则|默认规则|
-|索引类型属性|默认规则|默认规则|
-|长度|默认规则|默认规则|
-|数据导入标识|默认规则|内容长度必须小于等于[30]|
-|模型锁模式|默认规则|默认规则|
-|中文名称|默认规则|内容长度必须小于等于[60]|
-|多表单识别属性|默认规则|默认规则|
-|主信息属性|默认规则|默认规则|
-|备注|默认规则|内容长度必须小于等于[2000]|
-|排序值|默认规则|默认规则|
-|空值排序|默认规则|内容长度必须小于等于[10]|
-|粘帖重置|默认规则|默认规则|
-|物理化属性|默认规则|默认规则|
-|主键属性|默认规则|默认规则|
-|浮点精度|默认规则|默认规则|
-|系统预置属性|默认规则|内容长度必须小于等于[100]|
-|数据类型|默认规则|内容长度必须小于等于[200]|
-|查询输出|默认规则|默认规则|
-|数据类型|默认规则|内容长度必须小于等于[100]|
-|服务代码名称|默认规则|内容长度必须小于等于[50]|
-|主状态属性|默认规则|内容长度必须小于等于[10]|
-|查询扩展选项|默认规则|内容长度必须小于等于[60]|
-|字符长度|默认规则|默认规则|
-|字符转换|默认规则|内容长度必须小于等于[100]|
-|默认测试值|默认规则|内容长度必须小于等于[100]|
-|表名称|默认规则|内容长度必须小于等于[60]|
-|双字节字符|默认规则|默认规则|
-|单位|默认规则|内容长度必须小于等于[20]|
-|联合键值|默认规则|内容长度必须小于等于[10]|
-|更新旧值回填|默认规则|内容长度必须小于等于[20]|
-|单位宽度|默认规则|默认规则|
-|自定义参数|默认规则|内容长度必须小于等于[2000]|
-|用户标记|默认规则|内容长度必须小于等于[100]|
-|用户分类|默认规则|内容长度必须小于等于[10]|
-|用户标记3|默认规则|内容长度必须小于等于[50]|
-|用户标记4|默认规则|内容长度必须小于等于[50]|
-|用户标记2|默认规则|内容长度必须小于等于[100]|
-|是否启用|默认规则|默认规则|
-|视图列级别|默认规则|默认规则|
-|值格式化|默认规则|内容长度必须小于等于[50]|
-|范围属性2|默认规则|内容长度必须小于等于[200]|
-|范围属性2|默认规则|内容长度必须小于等于[100]|
-|范围属性3|默认规则|内容长度必须小于等于[200]|
-|范围属性3|默认规则|内容长度必须小于等于[100]|
-|值项属性|默认规则|内容长度必须小于等于[200]|
-|值项属性|默认规则|内容长度必须小于等于[100]|
-|关系属性|默认规则|内容长度必须小于等于[200]|
-|范围属性|默认规则|内容长度必须小于等于[100]|
-|关系属性|默认规则|内容长度必须小于等于[100]|
-|范围属性|默认规则|内容长度必须小于等于[200]|
-|实体|默认规则|内容长度必须小于等于[200]|
-|实体|默认规则|内容长度必须小于等于[100]|
-|PSSUBSYSSADEID|默认规则|内容长度必须小于等于[100]|
-|系统|默认规则|内容长度必须小于等于[100]|
-|系统|默认规则|内容长度必须小于等于[100]|
+#### 数据类型
+GUID
 
-## 状态控制
+#### 是否允许为为空
+否
 
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
 无
 
-
-## 行为
-| 行为    | 类型    |  说明  |
-| --------   |------------| ----- | 
-|Create|内置方法|&nbsp;|
-|Update|内置方法|&nbsp;|
-|Remove|内置方法|&nbsp;|
-|Get|内置方法|&nbsp;|
-|GetDraft|内置方法|&nbsp;|
-|CheckKey|内置方法|&nbsp;|
-|Save|内置方法|&nbsp;|
-
-## 处理逻辑
+#### 数据格式
 无
 
-## 查询集合
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [实体（PSDATAENTITY）](../ibizsysmodel/PSDataEntity) |
+| 关系属性 | [子系统接口实体（PSSUBSYSSADEID）](../ibizsysmodel/PSDataEntity/#属性-子系统接口实体（PSSUBSYSSADEID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
 
-* **查询**
+### 属性-实体属性名称（PSDEFIELDNAME）
+#### 属性说明
+实体属性名称
 
-| 查询编号 | 查询名称       | 默认查询 |   备注|
-| --------  | --------   | --------   | ----- |
-|DEFAULT|数据查询([MYSQL5](../../appendix/query_MYSQL5.md#PSDEField_Default))|否|&nbsp;|
-|VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#PSDEField_View))|否|&nbsp;|
+#### 属性类型
+物理属性[实体属性]
 
-* **数据集合**
+#### 数据类型
+TEXT
 
-| 集合编号 | 集合名称   |  包含查询  | 默认集合 |   备注|
-| --------  | --------   | -------- | --------   | ----- |
-|DEFAULT|数据集|DEFAULT|是|&nbsp;|
+#### 是否允许为为空
+是
 
-## 查询模式
-| 属性      |    搜索模式     |
-| --------   |------------|
-|实体属性名称(PSDEFIELDNAME)|LIKE|
-|业务标记(BIZTAG)|EQ|
-|数据库更新值模式(DBVALUEMODE)|EQ|
-|数据库新建值模式(DBVALUEMODE2)|EQ|
-|属性类型(DEFTYPE)|EQ|
-|重复值检查(DUPCHECKMODE)|EQ|
-|默认值类型(DVT)|EQ|
-|动态模型类型(DYNAMODELFLAG)|EQ|
-|扩展模式(EXTENDMODE)|EQ|
-|模型锁模式(LOCKFLAG)|EQ|
-|空值排序(NULLVALORDER)|EQ|
-|主键属性(PKEY)|EQ|
-|系统预置属性(PREDEFINETYPE)|EQ|
-|主状态属性(STATEFIELD)|EQ|
-|字符转换(STRINGCASE)|EQ|
-|联合键值(UNIONKEYVALUE)|EQ|
-|更新旧值回填(UPDATEOVMODE)|EQ|
-|用户分类(USERCAT)|EQ|
-|视图列级别(VIEWCOLLEVEL)|EQ|
-|范围属性2(NO2DUPCHKPSDEFNAME)|EQ|
-|范围属性2(NO2DUPCHKPSDEFNAME)|LIKE|
-|范围属性2(NO2DUPCHKPSDEFID)|EQ|
-|范围属性3(NO3DUPCHKPSDEFNAME)|EQ|
-|范围属性3(NO3DUPCHKPSDEFNAME)|LIKE|
-|范围属性3(NO3DUPCHKPSDEFID)|EQ|
-|值项属性(VALUEPSDEFNAME)|EQ|
-|值项属性(VALUEPSDEFNAME)|LIKE|
-|值项属性(VALUEPSDEFID)|EQ|
-|关系属性(DERPSDEFNAME)|EQ|
-|关系属性(DERPSDEFNAME)|LIKE|
-|范围属性(DUPCHKPSDEFID)|EQ|
-|关系属性(DERPSDEFID)|EQ|
-|范围属性(DUPCHKPSDEFNAME)|EQ|
-|范围属性(DUPCHKPSDEFNAME)|LIKE|
-|实体(PSDENAME)|EQ|
-|实体(PSDENAME)|LIKE|
-|实体(PSDEID)|EQ|
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
 
-## 导入模式
+#### 取值范围/公式
 无
 
-
-## 导出模式
+#### 数据格式
 无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [实体（PSDATAENTITY）](../ibizsysmodel/PSDataEntity) |
+| 关系属性 | [子系统接口实体（PSSUBSYSSADEID）](../ibizsysmodel/PSDataEntity/#属性-子系统接口实体（PSSUBSYSSADEID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-建立人（CREATEMAN）
+#### 属性说明
+建立人
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+否
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+参照数据字典【[云系统操作者（SysOperator）](../../codelist/SysOperator)】
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [实体（PSDATAENTITY）](../ibizsysmodel/PSDataEntity) |
+| 关系属性 | [子系统接口实体（PSSUBSYSSADEID）](../ibizsysmodel/PSDataEntity/#属性-子系统接口实体（PSSUBSYSSADEID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-更新时间（UPDATEDATE）
+#### 属性说明
+更新时间
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+DATETIME
+
+#### 是否允许为为空
+否
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+时间格式：yyyy-MM-dd HH:mm:ss
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [实体（PSDATAENTITY）](../ibizsysmodel/PSDataEntity) |
+| 关系属性 | [子系统接口实体（PSSUBSYSSADEID）](../ibizsysmodel/PSDataEntity/#属性-子系统接口实体（PSSUBSYSSADEID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-更新人（UPDATEMAN）
+#### 属性说明
+更新人
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+否
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+参照数据字典【[云系统操作者（SysOperator）](../../codelist/SysOperator)】
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [实体（PSDATAENTITY）](../ibizsysmodel/PSDataEntity) |
+| 关系属性 | [子系统接口实体（PSSUBSYSSADEID）](../ibizsysmodel/PSDataEntity/#属性-子系统接口实体（PSSUBSYSSADEID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-建立时间（CREATEDATE）
+#### 属性说明
+建立时间
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+DATETIME
+
+#### 是否允许为为空
+否
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+时间格式：yyyy-MM-dd HH:mm:ss
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [实体（PSDATAENTITY）](../ibizsysmodel/PSDataEntity) |
+| 关系属性 | [子系统接口实体（PSSUBSYSSADEID）](../ibizsysmodel/PSDataEntity/#属性-子系统接口实体（PSSUBSYSSADEID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-业务标记（BIZTAG）
+#### 属性说明
+业务标记
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+SSCODELIST
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [实体（PSDATAENTITY）](../ibizsysmodel/PSDataEntity) |
+| 关系属性 | [子系统接口实体（PSSUBSYSSADEID）](../ibizsysmodel/PSDataEntity/#属性-子系统接口实体（PSSUBSYSSADEID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-允许为空（ALLOWEMPTY）
+#### 属性说明
+允许为空
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+YESNO
+
+#### 是否允许为为空
+否
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 | 1 |
+
+#### 取值范围/公式
+参照数据字典【[是否（YESNO）（YesNo3）](../../codelist/YesNo3)】
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [实体（PSDATAENTITY）](../ibizsysmodel/PSDataEntity) |
+| 关系属性 | [子系统接口实体（PSSUBSYSSADEID）](../ibizsysmodel/PSDataEntity/#属性-子系统接口实体（PSSUBSYSSADEID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-审计信息格式（AUDITINFOFORMAT）
+#### 属性说明
+审计信息格式
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [实体（PSDATAENTITY）](../ibizsysmodel/PSDataEntity) |
+| 关系属性 | [子系统接口实体（PSSUBSYSSADEID）](../ibizsysmodel/PSDataEntity/#属性-子系统接口实体（PSSUBSYSSADEID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-检查递归（CHECKRECURSION）
+#### 属性说明
+检查递归
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+YESNO
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+参照数据字典【[是否（YESNO）（YesNo3）](../../codelist/YesNo3)】
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [实体（PSDATAENTITY）](../ibizsysmodel/PSDataEntity) |
+| 关系属性 | [子系统接口实体（PSSUBSYSSADEID）](../ibizsysmodel/PSDataEntity/#属性-子系统接口实体（PSSUBSYSSADEID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-代码名称（CODENAME）
+#### 属性说明
+代码名称
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [实体（PSDATAENTITY）](../ibizsysmodel/PSDataEntity) |
+| 关系属性 | [子系统接口实体（PSSUBSYSSADEID）](../ibizsysmodel/PSDataEntity/#属性-子系统接口实体（PSSUBSYSSADEID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-数据库更新值模式（DBVALUEMODE）
+#### 属性说明
+数据库更新值模式
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+SSCODELIST
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [实体（PSDATAENTITY）](../ibizsysmodel/PSDataEntity) |
+| 关系属性 | [子系统接口实体（PSSUBSYSSADEID）](../ibizsysmodel/PSDataEntity/#属性-子系统接口实体（PSSUBSYSSADEID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-自定义导出范围（CUSTOMEXPORTSCOPE）
+#### 属性说明
+自定义导出范围
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+YESNO
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+参照数据字典【[是否（YESNO）（YesNo3）](../../codelist/YesNo3)】
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [实体（PSDATAENTITY）](../ibizsysmodel/PSDataEntity) |
+| 关系属性 | [子系统接口实体（PSSUBSYSSADEID）](../ibizsysmodel/PSDataEntity/#属性-子系统接口实体（PSSUBSYSSADEID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-数据库新建值模式（DBVALUEMODE2）
+#### 属性说明
+数据库新建值模式
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+SSCODELIST
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [实体（PSDATAENTITY）](../ibizsysmodel/PSDataEntity) |
+| 关系属性 | [子系统接口实体（PSSUBSYSSADEID）](../ibizsysmodel/PSDataEntity/#属性-子系统接口实体（PSSUBSYSSADEID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-属性类型（DEFTYPE）
+#### 属性说明
+属性类型
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+NSCODELIST
+
+#### 是否允许为为空
+否
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [实体（PSDATAENTITY）](../ibizsysmodel/PSDataEntity) |
+| 关系属性 | [子系统接口实体（PSSUBSYSSADEID）](../ibizsysmodel/PSDataEntity/#属性-子系统接口实体（PSSUBSYSSADEID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-属性默认值（DEFAULTVALUE）
+#### 属性说明
+属性默认值
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [实体（PSDATAENTITY）](../ibizsysmodel/PSDataEntity) |
+| 关系属性 | [子系统接口实体（PSSUBSYSSADEID）](../ibizsysmodel/PSDataEntity/#属性-子系统接口实体（PSSUBSYSSADEID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-重复值检查（DUPCHECKMODE）
+#### 属性说明
+重复值检查
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+SSCODELIST
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [实体（PSDATAENTITY）](../ibizsysmodel/PSDataEntity) |
+| 关系属性 | [子系统接口实体（PSSUBSYSSADEID）](../ibizsysmodel/PSDataEntity/#属性-子系统接口实体（PSSUBSYSSADEID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-检查值范围（DUPCHECKVALUES）
+#### 属性说明
+检查值范围
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [实体（PSDATAENTITY）](../ibizsysmodel/PSDataEntity) |
+| 关系属性 | [子系统接口实体（PSSUBSYSSADEID）](../ibizsysmodel/PSDataEntity/#属性-子系统接口实体（PSSUBSYSSADEID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-默认值类型（DVT）
+#### 属性说明
+默认值类型
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+SSCODELIST
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [实体（PSDATAENTITY）](../ibizsysmodel/PSDataEntity) |
+| 关系属性 | [子系统接口实体（PSSUBSYSSADEID）](../ibizsysmodel/PSDataEntity/#属性-子系统接口实体（PSSUBSYSSADEID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-启用审计（ENABLEAUDIT）
+#### 属性说明
+启用审计
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+YESNO
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+参照数据字典【[是否（YESNO）（YesNo3）](../../codelist/YesNo3)】
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [实体（PSDATAENTITY）](../ibizsysmodel/PSDataEntity) |
+| 关系属性 | [子系统接口实体（PSSUBSYSSADEID）](../ibizsysmodel/PSDataEntity/#属性-子系统接口实体（PSSUBSYSSADEID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-动态模型类型（DYNAMODELFLAG）
+#### 属性说明
+动态模型类型
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+NSCODELIST
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [实体（PSDATAENTITY）](../ibizsysmodel/PSDataEntity) |
+| 关系属性 | [子系统接口实体（PSSUBSYSSADEID）](../ibizsysmodel/PSDataEntity/#属性-子系统接口实体（PSSUBSYSSADEID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-启用快速搜索（ENABLEQS）
+#### 属性说明
+启用快速搜索
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+YESNO
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+参照数据字典【[是否（YESNO）（YesNo3）](../../codelist/YesNo3)】
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [实体（PSDATAENTITY）](../ibizsysmodel/PSDataEntity) |
+| 关系属性 | [子系统接口实体（PSSUBSYSSADEID）](../ibizsysmodel/PSDataEntity/#属性-子系统接口实体（PSSUBSYSSADEID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-启用列权限控制（ENABLECOLPRIV）
+#### 属性说明
+启用列权限控制
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+YESNO
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+参照数据字典【[是否（YESNO）（YesNo3）](../../codelist/YesNo3)】
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [实体（PSDATAENTITY）](../ibizsysmodel/PSDataEntity) |
+| 关系属性 | [子系统接口实体（PSSUBSYSSADEID）](../ibizsysmodel/PSDataEntity/#属性-子系统接口实体（PSSUBSYSSADEID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-支持链接属性回写（ENAWRITEBACK）
+#### 属性说明
+支持链接属性回写
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+YESNO
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+参照数据字典【[是否（YESNO）（YesNo3）](../../codelist/YesNo3)】
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [实体（PSDATAENTITY）](../ibizsysmodel/PSDataEntity) |
+| 关系属性 | [子系统接口实体（PSSUBSYSSADEID）](../ibizsysmodel/PSDataEntity/#属性-子系统接口实体（PSSUBSYSSADEID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-默认用户行为（ENABLEUSERINPUT）
+#### 属性说明
+默认用户行为
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+NMCODELIST
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 | 3 |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [实体（PSDATAENTITY）](../ibizsysmodel/PSDataEntity) |
+| 关系属性 | [子系统接口实体（PSSUBSYSSADEID）](../ibizsysmodel/PSDataEntity/#属性-子系统接口实体（PSSUBSYSSADEID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-支持临时数据（ENABLETEMPDATA）
+#### 属性说明
+支持临时数据
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+YESNO
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+参照数据字典【[是否（YESNO）（YesNo3）](../../codelist/YesNo3)】
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [实体（PSDATAENTITY）](../ibizsysmodel/PSDataEntity) |
+| 关系属性 | [子系统接口实体（PSSUBSYSSADEID）](../ibizsysmodel/PSDataEntity/#属性-子系统接口实体（PSSUBSYSSADEID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-扩展模式（EXTENDMODE）
+#### 属性说明
+扩展模式
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+NSCODELIST
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [实体（PSDATAENTITY）](../ibizsysmodel/PSDataEntity) |
+| 关系属性 | [子系统接口实体（PSSUBSYSSADEID）](../ibizsysmodel/PSDataEntity/#属性-子系统接口实体（PSSUBSYSSADEID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-导出范围（EXPORTSCOPE）
+#### 属性说明
+导出范围
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+NMCODELIST
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [实体（PSDATAENTITY）](../ibizsysmodel/PSDataEntity) |
+| 关系属性 | [子系统接口实体（PSSUBSYSSADEID）](../ibizsysmodel/PSDataEntity/#属性-子系统接口实体（PSSUBSYSSADEID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-逻辑属性参数（FORMULAFIELDS）
+#### 属性说明
+逻辑属性参数
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [实体（PSDATAENTITY）](../ibizsysmodel/PSDataEntity) |
+| 关系属性 | [子系统接口实体（PSSUBSYSSADEID）](../ibizsysmodel/PSDataEntity/#属性-子系统接口实体（PSSUBSYSSADEID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-外键属性（FKEY）
+#### 属性说明
+外键属性
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+YESNO
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 | 0 |
+
+#### 取值范围/公式
+参照数据字典【[是否（YESNO）（YesNo3）](../../codelist/YesNo3)】
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [实体（PSDATAENTITY）](../ibizsysmodel/PSDataEntity) |
+| 关系属性 | [子系统接口实体（PSSUBSYSSADEID）](../ibizsysmodel/PSDataEntity/#属性-子系统接口实体（PSSUBSYSSADEID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-逻辑字段格式（FORMULAFORMAT）
+#### 属性说明
+逻辑字段格式
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [实体（PSDATAENTITY）](../ibizsysmodel/PSDataEntity) |
+| 关系属性 | [子系统接口实体（PSSUBSYSSADEID）](../ibizsysmodel/PSDataEntity/#属性-子系统接口实体（PSSUBSYSSADEID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-数据导入识别（IMPORTKEY）
+#### 属性说明
+数据导入识别
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+YESNO
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+参照数据字典【[是否（YESNO）（YesNo3）](../../codelist/YesNo3)】
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [实体（PSDATAENTITY）](../ibizsysmodel/PSDataEntity) |
+| 关系属性 | [子系统接口实体（PSSUBSYSSADEID）](../ibizsysmodel/PSDataEntity/#属性-子系统接口实体（PSSUBSYSSADEID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-数据导入次序（IMPORTORDER）
+#### 属性说明
+数据导入次序
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+INT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [实体（PSDATAENTITY）](../ibizsysmodel/PSDataEntity) |
+| 关系属性 | [子系统接口实体（PSSUBSYSSADEID）](../ibizsysmodel/PSDataEntity/#属性-子系统接口实体（PSSUBSYSSADEID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-索引类型属性（INDEXTYPE）
+#### 属性说明
+索引类型属性
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+YESNO
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+参照数据字典【[是否（YESNO）（YesNo3）](../../codelist/YesNo3)】
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [实体（PSDATAENTITY）](../ibizsysmodel/PSDataEntity) |
+| 关系属性 | [子系统接口实体（PSSUBSYSSADEID）](../ibizsysmodel/PSDataEntity/#属性-子系统接口实体（PSSUBSYSSADEID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-长度（LENGTH）
+#### 属性说明
+长度
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+INT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [实体（PSDATAENTITY）](../ibizsysmodel/PSDataEntity) |
+| 关系属性 | [子系统接口实体（PSSUBSYSSADEID）](../ibizsysmodel/PSDataEntity/#属性-子系统接口实体（PSSUBSYSSADEID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-数据导入标识（IMPORTTAG）
+#### 属性说明
+数据导入标识
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [实体（PSDATAENTITY）](../ibizsysmodel/PSDataEntity) |
+| 关系属性 | [子系统接口实体（PSSUBSYSSADEID）](../ibizsysmodel/PSDataEntity/#属性-子系统接口实体（PSSUBSYSSADEID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-模型锁模式（LOCKFLAG）
+#### 属性说明
+模型锁模式
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+NSCODELIST
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [实体（PSDATAENTITY）](../ibizsysmodel/PSDataEntity) |
+| 关系属性 | [子系统接口实体（PSSUBSYSSADEID）](../ibizsysmodel/PSDataEntity/#属性-子系统接口实体（PSSUBSYSSADEID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-中文名称（LOGICNAME）
+#### 属性说明
+中文名称
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+否
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [实体（PSDATAENTITY）](../ibizsysmodel/PSDataEntity) |
+| 关系属性 | [子系统接口实体（PSSUBSYSSADEID）](../ibizsysmodel/PSDataEntity/#属性-子系统接口实体（PSSUBSYSSADEID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-多表单识别属性（MULTIFORMFIELD）
+#### 属性说明
+多表单识别属性
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+YESNO
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+参照数据字典【[是否（YESNO）（YesNo3）](../../codelist/YesNo3)】
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [实体（PSDATAENTITY）](../ibizsysmodel/PSDataEntity) |
+| 关系属性 | [子系统接口实体（PSSUBSYSSADEID）](../ibizsysmodel/PSDataEntity/#属性-子系统接口实体（PSSUBSYSSADEID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-主信息属性（MAJORFIELD）
+#### 属性说明
+主信息属性
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+YESNO
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 | 0 |
+
+#### 取值范围/公式
+参照数据字典【[是否（YESNO）（YesNo3）](../../codelist/YesNo3)】
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [实体（PSDATAENTITY）](../ibizsysmodel/PSDataEntity) |
+| 关系属性 | [子系统接口实体（PSSUBSYSSADEID）](../ibizsysmodel/PSDataEntity/#属性-子系统接口实体（PSSUBSYSSADEID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-备注（MEMO）
+#### 属性说明
+备注
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+LONGTEXT_1000
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [实体（PSDATAENTITY）](../ibizsysmodel/PSDataEntity) |
+| 关系属性 | [子系统接口实体（PSSUBSYSSADEID）](../ibizsysmodel/PSDataEntity/#属性-子系统接口实体（PSSUBSYSSADEID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-排序值（ORDERVALUE）
+#### 属性说明
+排序值
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+INT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [实体（PSDATAENTITY）](../ibizsysmodel/PSDataEntity) |
+| 关系属性 | [子系统接口实体（PSSUBSYSSADEID）](../ibizsysmodel/PSDataEntity/#属性-子系统接口实体（PSSUBSYSSADEID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-空值排序（NULLVALORDER）
+#### 属性说明
+空值排序
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+SSCODELIST
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [实体（PSDATAENTITY）](../ibizsysmodel/PSDataEntity) |
+| 关系属性 | [子系统接口实体（PSSUBSYSSADEID）](../ibizsysmodel/PSDataEntity/#属性-子系统接口实体（PSSUBSYSSADEID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-粘帖重置（PASTERESET）
+#### 属性说明
+粘帖重置
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+YESNO
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+参照数据字典【[是否（YESNO）（YesNo3）](../../codelist/YesNo3)】
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [实体（PSDATAENTITY）](../ibizsysmodel/PSDataEntity) |
+| 关系属性 | [子系统接口实体（PSSUBSYSSADEID）](../ibizsysmodel/PSDataEntity/#属性-子系统接口实体（PSSUBSYSSADEID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-物理化属性（PHYSICALFIELD）
+#### 属性说明
+物理化属性
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+YESNO
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+参照数据字典【[是否（YESNO）（YesNo3）](../../codelist/YesNo3)】
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [实体（PSDATAENTITY）](../ibizsysmodel/PSDataEntity) |
+| 关系属性 | [子系统接口实体（PSSUBSYSSADEID）](../ibizsysmodel/PSDataEntity/#属性-子系统接口实体（PSSUBSYSSADEID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-主键属性（PKEY）
+#### 属性说明
+主键属性
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+NSCODELIST
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 | 0 |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [实体（PSDATAENTITY）](../ibizsysmodel/PSDataEntity) |
+| 关系属性 | [子系统接口实体（PSSUBSYSSADEID）](../ibizsysmodel/PSDataEntity/#属性-子系统接口实体（PSSUBSYSSADEID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-浮点精度（PRECISION2）
+#### 属性说明
+浮点精度
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+INT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [实体（PSDATAENTITY）](../ibizsysmodel/PSDataEntity) |
+| 关系属性 | [子系统接口实体（PSSUBSYSSADEID）](../ibizsysmodel/PSDataEntity/#属性-子系统接口实体（PSSUBSYSSADEID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-系统预置属性（PREDEFINETYPE）
+#### 属性说明
+系统预置属性
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+SSCODELIST
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [实体（PSDATAENTITY）](../ibizsysmodel/PSDataEntity) |
+| 关系属性 | [子系统接口实体（PSSUBSYSSADEID）](../ibizsysmodel/PSDataEntity/#属性-子系统接口实体（PSSUBSYSSADEID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-数据类型（PSDATATYPENAME）
+#### 属性说明
+数据类型
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+否
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [实体（PSDATAENTITY）](../ibizsysmodel/PSDataEntity) |
+| 关系属性 | [子系统接口实体（PSSUBSYSSADEID）](../ibizsysmodel/PSDataEntity/#属性-子系统接口实体（PSSUBSYSSADEID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-查询输出（QUERYCOLUMN）
+#### 属性说明
+查询输出
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+YESNO
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+参照数据字典【[是否（YESNO）（YesNo3）](../../codelist/YesNo3)】
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [实体（PSDATAENTITY）](../ibizsysmodel/PSDataEntity) |
+| 关系属性 | [子系统接口实体（PSSUBSYSSADEID）](../ibizsysmodel/PSDataEntity/#属性-子系统接口实体（PSSUBSYSSADEID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-数据类型（PSDATATYPEID）
+#### 属性说明
+数据类型
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+否
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [实体（PSDATAENTITY）](../ibizsysmodel/PSDataEntity) |
+| 关系属性 | [子系统接口实体（PSSUBSYSSADEID）](../ibizsysmodel/PSDataEntity/#属性-子系统接口实体（PSSUBSYSSADEID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-服务代码名称（SERVICECODENAME）
+#### 属性说明
+服务代码名称
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [实体（PSDATAENTITY）](../ibizsysmodel/PSDataEntity) |
+| 关系属性 | [子系统接口实体（PSSUBSYSSADEID）](../ibizsysmodel/PSDataEntity/#属性-子系统接口实体（PSSUBSYSSADEID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-主状态属性（STATEFIELD）
+#### 属性说明
+主状态属性
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+SSCODELIST
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [实体（PSDATAENTITY）](../ibizsysmodel/PSDataEntity) |
+| 关系属性 | [子系统接口实体（PSSUBSYSSADEID）](../ibizsysmodel/PSDataEntity/#属性-子系统接口实体（PSSUBSYSSADEID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-查询扩展选项（QUERYCS）
+#### 属性说明
+查询扩展选项
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+SMCODELIST
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [实体（PSDATAENTITY）](../ibizsysmodel/PSDataEntity) |
+| 关系属性 | [子系统接口实体（PSSUBSYSSADEID）](../ibizsysmodel/PSDataEntity/#属性-子系统接口实体（PSSUBSYSSADEID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-字符长度（STRLENGTH）
+#### 属性说明
+字符长度
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+INT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [实体（PSDATAENTITY）](../ibizsysmodel/PSDataEntity) |
+| 关系属性 | [子系统接口实体（PSSUBSYSSADEID）](../ibizsysmodel/PSDataEntity/#属性-子系统接口实体（PSSUBSYSSADEID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-字符转换（STRINGCASE）
+#### 属性说明
+字符转换
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+SSCODELIST
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [实体（PSDATAENTITY）](../ibizsysmodel/PSDataEntity) |
+| 关系属性 | [子系统接口实体（PSSUBSYSSADEID）](../ibizsysmodel/PSDataEntity/#属性-子系统接口实体（PSSUBSYSSADEID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-默认测试值（TESTDATA）
+#### 属性说明
+默认测试值
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [实体（PSDATAENTITY）](../ibizsysmodel/PSDataEntity) |
+| 关系属性 | [子系统接口实体（PSSUBSYSSADEID）](../ibizsysmodel/PSDataEntity/#属性-子系统接口实体（PSSUBSYSSADEID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-表名称（TABLENAME）
+#### 属性说明
+表名称
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [实体（PSDATAENTITY）](../ibizsysmodel/PSDataEntity) |
+| 关系属性 | [子系统接口实体（PSSUBSYSSADEID）](../ibizsysmodel/PSDataEntity/#属性-子系统接口实体（PSSUBSYSSADEID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-双字节字符（UNICODECHAR）
+#### 属性说明
+双字节字符
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+YESNO
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+参照数据字典【[是否（YESNO）（YesNo3）](../../codelist/YesNo3)】
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [实体（PSDATAENTITY）](../ibizsysmodel/PSDataEntity) |
+| 关系属性 | [子系统接口实体（PSSUBSYSSADEID）](../ibizsysmodel/PSDataEntity/#属性-子系统接口实体（PSSUBSYSSADEID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-单位（UNIT）
+#### 属性说明
+单位
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [实体（PSDATAENTITY）](../ibizsysmodel/PSDataEntity) |
+| 关系属性 | [子系统接口实体（PSSUBSYSSADEID）](../ibizsysmodel/PSDataEntity/#属性-子系统接口实体（PSSUBSYSSADEID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-联合键值（UNIONKEYVALUE）
+#### 属性说明
+联合键值
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+SSCODELIST
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [实体（PSDATAENTITY）](../ibizsysmodel/PSDataEntity) |
+| 关系属性 | [子系统接口实体（PSSUBSYSSADEID）](../ibizsysmodel/PSDataEntity/#属性-子系统接口实体（PSSUBSYSSADEID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-更新旧值回填（UPDATEOVMODE）
+#### 属性说明
+更新旧值回填
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+SSCODELIST
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [实体（PSDATAENTITY）](../ibizsysmodel/PSDataEntity) |
+| 关系属性 | [子系统接口实体（PSSUBSYSSADEID）](../ibizsysmodel/PSDataEntity/#属性-子系统接口实体（PSSUBSYSSADEID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-单位宽度（UNITWIDTH）
+#### 属性说明
+单位宽度
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+INT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [实体（PSDATAENTITY）](../ibizsysmodel/PSDataEntity) |
+| 关系属性 | [子系统接口实体（PSSUBSYSSADEID）](../ibizsysmodel/PSDataEntity/#属性-子系统接口实体（PSSUBSYSSADEID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-自定义参数（USERPARAMS）
+#### 属性说明
+自定义参数
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [实体（PSDATAENTITY）](../ibizsysmodel/PSDataEntity) |
+| 关系属性 | [子系统接口实体（PSSUBSYSSADEID）](../ibizsysmodel/PSDataEntity/#属性-子系统接口实体（PSSUBSYSSADEID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-用户标记（USERTAG）
+#### 属性说明
+用户标记
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [实体（PSDATAENTITY）](../ibizsysmodel/PSDataEntity) |
+| 关系属性 | [子系统接口实体（PSSUBSYSSADEID）](../ibizsysmodel/PSDataEntity/#属性-子系统接口实体（PSSUBSYSSADEID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-用户分类（USERCAT）
+#### 属性说明
+用户分类
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+SSCODELIST
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [实体（PSDATAENTITY）](../ibizsysmodel/PSDataEntity) |
+| 关系属性 | [子系统接口实体（PSSUBSYSSADEID）](../ibizsysmodel/PSDataEntity/#属性-子系统接口实体（PSSUBSYSSADEID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-用户标记3（USERTAG3）
+#### 属性说明
+用户标记3
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [实体（PSDATAENTITY）](../ibizsysmodel/PSDataEntity) |
+| 关系属性 | [子系统接口实体（PSSUBSYSSADEID）](../ibizsysmodel/PSDataEntity/#属性-子系统接口实体（PSSUBSYSSADEID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-用户标记4（USERTAG4）
+#### 属性说明
+用户标记4
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [实体（PSDATAENTITY）](../ibizsysmodel/PSDataEntity) |
+| 关系属性 | [子系统接口实体（PSSUBSYSSADEID）](../ibizsysmodel/PSDataEntity/#属性-子系统接口实体（PSSUBSYSSADEID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-用户标记2（USERTAG2）
+#### 属性说明
+用户标记2
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [实体（PSDATAENTITY）](../ibizsysmodel/PSDataEntity) |
+| 关系属性 | [子系统接口实体（PSSUBSYSSADEID）](../ibizsysmodel/PSDataEntity/#属性-子系统接口实体（PSSUBSYSSADEID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-是否启用（VALIDFLAG）
+#### 属性说明
+是否启用
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+YESNO
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 | 1 |
+
+#### 取值范围/公式
+参照数据字典【[是否（YESNO）（YesNo3）](../../codelist/YesNo3)】
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [实体（PSDATAENTITY）](../ibizsysmodel/PSDataEntity) |
+| 关系属性 | [子系统接口实体（PSSUBSYSSADEID）](../ibizsysmodel/PSDataEntity/#属性-子系统接口实体（PSSUBSYSSADEID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-视图列级别（VIEWCOLLEVEL）
+#### 属性说明
+视图列级别
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+NSCODELIST
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [实体（PSDATAENTITY）](../ibizsysmodel/PSDataEntity) |
+| 关系属性 | [子系统接口实体（PSSUBSYSSADEID）](../ibizsysmodel/PSDataEntity/#属性-子系统接口实体（PSSUBSYSSADEID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-值格式化（VALUEFORMAT）
+#### 属性说明
+值格式化
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [实体（PSDATAENTITY）](../ibizsysmodel/PSDataEntity) |
+| 关系属性 | [子系统接口实体（PSSUBSYSSADEID）](../ibizsysmodel/PSDataEntity/#属性-子系统接口实体（PSSUBSYSSADEID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-范围属性2（NO2DUPCHKPSDEFNAME）
+#### 属性说明
+范围属性2
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+PICKUPTEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [实体属性（PSDEFIELD）](../ibizsysmodel/PSDEField) |
+| 关系属性 | [实体属性名称（PSDEFIELDNAME）](../ibizsysmodel/PSDEField/#属性-实体属性名称（PSDEFIELDNAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-范围属性2（NO2DUPCHKPSDEFID）
+#### 属性说明
+范围属性2
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+PICKUP
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [实体属性（PSDEFIELD）](../ibizsysmodel/PSDEField) |
+| 关系属性 | [实体属性标识（PSDEFIELDID）](../ibizsysmodel/PSDEField/#属性-实体属性标识（PSDEFIELDID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-范围属性3（NO3DUPCHKPSDEFNAME）
+#### 属性说明
+范围属性3
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+PICKUPTEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [实体属性（PSDEFIELD）](../ibizsysmodel/PSDEField) |
+| 关系属性 | [实体属性名称（PSDEFIELDNAME）](../ibizsysmodel/PSDEField/#属性-实体属性名称（PSDEFIELDNAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-范围属性3（NO3DUPCHKPSDEFID）
+#### 属性说明
+范围属性3
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+PICKUP
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [实体属性（PSDEFIELD）](../ibizsysmodel/PSDEField) |
+| 关系属性 | [实体属性标识（PSDEFIELDID）](../ibizsysmodel/PSDEField/#属性-实体属性标识（PSDEFIELDID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-值项属性（VALUEPSDEFNAME）
+#### 属性说明
+值项属性
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+PICKUPTEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [实体属性（PSDEFIELD）](../ibizsysmodel/PSDEField) |
+| 关系属性 | [实体属性名称（PSDEFIELDNAME）](../ibizsysmodel/PSDEField/#属性-实体属性名称（PSDEFIELDNAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-值项属性（VALUEPSDEFID）
+#### 属性说明
+值项属性
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+PICKUP
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [实体属性（PSDEFIELD）](../ibizsysmodel/PSDEField) |
+| 关系属性 | [实体属性标识（PSDEFIELDID）](../ibizsysmodel/PSDEField/#属性-实体属性标识（PSDEFIELDID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-关系属性（DERPSDEFNAME）
+#### 属性说明
+关系属性
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+PICKUPTEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [实体属性（PSDEFIELD）](../ibizsysmodel/PSDEField) |
+| 关系属性 | [实体属性名称（PSDEFIELDNAME）](../ibizsysmodel/PSDEField/#属性-实体属性名称（PSDEFIELDNAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-范围属性（DUPCHKPSDEFID）
+#### 属性说明
+范围属性
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+PICKUP
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [实体属性（PSDEFIELD）](../ibizsysmodel/PSDEField) |
+| 关系属性 | [实体属性标识（PSDEFIELDID）](../ibizsysmodel/PSDEField/#属性-实体属性标识（PSDEFIELDID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-关系属性（DERPSDEFID）
+#### 属性说明
+关系属性
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+PICKUP
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [实体属性（PSDEFIELD）](../ibizsysmodel/PSDEField) |
+| 关系属性 | [实体属性标识（PSDEFIELDID）](../ibizsysmodel/PSDEField/#属性-实体属性标识（PSDEFIELDID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-范围属性（DUPCHKPSDEFNAME）
+#### 属性说明
+范围属性
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+PICKUPTEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [实体属性（PSDEFIELD）](../ibizsysmodel/PSDEField) |
+| 关系属性 | [实体属性名称（PSDEFIELDNAME）](../ibizsysmodel/PSDEField/#属性-实体属性名称（PSDEFIELDNAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-实体（PSDENAME）
+#### 属性说明
+实体
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+PICKUPTEXT
+
+#### 是否允许为为空
+否
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [实体（PSDATAENTITY）](../ibizsysmodel/PSDataEntity) |
+| 关系属性 | [实体名称（PSDATAENTITYNAME）](../ibizsysmodel/PSDataEntity/#属性-实体名称（PSDATAENTITYNAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-实体（PSDEID）
+#### 属性说明
+实体
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+PICKUP
+
+#### 是否允许为为空
+否
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [实体（PSDATAENTITY）](../ibizsysmodel/PSDataEntity) |
+| 关系属性 | [实体标识（PSDATAENTITYID）](../ibizsysmodel/PSDataEntity/#属性-实体标识（PSDATAENTITYID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-PSSUBSYSSADEID（PSSUBSYSSADEID）
+#### 属性说明
+PSSUBSYSSADEID
+
+#### 属性类型
+链接属性[虚拟属性，映射关系实体的属性]
+
+#### 数据类型
+PICKUPDATA
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [实体（PSDATAENTITY）](../ibizsysmodel/PSDataEntity) |
+| 关系属性 | [子系统接口实体（PSSUBSYSSADEID）](../ibizsysmodel/PSDataEntity/#属性-子系统接口实体（PSSUBSYSSADEID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-系统（PSSYSTEMID）
+#### 属性说明
+系统
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [实体（PSDATAENTITY）](../ibizsysmodel/PSDataEntity) |
+| 关系属性 | [子系统接口实体（PSSUBSYSSADEID）](../ibizsysmodel/PSDataEntity/#属性-子系统接口实体（PSSUBSYSSADEID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-系统（PSSYSTEMNAME）
+#### 属性说明
+系统
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [实体（PSDATAENTITY）](../ibizsysmodel/PSDataEntity) |
+| 关系属性 | [子系统接口实体（PSSUBSYSSADEID）](../ibizsysmodel/PSDataEntity/#属性-子系统接口实体（PSSUBSYSSADEID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+

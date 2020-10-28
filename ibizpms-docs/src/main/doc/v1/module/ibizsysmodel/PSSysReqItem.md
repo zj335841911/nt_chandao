@@ -1,133 +1,968 @@
-# 系统需求项(PSSYSREQITEM)
+# 实体-系统需求项(PSSYSREQITEM)
+## 实体说明
+系统需求项
 
-  
+## 所属模块
+[iBiz系统模型](../ibizsysmodel)
 
-## 关系
-{% plantuml %}
-系统需求项 *-- 实体 
-系统需求项 *-- 系统需求项 
-系统需求项 *-- 系统需求项 
-系统需求模块 *-- 系统需求项 
-hide members
-{% endplantuml %}
+## 实体属性
+| 序号 | 属性 | 属性名 | 数据类型 | 是否是主键 | 是否是外键 | 是否允许为空 | 关系属性（实体-属性） |
+| -- | -- | -- | -- | -- | -- |
+| 1 | [系统需求项标识](#属性-系统需求项标识（PSSYSREQITEMID）) | PSSYSREQITEMID | GUID | 是 | 否 | 否 | -- |
+| 2 | [建立人](#属性-建立人（CREATEMAN）) | CREATEMAN | TEXT | 否 | 否 | 否 | -- |
+| 3 | [系统需求项名称](#属性-系统需求项名称（PSSYSREQITEMNAME）) | PSSYSREQITEMNAME | TEXT | 否 | 否 | 是 | -- |
+| 4 | [建立时间](#属性-建立时间（CREATEDATE）) | CREATEDATE | DATETIME | 否 | 否 | 否 | -- |
+| 5 | [更新时间](#属性-更新时间（UPDATEDATE）) | UPDATEDATE | DATETIME | 否 | 否 | 否 | -- |
+| 6 | [更新人](#属性-更新人（UPDATEMAN）) | UPDATEMAN | TEXT | 否 | 否 | 否 | -- |
+| 7 | [代码标识](#属性-代码标识（CODENAME）) | CODENAME | TEXT | 否 | 否 | 是 | -- |
+| 8 | [项编号](#属性-项编号（ITEMSN）) | ITEMSN | TEXT | 否 | 否 | 是 | -- |
+| 9 | [项标记](#属性-项标记（ITEMTAG）) | ITEMTAG | TEXT | 否 | 否 | 是 | -- |
+| 10 | [项标记2](#属性-项标记2（ITEMTAG2）) | ITEMTAG2 | TEXT | 否 | 否 | 是 | -- |
+| 11 | [项类型](#属性-项类型（ITEMTYPE）) | ITEMTYPE | SSCODELIST | 否 | 否 | 否 | -- |
+| 12 | [备注](#属性-备注（MEMO）) | MEMO | LONGTEXT_1000 | 否 | 否 | 是 | -- |
+| 13 | [次序](#属性-次序（ORDERVALUE）) | ORDERVALUE | INT | 否 | 否 | 是 | -- |
+| 14 | [内容](#属性-内容（REQCONTENT）) | REQCONTENT | HTMLTEXT | 否 | 否 | 是 | -- |
+| 15 | [用户标记2](#属性-用户标记2（USERTAG2）) | USERTAG2 | TEXT | 否 | 否 | 是 | -- |
+| 16 | [用户标记](#属性-用户标记（USERTAG）) | USERTAG | TEXT | 否 | 否 | 是 | -- |
+| 17 | [用户分类](#属性-用户分类（USERCAT）) | USERCAT | SSCODELIST | 否 | 否 | 是 | -- |
+| 18 | [用户标记3](#属性-用户标记3（USERTAG3）) | USERTAG3 | TEXT | 否 | 否 | 是 | -- |
+| 19 | [用户标记4](#属性-用户标记4（USERTAG4）) | USERTAG4 | TEXT | 否 | 否 | 是 | -- |
+| 20 | [版本](#属性-版本（VER）) | VER | INT | 否 | 否 | 是 | -- |
+| 21 | [是否有效](#属性-是否有效（VALIDFLAG）) | VALIDFLAG | YESNO | 否 | 否 | 否 | -- |
+| 22 | [父需求项](#属性-父需求项（PPSSYSREQITEMID）) | PPSSYSREQITEMID | PICKUP | 否 | 是 | 是 | [系统需求项（PSSYSREQITEM）](../ibizsysmodel/PSSysReqItem) - [系统需求项标识（PSSYSREQITEMID）](../ibizsysmodel/PSSysReqItem/#属性-系统需求项标识（PSSYSREQITEMID）) |
+| 23 | [父需求项](#属性-父需求项（PPSSYSREQITEMNAME）) | PPSSYSREQITEMNAME | PICKUPTEXT | 否 | 是 | 是 | [系统需求项（PSSYSREQITEM）](../ibizsysmodel/PSSysReqItem) - [系统需求项名称（PSSYSREQITEMNAME）](../ibizsysmodel/PSSysReqItem/#属性-系统需求项名称（PSSYSREQITEMNAME）) |
+| 24 | [需求模块](#属性-需求模块（PSSYSREQMODULEID）) | PSSYSREQMODULEID | PICKUP | 否 | 是 | 是 | [系统需求模块（PSSYSREQMODULE）](../ibizsysmodel/PSSysReqModule) - [系统需求模块标识（PSSYSREQMODULEID）](../ibizsysmodel/PSSysReqModule/#属性-系统需求模块标识（PSSYSREQMODULEID）) |
+| 25 | [需求模块](#属性-需求模块（PSSYSREQMODULENAME）) | PSSYSREQMODULENAME | PICKUPTEXT | 否 | 是 | 是 | [系统需求模块（PSSYSREQMODULE）](../ibizsysmodel/PSSysReqModule) - [系统需求模块名称（PSSYSREQMODULENAME）](../ibizsysmodel/PSSysReqModule/#属性-系统需求模块名称（PSSYSREQMODULENAME）) |
+| 26 | [系统](#属性-系统（PSSYSTEMID）) | PSSYSTEMID | TEXT | 否 | 是 | 是 | [系统需求模块（PSSYSREQMODULE）](../ibizsysmodel/PSSysReqModule) - [系统需求模块名称（PSSYSREQMODULENAME）](../ibizsysmodel/PSSysReqModule/#属性-系统需求模块名称（PSSYSREQMODULENAME）) |
+| 27 | [系统](#属性-系统（PSSYSTEMNAME）) | PSSYSTEMNAME | TEXT | 否 | 是 | 是 | [系统需求模块（PSSYSREQMODULE）](../ibizsysmodel/PSSysReqModule) - [系统需求模块名称（PSSYSREQMODULENAME）](../ibizsysmodel/PSSysReqModule/#属性-系统需求模块名称（PSSYSREQMODULENAME）) |
+| 28 | [系统用例](#属性-系统用例（PSSYSUSERCASEID）) | PSSYSUSERCASEID | TEXT | 否 | 是 | 是 | [系统需求模块（PSSYSREQMODULE）](../ibizsysmodel/PSSysReqModule) - [系统需求模块名称（PSSYSREQMODULENAME）](../ibizsysmodel/PSSysReqModule/#属性-系统需求模块名称（PSSYSREQMODULENAME）) |
+| 29 | [系统用例](#属性-系统用例（PSSYSUSERCASENAME）) | PSSYSUSERCASENAME | TEXT | 否 | 是 | 是 | [系统需求模块（PSSYSREQMODULE）](../ibizsysmodel/PSSysReqModule) - [系统需求模块名称（PSSYSREQMODULENAME）](../ibizsysmodel/PSSysReqModule/#属性-系统需求模块名称（PSSYSREQMODULENAME）) |
 
-## 属性
+### 属性-系统需求项标识（PSSYSREQITEMID）
+#### 属性说明
+系统需求项标识
 
-| 属性名称        |    中文名称    | 类型     |  备注  |
-| --------   |------------| -----   |  -------- | 
-|系统需求项标识|PSSYSREQITEMID|GUID|&nbsp;|
-|建立人|CREATEMAN|TEXT|&nbsp;|
-|系统需求项名称|PSSYSREQITEMNAME|TEXT|&nbsp;|
-|建立时间|CREATEDATE|DATETIME|&nbsp;|
-|更新时间|UPDATEDATE|DATETIME|&nbsp;|
-|更新人|UPDATEMAN|TEXT|&nbsp;|
-|代码标识|CODENAME|TEXT|&nbsp;|
-|项编号|ITEMSN|TEXT|&nbsp;|
-|项标记|ITEMTAG|TEXT|&nbsp;|
-|项标记2|ITEMTAG2|TEXT|&nbsp;|
-|项类型|ITEMTYPE|SSCODELIST|&nbsp;|
-|备注|MEMO|LONGTEXT_1000|&nbsp;|
-|次序|ORDERVALUE|INT|&nbsp;|
-|内容|REQCONTENT|HTMLTEXT|&nbsp;|
-|用户标记2|USERTAG2|TEXT|&nbsp;|
-|用户标记|USERTAG|TEXT|&nbsp;|
-|用户分类|USERCAT|SSCODELIST|&nbsp;|
-|用户标记3|USERTAG3|TEXT|&nbsp;|
-|用户标记4|USERTAG4|TEXT|&nbsp;|
-|版本|VER|INT|&nbsp;|
-|是否有效|VALIDFLAG|YESNO|&nbsp;|
-|父需求项|PPSSYSREQITEMID|PICKUP|&nbsp;|
-|父需求项|PPSSYSREQITEMNAME|PICKUPTEXT|&nbsp;|
-|需求模块|PSSYSREQMODULEID|PICKUP|&nbsp;|
-|需求模块|PSSYSREQMODULENAME|PICKUPTEXT|&nbsp;|
-|系统|PSSYSTEMID|TEXT|&nbsp;|
-|系统|PSSYSTEMNAME|TEXT|&nbsp;|
-|系统用例|PSSYSUSERCASEID|TEXT|&nbsp;|
-|系统用例|PSSYSUSERCASENAME|TEXT|&nbsp;|
+#### 属性类型
+物理属性[实体属性]
 
-## 值规则
-| 属性名称    | 规则    |  说明  |
-| --------   |------------| ----- | 
-|系统需求项标识|默认规则|内容长度必须小于等于[100]|
-|建立人|默认规则|内容长度必须小于等于[60]|
-|系统需求项名称|默认规则|内容长度必须小于等于[200]|
-|建立时间|默认规则|默认规则|
-|更新时间|默认规则|默认规则|
-|更新人|默认规则|内容长度必须小于等于[60]|
-|代码标识|默认规则|内容长度必须小于等于[50]|
-|项编号|默认规则|内容长度必须小于等于[100]|
-|项标记|默认规则|内容长度必须小于等于[200]|
-|项标记2|默认规则|内容长度必须小于等于[200]|
-|项类型|默认规则|内容长度必须小于等于[50]|
-|备注|默认规则|内容长度必须小于等于[4000]|
-|次序|默认规则|默认规则|
-|内容|默认规则|内容长度必须小于等于[1048576]|
-|用户标记2|默认规则|内容长度必须小于等于[200]|
-|用户标记|默认规则|内容长度必须小于等于[200]|
-|用户分类|默认规则|内容长度必须小于等于[10]|
-|用户标记3|默认规则|内容长度必须小于等于[50]|
-|用户标记4|默认规则|内容长度必须小于等于[50]|
-|版本|默认规则|默认规则|
-|是否有效|默认规则|默认规则|
-|父需求项|默认规则|内容长度必须小于等于[100]|
-|父需求项|默认规则|内容长度必须小于等于[200]|
-|需求模块|默认规则|内容长度必须小于等于[100]|
-|需求模块|默认规则|内容长度必须小于等于[200]|
-|系统|默认规则|内容长度必须小于等于[100]|
-|系统|默认规则|内容长度必须小于等于[100]|
-|系统用例|默认规则|内容长度必须小于等于[100]|
-|系统用例|默认规则|内容长度必须小于等于[100]|
+#### 数据类型
+GUID
 
-## 状态控制
+#### 是否允许为为空
+否
 
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
 无
 
-
-## 行为
-| 行为    | 类型    |  说明  |
-| --------   |------------| ----- | 
-|Create|内置方法|&nbsp;|
-|Update|内置方法|&nbsp;|
-|Remove|内置方法|&nbsp;|
-|Get|内置方法|&nbsp;|
-|GetDraft|内置方法|&nbsp;|
-|CheckKey|内置方法|&nbsp;|
-|Save|内置方法|&nbsp;|
-
-## 处理逻辑
+#### 数据格式
 无
 
-## 查询集合
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [系统需求模块（PSSYSREQMODULE）](../ibizsysmodel/PSSysReqModule) |
+| 关系属性 | [系统需求模块名称（PSSYSREQMODULENAME）](../ibizsysmodel/PSSysReqModule/#属性-系统需求模块名称（PSSYSREQMODULENAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
 
-* **查询**
+### 属性-建立人（CREATEMAN）
+#### 属性说明
+建立人
 
-| 查询编号 | 查询名称       | 默认查询 |   备注|
-| --------  | --------   | --------   | ----- |
-|DEFAULT|数据查询([MYSQL5](../../appendix/query_MYSQL5.md#PSSysReqItem_Default))|否|&nbsp;|
-|VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#PSSysReqItem_View))|否|&nbsp;|
+#### 属性类型
+物理属性[实体属性]
 
-* **数据集合**
+#### 数据类型
+TEXT
 
-| 集合编号 | 集合名称   |  包含查询  | 默认集合 |   备注|
-| --------  | --------   | -------- | --------   | ----- |
-|DEFAULT|数据集|DEFAULT|是|&nbsp;|
+#### 是否允许为为空
+否
 
-## 查询模式
-| 属性      |    搜索模式     |
-| --------   |------------|
-|系统需求项名称(PSSYSREQITEMNAME)|LIKE|
-|项类型(ITEMTYPE)|EQ|
-|用户分类(USERCAT)|EQ|
-|父需求项(PPSSYSREQITEMID)|EQ|
-|父需求项(PPSSYSREQITEMNAME)|EQ|
-|父需求项(PPSSYSREQITEMNAME)|LIKE|
-|需求模块(PSSYSREQMODULEID)|EQ|
-|需求模块(PSSYSREQMODULENAME)|EQ|
-|需求模块(PSSYSREQMODULENAME)|LIKE|
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
 
-## 导入模式
+#### 取值范围/公式
+参照数据字典【[云系统操作者（SysOperator）](../../codelist/SysOperator)】
+
+#### 数据格式
 无
 
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [系统需求模块（PSSYSREQMODULE）](../ibizsysmodel/PSSysReqModule) |
+| 关系属性 | [系统需求模块名称（PSSYSREQMODULENAME）](../ibizsysmodel/PSSysReqModule/#属性-系统需求模块名称（PSSYSREQMODULENAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
 
-## 导出模式
+### 属性-系统需求项名称（PSSYSREQITEMNAME）
+#### 属性说明
+系统需求项名称
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
 无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [系统需求模块（PSSYSREQMODULE）](../ibizsysmodel/PSSysReqModule) |
+| 关系属性 | [系统需求模块名称（PSSYSREQMODULENAME）](../ibizsysmodel/PSSysReqModule/#属性-系统需求模块名称（PSSYSREQMODULENAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-建立时间（CREATEDATE）
+#### 属性说明
+建立时间
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+DATETIME
+
+#### 是否允许为为空
+否
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+时间格式：yyyy-MM-dd HH:mm:ss
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [系统需求模块（PSSYSREQMODULE）](../ibizsysmodel/PSSysReqModule) |
+| 关系属性 | [系统需求模块名称（PSSYSREQMODULENAME）](../ibizsysmodel/PSSysReqModule/#属性-系统需求模块名称（PSSYSREQMODULENAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-更新时间（UPDATEDATE）
+#### 属性说明
+更新时间
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+DATETIME
+
+#### 是否允许为为空
+否
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+时间格式：yyyy-MM-dd HH:mm:ss
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [系统需求模块（PSSYSREQMODULE）](../ibizsysmodel/PSSysReqModule) |
+| 关系属性 | [系统需求模块名称（PSSYSREQMODULENAME）](../ibizsysmodel/PSSysReqModule/#属性-系统需求模块名称（PSSYSREQMODULENAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-更新人（UPDATEMAN）
+#### 属性说明
+更新人
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+否
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+参照数据字典【[云系统操作者（SysOperator）](../../codelist/SysOperator)】
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [系统需求模块（PSSYSREQMODULE）](../ibizsysmodel/PSSysReqModule) |
+| 关系属性 | [系统需求模块名称（PSSYSREQMODULENAME）](../ibizsysmodel/PSSysReqModule/#属性-系统需求模块名称（PSSYSREQMODULENAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-代码标识（CODENAME）
+#### 属性说明
+代码标识
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [系统需求模块（PSSYSREQMODULE）](../ibizsysmodel/PSSysReqModule) |
+| 关系属性 | [系统需求模块名称（PSSYSREQMODULENAME）](../ibizsysmodel/PSSysReqModule/#属性-系统需求模块名称（PSSYSREQMODULENAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-项编号（ITEMSN）
+#### 属性说明
+项编号
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [系统需求模块（PSSYSREQMODULE）](../ibizsysmodel/PSSysReqModule) |
+| 关系属性 | [系统需求模块名称（PSSYSREQMODULENAME）](../ibizsysmodel/PSSysReqModule/#属性-系统需求模块名称（PSSYSREQMODULENAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-项标记（ITEMTAG）
+#### 属性说明
+项标记
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [系统需求模块（PSSYSREQMODULE）](../ibizsysmodel/PSSysReqModule) |
+| 关系属性 | [系统需求模块名称（PSSYSREQMODULENAME）](../ibizsysmodel/PSSysReqModule/#属性-系统需求模块名称（PSSYSREQMODULENAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-项标记2（ITEMTAG2）
+#### 属性说明
+项标记2
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [系统需求模块（PSSYSREQMODULE）](../ibizsysmodel/PSSysReqModule) |
+| 关系属性 | [系统需求模块名称（PSSYSREQMODULENAME）](../ibizsysmodel/PSSysReqModule/#属性-系统需求模块名称（PSSYSREQMODULENAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-项类型（ITEMTYPE）
+#### 属性说明
+项类型
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+SSCODELIST
+
+#### 是否允许为为空
+否
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [系统需求模块（PSSYSREQMODULE）](../ibizsysmodel/PSSysReqModule) |
+| 关系属性 | [系统需求模块名称（PSSYSREQMODULENAME）](../ibizsysmodel/PSSysReqModule/#属性-系统需求模块名称（PSSYSREQMODULENAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-备注（MEMO）
+#### 属性说明
+备注
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+LONGTEXT_1000
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [系统需求模块（PSSYSREQMODULE）](../ibizsysmodel/PSSysReqModule) |
+| 关系属性 | [系统需求模块名称（PSSYSREQMODULENAME）](../ibizsysmodel/PSSysReqModule/#属性-系统需求模块名称（PSSYSREQMODULENAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-次序（ORDERVALUE）
+#### 属性说明
+次序
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+INT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [系统需求模块（PSSYSREQMODULE）](../ibizsysmodel/PSSysReqModule) |
+| 关系属性 | [系统需求模块名称（PSSYSREQMODULENAME）](../ibizsysmodel/PSSysReqModule/#属性-系统需求模块名称（PSSYSREQMODULENAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-内容（REQCONTENT）
+#### 属性说明
+内容
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+HTMLTEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [系统需求模块（PSSYSREQMODULE）](../ibizsysmodel/PSSysReqModule) |
+| 关系属性 | [系统需求模块名称（PSSYSREQMODULENAME）](../ibizsysmodel/PSSysReqModule/#属性-系统需求模块名称（PSSYSREQMODULENAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-用户标记2（USERTAG2）
+#### 属性说明
+用户标记2
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [系统需求模块（PSSYSREQMODULE）](../ibizsysmodel/PSSysReqModule) |
+| 关系属性 | [系统需求模块名称（PSSYSREQMODULENAME）](../ibizsysmodel/PSSysReqModule/#属性-系统需求模块名称（PSSYSREQMODULENAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-用户标记（USERTAG）
+#### 属性说明
+用户标记
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [系统需求模块（PSSYSREQMODULE）](../ibizsysmodel/PSSysReqModule) |
+| 关系属性 | [系统需求模块名称（PSSYSREQMODULENAME）](../ibizsysmodel/PSSysReqModule/#属性-系统需求模块名称（PSSYSREQMODULENAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-用户分类（USERCAT）
+#### 属性说明
+用户分类
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+SSCODELIST
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [系统需求模块（PSSYSREQMODULE）](../ibizsysmodel/PSSysReqModule) |
+| 关系属性 | [系统需求模块名称（PSSYSREQMODULENAME）](../ibizsysmodel/PSSysReqModule/#属性-系统需求模块名称（PSSYSREQMODULENAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-用户标记3（USERTAG3）
+#### 属性说明
+用户标记3
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [系统需求模块（PSSYSREQMODULE）](../ibizsysmodel/PSSysReqModule) |
+| 关系属性 | [系统需求模块名称（PSSYSREQMODULENAME）](../ibizsysmodel/PSSysReqModule/#属性-系统需求模块名称（PSSYSREQMODULENAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-用户标记4（USERTAG4）
+#### 属性说明
+用户标记4
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [系统需求模块（PSSYSREQMODULE）](../ibizsysmodel/PSSysReqModule) |
+| 关系属性 | [系统需求模块名称（PSSYSREQMODULENAME）](../ibizsysmodel/PSSysReqModule/#属性-系统需求模块名称（PSSYSREQMODULENAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-版本（VER）
+#### 属性说明
+版本
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+INT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 | 1 |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [系统需求模块（PSSYSREQMODULE）](../ibizsysmodel/PSSysReqModule) |
+| 关系属性 | [系统需求模块名称（PSSYSREQMODULENAME）](../ibizsysmodel/PSSysReqModule/#属性-系统需求模块名称（PSSYSREQMODULENAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-是否有效（VALIDFLAG）
+#### 属性说明
+是否有效
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+YESNO
+
+#### 是否允许为为空
+否
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 | 1 |
+
+#### 取值范围/公式
+参照数据字典【[是否（YESNO）（YesNo3）](../../codelist/YesNo3)】
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [系统需求模块（PSSYSREQMODULE）](../ibizsysmodel/PSSysReqModule) |
+| 关系属性 | [系统需求模块名称（PSSYSREQMODULENAME）](../ibizsysmodel/PSSysReqModule/#属性-系统需求模块名称（PSSYSREQMODULENAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-父需求项（PPSSYSREQITEMID）
+#### 属性说明
+父需求项
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+PICKUP
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [系统需求项（PSSYSREQITEM）](../ibizsysmodel/PSSysReqItem) |
+| 关系属性 | [系统需求项标识（PSSYSREQITEMID）](../ibizsysmodel/PSSysReqItem/#属性-系统需求项标识（PSSYSREQITEMID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-父需求项（PPSSYSREQITEMNAME）
+#### 属性说明
+父需求项
+
+#### 属性类型
+链接属性[虚拟属性，映射关系实体的属性]
+
+#### 数据类型
+PICKUPTEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [系统需求项（PSSYSREQITEM）](../ibizsysmodel/PSSysReqItem) |
+| 关系属性 | [系统需求项名称（PSSYSREQITEMNAME）](../ibizsysmodel/PSSysReqItem/#属性-系统需求项名称（PSSYSREQITEMNAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-需求模块（PSSYSREQMODULEID）
+#### 属性说明
+需求模块
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+PICKUP
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [系统需求模块（PSSYSREQMODULE）](../ibizsysmodel/PSSysReqModule) |
+| 关系属性 | [系统需求模块标识（PSSYSREQMODULEID）](../ibizsysmodel/PSSysReqModule/#属性-系统需求模块标识（PSSYSREQMODULEID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-需求模块（PSSYSREQMODULENAME）
+#### 属性说明
+需求模块
+
+#### 属性类型
+链接属性[虚拟属性，映射关系实体的属性]
+
+#### 数据类型
+PICKUPTEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [系统需求模块（PSSYSREQMODULE）](../ibizsysmodel/PSSysReqModule) |
+| 关系属性 | [系统需求模块名称（PSSYSREQMODULENAME）](../ibizsysmodel/PSSysReqModule/#属性-系统需求模块名称（PSSYSREQMODULENAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-系统（PSSYSTEMID）
+#### 属性说明
+系统
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [系统需求模块（PSSYSREQMODULE）](../ibizsysmodel/PSSysReqModule) |
+| 关系属性 | [系统需求模块名称（PSSYSREQMODULENAME）](../ibizsysmodel/PSSysReqModule/#属性-系统需求模块名称（PSSYSREQMODULENAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-系统（PSSYSTEMNAME）
+#### 属性说明
+系统
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [系统需求模块（PSSYSREQMODULE）](../ibizsysmodel/PSSysReqModule) |
+| 关系属性 | [系统需求模块名称（PSSYSREQMODULENAME）](../ibizsysmodel/PSSysReqModule/#属性-系统需求模块名称（PSSYSREQMODULENAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-系统用例（PSSYSUSERCASEID）
+#### 属性说明
+系统用例
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [系统需求模块（PSSYSREQMODULE）](../ibizsysmodel/PSSysReqModule) |
+| 关系属性 | [系统需求模块名称（PSSYSREQMODULENAME）](../ibizsysmodel/PSSysReqModule/#属性-系统需求模块名称（PSSYSREQMODULENAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-系统用例（PSSYSUSERCASENAME）
+#### 属性说明
+系统用例
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [系统需求模块（PSSYSREQMODULE）](../ibizsysmodel/PSSysReqModule) |
+| 关系属性 | [系统需求模块名称（PSSYSREQMODULENAME）](../ibizsysmodel/PSSysReqModule/#属性-系统需求模块名称（PSSYSREQMODULENAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+

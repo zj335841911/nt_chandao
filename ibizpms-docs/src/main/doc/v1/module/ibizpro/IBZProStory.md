@@ -1,164 +1,1430 @@
-# 需求(IBZPRO_STORY)
+# 实体-需求(IBZPRO_STORY)
+## 实体说明
+需求
 
-  
+## 所属模块
+[iBizPro模块](../ibizpro)
 
-## 关系
-{% plantuml %}
-平台产品 *-- 需求 
-需求模块 *-- 需求 
-hide members
-{% endplantuml %}
+## 实体属性
+| 序号 | 属性 | 属性名 | 数据类型 | 是否是主键 | 是否是外键 | 是否允许为空 | 关系属性（实体-属性） |
+| -- | -- | -- | -- | -- | -- |
+| 1 | [编号](#属性-编号（ID）) | ID | ACID | 是 | 否 | 否 | -- |
+| 2 | [需求名称](#属性-需求名称（TITLE）) | TITLE | TEXT | 否 | 否 | 否 | -- |
+| 3 | [id](#属性-id（MODULE）) | MODULE | PICKUP | 否 | 是 | 是 | [需求模块（IBZPRO_STORYMODULE）](../ibizpro/IBZProStoryModule) - [id（ID）](../ibizpro/IBZProStoryModule/#属性-id（ID）) |
+| 4 | [编号](#属性-编号（PRODUCT）) | PRODUCT | PICKUP | 否 | 是 | 是 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) - [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
+| 5 | [IBIZ标识](#属性-IBIZ标识（IBIZ_ID）) | IBIZ_ID | TEXT | 否 | 是 | 是 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) - [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
+| 6 | [需求来源](#属性-需求来源（SOURCE）) | SOURCE | SSCODELIST | 否 | 是 | 是 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) - [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
+| 7 | [来源备注](#属性-来源备注（SOURCENOTE）) | SOURCENOTE | TEXT | 否 | 是 | 是 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) - [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
+| 8 | [来源对象](#属性-来源对象（IBIZ_SOURCEOBJECT）) | IBIZ_SOURCEOBJECT | SSCODELIST | 否 | 是 | 是 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) - [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
+| 9 | [来源对象名称](#属性-来源对象名称（IBIZ_SOURCENAME）) | IBIZ_SOURCENAME | TEXT | 否 | 是 | 是 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) - [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
+| 10 | [来源对象标识](#属性-来源对象标识（IBIZ_SOURCEID）) | IBIZ_SOURCEID | TEXT | 否 | 是 | 是 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) - [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
+| 11 | [版本号](#属性-版本号（VERSION）) | VERSION | INT | 否 | 是 | 是 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) - [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
+| 12 | [预计工时](#属性-预计工时（ESTIMATE）) | ESTIMATE | FLOAT | 否 | 是 | 是 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) - [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
+| 13 | [关键词](#属性-关键词（KEYWORDS）) | KEYWORDS | TEXT | 否 | 是 | 是 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) - [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
+| 14 | [创建日期](#属性-创建日期（OPENEDDATE）) | OPENEDDATE | DATETIME | 否 | 是 | 是 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) - [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
+| 15 | [最后修改日期](#属性-最后修改日期（LASTEDITEDDATE）) | LASTEDITEDDATE | DATETIME | 否 | 是 | 是 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) - [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
+| 16 | [已删除](#属性-已删除（DELETED）) | DELETED | TEXT | 否 | 是 | 是 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) - [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
+| 17 | [由谁创建](#属性-由谁创建（OPENEDBY）) | OPENEDBY | TEXT | 否 | 是 | 是 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) - [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
+| 18 | [状态](#属性-状态（STATUS）) | STATUS | SSCODELIST | 否 | 是 | 是 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) - [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
+| 19 | [需求类型](#属性-需求类型（TYPE）) | TYPE | SSCODELIST | 否 | 是 | 是 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) - [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
+| 20 | [需求阶段](#属性-需求阶段（STAGE）) | STAGE | SSCODELIST | 否 | 是 | 是 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) - [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
+| 21 | [优先级](#属性-优先级（PRI）) | PRI | INT | 否 | 是 | 是 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) - [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
+| 22 | [颜色](#属性-颜色（COLOR）) | COLOR | SSCODELIST | 否 | 是 | 是 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) - [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
+| 23 | [项目](#属性-项目（PROJECT）) | PROJECT | TEXT | 否 | 是 | 是 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) - [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
+| 24 | [设置阶段者](#属性-设置阶段者（STAGEDBY）) | STAGEDBY | SSCODELIST | 否 | 是 | 是 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) - [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
+| 25 | [指派给](#属性-指派给（ASSIGNEDTO）) | ASSIGNEDTO | TEXT | 否 | 是 | 是 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) - [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
+| 26 | [指派日期](#属性-指派日期（ASSIGNEDDATE）) | ASSIGNEDDATE | DATETIME | 否 | 是 | 是 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) - [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
+| 27 | [由谁评审](#属性-由谁评审（REVIEWEDBY）) | REVIEWEDBY | SMCODELIST | 否 | 是 | 是 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) - [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
+| 28 | [评审时间](#属性-评审时间（REVIEWEDDATE）) | REVIEWEDDATE | DATE | 否 | 是 | 是 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) - [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
+| 29 | [平台](#属性-平台（BRANCH）) | BRANCH | INT | 否 | 是 | 是 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) - [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
+| 30 | [抄送给](#属性-抄送给（MAILTO）) | MAILTO | TEXT | 否 | 是 | 是 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) - [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
+| 31 | [最后修改者](#属性-最后修改者（LASTEDITEDBY）) | LASTEDITEDBY | TEXT | 否 | 是 | 是 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) - [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
+| 32 | [需求细分](#属性-需求细分（CHILDSTORIES）) | CHILDSTORIES | TEXT | 否 | 是 | 是 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) - [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
+| 33 | [相关需求](#属性-相关需求（LINKSTORIES）) | LINKSTORIES | TEXT | 否 | 是 | 是 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) - [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
+| 34 | [由谁关闭](#属性-由谁关闭（CLOSEDBY）) | CLOSEDBY | TEXT | 否 | 是 | 是 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) - [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
+| 35 | [子状态](#属性-子状态（SUBSTATUS）) | SUBSTATUS | TEXT | 否 | 是 | 是 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) - [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
+| 36 | [关闭日期	](#属性-关闭日期	（CLOSEDDATE）) | CLOSEDDATE | DATETIME | 否 | 是 | 是 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) - [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
+| 37 | [关闭原因](#属性-关闭原因（CLOSEDREASON）) | CLOSEDREASON | TEXT | 否 | 是 | 是 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) - [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
+| 38 | [转Bug](#属性-转Bug（TOBUG）) | TOBUG | INT | 否 | 是 | 是 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) - [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
+| 39 | [重复需求](#属性-重复需求（DUPLICATESTORY）) | DUPLICATESTORY | INT | 否 | 是 | 是 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) - [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
+| 40 | [来源Bug](#属性-来源Bug（FROMBUG）) | FROMBUG | INT | 否 | 是 | 是 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) - [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
+| 41 | [需求描述](#属性-需求描述（SPEC）) | SPEC | TEXT | 否 | 是 | 是 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) - [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
+| 42 | [验收标准](#属性-验收标准（VERIFY）) | VERIFY | TEXT | 否 | 是 | 是 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) - [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
+| 43 | [备注](#属性-备注（COMMENT）) | COMMENT | HTMLTEXT | 否 | 是 | 是 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) - [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
 
-## 属性
+### 属性-编号（ID）
+#### 属性说明
+编号
 
-| 属性名称        |    中文名称    | 类型     |  备注  |
-| --------   |------------| -----   |  -------- | 
-|编号|ID|ACID|&nbsp;|
-|需求名称|TITLE|TEXT|&nbsp;|
-|id|MODULE|PICKUP|&nbsp;|
-|编号|PRODUCT|PICKUP|&nbsp;|
-|IBIZ标识|IBIZ_ID|TEXT|&nbsp;|
-|需求来源|SOURCE|SSCODELIST|&nbsp;|
-|来源备注|SOURCENOTE|TEXT|&nbsp;|
-|来源对象|IBIZ_SOURCEOBJECT|SSCODELIST|&nbsp;|
-|来源对象名称|IBIZ_SOURCENAME|TEXT|&nbsp;|
-|来源对象标识|IBIZ_SOURCEID|TEXT|&nbsp;|
-|版本号|VERSION|INT|&nbsp;每次更新内容，会自动加1（只有真正更新数据才会更新，例如打开编辑/变更需求，没有进行任何修改点击保存，是不会更新该笔数据）|
-|预计工时|ESTIMATE|FLOAT|&nbsp;|
-|关键词|KEYWORDS|TEXT|&nbsp;|
-|创建日期|OPENEDDATE|DATETIME|&nbsp;|
-|最后修改日期|LASTEDITEDDATE|DATETIME|&nbsp;|
-|已删除|DELETED|TEXT|&nbsp;|
-|由谁创建|OPENEDBY|TEXT|&nbsp;|
-|状态|STATUS|SSCODELIST|&nbsp;|
-|需求类型|TYPE|SSCODELIST|&nbsp;|
-|需求阶段|STAGE|SSCODELIST|&nbsp;|
-|优先级|PRI|INT|&nbsp;|
-|颜色|COLOR|SSCODELIST|&nbsp;|
-|项目|PROJECT|TEXT|&nbsp;|
-|设置阶段者|STAGEDBY|SSCODELIST|&nbsp;|
-|指派给|ASSIGNEDTO|TEXT|&nbsp;|
-|指派日期|ASSIGNEDDATE|DATETIME|&nbsp;|
-|由谁评审|REVIEWEDBY|SMCODELIST|&nbsp;|
-|评审时间|REVIEWEDDATE|DATE|&nbsp;|
-|平台|BRANCH|INT|&nbsp;|
-|抄送给|MAILTO|TEXT|&nbsp;|
-|最后修改者|LASTEDITEDBY|TEXT|&nbsp;|
-|需求细分|CHILDSTORIES|TEXT|&nbsp;|
-|相关需求|LINKSTORIES|TEXT|&nbsp;|
-|由谁关闭|CLOSEDBY|TEXT|&nbsp;|
-|子状态|SUBSTATUS|TEXT|&nbsp;|
-|关闭日期	|CLOSEDDATE|DATETIME|&nbsp;|
-|关闭原因|CLOSEDREASON|TEXT|&nbsp;|
-|转Bug|TOBUG|INT|&nbsp;|
-|重复需求|DUPLICATESTORY|INT|&nbsp;|
-|来源Bug|FROMBUG|INT|&nbsp;|
-|需求描述|SPEC|TEXT|&nbsp;|
-|验收标准|VERIFY|TEXT|&nbsp;|
-|备注|COMMENT|HTMLTEXT|&nbsp;|
+#### 属性类型
+物理属性[实体属性]
 
-## 值规则
-| 属性名称    | 规则    |  说明  |
-| --------   |------------| ----- | 
-|编号|默认规则|默认规则|
-|需求名称|默认规则|内容长度必须小于等于[255]|
-|id|默认规则|默认规则|
-|编号|默认规则|默认规则|
-|IBIZ标识|默认规则|内容长度必须小于等于[100]|
-|需求来源|默认规则|内容长度必须小于等于[20]|
-|来源备注|默认规则|内容长度必须小于等于[255]|
-|来源对象|默认规则|内容长度必须小于等于[100]|
-|来源对象名称|默认规则|内容长度必须小于等于[100]|
-|来源对象标识|默认规则|内容长度必须小于等于[100]|
-|版本号|默认规则|默认规则|
-|预计工时|默认规则|默认规则|
-|关键词|默认规则|内容长度必须小于等于[255]|
-|创建日期|默认规则|默认规则|
-|最后修改日期|默认规则|默认规则|
-|已删除|默认规则|内容长度必须小于等于[1]|
-|由谁创建|默认规则|内容长度必须小于等于[100]|
-|状态|默认规则|内容长度必须小于等于[60]|
-|需求类型|默认规则|内容长度必须小于等于[60]|
-|需求阶段|默认规则|内容长度必须小于等于[60]|
-|优先级|默认规则|默认规则|
-|颜色|默认规则|内容长度必须小于等于[60]|
-|项目|默认规则|内容长度必须小于等于[100]|
-|设置阶段者|默认规则|内容长度必须小于等于[60]|
-|指派给|默认规则|内容长度必须小于等于[100]|
-|指派日期|默认规则|默认规则|
-|由谁评审|默认规则|内容长度必须小于等于[2000]|
-|评审时间|默认规则|默认规则|
-|平台|默认规则|默认规则|
-|抄送给|默认规则|内容长度必须小于等于[100]|
-|最后修改者|默认规则|内容长度必须小于等于[100]|
-|需求细分|默认规则|内容长度必须小于等于[100]|
-|相关需求|默认规则|内容长度必须小于等于[100]|
-|由谁关闭|默认规则|内容长度必须小于等于[100]|
-|子状态|默认规则|内容长度必须小于等于[100]|
-|关闭日期	|默认规则|默认规则|
-|关闭原因|默认规则|内容长度必须小于等于[100]|
-|转Bug|默认规则|默认规则|
-|重复需求|默认规则|默认规则|
-|来源Bug|默认规则|默认规则|
-|需求描述|默认规则|内容长度必须小于等于[100]|
-|验收标准|默认规则|内容长度必须小于等于[100]|
-|备注|默认规则|内容长度必须小于等于[1048576]|
+#### 数据类型
+ACID
 
-## 状态控制
+#### 是否允许为为空
+否
 
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
 无
 
-
-## 行为
-| 行为    | 类型    |  说明  |
-| --------   |------------| ----- | 
-|Create|内置方法|&nbsp;|
-|Update|内置方法|&nbsp;|
-|Remove|内置方法|&nbsp;|
-|Get|内置方法|&nbsp;|
-|GetDraft|内置方法|&nbsp;|
-|CheckKey|内置方法|&nbsp;|
-|Save|内置方法|&nbsp;|
-|同步Ibz平台需求|用户自定义|&nbsp;|
-
-## 处理逻辑
+#### 数据格式
 无
 
-## 查询集合
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
+| 关系属性 | [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
 
-* **查询**
+### 属性-需求名称（TITLE）
+#### 属性说明
+需求名称
 
-| 查询编号 | 查询名称       | 默认查询 |   备注|
-| --------  | --------   | --------   | ----- |
-|DEFAULT|数据查询([MYSQL5](../../appendix/query_MYSQL5.md#IBZProStory_Default))|否|&nbsp;|
-|VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#IBZProStory_View))|否|&nbsp;|
+#### 属性类型
+物理属性[实体属性]
 
-* **数据集合**
+#### 数据类型
+TEXT
 
-| 集合编号 | 集合名称   |  包含查询  | 默认集合 |   备注|
-| --------  | --------   | -------- | --------   | ----- |
-|DEFAULT|数据集|DEFAULT|是|&nbsp;|
+#### 是否允许为为空
+否
 
-## 查询模式
-| 属性      |    搜索模式     |
-| --------   |------------|
-|需求名称(TITLE)|LIKE|
-|id(MODULE)|EQ|
-|编号(PRODUCT)|EQ|
-|IBIZ标识(IBIZ_ID)|EQ|
-|需求来源(SOURCE)|EQ|
-|来源备注(SOURCENOTE)|EQ|
-|来源对象(IBIZ_SOURCEOBJECT)|EQ|
-|状态(STATUS)|EQ|
-|需求类型(TYPE)|EQ|
-|需求阶段(STAGE)|EQ|
-|优先级(PRI)|EQ|
-|颜色(COLOR)|EQ|
-|设置阶段者(STAGEDBY)|EQ|
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
 
-## 导入模式
+#### 取值范围/公式
 无
 
-
-## 导出模式
+#### 数据格式
 无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
+| 关系属性 | [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-id（MODULE）
+#### 属性说明
+id
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+PICKUP
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [需求模块（IBZPRO_STORYMODULE）](../ibizpro/IBZProStoryModule) |
+| 关系属性 | [id（ID）](../ibizpro/IBZProStoryModule/#属性-id（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-编号（PRODUCT）
+#### 属性说明
+编号
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+PICKUP
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
+| 关系属性 | [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-IBIZ标识（IBIZ_ID）
+#### 属性说明
+IBIZ标识
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
+| 关系属性 | [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-需求来源（SOURCE）
+#### 属性说明
+需求来源
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+SSCODELIST
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 | iBiz |
+
+#### 取值范围/公式
+参照数据字典【[需求来源（Story__source）](../../codelist/Story__source)】
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
+| 关系属性 | [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-来源备注（SOURCENOTE）
+#### 属性说明
+来源备注
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
+| 关系属性 | [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-来源对象（IBIZ_SOURCEOBJECT）
+#### 属性说明
+来源对象
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+SSCODELIST
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+参照数据字典【[来源对象（Ibizpro_story__sourceobject）](../../codelist/Ibizpro_story__sourceobject)】
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
+| 关系属性 | [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-来源对象名称（IBIZ_SOURCENAME）
+#### 属性说明
+来源对象名称
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
+| 关系属性 | [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-来源对象标识（IBIZ_SOURCEID）
+#### 属性说明
+来源对象标识
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
+| 关系属性 | [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-版本号（VERSION）
+#### 属性说明
+每次更新内容，会自动加1（只有真正更新数据才会更新，例如打开编辑/变更需求，没有进行任何修改点击保存，是不会更新该笔数据）
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+INT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 | 1 |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
+| 关系属性 | [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-预计工时（ESTIMATE）
+#### 属性说明
+预计工时
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+FLOAT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
+| 关系属性 | [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-关键词（KEYWORDS）
+#### 属性说明
+关键词
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
+| 关系属性 | [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-创建日期（OPENEDDATE）
+#### 属性说明
+创建日期
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+DATETIME
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+时间格式：yyyy-MM-dd HH:mm:ss
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
+| 关系属性 | [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-最后修改日期（LASTEDITEDDATE）
+#### 属性说明
+最后修改日期
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+DATETIME
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+时间格式：yyyy-MM-dd HH:mm:ss
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
+| 关系属性 | [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-已删除（DELETED）
+#### 属性说明
+已删除
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 | 0 |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
+| 关系属性 | [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-由谁创建（OPENEDBY）
+#### 属性说明
+由谁创建
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
+| 关系属性 | [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-状态（STATUS）
+#### 属性说明
+状态
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+SSCODELIST
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+参照数据字典【[需求状态（Story__status）](../../codelist/Story__status)】
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
+| 关系属性 | [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-需求类型（TYPE）
+#### 属性说明
+需求类型
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+SSCODELIST
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+参照数据字典【[需求类型（Story__type）](../../codelist/Story__type)】
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
+| 关系属性 | [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-需求阶段（STAGE）
+#### 属性说明
+需求阶段
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+SSCODELIST
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+参照数据字典【[需求阶段（Story__stage）](../../codelist/Story__stage)】
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
+| 关系属性 | [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-优先级（PRI）
+#### 属性说明
+优先级
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+INT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+参照数据字典【[需求优先级（Story__pri）](../../codelist/Story__pri)】
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
+| 关系属性 | [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-颜色（COLOR）
+#### 属性说明
+颜色
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+SSCODELIST
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+参照数据字典【[需求颜色（Story__color）](../../codelist/Story__color)】
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
+| 关系属性 | [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-项目（PROJECT）
+#### 属性说明
+项目
+
+#### 属性类型
+应用界面属性[虚拟属性，提供给页面显示的属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
+| 关系属性 | [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-设置阶段者（STAGEDBY）
+#### 属性说明
+设置阶段者
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+SSCODELIST
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+参照数据字典【[用户真实名称（动态）（UserRealName）](../../codelist/UserRealName)】
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
+| 关系属性 | [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-指派给（ASSIGNEDTO）
+#### 属性说明
+指派给
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
+| 关系属性 | [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-指派日期（ASSIGNEDDATE）
+#### 属性说明
+指派日期
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+DATETIME
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+时间格式：yyyy-MM-dd HH:mm:ss
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
+| 关系属性 | [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-由谁评审（REVIEWEDBY）
+#### 属性说明
+由谁评审
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+SMCODELIST
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
+| 关系属性 | [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-评审时间（REVIEWEDDATE）
+#### 属性说明
+评审时间
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+DATE
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+时间格式：yyyy-MM-dd
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
+| 关系属性 | [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-平台（BRANCH）
+#### 属性说明
+平台
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+INT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
+| 关系属性 | [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-抄送给（MAILTO）
+#### 属性说明
+抄送给
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
+| 关系属性 | [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-最后修改者（LASTEDITEDBY）
+#### 属性说明
+最后修改者
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
+| 关系属性 | [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-需求细分（CHILDSTORIES）
+#### 属性说明
+需求细分
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
+| 关系属性 | [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-相关需求（LINKSTORIES）
+#### 属性说明
+相关需求
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
+| 关系属性 | [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-由谁关闭（CLOSEDBY）
+#### 属性说明
+由谁关闭
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
+| 关系属性 | [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-子状态（SUBSTATUS）
+#### 属性说明
+子状态
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
+| 关系属性 | [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-关闭日期	（CLOSEDDATE）
+#### 属性说明
+关闭日期	
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+DATETIME
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+时间格式：yyyy-MM-dd HH:mm:ss
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
+| 关系属性 | [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-关闭原因（CLOSEDREASON）
+#### 属性说明
+关闭原因
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
+| 关系属性 | [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-转Bug（TOBUG）
+#### 属性说明
+转Bug
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+INT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
+| 关系属性 | [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-重复需求（DUPLICATESTORY）
+#### 属性说明
+重复需求
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+INT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
+| 关系属性 | [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-来源Bug（FROMBUG）
+#### 属性说明
+来源Bug
+
+#### 属性类型
+物理属性[实体属性]
+
+#### 数据类型
+INT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
+| 关系属性 | [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-需求描述（SPEC）
+#### 属性说明
+需求描述
+
+#### 属性类型
+应用界面属性[虚拟属性，提供给页面显示的属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
+| 关系属性 | [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-验收标准（VERIFY）
+#### 属性说明
+验收标准
+
+#### 属性类型
+应用界面属性[虚拟属性，提供给页面显示的属性]
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
+| 关系属性 | [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-备注（COMMENT）
+#### 属性说明
+备注
+
+#### 属性类型
+应用界面属性[虚拟属性，提供给页面显示的属性]
+
+#### 数据类型
+HTMLTEXT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
+| 关系属性 | [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
