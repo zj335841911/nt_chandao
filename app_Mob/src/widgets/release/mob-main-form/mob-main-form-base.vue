@@ -142,26 +142,7 @@
 </app-form-item>
 
 
-    
-</app-form-group>
 
-
-
-<app-form-group 
-    class='' 
-    layoutType='TABLE_24COL' 
-    titleStyle='' 
-    uiStyle="DEFAULT" 
-    v-show="detailsModel.group2.visible" 
-    :uiActionGroup="detailsModel.group2.uiActionGroup" 
-    :caption="$t('release.mobmain_form.details.group2')" 
-    :isShowCaption="false" 
-    :titleBarCloseMode="0" 
-    :isInfoGroupMode="true" 
-    :data="transformData(data)"
-    :uiService="deUIService"
-    @groupuiactionclick="groupUIActionClick($event)">
-    
 <app-form-group 
     class='' 
     layoutType='TABLE_24COL' 
@@ -664,13 +645,11 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * @memberof MobMain
      */
     protected detailsModel: any = {
-        group1: new FormGroupPanelModel({ caption: '发布基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'release.mobmain_form', extractMode: 'ITEM', details: [] } })
-, 
         druipart1: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart1', visible: true, isShowCaption: true, form: this })
 , 
         grouppanel1: new FormGroupPanelModel({ caption: '附件', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'release.mobmain_form', extractMode: 'ITEM', details: [] } })
 , 
-        group2: new FormGroupPanelModel({ caption: '操作信息', detailType: 'GROUPPANEL', name: 'group2', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'release.mobmain_form', extractMode: 'ITEM', details: [] } })
+        group1: new FormGroupPanelModel({ caption: '发布基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'release.mobmain_form', extractMode: 'ITEM', details: [] } })
 , 
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this })
 , 
@@ -894,7 +873,6 @@ export default class MobMainBase extends Vue implements ControlInterface {
      */
     private async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }){
                 
-
 
 
 
