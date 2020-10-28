@@ -186,6 +186,9 @@ export class MobModel {
       {
         name: 'modulename1',
       },
+      {
+        name: 'files',
+      },
     ]
   }
 
