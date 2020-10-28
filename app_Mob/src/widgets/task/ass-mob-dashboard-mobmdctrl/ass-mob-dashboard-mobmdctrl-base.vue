@@ -105,7 +105,18 @@
                     </div>
                 </template>
             </ion-list>
-            <div class="no-data" v-if="items.length == 0">暂无数据</div>
+             <div  v-if="items.length == 0" class="no-data">
+                <div class="">暂无数据</div>
+                              <div class="app-toolbar-container ">
+                <div class="app-quick-toolbar toolbar-left-bottons">
+                        <ion-button class="app-view-toolbar-button" v-show="mdctrl_quicktoolbarModels.deuiaction1.visabled" :disabled="mdctrl_quicktoolbarModels.deuiaction1.disabled" @click="mdctrl_quicktoolbar_click({ tag: 'deuiaction1' }, $event)" >
+                    <ion-icon class="ibiz-button-icon" name="more"> </ion-icon>
+                
+                </ion-button>
+            
+                </div>
+            </div>
+            </div>
             <div class="scrollToTop" @click="scrollToTop" ref="scroll" v-show="isEnableScrollTop && showScrollButton"> <van-icon name="back-top" /></div>            
         </div>
     </div>
@@ -992,6 +1003,21 @@ export default class AssMobDASHBOARDBase extends Vue implements ControlInterface
             })
         })
     }
+
+      
+   /**
+    * 工具栏 TaskAssMobMDView9 模型
+    *
+    * @type {*}
+    * @memberof TaskAssMobMDView9
+    */
+    public mdctrl_quicktoolbarModels: any = {
+            deuiaction1: { name: 'deuiaction1', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'MyAssMore', target: 'NONE' } },
+
+    };
+
+    
+
 
     /**
      * 长按

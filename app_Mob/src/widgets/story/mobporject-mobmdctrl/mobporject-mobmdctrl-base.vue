@@ -85,7 +85,9 @@
                     </div>
                 </template>
             </ion-list>
-            <div class="no-data" v-if="items.length == 0">暂无数据</div>
+             <div  v-if="items.length == 0" class="no-data">
+                <div class="">暂无数据</div>
+            </div>
             <div class="scrollToTop" @click="scrollToTop" ref="scroll" v-show="isEnableScrollTop && showScrollButton"> <van-icon name="back-top" /></div>            
         </div>
     </div>
@@ -750,6 +752,7 @@ export default class MOBPorjectBase extends Vue implements ControlInterface {
             })
         })
     }
+
 
     /**
      * 长按

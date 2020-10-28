@@ -20,6 +20,8 @@
             fetchAction="FetchDefault" 
             :isMutli="!isSingleSelect"
             :isChoose="isChoose"
+            :newdata="newdata"
+            :opendata="opendata"
             @isChooseChange="isChooseChange"
             :isTempMode="false"
             :isEnableChoose="false"

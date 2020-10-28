@@ -81,6 +81,8 @@
             fetchAction="FetchDefault" 
             :isMutli="!isSingleSelect"
             :isChoose="isChoose"
+            :newdata="newdata"
+            :opendata="opendata"
             @isChooseChange="isChooseChange"
             @pageTotalChange="pageTotalChange($event)"
             :isTempMode="false"
