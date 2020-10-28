@@ -187,7 +187,7 @@ export default class TaskEditMobEditViewBase extends Vue {
      * @type {*}
      * @memberof TaskEditMobEditViewBase
      */
-    protected navParam: any = { 'srfparentkey': '%task%', 'objecttype': 'task', 'objectid': '%id%', 'version': '1' };
+    protected navParam: any = { 'srfparentkey': '%task%', 'objecttype': 'task', 'objectid': '%id%' };
 
     /**
      * 视图模型数据
