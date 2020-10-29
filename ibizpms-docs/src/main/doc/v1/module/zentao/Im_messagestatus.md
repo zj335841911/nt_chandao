@@ -1,4 +1,127 @@
-!!!!模版产生代码错误:----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: ${defdatatypecl.getCodeListText(field...  [in template "CODETEMPL_en_US" at line 38, column 1]
-----
+# 实体-im_messagestatus(ZT_IM_MESSAGESTATUS)
+## 实体说明
+im_messagestatus
+
+## 所属模块
+[禅道模块](../zentao)
+
+## 实体属性
+| 序号 | 属性 | 属性名 | 数据类型 | 是否是主键 | 是否是外键 | 是否允许为空 | 关系属性（实体-属性） |
+| -- | -- | -- | -- | -- | -- |
+| 1 | [message](#属性-message（MESSAGE）) | MESSAGE | INT | 否 | 否 | 是 | -- |
+| 2 | [status](#属性-status（STATUS）) | STATUS | SSCODELIST | 否 | 否 | 是 | -- |
+| 3 | [user](#属性-user（USER）) | USER | INT | 否 | 否 | 是 | -- |
+| 4 | [虚拟主键](#属性-虚拟主键（ID）) | ID | TEXT | 是 | 否 | 否 | -- |
+
+### 属性-message（MESSAGE）
+#### 属性说明
+message
+#### 属性类型
+物理字段[来自当前实体物理表字段]
+
+
+#### 数据类型
+INT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+无
+
+### 属性-status（STATUS）
+#### 属性说明
+status
+#### 属性类型
+物理字段[来自当前实体物理表字段]
+
+
+#### 数据类型
+SSCODELIST
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+参照数据字典【[ZT_IM_MESSAGESTATUS__STATUS（Im_messagestatus__status）](../../codelist/Im_messagestatus__status)】
+
+#### 数据格式
+无
+
+#### 关系属性
+无
+
+### 属性-user（USER）
+#### 属性说明
+user
+#### 属性类型
+物理字段[来自当前实体物理表字段]
+
+
+#### 数据类型
+INT
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 | 0 |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+无
+
+### 属性-虚拟主键（ID）
+#### 属性说明
+虚拟主键
+#### 属性类型
+物理字段[来自当前实体物理表字段]
+
+
+#### 数据类型
+TEXT
+
+#### 是否允许为为空
+否
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+concat(%1$s,'__',%2$s)
+
+#### 数据格式
+无
+
+#### 关系属性
+无
+

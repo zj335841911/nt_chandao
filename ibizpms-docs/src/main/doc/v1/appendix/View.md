@@ -58,6 +58,7 @@
 |-|任务移动端数据选择视图|DEMOBPICKUPVIEW|&nbsp;|
 |-|任务选项操作视图（开始）|DEMOBOPTVIEW|&nbsp;|
 |-|测试版本选项操作视图（激活）|DEMOBOPTVIEW|&nbsp;|
+|-|需求移动端多数据视图（更新日志）|DEMOBMDVIEW9|&nbsp;|
 |-|Bug移动端多数据视图|DEMOBMDVIEW|&nbsp;|
 |-|项目移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
 |-|待办事宜表移动端列表视图|DEMOBLISTVIEW|&nbsp;|
@@ -133,6 +134,7 @@
 |-|发布移动端编辑视图（新建）|DEMOBEDITVIEW|&nbsp;|
 |-|产品移动端编辑视图（新建）|DEMOBEDITVIEW|&nbsp;|
 |-|发布移动端选择多数据视图|DEMOBPICKUPMDVIEW|&nbsp;|
+|-|Bug移动端多数据视图（更新日志）|DEMOBMDVIEW9|&nbsp;|
 |-|任务移动端多数据视图|DEMOBMDVIEW9|&nbsp;|
 |-|测试版本移动端多数据视图|DEMOBMDVIEW|&nbsp;|
 |-|应用门户视图|APPPORTALVIEW|&nbsp;|
