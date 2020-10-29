@@ -53,6 +53,15 @@ export default {
 			limited: "受限用户",
 			uagridcolumn1: "操作",
 		},
+    exportColumns: {
+			account: "用户",
+			role: "角色",
+			join: "加盟日",
+			days: "可用工日",
+			hours: "可用工时/天",
+			total: "总计可用",
+			limited: "受限用户",
+    },
 		uiactions: {
         projectteam_removemember: "移除成员",
 		},
