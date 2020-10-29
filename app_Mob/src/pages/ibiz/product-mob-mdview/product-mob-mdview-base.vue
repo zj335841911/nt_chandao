@@ -74,7 +74,6 @@
             viewName="ProductMobMDView"  
             :viewparams="viewparams" 
             :context="context" 
-            :showBusyIndicator="true" 
             viewType="DEMOBMDVIEW"
             controlStyle="LISTVIEW"
             updateAction="Update"
@@ -84,12 +83,13 @@
             createAction="Create"
             fetchAction="FetchCurUer" 
             :isMutli="!isSingleSelect"
-            :isChoose="isChoose"
+            :showBusyIndicator="true" 
+            :isTempMode="false"
             :newdata="newdata"
             :opendata="opendata"
+            :isChoose="isChoose"
             @isChooseChange="isChooseChange"
-            :isTempMode="false"
-            :isEnableChoose="false"
+            @checkBoxChange="checkBoxChange"
             name="mdctrl"  
             ref='mdctrl' 
             @selectionchange="mdctrl_selectionchange($event)"  
@@ -118,7 +118,7 @@
         </div>
                 <div v-show="isChoose" class="batch_btn">
                     <div class="selectall" v-show="isChoose">
-                        <ion-checkbox ></ion-checkbox>
+                        <ion-checkbox ref="selectAll"  :checked="isSelectAll"   @click="onSelectallClick(!isSelectAll)" ></ion-checkbox>
                         <ion-label class="selectal-label">全选</ion-label>
                     </div>
                     <div class="batch_btn_content">
@@ -1140,6 +1140,48 @@ export default class ProductMobMDViewBase extends Vue {
     }
 
 
+    /**
+     * 全选check点击
+     *
+     * @memberof ProductMobMDViewBase
+     */ 
+    public onSelectallClick(value: any) {
+        setTimeout(() => {
+            this.isSelectAll = value;
+            let selectAlls: any = this.$refs.selectAll;
+            if (selectAlls) {
+                selectAlls.checked = value;
+                selectAlls.ariaChecked = value;
+            }
+            let mdctrl: any = this.$refs.mdctrl;
+            if (mdctrl && mdctrl.checkboxAll && this.$util.isFunction(mdctrl.checkboxAll)) {
+                mdctrl.checkboxAll(value);
+            }
+        }, 1);
+        this.$forceUpdate();
+    }
+
+    /**
+     * 是否全选
+     *
+     * @memberof ProductMobMDViewBase
+     */
+    public isSelectAll:boolean = false;
+
+    /**
+     * 单check改变
+     *
+     * @memberof ProductMobMDViewBase
+     */
+    public checkBoxChange(value: any) {
+        let selectAll: any = this.$refs.selectAll;
+        if (selectAll) {
+            selectAll.checked = value;
+            selectAll.ariaChecked = value;
+        }
+        this.isSelectAll = value;
+        this.$forceUpdate();
+    }
 }
 </script>
 

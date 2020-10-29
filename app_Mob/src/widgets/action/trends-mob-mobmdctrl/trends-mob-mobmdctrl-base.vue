@@ -331,13 +331,6 @@ export default class TrendsMobBase extends Vue implements ControlInterface {
     */
     @Prop() public opendata?: Function; 
 
-    /**
-    * 是否能长按
-    *
-    * @type {Function}
-    * @memberof Mob
-    */
-    @Prop({ default: true }) public isEnableChoose?: Boolean;
 
     /**
     * 当前选中数组
@@ -718,19 +711,6 @@ export default class TrendsMobBase extends Vue implements ControlInterface {
 
 
     /**
-     * 长按
-     *
-     * @memberof TrendsMob
-     */
-    public onPress(){
-        let _this = this;
-        // window.addEventListener('contextmenu',(e:any)=>{
-        //    _this.onCheackChange();
-        //    e.preventDefault();
-        // });
-    }
-
-    /**
      * 长按状态改变事件
      *
      * @memberof TrendsMob
@@ -928,9 +908,6 @@ export default class TrendsMobBase extends Vue implements ControlInterface {
     * @memberof TrendsMob
     */
     public created() {
-        if (this.isEnableChoose) {
-           this.onPress();
-        }
         this.afterCreated();
     }
 
@@ -1116,46 +1093,43 @@ export default class TrendsMobBase extends Vue implements ControlInterface {
         let count = this.selectedArray.findIndex((i) => {
             return i.id == item.id;
         });
-        let re = false;
+        let tempFalg = false;
         if(count == -1){
-            re = true;
+            tempFalg = true;
             this.selectedArray.push(item);
         }else{
             this.selectedArray.splice(count,1);
         }
         this.items.forEach((_item:any,index:number)=>{
             if(_item.id == item.id){
-                this.items[index].checked = re;
+                this.items[index].checked = tempFalg;
             }
         });
+        if(!item.checked){
+            this.$emit("checkBoxChange",false)
+        }else if(this.selectedArray.length == this.items.length){
+            this.$emit("checkBoxChange",true)
+        }
     }
-    
+
     /**
      * 全选事件
      *
      * @memberof Mdctrl
      */
     public checkboxAll(item:any) {
-        this.selectAllIschecked = item.detail.checked;
-        if(this.selectAllIschecked){
-            this.selectedArray = JSON.parse(JSON.stringify(this.items));
+        for (let index = 0; index < this.items.length; index++) {
+            const item = this.items[index];
+            this.items[index].checked = value;
+        }
+        if(value){
+            this.selectedArray = [...this.items];
         }else{
             this.selectedArray = [];
         }
-        this.items.forEach((item:any,index:number)=>{
-            this.items[index].checked = this.selectAllIschecked
-        });
         this.$forceUpdate();
     }
 
-
-    /**
-     * 全选按钮选中状态
-     *
-     * @memberof Mdctrl
-     */
-    public selectAllIschecked = false;
-    
 
     /**
      * 界面行为模型

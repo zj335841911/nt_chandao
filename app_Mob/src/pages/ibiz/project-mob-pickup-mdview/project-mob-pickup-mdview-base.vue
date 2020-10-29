@@ -6,7 +6,6 @@
     viewName="ProjectMobPickupMDView"  
     :viewparams="viewparams" 
     :context="context" 
-    :showBusyIndicator="true" 
     viewType="DEMOBPICKUPMDVIEW"
     controlStyle="LISTVIEW"
     updateAction="Update"
@@ -16,8 +15,8 @@
     createAction="Create"
     fetchAction="FetchDefault" 
     :isMutli="!isSingleSelect"
+    :showBusyIndicator="true" 
     :isTempMode="false"
-    :isEnableChoose="false"
     name="mdctrl"  
     ref='mdctrl' 
     @selectionchange="mdctrl_selectionchange($event)"  
