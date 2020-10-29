@@ -21,7 +21,7 @@
             loaddraftAction=""
             loadAction="Get"
             createAction="Create"
-            fetchAction="FetchDefault" 
+            fetchAction="FetchBuildStories" 
             :isMutli="!isSingleSelect"
             :showBusyIndicator="true" 
             :isTempMode="false"

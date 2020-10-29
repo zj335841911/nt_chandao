@@ -44,8 +44,37 @@ export default {
 		newmobeditview: {
 			caption: '版本',
 		},
+		logmobeditview: {
+			caption: '更新日志',
+		},
 		mobmpickupview: {
 			caption: '版本',
+		},
+	},
+	mobmain_form: {
+		details: {
+			druipart2: '', 
+			grouppanel2: '附件', 
+			druipart1: '', 
+			grouppanel1: '历史记录', 
+			group1: '版本基本信息', 
+			formpage1: '基本信息', 
+			srforikey: '', 
+			srfkey: 'id', 
+			srfmajortext: '名称编号', 
+			srftempmode: '', 
+			srfuf: '', 
+			srfdeid: '', 
+			srfsourcekey: '', 
+			name: '名称编号', 
+			date: '打包日期', 
+			builder: '构建者', 
+			scmpath: '源代码地址', 
+			filepath: '下载地址', 
+			desc: '描述', 
+			id: 'id', 
+		},
+		uiactions: {
 		},
 	},
 	mobeditform_form: {
@@ -69,6 +98,27 @@ export default {
 			filepath: '下载地址', 
 			files: '上传发行包', 
 			desc: '描述', 
+			id: 'id', 
+		},
+		uiactions: {
+		},
+	},
+	logmain_form: {
+		details: {
+			group1: '版本基本信息', 
+			druipart1: '', 
+			grouppanel1: '完成需求', 
+			druipart2: '', 
+			grouppanel2: '解决Bug', 
+			formpage1: '基本信息', 
+			srforikey: '', 
+			srfkey: 'id', 
+			srfmajortext: '名称编号', 
+			srftempmode: '', 
+			srfuf: '', 
+			srfdeid: '', 
+			srfsourcekey: '', 
+			name: '', 
 			id: 'id', 
 		},
 		uiactions: {
@@ -100,32 +150,6 @@ export default {
 		uiactions: {
 		},
 	},
-	mobmain_form: {
-		details: {
-			druipart2: '', 
-			grouppanel2: '附件', 
-			druipart1: '', 
-			grouppanel1: '历史记录', 
-			group1: '版本基本信息', 
-			formpage1: '基本信息', 
-			srforikey: '', 
-			srfkey: 'id', 
-			srfmajortext: '名称编号', 
-			srftempmode: '', 
-			srfuf: '', 
-			srfdeid: '', 
-			srfsourcekey: '', 
-			name: '名称编号', 
-			date: '打包日期', 
-			builder: '构建者', 
-			scmpath: '源代码地址', 
-			filepath: '下载地址', 
-			desc: '描述', 
-			id: 'id', 
-		},
-		uiactions: {
-		},
-	},
 	mobdef_searchform: {
 		details: {
 			formpage1: '常规条件', 
@@ -142,6 +166,16 @@ export default {
 			tip: 'tbitem1',
 		},
 	},
+	mobeditviewrighttoolbar_toolbar: {
+		deuiaction1_mobeditbuild: {
+			caption: '编辑版本',
+			tip: 'deuiaction1_mobeditbuild',
+		},
+		deuiaction1_mobdelete: {
+			caption: '删除',
+			tip: 'deuiaction1_mobdelete',
+		},
+	},
 	newmobeditviewrighttoolbar_toolbar: {
 		tbitem1: {
 			caption: 'Save And Close',
@@ -152,16 +186,6 @@ export default {
 		deuiaction1: {
 			caption: '创建版本',
 			tip: 'deuiaction1',
-		},
-	},
-	mobeditviewrighttoolbar_toolbar: {
-		deuiaction1_mobeditbuild: {
-			caption: '编辑版本',
-			tip: 'deuiaction1_mobeditbuild',
-		},
-		deuiaction1_mobdelete: {
-			caption: '删除',
-			tip: 'deuiaction1_mobdelete',
 		},
 	},
 };

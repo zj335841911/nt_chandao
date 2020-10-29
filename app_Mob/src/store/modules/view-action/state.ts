@@ -527,6 +527,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                'e9e484c0b2b4ac5c0363da08356d084d',
                 '72d73b7f458439bc2355414e5a810ad5',
             ],
         },
@@ -1575,6 +1576,17 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '3c4e9f0d609bc0f1cf08431649cc8e67',
+            ],
+        },
+        {
+            viewtag: 'e9e484c0b2b4ac5c0363da08356d084d',
+            viewmodule: 'ibiz',
+            viewname: 'BuildLogMobEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '55804d2c14c94aaab24b2ad0d4db08d8',
+                'dc1e0f061d279d7a5773df36833f94d2',
             ],
         },
         {

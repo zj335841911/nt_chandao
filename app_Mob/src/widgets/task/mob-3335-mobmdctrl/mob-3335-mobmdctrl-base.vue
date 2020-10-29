@@ -82,7 +82,11 @@
              <div  v-if="items.length == 0" class="no-data">
                 <div class="">暂无数据</div>
             </div>
-            <div class="scrollToTop" @click="scrollToTop" ref="scroll" v-show="isEnableScrollTop && showScrollButton"> <van-icon name="back-top" /></div>            
+            <div class="scrollToTop" @click="scrollToTop" ref="scroll" v-show="isEnableScrollTop && showScrollButton"> <van-icon name="back-top" /></div> 
+            <div v-show="bottomLoadding &&  !allLoaded" class="loadding" >
+                    <span>加载中</span>
+                    <ion-spinner name="dots"></ion-spinner>
+            </div>              
         </div>
     </div>
 </template>
@@ -503,30 +507,6 @@ export default class Mob_3335Base extends Vue implements ControlInterface {
     }
 
     /**
-    * 底部状态
-    *
-    * @type {String}
-    * @memberof Mob_3335
-    */
-    // public bottomStatus: String = "";
-
-    /**
-    * 顶部状态
-    *
-    * @type {String}
-    * @memberof Mob_3335
-    */
-    // public topStatus: String = "";
-
-    /**
-    * 
-    *
-    * @type {Number}
-    * @memberof Mob_3335
-    */
-    // public moveTranslate: Number = 0;
-
-    /**
     * searchKey 搜索关键字
     *
     * @type {string}
@@ -598,24 +578,6 @@ export default class Mob_3335Base extends Vue implements ControlInterface {
     */
     public sort: any = { sort:'id,desc'};
     
-    /**
-    * 底部改变状态
-    * 
-    * @memberof Mob_3335
-    */
-    public handleBottomChange(status: String) {
-    //   this.bottomStatus = status;
-    }
-
-    /**
-    * 顶部改变状态
-    * 
-    * @memberof Mob_3335
-    */
-    public handleTopChange(status: String) {
-    //   this.moveTranslate = 1;
-    //   this.topStatus = status;
-    }
 
     /**
      * 上拉加载更多数据
@@ -623,7 +585,7 @@ export default class Mob_3335Base extends Vue implements ControlInterface {
      * @memberof Mob_3335
      */
     public async loadBottom(): Promise<any> {
-        if (((this.pageNumber + 1) * this.pageSize) >= this.pageTotal) {
+        if (this.allLoaded) {
           return;
         }
         this.pageNumber++;
@@ -632,7 +594,7 @@ export default class Mob_3335Base extends Vue implements ControlInterface {
             Object.assign(params, this.viewparams);
         }
         Object.assign(params, { query: this.searchKey, page: this.pageNumber, size: this.pageSize });
-        let response: any = await this.load(params, 'bottom');
+        let response: any = await this.load(params, 'bottom',false);
         let loadmoreBottom: any = this.$refs.loadmoreBottom;
         if (loadmoreBottom) {
             loadmoreBottom.complete();
@@ -742,7 +704,7 @@ export default class Mob_3335Base extends Vue implements ControlInterface {
      * @returns {Promise<any>}
      * @memberof Mob_3335
      */
-    private async load(data: any = {}, type: string = ""): Promise<any> {
+    private async load(data: any = {}, type: string = "",isloadding = this.showBusyIndicator): Promise<any> {
         if (!data.page) {
             Object.assign(data, { page: this.pageNumber });
         }
@@ -763,7 +725,8 @@ export default class Mob_3335Base extends Vue implements ControlInterface {
         let tempViewParams:any = parentdata.viewparams?parentdata.viewparams:{};
         Object.assign(tempViewParams,JSON.parse(JSON.stringify(this.viewparams)));
         Object.assign(data,{viewparams:tempViewParams});
-        const response: any = await this.service.search(this.fetchAction, this.context, data, this.showBusyIndicator);
+        const response: any = await this.service.search(this.fetchAction, this.context, data, isloadding);
+        this.bottomLoadding = false;
         if (!response || response.status !== 200) {
             this.$notify({ type: 'danger', message: response.error.message });
             return response;
@@ -972,6 +935,7 @@ export default class Mob_3335Base extends Vue implements ControlInterface {
           this.$store.commit('setPopupStatus',true)
         }, false)
         list.addEventListener('scroll', (e:any) => {
+          this.scroll(e);
           if (scroll && list) {
             if (list.scrollTop >= 500) {
               this.showScrollButton = true;
@@ -981,6 +945,33 @@ export default class Mob_3335Base extends Vue implements ControlInterface {
         }, false)
       }
     }
+
+    /**
+     * 滚动条事件（计算是否到底部）
+     *
+     * @memberof Mob_3335
+     */
+    public scroll(e:any){
+        let list:any = this.$refs.mdctrl;
+        if(list){
+            let scrollTop = list.scrollTop;
+            let clientHeight = list.clientHeight;
+            let scrollHeight = list.scrollHeight;
+            if(scrollHeight > clientHeight && scrollTop + clientHeight === scrollHeight){
+                if(!this.allLoaded){
+                    this.bottomLoadding = true;
+                    this.loadBottom();
+                }
+            }
+        }
+    }
+
+    /**
+     * 底部加载状态
+     *
+     * @memberof Mob_3335
+     */
+    public bottomLoadding = false;
 
     /**
      * vue 生命周期

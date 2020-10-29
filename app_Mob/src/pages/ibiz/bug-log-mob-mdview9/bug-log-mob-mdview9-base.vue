@@ -21,7 +21,7 @@
             loaddraftAction=""
             loadAction="Get"
             createAction="Create"
-            fetchAction="" 
+            fetchAction="FetchBuildBugs" 
             :isMutli="!isSingleSelect"
             :showBusyIndicator="true" 
             :isTempMode="false"
@@ -173,7 +173,7 @@ export default class BugLogMobMDView9Base extends Vue {
      * @type {*}
      * @memberof BugLogMobMDView9Base
      */
-    protected navParam: any = {};
+    protected navParam: any = { 'n_project_id': '31' };
 
     /**
      * 视图模型数据

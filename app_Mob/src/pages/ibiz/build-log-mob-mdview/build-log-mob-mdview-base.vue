@@ -580,7 +580,7 @@ export default class BuildLogMobMDViewBase extends Vue {
 
         const parameters: any[] = [
             { pathName: 'builds', parameterName: 'build' },
-            { pathName: 'mobeditview', parameterName: 'mobeditview' },
+            { pathName: 'logmobeditview', parameterName: 'logmobeditview' },
         ];
         const routeParam: any = this.globaluiservice.openService.formatRouteParam(_context, deResParameters, parameters, args, _params);
         response = await this.globaluiservice.openService.openView(routeParam);

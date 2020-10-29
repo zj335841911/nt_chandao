@@ -145,6 +145,7 @@
 |-|任务移动端编辑视图（新建）|DEMOBEDITVIEW|&nbsp;|
 |-|任务团队移动端多数据视图|DEMOBMDVIEW9|&nbsp;|
 |-|待办事宜表移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
+|-|版本移动端编辑视图（更新日志）|DEMOBEDITVIEW|&nbsp;|
 |-|Bug选项操作视图（关闭Bug）|DEMOBOPTVIEW|&nbsp;|
 |-|待办事宜表选项操作视图|DEMOBOPTVIEW|&nbsp;|
 |-|Bug移动端多数据视图|DEMOBMDVIEW|&nbsp;|
