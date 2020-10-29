@@ -396,6 +396,15 @@ export class MainInfoGridBase extends GridControlBase {
 
 
     /**
+     * 是否为实体导出对象
+     *
+     * @protected
+     * @type {boolean}
+     * @memberof MainInfoGridBase
+     */
+    protected isDeExport: boolean = true;
+
+    /**
      * 所有导出列成员
      *
      * @type {any[]}
