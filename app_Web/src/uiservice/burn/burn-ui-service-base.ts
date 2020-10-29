@@ -135,6 +135,8 @@ export default class BurnUIServiceBase extends UIService {
         let parentContext:any = {};
         let parentViewParam:any = {};
         const _this: any = actionContext;
+        Object.assign(context,{BURN:"0"});
+        Object.assign(params,{burn:"0"});
         const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(context, { burn: '%burn%' });
