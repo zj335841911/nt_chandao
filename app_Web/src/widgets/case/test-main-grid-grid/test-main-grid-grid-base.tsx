@@ -497,6 +497,12 @@ export class TestMainGridGridBase extends GridControlBase {
      */
     public allExportColumns: any[] = [
         {
+            name: 'id',
+            label: 'id',
+            langtag: 'entities.case.testmaingrid_grid.exportColumns.id',
+            show: true,
+        },
+        {
             name: 'pri',
             label: 'P',
             langtag: 'entities.case.testmaingrid_grid.exportColumns.pri',
@@ -506,6 +512,36 @@ export class TestMainGridGridBase extends GridControlBase {
             name: 'title',
             label: '用例标题',
             langtag: 'entities.case.testmaingrid_grid.exportColumns.title',
+            show: true,
+        },
+        {
+            name: 'type',
+            label: '用例类型',
+            langtag: 'entities.case.testmaingrid_grid.exportColumns.type',
+            show: true,
+        },
+        {
+            name: 'openedby',
+            label: '创建',
+            langtag: 'entities.case.testmaingrid_grid.exportColumns.openedby',
+            show: true,
+        },
+        {
+            name: 'lastrunner',
+            label: '执行人',
+            langtag: 'entities.case.testmaingrid_grid.exportColumns.lastrunner',
+            show: true,
+        },
+        {
+            name: 'lastrundate',
+            label: '执行时间',
+            langtag: 'entities.case.testmaingrid_grid.exportColumns.lastrundate',
+            show: true,
+        },
+        {
+            name: 'lastrunresult',
+            label: '结果',
+            langtag: 'entities.case.testmaingrid_grid.exportColumns.lastrunresult',
             show: true,
         },
         {
@@ -521,9 +557,39 @@ export class TestMainGridGridBase extends GridControlBase {
             show: true,
         },
         {
+            name: 'tobugcnt',
+            label: 'B',
+            langtag: 'entities.case.testmaingrid_grid.exportColumns.tobugcnt',
+            show: true,
+        },
+        {
+            name: 'resultcnt',
+            label: 'R',
+            langtag: 'entities.case.testmaingrid_grid.exportColumns.resultcnt',
+            show: true,
+        },
+        {
+            name: 'casesteps',
+            label: 'S',
+            langtag: 'entities.case.testmaingrid_grid.exportColumns.casesteps',
+            show: true,
+        },
+        {
             name: 'lastrunresult1',
             label: '测试用例结果',
             langtag: 'entities.case.testmaingrid_grid.exportColumns.lastrunresult1',
+            show: true,
+        },
+        {
+            name: 'isfavorites',
+            label: '是否收藏',
+            langtag: 'entities.case.testmaingrid_grid.exportColumns.isfavorites',
+            show: true,
+        },
+        {
+            name: 'product',
+            label: '所属产品',
+            langtag: 'entities.case.testmaingrid_grid.exportColumns.product',
             show: true,
         },
     ]

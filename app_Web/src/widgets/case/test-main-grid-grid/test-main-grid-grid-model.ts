@@ -24,6 +24,11 @@ export default class TestMainGridModel {
     if(this.isDEExport){
 		  return [
         {
+          name: 'id',
+          prop: 'id',
+          dataType: 'ACID',
+        },
+        {
           name: 'pri',
           prop: 'pri',
           dataType: 'NSCODELIST',
@@ -32,6 +37,31 @@ export default class TestMainGridModel {
           name: 'title',
           prop: 'title',
           dataType: 'TEXT',
+        },
+        {
+          name: 'type',
+          prop: 'type',
+          dataType: 'SSCODELIST',
+        },
+        {
+          name: 'openedby',
+          prop: 'openedby',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'lastrunner',
+          prop: 'lastrunner',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'lastrundate',
+          prop: 'lastrundate',
+          dataType: 'DATETIME',
+        },
+        {
+          name: 'lastrunresult',
+          prop: 'lastrunresult',
+          dataType: 'SSCODELIST',
         },
         {
           name: 'status',
@@ -44,9 +74,34 @@ export default class TestMainGridModel {
           dataType: 'SSCODELIST',
         },
         {
+          name: 'tobugcnt',
+          prop: 'tobugcnt',
+          dataType: 'INT',
+        },
+        {
+          name: 'resultcnt',
+          prop: 'resultcnt',
+          dataType: 'INT',
+        },
+        {
+          name: 'casesteps',
+          prop: 'casesteps',
+          dataType: 'ONE2MANYDATA',
+        },
+        {
           name: 'lastrunresult1',
           prop: 'lastrunresult1',
           dataType: 'SSCODELIST',
+        },
+        {
+          name: 'isfavorites',
+          prop: 'isfavorites',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'product',
+          prop: 'product',
+          dataType: 'PICKUP',
         },
       ]
     }else{
