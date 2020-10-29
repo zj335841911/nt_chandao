@@ -5,6 +5,7 @@ import cn.ibizlab.pms.core.zentao.domain.*;
 import cn.ibizlab.pms.core.zentao.filter.ProductPlanSearchContext;
 import cn.ibizlab.pms.core.zentao.mapper.ProductPlanMapper;
 import cn.ibizlab.pms.core.zentao.service.IProductPlanService;
+import cn.ibizlab.pms.util.dict.StaticDict;
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
 import cn.ibizlab.pms.util.security.SpringContextHolder;
 import com.alibaba.fastjson.JSONArray;
@@ -51,10 +52,10 @@ public class ProductPlanHelper extends ZTBaseHelper<ProductPlanMapper, ProductPl
         if (!this.retBool(this.baseMapper.insert(et)))
             return false;
         CachedBeanCopier.copy(get(et.getId()), et);
-        fileHelper.updateObjectID(null, et.getId(), "product");
+        fileHelper.updateObjectID(null, et.getId(), StaticDict.Action__object_type.PROJECT.getValue());
 
         //Action
-        actionHelper.create("productplan", et.getId(), "opened", "", "", null, true);
+        actionHelper.create(StaticDict.Action__object_type.PRODUCTPLAN.getValue(), et.getId(), StaticDict.Action__type.OPENED.getValue(), "", "", null, true);
 
         return true;
     }
@@ -71,11 +72,11 @@ public class ProductPlanHelper extends ZTBaseHelper<ProductPlanMapper, ProductPl
         fileHelper.processImgURL(et, null, null);
         if (!this.internalUpdate(et))
             return false;
-        fileHelper.updateObjectID(null, et.getId(), "productplan");
+        fileHelper.updateObjectID(null, et.getId(), StaticDict.Action__object_type.PRODUCTPLAN.getValue());
 
         List<History> changes = ChangeUtil.diff(old, et,null,new String[]{"begin","end","desc"},new String[]{"desc"});
         if (changes.size() > 0) {
-            Action action = actionHelper.create("productplan", et.getId(), "edited", "", "", null, true);
+            Action action = actionHelper.create(StaticDict.Action__object_type.PRODUCTPLAN.getValue(), et.getId(), StaticDict.Action__type.EDITED.getValue(), "", "", null, true);
             actionHelper.logHistory(action.getId(), changes);
         }
         return true;
@@ -146,14 +147,14 @@ public class ProductPlanHelper extends ZTBaseHelper<ProductPlanMapper, ProductPl
             curOrder += storyId + ",";
             Story story = new Story();
             story.setId(Long.parseLong(storyId));
-            if (StringUtils.compare(product.getType(), "normal") == 0) {
+            if (StringUtils.compare(product.getType(), StaticDict.Product__type.NORMAL.getValue()) == 0) {
                 story.setPlan(String.valueOf(productPlanId));
             } else {
                 story.setPlan(String.valueOf(productPlanId));
 
             }
             storyHelper.internalUpdate(story);
-            actionHelper.create("story", Long.parseLong(storyId), "linked2plan", "", String.valueOf(productPlanId), null, true);
+            actionHelper.create(StaticDict.Action__object_type.STORY.getValue(), Long.parseLong(storyId), StaticDict.Action__type.LINKED2PLAN.getValue(), "", String.valueOf(productPlanId), null, true);
             storyHelper.setStage(story);
         }
 
@@ -202,7 +203,7 @@ public class ProductPlanHelper extends ZTBaseHelper<ProductPlanMapper, ProductPl
             bug.setId(Long.parseLong(bugId));
             bug.setPlan(et.getId());
             SpringContextHolder.getBean(BugHelper.class).internalUpdate(bug);
-            actionHelper.create("bug", bug.getId(), "linked2plan", "", String.valueOf(et.getId()), null, true);
+            actionHelper.create(StaticDict.Action__object_type.BUG.getValue(), bug.getId(), StaticDict.Action__type.LINKED2PLAN.getValue(), "", String.valueOf(et.getId()), null, true);
         }
         return et ;
     }
@@ -216,7 +217,7 @@ public class ProductPlanHelper extends ZTBaseHelper<ProductPlanMapper, ProductPl
             bug.setId(Long.parseLong(bugId));
             bug.setPlan(0l);
             SpringContextHolder.getBean(BugHelper.class).internalUpdate(bug);
-            actionHelper.create("bug", bug.getId(), "unlinkedfromplan", "", String.valueOf(et.getId()), null, true);
+            actionHelper.create(StaticDict.Action__object_type.BUG.getValue(), bug.getId(), StaticDict.Action__type.UNLINKEDFROMPLAN.getValue(), "", String.valueOf(et.getId()), null, true);
         }
         return et ;
     }
