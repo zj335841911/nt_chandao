@@ -108,6 +108,7 @@ hide members
 |DEFAULT|DEFAULT|DEFAULT|是|&nbsp;|
 |TestBuild|测试版本|TestBuild|否|&nbsp;|
 |TestRounds|测试轮次|TestRounds|否|&nbsp;|
+|UpdateLog|更新日志|UpdateLog|否|&nbsp;|
 
 ## 查询模式
 | 属性      |    搜索模式     |

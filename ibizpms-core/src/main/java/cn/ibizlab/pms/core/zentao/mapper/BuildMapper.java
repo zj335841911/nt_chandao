@@ -24,6 +24,7 @@ public interface BuildMapper extends BaseMapper<Build>{
     Page<Build> searchDefault(IPage page, @Param("srf") BuildSearchContext context, @Param("ew") Wrapper<Build> wrapper) ;
     Page<Build> searchTestBuild(IPage page, @Param("srf") BuildSearchContext context, @Param("ew") Wrapper<Build> wrapper) ;
     Page<Build> searchTestRounds(IPage page, @Param("srf") BuildSearchContext context, @Param("ew") Wrapper<Build> wrapper) ;
+    Page<Build> searchUpdateLog(IPage page, @Param("srf") BuildSearchContext context, @Param("ew") Wrapper<Build> wrapper) ;
     @Override
     Build selectById(Serializable id);
     @Override

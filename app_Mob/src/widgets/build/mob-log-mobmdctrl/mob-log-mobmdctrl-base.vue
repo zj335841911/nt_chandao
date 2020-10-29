@@ -576,7 +576,7 @@ export default class MobLogBase extends Vue implements ControlInterface {
     * @param {object} 
     * @memberof MobLog
     */
-    public sort: any = { sort:'id,desc'};
+    public sort: any = { };
     
 
     /**

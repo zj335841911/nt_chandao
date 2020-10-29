@@ -402,6 +402,42 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | Page<[BuildDTO](#BuildDTO)>：版本实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
 
+### 获取更新日志
+#### 访问路径
+/builds/fetchupdatelog
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | context | [BuildSearchContext](#BuildSearchContext) | 版本查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| -- | -- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[BuildDTO](#BuildDTO)>：版本实体传输对象列表 |
+
+### 查询更新日志
+#### 访问路径
+/builds/searchupdatelog
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | context | [BuildSearchContext](#BuildSearchContext) | 版本查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| -- | -- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[BuildDTO](#BuildDTO)>：版本实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
 ### 根据建立版本
 #### 访问路径
 /products/{product_id}/builds
@@ -823,6 +859,44 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | Page<[BuildDTO](#BuildDTO)>：版本实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
 
+### 根据获取更新日志
+#### 访问路径
+/products/{product_id}/builds/fetchupdatelog
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 产品主键ID |
+| 2 | context | [BuildSearchContext](#BuildSearchContext) | 版本查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| -- | -- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[BuildDTO](#BuildDTO)>：版本实体传输对象列表 |
+
+### 根据查询更新日志
+#### 访问路径
+/products/{product_id}/builds/searchupdatelog
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 产品主键ID |
+| 2 | context | [BuildSearchContext](#BuildSearchContext) | 版本查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| -- | -- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[BuildDTO](#BuildDTO)>：版本实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
 ### 根据建立版本
 #### 访问路径
 /projects/{project_id}/builds
@@ -1228,6 +1302,44 @@ GET
 ### 根据查询测试轮次
 #### 访问路径
 /projects/{project_id}/builds/searchtestrounds
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 项目主键ID |
+| 2 | context | [BuildSearchContext](#BuildSearchContext) | 版本查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| -- | -- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[BuildDTO](#BuildDTO)>：版本实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 根据获取更新日志
+#### 访问路径
+/projects/{project_id}/builds/fetchupdatelog
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 项目主键ID |
+| 2 | context | [BuildSearchContext](#BuildSearchContext) | 版本查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| -- | -- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[BuildDTO](#BuildDTO)>：版本实体传输对象列表 |
+
+### 根据查询更新日志
+#### 访问路径
+/projects/{project_id}/builds/searchupdatelog
 
 #### 请求方法
 POST

@@ -2752,6 +2752,24 @@ WHERE t1.DELETED = '0'
 ```
 ### 更新日志(UpdateLog)<div id="Build_UpdateLog"></div>
 ```sql
+SELECT
+t1.`BRANCH`,
+t1.`BUGS`,
+t1.`BUILDER`,
+t1.`DATE`,
+t1.`DELETED`,
+t1.`DESC`,
+t1.`FILEPATH`,
+t1.`ID`,
+CONCAT_WS('','PMS ',t1.`name`,' 主要更新') as `NAME`,
+t1.`PRODUCT`,
+t11.`NAME` AS `PRODUCTNAME`,
+t1.`PROJECT`,
+t1.`SCMPATH`,
+t1.`STORIES`
+FROM `zt_build` t1 
+LEFT JOIN zt_product t11 ON t1.PRODUCT = t11.ID
+WHERE t1.deleted = '0' 
 
 ```
 ### 默认（全部数据）(VIEW)<div id="Build_View"></div>

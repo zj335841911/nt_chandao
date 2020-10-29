@@ -29,7 +29,7 @@
             loaddraftAction=""
             loadAction="Get"
             createAction="Create"
-            fetchAction="FetchDefault" 
+            fetchAction="FetchUpdateLog" 
             :isMutli="!isSingleSelect"
             :showBusyIndicator="true" 
             :isTempMode="false"
