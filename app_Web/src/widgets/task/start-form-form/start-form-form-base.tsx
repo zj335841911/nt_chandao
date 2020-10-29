@@ -112,6 +112,10 @@ export class StartFormEditFormBase extends EditFormControlBase {
             {validator:(rule:any, value:any)=>{return this.verifyDeRules("consumed").isPast},message: this.verifyDeRules("consumed").infoMessage, trigger: 'change' },
             {validator:(rule:any, value:any)=>{return this.verifyDeRules("consumed").isPast},message: this.verifyDeRules("consumed").infoMessage, trigger: 'blur' },
         ],
+        left: [
+            {validator:(rule:any, value:any)=>{return this.verifyDeRules("left").isPast},message: this.verifyDeRules("left").infoMessage, trigger: 'change' },
+            {validator:(rule:any, value:any)=>{return this.verifyDeRules("left").isPast},message: this.verifyDeRules("left").infoMessage, trigger: 'blur' },
+        ],
         }
     }
 
@@ -122,7 +126,7 @@ export class StartFormEditFormBase extends EditFormControlBase {
      * @memberof StartFormBase
      */
     public deRules:any = {
-                consumed:[
+                left:[
                   {
                       type:"VALUERANGE2",
                       condOP:"",
@@ -131,6 +135,19 @@ export class StartFormEditFormBase extends EditFormControlBase {
                       isNotMode:false,
                       minValue:0,
                       deName:"left",
+                      isIncludeMaxValue:false,
+                      isIncludeMinValue:false,
+                  },
+                ],
+                consumed:[
+                  {
+                      type:"VALUERANGE2",
+                      condOP:"",
+                      ruleInfo:"总消耗大于0", 
+                      isKeyCond:false,
+                      isNotMode:false,
+                      minValue:0,
+                      deName:"consumed",
                       isIncludeMaxValue:false,
                       isIncludeMinValue:false,
                   },
