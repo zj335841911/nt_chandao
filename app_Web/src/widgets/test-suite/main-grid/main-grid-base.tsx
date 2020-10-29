@@ -314,6 +314,54 @@ export class MainGridBase extends GridControlBase {
 
 
     /**
+     * 是否为实体导出对象
+     *
+     * @protected
+     * @type {boolean}
+     * @memberof MainGridBase
+     */
+    protected isDeExport: boolean = true;
+
+    /**
+     * 所有导出列成员
+     *
+     * @type {any[]}
+     * @memberof MainGridBase
+     */
+    public allExportColumns: any[] = [
+        {
+            name: 'id',
+            label: '编号',
+            langtag: 'entities.testsuite.main_grid.exportColumns.id',
+            show: true,
+        },
+        {
+            name: 'name',
+            label: '名称',
+            langtag: 'entities.testsuite.main_grid.exportColumns.name',
+            show: true,
+        },
+        {
+            name: 'desc',
+            label: '描述',
+            langtag: 'entities.testsuite.main_grid.exportColumns.desc',
+            show: true,
+        },
+        {
+            name: 'addedby',
+            label: '由谁创建',
+            langtag: 'entities.testsuite.main_grid.exportColumns.addedby',
+            show: true,
+        },
+        {
+            name: 'addeddate',
+            label: '创建时间',
+            langtag: 'entities.testsuite.main_grid.exportColumns.addeddate',
+            show: true,
+        },
+    ]
+
+    /**
      * 导出数据格式化
      *
      * @param {*} filterVal
@@ -324,14 +372,6 @@ export class MainGridBase extends GridControlBase {
      */
     public async formatExcelData(filterVal: any, jsonData: any, codelistColumns?: any[]): Promise<any> {
         return super.formatExcelData(filterVal, jsonData, [
-            {
-                name: 'addedby',
-                srfkey: 'UserRealName',
-                codelistType : 'DYNAMIC',
-                textSeparator: ',',
-                renderMode: 'string',
-                valueSeparator: ",",
-            },
         ]);
     }
 

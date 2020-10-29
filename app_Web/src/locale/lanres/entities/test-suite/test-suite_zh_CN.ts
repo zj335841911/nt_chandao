@@ -78,6 +78,13 @@ export default {
 			addeddate: "创建时间",
 			uagridcolumn1: "操作",
 		},
+    exportColumns: {
+			id: "编号",
+			name: "名称",
+			desc: "描述",
+			addedby: "由谁创建",
+			addeddate: "创建时间",
+    },
 		uiactions: {
 			testsuite_linkcasedash: "关联用例",
 			testsuite_editsuitedash: "编辑",
