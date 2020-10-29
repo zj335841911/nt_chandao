@@ -132,7 +132,7 @@ export class TestMainGridGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_u06228b0_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_uda623f7_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -149,7 +149,7 @@ export class TestMainGridGridBase extends GridControlBase {
         }
         // 界面行为
         const curUIService:CaseUIService  = new CaseUIService();
-        curUIService.Case_NewBugByCaseResult(datas,contextJO, paramJO,  $event, xData,this,"Case");
+        curUIService.Case_NewBugByTestCaseResult(datas,contextJO, paramJO,  $event, xData,this,"Case");
     }
 
     /**
@@ -246,7 +246,7 @@ export class TestMainGridGridBase extends GridControlBase {
     public ActionModel: any = {
         Edits: { name: 'Edits',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: 'SINGLEKEY'},
         confirmChange: { name: 'confirmChange',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__CASE_CASECOF_BUT', actiontarget: 'SINGLEKEY'},
-        NewBugByCaseResult: { name: 'NewBugByCaseResult',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__CASE_TOBUG_BUT', actiontarget: 'SINGLEKEY'},
+        NewBugByTestCaseResult: { name: 'NewBugByTestCaseResult',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__CASE_TOBUG_BUT', actiontarget: 'SINGLEKEY'},
         CASEOpenTestRunResultView: { name: 'CASEOpenTestRunResultView',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__CASE_CASERESULT_BUT', actiontarget: 'SINGLEKEY'},
         CaseExecute: { name: 'CaseExecute',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__CASE_CASERUN_BUT', actiontarget: 'SINGLEKEY'},
         unlinkCase: { name: 'unlinkCase',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__CASE_UNLINK_BUT', actiontarget: 'SINGLEKEY'}
@@ -691,8 +691,8 @@ export class TestMainGridGridBase extends GridControlBase {
         if(Object.is('confirmChange', tag)) {
             this.grid_uagridcolumn1_u5414985_click(row, tag, $event);
         }
-        if(Object.is('NewBugByCaseResult', tag)) {
-            this.grid_uagridcolumn1_u06228b0_click(row, tag, $event);
+        if(Object.is('NewBugByTestCaseResult', tag)) {
+            this.grid_uagridcolumn1_uda623f7_click(row, tag, $event);
         }
         if(Object.is('CASEOpenTestRunResultView', tag)) {
             this.grid_uagridcolumn1_u38f3657_click(row, tag, $event);

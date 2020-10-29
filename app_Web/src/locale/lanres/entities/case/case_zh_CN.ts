@@ -192,6 +192,10 @@ export default {
 			caption: "测试用例",
       		title: "测试用例表格视图",
 		},
+		tobugtesteditview: {
+			caption: "转BUG",
+      		title: "转BUG",
+		},
 		runerentrygridview: {
 			caption: "测试结果条目",
       		title: "测试用例表格视图（测试结果条目）",
@@ -511,6 +515,30 @@ export default {
 		uiactions: {
 		},
 	},
+	tobugtesttask_form: {
+		details: {
+			rawitem1: "", 
+			rawitem2: "", 
+			grouppanel2: "分组面板", 
+			druipart2: "", 
+			grouppanel1: "执行结果", 
+			group1: "测试用例基本信息", 
+			formpage1: "基本信息", 
+			srfupdatedate: "修改日期", 
+			srforikey: "", 
+			srfkey: "用例编号", 
+			srfmajortext: "用例标题", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			resultcnt: "共执行", 
+			resultfalicnt: "失败", 
+			id: "用例编号", 
+		},
+		uiactions: {
+		},
+	},
 	storyaffectcase_grid: {
 		nodata: "",
 		columns: {
@@ -570,7 +598,7 @@ export default {
 		uiactions: {
 			case_edits: "概况",
 			case_confirmchange: "确认用例变动",
-			case_newbugbycaseresult: "转Bug",
+			case_newbugbytestcaseresult: "转Bug",
 			case_caseopentestrunresultview: "结果",
 			case_caseexecute: "执行",
 			case_unlinkcase: "移除",

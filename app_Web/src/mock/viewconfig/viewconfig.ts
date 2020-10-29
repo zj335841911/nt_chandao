@@ -2759,6 +2759,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "StoryStageChartView9",
             "viewtag": "c625d6f8de3cb53021bb8d3064ac7863"
         },
+        "casetobugtesteditview": {
+            "title": "转BUG",
+            "caption": "转BUG",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "zentao",
+            "viewname": "CaseToBugTestEditView",
+            "viewtag": "c6ed1cb45c6623407556630270d57976"
+        },
         "caserunerentrygridview": {
             "title": "测试用例表格视图（测试结果条目）",
             "caption": "测试结果条目",

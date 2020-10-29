@@ -767,8 +767,8 @@ export const viewstate: any = {
                 '6f78b25e86923ab600a2141d50fe49fd',
                 '5890a810365fec51e801d2cffce44fde',
                 '14d95e9a02db631c2b9af47641fcec4e',
-                '3a9645e5ad29ed73b59ccd2f548d602c',
                 '6b041208cbc10321a4d9cd74eaac3689',
+                'c6ed1cb45c6623407556630270d57976',
                 '454743e1c8070362a873d0d4fe35740b',
             ],
         },
@@ -3007,6 +3007,16 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'c5630df2f9e4729be1d7ba4048064774',
+            ],
+        },
+        {
+            viewtag: 'c6ed1cb45c6623407556630270d57976',
+            viewmodule: 'zentao',
+            viewname: 'CaseToBugTestEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '27374a7bc38f2581e433db58d85e14e4',
             ],
         },
         {

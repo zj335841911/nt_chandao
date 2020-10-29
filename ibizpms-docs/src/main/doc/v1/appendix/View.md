@@ -509,6 +509,7 @@ SRFNAVPARAM.project=%project%|
 |-|测试用例表格视图|DEGRIDVIEW9|&nbsp;|
 |-|用例库模块表格视图|DEGRIDVIEW|&nbsp;|
 |-|需求图表视图（累计创建需求-阶段）|DECHARTVIEW9|&nbsp;|
+|-|转BUG|DEEDITVIEW|&nbsp;|
 |-|测试用例表格视图（测试结果条目）|DEGRIDVIEW|&nbsp;|
 |-|测试报告编辑视图|DEEDITVIEW|&nbsp;|
 |-|我的地盘分页导航视图（统计）|DETABEXPVIEW|&nbsp;|

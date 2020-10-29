@@ -5370,6 +5370,74 @@ const router = new Router({
                     component: () => import('@pages/zentao/bug-build-sub-grid-view-done/bug-build-sub-grid-view-done.vue'),
                 },
                 {
+                    path: 'products/:product?/stories/:story?/cases/:case?/tobugtesteditview/:tobugtesteditview?',
+                    meta: {
+                        caption: 'entities.case.views.tobugtesteditview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'cases', parameterName: 'case' },
+                            { pathName: 'tobugtesteditview', parameterName: 'tobugtesteditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/case-to-bug-test-edit-view/case-to-bug-test-edit-view.vue'),
+                },
+                {
+                    path: 'stories/:story?/cases/:case?/tobugtesteditview/:tobugtesteditview?',
+                    meta: {
+                        caption: 'entities.case.views.tobugtesteditview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'cases', parameterName: 'case' },
+                            { pathName: 'tobugtesteditview', parameterName: 'tobugtesteditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/case-to-bug-test-edit-view/case-to-bug-test-edit-view.vue'),
+                },
+                {
+                    path: 'products/:product?/cases/:case?/tobugtesteditview/:tobugtesteditview?',
+                    meta: {
+                        caption: 'entities.case.views.tobugtesteditview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'cases', parameterName: 'case' },
+                            { pathName: 'tobugtesteditview', parameterName: 'tobugtesteditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/case-to-bug-test-edit-view/case-to-bug-test-edit-view.vue'),
+                },
+                {
+                    path: 'cases/:case?/tobugtesteditview/:tobugtesteditview?',
+                    meta: {
+                        caption: 'entities.case.views.tobugtesteditview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'cases', parameterName: 'case' },
+                            { pathName: 'tobugtesteditview', parameterName: 'tobugtesteditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/case-to-bug-test-edit-view/case-to-bug-test-edit-view.vue'),
+                },
+                {
                     path: 'projects/:project?/testtasks/:testtask?/closeoptionview/:closeoptionview?',
                     meta: {
                         caption: 'entities.testtask.views.closeoptionview.caption',

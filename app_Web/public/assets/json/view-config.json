@@ -3439,6 +3439,16 @@
         "viewtag": "c625d6f8de3cb53021bb8d3064ac7863",
         "memo": ""
     },
+    "casetobugtesteditview": {
+        "title": "转BUG",
+        "caption": "转BUG",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "zentao",
+        "viewname": "CaseToBugTestEditView",
+        "viewfilename": "case-to-bug-test-edit-view",
+        "viewtag": "c6ed1cb45c6623407556630270d57976",
+        "memo": ""
+    },
     "caserunerentrygridview": {
         "title": "测试用例表格视图（测试结果条目）",
         "caption": "测试结果条目",
