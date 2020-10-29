@@ -6,39 +6,42 @@
 [禅道模块](../zentao)
 
 ## 实体属性
-| 序号 | 属性 | 属性名 | 数据类型 | 是否是主键 | 是否是外键 | 是否允许为空 | 关系属性（实体-属性） |
-| -- | -- | -- | -- | -- | -- |
-| 1 | [名称编号](#属性-名称编号（NAME）) | NAME | TEXT | 否 | 否 | 否 | -- |
-| 2 | [构建者](#属性-构建者（BUILDER）) | BUILDER | TEXT | 否 | 否 | 是 | -- |
-| 3 | [描述](#属性-描述（DESC）) | DESC | LONGTEXT | 否 | 否 | 是 | -- |
-| 4 | [id](#属性-id（ID）) | ID | ACID | 是 | 否 | 否 | -- |
-| 5 | [已删除](#属性-已删除（DELETED）) | DELETED | TEXT | 否 | 否 | 是 | -- |
-| 6 | [源代码地址](#属性-源代码地址（SCMPATH）) | SCMPATH | TEXT | 否 | 否 | 是 | -- |
-| 7 | [下载地址](#属性-下载地址（FILEPATH）) | FILEPATH | TEXT | 否 | 否 | 是 | -- |
-| 8 | [完成的需求](#属性-完成的需求（STORIES）) | STORIES | LONGTEXT | 否 | 否 | 是 | -- |
-| 9 | [解决的Bug](#属性-解决的Bug（BUGS）) | BUGS | LONGTEXT | 否 | 否 | 是 | -- |
-| 10 | [打包日期](#属性-打包日期（DATE）) | DATE | DATE | 否 | 否 | 是 | -- |
-| 11 | [产品](#属性-产品（PRODUCT）) | PRODUCT | PICKUP | 否 | 是 | 是 | [产品（ZT_PRODUCT）](../zentao/Product) - [编号（ID）](../zentao/Product/#属性-编号（ID）) |
-| 12 | [平台/分支](#属性-平台/分支（BRANCH）) | BRANCH | PICKUP | 否 | 是 | 是 | [产品的分支和平台信息（ZT_BRANCH）](../zentao/Branch) - [编号（ID）](../zentao/Branch/#属性-编号（ID）) |
-| 13 | [所属项目](#属性-所属项目（PROJECT）) | PROJECT | PICKUP | 否 | 是 | 是 | [项目（ZT_PROJECT）](../zentao/Project) - [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
-| 14 | [产品名称](#属性-产品名称（PRODUCTNAME）) | PRODUCTNAME | PICKUPTEXT | 否 | 是 | 是 | [产品（ZT_PRODUCT）](../zentao/Product) - [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
-| 15 | [Bug版本健值](#属性-Bug版本健值（IDS）) | IDS | TEXT | 否 | 是 | 是 | [产品（ZT_PRODUCT）](../zentao/Product) - [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
-| 16 | [附件](#属性-附件（FILES）) | FILES | TEXT | 否 | 是 | 是 | [产品（ZT_PRODUCT）](../zentao/Product) - [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
-| 17 | [重新构建](#属性-重新构建（REBUILD）) | REBUILD | NSCODELIST | 否 | 是 | 是 | [产品（ZT_PRODUCT）](../zentao/Product) - [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
-| 18 | [运行模式](#属性-运行模式（RELEASETYPE）) | RELEASETYPE | SSCODELIST | 否 | 是 | 是 | [产品（ZT_PRODUCT）](../zentao/Product) - [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
-| 19 | [系统应用](#属性-系统应用（FRONTAPPLICATION）) | FRONTAPPLICATION | SSCODELIST | 否 | 是 | 是 | [产品（ZT_PRODUCT）](../zentao/Product) - [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
-| 20 | [后台体系](#属性-后台体系（BACKGROUNDID）) | BACKGROUNDID | SSCODELIST | 否 | 是 | 是 | [产品（ZT_PRODUCT）](../zentao/Product) - [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
-| 21 | [运行数据库](#属性-运行数据库（SQLID）) | SQLID | SSCODELIST | 否 | 是 | 是 | [产品（ZT_PRODUCT）](../zentao/Product) - [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
+| 序号 | 属性 | 属性名 | 数据类型 | 主键 | 外键 | 允许为空 |
+| -- | -- | -- | -- | -- | -- | -- |
+| 1 | [名称编号](#属性-名称编号（NAME）) | NAME | TEXT | 否 | 否 | 否 |
+| 2 | [构建者](#属性-构建者（BUILDER）) | BUILDER | TEXT | 否 | 否 | 是 |
+| 3 | [描述](#属性-描述（DESC）) | DESC | LONGTEXT | 否 | 否 | 是 |
+| 4 | [id](#属性-id（ID）) | ID | ACID | 是 | 否 | 否 |
+| 5 | [已删除](#属性-已删除（DELETED）) | DELETED | TEXT | 否 | 否 | 是 |
+| 6 | [源代码地址](#属性-源代码地址（SCMPATH）) | SCMPATH | TEXT | 否 | 否 | 是 |
+| 7 | [下载地址](#属性-下载地址（FILEPATH）) | FILEPATH | TEXT | 否 | 否 | 是 |
+| 8 | [完成的需求](#属性-完成的需求（STORIES）) | STORIES | LONGTEXT | 否 | 否 | 是 |
+| 9 | [解决的Bug](#属性-解决的Bug（BUGS）) | BUGS | LONGTEXT | 否 | 否 | 是 |
+| 10 | [打包日期](#属性-打包日期（DATE）) | DATE | DATE | 否 | 否 | 是 |
+| 11 | [产品](#属性-产品（PRODUCT）) | PRODUCT | PICKUP | 否 | 是 | 是 |
+| 12 | [平台/分支](#属性-平台/分支（BRANCH）) | BRANCH | PICKUP | 否 | 是 | 是 |
+| 13 | [所属项目](#属性-所属项目（PROJECT）) | PROJECT | PICKUP | 否 | 是 | 是 |
+| 14 | [产品名称](#属性-产品名称（PRODUCTNAME）) | PRODUCTNAME | PICKUPTEXT | 否 | 是 | 是 |
+| 15 | [Bug版本健值](#属性-Bug版本健值（IDS）) | IDS | TEXT | 否 | 是 | 是 |
+| 16 | [附件](#属性-附件（FILES）) | FILES | TEXT | 否 | 是 | 是 |
+| 17 | [重新构建](#属性-重新构建（REBUILD）) | REBUILD | NSCODELIST | 否 | 是 | 是 |
+| 18 | [运行模式](#属性-运行模式（RELEASETYPE）) | RELEASETYPE | SSCODELIST | 否 | 是 | 是 |
+| 19 | [系统应用](#属性-系统应用（FRONTAPPLICATION）) | FRONTAPPLICATION | SSCODELIST | 否 | 是 | 是 |
+| 20 | [后台体系](#属性-后台体系（BACKGROUNDID）) | BACKGROUNDID | SSCODELIST | 否 | 是 | 是 |
+| 21 | [运行数据库](#属性-运行数据库（SQLID）) | SQLID | SSCODELIST | 否 | 是 | 是 |
 
 ### 属性-名称编号（NAME）
 #### 属性说明
 名称编号
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 否
@@ -65,12 +68,15 @@ TEXT
 ### 属性-构建者（BUILDER）
 #### 属性说明
 构建者
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -97,12 +103,15 @@ TEXT
 ### 属性-描述（DESC）
 #### 属性说明
 描述
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-LONGTEXT
+长文本，没有长度限制
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -111,7 +120,7 @@ LONGTEXT
 | 项目 | 说明 |
 | -- | -- |
 | 类型 |  |
-| 值 | #EMPTY |
+| 值 |  |
 
 #### 取值范围/公式
 无
@@ -129,12 +138,15 @@ LONGTEXT
 ### 属性-id（ID）
 #### 属性说明
 id
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-ACID
+自增标识，整数类型，用户不可见
+
+#### Java类型
+Long
 
 #### 是否允许为为空
 否
@@ -161,12 +173,15 @@ ACID
 ### 属性-已删除（DELETED）
 #### 属性说明
 已删除
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -193,12 +208,15 @@ TEXT
 ### 属性-源代码地址（SCMPATH）
 #### 属性说明
 源代码地址
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -207,7 +225,7 @@ TEXT
 | 项目 | 说明 |
 | -- | -- |
 | 类型 |  |
-| 值 | #EMPTY |
+| 值 |  |
 
 #### 取值范围/公式
 无
@@ -225,12 +243,15 @@ TEXT
 ### 属性-下载地址（FILEPATH）
 #### 属性说明
 下载地址
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -239,7 +260,7 @@ TEXT
 | 项目 | 说明 |
 | -- | -- |
 | 类型 |  |
-| 值 | #EMPTY |
+| 值 |  |
 
 #### 取值范围/公式
 无
@@ -257,12 +278,15 @@ TEXT
 ### 属性-完成的需求（STORIES）
 #### 属性说明
 完成的需求
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-LONGTEXT
+长文本，没有长度限制
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -271,7 +295,7 @@ LONGTEXT
 | 项目 | 说明 |
 | -- | -- |
 | 类型 |  |
-| 值 | #EMPTY |
+| 值 |  |
 
 #### 取值范围/公式
 无
@@ -289,12 +313,15 @@ LONGTEXT
 ### 属性-解决的Bug（BUGS）
 #### 属性说明
 解决的Bug
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-LONGTEXT
+长文本，没有长度限制
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -303,7 +330,7 @@ LONGTEXT
 | 项目 | 说明 |
 | -- | -- |
 | 类型 |  |
-| 值 | #EMPTY |
+| 值 |  |
 
 #### 取值范围/公式
 无
@@ -321,12 +348,15 @@ LONGTEXT
 ### 属性-打包日期（DATE）
 #### 属性说明
 打包日期
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-DATE
+日期型
+
+#### Java类型
+Timestamp
 
 #### 是否允许为为空
 是
@@ -353,12 +383,15 @@ DATE
 ### 属性-产品（PRODUCT）
 #### 属性说明
 产品
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-PICKUP
+外键值
+
+#### Java类型
+Long
 
 #### 是否允许为为空
 是
@@ -385,12 +418,15 @@ PICKUP
 ### 属性-平台/分支（BRANCH）
 #### 属性说明
 平台/分支
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-PICKUP
+外键值
+
+#### Java类型
+Long
 
 #### 是否允许为为空
 是
@@ -417,12 +453,15 @@ PICKUP
 ### 属性-所属项目（PROJECT）
 #### 属性说明
 所属项目
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-PICKUP
+外键值
+
+#### Java类型
+Long
 
 #### 是否允许为为空
 是
@@ -449,12 +488,15 @@ PICKUP
 ### 属性-产品名称（PRODUCTNAME）
 #### 属性说明
 产品名称
+
 #### 属性类型
 链接字段[来自关系实体字段]
 
-
 #### 数据类型
-PICKUPTEXT
+外键值文本
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -481,12 +523,15 @@ PICKUPTEXT
 ### 属性-Bug版本健值（IDS）
 #### 属性说明
 Bug版本健值
+
 #### 属性类型
 应用界面字段[无存储]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -513,12 +558,15 @@ TEXT
 ### 属性-附件（FILES）
 #### 属性说明
 附件
+
 #### 属性类型
 应用界面字段[无存储]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -545,12 +593,15 @@ TEXT
 ### 属性-重新构建（REBUILD）
 #### 属性说明
 重新构建
+
 #### 属性类型
 应用界面字段[无存储]
 
-
 #### 数据类型
-NSCODELIST
+单项选择(数值)
+
+#### Java类型
+Integer
 
 #### 是否允许为为空
 是
@@ -577,12 +628,15 @@ NSCODELIST
 ### 属性-运行模式（RELEASETYPE）
 #### 属性说明
 运行模式
+
 #### 属性类型
 应用界面字段[无存储]
 
-
 #### 数据类型
-SSCODELIST
+单项选择(文本值)
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -609,12 +663,15 @@ SSCODELIST
 ### 属性-系统应用（FRONTAPPLICATION）
 #### 属性说明
 系统应用
+
 #### 属性类型
 应用界面字段[无存储]
 
-
 #### 数据类型
-SSCODELIST
+单项选择(文本值)
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -641,12 +698,15 @@ SSCODELIST
 ### 属性-后台体系（BACKGROUNDID）
 #### 属性说明
 后台体系
+
 #### 属性类型
 应用界面字段[无存储]
 
-
 #### 数据类型
-SSCODELIST
+单项选择(文本值)
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -673,12 +733,15 @@ SSCODELIST
 ### 属性-运行数据库（SQLID）
 #### 属性说明
 运行数据库
+
 #### 属性类型
 应用界面字段[无存储]
 
-
 #### 数据类型
-SSCODELIST
+单项选择(文本值)
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -701,4 +764,123 @@ SSCODELIST
 | 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
 | 关系属性 | [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
+
+
+## 业务状态
+无
+
+## 实体行为
+| 序号 | 行为 | 行为名 | 行为类型 | 行为持有者 |
+| -- | -- | -- | -- | -- |
+| 1 | [Create](#实体行为-Create（Create）) | Create | 内置方法 | 后台及前台 |
+| 2 | [Update](#实体行为-Update（Update）) | Update | 内置方法 | 后台及前台 |
+| 3 | [Remove](#实体行为-Remove（Remove）) | Remove | 内置方法 | 后台及前台 |
+| 4 | [Get](#实体行为-Get（Get）) | Get | 内置方法 | 后台及前台 |
+| 5 | [GetDraft](#实体行为-GetDraft（GetDraft）) | GetDraft | 内置方法 | 后台及前台 |
+| 6 | [CheckKey](#实体行为-CheckKey（CheckKey）) | CheckKey | 内置方法 | 后台及前台 |
+| 7 | [关联需求](#实体行为-关联需求（LinkStory）) | LinkStory | 用户自定义 | 后台及前台 |
+| 8 | [提交测试](#实体行为-提交测试（mentionTest）) | mentionTest | 用户自定义 | 前台 |
+| 9 | [一键发布](#实体行为-一键发布（OneClickRelease）) | OneClickRelease | 用户自定义 | 后台及前台 |
+| 10 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
+### 实体行为-Create（Create）
+#### 说明
+Create
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+### 实体行为-Update（Update）
+#### 说明
+Update
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+### 实体行为-Remove（Remove）
+#### 说明
+Remove
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+### 实体行为-Get（Get）
+#### 说明
+Get
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+### 实体行为-GetDraft（GetDraft）
+#### 说明
+GetDraft
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+### 实体行为-CheckKey（CheckKey）
+#### 说明
+CheckKey
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+### 实体行为-关联需求（LinkStory）
+#### 说明
+【版本】关联需求、使用多项数据选择视图，选择多个数据，再保存关联性。
+
+#### 行为类型
+用户自定义
+
+#### 行为持有者
+后台及前台
+
+### 实体行为-提交测试（mentionTest）
+#### 说明
+提交测试
+
+#### 行为类型
+用户自定义
+
+#### 行为持有者
+前台
+
+### 实体行为-一键发布（OneClickRelease）
+#### 说明
+一键发布
+
+#### 行为类型
+用户自定义
+
+#### 行为持有者
+后台及前台
+
+### 实体行为-Save（Save）
+#### 说明
+Save
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+
 

@@ -6,52 +6,55 @@
 [iBiz系统模型](../ibizsysmodel)
 
 ## 实体属性
-| 序号 | 属性 | 属性名 | 数据类型 | 是否是主键 | 是否是外键 | 是否允许为空 | 关系属性（实体-属性） |
-| -- | -- | -- | -- | -- | -- |
-| 1 | [系统数据库名称](#属性-系统数据库名称（PSSYSTEMDBCFGNAME）) | PSSYSTEMDBCFGNAME | TEXT | 否 | 否 | 是 | -- |
-| 2 | [系统数据库标识](#属性-系统数据库标识（PSSYSTEMDBCFGID）) | PSSYSTEMDBCFGID | GUID | 是 | 否 | 否 | -- |
-| 3 | [更新人](#属性-更新人（UPDATEMAN）) | UPDATEMAN | TEXT | 否 | 否 | 否 | -- |
-| 4 | [建立时间](#属性-建立时间（CREATEDATE）) | CREATEDATE | DATETIME | 否 | 否 | 否 | -- |
-| 5 | [建立人](#属性-建立人（CREATEMAN）) | CREATEMAN | TEXT | 否 | 否 | 否 | -- |
-| 6 | [更新时间](#属性-更新时间（UPDATEDATE）) | UPDATEDATE | DATETIME | 否 | 否 | 否 | -- |
-| 7 | [附加模式名称](#属性-附加模式名称（APPENDSCHEMA）) | APPENDSCHEMA | YESNO | 否 | 否 | 是 | -- |
-| 8 | [数据库模式名称](#属性-数据库模式名称（DBSCHEMANAME）) | DBSCHEMANAME | TEXT | 否 | 否 | 是 | -- |
-| 9 | [默认数据源](#属性-默认数据源（DEFAULTFLAG）) | DEFAULTFLAG | YESNO | 否 | 否 | 是 | -- |
-| 10 | [支持Web管理](#属性-支持Web管理（ENABLEWEBTOOL）) | ENABLEWEBTOOL | YESNO | 否 | 否 | 是 | -- |
-| 11 | [备注](#属性-备注（MEMO）) | MEMO | LONGTEXT_1000 | 否 | 否 | 是 | -- |
-| 12 | [无数据库模式](#属性-无数据库模式（NODBINSTMODE）) | NODBINSTMODE | YESNO | 否 | 否 | 是 | -- |
-| 13 | [空值排序](#属性-空值排序（NULLVALORDER）) | NULLVALORDER | SSCODELIST | 否 | 否 | 是 | -- |
-| 14 | [发布模型注释](#属性-发布模型注释（PUBCOMMENTFLAG）) | PUBCOMMENTFLAG | YESNO | 否 | 否 | 是 | -- |
-| 15 | [对象名称转换](#属性-对象名称转换（OBJNAMECASE）) | OBJNAMECASE | SSCODELIST | 否 | 否 | 是 | -- |
-| 16 | [发布外键](#属性-发布外键（PUBFKEYFLAG）) | PUBFKEYFLAG | YESNO | 否 | 否 | 是 | -- |
-| 17 | [发布数据库模型](#属性-发布数据库模型（PUBDBMODELFLAG）) | PUBDBMODELFLAG | YESNO | 否 | 否 | 是 | -- |
-| 18 | [资源信息](#属性-资源信息（RESINFO）) | RESINFO | LONGTEXT_1000 | 否 | 否 | 是 | -- |
-| 19 | [发布索引](#属性-发布索引（PUBINDEXFLAG）) | PUBINDEXFLAG | YESNO | 否 | 否 | 是 | -- |
-| 20 | [发布视图](#属性-发布视图（PUBVIEWFLAG）) | PUBVIEWFLAG | YESNO | 否 | 否 | 是 | -- |
-| 21 | [资源状态](#属性-资源状态（RESSTATE）) | RESSTATE | NSCODELIST | 否 | 否 | 是 | -- |
-| 22 | [资源就绪时间](#属性-资源就绪时间（RESREADYTIME）) | RESREADYTIME | DATETIME | 否 | 否 | 是 | -- |
-| 23 | [表空间2名称](#属性-表空间2名称（TABSPACE2）) | TABSPACE2 | TEXT | 否 | 否 | 是 | -- |
-| 24 | [默认表空间名称](#属性-默认表空间名称（TABSPACE）) | TABSPACE | TEXT | 否 | 否 | 是 | -- |
-| 25 | [表空间3名称](#属性-表空间3名称（TABSPACE3）) | TABSPACE3 | TEXT | 否 | 否 | 是 | -- |
-| 26 | [表空间4名称](#属性-表空间4名称（TABSPACE4）) | TABSPACE4 | TEXT | 否 | 否 | 是 | -- |
-| 27 | [用户分类](#属性-用户分类（USERCAT）) | USERCAT | SSCODELIST | 否 | 否 | 是 | -- |
-| 28 | [用户标记](#属性-用户标记（USERTAG）) | USERTAG | TEXT | 否 | 否 | 是 | -- |
-| 29 | [自定义参数](#属性-自定义参数（USERPARAMS）) | USERPARAMS | TEXT | 否 | 否 | 是 | -- |
-| 30 | [用户标记2](#属性-用户标记2（USERTAG2）) | USERTAG2 | TEXT | 否 | 否 | 是 | -- |
-| 31 | [用户标记3](#属性-用户标记3（USERTAG3）) | USERTAG3 | TEXT | 否 | 否 | 是 | -- |
-| 32 | [用户标记4](#属性-用户标记4（USERTAG4）) | USERTAG4 | TEXT | 否 | 否 | 是 | -- |
-| 33 | [系统](#属性-系统（PSSYSTEMID）) | PSSYSTEMID | TEXT | 否 | 否 | 是 | -- |
-| 34 | [系统](#属性-系统（PSSYSTEMNAME）) | PSSYSTEMNAME | TEXT | 否 | 否 | 是 | -- |
+| 序号 | 属性 | 属性名 | 数据类型 | 主键 | 外键 | 允许为空 |
+| -- | -- | -- | -- | -- | -- | -- |
+| 1 | [系统数据库名称](#属性-系统数据库名称（PSSYSTEMDBCFGNAME）) | PSSYSTEMDBCFGNAME | TEXT | 否 | 否 | 是 |
+| 2 | [系统数据库标识](#属性-系统数据库标识（PSSYSTEMDBCFGID）) | PSSYSTEMDBCFGID | GUID | 是 | 否 | 否 |
+| 3 | [更新人](#属性-更新人（UPDATEMAN）) | UPDATEMAN | TEXT | 否 | 否 | 否 |
+| 4 | [建立时间](#属性-建立时间（CREATEDATE）) | CREATEDATE | DATETIME | 否 | 否 | 否 |
+| 5 | [建立人](#属性-建立人（CREATEMAN）) | CREATEMAN | TEXT | 否 | 否 | 否 |
+| 6 | [更新时间](#属性-更新时间（UPDATEDATE）) | UPDATEDATE | DATETIME | 否 | 否 | 否 |
+| 7 | [附加模式名称](#属性-附加模式名称（APPENDSCHEMA）) | APPENDSCHEMA | YESNO | 否 | 否 | 是 |
+| 8 | [数据库模式名称](#属性-数据库模式名称（DBSCHEMANAME）) | DBSCHEMANAME | TEXT | 否 | 否 | 是 |
+| 9 | [默认数据源](#属性-默认数据源（DEFAULTFLAG）) | DEFAULTFLAG | YESNO | 否 | 否 | 是 |
+| 10 | [支持Web管理](#属性-支持Web管理（ENABLEWEBTOOL）) | ENABLEWEBTOOL | YESNO | 否 | 否 | 是 |
+| 11 | [备注](#属性-备注（MEMO）) | MEMO | LONGTEXT_1000 | 否 | 否 | 是 |
+| 12 | [无数据库模式](#属性-无数据库模式（NODBINSTMODE）) | NODBINSTMODE | YESNO | 否 | 否 | 是 |
+| 13 | [空值排序](#属性-空值排序（NULLVALORDER）) | NULLVALORDER | SSCODELIST | 否 | 否 | 是 |
+| 14 | [发布模型注释](#属性-发布模型注释（PUBCOMMENTFLAG）) | PUBCOMMENTFLAG | YESNO | 否 | 否 | 是 |
+| 15 | [对象名称转换](#属性-对象名称转换（OBJNAMECASE）) | OBJNAMECASE | SSCODELIST | 否 | 否 | 是 |
+| 16 | [发布外键](#属性-发布外键（PUBFKEYFLAG）) | PUBFKEYFLAG | YESNO | 否 | 否 | 是 |
+| 17 | [发布数据库模型](#属性-发布数据库模型（PUBDBMODELFLAG）) | PUBDBMODELFLAG | YESNO | 否 | 否 | 是 |
+| 18 | [资源信息](#属性-资源信息（RESINFO）) | RESINFO | LONGTEXT_1000 | 否 | 否 | 是 |
+| 19 | [发布索引](#属性-发布索引（PUBINDEXFLAG）) | PUBINDEXFLAG | YESNO | 否 | 否 | 是 |
+| 20 | [发布视图](#属性-发布视图（PUBVIEWFLAG）) | PUBVIEWFLAG | YESNO | 否 | 否 | 是 |
+| 21 | [资源状态](#属性-资源状态（RESSTATE）) | RESSTATE | NSCODELIST | 否 | 否 | 是 |
+| 22 | [资源就绪时间](#属性-资源就绪时间（RESREADYTIME）) | RESREADYTIME | DATETIME | 否 | 否 | 是 |
+| 23 | [表空间2名称](#属性-表空间2名称（TABSPACE2）) | TABSPACE2 | TEXT | 否 | 否 | 是 |
+| 24 | [默认表空间名称](#属性-默认表空间名称（TABSPACE）) | TABSPACE | TEXT | 否 | 否 | 是 |
+| 25 | [表空间3名称](#属性-表空间3名称（TABSPACE3）) | TABSPACE3 | TEXT | 否 | 否 | 是 |
+| 26 | [表空间4名称](#属性-表空间4名称（TABSPACE4）) | TABSPACE4 | TEXT | 否 | 否 | 是 |
+| 27 | [用户分类](#属性-用户分类（USERCAT）) | USERCAT | SSCODELIST | 否 | 否 | 是 |
+| 28 | [用户标记](#属性-用户标记（USERTAG）) | USERTAG | TEXT | 否 | 否 | 是 |
+| 29 | [自定义参数](#属性-自定义参数（USERPARAMS）) | USERPARAMS | TEXT | 否 | 否 | 是 |
+| 30 | [用户标记2](#属性-用户标记2（USERTAG2）) | USERTAG2 | TEXT | 否 | 否 | 是 |
+| 31 | [用户标记3](#属性-用户标记3（USERTAG3）) | USERTAG3 | TEXT | 否 | 否 | 是 |
+| 32 | [用户标记4](#属性-用户标记4（USERTAG4）) | USERTAG4 | TEXT | 否 | 否 | 是 |
+| 33 | [系统](#属性-系统（PSSYSTEMID）) | PSSYSTEMID | TEXT | 否 | 否 | 是 |
+| 34 | [系统](#属性-系统（PSSYSTEMNAME）) | PSSYSTEMNAME | TEXT | 否 | 否 | 是 |
 
 ### 属性-系统数据库名称（PSSYSTEMDBCFGNAME）
 #### 属性说明
 系统数据库名称
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -74,12 +77,15 @@ TEXT
 ### 属性-系统数据库标识（PSSYSTEMDBCFGID）
 #### 属性说明
 系统数据库标识
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-GUID
+全局唯一标识，文本类型，用户不可见
+
+#### Java类型
+String
 
 #### 是否允许为为空
 否
@@ -102,12 +108,15 @@ GUID
 ### 属性-更新人（UPDATEMAN）
 #### 属性说明
 更新人
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 否
@@ -130,12 +139,15 @@ TEXT
 ### 属性-建立时间（CREATEDATE）
 #### 属性说明
 建立时间
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-DATETIME
+日期时间型
+
+#### Java类型
+Timestamp
 
 #### 是否允许为为空
 否
@@ -158,12 +170,15 @@ DATETIME
 ### 属性-建立人（CREATEMAN）
 #### 属性说明
 建立人
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 否
@@ -186,12 +201,15 @@ TEXT
 ### 属性-更新时间（UPDATEDATE）
 #### 属性说明
 更新时间
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-DATETIME
+日期时间型
+
+#### Java类型
+Timestamp
 
 #### 是否允许为为空
 否
@@ -214,12 +232,15 @@ DATETIME
 ### 属性-附加模式名称（APPENDSCHEMA）
 #### 属性说明
 附加模式名称
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-YESNO
+是否逻辑
+
+#### Java类型
+Integer
 
 #### 是否允许为为空
 是
@@ -242,12 +263,15 @@ YESNO
 ### 属性-数据库模式名称（DBSCHEMANAME）
 #### 属性说明
 数据库模式名称
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -270,12 +294,15 @@ TEXT
 ### 属性-默认数据源（DEFAULTFLAG）
 #### 属性说明
 默认数据源
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-YESNO
+是否逻辑
+
+#### Java类型
+Integer
 
 #### 是否允许为为空
 是
@@ -298,12 +325,15 @@ YESNO
 ### 属性-支持Web管理（ENABLEWEBTOOL）
 #### 属性说明
 支持Web管理
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-YESNO
+是否逻辑
+
+#### Java类型
+Integer
 
 #### 是否允许为为空
 是
@@ -326,12 +356,15 @@ YESNO
 ### 属性-备注（MEMO）
 #### 属性说明
 备注
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-LONGTEXT_1000
+长文本，长度1000
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -354,12 +387,15 @@ LONGTEXT_1000
 ### 属性-无数据库模式（NODBINSTMODE）
 #### 属性说明
 无数据库模式
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-YESNO
+是否逻辑
+
+#### Java类型
+Integer
 
 #### 是否允许为为空
 是
@@ -382,12 +418,15 @@ YESNO
 ### 属性-空值排序（NULLVALORDER）
 #### 属性说明
 空值排序
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-SSCODELIST
+单项选择(文本值)
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -410,12 +449,15 @@ SSCODELIST
 ### 属性-发布模型注释（PUBCOMMENTFLAG）
 #### 属性说明
 发布模型注释
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-YESNO
+是否逻辑
+
+#### Java类型
+Integer
 
 #### 是否允许为为空
 是
@@ -438,12 +480,15 @@ YESNO
 ### 属性-对象名称转换（OBJNAMECASE）
 #### 属性说明
 对象名称转换
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-SSCODELIST
+单项选择(文本值)
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -466,12 +511,15 @@ SSCODELIST
 ### 属性-发布外键（PUBFKEYFLAG）
 #### 属性说明
 发布外键
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-YESNO
+是否逻辑
+
+#### Java类型
+Integer
 
 #### 是否允许为为空
 是
@@ -494,12 +542,15 @@ YESNO
 ### 属性-发布数据库模型（PUBDBMODELFLAG）
 #### 属性说明
 发布数据库模型
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-YESNO
+是否逻辑
+
+#### Java类型
+Integer
 
 #### 是否允许为为空
 是
@@ -522,12 +573,15 @@ YESNO
 ### 属性-资源信息（RESINFO）
 #### 属性说明
 资源信息
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-LONGTEXT_1000
+长文本，长度1000
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -550,12 +604,15 @@ LONGTEXT_1000
 ### 属性-发布索引（PUBINDEXFLAG）
 #### 属性说明
 发布索引
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-YESNO
+是否逻辑
+
+#### Java类型
+Integer
 
 #### 是否允许为为空
 是
@@ -578,12 +635,15 @@ YESNO
 ### 属性-发布视图（PUBVIEWFLAG）
 #### 属性说明
 发布视图
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-YESNO
+是否逻辑
+
+#### Java类型
+Integer
 
 #### 是否允许为为空
 是
@@ -606,12 +666,15 @@ YESNO
 ### 属性-资源状态（RESSTATE）
 #### 属性说明
 资源状态
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-NSCODELIST
+单项选择(数值)
+
+#### Java类型
+Integer
 
 #### 是否允许为为空
 是
@@ -634,12 +697,15 @@ NSCODELIST
 ### 属性-资源就绪时间（RESREADYTIME）
 #### 属性说明
 资源就绪时间
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-DATETIME
+日期时间型
+
+#### Java类型
+Timestamp
 
 #### 是否允许为为空
 是
@@ -662,12 +728,15 @@ DATETIME
 ### 属性-表空间2名称（TABSPACE2）
 #### 属性说明
 表空间2名称
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -690,12 +759,15 @@ TEXT
 ### 属性-默认表空间名称（TABSPACE）
 #### 属性说明
 默认表空间名称
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -718,12 +790,15 @@ TEXT
 ### 属性-表空间3名称（TABSPACE3）
 #### 属性说明
 表空间3名称
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -746,12 +821,15 @@ TEXT
 ### 属性-表空间4名称（TABSPACE4）
 #### 属性说明
 表空间4名称
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -774,12 +852,15 @@ TEXT
 ### 属性-用户分类（USERCAT）
 #### 属性说明
 用户分类
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-SSCODELIST
+单项选择(文本值)
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -802,12 +883,15 @@ SSCODELIST
 ### 属性-用户标记（USERTAG）
 #### 属性说明
 用户标记
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -830,12 +914,15 @@ TEXT
 ### 属性-自定义参数（USERPARAMS）
 #### 属性说明
 自定义参数
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -858,12 +945,15 @@ TEXT
 ### 属性-用户标记2（USERTAG2）
 #### 属性说明
 用户标记2
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -886,12 +976,15 @@ TEXT
 ### 属性-用户标记3（USERTAG3）
 #### 属性说明
 用户标记3
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -914,12 +1007,15 @@ TEXT
 ### 属性-用户标记4（USERTAG4）
 #### 属性说明
 用户标记4
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -942,12 +1038,15 @@ TEXT
 ### 属性-系统（PSSYSTEMID）
 #### 属性说明
 系统
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -970,12 +1069,15 @@ TEXT
 ### 属性-系统（PSSYSTEMNAME）
 #### 属性说明
 系统
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -994,4 +1096,90 @@ TEXT
 
 #### 关系属性
 无
+
+
+## 业务状态
+无
+
+## 实体行为
+| 序号 | 行为 | 行为名 | 行为类型 | 行为持有者 |
+| -- | -- | -- | -- | -- |
+| 1 | [Create](#实体行为-Create（Create）) | Create | 内置方法 | 后台及前台 |
+| 2 | [Update](#实体行为-Update（Update）) | Update | 内置方法 | 后台及前台 |
+| 3 | [Remove](#实体行为-Remove（Remove）) | Remove | 内置方法 | 后台及前台 |
+| 4 | [Get](#实体行为-Get（Get）) | Get | 内置方法 | 后台及前台 |
+| 5 | [GetDraft](#实体行为-GetDraft（GetDraft）) | GetDraft | 内置方法 | 后台及前台 |
+| 6 | [CheckKey](#实体行为-CheckKey（CheckKey）) | CheckKey | 内置方法 | 后台及前台 |
+| 7 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
+### 实体行为-Create（Create）
+#### 说明
+Create
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+### 实体行为-Update（Update）
+#### 说明
+Update
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+### 实体行为-Remove（Remove）
+#### 说明
+Remove
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+### 实体行为-Get（Get）
+#### 说明
+Get
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+### 实体行为-GetDraft（GetDraft）
+#### 说明
+GetDraft
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+### 实体行为-CheckKey（CheckKey）
+#### 说明
+CheckKey
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+### 实体行为-Save（Save）
+#### 说明
+Save
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+
 

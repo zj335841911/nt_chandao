@@ -6,24 +6,27 @@
 [iBiz增强模块](../ibiz)
 
 ## 实体属性
-| 序号 | 属性 | 属性名 | 数据类型 | 是否是主键 | 是否是外键 | 是否允许为空 | 关系属性（实体-属性） |
-| -- | -- | -- | -- | -- | -- |
-| 1 | [产品线名称](#属性-产品线名称（IBZ_PRODUCTLINENAME）) | IBZ_PRODUCTLINENAME | TEXT | 否 | 否 | 是 | -- |
-| 2 | [产品线标识](#属性-产品线标识（IBZ_PRODUCTLINEID）) | IBZ_PRODUCTLINEID | GUID | 是 | 否 | 否 | -- |
-| 3 | [更新人](#属性-更新人（UPDATEMAN）) | UPDATEMAN | TEXT | 否 | 否 | 否 | -- |
-| 4 | [更新时间](#属性-更新时间（UPDATEDATE）) | UPDATEDATE | DATETIME | 否 | 否 | 否 | -- |
-| 5 | [建立时间](#属性-建立时间（CREATEDATE）) | CREATEDATE | DATETIME | 否 | 否 | 否 | -- |
-| 6 | [建立人](#属性-建立人（CREATEMAN）) | CREATEMAN | TEXT | 否 | 否 | 否 | -- |
+| 序号 | 属性 | 属性名 | 数据类型 | 主键 | 外键 | 允许为空 |
+| -- | -- | -- | -- | -- | -- | -- |
+| 1 | [产品线名称](#属性-产品线名称（IBZ_PRODUCTLINENAME）) | IBZ_PRODUCTLINENAME | TEXT | 否 | 否 | 是 |
+| 2 | [产品线标识](#属性-产品线标识（IBZ_PRODUCTLINEID）) | IBZ_PRODUCTLINEID | GUID | 是 | 否 | 否 |
+| 3 | [更新人](#属性-更新人（UPDATEMAN）) | UPDATEMAN | TEXT | 否 | 否 | 否 |
+| 4 | [更新时间](#属性-更新时间（UPDATEDATE）) | UPDATEDATE | DATETIME | 否 | 否 | 否 |
+| 5 | [建立时间](#属性-建立时间（CREATEDATE）) | CREATEDATE | DATETIME | 否 | 否 | 否 |
+| 6 | [建立人](#属性-建立人（CREATEMAN）) | CREATEMAN | TEXT | 否 | 否 | 否 |
 
 ### 属性-产品线名称（IBZ_PRODUCTLINENAME）
 #### 属性说明
 产品线名称
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -46,12 +49,15 @@ TEXT
 ### 属性-产品线标识（IBZ_PRODUCTLINEID）
 #### 属性说明
 产品线标识
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-GUID
+全局唯一标识，文本类型，用户不可见
+
+#### Java类型
+String
 
 #### 是否允许为为空
 否
@@ -74,12 +80,15 @@ GUID
 ### 属性-更新人（UPDATEMAN）
 #### 属性说明
 更新人
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 否
@@ -102,12 +111,15 @@ TEXT
 ### 属性-更新时间（UPDATEDATE）
 #### 属性说明
 更新时间
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-DATETIME
+日期时间型
+
+#### Java类型
+Timestamp
 
 #### 是否允许为为空
 否
@@ -130,12 +142,15 @@ DATETIME
 ### 属性-建立时间（CREATEDATE）
 #### 属性说明
 建立时间
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-DATETIME
+日期时间型
+
+#### Java类型
+Timestamp
 
 #### 是否允许为为空
 否
@@ -158,12 +173,15 @@ DATETIME
 ### 属性-建立人（CREATEMAN）
 #### 属性说明
 建立人
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 否
@@ -182,4 +200,90 @@ TEXT
 
 #### 关系属性
 无
+
+
+## 业务状态
+无
+
+## 实体行为
+| 序号 | 行为 | 行为名 | 行为类型 | 行为持有者 |
+| -- | -- | -- | -- | -- |
+| 1 | [Create](#实体行为-Create（Create）) | Create | 内置方法 | 后台及前台 |
+| 2 | [Update](#实体行为-Update（Update）) | Update | 内置方法 | 后台及前台 |
+| 3 | [Remove](#实体行为-Remove（Remove）) | Remove | 内置方法 | 后台及前台 |
+| 4 | [Get](#实体行为-Get（Get）) | Get | 内置方法 | 后台及前台 |
+| 5 | [GetDraft](#实体行为-GetDraft（GetDraft）) | GetDraft | 内置方法 | 后台及前台 |
+| 6 | [CheckKey](#实体行为-CheckKey（CheckKey）) | CheckKey | 内置方法 | 后台及前台 |
+| 7 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
+### 实体行为-Create（Create）
+#### 说明
+Create
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+### 实体行为-Update（Update）
+#### 说明
+Update
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+### 实体行为-Remove（Remove）
+#### 说明
+Remove
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+### 实体行为-Get（Get）
+#### 说明
+Get
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+### 实体行为-GetDraft（GetDraft）
+#### 说明
+GetDraft
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+### 实体行为-CheckKey（CheckKey）
+#### 说明
+CheckKey
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+### 实体行为-Save（Save）
+#### 说明
+Save
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+
 

@@ -6,36 +6,39 @@ Bug统计
 [iBiz增强模块](../ibiz)
 
 ## 实体属性
-| 序号 | 属性 | 属性名 | 数据类型 | 是否是主键 | 是否是外键 | 是否允许为空 | 关系属性（实体-属性） |
-| -- | -- | -- | -- | -- | -- |
-| 1 | [标识](#属性-标识（ID）) | ID | ACID | 是 | 否 | 是 | -- |
-| 2 | [名称](#属性-名称（TITLE）) | TITLE | TEXT | 否 | 否 | 是 | -- |
-| 3 | [由谁创建](#属性-由谁创建（OPENEDBY）) | OPENEDBY | SSCODELIST | 否 | 否 | 是 | -- |
-| 4 | [未解决](#属性-未解决（BUGWJJ）) | BUGWJJ | INT | 否 | 否 | 是 | -- |
-| 5 | [设计如此](#属性-设计如此（BUGBYDESIGN）) | BUGBYDESIGN | INT | 否 | 否 | 是 | -- |
-| 6 | [重复Bug](#属性-重复Bug（BUGDUPLICATE）) | BUGDUPLICATE | INT | 否 | 否 | 是 | -- |
-| 7 | [外部原因](#属性-外部原因（BUGEXTERNAL）) | BUGEXTERNAL | INT | 否 | 否 | 是 | -- |
-| 8 | [已解决](#属性-已解决（BUGFIXED）) | BUGFIXED | INT | 否 | 否 | 是 | -- |
-| 9 | [无法重现](#属性-无法重现（BUGNOTREPRO）) | BUGNOTREPRO | INT | 否 | 否 | 是 | -- |
-| 10 | [延期处理](#属性-延期处理（BUGPOSTPONED）) | BUGPOSTPONED | INT | 否 | 否 | 是 | -- |
-| 11 | [不予解决](#属性-不予解决（BUGWILLNOTFIX）) | BUGWILLNOTFIX | INT | 否 | 否 | 是 | -- |
-| 12 | [转为需求](#属性-转为需求（BUGTOSTORY）) | BUGTOSTORY | INT | 否 | 否 | 是 | -- |
-| 13 | [有效率](#属性-有效率（BUGEFFICIENT）) | BUGEFFICIENT | TEXT | 否 | 否 | 是 | -- |
-| 14 | [总计](#属性-总计（BUGTOTAL）) | BUGTOTAL | INT | 否 | 否 | 是 | -- |
-| 15 | [编号](#属性-编号（PRODUCT）) | PRODUCT | PICKUP | 否 | 是 | 是 | [产品（ZT_PRODUCT）](../zentao/Product) - [编号（ID）](../zentao/Product/#属性-编号（ID）) |
-| 16 | [产品名称](#属性-产品名称（PRODUCTNAME）) | PRODUCTNAME | PICKUPTEXT | 否 | 是 | 是 | [产品（ZT_PRODUCT）](../zentao/Product) - [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
-| 17 | [Bug](#属性-Bug（BUGCNT）) | BUGCNT | INT | 否 | 是 | 是 | [产品（ZT_PRODUCT）](../zentao/Product) - [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
-| 18 | [指派给](#属性-指派给（ASSIGNEDTO）) | ASSIGNEDTO | SSCODELIST | 否 | 是 | 是 | [产品（ZT_PRODUCT）](../zentao/Product) - [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
+| 序号 | 属性 | 属性名 | 数据类型 | 主键 | 外键 | 允许为空 |
+| -- | -- | -- | -- | -- | -- | -- |
+| 1 | [标识](#属性-标识（ID）) | ID | ACID | 是 | 否 | 是 |
+| 2 | [名称](#属性-名称（TITLE）) | TITLE | TEXT | 否 | 否 | 是 |
+| 3 | [由谁创建](#属性-由谁创建（OPENEDBY）) | OPENEDBY | SSCODELIST | 否 | 否 | 是 |
+| 4 | [未解决](#属性-未解决（BUGWJJ）) | BUGWJJ | INT | 否 | 否 | 是 |
+| 5 | [设计如此](#属性-设计如此（BUGBYDESIGN）) | BUGBYDESIGN | INT | 否 | 否 | 是 |
+| 6 | [重复Bug](#属性-重复Bug（BUGDUPLICATE）) | BUGDUPLICATE | INT | 否 | 否 | 是 |
+| 7 | [外部原因](#属性-外部原因（BUGEXTERNAL）) | BUGEXTERNAL | INT | 否 | 否 | 是 |
+| 8 | [已解决](#属性-已解决（BUGFIXED）) | BUGFIXED | INT | 否 | 否 | 是 |
+| 9 | [无法重现](#属性-无法重现（BUGNOTREPRO）) | BUGNOTREPRO | INT | 否 | 否 | 是 |
+| 10 | [延期处理](#属性-延期处理（BUGPOSTPONED）) | BUGPOSTPONED | INT | 否 | 否 | 是 |
+| 11 | [不予解决](#属性-不予解决（BUGWILLNOTFIX）) | BUGWILLNOTFIX | INT | 否 | 否 | 是 |
+| 12 | [转为需求](#属性-转为需求（BUGTOSTORY）) | BUGTOSTORY | INT | 否 | 否 | 是 |
+| 13 | [有效率](#属性-有效率（BUGEFFICIENT）) | BUGEFFICIENT | TEXT | 否 | 否 | 是 |
+| 14 | [总计](#属性-总计（BUGTOTAL）) | BUGTOTAL | INT | 否 | 否 | 是 |
+| 15 | [编号](#属性-编号（PRODUCT）) | PRODUCT | PICKUP | 否 | 是 | 是 |
+| 16 | [产品名称](#属性-产品名称（PRODUCTNAME）) | PRODUCTNAME | PICKUPTEXT | 否 | 是 | 是 |
+| 17 | [Bug](#属性-Bug（BUGCNT）) | BUGCNT | INT | 否 | 是 | 是 |
+| 18 | [指派给](#属性-指派给（ASSIGNEDTO）) | ASSIGNEDTO | SSCODELIST | 否 | 是 | 是 |
 
 ### 属性-标识（ID）
 #### 属性说明
 标识
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-ACID
+自增标识，整数类型，用户不可见
+
+#### Java类型
+Long
 
 #### 是否允许为为空
 是
@@ -62,12 +65,15 @@ ACID
 ### 属性-名称（TITLE）
 #### 属性说明
 名称
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -94,12 +100,15 @@ TEXT
 ### 属性-由谁创建（OPENEDBY）
 #### 属性说明
 由谁创建
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-SSCODELIST
+单项选择(文本值)
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -126,12 +135,15 @@ SSCODELIST
 ### 属性-未解决（BUGWJJ）
 #### 属性说明
 未解决
+
 #### 属性类型
 逻辑字段[来自计算式]
 
-
 #### 数据类型
-INT
+整型
+
+#### Java类型
+Integer
 
 #### 是否允许为为空
 是
@@ -158,12 +170,15 @@ INT
 ### 属性-设计如此（BUGBYDESIGN）
 #### 属性说明
 设计如此
+
 #### 属性类型
 逻辑字段[来自计算式]
 
-
 #### 数据类型
-INT
+整型
+
+#### Java类型
+Integer
 
 #### 是否允许为为空
 是
@@ -190,12 +205,15 @@ INT
 ### 属性-重复Bug（BUGDUPLICATE）
 #### 属性说明
 重复Bug
+
 #### 属性类型
 逻辑字段[来自计算式]
 
-
 #### 数据类型
-INT
+整型
+
+#### Java类型
+Integer
 
 #### 是否允许为为空
 是
@@ -222,12 +240,15 @@ INT
 ### 属性-外部原因（BUGEXTERNAL）
 #### 属性说明
 外部原因
+
 #### 属性类型
 逻辑字段[来自计算式]
 
-
 #### 数据类型
-INT
+整型
+
+#### Java类型
+Integer
 
 #### 是否允许为为空
 是
@@ -254,12 +275,15 @@ INT
 ### 属性-已解决（BUGFIXED）
 #### 属性说明
 已解决
+
 #### 属性类型
 逻辑字段[来自计算式]
 
-
 #### 数据类型
-INT
+整型
+
+#### Java类型
+Integer
 
 #### 是否允许为为空
 是
@@ -286,12 +310,15 @@ INT
 ### 属性-无法重现（BUGNOTREPRO）
 #### 属性说明
 无法重现
+
 #### 属性类型
 逻辑字段[来自计算式]
 
-
 #### 数据类型
-INT
+整型
+
+#### Java类型
+Integer
 
 #### 是否允许为为空
 是
@@ -318,12 +345,15 @@ INT
 ### 属性-延期处理（BUGPOSTPONED）
 #### 属性说明
 延期处理
+
 #### 属性类型
 逻辑字段[来自计算式]
 
-
 #### 数据类型
-INT
+整型
+
+#### Java类型
+Integer
 
 #### 是否允许为为空
 是
@@ -350,12 +380,15 @@ INT
 ### 属性-不予解决（BUGWILLNOTFIX）
 #### 属性说明
 不予解决
+
 #### 属性类型
 逻辑字段[来自计算式]
 
-
 #### 数据类型
-INT
+整型
+
+#### Java类型
+Integer
 
 #### 是否允许为为空
 是
@@ -382,12 +415,15 @@ INT
 ### 属性-转为需求（BUGTOSTORY）
 #### 属性说明
 转为需求
+
 #### 属性类型
 逻辑字段[来自计算式]
 
-
 #### 数据类型
-INT
+整型
+
+#### Java类型
+Integer
 
 #### 是否允许为为空
 是
@@ -414,12 +450,15 @@ INT
 ### 属性-有效率（BUGEFFICIENT）
 #### 属性说明
 有效率
+
 #### 属性类型
 逻辑字段[来自计算式]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -446,12 +485,15 @@ TEXT
 ### 属性-总计（BUGTOTAL）
 #### 属性说明
 总计
+
 #### 属性类型
 逻辑字段[来自计算式]
 
-
 #### 数据类型
-INT
+整型
+
+#### Java类型
+Integer
 
 #### 是否允许为为空
 是
@@ -478,12 +520,15 @@ INT
 ### 属性-编号（PRODUCT）
 #### 属性说明
 编号
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-PICKUP
+外键值
+
+#### Java类型
+Long
 
 #### 是否允许为为空
 是
@@ -510,12 +555,15 @@ PICKUP
 ### 属性-产品名称（PRODUCTNAME）
 #### 属性说明
 产品名称
+
 #### 属性类型
 链接字段[来自关系实体字段]
 
-
 #### 数据类型
-PICKUPTEXT
+外键值文本
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -542,12 +590,15 @@ PICKUPTEXT
 ### 属性-Bug（BUGCNT）
 #### 属性说明
 Bug
+
 #### 属性类型
 逻辑字段[来自计算式]
 
-
 #### 数据类型
-INT
+整型
+
+#### Java类型
+Integer
 
 #### 是否允许为为空
 是
@@ -574,12 +625,15 @@ INT
 ### 属性-指派给（ASSIGNEDTO）
 #### 属性说明
 指派给
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-SSCODELIST
+单项选择(文本值)
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -602,4 +656,90 @@ SSCODELIST
 | 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
 | 关系属性 | [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
+
+
+## 业务状态
+无
+
+## 实体行为
+| 序号 | 行为 | 行为名 | 行为类型 | 行为持有者 |
+| -- | -- | -- | -- | -- |
+| 1 | [Create](#实体行为-Create（Create）) | Create | 内置方法 | 后台及前台 |
+| 2 | [Update](#实体行为-Update（Update）) | Update | 内置方法 | 后台及前台 |
+| 3 | [Remove](#实体行为-Remove（Remove）) | Remove | 内置方法 | 后台及前台 |
+| 4 | [Get](#实体行为-Get（Get）) | Get | 内置方法 | 后台及前台 |
+| 5 | [GetDraft](#实体行为-GetDraft（GetDraft）) | GetDraft | 内置方法 | 后台及前台 |
+| 6 | [CheckKey](#实体行为-CheckKey（CheckKey）) | CheckKey | 内置方法 | 后台及前台 |
+| 7 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
+### 实体行为-Create（Create）
+#### 说明
+Create
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+### 实体行为-Update（Update）
+#### 说明
+Update
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+### 实体行为-Remove（Remove）
+#### 说明
+Remove
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+### 实体行为-Get（Get）
+#### 说明
+Get
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+### 实体行为-GetDraft（GetDraft）
+#### 说明
+GetDraft
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+### 实体行为-CheckKey（CheckKey）
+#### 说明
+CheckKey
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+### 实体行为-Save（Save）
+#### 说明
+Save
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+
 

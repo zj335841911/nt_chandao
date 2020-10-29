@@ -6,40 +6,43 @@
 [iBiz系统模型](../ibizsysmodel)
 
 ## 实体属性
-| 序号 | 属性 | 属性名 | 数据类型 | 是否是主键 | 是否是外键 | 是否允许为空 | 关系属性（实体-属性） |
-| -- | -- | -- | -- | -- | -- |
-| 1 | [外部接口实体标识](#属性-外部接口实体标识（PSSUBSYSSADEID）) | PSSUBSYSSADEID | GUID | 是 | 否 | 否 | -- |
-| 2 | [建立人](#属性-建立人（CREATEMAN）) | CREATEMAN | TEXT | 否 | 否 | 否 | -- |
-| 3 | [外部接口实体名称](#属性-外部接口实体名称（PSSUBSYSSADENAME）) | PSSUBSYSSADENAME | TEXT | 否 | 否 | 是 | -- |
-| 4 | [建立时间](#属性-建立时间（CREATEDATE）) | CREATEDATE | DATETIME | 否 | 否 | 否 | -- |
-| 5 | [更新人](#属性-更新人（UPDATEMAN）) | UPDATEMAN | TEXT | 否 | 否 | 否 | -- |
-| 6 | [更新时间](#属性-更新时间（UPDATEDATE）) | UPDATEDATE | DATETIME | 否 | 否 | 否 | -- |
-| 7 | [代码名称2](#属性-代码名称2（CODENAME2）) | CODENAME2 | TEXT | 否 | 否 | 是 | -- |
-| 8 | [代码名称](#属性-代码名称（CODENAME）) | CODENAME | TEXT | 否 | 否 | 否 | -- |
-| 9 | [实体标记](#属性-实体标记（DETAG）) | DETAG | TEXT | 否 | 否 | 是 | -- |
-| 10 | [实体标记2](#属性-实体标记2（DETAG2）) | DETAG2 | TEXT | 否 | 否 | 是 | -- |
-| 11 | [备注](#属性-备注（MEMO）) | MEMO | LONGTEXT_1000 | 否 | 否 | 是 | -- |
-| 12 | [接口模式](#属性-接口模式（MAJORFLAG）) | MAJORFLAG | NSCODELIST | 否 | 否 | 是 | -- |
-| 13 | [逻辑名称](#属性-逻辑名称（LOGICNAME）) | LOGICNAME | TEXT | 否 | 否 | 是 | -- |
-| 14 | [同步模型模式](#属性-同步模型模式（SYNCMODELMODE）) | SYNCMODELMODE | SSCODELIST | 否 | 否 | 是 | -- |
-| 15 | [用户分类](#属性-用户分类（USERCAT）) | USERCAT | SSCODELIST | 否 | 否 | 是 | -- |
-| 16 | [用户标记](#属性-用户标记（USERTAG）) | USERTAG | TEXT | 否 | 否 | 是 | -- |
-| 17 | [用户标记2](#属性-用户标记2（USERTAG2）) | USERTAG2 | TEXT | 否 | 否 | 是 | -- |
-| 18 | [用户标记3](#属性-用户标记3（USERTAG3）) | USERTAG3 | TEXT | 否 | 否 | 是 | -- |
-| 19 | [用户标记4](#属性-用户标记4（USERTAG4）) | USERTAG4 | TEXT | 否 | 否 | 是 | -- |
-| 20 | [是否启用](#属性-是否启用（VALIDFLAG）) | VALIDFLAG | YESNO | 否 | 否 | 否 | -- |
-| 21 | [子系统接口](#属性-子系统接口（PSSUBSYSSERVICEAPINAME）) | PSSUBSYSSERVICEAPINAME | PICKUPTEXT | 否 | 是 | 否 | [外部服务接口（PSSUBSYSSERVICEAPI）](../ibizsysmodel/PSSubSysServiceAPI) - [外部服务接口名称（PSSUBSYSSERVICEAPINAME）](../ibizsysmodel/PSSubSysServiceAPI/#属性-外部服务接口名称（PSSUBSYSSERVICEAPINAME）) |
-| 22 | [子系统接口](#属性-子系统接口（PSSUBSYSSERVICEAPIID）) | PSSUBSYSSERVICEAPIID | PICKUP | 否 | 是 | 否 | [外部服务接口（PSSUBSYSSERVICEAPI）](../ibizsysmodel/PSSubSysServiceAPI) - [外部服务接口标识（PSSUBSYSSERVICEAPIID）](../ibizsysmodel/PSSubSysServiceAPI/#属性-外部服务接口标识（PSSUBSYSSERVICEAPIID）) |
+| 序号 | 属性 | 属性名 | 数据类型 | 主键 | 外键 | 允许为空 |
+| -- | -- | -- | -- | -- | -- | -- |
+| 1 | [外部接口实体标识](#属性-外部接口实体标识（PSSUBSYSSADEID）) | PSSUBSYSSADEID | GUID | 是 | 否 | 否 |
+| 2 | [建立人](#属性-建立人（CREATEMAN）) | CREATEMAN | TEXT | 否 | 否 | 否 |
+| 3 | [外部接口实体名称](#属性-外部接口实体名称（PSSUBSYSSADENAME）) | PSSUBSYSSADENAME | TEXT | 否 | 否 | 是 |
+| 4 | [建立时间](#属性-建立时间（CREATEDATE）) | CREATEDATE | DATETIME | 否 | 否 | 否 |
+| 5 | [更新人](#属性-更新人（UPDATEMAN）) | UPDATEMAN | TEXT | 否 | 否 | 否 |
+| 6 | [更新时间](#属性-更新时间（UPDATEDATE）) | UPDATEDATE | DATETIME | 否 | 否 | 否 |
+| 7 | [代码名称2](#属性-代码名称2（CODENAME2）) | CODENAME2 | TEXT | 否 | 否 | 是 |
+| 8 | [代码名称](#属性-代码名称（CODENAME）) | CODENAME | TEXT | 否 | 否 | 否 |
+| 9 | [实体标记](#属性-实体标记（DETAG）) | DETAG | TEXT | 否 | 否 | 是 |
+| 10 | [实体标记2](#属性-实体标记2（DETAG2）) | DETAG2 | TEXT | 否 | 否 | 是 |
+| 11 | [备注](#属性-备注（MEMO）) | MEMO | LONGTEXT_1000 | 否 | 否 | 是 |
+| 12 | [接口模式](#属性-接口模式（MAJORFLAG）) | MAJORFLAG | NSCODELIST | 否 | 否 | 是 |
+| 13 | [逻辑名称](#属性-逻辑名称（LOGICNAME）) | LOGICNAME | TEXT | 否 | 否 | 是 |
+| 14 | [同步模型模式](#属性-同步模型模式（SYNCMODELMODE）) | SYNCMODELMODE | SSCODELIST | 否 | 否 | 是 |
+| 15 | [用户分类](#属性-用户分类（USERCAT）) | USERCAT | SSCODELIST | 否 | 否 | 是 |
+| 16 | [用户标记](#属性-用户标记（USERTAG）) | USERTAG | TEXT | 否 | 否 | 是 |
+| 17 | [用户标记2](#属性-用户标记2（USERTAG2）) | USERTAG2 | TEXT | 否 | 否 | 是 |
+| 18 | [用户标记3](#属性-用户标记3（USERTAG3）) | USERTAG3 | TEXT | 否 | 否 | 是 |
+| 19 | [用户标记4](#属性-用户标记4（USERTAG4）) | USERTAG4 | TEXT | 否 | 否 | 是 |
+| 20 | [是否启用](#属性-是否启用（VALIDFLAG）) | VALIDFLAG | YESNO | 否 | 否 | 否 |
+| 21 | [子系统接口](#属性-子系统接口（PSSUBSYSSERVICEAPINAME）) | PSSUBSYSSERVICEAPINAME | PICKUPTEXT | 否 | 是 | 否 |
+| 22 | [子系统接口](#属性-子系统接口（PSSUBSYSSERVICEAPIID）) | PSSUBSYSSERVICEAPIID | PICKUP | 否 | 是 | 否 |
 
 ### 属性-外部接口实体标识（PSSUBSYSSADEID）
 #### 属性说明
 外部接口实体标识
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-GUID
+全局唯一标识，文本类型，用户不可见
+
+#### Java类型
+String
 
 #### 是否允许为为空
 否
@@ -66,12 +69,15 @@ GUID
 ### 属性-建立人（CREATEMAN）
 #### 属性说明
 建立人
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 否
@@ -98,12 +104,15 @@ TEXT
 ### 属性-外部接口实体名称（PSSUBSYSSADENAME）
 #### 属性说明
 外部接口实体名称
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -130,12 +139,15 @@ TEXT
 ### 属性-建立时间（CREATEDATE）
 #### 属性说明
 建立时间
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-DATETIME
+日期时间型
+
+#### Java类型
+Timestamp
 
 #### 是否允许为为空
 否
@@ -162,12 +174,15 @@ DATETIME
 ### 属性-更新人（UPDATEMAN）
 #### 属性说明
 更新人
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 否
@@ -194,12 +209,15 @@ TEXT
 ### 属性-更新时间（UPDATEDATE）
 #### 属性说明
 更新时间
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-DATETIME
+日期时间型
+
+#### Java类型
+Timestamp
 
 #### 是否允许为为空
 否
@@ -226,12 +244,15 @@ DATETIME
 ### 属性-代码名称2（CODENAME2）
 #### 属性说明
 代码名称2
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -258,12 +279,15 @@ TEXT
 ### 属性-代码名称（CODENAME）
 #### 属性说明
 代码名称
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 否
@@ -290,12 +314,15 @@ TEXT
 ### 属性-实体标记（DETAG）
 #### 属性说明
 实体标记
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -322,12 +349,15 @@ TEXT
 ### 属性-实体标记2（DETAG2）
 #### 属性说明
 实体标记2
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -354,12 +384,15 @@ TEXT
 ### 属性-备注（MEMO）
 #### 属性说明
 备注
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-LONGTEXT_1000
+长文本，长度1000
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -386,12 +419,15 @@ LONGTEXT_1000
 ### 属性-接口模式（MAJORFLAG）
 #### 属性说明
 接口模式
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-NSCODELIST
+单项选择(数值)
+
+#### Java类型
+Integer
 
 #### 是否允许为为空
 是
@@ -418,12 +454,15 @@ NSCODELIST
 ### 属性-逻辑名称（LOGICNAME）
 #### 属性说明
 逻辑名称
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -450,12 +489,15 @@ TEXT
 ### 属性-同步模型模式（SYNCMODELMODE）
 #### 属性说明
 同步模型模式
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-SSCODELIST
+单项选择(文本值)
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -482,12 +524,15 @@ SSCODELIST
 ### 属性-用户分类（USERCAT）
 #### 属性说明
 用户分类
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-SSCODELIST
+单项选择(文本值)
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -514,12 +559,15 @@ SSCODELIST
 ### 属性-用户标记（USERTAG）
 #### 属性说明
 用户标记
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -546,12 +594,15 @@ TEXT
 ### 属性-用户标记2（USERTAG2）
 #### 属性说明
 用户标记2
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -578,12 +629,15 @@ TEXT
 ### 属性-用户标记3（USERTAG3）
 #### 属性说明
 用户标记3
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -610,12 +664,15 @@ TEXT
 ### 属性-用户标记4（USERTAG4）
 #### 属性说明
 用户标记4
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -642,12 +699,15 @@ TEXT
 ### 属性-是否启用（VALIDFLAG）
 #### 属性说明
 是否启用
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-YESNO
+是否逻辑
+
+#### Java类型
+Integer
 
 #### 是否允许为为空
 否
@@ -674,12 +734,15 @@ YESNO
 ### 属性-子系统接口（PSSUBSYSSERVICEAPINAME）
 #### 属性说明
 子系统接口
+
 #### 属性类型
 链接字段[来自关系实体字段]
 
-
 #### 数据类型
-PICKUPTEXT
+外键值文本
+
+#### Java类型
+String
 
 #### 是否允许为为空
 否
@@ -706,12 +769,15 @@ PICKUPTEXT
 ### 属性-子系统接口（PSSUBSYSSERVICEAPIID）
 #### 属性说明
 子系统接口
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-PICKUP
+外键值
+
+#### Java类型
+String
 
 #### 是否允许为为空
 否
@@ -734,4 +800,90 @@ PICKUP
 | 关系实体 | [外部服务接口（PSSUBSYSSERVICEAPI）](../ibizsysmodel/PSSubSysServiceAPI) |
 | 关系属性 | [外部服务接口标识（PSSUBSYSSERVICEAPIID）](../ibizsysmodel/PSSubSysServiceAPI/#属性-外部服务接口标识（PSSUBSYSSERVICEAPIID）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
+
+
+## 业务状态
+无
+
+## 实体行为
+| 序号 | 行为 | 行为名 | 行为类型 | 行为持有者 |
+| -- | -- | -- | -- | -- |
+| 1 | [Create](#实体行为-Create（Create）) | Create | 内置方法 | 后台及前台 |
+| 2 | [Update](#实体行为-Update（Update）) | Update | 内置方法 | 后台及前台 |
+| 3 | [Remove](#实体行为-Remove（Remove）) | Remove | 内置方法 | 后台及前台 |
+| 4 | [Get](#实体行为-Get（Get）) | Get | 内置方法 | 后台及前台 |
+| 5 | [GetDraft](#实体行为-GetDraft（GetDraft）) | GetDraft | 内置方法 | 后台及前台 |
+| 6 | [CheckKey](#实体行为-CheckKey（CheckKey）) | CheckKey | 内置方法 | 后台及前台 |
+| 7 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
+### 实体行为-Create（Create）
+#### 说明
+Create
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+### 实体行为-Update（Update）
+#### 说明
+Update
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+### 实体行为-Remove（Remove）
+#### 说明
+Remove
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+### 实体行为-Get（Get）
+#### 说明
+Get
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+### 实体行为-GetDraft（GetDraft）
+#### 说明
+GetDraft
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+### 实体行为-CheckKey（CheckKey）
+#### 说明
+CheckKey
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+### 实体行为-Save（Save）
+#### 说明
+Save
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+
 

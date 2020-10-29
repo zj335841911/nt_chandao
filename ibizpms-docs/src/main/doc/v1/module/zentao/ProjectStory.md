@@ -6,24 +6,27 @@
 [禅道模块](../zentao)
 
 ## 实体属性
-| 序号 | 属性 | 属性名 | 数据类型 | 是否是主键 | 是否是外键 | 是否允许为空 | 关系属性（实体-属性） |
-| -- | -- | -- | -- | -- | -- |
-| 1 | [虚拟主键](#属性-虚拟主键（ID）) | ID | TEXT | 是 | 否 | 否 | -- |
-| 2 | [排序](#属性-排序（ORDER）) | ORDER | INT | 否 | 否 | 是 | -- |
-| 3 | [需求版本](#属性-需求版本（VERSION）) | VERSION | PICKUPDATA | 否 | 是 | 是 | [需求（ZT_STORY）](../zentao/Story) - [版本号（VERSION）](../zentao/Story/#属性-版本号（VERSION）) |
-| 4 | [需求](#属性-需求（STORY）) | STORY | PICKUP | 否 | 是 | 是 | [需求（ZT_STORY）](../zentao/Story) - [编号（ID）](../zentao/Story/#属性-编号（ID）) |
-| 5 | [项目](#属性-项目（PROJECT）) | PROJECT | PICKUP | 否 | 是 | 是 | [项目（ZT_PROJECT）](../zentao/Project) - [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
-| 6 | [所属产品](#属性-所属产品（PRODUCT）) | PRODUCT | PICKUP | 否 | 是 | 是 | [产品（ZT_PRODUCT）](../zentao/Product) - [编号（ID）](../zentao/Product/#属性-编号（ID）) |
+| 序号 | 属性 | 属性名 | 数据类型 | 主键 | 外键 | 允许为空 |
+| -- | -- | -- | -- | -- | -- | -- |
+| 1 | [虚拟主键](#属性-虚拟主键（ID）) | ID | TEXT | 是 | 否 | 否 |
+| 2 | [排序](#属性-排序（ORDER）) | ORDER | INT | 否 | 否 | 是 |
+| 3 | [需求版本](#属性-需求版本（VERSION）) | VERSION | PICKUPDATA | 否 | 是 | 是 |
+| 4 | [需求](#属性-需求（STORY）) | STORY | PICKUP | 否 | 是 | 是 |
+| 5 | [项目](#属性-项目（PROJECT）) | PROJECT | PICKUP | 否 | 是 | 是 |
+| 6 | [所属产品](#属性-所属产品（PRODUCT）) | PRODUCT | PICKUP | 否 | 是 | 是 |
 
 ### 属性-虚拟主键（ID）
 #### 属性说明
 虚拟主键
+
 #### 属性类型
 逻辑字段[来自计算式]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 否
@@ -50,12 +53,15 @@ concat(%1$s,'__',%2$s)
 ### 属性-排序（ORDER）
 #### 属性说明
 “自增”排序，从0开始，先到先得
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-INT
+整型
+
+#### Java类型
+Integer
 
 #### 是否允许为为空
 是
@@ -82,12 +88,15 @@ INT
 ### 属性-需求版本（VERSION）
 #### 属性说明
 需求版本，物理字段
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-PICKUPDATA
+外键值附加数据
+
+#### Java类型
+Integer
 
 #### 是否允许为为空
 是
@@ -114,12 +123,15 @@ PICKUPDATA
 ### 属性-需求（STORY）
 #### 属性说明
 需求
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-PICKUP
+外键值
+
+#### Java类型
+Long
 
 #### 是否允许为为空
 是
@@ -146,12 +158,15 @@ PICKUP
 ### 属性-项目（PROJECT）
 #### 属性说明
 项目
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-PICKUP
+外键值
+
+#### Java类型
+Long
 
 #### 是否允许为为空
 是
@@ -178,12 +193,15 @@ PICKUP
 ### 属性-所属产品（PRODUCT）
 #### 属性说明
 所属产品
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-PICKUP
+外键值
+
+#### Java类型
+Long
 
 #### 是否允许为为空
 是
@@ -206,4 +224,90 @@ PICKUP
 | 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
 | 关系属性 | [编号（ID）](../zentao/Product/#属性-编号（ID）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
+
+
+## 业务状态
+无
+
+## 实体行为
+| 序号 | 行为 | 行为名 | 行为类型 | 行为持有者 |
+| -- | -- | -- | -- | -- |
+| 1 | [Create](#实体行为-Create（Create）) | Create | 内置方法 | 后台及前台 |
+| 2 | [Update](#实体行为-Update（Update）) | Update | 内置方法 | 后台及前台 |
+| 3 | [Remove](#实体行为-Remove（Remove）) | Remove | 内置方法 | 后台及前台 |
+| 4 | [Get](#实体行为-Get（Get）) | Get | 内置方法 | 后台及前台 |
+| 5 | [GetDraft](#实体行为-GetDraft（GetDraft）) | GetDraft | 内置方法 | 后台及前台 |
+| 6 | [CheckKey](#实体行为-CheckKey（CheckKey）) | CheckKey | 内置方法 | 后台及前台 |
+| 7 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
+### 实体行为-Create（Create）
+#### 说明
+Create
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+### 实体行为-Update（Update）
+#### 说明
+Update
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+### 实体行为-Remove（Remove）
+#### 说明
+Remove
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+### 实体行为-Get（Get）
+#### 说明
+Get
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+### 实体行为-GetDraft（GetDraft）
+#### 说明
+GetDraft
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+### 实体行为-CheckKey（CheckKey）
+#### 说明
+CheckKey
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+### 实体行为-Save（Save）
+#### 说明
+Save
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+
 

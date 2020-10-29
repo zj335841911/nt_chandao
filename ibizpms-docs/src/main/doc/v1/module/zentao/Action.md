@@ -6,40 +6,43 @@
 [禅道模块](../zentao)
 
 ## 实体属性
-| 序号 | 属性 | 属性名 | 数据类型 | 是否是主键 | 是否是外键 | 是否允许为空 | 关系属性（实体-属性） |
-| -- | -- | -- | -- | -- | -- |
-| 1 | [附加值](#属性-附加值（EXTRA）) | EXTRA | LONGTEXT | 否 | 否 | 是 | -- |
-| 2 | [对象类型](#属性-对象类型（OBJECTTYPE）) | OBJECTTYPE | SSCODELIST | 否 | 否 | 是 | -- |
-| 3 | [id](#属性-id（ID）) | ID | ACID | 是 | 否 | 否 | -- |
-| 4 | [备注](#属性-备注（COMMENT）) | COMMENT | LONGTEXT | 否 | 否 | 是 | -- |
-| 5 | [已读](#属性-已读（READ）) | READ | SSCODELIST | 否 | 否 | 是 | -- |
-| 6 | [动作](#属性-动作（ACTION）) | ACTION | SSCODELIST | 否 | 否 | 是 | -- |
-| 7 | [日期](#属性-日期（DATE）) | DATE | DATETIME | 否 | 否 | 是 | -- |
-| 8 | [产品](#属性-产品（PRODUCT）) | PRODUCT | TEXT | 否 | 否 | 是 | -- |
-| 9 | [对象ID](#属性-对象ID（OBJECTID）) | OBJECTID | BIGINT | 否 | 否 | 是 | -- |
-| 10 | [操作者](#属性-操作者（ACTOR）) | ACTOR | TEXT | 否 | 否 | 是 | -- |
-| 11 | [项目](#属性-项目（PROJECT）) | PROJECT | PICKUP | 否 | 是 | 是 | [项目（ZT_PROJECT）](../zentao/Project) - [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
-| 12 | [备注](#属性-备注（LASTCOMMENT）) | LASTCOMMENT | HTMLTEXT | 否 | 是 | 是 | [项目（ZT_PROJECT）](../zentao/Project) - [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
-| 13 | [操作方式](#属性-操作方式（ACTIONMANNER）) | ACTIONMANNER | SSCODELIST | 否 | 是 | 是 | [项目（ZT_PROJECT）](../zentao/Project) - [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
-| 14 | [当前用户](#属性-当前用户（ISACTORSS）) | ISACTORSS | BIGINT | 否 | 是 | 是 | [项目（ZT_PROJECT）](../zentao/Project) - [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
-| 15 | [显示日期](#属性-显示日期（DATE1）) | DATE1 | TEXT | 否 | 是 | 是 | [项目（ZT_PROJECT）](../zentao/Project) - [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
-| 16 | [今天](#属性-今天（TODAY）) | TODAY | TEXT | 否 | 是 | 是 | [项目（ZT_PROJECT）](../zentao/Project) - [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
-| 17 | [昨天](#属性-昨天（YESTERDAY）) | YESTERDAY | TEXT | 否 | 是 | 是 | [项目（ZT_PROJECT）](../zentao/Project) - [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
-| 18 | [本周](#属性-本周（THISWEEK）) | THISWEEK | TEXT | 否 | 是 | 是 | [项目（ZT_PROJECT）](../zentao/Project) - [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
-| 19 | [上周](#属性-上周（LASTWEEK）) | LASTWEEK | TEXT | 否 | 是 | 是 | [项目（ZT_PROJECT）](../zentao/Project) - [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
-| 20 | [本月](#属性-本月（THISMONTH）) | THISMONTH | TEXT | 否 | 是 | 是 | [项目（ZT_PROJECT）](../zentao/Project) - [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
-| 21 | [上月](#属性-上月（LASTMONTH）) | LASTMONTH | TEXT | 否 | 是 | 是 | [项目（ZT_PROJECT）](../zentao/Project) - [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
-| 22 | [前端键值](#属性-前端键值（SRFKEY）) | SRFKEY | BIGINT | 否 | 是 | 是 | [项目（ZT_PROJECT）](../zentao/Project) - [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
+| 序号 | 属性 | 属性名 | 数据类型 | 主键 | 外键 | 允许为空 |
+| -- | -- | -- | -- | -- | -- | -- |
+| 1 | [附加值](#属性-附加值（EXTRA）) | EXTRA | LONGTEXT | 否 | 否 | 是 |
+| 2 | [对象类型](#属性-对象类型（OBJECTTYPE）) | OBJECTTYPE | SSCODELIST | 否 | 否 | 是 |
+| 3 | [id](#属性-id（ID）) | ID | ACID | 是 | 否 | 否 |
+| 4 | [备注](#属性-备注（COMMENT）) | COMMENT | LONGTEXT | 否 | 否 | 是 |
+| 5 | [已读](#属性-已读（READ）) | READ | SSCODELIST | 否 | 否 | 是 |
+| 6 | [动作](#属性-动作（ACTION）) | ACTION | SSCODELIST | 否 | 否 | 是 |
+| 7 | [日期](#属性-日期（DATE）) | DATE | DATETIME | 否 | 否 | 是 |
+| 8 | [产品](#属性-产品（PRODUCT）) | PRODUCT | TEXT | 否 | 否 | 是 |
+| 9 | [对象ID](#属性-对象ID（OBJECTID）) | OBJECTID | BIGINT | 否 | 否 | 是 |
+| 10 | [操作者](#属性-操作者（ACTOR）) | ACTOR | TEXT | 否 | 否 | 是 |
+| 11 | [项目](#属性-项目（PROJECT）) | PROJECT | PICKUP | 否 | 是 | 是 |
+| 12 | [备注](#属性-备注（LASTCOMMENT）) | LASTCOMMENT | HTMLTEXT | 否 | 是 | 是 |
+| 13 | [操作方式](#属性-操作方式（ACTIONMANNER）) | ACTIONMANNER | SSCODELIST | 否 | 是 | 是 |
+| 14 | [当前用户](#属性-当前用户（ISACTORSS）) | ISACTORSS | BIGINT | 否 | 是 | 是 |
+| 15 | [显示日期](#属性-显示日期（DATE1）) | DATE1 | TEXT | 否 | 是 | 是 |
+| 16 | [今天](#属性-今天（TODAY）) | TODAY | TEXT | 否 | 是 | 是 |
+| 17 | [昨天](#属性-昨天（YESTERDAY）) | YESTERDAY | TEXT | 否 | 是 | 是 |
+| 18 | [本周](#属性-本周（THISWEEK）) | THISWEEK | TEXT | 否 | 是 | 是 |
+| 19 | [上周](#属性-上周（LASTWEEK）) | LASTWEEK | TEXT | 否 | 是 | 是 |
+| 20 | [本月](#属性-本月（THISMONTH）) | THISMONTH | TEXT | 否 | 是 | 是 |
+| 21 | [上月](#属性-上月（LASTMONTH）) | LASTMONTH | TEXT | 否 | 是 | 是 |
+| 22 | [前端键值](#属性-前端键值（SRFKEY）) | SRFKEY | BIGINT | 否 | 是 | 是 |
 
 ### 属性-附加值（EXTRA）
 #### 属性说明
 细分需求、任务。任务再次分配
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-LONGTEXT
+长文本，没有长度限制
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -66,12 +69,15 @@ LONGTEXT
 ### 属性-对象类型（OBJECTTYPE）
 #### 属性说明
 对象类型
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-SSCODELIST
+单项选择(文本值)
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -98,12 +104,15 @@ SSCODELIST
 ### 属性-id（ID）
 #### 属性说明
 id
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-ACID
+自增标识，整数类型，用户不可见
+
+#### Java类型
+Long
 
 #### 是否允许为为空
 否
@@ -130,12 +139,15 @@ ACID
 ### 属性-备注（COMMENT）
 #### 属性说明
 备注
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-LONGTEXT
+长文本，没有长度限制
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -162,12 +174,15 @@ LONGTEXT
 ### 属性-已读（READ）
 #### 属性说明
 发生变更之后的确认行为
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-SSCODELIST
+单项选择(文本值)
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -194,12 +209,15 @@ SSCODELIST
 ### 属性-动作（ACTION）
 #### 属性说明
 动作
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-SSCODELIST
+单项选择(文本值)
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -226,12 +244,15 @@ SSCODELIST
 ### 属性-日期（DATE）
 #### 属性说明
 日期
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-DATETIME
+日期时间型
+
+#### Java类型
+Timestamp
 
 #### 是否允许为为空
 是
@@ -258,12 +279,15 @@ DATETIME
 ### 属性-产品（PRODUCT）
 #### 属性说明
 产品
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -290,12 +314,15 @@ TEXT
 ### 属性-对象ID（OBJECTID）
 #### 属性说明
 对象ID
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-BIGINT
+大整型
+
+#### Java类型
+Long
 
 #### 是否允许为为空
 是
@@ -322,12 +349,15 @@ BIGINT
 ### 属性-操作者（ACTOR）
 #### 属性说明
 操作者
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -354,12 +384,15 @@ TEXT
 ### 属性-项目（PROJECT）
 #### 属性说明
 项目
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-PICKUP
+外键值
+
+#### Java类型
+Long
 
 #### 是否允许为为空
 是
@@ -386,12 +419,15 @@ PICKUP
 ### 属性-备注（LASTCOMMENT）
 #### 属性说明
 备注
+
 #### 属性类型
 逻辑字段[来自计算式]
 
-
 #### 数据类型
-HTMLTEXT
+HTML文本，没有长度限制
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -418,12 +454,15 @@ t1.`comment`
 ### 属性-操作方式（ACTIONMANNER）
 #### 属性说明
 操作方式
+
 #### 属性类型
 逻辑字段[来自计算式]
 
-
 #### 数据类型
-SSCODELIST
+单项选择(文本值)
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -450,12 +489,15 @@ SSCODELIST
 ### 属性-当前用户（ISACTORSS）
 #### 属性说明
 当前用户
+
 #### 属性类型
 逻辑字段[来自计算式]
 
-
 #### 数据类型
-BIGINT
+大整型
+
+#### Java类型
+Long
 
 #### 是否允许为为空
 是
@@ -482,12 +524,15 @@ BIGINT
 ### 属性-显示日期（DATE1）
 #### 属性说明
 显示日期
+
 #### 属性类型
 逻辑字段[来自计算式]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -514,12 +559,15 @@ DATE_FORMAT(t1.date,'%m月%d日 %H:%i')
 ### 属性-今天（TODAY）
 #### 属性说明
 今天
+
 #### 属性类型
 逻辑字段[来自计算式]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -546,12 +594,15 @@ TEXT
 ### 属性-昨天（YESTERDAY）
 #### 属性说明
 昨天
+
 #### 属性类型
 逻辑字段[来自计算式]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -578,12 +629,15 @@ TEXT
 ### 属性-本周（THISWEEK）
 #### 属性说明
 本周
+
 #### 属性类型
 逻辑字段[来自计算式]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -610,12 +664,15 @@ TEXT
 ### 属性-上周（LASTWEEK）
 #### 属性说明
 上周
+
 #### 属性类型
 逻辑字段[来自计算式]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -642,12 +699,15 @@ TEXT
 ### 属性-本月（THISMONTH）
 #### 属性说明
 本月
+
 #### 属性类型
 逻辑字段[来自计算式]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -674,12 +734,15 @@ TEXT
 ### 属性-上月（LASTMONTH）
 #### 属性说明
 上月
+
 #### 属性类型
 逻辑字段[来自计算式]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -706,12 +769,15 @@ TEXT
 ### 属性-前端键值（SRFKEY）
 #### 属性说明
 前端键值
+
 #### 属性类型
 逻辑字段[来自计算式]
 
-
 #### 数据类型
-BIGINT
+大整型
+
+#### Java类型
+Long
 
 #### 是否允许为为空
 是
@@ -734,4 +800,112 @@ t1.id
 | 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
 | 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
+
+
+## 业务状态
+无
+
+## 实体行为
+| 序号 | 行为 | 行为名 | 行为类型 | 行为持有者 |
+| -- | -- | -- | -- | -- |
+| 1 | [Create](#实体行为-Create（Create）) | Create | 内置方法 | 后台及前台 |
+| 2 | [Update](#实体行为-Update（Update）) | Update | 内置方法 | 后台及前台 |
+| 3 | [Remove](#实体行为-Remove（Remove）) | Remove | 内置方法 | 后台及前台 |
+| 4 | [Get](#实体行为-Get（Get）) | Get | 内置方法 | 后台及前台 |
+| 5 | [GetDraft](#实体行为-GetDraft（GetDraft）) | GetDraft | 内置方法 | 后台及前台 |
+| 6 | [CheckKey](#实体行为-CheckKey（CheckKey）) | CheckKey | 内置方法 | 后台及前台 |
+| 7 | [添加备注](#实体行为-添加备注（Comment）) | Comment | 实体处理逻辑 | 后台 |
+| 8 | [编辑备注信息](#实体行为-编辑备注信息（editComment）) | editComment | 用户自定义 | 后台及前台 |
+| 9 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
+### 实体行为-Create（Create）
+#### 说明
+Create
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+### 实体行为-Update（Update）
+#### 说明
+Update
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+### 实体行为-Remove（Remove）
+#### 说明
+Remove
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+### 实体行为-Get（Get）
+#### 说明
+Get
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+### 实体行为-GetDraft（GetDraft）
+#### 说明
+GetDraft
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+### 实体行为-CheckKey（CheckKey）
+#### 说明
+CheckKey
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+### 实体行为-添加备注（Comment）
+#### 说明
+添加备注
+
+#### 行为类型
+实体处理逻辑
+
+#### 行为持有者
+后台
+
+### 实体行为-编辑备注信息（editComment）
+#### 说明
+编辑备注信息
+
+#### 行为类型
+用户自定义
+
+#### 行为持有者
+后台及前台
+
+### 实体行为-Save（Save）
+#### 说明
+Save
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+
 

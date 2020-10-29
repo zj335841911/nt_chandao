@@ -6,25 +6,28 @@ lang
 [禅道模块](../zentao)
 
 ## 实体属性
-| 序号 | 属性 | 属性名 | 数据类型 | 是否是主键 | 是否是外键 | 是否允许为空 | 关系属性（实体-属性） |
-| -- | -- | -- | -- | -- | -- |
-| 1 | [module](#属性-module（MODULE）) | MODULE | TEXT | 否 | 否 | 是 | -- |
-| 2 | [id](#属性-id（ID）) | ID | ACID | 是 | 否 | 否 | -- |
-| 3 | [key](#属性-key（KEY）) | KEY | TEXT | 否 | 否 | 是 | -- |
-| 4 | [section](#属性-section（SECTION）) | SECTION | TEXT | 否 | 否 | 是 | -- |
-| 5 | [lang](#属性-lang（LANG）) | LANG | TEXT | 否 | 否 | 是 | -- |
-| 6 | [system](#属性-system（SYSTEM）) | SYSTEM | SSCODELIST | 否 | 否 | 是 | -- |
-| 7 | [value](#属性-value（VALUE）) | VALUE | LONGTEXT | 否 | 否 | 是 | -- |
+| 序号 | 属性 | 属性名 | 数据类型 | 主键 | 外键 | 允许为空 |
+| -- | -- | -- | -- | -- | -- | -- |
+| 1 | [module](#属性-module（MODULE）) | MODULE | TEXT | 否 | 否 | 是 |
+| 2 | [id](#属性-id（ID）) | ID | ACID | 是 | 否 | 否 |
+| 3 | [key](#属性-key（KEY）) | KEY | TEXT | 否 | 否 | 是 |
+| 4 | [section](#属性-section（SECTION）) | SECTION | TEXT | 否 | 否 | 是 |
+| 5 | [lang](#属性-lang（LANG）) | LANG | TEXT | 否 | 否 | 是 |
+| 6 | [system](#属性-system（SYSTEM）) | SYSTEM | SSCODELIST | 否 | 否 | 是 |
+| 7 | [value](#属性-value（VALUE）) | VALUE | LONGTEXT | 否 | 否 | 是 |
 
 ### 属性-module（MODULE）
 #### 属性说明
 module
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -47,12 +50,15 @@ TEXT
 ### 属性-id（ID）
 #### 属性说明
 id
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-ACID
+自增标识，整数类型，用户不可见
+
+#### Java类型
+Long
 
 #### 是否允许为为空
 否
@@ -75,12 +81,15 @@ ACID
 ### 属性-key（KEY）
 #### 属性说明
 key
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -103,12 +112,15 @@ TEXT
 ### 属性-section（SECTION）
 #### 属性说明
 section
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -131,12 +143,15 @@ TEXT
 ### 属性-lang（LANG）
 #### 属性说明
 lang
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -159,12 +174,15 @@ TEXT
 ### 属性-system（SYSTEM）
 #### 属性说明
 system
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-SSCODELIST
+单项选择(文本值)
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -187,12 +205,15 @@ SSCODELIST
 ### 属性-value（VALUE）
 #### 属性说明
 value
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-LONGTEXT
+长文本，没有长度限制
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -211,4 +232,90 @@ LONGTEXT
 
 #### 关系属性
 无
+
+
+## 业务状态
+无
+
+## 实体行为
+| 序号 | 行为 | 行为名 | 行为类型 | 行为持有者 |
+| -- | -- | -- | -- | -- |
+| 1 | [Create](#实体行为-Create（Create）) | Create | 内置方法 | 后台及前台 |
+| 2 | [Update](#实体行为-Update（Update）) | Update | 内置方法 | 后台及前台 |
+| 3 | [Remove](#实体行为-Remove（Remove）) | Remove | 内置方法 | 后台及前台 |
+| 4 | [Get](#实体行为-Get（Get）) | Get | 内置方法 | 后台及前台 |
+| 5 | [GetDraft](#实体行为-GetDraft（GetDraft）) | GetDraft | 内置方法 | 后台及前台 |
+| 6 | [CheckKey](#实体行为-CheckKey（CheckKey）) | CheckKey | 内置方法 | 后台及前台 |
+| 7 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
+### 实体行为-Create（Create）
+#### 说明
+Create
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+### 实体行为-Update（Update）
+#### 说明
+Update
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+### 实体行为-Remove（Remove）
+#### 说明
+Remove
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+### 实体行为-Get（Get）
+#### 说明
+Get
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+### 实体行为-GetDraft（GetDraft）
+#### 说明
+GetDraft
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+### 实体行为-CheckKey（CheckKey）
+#### 说明
+CheckKey
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+### 实体行为-Save（Save）
+#### 说明
+Save
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+
 

@@ -6,26 +6,29 @@
 [禅道模块](../zentao)
 
 ## 实体属性
-| 序号 | 属性 | 属性名 | 数据类型 | 是否是主键 | 是否是外键 | 是否允许为空 | 关系属性（实体-属性） |
-| -- | -- | -- | -- | -- | -- |
-| 1 | [虚拟主键](#属性-虚拟主键（ID）) | ID | TEXT | 是 | 否 | 否 | -- |
-| 2 | [产品](#属性-产品（PRODUCTNAME）) | PRODUCTNAME | PICKUPTEXT | 否 | 是 | 是 | [产品（ZT_PRODUCT）](../zentao/Product) - [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
-| 3 | [项目](#属性-项目（PROJECTNAME）) | PROJECTNAME | PICKUPTEXT | 否 | 是 | 是 | [项目（ZT_PROJECT）](../zentao/Project) - [项目名称（NAME）](../zentao/Project/#属性-项目名称（NAME）) |
-| 4 | [计划名称](#属性-计划名称（PLANNAME）) | PLANNAME | PICKUPTEXT | 否 | 是 | 是 | [产品计划（ZT_PRODUCTPLAN）](../zentao/ProductPlan) - [名称（TITLE）](../zentao/ProductPlan/#属性-名称（TITLE）) |
-| 5 | [产品](#属性-产品（PRODUCT）) | PRODUCT | PICKUP | 否 | 是 | 否 | [产品（ZT_PRODUCT）](../zentao/Product) - [编号（ID）](../zentao/Product/#属性-编号（ID）) |
-| 6 | [产品计划](#属性-产品计划（PLAN）) | PLAN | PICKUP | 否 | 是 | 是 | [产品计划（ZT_PRODUCTPLAN）](../zentao/ProductPlan) - [编号（ID）](../zentao/ProductPlan/#属性-编号（ID）) |
-| 7 | [平台/分支](#属性-平台/分支（BRANCH）) | BRANCH | PICKUP | 否 | 是 | 是 | [产品的分支和平台信息（ZT_BRANCH）](../zentao/Branch) - [编号（ID）](../zentao/Branch/#属性-编号（ID）) |
-| 8 | [项目](#属性-项目（PROJECT）) | PROJECT | PICKUP | 否 | 是 | 否 | [项目（ZT_PROJECT）](../zentao/Project) - [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
+| 序号 | 属性 | 属性名 | 数据类型 | 主键 | 外键 | 允许为空 |
+| -- | -- | -- | -- | -- | -- | -- |
+| 1 | [虚拟主键](#属性-虚拟主键（ID）) | ID | TEXT | 是 | 否 | 否 |
+| 2 | [产品](#属性-产品（PRODUCTNAME）) | PRODUCTNAME | PICKUPTEXT | 否 | 是 | 是 |
+| 3 | [项目](#属性-项目（PROJECTNAME）) | PROJECTNAME | PICKUPTEXT | 否 | 是 | 是 |
+| 4 | [计划名称](#属性-计划名称（PLANNAME）) | PLANNAME | PICKUPTEXT | 否 | 是 | 是 |
+| 5 | [产品](#属性-产品（PRODUCT）) | PRODUCT | PICKUP | 否 | 是 | 否 |
+| 6 | [产品计划](#属性-产品计划（PLAN）) | PLAN | PICKUP | 否 | 是 | 是 |
+| 7 | [平台/分支](#属性-平台/分支（BRANCH）) | BRANCH | PICKUP | 否 | 是 | 是 |
+| 8 | [项目](#属性-项目（PROJECT）) | PROJECT | PICKUP | 否 | 是 | 否 |
 
 ### 属性-虚拟主键（ID）
 #### 属性说明
 虚拟主键
+
 #### 属性类型
 逻辑字段[来自计算式]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 否
@@ -52,12 +55,15 @@ concat(%1$s,'__',%2$s)
 ### 属性-产品（PRODUCTNAME）
 #### 属性说明
 产品
+
 #### 属性类型
 链接字段[来自关系实体字段]
 
-
 #### 数据类型
-PICKUPTEXT
+外键值文本
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -84,12 +90,15 @@ PICKUPTEXT
 ### 属性-项目（PROJECTNAME）
 #### 属性说明
 项目
+
 #### 属性类型
 链接字段[来自关系实体字段]
 
-
 #### 数据类型
-PICKUPTEXT
+外键值文本
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -116,12 +125,15 @@ PICKUPTEXT
 ### 属性-计划名称（PLANNAME）
 #### 属性说明
 计划名称
+
 #### 属性类型
 链接字段[来自关系实体字段]
 
-
 #### 数据类型
-PICKUPTEXT
+外键值文本
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -148,12 +160,15 @@ PICKUPTEXT
 ### 属性-产品（PRODUCT）
 #### 属性说明
 产品
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-PICKUP
+外键值
+
+#### Java类型
+Long
 
 #### 是否允许为为空
 否
@@ -180,12 +195,15 @@ PICKUP
 ### 属性-产品计划（PLAN）
 #### 属性说明
 产品计划
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-PICKUP
+外键值
+
+#### Java类型
+Long
 
 #### 是否允许为为空
 是
@@ -212,12 +230,15 @@ PICKUP
 ### 属性-平台/分支（BRANCH）
 #### 属性说明
 平台/分支
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-PICKUP
+外键值
+
+#### Java类型
+Long
 
 #### 是否允许为为空
 是
@@ -244,12 +265,15 @@ PICKUP
 ### 属性-项目（PROJECT）
 #### 属性说明
 项目
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-PICKUP
+外键值
+
+#### Java类型
+Long
 
 #### 是否允许为为空
 否
@@ -272,4 +296,90 @@ PICKUP
 | 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
 | 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
+
+
+## 业务状态
+无
+
+## 实体行为
+| 序号 | 行为 | 行为名 | 行为类型 | 行为持有者 |
+| -- | -- | -- | -- | -- |
+| 1 | [Create](#实体行为-Create（Create）) | Create | 内置方法 | 后台及前台 |
+| 2 | [Update](#实体行为-Update（Update）) | Update | 内置方法 | 后台及前台 |
+| 3 | [Remove](#实体行为-Remove（Remove）) | Remove | 内置方法 | 后台及前台 |
+| 4 | [Get](#实体行为-Get（Get）) | Get | 内置方法 | 后台及前台 |
+| 5 | [GetDraft](#实体行为-GetDraft（GetDraft）) | GetDraft | 内置方法 | 后台及前台 |
+| 6 | [CheckKey](#实体行为-CheckKey（CheckKey）) | CheckKey | 内置方法 | 后台及前台 |
+| 7 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
+### 实体行为-Create（Create）
+#### 说明
+Create
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+### 实体行为-Update（Update）
+#### 说明
+Update
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+### 实体行为-Remove（Remove）
+#### 说明
+Remove
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+### 实体行为-Get（Get）
+#### 说明
+Get
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+### 实体行为-GetDraft（GetDraft）
+#### 说明
+GetDraft
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+### 实体行为-CheckKey（CheckKey）
+#### 说明
+CheckKey
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+### 实体行为-Save（Save）
+#### 说明
+Save
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+
 

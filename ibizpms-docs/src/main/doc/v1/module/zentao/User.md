@@ -6,52 +6,55 @@
 [禅道模块](../zentao)
 
 ## 实体属性
-| 序号 | 属性 | 属性名 | 数据类型 | 是否是主键 | 是否是外键 | 是否允许为空 | 关系属性（实体-属性） |
-| -- | -- | -- | -- | -- | -- |
-| 1 | [密码](#属性-密码（PASSWORD）) | PASSWORD | TEXT | 否 | 否 | 是 | -- |
-| 2 | [通讯地址](#属性-通讯地址（ADDRESS）) | ADDRESS | TEXT | 否 | 否 | 是 | -- |
-| 3 | [微信](#属性-微信（WEIXIN）) | WEIXIN | TEXT | 否 | 否 | 是 | -- |
-| 4 | [钉钉](#属性-钉钉（DINGDING）) | DINGDING | TEXT | 否 | 否 | 是 | -- |
-| 5 | [fails](#属性-fails（FAILS）) | FAILS | INT | 否 | 否 | 是 | -- |
-| 6 | [slack](#属性-slack（SLACK）) | SLACK | TEXT | 否 | 否 | 是 | -- |
-| 7 | [ranzhi](#属性-ranzhi（RANZHI）) | RANZHI | TEXT | 否 | 否 | 是 | -- |
-| 8 | [账户](#属性-账户（ACCOUNT）) | ACCOUNT | TEXT | 否 | 否 | 是 | -- |
-| 9 | [locked](#属性-locked（LOCKED）) | LOCKED | DATETIME | 否 | 否 | 是 | -- |
-| 10 | [avatar](#属性-avatar（AVATAR）) | AVATAR | TEXT | 否 | 否 | 是 | -- |
-| 11 | [scoreLevel](#属性-scoreLevel（SCORELEVEL）) | SCORELEVEL | INT | 否 | 否 | 是 | -- |
-| 12 | [真实姓名](#属性-真实姓名（REALNAME）) | REALNAME | TEXT | 否 | 否 | 是 | -- |
-| 13 | [zipcode](#属性-zipcode（ZIPCODE）) | ZIPCODE | TEXT | 否 | 否 | 是 | -- |
-| 14 | [所属部门](#属性-所属部门（DEPT）) | DEPT | INT | 否 | 否 | 是 | -- |
-| 15 | [源代码账户](#属性-源代码账户（COMMITER）) | COMMITER | TEXT | 否 | 否 | 是 | -- |
-| 16 | [职位](#属性-职位（ROLE）) | ROLE | SSCODELIST | 否 | 否 | 是 | -- |
-| 17 | [逻辑删除标志](#属性-逻辑删除标志（DELETED）) | DELETED | TEXT | 否 | 否 | 是 | -- |
-| 18 | [最后登录](#属性-最后登录（LAST）) | LAST | INT | 否 | 否 | 是 | -- |
-| 19 | [clientStatus](#属性-clientStatus（CLIENTSTATUS）) | CLIENTSTATUS | SSCODELIST | 否 | 否 | 是 | -- |
-| 20 | [skype](#属性-skype（SKYPE）) | SKYPE | TEXT | 否 | 否 | 是 | -- |
-| 21 | [whatsapp](#属性-whatsapp（WHATSAPP）) | WHATSAPP | TEXT | 否 | 否 | 是 | -- |
-| 22 | [score](#属性-score（SCORE）) | SCORE | INT | 否 | 否 | 是 | -- |
-| 23 | [性别](#属性-性别（GENDER）) | GENDER | SSCODELIST | 否 | 否 | 是 | -- |
-| 24 | [手机](#属性-手机（MOBILE）) | MOBILE | TEXT | 否 | 否 | 是 | -- |
-| 25 | [clientLang](#属性-clientLang（CLIENTLANG）) | CLIENTLANG | TEXT | 否 | 否 | 是 | -- |
-| 26 | [访问次数](#属性-访问次数（VISITS）) | VISITS | INT | 否 | 否 | 是 | -- |
-| 27 | [入职日期](#属性-入职日期（JOIN）) | JOIN | DATE | 否 | 否 | 是 | -- |
-| 28 | [邮箱](#属性-邮箱（EMAIL）) | EMAIL | TEXT | 否 | 否 | 是 | -- |
-| 29 | [ip](#属性-ip（IP）) | IP | TEXT | 否 | 否 | 是 | -- |
-| 30 | [birthday](#属性-birthday（BIRTHDAY）) | BIRTHDAY | DATE | 否 | 否 | 是 | -- |
-| 31 | [nickname](#属性-nickname（NICKNAME）) | NICKNAME | TEXT | 否 | 否 | 是 | -- |
-| 32 | [电话](#属性-电话（PHONE）) | PHONE | TEXT | 否 | 否 | 是 | -- |
-| 33 | [ID](#属性-ID（ID）) | ID | ACID | 是 | 否 | 否 | -- |
-| 34 | [QQ](#属性-QQ（QQ）) | QQ | TEXT | 否 | 否 | 是 | -- |
+| 序号 | 属性 | 属性名 | 数据类型 | 主键 | 外键 | 允许为空 |
+| -- | -- | -- | -- | -- | -- | -- |
+| 1 | [密码](#属性-密码（PASSWORD）) | PASSWORD | TEXT | 否 | 否 | 是 |
+| 2 | [通讯地址](#属性-通讯地址（ADDRESS）) | ADDRESS | TEXT | 否 | 否 | 是 |
+| 3 | [微信](#属性-微信（WEIXIN）) | WEIXIN | TEXT | 否 | 否 | 是 |
+| 4 | [钉钉](#属性-钉钉（DINGDING）) | DINGDING | TEXT | 否 | 否 | 是 |
+| 5 | [fails](#属性-fails（FAILS）) | FAILS | INT | 否 | 否 | 是 |
+| 6 | [slack](#属性-slack（SLACK）) | SLACK | TEXT | 否 | 否 | 是 |
+| 7 | [ranzhi](#属性-ranzhi（RANZHI）) | RANZHI | TEXT | 否 | 否 | 是 |
+| 8 | [账户](#属性-账户（ACCOUNT）) | ACCOUNT | TEXT | 否 | 否 | 是 |
+| 9 | [locked](#属性-locked（LOCKED）) | LOCKED | DATETIME | 否 | 否 | 是 |
+| 10 | [avatar](#属性-avatar（AVATAR）) | AVATAR | TEXT | 否 | 否 | 是 |
+| 11 | [scoreLevel](#属性-scoreLevel（SCORELEVEL）) | SCORELEVEL | INT | 否 | 否 | 是 |
+| 12 | [真实姓名](#属性-真实姓名（REALNAME）) | REALNAME | TEXT | 否 | 否 | 是 |
+| 13 | [zipcode](#属性-zipcode（ZIPCODE）) | ZIPCODE | TEXT | 否 | 否 | 是 |
+| 14 | [所属部门](#属性-所属部门（DEPT）) | DEPT | INT | 否 | 否 | 是 |
+| 15 | [源代码账户](#属性-源代码账户（COMMITER）) | COMMITER | TEXT | 否 | 否 | 是 |
+| 16 | [职位](#属性-职位（ROLE）) | ROLE | SSCODELIST | 否 | 否 | 是 |
+| 17 | [逻辑删除标志](#属性-逻辑删除标志（DELETED）) | DELETED | TEXT | 否 | 否 | 是 |
+| 18 | [最后登录](#属性-最后登录（LAST）) | LAST | INT | 否 | 否 | 是 |
+| 19 | [clientStatus](#属性-clientStatus（CLIENTSTATUS）) | CLIENTSTATUS | SSCODELIST | 否 | 否 | 是 |
+| 20 | [skype](#属性-skype（SKYPE）) | SKYPE | TEXT | 否 | 否 | 是 |
+| 21 | [whatsapp](#属性-whatsapp（WHATSAPP）) | WHATSAPP | TEXT | 否 | 否 | 是 |
+| 22 | [score](#属性-score（SCORE）) | SCORE | INT | 否 | 否 | 是 |
+| 23 | [性别](#属性-性别（GENDER）) | GENDER | SSCODELIST | 否 | 否 | 是 |
+| 24 | [手机](#属性-手机（MOBILE）) | MOBILE | TEXT | 否 | 否 | 是 |
+| 25 | [clientLang](#属性-clientLang（CLIENTLANG）) | CLIENTLANG | TEXT | 否 | 否 | 是 |
+| 26 | [访问次数](#属性-访问次数（VISITS）) | VISITS | INT | 否 | 否 | 是 |
+| 27 | [入职日期](#属性-入职日期（JOIN）) | JOIN | DATE | 否 | 否 | 是 |
+| 28 | [邮箱](#属性-邮箱（EMAIL）) | EMAIL | TEXT | 否 | 否 | 是 |
+| 29 | [ip](#属性-ip（IP）) | IP | TEXT | 否 | 否 | 是 |
+| 30 | [birthday](#属性-birthday（BIRTHDAY）) | BIRTHDAY | DATE | 否 | 否 | 是 |
+| 31 | [nickname](#属性-nickname（NICKNAME）) | NICKNAME | TEXT | 否 | 否 | 是 |
+| 32 | [电话](#属性-电话（PHONE）) | PHONE | TEXT | 否 | 否 | 是 |
+| 33 | [ID](#属性-ID（ID）) | ID | ACID | 是 | 否 | 否 |
+| 34 | [QQ](#属性-QQ（QQ）) | QQ | TEXT | 否 | 否 | 是 |
 
 ### 属性-密码（PASSWORD）
 #### 属性说明
 密码
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -74,12 +77,15 @@ TEXT
 ### 属性-通讯地址（ADDRESS）
 #### 属性说明
 通讯地址
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -102,12 +108,15 @@ TEXT
 ### 属性-微信（WEIXIN）
 #### 属性说明
 微信
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -130,12 +139,15 @@ TEXT
 ### 属性-钉钉（DINGDING）
 #### 属性说明
 钉钉
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -158,12 +170,15 @@ TEXT
 ### 属性-fails（FAILS）
 #### 属性说明
 fails
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-INT
+整型
+
+#### Java类型
+Integer
 
 #### 是否允许为为空
 是
@@ -186,12 +201,15 @@ INT
 ### 属性-slack（SLACK）
 #### 属性说明
 slack
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -214,12 +232,15 @@ TEXT
 ### 属性-ranzhi（RANZHI）
 #### 属性说明
 ranzhi
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -242,12 +263,15 @@ TEXT
 ### 属性-账户（ACCOUNT）
 #### 属性说明
 账户
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -270,12 +294,15 @@ TEXT
 ### 属性-locked（LOCKED）
 #### 属性说明
 locked
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-DATETIME
+日期时间型
+
+#### Java类型
+Timestamp
 
 #### 是否允许为为空
 是
@@ -298,12 +325,15 @@ DATETIME
 ### 属性-avatar（AVATAR）
 #### 属性说明
 avatar
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -326,12 +356,15 @@ TEXT
 ### 属性-scoreLevel（SCORELEVEL）
 #### 属性说明
 scoreLevel
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-INT
+整型
+
+#### Java类型
+Integer
 
 #### 是否允许为为空
 是
@@ -354,12 +387,15 @@ INT
 ### 属性-真实姓名（REALNAME）
 #### 属性说明
 真实姓名
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -382,12 +418,15 @@ TEXT
 ### 属性-zipcode（ZIPCODE）
 #### 属性说明
 zipcode
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -410,12 +449,15 @@ TEXT
 ### 属性-所属部门（DEPT）
 #### 属性说明
 所属部门
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-INT
+整型
+
+#### Java类型
+Integer
 
 #### 是否允许为为空
 是
@@ -438,12 +480,15 @@ INT
 ### 属性-源代码账户（COMMITER）
 #### 属性说明
 用于关联UAA账号
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -466,12 +511,15 @@ TEXT
 ### 属性-职位（ROLE）
 #### 属性说明
 职位
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-SSCODELIST
+单项选择(文本值)
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -494,12 +542,15 @@ SSCODELIST
 ### 属性-逻辑删除标志（DELETED）
 #### 属性说明
 逻辑删除标志
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -522,12 +573,15 @@ TEXT
 ### 属性-最后登录（LAST）
 #### 属性说明
 最后登录
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-INT
+整型
+
+#### Java类型
+Integer
 
 #### 是否允许为为空
 是
@@ -550,12 +604,15 @@ INT
 ### 属性-clientStatus（CLIENTSTATUS）
 #### 属性说明
 clientStatus
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-SSCODELIST
+单项选择(文本值)
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -578,12 +635,15 @@ SSCODELIST
 ### 属性-skype（SKYPE）
 #### 属性说明
 skype
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -606,12 +666,15 @@ TEXT
 ### 属性-whatsapp（WHATSAPP）
 #### 属性说明
 whatsapp
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -634,12 +697,15 @@ TEXT
 ### 属性-score（SCORE）
 #### 属性说明
 score
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-INT
+整型
+
+#### Java类型
+Integer
 
 #### 是否允许为为空
 是
@@ -662,12 +728,15 @@ INT
 ### 属性-性别（GENDER）
 #### 属性说明
 性别
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-SSCODELIST
+单项选择(文本值)
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -690,12 +759,15 @@ SSCODELIST
 ### 属性-手机（MOBILE）
 #### 属性说明
 手机
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -718,12 +790,15 @@ TEXT
 ### 属性-clientLang（CLIENTLANG）
 #### 属性说明
 clientLang
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -746,12 +821,15 @@ TEXT
 ### 属性-访问次数（VISITS）
 #### 属性说明
 访问次数
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-INT
+整型
+
+#### Java类型
+Integer
 
 #### 是否允许为为空
 是
@@ -774,12 +852,15 @@ INT
 ### 属性-入职日期（JOIN）
 #### 属性说明
 入职日期
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-DATE
+日期型
+
+#### Java类型
+Timestamp
 
 #### 是否允许为为空
 是
@@ -802,12 +883,15 @@ DATE
 ### 属性-邮箱（EMAIL）
 #### 属性说明
 邮箱
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -830,12 +914,15 @@ TEXT
 ### 属性-ip（IP）
 #### 属性说明
 ip
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -858,12 +945,15 @@ TEXT
 ### 属性-birthday（BIRTHDAY）
 #### 属性说明
 birthday
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-DATE
+日期型
+
+#### Java类型
+Timestamp
 
 #### 是否允许为为空
 是
@@ -886,12 +976,15 @@ DATE
 ### 属性-nickname（NICKNAME）
 #### 属性说明
 nickname
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -914,12 +1007,15 @@ TEXT
 ### 属性-电话（PHONE）
 #### 属性说明
 电话
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -942,12 +1038,15 @@ TEXT
 ### 属性-ID（ID）
 #### 属性说明
 ID
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-ACID
+自增标识，整数类型，用户不可见
+
+#### Java类型
+Long
 
 #### 是否允许为为空
 否
@@ -970,12 +1069,15 @@ ACID
 ### 属性-QQ（QQ）
 #### 属性说明
 QQ
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -994,4 +1096,112 @@ TEXT
 
 #### 关系属性
 无
+
+
+## 业务状态
+无
+
+## 实体行为
+| 序号 | 行为 | 行为名 | 行为类型 | 行为持有者 |
+| -- | -- | -- | -- | -- |
+| 1 | [Create](#实体行为-Create（Create）) | Create | 内置方法 | 后台及前台 |
+| 2 | [Update](#实体行为-Update（Update）) | Update | 内置方法 | 后台及前台 |
+| 3 | [Remove](#实体行为-Remove（Remove）) | Remove | 内置方法 | 后台及前台 |
+| 4 | [Get](#实体行为-Get（Get）) | Get | 内置方法 | 后台及前台 |
+| 5 | [GetDraft](#实体行为-GetDraft（GetDraft）) | GetDraft | 内置方法 | 后台及前台 |
+| 6 | [CheckKey](#实体行为-CheckKey（CheckKey）) | CheckKey | 内置方法 | 后台及前台 |
+| 7 | [根据代码账户查询用户信息](#实体行为-根据代码账户查询用户信息（getByCommiter）) | getByCommiter | 内置方法 | 后台及前台 |
+| 8 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
+| 9 | [同步账号](#实体行为-同步账号（SyncAccount）) | SyncAccount | 用户自定义 | 后台及前台 |
+### 实体行为-Create（Create）
+#### 说明
+Create
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+### 实体行为-Update（Update）
+#### 说明
+Update
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+### 实体行为-Remove（Remove）
+#### 说明
+Remove
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+### 实体行为-Get（Get）
+#### 说明
+Get
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+### 实体行为-GetDraft（GetDraft）
+#### 说明
+GetDraft
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+### 实体行为-CheckKey（CheckKey）
+#### 说明
+CheckKey
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+### 实体行为-根据代码账户查询用户信息（getByCommiter）
+#### 说明
+根据代码账户查询用户信息
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+### 实体行为-Save（Save）
+#### 说明
+Save
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+### 实体行为-同步账号（SyncAccount）
+#### 说明
+同步账号
+
+#### 行为类型
+用户自定义
+
+#### 行为持有者
+后台及前台
+
+
 

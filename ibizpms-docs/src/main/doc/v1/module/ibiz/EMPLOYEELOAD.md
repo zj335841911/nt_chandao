@@ -6,33 +6,36 @@
 [iBiz增强模块](../ibiz)
 
 ## 实体属性
-| 序号 | 属性 | 属性名 | 数据类型 | 是否是主键 | 是否是外键 | 是否允许为空 | 关系属性（实体-属性） |
-| -- | -- | -- | -- | -- | -- |
-| 1 | [主键](#属性-主键（ID）) | ID | ACID | 是 | 否 | 是 | -- |
-| 2 | [任务名](#属性-任务名（NAME）) | NAME | TEXT | 否 | 否 | 是 | -- |
-| 3 | [任务数](#属性-任务数（TASKCNT）) | TASKCNT | INT | 否 | 否 | 是 | -- |
-| 4 | [项目编号](#属性-项目编号（PROJECT）) | PROJECT | PICKUP | 否 | 是 | 是 | [项目（ZT_PROJECT）](../zentao/Project) - [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
-| 5 | [项目](#属性-项目（PROJECTNAME）) | PROJECTNAME | PICKUPTEXT | 否 | 是 | 是 | [项目（ZT_PROJECT）](../zentao/Project) - [项目名称（NAME）](../zentao/Project/#属性-项目名称（NAME）) |
-| 6 | [总任务数](#属性-总任务数（TOTALTASKCNT）) | TOTALTASKCNT | INT | 否 | 是 | 是 | [项目（ZT_PROJECT）](../zentao/Project) - [项目名称（NAME）](../zentao/Project/#属性-项目名称（NAME）) |
-| 7 | [总工时](#属性-总工时（TOTALLEFT）) | TOTALLEFT | INT | 否 | 是 | 是 | [项目（ZT_PROJECT）](../zentao/Project) - [项目名称（NAME）](../zentao/Project/#属性-项目名称（NAME）) |
-| 8 | [剩余工时](#属性-剩余工时（LEFT）) | LEFT | INT | 否 | 是 | 是 | [项目（ZT_PROJECT）](../zentao/Project) - [项目名称（NAME）](../zentao/Project/#属性-项目名称（NAME）) |
-| 9 | [工作负载](#属性-工作负载（WORKLOAD）) | WORKLOAD | TEXT | 否 | 是 | 是 | [项目（ZT_PROJECT）](../zentao/Project) - [项目名称（NAME）](../zentao/Project/#属性-项目名称（NAME）) |
-| 10 | [指派给](#属性-指派给（ASSIGNEDTO）) | ASSIGNEDTO | SSCODELIST | 否 | 是 | 是 | [项目（ZT_PROJECT）](../zentao/Project) - [项目名称（NAME）](../zentao/Project/#属性-项目名称（NAME）) |
-| 11 | [部门](#属性-部门（DEPT）) | DEPT | SSCODELIST | 否 | 是 | 是 | [项目（ZT_PROJECT）](../zentao/Project) - [项目名称（NAME）](../zentao/Project/#属性-项目名称（NAME）) |
-| 12 | [属性](#属性-属性（BEGIN）) | BEGIN | DATE | 否 | 是 | 是 | [项目（ZT_PROJECT）](../zentao/Project) - [项目名称（NAME）](../zentao/Project/#属性-项目名称（NAME）) |
-| 13 | [结束](#属性-结束（END）) | END | DATE | 否 | 是 | 是 | [项目（ZT_PROJECT）](../zentao/Project) - [项目名称（NAME）](../zentao/Project/#属性-项目名称（NAME）) |
-| 14 | [工作日天数](#属性-工作日天数（WORKDAY）) | WORKDAY | INT | 否 | 是 | 是 | [项目（ZT_PROJECT）](../zentao/Project) - [项目名称（NAME）](../zentao/Project/#属性-项目名称（NAME）) |
-| 15 | [是否指派](#属性-是否指派（ASSIGN）) | ASSIGN | TEXT | 否 | 是 | 是 | [项目（ZT_PROJECT）](../zentao/Project) - [项目名称（NAME）](../zentao/Project/#属性-项目名称（NAME）) |
+| 序号 | 属性 | 属性名 | 数据类型 | 主键 | 外键 | 允许为空 |
+| -- | -- | -- | -- | -- | -- | -- |
+| 1 | [主键](#属性-主键（ID）) | ID | ACID | 是 | 否 | 是 |
+| 2 | [任务名](#属性-任务名（NAME）) | NAME | TEXT | 否 | 否 | 是 |
+| 3 | [任务数](#属性-任务数（TASKCNT）) | TASKCNT | INT | 否 | 否 | 是 |
+| 4 | [项目编号](#属性-项目编号（PROJECT）) | PROJECT | PICKUP | 否 | 是 | 是 |
+| 5 | [项目](#属性-项目（PROJECTNAME）) | PROJECTNAME | PICKUPTEXT | 否 | 是 | 是 |
+| 6 | [总任务数](#属性-总任务数（TOTALTASKCNT）) | TOTALTASKCNT | INT | 否 | 是 | 是 |
+| 7 | [总工时](#属性-总工时（TOTALLEFT）) | TOTALLEFT | INT | 否 | 是 | 是 |
+| 8 | [剩余工时](#属性-剩余工时（LEFT）) | LEFT | INT | 否 | 是 | 是 |
+| 9 | [工作负载](#属性-工作负载（WORKLOAD）) | WORKLOAD | TEXT | 否 | 是 | 是 |
+| 10 | [指派给](#属性-指派给（ASSIGNEDTO）) | ASSIGNEDTO | SSCODELIST | 否 | 是 | 是 |
+| 11 | [部门](#属性-部门（DEPT）) | DEPT | SSCODELIST | 否 | 是 | 是 |
+| 12 | [属性](#属性-属性（BEGIN）) | BEGIN | DATE | 否 | 是 | 是 |
+| 13 | [结束](#属性-结束（END）) | END | DATE | 否 | 是 | 是 |
+| 14 | [工作日天数](#属性-工作日天数（WORKDAY）) | WORKDAY | INT | 否 | 是 | 是 |
+| 15 | [是否指派](#属性-是否指派（ASSIGN）) | ASSIGN | TEXT | 否 | 是 | 是 |
 
 ### 属性-主键（ID）
 #### 属性说明
 主键
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-ACID
+自增标识，整数类型，用户不可见
+
+#### Java类型
+Long
 
 #### 是否允许为为空
 是
@@ -59,12 +62,15 @@ ACID
 ### 属性-任务名（NAME）
 #### 属性说明
 任务名
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -91,12 +97,15 @@ TEXT
 ### 属性-任务数（TASKCNT）
 #### 属性说明
 任务数
+
 #### 属性类型
 逻辑字段[来自计算式]
 
-
 #### 数据类型
-INT
+整型
+
+#### Java类型
+Integer
 
 #### 是否允许为为空
 是
@@ -123,12 +132,15 @@ INT
 ### 属性-项目编号（PROJECT）
 #### 属性说明
 项目编号
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-PICKUP
+外键值
+
+#### Java类型
+Long
 
 #### 是否允许为为空
 是
@@ -155,12 +167,15 @@ PICKUP
 ### 属性-项目（PROJECTNAME）
 #### 属性说明
 项目
+
 #### 属性类型
 链接字段[来自关系实体字段]
 
-
 #### 数据类型
-PICKUPTEXT
+外键值文本
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -187,12 +202,15 @@ PICKUPTEXT
 ### 属性-总任务数（TOTALTASKCNT）
 #### 属性说明
 总任务数
+
 #### 属性类型
 逻辑字段[来自计算式]
 
-
 #### 数据类型
-INT
+整型
+
+#### Java类型
+Integer
 
 #### 是否允许为为空
 是
@@ -219,12 +237,15 @@ INT
 ### 属性-总工时（TOTALLEFT）
 #### 属性说明
 总工时
+
 #### 属性类型
 逻辑字段[来自计算式]
 
-
 #### 数据类型
-INT
+整型
+
+#### Java类型
+Integer
 
 #### 是否允许为为空
 是
@@ -251,12 +272,15 @@ INT
 ### 属性-剩余工时（LEFT）
 #### 属性说明
 剩余工时
+
 #### 属性类型
 逻辑字段[来自计算式]
 
-
 #### 数据类型
-INT
+整型
+
+#### Java类型
+Integer
 
 #### 是否允许为为空
 是
@@ -283,12 +307,15 @@ INT
 ### 属性-工作负载（WORKLOAD）
 #### 属性说明
 工作负载
+
 #### 属性类型
 逻辑字段[来自计算式]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -315,12 +342,15 @@ TEXT
 ### 属性-指派给（ASSIGNEDTO）
 #### 属性说明
 指派给
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-SSCODELIST
+单项选择(文本值)
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -347,12 +377,15 @@ SSCODELIST
 ### 属性-部门（DEPT）
 #### 属性说明
 部门
+
 #### 属性类型
 应用界面字段[无存储]
 
-
 #### 数据类型
-SSCODELIST
+单项选择(文本值)
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -379,12 +412,15 @@ SSCODELIST
 ### 属性-属性（BEGIN）
 #### 属性说明
 属性
+
 #### 属性类型
 应用界面字段[无存储]
 
-
 #### 数据类型
-DATE
+日期型
+
+#### Java类型
+Timestamp
 
 #### 是否允许为为空
 是
@@ -411,12 +447,15 @@ DATE
 ### 属性-结束（END）
 #### 属性说明
 结束
+
 #### 属性类型
 应用界面字段[无存储]
 
-
 #### 数据类型
-DATE
+日期型
+
+#### Java类型
+Timestamp
 
 #### 是否允许为为空
 是
@@ -443,12 +482,15 @@ DATE
 ### 属性-工作日天数（WORKDAY）
 #### 属性说明
 工作日天数
+
 #### 属性类型
 应用界面字段[无存储]
 
-
 #### 数据类型
-INT
+整型
+
+#### Java类型
+Integer
 
 #### 是否允许为为空
 是
@@ -475,12 +517,15 @@ INT
 ### 属性-是否指派（ASSIGN）
 #### 属性说明
 是否指派
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -503,4 +548,101 @@ TEXT
 | 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
 | 关系属性 | [项目名称（NAME）](../zentao/Project/#属性-项目名称（NAME）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
+
+
+## 业务状态
+无
+
+## 实体行为
+| 序号 | 行为 | 行为名 | 行为类型 | 行为持有者 |
+| -- | -- | -- | -- | -- |
+| 1 | [Create](#实体行为-Create（Create）) | Create | 内置方法 | 后台及前台 |
+| 2 | [Update](#实体行为-Update（Update）) | Update | 内置方法 | 后台及前台 |
+| 3 | [Remove](#实体行为-Remove（Remove）) | Remove | 内置方法 | 后台及前台 |
+| 4 | [Get](#实体行为-Get（Get）) | Get | 内置方法 | 后台及前台 |
+| 5 | [GetDraft](#实体行为-GetDraft（GetDraft）) | GetDraft | 内置方法 | 后台及前台 |
+| 6 | [CheckKey](#实体行为-CheckKey（CheckKey）) | CheckKey | 内置方法 | 后台及前台 |
+| 7 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
+| 8 | [UpdateTime](#实体行为-UpdateTime（UpdateTime）) | UpdateTime | 用户自定义 | 前台 |
+### 实体行为-Create（Create）
+#### 说明
+Create
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+### 实体行为-Update（Update）
+#### 说明
+Update
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+### 实体行为-Remove（Remove）
+#### 说明
+Remove
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+### 实体行为-Get（Get）
+#### 说明
+Get
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+### 实体行为-GetDraft（GetDraft）
+#### 说明
+GetDraft
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+### 实体行为-CheckKey（CheckKey）
+#### 说明
+CheckKey
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+### 实体行为-Save（Save）
+#### 说明
+Save
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+### 实体行为-UpdateTime（UpdateTime）
+#### 说明
+UpdateTime
+
+#### 行为类型
+用户自定义
+
+#### 行为持有者
+前台
+
+
 

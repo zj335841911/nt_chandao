@@ -6,33 +6,36 @@
 [iBiz增强模块](../ibiz)
 
 ## 实体属性
-| 序号 | 属性 | 属性名 | 数据类型 | 是否是主键 | 是否是外键 | 是否允许为空 | 关系属性（实体-属性） |
-| -- | -- | -- | -- | -- | -- |
-| 1 | [角色](#属性-角色（ROLE）) | ROLE | TEXT | 否 | 否 | 是 | -- |
-| 2 | [编号](#属性-编号（ROOT）) | ROOT | PICKUP | 否 | 是 | 是 | [任务（ZT_TASK）](../zentao/Task) - [编号（ID）](../zentao/Task/#属性-编号（ID）) |
-| 3 | [受限用户](#属性-受限用户（LIMITED）) | LIMITED | SSCODELIST | 否 | 是 | 是 | [任务（ZT_TASK）](../zentao/Task) - [编号（ID）](../zentao/Task/#属性-编号（ID）) |
-| 4 | [总计可用](#属性-总计可用（TOTAL）) | TOTAL | INT | 否 | 是 | 是 | [任务（ZT_TASK）](../zentao/Task) - [编号（ID）](../zentao/Task/#属性-编号（ID）) |
-| 5 | [用户](#属性-用户（USERNAME）) | USERNAME | TEXT | 否 | 是 | 是 | [任务（ZT_TASK）](../zentao/Task) - [编号（ID）](../zentao/Task/#属性-编号（ID）) |
-| 6 | [排序](#属性-排序（ORDER）) | ORDER | INT | 否 | 是 | 是 | [任务（ZT_TASK）](../zentao/Task) - [编号（ID）](../zentao/Task/#属性-编号（ID）) |
-| 7 | [可用工日](#属性-可用工日（DAYS）) | DAYS | INT | 否 | 是 | 是 | [任务（ZT_TASK）](../zentao/Task) - [编号（ID）](../zentao/Task/#属性-编号（ID）) |
-| 8 | [团队类型](#属性-团队类型（TYPE）) | TYPE | SSCODELIST | 否 | 是 | 是 | [任务（ZT_TASK）](../zentao/Task) - [编号（ID）](../zentao/Task/#属性-编号（ID）) |
-| 9 | [最初预计](#属性-最初预计（ESTIMATE）) | ESTIMATE | FLOAT | 否 | 是 | 是 | [任务（ZT_TASK）](../zentao/Task) - [编号（ID）](../zentao/Task/#属性-编号（ID）) |
-| 10 | [用户](#属性-用户（ACCOUNT）) | ACCOUNT | TEXT | 否 | 是 | 是 | [任务（ZT_TASK）](../zentao/Task) - [编号（ID）](../zentao/Task/#属性-编号（ID）) |
-| 11 | [总计消耗](#属性-总计消耗（CONSUMED）) | CONSUMED | FLOAT | 否 | 是 | 是 | [任务（ZT_TASK）](../zentao/Task) - [编号（ID）](../zentao/Task/#属性-编号（ID）) |
-| 12 | [编号](#属性-编号（ID）) | ID | ACID | 是 | 是 | 否 | [任务（ZT_TASK）](../zentao/Task) - [编号（ID）](../zentao/Task/#属性-编号（ID）) |
-| 13 | [加盟日](#属性-加盟日（JOIN）) | JOIN | DATE | 否 | 是 | 是 | [任务（ZT_TASK）](../zentao/Task) - [编号（ID）](../zentao/Task/#属性-编号（ID）) |
-| 14 | [可用工时/天](#属性-可用工时/天（HOURS）) | HOURS | FLOAT | 否 | 是 | 是 | [任务（ZT_TASK）](../zentao/Task) - [编号（ID）](../zentao/Task/#属性-编号（ID）) |
-| 15 | [预计剩余](#属性-预计剩余（LEFT）) | LEFT | FLOAT | 否 | 是 | 是 | [任务（ZT_TASK）](../zentao/Task) - [编号（ID）](../zentao/Task/#属性-编号（ID）) |
+| 序号 | 属性 | 属性名 | 数据类型 | 主键 | 外键 | 允许为空 |
+| -- | -- | -- | -- | -- | -- | -- |
+| 1 | [角色](#属性-角色（ROLE）) | ROLE | TEXT | 否 | 否 | 是 |
+| 2 | [编号](#属性-编号（ROOT）) | ROOT | PICKUP | 否 | 是 | 是 |
+| 3 | [受限用户](#属性-受限用户（LIMITED）) | LIMITED | SSCODELIST | 否 | 是 | 是 |
+| 4 | [总计可用](#属性-总计可用（TOTAL）) | TOTAL | INT | 否 | 是 | 是 |
+| 5 | [用户](#属性-用户（USERNAME）) | USERNAME | TEXT | 否 | 是 | 是 |
+| 6 | [排序](#属性-排序（ORDER）) | ORDER | INT | 否 | 是 | 是 |
+| 7 | [可用工日](#属性-可用工日（DAYS）) | DAYS | INT | 否 | 是 | 是 |
+| 8 | [团队类型](#属性-团队类型（TYPE）) | TYPE | SSCODELIST | 否 | 是 | 是 |
+| 9 | [最初预计](#属性-最初预计（ESTIMATE）) | ESTIMATE | FLOAT | 否 | 是 | 是 |
+| 10 | [用户](#属性-用户（ACCOUNT）) | ACCOUNT | TEXT | 否 | 是 | 是 |
+| 11 | [总计消耗](#属性-总计消耗（CONSUMED）) | CONSUMED | FLOAT | 否 | 是 | 是 |
+| 12 | [编号](#属性-编号（ID）) | ID | ACID | 是 | 是 | 否 |
+| 13 | [加盟日](#属性-加盟日（JOIN）) | JOIN | DATE | 否 | 是 | 是 |
+| 14 | [可用工时/天](#属性-可用工时/天（HOURS）) | HOURS | FLOAT | 否 | 是 | 是 |
+| 15 | [预计剩余](#属性-预计剩余（LEFT）) | LEFT | FLOAT | 否 | 是 | 是 |
 
 ### 属性-角色（ROLE）
 #### 属性说明
 自动带入用户职位，可修改
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -59,12 +62,15 @@ TEXT
 ### 属性-编号（ROOT）
 #### 属性说明
 编号
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-PICKUP
+外键值
+
+#### Java类型
+Long
 
 #### 是否允许为为空
 是
@@ -91,12 +97,15 @@ PICKUP
 ### 属性-受限用户（LIMITED）
 #### 属性说明
 受限用户
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-SSCODELIST
+单项选择(文本值)
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -123,12 +132,15 @@ SSCODELIST
 ### 属性-总计可用（TOTAL）
 #### 属性说明
 总计可用
+
 #### 属性类型
 逻辑字段[来自计算式]
 
-
 #### 数据类型
-INT
+整型
+
+#### Java类型
+Integer
 
 #### 是否允许为为空
 是
@@ -155,12 +167,15 @@ INT
 ### 属性-用户（USERNAME）
 #### 属性说明
 用户
+
 #### 属性类型
 逻辑字段[来自计算式]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -187,12 +202,15 @@ t1.account
 ### 属性-排序（ORDER）
 #### 属性说明
 task需要排序处理人顺序,project使用id排序
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-INT
+整型
+
+#### Java类型
+Integer
 
 #### 是否允许为为空
 是
@@ -219,12 +237,15 @@ INT
 ### 属性-可用工日（DAYS）
 #### 属性说明
 可用工日
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-INT
+整型
+
+#### Java类型
+Integer
 
 #### 是否允许为为空
 是
@@ -251,12 +272,15 @@ INT
 ### 属性-团队类型（TYPE）
 #### 属性说明
 团队类型
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-SSCODELIST
+单项选择(文本值)
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -283,12 +307,15 @@ SSCODELIST
 ### 属性-最初预计（ESTIMATE）
 #### 属性说明
 最初预计
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-FLOAT
+浮点
+
+#### Java类型
+Double
 
 #### 是否允许为为空
 是
@@ -315,12 +342,15 @@ FLOAT
 ### 属性-用户（ACCOUNT）
 #### 属性说明
 用户
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -347,12 +377,15 @@ TEXT
 ### 属性-总计消耗（CONSUMED）
 #### 属性说明
 总计消耗
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-FLOAT
+浮点
+
+#### Java类型
+Double
 
 #### 是否允许为为空
 是
@@ -379,12 +412,15 @@ FLOAT
 ### 属性-编号（ID）
 #### 属性说明
 编号
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-ACID
+自增标识，整数类型，用户不可见
+
+#### Java类型
+Long
 
 #### 是否允许为为空
 否
@@ -411,12 +447,15 @@ ACID
 ### 属性-加盟日（JOIN）
 #### 属性说明
 加盟日
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-DATE
+日期型
+
+#### Java类型
+Timestamp
 
 #### 是否允许为为空
 是
@@ -443,12 +482,15 @@ DATE
 ### 属性-可用工时/天（HOURS）
 #### 属性说明
 可用工时/天
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-FLOAT
+浮点
+
+#### Java类型
+Double
 
 #### 是否允许为为空
 是
@@ -475,12 +517,15 @@ FLOAT
 ### 属性-预计剩余（LEFT）
 #### 属性说明
 预计剩余
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-FLOAT
+浮点
+
+#### Java类型
+Double
 
 #### 是否允许为为空
 是
@@ -503,4 +548,200 @@ FLOAT
 | 关系实体 | [任务（ZT_TASK）](../zentao/Task) |
 | 关系属性 | [编号（ID）](../zentao/Task/#属性-编号（ID）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
+
+
+## 业务状态
+无
+
+## 实体行为
+| 序号 | 行为 | 行为名 | 行为类型 | 行为持有者 |
+| -- | -- | -- | -- | -- |
+| 1 | [Create](#实体行为-Create（Create）) | Create | 内置方法 | 后台及前台 |
+| 2 | [CreateTemp](#实体行为-CreateTemp（CreateTemp）) | CreateTemp | 内置方法 | 前台 |
+| 3 | [CreateTempMajor](#实体行为-CreateTempMajor（CreateTempMajor）) | CreateTempMajor | 内置方法 | 前台 |
+| 4 | [Update](#实体行为-Update（Update）) | Update | 内置方法 | 后台及前台 |
+| 5 | [UpdateTemp](#实体行为-UpdateTemp（UpdateTemp）) | UpdateTemp | 内置方法 | 前台 |
+| 6 | [UpdateTempMajor](#实体行为-UpdateTempMajor（UpdateTempMajor）) | UpdateTempMajor | 内置方法 | 前台 |
+| 7 | [Remove](#实体行为-Remove（Remove）) | Remove | 内置方法 | 后台及前台 |
+| 8 | [RemoveTemp](#实体行为-RemoveTemp（RemoveTemp）) | RemoveTemp | 内置方法 | 前台 |
+| 9 | [RemoveTempMajor](#实体行为-RemoveTempMajor（RemoveTempMajor）) | RemoveTempMajor | 内置方法 | 前台 |
+| 10 | [Get](#实体行为-Get（Get）) | Get | 内置方法 | 后台及前台 |
+| 11 | [GetTemp](#实体行为-GetTemp（GetTemp）) | GetTemp | 内置方法 | 前台 |
+| 12 | [GetTempMajor](#实体行为-GetTempMajor（GetTempMajor）) | GetTempMajor | 内置方法 | 前台 |
+| 13 | [GetDraft](#实体行为-GetDraft（GetDraft）) | GetDraft | 内置方法 | 后台及前台 |
+| 14 | [GetDraftTemp](#实体行为-GetDraftTemp（GetDraftTemp）) | GetDraftTemp | 内置方法 | 前台 |
+| 15 | [GetDraftTempMajor](#实体行为-GetDraftTempMajor（GetDraftTempMajor）) | GetDraftTempMajor | 内置方法 | 前台 |
+| 16 | [CheckKey](#实体行为-CheckKey（CheckKey）) | CheckKey | 内置方法 | 后台及前台 |
+| 17 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
+### 实体行为-Create（Create）
+#### 说明
+Create
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+### 实体行为-CreateTemp（CreateTemp）
+#### 说明
+CreateTemp
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+前台
+
+### 实体行为-CreateTempMajor（CreateTempMajor）
+#### 说明
+CreateTempMajor
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+前台
+
+### 实体行为-Update（Update）
+#### 说明
+Update
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+### 实体行为-UpdateTemp（UpdateTemp）
+#### 说明
+UpdateTemp
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+前台
+
+### 实体行为-UpdateTempMajor（UpdateTempMajor）
+#### 说明
+UpdateTempMajor
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+前台
+
+### 实体行为-Remove（Remove）
+#### 说明
+Remove
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+### 实体行为-RemoveTemp（RemoveTemp）
+#### 说明
+RemoveTemp
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+前台
+
+### 实体行为-RemoveTempMajor（RemoveTempMajor）
+#### 说明
+RemoveTempMajor
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+前台
+
+### 实体行为-Get（Get）
+#### 说明
+Get
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+### 实体行为-GetTemp（GetTemp）
+#### 说明
+GetTemp
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+前台
+
+### 实体行为-GetTempMajor（GetTempMajor）
+#### 说明
+GetTempMajor
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+前台
+
+### 实体行为-GetDraft（GetDraft）
+#### 说明
+GetDraft
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+### 实体行为-GetDraftTemp（GetDraftTemp）
+#### 说明
+GetDraftTemp
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+前台
+
+### 实体行为-GetDraftTempMajor（GetDraftTempMajor）
+#### 说明
+GetDraftTempMajor
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+前台
+
+### 实体行为-CheckKey（CheckKey）
+#### 说明
+CheckKey
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+### 实体行为-Save（Save）
+#### 说明
+Save
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+
 

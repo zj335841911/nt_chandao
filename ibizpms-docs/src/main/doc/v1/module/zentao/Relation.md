@@ -6,30 +6,33 @@ relation
 [禅道模块](../zentao)
 
 ## 实体属性
-| 序号 | 属性 | 属性名 | 数据类型 | 是否是主键 | 是否是外键 | 是否允许为空 | 关系属性（实体-属性） |
-| -- | -- | -- | -- | -- | -- |
-| 1 | [BID](#属性-BID（BID）) | BID | INT | 否 | 否 | 是 | -- |
-| 2 | [AVersion](#属性-AVersion（AVERSION）) | AVERSION | TEXT | 否 | 否 | 是 | -- |
-| 3 | [BType](#属性-BType（BTYPE）) | BTYPE | TEXT | 否 | 否 | 是 | -- |
-| 4 | [project](#属性-project（PROJECT）) | PROJECT | INT | 否 | 否 | 是 | -- |
-| 5 | [extra](#属性-extra（EXTRA）) | EXTRA | TEXT | 否 | 否 | 是 | -- |
-| 6 | [relation](#属性-relation（RELATION）) | RELATION | TEXT | 否 | 否 | 是 | -- |
-| 7 | [id](#属性-id（ID）) | ID | ACID | 是 | 否 | 否 | -- |
-| 8 | [program](#属性-program（PROGRAM）) | PROGRAM | INT | 否 | 否 | 是 | -- |
-| 9 | [BVersion](#属性-BVersion（BVERSION）) | BVERSION | TEXT | 否 | 否 | 是 | -- |
-| 10 | [AType](#属性-AType（ATYPE）) | ATYPE | TEXT | 否 | 否 | 是 | -- |
-| 11 | [product](#属性-product（PRODUCT）) | PRODUCT | INT | 否 | 否 | 是 | -- |
-| 12 | [AID](#属性-AID（AID）) | AID | INT | 否 | 否 | 是 | -- |
+| 序号 | 属性 | 属性名 | 数据类型 | 主键 | 外键 | 允许为空 |
+| -- | -- | -- | -- | -- | -- | -- |
+| 1 | [BID](#属性-BID（BID）) | BID | INT | 否 | 否 | 是 |
+| 2 | [AVersion](#属性-AVersion（AVERSION）) | AVERSION | TEXT | 否 | 否 | 是 |
+| 3 | [BType](#属性-BType（BTYPE）) | BTYPE | TEXT | 否 | 否 | 是 |
+| 4 | [project](#属性-project（PROJECT）) | PROJECT | INT | 否 | 否 | 是 |
+| 5 | [extra](#属性-extra（EXTRA）) | EXTRA | TEXT | 否 | 否 | 是 |
+| 6 | [relation](#属性-relation（RELATION）) | RELATION | TEXT | 否 | 否 | 是 |
+| 7 | [id](#属性-id（ID）) | ID | ACID | 是 | 否 | 否 |
+| 8 | [program](#属性-program（PROGRAM）) | PROGRAM | INT | 否 | 否 | 是 |
+| 9 | [BVersion](#属性-BVersion（BVERSION）) | BVERSION | TEXT | 否 | 否 | 是 |
+| 10 | [AType](#属性-AType（ATYPE）) | ATYPE | TEXT | 否 | 否 | 是 |
+| 11 | [product](#属性-product（PRODUCT）) | PRODUCT | INT | 否 | 否 | 是 |
+| 12 | [AID](#属性-AID（AID）) | AID | INT | 否 | 否 | 是 |
 
 ### 属性-BID（BID）
 #### 属性说明
 BID
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-INT
+整型
+
+#### Java类型
+Integer
 
 #### 是否允许为为空
 是
@@ -52,12 +55,15 @@ INT
 ### 属性-AVersion（AVERSION）
 #### 属性说明
 AVersion
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -80,12 +86,15 @@ TEXT
 ### 属性-BType（BTYPE）
 #### 属性说明
 BType
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -108,12 +117,15 @@ TEXT
 ### 属性-project（PROJECT）
 #### 属性说明
 project
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-INT
+整型
+
+#### Java类型
+Integer
 
 #### 是否允许为为空
 是
@@ -136,12 +148,15 @@ INT
 ### 属性-extra（EXTRA）
 #### 属性说明
 extra
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -164,12 +179,15 @@ TEXT
 ### 属性-relation（RELATION）
 #### 属性说明
 relation
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -192,12 +210,15 @@ TEXT
 ### 属性-id（ID）
 #### 属性说明
 id
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-ACID
+自增标识，整数类型，用户不可见
+
+#### Java类型
+Long
 
 #### 是否允许为为空
 否
@@ -220,12 +241,15 @@ ACID
 ### 属性-program（PROGRAM）
 #### 属性说明
 program
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-INT
+整型
+
+#### Java类型
+Integer
 
 #### 是否允许为为空
 是
@@ -248,12 +272,15 @@ INT
 ### 属性-BVersion（BVERSION）
 #### 属性说明
 BVersion
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -276,12 +303,15 @@ TEXT
 ### 属性-AType（ATYPE）
 #### 属性说明
 AType
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -304,12 +334,15 @@ TEXT
 ### 属性-product（PRODUCT）
 #### 属性说明
 product
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-INT
+整型
+
+#### Java类型
+Integer
 
 #### 是否允许为为空
 是
@@ -332,12 +365,15 @@ INT
 ### 属性-AID（AID）
 #### 属性说明
 AID
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-INT
+整型
+
+#### Java类型
+Integer
 
 #### 是否允许为为空
 是
@@ -356,4 +392,90 @@ INT
 
 #### 关系属性
 无
+
+
+## 业务状态
+无
+
+## 实体行为
+| 序号 | 行为 | 行为名 | 行为类型 | 行为持有者 |
+| -- | -- | -- | -- | -- |
+| 1 | [Create](#实体行为-Create（Create）) | Create | 内置方法 | 后台及前台 |
+| 2 | [Update](#实体行为-Update（Update）) | Update | 内置方法 | 后台及前台 |
+| 3 | [Remove](#实体行为-Remove（Remove）) | Remove | 内置方法 | 后台及前台 |
+| 4 | [Get](#实体行为-Get（Get）) | Get | 内置方法 | 后台及前台 |
+| 5 | [GetDraft](#实体行为-GetDraft（GetDraft）) | GetDraft | 内置方法 | 后台及前台 |
+| 6 | [CheckKey](#实体行为-CheckKey（CheckKey）) | CheckKey | 内置方法 | 后台及前台 |
+| 7 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
+### 实体行为-Create（Create）
+#### 说明
+Create
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+### 实体行为-Update（Update）
+#### 说明
+Update
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+### 实体行为-Remove（Remove）
+#### 说明
+Remove
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+### 实体行为-Get（Get）
+#### 说明
+Get
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+### 实体行为-GetDraft（GetDraft）
+#### 说明
+GetDraft
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+### 实体行为-CheckKey（CheckKey）
+#### 说明
+CheckKey
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+### 实体行为-Save（Save）
+#### 说明
+Save
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+
 

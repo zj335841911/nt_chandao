@@ -6,36 +6,39 @@
 [禅道模块](../zentao)
 
 ## 实体属性
-| 序号 | 属性 | 属性名 | 数据类型 | 是否是主键 | 是否是外键 | 是否允许为空 | 关系属性（实体-属性） |
-| -- | -- | -- | -- | -- | -- |
-| 1 | [最后执行人](#属性-最后执行人（LASTRUNNER）) | LASTRUNNER | TEXT | 否 | 否 | 是 | -- |
-| 2 | [步骤结果](#属性-步骤结果（STEPRESULTS）) | STEPRESULTS | LONGTEXT | 否 | 否 | 是 | -- |
-| 3 | [测试结果](#属性-测试结果（CASERESULT）) | CASERESULT | SSCODELIST | 否 | 否 | 是 | -- |
-| 4 | [结果文件](#属性-结果文件（XML）) | XML | LONGTEXT | 否 | 否 | 是 | -- |
-| 5 | [持续时间](#属性-持续时间（DURATION）) | DURATION | FLOAT | 否 | 否 | 是 | -- |
-| 6 | [测试时间](#属性-测试时间（DATE）) | DATE | DATETIME | 否 | 否 | 是 | -- |
-| 7 | [编号](#属性-编号（ID）) | ID | ACID | 是 | 否 | 否 | -- |
-| 8 | [用例版本](#属性-用例版本（VERSION）) | VERSION | PICKUPDATA | 否 | 是 | 是 | [测试用例（ZT_CASE）](../zentao/Case) - [用例版本（VERSION）](../zentao/Case/#属性-用例版本（VERSION）) |
-| 9 | [构建任务](#属性-构建任务（JOB）) | JOB | PICKUP | 否 | 是 | 是 | [job（ZT_JOB）](../zentao/Job) - [id（ID）](../zentao/Job/#属性-id（ID）) |
-| 10 | [用例](#属性-用例（CASE）) | CASE | PICKUP | 否 | 是 | 是 | [测试用例（ZT_CASE）](../zentao/Case) - [用例编号（ID）](../zentao/Case/#属性-用例编号（ID）) |
-| 11 | [测试执行](#属性-测试执行（RUN）) | RUN | PICKUP | 否 | 是 | 是 | [测试运行（ZT_TESTRUN）](../zentao/TestRun) - [编号（ID）](../zentao/TestRun/#属性-编号（ID）) |
-| 12 | [代码编译](#属性-代码编译（COMPILE）) | COMPILE | PICKUP | 否 | 是 | 是 | [compile（ZT_COMPILE）](../zentao/Compile) - [id（ID）](../zentao/Compile/#属性-id（ID）) |
-| 13 | [属性](#属性-属性（TASK）) | TASK | TEXT | 否 | 是 | 是 | [compile（ZT_COMPILE）](../zentao/Compile) - [id（ID）](../zentao/Compile/#属性-id（ID）) |
-| 14 | [用例名称](#属性-用例名称（TITLE）) | TITLE | PICKUPDATA | 否 | 是 | 是 | [测试用例（ZT_CASE）](../zentao/Case) - [用例标题（TITLE）](../zentao/Case/#属性-用例标题（TITLE）) |
-| 15 | [相关需求](#属性-相关需求（STORY）) | STORY | PICKUPDATA | 否 | 是 | 是 | [测试用例（ZT_CASE）](../zentao/Case) - [相关需求（STORY）](../zentao/Case/#属性-相关需求（STORY）) |
-| 16 | [所属模块](#属性-所属模块（MODULE）) | MODULE | PICKUPDATA | 否 | 是 | 是 | [测试用例（ZT_CASE）](../zentao/Case) - [所属模块（MODULE）](../zentao/Case/#属性-所属模块（MODULE）) |
-| 17 | [所属产品](#属性-所属产品（PRODUCT）) | PRODUCT | PICKUPTEXT | 否 | 是 | 是 | [测试用例（ZT_CASE）](../zentao/Case) - [所属产品（PRODUCT）](../zentao/Case/#属性-所属产品（PRODUCT）) |
-| 18 | [前置条件](#属性-前置条件（PRECONDITION）) | PRECONDITION | PICKUPDATA | 否 | 是 | 是 | [测试用例（ZT_CASE）](../zentao/Case) - [前置条件（PRECONDITION）](../zentao/Case/#属性-前置条件（PRECONDITION）) |
+| 序号 | 属性 | 属性名 | 数据类型 | 主键 | 外键 | 允许为空 |
+| -- | -- | -- | -- | -- | -- | -- |
+| 1 | [最后执行人](#属性-最后执行人（LASTRUNNER）) | LASTRUNNER | TEXT | 否 | 否 | 是 |
+| 2 | [步骤结果](#属性-步骤结果（STEPRESULTS）) | STEPRESULTS | LONGTEXT | 否 | 否 | 是 |
+| 3 | [测试结果](#属性-测试结果（CASERESULT）) | CASERESULT | SSCODELIST | 否 | 否 | 是 |
+| 4 | [结果文件](#属性-结果文件（XML）) | XML | LONGTEXT | 否 | 否 | 是 |
+| 5 | [持续时间](#属性-持续时间（DURATION）) | DURATION | FLOAT | 否 | 否 | 是 |
+| 6 | [测试时间](#属性-测试时间（DATE）) | DATE | DATETIME | 否 | 否 | 是 |
+| 7 | [编号](#属性-编号（ID）) | ID | ACID | 是 | 否 | 否 |
+| 8 | [用例版本](#属性-用例版本（VERSION）) | VERSION | PICKUPDATA | 否 | 是 | 是 |
+| 9 | [构建任务](#属性-构建任务（JOB）) | JOB | PICKUP | 否 | 是 | 是 |
+| 10 | [用例](#属性-用例（CASE）) | CASE | PICKUP | 否 | 是 | 是 |
+| 11 | [测试执行](#属性-测试执行（RUN）) | RUN | PICKUP | 否 | 是 | 是 |
+| 12 | [代码编译](#属性-代码编译（COMPILE）) | COMPILE | PICKUP | 否 | 是 | 是 |
+| 13 | [属性](#属性-属性（TASK）) | TASK | TEXT | 否 | 是 | 是 |
+| 14 | [用例名称](#属性-用例名称（TITLE）) | TITLE | PICKUPDATA | 否 | 是 | 是 |
+| 15 | [相关需求](#属性-相关需求（STORY）) | STORY | PICKUPDATA | 否 | 是 | 是 |
+| 16 | [所属模块](#属性-所属模块（MODULE）) | MODULE | PICKUPDATA | 否 | 是 | 是 |
+| 17 | [所属产品](#属性-所属产品（PRODUCT）) | PRODUCT | PICKUPTEXT | 否 | 是 | 是 |
+| 18 | [前置条件](#属性-前置条件（PRECONDITION）) | PRECONDITION | PICKUPDATA | 否 | 是 | 是 |
 
 ### 属性-最后执行人（LASTRUNNER）
 #### 属性说明
 最后执行人
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -62,12 +65,15 @@ TEXT
 ### 属性-步骤结果（STEPRESULTS）
 #### 属性说明
 步骤结果
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-LONGTEXT
+长文本，没有长度限制
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -76,7 +82,7 @@ LONGTEXT
 | 项目 | 说明 |
 | -- | -- |
 | 类型 |  |
-| 值 | #EMPTY |
+| 值 |  |
 
 #### 取值范围/公式
 无
@@ -94,12 +100,15 @@ LONGTEXT
 ### 属性-测试结果（CASERESULT）
 #### 属性说明
 测试结果
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-SSCODELIST
+单项选择(文本值)
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -108,7 +117,7 @@ SSCODELIST
 | 项目 | 说明 |
 | -- | -- |
 | 类型 |  |
-| 值 | #EMPTY |
+| 值 |  |
 
 #### 取值范围/公式
 参照数据字典【[测试结果（Testresult__result）](../../codelist/Testresult__result)】
@@ -126,12 +135,15 @@ SSCODELIST
 ### 属性-结果文件（XML）
 #### 属性说明
 结果文件
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-LONGTEXT
+长文本，没有长度限制
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -140,7 +152,7 @@ LONGTEXT
 | 项目 | 说明 |
 | -- | -- |
 | 类型 |  |
-| 值 | #EMPTY |
+| 值 |  |
 
 #### 取值范围/公式
 无
@@ -158,12 +170,15 @@ LONGTEXT
 ### 属性-持续时间（DURATION）
 #### 属性说明
 持续时间
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-FLOAT
+浮点
+
+#### Java类型
+Double
 
 #### 是否允许为为空
 是
@@ -190,12 +205,15 @@ FLOAT
 ### 属性-测试时间（DATE）
 #### 属性说明
 测试时间
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-DATETIME
+日期时间型
+
+#### Java类型
+Timestamp
 
 #### 是否允许为为空
 是
@@ -222,12 +240,15 @@ DATETIME
 ### 属性-编号（ID）
 #### 属性说明
 编号
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-ACID
+自增标识，整数类型，用户不可见
+
+#### Java类型
+Long
 
 #### 是否允许为为空
 否
@@ -254,12 +275,15 @@ ACID
 ### 属性-用例版本（VERSION）
 #### 属性说明
 用例版本
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-PICKUPDATA
+外键值附加数据
+
+#### Java类型
+Integer
 
 #### 是否允许为为空
 是
@@ -286,12 +310,15 @@ PICKUPDATA
 ### 属性-构建任务（JOB）
 #### 属性说明
 构建任务
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-PICKUP
+外键值
+
+#### Java类型
+Long
 
 #### 是否允许为为空
 是
@@ -318,12 +345,15 @@ PICKUP
 ### 属性-用例（CASE）
 #### 属性说明
 用例
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-PICKUP
+外键值
+
+#### Java类型
+Long
 
 #### 是否允许为为空
 是
@@ -350,12 +380,15 @@ PICKUP
 ### 属性-测试执行（RUN）
 #### 属性说明
 测试执行
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-PICKUP
+外键值
+
+#### Java类型
+Long
 
 #### 是否允许为为空
 是
@@ -382,12 +415,15 @@ PICKUP
 ### 属性-代码编译（COMPILE）
 #### 属性说明
 代码编译
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-PICKUP
+外键值
+
+#### Java类型
+Long
 
 #### 是否允许为为空
 是
@@ -414,12 +450,15 @@ PICKUP
 ### 属性-属性（TASK）
 #### 属性说明
 属性
+
 #### 属性类型
 应用界面字段[无存储]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -446,12 +485,15 @@ TEXT
 ### 属性-用例名称（TITLE）
 #### 属性说明
 用例名称
+
 #### 属性类型
 应用界面字段[无存储]
 
-
 #### 数据类型
-PICKUPDATA
+外键值附加数据
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -478,12 +520,15 @@ PICKUPDATA
 ### 属性-相关需求（STORY）
 #### 属性说明
 相关需求
+
 #### 属性类型
 链接字段[来自关系实体字段]
 
-
 #### 数据类型
-PICKUPDATA
+外键值附加数据
+
+#### Java类型
+Long
 
 #### 是否允许为为空
 是
@@ -510,12 +555,15 @@ PICKUPDATA
 ### 属性-所属模块（MODULE）
 #### 属性说明
 所属模块
+
 #### 属性类型
 链接字段[来自关系实体字段]
 
-
 #### 数据类型
-PICKUPDATA
+外键值附加数据
+
+#### Java类型
+Long
 
 #### 是否允许为为空
 是
@@ -542,12 +590,15 @@ PICKUPDATA
 ### 属性-所属产品（PRODUCT）
 #### 属性说明
 所属产品
+
 #### 属性类型
 链接字段[来自关系实体字段]
 
-
 #### 数据类型
-PICKUPTEXT
+外键值文本
+
+#### Java类型
+Long
 
 #### 是否允许为为空
 是
@@ -574,12 +625,15 @@ PICKUPTEXT
 ### 属性-前置条件（PRECONDITION）
 #### 属性说明
 前置条件
+
 #### 属性类型
 链接字段[来自关系实体字段]
 
-
 #### 数据类型
-PICKUPDATA
+外键值附加数据
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -602,4 +656,90 @@ PICKUPDATA
 | 关系实体 | [测试用例（ZT_CASE）](../zentao/Case) |
 | 关系属性 | [前置条件（PRECONDITION）](../zentao/Case/#属性-前置条件（PRECONDITION）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
+
+
+## 业务状态
+无
+
+## 实体行为
+| 序号 | 行为 | 行为名 | 行为类型 | 行为持有者 |
+| -- | -- | -- | -- | -- |
+| 1 | [Create](#实体行为-Create（Create）) | Create | 内置方法 | 后台及前台 |
+| 2 | [Update](#实体行为-Update（Update）) | Update | 内置方法 | 后台及前台 |
+| 3 | [Remove](#实体行为-Remove（Remove）) | Remove | 内置方法 | 后台及前台 |
+| 4 | [Get](#实体行为-Get（Get）) | Get | 内置方法 | 后台及前台 |
+| 5 | [GetDraft](#实体行为-GetDraft（GetDraft）) | GetDraft | 内置方法 | 后台及前台 |
+| 6 | [CheckKey](#实体行为-CheckKey（CheckKey）) | CheckKey | 内置方法 | 后台及前台 |
+| 7 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
+### 实体行为-Create（Create）
+#### 说明
+Create
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+### 实体行为-Update（Update）
+#### 说明
+Update
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+### 实体行为-Remove（Remove）
+#### 说明
+Remove
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+### 实体行为-Get（Get）
+#### 说明
+Get
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+### 实体行为-GetDraft（GetDraft）
+#### 说明
+GetDraft
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+### 实体行为-CheckKey（CheckKey）
+#### 说明
+CheckKey
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+### 实体行为-Save（Save）
+#### 说明
+Save
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+
 

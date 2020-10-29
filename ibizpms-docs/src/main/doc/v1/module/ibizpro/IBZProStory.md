@@ -6,61 +6,64 @@
 [iBizPro模块](../ibizpro)
 
 ## 实体属性
-| 序号 | 属性 | 属性名 | 数据类型 | 是否是主键 | 是否是外键 | 是否允许为空 | 关系属性（实体-属性） |
-| -- | -- | -- | -- | -- | -- |
-| 1 | [编号](#属性-编号（ID）) | ID | ACID | 是 | 否 | 否 | -- |
-| 2 | [需求名称](#属性-需求名称（TITLE）) | TITLE | TEXT | 否 | 否 | 否 | -- |
-| 3 | [id](#属性-id（MODULE）) | MODULE | PICKUP | 否 | 是 | 是 | [需求模块（IBZPRO_STORYMODULE）](../ibizpro/IBZProStoryModule) - [id（ID）](../ibizpro/IBZProStoryModule/#属性-id（ID）) |
-| 4 | [编号](#属性-编号（PRODUCT）) | PRODUCT | PICKUP | 否 | 是 | 是 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) - [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
-| 5 | [IBIZ标识](#属性-IBIZ标识（IBIZ_ID）) | IBIZ_ID | TEXT | 否 | 是 | 是 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) - [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
-| 6 | [需求来源](#属性-需求来源（SOURCE）) | SOURCE | SSCODELIST | 否 | 是 | 是 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) - [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
-| 7 | [来源备注](#属性-来源备注（SOURCENOTE）) | SOURCENOTE | TEXT | 否 | 是 | 是 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) - [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
-| 8 | [来源对象](#属性-来源对象（IBIZ_SOURCEOBJECT）) | IBIZ_SOURCEOBJECT | SSCODELIST | 否 | 是 | 是 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) - [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
-| 9 | [来源对象名称](#属性-来源对象名称（IBIZ_SOURCENAME）) | IBIZ_SOURCENAME | TEXT | 否 | 是 | 是 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) - [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
-| 10 | [来源对象标识](#属性-来源对象标识（IBIZ_SOURCEID）) | IBIZ_SOURCEID | TEXT | 否 | 是 | 是 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) - [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
-| 11 | [版本号](#属性-版本号（VERSION）) | VERSION | INT | 否 | 是 | 是 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) - [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
-| 12 | [预计工时](#属性-预计工时（ESTIMATE）) | ESTIMATE | FLOAT | 否 | 是 | 是 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) - [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
-| 13 | [关键词](#属性-关键词（KEYWORDS）) | KEYWORDS | TEXT | 否 | 是 | 是 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) - [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
-| 14 | [创建日期](#属性-创建日期（OPENEDDATE）) | OPENEDDATE | DATETIME | 否 | 是 | 是 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) - [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
-| 15 | [最后修改日期](#属性-最后修改日期（LASTEDITEDDATE）) | LASTEDITEDDATE | DATETIME | 否 | 是 | 是 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) - [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
-| 16 | [已删除](#属性-已删除（DELETED）) | DELETED | TEXT | 否 | 是 | 是 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) - [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
-| 17 | [由谁创建](#属性-由谁创建（OPENEDBY）) | OPENEDBY | TEXT | 否 | 是 | 是 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) - [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
-| 18 | [状态](#属性-状态（STATUS）) | STATUS | SSCODELIST | 否 | 是 | 是 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) - [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
-| 19 | [需求类型](#属性-需求类型（TYPE）) | TYPE | SSCODELIST | 否 | 是 | 是 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) - [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
-| 20 | [需求阶段](#属性-需求阶段（STAGE）) | STAGE | SSCODELIST | 否 | 是 | 是 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) - [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
-| 21 | [优先级](#属性-优先级（PRI）) | PRI | INT | 否 | 是 | 是 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) - [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
-| 22 | [颜色](#属性-颜色（COLOR）) | COLOR | SSCODELIST | 否 | 是 | 是 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) - [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
-| 23 | [项目](#属性-项目（PROJECT）) | PROJECT | TEXT | 否 | 是 | 是 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) - [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
-| 24 | [设置阶段者](#属性-设置阶段者（STAGEDBY）) | STAGEDBY | SSCODELIST | 否 | 是 | 是 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) - [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
-| 25 | [指派给](#属性-指派给（ASSIGNEDTO）) | ASSIGNEDTO | TEXT | 否 | 是 | 是 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) - [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
-| 26 | [指派日期](#属性-指派日期（ASSIGNEDDATE）) | ASSIGNEDDATE | DATETIME | 否 | 是 | 是 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) - [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
-| 27 | [由谁评审](#属性-由谁评审（REVIEWEDBY）) | REVIEWEDBY | SMCODELIST | 否 | 是 | 是 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) - [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
-| 28 | [评审时间](#属性-评审时间（REVIEWEDDATE）) | REVIEWEDDATE | DATE | 否 | 是 | 是 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) - [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
-| 29 | [平台](#属性-平台（BRANCH）) | BRANCH | INT | 否 | 是 | 是 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) - [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
-| 30 | [抄送给](#属性-抄送给（MAILTO）) | MAILTO | TEXT | 否 | 是 | 是 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) - [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
-| 31 | [最后修改者](#属性-最后修改者（LASTEDITEDBY）) | LASTEDITEDBY | TEXT | 否 | 是 | 是 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) - [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
-| 32 | [需求细分](#属性-需求细分（CHILDSTORIES）) | CHILDSTORIES | TEXT | 否 | 是 | 是 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) - [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
-| 33 | [相关需求](#属性-相关需求（LINKSTORIES）) | LINKSTORIES | TEXT | 否 | 是 | 是 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) - [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
-| 34 | [由谁关闭](#属性-由谁关闭（CLOSEDBY）) | CLOSEDBY | TEXT | 否 | 是 | 是 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) - [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
-| 35 | [子状态](#属性-子状态（SUBSTATUS）) | SUBSTATUS | TEXT | 否 | 是 | 是 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) - [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
-| 36 | [关闭日期	](#属性-关闭日期	（CLOSEDDATE）) | CLOSEDDATE | DATETIME | 否 | 是 | 是 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) - [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
-| 37 | [关闭原因](#属性-关闭原因（CLOSEDREASON）) | CLOSEDREASON | TEXT | 否 | 是 | 是 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) - [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
-| 38 | [转Bug](#属性-转Bug（TOBUG）) | TOBUG | INT | 否 | 是 | 是 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) - [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
-| 39 | [重复需求](#属性-重复需求（DUPLICATESTORY）) | DUPLICATESTORY | INT | 否 | 是 | 是 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) - [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
-| 40 | [来源Bug](#属性-来源Bug（FROMBUG）) | FROMBUG | INT | 否 | 是 | 是 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) - [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
-| 41 | [需求描述](#属性-需求描述（SPEC）) | SPEC | TEXT | 否 | 是 | 是 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) - [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
-| 42 | [验收标准](#属性-验收标准（VERIFY）) | VERIFY | TEXT | 否 | 是 | 是 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) - [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
-| 43 | [备注](#属性-备注（COMMENT）) | COMMENT | HTMLTEXT | 否 | 是 | 是 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) - [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
+| 序号 | 属性 | 属性名 | 数据类型 | 主键 | 外键 | 允许为空 |
+| -- | -- | -- | -- | -- | -- | -- |
+| 1 | [编号](#属性-编号（ID）) | ID | ACID | 是 | 否 | 否 |
+| 2 | [需求名称](#属性-需求名称（TITLE）) | TITLE | TEXT | 否 | 否 | 否 |
+| 3 | [id](#属性-id（MODULE）) | MODULE | PICKUP | 否 | 是 | 是 |
+| 4 | [编号](#属性-编号（PRODUCT）) | PRODUCT | PICKUP | 否 | 是 | 是 |
+| 5 | [IBIZ标识](#属性-IBIZ标识（IBIZ_ID）) | IBIZ_ID | TEXT | 否 | 是 | 是 |
+| 6 | [需求来源](#属性-需求来源（SOURCE）) | SOURCE | SSCODELIST | 否 | 是 | 是 |
+| 7 | [来源备注](#属性-来源备注（SOURCENOTE）) | SOURCENOTE | TEXT | 否 | 是 | 是 |
+| 8 | [来源对象](#属性-来源对象（IBIZ_SOURCEOBJECT）) | IBIZ_SOURCEOBJECT | SSCODELIST | 否 | 是 | 是 |
+| 9 | [来源对象名称](#属性-来源对象名称（IBIZ_SOURCENAME）) | IBIZ_SOURCENAME | TEXT | 否 | 是 | 是 |
+| 10 | [来源对象标识](#属性-来源对象标识（IBIZ_SOURCEID）) | IBIZ_SOURCEID | TEXT | 否 | 是 | 是 |
+| 11 | [版本号](#属性-版本号（VERSION）) | VERSION | INT | 否 | 是 | 是 |
+| 12 | [预计工时](#属性-预计工时（ESTIMATE）) | ESTIMATE | FLOAT | 否 | 是 | 是 |
+| 13 | [关键词](#属性-关键词（KEYWORDS）) | KEYWORDS | TEXT | 否 | 是 | 是 |
+| 14 | [创建日期](#属性-创建日期（OPENEDDATE）) | OPENEDDATE | DATETIME | 否 | 是 | 是 |
+| 15 | [最后修改日期](#属性-最后修改日期（LASTEDITEDDATE）) | LASTEDITEDDATE | DATETIME | 否 | 是 | 是 |
+| 16 | [已删除](#属性-已删除（DELETED）) | DELETED | TEXT | 否 | 是 | 是 |
+| 17 | [由谁创建](#属性-由谁创建（OPENEDBY）) | OPENEDBY | TEXT | 否 | 是 | 是 |
+| 18 | [状态](#属性-状态（STATUS）) | STATUS | SSCODELIST | 否 | 是 | 是 |
+| 19 | [需求类型](#属性-需求类型（TYPE）) | TYPE | SSCODELIST | 否 | 是 | 是 |
+| 20 | [需求阶段](#属性-需求阶段（STAGE）) | STAGE | SSCODELIST | 否 | 是 | 是 |
+| 21 | [优先级](#属性-优先级（PRI）) | PRI | INT | 否 | 是 | 是 |
+| 22 | [颜色](#属性-颜色（COLOR）) | COLOR | SSCODELIST | 否 | 是 | 是 |
+| 23 | [项目](#属性-项目（PROJECT）) | PROJECT | TEXT | 否 | 是 | 是 |
+| 24 | [设置阶段者](#属性-设置阶段者（STAGEDBY）) | STAGEDBY | SSCODELIST | 否 | 是 | 是 |
+| 25 | [指派给](#属性-指派给（ASSIGNEDTO）) | ASSIGNEDTO | TEXT | 否 | 是 | 是 |
+| 26 | [指派日期](#属性-指派日期（ASSIGNEDDATE）) | ASSIGNEDDATE | DATETIME | 否 | 是 | 是 |
+| 27 | [由谁评审](#属性-由谁评审（REVIEWEDBY）) | REVIEWEDBY | SMCODELIST | 否 | 是 | 是 |
+| 28 | [评审时间](#属性-评审时间（REVIEWEDDATE）) | REVIEWEDDATE | DATE | 否 | 是 | 是 |
+| 29 | [平台](#属性-平台（BRANCH）) | BRANCH | INT | 否 | 是 | 是 |
+| 30 | [抄送给](#属性-抄送给（MAILTO）) | MAILTO | TEXT | 否 | 是 | 是 |
+| 31 | [最后修改者](#属性-最后修改者（LASTEDITEDBY）) | LASTEDITEDBY | TEXT | 否 | 是 | 是 |
+| 32 | [需求细分](#属性-需求细分（CHILDSTORIES）) | CHILDSTORIES | TEXT | 否 | 是 | 是 |
+| 33 | [相关需求](#属性-相关需求（LINKSTORIES）) | LINKSTORIES | TEXT | 否 | 是 | 是 |
+| 34 | [由谁关闭](#属性-由谁关闭（CLOSEDBY）) | CLOSEDBY | TEXT | 否 | 是 | 是 |
+| 35 | [子状态](#属性-子状态（SUBSTATUS）) | SUBSTATUS | TEXT | 否 | 是 | 是 |
+| 36 | [关闭日期	](#属性-关闭日期	（CLOSEDDATE）) | CLOSEDDATE | DATETIME | 否 | 是 | 是 |
+| 37 | [关闭原因](#属性-关闭原因（CLOSEDREASON）) | CLOSEDREASON | TEXT | 否 | 是 | 是 |
+| 38 | [转Bug](#属性-转Bug（TOBUG）) | TOBUG | INT | 否 | 是 | 是 |
+| 39 | [重复需求](#属性-重复需求（DUPLICATESTORY）) | DUPLICATESTORY | INT | 否 | 是 | 是 |
+| 40 | [来源Bug](#属性-来源Bug（FROMBUG）) | FROMBUG | INT | 否 | 是 | 是 |
+| 41 | [需求描述](#属性-需求描述（SPEC）) | SPEC | TEXT | 否 | 是 | 是 |
+| 42 | [验收标准](#属性-验收标准（VERIFY）) | VERIFY | TEXT | 否 | 是 | 是 |
+| 43 | [备注](#属性-备注（COMMENT）) | COMMENT | HTMLTEXT | 否 | 是 | 是 |
 
 ### 属性-编号（ID）
 #### 属性说明
 编号
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-ACID
+自增标识，整数类型，用户不可见
+
+#### Java类型
+Long
 
 #### 是否允许为为空
 否
@@ -87,12 +90,15 @@ ACID
 ### 属性-需求名称（TITLE）
 #### 属性说明
 需求名称
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 否
@@ -119,12 +125,15 @@ TEXT
 ### 属性-id（MODULE）
 #### 属性说明
 id
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-PICKUP
+外键值
+
+#### Java类型
+Long
 
 #### 是否允许为为空
 是
@@ -151,12 +160,15 @@ PICKUP
 ### 属性-编号（PRODUCT）
 #### 属性说明
 编号
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-PICKUP
+外键值
+
+#### Java类型
+Long
 
 #### 是否允许为为空
 是
@@ -183,12 +195,15 @@ PICKUP
 ### 属性-IBIZ标识（IBIZ_ID）
 #### 属性说明
 IBIZ标识
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -215,12 +230,15 @@ TEXT
 ### 属性-需求来源（SOURCE）
 #### 属性说明
 需求来源
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-SSCODELIST
+单项选择(文本值)
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -247,12 +265,15 @@ SSCODELIST
 ### 属性-来源备注（SOURCENOTE）
 #### 属性说明
 来源备注
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -279,12 +300,15 @@ TEXT
 ### 属性-来源对象（IBIZ_SOURCEOBJECT）
 #### 属性说明
 来源对象
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-SSCODELIST
+单项选择(文本值)
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -311,12 +335,15 @@ SSCODELIST
 ### 属性-来源对象名称（IBIZ_SOURCENAME）
 #### 属性说明
 来源对象名称
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -343,12 +370,15 @@ TEXT
 ### 属性-来源对象标识（IBIZ_SOURCEID）
 #### 属性说明
 来源对象标识
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -375,12 +405,15 @@ TEXT
 ### 属性-版本号（VERSION）
 #### 属性说明
 每次更新内容，会自动加1（只有真正更新数据才会更新，例如打开编辑/变更需求，没有进行任何修改点击保存，是不会更新该笔数据）
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-INT
+整型
+
+#### Java类型
+Integer
 
 #### 是否允许为为空
 是
@@ -407,12 +440,15 @@ INT
 ### 属性-预计工时（ESTIMATE）
 #### 属性说明
 预计工时
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-FLOAT
+浮点
+
+#### Java类型
+Double
 
 #### 是否允许为为空
 是
@@ -439,12 +475,15 @@ FLOAT
 ### 属性-关键词（KEYWORDS）
 #### 属性说明
 关键词
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -471,12 +510,15 @@ TEXT
 ### 属性-创建日期（OPENEDDATE）
 #### 属性说明
 创建日期
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-DATETIME
+日期时间型
+
+#### Java类型
+Timestamp
 
 #### 是否允许为为空
 是
@@ -503,12 +545,15 @@ DATETIME
 ### 属性-最后修改日期（LASTEDITEDDATE）
 #### 属性说明
 最后修改日期
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-DATETIME
+日期时间型
+
+#### Java类型
+Timestamp
 
 #### 是否允许为为空
 是
@@ -535,12 +580,15 @@ DATETIME
 ### 属性-已删除（DELETED）
 #### 属性说明
 已删除
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -567,12 +615,15 @@ TEXT
 ### 属性-由谁创建（OPENEDBY）
 #### 属性说明
 由谁创建
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -599,12 +650,15 @@ TEXT
 ### 属性-状态（STATUS）
 #### 属性说明
 状态
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-SSCODELIST
+单项选择(文本值)
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -631,12 +685,15 @@ SSCODELIST
 ### 属性-需求类型（TYPE）
 #### 属性说明
 需求类型
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-SSCODELIST
+单项选择(文本值)
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -663,12 +720,15 @@ SSCODELIST
 ### 属性-需求阶段（STAGE）
 #### 属性说明
 需求阶段
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-SSCODELIST
+单项选择(文本值)
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -695,12 +755,15 @@ SSCODELIST
 ### 属性-优先级（PRI）
 #### 属性说明
 优先级
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-INT
+整型
+
+#### Java类型
+Integer
 
 #### 是否允许为为空
 是
@@ -727,12 +790,15 @@ INT
 ### 属性-颜色（COLOR）
 #### 属性说明
 颜色
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-SSCODELIST
+单项选择(文本值)
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -759,12 +825,15 @@ SSCODELIST
 ### 属性-项目（PROJECT）
 #### 属性说明
 项目
+
 #### 属性类型
 应用界面字段[无存储]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -791,12 +860,15 @@ TEXT
 ### 属性-设置阶段者（STAGEDBY）
 #### 属性说明
 设置阶段者
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-SSCODELIST
+单项选择(文本值)
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -823,12 +895,15 @@ SSCODELIST
 ### 属性-指派给（ASSIGNEDTO）
 #### 属性说明
 指派给
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -855,12 +930,15 @@ TEXT
 ### 属性-指派日期（ASSIGNEDDATE）
 #### 属性说明
 指派日期
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-DATETIME
+日期时间型
+
+#### Java类型
+Timestamp
 
 #### 是否允许为为空
 是
@@ -887,12 +965,15 @@ DATETIME
 ### 属性-由谁评审（REVIEWEDBY）
 #### 属性说明
 由谁评审
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-SMCODELIST
+多项选择(文本值)
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -919,12 +1000,15 @@ SMCODELIST
 ### 属性-评审时间（REVIEWEDDATE）
 #### 属性说明
 评审时间
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-DATE
+日期型
+
+#### Java类型
+Timestamp
 
 #### 是否允许为为空
 是
@@ -951,12 +1035,15 @@ DATE
 ### 属性-平台（BRANCH）
 #### 属性说明
 平台
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-INT
+整型
+
+#### Java类型
+Integer
 
 #### 是否允许为为空
 是
@@ -983,12 +1070,15 @@ INT
 ### 属性-抄送给（MAILTO）
 #### 属性说明
 抄送给
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -1015,12 +1105,15 @@ TEXT
 ### 属性-最后修改者（LASTEDITEDBY）
 #### 属性说明
 最后修改者
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -1047,12 +1140,15 @@ TEXT
 ### 属性-需求细分（CHILDSTORIES）
 #### 属性说明
 需求细分
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -1079,12 +1175,15 @@ TEXT
 ### 属性-相关需求（LINKSTORIES）
 #### 属性说明
 相关需求
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -1111,12 +1210,15 @@ TEXT
 ### 属性-由谁关闭（CLOSEDBY）
 #### 属性说明
 由谁关闭
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -1143,12 +1245,15 @@ TEXT
 ### 属性-子状态（SUBSTATUS）
 #### 属性说明
 子状态
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -1175,12 +1280,15 @@ TEXT
 ### 属性-关闭日期	（CLOSEDDATE）
 #### 属性说明
 关闭日期	
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-DATETIME
+日期时间型
+
+#### Java类型
+Timestamp
 
 #### 是否允许为为空
 是
@@ -1207,12 +1315,15 @@ DATETIME
 ### 属性-关闭原因（CLOSEDREASON）
 #### 属性说明
 关闭原因
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -1239,12 +1350,15 @@ TEXT
 ### 属性-转Bug（TOBUG）
 #### 属性说明
 转Bug
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-INT
+整型
+
+#### Java类型
+Integer
 
 #### 是否允许为为空
 是
@@ -1271,12 +1385,15 @@ INT
 ### 属性-重复需求（DUPLICATESTORY）
 #### 属性说明
 重复需求
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-INT
+整型
+
+#### Java类型
+Integer
 
 #### 是否允许为为空
 是
@@ -1303,12 +1420,15 @@ INT
 ### 属性-来源Bug（FROMBUG）
 #### 属性说明
 来源Bug
+
 #### 属性类型
 物理字段[来自当前实体物理表字段]
 
-
 #### 数据类型
-INT
+整型
+
+#### Java类型
+Integer
 
 #### 是否允许为为空
 是
@@ -1335,12 +1455,15 @@ INT
 ### 属性-需求描述（SPEC）
 #### 属性说明
 需求描述
+
 #### 属性类型
 应用界面字段[无存储]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -1367,12 +1490,15 @@ TEXT
 ### 属性-验收标准（VERIFY）
 #### 属性说明
 验收标准
+
 #### 属性类型
 应用界面字段[无存储]
 
-
 #### 数据类型
-TEXT
+文本，可指定长度
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -1399,12 +1525,15 @@ TEXT
 ### 属性-备注（COMMENT）
 #### 属性说明
 备注
+
 #### 属性类型
 应用界面字段[无存储]
 
-
 #### 数据类型
-HTMLTEXT
+HTML文本，没有长度限制
+
+#### Java类型
+String
 
 #### 是否允许为为空
 是
@@ -1427,4 +1556,101 @@ HTMLTEXT
 | 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
 | 关系属性 | [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
+
+
+## 业务状态
+无
+
+## 实体行为
+| 序号 | 行为 | 行为名 | 行为类型 | 行为持有者 |
+| -- | -- | -- | -- | -- |
+| 1 | [Create](#实体行为-Create（Create）) | Create | 内置方法 | 后台及前台 |
+| 2 | [Update](#实体行为-Update（Update）) | Update | 内置方法 | 后台及前台 |
+| 3 | [Remove](#实体行为-Remove（Remove）) | Remove | 内置方法 | 后台及前台 |
+| 4 | [Get](#实体行为-Get（Get）) | Get | 内置方法 | 后台及前台 |
+| 5 | [GetDraft](#实体行为-GetDraft（GetDraft）) | GetDraft | 内置方法 | 后台及前台 |
+| 6 | [CheckKey](#实体行为-CheckKey（CheckKey）) | CheckKey | 内置方法 | 后台及前台 |
+| 7 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
+| 8 | [同步Ibz平台需求](#实体行为-同步Ibz平台需求（SyncFromIBIZ）) | SyncFromIBIZ | 用户自定义 | 后台及前台 |
+### 实体行为-Create（Create）
+#### 说明
+Create
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+### 实体行为-Update（Update）
+#### 说明
+Update
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+### 实体行为-Remove（Remove）
+#### 说明
+Remove
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+### 实体行为-Get（Get）
+#### 说明
+Get
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+### 实体行为-GetDraft（GetDraft）
+#### 说明
+GetDraft
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+### 实体行为-CheckKey（CheckKey）
+#### 说明
+CheckKey
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+### 实体行为-Save（Save）
+#### 说明
+Save
+
+#### 行为类型
+内置方法
+
+#### 行为持有者
+后台及前台
+
+### 实体行为-同步Ibz平台需求（SyncFromIBIZ）
+#### 说明
+同步Ibz平台需求
+
+#### 行为类型
+用户自定义
+
+#### 行为持有者
+后台及前台
+
+
 
