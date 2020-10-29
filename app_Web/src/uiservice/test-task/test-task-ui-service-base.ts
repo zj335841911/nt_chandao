@@ -326,7 +326,6 @@ export default class TestTaskUIServiceBase extends UIService {
                     return;
                 }
                 actionContext.$Notice.success({ title: '成功', desc: '已删除' });
-
                 const _this: any = actionContext;
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);

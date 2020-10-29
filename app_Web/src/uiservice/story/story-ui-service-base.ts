@@ -547,7 +547,6 @@ export default class StoryUIServiceBase extends UIService {
                     return;
                 }
                 actionContext.$Notice.success({ title: '成功', desc: '关联需求成功！' });
-
                 const _this: any = actionContext;
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
@@ -645,7 +644,6 @@ export default class StoryUIServiceBase extends UIService {
                     return;
                 }
                 actionContext.$Notice.success({ title: '成功', desc: '已移除' });
-
                 const _this: any = actionContext;
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
@@ -924,7 +922,6 @@ export default class StoryUIServiceBase extends UIService {
                     return;
                 }
                 actionContext.$Notice.success({ title: '成功', desc: '已删除' });
-
                 const _this: any = actionContext;
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
@@ -1009,7 +1006,6 @@ export default class StoryUIServiceBase extends UIService {
                     return;
                 }
                 actionContext.$Notice.success({ title: '成功', desc: '取消收藏成功！' });
-
                 const _this: any = actionContext;
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
@@ -1083,7 +1079,6 @@ export default class StoryUIServiceBase extends UIService {
                     return;
                 }
                 actionContext.$Notice.success({ title: '成功', desc: '移除关联成功！' });
-
                 const _this: any = actionContext;
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
@@ -1387,7 +1382,6 @@ export default class StoryUIServiceBase extends UIService {
                     return;
                 }
                 actionContext.$Notice.success({ title: '成功', desc: '关联需求成功！' });
-
                 const _this: any = actionContext;
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
@@ -1535,7 +1529,6 @@ export default class StoryUIServiceBase extends UIService {
                     return;
                 }
                 actionContext.$Notice.success({ title: '成功', desc: '关联需求成功！' });
-
                 const _this: any = actionContext;
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
@@ -1633,7 +1626,6 @@ export default class StoryUIServiceBase extends UIService {
                     return;
                 }
                 actionContext.$Notice.success({ title: '成功', desc: '解绑需求成功！' });
-
                 const _this: any = actionContext;
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
@@ -1900,7 +1892,6 @@ export default class StoryUIServiceBase extends UIService {
                     return;
                 }
                 actionContext.$Notice.success({ title: '成功', desc: '关联需求成功！' });
-
                 const _this: any = actionContext;
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
@@ -2051,7 +2042,6 @@ export default class StoryUIServiceBase extends UIService {
                     return;
                 }
                 actionContext.$Notice.success({ title: '成功', desc: '收藏成功！' });
-
                 const _this: any = actionContext;
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
@@ -2338,7 +2328,6 @@ export default class StoryUIServiceBase extends UIService {
                     return;
                 }
                 actionContext.$Notice.success({ title: '成功', desc: '移除成功' });
-
                 const _this: any = actionContext;
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);

@@ -190,7 +190,6 @@ export default class ProductUIServiceBase extends UIService {
                     return;
                 }
                 actionContext.$Notice.success({ title: '成功', desc: '取消置顶成功！' });
-
                 const _this: any = actionContext;
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
@@ -569,7 +568,6 @@ export default class ProductUIServiceBase extends UIService {
                     return;
                 }
                 actionContext.$Notice.success({ title: '成功', desc: '置顶成功！' });
-
                 const _this: any = actionContext;
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
@@ -711,7 +709,6 @@ export default class ProductUIServiceBase extends UIService {
                     return;
                 }
                 actionContext.$Notice.success({ title: '成功', desc: '已删除' });
-
                 const _this: any = actionContext;
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);

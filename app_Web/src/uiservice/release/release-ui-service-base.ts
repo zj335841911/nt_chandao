@@ -188,7 +188,6 @@ export default class ReleaseUIServiceBase extends UIService {
                     return;
                 }
                 actionContext.$Notice.success({ title: '成功', desc: '删除成功！' });
-
                 const _this: any = actionContext;
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
@@ -260,7 +259,6 @@ export default class ReleaseUIServiceBase extends UIService {
                     return;
                 }
                 actionContext.$Notice.success({ title: '成功', desc: '停止维护成功！' });
-
                 const _this: any = actionContext;
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
@@ -465,7 +463,6 @@ export default class ReleaseUIServiceBase extends UIService {
                     return;
                 }
                 actionContext.$Notice.success({ title: '成功', desc: '关联bug成功！' });
-
                 const _this: any = actionContext;
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
@@ -550,7 +547,6 @@ export default class ReleaseUIServiceBase extends UIService {
                     return;
                 }
                 actionContext.$Notice.success({ title: '成功', desc: '激活成功！' });
-
                 const _this: any = actionContext;
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
@@ -624,7 +620,6 @@ export default class ReleaseUIServiceBase extends UIService {
                     return;
                 }
                 actionContext.$Notice.success({ title: '成功', desc: '关联需求成功！' });
-
                 const _this: any = actionContext;
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);

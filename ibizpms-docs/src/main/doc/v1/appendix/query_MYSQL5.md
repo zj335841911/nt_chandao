@@ -13021,7 +13021,11 @@ AND
 ```
 ### todo任务列表查询(TodoListTask)<div id="Task_TodoListTask"></div>
 ```sql
-select  t1.* from (SELECT
+SELECT
+	t1.* 
+FROM
+	(
+SELECT
 	t1.id,
 	t1.`name`,
 	t1.pri,
@@ -13029,18 +13033,37 @@ select  t1.* from (SELECT
 	t1.finishedBy,
 	t1.finishedDate,
 	t1.estStarted,
-	case when t1.`status` in ('done','closed') then '1' else '0' end AS isfinished,
-	(select count(1) from zt_action where objectType = 'task' and action = 'commented' and objectid = t1.id) AS ReplyCount,
-	case when t1.`desc` is null or t1.`desc` = '' then '0' else '1' end AS hasDetail,
-	t1.project,
-	t1.`TYPE` ,
-	t1.`status`,
-	t1.deleted,
-	t1.openeddate,
-	t1.closeddate,
-	t1.assigneddate
-FROM
-	`zt_task` t1) t1
+CASE
+	
+	WHEN t1.`status` IN ( 'done', 'closed' ) THEN
+	'1' ELSE '0' 
+	END AS isfinished,
+	( SELECT count( 1 ) FROM zt_action WHERE objectType = 'task' AND action = 'commented' AND objectid = t1.id ) AS ReplyCount,
+CASE
+		
+		WHEN t1.`desc` IS NULL 
+		OR t1.`desc` = '' THEN
+			'0' ELSE '1' 
+		END AS hasDetail,
+		t1.project,
+		t1.`TYPE`,
+		t1.`status`,
+		t1.deleted,
+		t1.openeddate,
+		t1.closeddate,
+		t1.assigneddate,
+		t1.deadline,
+		t11.`name` AS projectname,
+		t1.canceleddate,
+		t1.lastediteddate,
+		t1.lasteditedby,
+		t1.openedby,
+		t1.closedby,
+		t1.canceledby 
+	FROM
+		`zt_task` t1
+	LEFT JOIN zt_project t11 ON t1.project = t11.id 
+) t1
 WHERE t1.deleted = '0' 
 
 ```

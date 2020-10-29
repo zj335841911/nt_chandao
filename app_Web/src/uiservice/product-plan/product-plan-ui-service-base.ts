@@ -367,7 +367,6 @@ export default class ProductPlanUIServiceBase extends UIService {
                     return;
                 }
                 actionContext.$Notice.success({ title: '成功', desc: '关联需求成功！' });
-
                 const _this: any = actionContext;
                 return response;
             }).catch((response: any) => {
@@ -588,7 +587,6 @@ export default class ProductPlanUIServiceBase extends UIService {
                     return;
                 }
                 actionContext.$Notice.success({ title: '成功', desc: '已删除' });
-
                 const _this: any = actionContext;
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
@@ -660,7 +658,6 @@ export default class ProductPlanUIServiceBase extends UIService {
                     return;
                 }
                 actionContext.$Notice.success({ title: '成功', desc: '关联Bug成功！' });
-
                 const _this: any = actionContext;
                 return response;
             }).catch((response: any) => {
@@ -753,7 +750,6 @@ export default class ProductPlanUIServiceBase extends UIService {
                     return;
                 }
                 actionContext.$Notice.success({ title: '成功', desc: '已删除' });
-
                 const _this: any = actionContext;
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);

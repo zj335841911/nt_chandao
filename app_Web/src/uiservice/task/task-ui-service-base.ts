@@ -550,7 +550,6 @@ export default class TaskUIServiceBase extends UIService {
                     return;
                 }
                 actionContext.$Notice.success({ title: '成功', desc: '已删除' });
-
                 const _this: any = actionContext;
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
@@ -623,8 +622,6 @@ export default class TaskUIServiceBase extends UIService {
                     actionContext.$Notice.error({ title: '错误', desc: response.message });
                     return;
                 }
-                actionContext.$Notice.success({ title: '成功', desc: '开始成功！' });
-
                 const _this: any = actionContext;
                 const { data: result } = response;
                 let _args: any[] = [];
@@ -1150,7 +1147,6 @@ export default class TaskUIServiceBase extends UIService {
                     return;
                 }
                 actionContext.$Notice.success({ title: '成功', desc: '收藏成功！' });
-
                 const _this: any = actionContext;
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
@@ -1222,8 +1218,6 @@ export default class TaskUIServiceBase extends UIService {
                     actionContext.$Notice.error({ title: '错误', desc: response.message });
                     return;
                 }
-                actionContext.$Notice.success({ title: '成功', desc: '暂停成功！' });
-
                 const _this: any = actionContext;
                 const { data: result } = response;
                 let _args: any[] = [];
@@ -1367,7 +1361,6 @@ export default class TaskUIServiceBase extends UIService {
                     return;
                 }
                 actionContext.$Notice.success({ title: '成功', desc: '确认成功！' });
-
                 const _this: any = actionContext;
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
@@ -1502,8 +1495,6 @@ export default class TaskUIServiceBase extends UIService {
                     actionContext.$Notice.error({ title: '错误', desc: response.message });
                     return;
                 }
-                actionContext.$Notice.success({ title: '成功', desc: '工时成功！' });
-
                 const _this: any = actionContext;
                 const { data: result } = response;
                 let _args: any[] = [];
@@ -1647,8 +1638,6 @@ export default class TaskUIServiceBase extends UIService {
                     actionContext.$Notice.error({ title: '错误', desc: response.message });
                     return;
                 }
-                actionContext.$Notice.success({ title: '成功', desc: '完成成功！' });
-
                 const _this: any = actionContext;
                 const { data: result } = response;
                 let _args: any[] = [];
@@ -2048,8 +2037,6 @@ export default class TaskUIServiceBase extends UIService {
                     actionContext.$Notice.error({ title: '错误', desc: response.message });
                     return;
                 }
-                actionContext.$Notice.success({ title: '成功', desc: '转交成功！' });
-
                 const _this: any = actionContext;
                 const { data: result } = response;
                 let _args: any[] = [];
@@ -2193,7 +2180,6 @@ export default class TaskUIServiceBase extends UIService {
                     return;
                 }
                 actionContext.$Notice.success({ title: '成功', desc: '取消收藏成功！' });
-
                 const _this: any = actionContext;
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);

@@ -12,3 +12,4 @@ declare module 'vue-print-nb';
 declare module 'vuedraggable';
 declare module 'ibiz-vue-pivottable';
 declare module 'events';
+declare module 'marked';
