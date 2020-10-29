@@ -472,6 +472,36 @@ export class MainGrid_SuitSubGridBase extends GridControlBase {
      */
     public async formatExcelData(filterVal: any, jsonData: any, codelistColumns?: any[]): Promise<any> {
         return super.formatExcelData(filterVal, jsonData, [
+    a-true
+    b-true
+    a-true
+    b-true
+    a-true
+    b-true
+    a-true
+    b-true
+    a-true
+    b-true
+    a-true
+    b-true
+    a-true
+    b-true
+    a-true
+    b-true
+    a-true
+    b-true
+    a-true
+    b-true
+    a-true
+    b-true
+    a-true
+    b-true
+    a-true
+    b-true
+    a-true
+    b-true
+    a-true
+    b-true
         ]);
     }
 
