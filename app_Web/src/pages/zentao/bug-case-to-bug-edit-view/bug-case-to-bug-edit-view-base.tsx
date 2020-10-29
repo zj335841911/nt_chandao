@@ -75,6 +75,7 @@ export class BugCaseToBugEditViewBase extends EditViewBase {
 	 */
     protected customViewNavContexts: any = {
         'STORY': { isRawValue: false, value: 'story' },
+        'PROJECT': { isRawValue: false, value: 'project' },
         'MODULE': { isRawValue: false, value: 'module' },
         'PRECONDITION': { isRawValue: false, value: 'precondition' },
         'PRODUCT': { isRawValue: false, value: 'product' },
@@ -91,6 +92,7 @@ export class BugCaseToBugEditViewBase extends EditViewBase {
 	 */
     protected customViewParams: any = {
         'product': { isRawValue: false, value: 'product' },
+        'project': { isRawValue: false, value: 'project' },
         'story': { isRawValue: false, value: 'story' },
         'module': { isRawValue: false, value: 'module' },
         'precondition': { isRawValue: false, value: 'precondition' },

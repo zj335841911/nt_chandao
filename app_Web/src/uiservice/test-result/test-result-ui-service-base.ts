@@ -134,8 +134,8 @@ export default class TestResultUIServiceBase extends UIService {
         let parentContext:any = {};
         let parentViewParam:any = {};
         const _this: any = actionContext;
-        Object.assign(context,{STORY:"%story%",MODULE:"%module%",PRECONDITION:"%precondition%",PRODUCT:"%product%",TITLE:"%title%",CASE:"%case%"});
-        Object.assign(params,{product:"%product%",story:"%story%",module:"%module%",precondition:"%precondition%",title:"%title%",case:"%case%"});
+        Object.assign(context,{STORY:"%story%",PROJECT:"%project%",MODULE:"%module%",PRECONDITION:"%precondition%",PRODUCT:"%product%",TITLE:"%title%",CASE:"%case%"});
+        Object.assign(params,{product:"%product%",project:"%project%",story:"%story%",module:"%module%",precondition:"%precondition%",title:"%title%",case:"%case%"});
         const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(context, { testresult: '%testresult%' });

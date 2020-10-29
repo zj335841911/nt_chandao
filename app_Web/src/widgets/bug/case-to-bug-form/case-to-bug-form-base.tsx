@@ -258,10 +258,13 @@ export class CaseToBugEditFormBase extends EditFormControlBase {
      */
     public createDefault(){                    
         if (this.data.hasOwnProperty('branch')) {
-            this.data['branch'] = this.viewparams['branch'];
+            this.data['branch'] = 0;
         }
         if (this.data.hasOwnProperty('product')) {
             this.data['product'] = this.viewparams['product'];
+        }
+        if (this.data.hasOwnProperty('module')) {
+            this.data['module'] = this.viewparams['module'];
         }
         if (this.data.hasOwnProperty('project')) {
             this.data['project'] = this.viewparams['project'];
