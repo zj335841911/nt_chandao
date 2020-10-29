@@ -34,12 +34,12 @@
             @load="mdctrl_load($event)"  
             @closeview="closeView($event)">
         </view_mdctrl>
-        <ion-infinite-scroll  @ionInfinite="loadMore" threshold="1px" v-if="this.isEnablePullUp">
+        <!--  <ion-infinite-scroll  @ionInfinite="loadMore" threshold="1px" v-if="this.isEnablePullUp">
           <ion-infinite-scroll-content
           loadingSpinner="bubbles"
           loadingText="Loading more data...">
         </ion-infinite-scroll-content>
-        </ion-infinite-scroll>
+        </ion-infinite-scroll> -->
     </ion-content>
     <ion-footer class="view-footer">
                 <div v-show="!isChoose" class = "fab_container">

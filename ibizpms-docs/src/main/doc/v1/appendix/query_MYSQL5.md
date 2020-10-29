@@ -13013,7 +13013,10 @@ select  t1.* from (SELECT
 	t1.project,
 	t1.`TYPE` ,
 	t1.`status`,
-	t1.deleted
+	t1.deleted,
+	t1.openeddate,
+	t1.closeddate,
+	t1.assigneddate
 FROM
 	`zt_task` t1) t1
 WHERE t1.deleted = '0' 
