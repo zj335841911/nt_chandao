@@ -412,6 +412,87 @@ export class MainGridBase extends GridControlBase {
 
 
     /**
+     * 所有导出列成员
+     *
+     * @type {any[]}
+     * @memberof MainGridBase
+     */
+    public allExportColumns: any[] = [
+        {
+            name: 'id',
+            label: 'ID',
+            langtag: 'entities.testtask.main_grid.exportColumns.id',
+            show: true,
+        },
+        {
+            name: 'name',
+            label: '名称',
+            langtag: 'entities.testtask.main_grid.exportColumns.name',
+            show: true,
+        },
+        {
+            name: 'productname',
+            label: '产品',
+            langtag: 'entities.testtask.main_grid.exportColumns.productname',
+            show: true,
+        },
+        {
+            name: 'projecttname',
+            label: '项目',
+            langtag: 'entities.testtask.main_grid.exportColumns.projecttname',
+            show: true,
+        },
+        {
+            name: 'product',
+            label: '所属产品',
+            langtag: 'entities.testtask.main_grid.exportColumns.product',
+            show: true,
+        },
+        {
+            name: 'project',
+            label: '所属项目',
+            langtag: 'entities.testtask.main_grid.exportColumns.project',
+            show: true,
+        },
+        {
+            name: 'build',
+            label: '版本',
+            langtag: 'entities.testtask.main_grid.exportColumns.build',
+            show: true,
+        },
+        {
+            name: 'buildname',
+            label: '版本',
+            langtag: 'entities.testtask.main_grid.exportColumns.buildname',
+            show: true,
+        },
+        {
+            name: 'owner',
+            label: '负责人',
+            langtag: 'entities.testtask.main_grid.exportColumns.owner',
+            show: true,
+        },
+        {
+            name: 'begin',
+            label: '开始日期',
+            langtag: 'entities.testtask.main_grid.exportColumns.begin',
+            show: true,
+        },
+        {
+            name: 'end',
+            label: '结束日期',
+            langtag: 'entities.testtask.main_grid.exportColumns.end',
+            show: true,
+        },
+        {
+            name: 'status',
+            label: '当前状态',
+            langtag: 'entities.testtask.main_grid.exportColumns.status',
+            show: true,
+        },
+    ]
+
+    /**
      * 导出数据格式化
      *
      * @param {*} filterVal
@@ -422,22 +503,6 @@ export class MainGridBase extends GridControlBase {
      */
     public async formatExcelData(filterVal: any, jsonData: any, codelistColumns?: any[]): Promise<any> {
         return super.formatExcelData(filterVal, jsonData, [
-            {
-                name: 'owner',
-                srfkey: 'UserRealName',
-                codelistType : 'DYNAMIC',
-                textSeparator: ',',
-                renderMode: 'string',
-                valueSeparator: ",",
-            },
-            {
-                name: 'status',
-                srfkey: 'Testtask__status',
-                codelistType : 'STATIC',
-                renderMode: 'other',
-                textSeparator: '、',
-                valueSeparator: ',',
-            },
         ]);
     }
 
