@@ -469,6 +469,14 @@ export class Main_BuildSubGridBase extends GridControlBase {
                 valueSeparator: ',',
             },
             {
+                name: 'confirmed',
+                srfkey: 'YesNo2',
+                codelistType : 'STATIC',
+                renderMode: 'other',
+                textSeparator: '、',
+                valueSeparator: ',',
+            },
+            {
                 name: 'status',
                 srfkey: 'Bug__status',
                 codelistType : 'STATIC',

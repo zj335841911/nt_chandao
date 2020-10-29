@@ -355,6 +355,14 @@ export class RePortMainGridGridBase extends GridControlBase {
                 textSeparator: '、',
                 valueSeparator: ',',
             },
+            {
+                name: 'lastrunresult1',
+                srfkey: 'Testcase__result',
+                codelistType : 'STATIC',
+                renderMode: 'other',
+                textSeparator: '、',
+                valueSeparator: ',',
+            },
         ]);
     }
 
