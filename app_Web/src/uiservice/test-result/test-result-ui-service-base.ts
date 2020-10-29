@@ -162,6 +162,7 @@ export default class TestResultUIServiceBase extends UIService {
         const parameters: any[] = [
             { pathName: 'bugs', parameterName: 'bug' },
         ];
+            actionContext.closeView(null);
             const openDrawer = (view: any, data: any) => {
                 let container: Subject<any> = actionContext.$appdrawer.openDrawer(view, context,data);
                 container.subscribe((result: any) => {

@@ -1809,6 +1809,7 @@ export default class CaseUIServiceBase extends UIService {
         const parameters: any[] = [
             { pathName: 'cases', parameterName: 'case' },
         ];
+            actionContext.closeView(null);
             const openPopupModal = (view: any, data: any) => {
                 let container: Subject<any> = actionContext.$appmodal.openModal(view, context, data);
                 container.subscribe((result: any) => {
