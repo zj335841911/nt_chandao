@@ -51,6 +51,7 @@
 |-|任务移动端选择多数据视图|DEMOBPICKUPMDVIEW|&nbsp;|
 |-|产品计划移动端多数据视图|DEMOBMDVIEW|&nbsp;|
 |-|需求移动端多数据选择视图（关联需求）|DEMOBMPICKUPVIEW|&nbsp;|
+|-|版本移动端多数据视图（更新日志）|DEMOBMDVIEW|&nbsp;|
 |-|产品统计移动端多数据视图|DEMOBMDVIEW|&nbsp;|
 |-|测试版本选项操作视图（开始）|DEMOBOPTVIEW|&nbsp;|
 |-|测试|DEMOBTABEXPVIEW|&nbsp;|
