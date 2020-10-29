@@ -121,6 +121,9 @@ export default {
 		resolvemobeditview: {
 			caption: 'Bug',
 		},
+		logmobmdview9: {
+			caption: '更新日志',
+		},
 		activationmobeditview: {
 			caption: 'Bug',
 		},

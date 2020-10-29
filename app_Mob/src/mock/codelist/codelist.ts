@@ -3910,6 +3910,27 @@ const datas: Array<any> = [
         ]
     },
     {
+        srfkey: 'YesNo3',
+        emptytext: '未定义',
+        "codelisttype":"static",
+        items: [
+            {
+                id: 'yes',
+                label: '是',
+                text: '是',
+                value: 'yes',
+                disabled: false,
+            },
+            {
+                id: 'no',
+                label: '否',
+                text: '否',
+                value: 'no',
+                disabled: false,
+            },
+        ]
+    },
+    {
         srfkey: 'Story__source',
         emptytext: '未定义',
         "codelisttype":"static",

@@ -106,6 +106,7 @@ export default class BugUIActionBase extends EntityUIActionBase {
         this.allViewMap.set(':',{viewname:'assigntomobeditview',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'assmobmdview',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'resolvemobeditview',srfappde:'bugs'});
+        this.allViewMap.set(':',{viewname:'logmobmdview9',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'activationmobeditview',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'closemoboptionview',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'assmoremobmdview',srfappde:'bugs'});

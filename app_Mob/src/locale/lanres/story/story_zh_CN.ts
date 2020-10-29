@@ -78,6 +78,9 @@ export default {
 		linkstorymobmpickupview: {
 			caption: '管理需求',
 		},
+		logmobmdview9: {
+			caption: '更新日志',
+		},
 		favoritemoremobmdview: {
 			caption: '我收藏的需求',
 		},

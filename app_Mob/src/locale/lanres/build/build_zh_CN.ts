@@ -26,6 +26,9 @@ export default {
 		mobpickupmdview: {
 			caption: '版本',
 		},
+		logmobmdview: {
+			caption: '更新日志',
+		},
 		mobmdview: {
 			caption: '版本',
 		},

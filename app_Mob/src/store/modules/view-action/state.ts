@@ -521,6 +521,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '4fe6c2da4266eb0a031bc3e636f284e4',
+            viewmodule: 'ibiz',
+            viewname: 'BuildLogMobMDView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '72d73b7f458439bc2355414e5a810ad5',
+            ],
+        },
+        {
             viewtag: '5040c252f88202ad31af8159bc03524a',
             viewmodule: 'ibiz',
             viewname: 'ProductStatsMobMDView',
@@ -581,6 +591,16 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '3c4e9f0d609bc0f1cf08431649cc8e67',
+            ],
+        },
+        {
+            viewtag: '55804d2c14c94aaab24b2ad0d4db08d8',
+            viewmodule: 'ibiz',
+            viewname: 'StoryLogMobMDView9',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'd096e8789265e730da5eefa1423479dc',
             ],
         },
         {
@@ -1423,6 +1443,16 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+            ],
+        },
+        {
+            viewtag: 'dc1e0f061d279d7a5773df36833f94d2',
+            viewmodule: 'ibiz',
+            viewname: 'BugLogMobMDView9',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '69a540ab88c1edd1da7f89cebe5f4588',
             ],
         },
         {

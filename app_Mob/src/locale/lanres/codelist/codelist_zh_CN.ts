@@ -693,6 +693,11 @@ export default {
         'blocked': '阻塞',
         empty: '',
     },
+    YesNo3: {
+        'yes': '是',
+        'no': '否',
+        empty: '',
+    },
     Story__source: {
         'customer': '客户',
         'user': '用户',
