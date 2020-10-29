@@ -422,6 +422,9 @@ export default class AppIndexViewBase extends Vue implements ControlInterface {
     private click(item: any) {
         if (item) {
             switch (item.appfunctag) {
+                case 'AppFunc3': 
+                    this.clickAppFunc3(item);
+                    return;
                 case 'Auto22': 
                     this.clickAuto22(item);
                     return;
@@ -446,6 +449,27 @@ export default class AppIndexViewBase extends Vue implements ControlInterface {
         }
     }
 
+    
+    /**
+     * 更新日志
+     *
+     * @param {*} [item={}]
+     * @memberof AppIndexView
+     */
+    protected clickAppFunc3(item: any = {}) {
+        let navigateParam: any = { } ;
+        let navigateContext: any = { } ;
+        const { param: _param, context: _context } = this.$viewTool.formatNavigateParam(navigateContext, navigateParam, this.context, this.viewparams, {});
+        let context = { ..._context };
+        let param = { ..._param };
+        const deResParameters: any[] = [];
+        const parameters: any[] = [
+            { pathName: 'builds', parameterName: 'build' },
+            { pathName: 'logmobmdview', parameterName: 'logmobmdview' },
+        ];
+        const routeParam: any = this.globaluiservice.openService.formatRouteParam(context, deResParameters, parameters, [], param);
+        this.globaluiservice.openService.openView(routeParam);
+    }
     
     /**
      * 我的地盘

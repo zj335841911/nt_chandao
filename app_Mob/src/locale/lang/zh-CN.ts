@@ -90,6 +90,7 @@ export default {
                 menuitem4: '我的',
                 menuitem6: '个人中心',
                 menuitem7: '用户选择',
+                menuitem8: '更新日志',
             },
             listmenu: {
                 menuitem1: '电脑',

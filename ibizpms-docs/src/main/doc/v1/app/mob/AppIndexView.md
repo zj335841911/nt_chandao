@@ -11,6 +11,7 @@
 ** 我的
 ** 个人中心
 ** 用户选择
+** 更新日志
 @endmindmap
 {% endplantuml %}
 
@@ -25,4 +26,5 @@
 |我的|[查看功能](func/IbzMyTerritoryMobTabExpView.md)|
 |个人中心|[查看功能](func/UserUserCenterMobEditView.md)|
 |用户选择|[查看功能](func/UserMobPickupView.md)|
+|更新日志|[查看功能](func/BuildLogMobMDView.md)|
 

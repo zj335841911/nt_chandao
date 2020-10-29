@@ -122,6 +122,24 @@ export class AppIndexViewModel {
 	appfunctag: 'AppFunc2',
 	resourcetag: '',
 },
+        {
+	id: 'A9234AE1-B762-4769-8790-26A98A6CB817',
+	name: 'menuitem8',
+	text: '更新日志',
+	type: 'MENUITEM',
+	counterid: '',
+	tooltip: '更新日志',
+	expanded: false,
+	separator: false,
+	hidden: true,
+	hidesidebar: false,
+	opendefault: false,
+	iconcls: '',
+	icon: '',
+	textcls: '',
+	appfunctag: 'AppFunc3',
+	resourcetag: '',
+},
     ];
 
 	/**
@@ -132,6 +150,19 @@ export class AppIndexViewModel {
 	 * @memberof AppIndexViewModel
 	 */
 	private funcs: any[] = [
+        {
+            appfunctag: 'AppFunc3',
+            appfuncyype: 'APPVIEW',
+            openmode: '', 
+            componentname: 'build-log-mob-mdview', 
+            codename: 'buildlogmobmdview',
+            deResParameters: [],
+            routepath: '/appindexview/:appindexview?/builds/:build?/logmobmdview/:logmobmdview?',
+            parameters: [
+                { pathName: 'builds', parameterName: 'build' },
+                { pathName: 'logmobmdview', parameterName: 'logmobmdview' },
+            ],
+        },
         {
             appfunctag: 'Auto22',
             appfuncyype: 'APPVIEW',
