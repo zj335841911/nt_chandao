@@ -92,7 +92,7 @@ export class StoryAffectBugGridBase extends GridControlBase {
      * @type {string}
      * @memberof StoryAffectBugGridBase
      */
-    public columnKeyName: string = id;
+    public columnKeyName: string = "id";
 
     /**
      * 本地缓存标识

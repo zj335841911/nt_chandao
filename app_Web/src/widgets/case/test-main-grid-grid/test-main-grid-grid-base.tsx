@@ -266,7 +266,7 @@ export class TestMainGridGridBase extends GridControlBase {
      * @type {string}
      * @memberof TestMainGridGridBase
      */
-    public columnKeyName: string = id;
+    public columnKeyName: string = "id";
 
     /**
      * 本地缓存标识

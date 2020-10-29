@@ -92,7 +92,7 @@ export class RePortMainGridGridBase extends GridControlBase {
      * @type {string}
      * @memberof RePortMainGridGridBase
      */
-    public columnKeyName: string = id;
+    public columnKeyName: string = "id";
 
     /**
      * 本地缓存标识

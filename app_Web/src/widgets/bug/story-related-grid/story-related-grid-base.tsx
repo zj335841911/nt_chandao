@@ -92,7 +92,7 @@ export class StoryRelatedGridBase extends GridControlBase {
      * @type {string}
      * @memberof StoryRelatedGridBase
      */
-    public columnKeyName: string = id;
+    public columnKeyName: string = "id";
 
     /**
      * 本地缓存标识

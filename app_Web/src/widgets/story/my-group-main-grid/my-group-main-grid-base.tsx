@@ -324,7 +324,7 @@ export class MyGroupMainGridBase extends GridControlBase {
      * @type {string}
      * @memberof MyGroupMainGridBase
      */
-    public columnKeyName: string = id;
+    public columnKeyName: string = "id";
 
     /**
      * 本地缓存标识

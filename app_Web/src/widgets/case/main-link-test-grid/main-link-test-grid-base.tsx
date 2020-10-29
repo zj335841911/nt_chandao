@@ -92,7 +92,7 @@ export class MainLinkTestGridBase extends GridControlBase {
      * @type {string}
      * @memberof MainLinkTestGridBase
      */
-    public columnKeyName: string = id;
+    public columnKeyName: string = "id";
 
     /**
      * 本地缓存标识

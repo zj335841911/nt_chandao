@@ -150,7 +150,7 @@ export class PlatformManagementGridBase extends GridControlBase {
      * @type {string}
      * @memberof PlatformManagementGridBase
      */
-    public columnKeyName: string = id;
+    public columnKeyName: string = "id";
 
     /**
      * 本地缓存标识

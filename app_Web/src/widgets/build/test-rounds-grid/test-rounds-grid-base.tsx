@@ -92,7 +92,7 @@ export class TestRoundsGridBase extends GridControlBase {
      * @type {string}
      * @memberof TestRoundsGridBase
      */
-    public columnKeyName: string = id;
+    public columnKeyName: string = "id";
 
     /**
      * 本地缓存标识

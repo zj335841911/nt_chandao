@@ -265,7 +265,7 @@ export class Main_BuildSubGridBase extends GridControlBase {
      * @type {string}
      * @memberof Main_BuildSubGridBase
      */
-    public columnKeyName: string = id;
+    public columnKeyName: string = "id";
 
     /**
      * 本地缓存标识

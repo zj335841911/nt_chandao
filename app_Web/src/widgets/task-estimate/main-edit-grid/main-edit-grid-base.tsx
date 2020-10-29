@@ -169,7 +169,7 @@ export class MainEditGridBase extends GridControlBase {
      * @type {string}
      * @memberof MainEditGridBase
      */
-    public columnKeyName: string = id;
+    public columnKeyName: string = "id";
 
     /**
      * 本地缓存标识

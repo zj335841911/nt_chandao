@@ -92,7 +92,7 @@ export class PickupGridGridBase extends GridControlBase {
      * @type {string}
      * @memberof PickupGridGridBase
      */
-    public columnKeyName: string = id;
+    public columnKeyName: string = "id";
 
     /**
      * 本地缓存标识

@@ -287,7 +287,7 @@ export class MainGridBase extends GridControlBase {
      * @type {string}
      * @memberof MainGridBase
      */
-    public columnKeyName: string = id;
+    public columnKeyName: string = "id";
 
     /**
      * 本地缓存标识

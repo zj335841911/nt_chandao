@@ -352,7 +352,7 @@ export class Main_CopyGridBase extends GridControlBase {
      * @type {string}
      * @memberof Main_CopyGridBase
      */
-    public columnKeyName: string = id;
+    public columnKeyName: string = "id";
 
     /**
      * 本地缓存标识

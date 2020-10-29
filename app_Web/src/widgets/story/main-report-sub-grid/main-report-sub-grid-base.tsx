@@ -92,7 +92,7 @@ export class Main_ReportSubGridBase extends GridControlBase {
      * @type {string}
      * @memberof Main_ReportSubGridBase
      */
-    public columnKeyName: string = id;
+    public columnKeyName: string = "id";
 
     /**
      * 本地缓存标识

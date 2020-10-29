@@ -295,7 +295,7 @@ export class Main2GridBase extends GridControlBase {
      * @type {string}
      * @memberof Main2GridBase
      */
-    public columnKeyName: string = id;
+    public columnKeyName: string = "id";
 
     /**
      * 本地缓存标识

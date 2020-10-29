@@ -121,7 +121,7 @@ export class Main_ReleaseSubGridBase extends GridControlBase {
      * @type {string}
      * @memberof Main_ReleaseSubGridBase
      */
-    public columnKeyName: string = id;
+    public columnKeyName: string = "id";
 
     /**
      * 本地缓存标识

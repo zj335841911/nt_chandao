@@ -354,7 +354,7 @@ export class MyFavoriteMainGridBase extends GridControlBase {
      * @type {string}
      * @memberof MyFavoriteMainGridBase
      */
-    public columnKeyName: string = id;
+    public columnKeyName: string = "id";
 
     /**
      * 本地缓存标识

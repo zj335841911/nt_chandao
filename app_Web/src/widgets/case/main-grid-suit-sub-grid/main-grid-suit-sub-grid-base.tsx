@@ -179,7 +179,7 @@ export class MainGrid_SuitSubGridBase extends GridControlBase {
      * @type {string}
      * @memberof MainGrid_SuitSubGridBase
      */
-    public columnKeyName: string = id;
+    public columnKeyName: string = "id";
 
     /**
      * 本地缓存标识
