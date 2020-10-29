@@ -24,7 +24,7 @@ export default class SidebarList extends SidebarListBase {
      * 刷新
      *
      * @param {*} [args]
-     * @memberof ListControlBase
+     * @memberof SidebarList
      */
     public refresh(args?: any) {
         if(args){
