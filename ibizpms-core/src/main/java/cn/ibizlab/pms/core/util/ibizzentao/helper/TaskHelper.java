@@ -1360,8 +1360,9 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         Task old =new Task();
         CachedBeanCopier.copy(this.get(parent), old);
 
-        if (parent >= 0) {
-            updateParentStatus(old, parent,true);
+        if (parent > 0) {
+            Task lastInsertTask = list.get(list.size()-1);
+            updateParentStatus(lastInsertTask, parent,true);
             computeBeginAndEnd(this.get(old.getId()));
             if (old.getParent() != -1L){
                 Task update = new Task();
