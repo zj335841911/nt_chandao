@@ -180,7 +180,7 @@
                           </a>
                           <divider v-show="scope.row.MStartTaskDash1.visabled" type='vertical'></divider>
                           <a v-show="scope.row.MStartTaskDash1.visabled" :disabled="scope.row.MStartTaskDash1.disabled" @click="uiAction(scope.row, 'MStartTaskDash1', $event)" :title="$t('entities.task.main_grid.uiactions.task_mstarttaskdash1')">
-                            <i class=''></i>
+                            <i class='fa fa-play-circle-o'></i>
                             {{$t('entities.task.main_grid.uiactions.task_mstarttaskdash1')}}
                           </a>
                           <divider v-show="scope.row.CloseTask.visabled" type='vertical'></divider>
@@ -190,7 +190,7 @@
                           </a>
                           <divider v-show="scope.row.done.visabled" type='vertical'></divider>
                           <a v-show="scope.row.done.visabled" :disabled="scope.row.done.disabled" @click="uiAction(scope.row, 'done', $event)" :title="$t('entities.task.main_grid.uiactions.task_done')">
-                            <i class=''></i>
+                            <i class='fa fa-check-square-o'></i>
                             {{$t('entities.task.main_grid.uiactions.task_done')}}
                           </a>
                           <divider v-show="scope.row.MainEdit.visabled" type='vertical'></divider>
