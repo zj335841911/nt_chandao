@@ -152,8 +152,9 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         if(et.getName() != null) {
             newTask.setName(et.getName());
         }
-        else if(DataObject.getBooleanValue(et.get("pridirtyflag"), false)) {
-            newTask.setName("");
+        else if(DataObject.getBooleanValue(et.get("namedirtyflag"), false)) {
+//            newTask.setName("");
+            throw new RuntimeException("任务名称不能为空！");
         }
         if(et.getType() != null) {
             newTask.setType(et.getType());
