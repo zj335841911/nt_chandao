@@ -550,6 +550,13 @@ export default {
 			casesteps: "S",
 			uagridcolumn1: "操作",
 		},
+    exportColumns: {
+			pri: "P",
+			title: "用例标题",
+			status: "状态",
+			status1: "状态",
+			lastrunresult1: "测试用例结果",
+    },
 		uiactions: {
         case_edits: "概况",
         case_confirmchange: "确认用例变动",

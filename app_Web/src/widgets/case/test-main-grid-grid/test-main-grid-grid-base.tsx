@@ -481,6 +481,54 @@ export class TestMainGridGridBase extends GridControlBase {
 
 
     /**
+     * 是否为实体导出对象
+     *
+     * @protected
+     * @type {boolean}
+     * @memberof TestMainGridGridBase
+     */
+    protected isDeExport: boolean = true;
+
+    /**
+     * 所有导出列成员
+     *
+     * @type {any[]}
+     * @memberof TestMainGridGridBase
+     */
+    public allExportColumns: any[] = [
+        {
+            name: 'pri',
+            label: 'P',
+            langtag: 'entities.case.testmaingrid_grid.exportColumns.pri',
+            show: true,
+        },
+        {
+            name: 'title',
+            label: '用例标题',
+            langtag: 'entities.case.testmaingrid_grid.exportColumns.title',
+            show: true,
+        },
+        {
+            name: 'status',
+            label: '状态',
+            langtag: 'entities.case.testmaingrid_grid.exportColumns.status',
+            show: true,
+        },
+        {
+            name: 'status1',
+            label: '状态',
+            langtag: 'entities.case.testmaingrid_grid.exportColumns.status1',
+            show: true,
+        },
+        {
+            name: 'lastrunresult1',
+            label: '测试用例结果',
+            langtag: 'entities.case.testmaingrid_grid.exportColumns.lastrunresult1',
+            show: true,
+        },
+    ]
+
+    /**
      * 导出数据格式化
      *
      * @param {*} filterVal
@@ -491,62 +539,6 @@ export class TestMainGridGridBase extends GridControlBase {
      */
     public async formatExcelData(filterVal: any, jsonData: any, codelistColumns?: any[]): Promise<any> {
         return super.formatExcelData(filterVal, jsonData, [
-            {
-                name: 'pri',
-                srfkey: 'Testcase__pri',
-                codelistType : 'STATIC',
-                renderMode: 'other',
-                textSeparator: '、',
-                valueSeparator: ',',
-            },
-            {
-                name: 'type',
-                srfkey: 'Testcase__type',
-                codelistType : 'STATIC',
-                renderMode: 'other',
-                textSeparator: '、',
-                valueSeparator: ',',
-            },
-            {
-                name: 'openedby',
-                srfkey: 'UserRealName',
-                codelistType : 'DYNAMIC',
-                textSeparator: ',',
-                renderMode: 'string',
-                valueSeparator: ",",
-            },
-            {
-                name: 'assignedto',
-                srfkey: 'UserRealName',
-                codelistType : 'DYNAMIC',
-                textSeparator: ',',
-                renderMode: 'string',
-                valueSeparator: ",",
-            },
-            {
-                name: 'lastrunner',
-                srfkey: 'UserRealName',
-                codelistType : 'DYNAMIC',
-                textSeparator: ',',
-                renderMode: 'string',
-                valueSeparator: ",",
-            },
-            {
-                name: 'lastrunresult',
-                srfkey: 'Testcase__result',
-                codelistType : 'STATIC',
-                renderMode: 'other',
-                textSeparator: '、',
-                valueSeparator: ',',
-            },
-            {
-                name: 'status1',
-                srfkey: 'TestCaseStatusGrid',
-                codelistType : 'STATIC',
-                renderMode: 'other',
-                textSeparator: '、',
-                valueSeparator: ',',
-            },
         ]);
     }
 
