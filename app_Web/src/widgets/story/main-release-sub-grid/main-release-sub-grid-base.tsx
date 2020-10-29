@@ -116,6 +116,14 @@ export class Main_ReleaseSubGridBase extends GridControlBase {
     public majorInfoColName:string = "title";
 
     /**
+     * 列主键属性名称
+     *
+     * @type {string}
+     * @memberof Main_ReleaseSubGridBase
+     */
+    public columnKeyName: string = id;
+
+    /**
      * 本地缓存标识
      *
      * @protected

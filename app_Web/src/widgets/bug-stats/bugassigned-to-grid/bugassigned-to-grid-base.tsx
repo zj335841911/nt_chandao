@@ -86,6 +86,7 @@ export class BugassignedToGridBase extends GridControlBase {
      */  
     public majorInfoColName:string = "";
 
+
     /**
      * 本地缓存标识
      *

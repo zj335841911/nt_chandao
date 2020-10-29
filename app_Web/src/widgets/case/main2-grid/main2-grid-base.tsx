@@ -86,6 +86,7 @@ export class Main2GridBase extends GridControlBase {
      */  
     public majorInfoColName:string = "title";
 
+
     /**
      * 本地缓存标识
      *

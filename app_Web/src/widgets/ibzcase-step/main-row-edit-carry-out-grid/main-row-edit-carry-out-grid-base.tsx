@@ -86,6 +86,7 @@ export class Main_RowEdit_CarryOutGridBase extends GridControlBase {
      */  
     public majorInfoColName:string = "expect";
 
+
     /**
      * 本地缓存标识
      *

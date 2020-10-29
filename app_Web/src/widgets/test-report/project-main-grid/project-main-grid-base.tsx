@@ -200,6 +200,14 @@ export class ProjectMainGridBase extends GridControlBase {
     public majorInfoColName:string = "title";
 
     /**
+     * 列主键属性名称
+     *
+     * @type {string}
+     * @memberof ProjectMainGridBase
+     */
+    public columnKeyName: string = id;
+
+    /**
      * 本地缓存标识
      *
      * @protected

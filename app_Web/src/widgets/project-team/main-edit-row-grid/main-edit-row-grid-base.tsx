@@ -185,6 +185,7 @@ export class Main_EditRowGridBase extends GridControlBase {
      */  
     public majorInfoColName:string = "account";
 
+
     /**
      * 本地缓存标识
      *

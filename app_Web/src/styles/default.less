@@ -399,15 +399,16 @@ div::-webkit-scrollbar-thumb {
                 }
             }
 
-            >.ivu-page-item:hover {
+            >.ivu-page-item:hover,.ivu-page-item-active  {
                 border-color: var(--view-button-background-color-active);
                 background: var(--view-button-background-color-active);
             }
 
             >.ivu-page-item-active:hover,
             .ivu-page-item-active {
-
+                cursor: no-drop;
                 >a {
+                    cursor: no-drop;
                     color: var(--view-button-color);
                 }
             }

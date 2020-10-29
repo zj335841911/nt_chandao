@@ -86,6 +86,7 @@ export class ProductPlancntAndStorycnt_POGridBase extends GridControlBase {
      */  
     public majorInfoColName:string = "name";
 
+
     /**
      * 本地缓存标识
      *

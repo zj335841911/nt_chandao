@@ -65,6 +65,22 @@ export class GridControlBase extends MDControlBase {
     public selectedData?: string;
 
     /**
+     * 行编辑值校验错误信息
+     *
+     * @type {Array<any>}
+     * @memberof GridControlBase
+     */
+    public errorMessages: Array<any> = [];
+
+    /**
+     * 列主键属性名称
+     *
+     * @param {string}
+     * @memberof GridControlBase
+     */
+    public columnKeyName: string = '';
+
+    /**
      * 选中值变化
      *
      * @param {*} newVal
@@ -332,6 +348,7 @@ export class GridControlBase extends MDControlBase {
      * @memberof GridControlBase
      */
     public async validateAll() {
+        this.errorMessages = [];
         let validateState = true;
         let index = -1;
         for (let item of this.items) {
@@ -340,6 +357,7 @@ export class GridControlBase extends MDControlBase {
                 for (let property of Object.keys(this.rules)) {
                     if (!await this.validate(property, item, index)) {
                         validateState = false;
+                        this.errorMessages.push(this.gridItemsModel[index][property].error);
                     }
                 }
             }
@@ -384,7 +402,15 @@ export class GridControlBase extends MDControlBase {
      */
     public async save(args: any[], params?: any, $event?: any, xData?: any) {
         if (!await this.validateAll()) {
-            this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: (this.$t('app.commonWords.rulesException') as string) });
+            if(this.errorMessages && this.errorMessages.length > 0) {
+                let descMessage: string = '';
+                this.errorMessages.forEach((message: any) => {
+                    descMessage = descMessage + '<p>' + message + '<p>';
+                })
+                this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), dangerouslyUseHTMLString: true, desc: descMessage });
+            } else {
+                this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: (this.$t('app.commonWords.rulesException') as string) });
+            }
             return [];
         }
         let successItems: any = [];
@@ -1125,9 +1151,13 @@ export class GridControlBase extends MDControlBase {
         if (!mode || (mode && Object.is(mode, ''))) {
             return;
         }
+        let tempContext: any = this.$util.deepCopy(this.context);
+        if(this.appDeName && this.columnKeyName) {
+            tempContext[this.appDeName] = data[this.columnKeyName];
+        }
         const arg: any = JSON.parse(JSON.stringify(data));
         Object.assign(arg, { viewparams: this.viewparams });
-        const post: Promise<any> = this.service.frontLogic(mode, JSON.parse(JSON.stringify(this.context)), arg, showloading);
+        const post: Promise<any> = this.service.frontLogic(mode, JSON.parse(JSON.stringify(tempContext)), arg, showloading);
         post.then((response: any) => {
             if (!response || response.status !== 200) {
                 this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: (this.$t('app.gridpage.formitemFailed') as string) });

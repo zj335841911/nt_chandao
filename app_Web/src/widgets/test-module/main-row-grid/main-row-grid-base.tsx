@@ -134,6 +134,7 @@ export class MainRowGridBase extends GridControlBase {
      */  
     public majorInfoColName:string = "name";
 
+
     /**
      * 本地缓存标识
      *

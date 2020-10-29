@@ -164,6 +164,14 @@ export class MainEditGridBase extends GridControlBase {
     public majorInfoColName:string = "id";
 
     /**
+     * 列主键属性名称
+     *
+     * @type {string}
+     * @memberof MainEditGridBase
+     */
+    public columnKeyName: string = id;
+
+    /**
      * 本地缓存标识
      *
      * @protected

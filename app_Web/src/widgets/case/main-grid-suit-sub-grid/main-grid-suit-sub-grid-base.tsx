@@ -174,6 +174,14 @@ export class MainGrid_SuitSubGridBase extends GridControlBase {
     public majorInfoColName:string = "title";
 
     /**
+     * 列主键属性名称
+     *
+     * @type {string}
+     * @memberof MainGrid_SuitSubGridBase
+     */
+    public columnKeyName: string = id;
+
+    /**
      * 本地缓存标识
      *
      * @protected
