@@ -165,6 +165,17 @@ export default {
 			builder: "构建者",
 			uagridcolumn1: "操作",
 		},
+    exportColumns: {
+			id: "ID",
+			productname: "产品名称",
+			name: "名称编号",
+			scmpath: "源代码地址",
+			filepath: "下载地址",
+			date: "打包日期",
+			builder: "构建者",
+			product: "产品",
+			project: "所属项目",
+    },
 		uiactions: {
 			build_linkstories: "关联需求",
 			build_submittotesting: "提交测试",
