@@ -6,5 +6,5 @@ Tip: If the failing expression is known to be legally refer to something that's 
 
 ----
 FTL stack trace ("~" means nesting-related):
-	- Failed at: #if item.getMainStatePSDEField2()??  [in template "CODETEMPL_en_US" at line 112, column 249]
+	- Failed at: #if item.getStateValue()??  [in template "CODETEMPL_en_US" at line 115, column 104]
 ----
