@@ -55,6 +55,9 @@ export default {
 			uagridcolumn1: "操作",
 		},
     exportColumns: {
+			id: "编号",
+			name: "名称",
+			order: "排序",
     },
 		uiactions: {
         branch_edit: "编辑",
