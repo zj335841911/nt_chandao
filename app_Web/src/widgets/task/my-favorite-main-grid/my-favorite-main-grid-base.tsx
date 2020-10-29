@@ -132,7 +132,7 @@ export class MyFavoriteMainGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_u6df59b2_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_u9e51301_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -149,7 +149,7 @@ export class MyFavoriteMainGridBase extends GridControlBase {
         }
         // 界面行为
         const curUIService:TaskUIService  = new TaskUIService();
-        curUIService.Task_MStartTaskDash(datas,contextJO, paramJO,  $event, xData,this,"Task");
+        curUIService.Task_MStartTaskDash1(datas,contextJO, paramJO,  $event, xData,this,"Task");
     }
 
     /**
@@ -188,7 +188,7 @@ export class MyFavoriteMainGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_ud1531ff_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_u0e87c97_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -205,7 +205,7 @@ export class MyFavoriteMainGridBase extends GridControlBase {
         }
         // 界面行为
         const curUIService:TaskUIService  = new TaskUIService();
-        curUIService.Task_MDoneTask(datas,contextJO, paramJO,  $event, xData,this,"Task");
+        curUIService.Task_done(datas,contextJO, paramJO,  $event, xData,this,"Task");
     }
 
     /**
@@ -330,11 +330,10 @@ export class MyFavoriteMainGridBase extends GridControlBase {
     public ActionModel: any = {
         AssignTask: { name: 'AssignTask',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_ASSIGN_BUT', actiontarget: 'SINGLEKEY'},
         confirmStoryChange: { name: 'confirmStoryChange',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_XQCHANGE_BUT', actiontarget: 'SINGLEKEY'},
-        MStartTaskDash: { name: 'MStartTaskDash',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_START_BUT', actiontarget: 'SINGLEKEY'},
-        StartTaskDash: { name: 'StartTaskDash',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_START_BUT', actiontarget: 'SINGLEKEY'},
+        MStartTaskDash1: { name: 'MStartTaskDash1',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: 'SINGLEKEY'},
+        StartTask: { name: 'StartTask',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_START_BUT', actiontarget: 'SINGLEKEY'},
         CloseTask: { name: 'CloseTask',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_CLOSE_BUT', actiontarget: 'SINGLEKEY'},
-        MDoneTask: { name: 'MDoneTask',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_COMPLETE_BUT', actiontarget: 'SINGLEKEY'},
-        DoneTaskDash: { name: 'DoneTaskDash',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_COMPLETE_BUT', actiontarget: 'SINGLEKEY'},
+        done: { name: 'done',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_COMPLETE_BUT', actiontarget: 'SINGLEKEY'},
         MainEdit: { name: 'MainEdit',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_EDIT_BUT', actiontarget: 'SINGLEKEY'},
         NewSubTask: { name: 'NewSubTask',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_SUBTASKS_BUT', actiontarget: 'SINGLEKEY'},
         TaskFavorites: { name: 'TaskFavorites',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_NFAVOR_BUT', actiontarget: 'SINGLEKEY'},
@@ -738,14 +737,14 @@ export class MyFavoriteMainGridBase extends GridControlBase {
         if(Object.is('confirmStoryChange', tag)) {
             this.grid_uagridcolumn1_u94afee5_click(row, tag, $event);
         }
-        if(Object.is('MStartTaskDash', tag)) {
-            this.grid_uagridcolumn1_u6df59b2_click(row, tag, $event);
+        if(Object.is('MStartTaskDash1', tag)) {
+            this.grid_uagridcolumn1_u9e51301_click(row, tag, $event);
         }
         if(Object.is('CloseTask', tag)) {
             this.grid_uagridcolumn1_u164e1c8_click(row, tag, $event);
         }
-        if(Object.is('MDoneTask', tag)) {
-            this.grid_uagridcolumn1_ud1531ff_click(row, tag, $event);
+        if(Object.is('done', tag)) {
+            this.grid_uagridcolumn1_u0e87c97_click(row, tag, $event);
         }
         if(Object.is('MainEdit', tag)) {
             this.grid_uagridcolumn1_u90f5316_click(row, tag, $event);
