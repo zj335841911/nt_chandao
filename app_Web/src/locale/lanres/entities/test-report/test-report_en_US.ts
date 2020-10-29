@@ -339,6 +339,14 @@ export default {
 			tasks: "测试版本",
 			uagridcolumn1: "操作",
 		},
+    exportColumns: {
+			id: "ID",
+			title: "标题",
+			createdby: "创建",
+			createddate: "创建时间",
+			projectname: "所属项目",
+			tasks: "测试版本",
+    },
 		uiactions: {
         edit: "Edit",
         testreport_edits: "编辑",

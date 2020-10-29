@@ -350,6 +350,51 @@ export class MainGridBase extends GridControlBase {
 
 
     /**
+     * 所有导出列成员
+     *
+     * @type {any[]}
+     * @memberof MainGridBase
+     */
+    public allExportColumns: any[] = [
+        {
+            name: 'id',
+            label: 'ID',
+            langtag: 'entities.testreport.main_grid.exportColumns.id',
+            show: true,
+        },
+        {
+            name: 'title',
+            label: '标题',
+            langtag: 'entities.testreport.main_grid.exportColumns.title',
+            show: true,
+        },
+        {
+            name: 'createdby',
+            label: '创建',
+            langtag: 'entities.testreport.main_grid.exportColumns.createdby',
+            show: true,
+        },
+        {
+            name: 'createddate',
+            label: '创建时间',
+            langtag: 'entities.testreport.main_grid.exportColumns.createddate',
+            show: true,
+        },
+        {
+            name: 'projectname',
+            label: '所属项目',
+            langtag: 'entities.testreport.main_grid.exportColumns.projectname',
+            show: true,
+        },
+        {
+            name: 'tasks',
+            label: '测试版本',
+            langtag: 'entities.testreport.main_grid.exportColumns.tasks',
+            show: true,
+        },
+    ]
+
+    /**
      * 导出数据格式化
      *
      * @param {*} filterVal
@@ -360,22 +405,6 @@ export class MainGridBase extends GridControlBase {
      */
     public async formatExcelData(filterVal: any, jsonData: any, codelistColumns?: any[]): Promise<any> {
         return super.formatExcelData(filterVal, jsonData, [
-            {
-                name: 'createdby',
-                srfkey: 'UserRealName',
-                codelistType : 'DYNAMIC',
-                textSeparator: ',',
-                renderMode: 'string',
-                valueSeparator: ",",
-            },
-            {
-                name: 'tasks',
-                srfkey: 'TestTask',
-                codelistType : 'DYNAMIC',
-                renderMode: 'other',
-                textSeparator: '、',
-                valueSeparator: ',',
-            },
         ]);
     }
 
