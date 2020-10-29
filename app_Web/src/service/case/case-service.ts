@@ -348,6 +348,7 @@ export default class CaseService extends CaseServiceBase {
             }
             masterData.ibzcasesteps = ibzcasestepsData;
             Object.assign(data,masterData);
+            data.task = context.task;
             let res:any = await Http.getInstance().put(`/products/${context.product}/stories/${context.story}/cases/${context.case}/gettesttaskcntrun`,data,isloading);
             this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps?res.data.casesteps:[]));
             this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps?res.data.ibzcasesteps:[]));
@@ -389,6 +390,7 @@ export default class CaseService extends CaseServiceBase {
             }
             masterData.ibzcasesteps = ibzcasestepsData;
             Object.assign(data,masterData);
+            data.task = context.task;
             let res:any = await Http.getInstance().put(`/stories/${context.story}/cases/${context.case}/gettesttaskcntrun`,data,isloading);
             this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps?res.data.casesteps:[]));
             this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps?res.data.ibzcasesteps:[]));
@@ -437,7 +439,10 @@ export default class CaseService extends CaseServiceBase {
 
             return res;
         }
-        let res:any = Http.getInstance().put(`/cases/${context.case}/gettesttaskcntrun`,data,isloading);
+        data.task = context.task;
+        let res:any = await Http.getInstance().put(`/cases/${context.case}/gettesttaskcntrun`,data,isloading);
+        this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps?res.data.casesteps:[]));
+        this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps?res.data.ibzcasesteps:[]));
         return res;
     }
 
