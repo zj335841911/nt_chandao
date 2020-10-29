@@ -107,6 +107,8 @@ export default class CaseService extends CaseServiceBase {
             }
             masterData.ibzcasesteps = ibzcasestepsData;
             Object.assign(data,masterData);
+            context.case = 0;
+            data.id = 0;
             let res:any = await Http.getInstance().post(`/stories/${context.story}/cases/${context.case}/linkcase`,data,isloading);
             this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps?res.data.casesteps:[]));
             this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps?res.data.ibzcasesteps:[]));
@@ -156,6 +158,8 @@ export default class CaseService extends CaseServiceBase {
 
             return res;
         }
+        context.case = 0;
+        data.id = 0;
         let res:any = Http.getInstance().post(`/cases/${context.case}/linkcase`,data,isloading);
         return res;
     }
