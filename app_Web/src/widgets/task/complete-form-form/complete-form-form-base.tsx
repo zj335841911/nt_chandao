@@ -126,6 +126,19 @@ export class CompleteFormEditFormBase extends EditFormControlBase {
      * @memberof CompleteFormBase
      */
     public deRules:any = {
+                currentConsumed:[
+                  {
+                      type:"VALUERANGE2",
+                      condOP:"",
+                      ruleInfo:"数值必须大于[0.0]", 
+                      isKeyCond:false,
+                      isNotMode:false,
+                      minValue:0,
+                      deName:"currentconsumed",
+                      isIncludeMaxValue:false,
+                      isIncludeMinValue:false,
+                  },
+                ],
     };
 
     /**
