@@ -389,18 +389,6 @@ export class Main_PlanSubGridBase extends GridControlBase {
             langtag: 'entities.story.main_plansub_grid.exportColumns.ischild',
             show: true,
         },
-        {
-            name: 'product',
-            label: '所属产品',
-            langtag: 'entities.story.main_plansub_grid.exportColumns.product',
-            show: true,
-        },
-        {
-            name: 'prodoctname',
-            label: '产品名称',
-            langtag: 'entities.story.main_plansub_grid.exportColumns.prodoctname',
-            show: true,
-        },
     ]
 
     /**

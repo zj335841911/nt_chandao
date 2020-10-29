@@ -88,16 +88,6 @@ export default class ProjectStoryModel {
           prop: 'ischild',
           dataType: 'TEXT',
         },
-        {
-          name: 'product',
-          prop: 'product',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'prodoctname',
-          prop: 'productname',
-          dataType: 'PICKUPTEXT',
-        },
       ]
     }else{
 		  return [

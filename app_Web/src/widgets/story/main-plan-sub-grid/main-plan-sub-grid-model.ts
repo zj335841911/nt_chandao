@@ -88,16 +88,6 @@ export default class Main_PlanSubModel {
           prop: 'ischild',
           dataType: 'TEXT',
         },
-        {
-          name: 'product',
-          prop: 'product',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'prodoctname',
-          prop: 'productname',
-          dataType: 'PICKUPTEXT',
-        },
       ]
     }else{
 		  return [

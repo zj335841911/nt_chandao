@@ -795,8 +795,6 @@ export default {
 			module: "所属模块",
 			isfavorites: "是否收藏",
 			ischild: "是否可以细分",
-			product: "所属产品",
-			prodoctname: "产品名称",
     },
 		uiactions: {
         story_unlinkstory: "移除关联",
@@ -847,8 +845,6 @@ export default {
 			module: "所属模块",
 			isfavorites: "是否收藏",
 			ischild: "是否可以细分",
-			product: "所属产品",
-			prodoctname: "产品名称",
     },
 		uiactions: {
         story_breakdowntasks: "分解任务",
@@ -882,8 +878,6 @@ export default {
 			module: "所属模块",
 			isfavorites: "是否收藏",
 			ischild: "是否可以细分",
-			product: "所属产品",
-			prodoctname: "产品名称",
     },
 		uiactions: {
         story_buildunlinkstory: "解绑需求",
@@ -942,8 +936,6 @@ export default {
 			module: "所属模块",
 			isfavorites: "是否收藏",
 			ischild: "是否可以细分",
-			product: "所属产品",
-			prodoctname: "产品名称",
     },
 		uiactions: {
         story_changestorydetail: "变更",
@@ -983,8 +975,6 @@ export default {
 			module: "所属模块",
 			isfavorites: "是否收藏",
 			ischild: "是否可以细分",
-			product: "所属产品",
-			prodoctname: "产品名称",
     },
 		uiactions: {
         story_releaseunlinkstory: "移除关联",
@@ -1020,8 +1010,6 @@ export default {
 			module: "所属模块",
 			isfavorites: "是否收藏",
 			ischild: "是否可以细分",
-			product: "所属产品",
-			prodoctname: "产品名称",
     },
 		uiactions: {
         story_changestorydetail: "变更",
@@ -1074,8 +1062,6 @@ export default {
 			module: "所属模块",
 			isfavorites: "是否收藏",
 			ischild: "是否可以细分",
-			product: "所属产品",
-			prodoctname: "产品名称",
     },
 		uiactions: {
         story_changestorydetail: "变更",
@@ -1137,8 +1123,6 @@ export default {
 			module: "所属模块",
 			isfavorites: "是否收藏",
 			ischild: "是否可以细分",
-			product: "所属产品",
-			prodoctname: "产品名称",
     },
 		uiactions: {
         story_changestorydetail: "变更",

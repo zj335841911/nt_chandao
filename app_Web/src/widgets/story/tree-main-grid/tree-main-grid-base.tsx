@@ -574,18 +574,6 @@ export class TreeMainGridBase extends GridControlBase {
             langtag: 'entities.story.treemain_grid.exportColumns.ischild',
             show: true,
         },
-        {
-            name: 'product',
-            label: '所属产品',
-            langtag: 'entities.story.treemain_grid.exportColumns.product',
-            show: true,
-        },
-        {
-            name: 'prodoctname',
-            label: '产品名称',
-            langtag: 'entities.story.treemain_grid.exportColumns.prodoctname',
-            show: true,
-        },
     ]
 
     /**
