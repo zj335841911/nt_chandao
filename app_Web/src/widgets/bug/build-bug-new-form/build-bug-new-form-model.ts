@@ -161,6 +161,11 @@ export default class BuildBugNewModel {
         dataType: 'TEXT',
       },
       {
+        name: 'files',
+        prop: 'files',
+        dataType: 'TEXT',
+      },
+      {
         name: 'id',
         prop: 'id',
         dataType: 'ACID',

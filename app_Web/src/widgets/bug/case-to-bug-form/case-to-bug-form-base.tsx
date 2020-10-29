@@ -278,6 +278,12 @@ export class CaseToBugEditFormBase extends EditFormControlBase {
         if (this.data.hasOwnProperty('title')) {
             this.data['title'] = this.viewparams['title'];
         }
+        if (this.data.hasOwnProperty('severity')) {
+            this.data['severity'] = 3;
+        }
+        if (this.data.hasOwnProperty('pri')) {
+            this.data['pri'] = 3;
+        }
         if (this.data.hasOwnProperty('steps')) {
             this.data['steps'] = this.viewparams['precondition'];
         }
