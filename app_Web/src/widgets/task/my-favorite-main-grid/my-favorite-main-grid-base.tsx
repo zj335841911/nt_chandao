@@ -651,6 +651,18 @@ export class MyFavoriteMainGridBase extends GridControlBase {
             langtag: 'entities.task.myfavoritemain_grid.exportColumns.tasktype',
             show: true,
         },
+        {
+            name: 'product',
+            label: '产品',
+            langtag: 'entities.task.myfavoritemain_grid.exportColumns.product',
+            show: true,
+        },
+        {
+            name: 'projectname',
+            label: '所属项目',
+            langtag: 'entities.task.myfavoritemain_grid.exportColumns.projectname',
+            show: true,
+        },
     ]
 
     /**

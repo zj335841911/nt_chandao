@@ -616,6 +616,8 @@ export default {
 			deadline: "截止日期",
 			isfavorites: "是否收藏",
 			tasktype: "任务类型",
+			product: "产品",
+			projectname: "所属项目",
     },
 		uiactions: {
         task_assigntask: "指派",
@@ -656,6 +658,8 @@ export default {
 			deadline: "截止日期",
 			isfavorites: "是否收藏",
 			tasktype: "任务类型",
+			product: "产品",
+			projectname: "所属项目",
     },
 		uiactions: {
         task_assigntask: "指派",
@@ -731,6 +735,8 @@ export default {
 			deadline: "截止日期",
 			isfavorites: "是否收藏",
 			tasktype: "任务类型",
+			product: "产品",
+			projectname: "所属项目",
     },
 		uiactions: {
         task_assigntask: "指派",
@@ -775,6 +781,8 @@ export default {
 			deadline: "截止日期",
 			isfavorites: "是否收藏",
 			tasktype: "任务类型",
+			product: "产品",
+			projectname: "所属项目",
     },
 		uiactions: {
         task_assigntask: "指派",

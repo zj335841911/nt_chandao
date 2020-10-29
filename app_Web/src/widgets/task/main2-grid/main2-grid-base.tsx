@@ -561,6 +561,18 @@ export class Main2GridBase extends GridControlBase {
             langtag: 'entities.task.main2_grid.exportColumns.tasktype',
             show: true,
         },
+        {
+            name: 'product',
+            label: '产品',
+            langtag: 'entities.task.main2_grid.exportColumns.product',
+            show: true,
+        },
+        {
+            name: 'projectname',
+            label: '所属项目',
+            langtag: 'entities.task.main2_grid.exportColumns.projectname',
+            show: true,
+        },
     ]
 
     /**

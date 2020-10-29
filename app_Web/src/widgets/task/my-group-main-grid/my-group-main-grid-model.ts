@@ -88,6 +88,16 @@ export default class MyGroupMainModel {
           prop: 'tasktype',
           dataType: 'SSCODELIST',
         },
+        {
+          name: 'product',
+          prop: 'product',
+          dataType: 'PICKUPDATA',
+        },
+        {
+          name: 'projectname',
+          prop: 'projectname',
+          dataType: 'PICKUPTEXT',
+        },
       ]
     }else{
 		  return [

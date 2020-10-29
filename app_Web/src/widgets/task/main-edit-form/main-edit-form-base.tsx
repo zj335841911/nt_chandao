@@ -417,7 +417,7 @@ export class MainEditEditFormBase extends EditFormControlBase {
 
         if (Object.is(name, 'storyversion')) {
             const details: string[] = ['storyversion'];
-            this.updateFormItems('updateStoryVersion', this.data, details, true);
+            this.updateFormItems('UpdateStoryVersion', this.data, details, true);
         }
     }
 }
