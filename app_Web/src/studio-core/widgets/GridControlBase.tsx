@@ -407,7 +407,7 @@ export class GridControlBase extends MDControlBase {
                 this.errorMessages.forEach((message: any) => {
                     descMessage = descMessage + '<p>' + message + '<p>';
                 })
-                this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), dangerouslyUseHTMLString: true, desc: descMessage });
+                this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: descMessage });
             } else {
                 this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: (this.$t('app.commonWords.rulesException') as string) });
             }
