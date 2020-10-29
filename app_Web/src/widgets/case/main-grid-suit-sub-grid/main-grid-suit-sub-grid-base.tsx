@@ -354,6 +354,120 @@ export class MainGrid_SuitSubGridBase extends GridControlBase {
 
 
     /**
+     * 是否为实体导出对象
+     *
+     * @protected
+     * @type {boolean}
+     * @memberof MainGrid_SuitSubGridBase
+     */
+    protected isDeExport: boolean = true;
+
+    /**
+     * 所有导出列成员
+     *
+     * @type {any[]}
+     * @memberof MainGrid_SuitSubGridBase
+     */
+    public allExportColumns: any[] = [
+        {
+            name: 'id',
+            label: 'id',
+            langtag: 'entities.case.maingrid_suitsub_grid.exportColumns.id',
+            show: true,
+        },
+        {
+            name: 'pri',
+            label: 'P',
+            langtag: 'entities.case.maingrid_suitsub_grid.exportColumns.pri',
+            show: true,
+        },
+        {
+            name: 'title',
+            label: '用例标题',
+            langtag: 'entities.case.maingrid_suitsub_grid.exportColumns.title',
+            show: true,
+        },
+        {
+            name: 'type',
+            label: '用例类型',
+            langtag: 'entities.case.maingrid_suitsub_grid.exportColumns.type',
+            show: true,
+        },
+        {
+            name: 'openedby',
+            label: '创建',
+            langtag: 'entities.case.maingrid_suitsub_grid.exportColumns.openedby',
+            show: true,
+        },
+        {
+            name: 'lastrunner',
+            label: '执行人',
+            langtag: 'entities.case.maingrid_suitsub_grid.exportColumns.lastrunner',
+            show: true,
+        },
+        {
+            name: 'lastrundate',
+            label: '执行时间',
+            langtag: 'entities.case.maingrid_suitsub_grid.exportColumns.lastrundate',
+            show: true,
+        },
+        {
+            name: 'lastrunresult',
+            label: '结果',
+            langtag: 'entities.case.maingrid_suitsub_grid.exportColumns.lastrunresult',
+            show: true,
+        },
+        {
+            name: 'status',
+            label: '状态',
+            langtag: 'entities.case.maingrid_suitsub_grid.exportColumns.status',
+            show: true,
+        },
+        {
+            name: 'status1',
+            label: '状态',
+            langtag: 'entities.case.maingrid_suitsub_grid.exportColumns.status1',
+            show: true,
+        },
+        {
+            name: 'tobugcnt',
+            label: 'B',
+            langtag: 'entities.case.maingrid_suitsub_grid.exportColumns.tobugcnt',
+            show: true,
+        },
+        {
+            name: 'resultcnt',
+            label: 'R',
+            langtag: 'entities.case.maingrid_suitsub_grid.exportColumns.resultcnt',
+            show: true,
+        },
+        {
+            name: 'casesteps',
+            label: 'S',
+            langtag: 'entities.case.maingrid_suitsub_grid.exportColumns.casesteps',
+            show: true,
+        },
+        {
+            name: 'lastrunresult1',
+            label: '测试用例结果',
+            langtag: 'entities.case.maingrid_suitsub_grid.exportColumns.lastrunresult1',
+            show: true,
+        },
+        {
+            name: 'isfavorites',
+            label: '是否收藏',
+            langtag: 'entities.case.maingrid_suitsub_grid.exportColumns.isfavorites',
+            show: true,
+        },
+        {
+            name: 'product',
+            label: '所属产品',
+            langtag: 'entities.case.maingrid_suitsub_grid.exportColumns.product',
+            show: true,
+        },
+    ]
+
+    /**
      * 导出数据格式化
      *
      * @param {*} filterVal
@@ -364,38 +478,6 @@ export class MainGrid_SuitSubGridBase extends GridControlBase {
      */
     public async formatExcelData(filterVal: any, jsonData: any, codelistColumns?: any[]): Promise<any> {
         return super.formatExcelData(filterVal, jsonData, [
-            {
-                name: 'pri',
-                srfkey: 'Testcase__pri',
-                codelistType : 'STATIC',
-                renderMode: 'other',
-                textSeparator: '、',
-                valueSeparator: ',',
-            },
-            {
-                name: 'type',
-                srfkey: 'Testcase__type',
-                codelistType : 'STATIC',
-                renderMode: 'other',
-                textSeparator: '、',
-                valueSeparator: ',',
-            },
-            {
-                name: 'lastrunresult',
-                srfkey: 'Testcase__result',
-                codelistType : 'STATIC',
-                renderMode: 'other',
-                textSeparator: '、',
-                valueSeparator: ',',
-            },
-            {
-                name: 'status1',
-                srfkey: 'TestCaseStatusGrid',
-                codelistType : 'STATIC',
-                renderMode: 'other',
-                textSeparator: '、',
-                valueSeparator: ',',
-            },
         ]);
     }
 
