@@ -7,6 +7,7 @@ import cn.ibizlab.pms.core.zentao.domain.*;
 import cn.ibizlab.pms.core.zentao.mapper.TaskMapper;
 import cn.ibizlab.pms.core.zentao.service.*;
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
+import cn.ibizlab.pms.util.helper.DataObject;
 import cn.ibizlab.pms.util.security.AuthenticationUser;
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
@@ -147,16 +148,36 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
 
         Task newTask = new Task();
         newTask.setId(et.getId());
-        if(et.getName() != null)
+
+        if(et.getName() != null) {
             newTask.setName(et.getName());
-        if(et.getType() != null)
+        }
+        else if(DataObject.getBooleanValue(et.get("pridirtyflag"), false)) {
+            newTask.setName("");
+        }
+        if(et.getType() != null) {
             newTask.setType(et.getType());
-        if(et.getDeadline() != null)
+        }
+        else if(DataObject.getBooleanValue(et.get("typedirtyflag"), false)) {
+            newTask.setType("");
+        }
+        if(et.getDeadline() != null) {
             newTask.setDeadline(et.getDeadline());
+        }
+        else if(DataObject.getBooleanValue(et.get("deadlinedirtyflag"), false)) {
+            newTask.setDeadline(null);
+        }
         if(et.getPri() != null)
             newTask.setPri(et.getPri());
-        if(et.getDesc() != null)
+        else if(DataObject.getBooleanValue(et.get("pridirtyflag"), false)) {
+            newTask.setPri(0);
+        }
+        if(et.getDesc() != null) {
             newTask.setDesc(et.getDesc());
+        }
+        else if(DataObject.getBooleanValue(et.get("descdirtyflag"), false)) {
+            newTask.setDesc("");
+        }
         Timestamp now = ZTDateUtil.now();
         newTask.setLastediteddate(now);
         newTask.setLasteditedby(AuthenticationUser.getAuthenticationUser().getUsername());
