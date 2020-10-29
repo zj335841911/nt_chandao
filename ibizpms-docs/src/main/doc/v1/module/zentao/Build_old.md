@@ -96,6 +96,7 @@ hide members
 |DEFAULT|DEFAULT([MYSQL5](../../appendix/query_MYSQL5.md#Build_Default))|否|&nbsp;|
 |TestBuild|测试版本([MYSQL5](../../appendix/query_MYSQL5.md#Build_TestBuild))|否|&nbsp;|
 |TestRounds|测试轮次([MYSQL5](../../appendix/query_MYSQL5.md#Build_TestRounds))|否|&nbsp;|
+|UpdateLog|更新日志([MYSQL5](../../appendix/query_MYSQL5.md#Build_UpdateLog))|否|&nbsp;|
 |VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#Build_View))|否|&nbsp;|
 
 * **数据集合**

@@ -2750,6 +2750,10 @@ WHERE t1.DELETED = '0'
 ( FIND_IN_SET(t1.id,(select tt.builds from zt_testreport tt where tt.id = ${srfwebcontext('srfparentkey','{"defname":"ID","dename":"ZT_BUILD"}')})) ) 
 
 ```
+### 更新日志(UpdateLog)<div id="Build_UpdateLog"></div>
+```sql
+
+```
 ### 默认（全部数据）(VIEW)<div id="Build_View"></div>
 ```sql
 SELECT
