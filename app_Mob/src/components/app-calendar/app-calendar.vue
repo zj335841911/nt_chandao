@@ -33,9 +33,13 @@
         :class="['mc-body', {'mc-range-mode': range, 'week-switch': weekSwitch && !isMonthRange, 'month-range-mode': isMonthRange}]"
         v-for="(days, index) in monthRangeDays"
         :key='index'
+        :style="mcbodyStyle()"
+        style=" 
+    transition: all 0.5s ease-in-out 0s;
+    overflow: hidden;"
       >
         <div class="month-rang-head" v-if="isMonthRange">{{rangeOfMonths[index][2]}}</div>
-        <tr v-for="(day,k1) in days" :key="k1" :class="{'gregorianStyle': !lunar}">
+        <tr v-for="(day,k1) in days" :key="k1" :class="{'gregorianStyle': !lunar}" :style="itemtrStyle(day,days)" style="transition: all .5s;  overflow: hidden;">
           <td
             v-for="(child,k2) in day"
             :key="k2"
@@ -104,6 +108,10 @@
         type: Array,
         default: null
         },
+      touchLength:{
+        type: Number,
+        default: 0
+      },
       arrowLeft: {
         type: String,
         default: ''
@@ -257,6 +265,15 @@
         startWeekIndex: 0,
         positionWeek: true,
         isMonthRange: false,
+        isseletd:false,
+        changeStyle2(item){
+          this.changebtntop = item;
+          this.render(this.year, this.month);
+        },
+        createdinit(){
+          this.changebtntop = false;
+          this.render(this.year, this.month);
+        },
       };
     },
     computed: {
@@ -266,6 +283,9 @@
       events() {
         if (this.isRendeRangeMode()) return;
         this.render(this.year, this.month, '_WATCHRENDER_', 'events');
+      },
+      touchLength(){
+        // console.log(this.touchLength);
       },
       disabled() {
         if (this.isRendeRangeMode()) return;
@@ -329,7 +349,6 @@
       loopArray.push(this.months[0]);
       this.monthsLoop = loopArray;
       this.monthsLoopCopy = this.monthsLoop.concat();
-      console.log("sign",this.sign);
     },
     mounted() {
       const self = this;
@@ -361,10 +380,45 @@
           lineHeight: this.lunar ? `${this.itemWidth / 1.5}px` : `${this.itemWidth}px`
         };
       },
+      // user
+      itemtrStyle(day,days){
+        let tempH = parseFloat(this.itemWidth) + 8;
+        let tmpSelect = false;
+        days.forEach((item)=>{
+          if(item.some((i)=>{return i.selected})){
+            tmpSelect = true;
+          };
+        });
+        let falg = day.some((item)=>{
+          return tmpSelect?item.selected:item.isToday;
+        });
+        if(falg){
+          return {height: `${tempH}px`,}
+        }
+        return this.changebtntop?{
+          height: `${tempH}px`,
+        }:{height: 0,}
+      },
+      mcbodyStyle(){
+        let count = 0;
+        this.monthRangeDays.forEach((item)=>{
+          item.forEach((i)=>{
+            count ++;
+          });
+        });
+        if(!this.changebtntop){
+          count = 1;
+        }
+        return {height: `${(this.itemWidth+16)*count+45}px`}
+      },
+      tempTouchLength(){
+        return this.touchLength>0?this.touchLength:"";
+      },
       changeStyle(){
         this.changebtntop = !this.changebtntop;
         this.render(this.year, this.month);
       },
+
       init() {
         const now = new Date();
         this.year = now.getFullYear();
@@ -733,14 +787,14 @@
             });
           });
         }
-        if (weekSwitch || this.changebtntop) {
+        if (weekSwitch) {
           const tempLength = temp.length;
           const lastLineMonth = temp[tempLength - 1][0].date.split('-')[1]; // last line month
           const secondLastMonth = temp[tempLength - 2][0].date.split('-')[1]; // second-to-last line month
           lastLineMonth !== secondLastMonth && temp.splice(tempLength - 1, 1);
         }
         this.monthDays = temp;
-        if (weekSwitch && !this.isMonthRange || this.changebtntop) {
+        if (weekSwitch && !this.isMonthRange) {
           if (this.positionWeek) {
             let payloadDay = '';
             let searchIndex = true;

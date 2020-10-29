@@ -14,9 +14,12 @@
 
 .icon-arrow-left:before { content: "\e501"; }
 .sign {
-    overflow: hidden;
     height: 28px;
     width: 100%;
+    position: absolute;
+    z-index: 12;
+    bottom: -11px;
+    left: 0;
 }
 .sign-item{
     line-height: 1;
