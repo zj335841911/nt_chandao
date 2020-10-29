@@ -123,6 +123,12 @@ export default {
 			tip: "删除",
 		},
 	},
+	gridviewtoolbar_toolbar: {
+		deuiaction2: {
+			caption: "导出",
+			tip: "导出",
+		},
+	},
 	productcreatestory_po_chart: {
 		nodata: "",
 	},

@@ -123,6 +123,12 @@ export default {
 			tip: "Remove And Close Window",
 		},
 	},
+	gridviewtoolbar_toolbar: {
+		deuiaction2: {
+			caption: "Export",
+			tip: "Export {0} Data To Excel",
+		},
+	},
 	productcreatestory_po_chart: {
 		nodata: "",
 	},
