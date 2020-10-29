@@ -432,10 +432,6 @@ export class MainGridBase extends GridControlBase {
      */
     public async formatExcelData(filterVal: any, jsonData: any, codelistColumns?: any[]): Promise<any> {
         return super.formatExcelData(filterVal, jsonData, [
-        // id
-        // name
-        // buildname
-        // status
             {
                 name: 'status',
                 srfkey: 'Release__status',
@@ -444,8 +440,6 @@ export class MainGridBase extends GridControlBase {
                 textSeparator: '、',
                 valueSeparator: ',',
             },
-        // date
-        // uagridcolumn1
         ]);
     }
 

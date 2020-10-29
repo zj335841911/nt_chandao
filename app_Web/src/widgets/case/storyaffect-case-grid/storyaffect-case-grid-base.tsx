@@ -251,7 +251,6 @@ export class StoryaffectCaseGridBase extends GridControlBase {
      */
     public async formatExcelData(filterVal: any, jsonData: any, codelistColumns?: any[]): Promise<any> {
         return super.formatExcelData(filterVal, jsonData, [
-        // pri
             {
                 name: 'pri',
                 srfkey: 'Testcase__pri',
@@ -260,8 +259,6 @@ export class StoryaffectCaseGridBase extends GridControlBase {
                 textSeparator: '、',
                 valueSeparator: ',',
             },
-        // title
-        // status
             {
                 name: 'status',
                 srfkey: 'Testcase__status',
@@ -270,7 +267,6 @@ export class StoryaffectCaseGridBase extends GridControlBase {
                 textSeparator: '、',
                 valueSeparator: ',',
             },
-        // openedby
             {
                 name: 'openedby',
                 srfkey: 'UserRealName',
@@ -279,7 +275,6 @@ export class StoryaffectCaseGridBase extends GridControlBase {
                 renderMode: 'string',
                 valueSeparator: ",",
             },
-        // lasteditedby
         ]);
     }
 

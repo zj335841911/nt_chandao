@@ -292,8 +292,6 @@ export class MainLinkTestGridBase extends GridControlBase {
      */
     public async formatExcelData(filterVal: any, jsonData: any, codelistColumns?: any[]): Promise<any> {
         return super.formatExcelData(filterVal, jsonData, [
-        // id
-        // version
             {
                 name: 'version',
                 srfkey: 'CurCaseVersion',
@@ -302,7 +300,6 @@ export class MainLinkTestGridBase extends GridControlBase {
                 textSeparator: '、',
                 valueSeparator: ',',
             },
-        // pri
             {
                 name: 'pri',
                 srfkey: 'Testcase__pri',
@@ -311,8 +308,6 @@ export class MainLinkTestGridBase extends GridControlBase {
                 textSeparator: '、',
                 valueSeparator: ',',
             },
-        // title
-        // type
             {
                 name: 'type',
                 srfkey: 'Testcase__type',
@@ -321,7 +316,6 @@ export class MainLinkTestGridBase extends GridControlBase {
                 textSeparator: '、',
                 valueSeparator: ',',
             },
-        // openedby
             {
                 name: 'openedby',
                 srfkey: 'UserRealName',
@@ -330,7 +324,6 @@ export class MainLinkTestGridBase extends GridControlBase {
                 renderMode: 'string',
                 valueSeparator: ",",
             },
-        // lastrunner
             {
                 name: 'lastrunner',
                 srfkey: 'UserRealName',
@@ -339,8 +332,6 @@ export class MainLinkTestGridBase extends GridControlBase {
                 renderMode: 'string',
                 valueSeparator: ",",
             },
-        // lastrundate
-        // lastrunresult
             {
                 name: 'lastrunresult',
                 srfkey: 'Testcase__result',
@@ -349,7 +340,6 @@ export class MainLinkTestGridBase extends GridControlBase {
                 textSeparator: '、',
                 valueSeparator: ',',
             },
-        // status1
             {
                 name: 'status1',
                 srfkey: 'TestCaseStatusGrid',

@@ -296,8 +296,6 @@ export class Main_ReleaseSubGridBase extends GridControlBase {
      */
     public async formatExcelData(filterVal: any, jsonData: any, codelistColumns?: any[]): Promise<any> {
         return super.formatExcelData(filterVal, jsonData, [
-        // id
-        // pri
             {
                 name: 'pri',
                 srfkey: 'Story__pri',
@@ -306,9 +304,6 @@ export class Main_ReleaseSubGridBase extends GridControlBase {
                 textSeparator: '、',
                 valueSeparator: ',',
             },
-        // title
-        // modulename
-        // openedby
             {
                 name: 'openedby',
                 srfkey: 'UserRealName',
@@ -317,8 +312,6 @@ export class Main_ReleaseSubGridBase extends GridControlBase {
                 renderMode: 'string',
                 valueSeparator: ",",
             },
-        // estimate
-        // status
             {
                 name: 'status',
                 srfkey: 'Story__status',
@@ -327,7 +320,6 @@ export class Main_ReleaseSubGridBase extends GridControlBase {
                 textSeparator: '、',
                 valueSeparator: ',',
             },
-        // stage
             {
                 name: 'stage',
                 srfkey: 'Story__stage',
@@ -336,7 +328,6 @@ export class Main_ReleaseSubGridBase extends GridControlBase {
                 textSeparator: '、',
                 valueSeparator: ',',
             },
-        // uagridcolumn1
         ]);
     }
 

@@ -271,9 +271,6 @@ export class StoryAffectBugGridBase extends GridControlBase {
      */
     public async formatExcelData(filterVal: any, jsonData: any, codelistColumns?: any[]): Promise<any> {
         return super.formatExcelData(filterVal, jsonData, [
-        // id
-        // title
-        // status
             {
                 name: 'status',
                 srfkey: 'Bug__status',
@@ -282,7 +279,6 @@ export class StoryAffectBugGridBase extends GridControlBase {
                 textSeparator: '、',
                 valueSeparator: ',',
             },
-        // openedby
             {
                 name: 'openedby',
                 srfkey: 'UserRealName',
@@ -291,7 +287,6 @@ export class StoryAffectBugGridBase extends GridControlBase {
                 renderMode: 'string',
                 valueSeparator: ",",
             },
-        // resolvedby
             {
                 name: 'resolvedby',
                 srfkey: 'UserRealName',
@@ -300,7 +295,6 @@ export class StoryAffectBugGridBase extends GridControlBase {
                 renderMode: 'string',
                 valueSeparator: ",",
             },
-        // resolution
             {
                 name: 'resolution',
                 srfkey: 'Bug__resolution',
@@ -309,7 +303,6 @@ export class StoryAffectBugGridBase extends GridControlBase {
                 textSeparator: '、',
                 valueSeparator: ',',
             },
-        // lasteditedby
             {
                 name: 'lasteditedby',
                 srfkey: 'UserRealName',

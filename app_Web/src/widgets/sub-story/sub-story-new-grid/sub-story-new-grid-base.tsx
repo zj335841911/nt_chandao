@@ -325,8 +325,6 @@ export class SubStoryNewGridBase extends GridControlBase {
      */
     public async formatExcelData(filterVal: any, jsonData: any, codelistColumns?: any[]): Promise<any> {
         return super.formatExcelData(filterVal, jsonData, [
-        // modulename
-        // plan
             {
                 name: 'plan',
                 srfkey: 'CurProductPlan',
@@ -335,9 +333,6 @@ export class SubStoryNewGridBase extends GridControlBase {
                 textSeparator: '、',
                 valueSeparator: ',',
             },
-        // title
-        // spec
-        // pri
             {
                 name: 'pri',
                 srfkey: 'Story__pri',
@@ -346,8 +341,6 @@ export class SubStoryNewGridBase extends GridControlBase {
                 textSeparator: '、',
                 valueSeparator: ',',
             },
-        // estimate
-        // neednotreview
             {
                 name: 'neednotreview',
                 srfkey: 'YesNo2',
@@ -356,8 +349,6 @@ export class SubStoryNewGridBase extends GridControlBase {
                 textSeparator: '、',
                 valueSeparator: ',',
             },
-        // product
-        // parent
         ]);
     }
 

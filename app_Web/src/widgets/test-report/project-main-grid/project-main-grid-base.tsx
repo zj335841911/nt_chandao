@@ -360,9 +360,6 @@ export class ProjectMainGridBase extends GridControlBase {
      */
     public async formatExcelData(filterVal: any, jsonData: any, codelistColumns?: any[]): Promise<any> {
         return super.formatExcelData(filterVal, jsonData, [
-        // id
-        // title
-        // createdby
             {
                 name: 'createdby',
                 srfkey: 'UserRealName',
@@ -371,9 +368,6 @@ export class ProjectMainGridBase extends GridControlBase {
                 renderMode: 'string',
                 valueSeparator: ",",
             },
-        // createddate
-        // projectname
-        // tasks
             {
                 name: 'tasks',
                 srfkey: 'TestTask',
@@ -382,7 +376,6 @@ export class ProjectMainGridBase extends GridControlBase {
                 textSeparator: '、',
                 valueSeparator: ',',
             },
-        // uagridcolumn1
         ]);
     }
 

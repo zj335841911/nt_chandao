@@ -225,7 +225,6 @@ export class BugassignedToGridBase extends GridControlBase {
      */
     public async formatExcelData(filterVal: any, jsonData: any, codelistColumns?: any[]): Promise<any> {
         return super.formatExcelData(filterVal, jsonData, [
-        // assignedto
             {
                 name: 'assignedto',
                 srfkey: 'UserRealName',
@@ -234,9 +233,6 @@ export class BugassignedToGridBase extends GridControlBase {
                 renderMode: 'string',
                 valueSeparator: ",",
             },
-        // productname
-        // bugcnt
-        // bugtotal
         ]);
     }
 

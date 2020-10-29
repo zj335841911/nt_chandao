@@ -268,10 +268,6 @@ export class BatchNewGridBase extends GridControlBase {
      */
     public async formatExcelData(filterVal: any, jsonData: any, codelistColumns?: any[]): Promise<any> {
         return super.formatExcelData(filterVal, jsonData, [
-        // modulename
-        // storyname
-        // title
-        // type
             {
                 name: 'type',
                 srfkey: 'Testcase__type',

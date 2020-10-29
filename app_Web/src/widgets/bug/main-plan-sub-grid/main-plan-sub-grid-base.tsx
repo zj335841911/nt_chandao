@@ -296,8 +296,6 @@ export class Main_PlanSubGridBase extends GridControlBase {
      */
     public async formatExcelData(filterVal: any, jsonData: any, codelistColumns?: any[]): Promise<any> {
         return super.formatExcelData(filterVal, jsonData, [
-        // id
-        // pri
             {
                 name: 'pri',
                 srfkey: 'Bug__pri',
@@ -306,8 +304,6 @@ export class Main_PlanSubGridBase extends GridControlBase {
                 textSeparator: '、',
                 valueSeparator: ',',
             },
-        // title
-        // status
             {
                 name: 'status',
                 srfkey: 'Bug__status',
@@ -316,7 +312,6 @@ export class Main_PlanSubGridBase extends GridControlBase {
                 textSeparator: '、',
                 valueSeparator: ',',
             },
-        // openedby
             {
                 name: 'openedby',
                 srfkey: 'UserRealName',
@@ -325,8 +320,6 @@ export class Main_PlanSubGridBase extends GridControlBase {
                 renderMode: 'string',
                 valueSeparator: ",",
             },
-        // openeddate
-        // assignedto
             {
                 name: 'assignedto',
                 srfkey: 'BugUserRealName',
@@ -335,8 +328,6 @@ export class Main_PlanSubGridBase extends GridControlBase {
                 renderMode: 'string',
                 valueSeparator: ",",
             },
-        // uagridcolumn1
-        // isfavorites
         ]);
     }
 

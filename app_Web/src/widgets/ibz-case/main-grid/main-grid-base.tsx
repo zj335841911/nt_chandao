@@ -289,8 +289,6 @@ export class MainGridBase extends GridControlBase {
      */
     public async formatExcelData(filterVal: any, jsonData: any, codelistColumns?: any[]): Promise<any> {
         return super.formatExcelData(filterVal, jsonData, [
-        // lib
-        // pri
             {
                 name: 'pri',
                 srfkey: 'Testcase__pri',
@@ -299,8 +297,6 @@ export class MainGridBase extends GridControlBase {
                 textSeparator: '、',
                 valueSeparator: ',',
             },
-        // title
-        // type
             {
                 name: 'type',
                 srfkey: 'Testcase__type',
@@ -309,7 +305,6 @@ export class MainGridBase extends GridControlBase {
                 textSeparator: '、',
                 valueSeparator: ',',
             },
-        // openedby
             {
                 name: 'openedby',
                 srfkey: 'UserRealName',
@@ -318,7 +313,6 @@ export class MainGridBase extends GridControlBase {
                 renderMode: 'string',
                 valueSeparator: ",",
             },
-        // status
             {
                 name: 'status',
                 srfkey: 'Testcase__status',
@@ -327,7 +321,6 @@ export class MainGridBase extends GridControlBase {
                 textSeparator: '、',
                 valueSeparator: ',',
             },
-        // uagridcolumn1
         ]);
     }
 

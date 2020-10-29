@@ -267,12 +267,6 @@ export class MainMyGridBase extends GridControlBase {
      */
     public async formatExcelData(filterVal: any, jsonData: any, codelistColumns?: any[]): Promise<any> {
         return super.formatExcelData(filterVal, jsonData, [
-        // id
-        // code
-        // name
-        // begin
-        // end
-        // status
             {
                 name: 'status',
                 srfkey: 'Project__status',
@@ -281,9 +275,6 @@ export class MainMyGridBase extends GridControlBase {
                 textSeparator: '、',
                 valueSeparator: ',',
             },
-        // role
-        // join
-        // hours
         ]);
     }
 

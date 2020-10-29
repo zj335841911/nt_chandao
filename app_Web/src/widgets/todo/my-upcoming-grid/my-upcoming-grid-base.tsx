@@ -249,8 +249,6 @@ export class MyUpcomingGridBase extends GridControlBase {
      */
     public async formatExcelData(filterVal: any, jsonData: any, codelistColumns?: any[]): Promise<any> {
         return super.formatExcelData(filterVal, jsonData, [
-        // date1
-        // begin
             {
                 name: 'begin',
                 srfkey: 'BeginendDropList',
@@ -259,7 +257,6 @@ export class MyUpcomingGridBase extends GridControlBase {
                 textSeparator: '、',
                 valueSeparator: ',',
             },
-        // pri
             {
                 name: 'pri',
                 srfkey: 'Pri',
@@ -268,7 +265,6 @@ export class MyUpcomingGridBase extends GridControlBase {
                 textSeparator: '、',
                 valueSeparator: ',',
             },
-        // name
         ]);
     }
 
