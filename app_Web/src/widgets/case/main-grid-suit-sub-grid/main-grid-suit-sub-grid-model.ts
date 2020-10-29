@@ -98,11 +98,6 @@ export default class MainGrid_SuitSubModel {
           prop: 'isfavorites',
           dataType: 'TEXT',
         },
-        {
-          name: 'product',
-          prop: 'product',
-          dataType: 'PICKUP',
-        },
       ]
     }else{
 		  return [

@@ -387,12 +387,6 @@ export class MainLinkTestGridBase extends GridControlBase {
             langtag: 'entities.case.mainlinktest_grid.exportColumns.isfavorites',
             show: true,
         },
-        {
-            name: 'product',
-            label: '所属产品',
-            langtag: 'entities.case.mainlinktest_grid.exportColumns.product',
-            show: true,
-        },
     ]
 
     /**

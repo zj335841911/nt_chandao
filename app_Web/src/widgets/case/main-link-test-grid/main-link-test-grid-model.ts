@@ -98,12 +98,6 @@ export default class MainLinkTestModel {
           prop: 'isfavorites',
           dataType: 'TEXT',
         },
-        {
-          name: 'product',
-          prop: 'product',
-          dataType: 'PICKUP',
-          isEditable:true
-        },
       ]
     }else{
 		  return [

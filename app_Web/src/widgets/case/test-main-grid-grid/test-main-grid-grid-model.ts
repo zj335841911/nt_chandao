@@ -98,11 +98,6 @@ export default class TestMainGridModel {
           prop: 'isfavorites',
           dataType: 'TEXT',
         },
-        {
-          name: 'product',
-          prop: 'product',
-          dataType: 'PICKUP',
-        },
       ]
     }else{
 		  return [
