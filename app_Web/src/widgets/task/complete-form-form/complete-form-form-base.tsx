@@ -130,7 +130,7 @@ export class CompleteFormEditFormBase extends EditFormControlBase {
                   {
                       type:"VALUERANGE2",
                       condOP:"",
-                      ruleInfo:"本次消耗大于0", 
+                      ruleInfo:"本次消耗必须大于0", 
                       isKeyCond:false,
                       isNotMode:false,
                       minValue:0,
