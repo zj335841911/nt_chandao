@@ -164,6 +164,14 @@ export default {
 			date: "发布日期",
 			uagridcolumn1: "操作",
 		},
+    exportColumns: {
+			id: "ID",
+			name: "发布名称",
+			buildname: "版本",
+			status: "状态",
+			date: "发布日期",
+			product: "产品",
+    },
 		uiactions: {
 			release_linkstory: "关联需求",
 			refresh: "刷新",

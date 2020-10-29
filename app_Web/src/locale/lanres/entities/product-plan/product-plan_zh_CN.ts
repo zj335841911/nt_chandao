@@ -153,6 +153,17 @@ export default {
 			bugcnt: "bug数",
 			actions: "操作",
 		},
+    exportColumns: {
+			id: "编号",
+			title: "名称",
+			beginstr: "开始日期",
+			begin: "开始日期",
+			end: "结束日期",
+			endstr: "结束日期",
+			storycnt: "需求数",
+			bugcnt: "bug数",
+			statuss: "状态",
+    },
 		uiactions: {
 			productplan_addproject: "添加项目",
 			productplan_relationstory: "关联需求",

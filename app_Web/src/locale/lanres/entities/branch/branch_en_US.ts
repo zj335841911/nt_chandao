@@ -54,6 +54,8 @@ export default {
 			order: "排序",
 			uagridcolumn1: "操作",
 		},
+    exportColumns: {
+    },
 		uiactions: {
         branch_edit: "编辑",
         branch_delete: "删除",

@@ -422,6 +422,60 @@ export class MainGridBase extends GridControlBase {
 
 
     /**
+     * 是否为实体导出对象
+     *
+     * @protected
+     * @type {boolean}
+     * @memberof MainGridBase
+     */
+    protected isDeExport: boolean = true;
+
+    /**
+     * 所有导出列成员
+     *
+     * @type {any[]}
+     * @memberof MainGridBase
+     */
+    public allExportColumns: any[] = [
+        {
+            name: 'id',
+            label: 'ID',
+            langtag: 'entities.release.main_grid.exportColumns.id',
+            show: true,
+        },
+        {
+            name: 'name',
+            label: '发布名称',
+            langtag: 'entities.release.main_grid.exportColumns.name',
+            show: true,
+        },
+        {
+            name: 'buildname',
+            label: '版本',
+            langtag: 'entities.release.main_grid.exportColumns.buildname',
+            show: true,
+        },
+        {
+            name: 'status',
+            label: '状态',
+            langtag: 'entities.release.main_grid.exportColumns.status',
+            show: true,
+        },
+        {
+            name: 'date',
+            label: '发布日期',
+            langtag: 'entities.release.main_grid.exportColumns.date',
+            show: true,
+        },
+        {
+            name: 'product',
+            label: '产品',
+            langtag: 'entities.release.main_grid.exportColumns.product',
+            show: true,
+        },
+    ]
+
+    /**
      * 导出数据格式化
      *
      * @param {*} filterVal
@@ -432,14 +486,6 @@ export class MainGridBase extends GridControlBase {
      */
     public async formatExcelData(filterVal: any, jsonData: any, codelistColumns?: any[]): Promise<any> {
         return super.formatExcelData(filterVal, jsonData, [
-            {
-                name: 'status',
-                srfkey: 'Release__status',
-                codelistType : 'STATIC',
-                renderMode: 'other',
-                textSeparator: '、',
-                valueSeparator: ',',
-            },
         ]);
     }
 

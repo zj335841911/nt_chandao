@@ -265,18 +265,22 @@ export class PlatformManagementGridBase extends GridControlBase {
 
 
     /**
-     * 导出数据格式化
+     * 是否为实体导出对象
      *
-     * @param {*} filterVal
-     * @param {*} jsonData
-     * @param {any[]} [codelistColumns=[]]
-     * @returns {Promise<any>}
+     * @protected
+     * @type {boolean}
      * @memberof PlatformManagementGridBase
      */
-    public async formatExcelData(filterVal: any, jsonData: any, codelistColumns?: any[]): Promise<any> {
-        return super.formatExcelData(filterVal, jsonData, [
-        ]);
-    }
+    protected isDeExport: boolean = true;
+
+    /**
+     * 所有导出列成员
+     *
+     * @type {any[]}
+     * @memberof PlatformManagementGridBase
+     */
+    public allExportColumns: any[] = [
+    ]
 
 
     /**
