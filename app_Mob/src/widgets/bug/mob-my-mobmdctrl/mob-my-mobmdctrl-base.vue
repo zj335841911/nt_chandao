@@ -998,20 +998,6 @@ export default class Mob_MyBase extends Vue implements ControlInterface {
 
 
     /**
-    * 全选
-    *
-    * @private
-    * @param {*} [arg={}]
-    * @memberof Mob_My
-    */
-    private handleClick() {
-        this.items.forEach((item: any) => {
-            item.value = true;
-        });
-        this.selectednumber = this.items.length;
-    }
-
-    /**
      * checkbox 选中回调
      *
      * @param {*} data
@@ -1337,7 +1323,7 @@ export default class Mob_MyBase extends Vue implements ControlInterface {
      *
      * @memberof Mdctrl
      */
-    public checkboxAll(item:any) {
+    public checkboxAll(value:any) {
         for (let index = 0; index < this.items.length; index++) {
             const item = this.items[index];
             this.items[index].checked = value;
