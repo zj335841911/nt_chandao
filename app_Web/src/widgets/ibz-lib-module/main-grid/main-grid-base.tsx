@@ -264,6 +264,9 @@ export class MainGridBase extends GridControlBase {
      */
     public async formatExcelData(filterVal: any, jsonData: any, codelistColumns?: any[]): Promise<any> {
         return super.formatExcelData(filterVal, jsonData, [
+        // name
+        // short
+        // uagridcolumn1
         ]);
     }
 

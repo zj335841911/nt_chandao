@@ -223,6 +223,7 @@ export class Main9GridBase extends GridControlBase {
      */
     public async formatExcelData(filterVal: any, jsonData: any, codelistColumns?: any[]): Promise<any> {
         return super.formatExcelData(filterVal, jsonData, [
+        // pri
             {
                 name: 'pri',
                 srfkey: 'Story__pri',
@@ -231,6 +232,8 @@ export class Main9GridBase extends GridControlBase {
                 textSeparator: '、',
                 valueSeparator: ',',
             },
+        // title
+        // status
             {
                 name: 'status',
                 srfkey: 'Story__status',

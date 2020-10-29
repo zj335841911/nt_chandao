@@ -568,6 +568,8 @@ export class MyGroupMainGridBase extends GridControlBase {
      */
     public async formatExcelData(filterVal: any, jsonData: any, codelistColumns?: any[]): Promise<any> {
         return super.formatExcelData(filterVal, jsonData, [
+        // id
+        // pri
             {
                 name: 'pri',
                 srfkey: 'Task__pri',
@@ -576,6 +578,10 @@ export class MyGroupMainGridBase extends GridControlBase {
                 textSeparator: '、',
                 valueSeparator: ',',
             },
+        // productname
+        // projectname
+        // name
+        // status1
             {
                 name: 'status1',
                 srfkey: 'TaskStatusCK',
@@ -584,6 +590,7 @@ export class MyGroupMainGridBase extends GridControlBase {
                 textSeparator: '、',
                 valueSeparator: ',',
             },
+        // assignedto
             {
                 name: 'assignedto',
                 srfkey: 'UserRealName',
@@ -592,6 +599,7 @@ export class MyGroupMainGridBase extends GridControlBase {
                 renderMode: 'string',
                 valueSeparator: ",",
             },
+        // finishedby
             {
                 name: 'finishedby',
                 srfkey: 'UserRealName',
@@ -600,6 +608,11 @@ export class MyGroupMainGridBase extends GridControlBase {
                 renderMode: 'string',
                 valueSeparator: ",",
             },
+        // estimate
+        // consumed
+        // left
+        // deadline
+        // uagridcolumn1
         ]);
     }
 

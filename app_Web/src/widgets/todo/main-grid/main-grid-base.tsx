@@ -441,6 +441,9 @@ export class MainGridBase extends GridControlBase {
      */
     public async formatExcelData(filterVal: any, jsonData: any, codelistColumns?: any[]): Promise<any> {
         return super.formatExcelData(filterVal, jsonData, [
+        // id
+        // date1
+        // type
             {
                 name: 'type',
                 srfkey: 'TypeAll',
@@ -449,6 +452,7 @@ export class MainGridBase extends GridControlBase {
                 textSeparator: '、',
                 valueSeparator: ',',
             },
+        // pri
             {
                 name: 'pri',
                 srfkey: 'Pri',
@@ -457,6 +461,8 @@ export class MainGridBase extends GridControlBase {
                 textSeparator: '、',
                 valueSeparator: ',',
             },
+        // name
+        // begin
             {
                 name: 'begin',
                 srfkey: 'BeginendDropList',
@@ -465,6 +471,7 @@ export class MainGridBase extends GridControlBase {
                 textSeparator: '、',
                 valueSeparator: ',',
             },
+        // end
             {
                 name: 'end',
                 srfkey: 'BeginendDropList',
@@ -473,6 +480,7 @@ export class MainGridBase extends GridControlBase {
                 textSeparator: '、',
                 valueSeparator: ',',
             },
+        // status
             {
                 name: 'status',
                 srfkey: 'Todo__status',
@@ -481,6 +489,7 @@ export class MainGridBase extends GridControlBase {
                 textSeparator: '、',
                 valueSeparator: ',',
             },
+        // uagridcolumn1
         ]);
     }
 

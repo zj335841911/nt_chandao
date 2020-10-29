@@ -268,6 +268,9 @@ export class Main_RowEdit_CarryOutGridBase extends GridControlBase {
      */
     public async formatExcelData(filterVal: any, jsonData: any, codelistColumns?: any[]): Promise<any> {
         return super.formatExcelData(filterVal, jsonData, [
+        // desc
+        // expect
+        // steps
             {
                 name: 'steps',
                 srfkey: 'Testresult__result',
@@ -276,6 +279,7 @@ export class Main_RowEdit_CarryOutGridBase extends GridControlBase {
                 textSeparator: '、',
                 valueSeparator: ',',
             },
+        // reals
         ]);
     }
 

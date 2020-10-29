@@ -285,6 +285,8 @@ export class MainGridBase extends GridControlBase {
      */
     public async formatExcelData(filterVal: any, jsonData: any, codelistColumns?: any[]): Promise<any> {
         return super.formatExcelData(filterVal, jsonData, [
+        // name
+        // po
             {
                 name: 'po',
                 srfkey: 'UserRealName',
@@ -293,6 +295,7 @@ export class MainGridBase extends GridControlBase {
                 renderMode: 'string',
                 valueSeparator: ",",
             },
+        // plan
             {
                 name: 'plan',
                 srfkey: 'PlanCodeList',
@@ -301,6 +304,13 @@ export class MainGridBase extends GridControlBase {
                 textSeparator: '、',
                 valueSeparator: ',',
             },
+        // begin
+        // end
+        // waitstorycnt
+        // activestorycnt
+        // changedstorycnt
+        // closedstorycnt
+        // storycnt
         ]);
     }
 

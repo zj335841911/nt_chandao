@@ -290,6 +290,8 @@ export class MainRowGridBase extends GridControlBase {
      */
     public async formatExcelData(filterVal: any, jsonData: any, codelistColumns?: any[]): Promise<any> {
         return super.formatExcelData(filterVal, jsonData, [
+        // name
+        // branch
             {
                 name: 'branch',
                 srfkey: 'ProductBranch_Cache',
@@ -298,6 +300,8 @@ export class MainRowGridBase extends GridControlBase {
                 textSeparator: '、',
                 valueSeparator: ',',
             },
+        // short
+        // uagridcolumn1
         ]);
     }
 

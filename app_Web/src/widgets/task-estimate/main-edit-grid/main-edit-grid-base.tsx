@@ -327,6 +327,12 @@ export class MainEditGridBase extends GridControlBase {
      */
     public async formatExcelData(filterVal: any, jsonData: any, codelistColumns?: any[]): Promise<any> {
         return super.formatExcelData(filterVal, jsonData, [
+        // id
+        // dates
+        // consumed
+        // left
+        // work
+        // uagridcolumn1
         ]);
     }
 

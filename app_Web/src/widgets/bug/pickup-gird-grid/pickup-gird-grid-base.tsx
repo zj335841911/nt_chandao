@@ -237,6 +237,8 @@ export class PickupGirdGridBase extends GridControlBase {
      */
     public async formatExcelData(filterVal: any, jsonData: any, codelistColumns?: any[]): Promise<any> {
         return super.formatExcelData(filterVal, jsonData, [
+        // id
+        // pri
             {
                 name: 'pri',
                 srfkey: 'Bug__pri',
@@ -245,6 +247,8 @@ export class PickupGirdGridBase extends GridControlBase {
                 textSeparator: '、',
                 valueSeparator: ',',
             },
+        // title
+        // openedby
             {
                 name: 'openedby',
                 srfkey: 'UserRealName',
@@ -253,6 +257,7 @@ export class PickupGirdGridBase extends GridControlBase {
                 renderMode: 'string',
                 valueSeparator: ",",
             },
+        // resolvedby
             {
                 name: 'resolvedby',
                 srfkey: 'UserRealName',
@@ -261,6 +266,7 @@ export class PickupGirdGridBase extends GridControlBase {
                 renderMode: 'string',
                 valueSeparator: ",",
             },
+        // status
             {
                 name: 'status',
                 srfkey: 'Bug__status',

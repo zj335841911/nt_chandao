@@ -227,6 +227,9 @@ export class TestGridBase extends GridControlBase {
      */
     public async formatExcelData(filterVal: any, jsonData: any, codelistColumns?: any[]): Promise<any> {
         return super.formatExcelData(filterVal, jsonData, [
+        // name
+        // code
+        // status
             {
                 name: 'status',
                 srfkey: 'Product__status',
@@ -235,6 +238,7 @@ export class TestGridBase extends GridControlBase {
                 textSeparator: '、',
                 valueSeparator: ',',
             },
+        // type
             {
                 name: 'type',
                 srfkey: 'Product__type',
@@ -243,6 +247,7 @@ export class TestGridBase extends GridControlBase {
                 textSeparator: '、',
                 valueSeparator: ',',
             },
+        // linename
         ]);
     }
 

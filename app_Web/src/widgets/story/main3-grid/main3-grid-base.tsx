@@ -503,6 +503,8 @@ export class Main3GridBase extends GridControlBase {
      */
     public async formatExcelData(filterVal: any, jsonData: any, codelistColumns?: any[]): Promise<any> {
         return super.formatExcelData(filterVal, jsonData, [
+        // id
+        // pri
             {
                 name: 'pri',
                 srfkey: 'Story__pri',
@@ -511,6 +513,8 @@ export class Main3GridBase extends GridControlBase {
                 textSeparator: '、',
                 valueSeparator: ',',
             },
+        // title
+        // assignedto
             {
                 name: 'assignedto',
                 srfkey: 'UserRealName',
@@ -519,6 +523,8 @@ export class Main3GridBase extends GridControlBase {
                 renderMode: 'string',
                 valueSeparator: ",",
             },
+        // estimate
+        // status
             {
                 name: 'status',
                 srfkey: 'Story__status',
@@ -527,6 +533,7 @@ export class Main3GridBase extends GridControlBase {
                 textSeparator: '、',
                 valueSeparator: ',',
             },
+        // uagridcolumn1
         ]);
     }
 

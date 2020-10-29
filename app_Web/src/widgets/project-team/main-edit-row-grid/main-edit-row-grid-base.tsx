@@ -382,6 +382,7 @@ export class Main_EditRowGridBase extends GridControlBase {
      */
     public async formatExcelData(filterVal: any, jsonData: any, codelistColumns?: any[]): Promise<any> {
         return super.formatExcelData(filterVal, jsonData, [
+        // account
             {
                 name: 'account',
                 srfkey: 'RealNameProjectM',
@@ -390,6 +391,10 @@ export class Main_EditRowGridBase extends GridControlBase {
                 textSeparator: '、',
                 valueSeparator: ',',
             },
+        // role
+        // days
+        // hours
+        // limited
             {
                 name: 'limited',
                 srfkey: 'YesNo3',
@@ -398,6 +403,7 @@ export class Main_EditRowGridBase extends GridControlBase {
                 textSeparator: '、',
                 valueSeparator: ',',
             },
+        // uagridcolumn1
         ]);
     }
 

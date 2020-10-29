@@ -567,6 +567,8 @@ export class MainGridBase extends GridControlBase {
      */
     public async formatExcelData(filterVal: any, jsonData: any, codelistColumns?: any[]): Promise<any> {
         return super.formatExcelData(filterVal, jsonData, [
+        // id
+        // pri
             {
                 name: 'pri',
                 srfkey: 'Bug__pri',
@@ -575,6 +577,7 @@ export class MainGridBase extends GridControlBase {
                 textSeparator: '、',
                 valueSeparator: ',',
             },
+        // confirmed
             {
                 name: 'confirmed',
                 srfkey: 'YesNo2',
@@ -583,6 +586,8 @@ export class MainGridBase extends GridControlBase {
                 textSeparator: '、',
                 valueSeparator: ',',
             },
+        // title
+        // status
             {
                 name: 'status',
                 srfkey: 'Bug__status',
@@ -591,6 +596,7 @@ export class MainGridBase extends GridControlBase {
                 textSeparator: '、',
                 valueSeparator: ',',
             },
+        // openedby
             {
                 name: 'openedby',
                 srfkey: 'UserRealName',
@@ -599,6 +605,8 @@ export class MainGridBase extends GridControlBase {
                 renderMode: 'string',
                 valueSeparator: ",",
             },
+        // openeddate
+        // assignedto
             {
                 name: 'assignedto',
                 srfkey: 'UserRealNameW',
@@ -607,6 +615,7 @@ export class MainGridBase extends GridControlBase {
                 renderMode: 'string',
                 valueSeparator: ",",
             },
+        // resolution
             {
                 name: 'resolution',
                 srfkey: 'Bug__resolution',
@@ -615,6 +624,10 @@ export class MainGridBase extends GridControlBase {
                 textSeparator: '、',
                 valueSeparator: ',',
             },
+        // uagridcolumn1
+        // lastediteddate
+        // activateddate
+        // isfavorites
         ]);
     }
 

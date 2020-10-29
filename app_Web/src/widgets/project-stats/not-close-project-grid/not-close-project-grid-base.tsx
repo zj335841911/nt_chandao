@@ -273,6 +273,9 @@ export class NotCloseProjectGridBase extends GridControlBase {
      */
     public async formatExcelData(filterVal: any, jsonData: any, codelistColumns?: any[]): Promise<any> {
         return super.formatExcelData(filterVal, jsonData, [
+        // name
+        // end
+        // status
             {
                 name: 'status',
                 srfkey: 'Project__status',
@@ -281,6 +284,11 @@ export class NotCloseProjectGridBase extends GridControlBase {
                 textSeparator: '、',
                 valueSeparator: ',',
             },
+        // totalestimate
+        // totalconsumed
+        // totalleft
+        // totalwh
+        // progress
         ]);
     }
 

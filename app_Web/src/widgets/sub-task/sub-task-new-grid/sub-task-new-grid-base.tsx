@@ -378,6 +378,10 @@ export class SubTaskNewGridBase extends GridControlBase {
      */
     public async formatExcelData(filterVal: any, jsonData: any, codelistColumns?: any[]): Promise<any> {
         return super.formatExcelData(filterVal, jsonData, [
+        // modulename
+        // storyname
+        // name
+        // type
             {
                 name: 'type',
                 srfkey: 'Task__type',
@@ -386,6 +390,7 @@ export class SubTaskNewGridBase extends GridControlBase {
                 textSeparator: '、',
                 valueSeparator: ',',
             },
+        // assignedto
             {
                 name: 'assignedto',
                 srfkey: 'UserRealNameProject',
@@ -394,6 +399,11 @@ export class SubTaskNewGridBase extends GridControlBase {
                 renderMode: 'string',
                 valueSeparator: ",",
             },
+        // estimate
+        // eststarted
+        // deadline
+        // desc
+        // pri
             {
                 name: 'pri',
                 srfkey: 'Task__pri',

@@ -364,6 +364,8 @@ export class MainGrid_SuitSubGridBase extends GridControlBase {
      */
     public async formatExcelData(filterVal: any, jsonData: any, codelistColumns?: any[]): Promise<any> {
         return super.formatExcelData(filterVal, jsonData, [
+        // id
+        // pri
             {
                 name: 'pri',
                 srfkey: 'Testcase__pri',
@@ -372,6 +374,8 @@ export class MainGrid_SuitSubGridBase extends GridControlBase {
                 textSeparator: '、',
                 valueSeparator: ',',
             },
+        // title
+        // type
             {
                 name: 'type',
                 srfkey: 'Testcase__type',
@@ -380,6 +384,7 @@ export class MainGrid_SuitSubGridBase extends GridControlBase {
                 textSeparator: '、',
                 valueSeparator: ',',
             },
+        // lastrunresult
             {
                 name: 'lastrunresult',
                 srfkey: 'Testcase__result',
@@ -388,6 +393,7 @@ export class MainGrid_SuitSubGridBase extends GridControlBase {
                 textSeparator: '、',
                 valueSeparator: ',',
             },
+        // status1
             {
                 name: 'status1',
                 srfkey: 'TestCaseStatusGrid',
@@ -396,6 +402,10 @@ export class MainGrid_SuitSubGridBase extends GridControlBase {
                 textSeparator: '、',
                 valueSeparator: ',',
             },
+        // tobugcnt
+        // resultcnt
+        // casesteps
+        // uagridcolumn1
         ]);
     }
 
