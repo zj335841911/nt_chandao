@@ -143,13 +143,13 @@ export class StartFormEditFormBase extends EditFormControlBase {
                   {
                       type:"VALUERANGE2",
                       condOP:"",
-                      ruleInfo:"总消耗大于0", 
+                      ruleInfo:"数值必须大于等于[0.0]", 
                       isKeyCond:false,
                       isNotMode:false,
                       minValue:0,
                       deName:"consumed",
                       isIncludeMaxValue:false,
-                      isIncludeMinValue:false,
+                      isIncludeMinValue:true,
                   },
                 ],
     };
