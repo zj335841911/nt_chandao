@@ -321,8 +321,8 @@ export default class CaseUIServiceBase extends UIService {
             }
             const view: any = {
                 viewname: 'case-option-view', 
-                height: 850, 
-                width: 1350,  
+                height: 0, 
+                width: 0,  
                 title: actionContext.$t('entities.case.views.optionview.title'),
             };
             openPopupModal(view, data);
@@ -876,8 +876,8 @@ export default class CaseUIServiceBase extends UIService {
             }
             const view: any = {
                 viewname: 'case-test-task-exc-edit-view', 
-                height: 850, 
-                width: 1350,  
+                height: 0, 
+                width: 0,  
                 title: actionContext.$t('entities.case.views.testtaskexceditview.title'),
             };
             openPopupModal(view, data);
@@ -941,8 +941,8 @@ export default class CaseUIServiceBase extends UIService {
             }
             const view: any = {
                 viewname: 'case-test-option-view', 
-                height: 850, 
-                width: 1350,  
+                height: 0, 
+                width: 0,  
                 title: actionContext.$t('entities.case.views.testoptionview.title'),
             };
             openPopupModal(view, data);
@@ -1089,8 +1089,8 @@ export default class CaseUIServiceBase extends UIService {
         let parentContext:any = {};
         let parentViewParam:any = {};
         const _this: any = actionContext;
-        Object.assign(context,{IDS:"%id%",SUITE:"%suite%",VERSIONS:"%version%"});
-        Object.assign(params,{versions:"%version%",ids:"%id%",suite:"%suite%"});
+        Object.assign(context,{IDS:"%id%",ID:"0",SUITE:"%suite%",VERSIONS:"%version%"});
+        Object.assign(params,{id:"0",versions:"%version%",ids:"%id%",suite:"%suite%"});
         const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'MULTIKEY';
         Object.assign(context, { case: '%case%' });
@@ -1626,8 +1626,8 @@ export default class CaseUIServiceBase extends UIService {
             }
             const view: any = {
                 viewname: 'case-option-view', 
-                height: 850, 
-                width: 1350,  
+                height: 0, 
+                width: 0,  
                 title: actionContext.$t('entities.case.views.optionview.title'),
             };
             openPopupModal(view, data);
@@ -1650,8 +1650,8 @@ export default class CaseUIServiceBase extends UIService {
         let parentContext:any = {};
         let parentViewParam:any = {};
         const _this: any = actionContext;
-        Object.assign(context,{IDS:"%id%",TASK:"%task%",VERSIONS:"%version%"});
-        Object.assign(params,{versions:"%version%",ids:"%id%",task:"%task%"});
+        Object.assign(context,{IDS:"%id%",TASK:"%task%",ID:"0",VERSIONS:"%version%"});
+        Object.assign(params,{id:"0",versions:"%version%",ids:"%id%",task:"%task%"});
         const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'MULTIKEY';
         Object.assign(context, { case: '%case%' });

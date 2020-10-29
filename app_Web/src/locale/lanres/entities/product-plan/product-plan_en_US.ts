@@ -142,7 +142,7 @@ export default {
 		uiactions: {
 		},
 	},
-	main_grid: {
+	main_3330_grid: {
 		nodata: "",
 		columns: {
 			id: "编号",

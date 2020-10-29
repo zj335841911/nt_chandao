@@ -3,7 +3,7 @@
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { ProductPlanGridViewBase } from './product-plan-grid-view-base';
-import view_grid from '@widgets/product-plan/main-grid/main-grid.vue';
+import view_grid from '@widgets/product-plan/main-3330-grid/main-3330-grid.vue';
 
 /**
  * 产品计划表格视图视图
