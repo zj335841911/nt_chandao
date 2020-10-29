@@ -18,8 +18,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.Timestamp;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Component
@@ -59,7 +59,8 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
     TaskTeamHelper taskTeamHelper;
 
     String[] diffAttrs = {"desc"};
-    String ignore = "totalwh,totalleft,totalconsumed,totalestimate";
+    //String ignore = "totalwh,totalleft,totalconsumed,totalestimate";
+    List<String> ignore = Arrays.asList("totalwh","totalleft","totalconsumed","totalestimate");
 
 
     @Override
@@ -715,6 +716,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
             }
 
             List<History> changes = ChangeUtil.diff(oldParentTask, this.get(parentID));
+            this.removeIgonreChanges(changes);
             String action = "";
             if("doing".equals(status) && !"wait".equals(oldParentTask.getStatus()) && !"pause".equals(oldParentTask.getStatus())) {
                 action = "Activated";
@@ -738,7 +740,8 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
                     actionHelper.logHistory(action1.getId(), changes);
             }
         }else {
-            List<History> changes = ChangeUtil.diff(oldParentTask, this.get(parentID),null,null,null);
+            List<History> changes = ChangeUtil.diff(oldParentTask, this.get(parentID));
+            this.removeIgonreChanges(changes);
             if(changes.size() > 0) {
                 Action action1 = actionHelper.create("task", parentID, "Edited",
                         "", "", null, false);
@@ -914,6 +917,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         this.internalUpdate(newTask);
 
         List<History> changes = ChangeUtil.diff(old, newTask);
+        this.removeIgonreChanges(changes);
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
             Action action = actionHelper.create("task", newTask.getId(), "Assigned",
                     comment, newTask.getAssignedto(), null, true);
@@ -988,6 +992,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         newTask.setLastediteddate(ZTDateUtil.now());
     }
 
+    @Transactional
     public void removeIgonreChanges(List<History> changes){
         for (int i = 0; i < changes.size(); i++) {
             if (ignore.contains(changes.get(i).getField())){
@@ -996,6 +1001,8 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
             }
         }
     }
+
+
     @Transactional
     public Task cancel(Task et) {
         String comment = StringUtils.isNotBlank(et.getComment()) ? et.getComment() : "";
@@ -1316,8 +1323,8 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
                 taskNames.add(list.get(i).getName());
             }
             else {
-                log.error("任务名不能相同");
                 throw new RuntimeException("任务名不能相同!");
+                //log.error("任务名不能相同");
             }
         }
         Timestamp timestamp = new Timestamp(-28800000l);
@@ -1336,9 +1343,8 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
             task.setEststarted(task.getEststarted() == null ? timestamp : task.getEststarted());
             task.setDeadline(task.getDeadline() == null ? timestamp : task.getDeadline());
             task.setStatus("wait");
-            task.setOpeneddate(Timestamp.valueOf(LocalDateTime.now()));
             task.setLeft(task.getEstimate());
-            if(task.getStory() != null && task.getStory() != 0l) {
+            if(task.getStory() != null && task.getStory() != 0L) {
                 task.setStoryversion(storyHelper.get(task.getStory()).getVersion());
             }else if(isOps){
                 continue;
@@ -1366,7 +1372,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
             computeBeginAndEnd(this.get(old.getId()));
             if (old.getParent() != -1L){
                 Task update = new Task();
-                update.setParent(-1l);
+                update.setParent(-1L);
                 update.setId(parent);
                 this.internalUpdate(update);
             }
