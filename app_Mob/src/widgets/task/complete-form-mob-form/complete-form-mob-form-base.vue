@@ -213,7 +213,7 @@
     :uiActionGroup="detailsModel.grouppanel1.uiActionGroup" 
     :caption="$t('task.completeformmob_form.details.grouppanel1')" 
     :isShowCaption="true" 
-    :titleBarCloseMode="0" 
+    :titleBarCloseMode="1" 
     :isInfoGroupMode="false" 
     :data="transformData(data)"
     :uiService="deUIService"
