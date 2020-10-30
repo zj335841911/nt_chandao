@@ -115,6 +115,8 @@ export class CompleteFormEditFormBase extends EditFormControlBase {
         currentconsumed: [
             { required: this.detailsModel.currentconsumed.required, type: 'number', message: '本次消耗 值不能为空', trigger: 'change' },
             { required: this.detailsModel.currentconsumed.required, type: 'number', message: '本次消耗 值不能为空', trigger: 'blur' },
+            {validator:(rule:any, value:any)=>{return this.verifyDeRules("currentconsumed").isPast},message: this.verifyDeRules("currentconsumed").infoMessage, trigger: 'change' },
+            {validator:(rule:any, value:any)=>{return this.verifyDeRules("currentconsumed").isPast},message: this.verifyDeRules("currentconsumed").infoMessage, trigger: 'blur' },
         ],
         }
     }
@@ -126,7 +128,7 @@ export class CompleteFormEditFormBase extends EditFormControlBase {
      * @memberof CompleteFormBase
      */
     public deRules:any = {
-                currentConsumed:[
+                currentconsumed:[
                   {
                       type:"VALUERANGE2",
                       condOP:"",

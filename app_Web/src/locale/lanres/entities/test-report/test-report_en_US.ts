@@ -129,6 +129,7 @@ export default {
 			projectname: "所属项目", 
 			overviews: "概况", 
 			report: "总结", 
+			files: "附件", 
 			id: "编号", 
 		},
 		uiactions: {
