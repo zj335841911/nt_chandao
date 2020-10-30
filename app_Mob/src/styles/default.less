@@ -63,7 +63,7 @@
   > .view-footer {
     color: @color-tertiary-contrast;
     background: @color-main-background;
-    ion-toolbar{
+    ion-toolbar {
       --background: @color-main-background;
     }
     .bottom_menu {
@@ -75,6 +75,16 @@
       }
     }
   }
+}
+
+.view-title {
+  width: calc(100vw - 180px);
+  margin: 0 90px;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: 0;
 }
 
 .app-layoutpanel {
@@ -173,14 +183,14 @@ ion-toolbar {
   margin: 4px;
 }
 
-
 // 主背景色
 ion-content {
   --background: @color-main-background;
 }
 
 // 下拉样式
-.action-sheet-button-inner, .action-sheet-button-inner.sc-ion-action-sheet-ios {
+.action-sheet-button-inner,
+.action-sheet-button-inner.sc-ion-action-sheet-ios {
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
@@ -189,12 +199,12 @@ ion-content {
 }
 
 // 搜索栏主背景
-.toolbar-searchbar{
+.toolbar-searchbar {
   --background: @color-main-background;
 }
-ion-refresher-content{
+ion-refresher-content {
   background: @color-main-background;
 }
-html{
+html {
   background: @color-main-background;
 }
