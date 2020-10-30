@@ -116,14 +116,6 @@ public class SysUpdateLog extends EntityMP implements Serializable {
     private Integer latestupdate;
 
 
-    /**
-     * 系统更新功能
-     */
-    @JsonIgnore
-    @JSONField(serialize = false)
-    @TableField(exist = false)
-    private List<cn.ibizlab.pms.core.ibiz.domain.SysUpdateFeatures> sysupdatefeatures;
-
 
     /**
      * 设置 [更新名称]

@@ -57,7 +57,6 @@ public class SysUpdateLogServiceImpl extends ServiceImpl<SysUpdateLogMapper, Sys
     public boolean create(SysUpdateLog et) {
         if(!this.retBool(this.baseMapper.insert(et)))
             return false;
-        sysupdatefeaturesService.saveBySysupdatelogid(et.getSysupdatelogid(),et.getSysupdatefeatures());
         CachedBeanCopier.copy(get(et.getSysupdatelogid()),et);
         return true;
     }
@@ -72,7 +71,6 @@ public class SysUpdateLogServiceImpl extends ServiceImpl<SysUpdateLogMapper, Sys
     public boolean update(SysUpdateLog et) {
         if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("sys_update_logid",et.getSysupdatelogid())))
             return false;
-        sysupdatefeaturesService.saveBySysupdatelogid(et.getSysupdatelogid(),et.getSysupdatefeatures());
         CachedBeanCopier.copy(get(et.getSysupdatelogid()),et);
         return true;
     }
@@ -85,7 +83,6 @@ public class SysUpdateLogServiceImpl extends ServiceImpl<SysUpdateLogMapper, Sys
     @Override
     @Transactional
     public boolean remove(String key) {
-        sysupdatefeaturesService.removeBySysupdatelogid(key) ;
         boolean result=removeById(key);
         return result ;
     }
@@ -104,7 +101,6 @@ public class SysUpdateLogServiceImpl extends ServiceImpl<SysUpdateLogMapper, Sys
             et.setSysupdatelogid(key);
         }
         else{
-            et.setSysupdatefeatures(sysupdatefeaturesService.selectBySysupdatelogid(key));
         }
         return et;
     }

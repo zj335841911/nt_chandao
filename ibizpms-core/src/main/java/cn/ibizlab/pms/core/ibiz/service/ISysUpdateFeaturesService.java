@@ -39,7 +39,6 @@ public interface ISysUpdateFeaturesService extends IService<SysUpdateFeatures>{
     Page<SysUpdateFeatures> searchDefault(SysUpdateFeaturesSearchContext context) ;
     List<SysUpdateFeatures> selectBySysupdatelogid(String sysupdatelogid) ;
     void removeBySysupdatelogid(String sysupdatelogid) ;
-    void saveBySysupdatelogid(String sysupdatelogid,List<SysUpdateFeatures> list) ;
     /**
      *自定义查询SQL
      * @param sql  select * from table where id =#{et.param}

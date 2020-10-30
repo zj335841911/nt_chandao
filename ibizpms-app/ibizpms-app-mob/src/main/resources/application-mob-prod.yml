@@ -23,10 +23,6 @@ zuul:
       path: /ibzfavorites/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
-    ibz_sys_update_features:
-      path: /ibzsysupdatefeatures/**
-      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
-      stripPrefix: false
     ibz_projectteam:
       path: /projectteams/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
