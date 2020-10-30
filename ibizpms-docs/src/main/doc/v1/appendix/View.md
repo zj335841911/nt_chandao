@@ -22,6 +22,7 @@
 |-|Bug选项操作视图（确认Bug）|DEMOBOPTVIEW|&nbsp;|
 |-|项目图表视图|DEMOBCHARTVIEW|&nbsp;|
 |-|任务移动端多数据视图|DEMOBMDVIEW|&nbsp;|
+|-|系统更新功能移动端多数据视图（优化）|DEMOBMDVIEW9|&nbsp;|
 |-|我的地盘分页导航视图|DEMOBTABEXPVIEW|&nbsp;|
 |-|Bug移动端编辑视图（新建）|DEMOBEDITVIEW|&nbsp;|
 |-|Bug选项操作视图（解决Bug）|DEMOBOPTVIEW|&nbsp;|
@@ -99,6 +100,7 @@
 |-|测试版本移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
 |-|需求选项操作视图（关闭）|DEMOBOPTVIEW|&nbsp;|
 |-|Bug移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
+|-|系统更新功能移动端多数据视图（功能增强）|DEMOBMDVIEW9|&nbsp;|
 |-|产品移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
 |-|版本移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
 |-|任务团队移动端编辑视图|DEMOBEDITVIEW9|&nbsp;|

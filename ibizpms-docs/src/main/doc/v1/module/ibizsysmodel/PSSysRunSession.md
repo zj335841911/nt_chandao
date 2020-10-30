@@ -8,42 +8,42 @@
 ## 实体属性
 | 序号 | 属性 | 属性名 | 数据类型 | 主键 | 外键 | 允许为空 |
 | -- | -- | -- | -- | -- | -- | -- |
-| 1 | [系统运行会话名称](#属性-系统运行会话名称（PSSYSRUNSESSIONNAME）) | PSSYSRUNSESSIONNAME | TEXT | 否 | 否 | 是 |
-| 2 | [建立时间](#属性-建立时间（CREATEDATE）) | CREATEDATE | DATETIME | 否 | 否 | 否 |
-| 3 | [系统运行会话标识](#属性-系统运行会话标识（PSSYSRUNSESSIONID）) | PSSYSRUNSESSIONID | GUID | 是 | 否 | 否 |
-| 4 | [建立人](#属性-建立人（CREATEMAN）) | CREATEMAN | TEXT | 否 | 否 | 否 |
-| 5 | [更新时间](#属性-更新时间（UPDATEDATE）) | UPDATEDATE | DATETIME | 否 | 否 | 否 |
-| 6 | [更新人](#属性-更新人（UPDATEMAN）) | UPDATEMAN | TEXT | 否 | 否 | 否 |
-| 7 | [输出调试信息](#属性-输出调试信息（DEBUGMODE）) | DEBUGMODE | YESNO | 否 | 否 | 是 |
-| 8 | [结束时间](#属性-结束时间（ENDTIME）) | ENDTIME | DATETIME | 否 | 否 | 是 |
-| 9 | [签入版本库](#属性-签入版本库（ENABLEVC）) | ENABLEVC | YESNO | 否 | 否 | 是 |
-| 10 | [备注](#属性-备注（MEMO）) | MEMO | LONGTEXT_1000 | 否 | 否 | 是 |
-| 11 | [修复数据结构](#属性-修复数据结构（FIXDBMODEL）) | FIXDBMODEL | YESNO | 否 | 否 | 是 |
-| 12 | [打包模式](#属性-打包模式（PACKMODE）) | PACKMODE | SSCODELIST | 否 | 否 | 是 |
-| 13 | [控制台标识](#属性-控制台标识（PSDSCONSOLEID）) | PSDSCONSOLEID | TEXT | 否 | 否 | 是 |
-| 14 | [运行模式](#属性-运行模式（RUNMODE）) | RUNMODE | SSCODELIST | 否 | 否 | 是 |
-| 15 | [重新构建](#属性-重新构建（REBUILDMODE）) | REBUILDMODE | NSCODELIST | 否 | 否 | 是 |
-| 16 | [运行参数](#属性-运行参数（RUNPARAM）) | RUNPARAM | TEXT | 否 | 否 | 是 |
-| 17 | [运行参数3](#属性-运行参数3（RUNPARAM3）) | RUNPARAM3 | TEXT | 否 | 否 | 是 |
-| 18 | [运行参数2](#属性-运行参数2（RUNPARAM2）) | RUNPARAM2 | TEXT | 否 | 否 | 是 |
-| 19 | [运行参数4](#属性-运行参数4（RUNPARAM4）) | RUNPARAM4 | TEXT | 否 | 否 | 是 |
-| 20 | [运行参数5](#属性-运行参数5（RUNPARAM5）) | RUNPARAM5 | INT | 否 | 否 | 是 |
-| 21 | [运行状态](#属性-运行状态（RUNSTATE）) | RUNSTATE | NSCODELIST | 否 | 否 | 否 |
-| 22 | [运行参数6](#属性-运行参数6（RUNPARAM6）) | RUNPARAM6 | INT | 否 | 否 | 是 |
-| 23 | [开始时间](#属性-开始时间（STARTTIME）) | STARTTIME | DATETIME | 否 | 否 | 是 |
-| 24 | [模板出错时终止](#属性-模板出错时终止（STOPWHENTEMPLERROR）) | STOPWHENTEMPLERROR | YESNO | 否 | 否 | 是 |
-| 25 | [系统应用2](#属性-系统应用2（PSSYSAPPNAME2）) | PSSYSAPPNAME2 | PICKUPTEXT | 否 | 是 | 是 |
-| 26 | [系统应用2](#属性-系统应用2（PSSYSAPPID2）) | PSSYSAPPID2 | PICKUP | 否 | 是 | 是 |
-| 27 | [系统应用](#属性-系统应用（PSSYSAPPNAME）) | PSSYSAPPNAME | PICKUPTEXT | 否 | 是 | 是 |
-| 28 | [系统应用](#属性-系统应用（PSSYSAPPID）) | PSSYSAPPID | PICKUP | 否 | 是 | 是 |
-| 29 | [系统服务接口](#属性-系统服务接口（PSSYSSERVICEAPINAME）) | PSSYSSERVICEAPINAME | PICKUPTEXT | 否 | 是 | 是 |
-| 30 | [系统服务接口](#属性-系统服务接口（PSSYSSERVICEAPIID）) | PSSYSSERVICEAPIID | PICKUP | 否 | 是 | 是 |
-| 31 | [系统](#属性-系统（PSSYSTEMID）) | PSSYSTEMID | TEXT | 否 | 是 | 是 |
-| 32 | [系统](#属性-系统（PSSYSTEMNAME）) | PSSYSTEMNAME | TEXT | 否 | 是 | 是 |
-| 33 | [服务体系](#属性-服务体系（PSSYSSFPUBID）) | PSSYSSFPUBID | TEXT | 否 | 是 | 是 |
-| 34 | [服务体系](#属性-服务体系（PSSYSSFPUBNAME）) | PSSYSSFPUBNAME | TEXT | 否 | 是 | 是 |
-| 35 | [运行数据库](#属性-运行数据库（PSSYSTEMDBCFGID）) | PSSYSTEMDBCFGID | TEXT | 否 | 是 | 是 |
-| 36 | [运行数据库](#属性-运行数据库（PSSYSTEMDBCFGNAME）) | PSSYSTEMDBCFGNAME | TEXT | 否 | 是 | 是 |
+| 1 | [系统运行会话名称](#属性-系统运行会话名称（PSSYSRUNSESSIONNAME）) | PSSYSRUNSESSIONNAME | 文本，可指定长度 | 否 | 否 | 是 |
+| 2 | [建立时间](#属性-建立时间（CREATEDATE）) | CREATEDATE | 日期时间型 | 否 | 否 | 否 |
+| 3 | [系统运行会话标识](#属性-系统运行会话标识（PSSYSRUNSESSIONID）) | PSSYSRUNSESSIONID | 全局唯一标识，文本类型，用户不可见 | 是 | 否 | 否 |
+| 4 | [建立人](#属性-建立人（CREATEMAN）) | CREATEMAN | 文本，可指定长度 | 否 | 否 | 否 |
+| 5 | [更新时间](#属性-更新时间（UPDATEDATE）) | UPDATEDATE | 日期时间型 | 否 | 否 | 否 |
+| 6 | [更新人](#属性-更新人（UPDATEMAN）) | UPDATEMAN | 文本，可指定长度 | 否 | 否 | 否 |
+| 7 | [输出调试信息](#属性-输出调试信息（DEBUGMODE）) | DEBUGMODE | 是否逻辑 | 否 | 否 | 是 |
+| 8 | [结束时间](#属性-结束时间（ENDTIME）) | ENDTIME | 日期时间型 | 否 | 否 | 是 |
+| 9 | [签入版本库](#属性-签入版本库（ENABLEVC）) | ENABLEVC | 是否逻辑 | 否 | 否 | 是 |
+| 10 | [备注](#属性-备注（MEMO）) | MEMO | 长文本，长度1000 | 否 | 否 | 是 |
+| 11 | [修复数据结构](#属性-修复数据结构（FIXDBMODEL）) | FIXDBMODEL | 是否逻辑 | 否 | 否 | 是 |
+| 12 | [打包模式](#属性-打包模式（PACKMODE）) | PACKMODE | 单项选择(文本值) | 否 | 否 | 是 |
+| 13 | [控制台标识](#属性-控制台标识（PSDSCONSOLEID）) | PSDSCONSOLEID | 文本，可指定长度 | 否 | 否 | 是 |
+| 14 | [运行模式](#属性-运行模式（RUNMODE）) | RUNMODE | 单项选择(文本值) | 否 | 否 | 是 |
+| 15 | [重新构建](#属性-重新构建（REBUILDMODE）) | REBUILDMODE | 单项选择(数值) | 否 | 否 | 是 |
+| 16 | [运行参数](#属性-运行参数（RUNPARAM）) | RUNPARAM | 文本，可指定长度 | 否 | 否 | 是 |
+| 17 | [运行参数3](#属性-运行参数3（RUNPARAM3）) | RUNPARAM3 | 文本，可指定长度 | 否 | 否 | 是 |
+| 18 | [运行参数2](#属性-运行参数2（RUNPARAM2）) | RUNPARAM2 | 文本，可指定长度 | 否 | 否 | 是 |
+| 19 | [运行参数4](#属性-运行参数4（RUNPARAM4）) | RUNPARAM4 | 文本，可指定长度 | 否 | 否 | 是 |
+| 20 | [运行参数5](#属性-运行参数5（RUNPARAM5）) | RUNPARAM5 | 整型 | 否 | 否 | 是 |
+| 21 | [运行状态](#属性-运行状态（RUNSTATE）) | RUNSTATE | 单项选择(数值) | 否 | 否 | 否 |
+| 22 | [运行参数6](#属性-运行参数6（RUNPARAM6）) | RUNPARAM6 | 整型 | 否 | 否 | 是 |
+| 23 | [开始时间](#属性-开始时间（STARTTIME）) | STARTTIME | 日期时间型 | 否 | 否 | 是 |
+| 24 | [模板出错时终止](#属性-模板出错时终止（STOPWHENTEMPLERROR）) | STOPWHENTEMPLERROR | 是否逻辑 | 否 | 否 | 是 |
+| 25 | [系统应用2](#属性-系统应用2（PSSYSAPPNAME2）) | PSSYSAPPNAME2 | 外键值文本 | 否 | 是 | 是 |
+| 26 | [系统应用2](#属性-系统应用2（PSSYSAPPID2）) | PSSYSAPPID2 | 外键值 | 否 | 是 | 是 |
+| 27 | [系统应用](#属性-系统应用（PSSYSAPPNAME）) | PSSYSAPPNAME | 外键值文本 | 否 | 是 | 是 |
+| 28 | [系统应用](#属性-系统应用（PSSYSAPPID）) | PSSYSAPPID | 外键值 | 否 | 是 | 是 |
+| 29 | [系统服务接口](#属性-系统服务接口（PSSYSSERVICEAPINAME）) | PSSYSSERVICEAPINAME | 外键值文本 | 否 | 是 | 是 |
+| 30 | [系统服务接口](#属性-系统服务接口（PSSYSSERVICEAPIID）) | PSSYSSERVICEAPIID | 外键值 | 否 | 是 | 是 |
+| 31 | [系统](#属性-系统（PSSYSTEMID）) | PSSYSTEMID | 文本，可指定长度 | 否 | 是 | 是 |
+| 32 | [系统](#属性-系统（PSSYSTEMNAME）) | PSSYSTEMNAME | 文本，可指定长度 | 否 | 是 | 是 |
+| 33 | [服务体系](#属性-服务体系（PSSYSSFPUBID）) | PSSYSSFPUBID | 文本，可指定长度 | 否 | 是 | 是 |
+| 34 | [服务体系](#属性-服务体系（PSSYSSFPUBNAME）) | PSSYSSFPUBNAME | 文本，可指定长度 | 否 | 是 | 是 |
+| 35 | [运行数据库](#属性-运行数据库（PSSYSTEMDBCFGID）) | PSSYSTEMDBCFGID | 文本，可指定长度 | 否 | 是 | 是 |
+| 36 | [运行数据库](#属性-运行数据库（PSSYSTEMDBCFGNAME）) | PSSYSTEMDBCFGNAME | 文本，可指定长度 | 否 | 是 | 是 |
 
 ### 属性-系统运行会话名称（PSSYSRUNSESSIONNAME）
 #### 属性说明
@@ -62,10 +62,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -97,16 +94,13 @@ Timestamp
 否
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
 
 #### 数据格式
-时间格式：yyyy-MM-dd HH:mm:ss
+yyyy-MM-dd HH:mm:ss
 
 #### 关系属性
 | 项目 | 说明 |
@@ -132,10 +126,7 @@ String
 否
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -167,10 +158,7 @@ String
 否
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 参照数据字典【[云系统操作者（SysOperator）](../../codelist/SysOperator)】
@@ -202,16 +190,13 @@ Timestamp
 否
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
 
 #### 数据格式
-时间格式：yyyy-MM-dd HH:mm:ss
+yyyy-MM-dd HH:mm:ss
 
 #### 关系属性
 | 项目 | 说明 |
@@ -237,10 +222,7 @@ String
 否
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 参照数据字典【[云系统操作者（SysOperator）](../../codelist/SysOperator)】
@@ -307,16 +289,13 @@ Timestamp
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
 
 #### 数据格式
-时间格式：yyyy-MM-dd HH:mm:ss
+yyyy-MM-dd HH:mm:ss
 
 #### 关系属性
 | 项目 | 说明 |
@@ -342,10 +321,7 @@ Integer
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 参照数据字典【[是否（YESNO）（YesNo3）](../../codelist/YesNo3)】
@@ -377,10 +353,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -412,10 +385,7 @@ Integer
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 参照数据字典【[是否（YESNO）（YesNo3）](../../codelist/YesNo3)】
@@ -447,10 +417,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -482,10 +449,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -517,10 +481,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -552,10 +513,7 @@ Integer
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -587,10 +545,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -622,10 +577,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -657,10 +609,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -692,10 +641,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -727,10 +673,7 @@ Integer
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -797,10 +740,7 @@ Integer
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -832,16 +772,13 @@ Timestamp
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
 
 #### 数据格式
-时间格式：yyyy-MM-dd HH:mm:ss
+yyyy-MM-dd HH:mm:ss
 
 #### 关系属性
 | 项目 | 说明 |
@@ -867,10 +804,7 @@ Integer
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 参照数据字典【[是否（YESNO）（YesNo3）](../../codelist/YesNo3)】
@@ -902,10 +836,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -937,10 +868,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -972,10 +900,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -1007,10 +932,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -1042,10 +964,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -1077,10 +996,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -1112,10 +1028,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -1147,10 +1060,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -1182,10 +1092,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -1217,10 +1124,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -1252,10 +1156,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -1287,10 +1188,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -1319,6 +1217,7 @@ String
 | 5 | [GetDraft](#实体行为-GetDraft（GetDraft）) | GetDraft | 内置方法 | 后台及前台 |
 | 6 | [CheckKey](#实体行为-CheckKey（CheckKey）) | CheckKey | 内置方法 | 后台及前台 |
 | 7 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
+
 ### 实体行为-Create（Create）
 #### 说明
 Create
@@ -1329,6 +1228,8 @@ Create
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-Update（Update）
 #### 说明
 Update
@@ -1339,6 +1240,8 @@ Update
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-Remove（Remove）
 #### 说明
 Remove
@@ -1349,6 +1252,8 @@ Remove
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-Get（Get）
 #### 说明
 Get
@@ -1359,6 +1264,8 @@ Get
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-GetDraft（GetDraft）
 #### 说明
 GetDraft
@@ -1369,6 +1276,8 @@ GetDraft
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-CheckKey（CheckKey）
 #### 说明
 CheckKey
@@ -1379,6 +1288,8 @@ CheckKey
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-Save（Save）
 #### 说明
 Save
@@ -1389,5 +1300,10 @@ Save
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 
+## 逻辑处理
+
+## 查询
 

@@ -8,17 +8,17 @@ jenkins
 ## 实体属性
 | 序号 | 属性 | 属性名 | 数据类型 | 主键 | 外键 | 允许为空 |
 | -- | -- | -- | -- | -- | -- | -- |
-| 1 | [name](#属性-name（NAME）) | NAME | TEXT | 否 | 否 | 否 |
-| 2 | [password](#属性-password（PASSWORD）) | PASSWORD | TEXT | 否 | 否 | 是 |
-| 3 | [逻辑删除标志](#属性-逻辑删除标志（DELETED）) | DELETED | TEXT | 否 | 否 | 是 |
-| 4 | [account](#属性-account（ACCOUNT）) | ACCOUNT | TEXT | 否 | 否 | 是 |
-| 5 | [url](#属性-url（URL）) | URL | TEXT | 否 | 否 | 是 |
-| 6 | [editedDate](#属性-editedDate（EDITEDDATE）) | EDITEDDATE | DATETIME | 否 | 否 | 是 |
-| 7 | [token](#属性-token（TOKEN）) | TOKEN | TEXT | 否 | 否 | 是 |
-| 8 | [createdBy](#属性-createdBy（CREATEDBY）) | CREATEDBY | TEXT | 否 | 否 | 是 |
-| 9 | [editedBy](#属性-editedBy（EDITEDBY）) | EDITEDBY | TEXT | 否 | 否 | 是 |
-| 10 | [createdDate](#属性-createdDate（CREATEDDATE）) | CREATEDDATE | DATETIME | 否 | 否 | 是 |
-| 11 | [id](#属性-id（ID）) | ID | ACID | 是 | 否 | 否 |
+| 1 | [name](#属性-name（NAME）) | NAME | 文本，可指定长度 | 否 | 否 | 否 |
+| 2 | [password](#属性-password（PASSWORD）) | PASSWORD | 文本，可指定长度 | 否 | 否 | 是 |
+| 3 | [逻辑删除标志](#属性-逻辑删除标志（DELETED）) | DELETED | 文本，可指定长度 | 否 | 否 | 是 |
+| 4 | [account](#属性-account（ACCOUNT）) | ACCOUNT | 文本，可指定长度 | 否 | 否 | 是 |
+| 5 | [url](#属性-url（URL）) | URL | 文本，可指定长度 | 否 | 否 | 是 |
+| 6 | [editedDate](#属性-editedDate（EDITEDDATE）) | EDITEDDATE | 日期时间型 | 否 | 否 | 是 |
+| 7 | [token](#属性-token（TOKEN）) | TOKEN | 文本，可指定长度 | 否 | 否 | 是 |
+| 8 | [createdBy](#属性-createdBy（CREATEDBY）) | CREATEDBY | 文本，可指定长度 | 否 | 否 | 是 |
+| 9 | [editedBy](#属性-editedBy（EDITEDBY）) | EDITEDBY | 文本，可指定长度 | 否 | 否 | 是 |
+| 10 | [createdDate](#属性-createdDate（CREATEDDATE）) | CREATEDDATE | 日期时间型 | 否 | 否 | 是 |
+| 11 | [id](#属性-id（ID）) | ID | 自增标识，整数类型，用户不可见 | 是 | 否 | 否 |
 
 ### 属性-name（NAME）
 #### 属性说明
@@ -37,10 +37,7 @@ String
 否
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -68,10 +65,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -130,10 +124,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -161,10 +152,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -192,16 +180,13 @@ Timestamp
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
 
 #### 数据格式
-时间格式：yyyy-MM-dd HH:mm:ss
+yyyy-MM-dd HH:mm:ss
 
 #### 关系属性
 无
@@ -223,10 +208,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -254,10 +236,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -285,10 +264,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -316,16 +292,13 @@ Timestamp
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
 
 #### 数据格式
-时间格式：yyyy-MM-dd HH:mm:ss
+yyyy-MM-dd HH:mm:ss
 
 #### 关系属性
 无
@@ -347,10 +320,7 @@ Long
 否
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -375,6 +345,7 @@ Long
 | 5 | [GetDraft](#实体行为-GetDraft（GetDraft）) | GetDraft | 内置方法 | 后台及前台 |
 | 6 | [CheckKey](#实体行为-CheckKey（CheckKey）) | CheckKey | 内置方法 | 后台及前台 |
 | 7 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
+
 ### 实体行为-Create（Create）
 #### 说明
 Create
@@ -385,6 +356,8 @@ Create
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-Update（Update）
 #### 说明
 Update
@@ -395,6 +368,8 @@ Update
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-Remove（Remove）
 #### 说明
 Remove
@@ -405,6 +380,8 @@ Remove
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-Get（Get）
 #### 说明
 Get
@@ -415,6 +392,8 @@ Get
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-GetDraft（GetDraft）
 #### 说明
 GetDraft
@@ -425,6 +404,8 @@ GetDraft
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-CheckKey（CheckKey）
 #### 说明
 CheckKey
@@ -435,6 +416,8 @@ CheckKey
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-Save（Save）
 #### 说明
 Save
@@ -445,5 +428,10 @@ Save
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 
+## 逻辑处理
+
+## 查询
 

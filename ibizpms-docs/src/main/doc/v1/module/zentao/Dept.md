@@ -8,17 +8,17 @@
 ## 实体属性
 | 序号 | 属性 | 属性名 | 数据类型 | 主键 | 外键 | 允许为空 |
 | -- | -- | -- | -- | -- | -- | -- |
-| 1 | [负责人](#属性-负责人（MANAGER）) | MANAGER | SSCODELIST | 否 | 否 | 是 |
-| 2 | [grade](#属性-grade（GRADE）) | GRADE | INT | 否 | 否 | 是 |
-| 3 | [function](#属性-function（FUNCTION）) | FUNCTION | TEXT | 否 | 否 | 是 |
-| 4 | [order](#属性-order（ORDER）) | ORDER | INT | 否 | 否 | 是 |
-| 5 | [path](#属性-path（PATH）) | PATH | TEXT | 否 | 否 | 是 |
-| 6 | [position](#属性-position（POSITION）) | POSITION | TEXT | 否 | 否 | 是 |
-| 7 | [id](#属性-id（ID）) | ID | ACID | 是 | 否 | 否 |
-| 8 | [部门名称](#属性-部门名称（NAME）) | NAME | TEXT | 否 | 否 | 否 |
-| 9 | [上级部门](#属性-上级部门（PARENTNAME）) | PARENTNAME | PICKUPTEXT | 否 | 是 | 是 |
-| 10 | [parent](#属性-parent（PARENT）) | PARENT | PICKUP | 否 | 是 | 是 |
-| 11 | [无子部门](#属性-无子部门（ISLEAF）) | ISLEAF | TEXT | 否 | 是 | 是 |
+| 1 | [负责人](#属性-负责人（MANAGER）) | MANAGER | 单项选择(文本值) | 否 | 否 | 是 |
+| 2 | [grade](#属性-grade（GRADE）) | GRADE | 整型 | 否 | 否 | 是 |
+| 3 | [function](#属性-function（FUNCTION）) | FUNCTION | 文本，可指定长度 | 否 | 否 | 是 |
+| 4 | [order](#属性-order（ORDER）) | ORDER | 整型 | 否 | 否 | 是 |
+| 5 | [path](#属性-path（PATH）) | PATH | 文本，可指定长度 | 否 | 否 | 是 |
+| 6 | [position](#属性-position（POSITION）) | POSITION | 文本，可指定长度 | 否 | 否 | 是 |
+| 7 | [id](#属性-id（ID）) | ID | 自增标识，整数类型，用户不可见 | 是 | 否 | 否 |
+| 8 | [部门名称](#属性-部门名称（NAME）) | NAME | 文本，可指定长度 | 否 | 否 | 否 |
+| 9 | [上级部门](#属性-上级部门（PARENTNAME）) | PARENTNAME | 外键值文本 | 否 | 是 | 是 |
+| 10 | [parent](#属性-parent（PARENT）) | PARENT | 外键值 | 否 | 是 | 是 |
+| 11 | [无子部门](#属性-无子部门（ISLEAF）) | ISLEAF | 文本，可指定长度 | 否 | 是 | 是 |
 
 ### 属性-负责人（MANAGER）
 #### 属性说明
@@ -37,10 +37,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 参照数据字典【[用户真实名称（动态）（UserRealName）](../../codelist/UserRealName)】
@@ -107,10 +104,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -177,10 +171,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -212,10 +203,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -247,10 +235,7 @@ Long
 否
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -282,10 +267,7 @@ String
 否
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -317,10 +299,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -352,10 +331,7 @@ Long
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -387,10 +363,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 (CASE WHEN EXISTS (SELECT 1 FROM ZT_DEPT WHERE  PARENT = %1$s) THEN FALSE ELSE TRUE  END )
@@ -419,6 +392,7 @@ String
 | 5 | [GetDraft](#实体行为-GetDraft（GetDraft）) | GetDraft | 内置方法 | 后台及前台 |
 | 6 | [CheckKey](#实体行为-CheckKey（CheckKey）) | CheckKey | 内置方法 | 后台及前台 |
 | 7 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
+
 ### 实体行为-Create（Create）
 #### 说明
 Create
@@ -429,6 +403,8 @@ Create
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-Update（Update）
 #### 说明
 Update
@@ -439,6 +415,8 @@ Update
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-Remove（Remove）
 #### 说明
 Remove
@@ -449,6 +427,8 @@ Remove
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-Get（Get）
 #### 说明
 Get
@@ -459,6 +439,8 @@ Get
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-GetDraft（GetDraft）
 #### 说明
 GetDraft
@@ -469,6 +451,8 @@ GetDraft
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-CheckKey（CheckKey）
 #### 说明
 CheckKey
@@ -479,6 +463,8 @@ CheckKey
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-Save（Save）
 #### 说明
 Save
@@ -489,5 +475,10 @@ Save
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 
+## 逻辑处理
+
+## 查询
 

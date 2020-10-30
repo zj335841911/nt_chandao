@@ -8,17 +8,17 @@ effort
 ## 实体属性
 | 序号 | 属性 | 属性名 | 数据类型 | 主键 | 外键 | 允许为空 |
 | -- | -- | -- | -- | -- | -- | -- |
-| 1 | [user](#属性-user（USER）) | USER | TEXT | 否 | 否 | 是 |
-| 2 | [idvalue](#属性-idvalue（IDVALUE）) | IDVALUE | INT | 否 | 否 | 是 |
-| 3 | [status](#属性-status（STATUS）) | STATUS | SSCODELIST | 否 | 否 | 是 |
-| 4 | [end](#属性-end（END）) | END | DATETIME | 否 | 否 | 是 |
-| 5 | [date](#属性-date（DATE）) | DATE | DATE | 否 | 否 | 是 |
-| 6 | [name](#属性-name（NAME）) | NAME | TEXT | 否 | 否 | 否 |
-| 7 | [desc](#属性-desc（DESC）) | DESC | TEXT | 否 | 否 | 是 |
-| 8 | [todo](#属性-todo（TODO）) | TODO | SSCODELIST | 否 | 否 | 是 |
-| 9 | [type](#属性-type（TYPE）) | TYPE | SSCODELIST | 否 | 否 | 是 |
-| 10 | [id](#属性-id（ID）) | ID | ACID | 是 | 否 | 否 |
-| 11 | [begin](#属性-begin（BEGIN）) | BEGIN | DATETIME | 否 | 否 | 是 |
+| 1 | [user](#属性-user（USER）) | USER | 文本，可指定长度 | 否 | 否 | 是 |
+| 2 | [idvalue](#属性-idvalue（IDVALUE）) | IDVALUE | 整型 | 否 | 否 | 是 |
+| 3 | [status](#属性-status（STATUS）) | STATUS | 单项选择(文本值) | 否 | 否 | 是 |
+| 4 | [end](#属性-end（END）) | END | 日期时间型 | 否 | 否 | 是 |
+| 5 | [date](#属性-date（DATE）) | DATE | 日期型 | 否 | 否 | 是 |
+| 6 | [name](#属性-name（NAME）) | NAME | 文本，可指定长度 | 否 | 否 | 否 |
+| 7 | [desc](#属性-desc（DESC）) | DESC | 文本，可指定长度 | 否 | 否 | 是 |
+| 8 | [todo](#属性-todo（TODO）) | TODO | 单项选择(文本值) | 否 | 否 | 是 |
+| 9 | [type](#属性-type（TYPE）) | TYPE | 单项选择(文本值) | 否 | 否 | 是 |
+| 10 | [id](#属性-id（ID）) | ID | 自增标识，整数类型，用户不可见 | 是 | 否 | 否 |
+| 11 | [begin](#属性-begin（BEGIN）) | BEGIN | 日期时间型 | 否 | 否 | 是 |
 
 ### 属性-user（USER）
 #### 属性说明
@@ -37,10 +37,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -99,10 +96,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 参照数据字典【[ZT_CASE__FREQUENCY（Case__frequency）](../../codelist/Case__frequency)】
@@ -139,7 +133,7 @@ Timestamp
 无
 
 #### 数据格式
-时间格式：yyyy-MM-dd HH:mm:ss
+yyyy-MM-dd HH:mm:ss
 
 #### 关系属性
 无
@@ -161,16 +155,13 @@ Timestamp
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
 
 #### 数据格式
-时间格式：yyyy-MM-dd
+yyyy-MM-dd
 
 #### 关系属性
 无
@@ -192,10 +183,7 @@ String
 否
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -223,10 +211,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -254,10 +239,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 参照数据字典【[ZT_COMPANY__GUEST（Company__guest）](../../codelist/Company__guest)】
@@ -285,10 +267,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 参照数据字典【[ZT_CASE__FREQUENCY（Case__frequency）](../../codelist/Case__frequency)】
@@ -316,10 +295,7 @@ Long
 否
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -356,7 +332,7 @@ Timestamp
 无
 
 #### 数据格式
-时间格式：yyyy-MM-dd HH:mm:ss
+yyyy-MM-dd HH:mm:ss
 
 #### 关系属性
 无
@@ -375,6 +351,7 @@ Timestamp
 | 5 | [GetDraft](#实体行为-GetDraft（GetDraft）) | GetDraft | 内置方法 | 后台及前台 |
 | 6 | [CheckKey](#实体行为-CheckKey（CheckKey）) | CheckKey | 内置方法 | 后台及前台 |
 | 7 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
+
 ### 实体行为-Create（Create）
 #### 说明
 Create
@@ -385,6 +362,8 @@ Create
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-Update（Update）
 #### 说明
 Update
@@ -395,6 +374,8 @@ Update
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-Remove（Remove）
 #### 说明
 Remove
@@ -405,6 +386,8 @@ Remove
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-Get（Get）
 #### 说明
 Get
@@ -415,6 +398,8 @@ Get
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-GetDraft（GetDraft）
 #### 说明
 GetDraft
@@ -425,6 +410,8 @@ GetDraft
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-CheckKey（CheckKey）
 #### 说明
 CheckKey
@@ -435,6 +422,8 @@ CheckKey
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-Save（Save）
 #### 说明
 Save
@@ -445,5 +434,10 @@ Save
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 
+## 逻辑处理
+
+## 查询
 

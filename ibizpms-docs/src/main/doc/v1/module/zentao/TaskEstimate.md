@@ -8,14 +8,14 @@
 ## 实体属性
 | 序号 | 属性 | 属性名 | 数据类型 | 主键 | 外键 | 允许为空 |
 | -- | -- | -- | -- | -- | -- | -- |
-| 1 | [用户](#属性-用户（ACCOUNT）) | ACCOUNT | TEXT | 否 | 否 | 是 |
-| 2 | [预计剩余](#属性-预计剩余（LEFT）) | LEFT | FLOAT | 否 | 否 | 是 |
-| 3 | [总计消耗](#属性-总计消耗（CONSUMED）) | CONSUMED | FLOAT | 否 | 否 | 是 |
-| 4 | [编号](#属性-编号（ID）) | ID | ACID | 是 | 否 | 否 |
-| 5 | [日期](#属性-日期（DATE）) | DATE | DATE | 否 | 否 | 是 |
-| 6 | [work](#属性-work（WORK）) | WORK | LONGTEXT | 否 | 否 | 是 |
-| 7 | [任务](#属性-任务（TASK）) | TASK | PICKUP | 否 | 是 | 是 |
-| 8 | [日期](#属性-日期（DATES）) | DATES | DATE | 否 | 是 | 是 |
+| 1 | [用户](#属性-用户（ACCOUNT）) | ACCOUNT | 文本，可指定长度 | 否 | 否 | 是 |
+| 2 | [预计剩余](#属性-预计剩余（LEFT）) | LEFT | 浮点 | 否 | 否 | 是 |
+| 3 | [总计消耗](#属性-总计消耗（CONSUMED）) | CONSUMED | 浮点 | 否 | 否 | 是 |
+| 4 | [编号](#属性-编号（ID）) | ID | 自增标识，整数类型，用户不可见 | 是 | 否 | 否 |
+| 5 | [日期](#属性-日期（DATE）) | DATE | 日期型 | 否 | 否 | 是 |
+| 6 | [work](#属性-work（WORK）) | WORK | 长文本，没有长度限制 | 否 | 否 | 是 |
+| 7 | [任务](#属性-任务（TASK）) | TASK | 外键值 | 否 | 是 | 是 |
+| 8 | [日期](#属性-日期（DATES）) | DATES | 日期型 | 否 | 是 | 是 |
 
 ### 属性-用户（ACCOUNT）
 #### 属性说明
@@ -139,10 +139,7 @@ Long
 否
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -174,16 +171,13 @@ Timestamp
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
 
 #### 数据格式
-时间格式：yyyy-MM-dd
+yyyy-MM-dd
 
 #### 关系属性
 | 项目 | 说明 |
@@ -279,16 +273,13 @@ Timestamp
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 t1.`date`
 
 #### 数据格式
-时间格式：yyyy-MM-dd
+yyyy-MM-dd
 
 #### 关系属性
 | 项目 | 说明 |
@@ -321,6 +312,7 @@ t1.`date`
 | 15 | [GetDraftTempMajor](#实体行为-GetDraftTempMajor（GetDraftTempMajor）) | GetDraftTempMajor | 内置方法 | 前台 |
 | 16 | [CheckKey](#实体行为-CheckKey（CheckKey）) | CheckKey | 内置方法 | 后台及前台 |
 | 17 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
+
 ### 实体行为-Create（Create）
 #### 说明
 Create
@@ -331,6 +323,8 @@ Create
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-CreateTemp（CreateTemp）
 #### 说明
 CreateTemp
@@ -341,6 +335,8 @@ CreateTemp
 #### 行为持有者
 前台
 
+#### 逻辑附加
+无
 ### 实体行为-CreateTempMajor（CreateTempMajor）
 #### 说明
 CreateTempMajor
@@ -351,6 +347,8 @@ CreateTempMajor
 #### 行为持有者
 前台
 
+#### 逻辑附加
+无
 ### 实体行为-Update（Update）
 #### 说明
 Update
@@ -361,6 +359,8 @@ Update
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-UpdateTemp（UpdateTemp）
 #### 说明
 UpdateTemp
@@ -371,6 +371,8 @@ UpdateTemp
 #### 行为持有者
 前台
 
+#### 逻辑附加
+无
 ### 实体行为-UpdateTempMajor（UpdateTempMajor）
 #### 说明
 UpdateTempMajor
@@ -381,6 +383,8 @@ UpdateTempMajor
 #### 行为持有者
 前台
 
+#### 逻辑附加
+无
 ### 实体行为-Remove（Remove）
 #### 说明
 Remove
@@ -391,6 +395,8 @@ Remove
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-RemoveTemp（RemoveTemp）
 #### 说明
 RemoveTemp
@@ -401,6 +407,8 @@ RemoveTemp
 #### 行为持有者
 前台
 
+#### 逻辑附加
+无
 ### 实体行为-RemoveTempMajor（RemoveTempMajor）
 #### 说明
 RemoveTempMajor
@@ -411,6 +419,8 @@ RemoveTempMajor
 #### 行为持有者
 前台
 
+#### 逻辑附加
+无
 ### 实体行为-Get（Get）
 #### 说明
 Get
@@ -421,6 +431,8 @@ Get
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-GetTemp（GetTemp）
 #### 说明
 GetTemp
@@ -431,6 +443,8 @@ GetTemp
 #### 行为持有者
 前台
 
+#### 逻辑附加
+无
 ### 实体行为-GetTempMajor（GetTempMajor）
 #### 说明
 GetTempMajor
@@ -441,6 +455,8 @@ GetTempMajor
 #### 行为持有者
 前台
 
+#### 逻辑附加
+无
 ### 实体行为-GetDraft（GetDraft）
 #### 说明
 GetDraft
@@ -451,6 +467,8 @@ GetDraft
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-GetDraftTemp（GetDraftTemp）
 #### 说明
 GetDraftTemp
@@ -461,6 +479,8 @@ GetDraftTemp
 #### 行为持有者
 前台
 
+#### 逻辑附加
+无
 ### 实体行为-GetDraftTempMajor（GetDraftTempMajor）
 #### 说明
 GetDraftTempMajor
@@ -471,6 +491,8 @@ GetDraftTempMajor
 #### 行为持有者
 前台
 
+#### 逻辑附加
+无
 ### 实体行为-CheckKey（CheckKey）
 #### 说明
 CheckKey
@@ -481,6 +503,8 @@ CheckKey
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-Save（Save）
 #### 说明
 Save
@@ -491,5 +515,10 @@ Save
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 
+## 逻辑处理
+
+## 查询
 

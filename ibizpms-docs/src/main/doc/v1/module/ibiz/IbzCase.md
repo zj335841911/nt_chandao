@@ -8,33 +8,33 @@
 ## 实体属性
 | 序号 | 属性 | 属性名 | 数据类型 | 主键 | 外键 | 允许为空 |
 | -- | -- | -- | -- | -- | -- | -- |
-| 1 | [排序](#属性-排序（ORDER）) | ORDER | INT | 否 | 否 | 是 |
-| 2 | [howRun](#属性-howRun（HOWRUN）) | HOWRUN | TEXT | 否 | 否 | 是 |
-| 3 | [scriptedBy](#属性-scriptedBy（SCRIPTEDBY）) | SCRIPTEDBY | TEXT | 否 | 否 | 是 |
-| 4 | [path](#属性-path（PATH）) | PATH | INT | 否 | 否 | 是 |
-| 5 | [创建日期](#属性-创建日期（OPENEDDATE）) | OPENEDDATE | DATETIME | 否 | 否 | 是 |
-| 6 | [修改日期](#属性-修改日期（LASTEDITEDDATE）) | LASTEDITEDDATE | DATETIME | 否 | 否 | 是 |
-| 7 | [scriptedDate](#属性-scriptedDate（SCRIPTEDDATE）) | SCRIPTEDDATE | DATE | 否 | 否 | 是 |
-| 8 | [备注](#属性-备注（COMMENT）) | COMMENT | HTMLTEXT | 否 | 否 | 是 |
-| 9 | [auto](#属性-auto（AUTO）) | AUTO | TEXT | 否 | 否 | 是 |
-| 10 | [用例标题](#属性-用例标题（TITLE）) | TITLE | TEXT | 否 | 否 | 否 |
-| 11 | [已删除](#属性-已删除（DELETED）) | DELETED | TEXT | 否 | 否 | 是 |
-| 12 | [scriptLocation](#属性-scriptLocation（SCRIPTLOCATION）) | SCRIPTLOCATION | TEXT | 否 | 否 | 是 |
-| 13 | [scriptStatus](#属性-scriptStatus（SCRIPTSTATUS）) | SCRIPTSTATUS | TEXT | 否 | 否 | 是 |
-| 14 | [关键词](#属性-关键词（KEYWORDS）) | KEYWORDS | TEXT | 否 | 否 | 是 |
-| 15 | [用例编号](#属性-用例编号（ID）) | ID | ACID | 是 | 否 | 否 |
-| 16 | [前置条件](#属性-前置条件（PRECONDITION）) | PRECONDITION | LONGTEXT | 否 | 否 | 是 |
-| 17 | [优先级](#属性-优先级（PRI）) | PRI | SSCODELIST | 否 | 否 | 是 |
-| 18 | [用例类型](#属性-用例类型（TYPE）) | TYPE | SSCODELIST | 否 | 否 | 是 |
-| 19 | [状态](#属性-状态（STATUS）) | STATUS | SSCODELIST | 否 | 否 | 是 |
-| 20 | [适用阶段](#属性-适用阶段（STAGE）) | STAGE | SMCODELIST | 否 | 否 | 是 |
-| 21 | [由谁创建](#属性-由谁创建（OPENEDBY）) | OPENEDBY | SSCODELIST | 否 | 否 | 是 |
-| 22 | [最后修改者](#属性-最后修改者（LASTEDITEDBY）) | LASTEDITEDBY | SSCODELIST | 否 | 否 | 是 |
-| 23 | [编号](#属性-编号（LIB）) | LIB | PICKUP | 否 | 是 | 是 |
-| 24 | [id](#属性-id（MODULE）) | MODULE | PICKUP | 否 | 是 | 是 |
-| 25 | [所属模块](#属性-所属模块（MODULENAME）) | MODULENAME | PICKUPTEXT | 否 | 是 | 是 |
-| 26 | [用例库](#属性-用例库（LIBNAME）) | LIBNAME | PICKUPTEXT | 否 | 是 | 是 |
-| 27 | [用例版本](#属性-用例版本（VERSION）) | VERSION | INT | 否 | 是 | 是 |
+| 1 | [排序](#属性-排序（ORDER）) | ORDER | 整型 | 否 | 否 | 是 |
+| 2 | [howRun](#属性-howRun（HOWRUN）) | HOWRUN | 文本，可指定长度 | 否 | 否 | 是 |
+| 3 | [scriptedBy](#属性-scriptedBy（SCRIPTEDBY）) | SCRIPTEDBY | 文本，可指定长度 | 否 | 否 | 是 |
+| 4 | [path](#属性-path（PATH）) | PATH | 整型 | 否 | 否 | 是 |
+| 5 | [创建日期](#属性-创建日期（OPENEDDATE）) | OPENEDDATE | 日期时间型 | 否 | 否 | 是 |
+| 6 | [修改日期](#属性-修改日期（LASTEDITEDDATE）) | LASTEDITEDDATE | 日期时间型 | 否 | 否 | 是 |
+| 7 | [scriptedDate](#属性-scriptedDate（SCRIPTEDDATE）) | SCRIPTEDDATE | 日期型 | 否 | 否 | 是 |
+| 8 | [备注](#属性-备注（COMMENT）) | COMMENT | HTML文本，没有长度限制 | 否 | 否 | 是 |
+| 9 | [auto](#属性-auto（AUTO）) | AUTO | 文本，可指定长度 | 否 | 否 | 是 |
+| 10 | [用例标题](#属性-用例标题（TITLE）) | TITLE | 文本，可指定长度 | 否 | 否 | 否 |
+| 11 | [已删除](#属性-已删除（DELETED）) | DELETED | 文本，可指定长度 | 否 | 否 | 是 |
+| 12 | [scriptLocation](#属性-scriptLocation（SCRIPTLOCATION）) | SCRIPTLOCATION | 文本，可指定长度 | 否 | 否 | 是 |
+| 13 | [scriptStatus](#属性-scriptStatus（SCRIPTSTATUS）) | SCRIPTSTATUS | 文本，可指定长度 | 否 | 否 | 是 |
+| 14 | [关键词](#属性-关键词（KEYWORDS）) | KEYWORDS | 文本，可指定长度 | 否 | 否 | 是 |
+| 15 | [用例编号](#属性-用例编号（ID）) | ID | 自增标识，整数类型，用户不可见 | 是 | 否 | 否 |
+| 16 | [前置条件](#属性-前置条件（PRECONDITION）) | PRECONDITION | 长文本，没有长度限制 | 否 | 否 | 是 |
+| 17 | [优先级](#属性-优先级（PRI）) | PRI | 单项选择(文本值) | 否 | 否 | 是 |
+| 18 | [用例类型](#属性-用例类型（TYPE）) | TYPE | 单项选择(文本值) | 否 | 否 | 是 |
+| 19 | [状态](#属性-状态（STATUS）) | STATUS | 单项选择(文本值) | 否 | 否 | 是 |
+| 20 | [适用阶段](#属性-适用阶段（STAGE）) | STAGE | 多项选择(文本值) | 否 | 否 | 是 |
+| 21 | [由谁创建](#属性-由谁创建（OPENEDBY）) | OPENEDBY | 单项选择(文本值) | 否 | 否 | 是 |
+| 22 | [最后修改者](#属性-最后修改者（LASTEDITEDBY）) | LASTEDITEDBY | 单项选择(文本值) | 否 | 否 | 是 |
+| 23 | [编号](#属性-编号（LIB）) | LIB | 外键值 | 否 | 是 | 是 |
+| 24 | [id](#属性-id（MODULE）) | MODULE | 外键值 | 否 | 是 | 是 |
+| 25 | [所属模块](#属性-所属模块（MODULENAME）) | MODULENAME | 外键值文本 | 否 | 是 | 是 |
+| 26 | [用例库](#属性-用例库（LIBNAME）) | LIBNAME | 外键值文本 | 否 | 是 | 是 |
+| 27 | [用例版本](#属性-用例版本（VERSION）) | VERSION | 整型 | 否 | 是 | 是 |
 
 ### 属性-排序（ORDER）
 #### 属性说明
@@ -193,16 +193,13 @@ Timestamp
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
 
 #### 数据格式
-时间格式：yyyy-MM-dd HH:mm:ss
+yyyy-MM-dd HH:mm:ss
 
 #### 关系属性
 | 项目 | 说明 |
@@ -228,16 +225,13 @@ Timestamp
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
 
 #### 数据格式
-时间格式：yyyy-MM-dd HH:mm:ss
+yyyy-MM-dd HH:mm:ss
 
 #### 关系属性
 | 项目 | 说明 |
@@ -263,16 +257,13 @@ Timestamp
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
 
 #### 数据格式
-时间格式：yyyy-MM-dd
+yyyy-MM-dd
 
 #### 关系属性
 | 项目 | 说明 |
@@ -298,10 +289,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -368,10 +356,7 @@ String
 否
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -473,10 +458,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -543,10 +525,7 @@ Long
 否
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -753,10 +732,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 参照数据字典【[用户真实名称（动态）（UserRealName）](../../codelist/UserRealName)】
@@ -788,10 +764,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 参照数据字典【[用户真实名称（动态）（UserRealName）](../../codelist/UserRealName)】
@@ -893,10 +866,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -928,10 +898,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -1005,6 +972,7 @@ Integer
 | 15 | [GetDraftTempMajor](#实体行为-GetDraftTempMajor（GetDraftTempMajor）) | GetDraftTempMajor | 内置方法 | 前台 |
 | 16 | [CheckKey](#实体行为-CheckKey（CheckKey）) | CheckKey | 内置方法 | 后台及前台 |
 | 17 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
+
 ### 实体行为-Create（Create）
 #### 说明
 Create
@@ -1015,6 +983,8 @@ Create
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-CreateTemp（CreateTemp）
 #### 说明
 CreateTemp
@@ -1025,6 +995,8 @@ CreateTemp
 #### 行为持有者
 前台
 
+#### 逻辑附加
+无
 ### 实体行为-CreateTempMajor（CreateTempMajor）
 #### 说明
 CreateTempMajor
@@ -1035,6 +1007,8 @@ CreateTempMajor
 #### 行为持有者
 前台
 
+#### 逻辑附加
+无
 ### 实体行为-Update（Update）
 #### 说明
 Update
@@ -1045,6 +1019,8 @@ Update
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-UpdateTemp（UpdateTemp）
 #### 说明
 UpdateTemp
@@ -1055,6 +1031,8 @@ UpdateTemp
 #### 行为持有者
 前台
 
+#### 逻辑附加
+无
 ### 实体行为-UpdateTempMajor（UpdateTempMajor）
 #### 说明
 UpdateTempMajor
@@ -1065,6 +1043,8 @@ UpdateTempMajor
 #### 行为持有者
 前台
 
+#### 逻辑附加
+无
 ### 实体行为-Remove（Remove）
 #### 说明
 Remove
@@ -1075,6 +1055,8 @@ Remove
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-RemoveTemp（RemoveTemp）
 #### 说明
 RemoveTemp
@@ -1085,6 +1067,8 @@ RemoveTemp
 #### 行为持有者
 前台
 
+#### 逻辑附加
+无
 ### 实体行为-RemoveTempMajor（RemoveTempMajor）
 #### 说明
 RemoveTempMajor
@@ -1095,6 +1079,8 @@ RemoveTempMajor
 #### 行为持有者
 前台
 
+#### 逻辑附加
+无
 ### 实体行为-Get（Get）
 #### 说明
 Get
@@ -1105,6 +1091,8 @@ Get
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-GetTemp（GetTemp）
 #### 说明
 GetTemp
@@ -1115,6 +1103,8 @@ GetTemp
 #### 行为持有者
 前台
 
+#### 逻辑附加
+无
 ### 实体行为-GetTempMajor（GetTempMajor）
 #### 说明
 GetTempMajor
@@ -1125,6 +1115,8 @@ GetTempMajor
 #### 行为持有者
 前台
 
+#### 逻辑附加
+无
 ### 实体行为-GetDraft（GetDraft）
 #### 说明
 GetDraft
@@ -1135,6 +1127,8 @@ GetDraft
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-GetDraftTemp（GetDraftTemp）
 #### 说明
 GetDraftTemp
@@ -1145,6 +1139,8 @@ GetDraftTemp
 #### 行为持有者
 前台
 
+#### 逻辑附加
+无
 ### 实体行为-GetDraftTempMajor（GetDraftTempMajor）
 #### 说明
 GetDraftTempMajor
@@ -1155,6 +1151,8 @@ GetDraftTempMajor
 #### 行为持有者
 前台
 
+#### 逻辑附加
+无
 ### 实体行为-CheckKey（CheckKey）
 #### 说明
 CheckKey
@@ -1165,6 +1163,8 @@ CheckKey
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-Save（Save）
 #### 说明
 Save
@@ -1175,5 +1175,10 @@ Save
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 
+## 逻辑处理
+
+## 查询
 

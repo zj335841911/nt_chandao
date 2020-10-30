@@ -8,15 +8,15 @@
 ## 实体属性
 | 序号 | 属性 | 属性名 | 数据类型 | 主键 | 外键 | 允许为空 |
 | -- | -- | -- | -- | -- | -- | -- |
-| 1 | [建立人](#属性-建立人（CREATEMAN）) | CREATEMAN | TEXT | 否 | 否 | 否 |
-| 2 | [收藏标识](#属性-收藏标识（IBZ_FAVORITESID）) | IBZ_FAVORITESID | GUID | 是 | 否 | 否 |
-| 3 | [建立时间](#属性-建立时间（CREATEDATE）) | CREATEDATE | DATETIME | 否 | 否 | 否 |
-| 4 | [收藏名称](#属性-收藏名称（IBZ_FAVORITESNAME）) | IBZ_FAVORITESNAME | TEXT | 否 | 否 | 是 |
-| 5 | [更新人](#属性-更新人（UPDATEMAN）) | UPDATEMAN | TEXT | 否 | 否 | 否 |
-| 6 | [更新时间](#属性-更新时间（UPDATEDATE）) | UPDATEDATE | DATETIME | 否 | 否 | 否 |
-| 7 | [数据对象标识](#属性-数据对象标识（OBJECTID）) | OBJECTID | BIGINT | 否 | 否 | 是 |
-| 8 | [收藏用户](#属性-收藏用户（ACCOUNT）) | ACCOUNT | SSCODELIST | 否 | 否 | 是 |
-| 9 | [类型](#属性-类型（TYPE）) | TYPE | SSCODELIST | 否 | 否 | 是 |
+| 1 | [建立人](#属性-建立人（CREATEMAN）) | CREATEMAN | 文本，可指定长度 | 否 | 否 | 否 |
+| 2 | [收藏标识](#属性-收藏标识（IBZ_FAVORITESID）) | IBZ_FAVORITESID | 全局唯一标识，文本类型，用户不可见 | 是 | 否 | 否 |
+| 3 | [建立时间](#属性-建立时间（CREATEDATE）) | CREATEDATE | 日期时间型 | 否 | 否 | 否 |
+| 4 | [收藏名称](#属性-收藏名称（IBZ_FAVORITESNAME）) | IBZ_FAVORITESNAME | 文本，可指定长度 | 否 | 否 | 是 |
+| 5 | [更新人](#属性-更新人（UPDATEMAN）) | UPDATEMAN | 文本，可指定长度 | 否 | 否 | 否 |
+| 6 | [更新时间](#属性-更新时间（UPDATEDATE）) | UPDATEDATE | 日期时间型 | 否 | 否 | 否 |
+| 7 | [数据对象标识](#属性-数据对象标识（OBJECTID）) | OBJECTID | 大整型 | 否 | 否 | 是 |
+| 8 | [收藏用户](#属性-收藏用户（ACCOUNT）) | ACCOUNT | 单项选择(文本值) | 否 | 否 | 是 |
+| 9 | [类型](#属性-类型（TYPE）) | TYPE | 单项选择(文本值) | 否 | 否 | 是 |
 
 ### 属性-建立人（CREATEMAN）
 #### 属性说明
@@ -35,10 +35,7 @@ String
 否
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 参照数据字典【[云系统操作者（SysOperator）](../../codelist/SysOperator)】
@@ -66,10 +63,7 @@ String
 否
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -97,16 +91,13 @@ Timestamp
 否
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
 
 #### 数据格式
-时间格式：yyyy-MM-dd HH:mm:ss
+yyyy-MM-dd HH:mm:ss
 
 #### 关系属性
 无
@@ -128,10 +119,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -159,10 +147,7 @@ String
 否
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 参照数据字典【[云系统操作者（SysOperator）](../../codelist/SysOperator)】
@@ -190,16 +175,13 @@ Timestamp
 否
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
 
 #### 数据格式
-时间格式：yyyy-MM-dd HH:mm:ss
+yyyy-MM-dd HH:mm:ss
 
 #### 关系属性
 无
@@ -221,10 +203,7 @@ Long
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -252,10 +231,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 参照数据字典【[用户真实名称（动态）（UserRealName）](../../codelist/UserRealName)】
@@ -283,10 +259,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -311,6 +284,7 @@ String
 | 5 | [GetDraft](#实体行为-GetDraft（GetDraft）) | GetDraft | 内置方法 | 后台及前台 |
 | 6 | [CheckKey](#实体行为-CheckKey（CheckKey）) | CheckKey | 内置方法 | 后台及前台 |
 | 7 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
+
 ### 实体行为-Create（Create）
 #### 说明
 Create
@@ -321,6 +295,8 @@ Create
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-Update（Update）
 #### 说明
 Update
@@ -331,6 +307,8 @@ Update
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-Remove（Remove）
 #### 说明
 Remove
@@ -341,6 +319,8 @@ Remove
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-Get（Get）
 #### 说明
 Get
@@ -351,6 +331,8 @@ Get
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-GetDraft（GetDraft）
 #### 说明
 GetDraft
@@ -361,6 +343,8 @@ GetDraft
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-CheckKey（CheckKey）
 #### 说明
 CheckKey
@@ -371,6 +355,8 @@ CheckKey
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-Save（Save）
 #### 说明
 Save
@@ -381,5 +367,10 @@ Save
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 
+## 逻辑处理
+
+## 查询
 

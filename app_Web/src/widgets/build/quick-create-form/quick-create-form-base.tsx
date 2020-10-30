@@ -89,6 +89,7 @@ export class QuickCreateEditFormBase extends EditFormControlBase {
         date: null,
         scmpath: null,
         filepath: null,
+        files: null,
         desc: null,
         id: null,
         product: null,
@@ -171,6 +172,8 @@ export class QuickCreateEditFormBase extends EditFormControlBase {
         scmpath: new FormItemModel({ caption: '源代码地址', detailType: 'FORMITEM', name: 'scmpath', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 
         filepath: new FormItemModel({ caption: '下载地址', detailType: 'FORMITEM', name: 'filepath', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+
+        files: new FormItemModel({ caption: '上传发行包', detailType: 'FORMITEM', name: 'files', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 
         desc: new FormItemModel({ caption: '描述', detailType: 'FORMITEM', name: 'desc', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 

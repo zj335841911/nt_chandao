@@ -8,17 +8,17 @@ im_client
 ## 实体属性
 | 序号 | 属性 | 属性名 | 数据类型 | 主键 | 外键 | 允许为空 |
 | -- | -- | -- | -- | -- | -- | -- |
-| 1 | [editedDate](#属性-editedDate（EDITEDDATE）) | EDITEDDATE | DATETIME | 否 | 否 | 是 |
-| 2 | [strategy](#属性-strategy（STRATEGY）) | STRATEGY | TEXT | 否 | 否 | 是 |
-| 3 | [createdDate](#属性-createdDate（CREATEDDATE）) | CREATEDDATE | DATETIME | 否 | 否 | 是 |
-| 4 | [changeLog](#属性-changeLog（CHANGELOG）) | CHANGELOG | LONGTEXT | 否 | 否 | 是 |
-| 5 | [version](#属性-version（VERSION）) | VERSION | TEXT | 否 | 否 | 是 |
-| 6 | [downloads](#属性-downloads（DOWNLOADS）) | DOWNLOADS | LONGTEXT | 否 | 否 | 是 |
-| 7 | [status](#属性-status（STATUS）) | STATUS | SSCODELIST | 否 | 否 | 是 |
-| 8 | [desc](#属性-desc（DESC）) | DESC | TEXT | 否 | 否 | 是 |
-| 9 | [id](#属性-id（ID）) | ID | ACID | 是 | 否 | 否 |
-| 10 | [createdBy](#属性-createdBy（CREATEDBY）) | CREATEDBY | TEXT | 否 | 否 | 是 |
-| 11 | [editedBy](#属性-editedBy（EDITEDBY）) | EDITEDBY | TEXT | 否 | 否 | 是 |
+| 1 | [editedDate](#属性-editedDate（EDITEDDATE）) | EDITEDDATE | 日期时间型 | 否 | 否 | 是 |
+| 2 | [strategy](#属性-strategy（STRATEGY）) | STRATEGY | 文本，可指定长度 | 否 | 否 | 是 |
+| 3 | [createdDate](#属性-createdDate（CREATEDDATE）) | CREATEDDATE | 日期时间型 | 否 | 否 | 是 |
+| 4 | [changeLog](#属性-changeLog（CHANGELOG）) | CHANGELOG | 长文本，没有长度限制 | 否 | 否 | 是 |
+| 5 | [version](#属性-version（VERSION）) | VERSION | 文本，可指定长度 | 否 | 否 | 是 |
+| 6 | [downloads](#属性-downloads（DOWNLOADS）) | DOWNLOADS | 长文本，没有长度限制 | 否 | 否 | 是 |
+| 7 | [status](#属性-status（STATUS）) | STATUS | 单项选择(文本值) | 否 | 否 | 是 |
+| 8 | [desc](#属性-desc（DESC）) | DESC | 文本，可指定长度 | 否 | 否 | 是 |
+| 9 | [id](#属性-id（ID）) | ID | 自增标识，整数类型，用户不可见 | 是 | 否 | 否 |
+| 10 | [createdBy](#属性-createdBy（CREATEDBY）) | CREATEDBY | 文本，可指定长度 | 否 | 否 | 是 |
+| 11 | [editedBy](#属性-editedBy（EDITEDBY）) | EDITEDBY | 文本，可指定长度 | 否 | 否 | 是 |
 
 ### 属性-editedDate（EDITEDDATE）
 #### 属性说明
@@ -37,16 +37,13 @@ Timestamp
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
 
 #### 数据格式
-时间格式：yyyy-MM-dd HH:mm:ss
+yyyy-MM-dd HH:mm:ss
 
 #### 关系属性
 无
@@ -68,10 +65,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -99,16 +93,13 @@ Timestamp
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
 
 #### 数据格式
-时间格式：yyyy-MM-dd HH:mm:ss
+yyyy-MM-dd HH:mm:ss
 
 #### 关系属性
 无
@@ -130,10 +121,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -161,10 +149,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -192,10 +177,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -223,10 +205,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 参照数据字典【[ZT_IM_CLIENT__STATUS（Im_client__status）](../../codelist/Im_client__status)】
@@ -254,10 +233,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -285,10 +261,7 @@ Long
 否
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -316,10 +289,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -347,10 +317,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -375,6 +342,7 @@ String
 | 5 | [GetDraft](#实体行为-GetDraft（GetDraft）) | GetDraft | 内置方法 | 后台及前台 |
 | 6 | [CheckKey](#实体行为-CheckKey（CheckKey）) | CheckKey | 内置方法 | 后台及前台 |
 | 7 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
+
 ### 实体行为-Create（Create）
 #### 说明
 Create
@@ -385,6 +353,8 @@ Create
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-Update（Update）
 #### 说明
 Update
@@ -395,6 +365,8 @@ Update
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-Remove（Remove）
 #### 说明
 Remove
@@ -405,6 +377,8 @@ Remove
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-Get（Get）
 #### 说明
 Get
@@ -415,6 +389,8 @@ Get
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-GetDraft（GetDraft）
 #### 说明
 GetDraft
@@ -425,6 +401,8 @@ GetDraft
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-CheckKey（CheckKey）
 #### 说明
 CheckKey
@@ -435,6 +413,8 @@ CheckKey
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-Save（Save）
 #### 说明
 Save
@@ -445,5 +425,10 @@ Save
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 
+## 逻辑处理
+
+## 查询
 

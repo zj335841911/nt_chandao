@@ -8,21 +8,21 @@
 ## 实体属性
 | 序号 | 属性 | 属性名 | 数据类型 | 主键 | 外键 | 允许为空 |
 | -- | -- | -- | -- | -- | -- | -- |
-| 1 | [角色](#属性-角色（ROLE）) | ROLE | TEXT | 否 | 否 | 是 |
-| 2 | [编号](#属性-编号（ROOT）) | ROOT | PICKUP | 否 | 是 | 是 |
-| 3 | [受限用户](#属性-受限用户（LIMITED）) | LIMITED | SSCODELIST | 否 | 是 | 是 |
-| 4 | [总计可用](#属性-总计可用（TOTAL）) | TOTAL | INT | 否 | 是 | 是 |
-| 5 | [用户](#属性-用户（USERNAME）) | USERNAME | TEXT | 否 | 是 | 是 |
-| 6 | [排序](#属性-排序（ORDER）) | ORDER | INT | 否 | 是 | 是 |
-| 7 | [可用工日](#属性-可用工日（DAYS）) | DAYS | INT | 否 | 是 | 是 |
-| 8 | [团队类型](#属性-团队类型（TYPE）) | TYPE | SSCODELIST | 否 | 是 | 是 |
-| 9 | [最初预计](#属性-最初预计（ESTIMATE）) | ESTIMATE | FLOAT | 否 | 是 | 是 |
-| 10 | [用户](#属性-用户（ACCOUNT）) | ACCOUNT | TEXT | 否 | 是 | 是 |
-| 11 | [总计消耗](#属性-总计消耗（CONSUMED）) | CONSUMED | FLOAT | 否 | 是 | 是 |
-| 12 | [编号](#属性-编号（ID）) | ID | ACID | 是 | 是 | 否 |
-| 13 | [加盟日](#属性-加盟日（JOIN）) | JOIN | DATE | 否 | 是 | 是 |
-| 14 | [可用工时/天](#属性-可用工时/天（HOURS）) | HOURS | FLOAT | 否 | 是 | 是 |
-| 15 | [预计剩余](#属性-预计剩余（LEFT）) | LEFT | FLOAT | 否 | 是 | 是 |
+| 1 | [角色](#属性-角色（ROLE）) | ROLE | 文本，可指定长度 | 否 | 否 | 是 |
+| 2 | [编号](#属性-编号（ROOT）) | ROOT | 外键值 | 否 | 是 | 是 |
+| 3 | [受限用户](#属性-受限用户（LIMITED）) | LIMITED | 单项选择(文本值) | 否 | 是 | 是 |
+| 4 | [总计可用](#属性-总计可用（TOTAL）) | TOTAL | 整型 | 否 | 是 | 是 |
+| 5 | [用户](#属性-用户（USERNAME）) | USERNAME | 文本，可指定长度 | 否 | 是 | 是 |
+| 6 | [排序](#属性-排序（ORDER）) | ORDER | 整型 | 否 | 是 | 是 |
+| 7 | [可用工日](#属性-可用工日（DAYS）) | DAYS | 整型 | 否 | 是 | 是 |
+| 8 | [团队类型](#属性-团队类型（TYPE）) | TYPE | 单项选择(文本值) | 否 | 是 | 是 |
+| 9 | [最初预计](#属性-最初预计（ESTIMATE）) | ESTIMATE | 浮点 | 否 | 是 | 是 |
+| 10 | [用户](#属性-用户（ACCOUNT）) | ACCOUNT | 文本，可指定长度 | 否 | 是 | 是 |
+| 11 | [总计消耗](#属性-总计消耗（CONSUMED）) | CONSUMED | 浮点 | 否 | 是 | 是 |
+| 12 | [编号](#属性-编号（ID）) | ID | 自增标识，整数类型，用户不可见 | 是 | 是 | 否 |
+| 13 | [加盟日](#属性-加盟日（JOIN）) | JOIN | 日期型 | 否 | 是 | 是 |
+| 14 | [可用工时/天](#属性-可用工时/天（HOURS）) | HOURS | 浮点 | 否 | 是 | 是 |
+| 15 | [预计剩余](#属性-预计剩余（LEFT）) | LEFT | 浮点 | 否 | 是 | 是 |
 
 ### 属性-角色（ROLE）
 #### 属性说明
@@ -41,10 +41,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -76,10 +73,7 @@ Long
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -146,10 +140,7 @@ Integer
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 (%1$s * %2$s)
@@ -181,10 +172,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 t1.account
@@ -356,10 +344,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 参照数据字典【[用户真实名称（项目团队成员）（UserRealNameProject）](../../codelist/UserRealNameProject)】
@@ -426,10 +411,7 @@ Long
 否
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -470,7 +452,7 @@ Timestamp
 无
 
 #### 数据格式
-时间格式：yyyy-MM-dd
+yyyy-MM-dd
 
 #### 关系属性
 | 项目 | 说明 |
@@ -573,6 +555,7 @@ Double
 | 15 | [GetDraftTempMajor](#实体行为-GetDraftTempMajor（GetDraftTempMajor）) | GetDraftTempMajor | 内置方法 | 前台 |
 | 16 | [CheckKey](#实体行为-CheckKey（CheckKey）) | CheckKey | 内置方法 | 后台及前台 |
 | 17 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
+
 ### 实体行为-Create（Create）
 #### 说明
 Create
@@ -583,6 +566,8 @@ Create
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-CreateTemp（CreateTemp）
 #### 说明
 CreateTemp
@@ -593,6 +578,8 @@ CreateTemp
 #### 行为持有者
 前台
 
+#### 逻辑附加
+无
 ### 实体行为-CreateTempMajor（CreateTempMajor）
 #### 说明
 CreateTempMajor
@@ -603,6 +590,8 @@ CreateTempMajor
 #### 行为持有者
 前台
 
+#### 逻辑附加
+无
 ### 实体行为-Update（Update）
 #### 说明
 Update
@@ -613,6 +602,8 @@ Update
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-UpdateTemp（UpdateTemp）
 #### 说明
 UpdateTemp
@@ -623,6 +614,8 @@ UpdateTemp
 #### 行为持有者
 前台
 
+#### 逻辑附加
+无
 ### 实体行为-UpdateTempMajor（UpdateTempMajor）
 #### 说明
 UpdateTempMajor
@@ -633,6 +626,8 @@ UpdateTempMajor
 #### 行为持有者
 前台
 
+#### 逻辑附加
+无
 ### 实体行为-Remove（Remove）
 #### 说明
 Remove
@@ -643,6 +638,8 @@ Remove
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-RemoveTemp（RemoveTemp）
 #### 说明
 RemoveTemp
@@ -653,6 +650,8 @@ RemoveTemp
 #### 行为持有者
 前台
 
+#### 逻辑附加
+无
 ### 实体行为-RemoveTempMajor（RemoveTempMajor）
 #### 说明
 RemoveTempMajor
@@ -663,6 +662,8 @@ RemoveTempMajor
 #### 行为持有者
 前台
 
+#### 逻辑附加
+无
 ### 实体行为-Get（Get）
 #### 说明
 Get
@@ -673,6 +674,8 @@ Get
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-GetTemp（GetTemp）
 #### 说明
 GetTemp
@@ -683,6 +686,8 @@ GetTemp
 #### 行为持有者
 前台
 
+#### 逻辑附加
+无
 ### 实体行为-GetTempMajor（GetTempMajor）
 #### 说明
 GetTempMajor
@@ -693,6 +698,8 @@ GetTempMajor
 #### 行为持有者
 前台
 
+#### 逻辑附加
+无
 ### 实体行为-GetDraft（GetDraft）
 #### 说明
 GetDraft
@@ -703,6 +710,8 @@ GetDraft
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-GetDraftTemp（GetDraftTemp）
 #### 说明
 GetDraftTemp
@@ -713,6 +722,8 @@ GetDraftTemp
 #### 行为持有者
 前台
 
+#### 逻辑附加
+无
 ### 实体行为-GetDraftTempMajor（GetDraftTempMajor）
 #### 说明
 GetDraftTempMajor
@@ -723,6 +734,8 @@ GetDraftTempMajor
 #### 行为持有者
 前台
 
+#### 逻辑附加
+无
 ### 实体行为-CheckKey（CheckKey）
 #### 说明
 CheckKey
@@ -733,6 +746,8 @@ CheckKey
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-Save（Save）
 #### 说明
 Save
@@ -743,5 +758,10 @@ Save
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 
+## 逻辑处理
+
+## 查询
 

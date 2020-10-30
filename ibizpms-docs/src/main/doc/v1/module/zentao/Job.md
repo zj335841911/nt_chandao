@@ -8,26 +8,26 @@ job
 ## 实体属性
 | 序号 | 属性 | 属性名 | 数据类型 | 主键 | 外键 | 允许为空 |
 | -- | -- | -- | -- | -- | -- | -- |
-| 1 | [逻辑删除标志](#属性-逻辑删除标志（DELETED）) | DELETED | TEXT | 否 | 否 | 是 |
-| 2 | [editedDate](#属性-editedDate（EDITEDDATE）) | EDITEDDATE | DATETIME | 否 | 否 | 是 |
-| 3 | [product](#属性-product（PRODUCT）) | PRODUCT | INT | 否 | 否 | 是 |
-| 4 | [lastStatus](#属性-lastStatus（LASTSTATUS）) | LASTSTATUS | TEXT | 否 | 否 | 是 |
-| 5 | [createdDate](#属性-createdDate（CREATEDDATE）) | CREATEDDATE | DATETIME | 否 | 否 | 是 |
-| 6 | [createdBy](#属性-createdBy（CREATEDBY）) | CREATEDBY | TEXT | 否 | 否 | 是 |
-| 7 | [triggerType](#属性-triggerType（TRIGGERTYPE）) | TRIGGERTYPE | TEXT | 否 | 否 | 是 |
-| 8 | [comment](#属性-comment（COMMENT）) | COMMENT | TEXT | 否 | 否 | 是 |
-| 9 | [lastExec](#属性-lastExec（LASTEXEC）) | LASTEXEC | DATETIME | 否 | 否 | 是 |
-| 10 | [jkHost](#属性-jkHost（JKHOST）) | JKHOST | INT | 否 | 否 | 是 |
-| 11 | [frame](#属性-frame（FRAME）) | FRAME | TEXT | 否 | 否 | 是 |
-| 12 | [atDay](#属性-atDay（ATDAY）) | ATDAY | TEXT | 否 | 否 | 是 |
-| 13 | [jkJob](#属性-jkJob（JKJOB）) | JKJOB | TEXT | 否 | 否 | 是 |
-| 14 | [svnDir](#属性-svnDir（SVNDIR）) | SVNDIR | TEXT | 否 | 否 | 是 |
-| 15 | [repo](#属性-repo（REPO）) | REPO | INT | 否 | 否 | 是 |
-| 16 | [name](#属性-name（NAME）) | NAME | TEXT | 否 | 否 | 否 |
-| 17 | [id](#属性-id（ID）) | ID | ACID | 是 | 否 | 否 |
-| 18 | [lastTag](#属性-lastTag（LASTTAG）) | LASTTAG | TEXT | 否 | 否 | 是 |
-| 19 | [atTime](#属性-atTime（ATTIME）) | ATTIME | TEXT | 否 | 否 | 是 |
-| 20 | [editedBy](#属性-editedBy（EDITEDBY）) | EDITEDBY | TEXT | 否 | 否 | 是 |
+| 1 | [逻辑删除标志](#属性-逻辑删除标志（DELETED）) | DELETED | 文本，可指定长度 | 否 | 否 | 是 |
+| 2 | [editedDate](#属性-editedDate（EDITEDDATE）) | EDITEDDATE | 日期时间型 | 否 | 否 | 是 |
+| 3 | [product](#属性-product（PRODUCT）) | PRODUCT | 整型 | 否 | 否 | 是 |
+| 4 | [lastStatus](#属性-lastStatus（LASTSTATUS）) | LASTSTATUS | 文本，可指定长度 | 否 | 否 | 是 |
+| 5 | [createdDate](#属性-createdDate（CREATEDDATE）) | CREATEDDATE | 日期时间型 | 否 | 否 | 是 |
+| 6 | [createdBy](#属性-createdBy（CREATEDBY）) | CREATEDBY | 文本，可指定长度 | 否 | 否 | 是 |
+| 7 | [triggerType](#属性-triggerType（TRIGGERTYPE）) | TRIGGERTYPE | 文本，可指定长度 | 否 | 否 | 是 |
+| 8 | [comment](#属性-comment（COMMENT）) | COMMENT | 文本，可指定长度 | 否 | 否 | 是 |
+| 9 | [lastExec](#属性-lastExec（LASTEXEC）) | LASTEXEC | 日期时间型 | 否 | 否 | 是 |
+| 10 | [jkHost](#属性-jkHost（JKHOST）) | JKHOST | 整型 | 否 | 否 | 是 |
+| 11 | [frame](#属性-frame（FRAME）) | FRAME | 文本，可指定长度 | 否 | 否 | 是 |
+| 12 | [atDay](#属性-atDay（ATDAY）) | ATDAY | 文本，可指定长度 | 否 | 否 | 是 |
+| 13 | [jkJob](#属性-jkJob（JKJOB）) | JKJOB | 文本，可指定长度 | 否 | 否 | 是 |
+| 14 | [svnDir](#属性-svnDir（SVNDIR）) | SVNDIR | 文本，可指定长度 | 否 | 否 | 是 |
+| 15 | [repo](#属性-repo（REPO）) | REPO | 整型 | 否 | 否 | 是 |
+| 16 | [name](#属性-name（NAME）) | NAME | 文本，可指定长度 | 否 | 否 | 否 |
+| 17 | [id](#属性-id（ID）) | ID | 自增标识，整数类型，用户不可见 | 是 | 否 | 否 |
+| 18 | [lastTag](#属性-lastTag（LASTTAG）) | LASTTAG | 文本，可指定长度 | 否 | 否 | 是 |
+| 19 | [atTime](#属性-atTime（ATTIME）) | ATTIME | 文本，可指定长度 | 否 | 否 | 是 |
+| 20 | [editedBy](#属性-editedBy（EDITEDBY）) | EDITEDBY | 文本，可指定长度 | 否 | 否 | 是 |
 
 ### 属性-逻辑删除标志（DELETED）
 #### 属性说明
@@ -77,16 +77,13 @@ Timestamp
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
 
 #### 数据格式
-时间格式：yyyy-MM-dd HH:mm:ss
+yyyy-MM-dd HH:mm:ss
 
 #### 关系属性
 无
@@ -108,10 +105,7 @@ Integer
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -139,10 +133,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -170,16 +161,13 @@ Timestamp
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
 
 #### 数据格式
-时间格式：yyyy-MM-dd HH:mm:ss
+yyyy-MM-dd HH:mm:ss
 
 #### 关系属性
 无
@@ -201,10 +189,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -232,10 +217,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -263,10 +245,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -294,16 +273,13 @@ Timestamp
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
 
 #### 数据格式
-时间格式：yyyy-MM-dd HH:mm:ss
+yyyy-MM-dd HH:mm:ss
 
 #### 关系属性
 无
@@ -325,10 +301,7 @@ Integer
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -356,10 +329,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -387,10 +357,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -418,10 +385,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -449,10 +413,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -480,10 +441,7 @@ Integer
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -511,10 +469,7 @@ String
 否
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -542,10 +497,7 @@ Long
 否
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -573,10 +525,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -604,10 +553,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -635,10 +581,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -663,6 +606,7 @@ String
 | 5 | [GetDraft](#实体行为-GetDraft（GetDraft）) | GetDraft | 内置方法 | 后台及前台 |
 | 6 | [CheckKey](#实体行为-CheckKey（CheckKey）) | CheckKey | 内置方法 | 后台及前台 |
 | 7 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
+
 ### 实体行为-Create（Create）
 #### 说明
 Create
@@ -673,6 +617,8 @@ Create
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-Update（Update）
 #### 说明
 Update
@@ -683,6 +629,8 @@ Update
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-Remove（Remove）
 #### 说明
 Remove
@@ -693,6 +641,8 @@ Remove
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-Get（Get）
 #### 说明
 Get
@@ -703,6 +653,8 @@ Get
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-GetDraft（GetDraft）
 #### 说明
 GetDraft
@@ -713,6 +665,8 @@ GetDraft
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-CheckKey（CheckKey）
 #### 说明
 CheckKey
@@ -723,6 +677,8 @@ CheckKey
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-Save（Save）
 #### 说明
 Save
@@ -733,5 +689,10 @@ Save
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 
+## 逻辑处理
+
+## 查询
 

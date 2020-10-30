@@ -8,31 +8,31 @@
 ## 实体属性
 | 序号 | 属性 | 属性名 | 数据类型 | 主键 | 外键 | 允许为空 |
 | -- | -- | -- | -- | -- | -- | -- |
-| 1 | [所属对象](#属性-所属对象（OBJECTID）) | OBJECTID | INT | 否 | 否 | 是 |
-| 2 | [用例](#属性-用例（CASES）) | CASES | LONGTEXT | 否 | 否 | 是 |
-| 3 | [参与人员](#属性-参与人员（MEMBERS）) | MEMBERS | LONGTEXT | 否 | 否 | 是 |
-| 4 | [测试的Bug](#属性-测试的Bug（BUGS）) | BUGS | LONGTEXT | 否 | 否 | 是 |
-| 5 | [由谁创建](#属性-由谁创建（CREATEDBY）) | CREATEDBY | TEXT | 否 | 否 | 是 |
-| 6 | [测试的需求](#属性-测试的需求（STORIES）) | STORIES | LONGTEXT | 否 | 否 | 是 |
-| 7 | [测试单](#属性-测试单（TASKS）) | TASKS | TEXT | 否 | 否 | 是 |
-| 8 | [标题](#属性-标题（TITLE）) | TITLE | TEXT | 否 | 否 | 否 |
-| 9 | [开始时间](#属性-开始时间（BEGIN）) | BEGIN | DATE | 否 | 否 | 否 |
-| 10 | [对象类型](#属性-对象类型（OBJECTTYPE）) | OBJECTTYPE | SSCODELIST | 否 | 否 | 是 |
-| 11 | [结束时间](#属性-结束时间（END）) | END | DATE | 否 | 否 | 否 |
-| 12 | [版本信息](#属性-版本信息（BUILDS）) | BUILDS | TEXT | 否 | 否 | 是 |
-| 13 | [创建时间](#属性-创建时间（CREATEDDATE）) | CREATEDDATE | DATETIME | 否 | 否 | 是 |
-| 14 | [总结](#属性-总结（REPORT）) | REPORT | LONGTEXT | 否 | 否 | 是 |
-| 15 | [编号](#属性-编号（ID）) | ID | ACID | 是 | 否 | 否 |
-| 16 | [负责人](#属性-负责人（OWNER）) | OWNER | TEXT | 否 | 否 | 是 |
-| 17 | [已删除](#属性-已删除（DELETED）) | DELETED | TEXT | 否 | 否 | 是 |
-| 18 | [所属产品](#属性-所属产品（PRODUCT）) | PRODUCT | PICKUP | 否 | 是 | 是 |
-| 19 | [所属项目](#属性-所属项目（PROJECT）) | PROJECT | PICKUP | 否 | 是 | 是 |
-| 20 | [所属产品](#属性-所属产品（PRODUCTNAME）) | PRODUCTNAME | PICKUPTEXT | 否 | 是 | 是 |
-| 21 | [所属项目](#属性-所属项目（PROJECTNAME）) | PROJECTNAME | PICKUPTEXT | 否 | 是 | 是 |
-| 22 | [备注](#属性-备注（COMMENT）) | COMMENT | HTMLTEXT | 否 | 是 | 是 |
-| 23 | [概况](#属性-概况（OVERVIEWS）) | OVERVIEWS | HTMLTEXT | 否 | 是 | 是 |
-| 24 | [附件](#属性-附件（FILES）) | FILES | TEXT | 否 | 是 | 是 |
-| 25 | [项目报告产品数](#属性-项目报告产品数（PRODUCTCNT）) | PRODUCTCNT | INT | 否 | 是 | 是 |
+| 1 | [所属对象](#属性-所属对象（OBJECTID）) | OBJECTID | 整型 | 否 | 否 | 是 |
+| 2 | [用例](#属性-用例（CASES）) | CASES | 长文本，没有长度限制 | 否 | 否 | 是 |
+| 3 | [参与人员](#属性-参与人员（MEMBERS）) | MEMBERS | 长文本，没有长度限制 | 否 | 否 | 是 |
+| 4 | [测试的Bug](#属性-测试的Bug（BUGS）) | BUGS | 长文本，没有长度限制 | 否 | 否 | 是 |
+| 5 | [由谁创建](#属性-由谁创建（CREATEDBY）) | CREATEDBY | 文本，可指定长度 | 否 | 否 | 是 |
+| 6 | [测试的需求](#属性-测试的需求（STORIES）) | STORIES | 长文本，没有长度限制 | 否 | 否 | 是 |
+| 7 | [测试单](#属性-测试单（TASKS）) | TASKS | 文本，可指定长度 | 否 | 否 | 是 |
+| 8 | [标题](#属性-标题（TITLE）) | TITLE | 文本，可指定长度 | 否 | 否 | 否 |
+| 9 | [开始时间](#属性-开始时间（BEGIN）) | BEGIN | 日期型 | 否 | 否 | 否 |
+| 10 | [对象类型](#属性-对象类型（OBJECTTYPE）) | OBJECTTYPE | 单项选择(文本值) | 否 | 否 | 是 |
+| 11 | [结束时间](#属性-结束时间（END）) | END | 日期型 | 否 | 否 | 否 |
+| 12 | [版本信息](#属性-版本信息（BUILDS）) | BUILDS | 文本，可指定长度 | 否 | 否 | 是 |
+| 13 | [创建时间](#属性-创建时间（CREATEDDATE）) | CREATEDDATE | 日期时间型 | 否 | 否 | 是 |
+| 14 | [总结](#属性-总结（REPORT）) | REPORT | 长文本，没有长度限制 | 否 | 否 | 是 |
+| 15 | [编号](#属性-编号（ID）) | ID | 自增标识，整数类型，用户不可见 | 是 | 否 | 否 |
+| 16 | [负责人](#属性-负责人（OWNER）) | OWNER | 文本，可指定长度 | 否 | 否 | 是 |
+| 17 | [已删除](#属性-已删除（DELETED）) | DELETED | 文本，可指定长度 | 否 | 否 | 是 |
+| 18 | [所属产品](#属性-所属产品（PRODUCT）) | PRODUCT | 外键值 | 否 | 是 | 是 |
+| 19 | [所属项目](#属性-所属项目（PROJECT）) | PROJECT | 外键值 | 否 | 是 | 是 |
+| 20 | [所属产品](#属性-所属产品（PRODUCTNAME）) | PRODUCTNAME | 外键值文本 | 否 | 是 | 是 |
+| 21 | [所属项目](#属性-所属项目（PROJECTNAME）) | PROJECTNAME | 外键值文本 | 否 | 是 | 是 |
+| 22 | [备注](#属性-备注（COMMENT）) | COMMENT | HTML文本，没有长度限制 | 否 | 是 | 是 |
+| 23 | [概况](#属性-概况（OVERVIEWS）) | OVERVIEWS | HTML文本，没有长度限制 | 否 | 是 | 是 |
+| 24 | [附件](#属性-附件（FILES）) | FILES | 文本，可指定长度 | 否 | 是 | 是 |
+| 25 | [项目报告产品数](#属性-项目报告产品数（PRODUCTCNT）) | PRODUCTCNT | 整型 | 否 | 是 | 是 |
 
 ### 属性-所属对象（OBJECTID）
 #### 属性说明
@@ -191,10 +191,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 参照数据字典【[用户真实名称（动态）（UserRealName）](../../codelist/UserRealName)】
@@ -296,10 +293,7 @@ String
 否
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -331,16 +325,13 @@ Timestamp
 否
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
 
 #### 数据格式
-时间格式：yyyy-MM-dd
+yyyy-MM-dd
 
 #### 关系属性
 | 项目 | 说明 |
@@ -401,16 +392,13 @@ Timestamp
 否
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
 
 #### 数据格式
-时间格式：yyyy-MM-dd
+yyyy-MM-dd
 
 #### 关系属性
 | 项目 | 说明 |
@@ -471,16 +459,13 @@ Timestamp
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
 
 #### 数据格式
-时间格式：yyyy-MM-dd HH:mm:ss
+yyyy-MM-dd HH:mm:ss
 
 #### 关系属性
 | 项目 | 说明 |
@@ -541,10 +526,7 @@ Long
 否
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -716,10 +698,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -751,10 +730,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -786,10 +762,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -821,10 +794,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -891,10 +861,7 @@ Integer
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -931,6 +898,7 @@ Integer
 | 13 | [根据测试报告获取基本信息](#实体行为-根据测试报告获取基本信息（GetTestReportBasicInfo）) | GetTestReportBasicInfo | 实体处理逻辑 | 后台 |
 | 14 | [根据测试报告获取基本信息（项目报告）](#实体行为-根据测试报告获取基本信息（项目报告）（GetTestReportProject）) | GetTestReportProject | 实体处理逻辑 | 后台 |
 | 15 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
+
 ### 实体行为-Create（Create）
 #### 说明
 Create
@@ -941,6 +909,8 @@ Create
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-Update（Update）
 #### 说明
 Update
@@ -951,6 +921,8 @@ Update
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-Remove（Remove）
 #### 说明
 Remove
@@ -961,6 +933,8 @@ Remove
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-Get（Get）
 #### 说明
 Get
@@ -971,6 +945,8 @@ Get
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-GetDraft（GetDraft）
 #### 说明
 GetDraft
@@ -981,6 +957,8 @@ GetDraft
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-CheckKey（CheckKey）
 #### 说明
 CheckKey
@@ -991,6 +969,8 @@ CheckKey
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-根据起始时间获取概况信息（GetInfoTaskOvByTime）
 #### 说明
 根据起始时间获取概况信息
@@ -1001,6 +981,8 @@ CheckKey
 #### 行为持有者
 后台
 
+#### 逻辑附加
+无
 ### 实体行为-根据测试单获取相应信息（GetInfoTestTask）
 #### 说明
 根据测试单获取相应信息
@@ -1011,6 +993,8 @@ CheckKey
 #### 行为持有者
 后台
 
+#### 逻辑附加
+无
 ### 实体行为-根据测试报告概况信息（项目报告）（GetInfoTestTaskOvProject）
 #### 说明
 根据测试报告概况信息（项目报告）
@@ -1021,6 +1005,8 @@ CheckKey
 #### 行为持有者
 后台
 
+#### 逻辑附加
+无
 ### 实体行为-根据测试单获取相应信息（项目报告）（GetInfoTestTaskProject）
 #### 说明
 根据测试单获取相应信息（项目报告）
@@ -1031,6 +1017,8 @@ CheckKey
 #### 行为持有者
 后台
 
+#### 逻辑附加
+无
 ### 实体行为-根据测试单获取相应信息（项目报告）（单测试）（GetInfoTestTaskR）
 #### 说明
 根据测试单获取相应信息（项目报告）（单测试）
@@ -1041,6 +1029,8 @@ CheckKey
 #### 行为持有者
 后台
 
+#### 逻辑附加
+无
 ### 实体行为-根据测试单获取相应信息（项目报告）（测试）（GetInfoTestTaskS）
 #### 说明
 根据测试单获取相应信息（项目报告）（测试）
@@ -1051,6 +1041,8 @@ CheckKey
 #### 行为持有者
 后台
 
+#### 逻辑附加
+无
 ### 实体行为-根据测试报告获取基本信息（GetTestReportBasicInfo）
 #### 说明
 根据测试报告获取基本信息
@@ -1061,6 +1053,8 @@ CheckKey
 #### 行为持有者
 后台
 
+#### 逻辑附加
+无
 ### 实体行为-根据测试报告获取基本信息（项目报告）（GetTestReportProject）
 #### 说明
 根据测试报告获取基本信息（项目报告）
@@ -1071,6 +1065,8 @@ CheckKey
 #### 行为持有者
 后台
 
+#### 逻辑附加
+无
 ### 实体行为-Save（Save）
 #### 说明
 Save
@@ -1081,5 +1077,207 @@ Save
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 
+## 逻辑处理
+| 序号 | 逻辑 | 逻辑名 | 逻辑持有者 |
+| -- | -- | -- | -- |
+| 1 | [根据测试单获取相应信息](#逻辑处理-根据测试单获取相应信息（GetInfoTestTask）) | GetInfoTestTask | 后台 |
+| 2 | [根据报告起始时间更新概况信息](#逻辑处理-根据报告起始时间更新概况信息（GetInfoTestTaskOvByTime）) | GetInfoTestTaskOvByTime | 后台 |
+| 3 | [根据测试报告概况信息（项目报告）](#逻辑处理-根据测试报告概况信息（项目报告）（GetInfoTestTaskOvProject）) | GetInfoTestTaskOvProject | 后台 |
+| 4 | [根据测试单获取相应信息（项目报告）](#逻辑处理-根据测试单获取相应信息（项目报告）（GetInfoTestTaskProject）) | GetInfoTestTaskProject | 后台 |
+| 5 | [根据测试单获取相应信息（项目报告）（单测试）](#逻辑处理-根据测试单获取相应信息（项目报告）（单测试）（GetInfoTestTaskR）) | GetInfoTestTaskR | 后台 |
+| 6 | [根据测试单获取相应信息（项目报告）（多测试）](#逻辑处理-根据测试单获取相应信息（项目报告）（多测试）（GetInfoTestTaskS）) | GetInfoTestTaskS | 后台 |
+| 7 | [根据测试报告获取基本信息](#逻辑处理-根据测试报告获取基本信息（GetTestReportBasicInfo）) | GetTestReportBasicInfo | 后台 |
+| 8 | [根据测试报告获取基本信息（项目报告）](#逻辑处理-根据测试报告获取基本信息（项目报告）（GetTestReportProject）) | GetTestReportProject | 后台 |
+
+### 逻辑处理-根据测试单获取相应信息（GetInfoTestTask）
+#### 说明
+根据测试单获取相应信息
+
+#### 逻辑持有者
+后台
+
+#### 逻辑节点
+| 序号 | 节点 | 节点名 | 节点类型 |
+| -- | -- | -- | -- |
+| 1 | 遗留的Bug | Rawsqlcall8 | 直接SQL调用 |
+| 2 | 获取数据 | Rawsqlcall1 | 直接SQL调用 |
+| 3 | 有效需求数 | Rawsqlcall6 | 直接SQL调用 |
+| 4 | 获取需求数 | Rawsqlcall2 | 直接SQL调用 |
+| 5 | 获取项目名 | Rawsqlcall16 | 直接SQL调用 |
+| 6 | 设置概况 | Rawsqlcall14 | 直接SQL调用 |
+| 7 | 产生的bug | Rawsqlcall13 | 直接SQL调用 |
+| 8 | 执行结果 | Rawsqlcall10 | 直接SQL调用 |
+| 9 | 失败的用例数 | Rawsqlcall5 | 直接SQL调用 |
+| 10 | 解决的bug | Rawsqlcall12 | 直接SQL调用 |
+| 11 | 开始 | Begin | 开始 |
+| 12 | 获取参与人员 | Rawsqlcall15 | 直接SQL调用 |
+| 13 | 有效bug数 | Rawsqlcall11 | 直接SQL调用 |
+| 14 | 获取用例数 | Rawsqlcall3 | 直接SQL调用 |
+| 15 | 用例产生的bug | Rawsqlcall9 | 直接SQL调用 |
+| 16 | 需求覆盖用例数 | Rawsqlcall7 | 直接SQL调用 |
+| 17 | 执行的用例数 | Rawsqlcall4 | 直接SQL调用 |
+### 逻辑处理-根据报告起始时间更新概况信息（GetInfoTestTaskOvByTime）
+#### 说明
+根据报告起始时间更新概况信息
+
+#### 逻辑持有者
+后台
+
+#### 逻辑节点
+| 序号 | 节点 | 节点名 | 节点类型 |
+| -- | -- | -- | -- |
+| 1 | 产生的bug | Rawsqlcall12 | 直接SQL调用 |
+| 2 | 有效bug数 | Rawsqlcall10 | 直接SQL调用 |
+| 3 | 用例产生的bug | Rawsqlcall8 | 直接SQL调用 |
+| 4 | 获取失败的用例数 | Rawsqlcall4 | 直接SQL调用 |
+| 5 | 遗留的bug | Rawsqlcall7 | 直接SQL调用 |
+| 6 | 用例覆盖数 | Rawsqlcall6 | 直接SQL调用 |
+| 7 | 执行结果 | Rawsqlcall9 | 直接SQL调用 |
+| 8 | 执行用例数 | Rawsqlcall3 | 直接SQL调用 |
+| 9 | 有效需求数 | Rawsqlcall5 | 直接SQL调用 |
+| 10 | 解决的bug | Rawsqlcall11 | 直接SQL调用 |
+| 11 | 获取需求数 | Rawsqlcall1 | 直接SQL调用 |
+| 12 | 设置概况 | Rawsqlcall13 | 直接SQL调用 |
+| 13 | 获取用例数 | Rawsqlcall2 | 直接SQL调用 |
+| 14 | 开始 | Begin | 开始 |
+### 逻辑处理-根据测试报告概况信息（项目报告）（GetInfoTestTaskOvProject）
+#### 说明
+根据测试报告概况信息（项目报告）
+
+#### 逻辑持有者
+后台
+
+#### 逻辑节点
+| 序号 | 节点 | 节点名 | 节点类型 |
+| -- | -- | -- | -- |
+| 1 | 执行的用例数 | Rawsqlcall3 | 直接SQL调用 |
+| 2 | 执行结果 | Rawsqlcall5 | 直接SQL调用 |
+| 3 | 失败的用例数 | Rawsqlcall4 | 直接SQL调用 |
+| 4 | 有效Bug数 | Rawsqlcall6 | 直接SQL调用 |
+| 5 | 遗留Bug | Rawsqlcall10 | 直接SQL调用 |
+| 6 | 设置概况 | Rawsqlcall9 | 直接SQL调用 |
+| 7 | 获取需求数 | Rawsqlcall1 | 直接SQL调用 |
+| 8 | 解决的Bug | Rawsqlcall7 | 直接SQL调用 |
+| 9 | 获取用例数 | Rawsqlcall2 | 直接SQL调用 |
+| 10 | 用例产生的Bug | Rawsqlcall11 | 直接SQL调用 |
+| 11 | 产生的Bug | Rawsqlcall8 | 直接SQL调用 |
+| 12 | 测试版本 | Rawsqlcall12 | 直接SQL调用 |
+| 13 | 有效需求数 | Rawsqlcall13 | 直接SQL调用 |
+| 14 | 开始 | Begin | 开始 |
+| 15 | 需求覆盖用例数 | Rawsqlcall14 | 直接SQL调用 |
+### 逻辑处理-根据测试单获取相应信息（项目报告）（GetInfoTestTaskProject）
+#### 说明
+根据测试单获取相应信息（项目报告）
+
+#### 逻辑持有者
+后台
+
+#### 逻辑节点
+| 序号 | 节点 | 节点名 | 节点类型 |
+| -- | -- | -- | -- |
+| 1 | 获取测试单 | Rawsqlcall2 | 直接SQL调用 |
+| 2 | 获取影响Bug | Rawsqlcall5 | 直接SQL调用 |
+| 3 | 获取影响需求 | Rawsqlcall4 | 直接SQL调用 |
+| 4 | 获取产品 | Rawsqlcall7 | 直接SQL调用 |
+| 5 | 开始 | Begin | 开始 |
+| 6 | 获取项目周期 | Rawsqlcall3 | 直接SQL调用 |
+| 7 | 准备参数 | Prepareparam1 | 准备参数 |
+| 8 | 获取数据 | Rawsqlcall1 | 直接SQL调用 |
+| 9 | 获取概况信息 | Deaction1 | 实体行为 |
+| 10 | 获取产品数 | Rawsqlcall6 | 直接SQL调用 |
+### 逻辑处理-根据测试单获取相应信息（项目报告）（单测试）（GetInfoTestTaskR）
+#### 说明
+根据测试单获取相应信息（项目报告）（单测试）
+
+#### 逻辑持有者
+后台
+
+#### 逻辑节点
+| 序号 | 节点 | 节点名 | 节点类型 |
+| -- | -- | -- | -- |
+| 1 | 获取项目和产品 | Rawsqlcall6 | 直接SQL调用 |
+| 2 | 获取测试单周期 | Rawsqlcall3 | 直接SQL调用 |
+| 3 | 获取数据 | Rawsqlcall1 | 直接SQL调用 |
+| 4 | 获取相应需求 | Rawsqlcall4 | 直接SQL调用 |
+| 5 | 获取测试单 | Rawsqlcall2 | 直接SQL调用 |
+| 6 | 获取影响Bug | Rawsqlcall5 | 直接SQL调用 |
+| 7 | 准备参数 | Prepareparam1 | 准备参数 |
+| 8 | 开始 | Begin | 开始 |
+| 9 | 获取概况信息 | Deaction1 | 实体行为 |
+### 逻辑处理-根据测试单获取相应信息（项目报告）（多测试）（GetInfoTestTaskS）
+#### 说明
+根据测试单获取相应信息（项目报告）（多测试）
+
+#### 逻辑持有者
+后台
+
+#### 逻辑节点
+| 序号 | 节点 | 节点名 | 节点类型 |
+| -- | -- | -- | -- |
+| 1 | 开始 | Begin | 开始 |
+| 2 | 准备参数 | Prepareparam1 | 准备参数 |
+| 3 | 获取产品数 | Rawsqlcall6 | 直接SQL调用 |
+| 4 | 获取测试单 | Rawsqlcall2 | 直接SQL调用 |
+| 5 | 获取影响Bug | Rawsqlcall5 | 直接SQL调用 |
+| 6 | 获取项目周期 | Rawsqlcall3 | 直接SQL调用 |
+| 7 | 获取产品 | Rawsqlcall7 | 直接SQL调用 |
+| 8 | 获取数据 | Rawsqlcall1 | 直接SQL调用 |
+| 9 | 获取概况信息 | Deaction1 | 实体行为 |
+| 10 | 获取相应需求 | Rawsqlcall4 | 直接SQL调用 |
+### 逻辑处理-根据测试报告获取基本信息（GetTestReportBasicInfo）
+#### 说明
+根据测试报告获取基本信息
+
+#### 逻辑持有者
+后台
+
+#### 逻辑节点
+| 序号 | 节点 | 节点名 | 节点类型 |
+| -- | -- | -- | -- |
+| 1 | 遗留Bug | Rawsqlcall10 | 直接SQL调用 |
+| 2 | 获取需求数 | Rawsqlcall1 | 直接SQL调用 |
+| 3 | 失败的用例数 | Rawsqlcall4 | 直接SQL调用 |
+| 4 | 解决的Bug | Rawsqlcall7 | 直接SQL调用 |
+| 5 | 执行结果 | Rawsqlcall5 | 直接SQL调用 |
+| 6 | 需求覆盖用例数 | Rawsqlcall13 | 直接SQL调用 |
+| 7 | 开始 | Begin | 开始 |
+| 8 | 有效需求数 | Rawsqlcall12 | 直接SQL调用 |
+| 9 | 获取用例数 | Rawsqlcall2 | 直接SQL调用 |
+| 10 | 产生的Bug | Rawsqlcall8 | 直接SQL调用 |
+| 11 | 获取数据 | Deaction1 | 实体行为 |
+| 12 | 执行的用例数 | Rawsqlcall3 | 直接SQL调用 |
+| 13 | 设置概况 | Rawsqlcall9 | 直接SQL调用 |
+| 14 | 用例产生的Bug | Rawsqlcall11 | 直接SQL调用 |
+| 15 | 有效Bug数 | Rawsqlcall6 | 直接SQL调用 |
+### 逻辑处理-根据测试报告获取基本信息（项目报告）（GetTestReportProject）
+#### 说明
+根据测试报告获取基本信息（项目报告）
+
+#### 逻辑持有者
+后台
+
+#### 逻辑节点
+| 序号 | 节点 | 节点名 | 节点类型 |
+| -- | -- | -- | -- |
+| 1 | 产生的Bug | Rawsqlcall8 | 直接SQL调用 |
+| 2 | 遗留Bug | Rawsqlcall10 | 直接SQL调用 |
+| 3 | 测试版本 | Rawsqlcall12 | 直接SQL调用 |
+| 4 | 有效需求数 | Rawsqlcall13 | 直接SQL调用 |
+| 5 | 设置概况 | Rawsqlcall9 | 直接SQL调用 |
+| 6 | 用例产生的Bug | Rawsqlcall11 | 直接SQL调用 |
+| 7 | 获取需求数 | Rawsqlcall1 | 直接SQL调用 |
+| 8 | 开始 | Begin | 开始 |
+| 9 | 需求覆盖用例数 | Rawsqlcall14 | 直接SQL调用 |
+| 10 | 执行结果 | Rawsqlcall5 | 直接SQL调用 |
+| 11 | 执行的用例数 | Rawsqlcall3 | 直接SQL调用 |
+| 12 | 获取用例数 | Rawsqlcall2 | 直接SQL调用 |
+| 13 | 解决的Bug | Rawsqlcall7 | 直接SQL调用 |
+| 14 | 获取数据 | Deaction1 | 实体行为 |
+| 15 | 有效Bug数 | Rawsqlcall6 | 直接SQL调用 |
+| 16 | 失败的用例数 | Rawsqlcall4 | 直接SQL调用 |
+
+## 查询
 

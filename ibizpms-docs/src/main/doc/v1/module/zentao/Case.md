@@ -8,64 +8,64 @@
 ## 实体属性
 | 序号 | 属性 | 属性名 | 数据类型 | 主键 | 外键 | 允许为空 |
 | -- | -- | -- | -- | -- | -- | -- |
-| 1 | [修改日期](#属性-修改日期（LASTEDITEDDATE）) | LASTEDITEDDATE | DATETIME | 否 | 否 | 是 |
-| 2 | [scriptedDate](#属性-scriptedDate（SCRIPTEDDATE）) | SCRIPTEDDATE | DATE | 否 | 否 | 是 |
-| 3 | [标题颜色](#属性-标题颜色（COLOR）) | COLOR | SSCODELIST | 否 | 否 | 是 |
-| 4 | [path](#属性-path（PATH）) | PATH | INT | 否 | 否 | 是 |
-| 5 | [创建日期](#属性-创建日期（OPENEDDATE）) | OPENEDDATE | DATETIME | 否 | 否 | 是 |
-| 6 | [结果](#属性-结果（LASTRUNRESULT）) | LASTRUNRESULT | SSCODELIST | 否 | 否 | 是 |
-| 7 | [相关用例](#属性-相关用例（LINKCASE）) | LINKCASE | TEXT | 否 | 否 | 是 |
-| 8 | [排序](#属性-排序（ORDER）) | ORDER | INT | 否 | 否 | 是 |
-| 9 | [howRun](#属性-howRun（HOWRUN）) | HOWRUN | TEXT | 否 | 否 | 是 |
-| 10 | [用例版本](#属性-用例版本（VERSION）) | VERSION | INT | 否 | 否 | 是 |
-| 11 | [scriptedBy](#属性-scriptedBy（SCRIPTEDBY）) | SCRIPTEDBY | TEXT | 否 | 否 | 是 |
-| 12 | [由谁创建](#属性-由谁创建（OPENEDBY）) | OPENEDBY | TEXT | 否 | 否 | 是 |
-| 13 | [用例类型](#属性-用例类型（TYPE）) | TYPE | SSCODELIST | 否 | 否 | 是 |
-| 14 | [用例状态](#属性-用例状态（STATUS）) | STATUS | SSCODELIST | 否 | 否 | 是 |
-| 15 | [auto](#属性-auto（AUTO）) | AUTO | TEXT | 否 | 否 | 是 |
-| 16 | [frequency](#属性-frequency（FREQUENCY）) | FREQUENCY | SSCODELIST | 否 | 否 | 是 |
-| 17 | [用例标题](#属性-用例标题（TITLE）) | TITLE | TEXT | 否 | 否 | 否 |
-| 18 | [最后修改者](#属性-最后修改者（LASTEDITEDBY）) | LASTEDITEDBY | TEXT | 否 | 否 | 是 |
-| 19 | [由谁评审](#属性-由谁评审（REVIEWEDBY）) | REVIEWEDBY | TEXT | 否 | 否 | 是 |
-| 20 | [已删除](#属性-已删除（DELETED）) | DELETED | TEXT | 否 | 否 | 是 |
-| 21 | [评审时间](#属性-评审时间（REVIEWEDDATE）) | REVIEWEDDATE | DATE | 否 | 否 | 是 |
-| 22 | [优先级](#属性-优先级（PRI）) | PRI | NSCODELIST | 否 | 否 | 是 |
-| 23 | [适用阶段](#属性-适用阶段（STAGE）) | STAGE | SMCODELIST | 否 | 否 | 是 |
-| 24 | [scriptLocation](#属性-scriptLocation（SCRIPTLOCATION）) | SCRIPTLOCATION | TEXT | 否 | 否 | 是 |
-| 25 | [执行时间](#属性-执行时间（LASTRUNDATE）) | LASTRUNDATE | DATETIME | 否 | 否 | 是 |
-| 26 | [关键词](#属性-关键词（KEYWORDS）) | KEYWORDS | TEXT | 否 | 否 | 是 |
-| 27 | [scriptStatus](#属性-scriptStatus（SCRIPTSTATUS）) | SCRIPTSTATUS | TEXT | 否 | 否 | 是 |
-| 28 | [工具/框架](#属性-工具/框架（FRAME）) | FRAME | SSCODELIST | 否 | 否 | 是 |
-| 29 | [子状态](#属性-子状态（SUBSTATUS）) | SUBSTATUS | TEXT | 否 | 否 | 是 |
-| 30 | [用例编号](#属性-用例编号（ID）) | ID | ACID | 是 | 否 | 否 |
-| 31 | [前置条件](#属性-前置条件（PRECONDITION）) | PRECONDITION | LONGTEXT | 否 | 否 | 是 |
-| 32 | [执行人](#属性-执行人（LASTRUNNER）) | LASTRUNNER | TEXT | 否 | 否 | 是 |
-| 33 | [来源用例版本](#属性-来源用例版本（FROMCASEVERSION）) | FROMCASEVERSION | PICKUPDATA | 否 | 是 | 是 |
-| 34 | [需求版本](#属性-需求版本（STORYVERSION）) | STORYVERSION | PICKUPDATA | 否 | 是 | 是 |
-| 35 | [来源用例](#属性-来源用例（FROMCASEID）) | FROMCASEID | PICKUP | 否 | 是 | 是 |
-| 36 | [平台/分支](#属性-平台/分支（BRANCH）) | BRANCH | PICKUP | 否 | 是 | 是 |
-| 37 | [来源Bug](#属性-来源Bug（FROMBUG）) | FROMBUG | PICKUP | 否 | 是 | 是 |
-| 38 | [相关需求](#属性-相关需求（STORY）) | STORY | PICKUP | 否 | 是 | 是 |
-| 39 | [所属产品](#属性-所属产品（PRODUCT）) | PRODUCT | PICKUP | 否 | 是 | 是 |
-| 40 | [所属库](#属性-所属库（LIB）) | LIB | PICKUP | 否 | 是 | 是 |
-| 41 | [所属模块](#属性-所属模块（MODULE）) | MODULE | PICKUP | 否 | 是 | 是 |
-| 42 | [模块名称](#属性-模块名称（MODULENAME）) | MODULENAME | PICKUPTEXT | 否 | 是 | 是 |
-| 43 | [需求名称](#属性-需求名称（STORYNAME）) | STORYNAME | PICKUPTEXT | 否 | 是 | 是 |
-| 44 | [产品名称](#属性-产品名称（PRODUCTNAME）) | PRODUCTNAME | PICKUPTEXT | 否 | 是 | 是 |
-| 45 | [用例步骤集合](#属性-用例步骤集合（CASESTEPS）) | CASESTEPS | ONE2MANYDATA | 否 | 是 | 是 |
-| 46 | [转bug数](#属性-转bug数（TOBUGCNT）) | TOBUGCNT | INT | 否 | 是 | 是 |
-| 47 | [测试结果数](#属性-测试结果数（RESULTCNT）) | RESULTCNT | INT | 否 | 是 | 是 |
-| 48 | [用例步骤数](#属性-用例步骤数（STEPCNT）) | STEPCNT | INT | 否 | 是 | 是 |
-| 49 | [备注](#属性-备注（COMMENT）) | COMMENT | HTMLTEXT | 否 | 是 | 是 |
-| 50 | [测试失败数](#属性-测试失败数（RESULTFALICNT）) | RESULTFALICNT | INT | 否 | 是 | 是 |
-| 51 | [用例状态](#属性-用例状态（STATUS1）) | STATUS1 | SSCODELIST | 否 | 是 | 是 |
-| 52 | [指派给](#属性-指派给（ASSIGNEDTO）) | ASSIGNEDTO | SSCODELIST | 否 | 是 | 是 |
-| 53 | [属性](#属性-属性（TASK）) | TASK | TEXT | 否 | 是 | 是 |
-| 54 | [用例库](#属性-用例库（LIBNAME）) | LIBNAME | PICKUPTEXT | 否 | 是 | 是 |
-| 55 | [测试用例结果](#属性-测试用例结果（LASTRUNRESULT1）) | LASTRUNRESULT1 | SSCODELIST | 否 | 是 | 是 |
-| 56 | [是否收藏](#属性-是否收藏（ISFAVORITES）) | ISFAVORITES | TEXT | 否 | 是 | 是 |
-| 57 | [模块名称](#属性-模块名称（MODULENAME1）) | MODULENAME1 | TEXT | 否 | 是 | 是 |
-| 58 | [附件](#属性-附件（FILES）) | FILES | TEXT | 否 | 是 | 是 |
+| 1 | [修改日期](#属性-修改日期（LASTEDITEDDATE）) | LASTEDITEDDATE | 日期时间型 | 否 | 否 | 是 |
+| 2 | [scriptedDate](#属性-scriptedDate（SCRIPTEDDATE）) | SCRIPTEDDATE | 日期型 | 否 | 否 | 是 |
+| 3 | [标题颜色](#属性-标题颜色（COLOR）) | COLOR | 单项选择(文本值) | 否 | 否 | 是 |
+| 4 | [path](#属性-path（PATH）) | PATH | 整型 | 否 | 否 | 是 |
+| 5 | [创建日期](#属性-创建日期（OPENEDDATE）) | OPENEDDATE | 日期时间型 | 否 | 否 | 是 |
+| 6 | [结果](#属性-结果（LASTRUNRESULT）) | LASTRUNRESULT | 单项选择(文本值) | 否 | 否 | 是 |
+| 7 | [相关用例](#属性-相关用例（LINKCASE）) | LINKCASE | 文本，可指定长度 | 否 | 否 | 是 |
+| 8 | [排序](#属性-排序（ORDER）) | ORDER | 整型 | 否 | 否 | 是 |
+| 9 | [howRun](#属性-howRun（HOWRUN）) | HOWRUN | 文本，可指定长度 | 否 | 否 | 是 |
+| 10 | [用例版本](#属性-用例版本（VERSION）) | VERSION | 整型 | 否 | 否 | 是 |
+| 11 | [scriptedBy](#属性-scriptedBy（SCRIPTEDBY）) | SCRIPTEDBY | 文本，可指定长度 | 否 | 否 | 是 |
+| 12 | [由谁创建](#属性-由谁创建（OPENEDBY）) | OPENEDBY | 文本，可指定长度 | 否 | 否 | 是 |
+| 13 | [用例类型](#属性-用例类型（TYPE）) | TYPE | 单项选择(文本值) | 否 | 否 | 是 |
+| 14 | [用例状态](#属性-用例状态（STATUS）) | STATUS | 单项选择(文本值) | 否 | 否 | 是 |
+| 15 | [auto](#属性-auto（AUTO）) | AUTO | 文本，可指定长度 | 否 | 否 | 是 |
+| 16 | [frequency](#属性-frequency（FREQUENCY）) | FREQUENCY | 单项选择(文本值) | 否 | 否 | 是 |
+| 17 | [用例标题](#属性-用例标题（TITLE）) | TITLE | 文本，可指定长度 | 否 | 否 | 否 |
+| 18 | [最后修改者](#属性-最后修改者（LASTEDITEDBY）) | LASTEDITEDBY | 文本，可指定长度 | 否 | 否 | 是 |
+| 19 | [由谁评审](#属性-由谁评审（REVIEWEDBY）) | REVIEWEDBY | 文本，可指定长度 | 否 | 否 | 是 |
+| 20 | [已删除](#属性-已删除（DELETED）) | DELETED | 文本，可指定长度 | 否 | 否 | 是 |
+| 21 | [评审时间](#属性-评审时间（REVIEWEDDATE）) | REVIEWEDDATE | 日期型 | 否 | 否 | 是 |
+| 22 | [优先级](#属性-优先级（PRI）) | PRI | 单项选择(数值) | 否 | 否 | 是 |
+| 23 | [适用阶段](#属性-适用阶段（STAGE）) | STAGE | 多项选择(文本值) | 否 | 否 | 是 |
+| 24 | [scriptLocation](#属性-scriptLocation（SCRIPTLOCATION）) | SCRIPTLOCATION | 文本，可指定长度 | 否 | 否 | 是 |
+| 25 | [执行时间](#属性-执行时间（LASTRUNDATE）) | LASTRUNDATE | 日期时间型 | 否 | 否 | 是 |
+| 26 | [关键词](#属性-关键词（KEYWORDS）) | KEYWORDS | 文本，可指定长度 | 否 | 否 | 是 |
+| 27 | [scriptStatus](#属性-scriptStatus（SCRIPTSTATUS）) | SCRIPTSTATUS | 文本，可指定长度 | 否 | 否 | 是 |
+| 28 | [工具/框架](#属性-工具/框架（FRAME）) | FRAME | 单项选择(文本值) | 否 | 否 | 是 |
+| 29 | [子状态](#属性-子状态（SUBSTATUS）) | SUBSTATUS | 文本，可指定长度 | 否 | 否 | 是 |
+| 30 | [用例编号](#属性-用例编号（ID）) | ID | 自增标识，整数类型，用户不可见 | 是 | 否 | 否 |
+| 31 | [前置条件](#属性-前置条件（PRECONDITION）) | PRECONDITION | 长文本，没有长度限制 | 否 | 否 | 是 |
+| 32 | [执行人](#属性-执行人（LASTRUNNER）) | LASTRUNNER | 文本，可指定长度 | 否 | 否 | 是 |
+| 33 | [来源用例版本](#属性-来源用例版本（FROMCASEVERSION）) | FROMCASEVERSION | 外键值附加数据 | 否 | 是 | 是 |
+| 34 | [需求版本](#属性-需求版本（STORYVERSION）) | STORYVERSION | 外键值附加数据 | 否 | 是 | 是 |
+| 35 | [来源用例](#属性-来源用例（FROMCASEID）) | FROMCASEID | 外键值 | 否 | 是 | 是 |
+| 36 | [平台/分支](#属性-平台/分支（BRANCH）) | BRANCH | 外键值 | 否 | 是 | 是 |
+| 37 | [来源Bug](#属性-来源Bug（FROMBUG）) | FROMBUG | 外键值 | 否 | 是 | 是 |
+| 38 | [相关需求](#属性-相关需求（STORY）) | STORY | 外键值 | 否 | 是 | 是 |
+| 39 | [所属产品](#属性-所属产品（PRODUCT）) | PRODUCT | 外键值 | 否 | 是 | 是 |
+| 40 | [所属库](#属性-所属库（LIB）) | LIB | 外键值 | 否 | 是 | 是 |
+| 41 | [所属模块](#属性-所属模块（MODULE）) | MODULE | 外键值 | 否 | 是 | 是 |
+| 42 | [模块名称](#属性-模块名称（MODULENAME）) | MODULENAME | 外键值文本 | 否 | 是 | 是 |
+| 43 | [需求名称](#属性-需求名称（STORYNAME）) | STORYNAME | 外键值文本 | 否 | 是 | 是 |
+| 44 | [产品名称](#属性-产品名称（PRODUCTNAME）) | PRODUCTNAME | 外键值文本 | 否 | 是 | 是 |
+| 45 | [用例步骤集合](#属性-用例步骤集合（CASESTEPS）) | CASESTEPS | 一对多关系数据集合 | 否 | 是 | 是 |
+| 46 | [转bug数](#属性-转bug数（TOBUGCNT）) | TOBUGCNT | 整型 | 否 | 是 | 是 |
+| 47 | [测试结果数](#属性-测试结果数（RESULTCNT）) | RESULTCNT | 整型 | 否 | 是 | 是 |
+| 48 | [用例步骤数](#属性-用例步骤数（STEPCNT）) | STEPCNT | 整型 | 否 | 是 | 是 |
+| 49 | [备注](#属性-备注（COMMENT）) | COMMENT | HTML文本，没有长度限制 | 否 | 是 | 是 |
+| 50 | [测试失败数](#属性-测试失败数（RESULTFALICNT）) | RESULTFALICNT | 整型 | 否 | 是 | 是 |
+| 51 | [用例状态](#属性-用例状态（STATUS1）) | STATUS1 | 单项选择(文本值) | 否 | 是 | 是 |
+| 52 | [指派给](#属性-指派给（ASSIGNEDTO）) | ASSIGNEDTO | 单项选择(文本值) | 否 | 是 | 是 |
+| 53 | [属性](#属性-属性（TASK）) | TASK | 文本，可指定长度 | 否 | 是 | 是 |
+| 54 | [用例库](#属性-用例库（LIBNAME）) | LIBNAME | 外键值文本 | 否 | 是 | 是 |
+| 55 | [测试用例结果](#属性-测试用例结果（LASTRUNRESULT1）) | LASTRUNRESULT1 | 单项选择(文本值) | 否 | 是 | 是 |
+| 56 | [是否收藏](#属性-是否收藏（ISFAVORITES）) | ISFAVORITES | 文本，可指定长度 | 否 | 是 | 是 |
+| 57 | [模块名称](#属性-模块名称（MODULENAME1）) | MODULENAME1 | 文本，可指定长度 | 否 | 是 | 是 |
+| 58 | [附件](#属性-附件（FILES）) | FILES | 文本，可指定长度 | 否 | 是 | 是 |
 
 ### 属性-修改日期（LASTEDITEDDATE）
 #### 属性说明
@@ -84,16 +84,13 @@ Timestamp
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
 
 #### 数据格式
-时间格式：yyyy-MM-dd HH:mm:ss
+yyyy-MM-dd HH:mm:ss
 
 #### 关系属性
 | 项目 | 说明 |
@@ -119,16 +116,13 @@ Timestamp
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
 
 #### 数据格式
-时间格式：yyyy-MM-dd
+yyyy-MM-dd
 
 #### 关系属性
 | 项目 | 说明 |
@@ -224,16 +218,13 @@ Timestamp
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
 
 #### 数据格式
-时间格式：yyyy-MM-dd HH:mm:ss
+yyyy-MM-dd HH:mm:ss
 
 #### 关系属性
 | 项目 | 说明 |
@@ -469,10 +460,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 参照数据字典【[用户真实名称（动态）（UserRealName）](../../codelist/UserRealName)】
@@ -644,10 +632,7 @@ String
 否
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -679,10 +664,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -784,16 +766,13 @@ Timestamp
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
 
 #### 数据格式
-时间格式：yyyy-MM-dd
+yyyy-MM-dd
 
 #### 关系属性
 | 项目 | 说明 |
@@ -924,16 +903,13 @@ Timestamp
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
 
 #### 数据格式
-时间格式：yyyy-MM-dd HH:mm:ss
+yyyy-MM-dd HH:mm:ss
 
 #### 关系属性
 | 项目 | 说明 |
@@ -1099,10 +1075,7 @@ Long
 否
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -1519,10 +1492,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -1554,10 +1524,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -1589,10 +1556,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -1624,10 +1588,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -1659,10 +1620,7 @@ Integer
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 (SELECT COUNT(1) FROM zt_bug WHERE `case` = %1$s )
@@ -1694,10 +1652,7 @@ Integer
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 (SELECT COUNT(1) FROM zt_testresult WHERE `case` = %1$s )
@@ -1729,10 +1684,7 @@ Integer
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 (SELECT COUNT(1) FROM zt_casestep WHERE `case` = %1$s AND version = %2$s )
@@ -1764,10 +1716,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -1799,10 +1748,7 @@ Integer
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 (SELECT COUNT(1) FROM zt_testresult WHERE `case` = %1$s  and caseResult in('fail','blocked') )
@@ -1834,10 +1780,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 参照数据字典【[测试用例状态（表格）（TestCaseStatusGrid）](../../codelist/TestCaseStatusGrid)】
@@ -1869,10 +1812,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 参照数据字典【[用户真实名称（动态）（UserRealName）](../../codelist/UserRealName)】
@@ -1904,10 +1844,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -1939,10 +1876,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -1974,10 +1908,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 参照数据字典【[测试用例结果（Testcase__result）](../../codelist/Testcase__result)】
@@ -2009,10 +1940,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 0
@@ -2044,10 +1972,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 (case when t1.module = '0' then '/' else (SELECT GROUP_CONCAT( tt.NAME SEPARATOR '>' )  FROM zt_module tt WHERE FIND_IN_SET( tt.id, t11.path ) AND tt.type = 'story'  GROUP BY tt.root limit 0,1) end)
@@ -2079,10 +2004,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -4405,25 +4327,26 @@ String
 | 13 | [GetDraft](#实体行为-GetDraft（GetDraft）) | GetDraft | 内置方法 | 后台及前台 |
 | 14 | [GetDraftTemp](#实体行为-GetDraftTemp（GetDraftTemp）) | GetDraftTemp | 内置方法 | 前台 |
 | 15 | [GetDraftTempMajor](#实体行为-GetDraftTempMajor（GetDraftTempMajor）) | GetDraftTempMajor | 内置方法 | 前台 |
-| 16 | [建用例](#实体行为-建用例（bugCreateCase）) | bugCreateCase | 用户自定义 | 前台 |
+| 16 | [建用例](#实体行为-建用例（BugCreateCase）) | bugCreateCase | 用户自定义 | 前台 |
 | 17 | [行为](#实体行为-行为（CaseFavorite）) | CaseFavorite | 实体处理逻辑 | 后台 |
 | 18 | [CaseNFavorite](#实体行为-CaseNFavorite（CaseNFavorite）) | CaseNFavorite | 实体处理逻辑 | 后台 |
 | 19 | [CheckKey](#实体行为-CheckKey（CheckKey）) | CheckKey | 内置方法 | 后台及前台 |
-| 20 | [确认用例变更](#实体行为-确认用例变更（confirmChange）) | confirmChange | 用户自定义 | 后台及前台 |
-| 21 | [确认需求变更](#实体行为-确认需求变更（confirmstorychange）) | confirmstorychange | 用户自定义 | 后台及前台 |
+| 20 | [确认用例变更](#实体行为-确认用例变更（ConfirmChange）) | confirmChange | 用户自定义 | 后台及前台 |
+| 21 | [确认需求变更](#实体行为-确认需求变更（Confirmstorychange）) | confirmstorychange | 用户自定义 | 后台及前台 |
 | 22 | [根据测试单获取或者状态](#实体行为-根据测试单获取或者状态（GetByTestTask）) | GetByTestTask | 用户自定义 | 后台及前台 |
 | 23 | [获取测试单执行结果](#实体行为-获取测试单执行结果（GetTestTaskCNTRun）) | GetTestTaskCNTRun | 用户自定义 | 后台及前台 |
-| 24 | [测试单关联测试用例](#实体行为-测试单关联测试用例（linkCase）) | linkCase | 用户自定义 | 后台及前台 |
+| 24 | [测试单关联测试用例](#实体行为-测试单关联测试用例（LinkCase）) | linkCase | 用户自定义 | 后台及前台 |
 | 25 | [执行测试](#实体行为-执行测试（RunCase）) | RunCase | 用户自定义 | 后台及前台 |
-| 26 | [runCases](#实体行为-runCases（runCases）) | runCases | 实体处理逻辑 | 后台 |
+| 26 | [runCases](#实体行为-runCases（RunCases）) | runCases | 实体处理逻辑 | 后台 |
 | 27 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
 | 28 | [执行测试](#实体行为-执行测试（TestRunCase）) | TestRunCase | 用户自定义 | 后台及前台 |
-| 29 | [testRunCases](#实体行为-testRunCases（testRunCases）) | testRunCases | 实体处理逻辑 | 后台 |
-| 30 | [套件关联](#实体行为-套件关联（testsuitelinkCase）) | testsuitelinkCase | 用户自定义 | 后台及前台 |
-| 31 | [移除用例](#实体行为-移除用例（unlinkCase）) | unlinkCase | 用户自定义 | 后台及前台 |
-| 32 | [unlinkCases](#实体行为-unlinkCases（unlinkCases）) | unlinkCases | 实体处理逻辑 | 后台 |
-| 33 | [移除用例](#实体行为-移除用例（unlinkSuiteCase）) | unlinkSuiteCase | 用户自定义 | 后台及前台 |
-| 34 | [unlinkSuiteCases](#实体行为-unlinkSuiteCases（unlinkSuiteCases）) | unlinkSuiteCases | 实体处理逻辑 | 后台 |
+| 29 | [testRunCases](#实体行为-testRunCases（TestRunCases）) | testRunCases | 实体处理逻辑 | 后台 |
+| 30 | [套件关联](#实体行为-套件关联（TestsuitelinkCase）) | testsuitelinkCase | 用户自定义 | 后台及前台 |
+| 31 | [移除用例](#实体行为-移除用例（UnlinkCase）) | unlinkCase | 用户自定义 | 后台及前台 |
+| 32 | [unlinkCases](#实体行为-unlinkCases（UnlinkCases）) | unlinkCases | 实体处理逻辑 | 后台 |
+| 33 | [移除用例](#实体行为-移除用例（UnlinkSuiteCase）) | unlinkSuiteCase | 用户自定义 | 后台及前台 |
+| 34 | [unlinkSuiteCases](#实体行为-unlinkSuiteCases（UnlinkSuiteCases）) | unlinkSuiteCases | 实体处理逻辑 | 后台 |
+
 ### 实体行为-Create（Create）
 #### 说明
 Create
@@ -4434,6 +4357,8 @@ Create
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-CreateTemp（CreateTemp）
 #### 说明
 CreateTemp
@@ -4444,6 +4369,8 @@ CreateTemp
 #### 行为持有者
 前台
 
+#### 逻辑附加
+无
 ### 实体行为-CreateTempMajor（CreateTempMajor）
 #### 说明
 CreateTempMajor
@@ -4454,6 +4381,8 @@ CreateTempMajor
 #### 行为持有者
 前台
 
+#### 逻辑附加
+无
 ### 实体行为-Update（Update）
 #### 说明
 Update
@@ -4464,6 +4393,8 @@ Update
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-UpdateTemp（UpdateTemp）
 #### 说明
 UpdateTemp
@@ -4474,6 +4405,8 @@ UpdateTemp
 #### 行为持有者
 前台
 
+#### 逻辑附加
+无
 ### 实体行为-UpdateTempMajor（UpdateTempMajor）
 #### 说明
 UpdateTempMajor
@@ -4484,6 +4417,8 @@ UpdateTempMajor
 #### 行为持有者
 前台
 
+#### 逻辑附加
+无
 ### 实体行为-Remove（Remove）
 #### 说明
 Remove
@@ -4494,6 +4429,8 @@ Remove
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-RemoveTemp（RemoveTemp）
 #### 说明
 RemoveTemp
@@ -4504,6 +4441,8 @@ RemoveTemp
 #### 行为持有者
 前台
 
+#### 逻辑附加
+无
 ### 实体行为-RemoveTempMajor（RemoveTempMajor）
 #### 说明
 RemoveTempMajor
@@ -4514,6 +4453,8 @@ RemoveTempMajor
 #### 行为持有者
 前台
 
+#### 逻辑附加
+无
 ### 实体行为-Get（Get）
 #### 说明
 Get
@@ -4524,6 +4465,8 @@ Get
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-GetTemp（GetTemp）
 #### 说明
 GetTemp
@@ -4534,6 +4477,8 @@ GetTemp
 #### 行为持有者
 前台
 
+#### 逻辑附加
+无
 ### 实体行为-GetTempMajor（GetTempMajor）
 #### 说明
 GetTempMajor
@@ -4544,6 +4489,8 @@ GetTempMajor
 #### 行为持有者
 前台
 
+#### 逻辑附加
+无
 ### 实体行为-GetDraft（GetDraft）
 #### 说明
 GetDraft
@@ -4554,6 +4501,8 @@ GetDraft
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-GetDraftTemp（GetDraftTemp）
 #### 说明
 GetDraftTemp
@@ -4564,6 +4513,8 @@ GetDraftTemp
 #### 行为持有者
 前台
 
+#### 逻辑附加
+无
 ### 实体行为-GetDraftTempMajor（GetDraftTempMajor）
 #### 说明
 GetDraftTempMajor
@@ -4574,7 +4525,9 @@ GetDraftTempMajor
 #### 行为持有者
 前台
 
-### 实体行为-建用例（bugCreateCase）
+#### 逻辑附加
+无
+### 实体行为-建用例（BugCreateCase）
 #### 说明
 建用例
 
@@ -4584,6 +4537,8 @@ GetDraftTempMajor
 #### 行为持有者
 前台
 
+#### 逻辑附加
+无
 ### 实体行为-行为（CaseFavorite）
 #### 说明
 用例收藏
@@ -4594,6 +4549,8 @@ GetDraftTempMajor
 #### 行为持有者
 后台
 
+#### 逻辑附加
+无
 ### 实体行为-CaseNFavorite（CaseNFavorite）
 #### 说明
 用例取消收藏
@@ -4604,6 +4561,8 @@ GetDraftTempMajor
 #### 行为持有者
 后台
 
+#### 逻辑附加
+无
 ### 实体行为-CheckKey（CheckKey）
 #### 说明
 CheckKey
@@ -4614,7 +4573,9 @@ CheckKey
 #### 行为持有者
 后台及前台
 
-### 实体行为-确认用例变更（confirmChange）
+#### 逻辑附加
+无
+### 实体行为-确认用例变更（ConfirmChange）
 #### 说明
 确认用例变更
 
@@ -4624,7 +4585,9 @@ CheckKey
 #### 行为持有者
 后台及前台
 
-### 实体行为-确认需求变更（confirmstorychange）
+#### 逻辑附加
+无
+### 实体行为-确认需求变更（Confirmstorychange）
 #### 说明
 确认需求变更
 
@@ -4634,6 +4597,8 @@ CheckKey
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-根据测试单获取或者状态（GetByTestTask）
 #### 说明
 根据测试单获取或者状态
@@ -4644,6 +4609,8 @@ CheckKey
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-获取测试单执行结果（GetTestTaskCNTRun）
 #### 说明
 获取测试单执行结果
@@ -4654,7 +4621,9 @@ CheckKey
 #### 行为持有者
 后台及前台
 
-### 实体行为-测试单关联测试用例（linkCase）
+#### 逻辑附加
+无
+### 实体行为-测试单关联测试用例（LinkCase）
 #### 说明
 测试单关联测试用例
 
@@ -4664,6 +4633,8 @@ CheckKey
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-执行测试（RunCase）
 #### 说明
 执行测试
@@ -4674,7 +4645,9 @@ CheckKey
 #### 行为持有者
 后台及前台
 
-### 实体行为-runCases（runCases）
+#### 逻辑附加
+无
+### 实体行为-runCases（RunCases）
 #### 说明
 runCases
 
@@ -4684,6 +4657,8 @@ runCases
 #### 行为持有者
 后台
 
+#### 逻辑附加
+无
 ### 实体行为-Save（Save）
 #### 说明
 Save
@@ -4694,6 +4669,8 @@ Save
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-执行测试（TestRunCase）
 #### 说明
 执行测试
@@ -4704,7 +4681,9 @@ Save
 #### 行为持有者
 后台及前台
 
-### 实体行为-testRunCases（testRunCases）
+#### 逻辑附加
+无
+### 实体行为-testRunCases（TestRunCases）
 #### 说明
 testRunCases
 
@@ -4714,7 +4693,9 @@ testRunCases
 #### 行为持有者
 后台
 
-### 实体行为-套件关联（testsuitelinkCase）
+#### 逻辑附加
+无
+### 实体行为-套件关联（TestsuitelinkCase）
 #### 说明
 套件关联
 
@@ -4724,7 +4705,9 @@ testRunCases
 #### 行为持有者
 后台及前台
 
-### 实体行为-移除用例（unlinkCase）
+#### 逻辑附加
+无
+### 实体行为-移除用例（UnlinkCase）
 #### 说明
 移除用例
 
@@ -4734,7 +4717,9 @@ testRunCases
 #### 行为持有者
 后台及前台
 
-### 实体行为-unlinkCases（unlinkCases）
+#### 逻辑附加
+无
+### 实体行为-unlinkCases（UnlinkCases）
 #### 说明
 unlinkCases
 
@@ -4744,7 +4729,9 @@ unlinkCases
 #### 行为持有者
 后台
 
-### 实体行为-移除用例（unlinkSuiteCase）
+#### 逻辑附加
+无
+### 实体行为-移除用例（UnlinkSuiteCase）
 #### 说明
 移除用例
 
@@ -4754,7 +4741,9 @@ unlinkCases
 #### 行为持有者
 后台及前台
 
-### 实体行为-unlinkSuiteCases（unlinkSuiteCases）
+#### 逻辑附加
+无
+### 实体行为-unlinkSuiteCases（UnlinkSuiteCases）
 #### 说明
 unlinkSuiteCases
 
@@ -4764,5 +4753,111 @@ unlinkSuiteCases
 #### 行为持有者
 后台
 
+#### 逻辑附加
+无
 
+## 逻辑处理
+| 序号 | 逻辑 | 逻辑名 | 逻辑持有者 |
+| -- | -- | -- | -- |
+| 1 | [用例取消收藏](#逻辑处理-用例取消收藏（CaseNFavorite）) | CaseNFavorite | 后台 |
+| 2 | [根据用例标识和版本获取用例步骤](#逻辑处理-根据用例标识和版本获取用例步骤（GetCaseStepByIdVersion）) | GetCaseStepByIdVersion | 后台及前台 |
+| 3 | [用例收藏](#逻辑处理-用例收藏（caseFavorite）) | caseFavorite | 后台 |
+| 4 | [runCases](#逻辑处理-runCases（runCases）) | runCases | 后台 |
+| 5 | [testRunCases](#逻辑处理-testRunCases（testRunCases）) | testRunCases | 后台 |
+| 6 | [unlinkCases](#逻辑处理-unlinkCases（unlinkCases）) | unlinkCases | 后台 |
+| 7 | [unlinkSuiteCases](#逻辑处理-unlinkSuiteCases（unlinkSuiteCases）) | unlinkSuiteCases | 后台 |
+
+### 逻辑处理-用例取消收藏（CaseNFavorite）
+#### 说明
+用例取消收藏
+
+#### 逻辑持有者
+后台
+
+#### 逻辑节点
+| 序号 | 节点 | 节点名 | 节点类型 |
+| -- | -- | -- | -- |
+| 1 | 开始 | Begin | 开始 |
+| 2 | 用例取消收藏 | CaseNFavrite | 直接SQL调用 |
+### 逻辑处理-根据用例标识和版本获取用例步骤（GetCaseStepByIdVersion）
+#### 说明
+根据用例标识和版本获取用例步骤
+
+#### 逻辑持有者
+后台及前台
+
+#### 逻辑节点
+| 序号 | 节点 | 节点名 | 节点类型 |
+| -- | -- | -- | -- |
+| 1 | 获取用例步骤 | Rawsqlcall1 | 直接SQL调用 |
+| 2 | 开始 | Begin | 开始 |
+### 逻辑处理-用例收藏（caseFavorite）
+#### 说明
+hua-测试收藏功能
+
+#### 逻辑持有者
+后台
+
+#### 逻辑节点
+| 序号 | 节点 | 节点名 | 节点类型 |
+| -- | -- | -- | -- |
+| 1 | Create | Create | 实体行为 |
+| 2 | 开始 | Begin | 开始 |
+| 3 | 准备参数 | Prepareparam1 | 准备参数 |
+### 逻辑处理-runCases（runCases）
+#### 说明
+runCases
+
+#### 逻辑持有者
+后台
+
+#### 逻辑节点
+| 序号 | 节点 | 节点名 | 节点类型 |
+| -- | -- | -- | -- |
+| 1 | 开始 | Begin | 开始 |
+| 2 | 准备参数 | Prepareparam1 | 准备参数 |
+| 3 | 执行测试 | Deaction1 | 实体行为 |
+### 逻辑处理-testRunCases（testRunCases）
+#### 说明
+testRunCases
+
+#### 逻辑持有者
+后台
+
+#### 逻辑节点
+| 序号 | 节点 | 节点名 | 节点类型 |
+| -- | -- | -- | -- |
+| 1 | 重置ID | Prepareparam1 | 准备参数 |
+| 2 | 获取数据 | Rawsqlcall1 | 直接SQL调用 |
+| 3 | 开始 | Begin | 开始 |
+| 4 | 执行测试 | Deaction1 | 实体行为 |
+### 逻辑处理-unlinkCases（unlinkCases）
+#### 说明
+unlinkCases
+
+#### 逻辑持有者
+后台
+
+#### 逻辑节点
+| 序号 | 节点 | 节点名 | 节点类型 |
+| -- | -- | -- | -- |
+| 1 | 获取数据 | Rawsqlcall1 | 直接SQL调用 |
+| 2 | 处理移除接口 | Deaction1 | 实体行为 |
+| 3 | 开始 | Begin | 开始 |
+| 4 | 重置ID | Prepareparam1 | 准备参数 |
+### 逻辑处理-unlinkSuiteCases（unlinkSuiteCases）
+#### 说明
+unlinkSuiteCases
+
+#### 逻辑持有者
+后台
+
+#### 逻辑节点
+| 序号 | 节点 | 节点名 | 节点类型 |
+| -- | -- | -- | -- |
+| 1 | 准备参数 | Prepareparam1 | 准备参数 |
+| 2 | 移除用例 | Deaction1 | 实体行为 |
+| 3 | 开始 | Begin | 开始 |
+
+## 查询
 

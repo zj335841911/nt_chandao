@@ -8,9 +8,9 @@
 ## 实体属性
 | 序号 | 属性 | 属性名 | 数据类型 | 主键 | 外键 | 允许为空 |
 | -- | -- | -- | -- | -- | -- | -- |
-| 1 | [account](#属性-account（ACCOUNT）) | ACCOUNT | TEXT | 否 | 否 | 是 |
-| 2 | [group](#属性-group（GROUP）) | GROUP | INT | 否 | 否 | 是 |
-| 3 | [虚拟主键](#属性-虚拟主键（ID）) | ID | TEXT | 是 | 否 | 否 |
+| 1 | [account](#属性-account（ACCOUNT）) | ACCOUNT | 文本，可指定长度 | 否 | 否 | 是 |
+| 2 | [group](#属性-group（GROUP）) | GROUP | 整型 | 否 | 否 | 是 |
+| 3 | [虚拟主键](#属性-虚拟主键（ID）) | ID | 文本，可指定长度 | 是 | 否 | 否 |
 
 ### 属性-account（ACCOUNT）
 #### 属性说明
@@ -29,10 +29,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -91,10 +88,7 @@ String
 否
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 concat(%1$s,'__',%2$s)
@@ -119,6 +113,7 @@ concat(%1$s,'__',%2$s)
 | 5 | [GetDraft](#实体行为-GetDraft（GetDraft）) | GetDraft | 内置方法 | 后台及前台 |
 | 6 | [CheckKey](#实体行为-CheckKey（CheckKey）) | CheckKey | 内置方法 | 后台及前台 |
 | 7 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
+
 ### 实体行为-Create（Create）
 #### 说明
 Create
@@ -129,6 +124,8 @@ Create
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-Update（Update）
 #### 说明
 Update
@@ -139,6 +136,8 @@ Update
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-Remove（Remove）
 #### 说明
 Remove
@@ -149,6 +148,8 @@ Remove
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-Get（Get）
 #### 说明
 Get
@@ -159,6 +160,8 @@ Get
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-GetDraft（GetDraft）
 #### 说明
 GetDraft
@@ -169,6 +172,8 @@ GetDraft
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-CheckKey（CheckKey）
 #### 说明
 CheckKey
@@ -179,6 +184,8 @@ CheckKey
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-Save（Save）
 #### 说明
 Save
@@ -189,5 +196,10 @@ Save
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 
+## 逻辑处理
+
+## 查询
 

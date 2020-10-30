@@ -8,15 +8,15 @@ log
 ## 实体属性
 | 序号 | 属性 | 属性名 | 数据类型 | 主键 | 外键 | 允许为空 |
 | -- | -- | -- | -- | -- | -- | -- |
-| 1 | [url](#属性-url（URL）) | URL | TEXT | 否 | 否 | 是 |
-| 2 | [action](#属性-action（ACTION）) | ACTION | INT | 否 | 否 | 是 |
-| 3 | [contentType](#属性-contentType（CONTENTTYPE）) | CONTENTTYPE | TEXT | 否 | 否 | 是 |
-| 4 | [objectID](#属性-objectID（OBJECTID）) | OBJECTID | INT | 否 | 否 | 是 |
-| 5 | [date](#属性-date（DATE）) | DATE | DATETIME | 否 | 否 | 是 |
-| 6 | [result](#属性-result（RESULT）) | RESULT | LONGTEXT | 否 | 否 | 是 |
-| 7 | [objectType](#属性-objectType（OBJECTTYPE）) | OBJECTTYPE | TEXT | 否 | 否 | 是 |
-| 8 | [id](#属性-id（ID）) | ID | ACID | 是 | 否 | 否 |
-| 9 | [data](#属性-data（DATA）) | DATA | LONGTEXT | 否 | 否 | 是 |
+| 1 | [url](#属性-url（URL）) | URL | 文本，可指定长度 | 否 | 否 | 是 |
+| 2 | [action](#属性-action（ACTION）) | ACTION | 整型 | 否 | 否 | 是 |
+| 3 | [contentType](#属性-contentType（CONTENTTYPE）) | CONTENTTYPE | 文本，可指定长度 | 否 | 否 | 是 |
+| 4 | [objectID](#属性-objectID（OBJECTID）) | OBJECTID | 整型 | 否 | 否 | 是 |
+| 5 | [date](#属性-date（DATE）) | DATE | 日期时间型 | 否 | 否 | 是 |
+| 6 | [result](#属性-result（RESULT）) | RESULT | 长文本，没有长度限制 | 否 | 否 | 是 |
+| 7 | [objectType](#属性-objectType（OBJECTTYPE）) | OBJECTTYPE | 文本，可指定长度 | 否 | 否 | 是 |
+| 8 | [id](#属性-id（ID）) | ID | 自增标识，整数类型，用户不可见 | 是 | 否 | 否 |
+| 9 | [data](#属性-data（DATA）) | DATA | 长文本，没有长度限制 | 否 | 否 | 是 |
 
 ### 属性-url（URL）
 #### 属性说明
@@ -35,10 +35,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -66,10 +63,7 @@ Integer
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -97,10 +91,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -128,10 +119,7 @@ Integer
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -159,16 +147,13 @@ Timestamp
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
 
 #### 数据格式
-时间格式：yyyy-MM-dd HH:mm:ss
+yyyy-MM-dd HH:mm:ss
 
 #### 关系属性
 无
@@ -190,10 +175,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -221,10 +203,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -252,10 +231,7 @@ Long
 否
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -283,10 +259,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -311,6 +284,7 @@ String
 | 5 | [GetDraft](#实体行为-GetDraft（GetDraft）) | GetDraft | 内置方法 | 后台及前台 |
 | 6 | [CheckKey](#实体行为-CheckKey（CheckKey）) | CheckKey | 内置方法 | 后台及前台 |
 | 7 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
+
 ### 实体行为-Create（Create）
 #### 说明
 Create
@@ -321,6 +295,8 @@ Create
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-Update（Update）
 #### 说明
 Update
@@ -331,6 +307,8 @@ Update
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-Remove（Remove）
 #### 说明
 Remove
@@ -341,6 +319,8 @@ Remove
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-Get（Get）
 #### 说明
 Get
@@ -351,6 +331,8 @@ Get
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-GetDraft（GetDraft）
 #### 说明
 GetDraft
@@ -361,6 +343,8 @@ GetDraft
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-CheckKey（CheckKey）
 #### 说明
 CheckKey
@@ -371,6 +355,8 @@ CheckKey
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-Save（Save）
 #### 说明
 Save
@@ -381,5 +367,10 @@ Save
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 
+## 逻辑处理
+
+## 查询
 

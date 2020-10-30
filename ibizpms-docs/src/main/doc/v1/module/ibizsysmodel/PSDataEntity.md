@@ -8,98 +8,98 @@
 ## 实体属性
 | 序号 | 属性 | 属性名 | 数据类型 | 主键 | 外键 | 允许为空 |
 | -- | -- | -- | -- | -- | -- | -- |
-| 1 | [实体名称](#属性-实体名称（PSDATAENTITYNAME）) | PSDATAENTITYNAME | TEXT | 否 | 否 | 是 |
-| 2 | [实体标识](#属性-实体标识（PSDATAENTITYID）) | PSDATAENTITYID | GUID | 是 | 否 | 否 |
-| 3 | [建立时间](#属性-建立时间（CREATEDATE）) | CREATEDATE | DATETIME | 否 | 否 | 否 |
-| 4 | [建立人](#属性-建立人（CREATEMAN）) | CREATEMAN | TEXT | 否 | 否 | 否 |
-| 5 | [更新人](#属性-更新人（UPDATEMAN）) | UPDATEMAN | TEXT | 否 | 否 | 否 |
-| 6 | [更新时间](#属性-更新时间（UPDATEDATE）) | UPDATEDATE | DATETIME | 否 | 否 | 否 |
-| 7 | [虚拟实体](#属性-虚拟实体（VIRTUALFLAG）) | VIRTUALFLAG | NSCODELIST | 否 | 否 | 是 |
-| 8 | [虚拟主键分隔符](#属性-虚拟主键分隔符（VKEYSEPARATOR）) | VKEYSEPARATOR | TEXT | 否 | 否 | 是 |
-| 9 | [访问控制体系](#属性-访问控制体系（ACCCTRLARCH）) | ACCCTRLARCH | NSCODELIST | 否 | 否 | 是 |
-| 10 | [审计模式](#属性-审计模式（AUDITMODE）) | AUDITMODE | NSCODELIST | 否 | 否 | 是 |
-| 11 | [预置业务功能模式](#属性-预置业务功能模式（BIZTAG）) | BIZTAG | SSCODELIST | 否 | 否 | 是 |
-| 12 | [基类参数](#属性-基类参数（BASECLSPARAMS）) | BASECLSPARAMS | LONGTEXT_1000 | 否 | 否 | 是 |
-| 13 | [代码名称](#属性-代码名称（CODENAME）) | CODENAME | TEXT | 否 | 否 | 是 |
-| 14 | [显示颜色](#属性-显示颜色（COLOR）) | COLOR | TEXT | 否 | 否 | 是 |
-| 15 | [数据访问控制方式](#属性-数据访问控制方式（DATAACCMODE）) | DATAACCMODE | NSCODELIST | 否 | 否 | 是 |
-| 16 | [数据导入导出能力](#属性-数据导入导出能力（DATAIMPEXPFLAG）) | DATAIMPEXPFLAG | NSCODELIST | 否 | 否 | 是 |
-| 17 | [数据变更日志类型](#属性-数据变更日志类型（DATACHGLOGMODE）) | DATACHGLOGMODE | NSCODELIST | 否 | 否 | 是 |
-| 18 | [数据库表空间](#属性-数据库表空间（DBTABSPACE）) | DBTABSPACE | SSCODELIST | 否 | 否 | 是 |
-| 19 | [实体类别](#属性-实体类别（DECAT）) | DECAT | SSCODELIST | 否 | 否 | 是 |
-| 20 | [全局禁止子系统导入](#属性-全局禁止子系统导入（DELOCKFLAG）) | DELOCKFLAG | YESNO | 否 | 否 | 是 |
-| 21 | [实体编号](#属性-实体编号（DESN）) | DESN | TEXT | 否 | 否 | 是 |
-| 22 | [实体标记2](#属性-实体标记2（DETAG2）) | DETAG2 | TEXT | 否 | 否 | 是 |
-| 23 | [实体类型](#属性-实体类型（DETYPE）) | DETYPE | NSCODELIST | 否 | 否 | 否 |
-| 24 | [实体标记](#属性-实体标记（DETAG）) | DETAG | TEXT | 否 | 否 | 是 |
-| 25 | [扩展模式](#属性-扩展模式（DYNAMICMODE）) | DYNAMICMODE | NSCODELIST | 否 | 否 | 是 |
-| 26 | [默认数据源](#属性-默认数据源（DSLINK）) | DSLINK | SSCODELIST | 否 | 否 | 是 |
-| 27 | [启用数据审计](#属性-启用数据审计（ENABLEAUDIT）) | ENABLEAUDIT | YESNO | 否 | 否 | 是 |
-| 28 | [动态模型类型](#属性-动态模型类型（DYNAMODELFLAG）) | DYNAMODELFLAG | NSCODELIST | 否 | 否 | 是 |
-| 29 | [启用数据版本](#属性-启用数据版本（ENABLEDATAVER）) | ENABLEDATAVER | YESNO | 否 | 否 | 是 |
-| 30 | [启用DA日志](#属性-启用DA日志（ENABLEDALOG）) | ENABLEDALOG | YESNO | 否 | 否 | 是 |
-| 31 | [支持获取结果集](#属性-支持获取结果集（ENABLEDEDATASET）) | ENABLEDEDATASET | YESNO | 否 | 否 | 是 |
-| 32 | [启用数据对象缓存](#属性-启用数据对象缓存（ENABLEENTITYCACHE）) | ENABLEENTITYCACHE | YESNO | 否 | 否 | 是 |
-| 33 | [支持实体行为](#属性-支持实体行为（ENABLEDEACTION）) | ENABLEDEACTION | YESNO | 否 | 否 | 是 |
-| 34 | [支持多数据源](#属性-支持多数据源（ENABLEMULTIDS）) | ENABLEMULTIDS | YESNO | 否 | 否 | 是 |
-| 35 | [支持移动端](#属性-支持移动端（ENABLEMOB）) | ENABLEMOB | YESNO | 否 | 否 | 是 |
-| 36 | [启用操作者名称模型](#属性-启用操作者名称模型（ENABLEOPNAMEMODEL）) | ENABLEOPNAMEMODEL | YESNO | 否 | 否 | 是 |
-| 37 | [启用组织模型](#属性-启用组织模型（ENABLEORGMODEL）) | ENABLEORGMODEL | YESNO | 否 | 否 | 是 |
-| 38 | [启用多表单](#属性-启用多表单（ENAMULTIFORM）) | ENAMULTIFORM | YESNO | 否 | 否 | 是 |
-| 39 | [启用工作流模型](#属性-启用工作流模型（ENABLEWFMODEL）) | ENABLEWFMODEL | YESNO | 否 | 否 | 是 |
-| 40 | [支持简单查询](#属性-支持简单查询（ENABLESELECT）) | ENABLESELECT | YESNO | 否 | 否 | 是 |
-| 41 | [启用临时数据](#属性-启用临时数据（ENATEMPDATA）) | ENATEMPDATA | NSCODELIST | 否 | 否 | 是 |
-| 42 | [数据对象缓存时长](#属性-数据对象缓存时长（ENTITYCACHETIMEOUT）) | ENTITYCACHETIMEOUT | INT | 否 | 否 | 是 |
-| 43 | [现有数据结构](#属性-现有数据结构（EXISTINGMODEL）) | EXISTINGMODEL | YESNO | 否 | 否 | 是 |
-| 44 | [用户表](#属性-用户表（EXTABLENAME）) | EXTABLENAME | TEXT | 否 | 否 | 是 |
-| 45 | [模型锁模式](#属性-模型锁模式（LOCKFLAG）) | LOCKFLAG | NSCODELIST | 否 | 否 | 是 |
-| 46 | [索引类型](#属性-索引类型（INDEXDETYPE）) | INDEXDETYPE | SSCODELIST | 否 | 否 | 是 |
-| 47 | [主键规则](#属性-主键规则（KEYRULE）) | KEYRULE | TEXT | 否 | 否 | 是 |
-| 48 | [逻辑无效值](#属性-逻辑无效值（LOGICINVALIDVALUE）) | LOGICINVALIDVALUE | TEXT | 否 | 否 | 是 |
-| 49 | [中文名称](#属性-中文名称（LOGICNAME）) | LOGICNAME | TEXT | 否 | 否 | 否 |
-| 50 | [启用逻辑有效](#属性-启用逻辑有效（LOGICVALID）) | LOGICVALID | YESNO | 否 | 否 | 是 |
-| 51 | [逻辑有效值](#属性-逻辑有效值（LOGICVALIDVALUE）) | LOGICVALIDVALUE | TEXT | 否 | 否 | 是 |
-| 52 | [模型导入导出能力](#属性-模型导入导出能力（MODELIMPEXPFLAG）) | MODELIMPEXPFLAG | NSCODELIST | 否 | 否 | 是 |
-| 53 | [备注](#属性-备注（MEMO）) | MEMO | LONGTEXT_1000 | 否 | 否 | 是 |
-| 54 | [最大缓存数据对象数](#属性-最大缓存数据对象数（MAXENTITYCACHECNT）) | MAXENTITYCACHECNT | INT | 否 | 否 | 是 |
-| 55 | [无视图模式](#属性-无视图模式（NOVIEWMODE）) | NOVIEWMODE | YESNO | 否 | 否 | 是 |
-| 56 | [模型状态](#属性-模型状态（MODELSTATE）) | MODELSTATE | NMCODELIST | 否 | 否 | 是 |
-| 57 | [SaaS构型](#属性-SaaS构型（SAASMODE）) | SAASMODE | NSCODELIST | 否 | 否 | 是 |
-| 58 | [删除模式](#属性-删除模式（REMOVEFLAG）) | REMOVEFLAG | NSCODELIST | 否 | 否 | 是 |
-| 59 | [服务API模式](#属性-服务API模式（SERVICEAPIFLAG）) | SERVICEAPIFLAG | NSCODELIST | 否 | 否 | 是 |
-| 60 | [服务代码名称](#属性-服务代码名称（SERVICECODENAME）) | SERVICECODENAME | TEXT | 否 | 否 | 是 |
-| 61 | [存储模式](#属性-存储模式（STORAGEMODE）) | STORAGEMODE | NSCODELIST | 否 | 否 | 是 |
-| 62 | [子系统实体](#属性-子系统实体（SUBSYSDE）) | SUBSYSDE | YESNO | 否 | 否 | 是 |
-| 63 | [默认发布行为服务](#属性-默认发布行为服务（SVRPUBMODE）) | SVRPUBMODE | YESNO | 否 | 否 | 是 |
-| 64 | [系统实体](#属性-系统实体（SYSTEMFLAG）) | SYSTEMFLAG | YESNO | 否 | 否 | 否 |
-| 65 | [主表名称](#属性-主表名称（TABLENAME）) | TABLENAME | TEXT | 否 | 否 | 是 |
-| 66 | [默认测试单元](#属性-默认测试单元（TESTCASEFLAG）) | TESTCASEFLAG | YESNO | 否 | 否 | 是 |
-| 67 | [TODO](#属性-TODO（TODOTASK）) | TODOTASK | LONGTEXT_1000 | 否 | 否 | 是 |
-| 68 | [自定义参数](#属性-自定义参数（USERPARAMS）) | USERPARAMS | TEXT | 否 | 否 | 是 |
-| 69 | [默认用户界面行为](#属性-默认用户界面行为（USERACTION）) | USERACTION | NMCODELIST | 否 | 否 | 是 |
-| 70 | [用户分类](#属性-用户分类（USERCAT）) | USERCAT | SSCODELIST | 否 | 否 | 是 |
-| 71 | [用户标记2](#属性-用户标记2（USERTAG2）) | USERTAG2 | TEXT | 否 | 否 | 是 |
-| 72 | [用户标记](#属性-用户标记（USERTAG）) | USERTAG | TEXT | 否 | 否 | 是 |
-| 73 | [用户标记3](#属性-用户标记3（USERTAG3）) | USERTAG3 | TEXT | 否 | 否 | 是 |
-| 74 | [用户标记4](#属性-用户标记4（USERTAG4）) | USERTAG4 | TEXT | 否 | 否 | 是 |
-| 75 | [是否启用](#属性-是否启用（VALIDFLAG）) | VALIDFLAG | YESNO | 否 | 否 | 是 |
-| 76 | [视图名称](#属性-视图名称（VIEWNAME）) | VIEWNAME | TEXT | 否 | 否 | 是 |
-| 77 | [多视图级别](#属性-多视图级别（VIEWLEVEL）) | VIEWLEVEL | NSCODELIST | 否 | 否 | 是 |
-| 78 | [级别3视图名称](#属性-级别3视图名称（VIEWNAME3）) | VIEWNAME3 | TEXT | 否 | 否 | 是 |
-| 79 | [级别2视图名称](#属性-级别2视图名称（VIEWNAME2）) | VIEWNAME2 | TEXT | 否 | 否 | 是 |
-| 80 | [级别4视图名称](#属性-级别4视图名称（VIEWNAME4）) | VIEWNAME4 | TEXT | 否 | 否 | 是 |
-| 81 | [系统](#属性-系统（PSSYSTEMID）) | PSSYSTEMID | TEXT | 否 | 否 | 是 |
-| 82 | [系统](#属性-系统（PSSYSTEMNAME）) | PSSYSTEMNAME | TEXT | 否 | 否 | 是 |
-| 83 | [模块颜色](#属性-模块颜色（MODCOLOR）) | MODCOLOR | PICKUPDATA | 否 | 是 | 是 |
-| 84 | [系统模块](#属性-系统模块（PSMODULENAME）) | PSMODULENAME | PICKUPTEXT | 否 | 是 | 否 |
-| 85 | [系统模块](#属性-系统模块（PSMODULEID）) | PSMODULEID | PICKUP | 否 | 是 | 否 |
-| 86 | [子系统实体](#属性-子系统实体（SUBSYSMODULE）) | SUBSYSMODULE | PICKUPDATA | 否 | 是 | 是 |
-| 87 | [子系统接口实体](#属性-子系统接口实体（PSSUBSYSSADEID）) | PSSUBSYSSADEID | PICKUP | 否 | 是 | 是 |
-| 88 | [子系统接口实体](#属性-子系统接口实体（PSSUBSYSSADENAME）) | PSSUBSYSSADENAME | PICKUPTEXT | 否 | 是 | 是 |
-| 89 | [子系统服务接口](#属性-子系统服务接口（PSSUBSYSSERVICEAPIID）) | PSSUBSYSSERVICEAPIID | PICKUP | 否 | 是 | 是 |
-| 90 | [子系统服务接口](#属性-子系统服务接口（PSSUBSYSSERVICEAPINAME）) | PSSUBSYSSERVICEAPINAME | PICKUPTEXT | 否 | 是 | 是 |
-| 91 | [系统设计需求](#属性-系统设计需求（PSSYSREQITEMNAME）) | PSSYSREQITEMNAME | PICKUPTEXT | 否 | 是 | 是 |
-| 92 | [系统设计需求](#属性-系统设计需求（PSSYSREQITEMID）) | PSSYSREQITEMID | PICKUP | 否 | 是 | 是 |
+| 1 | [实体名称](#属性-实体名称（PSDATAENTITYNAME）) | PSDATAENTITYNAME | 文本，可指定长度 | 否 | 否 | 是 |
+| 2 | [实体标识](#属性-实体标识（PSDATAENTITYID）) | PSDATAENTITYID | 全局唯一标识，文本类型，用户不可见 | 是 | 否 | 否 |
+| 3 | [建立时间](#属性-建立时间（CREATEDATE）) | CREATEDATE | 日期时间型 | 否 | 否 | 否 |
+| 4 | [建立人](#属性-建立人（CREATEMAN）) | CREATEMAN | 文本，可指定长度 | 否 | 否 | 否 |
+| 5 | [更新人](#属性-更新人（UPDATEMAN）) | UPDATEMAN | 文本，可指定长度 | 否 | 否 | 否 |
+| 6 | [更新时间](#属性-更新时间（UPDATEDATE）) | UPDATEDATE | 日期时间型 | 否 | 否 | 否 |
+| 7 | [虚拟实体](#属性-虚拟实体（VIRTUALFLAG）) | VIRTUALFLAG | 单项选择(数值) | 否 | 否 | 是 |
+| 8 | [虚拟主键分隔符](#属性-虚拟主键分隔符（VKEYSEPARATOR）) | VKEYSEPARATOR | 文本，可指定长度 | 否 | 否 | 是 |
+| 9 | [访问控制体系](#属性-访问控制体系（ACCCTRLARCH）) | ACCCTRLARCH | 单项选择(数值) | 否 | 否 | 是 |
+| 10 | [审计模式](#属性-审计模式（AUDITMODE）) | AUDITMODE | 单项选择(数值) | 否 | 否 | 是 |
+| 11 | [预置业务功能模式](#属性-预置业务功能模式（BIZTAG）) | BIZTAG | 单项选择(文本值) | 否 | 否 | 是 |
+| 12 | [基类参数](#属性-基类参数（BASECLSPARAMS）) | BASECLSPARAMS | 长文本，长度1000 | 否 | 否 | 是 |
+| 13 | [代码名称](#属性-代码名称（CODENAME）) | CODENAME | 文本，可指定长度 | 否 | 否 | 是 |
+| 14 | [显示颜色](#属性-显示颜色（COLOR）) | COLOR | 文本，可指定长度 | 否 | 否 | 是 |
+| 15 | [数据访问控制方式](#属性-数据访问控制方式（DATAACCMODE）) | DATAACCMODE | 单项选择(数值) | 否 | 否 | 是 |
+| 16 | [数据导入导出能力](#属性-数据导入导出能力（DATAIMPEXPFLAG）) | DATAIMPEXPFLAG | 单项选择(数值) | 否 | 否 | 是 |
+| 17 | [数据变更日志类型](#属性-数据变更日志类型（DATACHGLOGMODE）) | DATACHGLOGMODE | 单项选择(数值) | 否 | 否 | 是 |
+| 18 | [数据库表空间](#属性-数据库表空间（DBTABSPACE）) | DBTABSPACE | 单项选择(文本值) | 否 | 否 | 是 |
+| 19 | [实体类别](#属性-实体类别（DECAT）) | DECAT | 单项选择(文本值) | 否 | 否 | 是 |
+| 20 | [全局禁止子系统导入](#属性-全局禁止子系统导入（DELOCKFLAG）) | DELOCKFLAG | 是否逻辑 | 否 | 否 | 是 |
+| 21 | [实体编号](#属性-实体编号（DESN）) | DESN | 文本，可指定长度 | 否 | 否 | 是 |
+| 22 | [实体标记2](#属性-实体标记2（DETAG2）) | DETAG2 | 文本，可指定长度 | 否 | 否 | 是 |
+| 23 | [实体类型](#属性-实体类型（DETYPE）) | DETYPE | 单项选择(数值) | 否 | 否 | 否 |
+| 24 | [实体标记](#属性-实体标记（DETAG）) | DETAG | 文本，可指定长度 | 否 | 否 | 是 |
+| 25 | [扩展模式](#属性-扩展模式（DYNAMICMODE）) | DYNAMICMODE | 单项选择(数值) | 否 | 否 | 是 |
+| 26 | [默认数据源](#属性-默认数据源（DSLINK）) | DSLINK | 单项选择(文本值) | 否 | 否 | 是 |
+| 27 | [启用数据审计](#属性-启用数据审计（ENABLEAUDIT）) | ENABLEAUDIT | 是否逻辑 | 否 | 否 | 是 |
+| 28 | [动态模型类型](#属性-动态模型类型（DYNAMODELFLAG）) | DYNAMODELFLAG | 单项选择(数值) | 否 | 否 | 是 |
+| 29 | [启用数据版本](#属性-启用数据版本（ENABLEDATAVER）) | ENABLEDATAVER | 是否逻辑 | 否 | 否 | 是 |
+| 30 | [启用DA日志](#属性-启用DA日志（ENABLEDALOG）) | ENABLEDALOG | 是否逻辑 | 否 | 否 | 是 |
+| 31 | [支持获取结果集](#属性-支持获取结果集（ENABLEDEDATASET）) | ENABLEDEDATASET | 是否逻辑 | 否 | 否 | 是 |
+| 32 | [启用数据对象缓存](#属性-启用数据对象缓存（ENABLEENTITYCACHE）) | ENABLEENTITYCACHE | 是否逻辑 | 否 | 否 | 是 |
+| 33 | [支持实体行为](#属性-支持实体行为（ENABLEDEACTION）) | ENABLEDEACTION | 是否逻辑 | 否 | 否 | 是 |
+| 34 | [支持多数据源](#属性-支持多数据源（ENABLEMULTIDS）) | ENABLEMULTIDS | 是否逻辑 | 否 | 否 | 是 |
+| 35 | [支持移动端](#属性-支持移动端（ENABLEMOB）) | ENABLEMOB | 是否逻辑 | 否 | 否 | 是 |
+| 36 | [启用操作者名称模型](#属性-启用操作者名称模型（ENABLEOPNAMEMODEL）) | ENABLEOPNAMEMODEL | 是否逻辑 | 否 | 否 | 是 |
+| 37 | [启用组织模型](#属性-启用组织模型（ENABLEORGMODEL）) | ENABLEORGMODEL | 是否逻辑 | 否 | 否 | 是 |
+| 38 | [启用多表单](#属性-启用多表单（ENAMULTIFORM）) | ENAMULTIFORM | 是否逻辑 | 否 | 否 | 是 |
+| 39 | [启用工作流模型](#属性-启用工作流模型（ENABLEWFMODEL）) | ENABLEWFMODEL | 是否逻辑 | 否 | 否 | 是 |
+| 40 | [支持简单查询](#属性-支持简单查询（ENABLESELECT）) | ENABLESELECT | 是否逻辑 | 否 | 否 | 是 |
+| 41 | [启用临时数据](#属性-启用临时数据（ENATEMPDATA）) | ENATEMPDATA | 单项选择(数值) | 否 | 否 | 是 |
+| 42 | [数据对象缓存时长](#属性-数据对象缓存时长（ENTITYCACHETIMEOUT）) | ENTITYCACHETIMEOUT | 整型 | 否 | 否 | 是 |
+| 43 | [现有数据结构](#属性-现有数据结构（EXISTINGMODEL）) | EXISTINGMODEL | 是否逻辑 | 否 | 否 | 是 |
+| 44 | [用户表](#属性-用户表（EXTABLENAME）) | EXTABLENAME | 文本，可指定长度 | 否 | 否 | 是 |
+| 45 | [模型锁模式](#属性-模型锁模式（LOCKFLAG）) | LOCKFLAG | 单项选择(数值) | 否 | 否 | 是 |
+| 46 | [索引类型](#属性-索引类型（INDEXDETYPE）) | INDEXDETYPE | 单项选择(文本值) | 否 | 否 | 是 |
+| 47 | [主键规则](#属性-主键规则（KEYRULE）) | KEYRULE | 文本，可指定长度 | 否 | 否 | 是 |
+| 48 | [逻辑无效值](#属性-逻辑无效值（LOGICINVALIDVALUE）) | LOGICINVALIDVALUE | 文本，可指定长度 | 否 | 否 | 是 |
+| 49 | [中文名称](#属性-中文名称（LOGICNAME）) | LOGICNAME | 文本，可指定长度 | 否 | 否 | 否 |
+| 50 | [启用逻辑有效](#属性-启用逻辑有效（LOGICVALID）) | LOGICVALID | 是否逻辑 | 否 | 否 | 是 |
+| 51 | [逻辑有效值](#属性-逻辑有效值（LOGICVALIDVALUE）) | LOGICVALIDVALUE | 文本，可指定长度 | 否 | 否 | 是 |
+| 52 | [模型导入导出能力](#属性-模型导入导出能力（MODELIMPEXPFLAG）) | MODELIMPEXPFLAG | 单项选择(数值) | 否 | 否 | 是 |
+| 53 | [备注](#属性-备注（MEMO）) | MEMO | 长文本，长度1000 | 否 | 否 | 是 |
+| 54 | [最大缓存数据对象数](#属性-最大缓存数据对象数（MAXENTITYCACHECNT）) | MAXENTITYCACHECNT | 整型 | 否 | 否 | 是 |
+| 55 | [无视图模式](#属性-无视图模式（NOVIEWMODE）) | NOVIEWMODE | 是否逻辑 | 否 | 否 | 是 |
+| 56 | [模型状态](#属性-模型状态（MODELSTATE）) | MODELSTATE | 多项选择(数值) | 否 | 否 | 是 |
+| 57 | [SaaS构型](#属性-SaaS构型（SAASMODE）) | SAASMODE | 单项选择(数值) | 否 | 否 | 是 |
+| 58 | [删除模式](#属性-删除模式（REMOVEFLAG）) | REMOVEFLAG | 单项选择(数值) | 否 | 否 | 是 |
+| 59 | [服务API模式](#属性-服务API模式（SERVICEAPIFLAG）) | SERVICEAPIFLAG | 单项选择(数值) | 否 | 否 | 是 |
+| 60 | [服务代码名称](#属性-服务代码名称（SERVICECODENAME）) | SERVICECODENAME | 文本，可指定长度 | 否 | 否 | 是 |
+| 61 | [存储模式](#属性-存储模式（STORAGEMODE）) | STORAGEMODE | 单项选择(数值) | 否 | 否 | 是 |
+| 62 | [子系统实体](#属性-子系统实体（SUBSYSDE）) | SUBSYSDE | 是否逻辑 | 否 | 否 | 是 |
+| 63 | [默认发布行为服务](#属性-默认发布行为服务（SVRPUBMODE）) | SVRPUBMODE | 是否逻辑 | 否 | 否 | 是 |
+| 64 | [系统实体](#属性-系统实体（SYSTEMFLAG）) | SYSTEMFLAG | 是否逻辑 | 否 | 否 | 否 |
+| 65 | [主表名称](#属性-主表名称（TABLENAME）) | TABLENAME | 文本，可指定长度 | 否 | 否 | 是 |
+| 66 | [默认测试单元](#属性-默认测试单元（TESTCASEFLAG）) | TESTCASEFLAG | 是否逻辑 | 否 | 否 | 是 |
+| 67 | [TODO](#属性-TODO（TODOTASK）) | TODOTASK | 长文本，长度1000 | 否 | 否 | 是 |
+| 68 | [自定义参数](#属性-自定义参数（USERPARAMS）) | USERPARAMS | 文本，可指定长度 | 否 | 否 | 是 |
+| 69 | [默认用户界面行为](#属性-默认用户界面行为（USERACTION）) | USERACTION | 多项选择(数值) | 否 | 否 | 是 |
+| 70 | [用户分类](#属性-用户分类（USERCAT）) | USERCAT | 单项选择(文本值) | 否 | 否 | 是 |
+| 71 | [用户标记2](#属性-用户标记2（USERTAG2）) | USERTAG2 | 文本，可指定长度 | 否 | 否 | 是 |
+| 72 | [用户标记](#属性-用户标记（USERTAG）) | USERTAG | 文本，可指定长度 | 否 | 否 | 是 |
+| 73 | [用户标记3](#属性-用户标记3（USERTAG3）) | USERTAG3 | 文本，可指定长度 | 否 | 否 | 是 |
+| 74 | [用户标记4](#属性-用户标记4（USERTAG4）) | USERTAG4 | 文本，可指定长度 | 否 | 否 | 是 |
+| 75 | [是否启用](#属性-是否启用（VALIDFLAG）) | VALIDFLAG | 是否逻辑 | 否 | 否 | 是 |
+| 76 | [视图名称](#属性-视图名称（VIEWNAME）) | VIEWNAME | 文本，可指定长度 | 否 | 否 | 是 |
+| 77 | [多视图级别](#属性-多视图级别（VIEWLEVEL）) | VIEWLEVEL | 单项选择(数值) | 否 | 否 | 是 |
+| 78 | [级别3视图名称](#属性-级别3视图名称（VIEWNAME3）) | VIEWNAME3 | 文本，可指定长度 | 否 | 否 | 是 |
+| 79 | [级别2视图名称](#属性-级别2视图名称（VIEWNAME2）) | VIEWNAME2 | 文本，可指定长度 | 否 | 否 | 是 |
+| 80 | [级别4视图名称](#属性-级别4视图名称（VIEWNAME4）) | VIEWNAME4 | 文本，可指定长度 | 否 | 否 | 是 |
+| 81 | [系统](#属性-系统（PSSYSTEMID）) | PSSYSTEMID | 文本，可指定长度 | 否 | 否 | 是 |
+| 82 | [系统](#属性-系统（PSSYSTEMNAME）) | PSSYSTEMNAME | 文本，可指定长度 | 否 | 否 | 是 |
+| 83 | [模块颜色](#属性-模块颜色（MODCOLOR）) | MODCOLOR | 外键值附加数据 | 否 | 是 | 是 |
+| 84 | [系统模块](#属性-系统模块（PSMODULENAME）) | PSMODULENAME | 外键值文本 | 否 | 是 | 否 |
+| 85 | [系统模块](#属性-系统模块（PSMODULEID）) | PSMODULEID | 外键值 | 否 | 是 | 否 |
+| 86 | [子系统实体](#属性-子系统实体（SUBSYSMODULE）) | SUBSYSMODULE | 外键值附加数据 | 否 | 是 | 是 |
+| 87 | [子系统接口实体](#属性-子系统接口实体（PSSUBSYSSADEID）) | PSSUBSYSSADEID | 外键值 | 否 | 是 | 是 |
+| 88 | [子系统接口实体](#属性-子系统接口实体（PSSUBSYSSADENAME）) | PSSUBSYSSADENAME | 外键值文本 | 否 | 是 | 是 |
+| 89 | [子系统服务接口](#属性-子系统服务接口（PSSUBSYSSERVICEAPIID）) | PSSUBSYSSERVICEAPIID | 外键值 | 否 | 是 | 是 |
+| 90 | [子系统服务接口](#属性-子系统服务接口（PSSUBSYSSERVICEAPINAME）) | PSSUBSYSSERVICEAPINAME | 外键值文本 | 否 | 是 | 是 |
+| 91 | [系统设计需求](#属性-系统设计需求（PSSYSREQITEMNAME）) | PSSYSREQITEMNAME | 外键值文本 | 否 | 是 | 是 |
+| 92 | [系统设计需求](#属性-系统设计需求（PSSYSREQITEMID）) | PSSYSREQITEMID | 外键值 | 否 | 是 | 是 |
 
 ### 属性-实体名称（PSDATAENTITYNAME）
 #### 属性说明
@@ -118,10 +118,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -153,10 +150,7 @@ String
 否
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -188,16 +182,13 @@ Timestamp
 否
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
 
 #### 数据格式
-时间格式：yyyy-MM-dd HH:mm:ss
+yyyy-MM-dd HH:mm:ss
 
 #### 关系属性
 | 项目 | 说明 |
@@ -223,10 +214,7 @@ String
 否
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 参照数据字典【[云系统操作者（SysOperator）](../../codelist/SysOperator)】
@@ -258,10 +246,7 @@ String
 否
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 参照数据字典【[云系统操作者（SysOperator）](../../codelist/SysOperator)】
@@ -293,16 +278,13 @@ Timestamp
 否
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
 
 #### 数据格式
-时间格式：yyyy-MM-dd HH:mm:ss
+yyyy-MM-dd HH:mm:ss
 
 #### 关系属性
 | 项目 | 说明 |
@@ -363,10 +345,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -398,10 +377,7 @@ Integer
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -433,10 +409,7 @@ Integer
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -468,10 +441,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -503,10 +473,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -538,10 +505,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -573,10 +537,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -608,10 +569,7 @@ Integer
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -643,10 +601,7 @@ Integer
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -678,10 +633,7 @@ Integer
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -713,10 +665,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -783,10 +732,7 @@ Integer
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 参照数据字典【[是否（YESNO）（YesNo3）](../../codelist/YesNo3)】
@@ -818,10 +764,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -853,10 +796,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -923,10 +863,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -958,10 +895,7 @@ Integer
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -993,10 +927,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -1028,10 +959,7 @@ Integer
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 参照数据字典【[是否（YESNO）（YesNo3）](../../codelist/YesNo3)】
@@ -1098,10 +1026,7 @@ Integer
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 参照数据字典【[是否（YESNO）（YesNo3）](../../codelist/YesNo3)】
@@ -1133,10 +1058,7 @@ Integer
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 参照数据字典【[是否（YESNO）（YesNo3）](../../codelist/YesNo3)】
@@ -1168,10 +1090,7 @@ Integer
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 参照数据字典【[是否（YESNO）（YesNo3）](../../codelist/YesNo3)】
@@ -1203,10 +1122,7 @@ Integer
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 参照数据字典【[是否（YESNO）（YesNo3）](../../codelist/YesNo3)】
@@ -1238,10 +1154,7 @@ Integer
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 参照数据字典【[是否（YESNO）（YesNo3）](../../codelist/YesNo3)】
@@ -1273,10 +1186,7 @@ Integer
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 参照数据字典【[是否（YESNO）（YesNo3）](../../codelist/YesNo3)】
@@ -1308,10 +1218,7 @@ Integer
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 参照数据字典【[是否（YESNO）（YesNo3）](../../codelist/YesNo3)】
@@ -1343,10 +1250,7 @@ Integer
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 参照数据字典【[是否（YESNO）（YesNo3）](../../codelist/YesNo3)】
@@ -1378,10 +1282,7 @@ Integer
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 参照数据字典【[是否（YESNO）（YesNo3）](../../codelist/YesNo3)】
@@ -1413,10 +1314,7 @@ Integer
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 参照数据字典【[是否（YESNO）（YesNo3）](../../codelist/YesNo3)】
@@ -1448,10 +1346,7 @@ Integer
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 参照数据字典【[是否（YESNO）（YesNo3）](../../codelist/YesNo3)】
@@ -1483,10 +1378,7 @@ Integer
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 参照数据字典【[是否（YESNO）（YesNo3）](../../codelist/YesNo3)】
@@ -1553,10 +1445,7 @@ Integer
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -1623,10 +1512,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -1658,10 +1544,7 @@ Integer
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -1693,10 +1576,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -1728,10 +1608,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -1763,10 +1640,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -1798,10 +1672,7 @@ String
 否
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -1868,10 +1739,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -1903,10 +1771,7 @@ Integer
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -1938,10 +1803,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -1973,10 +1835,7 @@ Integer
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -2008,10 +1867,7 @@ Integer
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 参照数据字典【[是否（YESNO）（YesNo3）](../../codelist/YesNo3)】
@@ -2078,10 +1934,7 @@ Integer
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -2113,10 +1966,7 @@ Integer
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -2148,10 +1998,7 @@ Integer
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -2183,10 +2030,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -2218,10 +2062,7 @@ Integer
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -2253,10 +2094,7 @@ Integer
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 参照数据字典【[是否（YESNO）（YesNo3）](../../codelist/YesNo3)】
@@ -2358,10 +2196,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -2393,10 +2228,7 @@ Integer
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 参照数据字典【[是否（YESNO）（YesNo3）](../../codelist/YesNo3)】
@@ -2428,10 +2260,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -2463,10 +2292,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -2498,10 +2324,7 @@ Integer
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -2533,10 +2356,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -2568,10 +2388,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -2603,10 +2420,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -2638,10 +2452,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -2673,10 +2484,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -2743,10 +2551,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -2778,10 +2583,7 @@ Integer
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -2813,10 +2615,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -2848,10 +2647,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -2883,10 +2679,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -2918,10 +2711,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -2953,10 +2743,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -2988,10 +2775,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -3023,10 +2807,7 @@ String
 否
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -3058,10 +2839,7 @@ String
 否
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -3093,10 +2871,7 @@ Integer
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 参照数据字典【[是否（YESNO）（YesNo3）](../../codelist/YesNo3)】
@@ -3128,10 +2903,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -3163,10 +2935,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -3198,10 +2967,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -3233,10 +2999,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -3268,10 +3031,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -3303,10 +3063,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -3335,6 +3092,7 @@ String
 | 5 | [GetDraft](#实体行为-GetDraft（GetDraft）) | GetDraft | 内置方法 | 后台及前台 |
 | 6 | [CheckKey](#实体行为-CheckKey（CheckKey）) | CheckKey | 内置方法 | 后台及前台 |
 | 7 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
+
 ### 实体行为-Create（Create）
 #### 说明
 Create
@@ -3345,6 +3103,8 @@ Create
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-Update（Update）
 #### 说明
 Update
@@ -3355,6 +3115,8 @@ Update
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-Remove（Remove）
 #### 说明
 Remove
@@ -3365,6 +3127,8 @@ Remove
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-Get（Get）
 #### 说明
 Get
@@ -3375,6 +3139,8 @@ Get
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-GetDraft（GetDraft）
 #### 说明
 GetDraft
@@ -3385,6 +3151,8 @@ GetDraft
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-CheckKey（CheckKey）
 #### 说明
 CheckKey
@@ -3395,6 +3163,8 @@ CheckKey
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-Save（Save）
 #### 说明
 Save
@@ -3405,5 +3175,10 @@ Save
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 
+## 逻辑处理
+
+## 查询
 

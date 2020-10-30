@@ -8,12 +8,12 @@
 ## 实体属性
 | 序号 | 属性 | 属性名 | 数据类型 | 主键 | 外键 | 允许为空 |
 | -- | -- | -- | -- | -- | -- | -- |
-| 1 | [编号](#属性-编号（ID）) | ID | ACID | 是 | 否 | 否 |
-| 2 | [实际情况](#属性-实际情况（REALS）) | REALS | TEXT | 否 | 否 | 是 |
-| 3 | [预期](#属性-预期（EXPECT）) | EXPECT | LONGTEXT | 否 | 否 | 是 |
-| 4 | [步骤](#属性-步骤（DESC）) | DESC | LONGTEXT | 否 | 否 | 是 |
-| 5 | [附件](#属性-附件（FILES）) | FILES | TEXT | 否 | 否 | 是 |
-| 6 | [类型](#属性-类型（TYPE）) | TYPE | SSCODELIST | 否 | 否 | 是 |
+| 1 | [编号](#属性-编号（ID）) | ID | 自增标识，整数类型，用户不可见 | 是 | 否 | 否 |
+| 2 | [实际情况](#属性-实际情况（REALS）) | REALS | 文本，可指定长度 | 否 | 否 | 是 |
+| 3 | [预期](#属性-预期（EXPECT）) | EXPECT | 长文本，没有长度限制 | 否 | 否 | 是 |
+| 4 | [步骤](#属性-步骤（DESC）) | DESC | 长文本，没有长度限制 | 否 | 否 | 是 |
+| 5 | [附件](#属性-附件（FILES）) | FILES | 文本，可指定长度 | 否 | 否 | 是 |
+| 6 | [类型](#属性-类型（TYPE）) | TYPE | 单项选择(文本值) | 否 | 否 | 是 |
 
 ### 属性-编号（ID）
 #### 属性说明
@@ -32,10 +32,7 @@ Long
 否
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -63,10 +60,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -94,10 +88,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -125,10 +116,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -156,10 +144,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -187,10 +172,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 参照数据字典【[用例步骤类型（Casestep__type）](../../codelist/Casestep__type)】
@@ -225,6 +207,7 @@ String
 | 15 | [GetDraftTempMajor](#实体行为-GetDraftTempMajor（GetDraftTempMajor）) | GetDraftTempMajor | 内置方法 | 前台 |
 | 16 | [CheckKey](#实体行为-CheckKey（CheckKey）) | CheckKey | 内置方法 | 后台及前台 |
 | 17 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
+
 ### 实体行为-Create（Create）
 #### 说明
 Create
@@ -235,6 +218,8 @@ Create
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-CreateTemp（CreateTemp）
 #### 说明
 CreateTemp
@@ -245,6 +230,8 @@ CreateTemp
 #### 行为持有者
 前台
 
+#### 逻辑附加
+无
 ### 实体行为-CreateTempMajor（CreateTempMajor）
 #### 说明
 CreateTempMajor
@@ -255,6 +242,8 @@ CreateTempMajor
 #### 行为持有者
 前台
 
+#### 逻辑附加
+无
 ### 实体行为-Update（Update）
 #### 说明
 Update
@@ -265,6 +254,8 @@ Update
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-UpdateTemp（UpdateTemp）
 #### 说明
 UpdateTemp
@@ -275,6 +266,8 @@ UpdateTemp
 #### 行为持有者
 前台
 
+#### 逻辑附加
+无
 ### 实体行为-UpdateTempMajor（UpdateTempMajor）
 #### 说明
 UpdateTempMajor
@@ -285,6 +278,8 @@ UpdateTempMajor
 #### 行为持有者
 前台
 
+#### 逻辑附加
+无
 ### 实体行为-Remove（Remove）
 #### 说明
 Remove
@@ -295,6 +290,8 @@ Remove
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-RemoveTemp（RemoveTemp）
 #### 说明
 RemoveTemp
@@ -305,6 +302,8 @@ RemoveTemp
 #### 行为持有者
 前台
 
+#### 逻辑附加
+无
 ### 实体行为-RemoveTempMajor（RemoveTempMajor）
 #### 说明
 RemoveTempMajor
@@ -315,6 +314,8 @@ RemoveTempMajor
 #### 行为持有者
 前台
 
+#### 逻辑附加
+无
 ### 实体行为-Get（Get）
 #### 说明
 Get
@@ -325,6 +326,8 @@ Get
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-GetTemp（GetTemp）
 #### 说明
 GetTemp
@@ -335,6 +338,8 @@ GetTemp
 #### 行为持有者
 前台
 
+#### 逻辑附加
+无
 ### 实体行为-GetTempMajor（GetTempMajor）
 #### 说明
 GetTempMajor
@@ -345,6 +350,8 @@ GetTempMajor
 #### 行为持有者
 前台
 
+#### 逻辑附加
+无
 ### 实体行为-GetDraft（GetDraft）
 #### 说明
 GetDraft
@@ -355,6 +362,8 @@ GetDraft
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-GetDraftTemp（GetDraftTemp）
 #### 说明
 GetDraftTemp
@@ -365,6 +374,8 @@ GetDraftTemp
 #### 行为持有者
 前台
 
+#### 逻辑附加
+无
 ### 实体行为-GetDraftTempMajor（GetDraftTempMajor）
 #### 说明
 GetDraftTempMajor
@@ -375,6 +386,8 @@ GetDraftTempMajor
 #### 行为持有者
 前台
 
+#### 逻辑附加
+无
 ### 实体行为-CheckKey（CheckKey）
 #### 说明
 CheckKey
@@ -385,6 +398,8 @@ CheckKey
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-Save（Save）
 #### 说明
 Save
@@ -395,5 +410,10 @@ Save
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 
+## 逻辑处理
+
+## 查询
 

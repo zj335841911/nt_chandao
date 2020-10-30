@@ -8,19 +8,19 @@
 ## 实体属性
 | 序号 | 属性 | 属性名 | 数据类型 | 主键 | 外键 | 允许为空 |
 | -- | -- | -- | -- | -- | -- | -- |
-| 1 | [最初预计](#属性-最初预计（ESTIMATE）) | ESTIMATE | FLOAT | 否 | 否 | 是 |
-| 2 | [总计消耗](#属性-总计消耗（CONSUMED）) | CONSUMED | FLOAT | 否 | 否 | 是 |
-| 3 | [可用工时/天](#属性-可用工时/天（HOURS）) | HOURS | FLOAT | 否 | 否 | 是 |
-| 4 | [角色](#属性-角色（ROLE）) | ROLE | TEXT | 否 | 否 | 是 |
-| 5 | [用户](#属性-用户（ACCOUNT）) | ACCOUNT | TEXT | 否 | 否 | 是 |
-| 6 | [团队类型](#属性-团队类型（TYPE）) | TYPE | SSCODELIST | 否 | 否 | 是 |
-| 7 | [编号](#属性-编号（ID）) | ID | ACID | 是 | 否 | 否 |
-| 8 | [预计剩余](#属性-预计剩余（LEFT）) | LEFT | FLOAT | 否 | 否 | 是 |
-| 9 | [排序](#属性-排序（ORDER）) | ORDER | INT | 否 | 否 | 是 |
-| 10 | [可用工日](#属性-可用工日（DAYS）) | DAYS | INT | 否 | 否 | 是 |
-| 11 | [加盟日](#属性-加盟日（JOIN）) | JOIN | DATE | 否 | 否 | 是 |
-| 12 | [受限用户](#属性-受限用户（LIMITED）) | LIMITED | SSCODELIST | 否 | 否 | 是 |
-| 13 | [关联编号](#属性-关联编号（ROOT）) | ROOT | BIGINT | 否 | 否 | 是 |
+| 1 | [最初预计](#属性-最初预计（ESTIMATE）) | ESTIMATE | 浮点 | 否 | 否 | 是 |
+| 2 | [总计消耗](#属性-总计消耗（CONSUMED）) | CONSUMED | 浮点 | 否 | 否 | 是 |
+| 3 | [可用工时/天](#属性-可用工时/天（HOURS）) | HOURS | 浮点 | 否 | 否 | 是 |
+| 4 | [角色](#属性-角色（ROLE）) | ROLE | 文本，可指定长度 | 否 | 否 | 是 |
+| 5 | [用户](#属性-用户（ACCOUNT）) | ACCOUNT | 文本，可指定长度 | 否 | 否 | 是 |
+| 6 | [团队类型](#属性-团队类型（TYPE）) | TYPE | 单项选择(文本值) | 否 | 否 | 是 |
+| 7 | [编号](#属性-编号（ID）) | ID | 自增标识，整数类型，用户不可见 | 是 | 否 | 否 |
+| 8 | [预计剩余](#属性-预计剩余（LEFT）) | LEFT | 浮点 | 否 | 否 | 是 |
+| 9 | [排序](#属性-排序（ORDER）) | ORDER | 整型 | 否 | 否 | 是 |
+| 10 | [可用工日](#属性-可用工日（DAYS）) | DAYS | 整型 | 否 | 否 | 是 |
+| 11 | [加盟日](#属性-加盟日（JOIN）) | JOIN | 日期型 | 否 | 否 | 是 |
+| 12 | [受限用户](#属性-受限用户（LIMITED）) | LIMITED | 单项选择(文本值) | 否 | 否 | 是 |
+| 13 | [关联编号](#属性-关联编号（ROOT）) | ROOT | 大整型 | 否 | 否 | 是 |
 
 ### 属性-最初预计（ESTIMATE）
 #### 属性说明
@@ -225,10 +225,7 @@ Long
 否
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -349,16 +346,13 @@ Timestamp
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
 
 #### 数据格式
-时间格式：yyyy-MM-dd
+yyyy-MM-dd
 
 #### 关系属性
 无
@@ -438,9 +432,10 @@ Long
 | 4 | [Get](#实体行为-Get（Get）) | Get | 内置方法 | 后台及前台 |
 | 5 | [GetDraft](#实体行为-GetDraft（GetDraft）) | GetDraft | 内置方法 | 后台及前台 |
 | 6 | [CheckKey](#实体行为-CheckKey（CheckKey）) | CheckKey | 内置方法 | 后台及前台 |
-| 7 | [项目团队管理](#实体行为-项目团队管理（managePorjectMembers）) | managePorjectMembers | 用户自定义 | 后台及前台 |
+| 7 | [项目团队管理](#实体行为-项目团队管理（ManagePorjectMembers）) | managePorjectMembers | 用户自定义 | 后台及前台 |
 | 8 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
-| 9 | [移除项目成员](#实体行为-移除项目成员（unlinkPorjectMember）) | unlinkPorjectMember | 用户自定义 | 后台及前台 |
+| 9 | [移除项目成员](#实体行为-移除项目成员（UnlinkPorjectMember）) | unlinkPorjectMember | 用户自定义 | 后台及前台 |
+
 ### 实体行为-Create（Create）
 #### 说明
 Create
@@ -451,6 +446,8 @@ Create
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-Update（Update）
 #### 说明
 Update
@@ -461,6 +458,8 @@ Update
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-Remove（Remove）
 #### 说明
 Remove
@@ -471,6 +470,8 @@ Remove
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-Get（Get）
 #### 说明
 Get
@@ -481,6 +482,8 @@ Get
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-GetDraft（GetDraft）
 #### 说明
 GetDraft
@@ -491,6 +494,8 @@ GetDraft
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-CheckKey（CheckKey）
 #### 说明
 CheckKey
@@ -501,7 +506,9 @@ CheckKey
 #### 行为持有者
 后台及前台
 
-### 实体行为-项目团队管理（managePorjectMembers）
+#### 逻辑附加
+无
+### 实体行为-项目团队管理（ManagePorjectMembers）
 #### 说明
 项目团队管理
 
@@ -511,6 +518,8 @@ CheckKey
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-Save（Save）
 #### 说明
 Save
@@ -521,7 +530,9 @@ Save
 #### 行为持有者
 后台及前台
 
-### 实体行为-移除项目成员（unlinkPorjectMember）
+#### 逻辑附加
+无
+### 实体行为-移除项目成员（UnlinkPorjectMember）
 #### 说明
 移除项目成员
 
@@ -531,5 +542,10 @@ Save
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 
+## 逻辑处理
+
+## 查询
 

@@ -8,17 +8,17 @@ im_chatuser
 ## 实体属性
 | 序号 | 属性 | 属性名 | 数据类型 | 主键 | 外键 | 允许为空 |
 | -- | -- | -- | -- | -- | -- | -- |
-| 1 | [id](#属性-id（ID）) | ID | ACID | 是 | 否 | 否 |
-| 2 | [order](#属性-order（ORDER）) | ORDER | INT | 否 | 否 | 是 |
-| 3 | [freeze](#属性-freeze（FREEZE）) | FREEZE | SSCODELIST | 否 | 否 | 是 |
-| 4 | [star](#属性-star（STAR）) | STAR | SSCODELIST | 否 | 否 | 是 |
-| 5 | [hide](#属性-hide（HIDE）) | HIDE | SSCODELIST | 否 | 否 | 是 |
-| 6 | [join](#属性-join（JOIN）) | JOIN | DATETIME | 否 | 否 | 是 |
-| 7 | [user](#属性-user（USER）) | USER | INT | 否 | 否 | 是 |
-| 8 | [mute](#属性-mute（MUTE）) | MUTE | SSCODELIST | 否 | 否 | 是 |
-| 9 | [cgid](#属性-cgid（CGID）) | CGID | TEXT | 否 | 否 | 是 |
-| 10 | [quit](#属性-quit（QUIT）) | QUIT | DATETIME | 否 | 否 | 是 |
-| 11 | [category](#属性-category（CATEGORY）) | CATEGORY | TEXT | 否 | 否 | 是 |
+| 1 | [id](#属性-id（ID）) | ID | 自增标识，整数类型，用户不可见 | 是 | 否 | 否 |
+| 2 | [order](#属性-order（ORDER）) | ORDER | 整型 | 否 | 否 | 是 |
+| 3 | [freeze](#属性-freeze（FREEZE）) | FREEZE | 单项选择(文本值) | 否 | 否 | 是 |
+| 4 | [star](#属性-star（STAR）) | STAR | 单项选择(文本值) | 否 | 否 | 是 |
+| 5 | [hide](#属性-hide（HIDE）) | HIDE | 单项选择(文本值) | 否 | 否 | 是 |
+| 6 | [join](#属性-join（JOIN）) | JOIN | 日期时间型 | 否 | 否 | 是 |
+| 7 | [user](#属性-user（USER）) | USER | 整型 | 否 | 否 | 是 |
+| 8 | [mute](#属性-mute（MUTE）) | MUTE | 单项选择(文本值) | 否 | 否 | 是 |
+| 9 | [cgid](#属性-cgid（CGID）) | CGID | 文本，可指定长度 | 否 | 否 | 是 |
+| 10 | [quit](#属性-quit（QUIT）) | QUIT | 日期时间型 | 否 | 否 | 是 |
+| 11 | [category](#属性-category（CATEGORY）) | CATEGORY | 文本，可指定长度 | 否 | 否 | 是 |
 
 ### 属性-id（ID）
 #### 属性说明
@@ -37,10 +37,7 @@ Long
 否
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -99,10 +96,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 参照数据字典【[ZT_ACTION__READ（Action__read）](../../codelist/Action__read)】
@@ -130,10 +124,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 参照数据字典【[ZT_ACTION__READ（Action__read）](../../codelist/Action__read)】
@@ -161,10 +152,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 参照数据字典【[ZT_ACTION__READ（Action__read）](../../codelist/Action__read)】
@@ -201,7 +189,7 @@ Timestamp
 无
 
 #### 数据格式
-时间格式：yyyy-MM-dd HH:mm:ss
+yyyy-MM-dd HH:mm:ss
 
 #### 关系属性
 无
@@ -254,10 +242,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 参照数据字典【[ZT_ACTION__READ（Action__read）](../../codelist/Action__read)】
@@ -285,10 +270,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -325,7 +307,7 @@ Timestamp
 无
 
 #### 数据格式
-时间格式：yyyy-MM-dd HH:mm:ss
+yyyy-MM-dd HH:mm:ss
 
 #### 关系属性
 无
@@ -347,10 +329,7 @@ String
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -375,6 +354,7 @@ String
 | 5 | [GetDraft](#实体行为-GetDraft（GetDraft）) | GetDraft | 内置方法 | 后台及前台 |
 | 6 | [CheckKey](#实体行为-CheckKey（CheckKey）) | CheckKey | 内置方法 | 后台及前台 |
 | 7 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
+
 ### 实体行为-Create（Create）
 #### 说明
 Create
@@ -385,6 +365,8 @@ Create
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-Update（Update）
 #### 说明
 Update
@@ -395,6 +377,8 @@ Update
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-Remove（Remove）
 #### 说明
 Remove
@@ -405,6 +389,8 @@ Remove
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-Get（Get）
 #### 说明
 Get
@@ -415,6 +401,8 @@ Get
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-GetDraft（GetDraft）
 #### 说明
 GetDraft
@@ -425,6 +413,8 @@ GetDraft
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-CheckKey（CheckKey）
 #### 说明
 CheckKey
@@ -435,6 +425,8 @@ CheckKey
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-Save（Save）
 #### 说明
 Save
@@ -445,5 +437,10 @@ Save
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 
+## 逻辑处理
+
+## 查询
 

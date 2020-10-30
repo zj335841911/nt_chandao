@@ -8,15 +8,15 @@
 ## 实体属性
 | 序号 | 属性 | 属性名 | 数据类型 | 主键 | 外键 | 允许为空 |
 | -- | -- | -- | -- | -- | -- | -- |
-| 1 | [结果](#属性-结果（LASTRUNRESULT）) | LASTRUNRESULT | SSCODELIST | 否 | 否 | 是 |
-| 2 | [最后执行时间](#属性-最后执行时间（LASTRUNDATE）) | LASTRUNDATE | DATETIME | 否 | 否 | 是 |
-| 3 | [指派给](#属性-指派给（ASSIGNEDTO）) | ASSIGNEDTO | TEXT | 否 | 否 | 是 |
-| 4 | [最后执行人](#属性-最后执行人（LASTRUNNER）) | LASTRUNNER | TEXT | 否 | 否 | 是 |
-| 5 | [当前状态](#属性-当前状态（STATUS）) | STATUS | SSCODELIST | 否 | 否 | 是 |
-| 6 | [编号](#属性-编号（ID）) | ID | ACID | 是 | 否 | 否 |
-| 7 | [用例版本](#属性-用例版本（VERSION）) | VERSION | PICKUPDATA | 否 | 是 | 是 |
-| 8 | [测试用例](#属性-测试用例（CASE）) | CASE | PICKUP | 否 | 是 | 是 |
-| 9 | [测试单](#属性-测试单（TASK）) | TASK | PICKUP | 否 | 是 | 是 |
+| 1 | [结果](#属性-结果（LASTRUNRESULT）) | LASTRUNRESULT | 单项选择(文本值) | 否 | 否 | 是 |
+| 2 | [最后执行时间](#属性-最后执行时间（LASTRUNDATE）) | LASTRUNDATE | 日期时间型 | 否 | 否 | 是 |
+| 3 | [指派给](#属性-指派给（ASSIGNEDTO）) | ASSIGNEDTO | 文本，可指定长度 | 否 | 否 | 是 |
+| 4 | [最后执行人](#属性-最后执行人（LASTRUNNER）) | LASTRUNNER | 文本，可指定长度 | 否 | 否 | 是 |
+| 5 | [当前状态](#属性-当前状态（STATUS）) | STATUS | 单项选择(文本值) | 否 | 否 | 是 |
+| 6 | [编号](#属性-编号（ID）) | ID | 自增标识，整数类型，用户不可见 | 是 | 否 | 否 |
+| 7 | [用例版本](#属性-用例版本（VERSION）) | VERSION | 外键值附加数据 | 否 | 是 | 是 |
+| 8 | [测试用例](#属性-测试用例（CASE）) | CASE | 外键值 | 否 | 是 | 是 |
+| 9 | [测试单](#属性-测试单（TASK）) | TASK | 外键值 | 否 | 是 | 是 |
 
 ### 属性-结果（LASTRUNRESULT）
 #### 属性说明
@@ -70,16 +70,13 @@ Timestamp
 是
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
 
 #### 数据格式
-时间格式：yyyy-MM-dd HH:mm:ss
+yyyy-MM-dd HH:mm:ss
 
 #### 关系属性
 | 项目 | 说明 |
@@ -210,10 +207,7 @@ Long
 否
 
 #### 默认值
-| 项目 | 说明 |
-| -- | -- |
-| 类型 |  |
-| 值 |  |
+无
 
 #### 取值范围/公式
 无
@@ -347,6 +341,7 @@ Long
 | 5 | [GetDraft](#实体行为-GetDraft（GetDraft）) | GetDraft | 内置方法 | 后台及前台 |
 | 6 | [CheckKey](#实体行为-CheckKey（CheckKey）) | CheckKey | 内置方法 | 后台及前台 |
 | 7 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
+
 ### 实体行为-Create（Create）
 #### 说明
 Create
@@ -357,6 +352,8 @@ Create
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-Update（Update）
 #### 说明
 Update
@@ -367,6 +364,8 @@ Update
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-Remove（Remove）
 #### 说明
 Remove
@@ -377,6 +376,8 @@ Remove
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-Get（Get）
 #### 说明
 Get
@@ -387,6 +388,8 @@ Get
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-GetDraft（GetDraft）
 #### 说明
 GetDraft
@@ -397,6 +400,8 @@ GetDraft
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-CheckKey（CheckKey）
 #### 说明
 CheckKey
@@ -407,6 +412,8 @@ CheckKey
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 ### 实体行为-Save（Save）
 #### 说明
 Save
@@ -417,5 +424,10 @@ Save
 #### 行为持有者
 后台及前台
 
+#### 逻辑附加
+无
 
+## 逻辑处理
+
+## 查询
 
