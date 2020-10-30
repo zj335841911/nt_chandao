@@ -9,6 +9,7 @@ import './entity/branchs/branchs';
 import './entity/files/files';
 import './entity/users/users';
 import './entity/ibz-favoritess/ibz-favoritess';
+import './entity/ibz-sys-update-featuress/ibz-sys-update-featuress';
 import './entity/project-teams/project-teams';
 import './entity/builds/builds';
 import './entity/tasks/tasks';

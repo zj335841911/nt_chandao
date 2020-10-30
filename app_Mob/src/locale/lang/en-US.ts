@@ -2,6 +2,7 @@ import branch_en_US from '@locale/lanres/branch/branch_en_US';
 import file_en_US from '@locale/lanres/file/file_en_US';
 import user_en_US from '@locale/lanres/user/user_en_US';
 import ibzfavorites_en_US from '@locale/lanres/ibz-favorites/ibz-favorites_en_US';
+import ibzsysupdatefeatures_en_US from '@locale/lanres/ibz-sys-update-features/ibz-sys-update-features_en_US';
 import projectteam_en_US from '@locale/lanres/project-team/project-team_en_US';
 import build_en_US from '@locale/lanres/build/build_en_US';
 import task_en_US from '@locale/lanres/task/task_en_US';
@@ -175,6 +176,7 @@ export default {
     file: file_en_US,
     user: user_en_US,
     ibzfavorites: ibzfavorites_en_US,
+    ibzsysupdatefeatures: ibzsysupdatefeatures_en_US,
     projectteam: projectteam_en_US,
     build: build_en_US,
     task: task_en_US,
