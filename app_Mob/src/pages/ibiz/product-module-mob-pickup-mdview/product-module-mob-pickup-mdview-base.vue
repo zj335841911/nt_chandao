@@ -550,7 +550,7 @@ export default class ProductModuleMobPickupMDViewBase extends Vue {
      * @memberof ProductModuleMobPickupMDViewBase
      */
     public initNavCaption(val:any,isCreate:boolean){
-        console.log(val,isCreate);
+        this.$viewTool.setViewTitleOfThirdParty(this.$t(this.model.srfCaption) as string);        
     }
 
 

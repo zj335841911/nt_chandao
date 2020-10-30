@@ -728,7 +728,7 @@ export default class StoryFavoriteMobMDViewBase extends Vue {
      * @memberof StoryFavoriteMobMDViewBase
      */
     public initNavCaption(val:any,isCreate:boolean){
-        console.log(val,isCreate);
+        this.$viewTool.setViewTitleOfThirdParty(this.$t(this.model.srfCaption) as string);        
     }
 
 

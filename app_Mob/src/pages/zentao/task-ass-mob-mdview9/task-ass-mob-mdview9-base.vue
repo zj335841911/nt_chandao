@@ -714,7 +714,7 @@ export default class TaskAssMobMDView9Base extends Vue {
      * @memberof TaskAssMobMDView9Base
      */
     public initNavCaption(val:any,isCreate:boolean){
-        console.log(val,isCreate);
+        this.$viewTool.setViewTitleOfThirdParty(this.$t(this.model.srfCaption) as string);        
     }
 
 

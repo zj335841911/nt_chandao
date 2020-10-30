@@ -566,7 +566,7 @@ export default class StoryCMobOptionViewBase extends Vue {
      * @memberof StoryCMobOptionViewBase
      */
     public initNavCaption(val:any,isCreate:boolean){
-        console.log(val,isCreate);
+        this.$viewTool.setViewTitleOfThirdParty(this.$t(this.model.srfCaption) as string);        
     }
 
 

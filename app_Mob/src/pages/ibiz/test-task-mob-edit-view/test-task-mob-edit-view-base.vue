@@ -750,7 +750,7 @@ export default class TestTaskMobEditViewBase extends Vue {
      * @memberof TestTaskMobEditViewBase
      */
     public initNavCaption(val:any,isCreate:boolean){
-        console.log(val,isCreate);
+        this.$viewTool.setViewTitleOfThirdParty(this.$t(this.model.srfCaption) as string);        
     }
 
 
