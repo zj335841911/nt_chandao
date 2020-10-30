@@ -307,6 +307,16 @@ export default {
 			status: "状态",
 			uagridcolumn1: "操作",
 		},
+    exportColumns: {
+			id: "编号",
+			date1: "日期",
+			type: "类型",
+			pri: "优先级",
+			name: "待办名称",
+			begin: "开始",
+			end: "结束",
+			status: "状态",
+    },
 		uiactions: {
 			todo_assignto: "指派",
 			todo_finish: "完成",
