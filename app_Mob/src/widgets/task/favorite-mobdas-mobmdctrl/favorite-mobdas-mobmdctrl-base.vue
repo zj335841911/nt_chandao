@@ -99,7 +99,6 @@
                 </div>
             </div>
             </div>
-            <div class="scrollToTop" @click="scrollToTop" ref="scroll" v-show="isEnableScrollTop && showScrollButton"> <van-icon name="back-top" /></div> 
             <div v-show="bottomLoadding &&  !allLoaded" class="loadding" >
                     <span>加载中</span>
                     <ion-spinner name="dots"></ion-spinner>
@@ -1049,30 +1048,6 @@ export default class FavoriteMOBDasBase extends Vue implements ControlInterface 
     }
 
     /**
-     * vue 生命周期
-     *
-     * @memberof FavoriteMOBDas
-     */
-    public mounted(){
-      let list:any = this.$refs.mdctrl;
-      let scroll:any = this.$refs.scroll;        
-      if(list){
-        list.addEventListener('touchend',()=>{
-          this.$store.commit('setPopupStatus',true)
-        }, false)
-        list.addEventListener('scroll', (e:any) => {
-          this.scroll(e);
-          if (scroll && list) {
-            if (list.scrollTop >= 500) {
-              this.showScrollButton = true;
-            }
-            scroll.style.opacity = (list.scrollTop-200) * 0.001;
-          }
-        }, false)
-      }
-    }
-
-    /**
      * 滚动条事件（计算是否到底部）
      *
      * @memberof FavoriteMOBDas
@@ -1291,43 +1266,6 @@ export default class FavoriteMOBDasBase extends Vue implements ControlInterface 
            }
         })
 
-    }
-
-    /**
-     * 是否开启置顶功能
-     *
-     * @type {GlobalUiService}
-     * @memberof FavoriteMOBDasBase
-     */
-    public isEnableScrollTop:boolean = true;
-
-    /**
-     * 显示置顶按钮
-     *
-     * @type {GlobalUiService}
-     * @memberof FavoriteMOBDasBase
-     */
-    public showScrollButton:boolean = false;
-
-    /**
-     * 滑回顶部
-     *
-     * @memberof FavoriteMOBDasBase
-     */
-    public scrollToTop(){
-      let mdctrl:any = this.$refs.mdctrl;
-      if (mdctrl) {  
-        requestAnimationFrame(function () {
-          let top:number = mdctrl.scrollTop;
-          let speed:number = top / 6;
-          if (top!= 0) {
-              mdctrl.scrollTop -= speed;
-          }
-        });
-        if (mdctrl.scrollTop != 0) {
-          requestAnimationFrame(this.scrollToTop);
-        }
-      }
     }
 
     /**

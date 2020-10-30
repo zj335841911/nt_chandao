@@ -10,7 +10,7 @@
 
     </ion-header>
 
-    <ion-content>
+    <ion-content >
                 <view_pickupviewpanel
             :viewState="viewState"
             viewName="ProductLineMobPickupView"  
@@ -544,6 +544,7 @@ export default class ProductLineMobPickupViewBase extends Vue {
     public initNavCaption(val:any,isCreate:boolean){
         this.$viewTool.setViewTitleOfThirdParty(this.$t(this.model.srfCaption) as string);        
     }
+
 
 
     /**

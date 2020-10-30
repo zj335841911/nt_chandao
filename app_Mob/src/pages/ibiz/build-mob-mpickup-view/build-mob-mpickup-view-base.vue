@@ -47,7 +47,7 @@
         </ion-footer>
     </van-popup>
     <div id="searchformbuildmobmpickupview"></div>
-    <ion-content>
+    <ion-content >
                 <view_pickupviewpanel
             :viewState="viewState"
             viewName="BuildMobMPickupView"  
@@ -583,6 +583,7 @@ export default class BuildMobMPickupViewBase extends Vue {
     public initNavCaption(val:any,isCreate:boolean){
         this.$viewTool.setViewTitleOfThirdParty(this.$t(this.model.srfCaption) as string);        
     }
+
 
     /**
      * 视图选中数据

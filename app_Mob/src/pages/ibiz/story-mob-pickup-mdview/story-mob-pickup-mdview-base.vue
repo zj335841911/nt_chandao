@@ -556,6 +556,7 @@ export default class StoryMobPickupMDViewBase extends Vue {
     }
 
 
+
    /**
      * 是否单选
      *

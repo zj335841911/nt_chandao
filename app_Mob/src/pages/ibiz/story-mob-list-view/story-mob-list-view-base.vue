@@ -7,7 +7,7 @@
     
     </ion-header>
 
-    <ion-content>
+    <ion-content >
                 <div>列表视图已废弃，请选择多数据视图</div>
     </ion-content>
 </ion-page>
@@ -575,6 +575,7 @@ export default class StoryMobListViewBase extends Vue {
     public initNavCaption(val:any,isCreate:boolean){
         this.$viewTool.setViewTitleOfThirdParty(this.$t(this.model.srfCaption) as string);        
     }
+
 
 
 }

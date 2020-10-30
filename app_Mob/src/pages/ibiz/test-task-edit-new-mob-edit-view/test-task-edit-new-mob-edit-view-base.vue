@@ -15,7 +15,7 @@
     
     </ion-header>
 
-    <ion-content>
+    <ion-content >
                 <view_form
             :viewState="viewState"
             viewName="TestTaskEditNewMobEditView"  
@@ -699,6 +699,7 @@ export default class TestTaskEditNewMobEditViewBase extends Vue {
     public initNavCaption(val:any,isCreate:boolean){
         this.$viewTool.setViewTitleOfThirdParty(this.$t(this.model.srfCaption) as string);        
     }
+
 
 
     /**

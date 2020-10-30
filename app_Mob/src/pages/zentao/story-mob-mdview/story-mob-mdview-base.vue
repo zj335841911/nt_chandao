@@ -50,7 +50,7 @@
         </ion-footer>
     </van-popup>
     <div id="searchformstorymobmdview"></div>
-    <ion-content>
+    <ion-content >
         <ion-refresher 
             slot="fixed" 
             ref="loadmore" 
@@ -902,6 +902,55 @@ export default class StoryMobMDViewBase extends Vue {
     public initNavCaption(val:any,isCreate:boolean){
         this.$viewTool.setViewTitleOfThirdParty(this.$t(this.model.srfCaption) as string);        
     }
+
+    /**
+     * onScroll滚动事件
+     *
+     * @memberof StoryMobMDViewBase
+     */
+    public onScroll(e:any){
+        this.isScrollStop = false;
+        if (e.detail.scrollTop>600) {
+            this.isShouleBackTop = true;
+        }else{
+            this.isShouleBackTop = false;
+        }
+    }
+
+    /**
+     * onScroll滚动结束事件
+     *
+     * @memberof StoryMobMDViewBase
+     */
+    public onScrollEnd(){
+        this.isScrollStop = true;
+    }
+
+    /**
+     * 返回顶部
+     *
+     * @memberof StoryMobMDViewBase
+     */
+    public onScrollToTop() {
+        let ionScroll:any = this.$refs.ionScroll;
+        if(ionScroll && ionScroll.scrollToTop && this.$util.isFunction(ionScroll.scrollToTop)){
+            ionScroll.scrollToTop(500);
+        }
+    }
+
+    /**
+     * 是否应该显示返回顶部按钮
+     *
+     * @memberof StoryMobMDViewBase
+     */
+    public isShouleBackTop = false;
+
+    /**
+     * 当前滚动条是否是停止状态
+     *
+     * @memberof StoryMobMDViewBase
+     */
+    public isScrollStop = true;
 
 
 

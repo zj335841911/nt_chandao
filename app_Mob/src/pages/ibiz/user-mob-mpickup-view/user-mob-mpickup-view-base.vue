@@ -19,7 +19,7 @@
 
     </ion-header>
 
-    <ion-content>
+    <ion-content >
                 <view_pickupviewpanel
             :viewState="viewState"
             viewName="UserMobMPickupView"  
@@ -553,6 +553,7 @@ export default class UserMobMPickupViewBase extends Vue {
     public initNavCaption(val:any,isCreate:boolean){
         this.$viewTool.setViewTitleOfThirdParty(this.$t(this.model.srfCaption) as string);        
     }
+
 
     /**
      * 视图选中数据

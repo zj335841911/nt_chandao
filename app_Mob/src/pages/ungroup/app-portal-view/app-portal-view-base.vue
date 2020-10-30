@@ -16,7 +16,7 @@
     
     </ion-header>
 
-    <ion-content>
+    <ion-content >
         <ion-refresher 
             slot="fixed" 
             ref="loadmore" 
@@ -503,6 +503,7 @@ export default class AppPortalViewBase extends Vue {
     public initNavCaption(val:any,isCreate:boolean){
         this.$viewTool.setViewTitleOfThirdParty(this.$t(this.model.srfCaption) as string);        
     }
+
 
 
     /**

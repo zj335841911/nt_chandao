@@ -569,6 +569,7 @@ export default class ProductMobPickupMDViewBase extends Vue {
     }
 
 
+
    /**
      * 是否单选
      *

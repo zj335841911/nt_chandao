@@ -598,6 +598,7 @@ if(this.formDruipart){
         this.$viewTool.setViewTitleOfThirdParty(this.$t(this.model.srfCaption) as string);        
     }
 
+
     /**
     * 界面关系通讯对象
     *

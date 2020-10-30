@@ -6,7 +6,7 @@
     
     </ion-header>
 
-    <ion-content>
+    <ion-content >
                 <view_calendar
             :viewState="viewState"
             viewName="IbzMyTerritoryMobCalendarView"  
@@ -553,6 +553,7 @@ export default class IbzMyTerritoryMobCalendarViewBase extends Vue {
     public initNavCaption(val:any,isCreate:boolean){
         this.$viewTool.setViewTitleOfThirdParty(this.$t(this.model.srfCaption) as string);        
     }
+
 
 
     /**

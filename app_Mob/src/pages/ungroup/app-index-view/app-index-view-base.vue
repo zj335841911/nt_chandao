@@ -454,6 +454,7 @@ export default class AppIndexViewBase extends Vue {
     }
 
 
+
     /**
      * 菜单位置
      *

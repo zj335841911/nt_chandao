@@ -580,6 +580,7 @@ export default class ProjectMobPickupMDViewBase extends Vue {
     }
 
 
+
    /**
      * 是否单选
      *

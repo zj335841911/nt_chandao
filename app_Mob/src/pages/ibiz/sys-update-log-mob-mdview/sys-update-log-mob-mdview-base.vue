@@ -16,7 +16,7 @@
     
     </ion-header>
 
-    <ion-content>
+    <ion-content >
                 <view_mdctrl
             :viewState="viewState"
             viewName="SysUpdateLogMobMDView"  
@@ -665,6 +665,55 @@ export default class SysUpdateLogMobMDViewBase extends Vue {
     public initNavCaption(val:any,isCreate:boolean){
         this.$viewTool.setViewTitleOfThirdParty(this.$t(this.model.srfCaption) as string);        
     }
+
+    /**
+     * onScroll滚动事件
+     *
+     * @memberof SysUpdateLogMobMDViewBase
+     */
+    public onScroll(e:any){
+        this.isScrollStop = false;
+        if (e.detail.scrollTop>600) {
+            this.isShouleBackTop = true;
+        }else{
+            this.isShouleBackTop = false;
+        }
+    }
+
+    /**
+     * onScroll滚动结束事件
+     *
+     * @memberof SysUpdateLogMobMDViewBase
+     */
+    public onScrollEnd(){
+        this.isScrollStop = true;
+    }
+
+    /**
+     * 返回顶部
+     *
+     * @memberof SysUpdateLogMobMDViewBase
+     */
+    public onScrollToTop() {
+        let ionScroll:any = this.$refs.ionScroll;
+        if(ionScroll && ionScroll.scrollToTop && this.$util.isFunction(ionScroll.scrollToTop)){
+            ionScroll.scrollToTop(500);
+        }
+    }
+
+    /**
+     * 是否应该显示返回顶部按钮
+     *
+     * @memberof SysUpdateLogMobMDViewBase
+     */
+    public isShouleBackTop = false;
+
+    /**
+     * 当前滚动条是否是停止状态
+     *
+     * @memberof SysUpdateLogMobMDViewBase
+     */
+    public isScrollStop = true;
 
 
     /**

@@ -554,6 +554,7 @@ export default class ProductLineMobPickupMDViewBase extends Vue {
     }
 
 
+
    /**
      * 是否单选
      *

@@ -32,7 +32,7 @@
                     </ion-toolbar>
     </ion-header>
 
-    <ion-content>
+    <ion-content >
                 <view_tabexppanel
             :viewState="viewState"
             viewName="ProductProdMobTabExpView"  
@@ -624,6 +624,7 @@ export default class ProductProdMobTabExpViewBase extends Vue {
     public initNavCaption(val:any,isCreate:boolean){
         this.$viewTool.setViewTitleOfThirdParty(this.$t(this.model.srfCaption) as string);        
     }
+
 
     /**
      * 加载模型

@@ -6,7 +6,7 @@
     
     </ion-header>
 
-    <ion-content>
+    <ion-content >
                 <view_dashboard
             :viewState="viewState"
             viewName="IbzMyTerritoryMobDashboardView"  
@@ -552,6 +552,7 @@ export default class IbzMyTerritoryMobDashboardViewBase extends Vue {
     public initNavCaption(val:any,isCreate:boolean){
         this.$viewTool.setViewTitleOfThirdParty(this.$t(this.model.srfCaption) as string);        
     }
+
 
 
 }

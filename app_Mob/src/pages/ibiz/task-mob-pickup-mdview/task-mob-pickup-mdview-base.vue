@@ -556,6 +556,7 @@ export default class TaskMobPickupMDViewBase extends Vue {
     }
 
 
+
    /**
      * 是否单选
      *
