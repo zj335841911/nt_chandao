@@ -101,6 +101,7 @@ export class Project_NewEditFormBase extends EditFormControlBase {
         projectname: null,
         overviews: null,
         report: null,
+        files: null,
         id: null,
         testreport:null,
     };
@@ -195,6 +196,8 @@ export class Project_NewEditFormBase extends EditFormControlBase {
         overviews: new FormItemModel({ caption: '概况', detailType: 'FORMITEM', name: 'overviews', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 
         report: new FormItemModel({ caption: '总结', detailType: 'FORMITEM', name: 'report', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+
+        files: new FormItemModel({ caption: '附件', detailType: 'FORMITEM', name: 'files', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 
         id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 0 }),
 
