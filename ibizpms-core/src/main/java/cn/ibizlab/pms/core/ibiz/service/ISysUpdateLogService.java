@@ -34,6 +34,7 @@ public interface ISysUpdateLogService extends IService<SysUpdateLog>{
     SysUpdateLog get(String key) ;
     SysUpdateLog getDraft(SysUpdateLog et) ;
     boolean checkKey(SysUpdateLog et) ;
+    SysUpdateLog getLastUpdateInfo(SysUpdateLog et) ;
     boolean save(SysUpdateLog et) ;
     void saveBatch(List<SysUpdateLog> list) ;
     Page<SysUpdateLog> searchDefault(SysUpdateLogSearchContext context) ;

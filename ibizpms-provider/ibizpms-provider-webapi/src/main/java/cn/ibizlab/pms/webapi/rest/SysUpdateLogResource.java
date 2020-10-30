@@ -121,6 +121,17 @@ public class SysUpdateLogResource {
         return  ResponseEntity.status(HttpStatus.OK).body(sysupdatelogService.checkKey(sysupdatelogMapping.toDomain(sysupdatelogdto)));
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-SysUpdateLog-GetLastUpdateInfo-all')")
+    @ApiOperation(value = "获取最新更新信息", tags = {"系统更新日志" },  notes = "获取最新更新信息")
+	@RequestMapping(method = RequestMethod.PUT, value = "/sysupdatelogs/{sysupdatelog_id}/getlastupdateinfo")
+    public ResponseEntity<SysUpdateLogDTO> getLastUpdateInfo(@PathVariable("sysupdatelog_id") String sysupdatelog_id, @RequestBody SysUpdateLogDTO sysupdatelogdto) {
+        SysUpdateLog domain = sysupdatelogMapping.toDomain(sysupdatelogdto);
+        domain.setSysupdatelogid(sysupdatelog_id);
+        domain = sysupdatelogService.getLastUpdateInfo(domain);
+        sysupdatelogdto = sysupdatelogMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(sysupdatelogdto);
+    }
+
     @PreAuthorize("hasPermission(this.sysupdatelogMapping.toDomain(#sysupdatelogdto),'pms-SysUpdateLog-Save')")
     @ApiOperation(value = "保存系统更新日志", tags = {"系统更新日志" },  notes = "保存系统更新日志")
 	@RequestMapping(method = RequestMethod.POST, value = "/sysupdatelogs/save")

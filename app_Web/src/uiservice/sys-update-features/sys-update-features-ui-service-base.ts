@@ -93,7 +93,7 @@ export default class SysUpdateFeaturesUIServiceBase extends UIService {
             viewname: 'editview',
             srfappde: 'sysupdatefeatures',
             component: 'sys-update-features-edit-view',
-            openmode: '',
+            openmode: 'DRAWER_RIGHT',
             title: '系统更新功能',
             width: 0,
             height: 0

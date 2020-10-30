@@ -93,7 +93,7 @@ export default class SysUpdateLogUIServiceBase extends UIService {
             viewname: 'editview',
             srfappde: 'sysupdatelogs',
             component: 'sys-update-log-edit-view',
-            openmode: '',
+            openmode: 'DRAWER_RIGHT',
             title: '系统更新日志',
             width: 0,
             height: 0

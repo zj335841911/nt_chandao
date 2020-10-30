@@ -233,6 +233,44 @@ mock.onPost(new RegExp(/^\/sysupdatelogs\/?([a-zA-Z0-9\-\;]{0,35})\/checkkey$/))
     return [status, data];
 });
         
+// GetLastUpdateInfo
+mock.onPut(new RegExp(/^\/sysupdatelogs\/?([a-zA-Z0-9\-\;]{0,35})\/getlastupdateinfo$/)).reply((config: any) => {
+    console.groupCollapsed("实体:sysupdatelog 方法: GetLastUpdateInfo");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }    
+    const paramArray:Array<any> = ['sysupdatelogid'];
+    const matchArray:any = new RegExp(/^\/sysupdatelogs\/([a-zA-Z0-9\-\;]{1,35})\/getlastupdateinfo$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    //let items = mockDatas ? mockDatas : [];
+    //let _items = items.find((item: any) => Object.is(item.sysupdatelogid, tempValue.sysupdatelogid));
+      let data = JSON.parse(config.data);
+    mockDatas.forEach((item)=>{
+        if(item['sysupdatelogid'] == tempValue['sysupdatelogid'] ){
+            for(let value in data){
+              if(item.hasOwnProperty(value)){
+                  item[value] = data[value];
+              }
+            }
+        }
+    })
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(data);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, data];
+});
+        
 // Save
 mock.onPost(new RegExp(/^\/sysupdatelogs\/?([a-zA-Z0-9\-\;]{0,35})\/save$/)).reply((config: any) => {
     console.groupCollapsed("实体:sysupdatelog 方法: Save");

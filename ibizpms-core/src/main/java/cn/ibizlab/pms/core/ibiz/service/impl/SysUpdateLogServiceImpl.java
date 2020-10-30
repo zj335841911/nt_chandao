@@ -116,6 +116,13 @@ public class SysUpdateLogServiceImpl extends ServiceImpl<SysUpdateLogMapper, Sys
     }
     @Override
     @Transactional
+    public SysUpdateLog getLastUpdateInfo(SysUpdateLog et) {
+        //自定义代码
+        return et;
+    }
+
+    @Override
+    @Transactional
     public boolean save(SysUpdateLog et) {
         if(!saveOrUpdate(et))
             return false;
