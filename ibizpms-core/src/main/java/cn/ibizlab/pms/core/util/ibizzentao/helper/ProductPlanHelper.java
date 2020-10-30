@@ -47,6 +47,7 @@ public class ProductPlanHelper extends ZTBaseHelper<ProductPlanMapper, ProductPl
         if (!this.retBool(this.baseMapper.insert(et)))
             return false;
         CachedBeanCopier.copy(get(et.getId()), et);
+//        fileHelper.updateObjectID(null, et.getId(), StaticDict.File__object_type.PROJECT.getValue());
 
         //Action
         actionHelper.create(StaticDict.Action__object_type.PRODUCTPLAN.getValue(), et.getId(), StaticDict.Action__type.OPENED.getValue(), "", "", null, true);
@@ -66,6 +67,7 @@ public class ProductPlanHelper extends ZTBaseHelper<ProductPlanMapper, ProductPl
         fileHelper.processImgURL(et, null, null);
         if (!this.internalUpdate(et))
             return false;
+//        fileHelper.updateObjectID(null, et.getId(), StaticDict.File__object_type.PRODUCTPLAN.getValue());
 
         List<History> changes = ChangeUtil.diff(old, et,null,new String[]{"begin","end","desc"},new String[]{"desc"});
         if (changes.size() > 0) {

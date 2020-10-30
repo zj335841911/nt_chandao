@@ -4,6 +4,7 @@ import cn.ibizlab.pms.core.ibiz.domain.ProductModule;
 import cn.ibizlab.pms.core.zentao.domain.*;
 import cn.ibizlab.pms.core.zentao.domain.Module;
 import cn.ibizlab.pms.core.zentao.mapper.ModuleMapper;
+import cn.ibizlab.pms.util.dict.StaticDict;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -87,12 +88,12 @@ public class ModuleHelper extends ZTBaseHelper<ModuleMapper, Module> {
 
             super.delete(module.getId());
         }
-        if("line".equals(et.getType())) {
+        if(StaticDict.Module__type.LINE.getValue().equals(et.getType())) {
             Product product = new Product();
             product.setLine(0l);
             productHelper.update(product,new QueryWrapper<Product>().eq("line", et.getId()));
         }
-        else if("story".equals(et.getType())) {
+        else if(StaticDict.Module__type.STORY.getValue().equals(et.getType())) {
             // Story
             Story story = new Story();
             story.setModule(parent);
@@ -109,7 +110,7 @@ public class ModuleHelper extends ZTBaseHelper<ModuleMapper, Module> {
             Case cases = new Case();
             cases.setModule(parent);
             caseHelper.update(cases, new QueryWrapper<Case>().last(String.format(" AND FIND_IN_SET(module,'%1$s')", modules)));
-        }else if("task".equals(et.getType())) {
+        }else if(StaticDict.Module__type.TASK.getValue().equals(et.getType())) {
             // Task
             Task task = new Task();
             task.setModule(parent);

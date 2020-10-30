@@ -2,11 +2,13 @@ package cn.ibizlab.pms.core.util.ibizzentao.helper;
 
 import cn.ibizlab.pms.core.util.ibizzentao.common.ChangeUtil;
 import cn.ibizlab.pms.core.util.ibizzentao.common.ZTDateUtil;
-import cn.ibizlab.pms.core.zentao.domain.*;
+import cn.ibizlab.pms.core.zentao.domain.Action;
+import cn.ibizlab.pms.core.zentao.domain.Bug;
+import cn.ibizlab.pms.core.zentao.domain.Build;
+import cn.ibizlab.pms.core.zentao.domain.History;
 import cn.ibizlab.pms.core.zentao.mapper.BuildMapper;
-import cn.ibizlab.pms.util.helper.CachedBeanCopier;
+import cn.ibizlab.pms.util.dict.StaticDict;
 import cn.ibizlab.pms.util.security.AuthenticationUser;
-import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -33,9 +35,11 @@ public class BuildHelper extends ZTBaseHelper<BuildMapper, Build> {
     public boolean create(Build et) {
         boolean bOk = false;
 
+        String files = et.getFiles();
         bOk = super.create(et);
+        fileHelper.updateObjectID(et.getId(), StaticDict.File__object_type.BUILD.getValue(), files);
 
-        actionHelper.create("build", et.getId(), "opened", "", "", null, true);
+        actionHelper.create(StaticDict.Action__object_type.BUILD.getValue(), et.getId(), StaticDict.Action__type.OPENED.getValue(), "", "", null, true);
 
         return bOk;
     }
@@ -45,12 +49,13 @@ public class BuildHelper extends ZTBaseHelper<BuildMapper, Build> {
         Build old = this.get(et.getId());
 
         fileHelper.processImgURL(et, null, null);
+        String files = et.getFiles();
         internalUpdate(et);
-        fileHelper.updateObjectID(null, et.getId(), "product");
+        fileHelper.updateObjectID(et.getId(), StaticDict.File__object_type.BUILD.getValue(), files);
 
         List<History> changes = ChangeUtil.diff(old, et);
         if (changes.size() > 0) {
-            Action action = actionHelper.create("build", et.getId(), "Edited", "", "", null, true);
+            Action action = actionHelper.create(StaticDict.Action__object_type.BUILD.getValue(), et.getId(), StaticDict.Action__type.EDITED.getValue(), "", "", null, true);
             actionHelper.logHistory(action.getId(), changes);
         }
         return true;
@@ -83,7 +88,7 @@ public class BuildHelper extends ZTBaseHelper<BuildMapper, Build> {
                 if (!("," + build.getStories() ).contains("," + storyId )) {
                     build.setStories(build.getStories() + "," + storyId);
                     internalUpdate(build);
-                    actionHelper.create("story", Long.parseLong(storyId), "linked2build",
+                    actionHelper.create(StaticDict.Action__object_type.STORY.getValue(), Long.parseLong(storyId), StaticDict.Action__type.LINKED2BUILD.getValue(),
                             "", String.valueOf(build.getId()), null, true);
                 }
             }
@@ -103,7 +108,7 @@ public class BuildHelper extends ZTBaseHelper<BuildMapper, Build> {
                     stories = stories.substring(1,stories.length()) ;
                 build.setStories(stories);
                 internalUpdate(build);
-                actionHelper.create("story", Long.parseLong(storyId), "unlinkedfrombuild",
+                actionHelper.create(StaticDict.Action__object_type.STORY.getValue(), Long.parseLong(storyId), StaticDict.Action__type.UNLINKEDFROMBUILD.getValue(),
                         "", String.valueOf(build.getId()), null, true);
             }
         }
@@ -130,10 +135,10 @@ public class BuildHelper extends ZTBaseHelper<BuildMapper, Build> {
             build.setBugs(bug);
             internalUpdate(build);
 
-            actionHelper.create("bug", Long.parseLong(bugId), "linked2bug",
+            actionHelper.create(StaticDict.Action__object_type.BUG.getValue(), Long.parseLong(bugId), StaticDict.Action__type.LINKED2BUG.getValue(),
                     "", String.valueOf(build.getId()), null, true);
             Bug bugs = bugHelper.get(Long.parseLong(bugId));
-            if("resolved".equals(bugs.getStatus()) || "closed".equals(bugs.getStatus())) {
+            if(StaticDict.Bug__status.RESOLVED.getValue().equals(bugs.getStatus()) || StaticDict.Bug__status.CLOSED.getValue().equals(bugs.getStatus())) {
                 i ++;
                 continue;
             }
@@ -143,7 +148,7 @@ public class BuildHelper extends ZTBaseHelper<BuildMapper, Build> {
             }
             Bug newBug = new Bug();
             newBug.setId(Long.parseLong(bugId));
-            newBug.setStatus("resolved");
+            newBug.setStatus(StaticDict.Bug__status.RESOLVED.getValue());
             newBug.setResolveddate(ZTDateUtil.now());
             newBug.setResolvedby(resolvedby);
             newBug.setConfirmed(1);
@@ -151,7 +156,7 @@ public class BuildHelper extends ZTBaseHelper<BuildMapper, Build> {
             newBug.setAssigneddate(ZTDateUtil.now());
             newBug.setLasteditedby(AuthenticationUser.getAuthenticationUser().getUsername());
             newBug.setLastediteddate(ZTDateUtil.now());
-            newBug.setResolution("fixed");
+            newBug.setResolution(StaticDict.Bug__resolution.FIXED.getValue());
             newBug.setResolvedbuild(String.valueOf(et.getId()));
             bugHelper.internalUpdate(newBug);
             i ++;
@@ -171,7 +176,7 @@ public class BuildHelper extends ZTBaseHelper<BuildMapper, Build> {
                     bugs = bugs.substring(1,bugs.length()) ;
                 build.setBugs(bugs);
                 internalUpdate(build);
-                actionHelper.create("bug", Long.parseLong(bugId), "unlinkedfrombuild",
+                actionHelper.create(StaticDict.Action__object_type.BUG.getValue(), Long.parseLong(bugId), StaticDict.Action__type.UNLINKEDFROMBUILD.getValue(),
                         "", String.valueOf(build.getId()), null, true);
             }
         }

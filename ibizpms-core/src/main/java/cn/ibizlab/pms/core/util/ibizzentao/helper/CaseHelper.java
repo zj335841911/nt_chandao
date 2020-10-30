@@ -4,23 +4,17 @@ import cn.ibizlab.pms.core.util.ibizzentao.common.ChangeUtil;
 import cn.ibizlab.pms.core.util.ibizzentao.common.ZTDateUtil;
 import cn.ibizlab.pms.core.zentao.domain.*;
 import cn.ibizlab.pms.core.zentao.mapper.CaseMapper;
-import cn.ibizlab.pms.core.zentao.service.IStoryService;
+import cn.ibizlab.pms.util.dict.StaticDict;
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
 import cn.ibizlab.pms.util.security.AuthenticationUser;
-import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
-import org.phprpc.util.PHPSerializer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.io.UnsupportedEncodingException;
-import java.lang.reflect.InvocationTargetException;
-import java.sql.Timestamp;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -29,6 +23,8 @@ import java.util.Map;
 @Slf4j
 public class CaseHelper extends ZTBaseHelper<CaseMapper, Case> {
 
+    @Autowired
+    FileHelper fileHelper;
 
     @Autowired
     ActionHelper actionHelper;
@@ -64,11 +60,13 @@ public class CaseHelper extends ZTBaseHelper<CaseMapper, Case> {
         }
         if(et.getStory() != null && et.getStory() != 0)
             et.setStoryversion(storyHelper.get(et.getStory()).getVersion());
+        String files = et.getFiles();
         boolean bOk = super.create(et);
         if (!bOk)
             return bOk;
+        fileHelper.updateObjectID(et.getId(), StaticDict.File__object_type.CASE.getValue(), files);
         createCaseStep(et,caseSteps);
-        actionHelper.create("case",et.getId(),"opened","","",null,true);
+        actionHelper.create(StaticDict.Action__object_type.CASE.getValue(),et.getId(),StaticDict.Action__type.OPENED.getValue(), "","",null,true);
 
         return bOk;
     }
@@ -123,15 +121,17 @@ public class CaseHelper extends ZTBaseHelper<CaseMapper, Case> {
         if (caseStepFlag)
             et.setVersion(old.getVersion() + 1);
 
+        String files = et.getFiles();
         boolean bOk = super.edit(et);
         if (!bOk)
             return bOk;
+        fileHelper.updateObjectID(et.getId(), StaticDict.File__object_type.CASE.getValue(), files);
         if (caseStepFlag)
             createCaseStep(et,caseSteps);
 
         List<History> changes = ChangeUtil.diff(old, et);
         if (changes.size() > 0) {
-            Action action = actionHelper.create("case", et.getId(), "edited", comment, "", null, true);
+            Action action = actionHelper.create(StaticDict.Action__object_type.CASE.getValue(), et.getId(), StaticDict.Action__type.EDITED.getValue(), comment, "", null, true);
             actionHelper.logHistory(action.getId(), changes);
         }
 
@@ -182,18 +182,18 @@ public class CaseHelper extends ZTBaseHelper<CaseMapper, Case> {
         Map<Integer, Object> stepResults = new HashMap<>();
         List<CaseStep> caseSteps = et.getCasestep();
         et = this.get(caseId);
-        String caseResult = "pass";
+        String caseResult = StaticDict.Testcase__result.PASS.getValue();
 
         if(caseSteps != null) {
             for(CaseStep caseStep : caseSteps) {
                 if(caseStep.getSteps() == null || "".equals(caseStep.getSteps())) {
                     if(caseStep.getReals() == null || "".equals(caseStep.getReals())) {
-                        caseStep.setSteps("pass");
+                        caseStep.setSteps(StaticDict.Testcase__result.PASS.getValue());
                     }else {
-                        caseStep.setSteps("fail");
+                        caseStep.setSteps(StaticDict.Testcase__result.FAIL.getValue());
                     }
                 }
-                if(!"n/a".equals(caseStep.getSteps()) && !"pass".equals(caseStep.getSteps())) {
+                if(!"n/a".equals(caseStep.getSteps()) && !StaticDict.Testcase__result.PASS.getValue().equals(caseStep.getSteps())) {
                     caseResult = caseStep.getSteps();
                     break;
                 }
@@ -201,9 +201,9 @@ public class CaseHelper extends ZTBaseHelper<CaseMapper, Case> {
             for(CaseStep caseStep : caseSteps) {
                 if(caseStep.getSteps() == null || "".equals(caseStep.getSteps())) {
                     if(caseStep.getReals() == null || "".equals(caseStep.getReals())) {
-                        caseStep.setSteps("pass");
+                        caseStep.setSteps(StaticDict.Testcase__result.PASS.getValue());
                     }else {
-                        caseStep.setSteps("fail");
+                        caseStep.setSteps(StaticDict.Testcase__result.FAIL.getValue());
                     }
                 }
                 Map<String, String> jsonObject = new HashMap<>();
@@ -237,7 +237,7 @@ public class CaseHelper extends ZTBaseHelper<CaseMapper, Case> {
         if(runId != null && runId != 0) {
             TestRun testRun = new TestRun();
             testRun.setId(runId);
-            testRun.setStatus("blocked".equals(caseResult) ? "blocked" : "done");
+            testRun.setStatus(StaticDict.Testrun__status.BLOCKED.getValue().equals(caseResult) ? StaticDict.Testrun__status.BLOCKED.getValue() : StaticDict.Testrun__status.DONE.getValue());
             testRun.setLastrundate(ZTDateUtil.now());
             testRun.setLastrunner(AuthenticationUser.getAuthenticationUser().getUsername());
             testRun.setLastrunresult(caseResult);
@@ -298,7 +298,7 @@ public class CaseHelper extends ZTBaseHelper<CaseMapper, Case> {
             old.setStoryversion(story.getVersion());
         }
         caseHelper.internalUpdate(old);
-        actionHelper.create("case",et.getId(),"confirmed",comment,"",null,true);
+        actionHelper.create(StaticDict.Action__object_type.CASE.getValue(), et.getId(),StaticDict.Action__type.CONFIRMED.getValue(), comment,"",null,true);
         //throw new RuntimeException("未实现");
         return et;
     }

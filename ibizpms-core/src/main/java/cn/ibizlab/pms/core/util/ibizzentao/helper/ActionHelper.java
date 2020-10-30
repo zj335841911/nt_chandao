@@ -8,21 +8,17 @@ import cn.ibizlab.pms.core.zentao.domain.ProjectProduct;
 import cn.ibizlab.pms.core.zentao.filter.ProjectProductSearchContext;
 import cn.ibizlab.pms.core.zentao.mapper.ActionMapper;
 import cn.ibizlab.pms.core.zentao.service.IProjectProductService;
-import cn.ibizlab.pms.util.helper.CachedBeanCopier;
+import cn.ibizlab.pms.util.dict.StaticDict;
 import cn.ibizlab.pms.util.security.AuthenticationUser;
 import com.alibaba.fastjson.JSONObject;
-import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.sql.Timestamp;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Component
 @Slf4j
@@ -96,9 +92,9 @@ public class ActionHelper extends ZTBaseHelper<ActionMapper, Action> {
         //set productid projectid
         et.setProduct(",0,");
         et.setProject(0l);
-        if (StringUtils.compare(objectType, "product") == 0) {
+        if (StringUtils.compare(objectType, StaticDict.Action__object_type.PRODUCT.getValue()) == 0) {
             et.setProduct("," + String.valueOf(objectID) + ",");
-        } else if (StringUtils.compare(objectType, "project") == 0) {
+        } else if (StringUtils.compare(objectType, StaticDict.Action__object_type.PROJECT.getValue()) == 0) {
             ProjectProductSearchContext ctx = new ProjectProductSearchContext();
             ctx.setN_project_eq(objectID);
             List<ProjectProduct> projectProducts = projectProductService.searchDefault(ctx).getContent();
@@ -149,7 +145,7 @@ public class ActionHelper extends ZTBaseHelper<ActionMapper, Action> {
         List<JSONObject> jsonObjectList = projectProductService.select(sql, null);
         JSONObject record = jsonObjectList.get(0);
 
-        if(objectType.equals("story")) {
+        if(objectType.equals(StaticDict.Action__object_type.STORY.getValue())) {
             String storySql = String.format("select project from zt_projectstory where story = %1$s ORDER BY project desc", objectId);
             List<JSONObject> list = projectProductService.select(storySql, null);
             if(list.size() > 0) {
@@ -157,7 +153,7 @@ public class ActionHelper extends ZTBaseHelper<ActionMapper, Action> {
             }else {
                 record.put("project", 0l);
             }
-        }else if(objectType.equals("release")) {
+        }else if(objectType.equals(StaticDict.Action__object_type.RELEASE.getValue())) {
             String releaseSql = String.format("select project from zt_build where id = %1$s ",record.getLongValue("build"));
             List<JSONObject> list = projectProductService.select(releaseSql, null);
             if(list.size() > 0) {
@@ -165,7 +161,7 @@ public class ActionHelper extends ZTBaseHelper<ActionMapper, Action> {
             }else {
                 record.put("project", 0l);
             }
-        }else if(objectType.equals("task")) {
+        }else if(objectType.equals(StaticDict.Action__object_type.TASK.getValue())) {
             if(record.getLongValue("story") != 0l) {
                 String storySql = String.format("select CONCAT_WS('',',',product,',') as product from zt_story where id = %1$s ", record.getLongValue("story"));
                 List<JSONObject> list = projectProductService.select(storySql, null);

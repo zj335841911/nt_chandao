@@ -26,10 +26,12 @@ public class TestReportHelper extends ZTBaseHelper<TestReportMapper, TestReport>
     @Override
     @Transactional
     public boolean create(TestReport et) {
+        String files = et.getFiles();
         boolean bOk = super.create(et);
         if (!bOk) {
             return bOk;
         }
+        fileHelper.updateObjectID(et.getId(),StaticDict.File__object_type.TESTREPORT.getValue(),files);
         actionHelper.create(StaticDict.Action__object_type.TESTREPORT.getValue(), et.getId(), StaticDict.Action__type.OPENED.getValue(), "", "", null, true);
 
         return true;

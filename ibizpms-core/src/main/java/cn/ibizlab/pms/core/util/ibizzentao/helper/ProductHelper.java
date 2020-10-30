@@ -7,6 +7,7 @@ import cn.ibizlab.pms.core.zentao.domain.History;
 import cn.ibizlab.pms.core.zentao.domain.Product;
 import cn.ibizlab.pms.core.zentao.mapper.ProductMapper;
 import cn.ibizlab.pms.core.zentao.service.IProductService;
+import cn.ibizlab.pms.util.dict.StaticDict;
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
@@ -53,6 +54,7 @@ public class ProductHelper extends ZTBaseHelper<ProductMapper, Product> {
         if (!this.retBool(this.baseMapper.insert(et)))
             return false;
         CachedBeanCopier.copy(get(et.getId()), et);
+//        fileHelper.updateObjectID(null, et.getId(), StaticDict.File__object_type.PRODUCT.getValue());
 
         //更新order
         et.setOrder(et.getId().intValue() * 5);
@@ -60,7 +62,7 @@ public class ProductHelper extends ZTBaseHelper<ProductMapper, Product> {
 
         //DocLib
         DocLib docLib = new DocLib();
-        docLib.setType("product");
+        docLib.setType(StaticDict.Doclib__type.PRODUCT.getValue());
         docLib.setProduct(et.getId());
         docLib.setName("产品主库");
         docLib.setMain(1);
@@ -68,7 +70,7 @@ public class ProductHelper extends ZTBaseHelper<ProductMapper, Product> {
         docLibHelper.create(docLib);
 
         //Action
-        actionHelper.create("product", et.getId(), "opened", "", "", null, true);
+        actionHelper.create(StaticDict.Action__object_type.PRODUCT.getValue(), et.getId(), StaticDict.Action__type.OPENED.getValue(), "", "", null, true);
 
         return true;
     }
@@ -97,10 +99,11 @@ public class ProductHelper extends ZTBaseHelper<ProductMapper, Product> {
         fileHelper.processImgURL(et, null, null);
         if (!this.internalUpdate(et))
             return false;
+//        fileHelper.updateObjectID(null, et.getId(), StaticDict.File__object_type.PRODUCT.getValue());
 
         List<History> changes = ChangeUtil.diff(old, et,null,null,diffAttrs);
         if (changes.size() > 0) {
-            Action action = actionHelper.create("product", et.getId(), "edited", "", "", null, true);
+            Action action = actionHelper.create(StaticDict.Action__object_type.PRODUCT.getValue(), et.getId(), StaticDict.Action__type.EDITED.getValue(), "", "", null, true);
             actionHelper.logHistory(action.getId(), changes);
         }
         return true;
@@ -133,11 +136,11 @@ public class ProductHelper extends ZTBaseHelper<ProductMapper, Product> {
         String comment = et.getComment();
         Product old = this.get(et.getId());
 
-        et.setStatus("closed");
+        et.setStatus(StaticDict.Product__status.CLOSED.getValue());
         this.internalUpdate(et);
         List<History> changes = ChangeUtil.diff(old, et);
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
-            Action action = actionHelper.create("product", et.getId(), "closed",
+            Action action = actionHelper.create(StaticDict.Action__object_type.PRODUCT.getValue(), et.getId(), StaticDict.Action__type.CLOSED.getValue(),
                     comment, "", null, true);
             if (changes.size() > 0)
                 actionHelper.logHistory(action.getId(), changes);
