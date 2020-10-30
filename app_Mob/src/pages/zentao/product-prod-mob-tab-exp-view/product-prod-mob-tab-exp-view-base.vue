@@ -637,17 +637,10 @@ export default class ProductProdMobTabExpViewBase extends Vue {
                     return;
                 }
                 const { data: _data } = response;
-                this.viewState.next({ tag: 'tabexppanel', action: 'loadmodel', data: _data});
                 if (_data.name) {
                     Object.assign(this.model, { dataInfo: _data.name });
-                    if(this.$tabPageExp){
-                        let _this:any = this;
-                        this.$tabPageExp.setCurPageCaption(_this.$t(this.model.srfCaption), _this.$t(this.model.srfCaption), _this.model.dataInfo);
-                    }
-                    if(this.$route){
-                        this.$route.meta.info = this.model.dataInfo;
-                    }
                     Object.assign(this.model, { srfCaption: `${this.$t(this.model.srfCaption)} - ${this.model.dataInfo}` });
+                    this.$viewTool.setViewTitleOfThirdParty(this.$t(this.model.srfCaption) as string);
                 }
             })
         }

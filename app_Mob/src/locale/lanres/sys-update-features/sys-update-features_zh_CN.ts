@@ -11,5 +11,6 @@ export default {
     upfeatures: "更新功能",
     featuresdesc: "功能描述",
     type: "更新类型",
+    displayorder: "展示顺序",
   },
 };
