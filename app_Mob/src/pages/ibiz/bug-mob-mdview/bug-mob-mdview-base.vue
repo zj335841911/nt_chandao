@@ -69,7 +69,7 @@
         </ion-footer>
     </van-popup>
     <div id="searchformbugmobmdview"></div>
-    <ion-content >
+    <ion-content :scroll-events="true" @ionScroll="onScroll" ref="ionScroll" @ionScrollEnd="onScrollEnd">
         <ion-refresher 
             slot="fixed" 
             ref="loadmore" 
@@ -111,6 +111,9 @@
             @load="mdctrl_load($event)"  
             @closeview="closeView($event)">
         </view_mdctrl>
+        <div class="scroll_tool">
+            <div class="scrollToTop" @click="onScrollToTop" v-show="isShouleBackTop" :style="{right:isScrollStop?'20px':'-25px'}" > <van-icon name="back-top" /></div> 
+        </div>
     </ion-content>
     <ion-footer class="view-footer">
         
