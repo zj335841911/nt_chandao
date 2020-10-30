@@ -21,7 +21,7 @@
                                 <div  class="table-order" v-if="item.hasOwnProperty('child_order_num') && i === 0"> {{ item.child_order_num }} </div>
                                 <div v-if="!isEdit" class="table-td">
                                     <slot :item="{row: item, index: index, column: col}">
-                                        {{ (col.render ? col.render(item[col.name]) : item[col.name]) }}
+                                        {{ (col.render ? col.render(gridItemCodelist(item,col)) : gridItemCodelist(item,col)) }}
                                     </slot>
                                 </div>
                                 <div v-if="isEdit" class="table-td-edit">
@@ -157,8 +157,6 @@ export default class GroupStepTable extends Vue {
                 num = 1;
                 data.order_num = order++;
             }
-            //解析表格项代码表
-            this.gridItemCodelist(data);
         });
         return datas;
     }
@@ -168,22 +166,18 @@ export default class GroupStepTable extends Vue {
      * 
      * @memberof GroupStepTable
      */
-    public gridItemCodelist(item: any){
-        if(this.cols && this.cols.length > 0){
-            this.cols.forEach((col: any)=>{
-                for(const key in item){
-                    if(Object.is(key,col.name) && col.codelistId){
-                        let codelist: any = this.$store.getters.getCodeList(col.codelistId);
-                        if(codelist){
-                            const data = codelist.items.find((code:any) => Object.is(code.value, item[key]));
-                            if(data){
-                                item[key] = data.text;
-                            }
-                        }
-                    }
+    public gridItemCodelist(item: any,col: any){
+        let gridItem = item[col.name];
+        if(col.codelistId){
+            let codelist: any = this.$store.getters.getCodeList(col.codelistId);
+            if(codelist){
+                const data = codelist.items.find((code:any) => Object.is(code.value, item[col.name]));
+                if(data){
+                    gridItem = data.text;
                 }
-            })
+            }
         }
+        return gridItem;
     }
 
     /**
