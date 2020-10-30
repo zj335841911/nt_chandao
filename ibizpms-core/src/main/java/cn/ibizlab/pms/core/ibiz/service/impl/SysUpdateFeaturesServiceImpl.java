@@ -161,6 +161,38 @@ public class SysUpdateFeaturesServiceImpl extends ServiceImpl<SysUpdateFeaturesM
         this.remove(new QueryWrapper<SysUpdateFeatures>().eq("sys_update_logid",sysupdatelogid));
     }
 
+    @Autowired
+    @Lazy
+    ISysUpdateFeaturesService proxyService;
+	@Override
+    public void saveBySysupdatelogid(String sysupdatelogid,List<SysUpdateFeatures> list) {
+        if(list==null)
+            return;
+        Set<String> delIds=new HashSet<String>();
+        List<SysUpdateFeatures> _update=new ArrayList<SysUpdateFeatures>();
+        List<SysUpdateFeatures> _create=new ArrayList<SysUpdateFeatures>();
+        for(SysUpdateFeatures before:selectBySysupdatelogid(sysupdatelogid)){
+            delIds.add(before.getSysupdatefeaturesid());
+        }
+        for(SysUpdateFeatures sub:list) {
+            sub.setSysupdatelogid(sysupdatelogid);
+            if(ObjectUtils.isEmpty(sub.getSysupdatefeaturesid()))
+                sub.setSysupdatefeaturesid((String)sub.getDefaultKey(true));
+            if(delIds.contains(sub.getSysupdatefeaturesid())) {
+                delIds.remove(sub.getSysupdatefeaturesid());
+                _update.add(sub);
+            }
+            else
+                _create.add(sub);
+        }
+        if(_update.size()>0)
+            proxyService.updateBatch(_update);
+        if(_create.size()>0)
+            proxyService.createBatch(_create);
+        if(delIds.size()>0)
+            proxyService.removeBatch(delIds);
+	}
+
 
     /**
      * 查询集合 数据集
