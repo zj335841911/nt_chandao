@@ -22,11 +22,13 @@ import story_zh_CN from '@locale/lanres/story/story_zh_CN';
 import ibzmyterritory_zh_CN from '@locale/lanres/ibz-my-territory/ibz-my-territory_zh_CN';
 import case_zh_CN from '@locale/lanres/case/case_zh_CN';
 import testmodule_zh_CN from '@locale/lanres/test-module/test-module_zh_CN';
+import sysupdatefeatures_zh_CN from '@locale/lanres/sys-update-features/sys-update-features_zh_CN';
 import productplan_zh_CN from '@locale/lanres/product-plan/product-plan_zh_CN';
 import ibztaskestimate_zh_CN from '@locale/lanres/ibz-taskestimate/ibz-taskestimate_zh_CN';
 import projectstats_zh_CN from '@locale/lanres/project-stats/project-stats_zh_CN';
 import sysemployee_zh_CN from '@locale/lanres/sys-employee/sys-employee_zh_CN';
 import ibztaskteam_zh_CN from '@locale/lanres/ibztaskteam/ibztaskteam_zh_CN';
+import sysupdatelog_zh_CN from '@locale/lanres/sys-update-log/sys-update-log_zh_CN';
 import bug_zh_CN from '@locale/lanres/bug/bug_zh_CN';
 import projectmodule_zh_CN from '@locale/lanres/project-module/project-module_zh_CN';
 import productstats_zh_CN from '@locale/lanres/product-stats/product-stats_zh_CN';
@@ -194,11 +196,13 @@ export default {
     ibzmyterritory: ibzmyterritory_zh_CN,
     case: case_zh_CN,
     testmodule: testmodule_zh_CN,
+    sysupdatefeatures: sysupdatefeatures_zh_CN,
     productplan: productplan_zh_CN,
     ibztaskestimate: ibztaskestimate_zh_CN,
     projectstats: projectstats_zh_CN,
     sysemployee: sysemployee_zh_CN,
     ibztaskteam: ibztaskteam_zh_CN,
+    sysupdatelog: sysupdatelog_zh_CN,
     bug: bug_zh_CN,
     projectmodule: projectmodule_zh_CN,
     productstats: productstats_zh_CN,

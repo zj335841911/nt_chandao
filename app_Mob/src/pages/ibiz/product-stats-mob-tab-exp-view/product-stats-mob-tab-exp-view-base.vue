@@ -1,3 +1,4 @@
+
 <template>
 <ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobtabexpview': true, 'product-stats-mob-tab-exp-view': true }">
     
@@ -630,6 +631,35 @@ export default class ProductStatsMobTabExpViewBase extends Vue {
      */
     public initNavCaption(val:any,isCreate:boolean){
         console.log(val,isCreate);
+    }
+
+    /**
+     * 加载模型
+     * 
+     * @memberof ProductStatsMobTabExpViewBase
+     */
+    public loadModel(){
+        if(this.context.productstats){
+            this.appEntityService.getDataInfo(JSON.parse(JSON.stringify(this.context)),{},false).then((response:any) =>{
+                if (!response || response.status !== 200) {
+                    return;
+                }
+                const { data: _data } = response;
+                this.engine.computeToolbarState(false,_data);
+                this.viewState.next({ tag: 'tabexppanel', action: 'loadmodel', data: _data});
+                if (_data.name) {
+                    Object.assign(this.model, { dataInfo: _data.name });
+                    if(this.$tabPageExp){
+                        let _this:any = this;
+                        this.$tabPageExp.setCurPageCaption(_this.$t(this.model.srfCaption), _this.$t(this.model.srfCaption), _this.model.dataInfo);
+                    }
+                    if(this.$route){
+                        this.$route.meta.info = this.model.dataInfo;
+                    }
+                    Object.assign(this.model, { srfCaption: `${this.$t(this.model.srfCaption)} - ${this.model.dataInfo}` });
+                }
+            })
+        }
     }
 
 

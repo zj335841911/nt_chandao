@@ -40,11 +40,13 @@ export class AppEntityServiceConstructor extends ServiceConstructorBase {
         this.allService.set('ibzmyterritory', () => import('@/app-core/service/ibz-my-territory/ibz-my-territory-service'));
         this.allService.set('case', () => import('@/app-core/service/case/case-service'));
         this.allService.set('testmodule', () => import('@/app-core/service/test-module/test-module-service'));
+        this.allService.set('sysupdatefeatures', () => import('@/app-core/service/sys-update-features/sys-update-features-service'));
         this.allService.set('productplan', () => import('@/app-core/service/product-plan/product-plan-service'));
         this.allService.set('ibztaskestimate', () => import('@/app-core/service/ibz-taskestimate/ibz-taskestimate-service'));
         this.allService.set('projectstats', () => import('@/app-core/service/project-stats/project-stats-service'));
         this.allService.set('sysemployee', () => import('@/app-core/service/sys-employee/sys-employee-service'));
         this.allService.set('ibztaskteam', () => import('@/app-core/service/ibztaskteam/ibztaskteam-service'));
+        this.allService.set('sysupdatelog', () => import('@/app-core/service/sys-update-log/sys-update-log-service'));
         this.allService.set('bug', () => import('@/app-core/service/bug/bug-service'));
         this.allService.set('projectmodule', () => import('@/app-core/service/project-module/project-module-service'));
         this.allService.set('productstats', () => import('@/app-core/service/product-stats/product-stats-service'));

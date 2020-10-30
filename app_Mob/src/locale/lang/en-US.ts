@@ -22,11 +22,13 @@ import story_en_US from '@locale/lanres/story/story_en_US';
 import ibzmyterritory_en_US from '@locale/lanres/ibz-my-territory/ibz-my-territory_en_US';
 import case_en_US from '@locale/lanres/case/case_en_US';
 import testmodule_en_US from '@locale/lanres/test-module/test-module_en_US';
+import sysupdatefeatures_en_US from '@locale/lanres/sys-update-features/sys-update-features_en_US';
 import productplan_en_US from '@locale/lanres/product-plan/product-plan_en_US';
 import ibztaskestimate_en_US from '@locale/lanres/ibz-taskestimate/ibz-taskestimate_en_US';
 import projectstats_en_US from '@locale/lanres/project-stats/project-stats_en_US';
 import sysemployee_en_US from '@locale/lanres/sys-employee/sys-employee_en_US';
 import ibztaskteam_en_US from '@locale/lanres/ibztaskteam/ibztaskteam_en_US';
+import sysupdatelog_en_US from '@locale/lanres/sys-update-log/sys-update-log_en_US';
 import bug_en_US from '@locale/lanres/bug/bug_en_US';
 import projectmodule_en_US from '@locale/lanres/project-module/project-module_en_US';
 import productstats_en_US from '@locale/lanres/product-stats/product-stats_en_US';
@@ -193,11 +195,13 @@ export default {
     ibzmyterritory: ibzmyterritory_en_US,
     case: case_en_US,
     testmodule: testmodule_en_US,
+    sysupdatefeatures: sysupdatefeatures_en_US,
     productplan: productplan_en_US,
     ibztaskestimate: ibztaskestimate_en_US,
     projectstats: projectstats_en_US,
     sysemployee: sysemployee_en_US,
     ibztaskteam: ibztaskteam_en_US,
+    sysupdatelog: sysupdatelog_en_US,
     bug: bug_en_US,
     projectmodule: projectmodule_en_US,
     productstats: productstats_en_US,
