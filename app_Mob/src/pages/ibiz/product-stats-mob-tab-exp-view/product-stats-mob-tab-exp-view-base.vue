@@ -645,7 +645,6 @@ export default class ProductStatsMobTabExpViewBase extends Vue {
                     return;
                 }
                 const { data: _data } = response;
-                this.engine.computeToolbarState(false,_data);
                 this.viewState.next({ tag: 'tabexppanel', action: 'loadmodel', data: _data});
                 if (_data.name) {
                     Object.assign(this.model, { dataInfo: _data.name });
