@@ -16,6 +16,7 @@
 *** 用例库
 *** 用户
 *** iBiz软件生产管理
+*** 更新日志
 ** 左侧分页导航
 *** 产品
 *** 项目
@@ -46,6 +47,7 @@
 |用例库|[查看功能](func/IbzLibGridView.md)|
 |用户|-|
 |iBiz软件生产管理|[查看功能](func/ProductHtmlView.md)|
+|更新日志|[查看功能](func/SysUpdateLogGridView.md)|
 |左侧分页导航|-|
 |产品|[查看功能](func/ProductLeftSidebarListView.md)|
 |项目|[查看功能](func/ProjectLeftSidebarListView.md)|

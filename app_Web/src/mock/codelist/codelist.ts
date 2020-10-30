@@ -712,6 +712,14 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
+        "srfkey": "SysOperator",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"",
+        "appdedataset":"",
+        "items": []
+    },
+    {
         "srfkey": "UserRealNameW",
         "emptytext": "未指派",
         "codelisttype":"dynamic",
@@ -3309,6 +3317,35 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         "appdataentity":"ProductPlan",
         "appdedataset":"FetchCurProductPlan",
         "items": []
+    },
+    {
+        srfkey: "SYS_UPDATE_LOG_TYPE",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "10",
+                label: "功能增强",
+                text: "功能增强",
+                "data":"",
+                "codename":"Item_10",
+                "color": "rgba(217, 4, 4, 1)",
+                value: "10",
+                
+                disabled: false,
+            },
+            {
+                id: "20",
+                label: "优化",
+                text: "优化",
+                "data":"",
+                "codename":"Item_20",
+                "color": "rgba(97, 207, 13, 1)",
+                value: "20",
+                
+                disabled: false,
+            },
+        ]
     },
     {
         srfkey: "Task__pri",

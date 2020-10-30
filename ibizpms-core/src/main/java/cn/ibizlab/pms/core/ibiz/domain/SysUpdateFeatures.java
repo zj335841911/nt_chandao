@@ -94,11 +94,39 @@ public class SysUpdateFeatures extends EntityMP implements Serializable {
     /**
      * 系统更新日志标识
      */
-    @DEField(name = "sys_update_log")
-    @TableField(value = "`sys_update_log`")
-    @JSONField(name = "sys_update_log")
-    @JsonProperty("sys_update_log")
-    private String sysUpdateLog;
+    @DEField(name = "sys_update_logid")
+    @TableField(value = "`sys_update_logid`")
+    @JSONField(name = "sysupdatelogid")
+    @JsonProperty("sysupdatelogid")
+    private String sysupdatelogid;
+    /**
+     * 所属更新
+     */
+    @TableField(exist = false)
+    @JSONField(name = "sysupdatelogname")
+    @JsonProperty("sysupdatelogname")
+    private String sysupdatelogname;
+    /**
+     * 更新功能
+     */
+    @TableField(value = "`upfeatures`")
+    @JSONField(name = "upfeatures")
+    @JsonProperty("upfeatures")
+    private String upfeatures;
+    /**
+     * 功能描述
+     */
+    @TableField(value = "`featuresdesc`")
+    @JSONField(name = "featuresdesc")
+    @JsonProperty("featuresdesc")
+    private String featuresdesc;
+    /**
+     * 更新类型
+     */
+    @TableField(value = "`type`")
+    @JSONField(name = "type")
+    @JsonProperty("type")
+    private String type;
 
     /**
      * 
@@ -121,9 +149,33 @@ public class SysUpdateFeatures extends EntityMP implements Serializable {
     /**
      * 设置 [系统更新日志标识]
      */
-    public void setSysUpdateLog(String sysUpdateLog){
-        this.sysUpdateLog = sysUpdateLog ;
-        this.modify("sys_update_log",sysUpdateLog);
+    public void setSysupdatelogid(String sysupdatelogid){
+        this.sysupdatelogid = sysupdatelogid ;
+        this.modify("sys_update_logid",sysupdatelogid);
+    }
+
+    /**
+     * 设置 [更新功能]
+     */
+    public void setUpfeatures(String upfeatures){
+        this.upfeatures = upfeatures ;
+        this.modify("upfeatures",upfeatures);
+    }
+
+    /**
+     * 设置 [功能描述]
+     */
+    public void setFeaturesdesc(String featuresdesc){
+        this.featuresdesc = featuresdesc ;
+        this.modify("featuresdesc",featuresdesc);
+    }
+
+    /**
+     * 设置 [更新类型]
+     */
+    public void setType(String type){
+        this.type = type ;
+        this.modify("type",type);
     }
 
 

@@ -18,7 +18,11 @@ hide members
 |更新人|UPDATEMAN|TEXT|&nbsp;|
 |建立时间|CREATEDATE|DATETIME|&nbsp;|
 |更新时间|UPDATEDATE|DATETIME|&nbsp;|
-|系统更新日志标识|SYS_UPDATE_LOG|PICKUP|&nbsp;|
+|系统更新日志标识|SYS_UPDATE_LOGID|PICKUP|&nbsp;|
+|所属更新|SYS_UPDATE_LOGNAME|PICKUPTEXT|&nbsp;|
+|更新功能|UPFEATURES|TEXT|&nbsp;|
+|功能描述|FEATURESDESC|HTMLTEXT|&nbsp;|
+|更新类型|TYPE|SSCODELIST|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -30,6 +34,10 @@ hide members
 |建立时间|默认规则|默认规则|
 |更新时间|默认规则|默认规则|
 |系统更新日志标识|默认规则|内容长度必须小于等于[100]|
+|所属更新|默认规则|内容长度必须小于等于[200]|
+|更新功能|默认规则|内容长度必须小于等于[100]|
+|功能描述|默认规则|内容长度必须小于等于[1048576]|
+|更新类型|默认规则|内容长度必须小于等于[60]|
 
 ## 状态控制
 
@@ -69,7 +77,10 @@ hide members
 | 属性      |    搜索模式     |
 | --------   |------------|
 |系统更新功能名称(SYS_UPDATE_FEATURESNAME)|LIKE|
-|系统更新日志标识(SYS_UPDATE_LOG)|EQ|
+|系统更新日志标识(SYS_UPDATE_LOGID)|EQ|
+|所属更新(SYS_UPDATE_LOGNAME)|EQ|
+|所属更新(SYS_UPDATE_LOGNAME)|LIKE|
+|更新类型(TYPE)|EQ|
 
 ## 导入模式
 无

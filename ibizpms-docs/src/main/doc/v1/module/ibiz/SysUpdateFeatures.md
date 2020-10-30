@@ -14,7 +14,11 @@
 | 4 | [更新人](#属性-更新人（UPDATEMAN）) | UPDATEMAN | TEXT | 否 | 否 | 否 |
 | 5 | [建立时间](#属性-建立时间（CREATEDATE）) | CREATEDATE | DATETIME | 否 | 否 | 否 |
 | 6 | [更新时间](#属性-更新时间（UPDATEDATE）) | UPDATEDATE | DATETIME | 否 | 否 | 否 |
-| 7 | [系统更新日志标识](#属性-系统更新日志标识（SYS_UPDATE_LOG）) | SYS_UPDATE_LOG | PICKUP | 否 | 是 | 是 |
+| 7 | [系统更新日志标识](#属性-系统更新日志标识（SYS_UPDATE_LOGID）) | SYS_UPDATE_LOGID | PICKUP | 否 | 是 | 是 |
+| 8 | [所属更新](#属性-所属更新（SYS_UPDATE_LOGNAME）) | SYS_UPDATE_LOGNAME | PICKUPTEXT | 否 | 是 | 是 |
+| 9 | [更新功能](#属性-更新功能（UPFEATURES）) | UPFEATURES | TEXT | 否 | 是 | 是 |
+| 10 | [功能描述](#属性-功能描述（FEATURESDESC）) | FEATURESDESC | HTMLTEXT | 否 | 是 | 是 |
+| 11 | [更新类型](#属性-更新类型（TYPE）) | TYPE | SSCODELIST | 否 | 是 | 是 |
 
 ### 属性-系统更新功能名称（SYS_UPDATE_FEATURESNAME）
 #### 属性说明
@@ -48,7 +52,7 @@ String
 | 项目 | 说明 |
 | -- | -- |
 | 关系实体 | [系统更新日志（SYS_UPDATE_LOG）](../ibiz/SysUpdateLog) |
-| 关系属性 | [系统更新日志标识（SYS_UPDATE_LOGID）](../ibiz/SysUpdateLog/#属性-系统更新日志标识（SYS_UPDATE_LOGID）) |
+| 关系属性 | [更新名称（SYS_UPDATE_LOGNAME）](../ibiz/SysUpdateLog/#属性-更新名称（SYS_UPDATE_LOGNAME）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
 
 ### 属性-系统更新功能标识（SYS_UPDATE_FEATURESID）
@@ -83,7 +87,7 @@ String
 | 项目 | 说明 |
 | -- | -- |
 | 关系实体 | [系统更新日志（SYS_UPDATE_LOG）](../ibiz/SysUpdateLog) |
-| 关系属性 | [系统更新日志标识（SYS_UPDATE_LOGID）](../ibiz/SysUpdateLog/#属性-系统更新日志标识（SYS_UPDATE_LOGID）) |
+| 关系属性 | [更新名称（SYS_UPDATE_LOGNAME）](../ibiz/SysUpdateLog/#属性-更新名称（SYS_UPDATE_LOGNAME）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
 
 ### 属性-建立人（CREATEMAN）
@@ -118,7 +122,7 @@ String
 | 项目 | 说明 |
 | -- | -- |
 | 关系实体 | [系统更新日志（SYS_UPDATE_LOG）](../ibiz/SysUpdateLog) |
-| 关系属性 | [系统更新日志标识（SYS_UPDATE_LOGID）](../ibiz/SysUpdateLog/#属性-系统更新日志标识（SYS_UPDATE_LOGID）) |
+| 关系属性 | [更新名称（SYS_UPDATE_LOGNAME）](../ibiz/SysUpdateLog/#属性-更新名称（SYS_UPDATE_LOGNAME）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
 
 ### 属性-更新人（UPDATEMAN）
@@ -153,7 +157,7 @@ String
 | 项目 | 说明 |
 | -- | -- |
 | 关系实体 | [系统更新日志（SYS_UPDATE_LOG）](../ibiz/SysUpdateLog) |
-| 关系属性 | [系统更新日志标识（SYS_UPDATE_LOGID）](../ibiz/SysUpdateLog/#属性-系统更新日志标识（SYS_UPDATE_LOGID）) |
+| 关系属性 | [更新名称（SYS_UPDATE_LOGNAME）](../ibiz/SysUpdateLog/#属性-更新名称（SYS_UPDATE_LOGNAME）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
 
 ### 属性-建立时间（CREATEDATE）
@@ -188,7 +192,7 @@ Timestamp
 | 项目 | 说明 |
 | -- | -- |
 | 关系实体 | [系统更新日志（SYS_UPDATE_LOG）](../ibiz/SysUpdateLog) |
-| 关系属性 | [系统更新日志标识（SYS_UPDATE_LOGID）](../ibiz/SysUpdateLog/#属性-系统更新日志标识（SYS_UPDATE_LOGID）) |
+| 关系属性 | [更新名称（SYS_UPDATE_LOGNAME）](../ibiz/SysUpdateLog/#属性-更新名称（SYS_UPDATE_LOGNAME）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
 
 ### 属性-更新时间（UPDATEDATE）
@@ -223,10 +227,10 @@ Timestamp
 | 项目 | 说明 |
 | -- | -- |
 | 关系实体 | [系统更新日志（SYS_UPDATE_LOG）](../ibiz/SysUpdateLog) |
-| 关系属性 | [系统更新日志标识（SYS_UPDATE_LOGID）](../ibiz/SysUpdateLog/#属性-系统更新日志标识（SYS_UPDATE_LOGID）) |
+| 关系属性 | [更新名称（SYS_UPDATE_LOGNAME）](../ibiz/SysUpdateLog/#属性-更新名称（SYS_UPDATE_LOGNAME）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
 
-### 属性-系统更新日志标识（SYS_UPDATE_LOG）
+### 属性-系统更新日志标识（SYS_UPDATE_LOGID）
 #### 属性说明
 系统更新日志标识
 
@@ -259,6 +263,146 @@ String
 | -- | -- |
 | 关系实体 | [系统更新日志（SYS_UPDATE_LOG）](../ibiz/SysUpdateLog) |
 | 关系属性 | [系统更新日志标识（SYS_UPDATE_LOGID）](../ibiz/SysUpdateLog/#属性-系统更新日志标识（SYS_UPDATE_LOGID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-所属更新（SYS_UPDATE_LOGNAME）
+#### 属性说明
+所属更新
+
+#### 属性类型
+链接字段[来自关系实体字段]
+
+#### 数据类型
+外键值文本
+
+#### Java类型
+String
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [系统更新日志（SYS_UPDATE_LOG）](../ibiz/SysUpdateLog) |
+| 关系属性 | [更新名称（SYS_UPDATE_LOGNAME）](../ibiz/SysUpdateLog/#属性-更新名称（SYS_UPDATE_LOGNAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-更新功能（UPFEATURES）
+#### 属性说明
+更新功能
+
+#### 属性类型
+物理字段[来自当前实体物理表字段]
+
+#### 数据类型
+文本，可指定长度
+
+#### Java类型
+String
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [系统更新日志（SYS_UPDATE_LOG）](../ibiz/SysUpdateLog) |
+| 关系属性 | [更新名称（SYS_UPDATE_LOGNAME）](../ibiz/SysUpdateLog/#属性-更新名称（SYS_UPDATE_LOGNAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-功能描述（FEATURESDESC）
+#### 属性说明
+功能描述
+
+#### 属性类型
+物理字段[来自当前实体物理表字段]
+
+#### 数据类型
+HTML文本，没有长度限制
+
+#### Java类型
+String
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [系统更新日志（SYS_UPDATE_LOG）](../ibiz/SysUpdateLog) |
+| 关系属性 | [更新名称（SYS_UPDATE_LOGNAME）](../ibiz/SysUpdateLog/#属性-更新名称（SYS_UPDATE_LOGNAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-更新类型（TYPE）
+#### 属性说明
+更新类型
+
+#### 属性类型
+物理字段[来自当前实体物理表字段]
+
+#### 数据类型
+单项选择(文本值)
+
+#### Java类型
+String
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+参照数据字典【[系统更新类型（SYS_UPDATE_LOG_TYPE）](../../codelist/SYS_UPDATE_LOG_TYPE)】
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [系统更新日志（SYS_UPDATE_LOG）](../ibiz/SysUpdateLog) |
+| 关系属性 | [更新名称（SYS_UPDATE_LOGNAME）](../ibiz/SysUpdateLog/#属性-更新名称（SYS_UPDATE_LOGNAME）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
 
 

@@ -60,12 +60,14 @@ import testreport_en_US from '@locale/lanres/entities/test-report/test-report_en
 import projectstats_en_US from '@locale/lanres/entities/project-stats/project-stats_en_US';
 import testrun_en_US from '@locale/lanres/entities/test-run/test-run_en_US';
 import ibzmyterritory_en_US from '@locale/lanres/entities/ibz-my-territory/ibz-my-territory_en_US';
+import sysupdatelog_en_US from '@locale/lanres/entities/sys-update-log/sys-update-log_en_US';
 import bug_en_US from '@locale/lanres/entities/bug/bug_en_US';
 import projectmodule_en_US from '@locale/lanres/entities/project-module/project-module_en_US';
 import ibzdoc_en_US from '@locale/lanres/entities/ibz-doc/ibz-doc_en_US';
 import pssysapp_en_US from '@locale/lanres/entities/pssys-app/pssys-app_en_US';
 import ibzcase_en_US from '@locale/lanres/entities/ibz-case/ibz-case_en_US';
 import pssystemdbcfg_en_US from '@locale/lanres/entities/pssystem-dbcfg/pssystem-dbcfg_en_US';
+import sysupdatefeatures_en_US from '@locale/lanres/entities/sys-update-features/sys-update-features_en_US';
 import release_en_US from '@locale/lanres/entities/release/release_en_US';
 import dynadashboard_en_US from '@locale/lanres/entities/dyna-dashboard/dyna-dashboard_en_US';
 import sysemployee_en_US from '@locale/lanres/entities/sys-employee/sys-employee_en_US';
@@ -213,6 +215,7 @@ const data: any = {
                 menuitem10: "用例库",
                 menuitem11: "用户",
                 menuitem7: "iBiz软件生产管理",
+                menuitem8: "更新日志",
                 left_exp: "左侧分页导航",
                 menuitem4: "产品",
                 menuitem5: "项目",
@@ -385,12 +388,14 @@ const data: any = {
         projectstats: projectstats_en_US,
         testrun: testrun_en_US,
         ibzmyterritory: ibzmyterritory_en_US,
+        sysupdatelog: sysupdatelog_en_US,
         bug: bug_en_US,
         projectmodule: projectmodule_en_US,
         ibzdoc: ibzdoc_en_US,
         pssysapp: pssysapp_en_US,
         ibzcase: ibzcase_en_US,
         pssystemdbcfg: pssystemdbcfg_en_US,
+        sysupdatefeatures: sysupdatefeatures_en_US,
         release: release_en_US,
         dynadashboard: dynadashboard_en_US,
         sysemployee: sysemployee_en_US,

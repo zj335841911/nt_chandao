@@ -107,6 +107,9 @@ export default {
         "on": "暂时不设定时间",
         "empty": "",
     },
+    SysOperator: {
+        "empty": "",
+    },
     UserRealNameW: {
         "empty": "未指派",
     },
@@ -435,6 +438,11 @@ export default {
         "empty": "",
     },
     ProductPlan: {
+        "empty": "",
+    },
+    SYS_UPDATE_LOG_TYPE: {
+        "10": "功能增强",
+        "20": "优化",
         "empty": "",
     },
     Task__pri: {

@@ -2255,6 +2255,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "BugEditView_4791",
             "viewtag": "a46256cb1bcfceabf09ad93f33e766a1"
         },
+        "sysupdatefeatureseditview": {
+            "title": "系统更新功能编辑视图",
+            "caption": "系统更新功能",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "SysUpdateFeaturesEditView",
+            "viewtag": "a46f39b0d36c98b4e2fd74b7051fda79"
+        },
         "projectgridview9": {
             "title": "项目表格视图",
             "caption": "项目",
@@ -2542,6 +2550,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "Ungroup",
             "viewname": "StoryMyFavoritesGridView",
             "viewtag": "b7e6268db4bdeb10211fc15383de685d"
+        },
+        "sysupdatefeaturesgridview": {
+            "title": "系统更新功能表格视图",
+            "caption": "系统更新功能",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "SysUpdateFeaturesGridView",
+            "viewtag": "b7f6ef0166a2f8f4cb554e7db6814c75"
         },
         "bugstatsassigntogridview": {
             "title": "Bug统计表格视图（Bug指派表）",
@@ -3055,6 +3071,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "IbzMyTerritoryDashboardView",
             "viewtag": "d8df5ca51341d33ccc19208dde3f2cce"
         },
+        "sysupdatefeaturesinfoeditview": {
+            "title": "系统更新功能编辑视图",
+            "caption": "系统更新功能",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "SysUpdateFeaturesInfoEditView",
+            "viewtag": "d97806e4d30ee03bfd34d5df8f96b0a4"
+        },
         "bugprojectbugsgridview": {
             "title": "Bug实体表格视图(项目遗留得Bug)",
             "caption": "Bug",
@@ -3255,6 +3279,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "IbzLibGridView",
             "viewtag": "e698418f007d36b627d6af23c1042f31"
         },
+        "sysupdateloginfoeditview": {
+            "title": "系统更新日志编辑视图",
+            "caption": "系统更新日志",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "SysUpdateLogInfoEditView",
+            "viewtag": "e77b0ab085994e29f1906ab1b90a2f53"
+        },
         "productsumqachartview9": {
             "title": "产品汇总表图表视图",
             "caption": "产品汇总表",
@@ -3415,6 +3447,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TaskForwardView",
             "viewtag": "f27febc6ab4d30f9e419caf1e6930a94"
         },
+        "sysupdatelogeditview": {
+            "title": "系统更新日志编辑视图",
+            "caption": "系统更新日志",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "SysUpdateLogEditView",
+            "viewtag": "f2dfdf637fb965a83519ac280de3e97c"
+        },
         "testreporteditview": {
             "title": "测试报告编辑视图",
             "caption": "测试报告",
@@ -3519,6 +3559,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProductLifeRoadMapSListView9",
             "viewtag": "fae08b50e13943a0678a96d852e8808d"
         },
+        "sysupdatelogtabexpview": {
+            "title": "系统更新日志分页导航视图",
+            "caption": "系统更新日志",
+            "viewtype": "DETABEXPVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "SysUpdateLogTabExpView",
+            "viewtag": "fb9ed5136261af127c871b1dce82d510"
+        },
         "todoactiviteview": {
             "title": "激活",
             "caption": "激活",
@@ -3526,6 +3574,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "TodoActiviteView",
             "viewtag": "fbfc7f8548a02caba7db4438e675641b"
+        },
+        "sysupdateloggridview": {
+            "title": "系统更新日志表格视图",
+            "caption": "系统更新日志",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "SysUpdateLogGridView",
+            "viewtag": "fc0c3502b2833faa9f93600f1fc282c0"
         },
         "projectmaintabexpview": {
             "title": "项目",

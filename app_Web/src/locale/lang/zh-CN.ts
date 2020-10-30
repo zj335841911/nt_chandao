@@ -60,12 +60,14 @@ import testreport_zh_CN from '@locale/lanres/entities/test-report/test-report_zh
 import projectstats_zh_CN from '@locale/lanres/entities/project-stats/project-stats_zh_CN';
 import testrun_zh_CN from '@locale/lanres/entities/test-run/test-run_zh_CN';
 import ibzmyterritory_zh_CN from '@locale/lanres/entities/ibz-my-territory/ibz-my-territory_zh_CN';
+import sysupdatelog_zh_CN from '@locale/lanres/entities/sys-update-log/sys-update-log_zh_CN';
 import bug_zh_CN from '@locale/lanres/entities/bug/bug_zh_CN';
 import projectmodule_zh_CN from '@locale/lanres/entities/project-module/project-module_zh_CN';
 import ibzdoc_zh_CN from '@locale/lanres/entities/ibz-doc/ibz-doc_zh_CN';
 import pssysapp_zh_CN from '@locale/lanres/entities/pssys-app/pssys-app_zh_CN';
 import ibzcase_zh_CN from '@locale/lanres/entities/ibz-case/ibz-case_zh_CN';
 import pssystemdbcfg_zh_CN from '@locale/lanres/entities/pssystem-dbcfg/pssystem-dbcfg_zh_CN';
+import sysupdatefeatures_zh_CN from '@locale/lanres/entities/sys-update-features/sys-update-features_zh_CN';
 import release_zh_CN from '@locale/lanres/entities/release/release_zh_CN';
 import dynadashboard_zh_CN from '@locale/lanres/entities/dyna-dashboard/dyna-dashboard_zh_CN';
 import sysemployee_zh_CN from '@locale/lanres/entities/sys-employee/sys-employee_zh_CN';
@@ -213,6 +215,7 @@ const data: any = {
                 menuitem10: "用例库",
                 menuitem11: "用户",
                 menuitem7: "iBiz软件生产管理",
+                menuitem8: "更新日志",
                 left_exp: "左侧分页导航",
                 menuitem4: "产品",
                 menuitem5: "项目",
@@ -384,12 +387,14 @@ const data: any = {
         projectstats: projectstats_zh_CN,
         testrun: testrun_zh_CN,
         ibzmyterritory: ibzmyterritory_zh_CN,
+        sysupdatelog: sysupdatelog_zh_CN,
         bug: bug_zh_CN,
         projectmodule: projectmodule_zh_CN,
         ibzdoc: ibzdoc_zh_CN,
         pssysapp: pssysapp_zh_CN,
         ibzcase: ibzcase_zh_CN,
         pssystemdbcfg: pssystemdbcfg_zh_CN,
+        sysupdatefeatures: sysupdatefeatures_zh_CN,
         release: release_zh_CN,
         dynadashboard: dynadashboard_zh_CN,
         sysemployee: sysemployee_zh_CN,

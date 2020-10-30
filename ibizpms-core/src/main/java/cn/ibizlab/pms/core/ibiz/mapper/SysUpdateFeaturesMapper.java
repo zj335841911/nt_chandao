@@ -62,6 +62,6 @@ public interface SysUpdateFeaturesMapper extends BaseMapper<SysUpdateFeatures>{
     @Delete("${sql}")
     boolean deleteBySQL(@Param("sql") String sql, @Param("et")Map param);
 
-    List<SysUpdateFeatures> selectBySysUpdateLog(@Param("sysupdatelogid") Serializable sysupdatelogid) ;
+    List<SysUpdateFeatures> selectBySysupdatelogid(@Param("sysupdatelogid") Serializable sysupdatelogid) ;
 
 }

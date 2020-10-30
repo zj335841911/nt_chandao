@@ -243,6 +243,27 @@ export default class ZentaoModel {
                 	authtag:'Web-zentao-menuitem7',
                 }
                 ,
+                		        {
+                	id: '5AC6121D-1379-4944-8C3F-E7A2BAA9C7B3',
+                	name: 'menuitem8',
+                	text: '更新日志',
+                	type: 'MENUITEM',
+                	counterid: '',
+                	tooltip: '更新日志',
+                	expanded: false,
+                	separator: false,
+                	hidden: false,
+                	hidesidebar: false,
+                	opendefault: false,
+                	iconcls: '',
+                	icon: '',
+                	textcls: '',
+                	appfunctag: 'AppFunc3',
+                	appfuncyype: 'APPVIEW',
+                	viewname: 'sys-update-log-grid-view',
+                	authtag:'Web-zentao-menuitem8',
+                }
+                ,
         	],
         }
         ,
@@ -497,18 +518,6 @@ export default class ZentaoModel {
             ],
         },
         {
-            appfunctag: 'Auto8',
-            appfuncyype: 'APPVIEW',
-            openmode: '',
-            codename: 'producthtmlview',
-            deResParameters: [],
-            routepath: '/ibizpms/:ibizpms?/products/:product?/htmlview/:htmlview?',
-            parameters: [
-                { pathName: 'products', parameterName: 'product' },
-                { pathName: 'htmlview', parameterName: 'htmlview' },
-            ],
-        },
-        {
             appfunctag: 'Auto5',
             appfuncyype: 'APPVIEW',
             openmode: '',
@@ -518,6 +527,18 @@ export default class ZentaoModel {
             parameters: [
                 { pathName: 'projects', parameterName: 'project' },
                 { pathName: 'leftsidebarlistview', parameterName: 'leftsidebarlistview' },
+            ],
+        },
+        {
+            appfunctag: 'Auto8',
+            appfuncyype: 'APPVIEW',
+            openmode: '',
+            codename: 'producthtmlview',
+            deResParameters: [],
+            routepath: '/ibizpms/:ibizpms?/products/:product?/htmlview/:htmlview?',
+            parameters: [
+                { pathName: 'products', parameterName: 'product' },
+                { pathName: 'htmlview', parameterName: 'htmlview' },
             ],
         },
         {
@@ -553,6 +574,18 @@ export default class ZentaoModel {
             routepath: '/ibizpms/:ibizpms?/projectportalview/:projectportalview?',
             parameters: [
                 { pathName: 'projectportalview', parameterName: 'projectportalview' },
+            ],
+        },
+        {
+            appfunctag: 'AppFunc3',
+            appfuncyype: 'APPVIEW',
+            openmode: '',
+            codename: 'sysupdateloggridview',
+            deResParameters: [],
+            routepath: '/ibizpms/:ibizpms?/sysupdatelogs/:sysupdatelog?/gridview/:gridview?',
+            parameters: [
+                { pathName: 'sysupdatelogs', parameterName: 'sysupdatelog' },
+                { pathName: 'gridview', parameterName: 'gridview' },
             ],
         },
         {

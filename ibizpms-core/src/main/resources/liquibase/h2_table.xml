@@ -1957,7 +1957,7 @@
 
 
     <!--输出实体[SYS_UPDATE_FEATURES]数据结构 -->
-    <changeSet author="zentao" id="tab-sys_update_features-11-79">
+    <changeSet author="zentao" id="tab-sys_update_features-40-79">
         <createTable tableName="T_SYS_UPDATE_FEATURES">
                 <column name="SYS_UPDATE_FEATURESNAME" remarks="" type="VARCHAR(200)">
                 </column>
@@ -1972,14 +1972,20 @@
                 </column>
                 <column name="UPDATEDATE" remarks="" type="DATETIME">
                 </column>
-                <column name="SYS_UPDATE_LOG" remarks="" type="VARCHAR(100)">
+                <column name="SYS_UPDATE_LOGID" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="UPFEATURES" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="FEATURESDESC" remarks="" type="TEXT(1048576)">
+                </column>
+                <column name="TYPE" remarks="" type="VARCHAR(60)">
                 </column>
         </createTable>
     </changeSet>
 
 
     <!--输出实体[SYS_UPDATE_LOG]数据结构 -->
-    <changeSet author="zentao" id="tab-sys_update_log-25-80">
+    <changeSet author="zentao" id="tab-sys_update_log-45-80">
         <createTable tableName="T_SYS_UPDATE_LOG">
                 <column name="SYS_UPDATE_LOGID" remarks="" type="VARCHAR(100)">
                     <constraints primaryKey="true" primaryKeyName="PK_SYS_UPDATE_LOG_SYS_UPDATE_L"/>
@@ -2777,8 +2783,8 @@
        <addForeignKeyConstraint baseColumnNames="SUITE" baseTableName="zt_suitecase" constraintName="DER1N_ZT_SUITECASE_ZT_TESTSUIT" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_testsuite" validate="true"/>
     </changeSet>
         <!--输出实体[SYS_UPDATE_FEATURES]外键关系 -->
-    <changeSet author="zentao" id="fk-sys_update_features-11-188">
-       <addForeignKeyConstraint baseColumnNames="SYS_UPDATE_LOG" baseTableName="T_SYS_UPDATE_FEATURES" constraintName="DER1N_SYS_UPDATE_FEATURES_SYS_" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="SYS_UPDATE_LOGID" referencedTableName="T_SYS_UPDATE_LOG" validate="true"/>
+    <changeSet author="zentao" id="fk-sys_update_features-40-188">
+       <addForeignKeyConstraint baseColumnNames="SYS_UPDATE_LOGID" baseTableName="T_SYS_UPDATE_FEATURES" constraintName="DER1N_SYS_UPDATE_FEATURES_SYS_" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="SYS_UPDATE_LOGID" referencedTableName="T_SYS_UPDATE_LOG" validate="true"/>
     </changeSet>
         <!--输出实体[SYS_UPDATE_LOG]外键关系 -->
         <!--输出实体[ZT_TASK]外键关系 -->

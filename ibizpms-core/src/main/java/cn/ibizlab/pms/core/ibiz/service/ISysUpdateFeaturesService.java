@@ -37,8 +37,8 @@ public interface ISysUpdateFeaturesService extends IService<SysUpdateFeatures>{
     boolean save(SysUpdateFeatures et) ;
     void saveBatch(List<SysUpdateFeatures> list) ;
     Page<SysUpdateFeatures> searchDefault(SysUpdateFeaturesSearchContext context) ;
-    List<SysUpdateFeatures> selectBySysUpdateLog(String sysupdatelogid) ;
-    void removeBySysUpdateLog(String sysupdatelogid) ;
+    List<SysUpdateFeatures> selectBySysupdatelogid(String sysupdatelogid) ;
+    void removeBySysupdatelogid(String sysupdatelogid) ;
     /**
      *自定义查询SQL
      * @param sql  select * from table where id =#{et.param}

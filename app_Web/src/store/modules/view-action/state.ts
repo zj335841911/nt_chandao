@@ -448,6 +448,7 @@ export const viewstate: any = {
                 '0f3dff62ef8bcb1662cc82e57a34c56b',
                 '0846a45e5ffdd4d8f857575cfa955dce',
                 '8c8adbf0a7db27078e01a8b32716fa71',
+                'fc0c3502b2833faa9f93600f1fc282c0',
                 'CC49500F-030F-458F-82DF-F88F6973DF64',
                 'D1283E46-401A-4CFD-A7A1-BF5B90197463',
                 '4fcd2a15ff88a97425e1ab1cadc5eb9f',
@@ -2436,6 +2437,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'a46f39b0d36c98b4e2fd74b7051fda79',
+            viewmodule: 'ibiz',
+            viewname: 'SysUpdateFeaturesEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: 'a4941294aa97081cc5197c07292905af',
             viewmodule: 'zentao',
             viewname: 'ProjectGridView9',
@@ -2764,6 +2774,17 @@ export const viewstate: any = {
                 'e0fbca7627cdd68765e173028b07f687',
                 'e54598b1e6d38d7c6ce8231b531b46bd',
                 '6cf95e90393715815492a7e5e6f2a6f3',
+            ],
+        },
+        {
+            viewtag: 'b7f6ef0166a2f8f4cb554e7db6814c75',
+            viewmodule: 'ibiz',
+            viewname: 'SysUpdateFeaturesGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'a46f39b0d36c98b4e2fd74b7051fda79',
+                'd97806e4d30ee03bfd34d5df8f96b0a4',
             ],
         },
         {
@@ -3338,6 +3359,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'd97806e4d30ee03bfd34d5df8f96b0a4',
+            viewmodule: 'ibiz',
+            viewname: 'SysUpdateFeaturesInfoEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'fb9ed5136261af127c871b1dce82d510',
+            ],
+        },
+        {
             viewtag: 'd9cf190662d0781bee34acdfd9d1c6d2',
             viewmodule: 'zentao',
             viewname: 'BugProjectBugsGridView',
@@ -3538,6 +3569,15 @@ export const viewstate: any = {
             refviews: [
                 'ebf8f4c62f92ff24ff740558f12f7303',
                 '76f07b59aab6db4512723cd3d24ee84e',
+            ],
+        },
+        {
+            viewtag: 'e77b0ab085994e29f1906ab1b90a2f53',
+            viewmodule: 'ibiz',
+            viewname: 'SysUpdateLogInfoEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
             ],
         },
         {
@@ -3749,6 +3789,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'f2dfdf637fb965a83519ac280de3e97c',
+            viewmodule: 'ibiz',
+            viewname: 'SysUpdateLogEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: 'f340b16bd1355b1c511d9da4b00476e2',
             viewmodule: 'zentao',
             viewname: 'TestReportEditView',
@@ -3847,12 +3896,34 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'fb9ed5136261af127c871b1dce82d510',
+            viewmodule: 'ibiz',
+            viewname: 'SysUpdateLogTabExpView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'b7f6ef0166a2f8f4cb554e7db6814c75',
+                'e77b0ab085994e29f1906ab1b90a2f53',
+            ],
+        },
+        {
             viewtag: 'fbfc7f8548a02caba7db4438e675641b',
             viewmodule: 'zentao',
             viewname: 'TodoActiviteView',
             viewaction: '',
             viewdatachange: false,
             refviews: [
+            ],
+        },
+        {
+            viewtag: 'fc0c3502b2833faa9f93600f1fc282c0',
+            viewmodule: 'ibiz',
+            viewname: 'SysUpdateLogGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'fb9ed5136261af127c871b1dce82d510',
+                'f2dfdf637fb965a83519ac280de3e97c',
             ],
         },
         {

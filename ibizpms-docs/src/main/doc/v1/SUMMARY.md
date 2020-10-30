@@ -314,6 +314,7 @@
       * [task主数据视图（链接）](app/Web/func/TaskMainDashboardView_Link.md)
       * [todo主数据视图（链接）](app/Web/func/TodoDashboardView_Link.md)
       * [用户管理](app/Web/func/UserTreeExpView.md)
+      * [系统更新日志](app/Web/func/SysUpdateLogGridView.md)
       * [打开项目表格视图](app/Web/func/ProjectGridView.md)
       * [PRO产品](app/Web/func/ProductWizardView.md)
       * [测试边栏](app/Web/func/ProductTestLeftSidebarListView.md)

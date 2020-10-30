@@ -55,6 +55,7 @@ public class SysUpdateFeaturesServiceImpl extends ServiceImpl<SysUpdateFeaturesM
     @Override
     @Transactional
     public boolean create(SysUpdateFeatures et) {
+        fillParentData(et);
         if(!this.retBool(this.baseMapper.insert(et)))
             return false;
         CachedBeanCopier.copy(get(et.getSysupdatefeaturesid()),et);
@@ -63,12 +64,14 @@ public class SysUpdateFeaturesServiceImpl extends ServiceImpl<SysUpdateFeaturesM
 
     @Override
     public void createBatch(List<SysUpdateFeatures> list) {
+        list.forEach(item->fillParentData(item));
         this.saveBatch(list,batchSize);
     }
 
     @Override
     @Transactional
     public boolean update(SysUpdateFeatures et) {
+        fillParentData(et);
         if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("sys_update_featuresid",et.getSysupdatefeaturesid())))
             return false;
         CachedBeanCopier.copy(get(et.getSysupdatefeaturesid()),et);
@@ -77,6 +80,7 @@ public class SysUpdateFeaturesServiceImpl extends ServiceImpl<SysUpdateFeaturesM
 
     @Override
     public void updateBatch(List<SysUpdateFeatures> list) {
+        list.forEach(item->fillParentData(item));
         updateBatchById(list,batchSize);
     }
 
@@ -107,6 +111,7 @@ public class SysUpdateFeaturesServiceImpl extends ServiceImpl<SysUpdateFeaturesM
 
     @Override
     public SysUpdateFeatures getDraft(SysUpdateFeatures et) {
+        fillParentData(et);
         return et;
     }
 
@@ -134,24 +139,26 @@ public class SysUpdateFeaturesServiceImpl extends ServiceImpl<SysUpdateFeaturesM
 
     @Override
     public boolean saveBatch(Collection<SysUpdateFeatures> list) {
+        list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
         return true;
     }
 
     @Override
     public void saveBatch(List<SysUpdateFeatures> list) {
+        list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
     }
 
 
 	@Override
-    public List<SysUpdateFeatures> selectBySysUpdateLog(String sysupdatelogid) {
-        return baseMapper.selectBySysUpdateLog(sysupdatelogid);
+    public List<SysUpdateFeatures> selectBySysupdatelogid(String sysupdatelogid) {
+        return baseMapper.selectBySysupdatelogid(sysupdatelogid);
     }
 
     @Override
-    public void removeBySysUpdateLog(String sysupdatelogid) {
-        this.remove(new QueryWrapper<SysUpdateFeatures>().eq("sys_update_log",sysupdatelogid));
+    public void removeBySysupdatelogid(String sysupdatelogid) {
+        this.remove(new QueryWrapper<SysUpdateFeatures>().eq("sys_update_logid",sysupdatelogid));
     }
 
 
@@ -166,6 +173,22 @@ public class SysUpdateFeaturesServiceImpl extends ServiceImpl<SysUpdateFeaturesM
 
 
 
+    /**
+     * 为当前实体填充父数据（外键值文本、外键值附加数据）
+     * @param et
+     */
+    private void fillParentData(SysUpdateFeatures et){
+        //实体关系[DER1N_SYS_UPDATE_FEATURES_SYS_UPDATE_LOG_SYS_UPDATE_LOGID]
+        if(!ObjectUtils.isEmpty(et.getSysupdatelogid())){
+            cn.ibizlab.pms.core.ibiz.domain.SysUpdateLog sysupdatelog=et.getSysupdatelog();
+            if(ObjectUtils.isEmpty(sysupdatelog)){
+                cn.ibizlab.pms.core.ibiz.domain.SysUpdateLog majorEntity=sysupdatelogService.get(et.getSysupdatelogid());
+                et.setSysupdatelog(majorEntity);
+                sysupdatelog=majorEntity;
+            }
+            et.setSysupdatelogname(sysupdatelog.getSysupdatelogname());
+        }
+    }
 
 
 
