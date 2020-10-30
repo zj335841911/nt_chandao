@@ -51,6 +51,7 @@
 |-|任务移动端选择多数据视图|DEMOBPICKUPMDVIEW|&nbsp;|
 |-|产品计划移动端多数据视图|DEMOBMDVIEW|&nbsp;|
 |-|需求移动端多数据选择视图（关联需求）|DEMOBMPICKUPVIEW|&nbsp;|
+|-|系统更新功能移动端多数据视图|DEMOBMDVIEW|&nbsp;|
 |-|版本移动端多数据视图（更新日志）|DEMOBMDVIEW|&nbsp;|
 |-|产品统计移动端多数据视图|DEMOBMDVIEW|&nbsp;|
 |-|测试版本选项操作视图（开始）|DEMOBOPTVIEW|&nbsp;|
@@ -94,6 +95,7 @@
 |-|需求移动端多数据视图|DEMOBMDVIEW9|&nbsp;|
 |-|项目移动端编辑视图激活）|DEMOBEDITVIEW|&nbsp;|
 |-|Bug选项操作视图（指派Bug）|DEMOBOPTVIEW|&nbsp;|
+|-|系统更新功能移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
 |-|测试版本移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
 |-|需求选项操作视图（关闭）|DEMOBOPTVIEW|&nbsp;|
 |-|Bug移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
@@ -446,6 +448,7 @@ SRFNAVPARAM.project=%project%|
 |-|用户年度工作内容统计数据看板视图|DEPORTALVIEW|&nbsp;|
 |-|测试套件表格视图|DEGRIDVIEW|&nbsp;|
 |-|Bug|DEEDITVIEW|&nbsp;临时充当主信息展示页面|
+|-|系统更新功能编辑视图|DEEDITVIEW|&nbsp;|
 |-|项目表格视图|DEGRIDVIEW9|&nbsp;|
 |-|产品主页|APPPORTALVIEW|&nbsp;|
 |-|task表格视图|DEGRIDVIEW|&nbsp;|
@@ -482,6 +485,7 @@ SRFNAVPARAM.project=%project%|
 |-|用例库用例编辑视图（主信息）|DEEDITVIEW9|&nbsp;|
 |-|Bug统计表格视图|DEGRIDVIEW|&nbsp;|
 |-|story表格视图|DEGRIDVIEW|&nbsp;|
+|-|系统更新功能表格视图|DEGRIDVIEW|&nbsp;|
 |-|Bug统计表格视图（Bug指派表）|DEGRIDVIEW|&nbsp;|
 |-|产品计划编辑视图|DEEDITVIEW|&nbsp;|
 |-|关联需求|DEMPICKUPVIEW|&nbsp;|
@@ -546,6 +550,7 @@ SRFNAVPARAM.project=%project%|
 |-|公司编辑视图|DEEDITVIEW9|&nbsp;|
 |-|story表格视图|DEGRIDVIEW|&nbsp;|
 |-|首页|DEPORTALVIEW|&nbsp;|
+|-|系统更新功能编辑视图|DEEDITVIEW|&nbsp;|
 |-|Bug实体表格视图(项目遗留得Bug)|DEGRIDVIEW|&nbsp;|
 |-|Bug图表视图（累计创建Bug）|DECHARTVIEW|&nbsp;|
 |-|用户年度工作内容统计编辑视图|DEEDITVIEW|&nbsp;|
@@ -571,6 +576,7 @@ SRFNAVPARAM.project=%project%|
 |-|需求激活|DEOPTVIEW|&nbsp;|
 |-|关闭Bug|DEOPTVIEW|&nbsp;|
 |-|用例库|DEGRIDVIEW|&nbsp;|
+|-|系统更新日志编辑视图|DEEDITVIEW|&nbsp;|
 |-|产品汇总表图表视图|DECHARTVIEW9|&nbsp;|
 |-|测试单编辑视图|DEEDITVIEW|&nbsp;|
 |-|指派Bug|DEOPTVIEW|&nbsp;|
@@ -591,6 +597,7 @@ SRFNAVPARAM.project=%project%|
 |-|任务编辑视图|DEEDITVIEW9|&nbsp;|
 |-|关联Bug|DEMPICKUPVIEW|&nbsp;|
 |-|转交任务|DEOPTVIEW|&nbsp;|
+|-|系统更新日志编辑视图|DEEDITVIEW|&nbsp;|
 |-|测试报告编辑视图|DEEDITVIEW|&nbsp;|
 |-|用例步骤|DEGRIDVIEW9|&nbsp;|
 |-|功能测试表格视图|DEGRIDVIEW|&nbsp;|
@@ -604,7 +611,9 @@ SRFNAVPARAM.project=%project%|
 |-|需求模块表格视图|DEGRIDVIEW|&nbsp;|
 |-|平台选择表格视图|DEPICKUPGRIDVIEW|&nbsp;|
 |-|路线图|DELISTVIEW9|&nbsp;视图参数转换|
+|-|系统更新日志分页导航视图|DETABEXPVIEW|&nbsp;|
 |-|激活|DEOPTVIEW|&nbsp;|
+|-|系统更新日志表格视图|DEGRIDVIEW|&nbsp;|
 |-|项目|DETABEXPVIEW|&nbsp;|
 |-|版本分页导航视图|DETABEXPVIEW|&nbsp;|
 

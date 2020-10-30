@@ -2809,6 +2809,16 @@
         "viewtag": "a46256cb1bcfceabf09ad93f33e766a1",
         "memo": "临时充当主信息展示页面"
     },
+    "sysupdatefeatureseditview": {
+        "title": "系统更新功能编辑视图",
+        "caption": "系统更新功能",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "ibiz",
+        "viewname": "SysUpdateFeaturesEditView",
+        "viewfilename": "sys-update-features-edit-view",
+        "viewtag": "a46f39b0d36c98b4e2fd74b7051fda79",
+        "memo": ""
+    },
     "projectgridview9": {
         "title": "项目表格视图",
         "caption": "项目",
@@ -3167,6 +3177,16 @@
         "viewname": "StoryMyFavoritesGridView",
         "viewfilename": "story-my-favorites-grid-view",
         "viewtag": "b7e6268db4bdeb10211fc15383de685d",
+        "memo": ""
+    },
+    "sysupdatefeaturesgridview": {
+        "title": "系统更新功能表格视图",
+        "caption": "系统更新功能",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "ibiz",
+        "viewname": "SysUpdateFeaturesGridView",
+        "viewfilename": "sys-update-features-grid-view",
+        "viewtag": "b7f6ef0166a2f8f4cb554e7db6814c75",
         "memo": ""
     },
     "bugstatsassigntogridview": {
@@ -3809,6 +3829,16 @@
         "viewtag": "d8df5ca51341d33ccc19208dde3f2cce",
         "memo": ""
     },
+    "sysupdatefeaturesinfoeditview": {
+        "title": "系统更新功能编辑视图",
+        "caption": "系统更新功能",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "ibiz",
+        "viewname": "SysUpdateFeaturesInfoEditView",
+        "viewfilename": "sys-update-features-info-edit-view",
+        "viewtag": "d97806e4d30ee03bfd34d5df8f96b0a4",
+        "memo": ""
+    },
     "bugprojectbugsgridview": {
         "title": "Bug实体表格视图(项目遗留得Bug)",
         "caption": "Bug",
@@ -4059,6 +4089,16 @@
         "viewtag": "e698418f007d36b627d6af23c1042f31",
         "memo": ""
     },
+    "sysupdateloginfoeditview": {
+        "title": "系统更新日志编辑视图",
+        "caption": "系统更新日志",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "ibiz",
+        "viewname": "SysUpdateLogInfoEditView",
+        "viewfilename": "sys-update-log-info-edit-view",
+        "viewtag": "e77b0ab085994e29f1906ab1b90a2f53",
+        "memo": ""
+    },
     "productsumqachartview9": {
         "title": "产品汇总表图表视图",
         "caption": "产品汇总表",
@@ -4259,6 +4299,16 @@
         "viewtag": "f27febc6ab4d30f9e419caf1e6930a94",
         "memo": ""
     },
+    "sysupdatelogeditview": {
+        "title": "系统更新日志编辑视图",
+        "caption": "系统更新日志",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "ibiz",
+        "viewname": "SysUpdateLogEditView",
+        "viewfilename": "sys-update-log-edit-view",
+        "viewtag": "f2dfdf637fb965a83519ac280de3e97c",
+        "memo": ""
+    },
     "testreporteditview": {
         "title": "测试报告编辑视图",
         "caption": "测试报告",
@@ -4389,6 +4439,16 @@
         "viewtag": "fae08b50e13943a0678a96d852e8808d",
         "memo": "视图参数转换"
     },
+    "sysupdatelogtabexpview": {
+        "title": "系统更新日志分页导航视图",
+        "caption": "系统更新日志",
+        "viewtype": "DETABEXPVIEW",
+        "viewmodule": "ibiz",
+        "viewname": "SysUpdateLogTabExpView",
+        "viewfilename": "sys-update-log-tab-exp-view",
+        "viewtag": "fb9ed5136261af127c871b1dce82d510",
+        "memo": ""
+    },
     "todoactiviteview": {
         "title": "激活",
         "caption": "激活",
@@ -4397,6 +4457,16 @@
         "viewname": "TodoActiviteView",
         "viewfilename": "todo-activite-view",
         "viewtag": "fbfc7f8548a02caba7db4438e675641b",
+        "memo": ""
+    },
+    "sysupdateloggridview": {
+        "title": "系统更新日志表格视图",
+        "caption": "系统更新日志",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "ibiz",
+        "viewname": "SysUpdateLogGridView",
+        "viewfilename": "sys-update-log-grid-view",
+        "viewtag": "fc0c3502b2833faa9f93600f1fc282c0",
         "memo": ""
     },
     "projectmaintabexpview": {

@@ -247,6 +247,10 @@ zuul:
       path: /ibzmyterritories/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
+    sys_update_log:
+      path: /sysupdatelogs/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
     zt_bug:
       path: /bugs/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
@@ -269,6 +273,10 @@ zuul:
       stripPrefix: false
     pssystemdbcfg:
       path: /pssystemdbcfgs/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
+    sys_update_features:
+      path: /sysupdatefeatures/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
     zt_release:

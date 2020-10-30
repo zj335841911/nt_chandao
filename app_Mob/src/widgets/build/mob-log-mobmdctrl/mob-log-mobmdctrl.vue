@@ -2,7 +2,7 @@
 import { Component } from 'vue-property-decorator';
 import MobLogBase from './mob-log-mobmdctrl-base.vue';
 
-import layout_mdctrl_itempanel from '@widgets/build/mob-panel/mob-panel.vue';
+import layout_mdctrl_itempanel from '@widgets/build/mob-8373-panel/mob-8373-panel.vue';
  
 @Component({
     components: {

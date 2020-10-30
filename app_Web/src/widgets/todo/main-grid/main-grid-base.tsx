@@ -439,6 +439,72 @@ export class MainGridBase extends GridControlBase {
 
 
     /**
+     * 是否为实体导出对象
+     *
+     * @protected
+     * @type {boolean}
+     * @memberof MainGridBase
+     */
+    protected isDeExport: boolean = true;
+
+    /**
+     * 所有导出列成员
+     *
+     * @type {any[]}
+     * @memberof MainGridBase
+     */
+    public allExportColumns: any[] = [
+        {
+            name: 'id',
+            label: '编号',
+            langtag: 'entities.todo.main_grid.exportColumns.id',
+            show: true,
+        },
+        {
+            name: 'date1',
+            label: '日期',
+            langtag: 'entities.todo.main_grid.exportColumns.date1',
+            show: true,
+        },
+        {
+            name: 'type',
+            label: '类型',
+            langtag: 'entities.todo.main_grid.exportColumns.type',
+            show: true,
+        },
+        {
+            name: 'pri',
+            label: '优先级',
+            langtag: 'entities.todo.main_grid.exportColumns.pri',
+            show: true,
+        },
+        {
+            name: 'name',
+            label: '待办名称',
+            langtag: 'entities.todo.main_grid.exportColumns.name',
+            show: true,
+        },
+        {
+            name: 'begin',
+            label: '开始',
+            langtag: 'entities.todo.main_grid.exportColumns.begin',
+            show: true,
+        },
+        {
+            name: 'end',
+            label: '结束',
+            langtag: 'entities.todo.main_grid.exportColumns.end',
+            show: true,
+        },
+        {
+            name: 'status',
+            label: '状态',
+            langtag: 'entities.todo.main_grid.exportColumns.status',
+            show: true,
+        },
+    ]
+
+    /**
      * 导出数据格式化
      *
      * @param {*} filterVal
@@ -451,7 +517,7 @@ export class MainGridBase extends GridControlBase {
         return super.formatExcelData(filterVal, jsonData, [
             {
                 name: 'type',
-                srfkey: 'TypeAll',
+                srfkey: 'Type',
                 codelistType : 'STATIC',
                 renderMode: 'other',
                 textSeparator: '、',

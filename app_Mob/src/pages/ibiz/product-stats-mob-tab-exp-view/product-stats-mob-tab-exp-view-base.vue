@@ -1,3 +1,4 @@
+
 <template>
 <ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobtabexpview': true, 'product-stats-mob-tab-exp-view': true }">
     
@@ -617,6 +618,39 @@ export default class ProductStatsMobTabExpViewBase extends Vue {
         const _this: any = this;
         if (_this.onRefreshView && _this.onRefreshView instanceof Function) {
             _this.onRefreshView();
+        }
+    }
+
+    /**
+     * 初始化导航栏标题
+     *
+     * @param {*} val
+     * @param {boolean} isCreate
+     * @returns
+     * @memberof ProductStatsMobTabExpViewBase
+     */
+    public initNavCaption(val:any,isCreate:boolean){
+        this.$viewTool.setViewTitleOfThirdParty(this.$t(this.model.srfCaption) as string);        
+    }
+
+    /**
+     * 加载模型
+     * 
+     * @memberof ProductStatsMobTabExpViewBase
+     */
+    public loadModel(){
+        if(this.context.productstats){
+            this.appEntityService.getDataInfo(JSON.parse(JSON.stringify(this.context)),{},false).then((response:any) =>{
+                if (!response || response.status !== 200) {
+                    return;
+                }
+                const { data: _data } = response;
+                if (_data.name) {
+                    Object.assign(this.model, { dataInfo: _data.name });
+                    Object.assign(this.model, { srfCaption: `${this.$t(this.model.srfCaption)} - ${this.model.dataInfo}` });
+                    this.$viewTool.setViewTitleOfThirdParty(this.$t(this.model.srfCaption) as string);
+                }
+            })
         }
     }
 

@@ -115,6 +115,9 @@ export default {
         '4': '最低',
         empty: '',
     },
+    SysOperator: {
+        empty: '',
+    },
     YesNo: {
         '1': '是',
         '0': '否',
@@ -601,6 +604,11 @@ export default {
         empty: '',
     },
     ProductPlan: {
+        empty: '',
+    },
+    SYS_UPDATE_LOG_TYPE: {
+        '10': '功能增强',
+        '20': '优化',
         empty: '',
     },
     Task__pri: {
