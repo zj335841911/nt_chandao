@@ -536,6 +536,108 @@ export class MyGroupMainGridBase extends GridControlBase {
 
 
     /**
+     * 是否为实体导出对象
+     *
+     * @protected
+     * @type {boolean}
+     * @memberof MyGroupMainGridBase
+     */
+    protected isDeExport: boolean = true;
+
+    /**
+     * 所有导出列成员
+     *
+     * @type {any[]}
+     * @memberof MyGroupMainGridBase
+     */
+    public allExportColumns: any[] = [
+        {
+            name: 'id',
+            label: 'ID',
+            langtag: 'entities.bug.mygroupmain_grid.exportColumns.id',
+            show: true,
+        },
+        {
+            name: 'pri',
+            label: 'P',
+            langtag: 'entities.bug.mygroupmain_grid.exportColumns.pri',
+            show: true,
+        },
+        {
+            name: 'confirmed',
+            label: '确认',
+            langtag: 'entities.bug.mygroupmain_grid.exportColumns.confirmed',
+            show: true,
+        },
+        {
+            name: 'title',
+            label: 'Bug标题',
+            langtag: 'entities.bug.mygroupmain_grid.exportColumns.title',
+            show: true,
+        },
+        {
+            name: 'status',
+            label: 'Bug状态',
+            langtag: 'entities.bug.mygroupmain_grid.exportColumns.status',
+            show: true,
+        },
+        {
+            name: 'openedby',
+            label: '由谁创建',
+            langtag: 'entities.bug.mygroupmain_grid.exportColumns.openedby',
+            show: true,
+        },
+        {
+            name: 'openeddate',
+            label: '创建日期',
+            langtag: 'entities.bug.mygroupmain_grid.exportColumns.openeddate',
+            show: true,
+        },
+        {
+            name: 'assignedto',
+            label: '指派给',
+            langtag: 'entities.bug.mygroupmain_grid.exportColumns.assignedto',
+            show: true,
+        },
+        {
+            name: 'resolution',
+            label: '方案',
+            langtag: 'entities.bug.mygroupmain_grid.exportColumns.resolution',
+            show: true,
+        },
+        {
+            name: 'lastediteddate',
+            label: '修改日期',
+            langtag: 'entities.bug.mygroupmain_grid.exportColumns.lastediteddate',
+            show: true,
+        },
+        {
+            name: 'activateddate',
+            label: '激活日期',
+            langtag: 'entities.bug.mygroupmain_grid.exportColumns.activateddate',
+            show: true,
+        },
+        {
+            name: 'isfavorites',
+            label: '是否收藏',
+            langtag: 'entities.bug.mygroupmain_grid.exportColumns.isfavorites',
+            show: true,
+        },
+        {
+            name: 'product',
+            label: '所属产品',
+            langtag: 'entities.bug.mygroupmain_grid.exportColumns.product',
+            show: true,
+        },
+        {
+            name: 'projectname',
+            label: '项目',
+            langtag: 'entities.bug.mygroupmain_grid.exportColumns.projectname',
+            show: true,
+        },
+    ]
+
+    /**
      * 导出数据格式化
      *
      * @param {*} filterVal
@@ -580,7 +682,7 @@ export class MyGroupMainGridBase extends GridControlBase {
             },
             {
                 name: 'assignedto',
-                srfkey: 'UserRealName',
+                srfkey: 'BugUserRealName',
                 codelistType : 'DYNAMIC',
                 textSeparator: ',',
                 renderMode: 'string',

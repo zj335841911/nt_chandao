@@ -294,6 +294,108 @@ export class Main_BuildSub2GridBase extends GridControlBase {
 
 
     /**
+     * 是否为实体导出对象
+     *
+     * @protected
+     * @type {boolean}
+     * @memberof Main_BuildSub2GridBase
+     */
+    protected isDeExport: boolean = true;
+
+    /**
+     * 所有导出列成员
+     *
+     * @type {any[]}
+     * @memberof Main_BuildSub2GridBase
+     */
+    public allExportColumns: any[] = [
+        {
+            name: 'id',
+            label: 'ID',
+            langtag: 'entities.bug.main_buildsub2_grid.exportColumns.id',
+            show: true,
+        },
+        {
+            name: 'pri',
+            label: 'P',
+            langtag: 'entities.bug.main_buildsub2_grid.exportColumns.pri',
+            show: true,
+        },
+        {
+            name: 'confirmed',
+            label: '确认',
+            langtag: 'entities.bug.main_buildsub2_grid.exportColumns.confirmed',
+            show: true,
+        },
+        {
+            name: 'title',
+            label: 'Bug标题',
+            langtag: 'entities.bug.main_buildsub2_grid.exportColumns.title',
+            show: true,
+        },
+        {
+            name: 'status',
+            label: 'Bug状态',
+            langtag: 'entities.bug.main_buildsub2_grid.exportColumns.status',
+            show: true,
+        },
+        {
+            name: 'openedby',
+            label: '由谁创建',
+            langtag: 'entities.bug.main_buildsub2_grid.exportColumns.openedby',
+            show: true,
+        },
+        {
+            name: 'openeddate',
+            label: '创建日期',
+            langtag: 'entities.bug.main_buildsub2_grid.exportColumns.openeddate',
+            show: true,
+        },
+        {
+            name: 'assignedto',
+            label: '指派给',
+            langtag: 'entities.bug.main_buildsub2_grid.exportColumns.assignedto',
+            show: true,
+        },
+        {
+            name: 'resolution',
+            label: '方案',
+            langtag: 'entities.bug.main_buildsub2_grid.exportColumns.resolution',
+            show: true,
+        },
+        {
+            name: 'lastediteddate',
+            label: '修改日期',
+            langtag: 'entities.bug.main_buildsub2_grid.exportColumns.lastediteddate',
+            show: true,
+        },
+        {
+            name: 'activateddate',
+            label: '激活日期',
+            langtag: 'entities.bug.main_buildsub2_grid.exportColumns.activateddate',
+            show: true,
+        },
+        {
+            name: 'isfavorites',
+            label: '是否收藏',
+            langtag: 'entities.bug.main_buildsub2_grid.exportColumns.isfavorites',
+            show: true,
+        },
+        {
+            name: 'product',
+            label: '所属产品',
+            langtag: 'entities.bug.main_buildsub2_grid.exportColumns.product',
+            show: true,
+        },
+        {
+            name: 'projectname',
+            label: '项目',
+            langtag: 'entities.bug.main_buildsub2_grid.exportColumns.projectname',
+            show: true,
+        },
+    ]
+
+    /**
      * 导出数据格式化
      *
      * @param {*} filterVal
@@ -307,6 +409,14 @@ export class Main_BuildSub2GridBase extends GridControlBase {
             {
                 name: 'pri',
                 srfkey: 'Bug__pri',
+                codelistType : 'STATIC',
+                renderMode: 'other',
+                textSeparator: '、',
+                valueSeparator: ',',
+            },
+            {
+                name: 'confirmed',
+                srfkey: 'YesNo2',
                 codelistType : 'STATIC',
                 renderMode: 'other',
                 textSeparator: '、',
@@ -329,12 +439,20 @@ export class Main_BuildSub2GridBase extends GridControlBase {
                 valueSeparator: ",",
             },
             {
-                name: 'resolvedby',
-                srfkey: 'UserRealName',
+                name: 'assignedto',
+                srfkey: 'BugUserRealName',
                 codelistType : 'DYNAMIC',
                 textSeparator: ',',
                 renderMode: 'string',
                 valueSeparator: ",",
+            },
+            {
+                name: 'resolution',
+                srfkey: 'Bug__resolution',
+                codelistType : 'STATIC',
+                renderMode: 'other',
+                textSeparator: '、',
+                valueSeparator: ',',
             },
         ]);
     }
