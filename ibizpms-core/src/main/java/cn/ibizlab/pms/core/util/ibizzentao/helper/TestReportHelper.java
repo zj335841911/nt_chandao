@@ -5,6 +5,7 @@ import cn.ibizlab.pms.core.zentao.domain.Action;
 import cn.ibizlab.pms.core.zentao.domain.History;
 import cn.ibizlab.pms.core.zentao.domain.TestReport;
 import cn.ibizlab.pms.core.zentao.mapper.TestReportMapper;
+import cn.ibizlab.pms.util.dict.StaticDict;
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +28,7 @@ public class TestReportHelper extends ZTBaseHelper<TestReportMapper, TestReport>
         if (!bOk) {
             return bOk;
         }
-        actionHelper.create("testreport", et.getId(), "opened", "", "", null, true);
+        actionHelper.create(StaticDict.Action__object_type.TESTREPORT.getValue(), et.getId(), StaticDict.Action__type.OPENED.getValue(), "", "", null, true);
 
         return true;
     }
@@ -41,7 +42,7 @@ public class TestReportHelper extends ZTBaseHelper<TestReportMapper, TestReport>
         if (!super.edit(et))
             return false;
         List<History> changes = ChangeUtil.diff(old, et,null,null,new String[]{"report"});
-        Action action = actionHelper.create("testreport", et.getId(), "edited", "", "", null, true);
+        Action action = actionHelper.create(StaticDict.Action__object_type.TESTREPORT.getValue(), et.getId(), StaticDict.Action__type.EDITED.getValue(), "", "", null, true);
         if (changes.size() > 0) {
             actionHelper.logHistory(action.getId(), changes);
         }

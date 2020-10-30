@@ -5,6 +5,7 @@ import cn.ibizlab.pms.core.util.ibizzentao.common.ChangeUtil;
 import cn.ibizlab.pms.core.zentao.domain.*;
 import cn.ibizlab.pms.core.zentao.mapper.TaskEstimateMapper;
 import cn.ibizlab.pms.core.zentao.service.*;
+import cn.ibizlab.pms.util.dict.StaticDict;
 import cn.ibizlab.pms.util.security.AuthenticationUser;
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
@@ -86,7 +87,7 @@ public class TaskEstimateHelper extends ZTBaseHelper<TaskEstimateMapper, TaskEst
         Task data = new Task();
         data.setConsumed(consumed);
         data.setLeft(left);
-        data.setStatus((left == 0) ? "done" : task.getStatus());
+        data.setStatus((left == 0) ? StaticDict.Task__status.DONE.getValue() : task.getStatus());
         data.setLasteditedby(AuthenticationUser.getAuthenticationUser().getUsername());
         data.setLastediteddate(Timestamp.valueOf(now));
         data.setId(task.getId());
@@ -137,7 +138,7 @@ public class TaskEstimateHelper extends ZTBaseHelper<TaskEstimateMapper, TaskEst
         newTask.setLeft(data.getLeft());
         newTask.setStatus(data.getStatus());
         List<History> changes = ChangeUtil.diff(oldTask,newTask);
-        Action action1 = actionHelper.create("task",et.getTask(),"EditEstimate",et.getWork(),"",null,true);
+        Action action1 = actionHelper.create(StaticDict.Action__object_type.TASK.getValue(),et.getTask(),StaticDict.Action__type.EDITESTIMATE.getValue(),et.getWork(),"",null,true);
         actionHelper.logHistory(action1.getId(),changes);
 
 
@@ -171,7 +172,7 @@ public class TaskEstimateHelper extends ZTBaseHelper<TaskEstimateMapper, TaskEst
         Task data = new Task();
         data.setConsumed(consumed);
         data.setLeft(left);
-        data.setStatus((left == 0 && consumed != 0) ? "done" : task.getStatus());
+        data.setStatus((left == 0 && consumed != 0) ? StaticDict.Task__status.DONE.getValue() : task.getStatus());
 
         //List<JSONObject> teamList = teamService.select(String.format("select t1.* from zt_team t1 LEFT JOIN zt_task t2 on t1.root = t2.id and t1.TYPE = 'task' where  t1.root = %1$s ",task.getId()),null);
         List<Team> teamLists = teamService.list(new QueryWrapper<Team>().eq("root",task.getId()).eq("type","task"));
@@ -221,7 +222,7 @@ public class TaskEstimateHelper extends ZTBaseHelper<TaskEstimateMapper, TaskEst
 
         List<History> changes = ChangeUtil.diff(oldTask,newTask);
         if (changes.size() > 0) {
-            Action action = actionHelper.create("task", task.getId(), "DeleteEstimate", "", "", null, true);
+            Action action = actionHelper.create(StaticDict.Action__object_type.TASK.getValue(), task.getId(), StaticDict.Action__type.DELETEESTIMATE.getValue(), "", "", null, true);
             if (changes.size() > 0){
                 actionHelper.logHistory(action.getId(),changes);
             }

@@ -6,6 +6,7 @@ import cn.ibizlab.pms.core.util.ibizzentao.common.ZTDateUtil;
 import cn.ibizlab.pms.core.zentao.domain.*;
 import cn.ibizlab.pms.core.zentao.mapper.ProjectMapper;
 import cn.ibizlab.pms.core.zentao.service.IProjectService;
+import cn.ibizlab.pms.util.dict.StaticDict;
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
 import cn.ibizlab.pms.util.security.AuthenticationUser;
 import com.alibaba.fastjson.JSONArray;
@@ -18,7 +19,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.Timestamp;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -75,7 +75,7 @@ public class ProjectHelper extends ZTBaseHelper<ProjectMapper, Project> {
         if (!this.retBool(this.baseMapper.insert(et)))
             return false;
         CachedBeanCopier.copy(get(et.getId()), et);
-        fileHelper.updateObjectID(null, et.getId(), "product");
+        fileHelper.updateObjectID(null, et.getId(), StaticDict.Action__object_type.PRODUCT.getValue());
 
         //更新order
         et.setOrder(et.getId().intValue() * 5);
@@ -83,7 +83,7 @@ public class ProjectHelper extends ZTBaseHelper<ProjectMapper, Project> {
 
         //DocLib
         DocLib docLib = new DocLib();
-        docLib.setType("project");
+        docLib.setType(StaticDict.Action__object_type.PROJECT.getValue());
         docLib.setProduct(et.getId());
         docLib.setName("项目主库");
         docLib.setMain(1);
@@ -92,7 +92,7 @@ public class ProjectHelper extends ZTBaseHelper<ProjectMapper, Project> {
 
         //Team
         Team team = new Team();
-        team.setType("project");
+        team.setType(StaticDict.Action__object_type.PROJECT.getValue());
         team.setRoot(et.getId());
         team.setAccount(AuthenticationUser.getAuthenticationUser().getUsername());
         team.setJoin(ZTDateUtil.now());
@@ -102,7 +102,7 @@ public class ProjectHelper extends ZTBaseHelper<ProjectMapper, Project> {
         teamHelper.create(team);
 
         //关联产品
-        projectProductHelper.remove(new QueryWrapper<ProjectProduct>().eq("project", et.getId()));
+        projectProductHelper.remove(new QueryWrapper<ProjectProduct>().eq(StaticDict.Action__object_type.PROJECT.getValue(), et.getId()));
         if(projectproducts != null) {
             for (int i = 0; i < projectproducts.size(); i++) {
                 JSONObject json = projectproducts.getJSONObject(i);
@@ -119,7 +119,7 @@ public class ProjectHelper extends ZTBaseHelper<ProjectMapper, Project> {
             }
         }
 
-        actionHelper.create("project", et.getId(), "opened", "",
+        actionHelper.create(StaticDict.Action__object_type.PROJECT.getValue(), et.getId(), StaticDict.Action__type.OPENED.getValue(), "",
                 StringUtils.isNotBlank(et.getProducts()) ? et.getProducts() : "", null, true);
 
 
@@ -147,10 +147,10 @@ public class ProjectHelper extends ZTBaseHelper<ProjectMapper, Project> {
         fileHelper.processImgURL(et, null, null);
         if (!this.internalUpdate(et))
             return false;
-        fileHelper.updateObjectID(null, et.getId(), "project");
+        fileHelper.updateObjectID(null, et.getId(), StaticDict.Action__object_type.PROJECT.getValue());
 
         //关联产品
-        projectProductHelper.remove(new QueryWrapper<ProjectProduct>().eq("project", et.getId()));
+        projectProductHelper.remove(new QueryWrapper<ProjectProduct>().eq(StaticDict.Action__object_type.PROJECT.getValue(), et.getId()));
         if(projectproducts != null) {
             for (int i = 0; i < projectproducts.size(); i++) {
                 JSONObject json = projectproducts.getJSONObject(i);
@@ -170,7 +170,7 @@ public class ProjectHelper extends ZTBaseHelper<ProjectMapper, Project> {
         //Team 处理
 
         List<History> changes = ChangeUtil.diff(old, et,null,null,diffAttrs);
-        Action action = actionHelper.create("project", et.getId(), "edited", comment, "", null, true);
+        Action action = actionHelper.create(StaticDict.Action__object_type.PROJECT.getValue(), et.getId(), StaticDict.Action__type.EDITED.getValue(), comment, "", null, true);
         if (changes.size() > 0) {
             actionHelper.logHistory(action.getId(), changes);
         }
@@ -185,7 +185,7 @@ public class ProjectHelper extends ZTBaseHelper<ProjectMapper, Project> {
         boolean result = removeById(key);
 
         //删除doclib
-        docLibHelper.remove(new QueryWrapper<DocLib>().eq("project", key));
+        docLibHelper.remove(new QueryWrapper<DocLib>().eq(StaticDict.Action__object_type.PROJECT.getValue(), key));
 
         return result;
     }
@@ -195,11 +195,11 @@ public class ProjectHelper extends ZTBaseHelper<ProjectMapper, Project> {
         String comment = StringUtils.isNotBlank(et.getComment()) ? et.getComment() : "";
         Project old = new Project();
         CachedBeanCopier.copy(get(et.getId()), old);
-        et.setStatus("doing");
+        et.setStatus(StaticDict.Project__status.DOING.getValue());
         this.internalUpdate(et);
         List<History> changes = ChangeUtil.diff(old, et);
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
-            Action action = actionHelper.create("project", et.getId(), "Started",
+            Action action = actionHelper.create(StaticDict.Action__object_type.PROJECT.getValue(), et.getId(), StaticDict.Action__type.STARTED.getValue(),
                     comment, "", null, true);
             if (changes.size() > 0)
                 actionHelper.logHistory(action.getId(), changes);
@@ -212,14 +212,14 @@ public class ProjectHelper extends ZTBaseHelper<ProjectMapper, Project> {
         String comment = StringUtils.isNotBlank(et.getComment()) ? et.getComment() : "";
         Project old = new Project();
         CachedBeanCopier.copy(get(et.getId()), old);
-        et.setStatus("doing");
+        et.setStatus(StaticDict.Project__status.DOING.getValue());
         this.internalUpdate(et);
         /* Readjust task. */
         log.info("Readjust task 未实现");
 
         List<History> changes = ChangeUtil.diff(old, et);
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
-            Action action = actionHelper.create("project", et.getId(), "Activated",
+            Action action = actionHelper.create(StaticDict.Action__object_type.PROJECT.getValue(), et.getId(), StaticDict.Action__type.ACTIVATED.getValue(),
                     comment, "", null, true);
             if (changes.size() > 0)
                 actionHelper.logHistory(action.getId(), changes);
@@ -232,13 +232,13 @@ public class ProjectHelper extends ZTBaseHelper<ProjectMapper, Project> {
         String comment = StringUtils.isNotBlank(et.getComment()) ? et.getComment() : "";
         Project old = new Project();
         CachedBeanCopier.copy(get(et.getId()), old);
-        et.setStatus("closed");
+        et.setStatus(StaticDict.Project__status.CLOSED.getValue());
         et.setClosedby(AuthenticationUser.getAuthenticationUser().getUsername());
         et.setCloseddate(ZTDateUtil.now());
         this.internalUpdate(et);
         List<History> changes = ChangeUtil.diff(old, et);
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
-            Action action = actionHelper.create("project", et.getId(), "Closed",
+            Action action = actionHelper.create(StaticDict.Action__object_type.PROJECT.getValue(), et.getId(), StaticDict.Action__type.CLOSED.getValue(),
                     comment, "", null, true);
             if (changes.size() > 0)
                 actionHelper.logHistory(action.getId(), changes);
@@ -254,7 +254,7 @@ public class ProjectHelper extends ZTBaseHelper<ProjectMapper, Project> {
         this.internalUpdate(et);
         List<History> changes = ChangeUtil.diff(old, et, null, new String[]{"end", "days"}, null);
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
-            Action action = actionHelper.create("project", et.getId(), "Delayed",
+            Action action = actionHelper.create(StaticDict.Action__object_type.PROJECT.getValue(), et.getId(), StaticDict.Action__type.DELAYED.getValue(),
                     comment, "", null, true);
             if (changes.size() > 0)
                 actionHelper.logHistory(action.getId(), changes);
@@ -267,11 +267,11 @@ public class ProjectHelper extends ZTBaseHelper<ProjectMapper, Project> {
         String comment = StringUtils.isNotBlank(et.getComment()) ? et.getComment() : "";
         Project old = new Project();
         CachedBeanCopier.copy(get(et.getId()), old);
-        et.setStatus("suspended");
+        et.setStatus(StaticDict.Project__status.SUSPENDED.getValue());
         this.internalUpdate(et);
         List<History> changes = ChangeUtil.diff(old, et);
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
-            Action action = actionHelper.create("project", et.getId(), "Suspended",
+            Action action = actionHelper.create(StaticDict.Action__object_type.PROJECT.getValue(), et.getId(), StaticDict.Action__type.SUSPENDED.getValue(),
                     comment, "", null, true);
             if (changes.size() > 0)
                 actionHelper.logHistory(action.getId(), changes);
@@ -302,7 +302,7 @@ public class ProjectHelper extends ZTBaseHelper<ProjectMapper, Project> {
             projectStory.setOrder(++order);
             projectStoryHelper.create(projectStory);
             storyHelper.setStage(story);
-            actionHelper.create("story", story.getId(), "linked2project",
+            actionHelper.create(StaticDict.Action__object_type.STORY.getValue(), story.getId(), StaticDict.Action__type.LINKED2PROJECT.getValue(),
                     "", String.valueOf(et.getId()), null, true);
         }
 
@@ -319,7 +319,7 @@ public class ProjectHelper extends ZTBaseHelper<ProjectMapper, Project> {
 
         //order 处理
 
-        actionHelper.create("story", Long.parseLong(et.get("story").toString()), "unlinkedfromproject",
+        actionHelper.create(StaticDict.Action__object_type.STORY.getValue(), Long.parseLong(et.get("story").toString()), StaticDict.Action__type.UNLINKEDFROMPROJECT.getValue(),
                 "", String.valueOf(et.getId()), null, true);
 
         //需求的task处理
@@ -342,7 +342,7 @@ public class ProjectHelper extends ZTBaseHelper<ProjectMapper, Project> {
         List<ProjectTeam> list = et.getProjectteam();
         teamHelper.remove(new QueryWrapper<Team>().eq("type","project").eq("root", et.getId()));
         for(ProjectTeam projectTeam : list) {
-            projectTeam.setType("project");
+            projectTeam.setType(StaticDict.Action__object_type.PROJECT.getValue());
             Team team = new Team();
             CachedBeanCopier.copy(projectTeam, team);
             team.setId(null);

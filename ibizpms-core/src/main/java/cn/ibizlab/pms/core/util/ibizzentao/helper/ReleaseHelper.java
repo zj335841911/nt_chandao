@@ -4,6 +4,7 @@ import cn.ibizlab.pms.core.util.ibizzentao.common.ChangeUtil;
 import cn.ibizlab.pms.core.util.ibizzentao.common.ZTDateUtil;
 import cn.ibizlab.pms.core.zentao.domain.*;
 import cn.ibizlab.pms.core.zentao.mapper.ReleaseMapper;
+import cn.ibizlab.pms.util.dict.StaticDict;
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
 import cn.ibizlab.pms.util.security.AuthenticationUser;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
@@ -67,7 +68,7 @@ public class ReleaseHelper extends ZTBaseHelper<ReleaseMapper, Release> {
 
         fileHelper.processImgURL(et, null, null);
 
-        actionHelper.create("release", et.getId(), "opened", "", "", null, true);
+        actionHelper.create(StaticDict.Action__object_type.RELEASE.getValue(), et.getId(), StaticDict.Action__type.OPENED.getValue(), "", "", null, true);
 
         return bOk;
 
@@ -80,11 +81,11 @@ public class ReleaseHelper extends ZTBaseHelper<ReleaseMapper, Release> {
         fileHelper.processImgURL(et, null, null);
         if (!internalUpdate(et))
             return false;
-        fileHelper.updateObjectID(null, et.getId(), "release");
+        fileHelper.updateObjectID(null, et.getId(), StaticDict.Action__object_type.RELEASE.getValue());
 
         List<History> changes = ChangeUtil.diff(old, et,null,null,new String[]{"desc"});
         if (changes.size() > 0) {
-            Action action = actionHelper.create("release", et.getId(), "Edited", "", "", null, true);
+            Action action = actionHelper.create(StaticDict.Action__object_type.RELEASE.getValue(), et.getId(), StaticDict.Action__type.EDITED.getValue(), "", "", null, true);
             actionHelper.logHistory(action.getId(), changes);
         }
         return true;
@@ -103,19 +104,19 @@ public class ReleaseHelper extends ZTBaseHelper<ReleaseMapper, Release> {
 
     @Transactional
     public Release activate(Release et) {
-        et.setStatus("normal");
+        et.setStatus(StaticDict.Release__status.NORMAL.getValue());
         this.internalUpdate(et);
-        actionHelper.create("release", et.getId(), "changestatus",
-                "", "normal", null, true);
+        actionHelper.create(StaticDict.Action__object_type.RELEASE.getValue(), et.getId(), StaticDict.Action__type.CHANGESTATUS.getValue(),
+                "", StaticDict.Release__status.NORMAL.getValue(), null, true);
         return et;
     }
 
     @Transactional
     public Release terminate(Release et) {
-        et.setStatus("terminate");
+        et.setStatus(StaticDict.Release__status.TERMINATE.getValue());
         this.internalUpdate(et);
-        actionHelper.create("release", et.getId(), "changestatus",
-                "", "terminate", null, true);
+        actionHelper.create(StaticDict.Action__object_type.RELEASE.getValue(), et.getId(), StaticDict.Action__type.CHANGESTATUS.getValue(),
+                "", StaticDict.Release__status.TERMINATE.getValue(), null, true);
         return et;
     }
 
@@ -138,7 +139,7 @@ public class ReleaseHelper extends ZTBaseHelper<ReleaseMapper, Release> {
         internalUpdate(release);
 
         for(String bug : bugs.split(",")) {
-            actionHelper.create("bug", Long.parseLong(bug), "linked2release",
+            actionHelper.create(StaticDict.Action__object_type.BUG.getValue(), Long.parseLong(bug), StaticDict.Action__type.LINKED2RELEASE.getValue(),
                     "", String.valueOf(et.getId()), null, true);
         }
         return et;
@@ -178,7 +179,7 @@ public class ReleaseHelper extends ZTBaseHelper<ReleaseMapper, Release> {
         internalUpdate(release);
 
         for(String bug : bugs.split(",")) {
-            actionHelper.create("bug", Long.parseLong(bug), "linked2release",
+            actionHelper.create(StaticDict.Action__object_type.BUG.getValue(), Long.parseLong(bug), StaticDict.Action__type.LINKED2RELEASE.getValue(),
                     "", String.valueOf(et.getId()), null, true);
         }
         return et;
@@ -216,7 +217,7 @@ public class ReleaseHelper extends ZTBaseHelper<ReleaseMapper, Release> {
             story1.setId(Long.parseLong(story));
             story1.setStagedby("");
             storyHelper.internalUpdate(story1);
-            if(!"normal".equals(product.getType())) {
+            if(!StaticDict.Product__status.NORMAL.getValue().equals(product.getType())) {
                 StoryStage storyStage = new StoryStage();
                 storyStage.setStagedby("");
                 Map<String,Object> param = new HashMap<>();
@@ -225,7 +226,7 @@ public class ReleaseHelper extends ZTBaseHelper<ReleaseMapper, Release> {
                 storyStageHelper.update(storyStage, (Wrapper)storyStage.getUpdateWrapper(true).allEq(param));
             }
             storyHelper.setStage(story1);
-            actionHelper.create("story", Long.parseLong(story), "linked2release",
+            actionHelper.create(StaticDict.Action__object_type.STORY.getValue(), Long.parseLong(story), StaticDict.Action__type.LINKED2RELEASE.getValue(),
                     "", String.valueOf(et.getId()), null, true);
         }
         return et;

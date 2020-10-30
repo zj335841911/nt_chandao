@@ -6,6 +6,7 @@ import cn.ibizlab.pms.core.zentao.domain.*;
 import cn.ibizlab.pms.core.zentao.mapper.StoryMapper;
 import cn.ibizlab.pms.core.zentao.service.IStoryService;
 import cn.ibizlab.pms.core.zentao.service.IStoryStageService;
+import cn.ibizlab.pms.util.dict.StaticDict;
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
 import cn.ibizlab.pms.util.security.AuthenticationUser;
 import com.alibaba.fastjson.JSONObject;
@@ -19,7 +20,10 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.Timestamp;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @Component
 @Slf4j
@@ -71,18 +75,18 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
         fileHelper.processImgURL(et, null, null);
         et.setVersion(1);
         et.setAssigneddate(et.getAssignedto() != null ? ZTDateUtil.now() : ZTDateUtil.nul());
-        et.setStatus((et.getNeednotreview() == null || "".equals(et.getNeednotreview()) || !"1".equals(et.getNeednotreview())) ? "draft" : "active");
-        if("draft".equals(et.getStatus())) {
+        et.setStatus((et.getNeednotreview() == null || "".equals(et.getNeednotreview()) || !"1".equals(et.getNeednotreview())) ? StaticDict.Story__status.DRAFT.getValue() : StaticDict.Story__status.ACTIVE.getValue());
+        if(StaticDict.Story__status.DRAFT.getValue().equals(et.getStatus())) {
             if(et.getAssignedto() == null || "".equals(et.getAssignedto())) {
                 et.setReviewedby(productHelper.get(et.getProduct()).getPo());
             }else
                 et.setReviewedby(et.getAssignedto());
 
         }
-        et.setStage(et.getProject() != null && et.getProject() > 0 ? "projected" : et.getPlan() != null && !"".equals(et.getPlan()) && !"0".equals(et.getPlan()) ? "planned" : "wait");
+        et.setStage(et.getProject() != null && et.getProject() > 0 ? StaticDict.Story__stage.PROJECTED.getValue() : et.getPlan() != null && !"".equals(et.getPlan()) && !"0".equals(et.getPlan()) ? StaticDict.Story__stage.PLANNED.getValue() : StaticDict.Story__stage.WAIT.getValue());
         super.create(et);
-        fileHelper.updateObjectID(null, et.getId(), "story");
-        fileHelper.saveUpload("story", et.getId(), "", "", "");
+        fileHelper.updateObjectID(null, et.getId(), StaticDict.Action__object_type.STORY.getValue());
+        fileHelper.saveUpload(StaticDict.Action__object_type.STORY.getValue(), et.getId(), "", "", "");
 
         //storyspec create
         StorySpec storySpec = new StorySpec();
@@ -93,7 +97,7 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
         storySpec.setVersion(1);
         storySpecHelper.create(storySpec);
 
-        if (et.getProject() != null && et.getProject() != 0l && StringUtils.compare(et.getStage(), "draft") != 0) {
+        if (et.getProject() != null && et.getProject() != 0l && StringUtils.compare(et.getStage(), StaticDict.Story__status.DRAFT.getValue()) != 0) {
             //projectstroy
             ProjectStory projectStory = new ProjectStory();
             projectStory.setProject(et.getProject());
@@ -104,16 +108,16 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
             projectStoryHelper.create(projectStory);
         }
 
-        String action = "Opened";
+        String action = StaticDict.Action__type.OPENED.getValue();
         String extra = "";
         if (et.getFrombug() != null && et.getFrombug() != 0) {
-            action = "Frombug";
+            action = StaticDict.Action__type.FROMBUG.getValue();
             extra = String.valueOf(et.getFrombug());
             Bug bug = new Bug();
             bug.setId(et.getFrombug());
             bug.setTostory(et.getId());
-            bug.setStatus("closed");
-            bug.setResolution("tostory");
+            bug.setStatus(StaticDict.Bug__status.CLOSED.getValue());
+            bug.setResolution(StaticDict.Bug__resolution.TOSTORY.getEmptyText());
             bug.setResolvedby(AuthenticationUser.getAuthenticationUser().getUsername());
             bug.setResolveddate(ZTDateUtil.now());
             bug.setClosedby(AuthenticationUser.getAuthenticationUser().getUsername());
@@ -124,15 +128,15 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
 
             /* add files to story from bug. */
 
-            actionHelper.create("bug", et.getFrombug(), "ToStory", "", String.valueOf(et.getId()), AuthenticationUser.getAuthenticationUser().getUsername(), true);
+            actionHelper.create(StaticDict.Action__object_type.BUG.getValue(), et.getFrombug(), StaticDict.Action__type.TOSTORY.getValue(), "", String.valueOf(et.getId()), AuthenticationUser.getAuthenticationUser().getUsername(), true);
 
-            actionHelper.create("bug", et.getFrombug(), "Closed", "", "", AuthenticationUser.getAuthenticationUser().getUsername(), true);
+            actionHelper.create(StaticDict.Action__object_type.BUG.getValue(), et.getFrombug(), StaticDict.Action__type.CLOSED.getValue(), "", "", AuthenticationUser.getAuthenticationUser().getUsername(), true);
 
         }
 
         setStage(et);
 
-        actionHelper.create("story", et.getId(), action, "", extra, AuthenticationUser.getAuthenticationUser().getUsername(), true);
+        actionHelper.create(StaticDict.Action__object_type.STORY.getValue(), et.getId(), action, "", extra, AuthenticationUser.getAuthenticationUser().getUsername(), true);
 
         return true;
     }
@@ -153,7 +157,7 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
             if(story.getTitle() == null || "".equals(story.getTitle())) continue;
             story.setModule(story.getModule() != null ? story.getModule() : module);
             story.setPlan(story.getPlan() != null ? story.getPlan() : plan);
-            story.setType("story");
+            story.setType(StaticDict.Story__type.STORY.getValue());
             story.setProduct(product);
             story.setSource(story.getSource() != null ? story.getSource() : source);
             story.setPri(story.getPri() != null ? story.getPri() : pri);
@@ -196,7 +200,7 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
         this.internalUpdate(newStory);
         List<History> changes = ChangeUtil.diff(story, newStory);
         if(changes.size() > 0) {
-            Action action = actionHelper.create("story", story.getId(), "createChildrenStory",
+            Action action = actionHelper.create(StaticDict.Action__object_type.STORY.getValue(), story.getId(), StaticDict.Action__type.CREATECHILDRENSTORY.getValue(),
                     "" , stories, AuthenticationUser.getAuthenticationUser().getUsername(), true);
             actionHelper.logHistory(action.getId(), changes);
         }
@@ -265,9 +269,9 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
                 newParentStory.setChildstories(strChildStories.substring(0, strChildStories.length() - 1).toString());
                 this.internalUpdate(newParentStory);
 
-                actionHelper.create("story", et.getId(), "unlinkParentStory", "", String.valueOf(old.getParent()), AuthenticationUser.getAuthenticationUser().getUsername(), false);
+                actionHelper.create(StaticDict.Action__object_type.STORY.getValue(), et.getId(), StaticDict.Action__type.UNLINKPARENTSTORY.getValue(), "", String.valueOf(old.getParent()), AuthenticationUser.getAuthenticationUser().getUsername(), false);
 
-                Action action = actionHelper.create("story", old.getParent(), "unLinkChildrenStory", "", String.valueOf(et.getId()), AuthenticationUser.getAuthenticationUser().getUsername(), false);
+                Action action = actionHelper.create(StaticDict.Action__object_type.STORY.getValue(), old.getParent(),StaticDict.Action__type.UNLINKCHILDSTORY.getValue(), "", String.valueOf(et.getId()), AuthenticationUser.getAuthenticationUser().getUsername(), false);
 
                 List<History> changes = ChangeUtil.diff(oldParentStory, newParentStory, new String[]{"lasteditedby", "lastediteddate", "spec", "verify"});
                 if (changes.size() > 0) {
@@ -291,9 +295,9 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
                 newParentStory.setChildstories(strChildStories.substring(0, strChildStories.length() - 1).toString());
                 this.internalUpdate(newParentStory);
 
-                actionHelper.create("story", et.getId(), "linkParentStory", "", String.valueOf(et.getParent()), AuthenticationUser.getAuthenticationUser().getUsername(), false);
+                actionHelper.create(StaticDict.Action__object_type.STORY.getValue(), et.getId(), StaticDict.Action__type.LINKPARENTSTORY.getValue(), "", String.valueOf(et.getParent()), AuthenticationUser.getAuthenticationUser().getUsername(), false);
 
-                Action action = actionHelper.create("story", et.getParent(), "linkChildStory", "", String.valueOf(et.getId()), AuthenticationUser.getAuthenticationUser().getUsername(), false);
+                Action action = actionHelper.create(StaticDict.Action__object_type.STORY.getValue(), et.getParent(), StaticDict.Action__type.LINKCHILDSTORY.getValue(), "", String.valueOf(et.getId()), AuthenticationUser.getAuthenticationUser().getUsername(), false);
 
                 List<History> changes = ChangeUtil.diff(oldParentStory, newParentStory, new String[]{"lasteditedby", "lastediteddate", "spec", "verify"});
                 if (changes.size() > 0) {
@@ -304,8 +308,8 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
 
         List<History> changes = ChangeUtil.diff(old, et, new String[]{"lasteditedby", "lastediteddate", "spec", "verify"});
         if (StringUtils.isNotBlank(et.getComment()) || changes.size() > 0) {
-            String strAction = changes.size() > 0 ? "Edited" : "Commented";
-            Action action = actionHelper.create("story", et.getId(), strAction,
+            String strAction = changes.size() > 0 ? StaticDict.Action__type.EDITED.getValue() : StaticDict.Action__type.COMMENTED.getValue();
+            Action action = actionHelper.create(StaticDict.Action__object_type.STORY.getValue(), et.getId(), strAction,
                     StringUtils.isNotBlank(et.getComment()) ? et.getComment() : "", "", AuthenticationUser.getAuthenticationUser().getUsername(), true);
             actionHelper.logHistory(action.getId(), changes);
         }
@@ -319,7 +323,7 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
         boolean bOk = super.delete(key);
         if (old.getParent() > 0) {
             updateParentStatus(old, null, true);
-            actionHelper.create("story", key, "deleteChildrenStory", "", "", AuthenticationUser.getAuthenticationUser().getUsername(), true);
+            actionHelper.create(StaticDict.Action__object_type.STORY.getValue(), key, StaticDict.Action__type.DELETECHILDRENSTORY.getValue(), "", "", AuthenticationUser.getAuthenticationUser().getUsername(), true);
         }
         return bOk;
     }
@@ -345,7 +349,7 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
 
         List<History> changes = ChangeUtil.diff(old, et, null, new String[]{"status", "stage", "assignedto", "closedby", "closedreason", "closeddate"}, null);
         if (changes.size() > 0) {
-            Action action = actionHelper.create("story", et.getId(), "Activated", StringUtils.isNotBlank(et.getComment()) ? et.getComment() : "", String.valueOf(et.getParent()), AuthenticationUser.getAuthenticationUser().getUsername(), false);
+            Action action = actionHelper.create(StaticDict.Action__object_type.STORY.getValue(), et.getId(), StaticDict.Action__type.ACTIVATED.getValue(), StringUtils.isNotBlank(et.getComment()) ? et.getComment() : "", String.valueOf(et.getParent()), AuthenticationUser.getAuthenticationUser().getUsername(), false);
             actionHelper.logHistory(action.getId(), changes);
         }
         return et;
@@ -373,8 +377,8 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
             oldStorySpec.setSpec(et.getSpec());
             oldStorySpec.setVersion(et.getVersion());
             storySpecHelper.create(oldStorySpec);
-            if((et.getNeednotreview() == null || "".equals(et.getNeednotreview())) && "active".equals(et.getStatus())) {
-                et.setStatus("changed");
+            if((et.getNeednotreview() == null || "".equals(et.getNeednotreview())) && StaticDict.Story__status.ACTIVE.getValue().equals(et.getStatus())) {
+                et.setStatus(StaticDict.Story__status.CHANGED.getValue());
             }
         }
 
@@ -388,8 +392,8 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
         List<History> changes = ChangeUtil.diff(old, et, new String[]{"lasteditedby", "lastediteddate", "versionc"}, null, new String[]{"title", "spec", "verify"});
 
         if (StringUtils.isNotBlank(comment) || changes.size() > 0) {
-            String strAction = changes.size() > 0 ? "Changed" : "Commented";
-            Action action = actionHelper.create("story", et.getId(), strAction,
+            String strAction = changes.size() > 0 ? StaticDict.Action__type.CHANGED.getValue() : StaticDict.Action__type.COMMENTED.getValue();
+            Action action = actionHelper.create(StaticDict.Action__object_type.STORY.getValue(), et.getId(), strAction,
                     comment, "", AuthenticationUser.getAuthenticationUser().getUsername(), true);
             actionHelper.logHistory(action.getId(), changes);
         }
@@ -406,8 +410,8 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
 
         et.setCloseddate(ZTDateUtil.nul());
         et.setClosedby(AuthenticationUser.getAuthenticationUser().getUsername());
-        et.setStatus("closed");
-        et.setStage("closed");
+        et.setStatus(StaticDict.Story__status.CLOSED.getValue());
+        et.setStage(StaticDict.Story__stage.CLOSED.getValue());
         et.setAssigneddate(ZTDateUtil.now());
 
         internalUpdate(et);
@@ -415,7 +419,7 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
             updateParentStatus(et, this.get(et.getParent()), false);
         List<History> changes = ChangeUtil.diff(old, et, null, new String[]{"status", "stage", "assignedto", "closedby", "closedreason", "closeddate"}, null);
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
-            Action action = actionHelper.create("story", et.getId(), "Closed",
+            Action action = actionHelper.create(StaticDict.Action__object_type.STORY.getValue(), et.getId(), StaticDict.Action__type.CLOSED.getValue(),
                     comment, et.getClosedreason(), null, true);
             if (changes.size() > 0)
                 actionHelper.logHistory(action.getId(), changes);
@@ -437,7 +441,7 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
 
         List<History> changes = ChangeUtil.diff(old, et, new String[]{"lasteditedby", "assigneddate", "lastediteddate", "spec", "verify"});
         if (changes.size() > 0) {
-            Action action = actionHelper.create("story", et.getId(), "Assigned",
+            Action action = actionHelper.create(StaticDict.Action__object_type.STORY.getValue(), et.getId(), StaticDict.Action__type.ASSIGNED.getValue(),
                     comment, et.getAssignedto(), null, true);
             if (changes.size() > 0)
                 actionHelper.logHistory(action.getId(), changes);
@@ -455,17 +459,17 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
 
         if (et.getRevieweddate() == null)
             et.setRevieweddate(ZTDateUtil.now());
-        if (StringUtils.compare(result, "pass") == 0) {
-            if (StringUtils.compare(old.getStatus(), "draft") == 0 || StringUtils.compare(old.getStatus(), "changed") == 0)
-                et.setStatus("active");
-        } else if (StringUtils.compare(result, "reject") == 0) {
+        if (StringUtils.compare(result, StaticDict.Story__review_result.PASS.getValue()) == 0) {
+            if (StringUtils.compare(old.getStatus(), StaticDict.Story__status.DRAFT.getValue()) == 0 || StringUtils.compare(old.getStatus(), StaticDict.Story__status.CHANGED.getValue()) == 0)
+                et.setStatus(StaticDict.Story__status.ACTIVE.getValue());
+        } else if (StringUtils.compare(result, StaticDict.Story__review_result.REJECT.getValue()) == 0) {
             et.setCloseddate(ZTDateUtil.nul());
             et.setClosedby(AuthenticationUser.getAuthenticationUser().getUsername());
-            et.setStatus("closed");
-            et.setStage("closed");
+            et.setStatus(StaticDict.Story__status.CLOSED.getValue());
+            et.setStage(StaticDict.Story__stage.CLOSED.getValue());
             et.setAssignedto("closed");
-        } else if (StringUtils.compare(result, "revert") == 0) {
-            et.setStatus("active");
+        } else if (StringUtils.compare(result, StaticDict.Story__review_result.REVERT.getValue()) == 0) {
+            et.setStatus(StaticDict.Story__status.ACTIVE.getValue());
             StorySpec oldStorySpec = storySpecHelper.getOne(new QueryWrapper<StorySpec>().eq("story", old.getId()).eq("version", et.getPreversion()));
             et.setTitle(oldStorySpec.getTitle());
             et.setVersion(oldStorySpec.getVersion());
@@ -475,16 +479,16 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
 
         List<History> changes = ChangeUtil.diff(old, et, new String[]{"lasteditedby", "lastediteddate"});
         if (changes.size() > 0) {
-            Action action = actionHelper.create("story", et.getId(), "Reviewed",
+            Action action = actionHelper.create(StaticDict.Action__object_type.STORY.getValue(), et.getId(), StaticDict.Action__type.REVIEWED.getValue(),
                     comment, result, null, true);
-            if (StringUtils.compare(result, "reject") == 0) {
-                action = actionHelper.create("story", et.getId(), "Closed",
+            if (StringUtils.compare(result,  StaticDict.Story__review_result.REJECT.getValue()) == 0) {
+                action = actionHelper.create(StaticDict.Action__object_type.STORY.getValue(), et.getId(), StaticDict.Action__type.CLOSED.getValue(),
                         "", et.getClosedreason(), null, true);
             }
             if (changes.size() > 0)
                 actionHelper.logHistory(action.getId(), changes);
         }
-        if("reject".equals(result)) {
+        if(StaticDict.Story__review_result.REJECT.getValue().equals(result)) {
 
             this.setStage(et);
 
@@ -530,7 +534,7 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
 
         et.setPlan("");
         this.internalUpdate(et);
-        actionHelper.create("story", et.getId(), "unlinkedfromplan",
+        actionHelper.create(StaticDict.Action__object_type.STORY.getValue(), et.getId(), StaticDict.Action__type.UNLINKEDFROMPLAN.getValue(),
                 "",
                 et.getPlan(),
                 AuthenticationUser.getAuthenticationUser().getUsername(),
@@ -597,7 +601,7 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
         stories = stories.replaceAll(regex, "");
         releaseUpdate.setStories(stories);
         releaseHelper.internalUpdate(releaseUpdate);
-        actionHelper.create("story", et.getId(), "unlinkedfromrelease",
+        actionHelper.create(StaticDict.Action__object_type.STORY.getValue(), et.getId(), StaticDict.Action__type.UNLINKEDFROMRELEASE.getValue(),
                 "",
                 et.get("release").toString(),
                 AuthenticationUser.getAuthenticationUser().getLoginname(),
@@ -667,7 +671,7 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
         if(et.getStagedby() != null && !"".equals(et.getStagedby())) return et;
 
         Product product = et.getZtproduct();
-        boolean hasBranch = (!"normal".equals(product.getType()) && (et.getBranch() == null));
+        boolean hasBranch = (!StaticDict.Product__status.NORMAL.getValue().equals(product.getType()) && (et.getBranch() == null));
 
         String releaseSql = String.format("select DISTINCT branch,'released' as stage from zt_release where deleted = '0' and CONCAT(',', stories, ',') like %1$s ","CONCAT('%,'," + et.getId() + ",',%')");
         List<JSONObject> releaseList = iStoryStageService.select(releaseSql, null);
@@ -677,12 +681,12 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
                     StoryStage storyStage = new StoryStage();
                     storyStage.setStory(et.getId());
                     storyStage.setBranch(jsonObject.getLongValue("branch"));
-                    storyStage.setStage("released");
+                    storyStage.setStage(StaticDict.Story__stage.RELEASED.getValue());
                     storyStageHelper.create(storyStage);
                 }
             }else {
                 Story story = new Story();
-                story.setStage("released");
+                story.setStage(StaticDict.Story__stage.RELEASED.getValue());
                 story.setId(et.getId());
                 this.internalUpdate(story);
             }
@@ -709,13 +713,13 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
                    StoryStage storyStage = new StoryStage();
                    storyStage.setStory(et.getId());
                    storyStage.setBranch(jsonObject.getLongValue("branch"));
-                   storyStage.setStage("projected");
+                   storyStage.setStage(StaticDict.Story__stage.PROJECTED.getValue());
                    storyStageHelper.create(storyStage);
                }
            }
 
             Story story = new Story();
-            story.setStage("projected");
+            story.setStage(StaticDict.Story__stage.PROJECTED.getValue());
             story.setId(et.getId());
             this.internalUpdate(story);
         }else if(taskList.size() > 0){
@@ -743,18 +747,18 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
             String planSql = String.format("select DISTINCT branch from zt_productplan where FIND_IN_SET(id, %1$s) ", et.getPlan());
             List<JSONObject> planList = iStoryService.select(planSql, null);
             for(JSONObject jsonObject : planList) {
-                stages.put(jsonObject.getLongValue("branch"), "planned");
+                stages.put(jsonObject.getLongValue("branch"), StaticDict.Story__stage.PLANNED.getValue());
             }
         }
         if(objectList.size() > 0) {
             if(et.getPlan() == null || "".equals(et.getPlan())) {
                 Story story = new Story();
-                story.setStage("wait");
+                story.setStage(StaticDict.Story__stage.WAIT.getValue());
                 story.setId(et.getId());
                 this.internalUpdate(story);
             }else if(!"0".equals(et.getPlan())){
                 Story story = new Story();
-                story.setStage("planned");
+                story.setStage(StaticDict.Story__stage.PLANNED.getValue());
                 story.setId(et.getId());
                 this.internalUpdate(story);
             }
@@ -773,7 +777,7 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
         }else {
             if(et.getPlan() != null && !"".equals(et.getPlan()) && !"0".equals(et.getPlan())){
                 Story story = new Story();
-                story.setStage("planned");
+                story.setStage(StaticDict.Story__stage.PLANNED.getValue());
                 story.setId(et.getId());
                 this.internalUpdate(story);
             }
@@ -813,20 +817,20 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
             return ;
         }
         String parentStatus = parentStory.getStatus();
-        if(childrenStatus.size() == 1 && !"changed".equals(parentStatus)) {
+        if(childrenStatus.size() == 1 && !StaticDict.Story__status.CHANGED.getValue().equals(parentStatus)) {
             parentStatus = childrenStatus.get(0).getString("status");
-            if("draft".equals(parentStatus) || "changed".equals(parentStatus))
-                parentStatus = "active";
-        }else if(childrenStatus.size() > 1 && "closed".equals(parentStatus)) {
-            parentStatus = "active";
+            if(StaticDict.Story__status.DRAFT.getValue().equals(parentStatus) || StaticDict.Story__status.CHANGED.getValue().equals(parentStatus))
+                parentStatus = StaticDict.Story__status.ACTIVE.getValue();
+        }else if(childrenStatus.size() > 1 && StaticDict.Story__status.CLOSED.getValue().equals(parentStatus)) {
+            parentStatus = StaticDict.Story__status.ACTIVE.getValue();
         }
 
         if(parentStatus != null && parentStatus.equals(parentStory.getStatus())) {
             Story story1 = new Story();
             Timestamp timestamp = ZTDateUtil.now();
             story1.setStatus(parentStatus);
-            story1.setStage("wait");
-            if("active".equals(parentStatus)) {
+            story1.setStage(StaticDict.Story__stage.WAIT.getValue());
+            if(StaticDict.Story__status.ACTIVE.getValue().equals(parentStatus)) {
                 story1.setAssignedto(parentStory.getOpenedby());
                 story1.setAssigneddate(timestamp);
                 story1.setClosedby("");
@@ -835,11 +839,11 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
                 story1.setReviewedby("");
                 story1.set("reviewedDate","0000-00-00");
             }
-            else if("closed".equals(parentStatus)) {
+            else if(StaticDict.Story__status.CLOSED.getValue().equals(parentStatus)) {
                 story1.setAssignedto("closed");
                 story1.setAssigneddate(timestamp);
                 story1.setClosedby(AuthenticationUser.getAuthenticationUser().getLoginname());
-                story1.setClosedreason("done");
+                story1.setClosedreason(StaticDict.Story__closed_reason.DONE.getValue());
                 story1.setCloseddate(timestamp);
             }
             story1.setLasteditedby(AuthenticationUser.getAuthenticationUser().getLoginname());
@@ -852,8 +856,8 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
                 Story newParentStory = this.get(parentStory.getId());
                 List<History> changes = ChangeUtil.diff(parentStory, newParentStory);
                 if (changes.size() > 0) {
-                    String actionType = "active".equals(parentStatus) ? "Activated" : "closed".equals(parentStatus) ? "Closed" : "";
-                    Action action = actionHelper.create("story", parentStory.getId(), actionType,
+                    String actionType = StaticDict.Story__status.ACTIVE.getValue().equals(parentStatus) ? StaticDict.Action__type.ACTIVATED.getValue() : StaticDict.Story__status.CLOSED.getValue().equals(parentStatus) ? StaticDict.Action__type.CLOSED.getValue() : "";
+                    Action action = actionHelper.create(StaticDict.Action__object_type.STORY.getValue(), parentStory.getId(), actionType,
                             "", "", null, true);
                     if (changes.size() > 0)
                         actionHelper.logHistory(action.getId(), changes);
@@ -865,7 +869,7 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
             Story newParentStory = this.get(parentStory.getId());
             List<History> changes = ChangeUtil.diff(parentStory, newParentStory);
             if (changes.size() > 0) {
-                Action action = actionHelper.create("story", parentStory.getId(), "Edited",
+                Action action = actionHelper.create(StaticDict.Action__object_type.STORY.getValue(), parentStory.getId(), StaticDict.Action__type.EDITED.getValue(),
                         "", "", null, true);
                 if (changes.size() > 0)
                     actionHelper.logHistory(action.getId(), changes);

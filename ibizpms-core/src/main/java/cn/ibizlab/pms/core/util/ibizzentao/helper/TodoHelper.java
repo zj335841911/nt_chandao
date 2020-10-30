@@ -6,6 +6,7 @@ import cn.ibizlab.pms.core.zentao.domain.Action;
 import cn.ibizlab.pms.core.zentao.domain.History;
 import cn.ibizlab.pms.core.zentao.domain.Todo;
 import cn.ibizlab.pms.core.zentao.mapper.TodoMapper;
+import cn.ibizlab.pms.util.dict.StaticDict;
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
 import cn.ibizlab.pms.util.security.AuthenticationUser;
 import com.alibaba.fastjson.JSONObject;
@@ -32,15 +33,15 @@ public class TodoHelper extends ZTBaseHelper<TodoMapper, Todo> {
     @Transactional
     public boolean create(Todo et) {
 
-        if (StringUtils.compare(et.getType(), "task") == 0)
+        if (StringUtils.compare(et.getType(),StaticDict.Type.TASK.getValue()) == 0)
             et.setName(et.getTask());
-        else if (StringUtils.compare(et.getType(), "bug") == 0)
+        else if (StringUtils.compare(et.getType(), StaticDict.Type.BUG.getValue()) == 0)
             et.setName(et.getBug());
-        else if (StringUtils.compare(et.getType(), "story") == 0)
+        else if (StringUtils.compare(et.getType(), StaticDict.Type.STORY.getValue()) == 0)
             et.setName(et.getStory());
 
         if (et.getCycle() != null && et.getCycle() == 1) {
-            et.setType("cycle");
+            et.setType(StaticDict.Type.CYCLE.getValue());
             JSONObject config = new JSONObject();
             config.put("type", et.getConfigType());
             config.put("beforeDays", et.getConfigBeforedays());
@@ -69,7 +70,7 @@ public class TodoHelper extends ZTBaseHelper<TodoMapper, Todo> {
 
         }
 
-        actionHelper.create("todo", et.getId(), "opened", "", "", null, true);
+        actionHelper.create(StaticDict.Action__object_type.TODO.getValue(), et.getId(), StaticDict.Action__type.OPENED.getValue(), "", "", null, true);
 
         return true;
     }
@@ -79,11 +80,11 @@ public class TodoHelper extends ZTBaseHelper<TodoMapper, Todo> {
         Todo old = new Todo();
         CachedBeanCopier.copy(get(et.getId()), old);
 
-        if (StringUtils.compare(et.getType(), "task") == 0)
+        if (StringUtils.compare(et.getType(), StaticDict.Type.TASK.getValue()) == 0)
             et.setName(et.getTask());
-        else if (StringUtils.compare(et.getType(), "bug") == 0)
+        else if (StringUtils.compare(et.getType(), StaticDict.Type.BUG.getValue()) == 0)
             et.setName(et.getBug());
-        else if (StringUtils.compare(et.getType(), "story") == 0)
+        else if (StringUtils.compare(et.getType(), StaticDict.Type.STORY.getValue()) == 0)
             et.setName(et.getStory());
         if (et.getCycle() != null && et.getCycle() == 1) {
             JSONObject config = new JSONObject();
@@ -109,7 +110,7 @@ public class TodoHelper extends ZTBaseHelper<TodoMapper, Todo> {
 
         List<History> changes = ChangeUtil.diff(old, et);
         if (changes.size() > 0) {
-            Action action = actionHelper.create("todo", et.getId(), "edited", "", "", null, true);
+            Action action = actionHelper.create(StaticDict.Action__object_type.TODO.getValue(), et.getId(), StaticDict.Action__type.EDITED.getValue(), "", "", null, true);
             actionHelper.logHistory(action.getId(), changes);
         }
         return true;
@@ -128,7 +129,7 @@ public class TodoHelper extends ZTBaseHelper<TodoMapper, Todo> {
 
         this.internalUpdate(et);
 
-        actionHelper.create("todo", et.getId(), "assigned",
+        actionHelper.create(StaticDict.Action__object_type.TODO.getValue(), et.getId(), StaticDict.Action__type.ASSIGNED.getValue(),
                 "", et.getAssignedto(), null, true);
 
         return et;
@@ -138,10 +139,10 @@ public class TodoHelper extends ZTBaseHelper<TodoMapper, Todo> {
     public Todo activate(Todo et) {
         et = this.get(et.getId());
 
-        if (StringUtils.compare(et.getStatus(), "done") == 0 || StringUtils.compare(et.getStatus(), "closed") == 0) {
-            et.setStatus("wait");
+        if (StringUtils.compare(et.getStatus(), StaticDict.Todo__status.DONE.getValue()) == 0 || StringUtils.compare(et.getStatus(), StaticDict.Todo__status.CLOSED.getValue()) == 0) {
+            et.setStatus(StaticDict.Todo__status.WAIT.getValue());
             this.internalUpdate(et);
-            actionHelper.create("todo", et.getId(), "activated",
+            actionHelper.create(StaticDict.Action__object_type.TODO.getValue(), et.getId(), StaticDict.Action__type.ACTIVATED.getValue(),
                     "", "wait", null, true);
         }
 
@@ -152,14 +153,14 @@ public class TodoHelper extends ZTBaseHelper<TodoMapper, Todo> {
     public Todo close(Todo et) {
         et = this.get(et.getId());
 
-        if (StringUtils.compare(et.getStatus(), "done") == 0) {
-            et.setStatus("closed");
+        if (StringUtils.compare(et.getStatus(), StaticDict.Todo__status.DONE.getValue()) == 0) {
+            et.setStatus(StaticDict.Todo__status.CLOSED.getValue());
             et.setClosedby(AuthenticationUser.getAuthenticationUser().getUsername());
             et.setCloseddate(ZTDateUtil.now());
             et.setAssignedto("closed");
             et.setAssigneddate(ZTDateUtil.now());
             this.internalUpdate(et);
-            actionHelper.create("todo", et.getId(), "closed",
+            actionHelper.create(StaticDict.Action__object_type.TODO.getValue(), et.getId(), StaticDict.Action__type.CLOSED.getValue(),
                     "", "closed", null, true);
         }
 
@@ -170,12 +171,12 @@ public class TodoHelper extends ZTBaseHelper<TodoMapper, Todo> {
     public Todo finish(Todo et) {
         et = this.get(et.getId());
 
-        if (StringUtils.compare(et.getStatus(), "done") != 0) {
-            et.setStatus("done");
+        if (StringUtils.compare(et.getStatus(), StaticDict.Todo__status.DONE.getValue()) != 0) {
+            et.setStatus(StaticDict.Todo__status.DONE.getValue());
             et.setFinishedby(AuthenticationUser.getAuthenticationUser().getUsername());
             et.setFinisheddate(ZTDateUtil.now());
             this.internalUpdate(et);
-            actionHelper.create("todo", et.getId(), "finished",
+            actionHelper.create(StaticDict.Action__object_type.TODO.getValue(), et.getId(), StaticDict.Action__type.FINISHED.getValue(),
                     "", "done", null, true);
         }
 

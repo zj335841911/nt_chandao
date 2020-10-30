@@ -3,10 +3,10 @@ package cn.ibizlab.pms.core.util.ibizzentao.helper;
 import cn.ibizlab.pms.core.util.ibizzentao.common.ChangeUtil;
 import cn.ibizlab.pms.core.zentao.domain.*;
 import cn.ibizlab.pms.core.zentao.mapper.TestSuiteMapper;
+import cn.ibizlab.pms.util.dict.StaticDict;
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -34,7 +34,7 @@ public class TestSuiteHelper extends ZTBaseHelper<TestSuiteMapper, TestSuite> {
         if (!bOk) {
             return bOk;
         }
-        actionHelper.create("testsuite", et.getId(), "opened", "", "", null, true);
+        actionHelper.create(StaticDict.Action__object_type.TESTSUITE.getValue(), et.getId(), StaticDict.Action__type.OPENED.getValue(), "", "", null, true);
 
         return true;
     }
@@ -50,7 +50,7 @@ public class TestSuiteHelper extends ZTBaseHelper<TestSuiteMapper, TestSuite> {
             return false;
 
         List<History> changes = ChangeUtil.diff(old, et,null,null,new String[]{"desc"});
-        Action action = actionHelper.create("testsuite", et.getId(), "edited", "", "", null, true);
+        Action action = actionHelper.create(StaticDict.Action__object_type.TESTSUITE.getValue(), et.getId(), StaticDict.Action__type.EDITED.getValue(), "", "", null, true);
         if (changes.size() > 0) {
             actionHelper.logHistory(action.getId(), changes);
         }

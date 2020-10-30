@@ -3,6 +3,7 @@ package cn.ibizlab.pms.core.util.ibizzentao.helper;
 import cn.ibizlab.pms.core.util.ibizzentao.common.ChangeUtil;
 import cn.ibizlab.pms.core.zentao.domain.*;
 import cn.ibizlab.pms.core.zentao.mapper.TestTaskMapper;
+import cn.ibizlab.pms.util.dict.StaticDict;
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import lombok.extern.slf4j.Slf4j;
@@ -33,7 +34,7 @@ public class TestTaskHelper extends ZTBaseHelper<TestTaskMapper, TestTask> {
         if (!bOk) {
             return bOk;
         }
-        actionHelper.create("testtask", et.getId(), "opened", "", "", null, true);
+        actionHelper.create(StaticDict.Action__object_type.TESTTASK.getValue(), et.getId(), StaticDict.Action__type.OPENED.getValue(), "", "", null, true);
 
         return true ;
     }
@@ -50,7 +51,7 @@ public class TestTaskHelper extends ZTBaseHelper<TestTaskMapper, TestTask> {
 
         List<History> changes = ChangeUtil.diff(old, et);
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
-            Action action = actionHelper.create("testtask", et.getId(), "Blocked",
+            Action action = actionHelper.create(StaticDict.Action__object_type.TESTTASK.getValue(), et.getId(),StaticDict.Action__type.EDITED.getValue() ,
                     comment, "", null, true);
             if (changes.size() > 0)
                 actionHelper.logHistory(action.getId(), changes);
@@ -64,12 +65,12 @@ public class TestTaskHelper extends ZTBaseHelper<TestTaskMapper, TestTask> {
         TestTask old =new TestTask();
         CachedBeanCopier.copy(this.get(et.getId()), old);
 
-        et.setStatus("doing");
+        et.setStatus(StaticDict.Testrun__status.DOING.getValue());
         internalUpdate(et);
 
         List<History> changes = ChangeUtil.diff(old, et);
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
-            Action action = actionHelper.create("testtask", et.getId(), "Started",
+            Action action = actionHelper.create(StaticDict.Action__object_type.TESTTASK.getValue(), et.getId(), StaticDict.Action__type.STARTED.getValue(),
                     comment, "", null, true);
             if (changes.size() > 0)
                 actionHelper.logHistory(action.getId(), changes);
@@ -83,12 +84,12 @@ public class TestTaskHelper extends ZTBaseHelper<TestTaskMapper, TestTask> {
         TestTask old =new TestTask();
         CachedBeanCopier.copy(this.get(et.getId()), old);
 
-        et.setStatus("blocked");
+        et.setStatus(StaticDict.Testrun__status.BLOCKED.getValue());
         internalUpdate(et);
 
         List<History> changes = ChangeUtil.diff(old, et);
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
-            Action action = actionHelper.create("testtask", et.getId(), "Blocked",
+            Action action = actionHelper.create(StaticDict.Action__object_type.TESTTASK.getValue(), et.getId(), StaticDict.Action__type.BLOCKED.getValue(),
                     comment, "", null, true);
             if (changes.size() > 0)
                 actionHelper.logHistory(action.getId(), changes);
@@ -102,12 +103,12 @@ public class TestTaskHelper extends ZTBaseHelper<TestTaskMapper, TestTask> {
         TestTask old =new TestTask();
         CachedBeanCopier.copy(this.get(et.getId()), old);
 
-        et.setStatus("done");
+        et.setStatus(StaticDict.Testrun__status.DONE.getValue());
         internalUpdate(et);
 
         List<History> changes = ChangeUtil.diff(old, et);
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
-            Action action = actionHelper.create("testtask", et.getId(), "Closed",
+            Action action = actionHelper.create(StaticDict.Action__object_type.TESTTASK.getValue(), et.getId(), StaticDict.Action__type.CLOSED.getValue(),
                     comment, "", null, true);
             if (changes.size() > 0)
                 actionHelper.logHistory(action.getId(), changes);
@@ -121,12 +122,12 @@ public class TestTaskHelper extends ZTBaseHelper<TestTaskMapper, TestTask> {
         TestTask old =new TestTask();
         CachedBeanCopier.copy(this.get(et.getId()), old);
 
-        et.setStatus("doing");
+        et.setStatus(StaticDict.Testrun__status.DOING.getValue());
         internalUpdate(et);
 
         List<History> changes = ChangeUtil.diff(old, et);
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
-            Action action = actionHelper.create("testtask", et.getId(), "Activated",
+            Action action = actionHelper.create(StaticDict.Action__object_type.TESTTASK.getValue(), et.getId(), StaticDict.Action__type.ACTIVATED.getValue(),
                     comment, "", null, true);
             if (changes.size() > 0)
                 actionHelper.logHistory(action.getId(), changes);
@@ -152,7 +153,7 @@ public class TestTaskHelper extends ZTBaseHelper<TestTaskMapper, TestTask> {
                 testRun.setTask(et.getId());
                 testRun.setIbizcase(cas.getId());
                 testRun.setVersion(version);
-                testRun.setStatus("wait");
+                testRun.setStatus(StaticDict.Testrun__status.WAIT.getValue());
                 testRunHelper.create(testRun) ;
             }
             i ++;
