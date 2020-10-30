@@ -90,6 +90,8 @@ export default class SysUpdateLogUIActionBase extends EntityUIActionBase {
      * @memberof  SysUpdateLogUIServiceBase
      */  
     public initViewMap(){
+        this.allViewMap.set('MOBMDATAVIEW:',{viewname:'mobmdview',srfappde:'sysupdatelogs'});
+        this.allViewMap.set('MOBEDITVIEW:',{viewname:'mobeditview',srfappde:'sysupdatelogs'});
     }
 
     /**

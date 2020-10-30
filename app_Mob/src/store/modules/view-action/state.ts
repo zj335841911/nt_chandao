@@ -133,8 +133,8 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '36115bf8c98ba37034812624719bb492',
                 '86fe20f86bf10c309e08f52cf7259b9d',
-                '4fe6c2da4266eb0a031bc3e636f284e4',
                 'e643a925b1d0dab04ef917b973354baa',
                 'af40519acfe1bc985738eb3f0ff91a24',
                 '1afb3df498f4daa660709cca53ece0b2',
@@ -215,6 +215,16 @@ export const viewstate: any = {
                 '78beacb29481bfa83dfce62ac4bd9d13',
                 '4a68a7fca37b1f7d3cf396c66fd2347a',
                 '16bfeba2aa5ae0287f8821660cf2dc78',
+            ],
+        },
+        {
+            viewtag: '1aa28ee93f41476b61306c6a2d108d32',
+            viewmodule: 'ibiz',
+            viewname: 'SysUpdateFeaturesYMobMDView9',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '94cbc86dd0c1a91abdeef24049c57747',
             ],
         },
         {
@@ -398,6 +408,16 @@ export const viewstate: any = {
                 'b1c76392040ff2e9ed2e3ae2b0260602',
                 '3c4e9f0d609bc0f1cf08431649cc8e67',
                 'f48661e4f3797c86502abe30dae2f89f',
+            ],
+        },
+        {
+            viewtag: '36115bf8c98ba37034812624719bb492',
+            viewmodule: 'ibiz',
+            viewname: 'SysUpdateLogMobMDView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'e0f6c020d2e54dd5f8afc20f50a8482d',
             ],
         },
         {
@@ -1071,6 +1091,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '97ddcfc796631c43a9e55b48ab3253c2',
+            viewmodule: 'ibiz',
+            viewname: 'SysUpdateFeaturesMobMDView9',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '94cbc86dd0c1a91abdeef24049c57747',
+            ],
+        },
+        {
             viewtag: '984a4d5ce6ca2ede5539d44590ef20a6',
             viewmodule: 'ibiz',
             viewname: 'ProductMobEditView',
@@ -1492,6 +1522,17 @@ export const viewstate: any = {
                 '1a957197655fae1ce44ceccda6f65852',
                 '4a68a7fca37b1f7d3cf396c66fd2347a',
                 '16bfeba2aa5ae0287f8821660cf2dc78',
+            ],
+        },
+        {
+            viewtag: 'e0f6c020d2e54dd5f8afc20f50a8482d',
+            viewmodule: 'ibiz',
+            viewname: 'SysUpdateLogMobEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '97ddcfc796631c43a9e55b48ab3253c2',
+                '1aa28ee93f41476b61306c6a2d108d32',
             ],
         },
         {

@@ -86,6 +86,11 @@ export class MobNewFormModel {
                 dataType: 'TEXT',
             },
             {
+                name: 'files',
+                prop: 'files',
+                dataType: 'TEXT',
+            },
+            {
                 name: 'desc',
                 prop: 'desc',
                 dataType: 'LONGTEXT',

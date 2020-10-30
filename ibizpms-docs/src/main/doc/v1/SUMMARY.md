@@ -281,7 +281,7 @@
       * [我的任务](app/Mob/func/TaskMobMDView.md)
       * [产品](app/Mob/func/ProductMobMDView.md)
       * [产品总览](app/Mob/func/ProductMobChartView.md)
-      * [更新日志](app/Mob/func/BuildLogMobMDView.md)
+      * [更新日志](app/Mob/func/SysUpdateLogMobMDView.md)
       * [打开看板](app/Mob/func/AppPortalView.md)
       * [个人中心](app/Mob/func/UserUserCenterMobEditView.md)
       * [用户选择](app/Mob/func/UserMobPickupView.md)

@@ -51,32 +51,6 @@ export default {
 			caption: '版本',
 		},
 	},
-	mobmain_form: {
-		details: {
-			druipart2: '', 
-			grouppanel2: '附件', 
-			druipart1: '', 
-			grouppanel1: '历史记录', 
-			group1: '版本基本信息', 
-			formpage1: '基本信息', 
-			srforikey: '', 
-			srfkey: 'id', 
-			srfmajortext: '名称编号', 
-			srftempmode: '', 
-			srfuf: '', 
-			srfdeid: '', 
-			srfsourcekey: '', 
-			name: '名称编号', 
-			date: '打包日期', 
-			builder: '构建者', 
-			scmpath: '源代码地址', 
-			filepath: '下载地址', 
-			desc: '描述', 
-			id: 'id', 
-		},
-		uiactions: {
-		},
-	},
 	mobeditform_form: {
 		details: {
 			grouppanel2: '分组面板', 
@@ -97,6 +71,59 @@ export default {
 			scmpath: '源代码地址', 
 			filepath: '下载地址', 
 			files: '上传发行包', 
+			desc: '描述', 
+			id: 'id', 
+		},
+		uiactions: {
+		},
+	},
+	mobnewform_form: {
+		details: {
+			grouppanel2: '分组面板', 
+			grouppanel1: '基本信息', 
+			formpage1: '基本信息', 
+			srforikey: '', 
+			srfkey: 'id', 
+			srfmajortext: '名称编号', 
+			srftempmode: '', 
+			srfuf: '', 
+			srfdeid: '', 
+			srfsourcekey: '', 
+			project: '所属项目', 
+			product: '产品', 
+			productname: '产品名称', 
+			name: '名称编号', 
+			builder: '构建者', 
+			date: '打包日期', 
+			scmpath: '源代码地址', 
+			filepath: '下载地址', 
+			files: '上传发行包', 
+			desc: '描述', 
+			id: 'id', 
+		},
+		uiactions: {
+		},
+	},
+	mobmain_form: {
+		details: {
+			druipart2: '', 
+			grouppanel2: '附件', 
+			druipart1: '', 
+			grouppanel1: '历史记录', 
+			group1: '版本基本信息', 
+			formpage1: '基本信息', 
+			srforikey: '', 
+			srfkey: 'id', 
+			srfmajortext: '名称编号', 
+			srftempmode: '', 
+			srfuf: '', 
+			srfdeid: '', 
+			srfsourcekey: '', 
+			name: '名称编号', 
+			date: '打包日期', 
+			builder: '构建者', 
+			scmpath: '源代码地址', 
+			filepath: '下载地址', 
 			desc: '描述', 
 			id: 'id', 
 		},
@@ -124,32 +151,6 @@ export default {
 		uiactions: {
 		},
 	},
-	mobnewform_form: {
-		details: {
-			grouppanel2: '分组面板', 
-			grouppanel1: '基本信息', 
-			formpage1: '基本信息', 
-			srforikey: '', 
-			srfkey: 'id', 
-			srfmajortext: '名称编号', 
-			srftempmode: '', 
-			srfuf: '', 
-			srfdeid: '', 
-			srfsourcekey: '', 
-			project: '所属项目', 
-			product: '产品', 
-			productname: '产品名称', 
-			name: '名称编号', 
-			builder: '构建者', 
-			date: '打包日期', 
-			scmpath: '源代码地址', 
-			filepath: '下载地址', 
-			desc: '描述', 
-			id: 'id', 
-		},
-		uiactions: {
-		},
-	},
 	mobdef_searchform: {
 		details: {
 			formpage1: '常规条件', 
@@ -166,16 +167,6 @@ export default {
 			tip: '保存',
 		},
 	},
-	mobeditviewrighttoolbar_toolbar: {
-		deuiaction1_mobeditbuild: {
-			caption: '编辑版本',
-			tip: '编辑版本',
-		},
-		deuiaction1_mobdelete: {
-			caption: '删除',
-			tip: '删除',
-		},
-	},
 	newmobeditviewrighttoolbar_toolbar: {
 		tbitem1: {
 			caption: '保存',
@@ -186,6 +177,16 @@ export default {
 		deuiaction1: {
 			caption: '创建版本',
 			tip: '创建版本',
+		},
+	},
+	mobeditviewrighttoolbar_toolbar: {
+		deuiaction1_mobeditbuild: {
+			caption: '编辑版本',
+			tip: '编辑版本',
+		},
+		deuiaction1_mobdelete: {
+			caption: '删除',
+			tip: '删除',
 		},
 	},
 };

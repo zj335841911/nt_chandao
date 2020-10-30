@@ -396,6 +396,7 @@ export default {
 			taskname: '相关任务', 
 			mailto: '抄送给', 
 			keywords: '关键词', 
+			files: '附件', 
 			id: 'Bug编号', 
 		},
 		uiactions: {

@@ -14,11 +14,17 @@ export default {
     displayorder: "展示顺序",
   },
 	views: {
+		ymobmdview9: {
+			caption: '优化',
+		},
 		mobmdview: {
 			caption: '功能增强',
 		},
 		mobeditview: {
 			caption: '系统更新功能',
+		},
+		mobmdview9: {
+			caption: '功能增强',
 		},
 	},
 	mobmain_form: {

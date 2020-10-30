@@ -464,8 +464,8 @@ export default class AppIndexViewBase extends Vue implements ControlInterface {
         let param = { ..._param };
         const deResParameters: any[] = [];
         const parameters: any[] = [
-            { pathName: 'builds', parameterName: 'build' },
-            { pathName: 'logmobmdview', parameterName: 'logmobmdview' },
+            { pathName: 'sysupdatelogs', parameterName: 'sysupdatelog' },
+            { pathName: 'mobmdview', parameterName: 'mobmdview' },
         ];
         const routeParam: any = this.globaluiservice.openService.formatRouteParam(context, deResParameters, parameters, [], param);
         this.globaluiservice.openService.openView(routeParam);

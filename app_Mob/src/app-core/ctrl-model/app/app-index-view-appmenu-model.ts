@@ -154,13 +154,13 @@ export class AppIndexViewModel {
             appfunctag: 'AppFunc3',
             appfuncyype: 'APPVIEW',
             openmode: '', 
-            componentname: 'build-log-mob-mdview', 
-            codename: 'buildlogmobmdview',
+            componentname: 'sys-update-log-mob-mdview', 
+            codename: 'sysupdatelogmobmdview',
             deResParameters: [],
-            routepath: '/appindexview/:appindexview?/builds/:build?/logmobmdview/:logmobmdview?',
+            routepath: '/appindexview/:appindexview?/sysupdatelogs/:sysupdatelog?/mobmdview/:mobmdview?',
             parameters: [
-                { pathName: 'builds', parameterName: 'build' },
-                { pathName: 'logmobmdview', parameterName: 'logmobmdview' },
+                { pathName: 'sysupdatelogs', parameterName: 'sysupdatelog' },
+                { pathName: 'mobmdview', parameterName: 'mobmdview' },
             ],
         },
         {
