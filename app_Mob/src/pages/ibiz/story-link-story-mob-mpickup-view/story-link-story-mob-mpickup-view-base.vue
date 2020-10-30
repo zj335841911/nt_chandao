@@ -573,6 +573,18 @@ export default class StoryLinkStoryMobMPickupViewBase extends Vue {
     }
 
     /**
+     * 初始化导航栏标题
+     *
+     * @param {*} val
+     * @param {boolean} isCreate
+     * @returns
+     * @memberof StoryLinkStoryMobMPickupViewBase
+     */
+    public initNavCaption(val:any,isCreate:boolean){
+        console.log(val,isCreate);
+    }
+
+    /**
      * 视图选中数据
      *
      * @type {any[]}

@@ -543,6 +543,18 @@ export default class TaskMobPickupMDViewBase extends Vue {
         }
     }
 
+    /**
+     * 初始化导航栏标题
+     *
+     * @param {*} val
+     * @param {boolean} isCreate
+     * @returns
+     * @memberof TaskMobPickupMDViewBase
+     */
+    public initNavCaption(val:any,isCreate:boolean){
+        console.log(val,isCreate);
+    }
+
 
    /**
      * 是否单选

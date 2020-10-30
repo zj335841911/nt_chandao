@@ -50,6 +50,10 @@
 
     * [项目团队](module/ibiz/ProjectTeam.md) 
 
+    * [系统更新功能](module/ibiz/SysUpdateFeatures.md) 
+
+    * [系统更新日志](module/ibiz/SysUpdateLog.md) 
+
     * [待办消息记录](module/ibiz/TaskMsgRecord.md) 
 
     * [任务团队](module/ibiz/TaskTeam.md) 

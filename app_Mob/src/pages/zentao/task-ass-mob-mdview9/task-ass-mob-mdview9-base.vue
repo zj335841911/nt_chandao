@@ -705,6 +705,18 @@ export default class TaskAssMobMDView9Base extends Vue {
         }
     }
 
+    /**
+     * 初始化导航栏标题
+     *
+     * @param {*} val
+     * @param {boolean} isCreate
+     * @returns
+     * @memberof TaskAssMobMDView9Base
+     */
+    public initNavCaption(val:any,isCreate:boolean){
+        console.log(val,isCreate);
+    }
+
 
     /**
      *  app-form-druipart 组件订阅对象

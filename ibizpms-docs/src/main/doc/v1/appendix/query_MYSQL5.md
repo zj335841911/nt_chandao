@@ -12416,6 +12416,67 @@ FROM `T_IBZEMP` t1
 
 ```
 
+# **系统更新功能**(SYS_UPDATE_FEATURES)
+
+### 数据查询(DEFAULT)<div id="SysUpdateFeatures_Default"></div>
+```sql
+SELECT
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`SYS_UPDATE_FEATURESID`,
+t1.`SYS_UPDATE_FEATURESNAME`,
+t1.`SYS_UPDATE_LOG`,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`
+FROM `T_SYS_UPDATE_FEATURES` t1 
+
+```
+### 默认（全部数据）(VIEW)<div id="SysUpdateFeatures_View"></div>
+```sql
+SELECT
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`SYS_UPDATE_FEATURESID`,
+t1.`SYS_UPDATE_FEATURESNAME`,
+t1.`SYS_UPDATE_LOG`,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`
+FROM `T_SYS_UPDATE_FEATURES` t1 
+
+```
+
+# **系统更新日志**(SYS_UPDATE_LOG)
+
+### 数据查询(DEFAULT)<div id="SysUpdateLog_Default"></div>
+```sql
+SELECT
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`LATESTUPDATE`,
+t1.`SYS_UPDATE_LOGID`,
+t1.`SYS_UPDATE_LOGNAME`,
+t1.`UPDATE`,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`
+FROM `T_SYS_UPDATE_LOG` t1 
+
+```
+### 默认（全部数据）(VIEW)<div id="SysUpdateLog_View"></div>
+```sql
+SELECT
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`LATESTUPDATE`,
+t1.`SYS_UPDATE_LOGID`,
+t1.`SYS_UPDATE_LOGNAME`,
+t1.`UPDATE`,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`,
+t1.`UPDESC`
+FROM `T_SYS_UPDATE_LOG` t1 
+
+```
+
 # **任务**(ZT_TASK)
 
 ### 指派给我任务(AssignedToMyTask)<div id="Task_AssignedToMyTask"></div>

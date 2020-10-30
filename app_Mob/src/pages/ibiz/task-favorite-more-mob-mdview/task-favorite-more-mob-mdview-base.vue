@@ -782,6 +782,18 @@ export default class TaskFavoriteMoreMobMDViewBase extends Vue {
         }
     }
 
+    /**
+     * 初始化导航栏标题
+     *
+     * @param {*} val
+     * @param {boolean} isCreate
+     * @returns
+     * @memberof TaskFavoriteMoreMobMDViewBase
+     */
+    public initNavCaption(val:any,isCreate:boolean){
+        console.log(val,isCreate);
+    }
+
 
 
     /**

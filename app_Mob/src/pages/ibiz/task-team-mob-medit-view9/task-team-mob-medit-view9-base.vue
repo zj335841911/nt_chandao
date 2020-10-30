@@ -587,6 +587,18 @@ if(this.formDruipart){
     }
 
     /**
+     * 初始化导航栏标题
+     *
+     * @param {*} val
+     * @param {boolean} isCreate
+     * @returns
+     * @memberof TaskTeamMobMEditView9Base
+     */
+    public initNavCaption(val:any,isCreate:boolean){
+        console.log(val,isCreate);
+    }
+
+    /**
     * 界面关系通讯对象
     *
     * @type {Subject<ViewState>}

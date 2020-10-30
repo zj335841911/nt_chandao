@@ -6209,6 +6209,27 @@ public class StaticDict {
 
 
     /**
+     * 代码表[系统更新类型]
+     */
+    @Getter
+    public enum SYS_UPDATE_LOG_TYPE {
+        ITEM_10("10","功能增强"),
+        ITEM_20("20","优化");
+
+        private String value;
+        private String text;
+        private String valueSeparator="";
+        private String textSeparator="";
+        private String emptyText="";
+
+        SYS_UPDATE_LOG_TYPE(String value , String text) {
+            this.value=value;
+            this.text = text;
+        }
+    }
+
+
+    /**
      * 代码表[扩展表格单元格边框样式]
      */
     @Getter
