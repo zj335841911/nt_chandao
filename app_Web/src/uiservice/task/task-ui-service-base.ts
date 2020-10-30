@@ -1371,8 +1371,8 @@ export default class TaskUIServiceBase extends UIService {
                 } else {
                     _args = [...args];
                 }
-                if (this.Task_StartTask && this.Task_StartTask instanceof Function) {
-                    this.Task_StartTask(_args,context, params, $event, xData,actionContext);
+                if (this.Task_DoneTask && this.Task_DoneTask instanceof Function) {
+                    this.Task_DoneTask(_args,context, params, $event, xData,actionContext);
                 }
                 return response;
             }).catch((response: any) => {
