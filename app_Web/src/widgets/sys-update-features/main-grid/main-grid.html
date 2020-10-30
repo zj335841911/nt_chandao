@@ -26,7 +26,7 @@
                 <el-table-column align="center" type='selection' :width="checkboxColWidth"></el-table-column>
             </template>
             <template v-if="getColumnState('sys_update_logname')">
-                <el-table-column show-overflow-tooltip :prop="'sys_update_logname'" :label="$t('entities.sysupdatefeatures.main_grid.columns.sys_update_logname')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'sys_update_logname'" :label="$t('entities.sysupdatefeatures.main_grid.columns.sys_update_logname')" :width="200"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.sysupdatefeatures.main_grid.columns.sys_update_logname')}}
@@ -45,7 +45,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('upfeatures')">
-                <el-table-column show-overflow-tooltip :prop="'upfeatures'" :label="$t('entities.sysupdatefeatures.main_grid.columns.upfeatures')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'upfeatures'" :label="$t('entities.sysupdatefeatures.main_grid.columns.upfeatures')" :min-width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.sysupdatefeatures.main_grid.columns.upfeatures')}}
@@ -67,6 +67,18 @@
                         <template >
             <codelist :value="row.type" tag='SYS_UPDATE_LOG_TYPE' codelistType='STATIC' ></codelist>
                         </template>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('displayorder')">
+                <el-table-column show-overflow-tooltip :prop="'displayorder'" :label="$t('entities.sysupdatefeatures.main_grid.columns.displayorder')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.sysupdatefeatures.main_grid.columns.displayorder')}}
+                      </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                        <span>{{row.displayorder}}</span>
                     </template>
                 </el-table-column>
             </template>

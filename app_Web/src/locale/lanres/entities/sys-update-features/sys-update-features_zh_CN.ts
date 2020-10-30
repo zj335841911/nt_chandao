@@ -91,6 +91,7 @@ export default {
 			sys_update_logname: "所属更新",
 			upfeatures: "更新功能",
 			type: "更新类型",
+			displayorder: "展示顺序",
 			updateman: "更新人",
 			updatedate: "更新时间",
 		},

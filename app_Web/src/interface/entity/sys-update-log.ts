@@ -77,4 +77,12 @@ export interface SysUpdateLog {
      * @memberof SysUpdateLog
      */
     latestupdate?: any;
+
+    /**
+     * 更新功能列表详情
+     *
+     * @returns {*}
+     * @memberof SysUpdateLog
+     */
+    updatefeatures?: any;
 }

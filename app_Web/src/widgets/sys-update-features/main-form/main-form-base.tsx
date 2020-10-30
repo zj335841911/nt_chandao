@@ -105,6 +105,22 @@ export class MainEditFormBase extends EditFormControlBase {
      */
     public rules():any{
         return {
+        sys_update_logname: [
+            { required: this.detailsModel.sys_update_logname.required, type: 'string', message: '所属更新 值不能为空', trigger: 'change' },
+            { required: this.detailsModel.sys_update_logname.required, type: 'string', message: '所属更新 值不能为空', trigger: 'blur' },
+        ],
+        type: [
+            { required: this.detailsModel.type.required, type: 'string', message: '更新类型 值不能为空', trigger: 'change' },
+            { required: this.detailsModel.type.required, type: 'string', message: '更新类型 值不能为空', trigger: 'blur' },
+        ],
+        upfeatures: [
+            { required: this.detailsModel.upfeatures.required, type: 'string', message: '更新功能 值不能为空', trigger: 'change' },
+            { required: this.detailsModel.upfeatures.required, type: 'string', message: '更新功能 值不能为空', trigger: 'blur' },
+        ],
+        displayorder: [
+            { required: this.detailsModel.displayorder.required, type: 'number', message: '展示顺序 值不能为空', trigger: 'change' },
+            { required: this.detailsModel.displayorder.required, type: 'number', message: '展示顺序 值不能为空', trigger: 'blur' },
+        ],
         }
     }
 
@@ -148,13 +164,13 @@ export class MainEditFormBase extends EditFormControlBase {
 
         srfsourcekey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfsourcekey', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 
-        sys_update_logname: new FormItemModel({ caption: '所属更新', detailType: 'FORMITEM', name: 'sys_update_logname', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+        sys_update_logname: new FormItemModel({ caption: '所属更新', detailType: 'FORMITEM', name: 'sys_update_logname', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:true, disabled: false, enableCond: 3 }),
 
-        type: new FormItemModel({ caption: '更新类型', detailType: 'FORMITEM', name: 'type', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+        type: new FormItemModel({ caption: '更新类型', detailType: 'FORMITEM', name: 'type', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:true, disabled: false, enableCond: 3 }),
 
-        upfeatures: new FormItemModel({ caption: '更新功能', detailType: 'FORMITEM', name: 'upfeatures', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+        upfeatures: new FormItemModel({ caption: '更新功能', detailType: 'FORMITEM', name: 'upfeatures', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:true, disabled: false, enableCond: 3 }),
 
-        displayorder: new FormItemModel({ caption: '展示顺序', detailType: 'FORMITEM', name: 'displayorder', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+        displayorder: new FormItemModel({ caption: '展示顺序', detailType: 'FORMITEM', name: 'displayorder', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:true, disabled: false, enableCond: 3 }),
 
         featuresdesc: new FormItemModel({ caption: '功能描述', detailType: 'FORMITEM', name: 'featuresdesc', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 

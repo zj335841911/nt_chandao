@@ -9,6 +9,7 @@ export default {
     update: "更新日期",
     updesc: "更新说明",
     latestupdate: "最新更新",
+    updatefeatures: "更新功能列表详情",
   },
 	views: {
 		infoeditview: {

@@ -21,6 +21,7 @@ hide members
 |更新日期|UPDATE|DATE|&nbsp;|
 |更新说明|UPDESC|HTMLTEXT|&nbsp;|
 |最新更新|LATESTUPDATE|YESNO|&nbsp;|
+|更新功能列表详情|UPDATEFEATURES|ONE2MANYDATA|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -34,6 +35,7 @@ hide members
 |更新日期|默认规则|默认规则|
 |更新说明|默认规则|内容长度必须小于等于[1048576]|
 |最新更新|默认规则|默认规则|
+|更新功能列表详情|默认规则|内容长度必须小于等于[1048576]|
 
 ## 状态控制
 

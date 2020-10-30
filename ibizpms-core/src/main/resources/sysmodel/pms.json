@@ -28947,6 +28947,20 @@
     "key_field":0,
     "show_order":1000,
     "major_field":0
+    },
+    {
+    "fieldname":"UPDATEFEATURES" ,
+    "codename":"Updatefeatures",
+    "field_logic_name":"更新功能列表详情",
+    "entity_name":"SysUpdateLog",
+    "field_type":"ONE2MANYDATA",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"TEXT",
+    "data_length":1048576,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
     }
     ],
     "subEntitys":[

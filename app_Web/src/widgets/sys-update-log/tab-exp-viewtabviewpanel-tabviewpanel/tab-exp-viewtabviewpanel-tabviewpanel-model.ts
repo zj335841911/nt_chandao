@@ -42,6 +42,9 @@ export default class TabExpViewtabviewpanelModel {
       {
         name: 'latestupdate',
       },
+      {
+        name: 'updatefeatures',
+      },
     ]
   }
 

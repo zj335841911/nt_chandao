@@ -103,6 +103,14 @@ export class MainEditFormBase extends EditFormControlBase {
      */
     public rules():any{
         return {
+        sys_update_logname: [
+            { required: this.detailsModel.sys_update_logname.required, type: 'string', message: '更新名称 值不能为空', trigger: 'change' },
+            { required: this.detailsModel.sys_update_logname.required, type: 'string', message: '更新名称 值不能为空', trigger: 'blur' },
+        ],
+        update: [
+            { required: this.detailsModel.update.required, type: 'string', message: '更新日期 值不能为空', trigger: 'change' },
+            { required: this.detailsModel.update.required, type: 'string', message: '更新日期 值不能为空', trigger: 'blur' },
+        ],
         }
     }
 
@@ -146,9 +154,9 @@ export class MainEditFormBase extends EditFormControlBase {
 
         srfsourcekey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfsourcekey', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 
-        sys_update_logname: new FormItemModel({ caption: '更新名称', detailType: 'FORMITEM', name: 'sys_update_logname', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+        sys_update_logname: new FormItemModel({ caption: '更新名称', detailType: 'FORMITEM', name: 'sys_update_logname', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:true, disabled: false, enableCond: 3 }),
 
-        update: new FormItemModel({ caption: '更新日期', detailType: 'FORMITEM', name: 'update', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+        update: new FormItemModel({ caption: '更新日期', detailType: 'FORMITEM', name: 'update', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:true, disabled: false, enableCond: 3 }),
 
         latestupdate: new FormItemModel({ caption: '最新更新', detailType: 'FORMITEM', name: 'latestupdate', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 

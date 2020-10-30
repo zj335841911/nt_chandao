@@ -42,6 +42,11 @@ export default class MainModel {
           dataType: 'SSCODELIST',
         },
         {
+          name: 'displayorder',
+          prop: 'displayorder',
+          dataType: 'INT',
+        },
+        {
           name: 'updateman',
           prop: 'updateman',
           dataType: 'TEXT',
