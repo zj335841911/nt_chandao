@@ -60,6 +60,16 @@ tag='SYS_UPDATE_LOG_TYPE' codelistType='STATIC' :data="data" :context="context" 
 </app-form-item>
 
 </i-col>
+<i-col class="form-layout-container" v-show="detailsModel.displayorder.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='displayorder' :itemRules="this.rules().displayorder" class='' :caption="$t('entities.sysupdatefeatures.infomain_form.details.displayorder')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.displayorder.error" :isEmptyCaption="false" labelPos="LEFT">
+    
+<app-span name='displayorder' :value="data.displayorder" dataType="INT"     :precision="0"
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
+</app-span>
+
+</app-form-item>
+
+</i-col>
 <i-col class="form-layout-container" v-show="detailsModel.featuresdesc.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='featuresdesc' :itemRules="this.rules().featuresdesc" class='' :caption="$t('entities.sysupdatefeatures.infomain_form.details.featuresdesc')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.featuresdesc.error" :isEmptyCaption="false" labelPos="LEFT">
     <html-container :content="data.featuresdesc"></html-container>

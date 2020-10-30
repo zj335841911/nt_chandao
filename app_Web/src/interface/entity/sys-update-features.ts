@@ -93,4 +93,12 @@ export interface SysUpdateFeatures {
      * @memberof SysUpdateFeatures
      */
     type?: any;
+
+    /**
+     * 展示顺序
+     *
+     * @returns {*}
+     * @memberof SysUpdateFeatures
+     */
+    displayorder?: any;
 }

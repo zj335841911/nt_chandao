@@ -19,6 +19,7 @@
 | 9 | [更新功能](#属性-更新功能（UPFEATURES）) | UPFEATURES | TEXT | 否 | 是 | 是 |
 | 10 | [功能描述](#属性-功能描述（FEATURESDESC）) | FEATURESDESC | HTMLTEXT | 否 | 是 | 是 |
 | 11 | [更新类型](#属性-更新类型（TYPE）) | TYPE | SSCODELIST | 否 | 是 | 是 |
+| 12 | [展示顺序](#属性-展示顺序（DISPLAYORDER）) | DISPLAYORDER | INT | 否 | 是 | 是 |
 
 ### 属性-系统更新功能名称（SYS_UPDATE_FEATURESNAME）
 #### 属性说明
@@ -394,6 +395,41 @@ String
 
 #### 取值范围/公式
 参照数据字典【[系统更新类型（SYS_UPDATE_LOG_TYPE）](../../codelist/SYS_UPDATE_LOG_TYPE)】
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [系统更新日志（SYS_UPDATE_LOG）](../ibiz/SysUpdateLog) |
+| 关系属性 | [更新名称（SYS_UPDATE_LOGNAME）](../ibiz/SysUpdateLog/#属性-更新名称（SYS_UPDATE_LOGNAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-展示顺序（DISPLAYORDER）
+#### 属性说明
+展示顺序
+
+#### 属性类型
+物理字段[来自当前实体物理表字段]
+
+#### 数据类型
+整型
+
+#### Java类型
+Integer
+
+#### 是否允许为为空
+是
+
+#### 默认值
+| 项目 | 说明 |
+| -- | -- |
+| 类型 |  |
+| 值 |  |
+
+#### 取值范围/公式
+无
 
 #### 数据格式
 无

@@ -74,6 +74,21 @@
 </app-form-item>
 
 </i-col>
+<i-col class="form-layout-container" v-show="detailsModel.displayorder.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='displayorder' :itemRules="this.rules().displayorder" class='' :caption="$t('entities.sysupdatefeatures.main_form.details.displayorder')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.displayorder.error" :isEmptyCaption="false" labelPos="LEFT">
+    <input-box 
+  v-model="data.displayorder"  
+  @enter="onEnter($event)"  
+  
+  :disabled="detailsModel.displayorder.disabled" 
+  type='number' 
+   
+  style="">
+</input-box>
+
+</app-form-item>
+
+</i-col>
 <i-col class="form-layout-container" v-show="detailsModel.featuresdesc.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='featuresdesc' :itemRules="this.rules().featuresdesc" class='' :caption="$t('entities.sysupdatefeatures.main_form.details.featuresdesc')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.featuresdesc.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-rich-text-editor :formState="formState" :value="data.featuresdesc" @change="(val) =>{this.data.featuresdesc =val}" :disabled="detailsModel.featuresdesc.disabled" :data="JSON.stringify(this.data)"  name="featuresdesc" :context="context" :viewparams="viewparams" :uploadparams='{}' :exportparams='{}'  style=""></app-rich-text-editor>

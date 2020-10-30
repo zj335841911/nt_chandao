@@ -11,6 +11,7 @@ export default {
     upfeatures: "更新功能",
     featuresdesc: "功能描述",
     type: "更新类型",
+    displayorder: "展示顺序",
   },
 	views: {
 		editview: {
@@ -43,6 +44,7 @@ export default {
 			sys_update_logname: "所属更新", 
 			type: "更新类型", 
 			upfeatures: "更新功能", 
+			displayorder: "展示顺序", 
 			featuresdesc: "功能描述", 
 			createman: "建立人", 
 			createdate: "建立时间", 
@@ -71,6 +73,7 @@ export default {
 			sys_update_logname: "所属更新", 
 			type: "更新类型", 
 			upfeatures: "更新功能", 
+			displayorder: "展示顺序", 
 			featuresdesc: "功能描述", 
 			createman: "建立人", 
 			createdate: "建立时间", 

@@ -28782,6 +28782,19 @@
     "key_field":0,
     "show_order":1000,
     "major_field":0
+    },
+    {
+    "fieldname":"DISPLAYORDER" ,
+    "codename":"Displayorder",
+    "field_logic_name":"展示顺序",
+    "entity_name":"SysUpdateFeatures",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"INT",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
     }
     ],
     "subEntitys":[

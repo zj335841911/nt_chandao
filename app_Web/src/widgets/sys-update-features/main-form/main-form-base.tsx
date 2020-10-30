@@ -86,6 +86,7 @@ export class MainEditFormBase extends EditFormControlBase {
         sys_update_logname: null,
         type: null,
         upfeatures: null,
+        displayorder: null,
         featuresdesc: null,
         createman: null,
         createdate: null,
@@ -152,6 +153,8 @@ export class MainEditFormBase extends EditFormControlBase {
         type: new FormItemModel({ caption: '更新类型', detailType: 'FORMITEM', name: 'type', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 
         upfeatures: new FormItemModel({ caption: '更新功能', detailType: 'FORMITEM', name: 'upfeatures', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+
+        displayorder: new FormItemModel({ caption: '展示顺序', detailType: 'FORMITEM', name: 'displayorder', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 
         featuresdesc: new FormItemModel({ caption: '功能描述', detailType: 'FORMITEM', name: 'featuresdesc', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 

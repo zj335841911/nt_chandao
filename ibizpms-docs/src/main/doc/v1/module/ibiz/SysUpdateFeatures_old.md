@@ -23,6 +23,7 @@ hide members
 |更新功能|UPFEATURES|TEXT|&nbsp;|
 |功能描述|FEATURESDESC|HTMLTEXT|&nbsp;|
 |更新类型|TYPE|SSCODELIST|&nbsp;|
+|展示顺序|DISPLAYORDER|INT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -38,6 +39,7 @@ hide members
 |更新功能|默认规则|内容长度必须小于等于[100]|
 |功能描述|默认规则|内容长度必须小于等于[1048576]|
 |更新类型|默认规则|内容长度必须小于等于[60]|
+|展示顺序|默认规则|默认规则|
 
 ## 状态控制
 

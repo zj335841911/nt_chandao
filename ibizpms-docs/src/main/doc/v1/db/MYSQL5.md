@@ -86308,6 +86308,7 @@ CREATE TABLE `zt_suitecase`(
 | UPDATEMAN        | 更新人  | VARCHAR      |   60   | &nbsp; |
 | SYS_UPDATE_LOGID        | 系统更新日志标识  | VARCHAR      |   100   | &nbsp; |
 | TYPE        | 更新类型  | VARCHAR      |   60   | &nbsp; |
+| DISPLAYORDER        | 展示顺序  | INTEGER      |   -1   | &nbsp; |
 | UPDATEDATE        | 更新时间  | DATETIME      |   8   | &nbsp; |
 
 

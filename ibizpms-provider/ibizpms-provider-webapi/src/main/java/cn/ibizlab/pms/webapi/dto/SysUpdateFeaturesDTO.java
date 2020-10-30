@@ -128,6 +128,14 @@ public class SysUpdateFeaturesDTO extends DTOBase implements Serializable {
     @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
     private String type;
 
+    /**
+     * 属性 [DISPLAYORDER]
+     *
+     */
+    @JSONField(name = "displayorder")
+    @JsonProperty("displayorder")
+    private Integer displayorder;
+
 
     /**
      * 设置 [SYS_UPDATE_FEATURESNAME]
@@ -167,6 +175,14 @@ public class SysUpdateFeaturesDTO extends DTOBase implements Serializable {
     public void setType(String  type){
         this.type = type ;
         this.modify("type",type);
+    }
+
+    /**
+     * 设置 [DISPLAYORDER]
+     */
+    public void setDisplayorder(Integer  displayorder){
+        this.displayorder = displayorder ;
+        this.modify("displayorder",displayorder);
     }
 
 

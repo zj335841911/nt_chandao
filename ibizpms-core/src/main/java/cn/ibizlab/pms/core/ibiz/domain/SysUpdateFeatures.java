@@ -127,6 +127,13 @@ public class SysUpdateFeatures extends EntityMP implements Serializable {
     @JSONField(name = "type")
     @JsonProperty("type")
     private String type;
+    /**
+     * 展示顺序
+     */
+    @TableField(value = "`displayorder`")
+    @JSONField(name = "displayorder")
+    @JsonProperty("displayorder")
+    private Integer displayorder;
 
     /**
      * 
@@ -176,6 +183,14 @@ public class SysUpdateFeatures extends EntityMP implements Serializable {
     public void setType(String type){
         this.type = type ;
         this.modify("type",type);
+    }
+
+    /**
+     * 设置 [展示顺序]
+     */
+    public void setDisplayorder(Integer displayorder){
+        this.displayorder = displayorder ;
+        this.modify("displayorder",displayorder);
     }
 
 

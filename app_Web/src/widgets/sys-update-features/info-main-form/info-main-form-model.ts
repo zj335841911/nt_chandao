@@ -71,6 +71,11 @@ export default class InfoMainModel {
         dataType: 'TEXT',
       },
       {
+        name: 'displayorder',
+        prop: 'displayorder',
+        dataType: 'INT',
+      },
+      {
         name: 'featuresdesc',
         prop: 'featuresdesc',
         dataType: 'HTMLTEXT',

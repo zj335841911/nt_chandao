@@ -47,8 +47,7 @@ tag='YesNo3' codelistType='STATIC' :data="data" :context="context" :viewparams="
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.updesc.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='updesc' :itemRules="this.rules().updesc" class='' :caption="$t('entities.sysupdatelog.mainl_form.details.updesc')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.updesc.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-rich-text-editor :formState="formState" :value="data.updesc" @change="(val) =>{this.data.updesc =val}" :disabled="detailsModel.updesc.disabled" :data="JSON.stringify(this.data)"  name="updesc" :context="context" :viewparams="viewparams" :uploadparams='{objecttype:"updatelog",objectid: 0,version:"editor"}' :exportparams='{objecttype:"updatelog",objectid: 0,version:"editor"}'  style=""></app-rich-text-editor>
-
+    <html-container :content="data.updesc"></html-container>
 </app-form-item>
 
 </i-col>

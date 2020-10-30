@@ -465,7 +465,8 @@ POST
 | 9 | upfeatures | String | 允许 | 更新功能 |
 | 10 | featuresdesc | String | 允许 | 功能描述 |
 | 11 | type | String | 允许 | 更新类型 |
-| 12 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 12 | displayorder | Integer | 允许 | 展示顺序 |
+| 13 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### SysUpdateFeaturesSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
