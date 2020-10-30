@@ -2,6 +2,7 @@ import { HttpResponse } from '@/ibiz-core/utils';
 import  RelatedStory  from '@/app-core/code-list/related-story';
 import  ProductBranch_Cache  from '@/app-core/code-list/product-branch-cache';
 import  CurProductPlan  from '@/app-core/code-list/cur-product-plan';
+import  SysOperator  from '@/app-core/code-list/sys-operator';
 import  UserRealName  from '@/app-core/code-list/user-real-name';
 import  ProductBranch  from '@/app-core/code-list/product-branch';
 import  CurProductBuild  from '@/app-core/code-list/cur-product-build';
@@ -56,6 +57,8 @@ export class CodeListService {
         ProductBranch_Cache: new ProductBranch_Cache(),
         // 当前产品计划（动态）_缓存
         CurProductPlan: new CurProductPlan(),
+        // 云系统操作者
+        SysOperator: new SysOperator(),
         // 用户真实名称（动态）
         UserRealName: new UserRealName(),
         // 产品平台（动态）

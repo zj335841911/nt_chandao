@@ -610,6 +610,14 @@ const datas: Array<any> = [
         ]
     },
     {
+        "srfkey": "SysOperator",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"",
+        "appdedataset":"",
+        "items": []
+    },
+    {
         srfkey: 'YesNo',
         emptytext: '未定义',
         "codelisttype":"static",
@@ -3444,6 +3452,27 @@ const datas: Array<any> = [
         "appdataentity":"ProductPlan",
         "appdedataset":"FetchCurProductPlan",
         "items": []
+    },
+    {
+        srfkey: 'SYS_UPDATE_LOG_TYPE',
+        emptytext: '未定义',
+        "codelisttype":"static",
+        items: [
+            {
+                id: '10',
+                label: '功能增强',
+                text: '功能增强',
+                value: '10',
+                disabled: false,
+            },
+            {
+                id: '20',
+                label: '优化',
+                text: '优化',
+                value: '20',
+                disabled: false,
+            },
+        ]
     },
     {
         srfkey: 'Task__pri',

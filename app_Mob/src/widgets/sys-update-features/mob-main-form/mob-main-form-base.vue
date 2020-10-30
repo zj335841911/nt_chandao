@@ -1,5 +1,5 @@
 <template>
-    <div ref='form' class="app-form story-form ">
+    <div ref='form' class="app-form sysupdatefeatures-form ">
                 
 
 <app-form-group 
@@ -9,560 +9,37 @@
     uiStyle="DEFAULT" 
     v-show="detailsModel.group1.visible" 
     :uiActionGroup="detailsModel.group1.uiActionGroup" 
-    :caption="$t('story.mobmain_form.details.group1')" 
-    :isShowCaption="false" 
+    :caption="$t('sysupdatefeatures.mobmain_form.details.group1')" 
+    :isShowCaption="true" 
     :titleBarCloseMode="0" 
-    :isInfoGroupMode="true" 
+    :isInfoGroupMode="false" 
     :data="transformData(data)"
     :uiService="deUIService"
     @groupuiactionclick="groupUIActionClick($event)">
     
 <app-form-item 
-    name='prodoctname' 
+    name='sys_update_featuresname' 
     class='' 
     uiStyle="DEFAULT"  
     labelPos="LEFT" 
-    ref="prodoctname_item"  
-    :itemValue="this.data.prodoctname" 
-    v-show="detailsModel.prodoctname.visible" 
-    :itemRules="this.rules.prodoctname" 
-    :caption="$t('story.mobmain_form.details.prodoctname')"  
-    :labelWidth="100"  
+    ref="sys_update_featuresname_item"  
+    :itemValue="this.data.sys_update_featuresname" 
+    v-show="detailsModel.sys_update_featuresname.visible" 
+    :itemRules="this.rules.sys_update_featuresname" 
+    :caption="$t('sysupdatefeatures.mobmain_form.details.sys_update_featuresname')"  
+    :labelWidth="130"  
     :isShowCaption="true"
-    :disabled="detailsModel.prodoctname.disabled"
-    :error="detailsModel.prodoctname.error" 
+    :disabled="detailsModel.sys_update_featuresname.disabled"
+    :error="detailsModel.sys_update_featuresname.error" 
     :isEmptyCaption="false">
-        <app-mob-span  
-        v-if="data.prodoctname" 
-    :context="context" 
-    :value="data.prodoctname" 
-    :itemParam="{}"/>
+        <app-mob-input 
+    class="app-form-item-input"  
+        type="text"  
+    :value="data.sys_update_featuresname"
+    unit=""
+    :disabled="detailsModel.sys_update_featuresname.disabled" 
+    @change="($event)=>this.data.sys_update_featuresname = $event" />
 </app-form-item>
-
-
-
-<app-form-item 
-    name='branch' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="branch_item"  
-    :itemValue="this.data.branch" 
-    v-show="detailsModel.branch.visible" 
-    :itemRules="this.rules.branch" 
-    :caption="$t('story.mobmain_form.details.branch')"  
-    :labelWidth="100"  
-    :isShowCaption="true"
-    :disabled="detailsModel.branch.disabled"
-    :error="detailsModel.branch.error" 
-    :isEmptyCaption="false">
-        <app-mob-span  
-        codeListType="DYNAMIC" 
-    tag="ProductBranch_Cache"
-    :isCache="false" 
-    v-if="data.branch" 
-    :context="context" 
-    :value="data.branch" 
-    :itemParam="{}"/>
-</app-form-item>
-
-
-
-<app-form-item 
-    name='modulename1' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="modulename1_item"  
-    :itemValue="this.data.modulename1" 
-    v-show="detailsModel.modulename1.visible" 
-    :itemRules="this.rules.modulename1" 
-    :caption="$t('story.mobmain_form.details.modulename1')"  
-    :labelWidth="100"  
-    :isShowCaption="true"
-    :disabled="detailsModel.modulename1.disabled"
-    :error="detailsModel.modulename1.error" 
-    :isEmptyCaption="false">
-        <app-mob-span  
-        v-if="data.modulename1" 
-    :context="context" 
-    :value="data.modulename1" 
-    :itemParam="{}"/>
-</app-form-item>
-
-
-
-<app-form-item 
-    name='version' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="version_item"  
-    :itemValue="this.data.version" 
-    v-show="detailsModel.version.visible" 
-    :itemRules="this.rules.version" 
-    :caption="$t('story.mobmain_form.details.version')"  
-    :labelWidth="100"  
-    :isShowCaption="true"
-    :disabled="detailsModel.version.disabled"
-    :error="detailsModel.version.error" 
-    :isEmptyCaption="false">
-        <app-mob-select 
-    tag="CurStory"
-    codeListType="DYNAMIC" 
-    :isCache="false" 
-    :disabled="detailsModel.version.disabled" 
-    :data="data" 
-    :context="context" 
-    :viewparams="viewparams"
-    :value="data.version"  
-    :navigateContext ='{ } '
-    :navigateParam ='{ } '
-    @change="($event)=>this.data.version = $event" />
-</app-form-item>
-
-
-
-<app-form-item 
-    name='title' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="title_item"  
-    :itemValue="this.data.title" 
-    v-show="detailsModel.title.visible" 
-    :itemRules="this.rules.title" 
-    :caption="$t('story.mobmain_form.details.title')"  
-    :labelWidth="100"  
-    :isShowCaption="true"
-    :disabled="detailsModel.title.disabled"
-    :error="detailsModel.title.error" 
-    :isEmptyCaption="false">
-        <app-mob-span  
-        v-if="data.title" 
-    :context="context" 
-    :value="data.title" 
-    :itemParam="{}"/>
-</app-form-item>
-
-
-
-<app-form-item 
-    name='type' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="type_item"  
-    :itemValue="this.data.type" 
-    v-show="detailsModel.type.visible" 
-    :itemRules="this.rules.type" 
-    :caption="$t('story.mobmain_form.details.type')"  
-    :labelWidth="100"  
-    :isShowCaption="true"
-    :disabled="detailsModel.type.disabled"
-    :error="detailsModel.type.error" 
-    :isEmptyCaption="false">
-        <app-mob-span  
-        codeListType="STATIC" 
-    tag="Story__type"
-    :isCache="false" 
-    v-if="data.type" 
-    :context="context" 
-    :value="data.type" 
-    :itemParam="{}"/>
-</app-form-item>
-
-
-
-<app-form-item 
-    name='pri' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="pri_item"  
-    :itemValue="this.data.pri" 
-    v-show="detailsModel.pri.visible" 
-    :itemRules="this.rules.pri" 
-    :caption="$t('story.mobmain_form.details.pri')"  
-    :labelWidth="100"  
-    :isShowCaption="true"
-    :disabled="detailsModel.pri.disabled"
-    :error="detailsModel.pri.error" 
-    :isEmptyCaption="false">
-        <app-mob-span  
-        codeListType="STATIC" 
-    tag="Story__pri"
-    :isCache="false" 
-    v-if="data.pri" 
-    :context="context" 
-    :value="data.pri" 
-    :itemParam="{}"/>
-</app-form-item>
-
-
-
-<app-form-item 
-    name='status' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="status_item"  
-    :itemValue="this.data.status" 
-    v-show="detailsModel.status.visible" 
-    :itemRules="this.rules.status" 
-    :caption="$t('story.mobmain_form.details.status')"  
-    :labelWidth="100"  
-    :isShowCaption="true"
-    :disabled="detailsModel.status.disabled"
-    :error="detailsModel.status.error" 
-    :isEmptyCaption="false">
-        <app-mob-span  
-        codeListType="STATIC" 
-    tag="Story__status"
-    :isCache="false" 
-    v-if="data.status" 
-    :context="context" 
-    :value="data.status" 
-    :itemParam="{}"/>
-</app-form-item>
-
-
-
-<app-form-item 
-    name='assignedto' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="assignedto_item"  
-    :itemValue="this.data.assignedto" 
-    v-show="detailsModel.assignedto.visible" 
-    :itemRules="this.rules.assignedto" 
-    :caption="$t('story.mobmain_form.details.assignedto')"  
-    :labelWidth="100"  
-    :isShowCaption="true"
-    :disabled="detailsModel.assignedto.disabled"
-    :error="detailsModel.assignedto.error" 
-    :isEmptyCaption="false">
-        <app-mob-span  
-        codeListType="DYNAMIC" 
-    tag="UserRealName"
-    :isCache="false" 
-    v-if="data.assignedto" 
-    :context="context" 
-    :value="data.assignedto" 
-    :itemParam="{}"/>
-</app-form-item>
-
-
-
-<app-form-item 
-    name='assigneddate' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="assigneddate_item"  
-    :itemValue="this.data.assigneddate" 
-    v-show="detailsModel.assigneddate.visible" 
-    :itemRules="this.rules.assigneddate" 
-    :caption="$t('story.mobmain_form.details.assigneddate')"  
-    :labelWidth="100"  
-    :isShowCaption="true"
-    :disabled="detailsModel.assigneddate.disabled"
-    :error="detailsModel.assigneddate.error" 
-    :isEmptyCaption="false">
-        <app-mob-span  
-        v-if="data.assigneddate" 
-    :context="context" 
-    :value="data.assigneddate" 
-    :itemParam="{}"/>
-</app-form-item>
-
-
-
-<app-form-item 
-    name='source' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="source_item"  
-    :itemValue="this.data.source" 
-    v-show="detailsModel.source.visible" 
-    :itemRules="this.rules.source" 
-    :caption="$t('story.mobmain_form.details.source')"  
-    :labelWidth="100"  
-    :isShowCaption="true"
-    :disabled="detailsModel.source.disabled"
-    :error="detailsModel.source.error" 
-    :isEmptyCaption="false">
-        <app-mob-span  
-        codeListType="STATIC" 
-    tag="Story__source"
-    :isCache="false" 
-    v-if="data.source" 
-    :context="context" 
-    :value="data.source" 
-    :itemParam="{}"/>
-</app-form-item>
-
-
-
-<app-form-item 
-    name='sourcenote' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="sourcenote_item"  
-    :itemValue="this.data.sourcenote" 
-    v-show="detailsModel.sourcenote.visible" 
-    :itemRules="this.rules.sourcenote" 
-    :caption="$t('story.mobmain_form.details.sourcenote')"  
-    :labelWidth="100"  
-    :isShowCaption="true"
-    :disabled="detailsModel.sourcenote.disabled"
-    :error="detailsModel.sourcenote.error" 
-    :isEmptyCaption="false">
-        <app-mob-span  
-        v-if="data.sourcenote" 
-    :context="context" 
-    :value="data.sourcenote" 
-    :itemParam="{}"/>
-</app-form-item>
-
-
-
-<app-form-item 
-    name='stage' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="stage_item"  
-    :itemValue="this.data.stage" 
-    v-show="detailsModel.stage.visible" 
-    :itemRules="this.rules.stage" 
-    :caption="$t('story.mobmain_form.details.stage')"  
-    :labelWidth="100"  
-    :isShowCaption="true"
-    :disabled="detailsModel.stage.disabled"
-    :error="detailsModel.stage.error" 
-    :isEmptyCaption="false">
-        <app-mob-span  
-        codeListType="STATIC" 
-    tag="Story__stage"
-    :isCache="false" 
-    v-if="data.stage" 
-    :context="context" 
-    :value="data.stage" 
-    :itemParam="{}"/>
-</app-form-item>
-
-
-
-<app-form-item 
-    name='closedby' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="closedby_item"  
-    :itemValue="this.data.closedby" 
-    v-show="detailsModel.closedby.visible" 
-    :itemRules="this.rules.closedby" 
-    :caption="$t('story.mobmain_form.details.closedby')"  
-    :labelWidth="100"  
-    :isShowCaption="true"
-    :disabled="detailsModel.closedby.disabled"
-    :error="detailsModel.closedby.error" 
-    :isEmptyCaption="false">
-        <app-mob-span  
-        codeListType="DYNAMIC" 
-    tag="UserRealName"
-    :isCache="false" 
-    v-if="data.closedby" 
-    :context="context" 
-    :value="data.closedby" 
-    :itemParam="{}"/>
-</app-form-item>
-
-
-
-<app-form-item 
-    name='closeddate' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="closeddate_item"  
-    :itemValue="this.data.closeddate" 
-    v-show="detailsModel.closeddate.visible" 
-    :itemRules="this.rules.closeddate" 
-    :caption="$t('story.mobmain_form.details.closeddate')"  
-    :labelWidth="100"  
-    :isShowCaption="true"
-    :disabled="detailsModel.closeddate.disabled"
-    :error="detailsModel.closeddate.error" 
-    :isEmptyCaption="false">
-        <app-mob-span  
-        v-if="data.closeddate" 
-    :context="context" 
-    :value="data.closeddate" 
-    :itemParam="{}"/>
-</app-form-item>
-
-
-
-<app-form-item 
-    name='closedreason' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="closedreason_item"  
-    :itemValue="this.data.closedreason" 
-    v-show="detailsModel.closedreason.visible" 
-    :itemRules="this.rules.closedreason" 
-    :caption="$t('story.mobmain_form.details.closedreason')"  
-    :labelWidth="100"  
-    :isShowCaption="true"
-    :disabled="detailsModel.closedreason.disabled"
-    :error="detailsModel.closedreason.error" 
-    :isEmptyCaption="false">
-        <app-mob-span  
-        codeListType="STATIC" 
-    tag="Story__closed_reason"
-    :isCache="false" 
-    v-if="data.closedreason" 
-    :context="context" 
-    :value="data.closedreason" 
-    :itemParam="{}"/>
-</app-form-item>
-
-
-
-<app-form-item 
-    name='spec' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="spec_item"  
-    :itemValue="this.data.spec" 
-    v-show="detailsModel.spec.visible" 
-    :itemRules="this.rules.spec" 
-    :caption="$t('story.mobmain_form.details.spec')"  
-    :labelWidth="100"  
-    :isShowCaption="true"
-    :error="detailsModel.spec.error" 
-    :isEmptyCaption="false">
-        <app-mob-rich-text-editor-pms :formState="formState" :value="data.spec" @change="(val) =>{this.data.spec =val}" :disabled="detailsModel.spec.disabled" :data="JSON.stringify(this.data)"  name="spec" :uploadparams='{}' :exportparams='{}'  style=""/>
-
-</app-form-item>
-
-
-
-<app-form-item 
-    name='verify' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="verify_item"  
-    :itemValue="this.data.verify" 
-    v-show="detailsModel.verify.visible" 
-    :itemRules="this.rules.verify" 
-    :caption="$t('story.mobmain_form.details.verify')"  
-    :labelWidth="100"  
-    :isShowCaption="true"
-    :error="detailsModel.verify.error" 
-    :isEmptyCaption="false">
-        <app-mob-rich-text-editor-pms :formState="formState" :value="data.verify" @change="(val) =>{this.data.verify =val}" :disabled="detailsModel.verify.disabled" :data="JSON.stringify(this.data)"  name="verify" :uploadparams='{}' :exportparams='{}'  style=""/>
-
-</app-form-item>
-
-
-
-<app-form-item 
-    name='mailto' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="mailto_item"  
-    :itemValue="this.data.mailto" 
-    v-show="detailsModel.mailto.visible" 
-    :itemRules="this.rules.mailto" 
-    :caption="$t('story.mobmain_form.details.mailto')"  
-    :labelWidth="100"  
-    :isShowCaption="true"
-    :disabled="detailsModel.mailto.disabled"
-    :error="detailsModel.mailto.error" 
-    :isEmptyCaption="false">
-        <app-mob-span  
-        codeListType="DYNAMIC" 
-    tag="UserRealName"
-    :isCache="false" 
-    v-if="data.mailto" 
-    :context="context" 
-    :value="data.mailto" 
-    :itemParam="{}"/>
-</app-form-item>
-
-
-
-<app-form-item 
-    name='keywords' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="keywords_item"  
-    :itemValue="this.data.keywords" 
-    v-show="detailsModel.keywords.visible" 
-    :itemRules="this.rules.keywords" 
-    :caption="$t('story.mobmain_form.details.keywords')"  
-    :labelWidth="100"  
-    :isShowCaption="true"
-    :disabled="detailsModel.keywords.disabled"
-    :error="detailsModel.keywords.error" 
-    :isEmptyCaption="false">
-        <app-mob-span  
-        v-if="data.keywords" 
-    :context="context" 
-    :value="data.keywords" 
-    :itemParam="{}"/>
-</app-form-item>
-
-
-
-<app-form-group 
-    class='' 
-    layoutType='TABLE_24COL' 
-    titleStyle='' 
-    uiStyle="DEFAULT" 
-    v-show="detailsModel.grouppanel2.visible" 
-    :uiActionGroup="detailsModel.grouppanel2.uiActionGroup" 
-    :caption="$t('story.mobmain_form.details.grouppanel2')" 
-    :isShowCaption="true" 
-    :titleBarCloseMode="1" 
-    :isInfoGroupMode="true" 
-    :data="transformData(data)"
-    :uiService="deUIService"
-    @groupuiactionclick="groupUIActionClick($event)">
-    
-<app-form-druipart
-    class='' 
-    parameterName='story' 
-    refviewtype='DEMOBMDVIEW9'  
-    refreshitems='version' 
-    viewname='file-mob-mdview9' 
-    v-show="detailsModel.druipart2.visible" 
-    :caption="$t('story.mobmain_form.details.druipart2')"  
-    paramItem='story' 
-    style="" 
-    :formState="formState" 
-    :parentdata='{"srfparentdename":"ZT_STORY","SRFPARENTTYPE":"CUSTOM"}' 
-    :parameters="[
-    ]" 
-    tempMode='0'
-    :context="context" 
-    :viewparams="viewparams" 
-    :navigateContext ='{ } ' 
-    :navigateParam ='{ "n_extra_eq": "%version%", "objecttype": "story" } ' 
-    :ignorefieldvaluechange="ignorefieldvaluechange" 
-    :data="JSON.stringify(this.data)"  
-    @drdatasaved="drdatasaved($event)"/>
 
 
     
@@ -575,42 +52,115 @@
     layoutType='TABLE_24COL' 
     titleStyle='' 
     uiStyle="DEFAULT" 
-    v-show="detailsModel.grouppanel1.visible" 
-    :uiActionGroup="detailsModel.grouppanel1.uiActionGroup" 
-    :caption="$t('story.mobmain_form.details.grouppanel1')" 
+    v-show="detailsModel.group2.visible" 
+    :uiActionGroup="detailsModel.group2.uiActionGroup" 
+    :caption="$t('sysupdatefeatures.mobmain_form.details.group2')" 
     :isShowCaption="true" 
-    :titleBarCloseMode="1" 
-    :isInfoGroupMode="true" 
+    :titleBarCloseMode="0" 
+    :isInfoGroupMode="false" 
     :data="transformData(data)"
     :uiService="deUIService"
     @groupuiactionclick="groupUIActionClick($event)">
     
-<app-form-druipart
+<app-form-item 
+    name='createman' 
     class='' 
-    parameterName='story' 
-    refviewtype='DEMOBMDVIEW9'  
-    refreshitems='' 
-    viewname='action-mob-mdview9' 
-    v-show="detailsModel.druipart1.visible" 
-    :caption="$t('story.mobmain_form.details.druipart1')"  
-    paramItem='story' 
-    style="" 
-    :formState="formState" 
-    :parentdata='{"srfparentdename":"ZT_STORY","SRFPARENTTYPE":"CUSTOM"}' 
-    :parameters="[
-    ]" 
-    tempMode='0'
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="createman_item"  
+    :itemValue="this.data.createman" 
+    v-show="detailsModel.createman.visible" 
+    :itemRules="this.rules.createman" 
+    :caption="$t('sysupdatefeatures.mobmain_form.details.createman')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.createman.disabled"
+    :error="detailsModel.createman.error" 
+    :isEmptyCaption="false">
+        <app-mob-span  
+        codeListType="DYNAMIC" 
+    tag="SysOperator"
+    :isCache="false" 
+    v-if="data.createman" 
     :context="context" 
-    :viewparams="viewparams" 
-    :navigateContext ='{ } ' 
-    :navigateParam ='{ } ' 
-    :ignorefieldvaluechange="ignorefieldvaluechange" 
-    :data="JSON.stringify(this.data)"  
-    @drdatasaved="drdatasaved($event)"/>
+    :value="data.createman" 
+    :itemParam="{}"/>
+</app-form-item>
 
 
-    
-</app-form-group>
+
+<app-form-item 
+    name='createdate' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="createdate_item"  
+    :itemValue="this.data.createdate" 
+    v-show="detailsModel.createdate.visible" 
+    :itemRules="this.rules.createdate" 
+    :caption="$t('sysupdatefeatures.mobmain_form.details.createdate')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.createdate.disabled"
+    :error="detailsModel.createdate.error" 
+    :isEmptyCaption="false">
+        <app-mob-span  
+        v-if="data.createdate" 
+    :context="context" 
+    :value="data.createdate" 
+    :itemParam="{}"/>
+</app-form-item>
+
+
+
+<app-form-item 
+    name='updateman' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="updateman_item"  
+    :itemValue="this.data.updateman" 
+    v-show="detailsModel.updateman.visible" 
+    :itemRules="this.rules.updateman" 
+    :caption="$t('sysupdatefeatures.mobmain_form.details.updateman')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.updateman.disabled"
+    :error="detailsModel.updateman.error" 
+    :isEmptyCaption="false">
+        <app-mob-span  
+        codeListType="DYNAMIC" 
+    tag="SysOperator"
+    :isCache="false" 
+    v-if="data.updateman" 
+    :context="context" 
+    :value="data.updateman" 
+    :itemParam="{}"/>
+</app-form-item>
+
+
+
+<app-form-item 
+    name='updatedate' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="updatedate_item"  
+    :itemValue="this.data.updatedate" 
+    v-show="detailsModel.updatedate.visible" 
+    :itemRules="this.rules.updatedate" 
+    :caption="$t('sysupdatefeatures.mobmain_form.details.updatedate')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.updatedate.disabled"
+    :error="detailsModel.updatedate.error" 
+    :isEmptyCaption="false">
+        <app-mob-span  
+        v-if="data.updatedate" 
+    :context="context" 
+    :value="data.updatedate" 
+    :itemParam="{}"/>
+</app-form-item>
 
 
     
@@ -627,11 +177,11 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import StoryService from '@/app-core/service/story/story-service';
-import MobMainService from '@/app-core/ctrl-service/story/mob-main-form-service';
+import SysUpdateFeaturesService from '@/app-core/service/sys-update-features/sys-update-features-service';
+import MobMainService from '@/app-core/ctrl-service/sys-update-features/mob-main-form-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
-import StoryUIService from '@/ui-service/story/story-ui-action';
+import SysUpdateFeaturesUIService from '@/ui-service/sys-update-features/sys-update-features-ui-action';
 
 import { FormButtonModel, FormPageModel, FormItemModel, FormDRUIPartModel, FormPartModel, FormGroupPanelModel, FormIFrameModel, FormRowItemModel, FormTabPageModel, FormTabPanelModel, FormUserControlModel } from '@/model/form-detail';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
@@ -737,18 +287,18 @@ export default class MobMainBase extends Vue implements ControlInterface {
     /**
      * 实体服务对象
      *
-     * @type {StoryService}
+     * @type {SysUpdateFeaturesService}
      * @memberof MobMain
      */
-    protected appEntityService: StoryService = new StoryService();
+    protected appEntityService: SysUpdateFeaturesService = new SysUpdateFeaturesService();
 
     /**
      * 界面UI服务对象
      *
-     * @type {StoryUIService}
+     * @type {SysUpdateFeaturesUIService}
      * @memberof MobMainBase
      */  
-    public deUIService:StoryUIService = new StoryUIService(this.$store);
+    public deUIService:SysUpdateFeaturesUIService = new SysUpdateFeaturesUIService(this.$store);
     
 
     /**
@@ -946,30 +496,13 @@ export default class MobMainBase extends Vue implements ControlInterface {
         srfuf: null,
         srfdeid: null,
         srfsourcekey: null,
-        prodoctname: null,
-        branch: null,
-        product: null,
-        branchname: null,
-        modulename1: null,
-        version: null,
-        title: null,
-        type: null,
-        pri: null,
-        status: null,
-        assignedto: null,
-        assigneddate: null,
-        source: null,
-        sourcenote: null,
-        stage: null,
-        closedby: null,
-        closeddate: null,
-        closedreason: null,
-        spec: null,
-        verify: null,
-        mailto: null,
-        keywords: null,
-        id: null,
-        story: null,
+        sys_update_featuresname: null,
+        createman: null,
+        createdate: null,
+        updateman: null,
+        updatedate: null,
+        sys_update_featuresid: null,
+        sysupdatefeatures: null,
     };
 
     /**
@@ -1100,25 +633,19 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * @memberof MobMain
      */
     protected detailsModel: any = {
-        druipart2: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart2', visible: true, isShowCaption: true, form: this })
+        group1: new FormGroupPanelModel({ caption: '系统更新功能基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'sysupdatefeatures.mobmain_form', extractMode: 'ITEM', details: [] } })
 , 
-        grouppanel2: new FormGroupPanelModel({ caption: '附件', detailType: 'GROUPPANEL', name: 'grouppanel2', visible: true, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'story.mobmain_form', extractMode: 'ITEM', details: [] } })
-, 
-        druipart1: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart1', visible: true, isShowCaption: true, form: this })
-, 
-        grouppanel1: new FormGroupPanelModel({ caption: '历史记录', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'story.mobmain_form', extractMode: 'ITEM', details: [] } })
-, 
-        group1: new FormGroupPanelModel({ caption: '需求基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'story.mobmain_form', extractMode: 'ITEM', details: [] } })
+        group2: new FormGroupPanelModel({ caption: '操作信息', detailType: 'GROUPPANEL', name: 'group2', visible: true, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'sysupdatefeatures.mobmain_form', extractMode: 'ITEM', details: [] } })
 , 
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this })
 , 
-        srfupdatedate: new FormItemModel({ caption: '最后修改日期', detailType: 'FORMITEM', name: 'srfupdatedate', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
+        srfupdatedate: new FormItemModel({ caption: '更新时间', detailType: 'FORMITEM', name: 'srfupdatedate', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         srforikey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srforikey', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        srfkey: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'srfkey', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
+        srfkey: new FormItemModel({ caption: '系统更新功能标识', detailType: 'FORMITEM', name: 'srfkey', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        srfmajortext: new FormItemModel({ caption: '需求名称', detailType: 'FORMITEM', name: 'srfmajortext', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        srfmajortext: new FormItemModel({ caption: '系统更新功能名称', detailType: 'FORMITEM', name: 'srfmajortext', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         srftempmode: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srftempmode', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -1128,51 +655,17 @@ export default class MobMainBase extends Vue implements ControlInterface {
 , 
         srfsourcekey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfsourcekey', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        prodoctname: new FormItemModel({ caption: '产品名称', detailType: 'FORMITEM', name: 'prodoctname', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        sys_update_featuresname: new FormItemModel({ caption: '系统更新功能名称', detailType: 'FORMITEM', name: 'sys_update_featuresname', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        branch: new FormItemModel({ caption: '平台/分支', detailType: 'FORMITEM', name: 'branch', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        createman: new FormItemModel({ caption: '建立人', detailType: 'FORMITEM', name: 'createman', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        product: new FormItemModel({ caption: '所属产品', detailType: 'FORMITEM', name: 'product', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        createdate: new FormItemModel({ caption: '建立时间', detailType: 'FORMITEM', name: 'createdate', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        branchname: new FormItemModel({ caption: '平台/分支', detailType: 'FORMITEM', name: 'branchname', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        updateman: new FormItemModel({ caption: '更新人', detailType: 'FORMITEM', name: 'updateman', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        modulename1: new FormItemModel({ caption: '所属模块名称', detailType: 'FORMITEM', name: 'modulename1', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        updatedate: new FormItemModel({ caption: '更新时间', detailType: 'FORMITEM', name: 'updatedate', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        version: new FormItemModel({ caption: '版本号', detailType: 'FORMITEM', name: 'version', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        title: new FormItemModel({ caption: '需求名称', detailType: 'FORMITEM', name: 'title', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        type: new FormItemModel({ caption: '需求类型', detailType: 'FORMITEM', name: 'type', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        pri: new FormItemModel({ caption: '优先级', detailType: 'FORMITEM', name: 'pri', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        status: new FormItemModel({ caption: '当前状态', detailType: 'FORMITEM', name: 'status', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        assignedto: new FormItemModel({ caption: '指派给', detailType: 'FORMITEM', name: 'assignedto', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        assigneddate: new FormItemModel({ caption: '指派日期', detailType: 'FORMITEM', name: 'assigneddate', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        source: new FormItemModel({ caption: '需求来源', detailType: 'FORMITEM', name: 'source', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        sourcenote: new FormItemModel({ caption: '来源备注', detailType: 'FORMITEM', name: 'sourcenote', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        stage: new FormItemModel({ caption: '所处阶段', detailType: 'FORMITEM', name: 'stage', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        closedby: new FormItemModel({ caption: '由谁关闭', detailType: 'FORMITEM', name: 'closedby', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        closeddate: new FormItemModel({ caption: '关闭日期	', detailType: 'FORMITEM', name: 'closeddate', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        closedreason: new FormItemModel({ caption: '关闭原因', detailType: 'FORMITEM', name: 'closedreason', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        spec: new FormItemModel({ caption: '需求描述', detailType: 'FORMITEM', name: 'spec', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        verify: new FormItemModel({ caption: '验收标准', detailType: 'FORMITEM', name: 'verify', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        mailto: new FormItemModel({ caption: '抄送给', detailType: 'FORMITEM', name: 'mailto', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        keywords: new FormItemModel({ caption: '关键词', detailType: 'FORMITEM', name: 'keywords', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
+        sys_update_featuresid: new FormItemModel({ caption: '系统更新功能标识', detailType: 'FORMITEM', name: 'sys_update_featuresid', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
     };
 
@@ -1273,279 +766,75 @@ export default class MobMainBase extends Vue implements ControlInterface {
     }
 
     /**
-     * 监控表单属性 prodoctname 值
+     * 监控表单属性 sys_update_featuresname 值
      *
      * @param {*} newVal
      * @param {*} oldVal
      * @memberof MobMain
      */
-    @Watch('data.prodoctname')
-    onProdoctnameChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'prodoctname', newVal: newVal, oldVal: oldVal });
+    @Watch('data.sys_update_featuresname')
+    onSys_update_featuresnameChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'sys_update_featuresname', newVal: newVal, oldVal: oldVal });
     }
 
     /**
-     * 监控表单属性 branch 值
+     * 监控表单属性 createman 值
      *
      * @param {*} newVal
      * @param {*} oldVal
      * @memberof MobMain
      */
-    @Watch('data.branch')
-    onBranchChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'branch', newVal: newVal, oldVal: oldVal });
+    @Watch('data.createman')
+    onCreatemanChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'createman', newVal: newVal, oldVal: oldVal });
     }
 
     /**
-     * 监控表单属性 product 值
+     * 监控表单属性 createdate 值
      *
      * @param {*} newVal
      * @param {*} oldVal
      * @memberof MobMain
      */
-    @Watch('data.product')
-    onProductChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'product', newVal: newVal, oldVal: oldVal });
+    @Watch('data.createdate')
+    onCreatedateChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'createdate', newVal: newVal, oldVal: oldVal });
     }
 
     /**
-     * 监控表单属性 branchname 值
+     * 监控表单属性 updateman 值
      *
      * @param {*} newVal
      * @param {*} oldVal
      * @memberof MobMain
      */
-    @Watch('data.branchname')
-    onBranchnameChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'branchname', newVal: newVal, oldVal: oldVal });
+    @Watch('data.updateman')
+    onUpdatemanChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'updateman', newVal: newVal, oldVal: oldVal });
     }
 
     /**
-     * 监控表单属性 modulename1 值
+     * 监控表单属性 updatedate 值
      *
      * @param {*} newVal
      * @param {*} oldVal
      * @memberof MobMain
      */
-    @Watch('data.modulename1')
-    onModulename1Change(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'modulename1', newVal: newVal, oldVal: oldVal });
+    @Watch('data.updatedate')
+    onUpdatedateChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'updatedate', newVal: newVal, oldVal: oldVal });
     }
 
     /**
-     * 监控表单属性 version 值
+     * 监控表单属性 sys_update_featuresid 值
      *
      * @param {*} newVal
      * @param {*} oldVal
      * @memberof MobMain
      */
-    @Watch('data.version')
-    onVersionChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'version', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 title 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobMain
-     */
-    @Watch('data.title')
-    onTitleChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'title', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 type 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobMain
-     */
-    @Watch('data.type')
-    onTypeChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'type', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 pri 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobMain
-     */
-    @Watch('data.pri')
-    onPriChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'pri', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 status 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobMain
-     */
-    @Watch('data.status')
-    onStatusChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'status', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 assignedto 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobMain
-     */
-    @Watch('data.assignedto')
-    onAssignedtoChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'assignedto', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 assigneddate 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobMain
-     */
-    @Watch('data.assigneddate')
-    onAssigneddateChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'assigneddate', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 source 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobMain
-     */
-    @Watch('data.source')
-    onSourceChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'source', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 sourcenote 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobMain
-     */
-    @Watch('data.sourcenote')
-    onSourcenoteChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'sourcenote', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 stage 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobMain
-     */
-    @Watch('data.stage')
-    onStageChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'stage', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 closedby 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobMain
-     */
-    @Watch('data.closedby')
-    onClosedbyChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'closedby', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 closeddate 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobMain
-     */
-    @Watch('data.closeddate')
-    onCloseddateChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'closeddate', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 closedreason 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobMain
-     */
-    @Watch('data.closedreason')
-    onClosedreasonChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'closedreason', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 spec 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobMain
-     */
-    @Watch('data.spec')
-    onSpecChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'spec', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 verify 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobMain
-     */
-    @Watch('data.verify')
-    onVerifyChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'verify', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 mailto 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobMain
-     */
-    @Watch('data.mailto')
-    onMailtoChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'mailto', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 keywords 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobMain
-     */
-    @Watch('data.keywords')
-    onKeywordsChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'keywords', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 id 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobMain
-     */
-    @Watch('data.id')
-    onIdChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'id', newVal: newVal, oldVal: oldVal });
+    @Watch('data.sys_update_featuresid')
+    onSys_update_featuresidChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'sys_update_featuresid', newVal: newVal, oldVal: oldVal });
     }
 
 
@@ -1601,33 +890,6 @@ export default class MobMainBase extends Vue implements ControlInterface {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        if (Object.is(name, 'version')) {
-            const details: string[] = ['title', 'spec', 'verify'];
-            if(await this.validItem('version', this.data['version'])){
-                this.updateFormItems('GetStorySpec', this.data, details, true);
-            }
-        }
     }
 
 
@@ -1665,7 +927,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
         let validateState = true;
         let filterProperty = ""
         if(filter === 'new'){
-            filterProperty= 'id'
+            filterProperty= 'sysupdatefeaturesid'
         }
         for (let item of Object.keys(this.rules)) {
             if(!await this.validItem(item,this.data[item]) && item != filterProperty){
@@ -1921,7 +1183,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
             });
         if(AppCenterService && AppCenterService.getMessageCenter()){
             this.appStateEvent = AppCenterService.getMessageCenter().subscribe(({ name, action, data }) =>{
-                if(!Object.is(name,"Story")){
+                if(!Object.is(name,"SysUpdateFeatures")){
                     return;
                 }
                 if(Object.is(action,'appRefresh') && data.appRefreshAction){
@@ -2056,8 +1318,8 @@ export default class MobMainBase extends Vue implements ControlInterface {
         const response: any = await this.service.loadDraft(this.loaddraftAction, { ...this.context }, arg, this.showBusyIndicator);
         if (response && response.status === 200) {
             const data = response.data;
-            if(data.story){
-                Object.assign(this.context, { story: data.story });
+            if(data.sysupdatefeatures){
+                Object.assign(this.context, { sysupdatefeatures: data.sysupdatefeatures });
             }
             this.resetDraftFormStates();
             this.onFormLoad(data, 'loadDraft');
@@ -2137,7 +1399,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
             return Promise.reject();
         }
         if (isStateNext) {
-            this.drcounter = 2;
+            this.drcounter = 0;
             if (this.drcounter !== 0) {
                 this.formState.next({ type: 'beforesave', data: arg });//先通知关系界面保存
                 this.saveState = Promise.resolve();
@@ -2163,7 +1425,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
             if(!opt.saveEmit){
                 this.$emit('save', data);
             }                
-            AppCenterService.notifyMessage({name:"Story",action:'appRefresh',data:Object.assign(data,{appRefreshAction:action===this.createAction?false:true})});
+            AppCenterService.notifyMessage({name:"SysUpdateFeatures",action:'appRefresh',data:Object.assign(data,{appRefreshAction:action===this.createAction?false:true})});
             this.$store.dispatch('viewaction/datasaved', { viewtag: this.viewtag });
             this.$nextTick(() => {
                 this.formState.next({ type: 'save', data: data });
@@ -2205,7 +1467,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
             this.$emit('remove', data);
             this.formState.next({ type: 'remove', data: data });
             this.data.ismodify = false;
-            AppCenterService.notifyMessage({name:"Story",action:'appRefresh',data:data});
+            AppCenterService.notifyMessage({name:"SysUpdateFeatures",action:'appRefresh',data:data});
             this.$notice.success((data.srfmajortext ? data.srfmajortext : '') + '&nbsp;'+ this.$t('app.message.deleteSccess'));
         } else if (response && response.status !== 401) {
             const { error: _data } = response;
@@ -2229,7 +1491,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
         let response: any = await this.service.wfstart(_this.WFStartAction, { ...this.context }, arg, this.showBusyIndicator);
         if (response && response.status === 200) {
             this.$notice.success('工作流启动成功');
-            AppCenterService.notifyMessage({name:"Story",action:'appRefresh',data:data});
+            AppCenterService.notifyMessage({name:"SysUpdateFeatures",action:'appRefresh',data:data});
         } else if (response && response.status !== 401) {
             this.$notice.error('工作流启动失败, ' + response.error.message);
         }
@@ -2256,7 +1518,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
         const response: any = await this.service.wfsubmit(this.currentAction, { ...this.context }, datas, this.showBusyIndicator, arg);
         if (response && response.status === 200) {
             this.$notice.success('工作流提交成功');
-            AppCenterService.notifyMessage({name:"Story",action:'appRefresh',data:data});
+            AppCenterService.notifyMessage({name:"SysUpdateFeatures",action:'appRefresh',data:data});
         } else if (response && response.status !== 401) {
             this.$notice.error('工作流提交失败, ' + response.error.message);
             return response;
@@ -2294,7 +1556,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
             this.fillForm(_data, 'updateFormItem');
             this.formLogic({ name: '', newVal: null, oldVal: null });
             this.dataChang.next(JSON.stringify(this.data));
-            AppCenterService.notifyMessage({name:"Story",action:'appRefresh',data:data});
+            AppCenterService.notifyMessage({name:"SysUpdateFeatures",action:'appRefresh',data:data});
             this.$nextTick(() => {
                 this.formState.next({ type: 'updateformitem', ufimode: arg.srfufimode, data: _data });
             });

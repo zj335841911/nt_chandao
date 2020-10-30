@@ -522,6 +522,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '4d55ffb47e24eefc46ccb9daeb763957',
+            viewmodule: 'ibiz',
+            viewname: 'SysUpdateFeaturesMobMDView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '94cbc86dd0c1a91abdeef24049c57747',
+            ],
+        },
+        {
             viewtag: '4fe6c2da4266eb0a031bc3e636f284e4',
             viewmodule: 'ibiz',
             viewname: 'BuildLogMobMDView',
@@ -1018,6 +1028,15 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '3c4e9f0d609bc0f1cf08431649cc8e67',
+            ],
+        },
+        {
+            viewtag: '94cbc86dd0c1a91abdeef24049c57747',
+            viewmodule: 'ibiz',
+            viewname: 'SysUpdateFeaturesMobEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
             ],
         },
         {

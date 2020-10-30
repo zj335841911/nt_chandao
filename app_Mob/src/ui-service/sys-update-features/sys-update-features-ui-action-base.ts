@@ -90,6 +90,8 @@ export default class SysUpdateFeaturesUIActionBase extends EntityUIActionBase {
      * @memberof  SysUpdateFeaturesUIServiceBase
      */  
     public initViewMap(){
+        this.allViewMap.set('MOBMDATAVIEW:',{viewname:'mobmdview',srfappde:'sysupdatefeatures'});
+        this.allViewMap.set('MOBEDITVIEW:',{viewname:'mobeditview',srfappde:'sysupdatefeatures'});
     }
 
     /**
