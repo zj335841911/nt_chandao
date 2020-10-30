@@ -101,8 +101,9 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         else{
             et.setAssigneddate(new Timestamp(-28800000l));
         }
+        String files = et.getFiles();
         bOk = super.create(et);
-        fileHelper.updateObjectID(et.getId(), null, null);
+        fileHelper.updateObjectID(et.getId(), StaticDict.File__object_type.TASK.getValue(), files);
 
 
         if (StringUtils.compare(multiple, "1") == 0 && taskTeams != null && !taskTeams.isEmpty()) {
@@ -334,9 +335,9 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
             et.setFinishedby("");
         }
 
-
-
+        String files = et.getFiles();
         this.internalUpdate(et);
+        fileHelper.updateObjectID(et.getId(),StaticDict.File__object_type.TASK.getValue(),files);
         boolean changeParent = false;
         if (!et.getParent().equals(old.getParent()))
             changeParent = true;
@@ -1123,7 +1124,9 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
             computeHours4Multiple(old, newTask, null, false);
         }
 
+        String files = newTask.getFiles();
         this.internalUpdate(newTask);
+        fileHelper.updateObjectID(newTask.getId(),StaticDict.File__object_type.TASK.getValue(),files);
 
         if (old.getParent() > 0)
             updateParentStatus(newTask, old.getParent(), true);

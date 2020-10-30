@@ -84,8 +84,9 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
 
         }
         et.setStage(et.getProject() != null && et.getProject() > 0 ? StaticDict.Story__stage.PROJECTED.getValue() : et.getPlan() != null && !"".equals(et.getPlan()) && !"0".equals(et.getPlan()) ? StaticDict.Story__stage.PLANNED.getValue() : StaticDict.Story__stage.WAIT.getValue());
+        String files = et.getFiles();
         super.create(et);
-        fileHelper.updateObjectID(null, et.getId(), StaticDict.Action__object_type.STORY.getValue());
+        fileHelper.updateObjectID( et.getId(),StaticDict.File__object_type.STORY.getValue(), files);
         fileHelper.saveUpload(StaticDict.Action__object_type.STORY.getValue(), et.getId(), "", "", "");
 
         //storyspec create
@@ -385,7 +386,9 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
         //
         et.setAssignedto((et.getAssignedto() == null || "".equals(et.getAssignedto()))? old.getAssignedto() : et.getAssignedto());
 
+        String files = et.getFiles();
         this.internalUpdate(et);
+        fileHelper.updateObjectID(et.getId(),StaticDict.File__object_type.STORY.getValue(),files);
         et.setTitle(oldStorySpec.getTitle());
         et.setSpec(oldStorySpec.getSpec());
         et.setVerify(oldStorySpec.getVerify());

@@ -8,16 +8,11 @@ import cn.ibizlab.pms.core.zentao.service.IProductPlanService;
 import cn.ibizlab.pms.util.dict.StaticDict;
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
 import cn.ibizlab.pms.util.security.SpringContextHolder;
-import com.alibaba.fastjson.JSONArray;
-import com.alibaba.fastjson.JSONObject;
-import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -52,7 +47,6 @@ public class ProductPlanHelper extends ZTBaseHelper<ProductPlanMapper, ProductPl
         if (!this.retBool(this.baseMapper.insert(et)))
             return false;
         CachedBeanCopier.copy(get(et.getId()), et);
-        fileHelper.updateObjectID(null, et.getId(), StaticDict.Action__object_type.PROJECT.getValue());
 
         //Action
         actionHelper.create(StaticDict.Action__object_type.PRODUCTPLAN.getValue(), et.getId(), StaticDict.Action__type.OPENED.getValue(), "", "", null, true);
@@ -72,7 +66,6 @@ public class ProductPlanHelper extends ZTBaseHelper<ProductPlanMapper, ProductPl
         fileHelper.processImgURL(et, null, null);
         if (!this.internalUpdate(et))
             return false;
-        fileHelper.updateObjectID(null, et.getId(), StaticDict.Action__object_type.PRODUCTPLAN.getValue());
 
         List<History> changes = ChangeUtil.diff(old, et,null,new String[]{"begin","end","desc"},new String[]{"desc"});
         if (changes.size() > 0) {

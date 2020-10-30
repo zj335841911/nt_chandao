@@ -75,7 +75,6 @@ public class ProjectHelper extends ZTBaseHelper<ProjectMapper, Project> {
         if (!this.retBool(this.baseMapper.insert(et)))
             return false;
         CachedBeanCopier.copy(get(et.getId()), et);
-        fileHelper.updateObjectID(null, et.getId(), StaticDict.Action__object_type.PRODUCT.getValue());
 
         //更新order
         et.setOrder(et.getId().intValue() * 5);
@@ -147,7 +146,7 @@ public class ProjectHelper extends ZTBaseHelper<ProjectMapper, Project> {
         fileHelper.processImgURL(et, null, null);
         if (!this.internalUpdate(et))
             return false;
-        fileHelper.updateObjectID(null, et.getId(), StaticDict.Action__object_type.PROJECT.getValue());
+//        fileHelper.updateObjectID(null, et.getId(), StaticDict.Action__object_type.PROJECT.getValue());
 
         //关联产品
         projectProductHelper.remove(new QueryWrapper<ProjectProduct>().eq(StaticDict.Action__object_type.PROJECT.getValue(), et.getId()));

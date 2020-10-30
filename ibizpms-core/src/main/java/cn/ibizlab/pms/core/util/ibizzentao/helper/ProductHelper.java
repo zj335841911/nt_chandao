@@ -9,7 +9,6 @@ import cn.ibizlab.pms.core.zentao.mapper.ProductMapper;
 import cn.ibizlab.pms.core.zentao.service.IProductService;
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
 import com.alibaba.fastjson.JSONObject;
-import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,7 +53,6 @@ public class ProductHelper extends ZTBaseHelper<ProductMapper, Product> {
         if (!this.retBool(this.baseMapper.insert(et)))
             return false;
         CachedBeanCopier.copy(get(et.getId()), et);
-        fileHelper.updateObjectID(null, et.getId(), "product");
 
         //更新order
         et.setOrder(et.getId().intValue() * 5);
@@ -99,7 +97,6 @@ public class ProductHelper extends ZTBaseHelper<ProductMapper, Product> {
         fileHelper.processImgURL(et, null, null);
         if (!this.internalUpdate(et))
             return false;
-        fileHelper.updateObjectID(null, et.getId(), "product");
 
         List<History> changes = ChangeUtil.diff(old, et,null,null,diffAttrs);
         if (changes.size() > 0) {

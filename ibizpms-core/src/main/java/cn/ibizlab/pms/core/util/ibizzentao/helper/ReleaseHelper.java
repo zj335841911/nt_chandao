@@ -64,7 +64,9 @@ public class ReleaseHelper extends ZTBaseHelper<ReleaseMapper, Release> {
             et.setBuild(build.getId());
         }
 
+        String files = et.getFiles();
         bOk = super.create(et);
+        fileHelper.updateObjectID(et.getId(), StaticDict.File__object_type.RELEASE.getValue(),files);
 
         fileHelper.processImgURL(et, null, null);
 
@@ -79,9 +81,10 @@ public class ReleaseHelper extends ZTBaseHelper<ReleaseMapper, Release> {
         Release old = new Release();
         CachedBeanCopier.copy(get(et.getId()), old);
         fileHelper.processImgURL(et, null, null);
+        String files = et.getFiles();
         if (!internalUpdate(et))
             return false;
-        fileHelper.updateObjectID(null, et.getId(), StaticDict.Action__object_type.RELEASE.getValue());
+        fileHelper.updateObjectID(et.getId(), StaticDict.File__object_type.RELEASE.getValue(),files);
 
         List<History> changes = ChangeUtil.diff(old, et,null,null,new String[]{"desc"});
         if (changes.size() > 0) {
