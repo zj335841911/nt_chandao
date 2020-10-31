@@ -192,6 +192,8 @@ export default class ViewEngine {
      */
     public calcToolbarItemAuthState(data: any ,dataNum?: number) {
         const _this: any = this;
+        if(!_this.view.appUIService.isEnableDEMainState)
+            return;
         for (const key in _this.view.toolBarModels) {
             if (!_this.view.toolBarModels.hasOwnProperty(key)) {
                 return;
