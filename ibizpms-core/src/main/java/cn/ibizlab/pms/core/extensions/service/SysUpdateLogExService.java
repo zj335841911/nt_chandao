@@ -42,7 +42,7 @@ public class SysUpdateLogExService extends SysUpdateLogServiceImpl {
     @Override
     @Transactional
     public SysUpdateLog getLastUpdateInfo(SysUpdateLog et) {
-        List<SysUpdateLog> list = this.list(new QueryWrapper<SysUpdateLog>().eq("LATESTUPDATE", 1).eq("UPDATEBRANCH", "MOB").orderByDesc("`update`").last(" LIMIT 0,1 "));
+        List<SysUpdateLog> list = this.list(new QueryWrapper<SysUpdateLog>().eq("LATESTUPDATE", StaticDict.YesNo2.ITEM_1.getValue()).eq("UPDATEBRANCH", StaticDict.SYS_UPDATE_BRANCH.MOB.getValue()).orderByDesc("`update`").last(" LIMIT 0,1 "));
         if(list.size() == 0)
             return et;
         SysUpdateLog sysUpdateLog = list.get(0);
