@@ -31,14 +31,9 @@
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <app-column-link deKeyField='sysupdatelog' :context="JSON.parse(JSON.stringify(context))" :viewparams="JSON.parse(JSON.stringify(viewparams))" :data="row" :linkview="{viewname: 'sys-update-log-tab-exp-view', height: 0,width: 0,title: $t('entities.sysupdatelog.views.tabexpview.title'),placement: '', isRedirectView: false,deResParameters: [
-            ]
-            ,parameters: [
-            { pathName: 'sysupdatelogs', parameterName: 'sysupdatelog' },
-            { pathName: 'tabexpview', parameterName: 'tabexpview' }
-            ]}" valueitem="srfkey">
-                            <span>{{row.sys_update_logname}}</span>
-                        </app-column-link >
+                        <a v-show="row.LookDetail.visabled" :disabled="row.LookDetail.disabled" :style="{'display': 'block'}" @click="uiAction(row, 'LookDetail', $event)">
+                        <span>{{row.sys_update_logname}}</span>
+                        </a>
                     </template>
                 </el-table-column>
             </template>
