@@ -71,7 +71,7 @@ export const settingConfig = {
       text: "关于",
       position: "center",
       sort: "500",
-      viewName: "app-update-log-list",
+      viewName: "",
       entext:'About',
     },
     {
@@ -105,19 +105,20 @@ export const settingConfig = {
   userEntityName: "user",
   // 自定义功能
   userCustomize: [
-    //   {
+      {
     // 名称（不可重复）
-    //     name: "test",
+        name: "Update log",
+        entext:'Update log',
     // 是否启用
-    //     isEnable: true,
+        isEnable: true,
     // 显示文本
-    //     text: "test",
-    //     // 板块位置（内置为三个板块，分别为 top、center、bottom）
-    //     position: "center",
-    //     // 板块排序（与其他item的排序位置）
-    //     sort: "201",
-    // 打开视图名称
-    //     viewName: "",
-    //   },
+        text: "更新日志",
+        // 板块位置（内置为三个板块，分别为 top、center、bottom）
+        position: "center",
+        // 板块排序（与其他item的排序位置）
+        sort: "201",
+        //路径
+        path:"sysupdatelogs/null/mobmdview"
+      },
   ],
 };
