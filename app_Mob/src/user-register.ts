@@ -8,5 +8,9 @@ export const UserComponent = {
         v.component('app-rich-text-pms',() => import('@/ibiz-core/components/app-rich-text-pms/app-rich-text-pms.vue'));
         // 文件列表插件
         v.component('app-pms-upload-list',() => import('@/ibiz-core/components/app-pms-upload-list/app-pms-upload-list.vue'));
+        // 更新日志详情列表
+        v.component('app-pms-update-log-info',() => import('@/ibiz-core/components/app-pms-update-log-info/app-pms-update-log-info.vue'));
+        // 更新日志列表组件
+        v.component('app-update-log-list',() => import('@/ibiz-core/components/app-update-log-list/app-update-log-list.vue'));
     }
 };

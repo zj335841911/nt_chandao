@@ -1,61 +1,17 @@
 <template>  
-  <div class="app-update-log-list">
-    <div class="list-item">
+  <ion-list class="app-update-log-list">
+    <div class="list-item-background" v-for="item in items" :key="item.sysupdatelogid" @click="item_click(item)">
+      <div class="list-item" >
       <div class="list-text">
-        <div class="text">PMS 7.0.19主要更新</div>
-        <div class="date">09月23日</div>
+        <div class="text">{{item.sysupdatelogname}}</div>
+        <div class="date">{{item.update}}</div>
       </div>
       <div class="list-icon">
         <ion-icon name="chevron-forward-outline"></ion-icon>
       </div>
     </div>
-
-    <div class="list-item">
-      <div class="list-text">
-        <div class="text">PMS 7.0.19主要更新</div>
-        <div class="date">09月23日</div>
-      </div>
-      <div class="list-icon">
-        <ion-icon name="chevron-forward-outline"></ion-icon>
-      </div>
     </div>
-    <div class="list-item">
-      <div class="list-text">
-        <div class="text">PMS 7.0.19主要更新</div>
-        <div class="date">09月23日</div>
-      </div>
-      <div class="list-icon">
-        <ion-icon name="chevron-forward-outline"></ion-icon>
-      </div>
-    </div>
-    <div class="list-item">
-      <div class="list-text">
-        <div class="text">PMS 7.0.19主要更新</div>
-        <div class="date">09月23日</div>
-      </div>
-      <div class="list-icon">
-        <ion-icon name="chevron-forward-outline"></ion-icon>
-      </div>
-    </div>
-    <div class="list-item">
-      <div class="list-text">
-        <div class="text">PMS 7.0.19主要更新</div>
-        <div class="date">09月23日</div>
-      </div>
-      <div class="list-icon">
-        <ion-icon name="chevron-forward-outline"></ion-icon>
-      </div>
-    </div>
-    <div class="list-item">
-      <div class="list-text">
-        <div class="text">PMS 7.0.19主要更新</div>
-        <div class="date">09月23日</div>
-      </div>
-      <div class="list-icon">
-        <ion-icon name="chevron-forward-outline"></ion-icon>
-      </div>
-    </div>
-  </div>
+  </ion-list>
 </template>
 
 <script lang="ts">
@@ -66,58 +22,20 @@ import { Vue, Component, Prop, Provide, Emit, Watch, } from "vue-property-decora
 })
 export default class AppSelect extends Vue {
 
-  public items:Array<any> = []; 
-   
     /**
-     * 生命周期
+     * 视图参数
+     *
+     * @memberof AppPmsUploadList
      */
-    public created() {
-      this.thirdPartyInit();
-      this.setViewTitleStatus();
-    }
+    @Prop() protected items!: any;
 
     /**
-     * 标题状态
-     *
-     * @memberof ProductCloseMobEditViewBase
+     * item_click
      */
-    public titleStatus :boolean = true;
-
-    /**
-     * 设置标题状态
-     *
-     * @memberof ProductCloseMobEditViewBase
-     */
-    public setViewTitleStatus(){
-        const thirdPartyName = this.$store.getters.getThirdPartyName();
-        if(thirdPartyName){
-            this.titleStatus = false;
-        }
+    public item_click(value:any) {
+      this.$emit("item_click",value);
     }
 
-     /**
-     * 关闭视图
-     * 
-     * @memberof AppMobSelectChangeStyle
-     */
-    public closeView() {
-        this.$emit("close");
-    }
-    
-      /**
-     *  第三方容器初始化
-     *
-     * @type {function}
-     * @memberof AppMobSelectChangeStyle
-     */
-    protected  thirdPartyInit(){
-          this.$viewTool.setViewTitleOfThirdParty("更新日志");
-          this.$viewTool.setThirdPartyEvent(this.closeView);
-          const thirdPartyName = this.$store.getters.getThirdPartyName();
-          if(thirdPartyName){
-              this.titleStatus = false;
-          }
-    }
 }
 </script>
 
