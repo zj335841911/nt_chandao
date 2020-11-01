@@ -92,6 +92,7 @@ hide footbox
 | 属性      |    搜索模式     |
 | --------   |------------|
 |更新名称(SYS_UPDATE_LOGNAME)|LIKE|
+|最新更新(LATESTUPDATE)|EQ|
 |更新平台(UPDATEBRANCH)|EQ|
 
 ## 导入模式

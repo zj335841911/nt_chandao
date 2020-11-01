@@ -191,7 +191,7 @@
     name='desc' 
     class='' 
     uiStyle="DEFAULT"  
-    labelPos="TOP" 
+    labelPos="LEFT" 
     ref="desc_item"  
     :itemValue="this.data.desc" 
     v-show="detailsModel.desc.visible" 
