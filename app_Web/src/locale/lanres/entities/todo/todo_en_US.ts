@@ -359,10 +359,4 @@ export default {
 			tip: "Export {0} Data To Excel",
 		},
 	},
-	gridview9toolbar_toolbar: {
-		deuiaction1_more: {
-			caption: "更多",
-			tip: "更多",
-		},
-	},
 };
