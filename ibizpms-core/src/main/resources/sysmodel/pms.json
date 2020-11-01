@@ -32459,7 +32459,7 @@
     ,
     {
     "entity_name":"ZT_TODO",
-    "logic_name":"待办事宜表",
+    "logic_name":"待办",
     "code_name":"Todo",
     "table_name":"zt_todo",
     "system_id":"pms",

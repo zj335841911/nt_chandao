@@ -2,7 +2,7 @@ import TodoAuthServiceBase from './todo-auth-service-base';
 
 
 /**
- * 待办事宜表权限服务对象
+ * 待办权限服务对象
  *
  * @export
  * @class TodoAuthService

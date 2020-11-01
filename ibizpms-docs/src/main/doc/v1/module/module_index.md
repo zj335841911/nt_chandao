@@ -324,7 +324,7 @@ class 测试套件 {
 class 测试版本 {
 }
 
-class 待办事宜表 {
+class 待办 {
 }
 
 class 用户 {

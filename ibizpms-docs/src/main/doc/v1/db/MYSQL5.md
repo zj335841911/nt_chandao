@@ -98360,7 +98360,7 @@ CREATE TABLE `zt_testtask`(
 
 
 
-## **待办事宜表** (zt_todo)
+## **待办** (zt_todo)
 
 | 字段        |    中文名称    | 类型    |  数长度  |  备注  |
 | --------   |------------| :-----:   | :----: | :--------- | 
@@ -99198,7 +99198,7 @@ CREATE TABLE `zt_todo`(
 ,`DATE`  DATETIME COMMENT '日期' 
 ,`PRIVATE`  INTEGER COMMENT '私人事务' 
 ,`CONFIG`  VARCHAR(255) COMMENT 'config' 
-)COMMENT='待办事宜表';
+)COMMENT='待办';
 ```
 
 

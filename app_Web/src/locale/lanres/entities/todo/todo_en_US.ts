@@ -39,7 +39,7 @@ export default {
       		title: "待办事宜表编辑视图",
 		},
 		dashboardview_link: {
-			caption: "待办事宜表",
+			caption: "待办",
       		title: "待办事宜表数据看板视图",
 		},
 		assigntoview: {
@@ -59,11 +59,11 @@ export default {
       		title: "完成",
 		},
 		todocreateview: {
-			caption: "待办事宜表",
+			caption: "待办",
       		title: "添加待办",
 		},
 		gridview: {
-			caption: "待办事宜表",
+			caption: "待办",
       		title: "待办事宜表格视图",
 		},
 		gridview9: {
@@ -71,11 +71,11 @@ export default {
       		title: "我的待办",
 		},
 		editview: {
-			caption: "待办事宜表",
+			caption: "待办",
       		title: "编辑待办",
 		},
 		dashboardview: {
-			caption: "待办事宜表",
+			caption: "待办",
       		title: "待办事宜表数据看板视图",
 		},
 		activiteview: {

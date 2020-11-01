@@ -14,7 +14,7 @@ import EditFormModel from './edit-form-form-model';
 export default class EditFormService extends ControlService {
 
     /**
-     * 待办事宜表服务对象
+     * 待办服务对象
      *
      * @type {TodoService}
      * @memberof EditFormService

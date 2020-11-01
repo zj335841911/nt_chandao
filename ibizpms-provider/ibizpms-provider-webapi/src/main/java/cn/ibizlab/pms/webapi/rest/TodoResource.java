@@ -35,7 +35,7 @@ import cn.ibizlab.pms.core.zentao.filter.TodoSearchContext;
 import cn.ibizlab.pms.util.annotation.VersionCheck;
 
 @Slf4j
-@Api(tags = {"待办事宜表" })
+@Api(tags = {"待办" })
 @RestController("WebApi-todo")
 @RequestMapping("")
 public class TodoResource {
@@ -48,7 +48,7 @@ public class TodoResource {
     public TodoMapping todoMapping;
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Todo-Create-all')")
-    @ApiOperation(value = "新建待办事宜表", tags = {"待办事宜表" },  notes = "新建待办事宜表")
+    @ApiOperation(value = "新建待办", tags = {"待办" },  notes = "新建待办")
 	@RequestMapping(method = RequestMethod.POST, value = "/todos")
     public ResponseEntity<TodoDTO> create(@Validated @RequestBody TodoDTO tododto) {
         Todo domain = todoMapping.toDomain(tododto);
@@ -58,7 +58,7 @@ public class TodoResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Todo-Create-all')")
-    @ApiOperation(value = "批量新建待办事宜表", tags = {"待办事宜表" },  notes = "批量新建待办事宜表")
+    @ApiOperation(value = "批量新建待办", tags = {"待办" },  notes = "批量新建待办")
 	@RequestMapping(method = RequestMethod.POST, value = "/todos/batch")
     public ResponseEntity<Boolean> createBatch(@RequestBody List<TodoDTO> tododtos) {
         todoService.createBatch(todoMapping.toDomain(tododtos));
@@ -66,7 +66,7 @@ public class TodoResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Todo-Update-all')")
-    @ApiOperation(value = "更新待办事宜表", tags = {"待办事宜表" },  notes = "更新待办事宜表")
+    @ApiOperation(value = "更新待办", tags = {"待办" },  notes = "更新待办")
 	@RequestMapping(method = RequestMethod.PUT, value = "/todos/{todo_id}")
     public ResponseEntity<TodoDTO> update(@PathVariable("todo_id") Long todo_id, @RequestBody TodoDTO tododto) {
 		Todo domain  = todoMapping.toDomain(tododto);
@@ -77,7 +77,7 @@ public class TodoResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Todo-Update-all')")
-    @ApiOperation(value = "批量更新待办事宜表", tags = {"待办事宜表" },  notes = "批量更新待办事宜表")
+    @ApiOperation(value = "批量更新待办", tags = {"待办" },  notes = "批量更新待办")
 	@RequestMapping(method = RequestMethod.PUT, value = "/todos/batch")
     public ResponseEntity<Boolean> updateBatch(@RequestBody List<TodoDTO> tododtos) {
         todoService.updateBatch(todoMapping.toDomain(tododtos));
@@ -85,14 +85,14 @@ public class TodoResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Todo-Remove-all')")
-    @ApiOperation(value = "删除待办事宜表", tags = {"待办事宜表" },  notes = "删除待办事宜表")
+    @ApiOperation(value = "删除待办", tags = {"待办" },  notes = "删除待办")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/todos/{todo_id}")
     public ResponseEntity<Boolean> remove(@PathVariable("todo_id") Long todo_id) {
          return ResponseEntity.status(HttpStatus.OK).body(todoService.remove(todo_id));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Todo-Remove-all')")
-    @ApiOperation(value = "批量删除待办事宜表", tags = {"待办事宜表" },  notes = "批量删除待办事宜表")
+    @ApiOperation(value = "批量删除待办", tags = {"待办" },  notes = "批量删除待办")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/todos/batch")
     public ResponseEntity<Boolean> removeBatch(@RequestBody List<Long> ids) {
         todoService.removeBatch(ids);
@@ -100,7 +100,7 @@ public class TodoResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Todo-Get-all')")
-    @ApiOperation(value = "获取待办事宜表", tags = {"待办事宜表" },  notes = "获取待办事宜表")
+    @ApiOperation(value = "获取待办", tags = {"待办" },  notes = "获取待办")
 	@RequestMapping(method = RequestMethod.GET, value = "/todos/{todo_id}")
     public ResponseEntity<TodoDTO> get(@PathVariable("todo_id") Long todo_id) {
         Todo domain = todoService.get(todo_id);
@@ -108,14 +108,14 @@ public class TodoResource {
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @ApiOperation(value = "获取待办事宜表草稿", tags = {"待办事宜表" },  notes = "获取待办事宜表草稿")
+    @ApiOperation(value = "获取待办草稿", tags = {"待办" },  notes = "获取待办草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/todos/getdraft")
     public ResponseEntity<TodoDTO> getDraft() {
         return ResponseEntity.status(HttpStatus.OK).body(todoMapping.toDto(todoService.getDraft(new Todo())));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Todo-Activate-all')")
-    @ApiOperation(value = "Activate", tags = {"待办事宜表" },  notes = "Activate")
+    @ApiOperation(value = "Activate", tags = {"待办" },  notes = "Activate")
 	@RequestMapping(method = RequestMethod.POST, value = "/todos/{todo_id}/activate")
     public ResponseEntity<TodoDTO> activate(@PathVariable("todo_id") Long todo_id, @RequestBody TodoDTO tododto) {
         Todo domain = todoMapping.toDomain(tododto);
@@ -126,7 +126,7 @@ public class TodoResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Todo-AssignTo-all')")
-    @ApiOperation(value = "AssignTo", tags = {"待办事宜表" },  notes = "AssignTo")
+    @ApiOperation(value = "AssignTo", tags = {"待办" },  notes = "AssignTo")
 	@RequestMapping(method = RequestMethod.POST, value = "/todos/{todo_id}/assignto")
     public ResponseEntity<TodoDTO> assignTo(@PathVariable("todo_id") Long todo_id, @RequestBody TodoDTO tododto) {
         Todo domain = todoMapping.toDomain(tododto);
@@ -136,14 +136,14 @@ public class TodoResource {
         return ResponseEntity.status(HttpStatus.OK).body(tododto);
     }
 
-    @ApiOperation(value = "检查待办事宜表", tags = {"待办事宜表" },  notes = "检查待办事宜表")
+    @ApiOperation(value = "检查待办", tags = {"待办" },  notes = "检查待办")
 	@RequestMapping(method = RequestMethod.POST, value = "/todos/checkkey")
     public ResponseEntity<Boolean> checkKey(@RequestBody TodoDTO tododto) {
         return  ResponseEntity.status(HttpStatus.OK).body(todoService.checkKey(todoMapping.toDomain(tododto)));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Todo-Close-all')")
-    @ApiOperation(value = "Close", tags = {"待办事宜表" },  notes = "Close")
+    @ApiOperation(value = "Close", tags = {"待办" },  notes = "Close")
 	@RequestMapping(method = RequestMethod.POST, value = "/todos/{todo_id}/close")
     public ResponseEntity<TodoDTO> close(@PathVariable("todo_id") Long todo_id, @RequestBody TodoDTO tododto) {
         Todo domain = todoMapping.toDomain(tododto);
@@ -154,7 +154,7 @@ public class TodoResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Todo-Finish-all')")
-    @ApiOperation(value = "Finish", tags = {"待办事宜表" },  notes = "Finish")
+    @ApiOperation(value = "Finish", tags = {"待办" },  notes = "Finish")
 	@RequestMapping(method = RequestMethod.POST, value = "/todos/{todo_id}/finish")
     public ResponseEntity<TodoDTO> finish(@PathVariable("todo_id") Long todo_id, @RequestBody TodoDTO tododto) {
         Todo domain = todoMapping.toDomain(tododto);
@@ -165,14 +165,14 @@ public class TodoResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Todo-Save-all')")
-    @ApiOperation(value = "保存待办事宜表", tags = {"待办事宜表" },  notes = "保存待办事宜表")
+    @ApiOperation(value = "保存待办", tags = {"待办" },  notes = "保存待办")
 	@RequestMapping(method = RequestMethod.POST, value = "/todos/save")
     public ResponseEntity<Boolean> save(@RequestBody TodoDTO tododto) {
         return ResponseEntity.status(HttpStatus.OK).body(todoService.save(todoMapping.toDomain(tododto)));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Todo-Save-all')")
-    @ApiOperation(value = "批量保存待办事宜表", tags = {"待办事宜表" },  notes = "批量保存待办事宜表")
+    @ApiOperation(value = "批量保存待办", tags = {"待办" },  notes = "批量保存待办")
 	@RequestMapping(method = RequestMethod.POST, value = "/todos/savebatch")
     public ResponseEntity<Boolean> saveBatch(@RequestBody List<TodoDTO> tododtos) {
         todoService.saveBatch(todoMapping.toDomain(tododtos));
@@ -180,7 +180,7 @@ public class TodoResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Todo-SendMessage-all')")
-    @ApiOperation(value = "行为", tags = {"待办事宜表" },  notes = "行为")
+    @ApiOperation(value = "行为", tags = {"待办" },  notes = "行为")
 	@RequestMapping(method = RequestMethod.POST, value = "/todos/{todo_id}/sendmessage")
     public ResponseEntity<TodoDTO> sendMessage(@PathVariable("todo_id") Long todo_id, @RequestBody TodoDTO tododto) {
         Todo domain = todoMapping.toDomain(tododto);
@@ -191,7 +191,7 @@ public class TodoResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Todo-SendMsgPreProcess-all')")
-    @ApiOperation(value = "发送消息前置处理", tags = {"待办事宜表" },  notes = "发送消息前置处理")
+    @ApiOperation(value = "发送消息前置处理", tags = {"待办" },  notes = "发送消息前置处理")
 	@RequestMapping(method = RequestMethod.POST, value = "/todos/{todo_id}/sendmsgpreprocess")
     public ResponseEntity<TodoDTO> sendMsgPreProcess(@PathVariable("todo_id") Long todo_id, @RequestBody TodoDTO tododto) {
         Todo domain = todoMapping.toDomain(tododto);
@@ -202,7 +202,7 @@ public class TodoResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Todo-searchDefault-all')")
-	@ApiOperation(value = "获取DEFAULT", tags = {"待办事宜表" } ,notes = "获取DEFAULT")
+	@ApiOperation(value = "获取DEFAULT", tags = {"待办" } ,notes = "获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/todos/fetchdefault")
 	public ResponseEntity<List<TodoDTO>> fetchDefault(TodoSearchContext context) {
         Page<Todo> domains = todoService.searchDefault(context) ;
@@ -215,7 +215,7 @@ public class TodoResource {
 	}
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Todo-searchDefault-all')")
-	@ApiOperation(value = "查询DEFAULT", tags = {"待办事宜表" } ,notes = "查询DEFAULT")
+	@ApiOperation(value = "查询DEFAULT", tags = {"待办" } ,notes = "查询DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/todos/searchdefault")
 	public ResponseEntity<Page<TodoDTO>> searchDefault(@RequestBody TodoSearchContext context) {
         Page<Todo> domains = todoService.searchDefault(context) ;
@@ -224,7 +224,7 @@ public class TodoResource {
 	}
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Todo-searchMyTodo-all')")
-	@ApiOperation(value = "获取我的待办", tags = {"待办事宜表" } ,notes = "获取我的待办")
+	@ApiOperation(value = "获取我的待办", tags = {"待办" } ,notes = "获取我的待办")
     @RequestMapping(method= RequestMethod.GET , value="/todos/fetchmytodo")
 	public ResponseEntity<List<TodoDTO>> fetchMyTodo(TodoSearchContext context) {
         Page<Todo> domains = todoService.searchMyTodo(context) ;
@@ -237,7 +237,7 @@ public class TodoResource {
 	}
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Todo-searchMyTodo-all')")
-	@ApiOperation(value = "查询我的待办", tags = {"待办事宜表" } ,notes = "查询我的待办")
+	@ApiOperation(value = "查询我的待办", tags = {"待办" } ,notes = "查询我的待办")
     @RequestMapping(method= RequestMethod.POST , value="/todos/searchmytodo")
 	public ResponseEntity<Page<TodoDTO>> searchMyTodo(@RequestBody TodoSearchContext context) {
         Page<Todo> domains = todoService.searchMyTodo(context) ;
@@ -246,7 +246,7 @@ public class TodoResource {
 	}
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Todo-searchMyUpcoming-all')")
-	@ApiOperation(value = "获取MyUpcoming", tags = {"待办事宜表" } ,notes = "获取MyUpcoming")
+	@ApiOperation(value = "获取MyUpcoming", tags = {"待办" } ,notes = "获取MyUpcoming")
     @RequestMapping(method= RequestMethod.GET , value="/todos/fetchmyupcoming")
 	public ResponseEntity<List<TodoDTO>> fetchMyUpcoming(TodoSearchContext context) {
         Page<Todo> domains = todoService.searchMyUpcoming(context) ;
@@ -259,7 +259,7 @@ public class TodoResource {
 	}
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Todo-searchMyUpcoming-all')")
-	@ApiOperation(value = "查询MyUpcoming", tags = {"待办事宜表" } ,notes = "查询MyUpcoming")
+	@ApiOperation(value = "查询MyUpcoming", tags = {"待办" } ,notes = "查询MyUpcoming")
     @RequestMapping(method= RequestMethod.POST , value="/todos/searchmyupcoming")
 	public ResponseEntity<Page<TodoDTO>> searchMyUpcoming(@RequestBody TodoSearchContext context) {
         Page<Todo> domains = todoService.searchMyUpcoming(context) ;

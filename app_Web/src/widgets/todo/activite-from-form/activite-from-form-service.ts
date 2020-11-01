@@ -14,7 +14,7 @@ import ActiviteFROMModel from './activite-from-form-model';
 export default class ActiviteFROMService extends ControlService {
 
     /**
-     * 待办事宜表服务对象
+     * 待办服务对象
      *
      * @type {TodoService}
      * @memberof ActiviteFROMService

@@ -761,7 +761,7 @@
     },
     "tododashboardview_link": {
         "title": "待办事宜表数据看板视图",
-        "caption": "待办事宜表",
+        "caption": "待办",
         "viewtype": "DEPORTALVIEW",
         "viewmodule": "zentao",
         "viewname": "TodoDashboardView_Link",
@@ -2521,7 +2521,7 @@
     },
     "todotodocreateview": {
         "title": "添加待办",
-        "caption": "待办事宜表",
+        "caption": "待办",
         "viewtype": "DEEDITVIEW",
         "viewmodule": "zentao",
         "viewname": "TodoTodoCreateView",
@@ -3321,7 +3321,7 @@
     },
     "todogridview": {
         "title": "待办事宜表格视图",
-        "caption": "待办事宜表",
+        "caption": "待办",
         "viewtype": "DEGRIDVIEW",
         "viewmodule": "zentao",
         "viewname": "TodoGridView",
@@ -3911,7 +3911,7 @@
     },
     "todoeditview": {
         "title": "编辑待办",
-        "caption": "待办事宜表",
+        "caption": "待办",
         "viewtype": "DEEDITVIEW",
         "viewmodule": "zentao",
         "viewname": "TodoEditView",
@@ -4201,7 +4201,7 @@
     },
     "tododashboardview": {
         "title": "待办事宜表数据看板视图",
-        "caption": "待办事宜表",
+        "caption": "待办",
         "viewtype": "DEPORTALVIEW",
         "viewmodule": "zentao",
         "viewname": "TodoDashboardView",

@@ -617,7 +617,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
         },
         "tododashboardview_link": {
             "title": "待办事宜表数据看板视图",
-            "caption": "待办事宜表",
+            "caption": "待办",
             "viewtype": "DEPORTALVIEW",
             "viewmodule": "zentao",
             "viewname": "TodoDashboardView_Link",
@@ -2025,7 +2025,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
         },
         "todotodocreateview": {
             "title": "添加待办",
-            "caption": "待办事宜表",
+            "caption": "待办",
             "viewtype": "DEEDITVIEW",
             "viewmodule": "zentao",
             "viewname": "TodoTodoCreateView",
@@ -2665,7 +2665,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
         },
         "todogridview": {
             "title": "待办事宜表格视图",
-            "caption": "待办事宜表",
+            "caption": "待办",
             "viewtype": "DEGRIDVIEW",
             "viewmodule": "zentao",
             "viewname": "TodoGridView",
@@ -3137,7 +3137,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
         },
         "todoeditview": {
             "title": "编辑待办",
-            "caption": "待办事宜表",
+            "caption": "待办",
             "viewtype": "DEEDITVIEW",
             "viewmodule": "zentao",
             "viewname": "TodoEditView",
@@ -3369,7 +3369,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
         },
         "tododashboardview": {
             "title": "待办事宜表数据看板视图",
-            "caption": "待办事宜表",
+            "caption": "待办",
             "viewtype": "DEPORTALVIEW",
             "viewmodule": "zentao",
             "viewname": "TodoDashboardView",

@@ -190,7 +190,7 @@ class 测试套件 {
 class 测试版本 {
 }
 
-class 待办事宜表 {
+class 待办 {
 }
 
 class 用户 {
@@ -546,7 +546,7 @@ hide members
 |ZT_TESTRUN|[测试运行](zentao/TestRun.md)|主实体|&nbsp;|
 |ZT_TESTSUITE|[测试套件](zentao/TestSuite.md)|主实体|&nbsp;|
 |ZT_TESTTASK|[测试版本](zentao/TestTask.md)|主实体|&nbsp;|
-|ZT_TODO|[待办事宜表](zentao/Todo.md)|主实体|&nbsp;|
+|ZT_TODO|[待办](zentao/Todo.md)|主实体|&nbsp;|
 |ZT_USER|[用户](zentao/User.md)|主实体|&nbsp;|
 |ZT_USERCONTACT|[用户联系方式](zentao/UserContact.md)|主实体|&nbsp;|
 |ZT_USERGROUP|[用户组](zentao/UserGroup.md)|主实体|&nbsp;|

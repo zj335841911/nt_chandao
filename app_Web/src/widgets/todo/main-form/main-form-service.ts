@@ -17,7 +17,7 @@ import BugService from '@/service/bug/bug-service';
 export default class MainService extends ControlService {
 
     /**
-     * 待办事宜表服务对象
+     * 待办服务对象
      *
      * @type {TodoService}
      * @memberof MainService

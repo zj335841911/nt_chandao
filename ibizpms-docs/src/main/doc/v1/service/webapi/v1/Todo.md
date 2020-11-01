@@ -1,9 +1,9 @@
 # 服务接口-ZT_TODO
 ## 接口说明
-待办事宜表
+待办
 
 ## 接口清单
-### 新建待办事宜表
+### 新建待办
 #### 访问路径
 /todos
 
@@ -13,15 +13,15 @@ POST
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
 | -- | -- | -- | -- |
-| 1 | tododto | [TodoDTO](#TodoDTO) | 待办事宜表实体传输对象 |
+| 1 | tododto | [TodoDTO](#TodoDTO) | 待办实体传输对象 |
 
 #### 返回说明
 | 项目 | 说明 |
 | -- | -- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
-| 返回类型 | [TodoDTO](#TodoDTO)：待办事宜表实体传输对象 |
+| 返回类型 | [TodoDTO](#TodoDTO)：待办实体传输对象 |
 
-### 批量新建待办事宜表
+### 批量新建待办
 #### 访问路径
 /todos/batch
 
@@ -31,7 +31,7 @@ POST
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
 | -- | -- | -- | -- |
-| 1 | tododtos | List<[TodoDTO](#TodoDTO)> | 待办事宜表实体传输对象列表 |
+| 1 | tododtos | List<[TodoDTO](#TodoDTO)> | 待办实体传输对象列表 |
 
 #### 返回说明
 | 项目 | 说明 |
@@ -39,7 +39,7 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | true：处理成功。false：处理失败。 |
 
-### 更新待办事宜表
+### 更新待办
 #### 访问路径
 /todos/{todo_id}
 
@@ -49,16 +49,16 @@ PUT
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
 | -- | -- | -- | -- |
-| 1 | todo_id | Long | 待办事宜表主键ID |
-| 2 | tododto | [TodoDTO](#TodoDTO) | 待办事宜表实体传输对象 |
+| 1 | todo_id | Long | 待办主键ID |
+| 2 | tododto | [TodoDTO](#TodoDTO) | 待办实体传输对象 |
 
 #### 返回说明
 | 项目 | 说明 |
 | -- | -- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
-| 返回类型 | [TodoDTO](#TodoDTO)：待办事宜表实体传输对象 |
+| 返回类型 | [TodoDTO](#TodoDTO)：待办实体传输对象 |
 
-### 批量更新待办事宜表
+### 批量更新待办
 #### 访问路径
 /todos/batch
 
@@ -68,7 +68,7 @@ PUT
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
 | -- | -- | -- | -- |
-| 1 | tododtos | List<[TodoDTO](#TodoDTO)> | 待办事宜表实体传输对象列表 |
+| 1 | tododtos | List<[TodoDTO](#TodoDTO)> | 待办实体传输对象列表 |
 
 #### 返回说明
 | 项目 | 说明 |
@@ -76,7 +76,7 @@ PUT
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | true：处理成功。false：处理失败。 |
 
-### 删除待办事宜表
+### 删除待办
 #### 访问路径
 /todos/{todo_id}
 
@@ -86,7 +86,7 @@ DELETE
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
 | -- | -- | -- | -- |
-| 1 | todo_id | Long | 待办事宜表主键ID |
+| 1 | todo_id | Long | 待办主键ID |
 
 #### 返回说明
 | 项目 | 说明 |
@@ -94,7 +94,7 @@ DELETE
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | true：处理成功。false：处理失败。 |
 
-### 批量删除待办事宜表
+### 批量删除待办
 #### 访问路径
 /todos/batch
 
@@ -104,7 +104,7 @@ DELETE
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
 | -- | -- | -- | -- |
-| 1 | ids | List<Long> | 待办事宜表主键ID列表 |
+| 1 | ids | List<Long> | 待办主键ID列表 |
 
 #### 返回说明
 | 项目 | 说明 |
@@ -112,7 +112,7 @@ DELETE
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | true：处理成功。false：处理失败。 |
 
-### 获取待办事宜表
+### 获取待办
 #### 访问路径
 /todos/{todo_id}
 
@@ -122,13 +122,13 @@ GET
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
 | -- | -- | -- | -- |
-| 1 | todo_id | Long | 待办事宜表主键ID |
+| 1 | todo_id | Long | 待办主键ID |
 
 #### 返回说明
 | 项目 | 说明 |
 | -- | -- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
-| 返回类型 | [TodoDTO](#TodoDTO)：待办事宜表实体传输对象 |
+| 返回类型 | [TodoDTO](#TodoDTO)：待办实体传输对象 |
 
 ### Activate
 #### 访问路径
@@ -140,14 +140,14 @@ POST
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
 | -- | -- | -- | -- |
-| 1 | todo_id | Long | 待办事宜表主键ID |
-| 2 | tododto | [TodoDTO](#TodoDTO) | 待办事宜表实体传输对象 |
+| 1 | todo_id | Long | 待办主键ID |
+| 2 | tododto | [TodoDTO](#TodoDTO) | 待办实体传输对象 |
 
 #### 返回说明
 | 项目 | 说明 |
 | -- | -- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
-| 返回类型 | [TodoDTO](#TodoDTO)：待办事宜表实体传输对象 |
+| 返回类型 | [TodoDTO](#TodoDTO)：待办实体传输对象 |
 
 ### AssignTo
 #### 访问路径
@@ -159,16 +159,16 @@ POST
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
 | -- | -- | -- | -- |
-| 1 | todo_id | Long | 待办事宜表主键ID |
-| 2 | tododto | [TodoDTO](#TodoDTO) | 待办事宜表实体传输对象 |
+| 1 | todo_id | Long | 待办主键ID |
+| 2 | tododto | [TodoDTO](#TodoDTO) | 待办实体传输对象 |
 
 #### 返回说明
 | 项目 | 说明 |
 | -- | -- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
-| 返回类型 | [TodoDTO](#TodoDTO)：待办事宜表实体传输对象 |
+| 返回类型 | [TodoDTO](#TodoDTO)：待办实体传输对象 |
 
-### 检查待办事宜表
+### 检查待办
 #### 访问路径
 /todos/checkkey
 
@@ -178,7 +178,7 @@ POST
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
 | -- | -- | -- | -- |
-| 1 | tododto | [TodoDTO](#TodoDTO) | 待办事宜表实体传输对象 |
+| 1 | tododto | [TodoDTO](#TodoDTO) | 待办实体传输对象 |
 
 #### 返回说明
 | 项目 | 说明 |
@@ -196,14 +196,14 @@ POST
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
 | -- | -- | -- | -- |
-| 1 | todo_id | Long | 待办事宜表主键ID |
-| 2 | tododto | [TodoDTO](#TodoDTO) | 待办事宜表实体传输对象 |
+| 1 | todo_id | Long | 待办主键ID |
+| 2 | tododto | [TodoDTO](#TodoDTO) | 待办实体传输对象 |
 
 #### 返回说明
 | 项目 | 说明 |
 | -- | -- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
-| 返回类型 | [TodoDTO](#TodoDTO)：待办事宜表实体传输对象 |
+| 返回类型 | [TodoDTO](#TodoDTO)：待办实体传输对象 |
 
 ### Finish
 #### 访问路径
@@ -215,16 +215,16 @@ POST
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
 | -- | -- | -- | -- |
-| 1 | todo_id | Long | 待办事宜表主键ID |
-| 2 | tododto | [TodoDTO](#TodoDTO) | 待办事宜表实体传输对象 |
+| 1 | todo_id | Long | 待办主键ID |
+| 2 | tododto | [TodoDTO](#TodoDTO) | 待办实体传输对象 |
 
 #### 返回说明
 | 项目 | 说明 |
 | -- | -- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
-| 返回类型 | [TodoDTO](#TodoDTO)：待办事宜表实体传输对象 |
+| 返回类型 | [TodoDTO](#TodoDTO)：待办实体传输对象 |
 
-### 保存待办事宜表
+### 保存待办
 #### 访问路径
 /todos/save
 
@@ -234,7 +234,7 @@ POST
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
 | -- | -- | -- | -- |
-| 1 | tododto | [TodoDTO](#TodoDTO) | 待办事宜表实体传输对象 |
+| 1 | tododto | [TodoDTO](#TodoDTO) | 待办实体传输对象 |
 
 #### 返回说明
 | 项目 | 说明 |
@@ -242,7 +242,7 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | true：处理成功。false：处理失败。 |
 
-### 批量保存待办事宜表
+### 批量保存待办
 #### 访问路径
 /todos/savebatch
 
@@ -252,7 +252,7 @@ POST
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
 | -- | -- | -- | -- |
-| 1 | tododtos | List<[TodoDTO](#TodoDTO)> | 待办事宜表实体传输对象列表 |
+| 1 | tododtos | List<[TodoDTO](#TodoDTO)> | 待办实体传输对象列表 |
 
 #### 返回说明
 | 项目 | 说明 |
@@ -270,14 +270,14 @@ POST
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
 | -- | -- | -- | -- |
-| 1 | todo_id | Long | 待办事宜表主键ID |
-| 2 | tododto | [TodoDTO](#TodoDTO) | 待办事宜表实体传输对象 |
+| 1 | todo_id | Long | 待办主键ID |
+| 2 | tododto | [TodoDTO](#TodoDTO) | 待办实体传输对象 |
 
 #### 返回说明
 | 项目 | 说明 |
 | -- | -- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
-| 返回类型 | [TodoDTO](#TodoDTO)：待办事宜表实体传输对象 |
+| 返回类型 | [TodoDTO](#TodoDTO)：待办实体传输对象 |
 
 ### 发送消息前置处理
 #### 访问路径
@@ -289,14 +289,14 @@ POST
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
 | -- | -- | -- | -- |
-| 1 | todo_id | Long | 待办事宜表主键ID |
-| 2 | tododto | [TodoDTO](#TodoDTO) | 待办事宜表实体传输对象 |
+| 1 | todo_id | Long | 待办主键ID |
+| 2 | tododto | [TodoDTO](#TodoDTO) | 待办实体传输对象 |
 
 #### 返回说明
 | 项目 | 说明 |
 | -- | -- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
-| 返回类型 | [TodoDTO](#TodoDTO)：待办事宜表实体传输对象 |
+| 返回类型 | [TodoDTO](#TodoDTO)：待办实体传输对象 |
 
 ### 获取DEFAULT
 #### 访问路径
@@ -308,13 +308,13 @@ GET
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
 | -- | -- | -- | -- |
-| 1 | context | [TodoSearchContext](#TodoSearchContext) | 待办事宜表查询条件对象 |
+| 1 | context | [TodoSearchContext](#TodoSearchContext) | 待办查询条件对象 |
 
 #### 返回说明
 | 项目 | 说明 |
 | -- | -- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
-| 返回类型 | List<[TodoDTO](#TodoDTO)>：待办事宜表实体传输对象列表 |
+| 返回类型 | List<[TodoDTO](#TodoDTO)>：待办实体传输对象列表 |
 
 ### 查询DEFAULT
 #### 访问路径
@@ -326,13 +326,13 @@ POST
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
 | -- | -- | -- | -- |
-| 1 | context | [TodoSearchContext](#TodoSearchContext) | 待办事宜表查询条件对象 |
+| 1 | context | [TodoSearchContext](#TodoSearchContext) | 待办查询条件对象 |
 
 #### 返回说明
 | 项目 | 说明 |
 | -- | -- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
-| 返回类型 | Page<[TodoDTO](#TodoDTO)>：待办事宜表实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+| 返回类型 | Page<[TodoDTO](#TodoDTO)>：待办实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
 
 ### 获取我的待办
 #### 访问路径
@@ -344,13 +344,13 @@ GET
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
 | -- | -- | -- | -- |
-| 1 | context | [TodoSearchContext](#TodoSearchContext) | 待办事宜表查询条件对象 |
+| 1 | context | [TodoSearchContext](#TodoSearchContext) | 待办查询条件对象 |
 
 #### 返回说明
 | 项目 | 说明 |
 | -- | -- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
-| 返回类型 | List<[TodoDTO](#TodoDTO)>：待办事宜表实体传输对象列表 |
+| 返回类型 | List<[TodoDTO](#TodoDTO)>：待办实体传输对象列表 |
 
 ### 查询我的待办
 #### 访问路径
@@ -362,13 +362,13 @@ POST
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
 | -- | -- | -- | -- |
-| 1 | context | [TodoSearchContext](#TodoSearchContext) | 待办事宜表查询条件对象 |
+| 1 | context | [TodoSearchContext](#TodoSearchContext) | 待办查询条件对象 |
 
 #### 返回说明
 | 项目 | 说明 |
 | -- | -- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
-| 返回类型 | Page<[TodoDTO](#TodoDTO)>：待办事宜表实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+| 返回类型 | Page<[TodoDTO](#TodoDTO)>：待办实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
 
 ### 获取MyUpcoming
 #### 访问路径
@@ -380,13 +380,13 @@ GET
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
 | -- | -- | -- | -- |
-| 1 | context | [TodoSearchContext](#TodoSearchContext) | 待办事宜表查询条件对象 |
+| 1 | context | [TodoSearchContext](#TodoSearchContext) | 待办查询条件对象 |
 
 #### 返回说明
 | 项目 | 说明 |
 | -- | -- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
-| 返回类型 | List<[TodoDTO](#TodoDTO)>：待办事宜表实体传输对象列表 |
+| 返回类型 | List<[TodoDTO](#TodoDTO)>：待办实体传输对象列表 |
 
 ### 查询MyUpcoming
 #### 访问路径
@@ -398,13 +398,13 @@ POST
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
 | -- | -- | -- | -- |
-| 1 | context | [TodoSearchContext](#TodoSearchContext) | 待办事宜表查询条件对象 |
+| 1 | context | [TodoSearchContext](#TodoSearchContext) | 待办查询条件对象 |
 
 #### 返回说明
 | 项目 | 说明 |
 | -- | -- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
-| 返回类型 | Page<[TodoDTO](#TodoDTO)>：待办事宜表实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+| 返回类型 | Page<[TodoDTO](#TodoDTO)>：待办实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
 
 ## 附录
 ### 数据类型说明

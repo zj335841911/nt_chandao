@@ -26,7 +26,7 @@ pms-webapi
 | 13 | [任务团队](1/TaskTeam) | taskteam |  |
 | 14 | [套件用例](1/SuiteCase) | suitecase |  |
 | 15 | [任务](1/Task) | task |  |
-| 16 | [待办事宜表](1/Todo) | todo |  |
+| 16 | [待办](1/Todo) | todo |  |
 | 17 | [需求](1/IBZProStory) | ibzprostory |  |
 | 18 | [更新日志](1/SysUpdateLog) | sysupdatelog |  |
 | 19 | [人员](1/SysEmployee) | sysemployee |  |
