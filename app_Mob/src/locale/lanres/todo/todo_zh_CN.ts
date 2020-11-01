@@ -38,16 +38,16 @@ export default {
 			caption: '快速新建',
 		},
 		moblistview: {
-			caption: '待办事宜表',
+			caption: '待办',
 		},
 		mobmdview: {
-			caption: '待办事宜表',
+			caption: '待办',
 		},
 		mobeditview: {
-			caption: '待办事宜表',
+			caption: '待办',
 		},
 		moboptionview: {
-			caption: '待办事宜表',
+			caption: '待办',
 		},
 	},
 	mobnew_form: {

@@ -4,7 +4,7 @@ import  { EntityService }  from '@/ibiz-core';
 
 
 /**
- * 待办事宜表服务对象基类
+ * 待办服务对象基类
  *
  * @export
  * @class TodoServiceBase

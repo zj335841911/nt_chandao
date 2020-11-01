@@ -3,7 +3,7 @@
         <ion-card-content class="app-mob-menu-list-view__content">
             <ion-list>
                 <template v-for="item in items">
-                    <ion-item :key="item.id" @click="selectItem(item.name)">
+                    <ion-item :key="item.id" @click="selectItem(item.name)" :class="item.textcls?item.textcls:''">
                         <span slot="start">
                             <!-- 图片：BEGIN -->
                             <template v-if="item.icon != ''">
