@@ -1574,7 +1574,6 @@ WHERE t1.DELETED = '0'
 ) and t1.openedDate < (select CONCAT(DATE_FORMAT(tt.`end`,'%Y-%m-%d'),' 23:59:59') from  zt_testreport tt  where tt.id =  #{srf.datacontext.srfparentkey} 
 ) and not EXISTS(select 1 from zt_build t where FIND_IN_SET(t.id,t1.openedBuild) and FIND_IN_SET(t.id,(select GROUP_CONCAT(tt.id) from (select tt.* from zt_build tt where  tt.id in (
 	select t1.build from zt_testtask t1 where FIND_IN_SET(t1.id,(SELECT tasks from zt_testreport where id =  #{srf.datacontext.srfparentkey} )))) tt GROUP BY tt.product)) = 0) and FIND_IN_SET('trunk',t1.openedBuild) = 0) 
-t1.type is not null and t1.type <> '' 
 
 ```
 ### 当前用户解决的Bug(CurUserResolve)<div id="Bug_CurUserResolve"></div>
