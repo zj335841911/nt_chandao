@@ -2533,6 +2533,27 @@ public class StaticDict {
 
 
     /**
+     * 代码表[更新平台]
+     */
+    @Getter
+    public enum SYS_UPDATE_BRANCH {
+        PC("PC","PC"),
+        MOB("MOB","MOB");
+
+        private String value;
+        private String text;
+        private String valueSeparator="";
+        private String textSeparator="";
+        private String emptyText="";
+
+        SYS_UPDATE_BRANCH(String value , String text) {
+            this.value=value;
+            this.text = text;
+        }
+    }
+
+
+    /**
      * 代码表[产品状态]
      */
     @Getter

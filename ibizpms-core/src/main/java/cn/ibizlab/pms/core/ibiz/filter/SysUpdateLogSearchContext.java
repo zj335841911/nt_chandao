@@ -34,6 +34,13 @@ public class SysUpdateLogSearchContext extends QueryWrapperContext<SysUpdateLog>
             this.getSearchCond().like("sys_update_logname", n_sys_update_logname_like);
         }
     }
+	private String n_updatebranch_eq;//[更新平台]
+	public void setN_updatebranch_eq(String n_updatebranch_eq) {
+        this.n_updatebranch_eq = n_updatebranch_eq;
+        if(!ObjectUtils.isEmpty(this.n_updatebranch_eq)){
+            this.getSearchCond().eq("updatebranch", n_updatebranch_eq);
+        }
+    }
 
     /**
 	 * 启用快速搜索

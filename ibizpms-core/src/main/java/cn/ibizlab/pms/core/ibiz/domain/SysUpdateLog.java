@@ -114,6 +114,14 @@ public class SysUpdateLog extends EntityMP implements Serializable {
     @JSONField(name = "latestupdate")
     @JsonProperty("latestupdate")
     private Integer latestupdate;
+    /**
+     * 更新平台
+     */
+    @DEField(defaultValue = "MOB")
+    @TableField(value = "`updatebranch`")
+    @JSONField(name = "updatebranch")
+    @JsonProperty("updatebranch")
+    private String updatebranch;
 
 
 
@@ -157,6 +165,14 @@ public class SysUpdateLog extends EntityMP implements Serializable {
     public void setLatestupdate(Integer latestupdate){
         this.latestupdate = latestupdate ;
         this.modify("latestupdate",latestupdate);
+    }
+
+    /**
+     * 设置 [更新平台]
+     */
+    public void setUpdatebranch(String updatebranch){
+        this.updatebranch = updatebranch ;
+        this.modify("updatebranch",updatebranch);
     }
 
 

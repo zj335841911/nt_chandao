@@ -45,6 +45,9 @@ export default class TabExpViewtabexppanelModel {
       {
         name: 'updatefeatures',
       },
+      {
+        name: 'updatebranch',
+      },
     ]
   }
 

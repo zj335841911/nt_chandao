@@ -109,6 +109,15 @@ public class SysUpdateLogDTO extends DTOBase implements Serializable {
     @JsonProperty("latestupdate")
     private Integer latestupdate;
 
+    /**
+     * 属性 [UPDATEBRANCH]
+     *
+     */
+    @JSONField(name = "updatebranch")
+    @JsonProperty("updatebranch")
+    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    private String updatebranch;
+
 
     /**
      * 设置 [SYS_UPDATE_LOGNAME]
@@ -140,6 +149,14 @@ public class SysUpdateLogDTO extends DTOBase implements Serializable {
     public void setLatestupdate(Integer  latestupdate){
         this.latestupdate = latestupdate ;
         this.modify("latestupdate",latestupdate);
+    }
+
+    /**
+     * 设置 [UPDATEBRANCH]
+     */
+    public void setUpdatebranch(String  updatebranch){
+        this.updatebranch = updatebranch ;
+        this.modify("updatebranch",updatebranch);
     }
 
 

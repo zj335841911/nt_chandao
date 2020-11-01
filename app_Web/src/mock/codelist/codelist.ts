@@ -25,6 +25,33 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
+        srfkey: "SYS_UPDATE_BRANCH",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "PC",
+                label: "PC",
+                text: "PC",
+                "data":"",
+                "codename":"Pc",
+                value: "PC",
+                
+                disabled: false,
+            },
+            {
+                id: "MOB",
+                label: "MOB",
+                text: "MOB",
+                "data":"",
+                "codename":"Mob",
+                value: "MOB",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
         srfkey: "Testresult__result",
         emptytext: "未定义",
         "codelisttype":"static",

@@ -19,6 +19,37 @@
         ]
     }, 
     {
+        "srfkey": "SYS_UPDATE_BRANCH",
+        "emptytext": "未定义",
+        "codelisttype":"static",
+        "items": [
+             {
+                "id": "PC",
+                "label": "PC",
+                "text": "PC",
+                "class":"",
+                "data":"",
+                "codename":"Pc",
+                "value": "PC",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "MOB",
+                "label": "MOB",
+                "text": "MOB",
+                "class":"",
+                "data":"",
+                "codename":"Mob",
+                "value": "MOB",
+                
+                "disabled": false,
+                "default": false
+            }
+        ]
+    }, 
+    {
         "srfkey": "Testresult__result",
         "emptytext": "未定义",
         "codelisttype":"static",

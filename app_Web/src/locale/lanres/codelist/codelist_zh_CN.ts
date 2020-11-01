@@ -3,6 +3,11 @@ export default {
         "1": "创建",
         "empty": "",
     },
+    SYS_UPDATE_BRANCH: {
+        "PC": "PC",
+        "MOB": "MOB",
+        "empty": "",
+    },
     Testresult__result: {
         "n/a": "忽略",
         "pass": "通过",

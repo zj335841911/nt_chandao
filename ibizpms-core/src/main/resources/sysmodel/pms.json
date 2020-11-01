@@ -28961,6 +28961,21 @@
     "key_field":0,
     "show_order":1000,
     "major_field":0
+    },
+    {
+    "fieldname":"UPDATEBRANCH" ,
+    "codename":"Updatebranch",
+    "field_logic_name":"更新平台",
+    "entity_name":"SysUpdateLog",
+    "field_type":"SSCODELIST",
+    "dict":"SYS_UPDATE_BRANCH",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":60,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
     }
     ],
     "subEntitys":[

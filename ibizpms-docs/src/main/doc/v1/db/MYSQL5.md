@@ -87227,6 +87227,7 @@ CREATE TABLE `T_SYS_UPDATE_FEATURES`(
 | CREATEDATE        | 建立时间  | DATETIME      |   8   | &nbsp; |
 | CREATEMAN        | 建立人  | VARCHAR      |   60   | &nbsp; |
 | SYS_UPDATE_LOGID        | 系统更新日志标识  | VARCHAR      |   100   | 主键&nbsp; |
+| UPDATEBRANCH        | 更新平台  | VARCHAR      |   60   | &nbsp; |
 
 
 

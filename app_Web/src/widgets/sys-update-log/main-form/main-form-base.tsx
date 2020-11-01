@@ -85,6 +85,7 @@ export class MainEditFormBase extends EditFormControlBase {
         srfsourcekey: null,
         sys_update_logname: null,
         update: null,
+        updatebranch: null,
         latestupdate: null,
         updesc: null,
         createman: null,
@@ -110,6 +111,10 @@ export class MainEditFormBase extends EditFormControlBase {
         update: [
             { required: this.detailsModel.update.required, type: 'string', message: '更新日期 值不能为空', trigger: 'change' },
             { required: this.detailsModel.update.required, type: 'string', message: '更新日期 值不能为空', trigger: 'blur' },
+        ],
+        updatebranch: [
+            { required: this.detailsModel.updatebranch.required, type: 'string', message: '更新平台 值不能为空', trigger: 'change' },
+            { required: this.detailsModel.updatebranch.required, type: 'string', message: '更新平台 值不能为空', trigger: 'blur' },
         ],
         }
     }
@@ -158,6 +163,8 @@ export class MainEditFormBase extends EditFormControlBase {
 
         update: new FormItemModel({ caption: '更新日期', detailType: 'FORMITEM', name: 'update', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:true, disabled: false, enableCond: 3 }),
 
+        updatebranch: new FormItemModel({ caption: '更新平台', detailType: 'FORMITEM', name: 'updatebranch', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:true, disabled: false, enableCond: 3 }),
+
         latestupdate: new FormItemModel({ caption: '最新更新', detailType: 'FORMITEM', name: 'latestupdate', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 
         updesc: new FormItemModel({ caption: '更新说明', detailType: 'FORMITEM', name: 'updesc', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
@@ -174,4 +181,14 @@ export class MainEditFormBase extends EditFormControlBase {
 
         form: new FormTabPanelModel({ caption: 'form', detailType: 'TABPANEL', name: 'form', visible: true, isShowCaption: true, form: this, tabPages: [{ name: 'formpage1', index: 0, visible: true }, { name: 'formpage2', index: 1, visible: true }] }),
     };
+
+    /**
+     * 新建默认值
+     * @memberof MainEditFormBase
+     */
+    public createDefault(){                    
+        if (this.data.hasOwnProperty('latestupdate')) {
+            this.data['latestupdate'] = 1;
+        }
+    }
 }

@@ -36,23 +36,30 @@
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.latestupdate.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='latestupdate' :itemRules="this.rules().latestupdate" class='' :caption="$t('entities.sysupdatelog.main_form.details.latestupdate')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.latestupdate.error" :isEmptyCaption="false" labelPos="LEFT">
+<i-col class="form-layout-container" v-show="detailsModel.updatebranch.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='updatebranch' :itemRules="this.rules().updatebranch" class='' :caption="$t('entities.sysupdatelog.main_form.details.updatebranch')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.updatebranch.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <dropdown-list 
-    v-model="data.latestupdate"
+    v-model="data.updatebranch"
     :data="data"
     :context="context"
     :viewparams="viewparams"
     :localContext ='{ }' 
     :localParam ='{ }' 
-    :disabled="detailsModel.latestupdate.disabled"
-    style="width:100px;width: 100px;"
-    valueType="number"
-    tag='YesNo3' 
+    :disabled="detailsModel.updatebranch.disabled"
+    valueType="string"
+    tag='SYS_UPDATE_BRANCH'
     codelistType='STATIC'
     placeholder='请选择...'
+    
 />
+</app-form-item>
+
+</i-col>
+<i-col class="form-layout-container" v-show="detailsModel.latestupdate.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='latestupdate' :itemRules="this.rules().latestupdate" class='' :caption="$t('entities.sysupdatelog.main_form.details.latestupdate')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.latestupdate.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-switch name='latestupdate' :value="this.data.latestupdate" @change="($event)=>{this.data.latestupdate = $event} " :disabled="detailsModel.latestupdate.disabled" style=""></app-switch>
+
 </app-form-item>
 
 </i-col>

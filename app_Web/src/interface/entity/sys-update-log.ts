@@ -85,4 +85,12 @@ export interface SysUpdateLog {
      * @memberof SysUpdateLog
      */
     updatefeatures?: any;
+
+    /**
+     * 更新平台
+     *
+     * @returns {*}
+     * @memberof SysUpdateLog
+     */
+    updatebranch?: any;
 }

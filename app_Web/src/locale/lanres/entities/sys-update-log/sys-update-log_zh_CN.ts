@@ -10,6 +10,7 @@ export default {
     updesc: "更新说明",
     latestupdate: "最新更新",
     updatefeatures: "更新功能列表详情",
+    updatebranch: "更新平台",
   },
 	views: {
 		infoeditview: {
@@ -72,6 +73,7 @@ export default {
 			srfsourcekey: "", 
 			sys_update_logname: "更新名称", 
 			update: "更新日期", 
+			updatebranch: "更新平台", 
 			latestupdate: "最新更新", 
 			updesc: "更新说明", 
 			createman: "建立人", 
