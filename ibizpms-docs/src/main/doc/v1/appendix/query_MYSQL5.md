@@ -7941,7 +7941,7 @@ FROM `zt_product` t1
 LEFT JOIN zt_module t11 ON t1.LINE = t11.ID 
 
 WHERE t1.DELETED = '0' 
-( t1.`STATUS` <> 'closed' ) 
+( ( t1.`STATUS` <> 'closed'  OR  (#{srf.datacontext.products} is not null and t1.id = #{srf.datacontext.products}) ) ) 
 
 ```
 ### 校验产品名称或产品代号是否已经存在(CheckNameOrCode)<div id="Product_CheckNameOrCode"></div>

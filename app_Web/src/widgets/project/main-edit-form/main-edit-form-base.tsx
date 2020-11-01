@@ -262,6 +262,12 @@ export class Main_EditEditFormBase extends EditFormControlBase {
         if (Object.is(name, 'begin')) {
             this.onFormItemValueChange({ name: 'days', value: null });
         }
+        if (Object.is(name, 'products')) {
+            this.onFormItemValueChange({ name: 'branchs', value: null });
+        }
+        if (Object.is(name, 'products')) {
+            this.onFormItemValueChange({ name: 'plans', value: null });
+        }
     }
 
     /**
