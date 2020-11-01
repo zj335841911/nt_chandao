@@ -85,6 +85,7 @@ export class MainLEditFormBase extends EditFormControlBase {
         srfsourcekey: null,
         sys_update_logname: null,
         update: null,
+        updatebranch: null,
         latestupdate: null,
         updesc: null,
         createman: null,
@@ -149,6 +150,8 @@ export class MainLEditFormBase extends EditFormControlBase {
         sys_update_logname: new FormItemModel({ caption: '更新名称', detailType: 'FORMITEM', name: 'sys_update_logname', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 
         update: new FormItemModel({ caption: '更新日期', detailType: 'FORMITEM', name: 'update', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+
+        updatebranch: new FormItemModel({ caption: '更新平台', detailType: 'FORMITEM', name: 'updatebranch', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 
         latestupdate: new FormItemModel({ caption: '最新更新', detailType: 'FORMITEM', name: 'latestupdate', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 

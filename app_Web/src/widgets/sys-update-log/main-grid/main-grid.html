@@ -56,6 +56,20 @@
                     </template>
                 </el-table-column>
             </template>
+            <template v-if="getColumnState('updatebranch')">
+                <el-table-column show-overflow-tooltip :prop="'updatebranch'" :label="$t('entities.sysupdatelog.main_grid.columns.updatebranch')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.sysupdatelog.main_grid.columns.updatebranch')}}
+                      </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                        <template >
+            <codelist :value="row.updatebranch" tag='SYS_UPDATE_BRANCH' codelistType='STATIC' ></codelist>
+                        </template>
+                    </template>
+                </el-table-column>
+            </template>
             <template v-if="getColumnState('latestupdate')">
                 <el-table-column show-overflow-tooltip :prop="'latestupdate'" :label="$t('entities.sysupdatelog.main_grid.columns.latestupdate')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">

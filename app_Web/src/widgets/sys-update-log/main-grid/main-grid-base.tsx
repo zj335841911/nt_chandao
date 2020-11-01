@@ -122,6 +122,15 @@ export class MainGridBase extends GridControlBase {
             enableCond: 3 ,
         },
         {
+            name: 'updatebranch',
+            label: '更新平台',
+            langtag: 'entities.sysupdatelog.main_grid.columns.updatebranch',
+            show: true,
+            unit: 'PX',
+            isEnableRowEdit: false,
+            enableCond: 3 ,
+        },
+        {
             name: 'latestupdate',
             label: '最新更新',
             langtag: 'entities.sysupdatelog.main_grid.columns.latestupdate',
@@ -184,6 +193,7 @@ export class MainGridBase extends GridControlBase {
     public hasRowEdit: any = {
         'sys_update_logname':false,
         'update':false,
+        'updatebranch':false,
         'latestupdate':false,
         'updateman':false,
         'updatedate':false,
@@ -212,6 +222,14 @@ export class MainGridBase extends GridControlBase {
      */
     public async formatExcelData(filterVal: any, jsonData: any, codelistColumns?: any[]): Promise<any> {
         return super.formatExcelData(filterVal, jsonData, [
+            {
+                name: 'updatebranch',
+                srfkey: 'SYS_UPDATE_BRANCH',
+                codelistType : 'STATIC',
+                renderMode: 'other',
+                textSeparator: '、',
+                valueSeparator: ',',
+            },
             {
                 name: 'latestupdate',
                 srfkey: 'YesNo3',

@@ -35,6 +35,16 @@
 </app-form-item>
 
 </i-col>
+<i-col class="form-layout-container" v-show="detailsModel.updatebranch.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='updatebranch' :itemRules="this.rules().updatebranch" class='' :caption="$t('entities.sysupdatelog.mainl_form.details.updatebranch')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.updatebranch.error" :isEmptyCaption="false" labelPos="LEFT">
+    
+<app-span name='updatebranch' :value="data.updatebranch" dataType="SSCODELIST"     :precision="0"
+tag='SYS_UPDATE_BRANCH' codelistType='STATIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
+</app-span>
+
+</app-form-item>
+
+</i-col>
 <i-col class="form-layout-container" v-show="detailsModel.latestupdate.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='latestupdate' :itemRules="this.rules().latestupdate" class='' :caption="$t('entities.sysupdatelog.mainl_form.details.latestupdate')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.latestupdate.error" :isEmptyCaption="false" labelPos="LEFT">
     

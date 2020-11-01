@@ -200,4 +200,17 @@ export class MainEditEditFormBase extends EditFormControlBase {
         build: new FormItemModel({ caption: '版本', detailType: 'FORMITEM', name: 'build', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 
     };
+
+    /**
+     * 重置表单项值
+     *
+     * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
+     * @memberof MainEditEditFormBase
+     */
+    public resetFormData({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
+        if (Object.is(name, 'projecttname')) {
+            this.onFormItemValueChange({ name: 'buildname', value: null });
+            this.onFormItemValueChange({ name: 'build', value: null });
+        }
+    }
 }

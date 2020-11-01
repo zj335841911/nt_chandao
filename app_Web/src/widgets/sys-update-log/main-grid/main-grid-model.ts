@@ -37,6 +37,11 @@ export default class MainModel {
           dataType: 'DATE',
         },
         {
+          name: 'updatebranch',
+          prop: 'updatebranch',
+          dataType: 'SSCODELIST',
+        },
+        {
           name: 'latestupdate',
           prop: 'latestupdate',
           dataType: 'YESNO',
