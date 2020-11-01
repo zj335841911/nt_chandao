@@ -75,7 +75,7 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
         fileHelper.processImgURL(et, null, null);
         et.setVersion(1);
         et.setAssigneddate(et.getAssignedto() != null ? ZTDateUtil.now() : ZTDateUtil.nul());
-        et.setStatus((et.getNeednotreview() == null || "".equals(et.getNeednotreview()) || !"1".equals(et.getNeednotreview())) ? StaticDict.Story__status.DRAFT.getValue() : StaticDict.Story__status.ACTIVE.getValue());
+        et.setStatus((et.getNeednotreview() == null || "".equals(et.getNeednotreview()) || !StaticDict.NeedNotReviewNew.ITEM_1.getValue().equals(et.getNeednotreview())) ? StaticDict.Story__status.DRAFT.getValue() : StaticDict.Story__status.ACTIVE.getValue());
         if(StaticDict.Story__status.DRAFT.getValue().equals(et.getStatus())) {
             if(et.getAssignedto() == null || "".equals(et.getAssignedto())) {
                 et.setReviewedby(productHelper.get(et.getProduct()).getPo());
@@ -162,9 +162,7 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
             story.setProduct(product);
             story.setSource(story.getSource() != null ? story.getSource() : source);
             story.setPri(story.getPri() != null ? story.getPri() : pri);
-            story.setNeednotreview(story.getNeednotreview() != null &&  "0".equals(story.getNeednotreview()) ? "1": null);
-//            story.setStatus(story.getNeednotreview() != null && "0".equals(story.getNeednotreview()) ? "active" : "draft");
-//            story.setReviewedby(story.getNeednotreview() != null && "0".equals(story.getNeednotreview()) ? "" : AuthenticationUser.getAuthenticationUser().getLoginname());
+            story.setNeednotreview(story.getNeednotreview() != null &&  StaticDict.YesNo.ITEM_0.getValue().equals(story.getNeednotreview()) ? StaticDict.NeedNotReviewNew.ITEM_1.getValue(): null);
             story.setOpenedby(AuthenticationUser.getAuthenticationUser().getLoginname());
             story.setAssignedto("");
             story.setReviewedby("");
@@ -338,7 +336,7 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
         Story old = new Story();
         CachedBeanCopier.copy(this.get(et.getId()), old);
 
-        et.setStatus("active");
+        et.setStatus(StaticDict.Story__status.ACTIVE.getValue());
         et.setClosedreason("");
         et.setCloseddate(ZTDateUtil.nul());
         et.setClosedby("");

@@ -71,7 +71,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         String multiple = et.getMultiple();
         List<TaskTeam> taskTeams = et.getTaskteam();
         String assignedto = et.getAssignedto();
-        if (StringUtils.compare(multiple, "1") == 0 && taskTeams != null && !taskTeams.isEmpty()) {
+        if (StringUtils.compare(multiple, StaticDict.YesNo.ITEM_1.getValue()) == 0 && taskTeams != null && !taskTeams.isEmpty()) {
             et.setAssignedto(null);
             double left = 0d;
             for (TaskTeam taskTeam : taskTeams) {
@@ -106,7 +106,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         fileHelper.updateObjectID(et.getId(), StaticDict.File__object_type.TASK.getValue(), files);
 
 
-        if (StringUtils.compare(multiple, "1") == 0 && taskTeams != null && !taskTeams.isEmpty()) {
+        if (StringUtils.compare(multiple, StaticDict.YesNo.ITEM_1.getValue()) == 0 && taskTeams != null && !taskTeams.isEmpty()) {
             for (TaskTeam taskTeam : taskTeams) {
                 if(taskTeam.getAccount() == null || "".equals(taskTeam.getAccount()))
                     continue;
@@ -247,7 +247,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         }
 
         if (et.getConsumed() > 0 && et.getLeft() > 0 && StringUtils.compare(et.getStatus(), StaticDict.Task__status.WAIT.getValue()) == 0 && StringUtils.compare(multiple,"1") != 0)
-            et.setStatus("doing");
+            et.setStatus(StaticDict.Task__status.DOING.getValue());
 
         if (StringUtils.compare(et.getStatus(), StaticDict.Task__status.WAIT.getValue()) == 0 && et.getLeft() == old.getLeft() && et.getConsumed() == 0 && et.getEstimate() != 0) {
             et.setLeft(et.getEstimate());
@@ -265,7 +265,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         }
         fileHelper.processImgURL(et, null, null);
 
-        if (StringUtils.compare(multiple, "1") == 0 && teams != null && !teams.isEmpty()) {
+        if (StringUtils.compare(multiple, StaticDict.YesNo.ITEM_1.getValue()) == 0 && teams != null && !teams.isEmpty()) {
             //String statusStr = "done,closed,cancel";
             String statusStr = StaticDict.Task__status.DONE.getValue()+","+StaticDict.Task__status.CLOSED.getValue()+","+StaticDict.Task__status.CANCEL.getValue();
             List<String> accounts = new ArrayList<>();
@@ -300,8 +300,8 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         }
 
 
-        teamHelper.remove(new QueryWrapper<Team>().eq("root", et.getId()).eq("type", "task"));
-        if (StringUtils.compare(multiple, "1") == 0 && teams != null && !teams.isEmpty()){
+        teamHelper.remove(new QueryWrapper<Team>().eq("root", et.getId()).eq("type", StaticDict.Team__type.TASK.getValue()));
+        if (StringUtils.compare(multiple, StaticDict.YesNo.ITEM_1.getValue()) == 0 && teams != null && !teams.isEmpty()){
             String assignedto = "";
             for (TaskTeam team : teams) {
                 if(team.getAccount() == null || "".equals(team.getAccount()))
@@ -444,8 +444,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
     public void computeHours4Multiple(Task old, Task task, List<TaskTeam> teams, boolean auto) {
         if (old == null) return;
         if (teams == null) {
-            //String sql = "select * from zt_team where root = %1$s and type = 'task' order by `order` Asc";
-            teams = taskTeamHelper.list(new QueryWrapper<TaskTeam>().eq("root", old.getId()).eq("type", "task").orderByAsc("`order`"));
+            teams = taskTeamHelper.list(new QueryWrapper<TaskTeam>().eq("root", old.getId()).eq("type", StaticDict.Team__type.TASK.getValue()).orderByAsc("`order`"));
         }
         if (teams != null && teams.size() != 0) {
             Timestamp now = ZTDateUtil.now();
@@ -813,13 +812,13 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         taskEstimateHelper.create(taskEstimate);
 
         //teams
-        List<Team> teams = teamHelper.list(new QueryWrapper<Team>().eq("root", newTask.getId()).eq("type", "task"));
+        List<Team> teams = teamHelper.list(new QueryWrapper<Team>().eq("root", newTask.getId()).eq("type", StaticDict.Team__type.TASK.getValue()));
         if (teams.size() > 0) {
             String oldAssignTo = StringUtils.isNotBlank(old.getAssignedto()) ? old.getAssignedto() : teams.get(0).getAccount();
             Team team = new Team();
             team.setLeft(et.getLeft());
             team.setConsumed(et.getConsumed());
-            teamHelper.update(team, new QueryWrapper<Team>().eq("root",newTask.getId()).eq("type", "task").eq("account", oldAssignTo));
+            teamHelper.update(team, new QueryWrapper<Team>().eq("root",newTask.getId()).eq("type", StaticDict.Team__type.TASK.getValue()).eq("account", oldAssignTo));
             computeHours4Multiple(old, newTask, null, false);
         }
 
@@ -910,15 +909,15 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         taskEstimate.setConsumed(0d);
         taskEstimateHelper.create(taskEstimate);
         //teams
-        List<Team> teams = teamHelper.list(new QueryWrapper<Team>().eq("root", et.getId()).eq("type","task"));
+        List<Team> teams = teamHelper.list(new QueryWrapper<Team>().eq("root", et.getId()).eq("type",StaticDict.Team__type.TASK.getValue()));
         if (teams.size() > 0) {
 
             Team team = new Team();
             team.setLeft(0d);
-            teamHelper.update(team, new QueryWrapper<Team>().eq("root", old.getId()).eq("type", "task").eq("account", old.getAssignedto()));
+            teamHelper.update(team, new QueryWrapper<Team>().eq("root", old.getId()).eq("type", StaticDict.Team__type.TASK.getValue()).eq("account", old.getAssignedto()));
             Team team1 = new Team();
             team1.setLeft(newTask.getLeft());
-            teamHelper.update(team1,new QueryWrapper<Team>().eq("root", newTask.getId()).eq("type", "task").eq("account", newTask.getAssignedto()));
+            teamHelper.update(team1,new QueryWrapper<Team>().eq("root", newTask.getId()).eq("type", StaticDict.Team__type.TASK.getValue()).eq("account", newTask.getAssignedto()));
 
             computeHours4Multiple(old, newTask, null, false);
         }
@@ -952,7 +951,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         newTask.setLeft(et.getLeft() != null ? et.getLeft() : 0.0d);
 
         //team
-        List<Team> teams = teamHelper.list(new QueryWrapper<Team>().eq("root", newTask.getId()).eq("type","task"));
+        List<Team> teams = teamHelper.list(new QueryWrapper<Team>().eq("root", newTask.getId()).eq("type",StaticDict.Team__type.TASK.getValue()));
         if (teams.size() > 0) {
             for (Team team : teams) {
                 if (StringUtils.compare(team.getAccount(), newTask.getAssignedto()) == 0) {
@@ -1064,7 +1063,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         String comment = StringUtils.isNotBlank(et.getComment()) ? et.getComment() : "";
         Task old =new Task();
         CachedBeanCopier.copy(this.get(et.getId()), old);
-        List<Team> teams = teamHelper.list(new QueryWrapper<Team>().eq("root", et.getId()).eq("type","task"));
+        List<Team> teams = teamHelper.list(new QueryWrapper<Team>().eq("root", et.getId()).eq("type",StaticDict.Team__type.TASK.getValue()));
         Task newTask = new Task();
         newTask.setId(et.getId());
         newTask.setAssigneddate(ZTDateUtil.now());
@@ -1242,7 +1241,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         }
 
         // 团队任务
-        List<Team> teams = teamHelper.list(new QueryWrapper<Team>().eq("root", old.getId()).eq("type","task"));
+        List<Team> teams = teamHelper.list(new QueryWrapper<Team>().eq("root", old.getId()).eq("type",StaticDict.Team__type.TASK.getValue()));
         if(teams.size() > 0) {
             double myconsumed = 0d;
             for(Team team : teams) {
@@ -1257,7 +1256,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
             Team team = new Team();
             team.setConsumed(myconsumed + consumed);
             team.setLeft(teamLeft);
-            teamHelper.update(team, new QueryWrapper<Team>().eq("root", old.getId()).eq("type", "task").eq("account", AuthenticationUser.getAuthenticationUser().getUsername()));
+            teamHelper.update(team, new QueryWrapper<Team>().eq("root", old.getId()).eq("type", StaticDict.Team__type.TASK.getValue()).eq("account", AuthenticationUser.getAuthenticationUser().getUsername()));
         }
         else {
             if (!isNew)  teamLeft = list.get(0).getDoubleValue("left");
