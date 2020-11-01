@@ -202,7 +202,7 @@ export class BugType_ProjectChartBase extends MainControlBase {
     
     
     categorField:'type',
-    categorCodeList:{type:'STATIC',tag:'Bug__type',emptycode:'empty',emptytext:'未定义'},
+    
     
     valueField:'srfcount',
     seriesValues:[],
@@ -210,7 +210,7 @@ export class BugType_ProjectChartBase extends MainControlBase {
     data:[],
     seriesMap:{},
     dataSetFields:[
-    {name:"type",codelist:{type:"STATIC",tag:"Bug__type",emptycode:'empty',emptytext:'未定义'},isGroupField:true,groupMode:"CODELIST"},
+    {name:"type",codelist:null,isGroupField:true,groupMode:""},
     {name:"srfcount",codelist:null,isGroupField:false,groupMode:""}
     ],
     ecxObject:{
