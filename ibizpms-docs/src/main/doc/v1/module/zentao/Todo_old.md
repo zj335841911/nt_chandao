@@ -1,4 +1,4 @@
-# 待办事宜表(ZT_TODO)
+# 待办(ZT_TODO)
 
   
 
@@ -121,7 +121,7 @@
 {% plantuml %}
 hide footbox
 
-待办事宜表 -> 待办事宜表: 获取待办的标题
+待办 -> 待办: 获取待办的标题
 {% endplantuml %}
 
 | 步骤       | 操作        |
@@ -136,7 +136,7 @@ hide footbox
 {% plantuml %}
 hide footbox
 
-待办事宜表 -> 待办事宜表: 获取开始日期
+待办 -> 待办: 获取开始日期
 {% endplantuml %}
 
 | 步骤       | 操作        |

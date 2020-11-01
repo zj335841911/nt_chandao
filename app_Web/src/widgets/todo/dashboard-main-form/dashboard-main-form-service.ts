@@ -14,7 +14,7 @@ import DashboardMainModel from './dashboard-main-form-model';
 export default class DashboardMainService extends ControlService {
 
     /**
-     * 待办事宜表服务对象
+     * 待办服务对象
      *
      * @type {TodoService}
      * @memberof DashboardMainService

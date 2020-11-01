@@ -6,7 +6,7 @@ import TodoService from '@/service/todo/todo-service';
 import TodoAuthService from '@/authservice/todo/todo-auth-service';
 
 /**
- * 待办事宜表UI服务对象基类
+ * 待办UI服务对象基类
  *
  * @export
  * @class TodoUIServiceBase
@@ -101,7 +101,7 @@ export default class TodoUIServiceBase extends UIService {
             srfappde: 'todos',
             component: 'todo-grid-view',
             openmode: '',
-            title: '待办事宜表',
+            title: '待办',
             width: 0,
             height: 0
         });
@@ -110,7 +110,7 @@ export default class TodoUIServiceBase extends UIService {
             srfappde: 'todos',
             component: 'todo-edit-view',
             openmode: 'DRAWER_RIGHT',
-            title: '待办事宜表',
+            title: '待办',
             width: 0,
             height: 0
         });

@@ -40,7 +40,7 @@ import com.alibaba.fastjson.JSONObject;
 import org.springframework.util.StringUtils;
 
 /**
- * 实体[待办事宜表] 服务对象接口实现
+ * 实体[待办] 服务对象接口实现
  */
 @Slf4j
 @Service("TodoServiceImpl")
@@ -180,7 +180,7 @@ public class TodoServiceImpl extends ServiceImpl<TodoMapper, Todo> implements IT
   	
   		cn.ibizlab.pms.core.util.message.IMsgService dingTalkMsgService = cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.message.IMsgService.class);
   		if(dingTalkMsgService!=null){
-        	dingTalkMsgService.send(et, "待办事宜表", pcLinkView, mobLinkView);
+        	dingTalkMsgService.send(et, "待办", pcLinkView, mobLinkView);
 		}
 	  	return et;
 	}
