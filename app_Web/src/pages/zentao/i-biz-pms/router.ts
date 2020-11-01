@@ -250,6 +250,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/story-main-view9/story-main-view9.vue'),
                 },
                 {
+                    path: 'sysupdatelogs/:sysupdatelog?/lastgridview/:lastgridview?',
+                    meta: {
+                        caption: 'entities.sysupdatelog.views.lastgridview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'sysupdatelogs', parameterName: 'sysupdatelog' },
+                            { pathName: 'lastgridview', parameterName: 'lastgridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/sys-update-log-last-grid-view/sys-update-log-last-grid-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/pickupgridview4/:pickupgridview4?',
                     meta: {
                         caption: 'entities.bug.views.pickupgridview4.caption',
@@ -8682,6 +8696,35 @@ const router = new Router({
                     component: () => import('@pages/zentao/project-portal-view/project-portal-view.vue'),
                 },
                 {
+                    path: 'sysupdatelogs/:sysupdatelog?/sysupdatefeatures/:sysupdatefeatures?/lastgridview/:lastgridview?',
+                    meta: {
+                        caption: 'entities.sysupdatefeatures.views.lastgridview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'sysupdatelogs', parameterName: 'sysupdatelog' },
+                            { pathName: 'sysupdatefeatures', parameterName: 'sysupdatefeatures' },
+                            { pathName: 'lastgridview', parameterName: 'lastgridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/sys-update-features-last-grid-view/sys-update-features-last-grid-view.vue'),
+                },
+                {
+                    path: 'sysupdatefeatures/:sysupdatefeatures?/lastgridview/:lastgridview?',
+                    meta: {
+                        caption: 'entities.sysupdatefeatures.views.lastgridview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'sysupdatefeatures', parameterName: 'sysupdatefeatures' },
+                            { pathName: 'lastgridview', parameterName: 'lastgridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/sys-update-features-last-grid-view/sys-update-features-last-grid-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/maingridview_bymodule/:maingridview_bymodule?',
                     meta: {
                         caption: 'entities.story.views.maingridview_bymodule.caption',
@@ -12997,6 +13040,35 @@ const router = new Router({
                     component: () => import('@pages/zentao/story-report-sub-grid-view/story-report-sub-grid-view.vue'),
                 },
                 {
+                    path: 'sysupdatelogs/:sysupdatelog?/sysupdatefeatures/:sysupdatefeatures?/infoeditview/:infoeditview?',
+                    meta: {
+                        caption: 'entities.sysupdatefeatures.views.infoeditview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'sysupdatelogs', parameterName: 'sysupdatelog' },
+                            { pathName: 'sysupdatefeatures', parameterName: 'sysupdatefeatures' },
+                            { pathName: 'infoeditview', parameterName: 'infoeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/sys-update-features-info-edit-view/sys-update-features-info-edit-view.vue'),
+                },
+                {
+                    path: 'sysupdatefeatures/:sysupdatefeatures?/infoeditview/:infoeditview?',
+                    meta: {
+                        caption: 'entities.sysupdatefeatures.views.infoeditview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'sysupdatefeatures', parameterName: 'sysupdatefeatures' },
+                            { pathName: 'infoeditview', parameterName: 'infoeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/sys-update-features-info-edit-view/sys-update-features-info-edit-view.vue'),
+                },
+                {
                     path: 'ibzlibs/:ibzlib?/ibzcases/:ibzcase?/dashboardview/:dashboardview?',
                     meta: {
                         caption: 'entities.ibzcase.views.dashboardview.caption',
@@ -14110,6 +14182,20 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/story-usr2-mpickup-view/story-usr2-mpickup-view.vue'),
+                },
+                {
+                    path: 'sysupdatelogs/:sysupdatelog?/lasttabexpview/:lasttabexpview?',
+                    meta: {
+                        caption: 'entities.sysupdatelog.views.lasttabexpview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'sysupdatelogs', parameterName: 'sysupdatelog' },
+                            { pathName: 'lasttabexpview', parameterName: 'lasttabexpview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/sys-update-log-last-tab-exp-view/sys-update-log-last-tab-exp-view.vue'),
                 },
                 {
                     path: 'actions/:action?/historylistview/:historylistview?',

@@ -13,6 +13,14 @@ export default {
     updatebranch: "更新平台",
   },
 	views: {
+		lastgridview: {
+			caption: "更新日志",
+      		title: "系统更新日志表格视图",
+		},
+		lasttabexpview: {
+			caption: "更新日志",
+      		title: "系统更新日志分页导航视图",
+		},
 		infoeditview: {
 			caption: "更新日志",
       		title: "系统更新日志编辑视图",
@@ -106,6 +114,12 @@ export default {
 		uiactions: {
 		},
 	},
+	editviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "保存并关闭",
+			tip: "保存并关闭",
+		},
+	},
 	gridviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "新建",
@@ -130,12 +144,6 @@ export default {
 		deuiaction5: {
 			caption: "导出",
 			tip: "导出",
-		},
-	},
-	editviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "保存并关闭",
-			tip: "保存并关闭",
 		},
 	},
 };

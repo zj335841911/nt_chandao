@@ -865,6 +865,17 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '3cecc451b691620a36a8dc8aa69d624d',
+            viewmodule: 'ibiz',
+            viewname: 'SysUpdateLogLastGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '6203dc73c54acc8229989fecc87f058b',
+                'f2dfdf637fb965a83519ac280de3e97c',
+            ],
+        },
+        {
             viewtag: '3d56b0e37a56b9be1a28589c04f573fa',
             viewmodule: 'zentao',
             viewname: 'TestReportMainInfoView',
@@ -1467,6 +1478,17 @@ export const viewstate: any = {
             refviews: [
                 '956ad42e59e60cd8b49e7035147e25cf',
                 '9ed41cee96088630f3d4b0a91e705930',
+            ],
+        },
+        {
+            viewtag: '6203dc73c54acc8229989fecc87f058b',
+            viewmodule: 'ibiz',
+            viewname: 'SysUpdateLogLastTabExpView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '8c8f69657e164fbee50b48f760365fdb',
+                'e77b0ab085994e29f1906ab1b90a2f53',
             ],
         },
         {
@@ -2095,6 +2117,17 @@ export const viewstate: any = {
                 '443935a0b9d0fa8daf3131956a8bacc9',
                 'ec9a5987de12c718961f243f4034efea',
                 'aeee411b8bffcf0c30d65557a8deeeee',
+            ],
+        },
+        {
+            viewtag: '8c8f69657e164fbee50b48f760365fdb',
+            viewmodule: 'ibiz',
+            viewname: 'SysUpdateFeaturesLastGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'a46f39b0d36c98b4e2fd74b7051fda79',
+                'd97806e4d30ee03bfd34d5df8f96b0a4',
             ],
         },
         {
@@ -3351,11 +3384,22 @@ export const viewstate: any = {
                 '6d466e003e0479fb8b1a16e49b889dc1',
                 'c3f0a8956b863fa05a7d961df90a3975',
                 'e9f72c81d94c56a08c355c2ba2e20d07',
+                '3cecc451b691620a36a8dc8aa69d624d',
                 '81893d14e76cac341d4218a9c5ef185d',
                 '3aafb12bb0db2be013c0f5ced8c7dc50',
                 'bedf1f50199b74a65c2e17771144329c',
                 'c539f1585371e9943b90177eaef08b6b',
                 'e396b6f39451e3bf963aec602106adf0',
+            ],
+        },
+        {
+            viewtag: 'd97806e4d30ee03bfd34d5df8f96b0a4',
+            viewmodule: 'ibiz',
+            viewname: 'SysUpdateFeaturesInfoEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'fb9ed5136261af127c871b1dce82d510',
             ],
         },
         {

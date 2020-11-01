@@ -14,6 +14,10 @@ export default {
     displayorder: "展示顺序",
   },
 	views: {
+		lastgridview: {
+			caption: "系统更新功能",
+      		title: "系统更新功能表格视图",
+		},
 		editview: {
 			caption: "系统更新功能",
       		title: "系统更新功能编辑视图",

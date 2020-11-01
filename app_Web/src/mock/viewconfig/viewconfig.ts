@@ -815,6 +815,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProductWizardView",
             "viewtag": "3b4ab1882a49962f12900abeeddf60f0"
         },
+        "sysupdateloglastgridview": {
+            "title": "系统更新日志表格视图",
+            "caption": "更新日志",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "SysUpdateLogLastGridView",
+            "viewtag": "3cecc451b691620a36a8dc8aa69d624d"
+        },
         "testreportmaininfoview": {
             "title": "测试报告编辑视图",
             "caption": "测试报告",
@@ -1375,6 +1383,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "StoryMainView9_StorySpec",
             "viewtag": "61f32b2b422e8f1a9825e1f704464a8c"
         },
+        "sysupdateloglasttabexpview": {
+            "title": "系统更新日志分页导航视图",
+            "caption": "更新日志",
+            "viewtype": "DETABEXPVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "SysUpdateLogLastTabExpView",
+            "viewtag": "6203dc73c54acc8229989fecc87f058b"
+        },
         "productcasetreeexpview": {
             "title": "产品需求导航视图",
             "caption": "产品",
@@ -1934,6 +1950,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "BugMainDashboardView_Link",
             "viewtag": "8c8adbf0a7db27078e01a8b32716fa71"
+        },
+        "sysupdatefeatureslastgridview": {
+            "title": "系统更新功能表格视图",
+            "caption": "系统更新功能",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "SysUpdateFeaturesLastGridView",
+            "viewtag": "8c8f69657e164fbee50b48f760365fdb"
         },
         "taskworkinfoeditview9": {
             "title": "工时信息",

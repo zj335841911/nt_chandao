@@ -63,6 +63,7 @@ import TestTaskMainInfo from '@/widgets/test-task/main-info-portlet/main-info-po
 import TestTaskToTestTestTask from '@/widgets/test-task/to-test-test-task-portlet/to-test-test-task-portlet.vue';
 import TestTaskActionBar from '@/widgets/test-task/action-bar-portlet/action-bar-portlet.vue';
 import TestTaskMainDetail from '@/widgets/test-task/main-detail-portlet/main-detail-portlet.vue';
+import SysUpdateLogLastUpdate from '@/widgets/sys-update-log/last-update-portlet/last-update-portlet.vue';
 import BugBugSeverity from '@/widgets/bug/bug-severity-portlet/bug-severity-portlet.vue';
 import BugBugSeverity_Project from '@/widgets/bug/bug-severity-project-portlet/bug-severity-project-portlet.vue';
 import BugBugOpenedBy from '@/widgets/bug/bug-opened-by-portlet/bug-opened-by-portlet.vue';
@@ -96,6 +97,7 @@ export const  PortletComponent = {
         v.component('app-my-work-portlet', MyWork);
         v.component('app-bug-assigned-to-me-bug-portlet', BugAssignedToMeBug);
         v.component('app-task-assign-to-me-portlet', TaskAssignToMe);
+        v.component('app-sys-update-log-last-update-portlet', SysUpdateLogLastUpdate);
         v.component('app-product-text-exp-view-portlet', ProductTextExpView);
         v.component('app-project-project-exp-view-portlet', ProjectProjectExpView);
         v.component('app-bug-steps-info-portlet', BugStepsInfo);
@@ -236,6 +238,7 @@ export const  PortletComponent = {
         v.component('test-task-to-test-test-task-portlet', TestTaskToTestTestTask);
         v.component('test-task-action-bar-portlet', TestTaskActionBar);
         v.component('test-task-main-detail-portlet', TestTaskMainDetail);
+        v.component('sys-update-log-last-update-portlet', SysUpdateLogLastUpdate);
         v.component('bug-bug-severity-portlet', BugBugSeverity);
         v.component('bug-bug-severity-project-portlet', BugBugSeverity_Project);
         v.component('bug-bug-opened-by-portlet', BugBugOpenedBy);
