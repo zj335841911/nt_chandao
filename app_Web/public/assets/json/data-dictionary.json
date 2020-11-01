@@ -4259,6 +4259,133 @@
         "items": []
     }, 
     {
+        "srfkey": "Bug_type_pie",
+        "emptytext": "未定义",
+        "codelisttype":"static",
+        "items": [
+             {
+                "id": "codeerror",
+                "label": "代码错误",
+                "text": "代码错误",
+                "class":"",
+                "data":"",
+                "codename":"Codeerror",
+                "value": "codeerror",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "config",
+                "label": "配置相关",
+                "text": "配置相关",
+                "class":"",
+                "data":"",
+                "codename":"Config",
+                "value": "config",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "install",
+                "label": "安装部署",
+                "text": "安装部署",
+                "class":"",
+                "data":"",
+                "codename":"Install",
+                "value": "install",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "security",
+                "label": "安全相关",
+                "text": "安全相关",
+                "class":"",
+                "data":"",
+                "codename":"Security",
+                "value": "security",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "performance",
+                "label": "性能问题",
+                "text": "性能问题",
+                "class":"",
+                "data":"",
+                "codename":"Performance",
+                "value": "performance",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "standard",
+                "label": "标准规范",
+                "text": "标准规范",
+                "class":"",
+                "data":"",
+                "codename":"Standard",
+                "value": "standard",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "automation",
+                "label": "测试脚本",
+                "text": "测试脚本",
+                "class":"",
+                "data":"",
+                "codename":"Automation",
+                "value": "automation",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "designdefect",
+                "label": "设计缺陷",
+                "text": "设计缺陷",
+                "class":"",
+                "data":"",
+                "codename":"Designdefect",
+                "value": "designdefect",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "others",
+                "label": "其他",
+                "text": "其他",
+                "class":"",
+                "data":"",
+                "codename":"Others",
+                "value": "others",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "无",
+                "label": "无",
+                "text": "无",
+                "class":"",
+                "data":"",
+                "codename":"Item_10",
+                "value": "无",
+                
+                "disabled": false,
+                "default": false
+            }
+        ]
+    }, 
+    {
         "srfkey": "IsAssigned",
         "emptytext": "未定义",
         "codelisttype":"static",

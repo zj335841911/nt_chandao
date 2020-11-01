@@ -1191,6 +1191,35 @@ public class StaticDict {
 
 
     /**
+     * 代码表[Bug类型（饼图）]
+     */
+    @Getter
+    public enum Bug_type_pie {
+        CODEERROR("codeerror","代码错误"),
+        CONFIG("config","配置相关"),
+        INSTALL("install","安装部署"),
+        SECURITY("security","安全相关"),
+        PERFORMANCE("performance","性能问题"),
+        STANDARD("standard","标准规范"),
+        AUTOMATION("automation","测试脚本"),
+        DESIGNDEFECT("designdefect","设计缺陷"),
+        OTHERS("others","其他"),
+        ITEM_10("无","无");
+
+        private String value;
+        private String text;
+        private String valueSeparator="";
+        private String textSeparator="";
+        private String emptyText="";
+
+        Bug_type_pie(String value , String text) {
+            this.value=value;
+            this.text = text;
+        }
+    }
+
+
+    /**
      * 代码表[需求模块类型]
      */
     @Getter

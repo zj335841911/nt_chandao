@@ -489,6 +489,19 @@ export default {
     UserRealNameProject: {
         "empty": "",
     },
+    Bug_type_pie: {
+        "codeerror": "代码错误",
+        "config": "配置相关",
+        "install": "安装部署",
+        "security": "安全相关",
+        "performance": "性能问题",
+        "standard": "标准规范",
+        "automation": "测试脚本",
+        "designdefect": "设计缺陷",
+        "others": "其他",
+        "无": "无",
+        "empty": ""
+    },
     IsAssigned: {
         "assign": "已指派",
         "noassign": "未指派",

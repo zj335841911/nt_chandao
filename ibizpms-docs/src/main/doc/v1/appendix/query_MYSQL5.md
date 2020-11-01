@@ -1556,7 +1556,7 @@ t1.`TESTTASK`,
 t1.`TITLE`,
 t1.`TOSTORY`,
 t1.`TOTASK`,
-t1.`TYPE`,
+case when t1.`TYPE` = '' then '无' else t1.type end as  `TYPE`,
 t1.`V1`,
 t1.`V2`
 FROM `zt_bug` t1 
