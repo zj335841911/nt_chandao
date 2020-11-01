@@ -57,7 +57,21 @@ hide members
 |Save|内置方法|&nbsp;|
 
 ## 处理逻辑
-无
+* 更新最新更新标识 (UpdateLasted)
+  
+   
+
+{% plantuml %}
+hide footbox
+
+系统更新日志 -> 系统更新日志: 更新最新更新标识
+{% endplantuml %}
+
+| 步骤       | 操作        |
+| --------   | --------   |
+|0|开始 | 
+|1|更新最新更新标识 |
+<center>更新最新更新标识</center>
 
 ## 查询集合
 

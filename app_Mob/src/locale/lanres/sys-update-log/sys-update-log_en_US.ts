@@ -10,6 +10,7 @@ export default {
     updesc: "更新说明",
     latestupdate: "最新更新",
     updatefeatures: "更新功能列表详情",
+    updatebranch: "更新平台",
   },
 	views: {
 		mobmdview: {

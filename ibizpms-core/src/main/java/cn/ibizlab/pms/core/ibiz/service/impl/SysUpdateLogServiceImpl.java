@@ -50,6 +50,10 @@ public class SysUpdateLogServiceImpl extends ServiceImpl<SysUpdateLogMapper, Sys
     @Lazy
     protected cn.ibizlab.pms.core.ibiz.service.ISysUpdateFeaturesService sysupdatefeaturesService;
 
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.ibiz.service.logic.ISysUpdateLogUpdateLastedLogic updatelastedLogic;
+
     protected int batchSize = 500;
 
     @Override
@@ -58,6 +62,7 @@ public class SysUpdateLogServiceImpl extends ServiceImpl<SysUpdateLogMapper, Sys
         if(!this.retBool(this.baseMapper.insert(et)))
             return false;
         CachedBeanCopier.copy(get(et.getSysupdatelogid()),et);
+        updatelastedLogic.execute(et);
         return true;
     }
 

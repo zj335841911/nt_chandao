@@ -45,6 +45,9 @@ export class MobModel {
       {
         name: 'updatefeatures',
       },
+      {
+        name: 'updatebranch',
+      },
     ]
   }
 
