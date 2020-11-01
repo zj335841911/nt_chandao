@@ -28,7 +28,7 @@ pms-webapi
 | 15 | [任务](1/Task) | task |  |
 | 16 | [待办事宜表](1/Todo) | todo |  |
 | 17 | [需求](1/IBZProStory) | ibzprostory |  |
-| 18 | [系统更新日志](1/SysUpdateLog) | sysupdatelog |  |
+| 18 | [更新日志](1/SysUpdateLog) | sysupdatelog |  |
 | 19 | [人员](1/SysEmployee) | sysemployee |  |
 | 20 | [测试套件](1/TestSuite) | testsuite |  |
 | 21 | [用户年度工作内容统计](1/UserYearWorkStats) | useryearworkstats |  |

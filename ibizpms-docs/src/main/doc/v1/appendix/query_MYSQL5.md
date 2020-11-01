@@ -12457,7 +12457,7 @@ LEFT JOIN T_SYS_UPDATE_LOG t11 ON t1.SYS_UPDATE_LOGID = t11.SYS_UPDATE_LOGID
 
 ```
 
-# **系统更新日志**(SYS_UPDATE_LOG)
+# **更新日志**(SYS_UPDATE_LOG)
 
 ### 数据查询(DEFAULT)<div id="SysUpdateLog_Default"></div>
 ```sql

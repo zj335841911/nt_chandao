@@ -28811,7 +28811,7 @@
     ,
     {
     "entity_name":"SYS_UPDATE_LOG",
-    "logic_name":"系统更新日志",
+    "logic_name":"更新日志",
     "code_name":"SysUpdateLog",
     "table_name":"T_SYS_UPDATE_LOG",
     "system_id":"pms",

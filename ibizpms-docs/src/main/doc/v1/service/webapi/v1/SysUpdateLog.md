@@ -1,9 +1,9 @@
 # 服务接口-SYS_UPDATE_LOG
 ## 接口说明
-系统更新日志
+更新日志
 
 ## 接口清单
-### 新建系统更新日志
+### 新建更新日志
 #### 访问路径
 /sysupdatelogs
 
@@ -13,15 +13,15 @@ POST
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
 | -- | -- | -- | -- |
-| 1 | sysupdatelogdto | [SysUpdateLogDTO](#SysUpdateLogDTO) | 系统更新日志实体传输对象 |
+| 1 | sysupdatelogdto | [SysUpdateLogDTO](#SysUpdateLogDTO) | 更新日志实体传输对象 |
 
 #### 返回说明
 | 项目 | 说明 |
 | -- | -- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
-| 返回类型 | [SysUpdateLogDTO](#SysUpdateLogDTO)：系统更新日志实体传输对象 |
+| 返回类型 | [SysUpdateLogDTO](#SysUpdateLogDTO)：更新日志实体传输对象 |
 
-### 批量新建系统更新日志
+### 批量新建更新日志
 #### 访问路径
 /sysupdatelogs/batch
 
@@ -31,7 +31,7 @@ POST
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
 | -- | -- | -- | -- |
-| 1 | sysupdatelogdtos | List<[SysUpdateLogDTO](#SysUpdateLogDTO)> | 系统更新日志实体传输对象列表 |
+| 1 | sysupdatelogdtos | List<[SysUpdateLogDTO](#SysUpdateLogDTO)> | 更新日志实体传输对象列表 |
 
 #### 返回说明
 | 项目 | 说明 |
@@ -39,7 +39,7 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | true：处理成功。false：处理失败。 |
 
-### 更新系统更新日志
+### 更新更新日志
 #### 访问路径
 /sysupdatelogs/{sysupdatelog_id}
 
@@ -49,16 +49,16 @@ PUT
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
 | -- | -- | -- | -- |
-| 1 | sysupdatelog_id | String | 系统更新日志主键ID |
-| 2 | sysupdatelogdto | [SysUpdateLogDTO](#SysUpdateLogDTO) | 系统更新日志实体传输对象 |
+| 1 | sysupdatelog_id | String | 更新日志主键ID |
+| 2 | sysupdatelogdto | [SysUpdateLogDTO](#SysUpdateLogDTO) | 更新日志实体传输对象 |
 
 #### 返回说明
 | 项目 | 说明 |
 | -- | -- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
-| 返回类型 | [SysUpdateLogDTO](#SysUpdateLogDTO)：系统更新日志实体传输对象 |
+| 返回类型 | [SysUpdateLogDTO](#SysUpdateLogDTO)：更新日志实体传输对象 |
 
-### 批量更新系统更新日志
+### 批量更新更新日志
 #### 访问路径
 /sysupdatelogs/batch
 
@@ -68,7 +68,7 @@ PUT
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
 | -- | -- | -- | -- |
-| 1 | sysupdatelogdtos | List<[SysUpdateLogDTO](#SysUpdateLogDTO)> | 系统更新日志实体传输对象列表 |
+| 1 | sysupdatelogdtos | List<[SysUpdateLogDTO](#SysUpdateLogDTO)> | 更新日志实体传输对象列表 |
 
 #### 返回说明
 | 项目 | 说明 |
@@ -76,7 +76,7 @@ PUT
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | true：处理成功。false：处理失败。 |
 
-### 删除系统更新日志
+### 删除更新日志
 #### 访问路径
 /sysupdatelogs/{sysupdatelog_id}
 
@@ -86,7 +86,7 @@ DELETE
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
 | -- | -- | -- | -- |
-| 1 | sysupdatelog_id | String | 系统更新日志主键ID |
+| 1 | sysupdatelog_id | String | 更新日志主键ID |
 
 #### 返回说明
 | 项目 | 说明 |
@@ -94,7 +94,7 @@ DELETE
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | true：处理成功。false：处理失败。 |
 
-### 批量删除系统更新日志
+### 批量删除更新日志
 #### 访问路径
 /sysupdatelogs/batch
 
@@ -104,7 +104,7 @@ DELETE
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
 | -- | -- | -- | -- |
-| 1 | ids | List<String> | 系统更新日志主键ID列表 |
+| 1 | ids | List<String> | 更新日志主键ID列表 |
 
 #### 返回说明
 | 项目 | 说明 |
@@ -112,7 +112,7 @@ DELETE
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | true：处理成功。false：处理失败。 |
 
-### 获取系统更新日志
+### 获取更新日志
 #### 访问路径
 /sysupdatelogs/{sysupdatelog_id}
 
@@ -122,15 +122,15 @@ GET
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
 | -- | -- | -- | -- |
-| 1 | sysupdatelog_id | String | 系统更新日志主键ID |
+| 1 | sysupdatelog_id | String | 更新日志主键ID |
 
 #### 返回说明
 | 项目 | 说明 |
 | -- | -- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
-| 返回类型 | [SysUpdateLogDTO](#SysUpdateLogDTO)：系统更新日志实体传输对象 |
+| 返回类型 | [SysUpdateLogDTO](#SysUpdateLogDTO)：更新日志实体传输对象 |
 
-### 检查系统更新日志
+### 检查更新日志
 #### 访问路径
 /sysupdatelogs/checkkey
 
@@ -140,7 +140,7 @@ POST
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
 | -- | -- | -- | -- |
-| 1 | sysupdatelogdto | [SysUpdateLogDTO](#SysUpdateLogDTO) | 系统更新日志实体传输对象 |
+| 1 | sysupdatelogdto | [SysUpdateLogDTO](#SysUpdateLogDTO) | 更新日志实体传输对象 |
 
 #### 返回说明
 | 项目 | 说明 |
@@ -158,16 +158,16 @@ PUT
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
 | -- | -- | -- | -- |
-| 1 | sysupdatelog_id | String | 系统更新日志主键ID |
-| 2 | sysupdatelogdto | [SysUpdateLogDTO](#SysUpdateLogDTO) | 系统更新日志实体传输对象 |
+| 1 | sysupdatelog_id | String | 更新日志主键ID |
+| 2 | sysupdatelogdto | [SysUpdateLogDTO](#SysUpdateLogDTO) | 更新日志实体传输对象 |
 
 #### 返回说明
 | 项目 | 说明 |
 | -- | -- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
-| 返回类型 | [SysUpdateLogDTO](#SysUpdateLogDTO)：系统更新日志实体传输对象 |
+| 返回类型 | [SysUpdateLogDTO](#SysUpdateLogDTO)：更新日志实体传输对象 |
 
-### 保存系统更新日志
+### 保存更新日志
 #### 访问路径
 /sysupdatelogs/save
 
@@ -177,7 +177,7 @@ POST
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
 | -- | -- | -- | -- |
-| 1 | sysupdatelogdto | [SysUpdateLogDTO](#SysUpdateLogDTO) | 系统更新日志实体传输对象 |
+| 1 | sysupdatelogdto | [SysUpdateLogDTO](#SysUpdateLogDTO) | 更新日志实体传输对象 |
 
 #### 返回说明
 | 项目 | 说明 |
@@ -185,7 +185,7 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | true：处理成功。false：处理失败。 |
 
-### 批量保存系统更新日志
+### 批量保存更新日志
 #### 访问路径
 /sysupdatelogs/savebatch
 
@@ -195,7 +195,7 @@ POST
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
 | -- | -- | -- | -- |
-| 1 | sysupdatelogdtos | List<[SysUpdateLogDTO](#SysUpdateLogDTO)> | 系统更新日志实体传输对象列表 |
+| 1 | sysupdatelogdtos | List<[SysUpdateLogDTO](#SysUpdateLogDTO)> | 更新日志实体传输对象列表 |
 
 #### 返回说明
 | 项目 | 说明 |
@@ -213,13 +213,13 @@ GET
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
 | -- | -- | -- | -- |
-| 1 | context | [SysUpdateLogSearchContext](#SysUpdateLogSearchContext) | 系统更新日志查询条件对象 |
+| 1 | context | [SysUpdateLogSearchContext](#SysUpdateLogSearchContext) | 更新日志查询条件对象 |
 
 #### 返回说明
 | 项目 | 说明 |
 | -- | -- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
-| 返回类型 | List<[SysUpdateLogDTO](#SysUpdateLogDTO)>：系统更新日志实体传输对象列表 |
+| 返回类型 | List<[SysUpdateLogDTO](#SysUpdateLogDTO)>：更新日志实体传输对象列表 |
 
 ### 查询数据集
 #### 访问路径
@@ -231,13 +231,13 @@ POST
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
 | -- | -- | -- | -- |
-| 1 | context | [SysUpdateLogSearchContext](#SysUpdateLogSearchContext) | 系统更新日志查询条件对象 |
+| 1 | context | [SysUpdateLogSearchContext](#SysUpdateLogSearchContext) | 更新日志查询条件对象 |
 
 #### 返回说明
 | 项目 | 说明 |
 | -- | -- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
-| 返回类型 | Page<[SysUpdateLogDTO](#SysUpdateLogDTO)>：系统更新日志实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+| 返回类型 | Page<[SysUpdateLogDTO](#SysUpdateLogDTO)>：更新日志实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
 
 ## 附录
 ### 数据类型说明

@@ -230,7 +230,7 @@ POST
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
 | -- | -- | -- | -- |
-| 1 | sysupdatelog_id | String | 系统更新日志主键ID |
+| 1 | sysupdatelog_id | String | 更新日志主键ID |
 | 2 | sysupdatefeaturesdto | [SysUpdateFeaturesDTO](#SysUpdateFeaturesDTO) | 系统更新功能实体传输对象 |
 
 #### 返回说明
@@ -249,7 +249,7 @@ POST
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
 | -- | -- | -- | -- |
-| 1 | sysupdatelog_id | String | 系统更新日志主键ID |
+| 1 | sysupdatelog_id | String | 更新日志主键ID |
 | 2 | sysupdatefeaturesdtos | List<[SysUpdateFeaturesDTO](#SysUpdateFeaturesDTO)> | 系统更新功能实体传输对象列表 |
 
 #### 返回说明
@@ -268,7 +268,7 @@ PUT
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
 | -- | -- | -- | -- |
-| 1 | sysupdatelog_id | String | 系统更新日志主键ID |
+| 1 | sysupdatelog_id | String | 更新日志主键ID |
 | 2 | sysupdatefeatures_id | String | 系统更新功能主键ID |
 | 3 | sysupdatefeaturesdto | [SysUpdateFeaturesDTO](#SysUpdateFeaturesDTO) | 系统更新功能实体传输对象 |
 
@@ -288,7 +288,7 @@ PUT
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
 | -- | -- | -- | -- |
-| 1 | sysupdatelog_id | String | 系统更新日志主键ID |
+| 1 | sysupdatelog_id | String | 更新日志主键ID |
 | 2 | sysupdatefeaturesdtos | List<[SysUpdateFeaturesDTO](#SysUpdateFeaturesDTO)> | 系统更新功能实体传输对象列表 |
 
 #### 返回说明
@@ -307,7 +307,7 @@ DELETE
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
 | -- | -- | -- | -- |
-| 1 | sysupdatelog_id | String | 系统更新日志主键ID |
+| 1 | sysupdatelog_id | String | 更新日志主键ID |
 | 2 | sysupdatefeatures_id | String | 系统更新功能主键ID |
 
 #### 返回说明
@@ -326,7 +326,7 @@ DELETE
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
 | -- | -- | -- | -- |
-| 1 | sysupdatelog_id | String | 系统更新日志主键ID |
+| 1 | sysupdatelog_id | String | 更新日志主键ID |
 | 2 | ids | List<String> | 系统更新功能主键ID列表 |
 
 #### 返回说明
@@ -345,7 +345,7 @@ GET
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
 | -- | -- | -- | -- |
-| 1 | sysupdatelog_id | String | 系统更新日志主键ID |
+| 1 | sysupdatelog_id | String | 更新日志主键ID |
 | 2 | sysupdatefeatures_id | String | 系统更新功能主键ID |
 
 #### 返回说明
@@ -364,7 +364,7 @@ POST
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
 | -- | -- | -- | -- |
-| 1 | sysupdatelog_id | String | 系统更新日志主键ID |
+| 1 | sysupdatelog_id | String | 更新日志主键ID |
 | 2 | sysupdatefeaturesdto | [SysUpdateFeaturesDTO](#SysUpdateFeaturesDTO) | 系统更新功能实体传输对象 |
 
 #### 返回说明
@@ -383,7 +383,7 @@ POST
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
 | -- | -- | -- | -- |
-| 1 | sysupdatelog_id | String | 系统更新日志主键ID |
+| 1 | sysupdatelog_id | String | 更新日志主键ID |
 | 2 | sysupdatefeaturesdto | [SysUpdateFeaturesDTO](#SysUpdateFeaturesDTO) | 系统更新功能实体传输对象 |
 
 #### 返回说明
@@ -402,7 +402,7 @@ POST
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
 | -- | -- | -- | -- |
-| 1 | sysupdatelog_id | String | 系统更新日志主键ID |
+| 1 | sysupdatelog_id | String | 更新日志主键ID |
 | 2 | sysupdatefeaturesdtos | List<[SysUpdateFeaturesDTO](#SysUpdateFeaturesDTO)> | 系统更新功能实体传输对象列表 |
 
 #### 返回说明
@@ -421,7 +421,7 @@ GET
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
 | -- | -- | -- | -- |
-| 1 | sysupdatelog_id | String | 系统更新日志主键ID |
+| 1 | sysupdatelog_id | String | 更新日志主键ID |
 | 2 | context | [SysUpdateFeaturesSearchContext](#SysUpdateFeaturesSearchContext) | 系统更新功能查询条件对象 |
 
 #### 返回说明
@@ -440,7 +440,7 @@ POST
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
 | -- | -- | -- | -- |
-| 1 | sysupdatelog_id | String | 系统更新日志主键ID |
+| 1 | sysupdatelog_id | String | 更新日志主键ID |
 | 2 | context | [SysUpdateFeaturesSearchContext](#SysUpdateFeaturesSearchContext) | 系统更新功能查询条件对象 |
 
 #### 返回说明

@@ -2,7 +2,7 @@ import { AuthService } from '@ibiz-core/auth-service/auth-service-base';
 
 
 /**
- * 系统更新日志权限服务对象基类
+ * 更新日志权限服务对象基类
  *
  * @export
  * @class SysUpdateLogAuthServiceBase

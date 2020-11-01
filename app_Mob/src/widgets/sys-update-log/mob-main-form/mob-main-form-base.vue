@@ -12,7 +12,7 @@
     :caption="$t('sysupdatelog.mobmain_form.details.group1')" 
     :isShowCaption="false" 
     :titleBarCloseMode="0" 
-    :isInfoGroupMode="false" 
+    :isInfoGroupMode="true" 
     :data="transformData(data)"
     :uiService="deUIService"
     @groupuiactionclick="groupUIActionClick($event)">
@@ -21,24 +21,22 @@
     name='sys_update_logname' 
     class='' 
     uiStyle="DEFAULT"  
-    labelPos="LEFT" 
+    labelPos="NONE" 
     ref="sys_update_logname_item"  
     :itemValue="this.data.sys_update_logname" 
     v-show="detailsModel.sys_update_logname.visible" 
     :itemRules="this.rules.sys_update_logname" 
     :caption="$t('sysupdatelog.mobmain_form.details.sys_update_logname')"  
-    :labelWidth="100"  
-    :isShowCaption="true"
+    :labelWidth="0"  
+    :isShowCaption="false"
     :disabled="detailsModel.sys_update_logname.disabled"
     :error="detailsModel.sys_update_logname.error" 
-    :isEmptyCaption="false">
-        <app-mob-input 
-    class="app-form-item-input"  
-        type="text"  
-    :value="data.sys_update_logname"
-    unit=""
-    :disabled="detailsModel.sys_update_logname.disabled" 
-    @change="($event)=>this.data.sys_update_logname = $event" />
+    :isEmptyCaption="true">
+        <app-mob-span  
+        v-if="data.sys_update_logname" 
+    :context="context" 
+    :value="data.sys_update_logname" 
+    :itemParam="{}"/>
 </app-form-item>
 
 
@@ -47,23 +45,22 @@
     name='update' 
     class='' 
     uiStyle="DEFAULT"  
-    labelPos="LEFT" 
+    labelPos="NONE" 
     ref="update_item"  
     :itemValue="this.data.update" 
     v-show="detailsModel.update.visible" 
     :itemRules="this.rules.update" 
     :caption="$t('sysupdatelog.mobmain_form.details.update')"  
-    :labelWidth="100"  
-    :isShowCaption="true"
+    :labelWidth="0"  
+    :isShowCaption="false"
     :disabled="detailsModel.update.disabled"
     :error="detailsModel.update.error" 
-    :isEmptyCaption="false">
-        <app-mob-datetime-picker 
-    class="app-form-item-datetime" 
+    :isEmptyCaption="true">
+        <app-mob-span  
+        v-if="data.update" 
+    :context="context" 
     :value="data.update" 
-    displayFormat="YYYY-MM-DD HH:mm:ss"
-    :disabled="detailsModel.update.disabled"
-    @change="($event)=>this.data.update = $event"/>
+    :itemParam="{}"/>
 </app-form-item>
 
 
@@ -72,16 +69,16 @@
     name='updesc' 
     class='' 
     uiStyle="DEFAULT"  
-    labelPos="LEFT" 
+    labelPos="NONE" 
     ref="updesc_item"  
     :itemValue="this.data.updesc" 
     v-show="detailsModel.updesc.visible" 
     :itemRules="this.rules.updesc" 
     :caption="$t('sysupdatelog.mobmain_form.details.updesc')"  
-    :labelWidth="100"  
-    :isShowCaption="true"
+    :labelWidth="0"  
+    :isShowCaption="false"
     :error="detailsModel.updesc.error" 
-    :isEmptyCaption="false">
+    :isEmptyCaption="true">
         <app-mob-rich-text-editor-pms :formState="formState" :value="data.updesc" @change="(val) =>{this.data.updesc =val}" :disabled="detailsModel.updesc.disabled" :data="JSON.stringify(this.data)"  name="updesc" :uploadparams='{}' :exportparams='{}'  style=""/>
 
 </app-form-item>
@@ -98,7 +95,7 @@
     :caption="$t('sysupdatelog.mobmain_form.details.grouppanel1')" 
     :isShowCaption="true" 
     :titleBarCloseMode="0" 
-    :isInfoGroupMode="false" 
+    :isInfoGroupMode="true" 
     :data="transformData(data)"
     :uiService="deUIService"
     @groupuiactionclick="groupUIActionClick($event)">
@@ -143,7 +140,7 @@
     :caption="$t('sysupdatelog.mobmain_form.details.grouppanel2')" 
     :isShowCaption="true" 
     :titleBarCloseMode="0" 
-    :isInfoGroupMode="false" 
+    :isInfoGroupMode="true" 
     :data="transformData(data)"
     :uiService="deUIService"
     @groupuiactionclick="groupUIActionClick($event)">
@@ -673,11 +670,11 @@ export default class MobMainBase extends Vue implements ControlInterface {
 , 
         srfsourcekey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfsourcekey', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        sys_update_logname: new FormItemModel({ caption: '更新名称', detailType: 'FORMITEM', name: 'sys_update_logname', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        sys_update_logname: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'sys_update_logname', visible: true, isShowCaption: false, form: this, disabled: false, enableCond: 3 })
 , 
-        update: new FormItemModel({ caption: '更新日期', detailType: 'FORMITEM', name: 'update', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        update: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'update', visible: true, isShowCaption: false, form: this, disabled: false, enableCond: 3 })
 , 
-        updesc: new FormItemModel({ caption: '更新说明', detailType: 'FORMITEM', name: 'updesc', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        updesc: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'updesc', visible: true, isShowCaption: false, form: this, disabled: false, enableCond: 3 })
 , 
         sys_update_logid: new FormItemModel({ caption: '系统更新日志标识', detailType: 'FORMITEM', name: 'sys_update_logid', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 

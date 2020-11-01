@@ -4,7 +4,7 @@
 
 ## 关系
 {% plantuml %}
-系统更新日志 *-- 系统更新功能 
+更新日志 *-- 系统更新功能 
 hide members
 {% endplantuml %}
 
