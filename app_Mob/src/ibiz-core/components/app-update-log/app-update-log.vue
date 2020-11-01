@@ -1,5 +1,5 @@
 <template>
-  <van-overlay class="app-update-log" :show="show" @click="onClick">
+  <van-overlay v-if="show"  class="app-update-log" :show="show" @click="onClick">
     <div class="app-update-log-content">
             <div class="wrapper" @click.stop>
             <div class="version">
@@ -52,11 +52,24 @@ export default class AppUpdateLog extends Vue {
 
     public version = "";
 
+    public sysupdatelogid=""
+
     public async load(){
         let data = await this.appEntityService.GetLastUpdateInfo({sysupdatelog:"sysupdatelog"});
         this.data = JSON.parse(data.data.updesc);
         this.opendatas = data.data;
         this.version = data.data.sysupdatelogname;
+        this.sysupdatelogid = data.data.sysupdatelogid;
+        let sysupdatelogid = localStorage.getItem("sysupdatelogid");
+        if(sysupdatelogid){
+            if(sysupdatelogid == this.sysupdatelogid){
+                this.show = false;
+            }else{
+                this.show = true;
+            }
+        }else{
+            this.show = true;
+        }
     }
 
     public opendatas  :any;
@@ -69,6 +82,7 @@ export default class AppUpdateLog extends Vue {
     public onClick() {
         this.show = false;
         localStorage.setItem("updateLogStatus", 'true');
+        localStorage.setItem("sysupdatelogid", this.sysupdatelogid);
     }
 
     /**
@@ -148,12 +162,8 @@ export default class AppUpdateLog extends Vue {
      */
     public created() {
         this.load();
-        setTimeout(() => {
-            this.show = true;
-        }, 1500);
+
     }
-
-
 }
 </script>
 <style lang = "less">
