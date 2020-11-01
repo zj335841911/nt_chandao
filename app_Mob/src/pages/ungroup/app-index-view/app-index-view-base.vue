@@ -17,7 +17,7 @@
     ref='appmenu' 
     @closeview="closeView($event)">
 </view_appmenu>
-    <app-update-log v-if="updateLogStatus"></app-update-log>
+    <app-update-log></app-update-log>
 </div>
 </template>
 
@@ -284,7 +284,6 @@ export default class AppIndexViewBase extends Vue {
         this.viewtag = secondtag;
         this.parseViewParam();
         this.setViewTitleStatus();
-        this.updateLogStatus = Environment.useUpdateLog && !localStorage.getItem('updateLogStatus')?true:false;
 
         localStorage.setItem('lanArray',JSON.stringify(["ZH-CN","EN-US"]));
 
@@ -479,14 +478,6 @@ export default class AppIndexViewBase extends Vue {
             return 'app-default-theme';
         }
     }
-
-    /**
-     * 显示更新日志
-     *
-     * @readonly
-     * @memberof AppIndexViewBase
-     */
-    public updateLogStatus:boolean = true;
 
     /**
      * 当前字体

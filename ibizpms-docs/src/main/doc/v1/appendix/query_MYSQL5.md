@@ -5028,6 +5028,8 @@ t1.`NEW`,
 t1.`OLD`
 FROM `zt_history` t1 
 
+WHERE ( (t1.`FIELD` NOT LIKE '%cnt') ) 
+
 ```
 ### 默认（全部数据）(VIEW)<div id="History_View"></div>
 ```sql
