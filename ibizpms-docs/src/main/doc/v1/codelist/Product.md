@@ -16,5 +16,5 @@
 | 项目 | 说明 |
 | -- | -- |
 | 实体 | [产品](../module/zentao/Product) |
-| 结果集合 | [DEFAULT（Default）]() |
+| 结果集合 | [全部产品（AllList）]() |
 

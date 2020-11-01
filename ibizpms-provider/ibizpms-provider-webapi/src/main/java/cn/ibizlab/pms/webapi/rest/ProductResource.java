@@ -190,6 +190,28 @@ public class ProductResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-searchAllList-all')")
+	@ApiOperation(value = "获取全部产品", tags = {"产品" } ,notes = "获取全部产品")
+    @RequestMapping(method= RequestMethod.GET , value="/products/fetchalllist")
+	public ResponseEntity<List<ProductDTO>> fetchAllList(ProductSearchContext context) {
+        Page<Product> domains = productService.searchAllList(context) ;
+        List<ProductDTO> list = productMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-searchAllList-all')")
+	@ApiOperation(value = "查询全部产品", tags = {"产品" } ,notes = "查询全部产品")
+    @RequestMapping(method= RequestMethod.POST , value="/products/searchalllist")
+	public ResponseEntity<Page<ProductDTO>> searchAllList(@RequestBody ProductSearchContext context) {
+        Page<Product> domains = productService.searchAllList(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(productMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-searchCheckNameOrCode-all')")
 	@ApiOperation(value = "获取校验产品名称或产品代号是否已经存在", tags = {"产品" } ,notes = "获取校验产品名称或产品代号是否已经存在")
     @RequestMapping(method= RequestMethod.GET , value="/products/fetchchecknameorcode")

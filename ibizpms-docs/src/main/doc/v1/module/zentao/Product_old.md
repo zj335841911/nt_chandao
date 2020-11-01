@@ -292,6 +292,7 @@ hide footbox
 
 | 集合编号 | 集合名称   |  包含查询  | 默认集合 |   备注|
 | --------  | --------   | -------- | --------   | ----- |
+|AllList|全部产品|AllList|否|&nbsp;|
 |CheckNameOrCode|校验产品名称或产品代号是否已经存在|CheckNameOrCode|否|&nbsp;|
 |CURPROJECT|当前项目|CURPROJECT|否|&nbsp;|
 |CurUer|当前用户|CurUer|否|&nbsp;|

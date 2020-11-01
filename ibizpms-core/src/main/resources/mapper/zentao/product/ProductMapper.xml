@@ -29,6 +29,15 @@
 		 order by id  desc  
      </select>
 
+    <!--数据集合[AllList]-->
+	 <select id="searchAllList"  parameterType="cn.ibizlab.pms.core.zentao.filter.ProductSearchContext"  resultMap="ProductResultMap">
+         select t1.* from (
+                <include refid="AllList" />
+         )t1
+         <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
+         <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
+     </select>
+
     <!--数据集合[CheckNameOrCode]-->
 	 <select id="searchCheckNameOrCode"  parameterType="cn.ibizlab.pms.core.zentao.filter.ProductSearchContext"  resultMap="ProductResultMap">
          select t1.* from (

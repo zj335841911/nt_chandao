@@ -122,6 +122,8 @@ export class MainEditFormBase extends EditFormControlBase {
         end: [
             { required: this.detailsModel.end.required, type: 'string', message: '结束日期 值不能为空', trigger: 'change' },
             { required: this.detailsModel.end.required, type: 'string', message: '结束日期 值不能为空', trigger: 'blur' },
+            {validator:(rule:any, value:any)=>{return this.verifyDeRules("end").isPast},message: this.verifyDeRules("end").infoMessage, trigger: 'change' },
+            {validator:(rule:any, value:any)=>{return this.verifyDeRules("end").isPast},message: this.verifyDeRules("end").infoMessage, trigger: 'blur' },
         ],
         name: [
             { required: this.detailsModel.name.required, type: 'string', message: '名称 值不能为空', trigger: 'change' },
@@ -137,6 +139,18 @@ export class MainEditFormBase extends EditFormControlBase {
      * @memberof MainBase
      */
     public deRules:any = {
+                end:[
+                  {
+                      type:"SIMPLE",
+                      condOP:"GTANDEQ",
+                      ruleInfo:"结束日期必须大于等于开始日期!", 
+                      isKeyCond:false,
+                      paramValue:"BEGIN",
+                      paramType:"ENTITYFIELD",
+                      isNotMode:false,
+                      deName:"end",
+                  },
+                ],
     };
 
     /**

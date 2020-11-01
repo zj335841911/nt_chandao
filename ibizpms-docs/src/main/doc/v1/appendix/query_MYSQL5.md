@@ -2661,7 +2661,7 @@ SELECT
 	t1.`SCMPATH` 
 FROM
 	`zt_build` t1
-	LEFT JOIN zt_product t11 ON t1.PRODUCT = t11.ID) t1
+	LEFT JOIN zt_product t11 ON t1.PRODUCT = t11.ID where not EXISTS(select 1 from zt_release t2 where t2.build = t1.id and t2.`status` = 'terminate')) t1
 WHERE t1.DELETED = '0' 
 ( t1.`PRODUCT` = ${srfdatacontext('bugproduct','{"defname":"PRODUCT","dename":"ZT_BUILD"}')}  OR  t1.`PRODUCT` = ${srfwebcontext('bugproduct','{"defname":"PRODUCT","dename":"ZT_BUILD"}')} 
  or t1.`PRODUCT` is null) 

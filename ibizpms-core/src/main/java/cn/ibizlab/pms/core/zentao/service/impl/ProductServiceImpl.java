@@ -265,6 +265,15 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
 
 
     /**
+     * 查询集合 全部产品
+     */
+    @Override
+    public Page<Product> searchAllList(ProductSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Product> pages=baseMapper.searchAllList(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<Product>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
      * 查询集合 校验产品名称或产品代号是否已经存在
      */
     @Override
