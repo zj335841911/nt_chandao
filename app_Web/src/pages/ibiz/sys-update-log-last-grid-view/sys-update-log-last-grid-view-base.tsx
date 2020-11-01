@@ -306,4 +306,13 @@ export class SysUpdateLogLastGridViewBase extends GridViewBase {
     }
 
 
+
+    /**
+     * 是否单选
+     *
+     * @protected
+     * @type {boolean}
+     * @memberof SysUpdateLogLastGridViewBase
+     */
+    protected isGridSingleSelect: boolean = true;
 }

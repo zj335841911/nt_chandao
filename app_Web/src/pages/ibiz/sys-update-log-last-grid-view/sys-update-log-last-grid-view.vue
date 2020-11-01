@@ -3,7 +3,7 @@
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { SysUpdateLogLastGridViewBase } from './sys-update-log-last-grid-view-base';
-import view_grid from '@widgets/sys-update-log/main-grid/main-grid.vue';
+import view_grid from '@widgets/sys-update-log/look-main-grid/look-main-grid.vue';
 
 /**
  * 系统更新日志表格视图视图

@@ -94,6 +94,16 @@ export default {
 		uiactions: {
 		},
 	},
+	lookmain_grid: {
+		nodata: "",
+		columns: {
+			sys_update_logname: "更新名称",
+			update: "更新日期",
+		},
+		uiactions: {
+			sysupdatelog_lookdetail: "查看",
+		},
+	},
 	main_grid: {
 		nodata: "",
 		columns: {
