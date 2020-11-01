@@ -161,7 +161,7 @@ export default class SysUpdateFeaturesYMobMDView9Base extends Vue {
      * @type {*}
      * @memberof SysUpdateFeaturesYMobMDView9Base
      */
-    protected navContext: any = { 'n_type_eq': '10' };
+    protected navContext: any = { 'n_type_eq': '20' };
 
     /**
      * 视图导航参数
@@ -170,7 +170,7 @@ export default class SysUpdateFeaturesYMobMDView9Base extends Vue {
      * @type {*}
      * @memberof SysUpdateFeaturesYMobMDView9Base
      */
-    protected navParam: any = { 'n_type_eq': '10' };
+    protected navParam: any = { 'n_type_eq': '20' };
 
     /**
      * 视图模型数据
