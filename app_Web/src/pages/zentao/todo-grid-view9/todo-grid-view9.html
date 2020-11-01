@@ -1,4 +1,7 @@
 <studio-embed-view viewName="todogridview9" viewTitle="我的待办" class='degridview9 todo-grid-view9'>
+    <template slot="toolbar">
+        <view-toolbar :model="toolBarModels" @item-click="toolbar_click.apply(_self, arguments)"/>
+    </template>
     <view_grid 
         :viewState="viewState"  
         :viewparams="viewparams" 

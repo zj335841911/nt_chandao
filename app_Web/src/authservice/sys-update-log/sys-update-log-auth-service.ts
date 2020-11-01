@@ -2,7 +2,7 @@ import SysUpdateLogAuthServiceBase from './sys-update-log-auth-service-base';
 
 
 /**
- * 系统更新日志权限服务对象
+ * 更新日志权限服务对象
  *
  * @export
  * @class SysUpdateLogAuthService

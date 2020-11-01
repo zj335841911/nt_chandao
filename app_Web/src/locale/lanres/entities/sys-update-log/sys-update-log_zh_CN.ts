@@ -14,19 +14,19 @@ export default {
   },
 	views: {
 		infoeditview: {
-			caption: "系统更新日志",
+			caption: "更新日志",
       		title: "系统更新日志编辑视图",
 		},
 		editview: {
-			caption: "系统更新日志",
+			caption: "更新日志",
       		title: "系统更新日志编辑视图",
 		},
 		tabexpview: {
-			caption: "系统更新日志",
+			caption: "更新日志",
       		title: "系统更新日志分页导航视图",
 		},
 		gridview: {
-			caption: "系统更新日志",
+			caption: "更新日志",
       		title: "系统更新日志表格视图",
 		},
 	},

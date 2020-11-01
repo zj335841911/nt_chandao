@@ -14,7 +14,7 @@ import DefaultModel from './default-searchform-model';
 export default class DefaultService extends ControlService {
 
     /**
-     * 系统更新日志服务对象
+     * 更新日志服务对象
      *
      * @type {SysUpdateLogService}
      * @memberof DefaultService

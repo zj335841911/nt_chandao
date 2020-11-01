@@ -3281,7 +3281,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
         },
         "sysupdateloginfoeditview": {
             "title": "系统更新日志编辑视图",
-            "caption": "系统更新日志",
+            "caption": "更新日志",
             "viewtype": "DEEDITVIEW",
             "viewmodule": "ibiz",
             "viewname": "SysUpdateLogInfoEditView",
@@ -3449,7 +3449,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
         },
         "sysupdatelogeditview": {
             "title": "系统更新日志编辑视图",
-            "caption": "系统更新日志",
+            "caption": "更新日志",
             "viewtype": "DEEDITVIEW",
             "viewmodule": "ibiz",
             "viewname": "SysUpdateLogEditView",
@@ -3561,7 +3561,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
         },
         "sysupdatelogtabexpview": {
             "title": "系统更新日志分页导航视图",
-            "caption": "系统更新日志",
+            "caption": "更新日志",
             "viewtype": "DETABEXPVIEW",
             "viewmodule": "ibiz",
             "viewname": "SysUpdateLogTabExpView",
@@ -3577,7 +3577,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
         },
         "sysupdateloggridview": {
             "title": "系统更新日志表格视图",
-            "caption": "系统更新日志",
+            "caption": "更新日志",
             "viewtype": "DEGRIDVIEW",
             "viewmodule": "ibiz",
             "viewname": "SysUpdateLogGridView",
