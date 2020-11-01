@@ -847,6 +847,26 @@ public class StaticDict {
     }
 
 
+    /**
+     * 代码表[指派用户-关闭]
+     */
+    @Getter
+    public enum Assignedto_closed {
+        CLOSED("closed","关闭");
+
+        private String value;
+        private String text;
+        private String valueSeparator="";
+        private String textSeparator="";
+        private String emptyText="";
+
+        Assignedto_closed(String value , String text) {
+            this.value=value;
+            this.text = text;
+        }
+    }
+
+
 
     /**
      * 代码表[ZT_USER__GENDER]
