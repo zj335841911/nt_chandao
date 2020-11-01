@@ -91,8 +91,9 @@ export class PlanNewEditFormBase extends EditFormControlBase {
         plan: null,
         source: null,
         sourcenote: null,
-        reviewedby: null,
         assignedto: null,
+        neednotreview: null,
+        reviewedby: null,
         project: null,
         title: null,
         pri: null,
@@ -117,6 +118,10 @@ export class PlanNewEditFormBase extends EditFormControlBase {
         prodoctname: [
             { required: this.detailsModel.prodoctname.required, type: 'string', message: '所属产品 值不能为空', trigger: 'change' },
             { required: this.detailsModel.prodoctname.required, type: 'string', message: '所属产品 值不能为空', trigger: 'blur' },
+        ],
+        assignedto: [
+            { required: this.detailsModel.assignedto.required, type: 'string', message: '由谁评审 值不能为空', trigger: 'change' },
+            { required: this.detailsModel.assignedto.required, type: 'string', message: '由谁评审 值不能为空', trigger: 'blur' },
         ],
         title: [
             { required: this.detailsModel.title.required, type: 'string', message: '需求名称 值不能为空', trigger: 'change' },
@@ -177,9 +182,11 @@ export class PlanNewEditFormBase extends EditFormControlBase {
 
         sourcenote: new FormItemModel({ caption: '来源备注', detailType: 'FORMITEM', name: 'sourcenote', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 
-        reviewedby: new FormItemModel({ caption: '由谁评审', detailType: 'FORMITEM', name: 'reviewedby', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+        assignedto: new FormItemModel({ caption: '由谁评审', detailType: 'FORMITEM', name: 'assignedto', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:true, disabled: false, enableCond: 3 }),
 
-        assignedto: new FormItemModel({ caption: '由谁评审', detailType: 'FORMITEM', name: 'assignedto', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+        neednotreview: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'neednotreview', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+
+        reviewedby: new FormItemModel({ caption: '由谁评审', detailType: 'FORMITEM', name: 'reviewedby', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 
         project: new FormItemModel({ caption: '项目', detailType: 'FORMITEM', name: 'project', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 
@@ -220,6 +227,59 @@ export class PlanNewEditFormBase extends EditFormControlBase {
         if (Object.is(name, 'prodoctname')) {
             this.onFormItemValueChange({ name: 'plan', value: null });
         }
+        if (Object.is(name, 'neednotreview')) {
+            this.onFormItemValueChange({ name: 'assignedto', value: null });
+        }
+    }
+
+    /**
+     * 表单项逻辑
+     *
+     * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
+     * @returns {Promise<void>}
+     * @memberof PlanNewEditFormBase
+     */
+    public async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): Promise<void> {
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        if (Object.is(name, '') || Object.is(name, 'neednotreview')) {
+            let ret = true;
+            const _neednotreview = this.data.neednotreview;
+            if (this.$verify.testCond(_neednotreview, 'ISNULL', '') || this.$verify.testCond(_neednotreview, 'EQ', '0')) {
+                ret = false;
+            }
+            this.detailsModel.assignedto.required = ret;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 
     /**
@@ -229,6 +289,9 @@ export class PlanNewEditFormBase extends EditFormControlBase {
     public createDefault(){                    
         if (this.data.hasOwnProperty('plan')) {
             this.data['plan'] = this.viewparams['plan'];
+        }
+        if (this.data.hasOwnProperty('neednotreview')) {
+            this.data['neednotreview'] = '1';
         }
     }
 }
