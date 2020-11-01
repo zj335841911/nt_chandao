@@ -6,7 +6,7 @@ import SysUpdateLogService from '@/service/sys-update-log/sys-update-log-service
 import SysUpdateLogAuthService from '@/authservice/sys-update-log/sys-update-log-auth-service';
 
 /**
- * 系统更新日志UI服务对象基类
+ * 更新日志UI服务对象基类
  *
  * @export
  * @class SysUpdateLogUIServiceBase
@@ -101,7 +101,7 @@ export default class SysUpdateLogUIServiceBase extends UIService {
             srfappde: 'sysupdatelogs',
             component: 'sys-update-log-edit-view',
             openmode: 'DRAWER_RIGHT',
-            title: '系统更新日志',
+            title: '更新日志',
             width: 0,
             height: 0
         });
@@ -110,7 +110,7 @@ export default class SysUpdateLogUIServiceBase extends UIService {
             srfappde: 'sysupdatelogs',
             component: 'sys-update-log-grid-view',
             openmode: '',
-            title: '系统更新日志',
+            title: '更新日志',
             width: 0,
             height: 0
         });

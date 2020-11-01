@@ -14,7 +14,7 @@ import TabExpViewtabexppanelModel from './tab-exp-viewtabexppanel-tabexppanel-mo
 export default class TabExpViewtabexppanelService extends ControlService {
 
     /**
-     * 系统更新日志服务对象
+     * 更新日志服务对象
      *
      * @type {SysUpdateLogService}
      * @memberof TabExpViewtabexppanelService

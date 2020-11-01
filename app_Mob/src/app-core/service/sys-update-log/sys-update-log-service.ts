@@ -3,7 +3,7 @@ import {SysUpdateLogServiceBase} from './sys-update-log-service-base';
 
 
 /**
- * 系统更新日志服务对象
+ * 更新日志服务对象
  *
  * @export
  * @class SysUpdateLogService

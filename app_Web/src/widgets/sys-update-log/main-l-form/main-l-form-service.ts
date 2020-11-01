@@ -14,7 +14,7 @@ import MainLModel from './main-l-form-model';
 export default class MainLService extends ControlService {
 
     /**
-     * 系统更新日志服务对象
+     * 更新日志服务对象
      *
      * @type {SysUpdateLogService}
      * @memberof MainLService

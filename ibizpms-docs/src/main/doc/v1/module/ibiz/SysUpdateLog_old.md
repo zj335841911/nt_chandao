@@ -1,10 +1,10 @@
-# 系统更新日志(SYS_UPDATE_LOG)
+# 更新日志(SYS_UPDATE_LOG)
 
   
 
 ## 关系
 {% plantuml %}
-系统更新日志 *-- 系统更新功能 
+更新日志 *-- 系统更新功能 
 hide members
 {% endplantuml %}
 
@@ -64,7 +64,7 @@ hide members
 {% plantuml %}
 hide footbox
 
-系统更新日志 -> 系统更新日志: 更新最新更新标识
+更新日志 -> 更新日志: 更新最新更新标识
 {% endplantuml %}
 
 | 步骤       | 操作        |
@@ -92,6 +92,7 @@ hide footbox
 | 属性      |    搜索模式     |
 | --------   |------------|
 |更新名称(SYS_UPDATE_LOGNAME)|LIKE|
+|最新更新(LATESTUPDATE)|EQ|
 |更新平台(UPDATEBRANCH)|EQ|
 
 ## 导入模式

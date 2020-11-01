@@ -30,7 +30,7 @@ import cn.ibizlab.pms.util.domain.EntityMP;
 import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 
 /**
- * 实体[系统更新日志]
+ * 实体[更新日志]
  */
 @Getter
 @Setter

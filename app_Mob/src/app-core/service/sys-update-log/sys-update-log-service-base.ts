@@ -4,7 +4,7 @@ import  { EntityService }  from '@/ibiz-core';
 
 
 /**
- * 系统更新日志服务对象基类
+ * 更新日志服务对象基类
  *
  * @export
  * @class SysUpdateLogServiceBase

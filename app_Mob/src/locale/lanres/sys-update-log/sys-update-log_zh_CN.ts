@@ -14,10 +14,10 @@ export default {
   },
 	views: {
 		mobmdview: {
-			caption: '系统更新日志',
+			caption: '更新日志',
 		},
 		mobeditview: {
-			caption: '系统更新日志',
+			caption: '更新日志',
 		},
 	},
 	mobmain_form: {
@@ -36,9 +36,9 @@ export default {
 			srfuf: '', 
 			srfdeid: '', 
 			srfsourcekey: '', 
-			sys_update_logname: '更新名称', 
-			update: '更新日期', 
-			updesc: '更新说明', 
+			sys_update_logname: '', 
+			update: '', 
+			updesc: '', 
 			sys_update_logid: '系统更新日志标识', 
 		},
 		uiactions: {

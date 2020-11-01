@@ -1,7 +1,7 @@
 import SysUpdateLogUIServiceBase from './sys-update-log-ui-service-base';
 
 /**
- * 系统更新日志UI服务对象
+ * 更新日志UI服务对象
  *
  * @export
  * @class SysUpdateLogUIService

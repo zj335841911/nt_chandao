@@ -49,7 +49,7 @@ String
 #### 关系属性
 | 项目 | 说明 |
 | -- | -- |
-| 关系实体 | [系统更新日志（SYS_UPDATE_LOG）](../ibiz/SysUpdateLog) |
+| 关系实体 | [更新日志（SYS_UPDATE_LOG）](../ibiz/SysUpdateLog) |
 | 关系属性 | [更新名称（SYS_UPDATE_LOGNAME）](../ibiz/SysUpdateLog/#属性-更新名称（SYS_UPDATE_LOGNAME）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
 
@@ -81,7 +81,7 @@ String
 #### 关系属性
 | 项目 | 说明 |
 | -- | -- |
-| 关系实体 | [系统更新日志（SYS_UPDATE_LOG）](../ibiz/SysUpdateLog) |
+| 关系实体 | [更新日志（SYS_UPDATE_LOG）](../ibiz/SysUpdateLog) |
 | 关系属性 | [更新名称（SYS_UPDATE_LOGNAME）](../ibiz/SysUpdateLog/#属性-更新名称（SYS_UPDATE_LOGNAME）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
 
@@ -113,7 +113,7 @@ String
 #### 关系属性
 | 项目 | 说明 |
 | -- | -- |
-| 关系实体 | [系统更新日志（SYS_UPDATE_LOG）](../ibiz/SysUpdateLog) |
+| 关系实体 | [更新日志（SYS_UPDATE_LOG）](../ibiz/SysUpdateLog) |
 | 关系属性 | [更新名称（SYS_UPDATE_LOGNAME）](../ibiz/SysUpdateLog/#属性-更新名称（SYS_UPDATE_LOGNAME）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
 
@@ -145,7 +145,7 @@ String
 #### 关系属性
 | 项目 | 说明 |
 | -- | -- |
-| 关系实体 | [系统更新日志（SYS_UPDATE_LOG）](../ibiz/SysUpdateLog) |
+| 关系实体 | [更新日志（SYS_UPDATE_LOG）](../ibiz/SysUpdateLog) |
 | 关系属性 | [更新名称（SYS_UPDATE_LOGNAME）](../ibiz/SysUpdateLog/#属性-更新名称（SYS_UPDATE_LOGNAME）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
 
@@ -177,7 +177,7 @@ yyyy-MM-dd HH:mm:ss
 #### 关系属性
 | 项目 | 说明 |
 | -- | -- |
-| 关系实体 | [系统更新日志（SYS_UPDATE_LOG）](../ibiz/SysUpdateLog) |
+| 关系实体 | [更新日志（SYS_UPDATE_LOG）](../ibiz/SysUpdateLog) |
 | 关系属性 | [更新名称（SYS_UPDATE_LOGNAME）](../ibiz/SysUpdateLog/#属性-更新名称（SYS_UPDATE_LOGNAME）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
 
@@ -209,7 +209,7 @@ yyyy-MM-dd HH:mm:ss
 #### 关系属性
 | 项目 | 说明 |
 | -- | -- |
-| 关系实体 | [系统更新日志（SYS_UPDATE_LOG）](../ibiz/SysUpdateLog) |
+| 关系实体 | [更新日志（SYS_UPDATE_LOG）](../ibiz/SysUpdateLog) |
 | 关系属性 | [更新名称（SYS_UPDATE_LOGNAME）](../ibiz/SysUpdateLog/#属性-更新名称（SYS_UPDATE_LOGNAME）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
 
@@ -241,7 +241,7 @@ String
 #### 关系属性
 | 项目 | 说明 |
 | -- | -- |
-| 关系实体 | [系统更新日志（SYS_UPDATE_LOG）](../ibiz/SysUpdateLog) |
+| 关系实体 | [更新日志（SYS_UPDATE_LOG）](../ibiz/SysUpdateLog) |
 | 关系属性 | [系统更新日志标识（SYS_UPDATE_LOGID）](../ibiz/SysUpdateLog/#属性-系统更新日志标识（SYS_UPDATE_LOGID）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
 
@@ -273,7 +273,7 @@ String
 #### 关系属性
 | 项目 | 说明 |
 | -- | -- |
-| 关系实体 | [系统更新日志（SYS_UPDATE_LOG）](../ibiz/SysUpdateLog) |
+| 关系实体 | [更新日志（SYS_UPDATE_LOG）](../ibiz/SysUpdateLog) |
 | 关系属性 | [更新名称（SYS_UPDATE_LOGNAME）](../ibiz/SysUpdateLog/#属性-更新名称（SYS_UPDATE_LOGNAME）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
 
@@ -305,7 +305,7 @@ String
 #### 关系属性
 | 项目 | 说明 |
 | -- | -- |
-| 关系实体 | [系统更新日志（SYS_UPDATE_LOG）](../ibiz/SysUpdateLog) |
+| 关系实体 | [更新日志（SYS_UPDATE_LOG）](../ibiz/SysUpdateLog) |
 | 关系属性 | [更新名称（SYS_UPDATE_LOGNAME）](../ibiz/SysUpdateLog/#属性-更新名称（SYS_UPDATE_LOGNAME）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
 
@@ -337,7 +337,7 @@ String
 #### 关系属性
 | 项目 | 说明 |
 | -- | -- |
-| 关系实体 | [系统更新日志（SYS_UPDATE_LOG）](../ibiz/SysUpdateLog) |
+| 关系实体 | [更新日志（SYS_UPDATE_LOG）](../ibiz/SysUpdateLog) |
 | 关系属性 | [更新名称（SYS_UPDATE_LOGNAME）](../ibiz/SysUpdateLog/#属性-更新名称（SYS_UPDATE_LOGNAME）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
 
@@ -369,7 +369,7 @@ String
 #### 关系属性
 | 项目 | 说明 |
 | -- | -- |
-| 关系实体 | [系统更新日志（SYS_UPDATE_LOG）](../ibiz/SysUpdateLog) |
+| 关系实体 | [更新日志（SYS_UPDATE_LOG）](../ibiz/SysUpdateLog) |
 | 关系属性 | [更新名称（SYS_UPDATE_LOGNAME）](../ibiz/SysUpdateLog/#属性-更新名称（SYS_UPDATE_LOGNAME）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
 
@@ -401,7 +401,7 @@ Integer
 #### 关系属性
 | 项目 | 说明 |
 | -- | -- |
-| 关系实体 | [系统更新日志（SYS_UPDATE_LOG）](../ibiz/SysUpdateLog) |
+| 关系实体 | [更新日志（SYS_UPDATE_LOG）](../ibiz/SysUpdateLog) |
 | 关系属性 | [更新名称（SYS_UPDATE_LOGNAME）](../ibiz/SysUpdateLog/#属性-更新名称（SYS_UPDATE_LOGNAME）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
 

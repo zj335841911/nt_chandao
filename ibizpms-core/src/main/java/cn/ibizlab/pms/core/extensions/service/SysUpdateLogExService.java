@@ -19,7 +19,7 @@ import org.springframework.util.StringUtils;
 import java.util.*;
 
 /**
- * 实体[系统更新日志] 自定义服务对象
+ * 实体[更新日志] 自定义服务对象
  */
 @Slf4j
 @Primary

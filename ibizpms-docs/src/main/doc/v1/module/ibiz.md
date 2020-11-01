@@ -76,7 +76,7 @@ class 项目团队 {
 class 系统更新功能 {
 }
 
-class 系统更新日志 {
+class 更新日志 {
 }
 
 class 待办消息记录 {
@@ -119,7 +119,7 @@ class 用户年度工作内容统计 {
 测试模块 *-- 测试模块 
 
 
-系统更新日志 *-- 系统更新功能 
+更新日志 *-- 系统更新功能 
 
 
 
@@ -157,7 +157,7 @@ hide members
 |IBZ_PROJECTSTATS|[项目统计](ibiz/ProjectStats.md)|主实体|&nbsp;|
 |IBZ_PROJECTTEAM|[项目团队](ibiz/ProjectTeam.md)|主实体|&nbsp;|
 |SYS_UPDATE_FEATURES|[系统更新功能](ibiz/SysUpdateFeatures.md)|主实体|&nbsp;|
-|SYS_UPDATE_LOG|[系统更新日志](ibiz/SysUpdateLog.md)|主实体|&nbsp;|
+|SYS_UPDATE_LOG|[更新日志](ibiz/SysUpdateLog.md)|主实体|&nbsp;|
 |TASKMSGRECORD|[待办消息记录](ibiz/TaskMsgRecord.md)|主实体|&nbsp;用于保存待办消息发送成功后，返回的ID|
 |IBZ_TASKTEAM|[任务团队](ibiz/TaskTeam.md)|主实体|&nbsp;任务团队|
 |IBZ_TESTMODULE|[测试模块](ibiz/TestModule.md)|主实体|&nbsp;|

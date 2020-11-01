@@ -498,7 +498,7 @@ export default class MobBase extends Vue implements ControlInterface {
     * @param {object} 
     * @memberof Mob
     */
-    public sort: any = { };
+    public sort: any = { sort:'updatedate,desc'};
     
 
     /**

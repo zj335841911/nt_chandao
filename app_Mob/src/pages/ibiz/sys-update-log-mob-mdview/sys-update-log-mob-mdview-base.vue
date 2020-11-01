@@ -11,7 +11,6 @@
             </ion-buttons>
             <ion-title class="view-title"><label class="title-label"><ion-icon v-if="model.icon" :name="model.icon"></ion-icon> <img v-else-if="model.iconcls" :src="model.iconcls" alt=""> {{$t(model.srfCaption)}}</label></ion-title>
         </ion-toolbar>
-        <app-search-history @quickValueChange="quickValueChange" :model="model" :showfilter="false"></app-search-history>
 
     
     </ion-header>
@@ -174,7 +173,7 @@ export default class SysUpdateLogMobMDViewBase extends Vue {
      * @type {*}
      * @memberof SysUpdateLogMobMDViewBase
      */
-    protected navContext: any = {};
+    protected navContext: any = { 'n_updatebranch_eq': 'MOB' };
 
     /**
      * 视图导航参数
@@ -183,7 +182,7 @@ export default class SysUpdateLogMobMDViewBase extends Vue {
      * @type {*}
      * @memberof SysUpdateLogMobMDViewBase
      */
-    protected navParam: any = {};
+    protected navParam: any = { 'n_updatebranch_eq': 'MOB' };
 
     /**
      * 视图模型数据
@@ -718,37 +717,6 @@ export default class SysUpdateLogMobMDViewBase extends Vue {
      */
     public isScrollStop = true;
 
-
-    /**
-     * 搜索值
-     *
-     * @type {string}
-     * @memberof SysUpdateLogMobMDViewBase
-     */
-    public query: string = '';
-
-    /**
-     * 快速搜索值变化
-     *
-     * @param {*} event
-     * @returns
-     * @memberof SysUpdateLogMobMDViewBase
-     */
-    public async quickValueChange(event: any) {
-        let { detail } = event;
-        if (!detail) {
-            return;
-        }
-        let { value } = detail;
-        this.query = value;
-
-        const mdctrl: any = this.$refs.mdctrl;
-        if (mdctrl) {
-            let response = await mdctrl.quickSearch(this.query);
-            if (response) {
-            }
-        }
-    }
 
    /**
      * 是否单选

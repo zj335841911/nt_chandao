@@ -34,6 +34,13 @@ public class SysUpdateLogSearchContext extends QueryWrapperContext<SysUpdateLog>
             this.getSearchCond().like("sys_update_logname", n_sys_update_logname_like);
         }
     }
+	private Integer n_latestupdate_eq;//[最新更新]
+	public void setN_latestupdate_eq(Integer n_latestupdate_eq) {
+        this.n_latestupdate_eq = n_latestupdate_eq;
+        if(!ObjectUtils.isEmpty(this.n_latestupdate_eq)){
+            this.getSearchCond().eq("latestupdate", n_latestupdate_eq);
+        }
+    }
 	private String n_updatebranch_eq;//[更新平台]
 	public void setN_updatebranch_eq(String n_updatebranch_eq) {
         this.n_updatebranch_eq = n_updatebranch_eq;
