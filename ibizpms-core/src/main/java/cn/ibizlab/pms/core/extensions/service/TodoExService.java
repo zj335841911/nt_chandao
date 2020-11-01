@@ -2,6 +2,7 @@ package cn.ibizlab.pms.core.extensions.service;
 
 import cn.ibizlab.pms.core.util.message.SendMessage;
 import cn.ibizlab.pms.core.zentao.service.impl.TodoServiceImpl;
+import cn.ibizlab.pms.util.dict.StaticDict;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import lombok.extern.slf4j.Slf4j;
@@ -82,17 +83,18 @@ public class TodoExService extends TodoServiceImpl {
             et.setId(key);
         }
         else{
-            if(et.getType() != null && "cycle".equals(et.getType()) && et.getConfig() != null && !"".equals(et.getConfig())) {
+
+            if(et.getType() != null && StaticDict.Type.CYCLE.getValue().equals(et.getType()) && et.getConfig() != null && !"".equals(et.getConfig())) {
                 JSONObject jsonObject = JSONObject.parseObject(et.getConfig());
                 et.setConfigType(jsonObject.getString("type"));
                 et.setConfigBeforedays(jsonObject.getInteger("beforeDays"));
                 et.setConfigEnd(jsonObject.getTimestamp("end"));
                 et.setConfigDay(0);
-                if("day".equals(et.getConfigType())) {
+                if(StaticDict.CycleType.DAY.getValue().equals(et.getConfigType())) {
                     et.setConfigDay(jsonObject.getInteger("day"));
-                }else if("week".equals(et.getConfigType())) {
+                }else if(StaticDict.CycleType.WEEK.getValue().equals(et.getConfigType())) {
                     et.setConfigWeek(jsonObject.getString("week"));
-                }else if("month".equals(et.getConfigType())) {
+                }else if(StaticDict.CycleType.MONTH.getValue().equals(et.getConfigType())) {
                     et.setConfigMonth(jsonObject.getString("month"));
                 }
             }

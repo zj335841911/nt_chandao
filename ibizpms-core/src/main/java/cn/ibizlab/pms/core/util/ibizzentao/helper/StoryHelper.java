@@ -123,7 +123,7 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
             bug.setResolveddate(ZTDateUtil.now());
             bug.setClosedby(AuthenticationUser.getAuthenticationUser().getUsername());
             bug.setCloseddate(ZTDateUtil.now());
-            bug.setAssignedto("closed");
+            bug.setAssignedto(StaticDict.Assignedto_closed.CLOSED.getValue());
             bug.setAssigneddate(ZTDateUtil.now());
             bugHelper.internalUpdate(bug);
 
@@ -232,15 +232,19 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
 
             //projectProduct 处理
             //需求相关项目  挪至  新的product
-            ArrayList<Long> projects = new ArrayList();
+
             List<ProjectStory> projectStories = projectStoryHelper.list(new QueryWrapper<ProjectStory>().select("distinct project").eq("story", et.getId()));
+            Long[] projects = new Long[projectStories.size()];
+            int i = 0;
             for (ProjectStory projectStory : projectStories) {
-                projects.add(projectStory.getProject());
+                projects[i] = projectStory.getProject();
             }
-            List<ProjectProduct> projectProducts = peojectProductHelper.list(new QueryWrapper<ProjectProduct>().eq("product", old.getProduct()).in("project", projects).ne("product", et.getProduct()));
-            for (ProjectProduct projectProduct : projectProducts) {
-                projectProduct.setProduct(et.getProduct());
-                peojectProductHelper.create(projectProduct);
+            if(projects.length > 0) {
+                List<ProjectProduct> projectProducts = peojectProductHelper.list(new QueryWrapper<ProjectProduct>().eq("product", old.getProduct()).in("project", projects).ne("product", et.getProduct()));
+                for (ProjectProduct projectProduct : projectProducts) {
+                    projectProduct.setProduct(et.getProduct());
+                    peojectProductHelper.create(projectProduct);
+                }
             }
         }
 
@@ -470,7 +474,7 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
             et.setClosedby(AuthenticationUser.getAuthenticationUser().getUsername());
             et.setStatus(StaticDict.Story__status.CLOSED.getValue());
             et.setStage(StaticDict.Story__stage.CLOSED.getValue());
-            et.setAssignedto("closed");
+            et.setAssignedto(StaticDict.Assignedto_closed.CLOSED.getValue());
         } else if (StringUtils.compare(result, StaticDict.Story__review_result.REVERT.getValue()) == 0) {
             et.setStatus(StaticDict.Story__status.ACTIVE.getValue());
             StorySpec oldStorySpec = storySpecHelper.getOne(new QueryWrapper<StorySpec>().eq("story", old.getId()).eq("version", et.getPreversion()));
@@ -843,7 +847,7 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
                 story1.set("reviewedDate","0000-00-00");
             }
             else if(StaticDict.Story__status.CLOSED.getValue().equals(parentStatus)) {
-                story1.setAssignedto("closed");
+                story1.setAssignedto(StaticDict.Assignedto_closed.CLOSED.getValue());
                 story1.setAssigneddate(timestamp);
                 story1.setClosedby(AuthenticationUser.getAuthenticationUser().getLoginname());
                 story1.setClosedreason(StaticDict.Story__closed_reason.DONE.getValue());

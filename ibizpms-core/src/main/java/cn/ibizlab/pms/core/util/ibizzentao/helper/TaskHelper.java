@@ -1157,7 +1157,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         newTask.setLastediteddate(ZTDateUtil.now());
         newTask.setLasteditedby(AuthenticationUser.getAuthenticationUser().getUsername());
         newTask.setStatus(StaticDict.Task__status.CLOSED.getValue());
-        newTask.setAssignedto("closed");
+        newTask.setAssignedto(StaticDict.Assignedto_closed.CLOSED.getValue());
         newTask.setAssigneddate(ZTDateUtil.now());
 
         newTask.setClosedby(AuthenticationUser.getAuthenticationUser().getUsername());

@@ -47,12 +47,12 @@ public class TodoHelper extends ZTBaseHelper<TodoMapper, Todo> {
             config.put("beforeDays", et.getConfigBeforedays());
             if (et.getConfigEnd() != null)
                 config.put("end", et.getConfigEnd());
-            if (StringUtils.compare(et.getConfigType(), "day") == 0) {
-                config.put("day", et.getConfigDay());
-            } else if (StringUtils.compare(et.getConfigType(), "month") == 0) {
-                config.put("month", et.getConfigMonth());
-            } else if (StringUtils.compare(et.getConfigType(), "week") == 0) {
-                config.put("week", et.getConfigWeek());
+            if (StringUtils.compare(et.getConfigType(), StaticDict.CycleType.DAY.getValue()) == 0) {
+                config.put(StaticDict.CycleType.DAY.getValue(), et.getConfigDay());
+            } else if (StringUtils.compare(et.getConfigType(), StaticDict.CycleType.MONTH.getValue()) == 0) {
+                config.put(StaticDict.CycleType.MONTH.getValue(), et.getConfigMonth());
+            } else if (StringUtils.compare(et.getConfigType(), StaticDict.CycleType.WEEK.getValue()) == 0) {
+                config.put(StaticDict.CycleType.WEEK.getValue(), et.getConfigWeek());
             }
             et.setConfig(config.toString());
         } else {
@@ -92,12 +92,12 @@ public class TodoHelper extends ZTBaseHelper<TodoMapper, Todo> {
             config.put("beforeDays", et.getConfigBeforedays());
             if (et.getConfigEnd() != null)
                 config.put("end", et.getConfigEnd());
-            if (StringUtils.compare(et.getConfigType(), "day") == 0) {
-                config.put("day", et.getConfigDay());
-            } else if (StringUtils.compare(et.getConfigType(), "month") == 0) {
-                config.put("month", et.getConfigMonth());
-            } else if (StringUtils.compare(et.getConfigType(), "week") == 0) {
-                config.put("week", et.getConfigWeek());
+            if (StringUtils.compare(et.getConfigType(), StaticDict.CycleType.DAY.getValue()) == 0) {
+                config.put(StaticDict.CycleType.DAY.getValue(), et.getConfigDay());
+            } else if (StringUtils.compare(et.getConfigType(), StaticDict.CycleType.MONTH.getValue()) == 0) {
+                config.put(StaticDict.CycleType.MONTH.getValue(), et.getConfigMonth());
+            } else if (StringUtils.compare(et.getConfigType(), StaticDict.CycleType.WEEK.getValue()) == 0) {
+                config.put(StaticDict.CycleType.WEEK.getValue(), et.getConfigWeek());
             }
             et.setConfig(config.toString());
         } else {
@@ -143,7 +143,7 @@ public class TodoHelper extends ZTBaseHelper<TodoMapper, Todo> {
             et.setStatus(StaticDict.Todo__status.WAIT.getValue());
             this.internalUpdate(et);
             actionHelper.create(StaticDict.Action__object_type.TODO.getValue(), et.getId(), StaticDict.Action__type.ACTIVATED.getValue(),
-                    "", "wait", null, true);
+                    "", et.getStatus(), null, true);
         }
 
         return et;
@@ -157,11 +157,11 @@ public class TodoHelper extends ZTBaseHelper<TodoMapper, Todo> {
             et.setStatus(StaticDict.Todo__status.CLOSED.getValue());
             et.setClosedby(AuthenticationUser.getAuthenticationUser().getUsername());
             et.setCloseddate(ZTDateUtil.now());
-            et.setAssignedto("closed");
+            et.setAssignedto(StaticDict.Assignedto_closed.CLOSED.getValue());
             et.setAssigneddate(ZTDateUtil.now());
             this.internalUpdate(et);
             actionHelper.create(StaticDict.Action__object_type.TODO.getValue(), et.getId(), StaticDict.Action__type.CLOSED.getValue(),
-                    "", "closed", null, true);
+                    "", et.getAssignedto(), null, true);
         }
 
         return et;
@@ -177,7 +177,7 @@ public class TodoHelper extends ZTBaseHelper<TodoMapper, Todo> {
             et.setFinisheddate(ZTDateUtil.now());
             this.internalUpdate(et);
             actionHelper.create(StaticDict.Action__object_type.TODO.getValue(), et.getId(), StaticDict.Action__type.FINISHED.getValue(),
-                    "", "done", null, true);
+                    "", et.getStatus(), null, true);
         }
 
         return et;

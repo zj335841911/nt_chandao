@@ -193,7 +193,7 @@ public class CaseHelper extends ZTBaseHelper<CaseMapper, Case> {
                         caseStep.setSteps(StaticDict.Testcase__result.FAIL.getValue());
                     }
                 }
-                if(!"n/a".equals(caseStep.getSteps()) && !StaticDict.Testcase__result.PASS.getValue().equals(caseStep.getSteps())) {
+                if(!StaticDict.Testcase__result.N_A.getValue().equals(caseStep.getSteps()) && !StaticDict.Testcase__result.PASS.getValue().equals(caseStep.getSteps())) {
                     caseResult = caseStep.getSteps();
                     break;
                 }

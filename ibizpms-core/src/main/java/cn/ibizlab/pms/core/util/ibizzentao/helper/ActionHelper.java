@@ -24,7 +24,7 @@ import java.util.List;
 @Slf4j
 public class ActionHelper extends ZTBaseHelper<ActionMapper, Action> {
 
-    String[] processType = new String[]{"story", "productplan", "release", "task", "build", "bug", "case", "testtask", "doc"};
+    String[] processType = new String[]{StaticDict.Action__object_type.STORY.getValue(), StaticDict.Action__object_type.PRODUCTPLAN.getValue(), StaticDict.Action__object_type.RELEASE.getValue(), StaticDict.Action__object_type.TASK.getValue(), StaticDict.Action__object_type.BUILD.getValue(), StaticDict.Action__object_type.BUG.getValue(), StaticDict.Action__object_type.CASE.getValue(), StaticDict.Action__object_type.TESTTASK.getValue(), StaticDict.Action__object_type.DOC.getValue()};
 
     @Autowired
     FileHelper fileHelper;
