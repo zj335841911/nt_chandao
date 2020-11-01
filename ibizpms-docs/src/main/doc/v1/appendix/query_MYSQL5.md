@@ -1556,7 +1556,7 @@ t1.`TESTTASK`,
 t1.`TITLE`,
 t1.`TOSTORY`,
 t1.`TOTASK`,
-case when t1.`TYPE` = '' then '无' else t1.type end as  `TYPE`,
+case when t1.`TYPE` = 'codeerror' then '代码错误' when t1.`TYPE` = 'config' then '配置相关' when t1.`TYPE` = 'install' then '安装部署' when t1.`TYPE` = 'security' then '安全相关' when t1.`TYPE` = 'performance' then '性能问题' when t1.`TYPE` = 'standard' then '标准规范' when t1.`TYPE` = 'automation' then '测试脚本' when t1.`TYPE` = 'designdefect' then '设计缺陷' when t1.`TYPE` = 'others' then '其他' else t1.type end as  `TYPE`,
 t1.`V1`,
 t1.`V2`
 FROM `zt_bug` t1 
