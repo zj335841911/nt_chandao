@@ -498,11 +498,11 @@ export class SysUpdateFeaturesGridViewBase extends GridViewBase {
             });
         }
         const view: any = {
-            viewname: 'sys-update-features-info-edit-view', 
+            viewname: 'sys-update-features-edit-view', 
             height: 0, 
             width: 0,  
-            title: this.$t('entities.sysupdatefeatures.views.infoeditview.title'),
-            placement: 'DRAWER_TOP',
+            title: this.$t('entities.sysupdatefeatures.views.editview.title'),
+            placement: 'DRAWER_RIGHT',
         };
         openDrawer(view, data);
     }

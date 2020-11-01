@@ -2784,7 +2784,6 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'a46f39b0d36c98b4e2fd74b7051fda79',
-                'd97806e4d30ee03bfd34d5df8f96b0a4',
             ],
         },
         {
@@ -3357,16 +3356,6 @@ export const viewstate: any = {
                 'bedf1f50199b74a65c2e17771144329c',
                 'c539f1585371e9943b90177eaef08b6b',
                 'e396b6f39451e3bf963aec602106adf0',
-            ],
-        },
-        {
-            viewtag: 'd97806e4d30ee03bfd34d5df8f96b0a4',
-            viewmodule: 'ibiz',
-            viewname: 'SysUpdateFeaturesInfoEditView',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-                'fb9ed5136261af127c871b1dce82d510',
             ],
         },
         {

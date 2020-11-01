@@ -2,7 +2,7 @@ import { AuthService } from '@ibiz-core/auth-service/auth-service-base';
 
 
 /**
- * 待办事宜表权限服务对象基类
+ * 待办权限服务对象基类
  *
  * @export
  * @class TodoAuthServiceBase

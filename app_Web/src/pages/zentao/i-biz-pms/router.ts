@@ -13026,35 +13026,6 @@ const router = new Router({
                     component: () => import('@pages/ibiz/ibz-case-dashboard-view/ibz-case-dashboard-view.vue'),
                 },
                 {
-                    path: 'sysupdatelogs/:sysupdatelog?/sysupdatefeatures/:sysupdatefeatures?/infoeditview/:infoeditview?',
-                    meta: {
-                        caption: 'entities.sysupdatefeatures.views.infoeditview.caption',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'sysupdatelogs', parameterName: 'sysupdatelog' },
-                            { pathName: 'sysupdatefeatures', parameterName: 'sysupdatefeatures' },
-                            { pathName: 'infoeditview', parameterName: 'infoeditview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/sys-update-features-info-edit-view/sys-update-features-info-edit-view.vue'),
-                },
-                {
-                    path: 'sysupdatefeatures/:sysupdatefeatures?/infoeditview/:infoeditview?',
-                    meta: {
-                        caption: 'entities.sysupdatefeatures.views.infoeditview.caption',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'sysupdatefeatures', parameterName: 'sysupdatefeatures' },
-                            { pathName: 'infoeditview', parameterName: 'infoeditview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/sys-update-features-info-edit-view/sys-update-features-info-edit-view.vue'),
-                },
-                {
                     path: 'actions/:action?/producttrendslistview9/:producttrendslistview9?',
                     meta: {
                         caption: 'entities.action.views.producttrendslistview9.caption',
