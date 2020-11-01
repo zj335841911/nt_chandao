@@ -488,53 +488,6 @@ public class StoryExService extends StoryServiceImpl {
         return et;
     }
 
-    @Override
-    @Transactional
-    @SendMessage
-    public boolean create(Story et) {
-        et.setReviewedby(et.getAssignedto());
-        String files = et.getFiles();
-        boolean flag = super.create(et);
-        if(flag && et.getId() != null && files != null) {
-            JSONArray jsonArray = JSONArray.parseArray(files);
-            List<cn.ibizlab.pms.core.zentao.domain.File> list = new ArrayList<>();
-            for (int i = 0; i < jsonArray.size(); i ++) {
-                JSONObject jsonObject = jsonArray.getJSONObject(i);
-                cn.ibizlab.pms.core.zentao.domain.File file = new cn.ibizlab.pms.core.zentao.domain.File();
-                file.setId(jsonObject.getLongValue("id"));
-                file.setObjectid(et.getId());
-                file.setAddedby(et.getOpenedby());
-                file.setAddeddate(et.getOpeneddate());
-                list.add(file);
-            }
-            fileService.updateBatch(list);
-        }
-        return flag;
-    }
-
-    @Override
-    @Transactional
-    public Story change(Story et) {
-        String files = et.getFiles();
-        et = cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.StoryHelper.class).change(et);
-        if(files != null) {
-            JSONArray jsonArray = JSONArray.parseArray(files);
-            List<cn.ibizlab.pms.core.zentao.domain.File> list = new ArrayList<>();
-            for (int i = 0; i < jsonArray.size(); i ++) {
-                JSONObject jsonObject = jsonArray.getJSONObject(i);
-                cn.ibizlab.pms.core.zentao.domain.File file = new cn.ibizlab.pms.core.zentao.domain.File();
-                file.setId(jsonObject.getLongValue("id"));
-                file.setObjectid(et.getId());
-                file.setAddedby(et.getOpenedby());
-                file.setExtra(String.valueOf(et.getVersion()));
-                file.setAddeddate(et.getOpeneddate());
-                list.add(file);
-            }
-            fileService.updateBatch(list);
-        }
-        return et;
-    }
-
     /**
      * 查询集合 任务相关需求
      */

@@ -37,52 +37,6 @@ public class CaseExService extends CaseServiceImpl {
         return com.baomidou.mybatisplus.core.toolkit.ReflectionKit.getSuperClassGenericType(this.getClass().getSuperclass(), 1);
     }
 
-    @Override
-    @Transactional
-    public boolean update(Case et) {
-        String files = et.getFiles();
-        boolean flag = cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.CaseHelper.class).edit(et);
-        if(flag && et.getId() != null && files != null) {
-            JSONArray jsonArray = JSONArray.parseArray(files);
-            List<File> list = new ArrayList<>();
-            for (int i = 0; i < jsonArray.size(); i ++) {
-                JSONObject jsonObject = jsonArray.getJSONObject(i);
-                File file = new File();
-                file.setId(jsonObject.getLongValue("id"));
-                file.setObjectid(et.getId());
-                file.setAddedby(et.getOpenedby());
-                file.setAddeddate(et.getOpeneddate());
-                file.setExtra(String.valueOf(et.getVersion()));
-                list.add(file);
-            }
-            iFileService.updateBatch(list);
-        }
-        return flag;
-    }
-
-    @Override
-    @Transactional
-    public boolean create(Case et) {
-        String files = et.getFiles();
-        boolean flag = cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.CaseHelper.class).create(et);
-        if(flag && et.getId() != null && files != null) {
-            JSONArray jsonArray = JSONArray.parseArray(files);
-            List<File> list = new ArrayList<>();
-            for (int i = 0; i < jsonArray.size(); i ++) {
-                JSONObject jsonObject = jsonArray.getJSONObject(i);
-                File file = new File();
-                file.setId(jsonObject.getLongValue("id"));
-                file.setObjectid(et.getId());
-                file.setAddedby(et.getOpenedby());
-                file.setAddeddate(et.getOpeneddate());
-                file.setExtra("1");
-                list.add(file);
-            }
-            iFileService.updateBatch(list);
-        }
-        return flag;
-
-    }
 
     /**
      * 行为[Get]用户扩展
