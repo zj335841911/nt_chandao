@@ -175,7 +175,7 @@ export class AssignToMePortletBase extends MainControlBase {
                 return this.height+'px';
             }
         } else {
-            return '200px';
+            return 'auto';
         }
     }
 
