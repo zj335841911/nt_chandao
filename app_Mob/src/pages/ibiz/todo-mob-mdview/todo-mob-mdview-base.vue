@@ -783,7 +783,7 @@ export default class TodoMobMDViewBase extends Vue {
      *
      * @memberof TodoMobMDViewBase
      */
-    public onScroll(e:any){
+    public async onScroll(e:any){
         this.isScrollStop = false;
         if (e.detail.scrollTop>600) {
             this.isShouleBackTop = true;

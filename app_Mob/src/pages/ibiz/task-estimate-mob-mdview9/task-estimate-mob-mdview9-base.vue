@@ -616,7 +616,7 @@ export default class TaskEstimateMobMDView9Base extends Vue {
      *
      * @memberof TaskEstimateMobMDView9Base
      */
-    public onScroll(e:any){
+    public async onScroll(e:any){
         this.isScrollStop = false;
         if (e.detail.scrollTop>600) {
             this.isShouleBackTop = true;

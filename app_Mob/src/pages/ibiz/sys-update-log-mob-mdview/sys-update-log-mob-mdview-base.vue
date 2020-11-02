@@ -673,7 +673,7 @@ export default class SysUpdateLogMobMDViewBase extends Vue {
      *
      * @memberof SysUpdateLogMobMDViewBase
      */
-    public onScroll(e:any){
+    public async onScroll(e:any){
         this.isScrollStop = false;
         if (e.detail.scrollTop>600) {
             this.isShouleBackTop = true;

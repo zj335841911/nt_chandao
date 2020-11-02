@@ -802,7 +802,7 @@ export default class TaskFavoriteMoreMobMDViewBase extends Vue {
      *
      * @memberof TaskFavoriteMoreMobMDViewBase
      */
-    public onScroll(e:any){
+    public async onScroll(e:any){
         this.isScrollStop = false;
         if (e.detail.scrollTop>600) {
             this.isShouleBackTop = true;

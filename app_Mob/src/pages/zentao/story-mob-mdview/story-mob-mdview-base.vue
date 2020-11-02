@@ -911,7 +911,7 @@ export default class StoryMobMDViewBase extends Vue {
      *
      * @memberof StoryMobMDViewBase
      */
-    public onScroll(e:any){
+    public async onScroll(e:any){
         this.isScrollStop = false;
         if (e.detail.scrollTop>600) {
             this.isShouleBackTop = true;

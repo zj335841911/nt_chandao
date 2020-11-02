@@ -911,7 +911,7 @@ export default class ProductPlanMobMDViewBase extends Vue {
      *
      * @memberof ProductPlanMobMDViewBase
      */
-    public onScroll(e:any){
+    public async onScroll(e:any){
         this.isScrollStop = false;
         if (e.detail.scrollTop>600) {
             this.isShouleBackTop = true;

@@ -771,7 +771,7 @@ export default class BugAssMobMDViewBase extends Vue {
      *
      * @memberof BugAssMobMDViewBase
      */
-    public onScroll(e:any){
+    public async onScroll(e:any){
         this.isScrollStop = false;
         if (e.detail.scrollTop>600) {
             this.isShouleBackTop = true;

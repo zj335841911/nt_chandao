@@ -933,7 +933,7 @@ export default class TaskMobMDViewBase extends Vue {
      *
      * @memberof TaskMobMDViewBase
      */
-    public onScroll(e:any){
+    public async onScroll(e:any){
         this.isScrollStop = false;
         if (e.detail.scrollTop>600) {
             this.isShouleBackTop = true;

@@ -619,7 +619,7 @@ export default class CaseStepMobMDView9Base extends Vue {
      *
      * @memberof CaseStepMobMDView9Base
      */
-    public onScroll(e:any){
+    public async onScroll(e:any){
         this.isScrollStop = false;
         if (e.detail.scrollTop>600) {
             this.isShouleBackTop = true;
