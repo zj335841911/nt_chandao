@@ -15,7 +15,7 @@
     createAction="Create"
     fetchAction="FetchLine" 
     :isMutli="!isSingleSelect"
-    :isNeedLoaddingText"!isPortalView"
+    :isNeedLoaddingText="!isPortalView"
     :showBusyIndicator="true" 
     :isTempMode="false"
     name="mdctrl"  

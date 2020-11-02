@@ -74,7 +74,7 @@
             createAction="Create"
             fetchAction="FetchProjectStories" 
             :isMutli="!isSingleSelect"
-            :isNeedLoaddingText"!isPortalView"
+            :isNeedLoaddingText="!isPortalView"
             :showBusyIndicator="true" 
             :isTempMode="false"
             :newdata="newdata"

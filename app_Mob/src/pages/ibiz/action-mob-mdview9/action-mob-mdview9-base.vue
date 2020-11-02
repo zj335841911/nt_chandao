@@ -20,7 +20,7 @@
             createAction="Create"
             fetchAction="FetchMobType" 
             :isMutli="!isSingleSelect"
-            :isNeedLoaddingText"!isPortalView"
+            :isNeedLoaddingText="!isPortalView"
             :showBusyIndicator="true" 
             :isTempMode="false"
             :needLoadMore="false"

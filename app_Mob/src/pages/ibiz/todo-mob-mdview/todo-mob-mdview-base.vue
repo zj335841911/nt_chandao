@@ -22,7 +22,7 @@
             createAction="Create"
             fetchAction="FetchMyUpcoming" 
             :isMutli="!isSingleSelect"
-            :isNeedLoaddingText"!isPortalView"
+            :isNeedLoaddingText="!isPortalView"
             :showBusyIndicator="true" 
             :isTempMode="false"
             :newdata="newdata"

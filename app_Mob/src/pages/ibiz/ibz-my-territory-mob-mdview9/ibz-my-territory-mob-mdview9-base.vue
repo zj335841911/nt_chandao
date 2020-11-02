@@ -20,7 +20,7 @@
             createAction="Create"
             fetchAction="FetchMyWorkMob" 
             :isMutli="!isSingleSelect"
-            :isNeedLoaddingText"!isPortalView"
+            :isNeedLoaddingText="!isPortalView"
             :showBusyIndicator="true" 
             :isTempMode="false"
             :needLoadMore="false"

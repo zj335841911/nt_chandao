@@ -23,7 +23,7 @@
             createAction="Create"
             fetchAction="FetchBuildStories" 
             :isMutli="!isSingleSelect"
-            :isNeedLoaddingText"!isPortalView"
+            :isNeedLoaddingText="!isPortalView"
             :showBusyIndicator="true" 
             :isTempMode="false"
             :needLoadMore="false"

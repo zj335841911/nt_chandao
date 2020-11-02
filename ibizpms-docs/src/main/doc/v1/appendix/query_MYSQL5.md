@@ -11684,6 +11684,7 @@ LEFT JOIN zt_product t31 ON t1.PRODUCT = t31.ID
 LEFT JOIN zt_branch t41 ON t1.BRANCH = t41.ID
 WHERE t1.DELETED = '0' 
 ( ( t1.`PARENT` = -1  OR  t1.`PARENT` = 0 ) ) 
+t1.`status` = 'active' and t1.stage = 'wait' 
 
 ```
 ### 项目关联需求(projectLinkStory)<div id="Story_ProjectLinkStory"></div>

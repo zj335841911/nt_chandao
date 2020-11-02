@@ -31,7 +31,7 @@
             createAction="Create"
             fetchAction="FetchUpdateLog" 
             :isMutli="!isSingleSelect"
-            :isNeedLoaddingText"!isPortalView"
+            :isNeedLoaddingText="!isPortalView"
             :showBusyIndicator="true" 
             :isTempMode="false"
             :newdata="newdata"

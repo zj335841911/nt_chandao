@@ -83,7 +83,7 @@
             createAction="Create"
             fetchAction="FetchMyFavorites" 
             :isMutli="!isSingleSelect"
-            :isNeedLoaddingText"!isPortalView"
+            :isNeedLoaddingText="!isPortalView"
             :showBusyIndicator="true" 
             :isTempMode="false"
             :newdata="newdata"
