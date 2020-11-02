@@ -15,6 +15,7 @@
     createAction="Create"
     fetchAction="FetchLine" 
     :isMutli="!isSingleSelect"
+    :isNeedLoaddingText"!isPortalView"
     :showBusyIndicator="true" 
     :isTempMode="false"
     name="mdctrl"  
@@ -135,6 +136,14 @@ export default class ModuleMobPickupMDViewBase extends Vue {
      * @memberof ModuleMobPickupMDViewBase
      */
     @Prop({ default: false }) protected isChildView?: boolean;
+
+    /**
+     * 是否为门户嵌入视图
+     *
+     * @type {boolean}
+     * @memberof ModuleMobPickupMDViewBase
+     */
+    @Prop({ default: false }) protected isPortalView?: boolean;
 
     /**
      * 标题状态

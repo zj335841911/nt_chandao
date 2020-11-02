@@ -1,4 +1,5 @@
 import branch_zh_CN from '@locale/lanres/branch/branch_zh_CN';
+import sysorganization_zh_CN from '@locale/lanres/sys-organization/sys-organization_zh_CN';
 import file_zh_CN from '@locale/lanres/file/file_zh_CN';
 import user_zh_CN from '@locale/lanres/user/user_zh_CN';
 import ibzfavorites_zh_CN from '@locale/lanres/ibz-favorites/ibz-favorites_zh_CN';
@@ -173,6 +174,7 @@ export default {
         }
     },
     branch: branch_zh_CN,
+    sysorganization: sysorganization_zh_CN,
     file: file_zh_CN,
     user: user_zh_CN,
     ibzfavorites: ibzfavorites_zh_CN,

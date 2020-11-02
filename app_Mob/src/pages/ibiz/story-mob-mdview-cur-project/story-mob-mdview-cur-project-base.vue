@@ -74,6 +74,7 @@
             createAction="Create"
             fetchAction="FetchProjectStories" 
             :isMutli="!isSingleSelect"
+            :isNeedLoaddingText"!isPortalView"
             :showBusyIndicator="true" 
             :isTempMode="false"
             :newdata="newdata"
@@ -204,6 +205,14 @@ export default class StoryMobMDViewCurProjectBase extends Vue {
      * @memberof StoryMobMDViewCurProjectBase
      */
     @Prop({ default: false }) protected isChildView?: boolean;
+
+    /**
+     * 是否为门户嵌入视图
+     *
+     * @type {boolean}
+     * @memberof StoryMobMDViewCurProjectBase
+     */
+    @Prop({ default: false }) protected isPortalView?: boolean;
 
     /**
      * 标题状态

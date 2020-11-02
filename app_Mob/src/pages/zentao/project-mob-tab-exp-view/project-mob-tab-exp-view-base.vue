@@ -162,6 +162,14 @@ export default class ProjectMobTabExpViewBase extends Vue {
     @Prop({ default: false }) protected isChildView?: boolean;
 
     /**
+     * 是否为门户嵌入视图
+     *
+     * @type {boolean}
+     * @memberof ProjectMobTabExpViewBase
+     */
+    @Prop({ default: false }) protected isPortalView?: boolean;
+
+    /**
      * 标题状态
      *
      * @memberof ProjectMobTabExpViewBase

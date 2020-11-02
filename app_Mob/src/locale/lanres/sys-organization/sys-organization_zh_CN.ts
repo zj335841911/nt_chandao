@@ -1,0 +1,14 @@
+export default {
+  fields: {
+    orgid: "单位标识",
+    orgcode: "单位代码",
+    orgname: "名称",
+    shortname: "单位简称",
+    orglevel: "单位级别",
+    showorder: "访问审计",
+    domains: "区属",
+    enable: "逻辑有效",
+    createdate: "创建时间",
+    updatedate: "最后修改时间",
+  },
+};

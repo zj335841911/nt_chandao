@@ -99,7 +99,7 @@
                 </div>
             </div>
             </div>
-            <div v-show="!allLoaded" class="loadding" >
+            <div v-show="!allLoaded && isNeedLoaddingText" class="loadding" >
                     <span >{{$t('app.loadding')?$t('app.loadding'):"加载中"}}</span>
                     <ion-spinner name="dots"></ion-spinner>
             </div>                          
@@ -475,6 +475,13 @@ export default class FavoriteMOBDasBase extends Vue implements ControlInterface 
     */
     @Prop() public close?:Function;
 
+    /**
+    * 是否显示加载文字
+    *
+    * @type {boolean}
+    * @memberof FavoriteMOBDas
+    */
+    @Prop({ default: true}) public isNeedLoaddingText?:boolean;
 
     /**
     * 是否为临时模式

@@ -83,6 +83,7 @@
             createAction="Create"
             fetchAction="FetchCurUser" 
             :isMutli="!isSingleSelect"
+            :isNeedLoaddingText"!isPortalView"
             :showBusyIndicator="true" 
             :isTempMode="false"
             :newdata="newdata"
@@ -245,6 +246,14 @@ export default class ProjectMobMDViewBase extends Vue {
      * @memberof ProjectMobMDViewBase
      */
     @Prop({ default: false }) protected isChildView?: boolean;
+
+    /**
+     * 是否为门户嵌入视图
+     *
+     * @type {boolean}
+     * @memberof ProjectMobMDViewBase
+     */
+    @Prop({ default: false }) protected isPortalView?: boolean;
 
     /**
      * 标题状态

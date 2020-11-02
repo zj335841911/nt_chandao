@@ -31,6 +31,7 @@
             createAction="Create"
             fetchAction="FetchUpdateLog" 
             :isMutli="!isSingleSelect"
+            :isNeedLoaddingText"!isPortalView"
             :showBusyIndicator="true" 
             :isTempMode="false"
             :newdata="newdata"
@@ -159,6 +160,14 @@ export default class BuildLogMobMDViewBase extends Vue {
      * @memberof BuildLogMobMDViewBase
      */
     @Prop({ default: false }) protected isChildView?: boolean;
+
+    /**
+     * 是否为门户嵌入视图
+     *
+     * @type {boolean}
+     * @memberof BuildLogMobMDViewBase
+     */
+    @Prop({ default: false }) protected isPortalView?: boolean;
 
     /**
      * 标题状态

@@ -110,7 +110,7 @@ export default class AppSpan extends Vue {
       * @type {*}
       * @memberof AppSpan
       */
-    @Prop({ default: () => { } }) protected context?: any;
+    @Prop({ default: {} }) protected context?: any;
 
     /**
      * 导航参数
@@ -118,7 +118,7 @@ export default class AppSpan extends Vue {
      * @type {*}
      * @memberof AppSelect
      */
-    @Prop({ default: () => { } }) protected navigateParam?: any;
+    @Prop({ default: () => {} }) protected navigateParam?: any;
 
     /**
      * 导航上下文
@@ -126,7 +126,7 @@ export default class AppSpan extends Vue {
      * @type {*}
      * @memberof AppSelect
      */
-    @Prop({ default: {} }) protected navigateContext?: any;
+    @Prop({ default: () => {}}) protected navigateContext?: any;
 
     /**
       * 当前值项
