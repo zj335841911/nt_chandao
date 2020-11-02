@@ -1,4 +1,4 @@
-<i-form :model="this.data" class='app-form' ref='form'  id='case_main' style="">
+<i-form :model="this.data" class='app-form' ref='form'  id='case_main' style="" @on-validate="formItemValidate.apply(_self, arguments)">
     <input style="display:none;" />
     <row >
     <tabs :animated="false" size="small" name='main' :value="detailsModel.form.activiedPage" 

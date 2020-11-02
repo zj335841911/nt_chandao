@@ -1,4 +1,4 @@
-<i-form :model="this.data" class='app-form info-form-mode' ref='form'  id='ibzlib_desc' style="">
+<i-form :model="this.data" class='app-form info-form-mode' ref='form'  id='ibzlib_desc' style="" @on-validate="formItemValidate.apply(_self, arguments)">
     <input style="display:none;" />
     <row >
             <i-col class="form-layout-container" v-show="detailsModel.id.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 1, offset: 0 }">

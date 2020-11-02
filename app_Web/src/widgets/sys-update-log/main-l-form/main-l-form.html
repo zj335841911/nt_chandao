@@ -1,4 +1,4 @@
-<i-form :model="this.data" class='app-form info-form-mode' ref='form'  id='sysupdatelog_mainl' style="">
+<i-form :model="this.data" class='app-form info-form-mode' ref='form'  id='sysupdatelog_mainl' style="" @on-validate="formItemValidate.apply(_self, arguments)">
     <input style="display:none;" />
     <row >
     <tabs :animated="false" size="small" name='mainl' :value="detailsModel.form.activiedPage" 

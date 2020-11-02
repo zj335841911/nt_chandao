@@ -1,4 +1,4 @@
-<i-form :model="this.data" class='app-form info-form-mode' ref='form'  id='sysupdatefeatures_infomain' style="">
+<i-form :model="this.data" class='app-form info-form-mode' ref='form'  id='sysupdatefeatures_infomain' style="" @on-validate="formItemValidate.apply(_self, arguments)">
     <input style="display:none;" />
     <row >
     <tabs :animated="false" size="small" name='infomain' :value="detailsModel.form.activiedPage" 

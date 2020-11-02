@@ -480,7 +480,15 @@ export class Main_EditRowGridBase extends GridControlBase {
      */
     public async save() {
         if (!await this.validateAll()) {
-            this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: (this.$t('app.commonWords.rulesException') as string),duration: 3 });
+            if(this.errorMessages && this.errorMessages.length > 0) {
+                let descMessage: string = '';
+                this.errorMessages.forEach((message: any) => {
+                    descMessage = descMessage + '<p>' + message + '<p>';
+                })
+                this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: descMessage });
+            } else {
+                this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: (this.$t('app.commonWords.rulesException') as string) });
+            }
             return [];
         }
         let action = "saveBatch";
@@ -504,7 +512,8 @@ export class Main_EditRowGridBase extends GridControlBase {
             }
         }).catch((error: any) =>{
             this.$Notice.error({
-                title: (this.$t('app.commonWords.sysException') as string),
+                title: (this.$t('app.commonWords.wrong') as string),
+                desc: error.data.message,
                 duration: 3
             });
             console.error(error);
