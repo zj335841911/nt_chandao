@@ -311,6 +311,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProductStatsALLGridView",
             "viewtag": "1381e29846ae321ca2d06d71bbe3082d"
         },
+        "tasktreeexpview": {
+            "title": "任务树导航视图",
+            "caption": "任务",
+            "viewtype": "DETREEEXPVIEW",
+            "viewmodule": "zentao",
+            "viewname": "TaskTreeExpView",
+            "viewtag": "143e97f1ddaf50560e1602118613f0f0"
+        },
         "caselinkcasegridview": {
             "title": "测试用例表格视图（关联用例）",
             "caption": "关联用例",

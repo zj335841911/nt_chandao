@@ -1,8 +1,20 @@
-!!!!模版产生代码错误:----
-Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
-----
+# 数据字典-用户真实名称（项目团队成员）（UserRealNameProject）
+## 字典说明
+ProjectTeamUser
 
-----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: @docutil  [in template "CODETEMPL_en_US" at line 3, column 1]
-----
+## 基本说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 数值类型 | 字符串 |
+| 启用多选 | 是 |
+| 多选分隔符 | 数值分隔符：,<br>文本分隔符：, |
+| 启用缓存 | 否 |
+| 缓存超时时长 | 无 |
+
+## 取值范围
+指定实体查询结果集合。
+| 项目 | 说明 |
+| ---- | ---- |
+| 实体 | [人员](../module/ou/SysEmployee) |
+| 结果集合 | [项目团队成员（ProjectTeamUser）]() |
+

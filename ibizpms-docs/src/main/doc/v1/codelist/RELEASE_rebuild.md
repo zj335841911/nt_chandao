@@ -1,8 +1,21 @@
-!!!!模版产生代码错误:----
-Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
-----
+# 数据字典-重新构建（RELEASE_rebuild）
+## 字典说明
+重新构建
 
-----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: @docutil  [in template "CODETEMPL_en_US" at line 3, column 1]
-----
+## 基本说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 数值类型 | 数字 |
+| 启用多选 | 否 |
+| 多选分隔符 | 无 |
+| 启用缓存 | 是 |
+| 缓存超时时长 | 无 |
+
+## 取值范围
+| 序号 | 数值 | 文本 | 父值 | 提示信息 | 是否显示空白 | 默认选择 | 说明 |
+| ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
+| 1 | 0 | 无操作 |  |  | 否 | 否 | 无操作 |
+| 2 | 1 | 快速（删除本地项目与代码仓库多余文件） |  |  | 否 | 否 | 快速（删除本地项目与代码仓库多余文件） |
+| 3 | 4 | 修复模型 |  |  | 否 | 否 | 修复模型 |
+| 4 | 2 | 完整（完全重建本地项目及代码仓库） |  |  | 否 | 否 | 完整（完全重建本地项目及代码仓库） |
+
