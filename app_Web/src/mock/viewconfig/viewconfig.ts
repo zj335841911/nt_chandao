@@ -1815,6 +1815,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TaskMyFavoriteGridView",
             "viewtag": "82b045705ced7d1c938a0df4a58046ca"
         },
+        "tasktaskgroupgridview": {
+            "title": "任务表格视图（任务分组）",
+            "caption": "任务分组",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "TaskTaskGroupGridView",
+            "viewtag": "830a2a271daa744fc0f50410bcd8a711"
+        },
         "groupmaingridview": {
             "title": "群组表格视图",
             "caption": "群组",
