@@ -75,7 +75,8 @@ export class StoryProjectPickupGridViewBase extends PickupGridViewBase {
 	 */
     protected customViewParams: any = {
         'srfparentkey': { isRawValue: false, value: 'srfparentkey' },
-        'project': { isRawValue: false, value: 'project' }
+        'project': { isRawValue: false, value: 'project' },
+        'n_parent_gtandeq': { isRawValue: true, value: '0' }
     };
 
     /**

@@ -12,12 +12,12 @@ POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | ibzprostorymoduledto | [IBZProStoryModuleDTO](#IBZProStoryModuleDTO) | 需求模块实体传输对象 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | [IBZProStoryModuleDTO](#IBZProStoryModuleDTO)：需求模块实体传输对象 |
 
@@ -30,12 +30,12 @@ POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | ibzprostorymoduledtos | List<[IBZProStoryModuleDTO](#IBZProStoryModuleDTO)> | 需求模块实体传输对象列表 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | true：处理成功。false：处理失败。 |
 
@@ -48,13 +48,13 @@ PUT
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | ibzprostorymodule_id | Long | 需求模块主键ID |
 | 2 | ibzprostorymoduledto | [IBZProStoryModuleDTO](#IBZProStoryModuleDTO) | 需求模块实体传输对象 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | [IBZProStoryModuleDTO](#IBZProStoryModuleDTO)：需求模块实体传输对象 |
 
@@ -67,12 +67,12 @@ PUT
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | ibzprostorymoduledtos | List<[IBZProStoryModuleDTO](#IBZProStoryModuleDTO)> | 需求模块实体传输对象列表 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | true：处理成功。false：处理失败。 |
 
@@ -85,12 +85,12 @@ DELETE
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | ibzprostorymodule_id | Long | 需求模块主键ID |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | true：处理成功。false：处理失败。 |
 
@@ -103,12 +103,12 @@ DELETE
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | ids | List<Long> | 需求模块主键ID列表 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | true：处理成功。false：处理失败。 |
 
@@ -121,12 +121,12 @@ GET
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | ibzprostorymodule_id | Long | 需求模块主键ID |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | [IBZProStoryModuleDTO](#IBZProStoryModuleDTO)：需求模块实体传输对象 |
 
@@ -139,12 +139,12 @@ POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | ibzprostorymoduledto | [IBZProStoryModuleDTO](#IBZProStoryModuleDTO) | 需求模块实体传输对象 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | true：处理成功。false：处理失败。 |
 
@@ -157,12 +157,12 @@ POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | ibzprostorymoduledto | [IBZProStoryModuleDTO](#IBZProStoryModuleDTO) | 需求模块实体传输对象 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | true：处理成功。false：处理失败。 |
 
@@ -175,12 +175,12 @@ POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | ibzprostorymoduledtos | List<[IBZProStoryModuleDTO](#IBZProStoryModuleDTO)> | 需求模块实体传输对象列表 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | true：处理成功。false：处理失败。 |
 
@@ -193,13 +193,13 @@ POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | ibzprostorymodule_id | Long | 需求模块主键ID |
 | 2 | ibzprostorymoduledto | [IBZProStoryModuleDTO](#IBZProStoryModuleDTO) | 需求模块实体传输对象 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | [IBZProStoryModuleDTO](#IBZProStoryModuleDTO)：需求模块实体传输对象 |
 
@@ -212,12 +212,12 @@ GET
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | context | [IBZProStoryModuleSearchContext](#IBZProStoryModuleSearchContext) | 需求模块查询条件对象 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | List<[IBZProStoryModuleDTO](#IBZProStoryModuleDTO)>：需求模块实体传输对象列表 |
 
@@ -230,12 +230,12 @@ POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | context | [IBZProStoryModuleSearchContext](#IBZProStoryModuleSearchContext) | 需求模块查询条件对象 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | Page<[IBZProStoryModuleDTO](#IBZProStoryModuleDTO)>：需求模块实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
 
@@ -243,7 +243,7 @@ POST
 ### 数据类型说明
 #### IBZProStoryModuleDTO
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
-| -- | -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- | ---- |
 | 1 | id | Long | 不可 | id |
 | 2 | name | String | 不可 | 名称 |
 | 3 | root | Long | 允许 | 编号 |
@@ -262,7 +262,7 @@ POST
 
 #### IBZProStoryModuleSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
-| -- | -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- | ---- |
 | 1 | n_name_like | String | 允许 | 条件字段：name<br>条件组合方式：`%like%` |
 | 2 | n_root_eq | Long | 允许 | 条件字段：root<br>条件组合方式：`=` |
 | 3 | n_ibiz_id_eq | String | 允许 | 条件字段：ibiz_id<br>条件组合方式：`=` |

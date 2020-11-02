@@ -91,8 +91,9 @@ export class MainProjectNewEditFormBase extends EditFormControlBase {
         plan: null,
         source: null,
         sourcenote: null,
-        reviewedby: null,
         assignedto: null,
+        neednotreview: null,
+        reviewedby: null,
         project: null,
         title: null,
         pri: null,
@@ -173,9 +174,11 @@ export class MainProjectNewEditFormBase extends EditFormControlBase {
 
         sourcenote: new FormItemModel({ caption: '来源备注', detailType: 'FORMITEM', name: 'sourcenote', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 
-        reviewedby: new FormItemModel({ caption: '由谁评审', detailType: 'FORMITEM', name: 'reviewedby', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
-
         assignedto: new FormItemModel({ caption: '由谁评审', detailType: 'FORMITEM', name: 'assignedto', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+
+        neednotreview: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'neednotreview', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+
+        reviewedby: new FormItemModel({ caption: '由谁评审', detailType: 'FORMITEM', name: 'reviewedby', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 
         project: new FormItemModel({ caption: '项目', detailType: 'FORMITEM', name: 'project', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 
@@ -204,6 +207,9 @@ export class MainProjectNewEditFormBase extends EditFormControlBase {
      * @memberof MainProjectNewEditFormBase
      */
     public createDefault(){                    
+        if (this.data.hasOwnProperty('neednotreview')) {
+            this.data['neednotreview'] = '1';
+        }
         if (this.data.hasOwnProperty('project')) {
             this.data['project'] = this.viewparams['project'];
         }

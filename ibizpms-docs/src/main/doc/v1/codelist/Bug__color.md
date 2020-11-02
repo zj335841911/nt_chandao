@@ -1,23 +1,10 @@
-# 数据字典-Bug颜色（Bug__color）
-## 字典说明
-Bug颜色
+!!!!模版产生代码错误:----
+Tip: It's the step after the last dot that caused this error, not those before it.
+----
+Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
+----
 
-## 基本说明
-| 项目 | 说明 |
-| -- | -- |
-| 数值类型 | 字符串 |
-| 启用多选 | 否 |
-| 多选分隔符 | 无 |
-| 启用缓存 | 是 |
-| 缓存超时时长 | 无 |
-
-## 取值范围
-| 序号 | 数值 | 文本 | 父值 | 提示信息 | 是否显示空白 | 默认选择 | 说明 |
-| -- | -- | -- | -- | -- | -- | -- | -- |
-| 1 | #3da7f5 | #3da7f5 |  |  | 否 | 否 | #3da7f5 |
-| 2 | #75c941 | #75c941 |  |  | 否 | 否 | #75c941 |
-| 3 | #2dbdb2 | #2dbdb2 |  |  | 否 | 否 | #2dbdb2 |
-| 4 | #797ec9 | #797ec9 |  |  | 否 | 否 | #797ec9 |
-| 5 | #ffaf38 | #ffaf38 |  |  | 否 | 否 | #ffaf38 |
-| 6 | #ff4e3e | #ff4e3e |  |  | 否 | 否 | #ff4e3e |
-
+----
+FTL stack trace ("~" means nesting-related):
+	- Failed at: #assign itemCodeNameOut = docutil.for...  [in template "CODETEMPL_en_US" at line 5, column 1]
+----

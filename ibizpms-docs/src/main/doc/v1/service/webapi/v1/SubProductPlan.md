@@ -12,13 +12,13 @@ POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | productplan_id | Long | 产品计划主键ID |
 | 2 | subproductplandto | [SubProductPlanDTO](#SubProductPlanDTO) | 产品计划实体传输对象 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | [SubProductPlanDTO](#SubProductPlanDTO)：产品计划实体传输对象 |
 
@@ -31,13 +31,13 @@ POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | productplan_id | Long | 产品计划主键ID |
 | 2 | subproductplandtos | List<[SubProductPlanDTO](#SubProductPlanDTO)> | 产品计划实体传输对象列表 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | true：处理成功。false：处理失败。 |
 
@@ -50,14 +50,14 @@ PUT
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | productplan_id | Long | 产品计划主键ID |
 | 2 | subproductplan_id | Long | 产品计划主键ID |
 | 3 | subproductplandto | [SubProductPlanDTO](#SubProductPlanDTO) | 产品计划实体传输对象 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | [SubProductPlanDTO](#SubProductPlanDTO)：产品计划实体传输对象 |
 
@@ -70,13 +70,13 @@ PUT
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | productplan_id | Long | 产品计划主键ID |
 | 2 | subproductplandtos | List<[SubProductPlanDTO](#SubProductPlanDTO)> | 产品计划实体传输对象列表 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | true：处理成功。false：处理失败。 |
 
@@ -89,13 +89,13 @@ DELETE
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | productplan_id | Long | 产品计划主键ID |
 | 2 | subproductplan_id | Long | 产品计划主键ID |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | true：处理成功。false：处理失败。 |
 
@@ -108,13 +108,13 @@ DELETE
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | productplan_id | Long | 产品计划主键ID |
 | 2 | ids | List<Long> | 产品计划主键ID列表 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | true：处理成功。false：处理失败。 |
 
@@ -127,13 +127,13 @@ GET
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | productplan_id | Long | 产品计划主键ID |
 | 2 | subproductplan_id | Long | 产品计划主键ID |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | [SubProductPlanDTO](#SubProductPlanDTO)：产品计划实体传输对象 |
 
@@ -146,14 +146,14 @@ POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | productplan_id | Long | 产品计划主键ID |
 | 2 | subproductplan_id | Long | 产品计划主键ID |
 | 3 | subproductplandto | [SubProductPlanDTO](#SubProductPlanDTO) | 产品计划实体传输对象 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | [SubProductPlanDTO](#SubProductPlanDTO)：产品计划实体传输对象 |
 
@@ -166,14 +166,14 @@ POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | productplan_id | Long | 产品计划主键ID |
 | 2 | subproductplan_id | Long | 产品计划主键ID |
 | 3 | subproductplandto | [SubProductPlanDTO](#SubProductPlanDTO) | 产品计划实体传输对象 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | [SubProductPlanDTO](#SubProductPlanDTO)：产品计划实体传输对象 |
 
@@ -186,13 +186,13 @@ POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | productplan_id | Long | 产品计划主键ID |
 | 2 | subproductplandto | [SubProductPlanDTO](#SubProductPlanDTO) | 产品计划实体传输对象 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | true：处理成功。false：处理失败。 |
 
@@ -205,14 +205,14 @@ POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | productplan_id | Long | 产品计划主键ID |
 | 2 | subproductplan_id | Long | 产品计划主键ID |
 | 3 | subproductplandto | [SubProductPlanDTO](#SubProductPlanDTO) | 产品计划实体传输对象 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | [SubProductPlanDTO](#SubProductPlanDTO)：产品计划实体传输对象 |
 
@@ -225,14 +225,14 @@ POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | productplan_id | Long | 产品计划主键ID |
 | 2 | subproductplan_id | Long | 产品计划主键ID |
 | 3 | subproductplandto | [SubProductPlanDTO](#SubProductPlanDTO) | 产品计划实体传输对象 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | [SubProductPlanDTO](#SubProductPlanDTO)：产品计划实体传输对象 |
 
@@ -245,13 +245,13 @@ POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | productplan_id | Long | 产品计划主键ID |
 | 2 | subproductplandto | [SubProductPlanDTO](#SubProductPlanDTO) | 产品计划实体传输对象 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | true：处理成功。false：处理失败。 |
 
@@ -264,13 +264,13 @@ POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | productplan_id | Long | 产品计划主键ID |
 | 2 | subproductplandtos | List<[SubProductPlanDTO](#SubProductPlanDTO)> | 产品计划实体传输对象列表 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | true：处理成功。false：处理失败。 |
 
@@ -283,14 +283,14 @@ POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | productplan_id | Long | 产品计划主键ID |
 | 2 | subproductplan_id | Long | 产品计划主键ID |
 | 3 | subproductplandto | [SubProductPlanDTO](#SubProductPlanDTO) | 产品计划实体传输对象 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | [SubProductPlanDTO](#SubProductPlanDTO)：产品计划实体传输对象 |
 
@@ -303,14 +303,14 @@ POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | productplan_id | Long | 产品计划主键ID |
 | 2 | subproductplan_id | Long | 产品计划主键ID |
 | 3 | subproductplandto | [SubProductPlanDTO](#SubProductPlanDTO) | 产品计划实体传输对象 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | [SubProductPlanDTO](#SubProductPlanDTO)：产品计划实体传输对象 |
 
@@ -323,13 +323,13 @@ GET
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | productplan_id | Long | 产品计划主键ID |
 | 2 | context | [ProductPlanSearchContext](#ProductPlanSearchContext) | 产品计划查询条件对象 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | List<[SubProductPlanDTO](#SubProductPlanDTO)>：产品计划实体传输对象列表 |
 
@@ -342,13 +342,13 @@ POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | productplan_id | Long | 产品计划主键ID |
 | 2 | context | [ProductPlanSearchContext](#ProductPlanSearchContext) | 产品计划查询条件对象 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | Page<[SubProductPlanDTO](#SubProductPlanDTO)>：产品计划实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
 
@@ -361,13 +361,13 @@ GET
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | productplan_id | Long | 产品计划主键ID |
 | 2 | context | [ProductPlanSearchContext](#ProductPlanSearchContext) | 产品计划查询条件对象 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | List<[SubProductPlanDTO](#SubProductPlanDTO)>：产品计划实体传输对象列表 |
 
@@ -380,13 +380,13 @@ POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | productplan_id | Long | 产品计划主键ID |
 | 2 | context | [ProductPlanSearchContext](#ProductPlanSearchContext) | 产品计划查询条件对象 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | Page<[SubProductPlanDTO](#SubProductPlanDTO)>：产品计划实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
 
@@ -399,13 +399,13 @@ GET
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | productplan_id | Long | 产品计划主键ID |
 | 2 | context | [ProductPlanSearchContext](#ProductPlanSearchContext) | 产品计划查询条件对象 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | List<[SubProductPlanDTO](#SubProductPlanDTO)>：产品计划实体传输对象列表 |
 
@@ -418,13 +418,13 @@ POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | productplan_id | Long | 产品计划主键ID |
 | 2 | context | [ProductPlanSearchContext](#ProductPlanSearchContext) | 产品计划查询条件对象 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | Page<[SubProductPlanDTO](#SubProductPlanDTO)>：产品计划实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
 
@@ -437,13 +437,13 @@ GET
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | productplan_id | Long | 产品计划主键ID |
 | 2 | context | [ProductPlanSearchContext](#ProductPlanSearchContext) | 产品计划查询条件对象 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | List<[SubProductPlanDTO](#SubProductPlanDTO)>：产品计划实体传输对象列表 |
 
@@ -456,13 +456,13 @@ POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | productplan_id | Long | 产品计划主键ID |
 | 2 | context | [ProductPlanSearchContext](#ProductPlanSearchContext) | 产品计划查询条件对象 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | Page<[SubProductPlanDTO](#SubProductPlanDTO)>：产品计划实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
 
@@ -475,13 +475,13 @@ GET
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | productplan_id | Long | 产品计划主键ID |
 | 2 | context | [ProductPlanSearchContext](#ProductPlanSearchContext) | 产品计划查询条件对象 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | List<[SubProductPlanDTO](#SubProductPlanDTO)>：产品计划实体传输对象列表 |
 
@@ -494,13 +494,13 @@ POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | productplan_id | Long | 产品计划主键ID |
 | 2 | context | [ProductPlanSearchContext](#ProductPlanSearchContext) | 产品计划查询条件对象 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | Page<[SubProductPlanDTO](#SubProductPlanDTO)>：产品计划实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
 
@@ -513,13 +513,13 @@ POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | product_id | Long | 产品主键ID |/r/n| 2 | productplan_id | Long | 产品计划主键ID |
 | 3 | subproductplandto | [SubProductPlanDTO](#SubProductPlanDTO) | 产品计划实体传输对象 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | [SubProductPlanDTO](#SubProductPlanDTO)：产品计划实体传输对象 |
 
@@ -532,13 +532,13 @@ POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | product_id | Long | 产品主键ID |/r/n| 2 | productplan_id | Long | 产品计划主键ID |
 | 3 | subproductplandtos | List<[SubProductPlanDTO](#SubProductPlanDTO)> | 产品计划实体传输对象列表 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | true：处理成功。false：处理失败。 |
 
@@ -551,14 +551,14 @@ PUT
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | product_id | Long | 产品主键ID |/r/n| 2 | productplan_id | Long | 产品计划主键ID |
 | 3 | subproductplan_id | Long | 产品计划主键ID |
 | 4 | subproductplandto | [SubProductPlanDTO](#SubProductPlanDTO) | 产品计划实体传输对象 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | [SubProductPlanDTO](#SubProductPlanDTO)：产品计划实体传输对象 |
 
@@ -571,13 +571,13 @@ PUT
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | product_id | Long | 产品主键ID |/r/n| 2 | productplan_id | Long | 产品计划主键ID |
 | 3 | subproductplandtos | List<[SubProductPlanDTO](#SubProductPlanDTO)> | 产品计划实体传输对象列表 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | true：处理成功。false：处理失败。 |
 
@@ -590,13 +590,13 @@ DELETE
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | product_id | Long | 产品主键ID |/r/n| 2 | productplan_id | Long | 产品计划主键ID |
 | 3 | subproductplan_id | Long | 产品计划主键ID |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | true：处理成功。false：处理失败。 |
 
@@ -609,13 +609,13 @@ DELETE
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | product_id | Long | 产品主键ID |/r/n| 2 | productplan_id | Long | 产品计划主键ID |
 | 3 | ids | List<Long> | 产品计划主键ID列表 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | true：处理成功。false：处理失败。 |
 
@@ -628,13 +628,13 @@ GET
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | product_id | Long | 产品主键ID |/r/n| 2 | productplan_id | Long | 产品计划主键ID |
 | 3 | subproductplan_id | Long | 产品计划主键ID |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | [SubProductPlanDTO](#SubProductPlanDTO)：产品计划实体传输对象 |
 
@@ -647,14 +647,14 @@ POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | product_id | Long | 产品主键ID |/r/n| 2 | productplan_id | Long | 产品计划主键ID |
 | 3 | subproductplan_id | Long | 产品计划主键ID |
 | 4 | subproductplandto | [SubProductPlanDTO](#SubProductPlanDTO) | 产品计划实体传输对象 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | [SubProductPlanDTO](#SubProductPlanDTO)：产品计划实体传输对象 |
 
@@ -667,14 +667,14 @@ POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | product_id | Long | 产品主键ID |/r/n| 2 | productplan_id | Long | 产品计划主键ID |
 | 3 | subproductplan_id | Long | 产品计划主键ID |
 | 4 | subproductplandto | [SubProductPlanDTO](#SubProductPlanDTO) | 产品计划实体传输对象 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | [SubProductPlanDTO](#SubProductPlanDTO)：产品计划实体传输对象 |
 
@@ -687,13 +687,13 @@ POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | product_id | Long | 产品主键ID |/r/n| 2 | productplan_id | Long | 产品计划主键ID |
 | 3 | subproductplandto | [SubProductPlanDTO](#SubProductPlanDTO) | 产品计划实体传输对象 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | true：处理成功。false：处理失败。 |
 
@@ -706,14 +706,14 @@ POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | product_id | Long | 产品主键ID |/r/n| 2 | productplan_id | Long | 产品计划主键ID |
 | 3 | subproductplan_id | Long | 产品计划主键ID |
 | 4 | subproductplandto | [SubProductPlanDTO](#SubProductPlanDTO) | 产品计划实体传输对象 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | [SubProductPlanDTO](#SubProductPlanDTO)：产品计划实体传输对象 |
 
@@ -726,14 +726,14 @@ POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | product_id | Long | 产品主键ID |/r/n| 2 | productplan_id | Long | 产品计划主键ID |
 | 3 | subproductplan_id | Long | 产品计划主键ID |
 | 4 | subproductplandto | [SubProductPlanDTO](#SubProductPlanDTO) | 产品计划实体传输对象 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | [SubProductPlanDTO](#SubProductPlanDTO)：产品计划实体传输对象 |
 
@@ -746,13 +746,13 @@ POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | product_id | Long | 产品主键ID |/r/n| 2 | productplan_id | Long | 产品计划主键ID |
 | 3 | subproductplandto | [SubProductPlanDTO](#SubProductPlanDTO) | 产品计划实体传输对象 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | true：处理成功。false：处理失败。 |
 
@@ -765,13 +765,13 @@ POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | product_id | Long | 产品主键ID |/r/n| 2 | productplan_id | Long | 产品计划主键ID |
 | 3 | subproductplandtos | List<[SubProductPlanDTO](#SubProductPlanDTO)> | 产品计划实体传输对象列表 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | true：处理成功。false：处理失败。 |
 
@@ -784,14 +784,14 @@ POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | product_id | Long | 产品主键ID |/r/n| 2 | productplan_id | Long | 产品计划主键ID |
 | 3 | subproductplan_id | Long | 产品计划主键ID |
 | 4 | subproductplandto | [SubProductPlanDTO](#SubProductPlanDTO) | 产品计划实体传输对象 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | [SubProductPlanDTO](#SubProductPlanDTO)：产品计划实体传输对象 |
 
@@ -804,14 +804,14 @@ POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | product_id | Long | 产品主键ID |/r/n| 2 | productplan_id | Long | 产品计划主键ID |
 | 3 | subproductplan_id | Long | 产品计划主键ID |
 | 4 | subproductplandto | [SubProductPlanDTO](#SubProductPlanDTO) | 产品计划实体传输对象 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | [SubProductPlanDTO](#SubProductPlanDTO)：产品计划实体传输对象 |
 
@@ -824,13 +824,13 @@ GET
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | product_id | Long | 产品主键ID |/r/n| 2 | productplan_id | Long | 产品计划主键ID |
 | 3 | context | [ProductPlanSearchContext](#ProductPlanSearchContext) | 产品计划查询条件对象 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | List<[SubProductPlanDTO](#SubProductPlanDTO)>：产品计划实体传输对象列表 |
 
@@ -843,13 +843,13 @@ POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | product_id | Long | 产品主键ID |/r/n| 2 | productplan_id | Long | 产品计划主键ID |
 | 3 | context | [ProductPlanSearchContext](#ProductPlanSearchContext) | 产品计划查询条件对象 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | Page<[SubProductPlanDTO](#SubProductPlanDTO)>：产品计划实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
 
@@ -862,13 +862,13 @@ GET
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | product_id | Long | 产品主键ID |/r/n| 2 | productplan_id | Long | 产品计划主键ID |
 | 3 | context | [ProductPlanSearchContext](#ProductPlanSearchContext) | 产品计划查询条件对象 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | List<[SubProductPlanDTO](#SubProductPlanDTO)>：产品计划实体传输对象列表 |
 
@@ -881,13 +881,13 @@ POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | product_id | Long | 产品主键ID |/r/n| 2 | productplan_id | Long | 产品计划主键ID |
 | 3 | context | [ProductPlanSearchContext](#ProductPlanSearchContext) | 产品计划查询条件对象 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | Page<[SubProductPlanDTO](#SubProductPlanDTO)>：产品计划实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
 
@@ -900,13 +900,13 @@ GET
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | product_id | Long | 产品主键ID |/r/n| 2 | productplan_id | Long | 产品计划主键ID |
 | 3 | context | [ProductPlanSearchContext](#ProductPlanSearchContext) | 产品计划查询条件对象 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | List<[SubProductPlanDTO](#SubProductPlanDTO)>：产品计划实体传输对象列表 |
 
@@ -919,13 +919,13 @@ POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | product_id | Long | 产品主键ID |/r/n| 2 | productplan_id | Long | 产品计划主键ID |
 | 3 | context | [ProductPlanSearchContext](#ProductPlanSearchContext) | 产品计划查询条件对象 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | Page<[SubProductPlanDTO](#SubProductPlanDTO)>：产品计划实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
 
@@ -938,13 +938,13 @@ GET
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | product_id | Long | 产品主键ID |/r/n| 2 | productplan_id | Long | 产品计划主键ID |
 | 3 | context | [ProductPlanSearchContext](#ProductPlanSearchContext) | 产品计划查询条件对象 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | List<[SubProductPlanDTO](#SubProductPlanDTO)>：产品计划实体传输对象列表 |
 
@@ -957,13 +957,13 @@ POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | product_id | Long | 产品主键ID |/r/n| 2 | productplan_id | Long | 产品计划主键ID |
 | 3 | context | [ProductPlanSearchContext](#ProductPlanSearchContext) | 产品计划查询条件对象 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | Page<[SubProductPlanDTO](#SubProductPlanDTO)>：产品计划实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
 
@@ -976,13 +976,13 @@ GET
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | product_id | Long | 产品主键ID |/r/n| 2 | productplan_id | Long | 产品计划主键ID |
 | 3 | context | [ProductPlanSearchContext](#ProductPlanSearchContext) | 产品计划查询条件对象 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | List<[SubProductPlanDTO](#SubProductPlanDTO)>：产品计划实体传输对象列表 |
 
@@ -995,13 +995,13 @@ POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | product_id | Long | 产品主键ID |/r/n| 2 | productplan_id | Long | 产品计划主键ID |
 | 3 | context | [ProductPlanSearchContext](#ProductPlanSearchContext) | 产品计划查询条件对象 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | Page<[SubProductPlanDTO](#SubProductPlanDTO)>：产品计划实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
 
@@ -1009,7 +1009,7 @@ POST
 ### 数据类型说明
 #### SubProductPlanDTO
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
-| -- | -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- | ---- |
 | 1 | title | String | 不可 | 名称 |
 | 2 | id | Long | 不可 | 编号 |
 | 3 | begin | Timestamp | 允许 | 开始日期<br>时间格式：yyyy-MM-dd |
@@ -1035,7 +1035,7 @@ POST
 
 #### ProductPlanSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
-| -- | -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- | ---- |
 | 1 | n_title_like | String | 允许 | 条件字段：title<br>条件组合方式：`%like%` |
 | 2 | n_begin_gtandeq | Timestamp | 允许 | 条件字段：begin<br>条件组合方式：`>=`<br>时间格式：yyyy-MM-dd |
 | 3 | n_end_ltandeq | Timestamp | 允许 | 条件字段：end<br>条件组合方式：`<=`<br>时间格式：yyyy-MM-dd |

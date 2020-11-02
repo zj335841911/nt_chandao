@@ -1,20 +1,10 @@
-# 数据字典-当前产品版本（动态）（CurProductBuild）
-## 字典说明
-上下文过滤
+!!!!模版产生代码错误:----
+Tip: It's the step after the last dot that caused this error, not those before it.
+----
+Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
+----
 
-## 基本说明
-| 项目 | 说明 |
-| -- | -- |
-| 数值类型 | 字符串 |
-| 启用多选 | 否 |
-| 多选分隔符 | 无 |
-| 启用缓存 | 否 |
-| 缓存超时时长 | 无 |
-
-## 取值范围
-指定实体查询结果集合。
-| 项目 | 说明 |
-| -- | -- |
-| 实体 | [版本](../module/zentao/Build) |
-| 结果集合 | [Bug产品版本（BugProductBuild）]() |
-
+----
+FTL stack trace ("~" means nesting-related):
+	- Failed at: #assign itemCodeNameOut = docutil.for...  [in template "CODETEMPL_en_US" at line 5, column 1]
+----

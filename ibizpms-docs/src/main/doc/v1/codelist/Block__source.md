@@ -1,21 +1,10 @@
-# 数据字典-来源区块模块（Block__source）
-## 字典说明
-来源区块模块
+!!!!模版产生代码错误:----
+Tip: It's the step after the last dot that caused this error, not those before it.
+----
+Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
+----
 
-## 基本说明
-| 项目 | 说明 |
-| -- | -- |
-| 数值类型 | 字符串 |
-| 启用多选 | 否 |
-| 多选分隔符 | 无 |
-| 启用缓存 | 是 |
-| 缓存超时时长 | 无 |
-
-## 取值范围
-| 序号 | 数值 | 文本 | 父值 | 提示信息 | 是否显示空白 | 默认选择 | 说明 |
-| -- | -- | -- | -- | -- | -- | -- | -- |
-| 1 | product | 产品 |  |  | 否 | 否 | 多语言 |
-| 2 | project | 项目 |  |  | 否 | 否 | 项目 |
-| 3 | qa | 测试 |  |  | 否 | 否 | 测试 |
-| 4 | todo | 待办 |  |  | 否 | 否 | 待办 |
-
+----
+FTL stack trace ("~" means nesting-related):
+	- Failed at: #assign itemCodeNameOut = docutil.for...  [in template "CODETEMPL_en_US" at line 5, column 1]
+----

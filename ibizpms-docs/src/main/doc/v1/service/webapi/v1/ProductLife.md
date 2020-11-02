@@ -12,12 +12,12 @@ GET
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | context | [ProductLifeSearchContext](#ProductLifeSearchContext) | 产品生命周期查询条件对象 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | List<[ProductLifeDTO](#ProductLifeDTO)>：产品生命周期实体传输对象列表 |
 
@@ -30,12 +30,12 @@ POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | context | [ProductLifeSearchContext](#ProductLifeSearchContext) | 产品生命周期查询条件对象 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | Page<[ProductLifeDTO](#ProductLifeDTO)>：产品生命周期实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
 
@@ -48,12 +48,12 @@ GET
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | context | [ProductLifeSearchContext](#ProductLifeSearchContext) | 产品生命周期查询条件对象 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | List<[ProductLifeDTO](#ProductLifeDTO)>：产品生命周期实体传输对象列表 |
 
@@ -66,12 +66,12 @@ POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | context | [ProductLifeSearchContext](#ProductLifeSearchContext) | 产品生命周期查询条件对象 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | Page<[ProductLifeDTO](#ProductLifeDTO)>：产品生命周期实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
 
@@ -84,12 +84,12 @@ GET
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | context | [ProductLifeSearchContext](#ProductLifeSearchContext) | 产品生命周期查询条件对象 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | List<[ProductLifeDTO](#ProductLifeDTO)>：产品生命周期实体传输对象列表 |
 
@@ -102,12 +102,12 @@ POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | context | [ProductLifeSearchContext](#ProductLifeSearchContext) | 产品生命周期查询条件对象 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | Page<[ProductLifeDTO](#ProductLifeDTO)>：产品生命周期实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
 
@@ -115,7 +115,7 @@ POST
 ### 数据类型说明
 #### ProductLifeDTO
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
-| -- | -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- | ---- |
 | 1 | branch | String | 允许 | 平台/分支 |
 | 2 | createman | String | 不可 | 建立人 |
 | 3 | updatedate | Timestamp | 不可 | 更新时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
@@ -134,7 +134,7 @@ POST
 
 #### ProductLifeSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
-| -- | -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- | ---- |
 | 1 | n_ibz_productlifename_like | String | 允许 | 条件字段：ibz_productlifename<br>条件组合方式：`%like%` |
 | 2 | n_year_eq | String | 允许 | 条件字段：year<br>条件组合方式：`=` |
 | 3 | customcond | String | 允许 | 自定义查询条件 |
