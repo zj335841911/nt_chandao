@@ -90,6 +90,7 @@
         <app-mob-input 
     class="app-form-item-input"  
         type="text"  
+    
     :value="data.name"
     unit=""
     :disabled="detailsModel.name.disabled" 
@@ -176,6 +177,7 @@
         <app-mob-input 
     class="app-form-item-input"  
         type="text"  
+    
     :value="data.scmpath"
     unit=""
     :disabled="detailsModel.scmpath.disabled" 
@@ -202,6 +204,7 @@
         <app-mob-input 
     class="app-form-item-input"  
         type="text"  
+    
     :value="data.filepath"
     unit=""
     :disabled="detailsModel.filepath.disabled" 
@@ -257,7 +260,8 @@
     :isShowCaption="true"
     :error="detailsModel.desc.error" 
     :isEmptyCaption="false">
-        <app-mob-rich-text-editor-pms :formState="formState" :value="data.desc" @change="(val) =>{this.data.desc =val}" :disabled="detailsModel.desc.disabled" :data="JSON.stringify(this.data)"  name="desc" :uploadparams='{}' :exportparams='{}'  style=""/>
+        <app-mob-rich-text-editor-pms :formState="formState"  :value="data.desc" @change="(val) =>{this.data.desc =val}" :disabled="detailsModel.desc.disabled" :data="JSON.stringify(this.data)"  name="desc" :uploadparams='{}' :exportparams='{}'  style=""/>
+
 </app-form-item>
 
 

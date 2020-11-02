@@ -15,7 +15,7 @@
 |-|快速新建|DEMOBEDITVIEW|&nbsp;|
 |-|用户移动端多数据选择视图|DEMOBMPICKUPVIEW|&nbsp;|
 |-|需求移动端多数据视图|DEMOBMDVIEW9|&nbsp;|
-|-|iBiz软件生产管理|APPINDEXVIEW|&nbsp;|
+|-|iBiz软件生产管理1|APPINDEXVIEW|&nbsp;|
 |-|任务移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
 |-|我的地盘移动端多数据视图|DEMOBMDVIEW9|&nbsp;|
 |-|Bug移动端多数据视图（计划下属）|DEMOBMDVIEW9|&nbsp;|
