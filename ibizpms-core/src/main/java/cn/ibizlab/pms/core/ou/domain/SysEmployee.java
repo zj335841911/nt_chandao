@@ -68,11 +68,55 @@ public class SysEmployee extends EntityClient implements Serializable {
     private String domains;
 
     /**
+     * 主部门
+     */
+    @JSONField(name = "mdeptid")
+    @JsonProperty("mdeptid")
+    private String mdeptid;
+
+    /**
+     * 主部门代码
+     */
+    @JSONField(name = "mdeptcode")
+    @JsonProperty("mdeptcode")
+    private String mdeptcode;
+
+    /**
+     * 主部门名称
+     */
+    @JSONField(name = "mdeptname")
+    @JsonProperty("mdeptname")
+    private String mdeptname;
+
+    /**
      * 业务编码
      */
     @JSONField(name = "bcode")
     @JsonProperty("bcode")
     private String bcode;
+
+    /**
+     * 单位
+     */
+    @DEField(preType = DEPredefinedFieldType.ORGID)
+    @JSONField(name = "orgid")
+    @JsonProperty("orgid")
+    private String orgid;
+
+    /**
+     * 单位代码
+     */
+    @JSONField(name = "orgcode")
+    @JsonProperty("orgcode")
+    private String orgcode;
+
+    /**
+     * 单位名称
+     */
+    @DEField(preType = DEPredefinedFieldType.ORGNAME)
+    @JSONField(name = "orgname")
+    @JsonProperty("orgname")
+    private String orgname;
 
     /**
      * 昵称别名
@@ -176,6 +220,20 @@ public class SysEmployee extends EntityClient implements Serializable {
     private Timestamp createdate;
 
 
+    /**
+     * 
+     */
+    @JSONField(name = "maindept")
+    @JsonProperty("maindept")
+    private cn.ibizlab.pms.core.ou.domain.SysDepartment maindept;
+
+    /**
+     * 
+     */
+    @JSONField(name = "org")
+    @JsonProperty("org")
+    private cn.ibizlab.pms.core.ou.domain.SysOrganization org;
+
 
 
 
@@ -212,11 +270,43 @@ public class SysEmployee extends EntityClient implements Serializable {
     }
 
     /**
+     * 设置 [主部门]
+     */
+    public void setMdeptid(String mdeptid){
+        this.mdeptid = mdeptid ;
+        this.modify("mdeptid",mdeptid);
+    }
+
+    /**
+     * 设置 [主部门代码]
+     */
+    public void setMdeptcode(String mdeptcode){
+        this.mdeptcode = mdeptcode ;
+        this.modify("mdeptcode",mdeptcode);
+    }
+
+    /**
+     * 设置 [主部门名称]
+     */
+    public void setMdeptname(String mdeptname){
+        this.mdeptname = mdeptname ;
+        this.modify("mdeptname",mdeptname);
+    }
+
+    /**
      * 设置 [业务编码]
      */
     public void setBcode(String bcode){
         this.bcode = bcode ;
         this.modify("bcode",bcode);
+    }
+
+    /**
+     * 设置 [单位代码]
+     */
+    public void setOrgcode(String orgcode){
+        this.orgcode = orgcode ;
+        this.modify("orgcode",orgcode);
     }
 
     /**

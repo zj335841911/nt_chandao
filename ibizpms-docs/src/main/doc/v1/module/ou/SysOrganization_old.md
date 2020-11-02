@@ -3,7 +3,13 @@
   
 
 ## 关系
-无
+{% plantuml %}
+单位 *-- 人员 
+单位 *-- 部门 
+单位 *-- 单位 
+单位 *-- 单位 
+hide members
+{% endplantuml %}
 
 ## 属性
 
@@ -12,9 +18,11 @@
 |单位标识|ORGID|TEXT|&nbsp;|
 |单位代码|ORGCODE|TEXT|&nbsp;|
 |名称|ORGNAME|TEXT|&nbsp;|
+|上级单位|PORGID|PICKUP|&nbsp;|
 |单位简称|SHORTNAME|TEXT|&nbsp;|
 |单位级别|ORGLEVEL|INT|&nbsp;|
 |排序|SHOWORDER|INT|&nbsp;|
+|上级单位|PORGNAME|PICKUPTEXT|&nbsp;|
 |区属|DOMAINS|TEXT|&nbsp;|
 |逻辑有效|ENABLE|YESNO|&nbsp;|
 |创建时间|CREATEDATE|DATETIME|&nbsp;|
@@ -26,9 +34,11 @@
 |单位标识|默认规则|内容长度必须小于等于[100]|
 |单位代码|默认规则|内容长度必须小于等于[100]|
 |名称|默认规则|内容长度必须小于等于[100]|
+|上级单位|默认规则|内容长度必须小于等于[100]|
 |单位简称|默认规则|内容长度必须小于等于[100]|
 |单位级别|默认规则|默认规则|
 |排序|默认规则|默认规则|
+|上级单位|默认规则|内容长度必须小于等于[100]|
 |区属|默认规则|内容长度必须小于等于[100]|
 |逻辑有效|默认规则|默认规则|
 |创建时间|默认规则|默认规则|
@@ -72,6 +82,9 @@
 | 属性      |    搜索模式     |
 | --------   |------------|
 |名称(ORGNAME)|LIKE|
+|上级单位(PORGID)|EQ|
+|上级单位(PORGNAME)|EQ|
+|上级单位(PORGNAME)|LIKE|
 
 ## 导入模式
 无

@@ -77,6 +77,33 @@ public class SysEmployeeDTO extends DTOBase implements Serializable {
     private String domains;
 
     /**
+     * 属性 [MDEPTID]
+     *
+     */
+    @JSONField(name = "mdeptid")
+    @JsonProperty("mdeptid")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String mdeptid;
+
+    /**
+     * 属性 [MDEPTCODE]
+     *
+     */
+    @JSONField(name = "mdeptcode")
+    @JsonProperty("mdeptcode")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String mdeptcode;
+
+    /**
+     * 属性 [MDEPTNAME]
+     *
+     */
+    @JSONField(name = "mdeptname")
+    @JsonProperty("mdeptname")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String mdeptname;
+
+    /**
      * 属性 [BCODE]
      *
      */
@@ -84,6 +111,33 @@ public class SysEmployeeDTO extends DTOBase implements Serializable {
     @JsonProperty("bcode")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
     private String bcode;
+
+    /**
+     * 属性 [ORGID]
+     *
+     */
+    @JSONField(name = "orgid")
+    @JsonProperty("orgid")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String orgid;
+
+    /**
+     * 属性 [ORGCODE]
+     *
+     */
+    @JSONField(name = "orgcode")
+    @JsonProperty("orgcode")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String orgcode;
+
+    /**
+     * 属性 [ORGNAME]
+     *
+     */
+    @JSONField(name = "orgname")
+    @JsonProperty("orgname")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String orgname;
 
     /**
      * 属性 [NICKNAME]
@@ -243,11 +297,43 @@ public class SysEmployeeDTO extends DTOBase implements Serializable {
     }
 
     /**
+     * 设置 [MDEPTID]
+     */
+    public void setMdeptid(String  mdeptid){
+        this.mdeptid = mdeptid ;
+        this.modify("mdeptid",mdeptid);
+    }
+
+    /**
+     * 设置 [MDEPTCODE]
+     */
+    public void setMdeptcode(String  mdeptcode){
+        this.mdeptcode = mdeptcode ;
+        this.modify("mdeptcode",mdeptcode);
+    }
+
+    /**
+     * 设置 [MDEPTNAME]
+     */
+    public void setMdeptname(String  mdeptname){
+        this.mdeptname = mdeptname ;
+        this.modify("mdeptname",mdeptname);
+    }
+
+    /**
      * 设置 [BCODE]
      */
     public void setBcode(String  bcode){
         this.bcode = bcode ;
         this.modify("bcode",bcode);
+    }
+
+    /**
+     * 设置 [ORGCODE]
+     */
+    public void setOrgcode(String  orgcode){
+        this.orgcode = orgcode ;
+        this.modify("orgcode",orgcode);
     }
 
     /**

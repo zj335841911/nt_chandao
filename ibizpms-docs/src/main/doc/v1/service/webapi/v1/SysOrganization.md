@@ -228,12 +228,14 @@ POST
 | 1 | orgid | String | 允许 | 单位标识 |
 | 2 | orgcode | String | 允许 | 单位代码 |
 | 3 | orgname | String | 不可 | 名称 |
-| 4 | shortname | String | 允许 | 单位简称 |
-| 5 | orglevel | Integer | 允许 | 单位级别 |
-| 6 | showorder | Integer | 允许 | 排序 |
-| 7 | domains | String | 允许 | 区属 |
-| 8 | enable | Integer | 允许 | 逻辑有效 |
-| 9 | createdate | Timestamp | 允许 | 创建时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
-| 10 | updatedate | Timestamp | 允许 | 最后修改时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
-| 11 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 4 | parentorgid | String | 允许 | 上级单位 |
+| 5 | shortname | String | 允许 | 单位简称 |
+| 6 | orglevel | Integer | 允许 | 单位级别 |
+| 7 | showorder | Integer | 允许 | 排序 |
+| 8 | parentorgname | String | 允许 | 上级单位 |
+| 9 | domains | String | 允许 | 区属 |
+| 10 | enable | Integer | 允许 | 逻辑有效 |
+| 11 | createdate | Timestamp | 允许 | 创建时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
+| 12 | updatedate | Timestamp | 允许 | 最后修改时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
+| 13 | <动态属性> | Object | 允许 | 支持动态属性 |
 

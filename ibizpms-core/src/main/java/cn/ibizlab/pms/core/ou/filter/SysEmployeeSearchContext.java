@@ -35,6 +35,18 @@ public class SysEmployeeSearchContext extends SearchContextBase {
 
 	private String n_personname_like;//[姓名]
 
+	private String n_mdeptid_eq;//[主部门]
+
+	private String n_mdeptname_eq;//[主部门名称]
+
+	private String n_mdeptname_like;//[主部门名称]
+
+	private String n_orgid_eq;//[单位]
+
+	private String n_orgname_eq;//[单位名称]
+
+	private String n_orgname_like;//[单位名称]
+
 	private String n_sex_eq;//[性别]
 
 }

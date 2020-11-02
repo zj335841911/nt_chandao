@@ -11,13 +11,15 @@
 | 1 | [单位标识](#属性-单位标识（ORGID）) | ORGID | 文本，可指定长度 | 是 | 否 | 是 |
 | 2 | [单位代码](#属性-单位代码（ORGCODE）) | ORGCODE | 文本，可指定长度 | 否 | 否 | 是 |
 | 3 | [名称](#属性-名称（ORGNAME）) | ORGNAME | 文本，可指定长度 | 否 | 否 | 否 |
-| 4 | [单位简称](#属性-单位简称（SHORTNAME）) | SHORTNAME | 文本，可指定长度 | 否 | 否 | 是 |
-| 5 | [单位级别](#属性-单位级别（ORGLEVEL）) | ORGLEVEL | 整型 | 否 | 否 | 是 |
-| 6 | [排序](#属性-排序（SHOWORDER）) | SHOWORDER | 整型 | 否 | 否 | 是 |
-| 7 | [区属](#属性-区属（DOMAINS）) | DOMAINS | 文本，可指定长度 | 否 | 否 | 是 |
-| 8 | [逻辑有效](#属性-逻辑有效（ENABLE）) | ENABLE | 是否逻辑 | 否 | 否 | 是 |
-| 9 | [创建时间](#属性-创建时间（CREATEDATE）) | CREATEDATE | 日期时间型 | 否 | 否 | 是 |
-| 10 | [最后修改时间](#属性-最后修改时间（UPDATEDATE）) | UPDATEDATE | 日期时间型 | 否 | 否 | 是 |
+| 4 | [上级单位](#属性-上级单位（PORGID）) | PORGID | 外键值 | 否 | 是 | 是 |
+| 5 | [单位简称](#属性-单位简称（SHORTNAME）) | SHORTNAME | 文本，可指定长度 | 否 | 是 | 是 |
+| 6 | [单位级别](#属性-单位级别（ORGLEVEL）) | ORGLEVEL | 整型 | 否 | 是 | 是 |
+| 7 | [排序](#属性-排序（SHOWORDER）) | SHOWORDER | 整型 | 否 | 是 | 是 |
+| 8 | [上级单位](#属性-上级单位（PORGNAME）) | PORGNAME | 外键值文本 | 否 | 是 | 是 |
+| 9 | [区属](#属性-区属（DOMAINS）) | DOMAINS | 文本，可指定长度 | 否 | 是 | 是 |
+| 10 | [逻辑有效](#属性-逻辑有效（ENABLE）) | ENABLE | 是否逻辑 | 否 | 是 | 是 |
+| 11 | [创建时间](#属性-创建时间（CREATEDATE）) | CREATEDATE | 日期时间型 | 否 | 是 | 是 |
+| 12 | [最后修改时间](#属性-最后修改时间（UPDATEDATE）) | UPDATEDATE | 日期时间型 | 否 | 是 | 是 |
 
 ### 属性-单位标识（ORGID）
 #### 属性说明
@@ -48,7 +50,11 @@ String
 无
 
 #### 关系属性
-无
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [单位（SYS_ORG）](../ou/SysOrganization) |
+| 关系属性 | [名称（ORGNAME）](../ou/SysOrganization/#属性-名称（ORGNAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
 
 ### 属性-单位代码（ORGCODE）
 #### 属性说明
@@ -76,7 +82,11 @@ String
 无
 
 #### 关系属性
-无
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [单位（SYS_ORG）](../ou/SysOrganization) |
+| 关系属性 | [名称（ORGNAME）](../ou/SysOrganization/#属性-名称（ORGNAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
 
 ### 属性-名称（ORGNAME）
 #### 属性说明
@@ -104,7 +114,43 @@ String
 无
 
 #### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [单位（SYS_ORG）](../ou/SysOrganization) |
+| 关系属性 | [名称（ORGNAME）](../ou/SysOrganization/#属性-名称（ORGNAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-上级单位（PORGID）
+#### 属性说明
+上级单位
+
+#### 属性类型
+物理字段[来自当前实体物理表字段]
+
+#### 数据类型
+外键值
+
+#### Java类型
+String
+
+#### 是否允许为为空
+是
+
+#### 默认值
 无
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [单位（SYS_ORG）](../ou/SysOrganization) |
+| 关系属性 | [单位标识（ORGID）](../ou/SysOrganization/#属性-单位标识（ORGID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
 
 ### 属性-单位简称（SHORTNAME）
 #### 属性说明
@@ -132,7 +178,11 @@ String
 无
 
 #### 关系属性
-无
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [单位（SYS_ORG）](../ou/SysOrganization) |
+| 关系属性 | [单位标识（ORGID）](../ou/SysOrganization/#属性-单位标识（ORGID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
 
 ### 属性-单位级别（ORGLEVEL）
 #### 属性说明
@@ -160,7 +210,11 @@ Integer
 无
 
 #### 关系属性
-无
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [单位（SYS_ORG）](../ou/SysOrganization) |
+| 关系属性 | [单位标识（ORGID）](../ou/SysOrganization/#属性-单位标识（ORGID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
 
 ### 属性-排序（SHOWORDER）
 #### 属性说明
@@ -188,7 +242,43 @@ Integer
 无
 
 #### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [单位（SYS_ORG）](../ou/SysOrganization) |
+| 关系属性 | [单位标识（ORGID）](../ou/SysOrganization/#属性-单位标识（ORGID）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-上级单位（PORGNAME）
+#### 属性说明
+上级单位
+
+#### 属性类型
+链接字段[来自关系实体字段]
+
+#### 数据类型
+外键值文本
+
+#### Java类型
+String
+
+#### 是否允许为为空
+是
+
+#### 默认值
 无
+
+#### 取值范围/公式
+无
+
+#### 数据格式
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [单位（SYS_ORG）](../ou/SysOrganization) |
+| 关系属性 | [名称（ORGNAME）](../ou/SysOrganization/#属性-名称（ORGNAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
 
 ### 属性-区属（DOMAINS）
 #### 属性说明
@@ -216,7 +306,11 @@ String
 无
 
 #### 关系属性
-无
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [单位（SYS_ORG）](../ou/SysOrganization) |
+| 关系属性 | [名称（ORGNAME）](../ou/SysOrganization/#属性-名称（ORGNAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
 
 ### 属性-逻辑有效（ENABLE）
 #### 属性说明
@@ -244,7 +338,11 @@ Integer
 无
 
 #### 关系属性
-无
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [单位（SYS_ORG）](../ou/SysOrganization) |
+| 关系属性 | [名称（ORGNAME）](../ou/SysOrganization/#属性-名称（ORGNAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
 
 ### 属性-创建时间（CREATEDATE）
 #### 属性说明
@@ -272,7 +370,11 @@ Timestamp
 yyyy-MM-dd HH:mm:ss
 
 #### 关系属性
-无
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [单位（SYS_ORG）](../ou/SysOrganization) |
+| 关系属性 | [名称（ORGNAME）](../ou/SysOrganization/#属性-名称（ORGNAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
 
 ### 属性-最后修改时间（UPDATEDATE）
 #### 属性说明
@@ -300,7 +402,11 @@ Timestamp
 yyyy-MM-dd HH:mm:ss
 
 #### 关系属性
-无
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [单位（SYS_ORG）](../ou/SysOrganization) |
+| 关系属性 | [名称（ORGNAME）](../ou/SysOrganization/#属性-名称（ORGNAME）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
 
 
 ## 业务状态

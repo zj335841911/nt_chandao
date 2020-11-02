@@ -57,6 +57,15 @@ public class SysOrganizationDTO extends DTOBase implements Serializable {
     private String orgname;
 
     /**
+     * 属性 [PORGID]
+     *
+     */
+    @JSONField(name = "parentorgid")
+    @JsonProperty("parentorgid")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String parentorgid;
+
+    /**
      * 属性 [SHORTNAME]
      *
      */
@@ -80,6 +89,15 @@ public class SysOrganizationDTO extends DTOBase implements Serializable {
     @JSONField(name = "showorder")
     @JsonProperty("showorder")
     private Integer showorder;
+
+    /**
+     * 属性 [PORGNAME]
+     *
+     */
+    @JSONField(name = "parentorgname")
+    @JsonProperty("parentorgname")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String parentorgname;
 
     /**
      * 属性 [DOMAINS]
@@ -123,6 +141,14 @@ public class SysOrganizationDTO extends DTOBase implements Serializable {
     public void setOrgcode(String  orgcode){
         this.orgcode = orgcode ;
         this.modify("orgcode",orgcode);
+    }
+
+    /**
+     * 设置 [PORGID]
+     */
+    public void setParentorgid(String  parentorgid){
+        this.parentorgid = parentorgid ;
+        this.modify("porgid",parentorgid);
     }
 
     /**

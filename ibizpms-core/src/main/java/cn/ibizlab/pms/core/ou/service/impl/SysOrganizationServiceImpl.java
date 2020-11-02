@@ -136,6 +136,26 @@ public class SysOrganizationServiceImpl implements ISysOrganizationService {
 
 
 
+	@Override
+    public List<SysOrganization> selectByParentorgid(String orgid) {
+        SysOrganizationSearchContext context=new SysOrganizationSearchContext();
+        context.setSize(Integer.MAX_VALUE);
+        context.setN_porgid_eq(orgid);
+        return sysOrganizationFeignClient.searchDefault(context).getContent();
+    }
+
+
+    @Override
+    public void removeByParentorgid(String orgid) {
+        Set<String> delIds=new HashSet<String>();
+        for(SysOrganization before:selectByParentorgid(orgid)){
+            delIds.add(before.getOrgid());
+        }
+        if(delIds.size()>0)
+            this.removeBatch(delIds);
+    }
+
+
 
 
     /**

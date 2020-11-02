@@ -28075,6 +28075,43 @@
     "major_field":1
     },
     {
+    "fieldname":"ORGID" ,
+    "codename":"OrgId",
+    "field_logic_name":"单位",
+    "entity_name":"SysDepartment",
+    "ref_de":"SYS_ORG",
+    "ref_field_name":"ORGID",
+    "relation_name":"DER1N_SYS_DEPT_SYS_ORG_ORGID",
+    "relation_codename":"Org",
+    "field_type":"PICKUP",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "predefined":"ORGID",
+    "key_field":0,
+    "show_order":4,
+    "major_field":0
+    },
+    {
+    "fieldname":"PDEPTID" ,
+    "codename":"ParentDeptid",
+    "field_logic_name":"上级部门",
+    "entity_name":"SysDepartment",
+    "ref_de":"SYS_DEPT",
+    "ref_field_name":"DEPTID",
+    "relation_name":"DER1N_SYS_DEPT_SYS_DEPT_PDEPTID",
+    "relation_codename":"ParentDept",
+    "field_type":"PICKUP",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "show_order":5,
+    "major_field":0
+    },
+    {
     "fieldname":"SHORTNAME" ,
     "codename":"ShortName",
     "field_logic_name":"部门简称",
@@ -28171,6 +28208,43 @@
     "major_field":0
     },
     {
+    "fieldname":"ORGNAME" ,
+    "codename":"OrgName",
+    "field_logic_name":"单位",
+    "entity_name":"SysDepartment",
+    "ref_de":"SYS_ORG",
+    "ref_field_name":"ORGNAME",
+    "relation_name":"DER1N_SYS_DEPT_SYS_ORG_ORGID",
+    "relation_codename":"Org",
+    "field_type":"PICKUPTEXT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "predefined":"ORGNAME",
+    "key_field":0,
+    "show_order":16,
+    "major_field":0
+    },
+    {
+    "fieldname":"PDEPTNAME" ,
+    "codename":"ParentDeptName",
+    "field_logic_name":"上级部门",
+    "entity_name":"SysDepartment",
+    "ref_de":"SYS_DEPT",
+    "ref_field_name":"DEPTNAME",
+    "relation_name":"DER1N_SYS_DEPT_SYS_DEPT_PDEPTID",
+    "relation_codename":"ParentDept",
+    "field_type":"PICKUPTEXT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "show_order":17,
+    "major_field":0
+    },
+    {
     "fieldname":"CREATEDATE" ,
     "codename":"CreateDate",
     "field_logic_name":"建立时间",
@@ -28246,69 +28320,35 @@
     "key_field":0,
     "show_order":1000,
     "major_field":0
-    },
-    {
-    "fieldname":"PDEPTID" ,
-    "codename":"Pdeptid",
-    "field_logic_name":"上级部门标识",
-    "entity_name":"SysDepartment",
-    "field_type":"TEXT",
-    "nullable":1,
-    "physical_field":1,
-    "data_type":"VARCHAR",
-    "data_length":100,
-    "key_field":0,
-    "show_order":1000,
-    "major_field":0
-    },
-    {
-    "fieldname":"PDEPTNAME" ,
-    "codename":"Pdeptname",
-    "field_logic_name":"上级部门",
-    "entity_name":"SysDepartment",
-    "field_type":"TEXT",
-    "nullable":1,
-    "physical_field":0,
-    "data_type":"VARCHAR",
-    "data_length":100,
-    "key_field":0,
-    "show_order":1000,
-    "major_field":0
-    },
-    {
-    "fieldname":"ORGID" ,
-    "codename":"Orgid",
-    "field_logic_name":"组织标识",
-    "entity_name":"SysDepartment",
-    "field_type":"TEXT",
-    "nullable":1,
-    "physical_field":1,
-    "data_type":"VARCHAR",
-    "data_length":100,
-    "predefined":"ORGID",
-    "key_field":0,
-    "show_order":1000,
-    "major_field":0
-    },
-    {
-    "fieldname":"ORGNAME" ,
-    "codename":"Orgname",
-    "field_logic_name":"单位",
-    "entity_name":"SysDepartment",
-    "field_type":"TEXT",
-    "nullable":1,
-    "physical_field":0,
-    "data_type":"VARCHAR",
-    "data_length":100,
-    "predefined":"ORGNAME",
-    "key_field":0,
-    "show_order":1000,
-    "major_field":0
     }
     ],
     "subEntitys":[
+    {"name":"DER1N_IBZEMP_SYS_DEPT_MDEPTID",
+     "relation_type":"DER1N",
+     "code_name":"MainDept",
+     "entity_name":"IBZEMP",
+     "ref_entity_name":"SYS_DEPT"
+    },
+    {"name":"DER1N_SYS_DEPT_SYS_DEPT_PDEPTID",
+     "relation_type":"DER1N",
+     "code_name":"ParentDept",
+     "entity_name":"SYS_DEPT",
+     "ref_entity_name":"SYS_DEPT"
+    }
     ],
     "parentEntitys":[
+    {"name":"DER1N_SYS_DEPT_SYS_DEPT_PDEPTID",
+     "relation_type":"DER1N",
+     "code_name":"ParentDept",
+     "entity_name":"SYS_DEPT",
+     "ref_entity_name":"SYS_DEPT"
+    },
+    {"name":"DER1N_SYS_DEPT_SYS_ORG_ORGID",
+     "relation_type":"DER1N",
+     "code_name":"Org",
+     "entity_name":"SYS_DEPT",
+     "ref_entity_name":"SYS_ORG"
+    }
     ]
  }
     ,
@@ -28391,6 +28431,60 @@
     "major_field":0
     },
     {
+    "fieldname":"MDEPTID" ,
+    "codename":"MdeptId",
+    "field_logic_name":"主部门",
+    "entity_name":"SysEmployee",
+    "ref_de":"SYS_DEPT",
+    "ref_field_name":"DEPTID",
+    "relation_name":"DER1N_IBZEMP_SYS_DEPT_MDEPTID",
+    "relation_codename":"MainDept",
+    "field_type":"PICKUP",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "show_order":8,
+    "major_field":0
+    },
+    {
+    "fieldname":"MDEPTCODE" ,
+    "codename":"MDeptCode",
+    "field_logic_name":"主部门代码",
+    "entity_name":"SysEmployee",
+    "ref_de":"SYS_DEPT",
+    "ref_field_name":"DEPTCODE",
+    "relation_name":"DER1N_IBZEMP_SYS_DEPT_MDEPTID",
+    "relation_codename":"MainDept",
+    "field_type":"PICKUPDATA",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "show_order":9,
+    "major_field":0
+    },
+    {
+    "fieldname":"MDEPTNAME" ,
+    "codename":"MDeptName",
+    "field_logic_name":"主部门名称",
+    "entity_name":"SysEmployee",
+    "ref_de":"SYS_DEPT",
+    "ref_field_name":"DEPTNAME",
+    "relation_name":"DER1N_IBZEMP_SYS_DEPT_MDEPTID",
+    "relation_codename":"MainDept",
+    "field_type":"PICKUPTEXT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "show_order":10,
+    "major_field":0
+    },
+    {
     "fieldname":"BCODE" ,
     "codename":"BCode",
     "field_logic_name":"业务编码",
@@ -28402,6 +28496,62 @@
     "data_length":100,
     "key_field":0,
     "show_order":11,
+    "major_field":0
+    },
+    {
+    "fieldname":"ORGID" ,
+    "codename":"OrgId",
+    "field_logic_name":"单位",
+    "entity_name":"SysEmployee",
+    "ref_de":"SYS_ORG",
+    "ref_field_name":"ORGID",
+    "relation_name":"DER1N_IBZEMP_SYS_ORG_ORGID",
+    "relation_codename":"Org",
+    "field_type":"PICKUP",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "predefined":"ORGID",
+    "key_field":0,
+    "show_order":15,
+    "major_field":0
+    },
+    {
+    "fieldname":"ORGCODE" ,
+    "codename":"OrgCode",
+    "field_logic_name":"单位代码",
+    "entity_name":"SysEmployee",
+    "ref_de":"SYS_ORG",
+    "ref_field_name":"ORGCODE",
+    "relation_name":"DER1N_IBZEMP_SYS_ORG_ORGID",
+    "relation_codename":"Org",
+    "field_type":"PICKUPDATA",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "show_order":16,
+    "major_field":0
+    },
+    {
+    "fieldname":"ORGNAME" ,
+    "codename":"OrgName",
+    "field_logic_name":"单位名称",
+    "entity_name":"SysEmployee",
+    "ref_de":"SYS_ORG",
+    "ref_field_name":"ORGNAME",
+    "relation_name":"DER1N_IBZEMP_SYS_ORG_ORGID",
+    "relation_codename":"Org",
+    "field_type":"PICKUPTEXT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "predefined":"ORGNAME",
+    "key_field":0,
+    "show_order":17,
     "major_field":0
     },
     {
@@ -28603,6 +28753,18 @@
     "subEntitys":[
     ],
     "parentEntitys":[
+    {"name":"DER1N_IBZEMP_SYS_DEPT_MDEPTID",
+     "relation_type":"DER1N",
+     "code_name":"MainDept",
+     "entity_name":"IBZEMP",
+     "ref_entity_name":"SYS_DEPT"
+    },
+    {"name":"DER1N_IBZEMP_SYS_ORG_ORGID",
+     "relation_type":"DER1N",
+     "code_name":"Org",
+     "entity_name":"IBZEMP",
+     "ref_entity_name":"SYS_ORG"
+    }
     ]
  }
     ,
@@ -28659,6 +28821,24 @@
     "major_field":1
     },
     {
+    "fieldname":"PORGID" ,
+    "codename":"ParentOrgId",
+    "field_logic_name":"上级单位",
+    "entity_name":"SysOrganization",
+    "ref_de":"SYS_ORG",
+    "ref_field_name":"ORGID",
+    "relation_name":"DER1N_SYS_ORG_SYS_ORG_PORGID",
+    "relation_codename":"ParentOrg",
+    "field_type":"PICKUP",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "show_order":5,
+    "major_field":0
+    },
+    {
     "fieldname":"SHORTNAME" ,
     "codename":"ShortName",
     "field_logic_name":"单位简称",
@@ -28696,6 +28876,24 @@
     "data_type":"INT",
     "key_field":0,
     "show_order":10,
+    "major_field":0
+    },
+    {
+    "fieldname":"PORGNAME" ,
+    "codename":"ParentOrgName",
+    "field_logic_name":"上级单位",
+    "entity_name":"SysOrganization",
+    "ref_de":"SYS_ORG",
+    "ref_field_name":"ORGNAME",
+    "relation_name":"DER1N_SYS_ORG_SYS_ORG_PORGID",
+    "relation_codename":"ParentOrg",
+    "field_type":"PICKUPTEXT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "show_order":11,
     "major_field":0
     },
     {
@@ -28756,8 +28954,32 @@
     }
     ],
     "subEntitys":[
+    {"name":"DER1N_IBZEMP_SYS_ORG_ORGID",
+     "relation_type":"DER1N",
+     "code_name":"Org",
+     "entity_name":"IBZEMP",
+     "ref_entity_name":"SYS_ORG"
+    },
+    {"name":"DER1N_SYS_DEPT_SYS_ORG_ORGID",
+     "relation_type":"DER1N",
+     "code_name":"Org",
+     "entity_name":"SYS_DEPT",
+     "ref_entity_name":"SYS_ORG"
+    },
+    {"name":"DER1N_SYS_ORG_SYS_ORG_PORGID",
+     "relation_type":"DER1N",
+     "code_name":"ParentOrg",
+     "entity_name":"SYS_ORG",
+     "ref_entity_name":"SYS_ORG"
+    }
     ],
     "parentEntitys":[
+    {"name":"DER1N_SYS_ORG_SYS_ORG_PORGID",
+     "relation_type":"DER1N",
+     "code_name":"ParentOrg",
+     "entity_name":"SYS_ORG",
+     "ref_entity_name":"SYS_ORG"
+    }
     ]
  }
     ,

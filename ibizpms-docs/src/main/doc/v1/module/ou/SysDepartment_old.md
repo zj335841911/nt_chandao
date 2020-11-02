@@ -3,7 +3,13 @@
   
 
 ## 关系
-无
+{% plantuml %}
+部门 *-- 人员 
+部门 *-- 部门 
+部门 *-- 部门 
+单位 *-- 部门 
+hide members
+{% endplantuml %}
 
 ## 属性
 
@@ -12,6 +18,8 @@
 |部门标识|DEPTID|TEXT|&nbsp;|
 |部门代码|DEPTCODE|TEXT|&nbsp;|
 |部门名称|DEPTNAME|TEXT|&nbsp;|
+|单位|ORGID|PICKUP|&nbsp;|
+|上级部门|PDEPTID|PICKUP|&nbsp;|
 |部门简称|SHORTNAME|TEXT|&nbsp;|
 |部门级别|DEPTLEVEL|INT|&nbsp;|
 |区属|DOMAINS|TEXT|&nbsp;|
@@ -19,15 +27,13 @@
 |业务编码|BCODE|TEXT|&nbsp;|
 |分管领导标识|LEADERID|TEXT|&nbsp;|
 |分管领导|LEADERNAME|TEXT|&nbsp;|
+|单位|ORGNAME|PICKUPTEXT|&nbsp;|
+|上级部门|PDEPTNAME|PICKUPTEXT|&nbsp;|
 |建立时间|CREATEDATE|DATETIME|&nbsp;|
 |逻辑有效标志|ENABLE|YESNO|&nbsp;|
 |建立人|CREATEMAN|TEXT|&nbsp;|
 |更新人|UPDATEMAN|TEXT|&nbsp;|
 |更新时间|UPDATEDATE|DATETIME|&nbsp;|
-|上级部门标识|PDEPTID|TEXT|&nbsp;|
-|上级部门|PDEPTNAME|TEXT|&nbsp;|
-|组织标识|ORGID|TEXT|&nbsp;|
-|单位|ORGNAME|TEXT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -35,6 +41,8 @@
 |部门标识|默认规则|内容长度必须小于等于[100]|
 |部门代码|默认规则|内容长度必须小于等于[100]|
 |部门名称|默认规则|内容长度必须小于等于[100]|
+|单位|默认规则|内容长度必须小于等于[100]|
+|上级部门|默认规则|内容长度必须小于等于[100]|
 |部门简称|默认规则|内容长度必须小于等于[100]|
 |部门级别|默认规则|默认规则|
 |区属|默认规则|内容长度必须小于等于[100]|
@@ -42,15 +50,13 @@
 |业务编码|默认规则|内容长度必须小于等于[100]|
 |分管领导标识|默认规则|内容长度必须小于等于[100]|
 |分管领导|默认规则|内容长度必须小于等于[100]|
+|单位|默认规则|内容长度必须小于等于[100]|
+|上级部门|默认规则|内容长度必须小于等于[100]|
 |建立时间|默认规则|默认规则|
 |逻辑有效标志|默认规则|默认规则|
 |建立人|默认规则|内容长度必须小于等于[60]|
 |更新人|默认规则|内容长度必须小于等于[60]|
 |更新时间|默认规则|默认规则|
-|上级部门标识|默认规则|内容长度必须小于等于[100]|
-|上级部门|默认规则|内容长度必须小于等于[100]|
-|组织标识|默认规则|内容长度必须小于等于[100]|
-|单位|默认规则|内容长度必须小于等于[100]|
 
 ## 状态控制
 
@@ -90,7 +96,12 @@
 | 属性      |    搜索模式     |
 | --------   |------------|
 |部门名称(DEPTNAME)|LIKE|
-|组织标识(ORGID)|EQ|
+|单位(ORGID)|EQ|
+|上级部门(PDEPTID)|EQ|
+|单位(ORGNAME)|EQ|
+|单位(ORGNAME)|LIKE|
+|上级部门(PDEPTNAME)|EQ|
+|上级部门(PDEPTNAME)|LIKE|
 
 ## 导入模式
 无

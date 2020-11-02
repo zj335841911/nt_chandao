@@ -59,6 +59,24 @@ public class SysDepartmentDTO extends DTOBase implements Serializable {
     private String deptname;
 
     /**
+     * 属性 [ORGID]
+     *
+     */
+    @JSONField(name = "orgid")
+    @JsonProperty("orgid")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String orgid;
+
+    /**
+     * 属性 [PDEPTID]
+     *
+     */
+    @JSONField(name = "parentdeptid")
+    @JsonProperty("parentdeptid")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String parentdeptid;
+
+    /**
      * 属性 [SHORTNAME]
      *
      */
@@ -120,6 +138,24 @@ public class SysDepartmentDTO extends DTOBase implements Serializable {
     private String leadername;
 
     /**
+     * 属性 [ORGNAME]
+     *
+     */
+    @JSONField(name = "orgname")
+    @JsonProperty("orgname")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String orgname;
+
+    /**
+     * 属性 [PDEPTNAME]
+     *
+     */
+    @JSONField(name = "parentdeptname")
+    @JsonProperty("parentdeptname")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String parentdeptname;
+
+    /**
      * 属性 [CREATEDATE]
      *
      */
@@ -163,42 +199,6 @@ public class SysDepartmentDTO extends DTOBase implements Serializable {
     @JsonProperty("updatedate")
     private Timestamp updatedate;
 
-    /**
-     * 属性 [PDEPTID]
-     *
-     */
-    @JSONField(name = "pdeptid")
-    @JsonProperty("pdeptid")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String pdeptid;
-
-    /**
-     * 属性 [PDEPTNAME]
-     *
-     */
-    @JSONField(name = "pdeptname")
-    @JsonProperty("pdeptname")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String pdeptname;
-
-    /**
-     * 属性 [ORGID]
-     *
-     */
-    @JSONField(name = "orgid")
-    @JsonProperty("orgid")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String orgid;
-
-    /**
-     * 属性 [ORGNAME]
-     *
-     */
-    @JSONField(name = "orgname")
-    @JsonProperty("orgname")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String orgname;
-
 
     /**
      * 设置 [DEPTCODE]
@@ -214,6 +214,14 @@ public class SysDepartmentDTO extends DTOBase implements Serializable {
     public void setDeptname(String  deptname){
         this.deptname = deptname ;
         this.modify("deptname",deptname);
+    }
+
+    /**
+     * 设置 [PDEPTID]
+     */
+    public void setParentdeptid(String  parentdeptid){
+        this.parentdeptid = parentdeptid ;
+        this.modify("pdeptid",parentdeptid);
     }
 
     /**
@@ -270,14 +278,6 @@ public class SysDepartmentDTO extends DTOBase implements Serializable {
     public void setLeadername(String  leadername){
         this.leadername = leadername ;
         this.modify("leadername",leadername);
-    }
-
-    /**
-     * 设置 [PDEPTID]
-     */
-    public void setPdeptid(String  pdeptid){
-        this.pdeptid = pdeptid ;
-        this.modify("pdeptid",pdeptid);
     }
 
 

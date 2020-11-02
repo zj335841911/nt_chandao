@@ -228,21 +228,21 @@ POST
 | 1 | deptid | String | 允许 | 部门标识 |
 | 2 | deptcode | String | 不可 | 部门代码 |
 | 3 | deptname | String | 不可 | 部门名称 |
-| 4 | shortname | String | 允许 | 部门简称 |
-| 5 | deptlevel | Integer | 允许 | 部门级别 |
-| 6 | domains | String | 允许 | 区属 |
-| 7 | showorder | Integer | 允许 | 排序 |
-| 8 | bcode | String | 允许 | 业务编码 |
-| 9 | leaderid | String | 允许 | 分管领导标识 |
-| 10 | leadername | String | 允许 | 分管领导 |
-| 11 | createdate | Timestamp | 不可 | 建立时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
-| 12 | enable | Integer | 不可 | 逻辑有效标志 |
-| 13 | createman | String | 不可 | 建立人 |
-| 14 | updateman | String | 不可 | 更新人 |
-| 15 | updatedate | Timestamp | 不可 | 更新时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
-| 16 | pdeptid | String | 允许 | 上级部门标识 |
-| 17 | pdeptname | String | 允许 | 上级部门 |
-| 18 | orgid | String | 允许 | 组织标识 |
-| 19 | orgname | String | 允许 | 单位 |
+| 4 | orgid | String | 允许 | 单位 |
+| 5 | parentdeptid | String | 允许 | 上级部门 |
+| 6 | shortname | String | 允许 | 部门简称 |
+| 7 | deptlevel | Integer | 允许 | 部门级别 |
+| 8 | domains | String | 允许 | 区属 |
+| 9 | showorder | Integer | 允许 | 排序 |
+| 10 | bcode | String | 允许 | 业务编码 |
+| 11 | leaderid | String | 允许 | 分管领导标识 |
+| 12 | leadername | String | 允许 | 分管领导 |
+| 13 | orgname | String | 允许 | 单位 |
+| 14 | parentdeptname | String | 允许 | 上级部门 |
+| 15 | createdate | Timestamp | 不可 | 建立时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
+| 16 | enable | Integer | 不可 | 逻辑有效标志 |
+| 17 | createman | String | 不可 | 建立人 |
+| 18 | updateman | String | 不可 | 更新人 |
+| 19 | updatedate | Timestamp | 不可 | 更新时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
 | 20 | <动态属性> | Object | 允许 | 支持动态属性 |
 

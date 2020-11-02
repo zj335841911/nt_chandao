@@ -35,6 +35,11 @@ public interface ISysDepartmentService{
     boolean save(SysDepartment et) ;
     void saveBatch(List<SysDepartment> list) ;
     Page<SysDepartment> searchDefault(SysDepartmentSearchContext context) ;
+    List<SysDepartment> selectByParentdeptid(String deptid) ;
+    void removeByParentdeptid(String deptid) ;
+    List<SysDepartment> selectByOrgid(String orgid) ;
+    void removeByOrgid(String orgid) ;
+    void saveByOrgid(String orgid,List<SysDepartment> list) ;
 
 
 }

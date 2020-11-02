@@ -84479,9 +84479,11 @@ CREATE TABLE `zt_suitecase`(
 | DEPTCODE        | 部门代码  | VARCHAR      |   100   | &nbsp; |
 | DEPTNAME        | 部门名称  | VARCHAR      |   100   | &nbsp; |
 | CREATEDATE        | 建立时间  | DATETIME      |   8   | &nbsp; |
-| ORGID        | 组织标识  | VARCHAR      |   100   | &nbsp; |
+| ORGID        | 单位  | VARCHAR      |   100   | &nbsp; |
+| ORGNAME        | 单位  | VARCHAR      |   100   | &nbsp; |
 | SHOWORDER        | 排序  | INTEGER      |   -1   | &nbsp; |
 | CREATEMAN        | 建立人  | VARCHAR      |   60   | &nbsp; |
+| PDEPTNAME        | 上级部门  | VARCHAR      |   100   | &nbsp; |
 | BCODE        | 业务编码  | VARCHAR      |   100   | &nbsp; |
 | UPDATEDATE        | 更新时间  | DATETIME      |   8   | &nbsp; |
 | LEADERID        | 分管领导标识  | VARCHAR      |   100   | &nbsp; |
@@ -84489,7 +84491,7 @@ CREATE TABLE `zt_suitecase`(
 | SHORTNAME        | 部门简称  | VARCHAR      |   100   | &nbsp; |
 | ENABLE        | 逻辑有效标志  | INTEGER      |   8   | &nbsp; |
 | DEPTID        | 部门标识  | VARCHAR      |   100   | 主键&nbsp; |
-| PDEPTID        | 上级部门标识  | VARCHAR      |   100   | &nbsp; |
+| PDEPTID        | 上级部门  | VARCHAR      |   100   | &nbsp; |
 | UPDATEMAN        | 更新人  | VARCHAR      |   60   | &nbsp; |
 | LEADERNAME        | 分管领导  | VARCHAR      |   100   | &nbsp; |
 
@@ -85396,14 +85398,20 @@ CREATE TABLE `zt_suitecase`(
 | ENABLE        | 逻辑有效  | INTEGER      |   -1   | &nbsp; |
 | EMAIL        | 邮件  | VARCHAR      |   100   | &nbsp; |
 | BCODE        | 业务编码  | VARCHAR      |   100   | &nbsp; |
+| ORGCODE        | 单位代码  | VARCHAR      |   100   | &nbsp; |
+| MDEPTCODE        | 主部门代码  | VARCHAR      |   100   | &nbsp; |
+| MDEPTID        | 主部门  | VARCHAR      |   100   | &nbsp; |
 | USERCODE        | 用户工号  | VARCHAR      |   100   | &nbsp; |
 | PERSONNAME        | 姓名  | VARCHAR      |   100   | &nbsp; |
 | NICKNAME        | 昵称别名  | VARCHAR      |   100   | &nbsp; |
 | AVATAR        | 社交账号  | VARCHAR      |   100   | &nbsp; |
 | DOMAINS        | 区属  | VARCHAR      |   100   | &nbsp; |
+| ORGID        | 单位  | VARCHAR      |   100   | &nbsp; |
+| ORGNAME        | 单位名称  | VARCHAR      |   100   | &nbsp; |
 | USERICON        | 照片  | VARCHAR      |   255   | &nbsp; |
 | ADDR        | 地址  | VARCHAR      |   255   | &nbsp; |
 | CREATEDATE        | 创建时间  | DATETIME      |   -1   | &nbsp; |
+| MDEPTNAME        | 主部门名称  | VARCHAR      |   100   | &nbsp; |
 | PHONE        | 联系方式  | VARCHAR      |   100   | &nbsp; |
 
 
@@ -86303,10 +86311,12 @@ CREATE TABLE `zt_suitecase`(
 | ORGLEVEL        | 单位级别  | INTEGER      |   -1   | &nbsp; |
 | DOMAINS        | 区属  | VARCHAR      |   100   | &nbsp; |
 | CREATEDATE        | 创建时间  | DATETIME      |   -1   | &nbsp; |
+| PORGNAME        | 上级单位  | VARCHAR      |   100   | &nbsp; |
 | SHORTNAME        | 单位简称  | VARCHAR      |   100   | &nbsp; |
 | UPDATEDATE        | 最后修改时间  | DATETIME      |   -1   | &nbsp; |
 | ORGCODE        | 单位代码  | VARCHAR      |   100   | &nbsp; |
 | ORGID        | 单位标识  | VARCHAR      |   100   | 主键&nbsp; |
+| PORGID        | 上级单位  | VARCHAR      |   100   | &nbsp; |
 | ENABLE        | 逻辑有效  | INTEGER      |   -1   | &nbsp; |
 
 

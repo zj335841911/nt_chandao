@@ -55,6 +55,14 @@ public class SysOrganization extends EntityClient implements Serializable {
     private String orgname;
 
     /**
+     * 上级单位
+     */
+    @DEField(name = "porgid")
+    @JSONField(name = "parentorgid")
+    @JsonProperty("parentorgid")
+    private String parentorgid;
+
+    /**
      * 单位简称
      */
     @JSONField(name = "shortname")
@@ -74,6 +82,13 @@ public class SysOrganization extends EntityClient implements Serializable {
     @JSONField(name = "showorder")
     @JsonProperty("showorder")
     private Integer showorder;
+
+    /**
+     * 上级单位
+     */
+    @JSONField(name = "parentorgname")
+    @JsonProperty("parentorgname")
+    private String parentorgname;
 
     /**
      * 区属
@@ -109,6 +124,20 @@ public class SysOrganization extends EntityClient implements Serializable {
     private Timestamp updatedate;
 
 
+    /**
+     * 
+     */
+    @JSONField(name = "parentorg")
+    @JsonProperty("parentorg")
+    private cn.ibizlab.pms.core.ou.domain.SysOrganization parentorg;
+
+
+    /**
+     * 部门
+     */
+    @JSONField(name = "depts")
+    @JsonProperty("depts")
+    private List<cn.ibizlab.pms.core.ou.domain.SysDepartment> depts;
 
 
 
@@ -118,6 +147,14 @@ public class SysOrganization extends EntityClient implements Serializable {
     public void setOrgcode(String orgcode){
         this.orgcode = orgcode ;
         this.modify("orgcode",orgcode);
+    }
+
+    /**
+     * 设置 [上级单位]
+     */
+    public void setParentorgid(String parentorgid){
+        this.parentorgid = parentorgid ;
+        this.modify("porgid",parentorgid);
     }
 
     /**
