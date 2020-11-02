@@ -29,6 +29,7 @@
                   </ion-item-sliding>
                 </ion-list>
              <div  v-if="items.length == 0" class="no-data">
+                <div>暂无数据</div>
                               <div class="app-toolbar-container ">
                 <div class="app-quick-toolbar toolbar-left-bottons">
                         <ion-button class="app-view-toolbar-button" v-show="mdctrl_quicktoolbarModels.deuiaction1.visabled" :disabled="mdctrl_quicktoolbarModels.deuiaction1.disabled" @click="mdctrl_quicktoolbar_click({ tag: 'deuiaction1' }, $event)" >

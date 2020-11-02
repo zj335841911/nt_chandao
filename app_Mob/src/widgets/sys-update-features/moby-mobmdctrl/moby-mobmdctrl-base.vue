@@ -3,7 +3,6 @@
         <div class="app-mob-mdctrl-mdctrl" ref="mdctrl">
                     <app-pms-update-log-info :items="items" ></app-pms-update-log-info>
              <div  v-if="items.length == 0" class="no-data">
-                <div>暂无数据</div>
             </div>
             <div v-show="!allLoaded && isNeedLoaddingText" class="loadding" >
                     <span >{{$t('app.loadding')?$t('app.loadding'):"加载中"}}</span>
