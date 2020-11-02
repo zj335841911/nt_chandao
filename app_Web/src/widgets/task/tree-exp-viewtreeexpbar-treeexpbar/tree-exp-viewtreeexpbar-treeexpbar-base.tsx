@@ -96,7 +96,7 @@ export class TreeExpViewtreeexpbarTreeExpBarBase extends TreeExpBarControlBase {
      * @type {number}
      * @memberof TreeExpViewtreeexpbarBase
      */
-    public ctrlWidth:number = 0;
+    public ctrlWidth:number = 200;
 
     /**
      * 获取关系项视图
