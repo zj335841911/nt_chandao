@@ -98,10 +98,10 @@
              <div  v-if="items.length == 0" class="no-data">
                 <div class="">暂无数据</div>
             </div>
-            <div v-show="bottomLoadding &&  !allLoaded" class="loadding" >
-                    <span>加载中</span>
+            <div v-show="!allLoaded" class="loadding" >
+                    <span >{{$t('app.loadding')?$t('app.loadding'):"加载中"}}</span>
                     <ion-spinner name="dots"></ion-spinner>
-            </div>              
+            </div>                          
         </div>
     </div>
 </template>

@@ -372,7 +372,7 @@ export default class TaskUIServiceBase extends UIService {
     }
 
     /**
-     * 更多
+     * MORE
      *
      * @param {any[]} args 当前数据
      * @param {any} context 行为附加上下文
@@ -2439,6 +2439,7 @@ export default class TaskUIServiceBase extends UIService {
         let parentContext:any = {};
         let parentViewParam:any = {};
         const _this: any = actionContext;
+        Object.assign(context,{TASK:"%id%"});
         const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(context, { task: '%task%' });

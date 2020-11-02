@@ -396,7 +396,7 @@ export default class BugUIServiceBase extends UIService {
     }
 
     /**
-     * 更多
+     * MORE
      *
      * @param {any[]} args 当前数据
      * @param {any} context 行为附加上下文
