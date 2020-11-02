@@ -166,7 +166,7 @@ export class MainEditEditFormBase extends EditFormControlBase {
                       ruleInfo:"任务名称不大于10", 
                       isKeyCond:false,
                       isNotMode:false,
-                      maxValue:10,
+                      maxValue:100,
                       deName:"name",
                       isIncludeMaxValue:true,
                       isIncludeMinValue:false,
