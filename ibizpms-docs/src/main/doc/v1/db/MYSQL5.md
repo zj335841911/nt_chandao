@@ -88135,6 +88135,7 @@ CREATE TABLE `T_SYS_UPDATE_LOG`(
 
 | 字段        |    中文名称    | 类型    |  数长度  |  备注  |
 | --------   |------------| :-----:   | :----: | :--------- | 
+| UPDATEDATE        | 最后的更新日期  | DATETIME      |   -1   | &nbsp; |
 | DESC        | 任务描述  | CLOB      |   65,535   | &nbsp; |
 | SUBSTATUS        | 子状态  | VARCHAR      |   30   | &nbsp; |
 | OPENEDDATE        | 创建日期  | DATETIME      |   -1   | &nbsp; |

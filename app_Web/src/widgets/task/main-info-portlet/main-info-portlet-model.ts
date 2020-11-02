@@ -198,6 +198,9 @@ export default class MainInfoModel {
       {
         name: 'hasdetail',
       },
+      {
+        name: 'updatedate',
+      },
     ]
   }
 

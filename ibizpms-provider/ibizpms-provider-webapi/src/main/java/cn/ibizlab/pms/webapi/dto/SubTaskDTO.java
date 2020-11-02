@@ -553,6 +553,15 @@ public class SubTaskDTO extends DTOBase implements Serializable {
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
     private String hasdetail;
 
+    /**
+     * 属性 [UPDATEDATE]
+     *
+     */
+    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "updatedate" , format="yyyy-MM-dd")
+    @JsonProperty("updatedate")
+    private Timestamp updatedate;
+
 
     /**
      * 设置 [CANCELEDBY]

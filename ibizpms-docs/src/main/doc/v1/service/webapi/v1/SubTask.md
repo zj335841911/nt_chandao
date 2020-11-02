@@ -5248,7 +5248,8 @@ POST
 | 57 | isfinished | String | 允许 | 是否完成 |
 | 58 | replycount | Integer | 允许 | 回复数量 |
 | 59 | hasdetail | String | 允许 | 是否填写描述 |
-| 60 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 60 | updatedate | Timestamp | 允许 | 最后的更新日期<br>时间格式：yyyy-MM-dd |
+| 61 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### TaskSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

@@ -493,4 +493,12 @@ export interface Task {
      * @memberof Task
      */
     hasdetail?: any;
+
+    /**
+     * 最后的更新日期
+     *
+     * @returns {*}
+     * @memberof Task
+     */
+    updatedate?: any;
 }

@@ -198,6 +198,9 @@ export default class ToolbarModel {
       {
         name: 'hasdetail',
       },
+      {
+        name: 'updatedate',
+      },
     ]
   }
 

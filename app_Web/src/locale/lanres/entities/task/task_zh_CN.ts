@@ -61,6 +61,7 @@ export default {
     isfinished: "是否完成",
     replycount: "回复数量",
     hasdetail: "是否填写描述",
+    updatedate: "最后的更新日期",
   },
 	views: {
 		assigntaskview: {
@@ -700,35 +701,6 @@ export default {
 		uiactions: {
 		},
 	},
-	taskgroup_grid: {
-		nodata: "",
-		columns: {
-			status1: "任务状态",
-			id: "ID",
-			pri: "P",
-			name: "任务名称",
-			assignedto: "指派给",
-			finishedby: "完成者",
-			estimate: "预计",
-			consumed: "消耗",
-			left: "剩余",
-			deadline: "截止日期",
-			uagridcolumn1: "操作",
-		},
-		uiactions: {
-			task_assigntask: "指派",
-			task_confirmstorychange: "确认",
-			task_mstarttaskdash1: "开始",
-			task_starttask: "开始",
-			task_closetask: "关闭",
-			task_done: "完成",
-			task_donetask: "完成",
-			task_mainedit: "编辑",
-			task_newsubtask: "子任务",
-			task_taskfavorites: "收藏",
-			task_tasknfavorites: "取消收藏",
-		},
-	},
 	storyrelated_grid: {
 		nodata: "",
 		columns: {
@@ -877,6 +849,35 @@ export default {
 		uiactions: {
 		},
 	},
+	taskgroup_grid: {
+		nodata: "",
+		columns: {
+			status1: "任务状态",
+			id: "ID",
+			pri: "P",
+			name: "任务名称",
+			assignedto: "指派给",
+			finishedby: "完成者",
+			estimate: "预计",
+			consumed: "消耗",
+			left: "剩余",
+			deadline: "截止日期",
+			uagridcolumn1: "操作",
+		},
+		uiactions: {
+			task_assigntask: "指派",
+			task_confirmstorychange: "确认",
+			task_mstarttaskdash1: "开始",
+			task_starttask: "开始",
+			task_closetask: "关闭",
+			task_done: "完成",
+			task_donetask: "完成",
+			task_mainedit: "编辑",
+			task_newsubtask: "子任务",
+			task_taskfavorites: "收藏",
+			task_tasknfavorites: "取消收藏",
+		},
+	},
 	default_searchform: {
 		details: {
 			formpage1: "常规条件", 
@@ -946,28 +947,6 @@ export default {
 			tip: "刷新",
 		},
 	},
-	taskgroupgridviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "新建",
-			tip: "新建",
-		},
-		seperator1: {
-			caption: "",
-			tip: "",
-		},
-		deuiaction2: {
-			caption: "刷新",
-			tip: "刷新",
-		},
-		seperator3: {
-			caption: "",
-			tip: "",
-		},
-		deuiaction4: {
-			caption: "导出",
-			tip: "导出",
-		},
-	},
 	myfavoritegridviewtoolbar_toolbar: {
 		deuiaction2: {
 			caption: "刷新",
@@ -998,6 +977,28 @@ export default {
 		deuiaction1: {
 			caption: "保存并关闭",
 			tip: "保存并关闭",
+		},
+	},
+	taskgroupgridviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "新建",
+			tip: "新建",
+		},
+		seperator1: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction2: {
+			caption: "刷新",
+			tip: "刷新",
+		},
+		seperator3: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction4: {
+			caption: "导出",
+			tip: "导出",
 		},
 	},
 	myfinishedbytask_chart: {

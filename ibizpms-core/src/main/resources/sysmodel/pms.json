@@ -29914,6 +29914,20 @@
     "key_field":0,
     "show_order":1000,
     "major_field":0
+    },
+    {
+    "fieldname":"UPDATEDATE" ,
+    "codename":"UpdateDate",
+    "field_logic_name":"最后的更新日期",
+    "entity_name":"Task",
+    "field_type":"DATE",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"DATETIME",
+    "expression":"DATE_FORMAT(t1.lastediteddate,'%Y-%m-%d')",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
     }
     ],
     "subEntitys":[
