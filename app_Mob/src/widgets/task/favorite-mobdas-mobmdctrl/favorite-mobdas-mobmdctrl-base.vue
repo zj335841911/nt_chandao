@@ -89,15 +89,6 @@
             </ion-list>
              <div  v-if="items.length == 0" class="no-data">
                 <div>暂无数据</div>
-                              <div class="app-toolbar-container ">
-                <div class="app-quick-toolbar toolbar-left-bottons">
-                        <ion-button class="app-view-toolbar-button" v-show="mdctrl_quicktoolbarModels.deuiaction1.visabled" :disabled="mdctrl_quicktoolbarModels.deuiaction1.disabled" @click="mdctrl_quicktoolbar_click({ tag: 'deuiaction1' }, $event)" >
-                    <ion-icon class="ibiz-button-icon" name="more"> </ion-icon>
-                {{$t('task.favoritemobmdviewmdctrl_quicktoolbar_toolbar.deuiaction1.caption')}}
-                </ion-button>
-            
-                </div>
-            </div>
             </div>
             <div v-show="!allLoaded && isNeedLoaddingText" class="loadding" >
                     <span >{{$t('app.loadding')?$t('app.loadding'):"加载中"}}</span>
@@ -233,52 +224,7 @@ export default class FavoriteMOBDasBase extends Vue implements ControlInterface 
      * @memberof FavoriteMOBDasBase
      */  
     public deUIService:TaskUIService = new TaskUIService(this.$store);
-
-    /**
-     * mdctrl_quicktoolbar 部件 click 事件
-     *
-     * @param {*} [args={}]
-     * @param {*} $event
-     * @memberof FavoriteMOBDas
-     */
-    protected mdctrl_quicktoolbar_click($event: any, $event2?: any) {
-        if (Object.is($event.tag, 'deuiaction1')) {
-            this.mdctrl_quicktoolbar_deuiaction1_click($event, 'mdctrl_quicktoolbar', $event2);
-        }
-    }
     
-
-    /**
-     * 逻辑事件
-     *
-     * @protected
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @returns {Promise<any>}
-     * @memberof MdctrlBase
-     */
-    protected async mdctrl_quicktoolbar_deuiaction1_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
-        // 参数
-
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let contextJO: any = {};
-        let paramJO: any = {};
-        
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        // 界面行为
-        const curUIService: any = await this.globaluiservice.getService('task_ui_action');
-        if (curUIService) {
-            curUIService.Task_MyFavMore(datas, contextJO, paramJO, $event, xData, this);
-        }
-    }
 
     /**
      * 逻辑事件
@@ -801,20 +747,6 @@ export default class FavoriteMOBDasBase extends Vue implements ControlInterface 
         })
     }
 
-      
-   /**
-    * 工具栏 TaskFavoriteMobMDView 模型
-    *
-    * @type {*}
-    * @memberof TaskFavoriteMobMDView
-    */
-    public mdctrl_quicktoolbarModels: any = {
-            deuiaction1: { name: 'deuiaction1', caption: '更多', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'MyFavMore', target: 'NONE' } },
-
-    };
-
-    
-
 
     /**
      * 长按状态改变事件
@@ -1241,7 +1173,6 @@ export default class FavoriteMOBDasBase extends Vue implements ControlInterface 
      * @memberof FavoriteMOBDasBase
      */  
     public ActionModel:any ={
-        MyFavMore: { name: 'MyFavMore',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'NONE',icon:'more',},
         TaskFavoritesMob: { name: 'TaskFavoritesMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_NFAVOR_BUT', target: 'SINGLEKEY',icon:'star-outline',isShowCaption:false,isShowIcon:true},
         TaskNFavoritesMob: { name: 'TaskNFavoritesMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_FAVOR_BUT', target: 'SINGLEKEY',icon:'star-half-outline',isShowCaption:false,isShowIcon:true}
     };

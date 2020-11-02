@@ -452,18 +452,6 @@ export default {
 			tip: '更多',
 		},
 	},
-	favoritemobmdview9mdctrl_quicktoolbar_toolbar: {
-		deuiaction1: {
-			caption: '更多',
-			tip: '更多',
-		},
-	},
-	favoritemobmdviewmdctrl_quicktoolbar_toolbar: {
-		deuiaction1: {
-			caption: '更多',
-			tip: '更多',
-		},
-	},
 	assmobmdviewmdctrl_quicktoolbar_toolbar: {
 		deuiaction1: {
 			caption: '更多',
