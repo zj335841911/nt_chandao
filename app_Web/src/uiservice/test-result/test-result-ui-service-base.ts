@@ -169,7 +169,6 @@ export default class TestResultUIServiceBase extends UIService {
         const parameters: any[] = [
             { pathName: 'bugs', parameterName: 'bug' },
         ];
-            actionContext.closeView(null);
             const openDrawer = (view: any, data: any) => {
                 let container: Subject<any> = actionContext.$appdrawer.openDrawer(view, context,data);
                 container.subscribe((result: any) => {
@@ -180,6 +179,7 @@ export default class TestResultUIServiceBase extends UIService {
                     if (xData && xData.refresh && xData.refresh instanceof Function) {
                         xData.refresh(args);
                     }
+                    _this.closeView(null);
                     return result.datas;
                 });
             }
