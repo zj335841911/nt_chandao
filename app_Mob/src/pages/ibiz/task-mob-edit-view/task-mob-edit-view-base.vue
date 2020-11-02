@@ -82,12 +82,11 @@
                 <span class="btn-out-text">{{$t('task.mobeditviewrighttoolbar_toolbar.deuiaction1_workhoursmob.caption')}}</span>
             </div>
         
-                    <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_donetaskmob.disabled}" v-show="righttoolbarModels.deuiaction1_donetaskmob.visabled">
-                <ion-button :disabled="righttoolbarModels.deuiaction1_donetaskmob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_donetaskmob' }, $event)" size="large">
-                    <ion-icon name="checkmark-circle-outline"></ion-icon>
-                <span class="btn-inner-text">{{$t('task.mobeditviewrighttoolbar_toolbar.deuiaction1_donetaskmob.caption')}}</span>
+                    <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_finishtask1.disabled}" v-show="righttoolbarModels.deuiaction1_finishtask1.visabled">
+                <ion-button :disabled="righttoolbarModels.deuiaction1_finishtask1.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_finishtask1' }, $event)" size="large">
+                <span class="btn-inner-text">{{$t('task.mobeditviewrighttoolbar_toolbar.deuiaction1_finishtask1.caption')}}</span>
                 </ion-button>
-                <span class="btn-out-text">{{$t('task.mobeditviewrighttoolbar_toolbar.deuiaction1_donetaskmob.caption')}}</span>
+                <span class="btn-out-text">{{$t('task.mobeditviewrighttoolbar_toolbar.deuiaction1_finishtask1.caption')}}</span>
             </div>
         
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_pausetaskmob.disabled}" v-show="righttoolbarModels.deuiaction1_pausetaskmob.visabled">
@@ -380,7 +379,7 @@ export default class TaskMobEditViewBase extends Vue {
 
             deuiaction1_workhoursmob: { name: 'deuiaction1_workhoursmob', caption: '工时', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_CONSUM_BUT', uiaction: { tag: 'WorkHoursMob', target: 'SINGLEKEY' } },
 
-            deuiaction1_donetaskmob: { name: 'deuiaction1_donetaskmob', caption: '完成', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_COMPLETE_BUT', uiaction: { tag: 'DoneTaskMob', target: 'SINGLEKEY' } },
+            deuiaction1_finishtask1: { name: 'deuiaction1_finishtask1', caption: '完成任务(移动端)(多人任务检查)', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'finishTask1', target: 'SINGLEKEY' } },
 
             deuiaction1_pausetaskmob: { name: 'deuiaction1_pausetaskmob', caption: '暂停', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_PAUSE_BUT', uiaction: { tag: 'PauseTaskMob', target: 'SINGLEKEY' } },
 
@@ -685,8 +684,8 @@ export default class TaskMobEditViewBase extends Vue {
         if (Object.is($event.tag, 'deuiaction1_workhoursmob')) {
             this.righttoolbar_deuiaction1_workhoursmob_click($event, '', $event2);
         }
-        if (Object.is($event.tag, 'deuiaction1_donetaskmob')) {
-            this.righttoolbar_deuiaction1_donetaskmob_click($event, '', $event2);
+        if (Object.is($event.tag, 'deuiaction1_finishtask1')) {
+            this.righttoolbar_deuiaction1_finishtask1_click($event, '', $event2);
         }
         if (Object.is($event.tag, 'deuiaction1_pausetaskmob')) {
             this.righttoolbar_deuiaction1_pausetaskmob_click($event, '', $event2);
@@ -844,7 +843,7 @@ export default class TaskMobEditViewBase extends Vue {
      * @returns {Promise<any>}
      * @memberof TaskMobEditViewBase
      */
-    protected async righttoolbar_deuiaction1_donetaskmob_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+    protected async righttoolbar_deuiaction1_finishtask1_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
         // 参数
 
         // 取数
@@ -854,7 +853,7 @@ export default class TaskMobEditViewBase extends Vue {
         const _this: any = this;
         let contextJO: any = {};
         let paramJO: any = {};
-        
+        Object.assign(paramJO, {});
         xData = this.$refs.form;
         if (xData.getDatas && xData.getDatas instanceof Function) {
             datas = [...xData.getDatas()];
@@ -862,7 +861,7 @@ export default class TaskMobEditViewBase extends Vue {
         // 界面行为
         const curUIService: any = await this.globaluiservice.getService('task_ui_action');
         if (curUIService) {
-            curUIService.Task_DoneTaskMob(datas, contextJO, paramJO, $event, xData, this);
+            curUIService.Task_finishTask1(datas, contextJO, paramJO, $event, xData, this);
         }
     }
 

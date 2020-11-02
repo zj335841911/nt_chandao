@@ -421,9 +421,9 @@ export default {
 			caption: '工时',
 			tip: '工时',
 		},
-		deuiaction1_donetaskmob: {
-			caption: '完成',
-			tip: '完成',
+		deuiaction1_finishtask1: {
+			caption: '完成任务(移动端)(多人任务检查)',
+			tip: '完成任务(移动端)(多人任务检查)',
 		},
 		deuiaction1_pausetaskmob: {
 			caption: '暂停',
