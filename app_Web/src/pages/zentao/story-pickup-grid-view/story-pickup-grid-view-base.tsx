@@ -74,6 +74,7 @@ export class StoryPickupGridViewBase extends PickupGridViewBase {
 	 * @memberof StoryPickupGridViewBase
 	 */
     protected customViewNavContexts: any = {
+        'N_PARENT_GTANDEQ': { isRawValue: true, value: '0' },
         'N_STATUS_NOTEQ': { isRawValue: true, value: 'closed' }
     };
 
@@ -85,7 +86,8 @@ export class StoryPickupGridViewBase extends PickupGridViewBase {
 	 * @memberof StoryPickupGridViewBase
 	 */
     protected customViewParams: any = {
-        'n_status_noteq': { isRawValue: true, value: 'closed' }
+        'n_status_noteq': { isRawValue: true, value: 'closed' },
+        'n_parent_gtandeq': { isRawValue: true, value: '0' }
     };
 
     /**

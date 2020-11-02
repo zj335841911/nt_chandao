@@ -437,6 +437,7 @@ hide footbox
 |产品名称(PRODOCTNAME)|LIKE|
 |来源Bug(FROMBUG)|EQ|
 |父需求(PARENT)|EQ|
+|父需求(PARENT)|GTANDEQ|
 |所属模块(MODULE)|EQ|
 |所属产品(PRODUCT)|EQ|
 |重复需求ID(DUPLICATESTORY)|EQ|
