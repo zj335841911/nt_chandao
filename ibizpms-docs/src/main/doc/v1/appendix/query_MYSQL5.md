@@ -12417,6 +12417,45 @@ FROM `T_IBZEMP` t1
 
 ```
 
+# **单位**(SYS_ORG)
+
+### 数据查询(DEFAULT)<div id="SysOrganization_Default"></div>
+```sql
+SELECT
+t1.`CREATEDATE`,
+t1.`DOMAINS`,
+t1.`ENABLE`,
+t1.`ORGCODE`,
+t1.`ORGID`,
+t1.`ORGLEVEL`,
+t1.`ORGNAME`,
+t1.`SHORTNAME`,
+t1.`SHOWORDER`,
+t1.`UPDATEDATE`
+FROM `T_SYS_ORG` t1 
+
+WHERE t1.ENABLE = 1 
+
+```
+### 默认（全部数据）(VIEW)<div id="SysOrganization_View"></div>
+```sql
+SELECT
+t1.`CREATEDATE`,
+t1.`DOMAINS`,
+t1.`ENABLE`,
+t1.`ORGCODE`,
+t1.`ORGID`,
+t1.`ORGLEVEL`,
+t1.`ORGNAME`,
+t1.`SHORTNAME`,
+t1.`SHOWORDER`,
+t1.`UPDATEDATE`
+FROM `T_SYS_ORG` t1 
+
+WHERE t1.ENABLE = 1 
+
+```
+
 # **系统更新功能**(SYS_UPDATE_FEATURES)
 
 ### 数据查询(DEFAULT)<div id="SysUpdateFeatures_Default"></div>

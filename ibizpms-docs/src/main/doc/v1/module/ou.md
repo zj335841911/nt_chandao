@@ -13,6 +13,9 @@ class 部门 {
 class 人员 {
 }
 
+class 单位 {
+}
+
 
 
 }
@@ -28,3 +31,4 @@ hide members
 | --------   |------------| -----   |  -------- | 
 |SYS_DEPT|[部门](ou/SysDepartment.md)|主实体|&nbsp;|
 |IBZEMP|[人员](ou/SysEmployee.md)|主实体|&nbsp;|
+|SYS_ORG|[单位](ou/SysOrganization.md)|主实体|&nbsp;|

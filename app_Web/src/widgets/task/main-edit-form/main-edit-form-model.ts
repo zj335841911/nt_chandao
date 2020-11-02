@@ -82,6 +82,8 @@ export default class MainEditModel {
       },
       {
         name: 'files',
+        prop: 'files',
+        dataType: 'TEXT',
       },
       {
         name: 'projectname',

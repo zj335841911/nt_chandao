@@ -792,6 +792,9 @@ class 部门 {
 class 人员 {
 }
 
+class 单位 {
+}
+
 
 
 }
