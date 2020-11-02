@@ -3,7 +3,7 @@
         <div class="app-mob-mdctrl-mdctrl" ref="mdctrl">
                     <app-history-list :items="items"  :itemNameDetail="{time:{ 'name':'date','isCodeList':false,'tag':'','codeListType':''} ,'method':{ 'name':'actions','isCodeList':false,'tag':'','codeListType':''} ,'info':{ 'name':'actionmanner','isCodeList':true,'tag':'ActionManner','codeListType':'STATIC'} }"></app-history-list>
              <div  v-if="items.length == 0" class="no-data">
-                <div class="">暂无数据</div>
+                <div>暂无数据</div>
             </div>
             <div v-show="!allLoaded && isNeedLoaddingText" class="loadding" >
                     <span >{{$t('app.loadding')?$t('app.loadding'):"加载中"}}</span>
