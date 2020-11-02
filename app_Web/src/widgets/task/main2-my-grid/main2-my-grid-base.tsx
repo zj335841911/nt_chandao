@@ -170,6 +170,15 @@ export class Main2MyGridBase extends GridControlBase {
             isEnableRowEdit: false,
             enableCond: 3 ,
         },
+        {
+            name: 'status1',
+            label: '状态',
+            langtag: 'entities.task.main2my_grid.columns.status1',
+            show: true,
+            unit: 'PX',
+            isEnableRowEdit: false,
+            enableCond: 3 ,
+        },
     ]
 
     /**
@@ -208,6 +217,7 @@ export class Main2MyGridBase extends GridControlBase {
         'pri':false,
         'name':false,
         'deadline':false,
+        'status1':false,
     };
 
     /**

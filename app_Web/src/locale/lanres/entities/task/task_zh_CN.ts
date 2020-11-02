@@ -761,6 +761,7 @@ export default {
 			pri: "P",
 			name: "任务名称",
 			deadline: "截止日期",
+			status1: "状态",
 		},
     exportColumns: {
 			id: "ID",

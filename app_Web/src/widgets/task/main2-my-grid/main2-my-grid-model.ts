@@ -122,6 +122,11 @@ export default class Main2MyModel {
           dataType: 'DATE',
         },
         {
+          name: 'status1',
+          prop: 'status1',
+          dataType: 'SSCODELIST',
+        },
+        {
           name: 'module',
           prop: 'module',
           dataType: 'PICKUP',
@@ -139,11 +144,6 @@ export default class Main2MyModel {
         {
           name: 'status',
           prop: 'status',
-          dataType: 'SSCODELIST',
-        },
-        {
-          name: 'status1',
-          prop: 'status1',
           dataType: 'SSCODELIST',
         },
         {
