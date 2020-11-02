@@ -6,7 +6,7 @@
       </ion-label>
       <ion-icon class="app-pms-upload-list_item_icon ios hydrated" name="close-outline" @click.stop="item_delete(item)"></ion-icon>
     </ion-item>
-    <!-- <div class="nofile" v-if="items.length == 0">{{$t('no_file')}}</div> -->
+    <div class="nofile" v-if="items.length == 0">{{$t('no_file')}}</div>
   </div>
 </template>
 
