@@ -70,6 +70,17 @@ export class TaskKanbanViewBase extends KanBanViewBase {
      */
     public appUIService: TaskUIService = new TaskUIService(this.$store);
 
+	/**
+	 * 自定义视图导航参数集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof TaskKanbanViewBase
+	 */
+    protected customViewParams: any = {
+        'n_parent_gtandeq': { isRawValue: true, value: '0' }
+    };
+
     /**
      * 视图模型数据
      *

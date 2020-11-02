@@ -1306,6 +1306,7 @@ hide footbox
 |所属项目(PROJECT)|EQ|
 |相关需求(STORY)|EQ|
 |父任务(PARENT)|EQ|
+|父任务(PARENT)|GTANDEQ|
 |来源Bug(FROMBUG)|EQ|
 |id(MODULE)|EQ|
 |模块路径(PATH)|LIKE|
