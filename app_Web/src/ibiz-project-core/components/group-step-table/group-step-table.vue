@@ -99,12 +99,10 @@ export default class GroupStepTable extends Vue {
 
     @Watch('data')
     public watchData(newVal: any[], oldVal: any[]) {
-        if(newVal.length != oldVal.length) {
-            this.refreshSelect = false;
-            this.$nextTick(() => {
-                this.refreshSelect = true;
-            })
-        }
+        this.refreshSelect = false;
+        this.$nextTick(() => {
+            this.refreshSelect = true;
+        })
     }
 
     /**
