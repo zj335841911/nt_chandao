@@ -169,7 +169,7 @@ export default class AppSpan extends Vue {
         if (!bcancel) {
             return
         }
-        let response: any = await this.codeListService.getItems(this.tag, { ...this.context }, this.queryParam);
+        let response: any = await this.codeListService.getItems(this.tag, param.context, param.param);
         if (!this.isCached) {
             // Loading.hidden();
         }
