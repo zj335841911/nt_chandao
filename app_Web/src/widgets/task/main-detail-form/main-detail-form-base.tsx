@@ -117,6 +117,10 @@ export class MainDetailEditFormBase extends EditFormControlBase {
      */
     public rules():any{
         return {
+        name: [
+            {validator:(rule:any, value:any)=>{return this.verifyDeRules("name").isPast},message: this.verifyDeRules("name").infoMessage, trigger: 'change' },
+            {validator:(rule:any, value:any)=>{return this.verifyDeRules("name").isPast},message: this.verifyDeRules("name").infoMessage, trigger: 'blur' },
+        ],
         }
     }
 
@@ -127,6 +131,19 @@ export class MainDetailEditFormBase extends EditFormControlBase {
      * @memberof MainDetailBase
      */
     public deRules:any = {
+                name:[
+                  {
+                      type:"STRINGLENGTH",
+                      condOP:"",
+                      ruleInfo:"任务名称不大于10", 
+                      isKeyCond:false,
+                      isNotMode:false,
+                      maxValue:10,
+                      deName:"name",
+                      isIncludeMaxValue:true,
+                      isIncludeMinValue:false,
+                  },
+                ],
     };
 
     /**
