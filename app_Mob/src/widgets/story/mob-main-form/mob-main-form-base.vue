@@ -63,8 +63,8 @@
     tag="ProductBranch_Cache"
     :isCache="false" 
     v-if="data.branch"
-    :navigateContext ='{ } '
-    :navigateParam ='{ } ' 
+    :navigateContext ='{ "product": "%product%" } '
+    :navigateParam ='{ "product": "%product%" } ' 
     :context="context" 
     :value="data.branch" 
     :itemParam="{}"/>
