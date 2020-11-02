@@ -1041,6 +1041,7 @@ export default {
 	main9_grid: {
 		nodata: "",
 		columns: {
+			id: "编号",
 			pri: "P",
 			title: "需求名称",
 			status: "状态",

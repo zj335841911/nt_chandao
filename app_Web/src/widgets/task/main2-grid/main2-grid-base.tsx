@@ -360,7 +360,7 @@ export class Main2GridBase extends GridControlBase {
             label: '任务名称',
             langtag: 'entities.task.main2_grid.columns.name',
             show: true,
-            unit: 'PX',
+            unit: 'STAR',
             isEnableRowEdit: false,
             enableCond: 3 ,
         },

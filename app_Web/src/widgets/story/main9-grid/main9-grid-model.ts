@@ -27,6 +27,11 @@ export default class Main9Model {
     }else{
 		  return [
         {
+          name: 'id',
+          prop: 'id',
+          dataType: 'ACID',
+        },
+        {
           name: 'pri',
           prop: 'pri',
           dataType: 'NSCODELIST',
@@ -65,6 +70,11 @@ export default class Main9Model {
           dataType: 'TEXT',
         },
         {
+          name: 'tobug',
+          prop: 'tobug',
+          dataType: 'PICKUP',
+        },
+        {
           name: 'srfkey',
           prop: 'id',
           dataType: 'ACID',
@@ -74,11 +84,6 @@ export default class Main9Model {
           name: 'srfdataaccaction',
           prop: 'id',
           dataType: 'ACID',
-        },
-        {
-          name: 'tobug',
-          prop: 'tobug',
-          dataType: 'PICKUP',
         },
         {
           name: 'product',

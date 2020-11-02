@@ -18,7 +18,7 @@
             ref='multipleTable' :data="items" :show-header="!isHideHeader"
         >
             <template slot="empty">
-                {{$t('entities.story.main9_grid.nodata')}} 
+                {{$t('entities.task.main2my_grid.nodata')}} 
                 <span class="quick-toolbar">
                 </span>
             </template>
@@ -26,10 +26,10 @@
                 <el-table-column align="center" type='selection' :width="checkboxColWidth"></el-table-column>
             </template>
             <template v-if="getColumnState('id')">
-                <el-table-column show-overflow-tooltip :prop="'id'" :label="$t('entities.story.main9_grid.columns.id')" :width="80"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'id'" :label="$t('entities.task.main2my_grid.columns.id')" :width="80"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
-                        {{$t('entities.story.main9_grid.columns.id')}}
+                        {{$t('entities.task.main2my_grid.columns.id')}}
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
@@ -38,50 +38,48 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('pri')">
-                <el-table-column show-overflow-tooltip :prop="'pri'" :label="$t('entities.story.main9_grid.columns.pri')" :width="70"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'pri'" :label="$t('entities.task.main2my_grid.columns.pri')" :width="80"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
-                        {{$t('entities.story.main9_grid.columns.pri')}}
+                        {{$t('entities.task.main2my_grid.columns.pri')}}
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
-            <codelist :value="row.pri" tag='Story__pri' codelistType='STATIC' ></codelist>
+            <codelist :value="row.pri" tag='Task__pri' codelistType='STATIC' ></codelist>
                         </template>
                     </template>
                 </el-table-column>
             </template>
-            <template v-if="getColumnState('title')">
-                <el-table-column show-overflow-tooltip :prop="'title'" :label="$t('entities.story.main9_grid.columns.title')" :min-width="0"  :align="'left'" :sortable="'custom'">
+            <template v-if="getColumnState('name')">
+                <el-table-column show-overflow-tooltip :prop="'name'" :label="$t('entities.task.main2my_grid.columns.name')" :min-width="180"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
-                        {{$t('entities.story.main9_grid.columns.title')}}
+                        {{$t('entities.task.main2my_grid.columns.name')}}
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <app-column-link deKeyField='story' :context="JSON.parse(JSON.stringify(context))" :viewparams="JSON.parse(JSON.stringify(viewparams))" :data="row" :linkview="{viewname: 'story-main-view', height: 0,width: 0,title: $t('entities.story.views.mainview.title'),placement: 'DRAWER_TOP', isRedirectView: false,deResParameters: [
-            { pathName: 'products', parameterName: 'product' },
+                        <app-column-link deKeyField='task' :context="JSON.parse(JSON.stringify(context))" :viewparams="JSON.parse(JSON.stringify(viewparams))" :data="row" :linkview="{viewname: 'task-main-dashboard-view', height: 0,width: 1360,title: $t('entities.task.views.maindashboardview.title'),placement: 'DRAWER_TOP', isRedirectView: false,deResParameters: [
+            { pathName: 'stories', parameterName: 'story' },
             ]
             ,parameters: [
-            { pathName: 'stories', parameterName: 'story' },
-            { pathName: 'mainview', parameterName: 'mainview' }
+            { pathName: 'tasks', parameterName: 'task' },
+            { pathName: 'maindashboardview', parameterName: 'maindashboardview' }
             ]}" valueitem="srfkey">
-                            <span>{{row.title}}</span>
+                            <span>{{row.name}}</span>
                         </app-column-link >
                     </template>
                 </el-table-column>
             </template>
-            <template v-if="getColumnState('status')">
-                <el-table-column show-overflow-tooltip :prop="'status'" :label="$t('entities.story.main9_grid.columns.status')" :width="90"  :align="'left'" :sortable="'custom'">
+            <template v-if="getColumnState('deadline')">
+                <el-table-column show-overflow-tooltip :prop="'deadline'" :label="$t('entities.task.main2my_grid.columns.deadline')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
-                        {{$t('entities.story.main9_grid.columns.status')}}
+                        {{$t('entities.task.main2my_grid.columns.deadline')}}
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <template >
-            <codelist :value="row.status" tag='Story__status' codelistType='STATIC' ></codelist>
-                        </template>
+                        <app-format-data format="YYYY-MM-DD" :data="row.deadline"></app-format-data>
                     </template>
                 </el-table-column>
             </template>

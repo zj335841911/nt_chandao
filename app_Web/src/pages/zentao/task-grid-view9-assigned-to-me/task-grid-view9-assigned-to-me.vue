@@ -3,7 +3,7 @@
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { TaskGridView9_AssignedToMeBase } from './task-grid-view9-assigned-to-me-base';
-import view_grid from '@widgets/task/main2-grid/main2-grid.vue';
+import view_grid from '@widgets/task/main2-my-grid/main2-my-grid.vue';
 
 /**
  * 任务表格视图视图

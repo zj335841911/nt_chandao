@@ -754,6 +754,34 @@ export default {
         task_tasknfavorites: "取消收藏",
 		},
 	},
+	main2my_grid: {
+		nodata: "",
+		columns: {
+			id: "编号",
+			pri: "P",
+			name: "任务名称",
+			deadline: "截止日期",
+		},
+    exportColumns: {
+			id: "ID",
+			pri: "P",
+			name: "任务名称",
+			status: "任务状态",
+			status1: "任务状态",
+			assignedto: "指派给",
+			finishedby: "完成者",
+			estimate: "预计",
+			consumed: "消耗",
+			left: "剩余",
+			deadline: "截止日期",
+			isfavorites: "是否收藏",
+			tasktype: "任务类型",
+			product: "产品",
+			projectname: "所属项目",
+    },
+		uiactions: {
+		},
+	},
 	mygroupmain_grid: {
 		nodata: "",
 		columns: {

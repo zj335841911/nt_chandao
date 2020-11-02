@@ -86,6 +86,13 @@ export class Main9GridBase extends GridControlBase {
      */  
     public majorInfoColName:string = "title";
 
+    /**
+     * 列主键属性名称
+     *
+     * @type {string}
+     * @memberof Main9GridBase
+     */
+    public columnKeyName: string = "id";
 
     /**
      * 本地缓存标识
@@ -135,6 +142,15 @@ export class Main9GridBase extends GridControlBase {
      * @memberof Main9GridBase
      */
     public allColumns: any[] = [
+        {
+            name: 'id',
+            label: '编号',
+            langtag: 'entities.story.main9_grid.columns.id',
+            show: true,
+            unit: 'PX',
+            isEnableRowEdit: false,
+            enableCond: 3 ,
+        },
         {
             name: 'pri',
             label: 'P',
@@ -196,6 +212,7 @@ export class Main9GridBase extends GridControlBase {
      * @memberof Main9Base
      */
     public hasRowEdit: any = {
+        'id':false,
         'pri':false,
         'title':false,
         'status':false,
