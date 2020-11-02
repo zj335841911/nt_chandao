@@ -530,11 +530,19 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
                         }
                     }
                     if (flag && left == 0 && !old.getFinishedlist().contains(login)) {
-                        currentTask.setFinishedlist(old.getFinishedlist() + "," + login);
+                        String finsihList = old.getFinishedlist()+","+login;
+                        if (finsihList.indexOf(",") == 0){
+                            finsihList.substring(1);
+                        }
+                        else if (finsihList.indexOf(",") == finsihList.length()-1){
+                            finsihList.substring(0,finsihList.length()-1);
+                        }
+                        currentTask.setFinishedlist(finsihList);
+
                     }
                     if ((old.getStatus().equals(StaticDict.Task__status.DONE.getValue()) || old.getStatus().equals(StaticDict.Task__status.CLOSED.getValue())) && currentTask.getStatus().equals("doing") && old.getStatus() != null) {
-                        if (old.getFinishedlist().length() >= old.getFinishedlist().indexOf(old.getAssignedto())){
-                            currentTask.setFinishedlist(old.getFinishedlist().substring(0, old.getFinishedlist().indexOf(old.getAssignedto())));
+                        if (old.getFinishedlist().contains(old.getAssignedto()) && old.getFinishedlist().length() >= old.getFinishedlist().indexOf(old.getAssignedto())){
+                            currentTask.setFinishedlist(old.getFinishedlist().substring(0, old.getFinishedlist().indexOf(old.getAssignedto())-1));
                         }
                     }
                 }
@@ -1049,7 +1057,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
     public void setCancelNewTask(Task old,Task newTask){
         newTask.setLastediteddate(ZTDateUtil.now());
         newTask.setLasteditedby(AuthenticationUser.getAuthenticationUser().getUsername());
-        newTask.setStatus(StaticDict.Action__type.CANCELED.getValue());
+        newTask.setStatus(StaticDict.Task__status.CANCEL.getValue());
         newTask.setAssignedto(old.getOpenedby());
         newTask.setAssigneddate(ZTDateUtil.now());
         newTask.setFinishedby("");
