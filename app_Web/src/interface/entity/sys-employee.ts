@@ -47,12 +47,60 @@ export interface SysEmployee {
     domains?: any;
 
     /**
+     * 主部门
+     *
+     * @returns {*}
+     * @memberof SysEmployee
+     */
+    mdeptid?: any;
+
+    /**
+     * 主部门代码
+     *
+     * @returns {*}
+     * @memberof SysEmployee
+     */
+    mdeptcode?: any;
+
+    /**
+     * 主部门名称
+     *
+     * @returns {*}
+     * @memberof SysEmployee
+     */
+    mdeptname?: any;
+
+    /**
      * 业务编码
      *
      * @returns {*}
      * @memberof SysEmployee
      */
     bcode?: any;
+
+    /**
+     * 单位
+     *
+     * @returns {*}
+     * @memberof SysEmployee
+     */
+    orgid?: any;
+
+    /**
+     * 单位代码
+     *
+     * @returns {*}
+     * @memberof SysEmployee
+     */
+    orgcode?: any;
+
+    /**
+     * 单位名称
+     *
+     * @returns {*}
+     * @memberof SysEmployee
+     */
+    orgname?: any;
 
     /**
      * 昵称别名
@@ -165,4 +213,28 @@ export interface SysEmployee {
      * @memberof SysEmployee
      */
     createdate?: any;
+
+    /**
+     * 更新人
+     *
+     * @returns {*}
+     * @memberof SysEmployee
+     */
+    updateman?: any;
+
+    /**
+     * 建立人
+     *
+     * @returns {*}
+     * @memberof SysEmployee
+     */
+    createman?: any;
+
+    /**
+     * 更新时间
+     *
+     * @returns {*}
+     * @memberof SysEmployee
+     */
+    updatedate?: any;
 }
