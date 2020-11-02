@@ -323,7 +323,7 @@ export default {
 			grouppanel6: '任务描述', 
 			grouppanel7: '备注', 
 			druipart1: '', 
-			grouppanel2: '分组面板', 
+			grouppanel9: '历史记录', 
 			grouppanel5: '任务的一生', 
 			grouppanel3: '分组面板', 
 			formpage1: '基本信息', 

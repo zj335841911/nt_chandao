@@ -469,18 +469,20 @@
     :disabled="detailsModel.mailto.disabled"
     :error="detailsModel.mailto.error" 
     :isEmptyCaption="false">
-        <app-mob-select 
+        <app-mob-check-list 
+    orMode="str"
+    valueSeparator=","
+    textSeparator=","
+    type="dynamic"  
     tag="UserRealName"
-    codeListType="DYNAMIC" 
-    :isCache="false" 
     :disabled="detailsModel.mailto.disabled" 
-    :data="data" 
-    :context="context" 
+    :data="data"
+    :context="context"
     :viewparams="viewparams"
-    :value="data.mailto"  
+    :value="data.mailto"   
     :navigateContext ='{ } '
     :navigateParam ='{ } '
-    @change="($event)=>this.data.mailto = $event" />
+    @change="($event)=>this.data.mailto = $event"/>
 </app-form-item>
 
 
@@ -810,9 +812,9 @@
     :error="detailsModel.canceleddate.error" 
     :isEmptyCaption="false">
         <app-mob-datetime-picker 
-    displayFormat="YYYY-MM-DD"
     class="app-form-item-datetime" 
     :value="data.canceleddate" 
+    displayFormat="YYYY-MM-DD HH:mm:ss"
     :disabled="detailsModel.canceleddate.disabled"
     @change="($event)=>this.data.canceleddate = $event"/>
 </app-form-item>
@@ -897,9 +899,9 @@
     :error="detailsModel.closeddate.error" 
     :isEmptyCaption="false">
         <app-mob-datetime-picker 
-    displayFormat="YYYY-MM-DD"
     class="app-form-item-datetime" 
     :value="data.closeddate" 
+    displayFormat="YYYY-MM-DD HH:mm:ss"
     :disabled="detailsModel.closeddate.disabled"
     @change="($event)=>this.data.closeddate = $event"/>
 </app-form-item>
@@ -1022,10 +1024,10 @@
     layoutType='TABLE_24COL' 
     titleStyle='' 
     uiStyle="DEFAULT" 
-    v-show="detailsModel.grouppanel2.visible" 
-    :uiActionGroup="detailsModel.grouppanel2.uiActionGroup" 
-    :caption="$t('task.mobmainedit_form.details.grouppanel2')" 
-    :isShowCaption="false" 
+    v-show="detailsModel.grouppanel9.visible" 
+    :uiActionGroup="detailsModel.grouppanel9.uiActionGroup" 
+    :caption="$t('task.mobmainedit_form.details.grouppanel9')" 
+    :isShowCaption="true" 
     :titleBarCloseMode="0" 
     :isInfoGroupMode="false" 
     :data="transformData(data)"
@@ -1587,7 +1589,7 @@ export default class MobMainEditBase extends Vue implements ControlInterface {
 , 
         druipart1: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart1', visible: true, isShowCaption: true, form: this })
 , 
-        grouppanel2: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel2', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'task.mobmainedit_form', extractMode: 'ITEM', details: [] } })
+        grouppanel9: new FormGroupPanelModel({ caption: '历史记录', detailType: 'GROUPPANEL', name: 'grouppanel9', visible: true, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'task.mobmainedit_form', extractMode: 'ITEM', details: [] } })
 , 
         grouppanel5: new FormGroupPanelModel({ caption: '任务的一生', detailType: 'GROUPPANEL', name: 'grouppanel5', visible: true, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'task.mobmainedit_form', extractMode: 'ITEM', details: [] } })
 , 
