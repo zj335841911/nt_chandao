@@ -232,6 +232,13 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
 
     @Override
     @Transactional
+    public Task getNextTeamUser(Task et) {
+        //自定义代码
+        return et;
+    }
+
+    @Override
+    @Transactional
     public Task getUsernames(Task et) {
         getusernamesLogic.execute(et);
          return et ;

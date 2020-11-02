@@ -300,6 +300,25 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | [TaskDTO](#TaskDTO)：任务实体传输对象 |
 
+### 获取下一个团队成员(完成)
+#### 访问路径
+/tasks/{task_id}/getnextteamuser
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | task_id | Long | 任务主键ID |
+| 2 | taskdto | [TaskDTO](#TaskDTO) | 任务实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| -- | -- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [TaskDTO](#TaskDTO)：任务实体传输对象 |
+
 ### 获取团队成员
 #### 访问路径
 /tasks/{task_id}/getusernames
@@ -1295,6 +1314,26 @@ POST
 
 #### 请求方法
 POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 需求主键ID |
+| 2 | task_id | Long | 任务主键ID |
+| 3 | taskdto | [TaskDTO](#TaskDTO) | 任务实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| -- | -- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [TaskDTO](#TaskDTO)：任务实体传输对象 |
+
+### 获取下一个团队成员(完成)
+#### 访问路径
+/stories/{story_id}/tasks/{task_id}/getnextteamuser
+
+#### 请求方法
+GET
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -2356,6 +2395,26 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | [TaskDTO](#TaskDTO)：任务实体传输对象 |
 
+### 获取下一个团队成员(完成)
+#### 访问路径
+/projects/{project_id}/tasks/{task_id}/getnextteamuser
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 项目主键ID |
+| 2 | task_id | Long | 任务主键ID |
+| 3 | taskdto | [TaskDTO](#TaskDTO) | 任务实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| -- | -- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [TaskDTO](#TaskDTO)：任务实体传输对象 |
+
 ### 获取团队成员
 #### 访问路径
 /projects/{project_id}/tasks/{task_id}/getusernames
@@ -3389,6 +3448,26 @@ POST
 
 #### 请求方法
 POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 产品主键ID |/r/n| 2 | story_id | Long | 需求主键ID |
+| 3 | task_id | Long | 任务主键ID |
+| 4 | taskdto | [TaskDTO](#TaskDTO) | 任务实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| -- | -- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [TaskDTO](#TaskDTO)：任务实体传输对象 |
+
+### 获取下一个团队成员(完成)
+#### 访问路径
+/products/{product_id}/stories/{story_id}/tasks/{task_id}/getnextteamuser
+
+#### 请求方法
+GET
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
