@@ -28,7 +28,7 @@
             updateAction="Finish"
             removeAction="Remove"
             loaddraftAction="GetDraft"
-            loadAction="Get"
+            loadAction="GetNextTeamUser"
             createAction="Finish"
             WFSubmitAction=""
             WFStartAction=""

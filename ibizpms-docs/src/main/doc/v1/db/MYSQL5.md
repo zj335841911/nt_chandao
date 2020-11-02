@@ -85390,6 +85390,7 @@ CREATE TABLE `zt_suitecase`(
 | USERNAME        | 用户全局名  | VARCHAR      |   100   | &nbsp; |
 | RESERVER        | 保留  | VARCHAR      |   255   | &nbsp; |
 | SHOWORDER        | 排序  | INTEGER      |   -1   | &nbsp; |
+| CREATEMAN        | 建立人  | VARCHAR      |   60   | &nbsp; |
 | USERID        | 用户标识  | VARCHAR      |   100   | 主键&nbsp; |
 | LANG        | 语言  | VARCHAR      |   100   | &nbsp; |
 | SEX        | 性别  | VARCHAR      |   20   | &nbsp; |
@@ -85401,6 +85402,7 @@ CREATE TABLE `zt_suitecase`(
 | ORGCODE        | 单位代码  | VARCHAR      |   100   | &nbsp; |
 | MDEPTCODE        | 主部门代码  | VARCHAR      |   100   | &nbsp; |
 | MDEPTID        | 主部门  | VARCHAR      |   100   | &nbsp; |
+| UPDATEMAN        | 更新人  | VARCHAR      |   60   | &nbsp; |
 | USERCODE        | 用户工号  | VARCHAR      |   100   | &nbsp; |
 | PERSONNAME        | 姓名  | VARCHAR      |   100   | &nbsp; |
 | NICKNAME        | 昵称别名  | VARCHAR      |   100   | &nbsp; |
@@ -85409,6 +85411,7 @@ CREATE TABLE `zt_suitecase`(
 | ORGID        | 单位  | VARCHAR      |   100   | &nbsp; |
 | ORGNAME        | 单位名称  | VARCHAR      |   100   | &nbsp; |
 | USERICON        | 照片  | VARCHAR      |   255   | &nbsp; |
+| UPDATEDATE        | 更新时间  | DATETIME      |   8   | &nbsp; |
 | ADDR        | 地址  | VARCHAR      |   255   | &nbsp; |
 | CREATEDATE        | 创建时间  | DATETIME      |   -1   | &nbsp; |
 | MDEPTNAME        | 主部门名称  | VARCHAR      |   100   | &nbsp; |

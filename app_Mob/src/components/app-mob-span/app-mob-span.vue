@@ -160,19 +160,13 @@ export default class AppSpan extends Vue {
         if (Object.is(this.codeListType, "STATIC")) {
             return;
         }
-        if (!this.isCached) {
-            // Loading.show(this.$t('app.loadding'));
+        let param: any = {context:{},param:{}};
+        this.handleOtherParam(param);
+        let tempParam = param.param;
+        if(tempParam){
+            Object.assign(tempParam,this.queryParam);
         }
-
-        let param: any = {};
-        const bcancel: boolean = this.handleOtherParam(param);
-        if (!bcancel) {
-            return
-        }
-        let response: any = await this.codeListService.getItems(this.tag, param.context, param.param);
-        if (!this.isCached) {
-            // Loading.hidden();
-        }
+        let response: any = await this.codeListService.getItems(this.tag, param.context,tempParam);
         if (response) {
             this.items = response;
             this.setText();

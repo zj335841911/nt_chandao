@@ -431,5 +431,8 @@ POST
 | 24 | showorder | Integer | 允许 | 排序 |
 | 25 | enable | Integer | 允许 | 逻辑有效 |
 | 26 | createdate | Timestamp | 允许 | 创建时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
-| 27 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 27 | updateman | String | 不可 | 更新人 |
+| 28 | createman | String | 不可 | 建立人 |
+| 29 | updatedate | Timestamp | 不可 | 更新时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
+| 30 | <动态属性> | Object | 允许 | 支持动态属性 |
 
