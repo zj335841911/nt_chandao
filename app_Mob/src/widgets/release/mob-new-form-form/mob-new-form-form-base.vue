@@ -90,6 +90,7 @@
         <app-mob-input 
     class="app-form-item-input"  
         type="text"  
+    
     :value="data.name"
     unit=""
     :disabled="detailsModel.name.disabled" 
@@ -212,7 +213,7 @@
     :isShowCaption="true"
     :error="detailsModel.desc.error" 
     :isEmptyCaption="false">
-        <app-mob-rich-text-editor-pms :formState="formState" :value="data.desc" @change="(val) =>{this.data.desc =val}" :disabled="detailsModel.desc.disabled" :data="JSON.stringify(this.data)"  name="desc" :uploadparams='{objecttype:"release",objectid:"%id%",version:"editor"}' :exportparams='{objecttype:"release",objectid:"%id%",version:"editor"}'  style=""/>
+        <app-mob-rich-text-editor-pms :formState="formState"  :value="data.desc" @change="(val) =>{this.data.desc =val}" :disabled="detailsModel.desc.disabled" :data="JSON.stringify(this.data)"  name="desc" :uploadparams='{objecttype:"release",objectid:"%id%",version:"editor"}' :exportparams='{objecttype:"release",objectid:"%id%",version:"editor"}'  style=""/>
 
 </app-form-item>
 

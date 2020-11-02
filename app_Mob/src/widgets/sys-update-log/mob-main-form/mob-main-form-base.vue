@@ -87,7 +87,7 @@
     :isShowCaption="false"
     :error="detailsModel.updesc.error" 
     :isEmptyCaption="true">
-        <app-mob-rich-text-editor-pms :formState="formState" :value="data.updesc" @change="(val) =>{this.data.updesc =val}" :disabled="detailsModel.updesc.disabled" :data="JSON.stringify(this.data)"  name="updesc" :uploadparams='{}' :exportparams='{}'  style=""/>
+        <app-mob-rich-text-editor-pms :formState="formState" :isInfoFormMode="true"  :value="data.updesc" @change="(val) =>{this.data.updesc =val}" :disabled="detailsModel.updesc.disabled" :data="JSON.stringify(this.data)"  name="updesc" :uploadparams='{}' :exportparams='{}'  style=""/>
 
 </app-form-item>
 

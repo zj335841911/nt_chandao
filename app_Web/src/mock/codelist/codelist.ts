@@ -7056,7 +7056,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 id: "UNCLOSED",
                 label: "未关闭",
                 text: "未关闭",
-                "data":{"n_stage_noteq":"closed"},
+                "data":{"n_status_noteq":"closed"},
                 "codename":"Unclosed",
                 value: "UNCLOSED",
                 
