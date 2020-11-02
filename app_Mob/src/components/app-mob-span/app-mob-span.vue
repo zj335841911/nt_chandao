@@ -43,6 +43,22 @@ export default class AppSpan extends Vue {
     @Prop() public codeListType!: string | 'STATIC' | 'DYNAMIC';
 
     /**
+     * 视图参数
+     *
+     * @type {*}
+     * @memberof AppSelect
+     */
+    @Prop() public viewparams!: any;
+
+    /**
+     * 传入表单数据
+     *
+     * @type {*}
+     * @memberof AppSelect
+     */
+    @Prop() public data?: any;
+
+    /**
      * 值
      *
      * @type {string}
@@ -94,7 +110,23 @@ export default class AppSpan extends Vue {
       * @type {*}
       * @memberof AppSpan
       */
-    @Prop({ default: {} }) protected context?: any;
+    @Prop({ default: () => { } }) protected context?: any;
+
+    /**
+     * 导航参数
+     *
+     * @type {*}
+     * @memberof AppSelect
+     */
+    @Prop({ default: () => { } }) protected navigateParam?: any;
+
+    /**
+     * 导航上下文
+     *
+     * @type {*}
+     * @memberof AppSelect
+     */
+    @Prop({ default: {} }) protected navigateContext?: any;
 
     /**
       * 当前值项
@@ -131,6 +163,12 @@ export default class AppSpan extends Vue {
         if (!this.isCached) {
             // Loading.show(this.$t('app.loadding'));
         }
+
+        let param: any = {};
+        const bcancel: boolean = this.handleOtherParam(param);
+        if (!bcancel) {
+            return
+        }
         let response: any = await this.codeListService.getItems(this.tag, { ...this.context }, this.queryParam);
         if (!this.isCached) {
             // Loading.hidden();
@@ -144,6 +182,20 @@ export default class AppSpan extends Vue {
         } else {
             this.items = [];
         }
+    }
+
+    /**
+     * 处理额外参数
+     */
+    public handleOtherParam(arg: any) {
+        if (!this.data) {
+            return false;
+        }
+        // 附加参数处理
+        const { context, param } = this.$viewTool.formatNavigateParam(this.navigateContext, this.navigateParam, this.context, this.viewparams, this.data);
+        arg.context = context;
+        arg.param = param;
+        return true;
     }
 
     /**
