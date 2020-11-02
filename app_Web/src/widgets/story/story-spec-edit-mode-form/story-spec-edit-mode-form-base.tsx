@@ -256,14 +256,4 @@ export class StorySpec_EditModeEditFormBase extends EditFormControlBase {
             this.updateFormItems('GetStorySpec', this.data, details, true);
         }
     }
-
-    /**
-     * 新建默认值
-     * @memberof StorySpec_EditModeEditFormBase
-     */
-    public createDefault(){                    
-        if (this.data.hasOwnProperty('neednotreview')) {
-            this.data['neednotreview'] = '1';
-        }
-    }
 }

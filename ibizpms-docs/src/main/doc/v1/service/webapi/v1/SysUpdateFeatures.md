@@ -12,12 +12,12 @@ POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | sysupdatefeaturesdto | [SysUpdateFeaturesDTO](#SysUpdateFeaturesDTO) | 系统更新功能实体传输对象 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | [SysUpdateFeaturesDTO](#SysUpdateFeaturesDTO)：系统更新功能实体传输对象 |
 
@@ -30,12 +30,12 @@ POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | sysupdatefeaturesdtos | List<[SysUpdateFeaturesDTO](#SysUpdateFeaturesDTO)> | 系统更新功能实体传输对象列表 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | true：处理成功。false：处理失败。 |
 
@@ -48,13 +48,13 @@ PUT
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | sysupdatefeatures_id | String | 系统更新功能主键ID |
 | 2 | sysupdatefeaturesdto | [SysUpdateFeaturesDTO](#SysUpdateFeaturesDTO) | 系统更新功能实体传输对象 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | [SysUpdateFeaturesDTO](#SysUpdateFeaturesDTO)：系统更新功能实体传输对象 |
 
@@ -67,12 +67,12 @@ PUT
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | sysupdatefeaturesdtos | List<[SysUpdateFeaturesDTO](#SysUpdateFeaturesDTO)> | 系统更新功能实体传输对象列表 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | true：处理成功。false：处理失败。 |
 
@@ -85,12 +85,12 @@ DELETE
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | sysupdatefeatures_id | String | 系统更新功能主键ID |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | true：处理成功。false：处理失败。 |
 
@@ -103,12 +103,12 @@ DELETE
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | ids | List<String> | 系统更新功能主键ID列表 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | true：处理成功。false：处理失败。 |
 
@@ -121,12 +121,12 @@ GET
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | sysupdatefeatures_id | String | 系统更新功能主键ID |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | [SysUpdateFeaturesDTO](#SysUpdateFeaturesDTO)：系统更新功能实体传输对象 |
 
@@ -139,12 +139,12 @@ POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | sysupdatefeaturesdto | [SysUpdateFeaturesDTO](#SysUpdateFeaturesDTO) | 系统更新功能实体传输对象 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | true：处理成功。false：处理失败。 |
 
@@ -157,12 +157,12 @@ POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | sysupdatefeaturesdto | [SysUpdateFeaturesDTO](#SysUpdateFeaturesDTO) | 系统更新功能实体传输对象 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | true：处理成功。false：处理失败。 |
 
@@ -175,12 +175,12 @@ POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | sysupdatefeaturesdtos | List<[SysUpdateFeaturesDTO](#SysUpdateFeaturesDTO)> | 系统更新功能实体传输对象列表 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | true：处理成功。false：处理失败。 |
 
@@ -193,12 +193,12 @@ GET
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | context | [SysUpdateFeaturesSearchContext](#SysUpdateFeaturesSearchContext) | 系统更新功能查询条件对象 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | List<[SysUpdateFeaturesDTO](#SysUpdateFeaturesDTO)>：系统更新功能实体传输对象列表 |
 
@@ -211,12 +211,12 @@ POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | context | [SysUpdateFeaturesSearchContext](#SysUpdateFeaturesSearchContext) | 系统更新功能查询条件对象 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | Page<[SysUpdateFeaturesDTO](#SysUpdateFeaturesDTO)>：系统更新功能实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
 
@@ -229,13 +229,13 @@ POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | sysupdatelog_id | String | 更新日志主键ID |
 | 2 | sysupdatefeaturesdto | [SysUpdateFeaturesDTO](#SysUpdateFeaturesDTO) | 系统更新功能实体传输对象 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | [SysUpdateFeaturesDTO](#SysUpdateFeaturesDTO)：系统更新功能实体传输对象 |
 
@@ -248,13 +248,13 @@ POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | sysupdatelog_id | String | 更新日志主键ID |
 | 2 | sysupdatefeaturesdtos | List<[SysUpdateFeaturesDTO](#SysUpdateFeaturesDTO)> | 系统更新功能实体传输对象列表 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | true：处理成功。false：处理失败。 |
 
@@ -267,14 +267,14 @@ PUT
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | sysupdatelog_id | String | 更新日志主键ID |
 | 2 | sysupdatefeatures_id | String | 系统更新功能主键ID |
 | 3 | sysupdatefeaturesdto | [SysUpdateFeaturesDTO](#SysUpdateFeaturesDTO) | 系统更新功能实体传输对象 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | [SysUpdateFeaturesDTO](#SysUpdateFeaturesDTO)：系统更新功能实体传输对象 |
 
@@ -287,13 +287,13 @@ PUT
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | sysupdatelog_id | String | 更新日志主键ID |
 | 2 | sysupdatefeaturesdtos | List<[SysUpdateFeaturesDTO](#SysUpdateFeaturesDTO)> | 系统更新功能实体传输对象列表 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | true：处理成功。false：处理失败。 |
 
@@ -306,13 +306,13 @@ DELETE
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | sysupdatelog_id | String | 更新日志主键ID |
 | 2 | sysupdatefeatures_id | String | 系统更新功能主键ID |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | true：处理成功。false：处理失败。 |
 
@@ -325,13 +325,13 @@ DELETE
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | sysupdatelog_id | String | 更新日志主键ID |
 | 2 | ids | List<String> | 系统更新功能主键ID列表 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | true：处理成功。false：处理失败。 |
 
@@ -344,13 +344,13 @@ GET
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | sysupdatelog_id | String | 更新日志主键ID |
 | 2 | sysupdatefeatures_id | String | 系统更新功能主键ID |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | [SysUpdateFeaturesDTO](#SysUpdateFeaturesDTO)：系统更新功能实体传输对象 |
 
@@ -363,13 +363,13 @@ POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | sysupdatelog_id | String | 更新日志主键ID |
 | 2 | sysupdatefeaturesdto | [SysUpdateFeaturesDTO](#SysUpdateFeaturesDTO) | 系统更新功能实体传输对象 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | true：处理成功。false：处理失败。 |
 
@@ -382,13 +382,13 @@ POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | sysupdatelog_id | String | 更新日志主键ID |
 | 2 | sysupdatefeaturesdto | [SysUpdateFeaturesDTO](#SysUpdateFeaturesDTO) | 系统更新功能实体传输对象 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | true：处理成功。false：处理失败。 |
 
@@ -401,13 +401,13 @@ POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | sysupdatelog_id | String | 更新日志主键ID |
 | 2 | sysupdatefeaturesdtos | List<[SysUpdateFeaturesDTO](#SysUpdateFeaturesDTO)> | 系统更新功能实体传输对象列表 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | true：处理成功。false：处理失败。 |
 
@@ -420,13 +420,13 @@ GET
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | sysupdatelog_id | String | 更新日志主键ID |
 | 2 | context | [SysUpdateFeaturesSearchContext](#SysUpdateFeaturesSearchContext) | 系统更新功能查询条件对象 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | List<[SysUpdateFeaturesDTO](#SysUpdateFeaturesDTO)>：系统更新功能实体传输对象列表 |
 
@@ -439,13 +439,13 @@ POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | sysupdatelog_id | String | 更新日志主键ID |
 | 2 | context | [SysUpdateFeaturesSearchContext](#SysUpdateFeaturesSearchContext) | 系统更新功能查询条件对象 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | Page<[SysUpdateFeaturesDTO](#SysUpdateFeaturesDTO)>：系统更新功能实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
 
@@ -453,7 +453,7 @@ POST
 ### 数据类型说明
 #### SysUpdateFeaturesDTO
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
-| -- | -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- | ---- |
 | 1 | sysupdatefeaturesname | String | 允许 | 系统更新功能名称 |
 | 2 | sysupdatefeaturesid | String | 不可 | 系统更新功能标识 |
 | 3 | createman | String | 不可 | 建立人 |
@@ -470,7 +470,7 @@ POST
 
 #### SysUpdateFeaturesSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
-| -- | -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- | ---- |
 | 1 | n_sys_update_featuresname_like | String | 允许 | 条件字段：sys_update_featuresname<br>条件组合方式：`%like%` |
 | 2 | n_sys_update_logid_eq | String | 允许 | 条件字段：sys_update_logid<br>条件组合方式：`=` |
 | 3 | n_sys_update_logname_eq | String | 允许 | 条件字段：sys_update_logname<br>条件组合方式：`=` |

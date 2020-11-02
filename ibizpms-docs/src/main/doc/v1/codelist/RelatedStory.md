@@ -1,20 +1,10 @@
-# 数据字典-关联需求（动态）（RelatedStory）
-## 字典说明
-关联需求（动态）
+!!!!模版产生代码错误:----
+Tip: It's the step after the last dot that caused this error, not those before it.
+----
+Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
+----
 
-## 基本说明
-| 项目 | 说明 |
-| -- | -- |
-| 数值类型 | 字符串 |
-| 启用多选 | 是 |
-| 多选分隔符 | 数值分隔符：,<br>文本分隔符：, |
-| 启用缓存 | 是 |
-| 缓存超时时长 | 600 |
-
-## 取值范围
-指定实体查询结果集合。
-| 项目 | 说明 |
-| -- | -- |
-| 实体 | [需求](../module/zentao/Story) |
-| 结果集合 | [DEFAULT（Default）]() |
-
+----
+FTL stack trace ("~" means nesting-related):
+	- Failed at: #assign itemCodeNameOut = docutil.for...  [in template "CODETEMPL_en_US" at line 5, column 1]
+----

@@ -1,23 +1,10 @@
-# 数据字典-文档内容类型（Doccontent__type）
-## 字典说明
-文档内容类型
+!!!!模版产生代码错误:----
+Tip: It's the step after the last dot that caused this error, not those before it.
+----
+Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
+----
 
-## 基本说明
-| 项目 | 说明 |
-| -- | -- |
-| 数值类型 | 字符串 |
-| 启用多选 | 否 |
-| 多选分隔符 | 无 |
-| 启用缓存 | 是 |
-| 缓存超时时长 | 无 |
-
-## 取值范围
-| 序号 | 数值 | 文本 | 父值 | 提示信息 | 是否显示空白 | 默认选择 | 说明 |
-| -- | -- | -- | -- | -- | -- | -- | -- |
-| 1 | html | 富文本 |  |  | 否 | 否 | 富文本 |
-| 2 | markdown | Markdown |  |  | 否 | 否 | Markdown |
-| 3 | url | 链接 |  |  | 否 | 否 | 链接 |
-| 4 | word | Word |  |  | 否 | 否 | Word |
-| 5 | ppt | PPT |  |  | 否 | 否 | PPT |
-| 6 | excel | Excel |  |  | 否 | 否 | Excel |
-
+----
+FTL stack trace ("~" means nesting-related):
+	- Failed at: #assign itemCodeNameOut = docutil.for...  [in template "CODETEMPL_en_US" at line 5, column 1]
+----

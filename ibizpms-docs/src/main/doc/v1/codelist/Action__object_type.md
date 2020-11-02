@@ -1,40 +1,10 @@
-# 数据字典-系统日志对象类型（Action__object_type）
-## 字典说明
-系统日志对象类型
+!!!!模版产生代码错误:----
+Tip: It's the step after the last dot that caused this error, not those before it.
+----
+Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
+----
 
-## 基本说明
-| 项目 | 说明 |
-| -- | -- |
-| 数值类型 | 字符串 |
-| 启用多选 | 否 |
-| 多选分隔符 | 无 |
-| 启用缓存 | 是 |
-| 缓存超时时长 | 无 |
-
-## 取值范围
-| 序号 | 数值 | 文本 | 父值 | 提示信息 | 是否显示空白 | 默认选择 | 说明 |
-| -- | -- | -- | -- | -- | -- | -- | -- |
-| 1 | product | 产品 |  |  | 否 | 否 | 多语言支持 |
-| 2 | story | 需求 |  |  | 否 | 否 | 多语言支持 |
-| 3 | productplan | 计划 |  |  | 否 | 否 | 计划 |
-| 4 | release | 发布 |  |  | 否 | 否 | 发布 |
-| 5 | project | 项目 |  |  | 否 | 否 | 项目 |
-| 6 | task | 任务 |  |  | 否 | 否 | 任务 |
-| 7 | build | 版本 |  |  | 否 | 否 | 版本 |
-| 8 | bug | Bug |  |  | 否 | 否 | Bug |
-| 9 | case | 用例 |  |  | 否 | 否 | 用例 |
-| 10 | caseresult | 用例结果 |  |  | 否 | 否 | 用例结果 |
-| 11 | stepresult | 用例步骤 |  |  | 否 | 否 | 用例步骤 |
-| 12 | testtask | 测试单 |  |  | 否 | 否 | 测试单 |
-| 13 | user | 用户 |  |  | 否 | 否 | 用户 |
-| 14 | doc | 文档 |  |  | 否 | 否 | 文档 |
-| 15 | doclib | 文档库 |  |  | 否 | 否 | 文档库 |
-| 16 | todo | 待办 |  |  | 否 | 否 | 待办 |
-| 17 | branch | 分支 |  |  | 否 | 否 | 分支 |
-| 18 | module | 模块 |  |  | 否 | 否 | 模块 |
-| 19 | testsuite | 套件 |  |  | 否 | 否 | 套件 |
-| 20 | caselib | 用例库 |  |  | 否 | 否 | 用例库 |
-| 21 | testreport | 报告 |  |  | 否 | 否 | 报告 |
-| 22 | entry | 应用 |  |  | 否 | 否 | 应用 |
-| 23 | webhook | Webhook |  |  | 否 | 否 | Webhook |
-
+----
+FTL stack trace ("~" means nesting-related):
+	- Failed at: #assign itemCodeNameOut = docutil.for...  [in template "CODETEMPL_en_US" at line 5, column 1]
+----

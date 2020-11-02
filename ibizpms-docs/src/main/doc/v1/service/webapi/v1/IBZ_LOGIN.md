@@ -12,13 +12,13 @@ GET
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | ibz_login_id | Long | 实体主键ID |
 | 2 | ibz_logindto | [IBZ_LOGINDTO](#IBZ_LOGINDTO) | 实体实体传输对象 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | [IBZ_LOGINDTO](#IBZ_LOGINDTO)：实体实体传输对象 |
 
@@ -31,13 +31,13 @@ POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | ibz_login_id | Long | 实体主键ID |
 | 2 | ibz_logindto | [IBZ_LOGINDTO](#IBZ_LOGINDTO) | 实体实体传输对象 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | [IBZ_LOGINDTO](#IBZ_LOGINDTO)：实体实体传输对象 |
 
@@ -45,7 +45,7 @@ POST
 ### 数据类型说明
 #### IBZ_LOGINDTO
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
-| -- | -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- | ---- |
 | 1 | realname | String | 允许 | 真实姓名 |
 | 2 | id | Long | 不可 | ID |
 | 3 | account | String | 允许 | 账户 |
@@ -55,7 +55,7 @@ POST
 
 #### IBZ_LOGINSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
-| -- | -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- | ---- |
 | 1 | n_realname_like | String | 允许 | 条件字段：realname<br>条件组合方式：`%like%` |
 | 2 | customcond | String | 允许 | 自定义查询条件 |
 | 3 | customparams | String | 允许 | 自定义查询参数 |
