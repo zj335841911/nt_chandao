@@ -98,6 +98,14 @@ export class MainEditFormBase extends EditFormControlBase {
      */
     public rules():any{
         return {
+        consumed: [
+            {validator:(rule:any, value:any)=>{return this.verifyDeRules("consumed").isPast},message: this.verifyDeRules("consumed").infoMessage, trigger: 'change' },
+            {validator:(rule:any, value:any)=>{return this.verifyDeRules("consumed").isPast},message: this.verifyDeRules("consumed").infoMessage, trigger: 'blur' },
+        ],
+        left: [
+            {validator:(rule:any, value:any)=>{return this.verifyDeRules("left").isPast},message: this.verifyDeRules("left").infoMessage, trigger: 'change' },
+            {validator:(rule:any, value:any)=>{return this.verifyDeRules("left").isPast},message: this.verifyDeRules("left").infoMessage, trigger: 'blur' },
+        ],
         }
     }
 
@@ -108,6 +116,32 @@ export class MainEditFormBase extends EditFormControlBase {
      * @memberof MainBase
      */
     public deRules:any = {
+                consumed:[
+                  {
+                      type:"VALUERANGE2",
+                      condOP:"",
+                      ruleInfo:"数值必须大于等于[0.0]", 
+                      isKeyCond:false,
+                      isNotMode:false,
+                      minValue:0,
+                      deName:"consumed",
+                      isIncludeMaxValue:false,
+                      isIncludeMinValue:true,
+                  },
+                ],
+                left:[
+                  {
+                      type:"VALUERANGE2",
+                      condOP:"",
+                      ruleInfo:"数值必须大于等于[0.0]", 
+                      isKeyCond:false,
+                      isNotMode:false,
+                      minValue:0,
+                      deName:"consumed",
+                      isIncludeMaxValue:false,
+                      isIncludeMinValue:true,
+                  },
+                ],
     };
 
     /**
