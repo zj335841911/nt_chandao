@@ -83,6 +83,7 @@ hide members
 |是否完成|ISFINISHED|TEXT|&nbsp;|
 |回复数量|REPLYCOUNT|INT|&nbsp;|
 |是否填写描述|HASDETAIL|TEXT|&nbsp;|
+|最后的更新日期|UPDATEDATE|DATE|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -155,6 +156,7 @@ hide members
 |是否完成|默认规则|内容长度必须小于等于[100]|
 |回复数量|默认规则|默认规则|
 |是否填写描述|默认规则|内容长度必须小于等于[100]|
+|最后的更新日期|默认规则|默认规则|
 
 ## 状态控制
 

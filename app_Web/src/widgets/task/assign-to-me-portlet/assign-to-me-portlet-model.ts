@@ -198,6 +198,9 @@ export default class AssignToMeModel {
       {
         name: 'hasdetail',
       },
+      {
+        name: 'updatedate',
+      },
     ]
   }
 

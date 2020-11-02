@@ -492,6 +492,14 @@ public class Task extends EntityMP implements Serializable {
     @JSONField(name = "hasdetail")
     @JsonProperty("hasdetail")
     private String hasdetail;
+    /**
+     * 最后的更新日期
+     */
+    @TableField(exist = false)
+    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "updatedate" , format="yyyy-MM-dd")
+    @JsonProperty("updatedate")
+    private Timestamp updatedate;
 
     /**
      * 

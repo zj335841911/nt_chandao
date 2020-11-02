@@ -397,6 +397,7 @@ SRFNAVPARAM.project=%project%|
 |-|产品计划表格视图|DEGRIDVIEW|&nbsp;|
 |-|激活|DEOPTVIEW|&nbsp;|
 |-|task表格视图|DEGRIDVIEW|&nbsp;|
+|-|任务表格视图（任务分组）|DEGRIDVIEW|&nbsp;|
 |-|群组表格视图|DEGRIDVIEW|&nbsp;|
 |-|用户编辑视图|DEEDITVIEW|&nbsp;|
 |-|需求模块树导航视图|DETREEEXPVIEW|&nbsp;|

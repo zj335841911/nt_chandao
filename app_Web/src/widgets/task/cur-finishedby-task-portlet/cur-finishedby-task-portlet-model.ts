@@ -198,6 +198,9 @@ export default class CurFinishedbyTaskModel {
       {
         name: 'hasdetail',
       },
+      {
+        name: 'updatedate',
+      },
     ]
   }
 

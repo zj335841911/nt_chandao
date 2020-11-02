@@ -12723,7 +12723,8 @@ t21.`TITLE` AS `STORYNAME`,
 t1.`STORYVERSION`,
 t1.`SUBSTATUS`,
 (case when ( SELECT case when count( t.`id` ) > 0 then 1 else 0 end FROM `zt_team` t WHERE t.`type` = 'task' AND t.`root` = t1.`id` )  = 1 then '10' when t1.parent = -1 or (select case when count(t.id) > 0 then 1 else 0 end from zt_task t where t.deleted = '0' and t.parent = t1.id ) = 1  then '20' when t1.parent = 0 then '30' else '40' end) AS `TASKTYPE`,
-t1.`TYPE`
+t1.`TYPE`,
+DATE_FORMAT(t1.lastediteddate,'%Y-%m-%d') AS `UPDATEDATE`
 FROM `zt_task` t1 
 LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID 
 LEFT JOIN zt_story t21 ON t1.STORY = t21.ID 
@@ -12784,7 +12785,8 @@ t21.`TITLE` AS `STORYNAME`,
 t1.`STORYVERSION`,
 t1.`SUBSTATUS`,
 (case when ( SELECT case when count( t.`id` ) > 0 then 1 else 0 end FROM `zt_team` t WHERE t.`type` = 'task' AND t.`root` = t1.`id` )  = 1 then '10' when t1.parent = -1 or (select case when count(t.id) > 0 then 1 else 0 end from zt_task t where t.deleted = '0' and t.parent = t1.id ) = 1  then '20' when t1.parent = 0 then '30' else '40' end) AS `TASKTYPE`,
-t1.`TYPE`
+t1.`TYPE`,
+DATE_FORMAT(t1.lastediteddate,'%Y-%m-%d') AS `UPDATEDATE`
 FROM `zt_task` t1 
 LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID 
 LEFT JOIN zt_story t21 ON t1.STORY = t21.ID 
@@ -13132,6 +13134,7 @@ CASE
 		t11.`name` AS projectname,
 		t1.canceleddate,
 		t1.lastediteddate,
+                DATE_FORMAT(t1.lastediteddate,'%Y-%m-%d') as updatedate,
 		t1.lasteditedby,
 		t1.openedby,
 		t1.closedby,
@@ -13250,7 +13253,8 @@ t21.`TITLE` AS `STORYNAME`,
 t1.`STORYVERSION`,
 t1.`SUBSTATUS`,
 (case when ( SELECT case when count( t.`id` ) > 0 then 1 else 0 end FROM `zt_team` t WHERE t.`type` = 'task' AND t.`root` = t1.`id` )  = 1 then '10' when t1.parent = -1 or (select case when count(t.id) > 0 then 1 else 0 end from zt_task t where t.deleted = '0' and t.parent = t1.id ) = 1  then '20' when t1.parent = 0 then '30' else '40' end) AS `TASKTYPE`,
-t1.`TYPE`
+t1.`TYPE`,
+DATE_FORMAT(t1.lastediteddate,'%Y-%m-%d') AS `UPDATEDATE`
 FROM `zt_task` t1 
 LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID 
 LEFT JOIN zt_story t21 ON t1.STORY = t21.ID 

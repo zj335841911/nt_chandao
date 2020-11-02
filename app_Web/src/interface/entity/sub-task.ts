@@ -493,4 +493,12 @@ export interface SubTask {
      * @memberof SubTask
      */
     hasdetail?: any;
+
+    /**
+     * 最后的更新日期
+     *
+     * @returns {*}
+     * @memberof SubTask
+     */
+    updatedate?: any;
 }

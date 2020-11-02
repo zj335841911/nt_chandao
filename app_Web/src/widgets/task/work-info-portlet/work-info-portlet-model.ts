@@ -198,6 +198,9 @@ export default class WorkInfoModel {
       {
         name: 'hasdetail',
       },
+      {
+        name: 'updatedate',
+      },
     ]
   }
 

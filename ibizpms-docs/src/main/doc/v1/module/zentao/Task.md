@@ -69,6 +69,7 @@
 | 59 | [是否完成](#属性-是否完成（ISFINISHED）) | ISFINISHED | 文本，可指定长度 | 否 | 是 | 是 |
 | 60 | [回复数量](#属性-回复数量（REPLYCOUNT）) | REPLYCOUNT | 整型 | 否 | 是 | 是 |
 | 61 | [是否填写描述](#属性-是否填写描述（HASDETAIL）) | HASDETAIL | 文本，可指定长度 | 否 | 是 | 是 |
+| 62 | [最后的更新日期](#属性-最后的更新日期（UPDATEDATE）) | UPDATEDATE | 日期型 | 否 | 是 | 是 |
 
 ### 属性-由谁取消（CANCELEDBY）
 #### 属性说明
@@ -2089,6 +2090,38 @@ String
 
 #### 数据格式
 无
+
+#### 关系属性
+| 项目 | 说明 |
+| -- | -- |
+| 关系实体 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) |
+| 关系属性 | [path（PATH）](../ibiz/ProjectModule/#属性-path（PATH）) |
+| 关系类型 | 关系属性 1:N 当前属性 |
+
+### 属性-最后的更新日期（UPDATEDATE）
+#### 属性说明
+最后的更新日期
+
+#### 属性类型
+逻辑字段[来自计算式]
+
+#### 数据类型
+日期型
+
+#### Java类型
+Timestamp
+
+#### 是否允许为为空
+是
+
+#### 默认值
+无
+
+#### 取值范围/公式
+DATE_FORMAT(t1.lastediteddate,'%Y-%m-%d')
+
+#### 数据格式
+yyyy-MM-dd
 
 #### 关系属性
 | 项目 | 说明 |
