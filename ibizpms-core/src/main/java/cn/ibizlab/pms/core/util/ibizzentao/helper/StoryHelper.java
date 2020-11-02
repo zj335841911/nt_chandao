@@ -419,7 +419,7 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
         et.setStatus(StaticDict.Story__status.CLOSED.getValue());
         et.setStage(StaticDict.Story__stage.CLOSED.getValue());
         et.setAssigneddate(ZTDateUtil.now());
-
+        et.setAssignedto(StaticDict.Assignedto_closed.CLOSED.getValue());
         internalUpdate(et);
         if(et.getParent() > 0)
             updateParentStatus(et, this.get(et.getParent()), false);
@@ -804,6 +804,8 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
             this.internalUpdate(story1);
             return;
         }
+        Story old = new Story();
+        CachedBeanCopier.copy(parentStory, old);
         if(parentStory.getParent() != -1 ) {
             Story parentStory1 = new Story();
             parentStory1.setId(parentStory.getId());
@@ -812,7 +814,7 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
             parentStory.setParent(-1l);
         }
         computeEstimate(parentStory.getId());
-        String sql = String.format("select id,`status` from zt_story where parent = %1$s and deleted = '0'", parentStory.getId());
+        String sql = String.format("select DISTINCT `status` from zt_story where parent = %1$s and deleted = '0'", parentStory.getId());
         List<JSONObject> childrenStatus = iStoryService.select(sql, null);
         if(childrenStatus.size() == 0) {
             Story parentStory1 = new Story();
@@ -831,7 +833,7 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
             parentStatus = StaticDict.Story__status.ACTIVE.getValue();
         }
 
-        if(parentStatus != null && parentStatus.equals(parentStory.getStatus())) {
+        if(parentStatus != null && !parentStatus.equals(parentStory.getStatus())) {
             Story story1 = new Story();
             Timestamp timestamp = ZTDateUtil.now();
             story1.setStatus(parentStatus);
@@ -856,11 +858,12 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
             story1.setLastediteddate(timestamp);
             story1.setParent(-1L);
             story1.setId(parentStory.getId());
-            if(!this.internalUpdate(story1)) {
+            if(this.internalUpdate(story1)) {
                 if (changed)
                     return ;
-                Story newParentStory = this.get(parentStory.getId());
-                List<History> changes = ChangeUtil.diff(parentStory, newParentStory);
+                Story newParentStory = new Story();
+                CachedBeanCopier.copy(this.get(parentStory.getId()), newParentStory);
+                List<History> changes = ChangeUtil.diff(old, newParentStory);
                 if (changes.size() > 0) {
                     String actionType = StaticDict.Story__status.ACTIVE.getValue().equals(parentStatus) ? StaticDict.Action__type.ACTIVATED.getValue() : StaticDict.Story__status.CLOSED.getValue().equals(parentStatus) ? StaticDict.Action__type.CLOSED.getValue() : "";
                     Action action = actionHelper.create(StaticDict.Action__object_type.STORY.getValue(), parentStory.getId(), actionType,
