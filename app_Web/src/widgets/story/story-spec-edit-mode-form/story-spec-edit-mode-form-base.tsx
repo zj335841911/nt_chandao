@@ -263,7 +263,7 @@ export class StorySpec_EditModeEditFormBase extends EditFormControlBase {
      */
     public createDefault(){                    
         if (this.data.hasOwnProperty('neednotreview')) {
-            this.data['neednotreview'] = '0';
+            this.data['neednotreview'] = '1';
         }
     }
 }
