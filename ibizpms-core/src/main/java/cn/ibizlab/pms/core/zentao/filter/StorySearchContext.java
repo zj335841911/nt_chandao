@@ -237,6 +237,13 @@ public class StorySearchContext extends QueryWrapperContext<Story> {
             this.getSearchCond().eq("parent", n_parent_eq);
         }
     }
+	private Long n_parent_gtandeq;//[父需求]
+	public void setN_parent_gtandeq(Long n_parent_gtandeq) {
+        this.n_parent_gtandeq = n_parent_gtandeq;
+        if(!ObjectUtils.isEmpty(this.n_parent_gtandeq)){
+            this.getSearchCond().ge("parent", n_parent_gtandeq);
+        }
+    }
 	private Long n_module_eq;//[所属模块]
 	public void setN_module_eq(Long n_module_eq) {
         this.n_module_eq = n_module_eq;
