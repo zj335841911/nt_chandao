@@ -800,11 +800,15 @@
     :error="detailsModel.openedby.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        codeListType="DYNAMIC" 
+    codeListType="DYNAMIC" 
     tag="UserRealName"
     :isCache="false" 
-    v-if="data.openedby" 
-    :context="context" 
+    v-if="data.openedby"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.openedby" 
     :itemParam="{}"/>
 </app-form-item>

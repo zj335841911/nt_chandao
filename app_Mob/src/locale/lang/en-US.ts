@@ -1,4 +1,5 @@
 import branch_en_US from '@locale/lanres/branch/branch_en_US';
+import sysorganization_en_US from '@locale/lanres/sys-organization/sys-organization_en_US';
 import file_en_US from '@locale/lanres/file/file_en_US';
 import user_en_US from '@locale/lanres/user/user_en_US';
 import ibzfavorites_en_US from '@locale/lanres/ibz-favorites/ibz-favorites_en_US';
@@ -172,6 +173,7 @@ export default {
         }
     },
     branch: branch_en_US,
+    sysorganization: sysorganization_en_US,
     file: file_en_US,
     user: user_en_US,
     ibzfavorites: ibzfavorites_en_US,

@@ -1,4 +1,4 @@
-<i-form :model="this.data" class='app-form info-form-mode' ref='form'  id='case_testtaskrmain' style="">
+<i-form :model="this.data" class='app-form info-form-mode' ref='form'  id='case_testtaskrmain' style="" @on-validate="formItemValidate.apply(_self, arguments)">
     <input style="display:none;" />
     <row >
             <i-col class="form-layout-container" v-show="detailsModel.group1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">

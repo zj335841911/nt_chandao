@@ -105,9 +105,18 @@ public class CaseHelper extends ZTBaseHelper<CaseMapper, Case> {
         if(list.size() == caseSteps.size()) {
             int i = 0;
             for(CaseStep caseStep : list) {
-                caseStep.setId(null);
-                caseStep.setParent(null);
-                List<History> changes = ChangeUtil.diff(caseStep, caseSteps.get(i));
+                CaseStep oldCaseStep = new CaseStep();
+                CachedBeanCopier.copy(caseStep, oldCaseStep);
+                oldCaseStep.setParent(0l);
+                CaseStep newCaseStep = new CaseStep();
+                CachedBeanCopier.copy(caseSteps.get(i), newCaseStep);
+                newCaseStep.setParent(0l);
+                if(newCaseStep.getId() == null || newCaseStep.getId() ==0) {
+                    caseStepFlag = true;
+                    break;
+                }
+
+                List<History> changes = ChangeUtil.diff(oldCaseStep, newCaseStep);
                 if(changes.size() > 0){
                     caseStepFlag = true;
                     break;
@@ -120,7 +129,9 @@ public class CaseHelper extends ZTBaseHelper<CaseMapper, Case> {
         }
         if (caseStepFlag)
             et.setVersion(old.getVersion() + 1);
-
+        et.setLastrunresult(old.getLastrunresult());
+        et.setLastrundate(old.getLastrundate());
+        et.setLastrunner(old.getLastrunner());
         String files = et.getFiles();
         boolean bOk = super.edit(et);
         if (!bOk)

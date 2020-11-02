@@ -693,27 +693,34 @@ export default class SubTaskServiceBase extends EntityService {
      */
     public async GetNextTeamUser(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && context.task && context.subtask){
-            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/${context.subtask}/getnextteamuser`,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().put(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/${context.subtask}/getnextteamuser`,data,isloading);
             
             return res;
         }
         if(context.project && context.task && context.subtask){
-            let res:any = await Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/subtasks/${context.subtask}/getnextteamuser`,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().put(`/projects/${context.project}/tasks/${context.task}/subtasks/${context.subtask}/getnextteamuser`,data,isloading);
             
             return res;
         }
         if(context.story && context.task && context.subtask){
-            let res:any = await Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/subtasks/${context.subtask}/getnextteamuser`,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().put(`/stories/${context.story}/tasks/${context.task}/subtasks/${context.subtask}/getnextteamuser`,data,isloading);
             
             return res;
         }
         if(context.task && context.subtask){
-            let res:any = await Http.getInstance().get(`/tasks/${context.task}/subtasks/${context.subtask}/getnextteamuser`,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().put(`/tasks/${context.task}/subtasks/${context.subtask}/getnextteamuser`,data,isloading);
             
             return res;
         }
-            let res:any = await Http.getInstance().get(`/subtasks/${context.subtask}/getnextteamuser`,isloading);
-            
+            let res:any = Http.getInstance().put(`/subtasks/${context.subtask}/getnextteamuser`,data,isloading);
             return res;
     }
 

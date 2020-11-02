@@ -31,6 +31,7 @@
             createAction="Create"
             fetchAction="FetchDefault" 
             :isMutli="!isSingleSelect"
+            :isNeedLoaddingText="!isPortalView"
             :showBusyIndicator="true" 
             :isTempMode="false"
             :newdata="newdata"
@@ -43,9 +44,6 @@
             @load="mdctrl_load($event)"  
             @closeview="closeView($event)">
         </view_mdctrl>
-        <div class="scroll_tool">
-            <div class="scrollToTop" @click="onScrollToTop" v-show="isShouleBackTop" :style="{right:isScrollStop?'20px':'-25px'}" > <van-icon name="back-top" /></div> 
-        </div>
     </ion-content>
     <ion-footer class="view-footer">
         
@@ -159,6 +157,14 @@ export default class TaskEstimateMobMDViewBase extends Vue {
      * @memberof TaskEstimateMobMDViewBase
      */
     @Prop({ default: false }) protected isChildView?: boolean;
+
+    /**
+     * 是否为门户嵌入视图
+     *
+     * @type {boolean}
+     * @memberof TaskEstimateMobMDViewBase
+     */
+    @Prop({ default: false }) protected isPortalView?: boolean;
 
     /**
      * 标题状态

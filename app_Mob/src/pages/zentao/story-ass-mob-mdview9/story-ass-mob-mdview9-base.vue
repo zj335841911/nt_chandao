@@ -18,6 +18,7 @@
             createAction="Create"
             fetchAction="FetchDefault" 
             :isMutli="!isSingleSelect"
+            :isNeedLoaddingText="!isPortalView"
             :showBusyIndicator="true" 
             :isTempMode="false"
             :needLoadMore="false"
@@ -144,6 +145,14 @@ export default class StoryAssMobMDView9Base extends Vue {
      * @memberof StoryAssMobMDView9Base
      */
     @Prop({ default: false }) protected isChildView?: boolean;
+
+    /**
+     * 是否为门户嵌入视图
+     *
+     * @type {boolean}
+     * @memberof StoryAssMobMDView9Base
+     */
+    @Prop({ default: false }) protected isPortalView?: boolean;
 
     /**
      * 标题状态

@@ -198,6 +198,9 @@ export class MyFavoriteTaskModel {
       {
         name: 'hasdetail',
       },
+      {
+        name: 'updatedate',
+      },
     ]
   }
 

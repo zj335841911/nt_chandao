@@ -142,6 +142,8 @@ export class MainEditEditFormBase extends EditFormControlBase {
         name: [
             { required: this.detailsModel.name.required, type: 'string', message: '任务名称 值不能为空', trigger: 'change' },
             { required: this.detailsModel.name.required, type: 'string', message: '任务名称 值不能为空', trigger: 'blur' },
+            {validator:(rule:any, value:any)=>{return this.verifyDeRules("name").isPast},message: this.verifyDeRules("name").infoMessage, trigger: 'change' },
+            {validator:(rule:any, value:any)=>{return this.verifyDeRules("name").isPast},message: this.verifyDeRules("name").infoMessage, trigger: 'blur' },
         ],
         type: [
             { required: this.detailsModel.type.required, type: 'string', message: '任务类型 值不能为空', trigger: 'change' },
@@ -157,6 +159,19 @@ export class MainEditEditFormBase extends EditFormControlBase {
      * @memberof MainEditBase
      */
     public deRules:any = {
+                name:[
+                  {
+                      type:"STRINGLENGTH",
+                      condOP:"",
+                      ruleInfo:"任务名称不大于10", 
+                      isKeyCond:false,
+                      isNotMode:false,
+                      maxValue:10,
+                      deName:"name",
+                      isIncludeMaxValue:true,
+                      isIncludeMinValue:false,
+                  },
+                ],
     };
 
     /**
@@ -434,6 +449,16 @@ export class MainEditEditFormBase extends EditFormControlBase {
         if (Object.is(name, 'storyversion')) {
             const details: string[] = ['storyversion'];
             this.updateFormItems('UpdateStoryVersion', this.data, details, true);
+        }
+    }
+
+    /**
+     * 更新默认值
+     * @memberof MainEditEditFormBase
+     */
+    public updateDefault(){                    
+        if (this.data.hasOwnProperty('allmodules') && !this.data.allmodules) {
+            this.data['allmodules'] = '1';
         }
     }
 }

@@ -11684,6 +11684,7 @@ LEFT JOIN zt_product t31 ON t1.PRODUCT = t31.ID
 LEFT JOIN zt_branch t41 ON t1.BRANCH = t41.ID
 WHERE t1.DELETED = '0' 
 ( ( t1.`PARENT` = -1  OR  t1.`PARENT` = 0 ) ) 
+t1.`status` = 'active' and t1.stage = 'wait' 
 
 ```
 ### 项目关联需求(projectLinkStory)<div id="Story_ProjectLinkStory"></div>
@@ -12282,12 +12283,16 @@ t1.`ENABLE`,
 t1.`LEADERID`,
 t1.`LEADERNAME`,
 t1.`ORGID`,
+t11.`ORGNAME`,
 t1.`PDEPTID`,
+t21.`DEPTNAME` AS `PDEPTNAME`,
 t1.`SHORTNAME`,
 t1.`SHOWORDER`,
 t1.`UPDATEDATE`,
 t1.`UPDATEMAN`
 FROM `T_SYS_DEPT` t1 
+LEFT JOIN T_SYS_ORG t11 ON t1.ORGID = t11.ORGID 
+LEFT JOIN T_SYS_DEPT t21 ON t1.PDEPTID = t21.DEPTID 
 
 WHERE t1.ENABLE = 1 
 
@@ -12307,12 +12312,16 @@ t1.`ENABLE`,
 t1.`LEADERID`,
 t1.`LEADERNAME`,
 t1.`ORGID`,
+t11.`ORGNAME`,
 t1.`PDEPTID`,
+t21.`DEPTNAME` AS `PDEPTNAME`,
 t1.`SHORTNAME`,
 t1.`SHOWORDER`,
 t1.`UPDATEDATE`,
 t1.`UPDATEMAN`
 FROM `T_SYS_DEPT` t1 
+LEFT JOIN T_SYS_ORG t11 ON t1.ORGID = t11.ORGID 
+LEFT JOIN T_SYS_DEPT t21 ON t1.PDEPTID = t21.DEPTID 
 
 WHERE t1.ENABLE = 1 
 
@@ -12331,18 +12340,27 @@ t1.`ADDR`,
 t1.`AVATAR`,
 t1.`BCODE`,
 t1.`CREATEDATE`,
+t1.`CREATEMAN`,
 t1.`DOMAINS`,
 t1.`EMAIL`,
 t1.`ENABLE`,
 t1.`IPADDR`,
 t1.`LANG`,
+t1.`MDEPTCODE`,
+t1.`MDEPTID`,
+t1.`MDEPTNAME`,
 t1.`MEMO`,
 t1.`NICKNAME`,
+t1.`ORGCODE`,
+t1.`ORGID`,
+t1.`ORGNAME`,
 t1.`PERSONNAME`,
 t1.`PHONE`,
 t1.`RESERVER`,
 t1.`SEX`,
 t1.`SHOWORDER`,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`,
 t1.`USERCODE`,
 t1.`USERICON`,
 t1.`USERID`,
@@ -12357,18 +12375,27 @@ t1.`ADDR`,
 t1.`AVATAR`,
 t1.`BCODE`,
 t1.`CREATEDATE`,
+t1.`CREATEMAN`,
 t1.`DOMAINS`,
 t1.`EMAIL`,
 t1.`ENABLE`,
 t1.`IPADDR`,
 t1.`LANG`,
+t1.`MDEPTCODE`,
+t1.`MDEPTID`,
+t1.`MDEPTNAME`,
 t1.`MEMO`,
 t1.`NICKNAME`,
+t1.`ORGCODE`,
+t1.`ORGID`,
+t1.`ORGNAME`,
 t1.`PERSONNAME`,
 t1.`PHONE`,
 t1.`RESERVER`,
 t1.`SEX`,
 t1.`SHOWORDER`,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`,
 t1.`USERCODE`,
 t1.`USERICON`,
 t1.`USERID`,
@@ -12397,23 +12424,77 @@ t1.`ADDR`,
 t1.`AVATAR`,
 t1.`BCODE`,
 t1.`CREATEDATE`,
+t1.`CREATEMAN`,
 t1.`DOMAINS`,
 t1.`EMAIL`,
 t1.`ENABLE`,
 t1.`IPADDR`,
 t1.`LANG`,
+t1.`MDEPTCODE`,
+t1.`MDEPTID`,
+t1.`MDEPTNAME`,
 t1.`MEMO`,
 t1.`NICKNAME`,
+t1.`ORGCODE`,
+t1.`ORGID`,
+t1.`ORGNAME`,
 t1.`PERSONNAME`,
 t1.`PHONE`,
 t1.`RESERVER`,
 t1.`SEX`,
 t1.`SHOWORDER`,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`,
 t1.`USERCODE`,
 t1.`USERICON`,
 t1.`USERID`,
 t1.`USERNAME`
 FROM `T_IBZEMP` t1 
+
+```
+
+# **单位**(SYS_ORG)
+
+### 数据查询(DEFAULT)<div id="SysOrganization_Default"></div>
+```sql
+SELECT
+t1.`CREATEDATE`,
+t1.`DOMAINS`,
+t1.`ENABLE`,
+t1.`ORGCODE`,
+t1.`ORGID`,
+t1.`ORGLEVEL`,
+t1.`ORGNAME`,
+t1.`PORGID`,
+t11.`ORGNAME` AS `PORGNAME`,
+t1.`SHORTNAME`,
+t1.`SHOWORDER`,
+t1.`UPDATEDATE`
+FROM `T_SYS_ORG` t1 
+LEFT JOIN T_SYS_ORG t11 ON t1.PORGID = t11.ORGID 
+
+WHERE t1.ENABLE = 1 
+
+```
+### 默认（全部数据）(VIEW)<div id="SysOrganization_View"></div>
+```sql
+SELECT
+t1.`CREATEDATE`,
+t1.`DOMAINS`,
+t1.`ENABLE`,
+t1.`ORGCODE`,
+t1.`ORGID`,
+t1.`ORGLEVEL`,
+t1.`ORGNAME`,
+t1.`PORGID`,
+t11.`ORGNAME` AS `PORGNAME`,
+t1.`SHORTNAME`,
+t1.`SHOWORDER`,
+t1.`UPDATEDATE`
+FROM `T_SYS_ORG` t1 
+LEFT JOIN T_SYS_ORG t11 ON t1.PORGID = t11.ORGID 
+
+WHERE t1.ENABLE = 1 
 
 ```
 
@@ -13130,6 +13211,7 @@ CASE
 		t1.openeddate,
 		t1.closeddate,
 		t1.assigneddate,
+                t1.consumed,
 		t1.deadline,
 		t11.`name` AS projectname,
 		t1.canceleddate,

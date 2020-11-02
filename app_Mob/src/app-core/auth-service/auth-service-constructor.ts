@@ -15,6 +15,7 @@ export class AuthServiceConstructor extends ServiceConstructorBase {
      */
     protected init(): void {
         this.allService.set('branch', () => import('@/app-core/auth-service/branch/branch-auth-service'));
+        this.allService.set('sysorganization', () => import('@/app-core/auth-service/sys-organization/sys-organization-auth-service'));
         this.allService.set('file', () => import('@/app-core/auth-service/file/file-auth-service'));
         this.allService.set('user', () => import('@/app-core/auth-service/user/user-auth-service'));
         this.allService.set('ibzfavorites', () => import('@/app-core/auth-service/ibz-favorites/ibz-favorites-auth-service'));

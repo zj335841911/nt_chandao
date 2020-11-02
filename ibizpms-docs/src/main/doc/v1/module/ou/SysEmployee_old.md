@@ -3,7 +3,11 @@
   
 
 ## 关系
-无
+{% plantuml %}
+部门 *-- 人员 
+单位 *-- 人员 
+hide members
+{% endplantuml %}
 
 ## 属性
 
@@ -14,7 +18,13 @@
 |姓名|PERSONNAME|TEXT|&nbsp;|
 |用户工号|USERCODE|TEXT|&nbsp;|
 |区属|DOMAINS|TEXT|&nbsp;|
+|主部门|MDEPTID|PICKUP|&nbsp;|
+|主部门代码|MDEPTCODE|PICKUPDATA|&nbsp;|
+|主部门名称|MDEPTNAME|PICKUPTEXT|&nbsp;|
 |业务编码|BCODE|TEXT|&nbsp;|
+|单位|ORGID|PICKUP|&nbsp;|
+|单位代码|ORGCODE|PICKUPDATA|&nbsp;|
+|单位名称|ORGNAME|PICKUPTEXT|&nbsp;|
 |昵称别名|NICKNAME|TEXT|&nbsp;|
 |性别|SEX|SSCODELIST|&nbsp;|
 |联系方式|PHONE|TEXT|&nbsp;|
@@ -29,6 +39,9 @@
 |排序|SHOWORDER|INT|&nbsp;|
 |逻辑有效|ENABLE|YESNO|&nbsp;|
 |创建时间|CREATEDATE|DATETIME|&nbsp;|
+|更新人|UPDATEMAN|TEXT|&nbsp;|
+|建立人|CREATEMAN|TEXT|&nbsp;|
+|更新时间|UPDATEDATE|DATETIME|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -38,7 +51,13 @@
 |姓名|默认规则|内容长度必须小于等于[100]|
 |用户工号|默认规则|内容长度必须小于等于[100]|
 |区属|默认规则|内容长度必须小于等于[100]|
+|主部门|默认规则|内容长度必须小于等于[100]|
+|主部门代码|默认规则|内容长度必须小于等于[100]|
+|主部门名称|默认规则|内容长度必须小于等于[100]|
 |业务编码|默认规则|内容长度必须小于等于[100]|
+|单位|默认规则|内容长度必须小于等于[100]|
+|单位代码|默认规则|内容长度必须小于等于[100]|
+|单位名称|默认规则|内容长度必须小于等于[100]|
 |昵称别名|默认规则|内容长度必须小于等于[100]|
 |性别|默认规则|内容长度必须小于等于[20]|
 |联系方式|默认规则|内容长度必须小于等于[100]|
@@ -53,6 +72,9 @@
 |排序|默认规则|默认规则|
 |逻辑有效|默认规则|默认规则|
 |创建时间|默认规则|默认规则|
+|更新人|默认规则|内容长度必须小于等于[60]|
+|建立人|默认规则|内容长度必须小于等于[60]|
+|更新时间|默认规则|默认规则|
 
 ## 状态控制
 
@@ -106,6 +128,12 @@
 |用户全局名(USERNAME)|LIKE|
 |用户全局名(USERNAME)|NOTIN|
 |姓名(PERSONNAME)|LIKE|
+|主部门(MDEPTID)|EQ|
+|主部门名称(MDEPTNAME)|EQ|
+|主部门名称(MDEPTNAME)|LIKE|
+|单位(ORGID)|EQ|
+|单位名称(ORGNAME)|EQ|
+|单位名称(ORGNAME)|LIKE|
 |性别(SEX)|EQ|
 
 ## 导入模式

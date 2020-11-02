@@ -78,11 +78,15 @@
     :error="detailsModel.createman.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        codeListType="DYNAMIC" 
+    codeListType="DYNAMIC" 
     tag="SysOperator"
     :isCache="false" 
-    v-if="data.createman" 
-    :context="context" 
+    v-if="data.createman"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.createman" 
     :itemParam="{}"/>
 </app-form-item>
@@ -105,8 +109,12 @@
     :error="detailsModel.createdate.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.createdate" 
-    :context="context" 
+    v-if="data.createdate"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.createdate" 
     :itemParam="{}"/>
 </app-form-item>
@@ -129,11 +137,15 @@
     :error="detailsModel.updateman.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        codeListType="DYNAMIC" 
+    codeListType="DYNAMIC" 
     tag="SysOperator"
     :isCache="false" 
-    v-if="data.updateman" 
-    :context="context" 
+    v-if="data.updateman"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.updateman" 
     :itemParam="{}"/>
 </app-form-item>
@@ -156,8 +168,12 @@
     :error="detailsModel.updatedate.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.updatedate" 
-    :context="context" 
+    v-if="data.updatedate"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.updatedate" 
     :itemParam="{}"/>
 </app-form-item>

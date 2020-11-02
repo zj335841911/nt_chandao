@@ -7,7 +7,7 @@
 
 ## 实体属性
 | 序号 | 属性 | 属性名 | 数据类型 | 主键 | 外键 | 允许为空 |
-| -- | -- | -- | -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- | ---- | ---- | ---- |
 | 1 | [修改日期](#属性-修改日期（LASTEDITEDDATE）) | LASTEDITEDDATE | 日期时间型 | 否 | 否 | 是 |
 | 2 | [scriptedDate](#属性-scriptedDate（SCRIPTEDDATE）) | SCRIPTEDDATE | 日期型 | 否 | 否 | 是 |
 | 3 | [标题颜色](#属性-标题颜色（COLOR）) | COLOR | 单项选择(文本值) | 否 | 否 | 是 |
@@ -94,7 +94,7 @@ yyyy-MM-dd HH:mm:ss
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [测试套件（ZT_TESTSUITE）](../zentao/TestSuite) |
 | 关系属性 | [名称（NAME）](../zentao/TestSuite/#属性-名称（NAME）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -126,7 +126,7 @@ yyyy-MM-dd
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [测试套件（ZT_TESTSUITE）](../zentao/TestSuite) |
 | 关系属性 | [名称（NAME）](../zentao/TestSuite/#属性-名称（NAME）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -149,7 +149,7 @@ String
 
 #### 默认值
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 类型 |  |
 | 值 |  |
 
@@ -161,7 +161,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [测试套件（ZT_TESTSUITE）](../zentao/TestSuite) |
 | 关系属性 | [名称（NAME）](../zentao/TestSuite/#属性-名称（NAME）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -184,7 +184,7 @@ Integer
 
 #### 默认值
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 类型 |  |
 | 值 | 0 |
 
@@ -196,7 +196,7 @@ Integer
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [测试套件（ZT_TESTSUITE）](../zentao/TestSuite) |
 | 关系属性 | [名称（NAME）](../zentao/TestSuite/#属性-名称（NAME）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -228,7 +228,7 @@ yyyy-MM-dd HH:mm:ss
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [测试套件（ZT_TESTSUITE）](../zentao/TestSuite) |
 | 关系属性 | [名称（NAME）](../zentao/TestSuite/#属性-名称（NAME）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -251,7 +251,7 @@ String
 
 #### 默认值
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 类型 |  |
 | 值 |  |
 
@@ -263,7 +263,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [测试套件（ZT_TESTSUITE）](../zentao/TestSuite) |
 | 关系属性 | [名称（NAME）](../zentao/TestSuite/#属性-名称（NAME）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -286,7 +286,7 @@ String
 
 #### 默认值
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 类型 |  |
 | 值 |  |
 
@@ -298,7 +298,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [测试套件（ZT_TESTSUITE）](../zentao/TestSuite) |
 | 关系属性 | [名称（NAME）](../zentao/TestSuite/#属性-名称（NAME）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -321,7 +321,7 @@ Integer
 
 #### 默认值
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 类型 |  |
 | 值 | 0 |
 
@@ -333,7 +333,7 @@ Integer
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [测试套件（ZT_TESTSUITE）](../zentao/TestSuite) |
 | 关系属性 | [名称（NAME）](../zentao/TestSuite/#属性-名称（NAME）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -356,7 +356,7 @@ String
 
 #### 默认值
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 类型 |  |
 | 值 |  |
 
@@ -368,7 +368,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [测试套件（ZT_TESTSUITE）](../zentao/TestSuite) |
 | 关系属性 | [名称（NAME）](../zentao/TestSuite/#属性-名称（NAME）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -391,7 +391,7 @@ Integer
 
 #### 默认值
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 类型 |  |
 | 值 | 1 |
 
@@ -403,7 +403,7 @@ Integer
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [测试套件（ZT_TESTSUITE）](../zentao/TestSuite) |
 | 关系属性 | [名称（NAME）](../zentao/TestSuite/#属性-名称（NAME）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -426,7 +426,7 @@ String
 
 #### 默认值
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 类型 |  |
 | 值 |  |
 
@@ -438,7 +438,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [测试套件（ZT_TESTSUITE）](../zentao/TestSuite) |
 | 关系属性 | [名称（NAME）](../zentao/TestSuite/#属性-名称（NAME）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -470,7 +470,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [测试套件（ZT_TESTSUITE）](../zentao/TestSuite) |
 | 关系属性 | [名称（NAME）](../zentao/TestSuite/#属性-名称（NAME）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -493,7 +493,7 @@ String
 
 #### 默认值
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 类型 |  |
 | 值 | feature |
 
@@ -505,7 +505,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [测试套件（ZT_TESTSUITE）](../zentao/TestSuite) |
 | 关系属性 | [名称（NAME）](../zentao/TestSuite/#属性-名称（NAME）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -528,7 +528,7 @@ String
 
 #### 默认值
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 类型 |  |
 | 值 | normal |
 
@@ -540,7 +540,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [测试套件（ZT_TESTSUITE）](../zentao/TestSuite) |
 | 关系属性 | [名称（NAME）](../zentao/TestSuite/#属性-名称（NAME）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -563,7 +563,7 @@ String
 
 #### 默认值
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 类型 |  |
 | 值 | no |
 
@@ -575,7 +575,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [测试套件（ZT_TESTSUITE）](../zentao/TestSuite) |
 | 关系属性 | [名称（NAME）](../zentao/TestSuite/#属性-名称（NAME）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -598,7 +598,7 @@ String
 
 #### 默认值
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 类型 |  |
 | 值 | 1 |
 
@@ -610,7 +610,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [测试套件（ZT_TESTSUITE）](../zentao/TestSuite) |
 | 关系属性 | [名称（NAME）](../zentao/TestSuite/#属性-名称（NAME）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -642,7 +642,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [测试套件（ZT_TESTSUITE）](../zentao/TestSuite) |
 | 关系属性 | [名称（NAME）](../zentao/TestSuite/#属性-名称（NAME）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -674,7 +674,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [测试套件（ZT_TESTSUITE）](../zentao/TestSuite) |
 | 关系属性 | [名称（NAME）](../zentao/TestSuite/#属性-名称（NAME）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -697,7 +697,7 @@ String
 
 #### 默认值
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 类型 |  |
 | 值 |  |
 
@@ -709,7 +709,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [测试套件（ZT_TESTSUITE）](../zentao/TestSuite) |
 | 关系属性 | [名称（NAME）](../zentao/TestSuite/#属性-名称（NAME）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -732,7 +732,7 @@ String
 
 #### 默认值
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 类型 |  |
 | 值 | 0 |
 
@@ -744,7 +744,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [测试套件（ZT_TESTSUITE）](../zentao/TestSuite) |
 | 关系属性 | [名称（NAME）](../zentao/TestSuite/#属性-名称（NAME）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -776,7 +776,7 @@ yyyy-MM-dd
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [测试套件（ZT_TESTSUITE）](../zentao/TestSuite) |
 | 关系属性 | [名称（NAME）](../zentao/TestSuite/#属性-名称（NAME）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -799,7 +799,7 @@ Integer
 
 #### 默认值
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 类型 |  |
 | 值 | 3 |
 
@@ -811,7 +811,7 @@ Integer
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [测试套件（ZT_TESTSUITE）](../zentao/TestSuite) |
 | 关系属性 | [名称（NAME）](../zentao/TestSuite/#属性-名称（NAME）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -834,7 +834,7 @@ String
 
 #### 默认值
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 类型 |  |
 | 值 |  |
 
@@ -846,7 +846,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [测试套件（ZT_TESTSUITE）](../zentao/TestSuite) |
 | 关系属性 | [名称（NAME）](../zentao/TestSuite/#属性-名称（NAME）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -869,7 +869,7 @@ String
 
 #### 默认值
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 类型 |  |
 | 值 |  |
 
@@ -881,7 +881,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [测试套件（ZT_TESTSUITE）](../zentao/TestSuite) |
 | 关系属性 | [名称（NAME）](../zentao/TestSuite/#属性-名称（NAME）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -913,7 +913,7 @@ yyyy-MM-dd HH:mm:ss
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [测试套件（ZT_TESTSUITE）](../zentao/TestSuite) |
 | 关系属性 | [名称（NAME）](../zentao/TestSuite/#属性-名称（NAME）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -936,7 +936,7 @@ String
 
 #### 默认值
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 类型 |  |
 | 值 |  |
 
@@ -948,7 +948,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [测试套件（ZT_TESTSUITE）](../zentao/TestSuite) |
 | 关系属性 | [名称（NAME）](../zentao/TestSuite/#属性-名称（NAME）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -971,7 +971,7 @@ String
 
 #### 默认值
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 类型 |  |
 | 值 |  |
 
@@ -983,7 +983,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [测试套件（ZT_TESTSUITE）](../zentao/TestSuite) |
 | 关系属性 | [名称（NAME）](../zentao/TestSuite/#属性-名称（NAME）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -1006,7 +1006,7 @@ String
 
 #### 默认值
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 类型 |  |
 | 值 |  |
 
@@ -1018,7 +1018,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [测试套件（ZT_TESTSUITE）](../zentao/TestSuite) |
 | 关系属性 | [名称（NAME）](../zentao/TestSuite/#属性-名称（NAME）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -1041,7 +1041,7 @@ String
 
 #### 默认值
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 类型 |  |
 | 值 |  |
 
@@ -1053,7 +1053,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [测试套件（ZT_TESTSUITE）](../zentao/TestSuite) |
 | 关系属性 | [名称（NAME）](../zentao/TestSuite/#属性-名称（NAME）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -1085,7 +1085,7 @@ Long
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [测试套件（ZT_TESTSUITE）](../zentao/TestSuite) |
 | 关系属性 | [名称（NAME）](../zentao/TestSuite/#属性-名称（NAME）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -1108,7 +1108,7 @@ String
 
 #### 默认值
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 类型 |  |
 | 值 |  |
 
@@ -1120,7 +1120,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [测试套件（ZT_TESTSUITE）](../zentao/TestSuite) |
 | 关系属性 | [名称（NAME）](../zentao/TestSuite/#属性-名称（NAME）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -1143,7 +1143,7 @@ String
 
 #### 默认值
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 类型 |  |
 | 值 |  |
 
@@ -1155,7 +1155,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [测试套件（ZT_TESTSUITE）](../zentao/TestSuite) |
 | 关系属性 | [名称（NAME）](../zentao/TestSuite/#属性-名称（NAME）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -1178,7 +1178,7 @@ Integer
 
 #### 默认值
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 类型 |  |
 | 值 | 0 |
 
@@ -1190,7 +1190,7 @@ Integer
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [测试用例（ZT_CASE）](../zentao/Case) |
 | 关系属性 | [用例版本（VERSION）](../zentao/Case/#属性-用例版本（VERSION）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -1213,7 +1213,7 @@ Integer
 
 #### 默认值
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 类型 |  |
 | 值 | 1 |
 
@@ -1225,7 +1225,7 @@ Integer
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [需求（ZT_STORY）](../zentao/Story) |
 | 关系属性 | [版本号（VERSION）](../zentao/Story/#属性-版本号（VERSION）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -1248,7 +1248,7 @@ Long
 
 #### 默认值
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 类型 |  |
 | 值 | 0 |
 
@@ -1260,7 +1260,7 @@ Long
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [测试用例（ZT_CASE）](../zentao/Case) |
 | 关系属性 | [用例编号（ID）](../zentao/Case/#属性-用例编号（ID）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -1283,7 +1283,7 @@ Long
 
 #### 默认值
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 类型 |  |
 | 值 | 0 |
 
@@ -1295,7 +1295,7 @@ Long
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [产品的分支和平台信息（ZT_BRANCH）](../zentao/Branch) |
 | 关系属性 | [编号（ID）](../zentao/Branch/#属性-编号（ID）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -1318,7 +1318,7 @@ Long
 
 #### 默认值
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 类型 |  |
 | 值 | 0 |
 
@@ -1330,7 +1330,7 @@ Long
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [Bug（ZT_BUG）](../zentao/Bug) |
 | 关系属性 | [Bug编号（ID）](../zentao/Bug/#属性-Bug编号（ID）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -1353,7 +1353,7 @@ Long
 
 #### 默认值
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 类型 |  |
 | 值 | 0 |
 
@@ -1365,7 +1365,7 @@ Long
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [需求（ZT_STORY）](../zentao/Story) |
 | 关系属性 | [编号（ID）](../zentao/Story/#属性-编号（ID）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -1388,7 +1388,7 @@ Long
 
 #### 默认值
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 类型 |  |
 | 值 | 0 |
 
@@ -1400,7 +1400,7 @@ Long
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
 | 关系属性 | [编号（ID）](../zentao/Product/#属性-编号（ID）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -1423,7 +1423,7 @@ Long
 
 #### 默认值
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 类型 |  |
 | 值 | 0 |
 
@@ -1435,7 +1435,7 @@ Long
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [测试套件（ZT_TESTSUITE）](../zentao/TestSuite) |
 | 关系属性 | [编号（ID）](../zentao/TestSuite/#属性-编号（ID）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -1458,7 +1458,7 @@ Long
 
 #### 默认值
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 类型 |  |
 | 值 | 0 |
 
@@ -1470,7 +1470,7 @@ Long
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [模块（ZT_MODULE）](../zentao/Module) |
 | 关系属性 | [id（ID）](../zentao/Module/#属性-id（ID）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -1502,7 +1502,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [模块（ZT_MODULE）](../zentao/Module) |
 | 关系属性 | [模块名称（NAME）](../zentao/Module/#属性-模块名称（NAME）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -1534,7 +1534,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [需求（ZT_STORY）](../zentao/Story) |
 | 关系属性 | [需求名称（TITLE）](../zentao/Story/#属性-需求名称（TITLE）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -1566,7 +1566,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
 | 关系属性 | [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -1598,7 +1598,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
 | 关系属性 | [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -1630,7 +1630,7 @@ Integer
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
 | 关系属性 | [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -1662,7 +1662,7 @@ Integer
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
 | 关系属性 | [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -1694,7 +1694,7 @@ Integer
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
 | 关系属性 | [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -1726,7 +1726,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
 | 关系属性 | [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -1758,7 +1758,7 @@ Integer
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
 | 关系属性 | [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -1790,7 +1790,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
 | 关系属性 | [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -1822,7 +1822,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
 | 关系属性 | [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -1854,7 +1854,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
 | 关系属性 | [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -1886,7 +1886,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [测试套件（ZT_TESTSUITE）](../zentao/TestSuite) |
 | 关系属性 | [名称（NAME）](../zentao/TestSuite/#属性-名称（NAME）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -1918,7 +1918,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [测试套件（ZT_TESTSUITE）](../zentao/TestSuite) |
 | 关系属性 | [名称（NAME）](../zentao/TestSuite/#属性-名称（NAME）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -1950,7 +1950,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [测试套件（ZT_TESTSUITE）](../zentao/TestSuite) |
 | 关系属性 | [名称（NAME）](../zentao/TestSuite/#属性-名称（NAME）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -1982,7 +1982,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [测试套件（ZT_TESTSUITE）](../zentao/TestSuite) |
 | 关系属性 | [名称（NAME）](../zentao/TestSuite/#属性-名称（NAME）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -2014,7 +2014,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [测试套件（ZT_TESTSUITE）](../zentao/TestSuite) |
 | 关系属性 | [名称（NAME）](../zentao/TestSuite/#属性-名称（NAME）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -2022,7 +2022,7 @@ String
 
 ## 业务状态
 | 序号 | 状态名称 | [用例状态](#属性-用例状态（STATUS1）)<br>（STATUS1） | [测试用例结果](#属性-测试用例结果（LASTRUNRESULT1）)<br>（LASTRUNRESULT1） | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 默认 |
-| -- | -- | -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- | ---- | ---- |
 | 1 | [被阻塞_阻塞_未收藏](#业务状态-被阻塞_阻塞_未收藏（blocked_blocked_0）) | blocked | blocked | 0 | 否 |
 | 2 | [被阻塞_阻塞_已收藏](#业务状态-被阻塞_阻塞_已收藏（blocked_blocked_1）) | blocked | blocked | 1 | 否 |
 | 3 | [被阻塞_失败_未收藏](#业务状态-被阻塞_失败_未收藏（blocked_fail_0）) | blocked | fail | 0 | 否 |
@@ -2102,7 +2102,7 @@ String
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [用例状态](#属性-用例状态（STATUS1）)<br>（STATUS1） | blocked |
 | [测试用例结果](#属性-测试用例结果（LASTRUNRESULT1）)<br>（LASTRUNRESULT1） | blocked |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 0 |
@@ -2118,7 +2118,7 @@ String
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [测试用例转BUG](#操作权限-测试用例转BUG（SRFUR__CASE_TOBUG_BUT）)<br>（SRFUR__CASE_TOBUG_BUT） |
 | 2 | [测试用例（用例确认）](#操作权限-测试用例（用例确认）（SRFUR__CASE_CASECOF_BUT）)<br>（SRFUR__CASE_CASECOF_BUT） |
 | 3 | [用例已收藏](#操作权限-用例已收藏（SRFUR__CASE_FAVOR_BUT）)<br>（SRFUR__CASE_FAVOR_BUT） |
@@ -2132,7 +2132,7 @@ String
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [用例状态](#属性-用例状态（STATUS1）)<br>（STATUS1） | blocked |
 | [测试用例结果](#属性-测试用例结果（LASTRUNRESULT1）)<br>（LASTRUNRESULT1） | blocked |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 1 |
@@ -2148,7 +2148,7 @@ String
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [用例待收藏](#操作权限-用例待收藏（SRFUR__CASE_NFAVOR_BUT）)<br>（SRFUR__CASE_NFAVOR_BUT） |
 | 2 | [测试用例转BUG](#操作权限-测试用例转BUG（SRFUR__CASE_TOBUG_BUT）)<br>（SRFUR__CASE_TOBUG_BUT） |
 | 3 | [测试用例（用例确认）](#操作权限-测试用例（用例确认）（SRFUR__CASE_CASECOF_BUT）)<br>（SRFUR__CASE_CASECOF_BUT） |
@@ -2162,7 +2162,7 @@ String
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [用例状态](#属性-用例状态（STATUS1）)<br>（STATUS1） | blocked |
 | [测试用例结果](#属性-测试用例结果（LASTRUNRESULT1）)<br>（LASTRUNRESULT1） | fail |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 0 |
@@ -2178,7 +2178,7 @@ String
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [用例已收藏](#操作权限-用例已收藏（SRFUR__CASE_FAVOR_BUT）)<br>（SRFUR__CASE_FAVOR_BUT） |
 | 2 | [测试用例（用例确认）](#操作权限-测试用例（用例确认）（SRFUR__CASE_CASECOF_BUT）)<br>（SRFUR__CASE_CASECOF_BUT） |
 | 3 | [测试用例确认](#操作权限-测试用例确认（SRFUR__CASE_CONFIRM_BUT）)<br>（SRFUR__CASE_CONFIRM_BUT） |
@@ -2191,7 +2191,7 @@ String
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [用例状态](#属性-用例状态（STATUS1）)<br>（STATUS1） | blocked |
 | [测试用例结果](#属性-测试用例结果（LASTRUNRESULT1）)<br>（LASTRUNRESULT1） | fail |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 1 |
@@ -2207,7 +2207,7 @@ String
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [用例待收藏](#操作权限-用例待收藏（SRFUR__CASE_NFAVOR_BUT）)<br>（SRFUR__CASE_NFAVOR_BUT） |
 | 2 | [测试用例确认](#操作权限-测试用例确认（SRFUR__CASE_CONFIRM_BUT）)<br>（SRFUR__CASE_CONFIRM_BUT） |
 | 3 | [测试用例（用例确认）](#操作权限-测试用例（用例确认）（SRFUR__CASE_CASECOF_BUT）)<br>（SRFUR__CASE_CASECOF_BUT） |
@@ -2220,7 +2220,7 @@ String
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [用例状态](#属性-用例状态（STATUS1）)<br>（STATUS1） | blocked |
 | [测试用例结果](#属性-测试用例结果（LASTRUNRESULT1）)<br>（LASTRUNRESULT1） | n/a |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 0 |
@@ -2236,7 +2236,7 @@ String
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [测试用例确认](#操作权限-测试用例确认（SRFUR__CASE_CONFIRM_BUT）)<br>（SRFUR__CASE_CONFIRM_BUT） |
 | 2 | [测试用例转BUG](#操作权限-测试用例转BUG（SRFUR__CASE_TOBUG_BUT）)<br>（SRFUR__CASE_TOBUG_BUT） |
 | 3 | [测试用例（用例确认）](#操作权限-测试用例（用例确认）（SRFUR__CASE_CASECOF_BUT）)<br>（SRFUR__CASE_CASECOF_BUT） |
@@ -2250,7 +2250,7 @@ String
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [用例状态](#属性-用例状态（STATUS1）)<br>（STATUS1） | blocked |
 | [测试用例结果](#属性-测试用例结果（LASTRUNRESULT1）)<br>（LASTRUNRESULT1） | n/a |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 1 |
@@ -2266,7 +2266,7 @@ String
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [测试用例（用例确认）](#操作权限-测试用例（用例确认）（SRFUR__CASE_CASECOF_BUT）)<br>（SRFUR__CASE_CASECOF_BUT） |
 | 2 | [测试用例转BUG](#操作权限-测试用例转BUG（SRFUR__CASE_TOBUG_BUT）)<br>（SRFUR__CASE_TOBUG_BUT） |
 | 3 | [用例待收藏](#操作权限-用例待收藏（SRFUR__CASE_NFAVOR_BUT）)<br>（SRFUR__CASE_NFAVOR_BUT） |
@@ -2280,7 +2280,7 @@ String
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [用例状态](#属性-用例状态（STATUS1）)<br>（STATUS1） | blocked |
 | [测试用例结果](#属性-测试用例结果（LASTRUNRESULT1）)<br>（LASTRUNRESULT1） | no |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 0 |
@@ -2296,7 +2296,7 @@ String
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [测试用例（用例确认）](#操作权限-测试用例（用例确认）（SRFUR__CASE_CASECOF_BUT）)<br>（SRFUR__CASE_CASECOF_BUT） |
 | 2 | [用例已收藏](#操作权限-用例已收藏（SRFUR__CASE_FAVOR_BUT）)<br>（SRFUR__CASE_FAVOR_BUT） |
 | 3 | [测试用例转BUG](#操作权限-测试用例转BUG（SRFUR__CASE_TOBUG_BUT）)<br>（SRFUR__CASE_TOBUG_BUT） |
@@ -2310,7 +2310,7 @@ String
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [用例状态](#属性-用例状态（STATUS1）)<br>（STATUS1） | blocked |
 | [测试用例结果](#属性-测试用例结果（LASTRUNRESULT1）)<br>（LASTRUNRESULT1） | no |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 1 |
@@ -2326,7 +2326,7 @@ String
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [用例待收藏](#操作权限-用例待收藏（SRFUR__CASE_NFAVOR_BUT）)<br>（SRFUR__CASE_NFAVOR_BUT） |
 | 2 | [测试用例（用例确认）](#操作权限-测试用例（用例确认）（SRFUR__CASE_CASECOF_BUT）)<br>（SRFUR__CASE_CASECOF_BUT） |
 | 3 | [测试用例转BUG](#操作权限-测试用例转BUG（SRFUR__CASE_TOBUG_BUT）)<br>（SRFUR__CASE_TOBUG_BUT） |
@@ -2340,7 +2340,7 @@ String
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [用例状态](#属性-用例状态（STATUS1）)<br>（STATUS1） | blocked |
 | [测试用例结果](#属性-测试用例结果（LASTRUNRESULT1）)<br>（LASTRUNRESULT1） | pass |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 0 |
@@ -2356,7 +2356,7 @@ String
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [测试用例（用例确认）](#操作权限-测试用例（用例确认）（SRFUR__CASE_CASECOF_BUT）)<br>（SRFUR__CASE_CASECOF_BUT） |
 | 2 | [用例已收藏](#操作权限-用例已收藏（SRFUR__CASE_FAVOR_BUT）)<br>（SRFUR__CASE_FAVOR_BUT） |
 | 3 | [测试用例转BUG](#操作权限-测试用例转BUG（SRFUR__CASE_TOBUG_BUT）)<br>（SRFUR__CASE_TOBUG_BUT） |
@@ -2370,7 +2370,7 @@ String
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [用例状态](#属性-用例状态（STATUS1）)<br>（STATUS1） | blocked |
 | [测试用例结果](#属性-测试用例结果（LASTRUNRESULT1）)<br>（LASTRUNRESULT1） | pass |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 1 |
@@ -2386,7 +2386,7 @@ String
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [用例待收藏](#操作权限-用例待收藏（SRFUR__CASE_NFAVOR_BUT）)<br>（SRFUR__CASE_NFAVOR_BUT） |
 | 2 | [测试用例（用例确认）](#操作权限-测试用例（用例确认）（SRFUR__CASE_CASECOF_BUT）)<br>（SRFUR__CASE_CASECOF_BUT） |
 | 3 | [测试用例转BUG](#操作权限-测试用例转BUG（SRFUR__CASE_TOBUG_BUT）)<br>（SRFUR__CASE_TOBUG_BUT） |
@@ -2400,7 +2400,7 @@ String
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [用例状态](#属性-用例状态（STATUS1）)<br>（STATUS1） | casechange |
 | [测试用例结果](#属性-测试用例结果（LASTRUNRESULT1）)<br>（LASTRUNRESULT1） | blocked |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 0 |
@@ -2416,7 +2416,7 @@ String
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [测试用例转BUG](#操作权限-测试用例转BUG（SRFUR__CASE_TOBUG_BUT）)<br>（SRFUR__CASE_TOBUG_BUT） |
 | 2 | [测试用例（用例执行）](#操作权限-测试用例（用例执行）（SRFUR__CASE_CASERUN_BUT）)<br>（SRFUR__CASE_CASERUN_BUT） |
 | 3 | [测试用例编辑](#操作权限-测试用例编辑（SRFUR__CASE_EDIT_BUT）)<br>（SRFUR__CASE_EDIT_BUT） |
@@ -2437,7 +2437,7 @@ String
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [用例状态](#属性-用例状态（STATUS1）)<br>（STATUS1） | casechange |
 | [测试用例结果](#属性-测试用例结果（LASTRUNRESULT1）)<br>（LASTRUNRESULT1） | blocked |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 1 |
@@ -2453,7 +2453,7 @@ String
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [测试用例编辑](#操作权限-测试用例编辑（SRFUR__CASE_EDIT_BUT）)<br>（SRFUR__CASE_EDIT_BUT） |
 | 2 | [测试用例移除](#操作权限-测试用例移除（SRFUR__CASE_UNLINK_BUT）)<br>（SRFUR__CASE_UNLINK_BUT） |
 | 3 | [测试用例（用例转BUG）](#操作权限-测试用例（用例转BUG）（SRFUR__CASE_CASETOBUG_BUT）)<br>（SRFUR__CASE_CASETOBUG_BUT） |
@@ -2474,7 +2474,7 @@ String
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [用例状态](#属性-用例状态（STATUS1）)<br>（STATUS1） | casechange |
 | [测试用例结果](#属性-测试用例结果（LASTRUNRESULT1）)<br>（LASTRUNRESULT1） | fail |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 0 |
@@ -2490,7 +2490,7 @@ String
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [测试用例（用例执行）](#操作权限-测试用例（用例执行）（SRFUR__CASE_CASERUN_BUT）)<br>（SRFUR__CASE_CASERUN_BUT） |
 | 2 | [测试用例移除](#操作权限-测试用例移除（SRFUR__CASE_UNLINK_BUT）)<br>（SRFUR__CASE_UNLINK_BUT） |
 | 3 | [测试用例执行](#操作权限-测试用例执行（SRFUR__CASE_RUN_BUT）)<br>（SRFUR__CASE_RUN_BUT） |
@@ -2510,7 +2510,7 @@ String
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [用例状态](#属性-用例状态（STATUS1）)<br>（STATUS1） | casechange |
 | [测试用例结果](#属性-测试用例结果（LASTRUNRESULT1）)<br>（LASTRUNRESULT1） | fail |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 1 |
@@ -2526,7 +2526,7 @@ String
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [测试用例执行](#操作权限-测试用例执行（SRFUR__CASE_RUN_BUT）)<br>（SRFUR__CASE_RUN_BUT） |
 | 2 | [测试用例编辑](#操作权限-测试用例编辑（SRFUR__CASE_EDIT_BUT）)<br>（SRFUR__CASE_EDIT_BUT） |
 | 3 | [测试用例（用例结果）](#操作权限-测试用例（用例结果）（SRFUR__CASE_CASERESULT_BUT）)<br>（SRFUR__CASE_CASERESULT_BUT） |
@@ -2546,7 +2546,7 @@ String
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [用例状态](#属性-用例状态（STATUS1）)<br>（STATUS1） | casechange |
 | [测试用例结果](#属性-测试用例结果（LASTRUNRESULT1）)<br>（LASTRUNRESULT1） | n/a |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 0 |
@@ -2562,7 +2562,7 @@ String
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [测试用例编辑](#操作权限-测试用例编辑（SRFUR__CASE_EDIT_BUT）)<br>（SRFUR__CASE_EDIT_BUT） |
 | 2 | [测试用例转BUG](#操作权限-测试用例转BUG（SRFUR__CASE_TOBUG_BUT）)<br>（SRFUR__CASE_TOBUG_BUT） |
 | 3 | [测试用例移除](#操作权限-测试用例移除（SRFUR__CASE_UNLINK_BUT）)<br>（SRFUR__CASE_UNLINK_BUT） |
@@ -2582,7 +2582,7 @@ String
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [用例状态](#属性-用例状态（STATUS1）)<br>（STATUS1） | casechange |
 | [测试用例结果](#属性-测试用例结果（LASTRUNRESULT1）)<br>（LASTRUNRESULT1） | n/a |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 1 |
@@ -2598,7 +2598,7 @@ String
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [测试用例结果](#操作权限-测试用例结果（SRFUR__CASE_RESULT_BUT）)<br>（SRFUR__CASE_RESULT_BUT） |
 | 2 | [测试用例编辑](#操作权限-测试用例编辑（SRFUR__CASE_EDIT_BUT）)<br>（SRFUR__CASE_EDIT_BUT） |
 | 3 | [测试用例转BUG](#操作权限-测试用例转BUG（SRFUR__CASE_TOBUG_BUT）)<br>（SRFUR__CASE_TOBUG_BUT） |
@@ -2618,7 +2618,7 @@ String
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [用例状态](#属性-用例状态（STATUS1）)<br>（STATUS1） | casechange |
 | [测试用例结果](#属性-测试用例结果（LASTRUNRESULT1）)<br>（LASTRUNRESULT1） | no |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 0 |
@@ -2634,7 +2634,7 @@ String
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [测试用例（用例转BUG）](#操作权限-测试用例（用例转BUG）（SRFUR__CASE_CASETOBUG_BUT）)<br>（SRFUR__CASE_CASETOBUG_BUT） |
 | 2 | [测试用例（用例执行）](#操作权限-测试用例（用例执行）（SRFUR__CASE_CASERUN_BUT）)<br>（SRFUR__CASE_CASERUN_BUT） |
 | 3 | [用例已收藏](#操作权限-用例已收藏（SRFUR__CASE_FAVOR_BUT）)<br>（SRFUR__CASE_FAVOR_BUT） |
@@ -2655,7 +2655,7 @@ String
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [用例状态](#属性-用例状态（STATUS1）)<br>（STATUS1） | casechange |
 | [测试用例结果](#属性-测试用例结果（LASTRUNRESULT1）)<br>（LASTRUNRESULT1） | no |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 1 |
@@ -2671,7 +2671,7 @@ String
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [测试用例确认](#操作权限-测试用例确认（SRFUR__CASE_CONFIRM_BUT）)<br>（SRFUR__CASE_CONFIRM_BUT） |
 | 2 | [用例待收藏](#操作权限-用例待收藏（SRFUR__CASE_NFAVOR_BUT）)<br>（SRFUR__CASE_NFAVOR_BUT） |
 | 3 | [测试用例删除](#操作权限-测试用例删除（SRFUR__CASE_DELETE_BUT）)<br>（SRFUR__CASE_DELETE_BUT） |
@@ -2692,7 +2692,7 @@ String
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [用例状态](#属性-用例状态（STATUS1）)<br>（STATUS1） | casechange |
 | [测试用例结果](#属性-测试用例结果（LASTRUNRESULT1）)<br>（LASTRUNRESULT1） | pass |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 0 |
@@ -2708,7 +2708,7 @@ String
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [测试用例结果](#操作权限-测试用例结果（SRFUR__CASE_RESULT_BUT）)<br>（SRFUR__CASE_RESULT_BUT） |
 | 2 | [测试用例移除](#操作权限-测试用例移除（SRFUR__CASE_UNLINK_BUT）)<br>（SRFUR__CASE_UNLINK_BUT） |
 | 3 | [测试用例（用例执行）](#操作权限-测试用例（用例执行）（SRFUR__CASE_CASERUN_BUT）)<br>（SRFUR__CASE_CASERUN_BUT） |
@@ -2728,7 +2728,7 @@ String
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [用例状态](#属性-用例状态（STATUS1）)<br>（STATUS1） | casechange |
 | [测试用例结果](#属性-测试用例结果（LASTRUNRESULT1）)<br>（LASTRUNRESULT1） | pass |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 1 |
@@ -2744,7 +2744,7 @@ String
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [测试用例执行](#操作权限-测试用例执行（SRFUR__CASE_RUN_BUT）)<br>（SRFUR__CASE_RUN_BUT） |
 | 2 | [用例待收藏](#操作权限-用例待收藏（SRFUR__CASE_NFAVOR_BUT）)<br>（SRFUR__CASE_NFAVOR_BUT） |
 | 3 | [测试用例（用例转BUG）](#操作权限-测试用例（用例转BUG）（SRFUR__CASE_CASETOBUG_BUT）)<br>（SRFUR__CASE_CASETOBUG_BUT） |
@@ -2764,7 +2764,7 @@ String
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [用例状态](#属性-用例状态（STATUS1）)<br>（STATUS1） | done |
 | [测试用例结果](#属性-测试用例结果（LASTRUNRESULT1）)<br>（LASTRUNRESULT1） | blocked |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 0 |
@@ -2780,7 +2780,7 @@ String
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [用例已收藏](#操作权限-用例已收藏（SRFUR__CASE_FAVOR_BUT）)<br>（SRFUR__CASE_FAVOR_BUT） |
 | 2 | [测试用例确认](#操作权限-测试用例确认（SRFUR__CASE_CONFIRM_BUT）)<br>（SRFUR__CASE_CONFIRM_BUT） |
 | 3 | [测试用例（用例确认）](#操作权限-测试用例（用例确认）（SRFUR__CASE_CASECOF_BUT）)<br>（SRFUR__CASE_CASECOF_BUT） |
@@ -2794,7 +2794,7 @@ String
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [用例状态](#属性-用例状态（STATUS1）)<br>（STATUS1） | done |
 | [测试用例结果](#属性-测试用例结果（LASTRUNRESULT1）)<br>（LASTRUNRESULT1） | blocked |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 1 |
@@ -2810,7 +2810,7 @@ String
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [用例待收藏](#操作权限-用例待收藏（SRFUR__CASE_NFAVOR_BUT）)<br>（SRFUR__CASE_NFAVOR_BUT） |
 | 2 | [测试用例（用例确认）](#操作权限-测试用例（用例确认）（SRFUR__CASE_CASECOF_BUT）)<br>（SRFUR__CASE_CASECOF_BUT） |
 | 3 | [测试用例确认](#操作权限-测试用例确认（SRFUR__CASE_CONFIRM_BUT）)<br>（SRFUR__CASE_CONFIRM_BUT） |
@@ -2824,7 +2824,7 @@ String
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [用例状态](#属性-用例状态（STATUS1）)<br>（STATUS1） | done |
 | [测试用例结果](#属性-测试用例结果（LASTRUNRESULT1）)<br>（LASTRUNRESULT1） | fail |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 0 |
@@ -2840,7 +2840,7 @@ String
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [用例已收藏](#操作权限-用例已收藏（SRFUR__CASE_FAVOR_BUT）)<br>（SRFUR__CASE_FAVOR_BUT） |
 | 2 | [测试用例确认](#操作权限-测试用例确认（SRFUR__CASE_CONFIRM_BUT）)<br>（SRFUR__CASE_CONFIRM_BUT） |
 | 3 | [测试用例（用例确认）](#操作权限-测试用例（用例确认）（SRFUR__CASE_CASECOF_BUT）)<br>（SRFUR__CASE_CASECOF_BUT） |
@@ -2853,7 +2853,7 @@ String
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [用例状态](#属性-用例状态（STATUS1）)<br>（STATUS1） | done |
 | [测试用例结果](#属性-测试用例结果（LASTRUNRESULT1）)<br>（LASTRUNRESULT1） | fail |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 1 |
@@ -2869,7 +2869,7 @@ String
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [测试用例（用例确认）](#操作权限-测试用例（用例确认）（SRFUR__CASE_CASECOF_BUT）)<br>（SRFUR__CASE_CASECOF_BUT） |
 | 2 | [用例待收藏](#操作权限-用例待收藏（SRFUR__CASE_NFAVOR_BUT）)<br>（SRFUR__CASE_NFAVOR_BUT） |
 | 3 | [测试用例确认](#操作权限-测试用例确认（SRFUR__CASE_CONFIRM_BUT）)<br>（SRFUR__CASE_CONFIRM_BUT） |
@@ -2882,7 +2882,7 @@ String
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [用例状态](#属性-用例状态（STATUS1）)<br>（STATUS1） | done |
 | [测试用例结果](#属性-测试用例结果（LASTRUNRESULT1）)<br>（LASTRUNRESULT1） | n/a |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 0 |
@@ -2898,7 +2898,7 @@ String
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [测试用例转BUG](#操作权限-测试用例转BUG（SRFUR__CASE_TOBUG_BUT）)<br>（SRFUR__CASE_TOBUG_BUT） |
 | 2 | [测试用例确认](#操作权限-测试用例确认（SRFUR__CASE_CONFIRM_BUT）)<br>（SRFUR__CASE_CONFIRM_BUT） |
 | 3 | [测试用例（用例确认）](#操作权限-测试用例（用例确认）（SRFUR__CASE_CASECOF_BUT）)<br>（SRFUR__CASE_CASECOF_BUT） |
@@ -2912,7 +2912,7 @@ String
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [用例状态](#属性-用例状态（STATUS1）)<br>（STATUS1） | done |
 | [测试用例结果](#属性-测试用例结果（LASTRUNRESULT1）)<br>（LASTRUNRESULT1） | n/a |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 1 |
@@ -2928,7 +2928,7 @@ String
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [用例待收藏](#操作权限-用例待收藏（SRFUR__CASE_NFAVOR_BUT）)<br>（SRFUR__CASE_NFAVOR_BUT） |
 | 2 | [测试用例确认](#操作权限-测试用例确认（SRFUR__CASE_CONFIRM_BUT）)<br>（SRFUR__CASE_CONFIRM_BUT） |
 | 3 | [测试用例转BUG](#操作权限-测试用例转BUG（SRFUR__CASE_TOBUG_BUT）)<br>（SRFUR__CASE_TOBUG_BUT） |
@@ -2942,7 +2942,7 @@ String
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [用例状态](#属性-用例状态（STATUS1）)<br>（STATUS1） | done |
 | [测试用例结果](#属性-测试用例结果（LASTRUNRESULT1）)<br>（LASTRUNRESULT1） | no |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 0 |
@@ -2958,7 +2958,7 @@ String
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [测试用例转BUG](#操作权限-测试用例转BUG（SRFUR__CASE_TOBUG_BUT）)<br>（SRFUR__CASE_TOBUG_BUT） |
 | 2 | [测试用例确认](#操作权限-测试用例确认（SRFUR__CASE_CONFIRM_BUT）)<br>（SRFUR__CASE_CONFIRM_BUT） |
 | 3 | [测试用例（用例确认）](#操作权限-测试用例（用例确认）（SRFUR__CASE_CASECOF_BUT）)<br>（SRFUR__CASE_CASECOF_BUT） |
@@ -2972,7 +2972,7 @@ String
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [用例状态](#属性-用例状态（STATUS1）)<br>（STATUS1） | done |
 | [测试用例结果](#属性-测试用例结果（LASTRUNRESULT1）)<br>（LASTRUNRESULT1） | no |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 1 |
@@ -2988,7 +2988,7 @@ String
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [测试用例确认](#操作权限-测试用例确认（SRFUR__CASE_CONFIRM_BUT）)<br>（SRFUR__CASE_CONFIRM_BUT） |
 | 2 | [测试用例（用例确认）](#操作权限-测试用例（用例确认）（SRFUR__CASE_CASECOF_BUT）)<br>（SRFUR__CASE_CASECOF_BUT） |
 | 3 | [测试用例转BUG](#操作权限-测试用例转BUG（SRFUR__CASE_TOBUG_BUT）)<br>（SRFUR__CASE_TOBUG_BUT） |
@@ -3002,7 +3002,7 @@ String
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [用例状态](#属性-用例状态（STATUS1）)<br>（STATUS1） | done |
 | [测试用例结果](#属性-测试用例结果（LASTRUNRESULT1）)<br>（LASTRUNRESULT1） | pass |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 0 |
@@ -3018,7 +3018,7 @@ String
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [测试用例（用例确认）](#操作权限-测试用例（用例确认）（SRFUR__CASE_CASECOF_BUT）)<br>（SRFUR__CASE_CASECOF_BUT） |
 | 2 | [测试用例确认](#操作权限-测试用例确认（SRFUR__CASE_CONFIRM_BUT）)<br>（SRFUR__CASE_CONFIRM_BUT） |
 | 3 | [测试用例转BUG](#操作权限-测试用例转BUG（SRFUR__CASE_TOBUG_BUT）)<br>（SRFUR__CASE_TOBUG_BUT） |
@@ -3032,7 +3032,7 @@ String
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [用例状态](#属性-用例状态（STATUS1）)<br>（STATUS1） | done |
 | [测试用例结果](#属性-测试用例结果（LASTRUNRESULT1）)<br>（LASTRUNRESULT1） | pass |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 1 |
@@ -3048,7 +3048,7 @@ String
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [测试用例确认](#操作权限-测试用例确认（SRFUR__CASE_CONFIRM_BUT）)<br>（SRFUR__CASE_CONFIRM_BUT） |
 | 2 | [用例待收藏](#操作权限-用例待收藏（SRFUR__CASE_NFAVOR_BUT）)<br>（SRFUR__CASE_NFAVOR_BUT） |
 | 3 | [测试用例转BUG](#操作权限-测试用例转BUG（SRFUR__CASE_TOBUG_BUT）)<br>（SRFUR__CASE_TOBUG_BUT） |
@@ -3062,7 +3062,7 @@ String
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [用例状态](#属性-用例状态（STATUS1）)<br>（STATUS1） | investigate |
 | [测试用例结果](#属性-测试用例结果（LASTRUNRESULT1）)<br>（LASTRUNRESULT1） | blocked |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 0 |
@@ -3078,7 +3078,7 @@ String
 允许模式：允许
 
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [测试用例（用例确认）](#操作权限-测试用例（用例确认）（SRFUR__CASE_CASECOF_BUT）)<br>（SRFUR__CASE_CASECOF_BUT） |
 | 2 | [测试用例转BUG](#操作权限-测试用例转BUG（SRFUR__CASE_TOBUG_BUT）)<br>（SRFUR__CASE_TOBUG_BUT） |
 | 3 | [用例已收藏](#操作权限-用例已收藏（SRFUR__CASE_FAVOR_BUT）)<br>（SRFUR__CASE_FAVOR_BUT） |
@@ -3092,7 +3092,7 @@ String
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [用例状态](#属性-用例状态（STATUS1）)<br>（STATUS1） | investigate |
 | [测试用例结果](#属性-测试用例结果（LASTRUNRESULT1）)<br>（LASTRUNRESULT1） | blocked |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 1 |
@@ -3108,7 +3108,7 @@ String
 允许模式：允许
 
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [用例待收藏](#操作权限-用例待收藏（SRFUR__CASE_NFAVOR_BUT）)<br>（SRFUR__CASE_NFAVOR_BUT） |
 | 2 | [测试用例（用例确认）](#操作权限-测试用例（用例确认）（SRFUR__CASE_CASECOF_BUT）)<br>（SRFUR__CASE_CASECOF_BUT） |
 | 3 | [测试用例转BUG](#操作权限-测试用例转BUG（SRFUR__CASE_TOBUG_BUT）)<br>（SRFUR__CASE_TOBUG_BUT） |
@@ -3122,7 +3122,7 @@ String
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [用例状态](#属性-用例状态（STATUS1）)<br>（STATUS1） | investigate |
 | [测试用例结果](#属性-测试用例结果（LASTRUNRESULT1）)<br>（LASTRUNRESULT1） | fail |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 0 |
@@ -3138,7 +3138,7 @@ String
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [测试用例确认](#操作权限-测试用例确认（SRFUR__CASE_CONFIRM_BUT）)<br>（SRFUR__CASE_CONFIRM_BUT） |
 | 2 | [测试用例（用例确认）](#操作权限-测试用例（用例确认）（SRFUR__CASE_CASECOF_BUT）)<br>（SRFUR__CASE_CASECOF_BUT） |
 | 3 | [用例已收藏](#操作权限-用例已收藏（SRFUR__CASE_FAVOR_BUT）)<br>（SRFUR__CASE_FAVOR_BUT） |
@@ -3151,7 +3151,7 @@ String
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [用例状态](#属性-用例状态（STATUS1）)<br>（STATUS1） | investigate |
 | [测试用例结果](#属性-测试用例结果（LASTRUNRESULT1）)<br>（LASTRUNRESULT1） | fail |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 1 |
@@ -3167,7 +3167,7 @@ String
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [测试用例（用例确认）](#操作权限-测试用例（用例确认）（SRFUR__CASE_CASECOF_BUT）)<br>（SRFUR__CASE_CASECOF_BUT） |
 | 2 | [用例待收藏](#操作权限-用例待收藏（SRFUR__CASE_NFAVOR_BUT）)<br>（SRFUR__CASE_NFAVOR_BUT） |
 | 3 | [测试用例确认](#操作权限-测试用例确认（SRFUR__CASE_CONFIRM_BUT）)<br>（SRFUR__CASE_CONFIRM_BUT） |
@@ -3180,7 +3180,7 @@ String
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [用例状态](#属性-用例状态（STATUS1）)<br>（STATUS1） | investigate |
 | [测试用例结果](#属性-测试用例结果（LASTRUNRESULT1）)<br>（LASTRUNRESULT1） | n/a |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 0 |
@@ -3196,7 +3196,7 @@ String
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [测试用例（用例确认）](#操作权限-测试用例（用例确认）（SRFUR__CASE_CASECOF_BUT）)<br>（SRFUR__CASE_CASECOF_BUT） |
 | 2 | [测试用例确认](#操作权限-测试用例确认（SRFUR__CASE_CONFIRM_BUT）)<br>（SRFUR__CASE_CONFIRM_BUT） |
 | 3 | [测试用例转BUG](#操作权限-测试用例转BUG（SRFUR__CASE_TOBUG_BUT）)<br>（SRFUR__CASE_TOBUG_BUT） |
@@ -3210,7 +3210,7 @@ String
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [用例状态](#属性-用例状态（STATUS1）)<br>（STATUS1） | investigate |
 | [测试用例结果](#属性-测试用例结果（LASTRUNRESULT1）)<br>（LASTRUNRESULT1） | n/a |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 1 |
@@ -3226,7 +3226,7 @@ String
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [测试用例确认](#操作权限-测试用例确认（SRFUR__CASE_CONFIRM_BUT）)<br>（SRFUR__CASE_CONFIRM_BUT） |
 | 2 | [测试用例（用例确认）](#操作权限-测试用例（用例确认）（SRFUR__CASE_CASECOF_BUT）)<br>（SRFUR__CASE_CASECOF_BUT） |
 | 3 | [用例待收藏](#操作权限-用例待收藏（SRFUR__CASE_NFAVOR_BUT）)<br>（SRFUR__CASE_NFAVOR_BUT） |
@@ -3240,7 +3240,7 @@ String
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [用例状态](#属性-用例状态（STATUS1）)<br>（STATUS1） | investigate |
 | [测试用例结果](#属性-测试用例结果（LASTRUNRESULT1）)<br>（LASTRUNRESULT1） | no |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 0 |
@@ -3256,7 +3256,7 @@ String
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [测试用例确认](#操作权限-测试用例确认（SRFUR__CASE_CONFIRM_BUT）)<br>（SRFUR__CASE_CONFIRM_BUT） |
 | 2 | [测试用例转BUG](#操作权限-测试用例转BUG（SRFUR__CASE_TOBUG_BUT）)<br>（SRFUR__CASE_TOBUG_BUT） |
 | 3 | [测试用例（用例确认）](#操作权限-测试用例（用例确认）（SRFUR__CASE_CASECOF_BUT）)<br>（SRFUR__CASE_CASECOF_BUT） |
@@ -3270,7 +3270,7 @@ String
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [用例状态](#属性-用例状态（STATUS1）)<br>（STATUS1） | investigate |
 | [测试用例结果](#属性-测试用例结果（LASTRUNRESULT1）)<br>（LASTRUNRESULT1） | no |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 1 |
@@ -3286,7 +3286,7 @@ String
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [测试用例（用例确认）](#操作权限-测试用例（用例确认）（SRFUR__CASE_CASECOF_BUT）)<br>（SRFUR__CASE_CASECOF_BUT） |
 | 2 | [测试用例确认](#操作权限-测试用例确认（SRFUR__CASE_CONFIRM_BUT）)<br>（SRFUR__CASE_CONFIRM_BUT） |
 | 3 | [用例待收藏](#操作权限-用例待收藏（SRFUR__CASE_NFAVOR_BUT）)<br>（SRFUR__CASE_NFAVOR_BUT） |
@@ -3300,7 +3300,7 @@ String
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [用例状态](#属性-用例状态（STATUS1）)<br>（STATUS1） | investigate |
 | [测试用例结果](#属性-测试用例结果（LASTRUNRESULT1）)<br>（LASTRUNRESULT1） | pass |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 0 |
@@ -3316,7 +3316,7 @@ String
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [测试用例确认](#操作权限-测试用例确认（SRFUR__CASE_CONFIRM_BUT）)<br>（SRFUR__CASE_CONFIRM_BUT） |
 | 2 | [用例已收藏](#操作权限-用例已收藏（SRFUR__CASE_FAVOR_BUT）)<br>（SRFUR__CASE_FAVOR_BUT） |
 | 3 | [测试用例转BUG](#操作权限-测试用例转BUG（SRFUR__CASE_TOBUG_BUT）)<br>（SRFUR__CASE_TOBUG_BUT） |
@@ -3330,7 +3330,7 @@ String
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [用例状态](#属性-用例状态（STATUS1）)<br>（STATUS1） | investigate |
 | [测试用例结果](#属性-测试用例结果（LASTRUNRESULT1）)<br>（LASTRUNRESULT1） | pass |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 1 |
@@ -3346,7 +3346,7 @@ String
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [测试用例（用例确认）](#操作权限-测试用例（用例确认）（SRFUR__CASE_CASECOF_BUT）)<br>（SRFUR__CASE_CASECOF_BUT） |
 | 2 | [测试用例确认](#操作权限-测试用例确认（SRFUR__CASE_CONFIRM_BUT）)<br>（SRFUR__CASE_CONFIRM_BUT） |
 | 3 | [用例待收藏](#操作权限-用例待收藏（SRFUR__CASE_NFAVOR_BUT）)<br>（SRFUR__CASE_NFAVOR_BUT） |
@@ -3360,7 +3360,7 @@ String
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [用例状态](#属性-用例状态（STATUS1）)<br>（STATUS1） | normal |
 | [测试用例结果](#属性-测试用例结果（LASTRUNRESULT1）)<br>（LASTRUNRESULT1） | blocked |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 0 |
@@ -3376,7 +3376,7 @@ String
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [用例已收藏](#操作权限-用例已收藏（SRFUR__CASE_FAVOR_BUT）)<br>（SRFUR__CASE_FAVOR_BUT） |
 | 2 | [测试用例转BUG](#操作权限-测试用例转BUG（SRFUR__CASE_TOBUG_BUT）)<br>（SRFUR__CASE_TOBUG_BUT） |
 | 3 | [测试用例确认](#操作权限-测试用例确认（SRFUR__CASE_CONFIRM_BUT）)<br>（SRFUR__CASE_CONFIRM_BUT） |
@@ -3390,7 +3390,7 @@ String
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [用例状态](#属性-用例状态（STATUS1）)<br>（STATUS1） | normal |
 | [测试用例结果](#属性-测试用例结果（LASTRUNRESULT1）)<br>（LASTRUNRESULT1） | blocked |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 1 |
@@ -3406,7 +3406,7 @@ String
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [测试用例确认](#操作权限-测试用例确认（SRFUR__CASE_CONFIRM_BUT）)<br>（SRFUR__CASE_CONFIRM_BUT） |
 | 2 | [测试用例转BUG](#操作权限-测试用例转BUG（SRFUR__CASE_TOBUG_BUT）)<br>（SRFUR__CASE_TOBUG_BUT） |
 | 3 | [测试用例（用例确认）](#操作权限-测试用例（用例确认）（SRFUR__CASE_CASECOF_BUT）)<br>（SRFUR__CASE_CASECOF_BUT） |
@@ -3420,7 +3420,7 @@ String
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [用例状态](#属性-用例状态（STATUS1）)<br>（STATUS1） | normal |
 | [测试用例结果](#属性-测试用例结果（LASTRUNRESULT1）)<br>（LASTRUNRESULT1） | fail |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 0 |
@@ -3436,7 +3436,7 @@ String
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [测试用例（用例确认）](#操作权限-测试用例（用例确认）（SRFUR__CASE_CASECOF_BUT）)<br>（SRFUR__CASE_CASECOF_BUT） |
 | 2 | [测试用例确认](#操作权限-测试用例确认（SRFUR__CASE_CONFIRM_BUT）)<br>（SRFUR__CASE_CONFIRM_BUT） |
 | 3 | [用例已收藏](#操作权限-用例已收藏（SRFUR__CASE_FAVOR_BUT）)<br>（SRFUR__CASE_FAVOR_BUT） |
@@ -3449,7 +3449,7 @@ String
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [用例状态](#属性-用例状态（STATUS1）)<br>（STATUS1） | normal |
 | [测试用例结果](#属性-测试用例结果（LASTRUNRESULT1）)<br>（LASTRUNRESULT1） | fail |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 1 |
@@ -3465,7 +3465,7 @@ String
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [测试用例确认](#操作权限-测试用例确认（SRFUR__CASE_CONFIRM_BUT）)<br>（SRFUR__CASE_CONFIRM_BUT） |
 | 2 | [用例待收藏](#操作权限-用例待收藏（SRFUR__CASE_NFAVOR_BUT）)<br>（SRFUR__CASE_NFAVOR_BUT） |
 | 3 | [测试用例（用例确认）](#操作权限-测试用例（用例确认）（SRFUR__CASE_CASECOF_BUT）)<br>（SRFUR__CASE_CASECOF_BUT） |
@@ -3478,7 +3478,7 @@ String
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [用例状态](#属性-用例状态（STATUS1）)<br>（STATUS1） | normal |
 | [测试用例结果](#属性-测试用例结果（LASTRUNRESULT1）)<br>（LASTRUNRESULT1） | n/a |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 0 |
@@ -3494,7 +3494,7 @@ String
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [测试用例（用例确认）](#操作权限-测试用例（用例确认）（SRFUR__CASE_CASECOF_BUT）)<br>（SRFUR__CASE_CASECOF_BUT） |
 | 2 | [用例已收藏](#操作权限-用例已收藏（SRFUR__CASE_FAVOR_BUT）)<br>（SRFUR__CASE_FAVOR_BUT） |
 | 3 | [测试用例确认](#操作权限-测试用例确认（SRFUR__CASE_CONFIRM_BUT）)<br>（SRFUR__CASE_CONFIRM_BUT） |
@@ -3508,7 +3508,7 @@ String
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [用例状态](#属性-用例状态（STATUS1）)<br>（STATUS1） | normal |
 | [测试用例结果](#属性-测试用例结果（LASTRUNRESULT1）)<br>（LASTRUNRESULT1） | n/a |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 1 |
@@ -3524,7 +3524,7 @@ String
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [用例待收藏](#操作权限-用例待收藏（SRFUR__CASE_NFAVOR_BUT）)<br>（SRFUR__CASE_NFAVOR_BUT） |
 | 2 | [测试用例确认](#操作权限-测试用例确认（SRFUR__CASE_CONFIRM_BUT）)<br>（SRFUR__CASE_CONFIRM_BUT） |
 | 3 | [测试用例（用例确认）](#操作权限-测试用例（用例确认）（SRFUR__CASE_CASECOF_BUT）)<br>（SRFUR__CASE_CASECOF_BUT） |
@@ -3538,7 +3538,7 @@ String
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [用例状态](#属性-用例状态（STATUS1）)<br>（STATUS1） | normal |
 | [测试用例结果](#属性-测试用例结果（LASTRUNRESULT1）)<br>（LASTRUNRESULT1） | no |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 0 |
@@ -3554,7 +3554,7 @@ String
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [测试用例确认](#操作权限-测试用例确认（SRFUR__CASE_CONFIRM_BUT）)<br>（SRFUR__CASE_CONFIRM_BUT） |
 | 2 | [测试用例转BUG](#操作权限-测试用例转BUG（SRFUR__CASE_TOBUG_BUT）)<br>（SRFUR__CASE_TOBUG_BUT） |
 | 3 | [测试用例（用例确认）](#操作权限-测试用例（用例确认）（SRFUR__CASE_CASECOF_BUT）)<br>（SRFUR__CASE_CASECOF_BUT） |
@@ -3568,7 +3568,7 @@ String
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [用例状态](#属性-用例状态（STATUS1）)<br>（STATUS1） | normal |
 | [测试用例结果](#属性-测试用例结果（LASTRUNRESULT1）)<br>（LASTRUNRESULT1） | no |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 1 |
@@ -3584,7 +3584,7 @@ String
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [测试用例（用例确认）](#操作权限-测试用例（用例确认）（SRFUR__CASE_CASECOF_BUT）)<br>（SRFUR__CASE_CASECOF_BUT） |
 | 2 | [测试用例确认](#操作权限-测试用例确认（SRFUR__CASE_CONFIRM_BUT）)<br>（SRFUR__CASE_CONFIRM_BUT） |
 | 3 | [测试用例转BUG](#操作权限-测试用例转BUG（SRFUR__CASE_TOBUG_BUT）)<br>（SRFUR__CASE_TOBUG_BUT） |
@@ -3598,7 +3598,7 @@ String
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [用例状态](#属性-用例状态（STATUS1）)<br>（STATUS1） | normal |
 | [测试用例结果](#属性-测试用例结果（LASTRUNRESULT1）)<br>（LASTRUNRESULT1） | pass |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 0 |
@@ -3614,7 +3614,7 @@ String
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [测试用例（用例确认）](#操作权限-测试用例（用例确认）（SRFUR__CASE_CASECOF_BUT）)<br>（SRFUR__CASE_CASECOF_BUT） |
 | 2 | [测试用例确认](#操作权限-测试用例确认（SRFUR__CASE_CONFIRM_BUT）)<br>（SRFUR__CASE_CONFIRM_BUT） |
 | 3 | [测试用例转BUG](#操作权限-测试用例转BUG（SRFUR__CASE_TOBUG_BUT）)<br>（SRFUR__CASE_TOBUG_BUT） |
@@ -3628,7 +3628,7 @@ String
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [用例状态](#属性-用例状态（STATUS1）)<br>（STATUS1） | normal |
 | [测试用例结果](#属性-测试用例结果（LASTRUNRESULT1）)<br>（LASTRUNRESULT1） | pass |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 1 |
@@ -3644,7 +3644,7 @@ String
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [测试用例转BUG](#操作权限-测试用例转BUG（SRFUR__CASE_TOBUG_BUT）)<br>（SRFUR__CASE_TOBUG_BUT） |
 | 2 | [测试用例（用例确认）](#操作权限-测试用例（用例确认）（SRFUR__CASE_CASECOF_BUT）)<br>（SRFUR__CASE_CASECOF_BUT） |
 | 3 | [用例待收藏](#操作权限-用例待收藏（SRFUR__CASE_NFAVOR_BUT）)<br>（SRFUR__CASE_NFAVOR_BUT） |
@@ -3658,7 +3658,7 @@ String
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [用例状态](#属性-用例状态（STATUS1）)<br>（STATUS1） | storychange |
 | [测试用例结果](#属性-测试用例结果（LASTRUNRESULT1）)<br>（LASTRUNRESULT1） | blocked |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 0 |
@@ -3674,7 +3674,7 @@ String
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [测试用例移除](#操作权限-测试用例移除（SRFUR__CASE_UNLINK_BUT）)<br>（SRFUR__CASE_UNLINK_BUT） |
 | 2 | [测试用例（用例确认）](#操作权限-测试用例（用例确认）（SRFUR__CASE_CASECOF_BUT）)<br>（SRFUR__CASE_CASECOF_BUT） |
 | 3 | [测试用例（用例执行）](#操作权限-测试用例（用例执行）（SRFUR__CASE_CASERUN_BUT）)<br>（SRFUR__CASE_CASERUN_BUT） |
@@ -3694,7 +3694,7 @@ String
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [用例状态](#属性-用例状态（STATUS1）)<br>（STATUS1） | storychange |
 | [测试用例结果](#属性-测试用例结果（LASTRUNRESULT1）)<br>（LASTRUNRESULT1） | blocked |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 1 |
@@ -3710,7 +3710,7 @@ String
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [测试用例编辑](#操作权限-测试用例编辑（SRFUR__CASE_EDIT_BUT）)<br>（SRFUR__CASE_EDIT_BUT） |
 | 2 | [测试用例结果](#操作权限-测试用例结果（SRFUR__CASE_RESULT_BUT）)<br>（SRFUR__CASE_RESULT_BUT） |
 | 3 | [测试用例（用例确认）](#操作权限-测试用例（用例确认）（SRFUR__CASE_CASECOF_BUT）)<br>（SRFUR__CASE_CASECOF_BUT） |
@@ -3730,7 +3730,7 @@ String
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [用例状态](#属性-用例状态（STATUS1）)<br>（STATUS1） | storychange |
 | [测试用例结果](#属性-测试用例结果（LASTRUNRESULT1）)<br>（LASTRUNRESULT1） | fail |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 0 |
@@ -3746,7 +3746,7 @@ String
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [测试用例转BUG](#操作权限-测试用例转BUG（SRFUR__CASE_TOBUG_BUT）)<br>（SRFUR__CASE_TOBUG_BUT） |
 | 2 | [测试用例（用例转BUG）](#操作权限-测试用例（用例转BUG）（SRFUR__CASE_CASETOBUG_BUT）)<br>（SRFUR__CASE_CASETOBUG_BUT） |
 | 3 | [测试用例（用例结果）](#操作权限-测试用例（用例结果）（SRFUR__CASE_CASERESULT_BUT）)<br>（SRFUR__CASE_CASERESULT_BUT） |
@@ -3767,7 +3767,7 @@ String
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [用例状态](#属性-用例状态（STATUS1）)<br>（STATUS1） | storychange |
 | [测试用例结果](#属性-测试用例结果（LASTRUNRESULT1）)<br>（LASTRUNRESULT1） | fail |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 1 |
@@ -3783,7 +3783,7 @@ String
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [用例待收藏](#操作权限-用例待收藏（SRFUR__CASE_NFAVOR_BUT）)<br>（SRFUR__CASE_NFAVOR_BUT） |
 | 2 | [测试用例（用例执行）](#操作权限-测试用例（用例执行）（SRFUR__CASE_CASERUN_BUT）)<br>（SRFUR__CASE_CASERUN_BUT） |
 | 3 | [测试用例转BUG](#操作权限-测试用例转BUG（SRFUR__CASE_TOBUG_BUT）)<br>（SRFUR__CASE_TOBUG_BUT） |
@@ -3803,7 +3803,7 @@ String
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [用例状态](#属性-用例状态（STATUS1）)<br>（STATUS1） | storychange |
 | [测试用例结果](#属性-测试用例结果（LASTRUNRESULT1）)<br>（LASTRUNRESULT1） | n/a |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 0 |
@@ -3819,7 +3819,7 @@ String
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [测试用例转BUG](#操作权限-测试用例转BUG（SRFUR__CASE_TOBUG_BUT）)<br>（SRFUR__CASE_TOBUG_BUT） |
 | 2 | [测试用例结果](#操作权限-测试用例结果（SRFUR__CASE_RESULT_BUT）)<br>（SRFUR__CASE_RESULT_BUT） |
 | 3 | [用例已收藏](#操作权限-用例已收藏（SRFUR__CASE_FAVOR_BUT）)<br>（SRFUR__CASE_FAVOR_BUT） |
@@ -3839,7 +3839,7 @@ String
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [用例状态](#属性-用例状态（STATUS1）)<br>（STATUS1） | storychange |
 | [测试用例结果](#属性-测试用例结果（LASTRUNRESULT1）)<br>（LASTRUNRESULT1） | n/a |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 1 |
@@ -3855,7 +3855,7 @@ String
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [测试用例（用例结果）](#操作权限-测试用例（用例结果）（SRFUR__CASE_CASERESULT_BUT）)<br>（SRFUR__CASE_CASERESULT_BUT） |
 | 2 | [测试用例移除](#操作权限-测试用例移除（SRFUR__CASE_UNLINK_BUT）)<br>（SRFUR__CASE_UNLINK_BUT） |
 | 3 | [测试用例（用例执行）](#操作权限-测试用例（用例执行）（SRFUR__CASE_CASERUN_BUT）)<br>（SRFUR__CASE_CASERUN_BUT） |
@@ -3875,7 +3875,7 @@ String
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [用例状态](#属性-用例状态（STATUS1）)<br>（STATUS1） | storychange |
 | [测试用例结果](#属性-测试用例结果（LASTRUNRESULT1）)<br>（LASTRUNRESULT1） | no |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 0 |
@@ -3891,7 +3891,7 @@ String
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [测试用例执行](#操作权限-测试用例执行（SRFUR__CASE_RUN_BUT）)<br>（SRFUR__CASE_RUN_BUT） |
 | 2 | [测试用例（用例结果）](#操作权限-测试用例（用例结果）（SRFUR__CASE_CASERESULT_BUT）)<br>（SRFUR__CASE_CASERESULT_BUT） |
 | 3 | [测试用例结果](#操作权限-测试用例结果（SRFUR__CASE_RESULT_BUT）)<br>（SRFUR__CASE_RESULT_BUT） |
@@ -3911,7 +3911,7 @@ String
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [用例状态](#属性-用例状态（STATUS1）)<br>（STATUS1） | storychange |
 | [测试用例结果](#属性-测试用例结果（LASTRUNRESULT1）)<br>（LASTRUNRESULT1） | no |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 1 |
@@ -3927,7 +3927,7 @@ String
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [测试用例（用例转BUG）](#操作权限-测试用例（用例转BUG）（SRFUR__CASE_CASETOBUG_BUT）)<br>（SRFUR__CASE_CASETOBUG_BUT） |
 | 2 | [测试用例结果](#操作权限-测试用例结果（SRFUR__CASE_RESULT_BUT）)<br>（SRFUR__CASE_RESULT_BUT） |
 | 3 | [用例待收藏](#操作权限-用例待收藏（SRFUR__CASE_NFAVOR_BUT）)<br>（SRFUR__CASE_NFAVOR_BUT） |
@@ -3947,7 +3947,7 @@ String
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [用例状态](#属性-用例状态（STATUS1）)<br>（STATUS1） | storychange |
 | [测试用例结果](#属性-测试用例结果（LASTRUNRESULT1）)<br>（LASTRUNRESULT1） | pass |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 0 |
@@ -3963,7 +3963,7 @@ String
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [测试用例（用例执行）](#操作权限-测试用例（用例执行）（SRFUR__CASE_CASERUN_BUT）)<br>（SRFUR__CASE_CASERUN_BUT） |
 | 2 | [测试用例结果](#操作权限-测试用例结果（SRFUR__CASE_RESULT_BUT）)<br>（SRFUR__CASE_RESULT_BUT） |
 | 3 | [测试用例执行](#操作权限-测试用例执行（SRFUR__CASE_RUN_BUT）)<br>（SRFUR__CASE_RUN_BUT） |
@@ -3983,7 +3983,7 @@ String
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [用例状态](#属性-用例状态（STATUS1）)<br>（STATUS1） | storychange |
 | [测试用例结果](#属性-测试用例结果（LASTRUNRESULT1）)<br>（LASTRUNRESULT1） | pass |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 1 |
@@ -3999,7 +3999,7 @@ String
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [测试用例转BUG](#操作权限-测试用例转BUG（SRFUR__CASE_TOBUG_BUT）)<br>（SRFUR__CASE_TOBUG_BUT） |
 | 2 | [测试用例移除](#操作权限-测试用例移除（SRFUR__CASE_UNLINK_BUT）)<br>（SRFUR__CASE_UNLINK_BUT） |
 | 3 | [测试用例（用例结果）](#操作权限-测试用例（用例结果）（SRFUR__CASE_CASERESULT_BUT）)<br>（SRFUR__CASE_CASERESULT_BUT） |
@@ -4019,7 +4019,7 @@ String
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [用例状态](#属性-用例状态（STATUS1）)<br>（STATUS1） | wait |
 | [测试用例结果](#属性-测试用例结果（LASTRUNRESULT1）)<br>（LASTRUNRESULT1） | blocked |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 0 |
@@ -4035,7 +4035,7 @@ String
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [测试用例（用例确认）](#操作权限-测试用例（用例确认）（SRFUR__CASE_CASECOF_BUT）)<br>（SRFUR__CASE_CASECOF_BUT） |
 | 2 | [用例已收藏](#操作权限-用例已收藏（SRFUR__CASE_FAVOR_BUT）)<br>（SRFUR__CASE_FAVOR_BUT） |
 | 3 | [测试用例转BUG](#操作权限-测试用例转BUG（SRFUR__CASE_TOBUG_BUT）)<br>（SRFUR__CASE_TOBUG_BUT） |
@@ -4049,7 +4049,7 @@ String
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [用例状态](#属性-用例状态（STATUS1）)<br>（STATUS1） | wait |
 | [测试用例结果](#属性-测试用例结果（LASTRUNRESULT1）)<br>（LASTRUNRESULT1） | blocked |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 1 |
@@ -4065,7 +4065,7 @@ String
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [测试用例确认](#操作权限-测试用例确认（SRFUR__CASE_CONFIRM_BUT）)<br>（SRFUR__CASE_CONFIRM_BUT） |
 | 2 | [测试用例转BUG](#操作权限-测试用例转BUG（SRFUR__CASE_TOBUG_BUT）)<br>（SRFUR__CASE_TOBUG_BUT） |
 | 3 | [测试用例（用例确认）](#操作权限-测试用例（用例确认）（SRFUR__CASE_CASECOF_BUT）)<br>（SRFUR__CASE_CASECOF_BUT） |
@@ -4079,7 +4079,7 @@ String
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [用例状态](#属性-用例状态（STATUS1）)<br>（STATUS1） | wait |
 | [测试用例结果](#属性-测试用例结果（LASTRUNRESULT1）)<br>（LASTRUNRESULT1） | fail |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 0 |
@@ -4095,7 +4095,7 @@ String
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [用例已收藏](#操作权限-用例已收藏（SRFUR__CASE_FAVOR_BUT）)<br>（SRFUR__CASE_FAVOR_BUT） |
 | 2 | [测试用例确认](#操作权限-测试用例确认（SRFUR__CASE_CONFIRM_BUT）)<br>（SRFUR__CASE_CONFIRM_BUT） |
 | 3 | [测试用例（用例确认）](#操作权限-测试用例（用例确认）（SRFUR__CASE_CASECOF_BUT）)<br>（SRFUR__CASE_CASECOF_BUT） |
@@ -4108,7 +4108,7 @@ String
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [用例状态](#属性-用例状态（STATUS1）)<br>（STATUS1） | wait |
 | [测试用例结果](#属性-测试用例结果（LASTRUNRESULT1）)<br>（LASTRUNRESULT1） | fail |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 1 |
@@ -4124,7 +4124,7 @@ String
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [用例待收藏](#操作权限-用例待收藏（SRFUR__CASE_NFAVOR_BUT）)<br>（SRFUR__CASE_NFAVOR_BUT） |
 | 2 | [测试用例确认](#操作权限-测试用例确认（SRFUR__CASE_CONFIRM_BUT）)<br>（SRFUR__CASE_CONFIRM_BUT） |
 | 3 | [测试用例（用例确认）](#操作权限-测试用例（用例确认）（SRFUR__CASE_CASECOF_BUT）)<br>（SRFUR__CASE_CASECOF_BUT） |
@@ -4137,7 +4137,7 @@ String
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [用例状态](#属性-用例状态（STATUS1）)<br>（STATUS1） | wait |
 | [测试用例结果](#属性-测试用例结果（LASTRUNRESULT1）)<br>（LASTRUNRESULT1） | n/a |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 0 |
@@ -4153,7 +4153,7 @@ String
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [测试用例确认](#操作权限-测试用例确认（SRFUR__CASE_CONFIRM_BUT）)<br>（SRFUR__CASE_CONFIRM_BUT） |
 | 2 | [测试用例转BUG](#操作权限-测试用例转BUG（SRFUR__CASE_TOBUG_BUT）)<br>（SRFUR__CASE_TOBUG_BUT） |
 | 3 | [用例已收藏](#操作权限-用例已收藏（SRFUR__CASE_FAVOR_BUT）)<br>（SRFUR__CASE_FAVOR_BUT） |
@@ -4167,7 +4167,7 @@ String
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [用例状态](#属性-用例状态（STATUS1）)<br>（STATUS1） | wait |
 | [测试用例结果](#属性-测试用例结果（LASTRUNRESULT1）)<br>（LASTRUNRESULT1） | n/a |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 1 |
@@ -4183,7 +4183,7 @@ String
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [用例待收藏](#操作权限-用例待收藏（SRFUR__CASE_NFAVOR_BUT）)<br>（SRFUR__CASE_NFAVOR_BUT） |
 | 2 | [测试用例转BUG](#操作权限-测试用例转BUG（SRFUR__CASE_TOBUG_BUT）)<br>（SRFUR__CASE_TOBUG_BUT） |
 | 3 | [测试用例（用例确认）](#操作权限-测试用例（用例确认）（SRFUR__CASE_CASECOF_BUT）)<br>（SRFUR__CASE_CASECOF_BUT） |
@@ -4197,7 +4197,7 @@ String
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [用例状态](#属性-用例状态（STATUS1）)<br>（STATUS1） | wait |
 | [测试用例结果](#属性-测试用例结果（LASTRUNRESULT1）)<br>（LASTRUNRESULT1） | no |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 0 |
@@ -4213,7 +4213,7 @@ String
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [测试用例（用例确认）](#操作权限-测试用例（用例确认）（SRFUR__CASE_CASECOF_BUT）)<br>（SRFUR__CASE_CASECOF_BUT） |
 | 2 | [测试用例确认](#操作权限-测试用例确认（SRFUR__CASE_CONFIRM_BUT）)<br>（SRFUR__CASE_CONFIRM_BUT） |
 | 3 | [用例已收藏](#操作权限-用例已收藏（SRFUR__CASE_FAVOR_BUT）)<br>（SRFUR__CASE_FAVOR_BUT） |
@@ -4227,7 +4227,7 @@ String
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [用例状态](#属性-用例状态（STATUS1）)<br>（STATUS1） | wait |
 | [测试用例结果](#属性-测试用例结果（LASTRUNRESULT1）)<br>（LASTRUNRESULT1） | no |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 1 |
@@ -4243,7 +4243,7 @@ String
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [用例待收藏](#操作权限-用例待收藏（SRFUR__CASE_NFAVOR_BUT）)<br>（SRFUR__CASE_NFAVOR_BUT） |
 | 2 | [测试用例转BUG](#操作权限-测试用例转BUG（SRFUR__CASE_TOBUG_BUT）)<br>（SRFUR__CASE_TOBUG_BUT） |
 | 3 | [测试用例确认](#操作权限-测试用例确认（SRFUR__CASE_CONFIRM_BUT）)<br>（SRFUR__CASE_CONFIRM_BUT） |
@@ -4257,7 +4257,7 @@ String
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [用例状态](#属性-用例状态（STATUS1）)<br>（STATUS1） | wait |
 | [测试用例结果](#属性-测试用例结果（LASTRUNRESULT1）)<br>（LASTRUNRESULT1） | pass |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 0 |
@@ -4273,7 +4273,7 @@ String
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [测试用例确认](#操作权限-测试用例确认（SRFUR__CASE_CONFIRM_BUT）)<br>（SRFUR__CASE_CONFIRM_BUT） |
 | 2 | [用例已收藏](#操作权限-用例已收藏（SRFUR__CASE_FAVOR_BUT）)<br>（SRFUR__CASE_FAVOR_BUT） |
 | 3 | [测试用例转BUG](#操作权限-测试用例转BUG（SRFUR__CASE_TOBUG_BUT）)<br>（SRFUR__CASE_TOBUG_BUT） |
@@ -4287,7 +4287,7 @@ String
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [用例状态](#属性-用例状态（STATUS1）)<br>（STATUS1） | wait |
 | [测试用例结果](#属性-测试用例结果（LASTRUNRESULT1）)<br>（LASTRUNRESULT1） | pass |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 1 |
@@ -4303,7 +4303,7 @@ String
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [测试用例转BUG](#操作权限-测试用例转BUG（SRFUR__CASE_TOBUG_BUT）)<br>（SRFUR__CASE_TOBUG_BUT） |
 | 2 | [测试用例确认](#操作权限-测试用例确认（SRFUR__CASE_CONFIRM_BUT）)<br>（SRFUR__CASE_CONFIRM_BUT） |
 | 3 | [用例待收藏](#操作权限-用例待收藏（SRFUR__CASE_NFAVOR_BUT）)<br>（SRFUR__CASE_NFAVOR_BUT） |
@@ -4311,7 +4311,7 @@ String
 
 ## 实体行为
 | 序号 | 行为 | 行为名 | 行为类型 | 行为持有者 |
-| -- | -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- | ---- |
 | 1 | [Create](#实体行为-Create（Create）) | Create | 内置方法 | 后台及前台 |
 | 2 | [CreateTemp](#实体行为-CreateTemp（CreateTemp）) | CreateTemp | 内置方法 | 前台 |
 | 3 | [CreateTempMajor](#实体行为-CreateTempMajor（CreateTempMajor）) | CreateTempMajor | 内置方法 | 前台 |
@@ -4758,7 +4758,7 @@ unlinkSuiteCases
 
 ## 逻辑处理
 | 序号 | 逻辑 | 逻辑名 | 逻辑持有者 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | [用例取消收藏](#逻辑处理-用例取消收藏（CaseNFavorite）) | CaseNFavorite | 后台 |
 | 2 | [根据用例标识和版本获取用例步骤](#逻辑处理-根据用例标识和版本获取用例步骤（GetCaseStepByIdVersion）) | GetCaseStepByIdVersion | 后台及前台 |
 | 3 | [用例收藏](#逻辑处理-用例收藏（caseFavorite）) | caseFavorite | 后台 |
@@ -4776,7 +4776,7 @@ unlinkSuiteCases
 
 #### 逻辑节点
 | 序号 | 节点 | 节点名 | 节点类型 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | 开始 | Begin | 开始 |
 | 2 | 用例取消收藏 | CaseNFavrite | 直接SQL调用 |
 ### 逻辑处理-根据用例标识和版本获取用例步骤（GetCaseStepByIdVersion）
@@ -4788,7 +4788,7 @@ unlinkSuiteCases
 
 #### 逻辑节点
 | 序号 | 节点 | 节点名 | 节点类型 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | 获取用例步骤 | Rawsqlcall1 | 直接SQL调用 |
 | 2 | 开始 | Begin | 开始 |
 ### 逻辑处理-用例收藏（caseFavorite）
@@ -4800,7 +4800,7 @@ hua-测试收藏功能
 
 #### 逻辑节点
 | 序号 | 节点 | 节点名 | 节点类型 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | Create | Create | 实体行为 |
 | 2 | 开始 | Begin | 开始 |
 | 3 | 准备参数 | Prepareparam1 | 准备参数 |
@@ -4813,7 +4813,7 @@ runCases
 
 #### 逻辑节点
 | 序号 | 节点 | 节点名 | 节点类型 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | 开始 | Begin | 开始 |
 | 2 | 准备参数 | Prepareparam1 | 准备参数 |
 | 3 | 执行测试 | Deaction1 | 实体行为 |
@@ -4826,7 +4826,7 @@ testRunCases
 
 #### 逻辑节点
 | 序号 | 节点 | 节点名 | 节点类型 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | 重置ID | Prepareparam1 | 准备参数 |
 | 2 | 获取数据 | Rawsqlcall1 | 直接SQL调用 |
 | 3 | 开始 | Begin | 开始 |
@@ -4840,7 +4840,7 @@ unlinkCases
 
 #### 逻辑节点
 | 序号 | 节点 | 节点名 | 节点类型 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | 获取数据 | Rawsqlcall1 | 直接SQL调用 |
 | 2 | 处理移除接口 | Deaction1 | 实体行为 |
 | 3 | 开始 | Begin | 开始 |
@@ -4854,7 +4854,7 @@ unlinkSuiteCases
 
 #### 逻辑节点
 | 序号 | 节点 | 节点名 | 节点类型 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | 准备参数 | Prepareparam1 | 准备参数 |
 | 2 | 移除用例 | Deaction1 | 实体行为 |
 | 3 | 开始 | Begin | 开始 |

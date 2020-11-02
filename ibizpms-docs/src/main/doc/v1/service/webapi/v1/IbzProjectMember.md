@@ -12,12 +12,12 @@ POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | ibzprojectmemberdto | [IbzProjectMemberDTO](#IbzProjectMemberDTO) | 项目相关成员实体传输对象 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | [IbzProjectMemberDTO](#IbzProjectMemberDTO)：项目相关成员实体传输对象 |
 
@@ -30,12 +30,12 @@ POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | ibzprojectmemberdtos | List<[IbzProjectMemberDTO](#IbzProjectMemberDTO)> | 项目相关成员实体传输对象列表 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | true：处理成功。false：处理失败。 |
 
@@ -48,13 +48,13 @@ PUT
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | ibzprojectmember_id | Long | 项目相关成员主键ID |
 | 2 | ibzprojectmemberdto | [IbzProjectMemberDTO](#IbzProjectMemberDTO) | 项目相关成员实体传输对象 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | [IbzProjectMemberDTO](#IbzProjectMemberDTO)：项目相关成员实体传输对象 |
 
@@ -67,12 +67,12 @@ PUT
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | ibzprojectmemberdtos | List<[IbzProjectMemberDTO](#IbzProjectMemberDTO)> | 项目相关成员实体传输对象列表 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | true：处理成功。false：处理失败。 |
 
@@ -85,12 +85,12 @@ DELETE
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | ibzprojectmember_id | Long | 项目相关成员主键ID |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | true：处理成功。false：处理失败。 |
 
@@ -103,12 +103,12 @@ DELETE
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | ids | List<Long> | 项目相关成员主键ID列表 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | true：处理成功。false：处理失败。 |
 
@@ -121,12 +121,12 @@ GET
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | ibzprojectmember_id | Long | 项目相关成员主键ID |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | [IbzProjectMemberDTO](#IbzProjectMemberDTO)：项目相关成员实体传输对象 |
 
@@ -139,12 +139,12 @@ POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | ibzprojectmemberdto | [IbzProjectMemberDTO](#IbzProjectMemberDTO) | 项目相关成员实体传输对象 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | true：处理成功。false：处理失败。 |
 
@@ -157,12 +157,12 @@ POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | ibzprojectmemberdto | [IbzProjectMemberDTO](#IbzProjectMemberDTO) | 项目相关成员实体传输对象 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | true：处理成功。false：处理失败。 |
 
@@ -175,12 +175,12 @@ POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | ibzprojectmemberdtos | List<[IbzProjectMemberDTO](#IbzProjectMemberDTO)> | 项目相关成员实体传输对象列表 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | true：处理成功。false：处理失败。 |
 
@@ -193,12 +193,12 @@ GET
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | context | [IbzProjectMemberSearchContext](#IbzProjectMemberSearchContext) | 项目相关成员查询条件对象 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | List<[IbzProjectMemberDTO](#IbzProjectMemberDTO)>：项目相关成员实体传输对象列表 |
 
@@ -211,12 +211,12 @@ POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | context | [IbzProjectMemberSearchContext](#IbzProjectMemberSearchContext) | 项目相关成员查询条件对象 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | Page<[IbzProjectMemberDTO](#IbzProjectMemberDTO)>：项目相关成员实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
 
@@ -224,7 +224,7 @@ POST
 ### 数据类型说明
 #### IbzProjectMemberDTO
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
-| -- | -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- | ---- |
 | 1 | id | Long | 允许 | 编号 |
 | 2 | name | String | 允许 | 项目名称 |
 | 3 | rd | String | 允许 | 发布负责人 |
@@ -241,7 +241,7 @@ POST
 
 #### IbzProjectMemberSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
-| -- | -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- | ---- |
 | 1 | customcond | String | 允许 | 自定义查询条件 |
 | 2 | customparams | String | 允许 | 自定义查询参数 |
 | 3 | query | String | 允许 | 快速搜索 |

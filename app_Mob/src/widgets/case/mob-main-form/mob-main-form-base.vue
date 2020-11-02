@@ -33,8 +33,12 @@
     :error="detailsModel.title.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.title" 
-    :context="context" 
+    v-if="data.title"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.title" 
     :itemParam="{}"/>
 </app-form-item>
@@ -57,11 +61,15 @@
     :error="detailsModel.type.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        codeListType="STATIC" 
+    codeListType="STATIC" 
     tag="Testcase__type"
     :isCache="false" 
-    v-if="data.type" 
-    :context="context" 
+    v-if="data.type"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.type" 
     :itemParam="{}"/>
 </app-form-item>
@@ -84,11 +92,15 @@
     :error="detailsModel.stage.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        codeListType="STATIC" 
+    codeListType="STATIC" 
     tag="Testcase__stage"
     :isCache="false" 
-    v-if="data.stage" 
-    :context="context" 
+    v-if="data.stage"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.stage" 
     :itemParam="{}"/>
 </app-form-item>
@@ -111,8 +123,12 @@
     :error="detailsModel.precondition.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.precondition" 
-    :context="context" 
+    v-if="data.precondition"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.precondition" 
     :itemParam="{}"/>
 </app-form-item>
@@ -135,11 +151,15 @@
     :error="detailsModel.version.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        codeListType="DYNAMIC" 
+    codeListType="DYNAMIC" 
     tag="CurCaseVersion"
     :isCache="false" 
-    v-if="data.version" 
-    :context="context" 
+    v-if="data.version"
+    :navigateContext ='{ "case": "%id%" } '
+    :navigateParam ='{ "case": "%id%" } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.version" 
     :itemParam="{}"/>
 </app-form-item>
@@ -188,8 +208,12 @@
     :error="detailsModel.keywords.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.keywords" 
-    :context="context" 
+    v-if="data.keywords"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.keywords" 
     :itemParam="{}"/>
 </app-form-item>

@@ -1,4 +1,4 @@
-<i-form :model="this.data" class='app-form' ref='form'  id='testtask_mainedit' style="">
+<i-form :model="this.data" class='app-form' ref='form'  id='testtask_mainedit' style="" @on-validate="formItemValidate.apply(_self, arguments)">
     <input style="display:none;" />
     <row >
             <i-col class="form-layout-container" v-show="detailsModel.group1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
@@ -42,8 +42,8 @@
   :data="data"
   :context="context"
   :viewparams="viewparams"
-  :localContext ='{ }' 
-  :localParam ='{ }' 
+  :localContext ='{ N_PROJECT_EQ:"%project%" }' 
+  :localParam ='{ n_project_eq:"%project%" }' 
   :disabled="detailsModel.buildname.disabled"
   name='buildname'
   deMajorField='name'

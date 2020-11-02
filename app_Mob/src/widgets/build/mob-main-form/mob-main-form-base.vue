@@ -33,8 +33,12 @@
     :error="detailsModel.name.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.name" 
-    :context="context" 
+    v-if="data.name"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.name" 
     :itemParam="{}"/>
 </app-form-item>
@@ -57,8 +61,12 @@
     :error="detailsModel.date.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.date" 
-    :context="context" 
+    v-if="data.date"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.date" 
     :itemParam="{}"/>
 </app-form-item>
@@ -81,11 +89,15 @@
     :error="detailsModel.builder.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        codeListType="DYNAMIC" 
+    codeListType="DYNAMIC" 
     tag="UserRealName"
     :isCache="false" 
-    v-if="data.builder" 
-    :context="context" 
+    v-if="data.builder"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.builder" 
     :itemParam="{}"/>
 </app-form-item>
@@ -108,8 +120,12 @@
     :error="detailsModel.scmpath.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.scmpath" 
-    :context="context" 
+    v-if="data.scmpath"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.scmpath" 
     :itemParam="{}"/>
 </app-form-item>
@@ -132,8 +148,12 @@
     :error="detailsModel.filepath.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.filepath" 
-    :context="context" 
+    v-if="data.filepath"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.filepath" 
     :itemParam="{}"/>
 </app-form-item>

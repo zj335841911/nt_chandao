@@ -28,7 +28,7 @@
             updateAction="Finish"
             removeAction="Remove"
             loaddraftAction="GetDraft"
-            loadAction="Get"
+            loadAction="GetNextTeamUser"
             createAction="Finish"
             WFSubmitAction=""
             WFStartAction=""
@@ -157,6 +157,14 @@ export default class TaskComMobOptionViewBase extends Vue {
      * @memberof TaskComMobOptionViewBase
      */
     @Prop({ default: false }) protected isChildView?: boolean;
+
+    /**
+     * 是否为门户嵌入视图
+     *
+     * @type {boolean}
+     * @memberof TaskComMobOptionViewBase
+     */
+    @Prop({ default: false }) protected isPortalView?: boolean;
 
     /**
      * 标题状态

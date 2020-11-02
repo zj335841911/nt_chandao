@@ -27,7 +27,17 @@ import cn.ibizlab.pms.util.filter.SearchContextBase;
 public class SysDepartmentSearchContext extends SearchContextBase {
 	private String n_deptname_like;//[部门名称]
 
-	private String n_orgid_eq;//[组织标识]
+	private String n_orgid_eq;//[单位]
+
+	private String n_pdeptid_eq;//[上级部门]
+
+	private String n_orgname_eq;//[单位]
+
+	private String n_orgname_like;//[单位]
+
+	private String n_pdeptname_eq;//[上级部门]
+
+	private String n_pdeptname_like;//[上级部门]
 
 }
 

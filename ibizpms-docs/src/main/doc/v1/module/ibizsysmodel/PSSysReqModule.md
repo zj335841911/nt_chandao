@@ -7,7 +7,7 @@
 
 ## 实体属性
 | 序号 | 属性 | 属性名 | 数据类型 | 主键 | 外键 | 允许为空 |
-| -- | -- | -- | -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- | ---- | ---- | ---- |
 | 1 | [系统需求模块名称](#属性-系统需求模块名称（PSSYSREQMODULENAME）) | PSSYSREQMODULENAME | 文本，可指定长度 | 否 | 否 | 是 |
 | 2 | [建立时间](#属性-建立时间（CREATEDATE）) | CREATEDATE | 日期时间型 | 否 | 否 | 否 |
 | 3 | [系统需求模块标识](#属性-系统需求模块标识（PSSYSREQMODULEID）) | PSSYSREQMODULEID | 全局唯一标识，文本类型，用户不可见 | 是 | 否 | 否 |
@@ -62,7 +62,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [系统模块（PSMODULE）](../ibizsysmodel/PSModule) |
 | 关系属性 | [系统模块名称（PSMODULENAME）](../ibizsysmodel/PSModule/#属性-系统模块名称（PSMODULENAME）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -94,7 +94,7 @@ yyyy-MM-dd HH:mm:ss
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [系统模块（PSMODULE）](../ibizsysmodel/PSModule) |
 | 关系属性 | [系统模块名称（PSMODULENAME）](../ibizsysmodel/PSModule/#属性-系统模块名称（PSMODULENAME）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -126,7 +126,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [系统模块（PSMODULE）](../ibizsysmodel/PSModule) |
 | 关系属性 | [系统模块名称（PSMODULENAME）](../ibizsysmodel/PSModule/#属性-系统模块名称（PSMODULENAME）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -158,7 +158,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [系统模块（PSMODULE）](../ibizsysmodel/PSModule) |
 | 关系属性 | [系统模块名称（PSMODULENAME）](../ibizsysmodel/PSModule/#属性-系统模块名称（PSMODULENAME）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -190,7 +190,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [系统模块（PSMODULE）](../ibizsysmodel/PSModule) |
 | 关系属性 | [系统模块名称（PSMODULENAME）](../ibizsysmodel/PSModule/#属性-系统模块名称（PSMODULENAME）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -222,7 +222,7 @@ yyyy-MM-dd HH:mm:ss
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [系统模块（PSMODULE）](../ibizsysmodel/PSModule) |
 | 关系属性 | [系统模块名称（PSMODULENAME）](../ibizsysmodel/PSModule/#属性-系统模块名称（PSMODULENAME）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -254,7 +254,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [系统模块（PSMODULE）](../ibizsysmodel/PSModule) |
 | 关系属性 | [系统模块名称（PSMODULENAME）](../ibizsysmodel/PSModule/#属性-系统模块名称（PSMODULENAME）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -286,7 +286,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [系统模块（PSMODULE）](../ibizsysmodel/PSModule) |
 | 关系属性 | [系统模块名称（PSMODULENAME）](../ibizsysmodel/PSModule/#属性-系统模块名称（PSMODULENAME）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -318,7 +318,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [系统模块（PSMODULE）](../ibizsysmodel/PSModule) |
 | 关系属性 | [系统模块名称（PSMODULENAME）](../ibizsysmodel/PSModule/#属性-系统模块名称（PSMODULENAME）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -350,7 +350,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [系统模块（PSMODULE）](../ibizsysmodel/PSModule) |
 | 关系属性 | [系统模块名称（PSMODULENAME）](../ibizsysmodel/PSModule/#属性-系统模块名称（PSMODULENAME）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -382,7 +382,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [系统模块（PSMODULE）](../ibizsysmodel/PSModule) |
 | 关系属性 | [系统模块名称（PSMODULENAME）](../ibizsysmodel/PSModule/#属性-系统模块名称（PSMODULENAME）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -414,7 +414,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [系统模块（PSMODULE）](../ibizsysmodel/PSModule) |
 | 关系属性 | [系统模块名称（PSMODULENAME）](../ibizsysmodel/PSModule/#属性-系统模块名称（PSMODULENAME）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -446,7 +446,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [系统模块（PSMODULE）](../ibizsysmodel/PSModule) |
 | 关系属性 | [系统模块名称（PSMODULENAME）](../ibizsysmodel/PSModule/#属性-系统模块名称（PSMODULENAME）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -478,7 +478,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [系统模块（PSMODULE）](../ibizsysmodel/PSModule) |
 | 关系属性 | [系统模块名称（PSMODULENAME）](../ibizsysmodel/PSModule/#属性-系统模块名称（PSMODULENAME）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -510,7 +510,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [系统模块（PSMODULE）](../ibizsysmodel/PSModule) |
 | 关系属性 | [系统模块名称（PSMODULENAME）](../ibizsysmodel/PSModule/#属性-系统模块名称（PSMODULENAME）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -542,7 +542,7 @@ Integer
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [系统模块（PSMODULE）](../ibizsysmodel/PSModule) |
 | 关系属性 | [系统模块名称（PSMODULENAME）](../ibizsysmodel/PSModule/#属性-系统模块名称（PSMODULENAME）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -574,7 +574,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [系统模块（PSMODULE）](../ibizsysmodel/PSModule) |
 | 关系属性 | [系统模块名称（PSMODULENAME）](../ibizsysmodel/PSModule/#属性-系统模块名称（PSMODULENAME）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -606,7 +606,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [系统模块（PSMODULE）](../ibizsysmodel/PSModule) |
 | 关系属性 | [系统模块名称（PSMODULENAME）](../ibizsysmodel/PSModule/#属性-系统模块名称（PSMODULENAME）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -638,7 +638,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [系统模块（PSMODULE）](../ibizsysmodel/PSModule) |
 | 关系属性 | [系统模块名称（PSMODULENAME）](../ibizsysmodel/PSModule/#属性-系统模块名称（PSMODULENAME）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -670,7 +670,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [系统模块（PSMODULE）](../ibizsysmodel/PSModule) |
 | 关系属性 | [系统模块名称（PSMODULENAME）](../ibizsysmodel/PSModule/#属性-系统模块名称（PSMODULENAME）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -702,7 +702,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [系统模块（PSMODULE）](../ibizsysmodel/PSModule) |
 | 关系属性 | [系统模块名称（PSMODULENAME）](../ibizsysmodel/PSModule/#属性-系统模块名称（PSMODULENAME）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -734,7 +734,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [系统模块（PSMODULE）](../ibizsysmodel/PSModule) |
 | 关系属性 | [系统模块名称（PSMODULENAME）](../ibizsysmodel/PSModule/#属性-系统模块名称（PSMODULENAME）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -766,7 +766,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [系统需求模块（PSSYSREQMODULE）](../ibizsysmodel/PSSysReqModule) |
 | 关系属性 | [系统需求模块标识（PSSYSREQMODULEID）](../ibizsysmodel/PSSysReqModule/#属性-系统需求模块标识（PSSYSREQMODULEID）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -798,7 +798,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [系统需求模块（PSSYSREQMODULE）](../ibizsysmodel/PSSysReqModule) |
 | 关系属性 | [系统需求模块名称（PSSYSREQMODULENAME）](../ibizsysmodel/PSSysReqModule/#属性-系统需求模块名称（PSSYSREQMODULENAME）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -830,7 +830,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [系统模块（PSMODULE）](../ibizsysmodel/PSModule) |
 | 关系属性 | [系统模块标识（PSMODULEID）](../ibizsysmodel/PSModule/#属性-系统模块标识（PSMODULEID）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -862,7 +862,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [系统模块（PSMODULE）](../ibizsysmodel/PSModule) |
 | 关系属性 | [系统模块名称（PSMODULENAME）](../ibizsysmodel/PSModule/#属性-系统模块名称（PSMODULENAME）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -873,7 +873,7 @@ String
 
 ## 实体行为
 | 序号 | 行为 | 行为名 | 行为类型 | 行为持有者 |
-| -- | -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- | ---- |
 | 1 | [Create](#实体行为-Create（Create）) | Create | 内置方法 | 后台及前台 |
 | 2 | [Update](#实体行为-Update（Update）) | Update | 内置方法 | 后台及前台 |
 | 3 | [Remove](#实体行为-Remove（Remove）) | Remove | 内置方法 | 后台及前台 |

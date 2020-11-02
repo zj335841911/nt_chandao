@@ -68,6 +68,10 @@ export default {
 			caption: "指派任务",
       		title: "指派任务",
 		},
+		treeexpview: {
+			caption: "任务",
+      		title: "任务树导航视图",
+		},
 		maineditview: {
 			caption: "任务",
       		title: "任务",
@@ -999,6 +1003,13 @@ export default {
 		deuiaction4: {
 			caption: "导出",
 			tip: "导出",
+		},
+	},
+	tasktree_treeview: {
+		nodes: {
+			root: "默认根节点",
+		},
+		uiactions: {
 		},
 	},
 	myfinishedbytask_chart: {

@@ -54,6 +54,22 @@ public class SysDepartment extends EntityClient implements Serializable {
     private String deptname;
 
     /**
+     * 单位
+     */
+    @DEField(preType = DEPredefinedFieldType.ORGID)
+    @JSONField(name = "orgid")
+    @JsonProperty("orgid")
+    private String orgid;
+
+    /**
+     * 上级部门
+     */
+    @DEField(name = "pdeptid")
+    @JSONField(name = "parentdeptid")
+    @JsonProperty("parentdeptid")
+    private String parentdeptid;
+
+    /**
      * 部门简称
      */
     @JSONField(name = "shortname")
@@ -103,6 +119,20 @@ public class SysDepartment extends EntityClient implements Serializable {
     private String leadername;
 
     /**
+     * 单位
+     */
+    @JSONField(name = "orgname")
+    @JsonProperty("orgname")
+    private String orgname;
+
+    /**
+     * 上级部门
+     */
+    @JSONField(name = "parentdeptname")
+    @JsonProperty("parentdeptname")
+    private String parentdeptname;
+
+    /**
      * 建立时间
      */
     @DEField(preType = DEPredefinedFieldType.CREATEDATE)
@@ -144,35 +174,20 @@ public class SysDepartment extends EntityClient implements Serializable {
     @JsonProperty("updatedate")
     private Timestamp updatedate;
 
-    /**
-     * 上级部门标识
-     */
-    @JSONField(name = "pdeptid")
-    @JsonProperty("pdeptid")
-    private String pdeptid;
 
     /**
-     * 上级部门
+     * 
      */
-    @JSONField(name = "pdeptname")
-    @JsonProperty("pdeptname")
-    private String pdeptname;
-
-    /**
-     * 组织标识
-     */
-    @DEField(preType = DEPredefinedFieldType.ORGID)
-    @JSONField(name = "orgid")
-    @JsonProperty("orgid")
-    private String orgid;
+    @JSONField(name = "parentdept")
+    @JsonProperty("parentdept")
+    private cn.ibizlab.pms.core.ou.domain.SysDepartment parentdept;
 
     /**
      * 单位
      */
-    @JSONField(name = "orgname")
-    @JsonProperty("orgname")
-    private String orgname;
-
+    @JSONField(name = "org")
+    @JsonProperty("org")
+    private cn.ibizlab.pms.core.ou.domain.SysOrganization org;
 
 
 
@@ -191,6 +206,14 @@ public class SysDepartment extends EntityClient implements Serializable {
     public void setDeptname(String deptname){
         this.deptname = deptname ;
         this.modify("deptname",deptname);
+    }
+
+    /**
+     * 设置 [上级部门]
+     */
+    public void setParentdeptid(String parentdeptid){
+        this.parentdeptid = parentdeptid ;
+        this.modify("pdeptid",parentdeptid);
     }
 
     /**
@@ -247,14 +270,6 @@ public class SysDepartment extends EntityClient implements Serializable {
     public void setLeadername(String leadername){
         this.leadername = leadername ;
         this.modify("leadername",leadername);
-    }
-
-    /**
-     * 设置 [上级部门标识]
-     */
-    public void setPdeptid(String pdeptid){
-        this.pdeptid = pdeptid ;
-        this.modify("pdeptid",pdeptid);
     }
 
     /**

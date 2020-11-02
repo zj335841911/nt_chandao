@@ -33,8 +33,12 @@
     :error="detailsModel.name.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.name" 
-    :context="context" 
+    v-if="data.name"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.name" 
     :itemParam="{}"/>
 </app-form-item>
@@ -57,8 +61,12 @@
     :error="detailsModel.code.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.code" 
-    :context="context" 
+    v-if="data.code"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.code" 
     :itemParam="{}"/>
 </app-form-item>
@@ -81,11 +89,15 @@
     :error="detailsModel.pm.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        codeListType="DYNAMIC" 
+    codeListType="DYNAMIC" 
     tag="UserRealName"
     :isCache="false" 
-    v-if="data.pm" 
-    :context="context" 
+    v-if="data.pm"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.pm" 
     :itemParam="{}"/>
 </app-form-item>
@@ -108,11 +120,15 @@
     :error="detailsModel.po.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        codeListType="DYNAMIC" 
+    codeListType="DYNAMIC" 
     tag="UserRealName"
     :isCache="false" 
-    v-if="data.po" 
-    :context="context" 
+    v-if="data.po"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.po" 
     :itemParam="{}"/>
 </app-form-item>
@@ -135,11 +151,15 @@
     :error="detailsModel.qd.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        codeListType="DYNAMIC" 
+    codeListType="DYNAMIC" 
     tag="UserRealName"
     :isCache="false" 
-    v-if="data.qd" 
-    :context="context" 
+    v-if="data.qd"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.qd" 
     :itemParam="{}"/>
 </app-form-item>
@@ -162,11 +182,15 @@
     :error="detailsModel.rd.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        codeListType="DYNAMIC" 
+    codeListType="DYNAMIC" 
     tag="UserRealName"
     :isCache="false" 
-    v-if="data.rd" 
-    :context="context" 
+    v-if="data.rd"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.rd" 
     :itemParam="{}"/>
 </app-form-item>
@@ -189,8 +213,12 @@
     :error="detailsModel.begin.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.begin" 
-    :context="context" 
+    v-if="data.begin"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.begin" 
     :itemParam="{}"/>
 </app-form-item>
@@ -213,8 +241,12 @@
     :error="detailsModel.end.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.end" 
-    :context="context" 
+    v-if="data.end"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.end" 
     :itemParam="{}"/>
 </app-form-item>
@@ -237,8 +269,12 @@
     :error="detailsModel.days.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.days" 
-    :context="context" 
+    v-if="data.days"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.days" 
     :itemParam="{}"/>
 </app-form-item>
@@ -261,8 +297,12 @@
     :error="detailsModel.team.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.team" 
-    :context="context" 
+    v-if="data.team"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.team" 
     :itemParam="{}"/>
 </app-form-item>
@@ -285,11 +325,15 @@
     :error="detailsModel.status.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        codeListType="STATIC" 
+    codeListType="STATIC" 
     tag="Project__status"
     :isCache="false" 
-    v-if="data.status" 
-    :context="context" 
+    v-if="data.status"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.status" 
     :itemParam="{}"/>
 </app-form-item>
@@ -312,8 +356,12 @@
     :error="detailsModel.storycnt.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.storycnt" 
-    :context="context" 
+    v-if="data.storycnt"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.storycnt" 
     :itemParam="{}"/>
 </app-form-item>
@@ -336,8 +384,12 @@
     :error="detailsModel.bugcnt.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.bugcnt" 
-    :context="context" 
+    v-if="data.bugcnt"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.bugcnt" 
     :itemParam="{}"/>
 </app-form-item>
@@ -360,8 +412,12 @@
     :error="detailsModel.taskcnt.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.taskcnt" 
-    :context="context" 
+    v-if="data.taskcnt"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.taskcnt" 
     :itemParam="{}"/>
 </app-form-item>
@@ -384,8 +440,12 @@
     :error="detailsModel.totalestimate.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.totalestimate" 
-    :context="context" 
+    v-if="data.totalestimate"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.totalestimate" 
     :itemParam="{}"/>
 </app-form-item>
@@ -408,8 +468,12 @@
     :error="detailsModel.totalconsumed.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.totalconsumed" 
-    :context="context" 
+    v-if="data.totalconsumed"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.totalconsumed" 
     :itemParam="{}"/>
 </app-form-item>

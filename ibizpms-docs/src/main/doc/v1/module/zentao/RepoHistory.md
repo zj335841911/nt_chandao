@@ -7,7 +7,7 @@ repohistory
 
 ## 实体属性
 | 序号 | 属性 | 属性名 | 数据类型 | 主键 | 外键 | 允许为空 |
-| -- | -- | -- | -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- | ---- | ---- | ---- |
 | 1 | [committer](#属性-committer（COMMITTER）) | COMMITTER | 文本，可指定长度 | 否 | 否 | 是 |
 | 2 | [revision](#属性-revision（REVISION）) | REVISION | 文本，可指定长度 | 否 | 否 | 是 |
 | 3 | [time](#属性-time（TIME）) | TIME | 日期时间型 | 否 | 否 | 是 |
@@ -218,7 +218,7 @@ Long
 
 ## 实体行为
 | 序号 | 行为 | 行为名 | 行为类型 | 行为持有者 |
-| -- | -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- | ---- |
 | 1 | [Create](#实体行为-Create（Create）) | Create | 内置方法 | 后台及前台 |
 | 2 | [Update](#实体行为-Update（Update）) | Update | 内置方法 | 后台及前台 |
 | 3 | [Remove](#实体行为-Remove（Remove）) | Remove | 内置方法 | 后台及前台 |

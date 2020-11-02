@@ -20,6 +20,7 @@
             createAction="Create"
             fetchAction="FetchMyWorkMob" 
             :isMutli="!isSingleSelect"
+            :isNeedLoaddingText="!isPortalView"
             :showBusyIndicator="true" 
             :isTempMode="false"
             :needLoadMore="false"
@@ -146,6 +147,14 @@ export default class IbzMyTerritoryMobMDView9Base extends Vue {
      * @memberof IbzMyTerritoryMobMDView9Base
      */
     @Prop({ default: false }) protected isChildView?: boolean;
+
+    /**
+     * 是否为门户嵌入视图
+     *
+     * @type {boolean}
+     * @memberof IbzMyTerritoryMobMDView9Base
+     */
+    @Prop({ default: false }) protected isPortalView?: boolean;
 
     /**
      * 标题状态

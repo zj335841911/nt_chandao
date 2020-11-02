@@ -1615,7 +1615,6 @@ export default class CaseUIServiceBase extends UIService {
         const parameters: any[] = [
             { pathName: 'cases', parameterName: 'case' },
         ];
-            actionContext.closeView(null);
             const openPopupModal = (view: any, data: any) => {
                 let container: Subject<any> = actionContext.$appmodal.openModal(view, context, data);
                 container.subscribe((result: any) => {
@@ -1623,6 +1622,7 @@ export default class CaseUIServiceBase extends UIService {
                         return;
                     }
                     const _this: any = actionContext;
+                    _this.closeView(null);
                     return result.datas;
                 });
             }
@@ -1882,7 +1882,6 @@ export default class CaseUIServiceBase extends UIService {
         const parameters: any[] = [
             { pathName: 'cases', parameterName: 'case' },
         ];
-            actionContext.closeView(null);
             const openPopupModal = (view: any, data: any) => {
                 let container: Subject<any> = actionContext.$appmodal.openModal(view, context, data);
                 container.subscribe((result: any) => {
@@ -1890,6 +1889,7 @@ export default class CaseUIServiceBase extends UIService {
                         return;
                     }
                     const _this: any = actionContext;
+                    _this.closeView(null);
                     return result.datas;
                 });
             }

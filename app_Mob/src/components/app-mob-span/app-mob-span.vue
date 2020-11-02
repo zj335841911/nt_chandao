@@ -43,6 +43,22 @@ export default class AppSpan extends Vue {
     @Prop() public codeListType!: string | 'STATIC' | 'DYNAMIC';
 
     /**
+     * 视图参数
+     *
+     * @type {*}
+     * @memberof AppSelect
+     */
+    @Prop() public viewparams!: any;
+
+    /**
+     * 传入表单数据
+     *
+     * @type {*}
+     * @memberof AppSelect
+     */
+    @Prop() public data?: any;
+
+    /**
      * 值
      *
      * @type {string}
@@ -97,6 +113,22 @@ export default class AppSpan extends Vue {
     @Prop({ default: {} }) protected context?: any;
 
     /**
+     * 导航参数
+     *
+     * @type {*}
+     * @memberof AppSelect
+     */
+    @Prop({ default: () => {} }) protected navigateParam?: any;
+
+    /**
+     * 导航上下文
+     *
+     * @type {*}
+     * @memberof AppSelect
+     */
+    @Prop({ default: () => {}}) protected navigateContext?: any;
+
+    /**
       * 当前值项
       *
       * @type {*}
@@ -128,13 +160,13 @@ export default class AppSpan extends Vue {
         if (Object.is(this.codeListType, "STATIC")) {
             return;
         }
-        if (!this.isCached) {
-            // Loading.show(this.$t('app.loadding'));
+        let param: any = {context:{},param:{}};
+        this.handleOtherParam(param);
+        let tempParam = param.param;
+        if(tempParam){
+            Object.assign(tempParam,this.queryParam);
         }
-        let response: any = await this.codeListService.getItems(this.tag, { ...this.context }, this.queryParam);
-        if (!this.isCached) {
-            // Loading.hidden();
-        }
+        let response: any = await this.codeListService.getItems(this.tag, param.context,tempParam);
         if (response) {
             this.items = response;
             this.setText();
@@ -144,6 +176,20 @@ export default class AppSpan extends Vue {
         } else {
             this.items = [];
         }
+    }
+
+    /**
+     * 处理额外参数
+     */
+    public handleOtherParam(arg: any) {
+        if (!this.data) {
+            return false;
+        }
+        // 附加参数处理
+        const { context, param } = this.$viewTool.formatNavigateParam(this.navigateContext, this.navigateParam, this.context, this.viewparams, this.data);
+        arg.context = context;
+        arg.param = param;
+        return true;
     }
 
     /**

@@ -175,6 +175,8 @@ export default class ChartFormLegend extends Vue {
   public setlegendGrid(source: any) {
     // 添加图例表格数据
     this.legendList=[...source];
+    // 设置空白值
+    this.setBaseValue();
     // 计算百分比
     this.calcPercent();
     // 设置图例颜色
@@ -196,6 +198,19 @@ export default class ChartFormLegend extends Vue {
       tempOption.title.text = '';
     }
     return tempOption;
+  }
+
+  /**
+   * 设置空白值
+   * 
+   * @memberof ChartFormLegend
+   */
+  public setBaseValue(){
+    this.legendList.forEach((legend: any)=>{
+        if(Object.is(legend[this.itemName],this.$t('app.chart.undefined'))){
+          legend[this.itemName] = '';
+        }
+    });
   }
 
   /**

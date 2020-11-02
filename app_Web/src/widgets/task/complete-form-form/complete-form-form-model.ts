@@ -92,6 +92,8 @@ export default class CompleteFormModel {
       },
       {
         name: 'files',
+        prop: 'files',
+        dataType: 'TEXT',
       },
       {
         name: 'comment',

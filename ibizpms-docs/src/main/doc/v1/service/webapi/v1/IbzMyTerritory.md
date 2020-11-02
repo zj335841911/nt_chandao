@@ -12,12 +12,12 @@ POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | ibzmyterritorydto | [IbzMyTerritoryDTO](#IbzMyTerritoryDTO) | 我的地盘实体传输对象 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | [IbzMyTerritoryDTO](#IbzMyTerritoryDTO)：我的地盘实体传输对象 |
 
@@ -30,12 +30,12 @@ POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | ibzmyterritorydtos | List<[IbzMyTerritoryDTO](#IbzMyTerritoryDTO)> | 我的地盘实体传输对象列表 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | true：处理成功。false：处理失败。 |
 
@@ -48,13 +48,13 @@ PUT
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | ibzmyterritory_id | Long | 我的地盘主键ID |
 | 2 | ibzmyterritorydto | [IbzMyTerritoryDTO](#IbzMyTerritoryDTO) | 我的地盘实体传输对象 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | [IbzMyTerritoryDTO](#IbzMyTerritoryDTO)：我的地盘实体传输对象 |
 
@@ -67,12 +67,12 @@ PUT
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | ibzmyterritorydtos | List<[IbzMyTerritoryDTO](#IbzMyTerritoryDTO)> | 我的地盘实体传输对象列表 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | true：处理成功。false：处理失败。 |
 
@@ -85,12 +85,12 @@ DELETE
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | ibzmyterritory_id | Long | 我的地盘主键ID |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | true：处理成功。false：处理失败。 |
 
@@ -103,12 +103,12 @@ DELETE
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | ids | List<Long> | 我的地盘主键ID列表 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | true：处理成功。false：处理失败。 |
 
@@ -121,12 +121,12 @@ GET
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | ibzmyterritory_id | Long | 我的地盘主键ID |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | [IbzMyTerritoryDTO](#IbzMyTerritoryDTO)：我的地盘实体传输对象 |
 
@@ -139,12 +139,12 @@ POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | ibzmyterritorydto | [IbzMyTerritoryDTO](#IbzMyTerritoryDTO) | 我的地盘实体传输对象 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | true：处理成功。false：处理失败。 |
 
@@ -160,7 +160,7 @@ POST
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | [IbzMyTerritoryDTO](#IbzMyTerritoryDTO)：我的地盘实体传输对象 |
 
@@ -176,7 +176,7 @@ POST
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | [IbzMyTerritoryDTO](#IbzMyTerritoryDTO)：我的地盘实体传输对象 |
 
@@ -192,7 +192,7 @@ POST
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | [IbzMyTerritoryDTO](#IbzMyTerritoryDTO)：我的地盘实体传输对象 |
 
@@ -205,12 +205,12 @@ POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | ibzmyterritorydto | [IbzMyTerritoryDTO](#IbzMyTerritoryDTO) | 我的地盘实体传输对象 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | true：处理成功。false：处理失败。 |
 
@@ -223,12 +223,12 @@ POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | ibzmyterritorydtos | List<[IbzMyTerritoryDTO](#IbzMyTerritoryDTO)> | 我的地盘实体传输对象列表 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | true：处理成功。false：处理失败。 |
 
@@ -241,12 +241,12 @@ GET
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | context | [IbzMyTerritorySearchContext](#IbzMyTerritorySearchContext) | 我的地盘查询条件对象 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | List<[IbzMyTerritoryDTO](#IbzMyTerritoryDTO)>：我的地盘实体传输对象列表 |
 
@@ -259,12 +259,12 @@ POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | context | [IbzMyTerritorySearchContext](#IbzMyTerritorySearchContext) | 我的地盘查询条件对象 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | Page<[IbzMyTerritoryDTO](#IbzMyTerritoryDTO)>：我的地盘实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
 
@@ -277,12 +277,12 @@ GET
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | context | [IbzMyTerritorySearchContext](#IbzMyTerritorySearchContext) | 我的地盘查询条件对象 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | List<[IbzMyTerritoryDTO](#IbzMyTerritoryDTO)>：我的地盘实体传输对象列表 |
 
@@ -295,12 +295,12 @@ POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | context | [IbzMyTerritorySearchContext](#IbzMyTerritorySearchContext) | 我的地盘查询条件对象 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | Page<[IbzMyTerritoryDTO](#IbzMyTerritoryDTO)>：我的地盘实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
 
@@ -313,12 +313,12 @@ GET
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | context | [IbzMyTerritorySearchContext](#IbzMyTerritorySearchContext) | 我的地盘查询条件对象 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | List<[IbzMyTerritoryDTO](#IbzMyTerritoryDTO)>：我的地盘实体传输对象列表 |
 
@@ -331,12 +331,12 @@ POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | context | [IbzMyTerritorySearchContext](#IbzMyTerritorySearchContext) | 我的地盘查询条件对象 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | Page<[IbzMyTerritoryDTO](#IbzMyTerritoryDTO)>：我的地盘实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
 
@@ -349,12 +349,12 @@ GET
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | context | [IbzMyTerritorySearchContext](#IbzMyTerritorySearchContext) | 我的地盘查询条件对象 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | List<[IbzMyTerritoryDTO](#IbzMyTerritoryDTO)>：我的地盘实体传输对象列表 |
 
@@ -367,12 +367,12 @@ POST
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | context | [IbzMyTerritorySearchContext](#IbzMyTerritorySearchContext) | 我的地盘查询条件对象 |
 
 #### 返回说明
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | Page<[IbzMyTerritoryDTO](#IbzMyTerritoryDTO)>：我的地盘实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
 
@@ -380,7 +380,7 @@ POST
 ### 数据类型说明
 #### IbzMyTerritoryDTO
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
-| -- | -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- | ---- |
 | 1 | fails | Integer | 允许 | fails |
 | 2 | address | String | 允许 | 通讯地址 |
 | 3 | password | String | 允许 | 密码 |
@@ -433,7 +433,7 @@ POST
 
 #### IbzMyTerritorySearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
-| -- | -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- | ---- |
 | 1 | n_account_eq | String | 允许 | 条件字段：account<br>条件组合方式：`=` |
 | 2 | n_realname_like | String | 允许 | 条件字段：realname<br>条件组合方式：`%like%` |
 | 3 | n_gender_eq | String | 允许 | 条件字段：gender<br>条件组合方式：`=` |

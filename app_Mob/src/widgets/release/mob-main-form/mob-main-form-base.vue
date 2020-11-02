@@ -33,8 +33,12 @@
     :error="detailsModel.name.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.name" 
-    :context="context" 
+    v-if="data.name"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.name" 
     :itemParam="{}"/>
 </app-form-item>
@@ -57,8 +61,12 @@
     :error="detailsModel.date.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.date" 
-    :context="context" 
+    v-if="data.date"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.date" 
     :itemParam="{}"/>
 </app-form-item>
@@ -81,8 +89,12 @@
     :error="detailsModel.buildname.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.buildname" 
-    :context="context" 
+    v-if="data.buildname"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.buildname" 
     :itemParam="{}"/>
 </app-form-item>
@@ -105,11 +117,15 @@
     :error="detailsModel.marker.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        codeListType="STATIC" 
+    codeListType="STATIC" 
     tag="YesNo"
     :isCache="false" 
-    v-if="data.marker" 
-    :context="context" 
+    v-if="data.marker"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.marker" 
     :itemParam="{}"/>
 </app-form-item>
@@ -132,11 +148,15 @@
     :error="detailsModel.status.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        codeListType="STATIC" 
+    codeListType="STATIC" 
     tag="Release__status"
     :isCache="false" 
-    v-if="data.status" 
-    :context="context" 
+    v-if="data.status"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.status" 
     :itemParam="{}"/>
 </app-form-item>

@@ -33,8 +33,12 @@
     :error="detailsModel.sys_update_logname.error" 
     :isEmptyCaption="true">
         <app-mob-span  
-        v-if="data.sys_update_logname" 
-    :context="context" 
+    v-if="data.sys_update_logname"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.sys_update_logname" 
     :itemParam="{}"/>
 </app-form-item>
@@ -57,8 +61,12 @@
     :error="detailsModel.update.error" 
     :isEmptyCaption="true">
         <app-mob-span  
-        v-if="data.update" 
-    :context="context" 
+    v-if="data.update"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.update" 
     :itemParam="{}"/>
 </app-form-item>

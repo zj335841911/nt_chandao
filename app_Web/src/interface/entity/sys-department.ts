@@ -31,6 +31,22 @@ export interface SysDepartment {
     deptname?: any;
 
     /**
+     * 单位
+     *
+     * @returns {*}
+     * @memberof SysDepartment
+     */
+    orgid?: any;
+
+    /**
+     * 上级部门
+     *
+     * @returns {*}
+     * @memberof SysDepartment
+     */
+    parentdeptid?: any;
+
+    /**
      * 部门简称
      *
      * @returns {*}
@@ -87,6 +103,22 @@ export interface SysDepartment {
     leadername?: any;
 
     /**
+     * 单位
+     *
+     * @returns {*}
+     * @memberof SysDepartment
+     */
+    orgname?: any;
+
+    /**
+     * 上级部门
+     *
+     * @returns {*}
+     * @memberof SysDepartment
+     */
+    parentdeptname?: any;
+
+    /**
      * 建立时间
      *
      * @returns {*}
@@ -125,36 +157,4 @@ export interface SysDepartment {
      * @memberof SysDepartment
      */
     updatedate?: any;
-
-    /**
-     * 上级部门标识
-     *
-     * @returns {*}
-     * @memberof SysDepartment
-     */
-    pdeptid?: any;
-
-    /**
-     * 上级部门
-     *
-     * @returns {*}
-     * @memberof SysDepartment
-     */
-    pdeptname?: any;
-
-    /**
-     * 组织标识
-     *
-     * @returns {*}
-     * @memberof SysDepartment
-     */
-    orgid?: any;
-
-    /**
-     * 单位
-     *
-     * @returns {*}
-     * @memberof SysDepartment
-     */
-    orgname?: any;
 }

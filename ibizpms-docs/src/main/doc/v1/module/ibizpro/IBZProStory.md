@@ -7,7 +7,7 @@
 
 ## 实体属性
 | 序号 | 属性 | 属性名 | 数据类型 | 主键 | 外键 | 允许为空 |
-| -- | -- | -- | -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- | ---- | ---- | ---- |
 | 1 | [编号](#属性-编号（ID）) | ID | 自增标识，整数类型，用户不可见 | 是 | 否 | 否 |
 | 2 | [需求名称](#属性-需求名称（TITLE）) | TITLE | 文本，可指定长度 | 否 | 否 | 否 |
 | 3 | [id](#属性-id（MODULE）) | MODULE | 外键值 | 否 | 是 | 是 |
@@ -79,7 +79,7 @@ Long
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
 | 关系属性 | [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -111,7 +111,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
 | 关系属性 | [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -143,7 +143,7 @@ Long
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [需求模块（IBZPRO_STORYMODULE）](../ibizpro/IBZProStoryModule) |
 | 关系属性 | [id（ID）](../ibizpro/IBZProStoryModule/#属性-id（ID）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -175,7 +175,7 @@ Long
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
 | 关系属性 | [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -207,7 +207,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
 | 关系属性 | [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -230,7 +230,7 @@ String
 
 #### 默认值
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 类型 |  |
 | 值 | iBiz |
 
@@ -242,7 +242,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
 | 关系属性 | [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -274,7 +274,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
 | 关系属性 | [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -306,7 +306,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
 | 关系属性 | [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -338,7 +338,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
 | 关系属性 | [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -370,7 +370,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
 | 关系属性 | [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -393,7 +393,7 @@ Integer
 
 #### 默认值
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 类型 |  |
 | 值 | 1 |
 
@@ -405,7 +405,7 @@ Integer
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
 | 关系属性 | [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -437,7 +437,7 @@ Double
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
 | 关系属性 | [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -469,7 +469,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
 | 关系属性 | [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -501,7 +501,7 @@ yyyy-MM-dd HH:mm:ss
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
 | 关系属性 | [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -533,7 +533,7 @@ yyyy-MM-dd HH:mm:ss
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
 | 关系属性 | [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -556,7 +556,7 @@ String
 
 #### 默认值
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 类型 |  |
 | 值 | 0 |
 
@@ -568,7 +568,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
 | 关系属性 | [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -600,7 +600,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
 | 关系属性 | [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -632,7 +632,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
 | 关系属性 | [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -664,7 +664,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
 | 关系属性 | [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -696,7 +696,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
 | 关系属性 | [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -728,7 +728,7 @@ Integer
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
 | 关系属性 | [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -760,7 +760,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
 | 关系属性 | [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -792,7 +792,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
 | 关系属性 | [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -824,7 +824,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
 | 关系属性 | [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -856,7 +856,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
 | 关系属性 | [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -888,7 +888,7 @@ yyyy-MM-dd HH:mm:ss
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
 | 关系属性 | [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -920,7 +920,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
 | 关系属性 | [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -952,7 +952,7 @@ yyyy-MM-dd
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
 | 关系属性 | [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -984,7 +984,7 @@ Integer
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
 | 关系属性 | [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -1016,7 +1016,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
 | 关系属性 | [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -1048,7 +1048,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
 | 关系属性 | [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -1080,7 +1080,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
 | 关系属性 | [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -1112,7 +1112,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
 | 关系属性 | [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -1144,7 +1144,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
 | 关系属性 | [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -1176,7 +1176,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
 | 关系属性 | [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -1208,7 +1208,7 @@ yyyy-MM-dd HH:mm:ss
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
 | 关系属性 | [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -1240,7 +1240,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
 | 关系属性 | [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -1272,7 +1272,7 @@ Integer
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
 | 关系属性 | [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -1304,7 +1304,7 @@ Integer
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
 | 关系属性 | [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -1336,7 +1336,7 @@ Integer
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
 | 关系属性 | [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -1368,7 +1368,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
 | 关系属性 | [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -1400,7 +1400,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
 | 关系属性 | [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -1432,7 +1432,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) |
 | 关系属性 | [编号（ID）](../ibizpro/IBZProProduct/#属性-编号（ID）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -1443,7 +1443,7 @@ String
 
 ## 实体行为
 | 序号 | 行为 | 行为名 | 行为类型 | 行为持有者 |
-| -- | -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- | ---- |
 | 1 | [Create](#实体行为-Create（Create）) | Create | 内置方法 | 后台及前台 |
 | 2 | [Update](#实体行为-Update（Update）) | Update | 内置方法 | 后台及前台 |
 | 3 | [Remove](#实体行为-Remove（Remove）) | Remove | 内置方法 | 后台及前台 |

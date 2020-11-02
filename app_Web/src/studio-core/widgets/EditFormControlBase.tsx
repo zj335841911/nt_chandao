@@ -12,6 +12,13 @@ import { FormControlBase } from './FormControlBase';
 export class EditFormControlBase extends FormControlBase {
 
     /**
+     * 表单项校验错误提示信息
+     * 
+     *  @memberof EditFormControlBase
+     */
+    public errorMessages: Array<any> = [];
+
+    /**
      * 关系界面数量
      *
      * @protected
@@ -321,6 +328,28 @@ export class EditFormControlBase extends FormControlBase {
     }
 
     /**
+     * 设置表单项错误提示信息
+     * 
+     * @param {*} prop 表单项字段名
+     * @param {*} status 校验状态
+     * @param {*} error 错误信息
+     * @memberof EditFormControlBase
+     */
+    public formItemValidate(prop: string,status: boolean, error: string){
+        error = error ? error : '';
+        if(this.errorMessages && this.errorMessages.length > 0){
+            const index = this.errorMessages.findIndex((errorMessage:any) => Object.is(errorMessage.prop,prop));
+            if(index != -1){
+                this.errorMessages[index].error = error;
+            }else{
+                this.errorMessages.push({prop: prop,error: error});
+            }
+        }else{
+            this.errorMessages.push({prop: prop,error: error});
+        }
+    }
+
+    /**
      * 保存
      *
      * @param {*} [opt={}]
@@ -333,7 +362,15 @@ export class EditFormControlBase extends FormControlBase {
         return new Promise((resolve: any, reject: any) => {
             showResultInfo = showResultInfo === undefined ? true : false;
             if (!this.formValidateStatus()) {
-                this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: (this.$t('app.formpage.valuecheckex') as string) });
+                if(this.errorMessages && this.errorMessages.length > 0) {
+                    let descMessage: string = '';
+                    this.errorMessages.forEach((message: any) => {
+                        descMessage = descMessage + '<p>' + message.error + '<p>';
+                    })
+                    this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: descMessage });
+                } else {
+                    this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: (this.$t('app.formpage.valuecheckex') as string) });
+                }
                 return;
             }
             const arg: any = { ...opt };

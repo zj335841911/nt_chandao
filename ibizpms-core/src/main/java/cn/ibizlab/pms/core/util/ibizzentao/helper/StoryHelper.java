@@ -74,6 +74,7 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
         String strVerify = et.getVerify();
         fileHelper.processImgURL(et, null, null);
         et.setVersion(1);
+        et.setReviewedby("");
         et.setAssigneddate(et.getAssignedto() != null ? ZTDateUtil.now() : ZTDateUtil.nul());
         et.setStatus((et.getNeednotreview() == null || "".equals(et.getNeednotreview()) || !StaticDict.NeedNotReviewNew.ITEM_1.getValue().equals(et.getNeednotreview())) ? StaticDict.Story__status.DRAFT.getValue() : StaticDict.Story__status.ACTIVE.getValue());
         if(StaticDict.Story__status.DRAFT.getValue().equals(et.getStatus())) {

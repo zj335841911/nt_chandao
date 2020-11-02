@@ -82,6 +82,8 @@ export class CompleteFormMobModel {
             },
             {
                 name: 'files',
+                prop: 'files',
+                dataType: 'TEXT',
             },
             {
                 name: 'multiple',

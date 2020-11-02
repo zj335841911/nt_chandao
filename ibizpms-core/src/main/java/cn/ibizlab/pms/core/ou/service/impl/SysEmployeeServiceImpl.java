@@ -136,6 +136,46 @@ public class SysEmployeeServiceImpl implements ISysEmployeeService {
 
 
 
+	@Override
+    public List<SysEmployee> selectByMdeptid(String deptid) {
+        SysEmployeeSearchContext context=new SysEmployeeSearchContext();
+        context.setSize(Integer.MAX_VALUE);
+        context.setN_mdeptid_eq(deptid);
+        return sysEmployeeFeignClient.searchDefault(context).getContent();
+    }
+
+
+    @Override
+    public void removeByMdeptid(String deptid) {
+        Set<String> delIds=new HashSet<String>();
+        for(SysEmployee before:selectByMdeptid(deptid)){
+            delIds.add(before.getUserid());
+        }
+        if(delIds.size()>0)
+            this.removeBatch(delIds);
+    }
+
+
+	@Override
+    public List<SysEmployee> selectByOrgid(String orgid) {
+        SysEmployeeSearchContext context=new SysEmployeeSearchContext();
+        context.setSize(Integer.MAX_VALUE);
+        context.setN_orgid_eq(orgid);
+        return sysEmployeeFeignClient.searchDefault(context).getContent();
+    }
+
+
+    @Override
+    public void removeByOrgid(String orgid) {
+        Set<String> delIds=new HashSet<String>();
+        for(SysEmployee before:selectByOrgid(orgid)){
+            delIds.add(before.getUserid());
+        }
+        if(delIds.size()>0)
+            this.removeBatch(delIds);
+    }
+
+
 
 
     /**

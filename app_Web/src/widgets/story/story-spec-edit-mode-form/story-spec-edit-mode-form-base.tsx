@@ -258,12 +258,15 @@ export class StorySpec_EditModeEditFormBase extends EditFormControlBase {
     }
 
     /**
-     * 新建默认值
+     * 更新默认值
      * @memberof StorySpec_EditModeEditFormBase
      */
-    public createDefault(){                    
-        if (this.data.hasOwnProperty('neednotreview')) {
-            this.data['neednotreview'] = '0';
+    public updateDefault(){                    
+        if (this.data.hasOwnProperty('reviewedby') && !this.data.reviewedby) {
+            this.data['reviewedby'] = '1';
+        }
+        if (this.data.hasOwnProperty('neednotreview') && !this.data.neednotreview) {
+            this.data['neednotreview'] = '1';
         }
     }
 }

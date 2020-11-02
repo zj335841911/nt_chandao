@@ -7,7 +7,7 @@
 
 ## 实体属性
 | 序号 | 属性 | 属性名 | 数据类型 | 主键 | 外键 | 允许为空 |
-| -- | -- | -- | -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- | ---- | ---- | ---- |
 | 1 | [由谁取消](#属性-由谁取消（CANCELEDBY）) | CANCELEDBY | 单项选择(文本值) | 否 | 否 | 是 |
 | 2 | [预计剩余](#属性-预计剩余（LEFT）) | LEFT | 浮点 | 否 | 否 | 是 |
 | 3 | [创建日期](#属性-创建日期（OPENEDDATE）) | OPENEDDATE | 日期时间型 | 否 | 否 | 是 |
@@ -89,7 +89,7 @@ String
 
 #### 默认值
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 类型 |  |
 | 值 |  |
 
@@ -101,7 +101,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) |
 | 关系属性 | [path（PATH）](../ibiz/ProjectModule/#属性-path（PATH）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -124,7 +124,7 @@ Double
 
 #### 默认值
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 类型 |  |
 | 值 | 0 |
 
@@ -136,7 +136,7 @@ Double
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) |
 | 关系属性 | [path（PATH）](../ibiz/ProjectModule/#属性-path（PATH）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -168,7 +168,7 @@ yyyy-MM-dd HH:mm:ss
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) |
 | 关系属性 | [path（PATH）](../ibiz/ProjectModule/#属性-path（PATH）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -191,7 +191,7 @@ String
 
 #### 默认值
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 类型 |  |
 | 值 |  |
 
@@ -203,7 +203,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) |
 | 关系属性 | [path（PATH）](../ibiz/ProjectModule/#属性-path（PATH）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -235,7 +235,7 @@ Long
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) |
 | 关系属性 | [path（PATH）](../ibiz/ProjectModule/#属性-path（PATH）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -258,7 +258,7 @@ String
 
 #### 默认值
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 类型 |  |
 | 值 |  |
 
@@ -270,7 +270,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) |
 | 关系属性 | [path（PATH）](../ibiz/ProjectModule/#属性-path（PATH）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -293,7 +293,7 @@ String
 
 #### 默认值
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 类型 |  |
 | 值 |  |
 
@@ -305,7 +305,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) |
 | 关系属性 | [path（PATH）](../ibiz/ProjectModule/#属性-path（PATH）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -337,7 +337,7 @@ yyyy-MM-dd
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) |
 | 关系属性 | [path（PATH）](../ibiz/ProjectModule/#属性-path（PATH）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -360,7 +360,7 @@ String
 
 #### 默认值
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 类型 |  |
 | 值 |  |
 
@@ -372,7 +372,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) |
 | 关系属性 | [path（PATH）](../ibiz/ProjectModule/#属性-path（PATH）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -395,7 +395,7 @@ String
 
 #### 默认值
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 类型 |  |
 | 值 |  |
 
@@ -407,7 +407,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) |
 | 关系属性 | [path（PATH）](../ibiz/ProjectModule/#属性-path（PATH）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -430,7 +430,7 @@ String
 
 #### 默认值
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 类型 |  |
 | 值 |  |
 
@@ -442,7 +442,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) |
 | 关系属性 | [path（PATH）](../ibiz/ProjectModule/#属性-path（PATH）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -474,7 +474,7 @@ yyyy-MM-dd HH:mm:ss
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) |
 | 关系属性 | [path（PATH）](../ibiz/ProjectModule/#属性-path（PATH）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -506,7 +506,7 @@ yyyy-MM-dd HH:mm:ss
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) |
 | 关系属性 | [path（PATH）](../ibiz/ProjectModule/#属性-path（PATH）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -529,7 +529,7 @@ Integer
 
 #### 默认值
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 类型 |  |
 | 值 | 3 |
 
@@ -541,7 +541,7 @@ Integer
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) |
 | 关系属性 | [path（PATH）](../ibiz/ProjectModule/#属性-path（PATH）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -573,7 +573,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) |
 | 关系属性 | [path（PATH）](../ibiz/ProjectModule/#属性-path（PATH）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -596,7 +596,7 @@ String
 
 #### 默认值
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 类型 |  |
 | 值 | wait |
 
@@ -608,7 +608,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) |
 | 关系属性 | [path（PATH）](../ibiz/ProjectModule/#属性-path（PATH）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -640,7 +640,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) |
 | 关系属性 | [path（PATH）](../ibiz/ProjectModule/#属性-path（PATH）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -672,7 +672,7 @@ yyyy-MM-dd HH:mm:ss
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) |
 | 关系属性 | [path（PATH）](../ibiz/ProjectModule/#属性-path（PATH）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -695,7 +695,7 @@ String
 
 #### 默认值
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 类型 |  |
 | 值 | devel |
 
@@ -707,7 +707,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) |
 | 关系属性 | [path（PATH）](../ibiz/ProjectModule/#属性-path（PATH）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -730,7 +730,7 @@ String
 
 #### 默认值
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 类型 |  |
 | 值 |  |
 
@@ -742,7 +742,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) |
 | 关系属性 | [path（PATH）](../ibiz/ProjectModule/#属性-path（PATH）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -765,7 +765,7 @@ String
 
 #### 默认值
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 类型 |  |
 | 值 |  |
 
@@ -777,7 +777,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) |
 | 关系属性 | [path（PATH）](../ibiz/ProjectModule/#属性-path（PATH）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -809,7 +809,7 @@ yyyy-MM-dd
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) |
 | 关系属性 | [path（PATH）](../ibiz/ProjectModule/#属性-path（PATH）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -841,7 +841,7 @@ yyyy-MM-dd
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) |
 | 关系属性 | [path（PATH）](../ibiz/ProjectModule/#属性-path（PATH）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -864,7 +864,7 @@ String
 
 #### 默认值
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 类型 |  |
 | 值 | 0 |
 
@@ -876,7 +876,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) |
 | 关系属性 | [path（PATH）](../ibiz/ProjectModule/#属性-path（PATH）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -899,7 +899,7 @@ String
 
 #### 默认值
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 类型 |  |
 | 值 |  |
 
@@ -911,7 +911,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) |
 | 关系属性 | [path（PATH）](../ibiz/ProjectModule/#属性-path（PATH）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -934,7 +934,7 @@ Double
 
 #### 默认值
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 类型 |  |
 | 值 | 0 |
 
@@ -946,7 +946,7 @@ Double
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) |
 | 关系属性 | [path（PATH）](../ibiz/ProjectModule/#属性-path（PATH）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -969,7 +969,7 @@ Double
 
 #### 默认值
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 类型 |  |
 | 值 | 0 |
 
@@ -981,7 +981,7 @@ Double
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) |
 | 关系属性 | [path（PATH）](../ibiz/ProjectModule/#属性-path（PATH）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -1013,7 +1013,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) |
 | 关系属性 | [path（PATH）](../ibiz/ProjectModule/#属性-path（PATH）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -1045,7 +1045,7 @@ yyyy-MM-dd HH:mm:ss
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) |
 | 关系属性 | [path（PATH）](../ibiz/ProjectModule/#属性-path（PATH）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -1077,7 +1077,7 @@ yyyy-MM-dd
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) |
 | 关系属性 | [path（PATH）](../ibiz/ProjectModule/#属性-path（PATH）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -1109,7 +1109,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) |
 | 关系属性 | [名称（NAME）](../ibiz/ProjectModule/#属性-名称（NAME）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -1141,7 +1141,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [需求（ZT_STORY）](../zentao/Story) |
 | 关系属性 | [需求名称（TITLE）](../zentao/Story/#属性-需求名称（TITLE）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -1173,7 +1173,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
 | 关系属性 | [项目名称（NAME）](../zentao/Project/#属性-项目名称（NAME）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -1205,7 +1205,7 @@ Long
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [需求（ZT_STORY）](../zentao/Story) |
 | 关系属性 | [所属产品（PRODUCT）](../zentao/Story/#属性-所属产品（PRODUCT）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -1228,7 +1228,7 @@ Integer
 
 #### 默认值
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 类型 |  |
 | 值 | 1 |
 
@@ -1240,7 +1240,7 @@ Integer
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [需求（ZT_STORY）](../zentao/Story) |
 | 关系属性 | [版本号（VERSION）](../zentao/Story/#属性-版本号（VERSION）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -1272,7 +1272,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [需求（ZT_STORY）](../zentao/Story) |
 | 关系属性 | [产品名称（PRODOCTNAME）](../zentao/Story/#属性-产品名称（PRODOCTNAME）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -1304,7 +1304,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [任务（ZT_TASK）](../zentao/Task) |
 | 关系属性 | [任务名称（NAME）](../zentao/Task/#属性-任务名称（NAME）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -1327,7 +1327,7 @@ Long
 
 #### 默认值
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 类型 |  |
 | 值 | 0 |
 
@@ -1339,7 +1339,7 @@ Long
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
 | 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -1362,7 +1362,7 @@ Long
 
 #### 默认值
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 类型 |  |
 | 值 | 0 |
 
@@ -1374,7 +1374,7 @@ Long
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [需求（ZT_STORY）](../zentao/Story) |
 | 关系属性 | [编号（ID）](../zentao/Story/#属性-编号（ID）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -1397,7 +1397,7 @@ Long
 
 #### 默认值
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 类型 |  |
 | 值 | 0 |
 
@@ -1409,7 +1409,7 @@ Long
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [任务（ZT_TASK）](../zentao/Task) |
 | 关系属性 | [编号（ID）](../zentao/Task/#属性-编号（ID）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -1432,7 +1432,7 @@ Long
 
 #### 默认值
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 类型 |  |
 | 值 | 0 |
 
@@ -1444,7 +1444,7 @@ Long
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [Bug（ZT_BUG）](../zentao/Bug) |
 | 关系属性 | [Bug编号（ID）](../zentao/Bug/#属性-Bug编号（ID）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -1476,7 +1476,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [Bug（ZT_BUG）](../zentao/Bug) |
 | 关系属性 | [Bug编号（ID）](../zentao/Bug/#属性-Bug编号（ID）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -1499,7 +1499,7 @@ Long
 
 #### 默认值
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 类型 |  |
 | 值 | 0 |
 
@@ -1511,7 +1511,7 @@ Long
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) |
 | 关系属性 | [id（ID）](../ibiz/ProjectModule/#属性-id（ID）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -1543,7 +1543,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) |
 | 关系属性 | [path（PATH）](../ibiz/ProjectModule/#属性-path（PATH）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -1575,7 +1575,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) |
 | 关系属性 | [path（PATH）](../ibiz/ProjectModule/#属性-path（PATH）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -1598,7 +1598,7 @@ Double
 
 #### 默认值
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 类型 |  |
 | 值 | 0 |
 
@@ -1610,7 +1610,7 @@ Double
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) |
 | 关系属性 | [path（PATH）](../ibiz/ProjectModule/#属性-path（PATH）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -1642,7 +1642,7 @@ Double
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) |
 | 关系属性 | [path（PATH）](../ibiz/ProjectModule/#属性-path（PATH）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -1674,7 +1674,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) |
 | 关系属性 | [path（PATH）](../ibiz/ProjectModule/#属性-path（PATH）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -1697,7 +1697,7 @@ String
 
 #### 默认值
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 类型 |  |
 | 值 | 1 |
 
@@ -1709,7 +1709,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) |
 | 关系属性 | [path（PATH）](../ibiz/ProjectModule/#属性-path（PATH）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -1741,7 +1741,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) |
 | 关系属性 | [path（PATH）](../ibiz/ProjectModule/#属性-path（PATH）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -1773,7 +1773,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) |
 | 关系属性 | [path（PATH）](../ibiz/ProjectModule/#属性-path（PATH）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -1805,7 +1805,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) |
 | 关系属性 | [path（PATH）](../ibiz/ProjectModule/#属性-path（PATH）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -1837,7 +1837,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) |
 | 关系属性 | [path（PATH）](../ibiz/ProjectModule/#属性-path（PATH）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -1869,7 +1869,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) |
 | 关系属性 | [path（PATH）](../ibiz/ProjectModule/#属性-path（PATH）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -1901,7 +1901,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) |
 | 关系属性 | [path（PATH）](../ibiz/ProjectModule/#属性-path（PATH）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -1933,7 +1933,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) |
 | 关系属性 | [path（PATH）](../ibiz/ProjectModule/#属性-path（PATH）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -1965,7 +1965,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) |
 | 关系属性 | [path（PATH）](../ibiz/ProjectModule/#属性-path（PATH）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -1997,7 +1997,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) |
 | 关系属性 | [path（PATH）](../ibiz/ProjectModule/#属性-path（PATH）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -2029,7 +2029,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) |
 | 关系属性 | [path（PATH）](../ibiz/ProjectModule/#属性-path（PATH）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -2061,7 +2061,7 @@ Integer
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) |
 | 关系属性 | [path（PATH）](../ibiz/ProjectModule/#属性-path（PATH）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -2093,7 +2093,7 @@ String
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) |
 | 关系属性 | [path（PATH）](../ibiz/ProjectModule/#属性-path（PATH）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -2125,7 +2125,7 @@ yyyy-MM-dd
 
 #### 关系属性
 | 项目 | 说明 |
-| -- | -- |
+| ---- | ---- |
 | 关系实体 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) |
 | 关系属性 | [path（PATH）](../ibiz/ProjectModule/#属性-path（PATH）) |
 | 关系类型 | 关系属性 1:N 当前属性 |
@@ -2133,7 +2133,7 @@ yyyy-MM-dd
 
 ## 业务状态
 | 序号 | 状态名称 | [任务状态](#属性-任务状态（STATUS1）)<br>（STATUS1） | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | [任务类型](#属性-任务类型（TASKTYPE）)<br>（TASKTYPE） | 默认 |
-| -- | -- | -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- | ---- | ---- |
 | 1 | [已取消_未收藏_多人任务](#业务状态-已取消_未收藏_多人任务（cancel_0_10）) | cancel | 0 | 10 | 否 |
 | 2 | [已取消_未收藏_父任务](#业务状态-已取消_未收藏_父任务（cancel_0_20）) | cancel | 0 | 20 | 否 |
 | 3 | [已取消_未收藏_常规任务](#业务状态-已取消_未收藏_常规任务（cancel_0_30）) | cancel | 0 | 30 | 否 |
@@ -2199,7 +2199,7 @@ yyyy-MM-dd
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [任务状态](#属性-任务状态（STATUS1）)<br>（STATUS1） | cancel |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 0 |
 | [任务类型](#属性-任务类型（TASKTYPE）)<br>（TASKTYPE） | 10 |
@@ -2215,7 +2215,7 @@ yyyy-MM-dd
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [任务继续](#操作权限-任务继续（SRFUR__TASK_PROCEED_BUT）)<br>（SRFUR__TASK_PROCEED_BUT） |
 | 2 | [任务已收藏](#操作权限-任务已收藏（SRFUR__TASK_FAVOR_BUT）)<br>（SRFUR__TASK_FAVOR_BUT） |
 | 3 | [任务完成](#操作权限-任务完成（SRFUR__TASK_COMPLETE_BUT）)<br>（SRFUR__TASK_COMPLETE_BUT） |
@@ -2234,7 +2234,7 @@ yyyy-MM-dd
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [任务状态](#属性-任务状态（STATUS1）)<br>（STATUS1） | cancel |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 0 |
 | [任务类型](#属性-任务类型（TASKTYPE）)<br>（TASKTYPE） | 20 |
@@ -2250,7 +2250,7 @@ yyyy-MM-dd
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [任务继续](#操作权限-任务继续（SRFUR__TASK_PROCEED_BUT）)<br>（SRFUR__TASK_PROCEED_BUT） |
 | 2 | [任务删除](#操作权限-任务删除（SRFUR__TASK_DELETE_BUT）)<br>（SRFUR__TASK_DELETE_BUT） |
 | 3 | [任务工时](#操作权限-任务工时（SRFUR__TASK_CONSUM_BUT）)<br>（SRFUR__TASK_CONSUM_BUT） |
@@ -2273,7 +2273,7 @@ yyyy-MM-dd
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [任务状态](#属性-任务状态（STATUS1）)<br>（STATUS1） | cancel |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 0 |
 | [任务类型](#属性-任务类型（TASKTYPE）)<br>（TASKTYPE） | 30 |
@@ -2285,7 +2285,7 @@ yyyy-MM-dd
 允许模式：允许
 
 | 序号 | 实体行为 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [GetDraft](#实体行为-GetDraft（GetDraft）)<br>（GetDraft） |
 | 2 | [Create](#实体行为-Create（Create）)<br>（Create） |
 | 3 | [计算总耗时](#实体行为-计算总耗时（CalcTime）)<br>（CalcTime） |
@@ -2309,7 +2309,7 @@ yyyy-MM-dd
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [任务转交](#操作权限-任务转交（SRFUR__TASK_FORWARD_BUT）)<br>（SRFUR__TASK_FORWARD_BUT） |
 | 2 | [任务完成](#操作权限-任务完成（SRFUR__TASK_COMPLETE_BUT）)<br>（SRFUR__TASK_COMPLETE_BUT） |
 | 3 | [任务已收藏](#操作权限-任务已收藏（SRFUR__TASK_FAVOR_BUT）)<br>（SRFUR__TASK_FAVOR_BUT） |
@@ -2328,7 +2328,7 @@ yyyy-MM-dd
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [任务状态](#属性-任务状态（STATUS1）)<br>（STATUS1） | cancel |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 0 |
 | [任务类型](#属性-任务类型（TASKTYPE）)<br>（TASKTYPE） | 40 |
@@ -2344,7 +2344,7 @@ yyyy-MM-dd
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [任务确认需求变更](#操作权限-任务确认需求变更（SRFUR__TASK_XQCHANGE_BUT）)<br>（SRFUR__TASK_XQCHANGE_BUT） |
 | 2 | [任务开始](#操作权限-任务开始（SRFUR__TASK_START_BUT）)<br>（SRFUR__TASK_START_BUT） |
 | 3 | [任务取消](#操作权限-任务取消（SRFUR__TASK_CANCEL_BUT）)<br>（SRFUR__TASK_CANCEL_BUT） |
@@ -2364,7 +2364,7 @@ yyyy-MM-dd
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [任务状态](#属性-任务状态（STATUS1）)<br>（STATUS1） | cancel |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 1 |
 | [任务类型](#属性-任务类型（TASKTYPE）)<br>（TASKTYPE） | 10 |
@@ -2380,7 +2380,7 @@ yyyy-MM-dd
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [任务暂停](#操作权限-任务暂停（SRFUR__TASK_PAUSE_BUT）)<br>（SRFUR__TASK_PAUSE_BUT） |
 | 2 | [任务开始](#操作权限-任务开始（SRFUR__TASK_START_BUT）)<br>（SRFUR__TASK_START_BUT） |
 | 3 | [任务取消](#操作权限-任务取消（SRFUR__TASK_CANCEL_BUT）)<br>（SRFUR__TASK_CANCEL_BUT） |
@@ -2399,7 +2399,7 @@ yyyy-MM-dd
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [任务状态](#属性-任务状态（STATUS1）)<br>（STATUS1） | cancel |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 1 |
 | [任务类型](#属性-任务类型（TASKTYPE）)<br>（TASKTYPE） | 20 |
@@ -2415,7 +2415,7 @@ yyyy-MM-dd
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [任务删除](#操作权限-任务删除（SRFUR__TASK_DELETE_BUT）)<br>（SRFUR__TASK_DELETE_BUT） |
 | 2 | [任务继续](#操作权限-任务继续（SRFUR__TASK_PROCEED_BUT）)<br>（SRFUR__TASK_PROCEED_BUT） |
 | 3 | [任务确认需求变更](#操作权限-任务确认需求变更（SRFUR__TASK_XQCHANGE_BUT）)<br>（SRFUR__TASK_XQCHANGE_BUT） |
@@ -2438,7 +2438,7 @@ yyyy-MM-dd
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [任务状态](#属性-任务状态（STATUS1）)<br>（STATUS1） | cancel |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 1 |
 | [任务类型](#属性-任务类型（TASKTYPE）)<br>（TASKTYPE） | 30 |
@@ -2454,7 +2454,7 @@ yyyy-MM-dd
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [任务暂停](#操作权限-任务暂停（SRFUR__TASK_PAUSE_BUT）)<br>（SRFUR__TASK_PAUSE_BUT） |
 | 2 | [任务待收藏](#操作权限-任务待收藏（SRFUR__TASK_NFAVOR_BUT）)<br>（SRFUR__TASK_NFAVOR_BUT） |
 | 3 | [任务完成](#操作权限-任务完成（SRFUR__TASK_COMPLETE_BUT）)<br>（SRFUR__TASK_COMPLETE_BUT） |
@@ -2473,7 +2473,7 @@ yyyy-MM-dd
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [任务状态](#属性-任务状态（STATUS1）)<br>（STATUS1） | cancel |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 1 |
 | [任务类型](#属性-任务类型（TASKTYPE）)<br>（TASKTYPE） | 40 |
@@ -2489,7 +2489,7 @@ yyyy-MM-dd
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [任务完成](#操作权限-任务完成（SRFUR__TASK_COMPLETE_BUT）)<br>（SRFUR__TASK_COMPLETE_BUT） |
 | 2 | [任务暂停](#操作权限-任务暂停（SRFUR__TASK_PAUSE_BUT）)<br>（SRFUR__TASK_PAUSE_BUT） |
 | 3 | [任务待收藏](#操作权限-任务待收藏（SRFUR__TASK_NFAVOR_BUT）)<br>（SRFUR__TASK_NFAVOR_BUT） |
@@ -2509,7 +2509,7 @@ yyyy-MM-dd
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [任务状态](#属性-任务状态（STATUS1）)<br>（STATUS1） | closed |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 0 |
 | [任务类型](#属性-任务类型（TASKTYPE）)<br>（TASKTYPE） | 10 |
@@ -2525,7 +2525,7 @@ yyyy-MM-dd
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [任务完成](#操作权限-任务完成（SRFUR__TASK_COMPLETE_BUT）)<br>（SRFUR__TASK_COMPLETE_BUT） |
 | 2 | [任务开始](#操作权限-任务开始（SRFUR__TASK_START_BUT）)<br>（SRFUR__TASK_START_BUT） |
 | 3 | [任务确认需求变更](#操作权限-任务确认需求变更（SRFUR__TASK_XQCHANGE_BUT）)<br>（SRFUR__TASK_XQCHANGE_BUT） |
@@ -2546,7 +2546,7 @@ yyyy-MM-dd
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [任务状态](#属性-任务状态（STATUS1）)<br>（STATUS1） | closed |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 0 |
 | [任务类型](#属性-任务类型（TASKTYPE）)<br>（TASKTYPE） | 20 |
@@ -2562,7 +2562,7 @@ yyyy-MM-dd
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [任务删除](#操作权限-任务删除（SRFUR__TASK_DELETE_BUT）)<br>（SRFUR__TASK_DELETE_BUT） |
 | 2 | [任务已收藏](#操作权限-任务已收藏（SRFUR__TASK_FAVOR_BUT）)<br>（SRFUR__TASK_FAVOR_BUT） |
 | 3 | [任务确认需求变更](#操作权限-任务确认需求变更（SRFUR__TASK_XQCHANGE_BUT）)<br>（SRFUR__TASK_XQCHANGE_BUT） |
@@ -2585,7 +2585,7 @@ yyyy-MM-dd
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [任务状态](#属性-任务状态（STATUS1）)<br>（STATUS1） | closed |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 0 |
 | [任务类型](#属性-任务类型（TASKTYPE）)<br>（TASKTYPE） | 30 |
@@ -2597,7 +2597,7 @@ yyyy-MM-dd
 允许模式：允许
 
 | 序号 | 实体行为 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [激活](#实体行为-激活（Activate）)<br>（Activate） |
 | 2 | [编辑工时](#实体行为-编辑工时（EditEstimate）)<br>（EditEstimate） |
 | 3 | [删除工时](#实体行为-删除工时（DeleteEstimate）)<br>（DeleteEstimate） |
@@ -2620,7 +2620,7 @@ yyyy-MM-dd
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [任务继续](#操作权限-任务继续（SRFUR__TASK_PROCEED_BUT）)<br>（SRFUR__TASK_PROCEED_BUT） |
 | 2 | [任务开始](#操作权限-任务开始（SRFUR__TASK_START_BUT）)<br>（SRFUR__TASK_START_BUT） |
 | 3 | [任务取消](#操作权限-任务取消（SRFUR__TASK_CANCEL_BUT）)<br>（SRFUR__TASK_CANCEL_BUT） |
@@ -2640,7 +2640,7 @@ yyyy-MM-dd
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [任务状态](#属性-任务状态（STATUS1）)<br>（STATUS1） | closed |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 0 |
 | [任务类型](#属性-任务类型（TASKTYPE）)<br>（TASKTYPE） | 40 |
@@ -2656,7 +2656,7 @@ yyyy-MM-dd
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [任务子任务](#操作权限-任务子任务（SRFUR__TASK_SUBTASKS_BUT）)<br>（SRFUR__TASK_SUBTASKS_BUT） |
 | 2 | [任务指派](#操作权限-任务指派（SRFUR__TASK_ASSIGN_BUT）)<br>（SRFUR__TASK_ASSIGN_BUT） |
 | 3 | [任务取消](#操作权限-任务取消（SRFUR__TASK_CANCEL_BUT）)<br>（SRFUR__TASK_CANCEL_BUT） |
@@ -2677,7 +2677,7 @@ yyyy-MM-dd
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [任务状态](#属性-任务状态（STATUS1）)<br>（STATUS1） | closed |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 1 |
 | [任务类型](#属性-任务类型（TASKTYPE）)<br>（TASKTYPE） | 10 |
@@ -2693,7 +2693,7 @@ yyyy-MM-dd
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [任务子任务](#操作权限-任务子任务（SRFUR__TASK_SUBTASKS_BUT）)<br>（SRFUR__TASK_SUBTASKS_BUT） |
 | 2 | [任务转交](#操作权限-任务转交（SRFUR__TASK_FORWARD_BUT）)<br>（SRFUR__TASK_FORWARD_BUT） |
 | 3 | [任务指派](#操作权限-任务指派（SRFUR__TASK_ASSIGN_BUT）)<br>（SRFUR__TASK_ASSIGN_BUT） |
@@ -2714,7 +2714,7 @@ yyyy-MM-dd
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [任务状态](#属性-任务状态（STATUS1）)<br>（STATUS1） | closed |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 1 |
 | [任务类型](#属性-任务类型（TASKTYPE）)<br>（TASKTYPE） | 20 |
@@ -2730,7 +2730,7 @@ yyyy-MM-dd
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [任务指派](#操作权限-任务指派（SRFUR__TASK_ASSIGN_BUT）)<br>（SRFUR__TASK_ASSIGN_BUT） |
 | 2 | [任务完成](#操作权限-任务完成（SRFUR__TASK_COMPLETE_BUT）)<br>（SRFUR__TASK_COMPLETE_BUT） |
 | 3 | [任务工时](#操作权限-任务工时（SRFUR__TASK_CONSUM_BUT）)<br>（SRFUR__TASK_CONSUM_BUT） |
@@ -2753,7 +2753,7 @@ yyyy-MM-dd
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [任务状态](#属性-任务状态（STATUS1）)<br>（STATUS1） | closed |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 1 |
 | [任务类型](#属性-任务类型（TASKTYPE）)<br>（TASKTYPE） | 30 |
@@ -2769,7 +2769,7 @@ yyyy-MM-dd
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [任务指派](#操作权限-任务指派（SRFUR__TASK_ASSIGN_BUT）)<br>（SRFUR__TASK_ASSIGN_BUT） |
 | 2 | [任务完成](#操作权限-任务完成（SRFUR__TASK_COMPLETE_BUT）)<br>（SRFUR__TASK_COMPLETE_BUT） |
 | 3 | [任务取消](#操作权限-任务取消（SRFUR__TASK_CANCEL_BUT）)<br>（SRFUR__TASK_CANCEL_BUT） |
@@ -2789,7 +2789,7 @@ yyyy-MM-dd
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [任务状态](#属性-任务状态（STATUS1）)<br>（STATUS1） | closed |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 1 |
 | [任务类型](#属性-任务类型（TASKTYPE）)<br>（TASKTYPE） | 40 |
@@ -2805,7 +2805,7 @@ yyyy-MM-dd
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [任务转交](#操作权限-任务转交（SRFUR__TASK_FORWARD_BUT）)<br>（SRFUR__TASK_FORWARD_BUT） |
 | 2 | [任务确认需求变更](#操作权限-任务确认需求变更（SRFUR__TASK_XQCHANGE_BUT）)<br>（SRFUR__TASK_XQCHANGE_BUT） |
 | 3 | [任务继续](#操作权限-任务继续（SRFUR__TASK_PROCEED_BUT）)<br>（SRFUR__TASK_PROCEED_BUT） |
@@ -2826,7 +2826,7 @@ yyyy-MM-dd
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [任务状态](#属性-任务状态（STATUS1）)<br>（STATUS1） | doing |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 0 |
 | [任务类型](#属性-任务类型（TASKTYPE）)<br>（TASKTYPE） | 10 |
@@ -2842,7 +2842,7 @@ yyyy-MM-dd
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [任务激活](#操作权限-任务激活（SRFUR__TASK_ACTIVATION_BUT）)<br>（SRFUR__TASK_ACTIVATION_BUT） |
 | 2 | [任务开始](#操作权限-任务开始（SRFUR__TASK_START_BUT）)<br>（SRFUR__TASK_START_BUT） |
 | 3 | [任务子任务](#操作权限-任务子任务（SRFUR__TASK_SUBTASKS_BUT）)<br>（SRFUR__TASK_SUBTASKS_BUT） |
@@ -2860,7 +2860,7 @@ yyyy-MM-dd
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [任务状态](#属性-任务状态（STATUS1）)<br>（STATUS1） | doing |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 0 |
 | [任务类型](#属性-任务类型（TASKTYPE）)<br>（TASKTYPE） | 20 |
@@ -2876,7 +2876,7 @@ yyyy-MM-dd
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [任务开始](#操作权限-任务开始（SRFUR__TASK_START_BUT）)<br>（SRFUR__TASK_START_BUT） |
 | 2 | [任务工时](#操作权限-任务工时（SRFUR__TASK_CONSUM_BUT）)<br>（SRFUR__TASK_CONSUM_BUT） |
 | 3 | [需求分解任务](#操作权限-需求分解任务（SRFUR__STORY_FJTASK_BUT）)<br>（SRFUR__STORY_FJTASK_BUT） |
@@ -2899,7 +2899,7 @@ yyyy-MM-dd
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [任务状态](#属性-任务状态（STATUS1）)<br>（STATUS1） | doing |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 0 |
 | [任务类型](#属性-任务类型（TASKTYPE）)<br>（TASKTYPE） | 30 |
@@ -2911,7 +2911,7 @@ yyyy-MM-dd
 允许模式：允许
 
 | 序号 | 实体行为 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [Get](#实体行为-Get（Get）)<br>（Get） |
 | 2 | [暂停](#实体行为-暂停（Pause）)<br>（Pause） |
 | 3 | [Update](#实体行为-Update（Update）)<br>（Update） |
@@ -2936,7 +2936,7 @@ yyyy-MM-dd
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [任务确认需求变更](#操作权限-任务确认需求变更（SRFUR__TASK_XQCHANGE_BUT）)<br>（SRFUR__TASK_XQCHANGE_BUT） |
 | 2 | [任务关闭](#操作权限-任务关闭（SRFUR__TASK_CLOSE_BUT）)<br>（SRFUR__TASK_CLOSE_BUT） |
 | 3 | [任务激活](#操作权限-任务激活（SRFUR__TASK_ACTIVATION_BUT）)<br>（SRFUR__TASK_ACTIVATION_BUT） |
@@ -2953,7 +2953,7 @@ yyyy-MM-dd
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [任务状态](#属性-任务状态（STATUS1）)<br>（STATUS1） | doing |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 0 |
 | [任务类型](#属性-任务类型（TASKTYPE）)<br>（TASKTYPE） | 40 |
@@ -2969,7 +2969,7 @@ yyyy-MM-dd
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [任务关闭](#操作权限-任务关闭（SRFUR__TASK_CLOSE_BUT）)<br>（SRFUR__TASK_CLOSE_BUT） |
 | 2 | [任务激活](#操作权限-任务激活（SRFUR__TASK_ACTIVATION_BUT）)<br>（SRFUR__TASK_ACTIVATION_BUT） |
 | 3 | [任务确认需求变更](#操作权限-任务确认需求变更（SRFUR__TASK_XQCHANGE_BUT）)<br>（SRFUR__TASK_XQCHANGE_BUT） |
@@ -2987,7 +2987,7 @@ yyyy-MM-dd
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [任务状态](#属性-任务状态（STATUS1）)<br>（STATUS1） | doing |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 1 |
 | [任务类型](#属性-任务类型（TASKTYPE）)<br>（TASKTYPE） | 10 |
@@ -3003,7 +3003,7 @@ yyyy-MM-dd
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [任务开始](#操作权限-任务开始（SRFUR__TASK_START_BUT）)<br>（SRFUR__TASK_START_BUT） |
 | 2 | [任务继续](#操作权限-任务继续（SRFUR__TASK_PROCEED_BUT）)<br>（SRFUR__TASK_PROCEED_BUT） |
 | 3 | [任务子任务](#操作权限-任务子任务（SRFUR__TASK_SUBTASKS_BUT）)<br>（SRFUR__TASK_SUBTASKS_BUT） |
@@ -3021,7 +3021,7 @@ yyyy-MM-dd
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [任务状态](#属性-任务状态（STATUS1）)<br>（STATUS1） | doing |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 1 |
 | [任务类型](#属性-任务类型（TASKTYPE）)<br>（TASKTYPE） | 20 |
@@ -3037,7 +3037,7 @@ yyyy-MM-dd
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [任务暂停](#操作权限-任务暂停（SRFUR__TASK_PAUSE_BUT）)<br>（SRFUR__TASK_PAUSE_BUT） |
 | 2 | [任务继续](#操作权限-任务继续（SRFUR__TASK_PROCEED_BUT）)<br>（SRFUR__TASK_PROCEED_BUT） |
 | 3 | [任务待收藏](#操作权限-任务待收藏（SRFUR__TASK_NFAVOR_BUT）)<br>（SRFUR__TASK_NFAVOR_BUT） |
@@ -3060,7 +3060,7 @@ yyyy-MM-dd
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [任务状态](#属性-任务状态（STATUS1）)<br>（STATUS1） | doing |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 1 |
 | [任务类型](#属性-任务类型（TASKTYPE）)<br>（TASKTYPE） | 30 |
@@ -3076,7 +3076,7 @@ yyyy-MM-dd
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [任务继续](#操作权限-任务继续（SRFUR__TASK_PROCEED_BUT）)<br>（SRFUR__TASK_PROCEED_BUT） |
 | 2 | [任务开始](#操作权限-任务开始（SRFUR__TASK_START_BUT）)<br>（SRFUR__TASK_START_BUT） |
 | 3 | [任务确认需求变更](#操作权限-任务确认需求变更（SRFUR__TASK_XQCHANGE_BUT）)<br>（SRFUR__TASK_XQCHANGE_BUT） |
@@ -3093,7 +3093,7 @@ yyyy-MM-dd
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [任务状态](#属性-任务状态（STATUS1）)<br>（STATUS1） | doing |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 1 |
 | [任务类型](#属性-任务类型（TASKTYPE）)<br>（TASKTYPE） | 40 |
@@ -3109,7 +3109,7 @@ yyyy-MM-dd
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [任务继续](#操作权限-任务继续（SRFUR__TASK_PROCEED_BUT）)<br>（SRFUR__TASK_PROCEED_BUT） |
 | 2 | [任务关闭](#操作权限-任务关闭（SRFUR__TASK_CLOSE_BUT）)<br>（SRFUR__TASK_CLOSE_BUT） |
 | 3 | [任务转交](#操作权限-任务转交（SRFUR__TASK_FORWARD_BUT）)<br>（SRFUR__TASK_FORWARD_BUT） |
@@ -3127,7 +3127,7 @@ yyyy-MM-dd
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [任务状态](#属性-任务状态（STATUS1）)<br>（STATUS1） | done |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 0 |
 | [任务类型](#属性-任务类型（TASKTYPE）)<br>（TASKTYPE） | 10 |
@@ -3143,7 +3143,7 @@ yyyy-MM-dd
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [任务取消](#操作权限-任务取消（SRFUR__TASK_CANCEL_BUT）)<br>（SRFUR__TASK_CANCEL_BUT） |
 | 2 | [任务开始](#操作权限-任务开始（SRFUR__TASK_START_BUT）)<br>（SRFUR__TASK_START_BUT） |
 | 3 | [任务指派](#操作权限-任务指派（SRFUR__TASK_ASSIGN_BUT）)<br>（SRFUR__TASK_ASSIGN_BUT） |
@@ -3162,7 +3162,7 @@ yyyy-MM-dd
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [任务状态](#属性-任务状态（STATUS1）)<br>（STATUS1） | done |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 0 |
 | [任务类型](#属性-任务类型（TASKTYPE）)<br>（TASKTYPE） | 20 |
@@ -3178,7 +3178,7 @@ yyyy-MM-dd
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [任务确认需求变更](#操作权限-任务确认需求变更（SRFUR__TASK_XQCHANGE_BUT）)<br>（SRFUR__TASK_XQCHANGE_BUT） |
 | 2 | [任务工时](#操作权限-任务工时（SRFUR__TASK_CONSUM_BUT）)<br>（SRFUR__TASK_CONSUM_BUT） |
 | 3 | [任务暂停](#操作权限-任务暂停（SRFUR__TASK_PAUSE_BUT）)<br>（SRFUR__TASK_PAUSE_BUT） |
@@ -3201,7 +3201,7 @@ yyyy-MM-dd
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [任务状态](#属性-任务状态（STATUS1）)<br>（STATUS1） | done |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 0 |
 | [任务类型](#属性-任务类型（TASKTYPE）)<br>（TASKTYPE） | 30 |
@@ -3213,7 +3213,7 @@ yyyy-MM-dd
 允许模式：允许
 
 | 序号 | 实体行为 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [RemoveTemp](#实体行为-RemoveTemp（RemoveTemp）)<br>（RemoveTemp） |
 | 2 | [指派/转交](#实体行为-指派/转交（AssignTo）)<br>（AssignTo） |
 | 3 | [删除工时](#实体行为-删除工时（DeleteEstimate）)<br>（DeleteEstimate） |
@@ -3237,7 +3237,7 @@ yyyy-MM-dd
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [任务转交](#操作权限-任务转交（SRFUR__TASK_FORWARD_BUT）)<br>（SRFUR__TASK_FORWARD_BUT） |
 | 2 | [任务确认需求变更](#操作权限-任务确认需求变更（SRFUR__TASK_XQCHANGE_BUT）)<br>（SRFUR__TASK_XQCHANGE_BUT） |
 | 3 | [任务取消](#操作权限-任务取消（SRFUR__TASK_CANCEL_BUT）)<br>（SRFUR__TASK_CANCEL_BUT） |
@@ -3255,7 +3255,7 @@ yyyy-MM-dd
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [任务状态](#属性-任务状态（STATUS1）)<br>（STATUS1） | done |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 0 |
 | [任务类型](#属性-任务类型（TASKTYPE）)<br>（TASKTYPE） | 40 |
@@ -3271,7 +3271,7 @@ yyyy-MM-dd
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [任务确认需求变更](#操作权限-任务确认需求变更（SRFUR__TASK_XQCHANGE_BUT）)<br>（SRFUR__TASK_XQCHANGE_BUT） |
 | 2 | [任务开始](#操作权限-任务开始（SRFUR__TASK_START_BUT）)<br>（SRFUR__TASK_START_BUT） |
 | 3 | [任务取消](#操作权限-任务取消（SRFUR__TASK_CANCEL_BUT）)<br>（SRFUR__TASK_CANCEL_BUT） |
@@ -3290,7 +3290,7 @@ yyyy-MM-dd
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [任务状态](#属性-任务状态（STATUS1）)<br>（STATUS1） | done |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 1 |
 | [任务类型](#属性-任务类型（TASKTYPE）)<br>（TASKTYPE） | 10 |
@@ -3306,7 +3306,7 @@ yyyy-MM-dd
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [任务开始](#操作权限-任务开始（SRFUR__TASK_START_BUT）)<br>（SRFUR__TASK_START_BUT） |
 | 2 | [任务指派](#操作权限-任务指派（SRFUR__TASK_ASSIGN_BUT）)<br>（SRFUR__TASK_ASSIGN_BUT） |
 | 3 | [任务完成](#操作权限-任务完成（SRFUR__TASK_COMPLETE_BUT）)<br>（SRFUR__TASK_COMPLETE_BUT） |
@@ -3325,7 +3325,7 @@ yyyy-MM-dd
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [任务状态](#属性-任务状态（STATUS1）)<br>（STATUS1） | done |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 1 |
 | [任务类型](#属性-任务类型（TASKTYPE）)<br>（TASKTYPE） | 20 |
@@ -3341,7 +3341,7 @@ yyyy-MM-dd
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [任务继续](#操作权限-任务继续（SRFUR__TASK_PROCEED_BUT）)<br>（SRFUR__TASK_PROCEED_BUT） |
 | 2 | [任务关闭](#操作权限-任务关闭（SRFUR__TASK_CLOSE_BUT）)<br>（SRFUR__TASK_CLOSE_BUT） |
 | 3 | [任务取消](#操作权限-任务取消（SRFUR__TASK_CANCEL_BUT）)<br>（SRFUR__TASK_CANCEL_BUT） |
@@ -3364,7 +3364,7 @@ yyyy-MM-dd
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [任务状态](#属性-任务状态（STATUS1）)<br>（STATUS1） | done |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 1 |
 | [任务类型](#属性-任务类型（TASKTYPE）)<br>（TASKTYPE） | 30 |
@@ -3380,7 +3380,7 @@ yyyy-MM-dd
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [任务完成](#操作权限-任务完成（SRFUR__TASK_COMPLETE_BUT）)<br>（SRFUR__TASK_COMPLETE_BUT） |
 | 2 | [任务待收藏](#操作权限-任务待收藏（SRFUR__TASK_NFAVOR_BUT）)<br>（SRFUR__TASK_NFAVOR_BUT） |
 | 3 | [任务开始](#操作权限-任务开始（SRFUR__TASK_START_BUT）)<br>（SRFUR__TASK_START_BUT） |
@@ -3398,7 +3398,7 @@ yyyy-MM-dd
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [任务状态](#属性-任务状态（STATUS1）)<br>（STATUS1） | done |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 1 |
 | [任务类型](#属性-任务类型（TASKTYPE）)<br>（TASKTYPE） | 40 |
@@ -3414,7 +3414,7 @@ yyyy-MM-dd
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [任务转交](#操作权限-任务转交（SRFUR__TASK_FORWARD_BUT）)<br>（SRFUR__TASK_FORWARD_BUT） |
 | 2 | [任务确认需求变更](#操作权限-任务确认需求变更（SRFUR__TASK_XQCHANGE_BUT）)<br>（SRFUR__TASK_XQCHANGE_BUT） |
 | 3 | [任务子任务](#操作权限-任务子任务（SRFUR__TASK_SUBTASKS_BUT）)<br>（SRFUR__TASK_SUBTASKS_BUT） |
@@ -3433,7 +3433,7 @@ yyyy-MM-dd
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [任务状态](#属性-任务状态（STATUS1）)<br>（STATUS1） | pause |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 0 |
 | [任务类型](#属性-任务类型（TASKTYPE）)<br>（TASKTYPE） | 10 |
@@ -3449,7 +3449,7 @@ yyyy-MM-dd
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [任务激活](#操作权限-任务激活（SRFUR__TASK_ACTIVATION_BUT）)<br>（SRFUR__TASK_ACTIVATION_BUT） |
 | 2 | [任务开始](#操作权限-任务开始（SRFUR__TASK_START_BUT）)<br>（SRFUR__TASK_START_BUT） |
 | 3 | [任务确认需求变更](#操作权限-任务确认需求变更（SRFUR__TASK_XQCHANGE_BUT）)<br>（SRFUR__TASK_XQCHANGE_BUT） |
@@ -3467,7 +3467,7 @@ yyyy-MM-dd
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [任务状态](#属性-任务状态（STATUS1）)<br>（STATUS1） | pause |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 0 |
 | [任务类型](#属性-任务类型（TASKTYPE）)<br>（TASKTYPE） | 20 |
@@ -3483,7 +3483,7 @@ yyyy-MM-dd
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [任务转交](#操作权限-任务转交（SRFUR__TASK_FORWARD_BUT）)<br>（SRFUR__TASK_FORWARD_BUT） |
 | 2 | [任务取消](#操作权限-任务取消（SRFUR__TASK_CANCEL_BUT）)<br>（SRFUR__TASK_CANCEL_BUT） |
 | 3 | [任务已收藏](#操作权限-任务已收藏（SRFUR__TASK_FAVOR_BUT）)<br>（SRFUR__TASK_FAVOR_BUT） |
@@ -3506,7 +3506,7 @@ yyyy-MM-dd
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [任务状态](#属性-任务状态（STATUS1）)<br>（STATUS1） | pause |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 0 |
 | [任务类型](#属性-任务类型（TASKTYPE）)<br>（TASKTYPE） | 30 |
@@ -3518,7 +3518,7 @@ yyyy-MM-dd
 允许模式：允许
 
 | 序号 | 实体行为 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [GetTemp](#实体行为-GetTemp（GetTemp）)<br>（GetTemp） |
 | 2 | [编辑工时](#实体行为-编辑工时（EditEstimate）)<br>（EditEstimate） |
 | 3 | [工时录入](#实体行为-工时录入（RecordEstimate）)<br>（RecordEstimate） |
@@ -3543,7 +3543,7 @@ yyyy-MM-dd
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [任务确认需求变更](#操作权限-任务确认需求变更（SRFUR__TASK_XQCHANGE_BUT）)<br>（SRFUR__TASK_XQCHANGE_BUT） |
 | 2 | [任务转交](#操作权限-任务转交（SRFUR__TASK_FORWARD_BUT）)<br>（SRFUR__TASK_FORWARD_BUT） |
 | 3 | [任务开始](#操作权限-任务开始（SRFUR__TASK_START_BUT）)<br>（SRFUR__TASK_START_BUT） |
@@ -3560,7 +3560,7 @@ yyyy-MM-dd
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [任务状态](#属性-任务状态（STATUS1）)<br>（STATUS1） | pause |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 0 |
 | [任务类型](#属性-任务类型（TASKTYPE）)<br>（TASKTYPE） | 40 |
@@ -3576,7 +3576,7 @@ yyyy-MM-dd
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [任务已收藏](#操作权限-任务已收藏（SRFUR__TASK_FAVOR_BUT）)<br>（SRFUR__TASK_FAVOR_BUT） |
 | 2 | [任务关闭](#操作权限-任务关闭（SRFUR__TASK_CLOSE_BUT）)<br>（SRFUR__TASK_CLOSE_BUT） |
 | 3 | [任务子任务](#操作权限-任务子任务（SRFUR__TASK_SUBTASKS_BUT）)<br>（SRFUR__TASK_SUBTASKS_BUT） |
@@ -3594,7 +3594,7 @@ yyyy-MM-dd
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [任务状态](#属性-任务状态（STATUS1）)<br>（STATUS1） | pause |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 1 |
 | [任务类型](#属性-任务类型（TASKTYPE）)<br>（TASKTYPE） | 10 |
@@ -3610,7 +3610,7 @@ yyyy-MM-dd
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [任务确认需求变更](#操作权限-任务确认需求变更（SRFUR__TASK_XQCHANGE_BUT）)<br>（SRFUR__TASK_XQCHANGE_BUT） |
 | 2 | [任务关闭](#操作权限-任务关闭（SRFUR__TASK_CLOSE_BUT）)<br>（SRFUR__TASK_CLOSE_BUT） |
 | 3 | [任务指派](#操作权限-任务指派（SRFUR__TASK_ASSIGN_BUT）)<br>（SRFUR__TASK_ASSIGN_BUT） |
@@ -3628,7 +3628,7 @@ yyyy-MM-dd
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [任务状态](#属性-任务状态（STATUS1）)<br>（STATUS1） | pause |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 1 |
 | [任务类型](#属性-任务类型（TASKTYPE）)<br>（TASKTYPE） | 20 |
@@ -3644,7 +3644,7 @@ yyyy-MM-dd
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [任务开始](#操作权限-任务开始（SRFUR__TASK_START_BUT）)<br>（SRFUR__TASK_START_BUT） |
 | 2 | [任务取消](#操作权限-任务取消（SRFUR__TASK_CANCEL_BUT）)<br>（SRFUR__TASK_CANCEL_BUT） |
 | 3 | [需求分解任务](#操作权限-需求分解任务（SRFUR__STORY_FJTASK_BUT）)<br>（SRFUR__STORY_FJTASK_BUT） |
@@ -3667,7 +3667,7 @@ yyyy-MM-dd
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [任务状态](#属性-任务状态（STATUS1）)<br>（STATUS1） | pause |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 1 |
 | [任务类型](#属性-任务类型（TASKTYPE）)<br>（TASKTYPE） | 30 |
@@ -3683,7 +3683,7 @@ yyyy-MM-dd
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [任务关闭](#操作权限-任务关闭（SRFUR__TASK_CLOSE_BUT）)<br>（SRFUR__TASK_CLOSE_BUT） |
 | 2 | [任务待收藏](#操作权限-任务待收藏（SRFUR__TASK_NFAVOR_BUT）)<br>（SRFUR__TASK_NFAVOR_BUT） |
 | 3 | [任务开始](#操作权限-任务开始（SRFUR__TASK_START_BUT）)<br>（SRFUR__TASK_START_BUT） |
@@ -3700,7 +3700,7 @@ yyyy-MM-dd
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [任务状态](#属性-任务状态（STATUS1）)<br>（STATUS1） | pause |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 1 |
 | [任务类型](#属性-任务类型（TASKTYPE）)<br>（TASKTYPE） | 40 |
@@ -3716,7 +3716,7 @@ yyyy-MM-dd
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [任务关闭](#操作权限-任务关闭（SRFUR__TASK_CLOSE_BUT）)<br>（SRFUR__TASK_CLOSE_BUT） |
 | 2 | [任务确认需求变更](#操作权限-任务确认需求变更（SRFUR__TASK_XQCHANGE_BUT）)<br>（SRFUR__TASK_XQCHANGE_BUT） |
 | 3 | [任务暂停](#操作权限-任务暂停（SRFUR__TASK_PAUSE_BUT）)<br>（SRFUR__TASK_PAUSE_BUT） |
@@ -3734,7 +3734,7 @@ yyyy-MM-dd
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [任务状态](#属性-任务状态（STATUS1）)<br>（STATUS1） | storychange |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 0 |
 | [任务类型](#属性-任务类型（TASKTYPE）)<br>（TASKTYPE） | 10 |
@@ -3750,7 +3750,7 @@ yyyy-MM-dd
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [任务继续](#操作权限-任务继续（SRFUR__TASK_PROCEED_BUT）)<br>（SRFUR__TASK_PROCEED_BUT） |
 | 2 | [任务取消](#操作权限-任务取消（SRFUR__TASK_CANCEL_BUT）)<br>（SRFUR__TASK_CANCEL_BUT） |
 | 3 | [任务子任务](#操作权限-任务子任务（SRFUR__TASK_SUBTASKS_BUT）)<br>（SRFUR__TASK_SUBTASKS_BUT） |
@@ -3772,7 +3772,7 @@ yyyy-MM-dd
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [任务状态](#属性-任务状态（STATUS1）)<br>（STATUS1） | storychange |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 0 |
 | [任务类型](#属性-任务类型（TASKTYPE）)<br>（TASKTYPE） | 20 |
@@ -3788,7 +3788,7 @@ yyyy-MM-dd
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [任务指派](#操作权限-任务指派（SRFUR__TASK_ASSIGN_BUT）)<br>（SRFUR__TASK_ASSIGN_BUT） |
 | 2 | [任务删除](#操作权限-任务删除（SRFUR__TASK_DELETE_BUT）)<br>（SRFUR__TASK_DELETE_BUT） |
 | 3 | [任务继续](#操作权限-任务继续（SRFUR__TASK_PROCEED_BUT）)<br>（SRFUR__TASK_PROCEED_BUT） |
@@ -3812,7 +3812,7 @@ yyyy-MM-dd
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [任务状态](#属性-任务状态（STATUS1）)<br>（STATUS1） | storychange |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 0 |
 | [任务类型](#属性-任务类型（TASKTYPE）)<br>（TASKTYPE） | 30 |
@@ -3828,7 +3828,7 @@ yyyy-MM-dd
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [任务开始](#操作权限-任务开始（SRFUR__TASK_START_BUT）)<br>（SRFUR__TASK_START_BUT） |
 | 2 | [任务继续](#操作权限-任务继续（SRFUR__TASK_PROCEED_BUT）)<br>（SRFUR__TASK_PROCEED_BUT） |
 | 3 | [任务完成](#操作权限-任务完成（SRFUR__TASK_COMPLETE_BUT）)<br>（SRFUR__TASK_COMPLETE_BUT） |
@@ -3850,7 +3850,7 @@ yyyy-MM-dd
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [任务状态](#属性-任务状态（STATUS1）)<br>（STATUS1） | storychange |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 0 |
 | [任务类型](#属性-任务类型（TASKTYPE）)<br>（TASKTYPE） | 40 |
@@ -3866,7 +3866,7 @@ yyyy-MM-dd
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [任务指派](#操作权限-任务指派（SRFUR__TASK_ASSIGN_BUT）)<br>（SRFUR__TASK_ASSIGN_BUT） |
 | 2 | [任务子任务](#操作权限-任务子任务（SRFUR__TASK_SUBTASKS_BUT）)<br>（SRFUR__TASK_SUBTASKS_BUT） |
 | 3 | [任务开始](#操作权限-任务开始（SRFUR__TASK_START_BUT）)<br>（SRFUR__TASK_START_BUT） |
@@ -3888,7 +3888,7 @@ yyyy-MM-dd
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [任务状态](#属性-任务状态（STATUS1）)<br>（STATUS1） | storychange |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 1 |
 | [任务类型](#属性-任务类型（TASKTYPE）)<br>（TASKTYPE） | 10 |
@@ -3904,7 +3904,7 @@ yyyy-MM-dd
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [任务取消](#操作权限-任务取消（SRFUR__TASK_CANCEL_BUT）)<br>（SRFUR__TASK_CANCEL_BUT） |
 | 2 | [任务暂停](#操作权限-任务暂停（SRFUR__TASK_PAUSE_BUT）)<br>（SRFUR__TASK_PAUSE_BUT） |
 | 3 | [任务指派](#操作权限-任务指派（SRFUR__TASK_ASSIGN_BUT）)<br>（SRFUR__TASK_ASSIGN_BUT） |
@@ -3926,7 +3926,7 @@ yyyy-MM-dd
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [任务状态](#属性-任务状态（STATUS1）)<br>（STATUS1） | storychange |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 1 |
 | [任务类型](#属性-任务类型（TASKTYPE）)<br>（TASKTYPE） | 20 |
@@ -3942,7 +3942,7 @@ yyyy-MM-dd
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [任务工时](#操作权限-任务工时（SRFUR__TASK_CONSUM_BUT）)<br>（SRFUR__TASK_CONSUM_BUT） |
 | 2 | [任务指派](#操作权限-任务指派（SRFUR__TASK_ASSIGN_BUT）)<br>（SRFUR__TASK_ASSIGN_BUT） |
 | 3 | [任务开始](#操作权限-任务开始（SRFUR__TASK_START_BUT）)<br>（SRFUR__TASK_START_BUT） |
@@ -3966,7 +3966,7 @@ yyyy-MM-dd
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [任务状态](#属性-任务状态（STATUS1）)<br>（STATUS1） | storychange |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 1 |
 | [任务类型](#属性-任务类型（TASKTYPE）)<br>（TASKTYPE） | 30 |
@@ -3982,7 +3982,7 @@ yyyy-MM-dd
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [任务关闭](#操作权限-任务关闭（SRFUR__TASK_CLOSE_BUT）)<br>（SRFUR__TASK_CLOSE_BUT） |
 | 2 | [任务暂停](#操作权限-任务暂停（SRFUR__TASK_PAUSE_BUT）)<br>（SRFUR__TASK_PAUSE_BUT） |
 | 3 | [任务开始](#操作权限-任务开始（SRFUR__TASK_START_BUT）)<br>（SRFUR__TASK_START_BUT） |
@@ -4004,7 +4004,7 @@ yyyy-MM-dd
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [任务状态](#属性-任务状态（STATUS1）)<br>（STATUS1） | storychange |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 1 |
 | [任务类型](#属性-任务类型（TASKTYPE）)<br>（TASKTYPE） | 40 |
@@ -4020,7 +4020,7 @@ yyyy-MM-dd
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [任务指派](#操作权限-任务指派（SRFUR__TASK_ASSIGN_BUT）)<br>（SRFUR__TASK_ASSIGN_BUT） |
 | 2 | [任务取消](#操作权限-任务取消（SRFUR__TASK_CANCEL_BUT）)<br>（SRFUR__TASK_CANCEL_BUT） |
 | 3 | [任务待收藏](#操作权限-任务待收藏（SRFUR__TASK_NFAVOR_BUT）)<br>（SRFUR__TASK_NFAVOR_BUT） |
@@ -4042,7 +4042,7 @@ yyyy-MM-dd
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [任务状态](#属性-任务状态（STATUS1）)<br>（STATUS1） | wait |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 0 |
 | [任务类型](#属性-任务类型（TASKTYPE）)<br>（TASKTYPE） | 10 |
@@ -4058,7 +4058,7 @@ yyyy-MM-dd
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [任务子任务](#操作权限-任务子任务（SRFUR__TASK_SUBTASKS_BUT）)<br>（SRFUR__TASK_SUBTASKS_BUT） |
 | 2 | [任务激活](#操作权限-任务激活（SRFUR__TASK_ACTIVATION_BUT）)<br>（SRFUR__TASK_ACTIVATION_BUT） |
 | 3 | [任务确认需求变更](#操作权限-任务确认需求变更（SRFUR__TASK_XQCHANGE_BUT）)<br>（SRFUR__TASK_XQCHANGE_BUT） |
@@ -4076,7 +4076,7 @@ yyyy-MM-dd
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [任务状态](#属性-任务状态（STATUS1）)<br>（STATUS1） | wait |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 0 |
 | [任务类型](#属性-任务类型（TASKTYPE）)<br>（TASKTYPE） | 20 |
@@ -4092,7 +4092,7 @@ yyyy-MM-dd
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [任务转交](#操作权限-任务转交（SRFUR__TASK_FORWARD_BUT）)<br>（SRFUR__TASK_FORWARD_BUT） |
 | 2 | [任务暂停](#操作权限-任务暂停（SRFUR__TASK_PAUSE_BUT）)<br>（SRFUR__TASK_PAUSE_BUT） |
 | 3 | [任务激活](#操作权限-任务激活（SRFUR__TASK_ACTIVATION_BUT）)<br>（SRFUR__TASK_ACTIVATION_BUT） |
@@ -4115,7 +4115,7 @@ yyyy-MM-dd
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [任务状态](#属性-任务状态（STATUS1）)<br>（STATUS1） | wait |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 0 |
 | [任务类型](#属性-任务类型（TASKTYPE）)<br>（TASKTYPE） | 30 |
@@ -4127,7 +4127,7 @@ yyyy-MM-dd
 允许模式：允许
 
 | 序号 | 实体行为 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [工时录入](#实体行为-工时录入（RecordEstimate）)<br>（RecordEstimate） |
 | 2 | [UpdateTemp](#实体行为-UpdateTemp（UpdateTemp）)<br>（UpdateTemp） |
 | 3 | [RemoveTemp](#实体行为-RemoveTemp（RemoveTemp）)<br>（RemoveTemp） |
@@ -4153,7 +4153,7 @@ yyyy-MM-dd
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [任务确认需求变更](#操作权限-任务确认需求变更（SRFUR__TASK_XQCHANGE_BUT）)<br>（SRFUR__TASK_XQCHANGE_BUT） |
 | 2 | [任务继续](#操作权限-任务继续（SRFUR__TASK_PROCEED_BUT）)<br>（SRFUR__TASK_PROCEED_BUT） |
 | 3 | [任务已收藏](#操作权限-任务已收藏（SRFUR__TASK_FAVOR_BUT）)<br>（SRFUR__TASK_FAVOR_BUT） |
@@ -4170,7 +4170,7 @@ yyyy-MM-dd
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [任务状态](#属性-任务状态（STATUS1）)<br>（STATUS1） | wait |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 0 |
 | [任务类型](#属性-任务类型（TASKTYPE）)<br>（TASKTYPE） | 40 |
@@ -4186,7 +4186,7 @@ yyyy-MM-dd
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [任务激活](#操作权限-任务激活（SRFUR__TASK_ACTIVATION_BUT）)<br>（SRFUR__TASK_ACTIVATION_BUT） |
 | 2 | [任务子任务](#操作权限-任务子任务（SRFUR__TASK_SUBTASKS_BUT）)<br>（SRFUR__TASK_SUBTASKS_BUT） |
 | 3 | [任务转交](#操作权限-任务转交（SRFUR__TASK_FORWARD_BUT）)<br>（SRFUR__TASK_FORWARD_BUT） |
@@ -4204,7 +4204,7 @@ yyyy-MM-dd
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [任务状态](#属性-任务状态（STATUS1）)<br>（STATUS1） | wait |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 1 |
 | [任务类型](#属性-任务类型（TASKTYPE）)<br>（TASKTYPE） | 10 |
@@ -4220,7 +4220,7 @@ yyyy-MM-dd
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [任务子任务](#操作权限-任务子任务（SRFUR__TASK_SUBTASKS_BUT）)<br>（SRFUR__TASK_SUBTASKS_BUT） |
 | 2 | [任务指派](#操作权限-任务指派（SRFUR__TASK_ASSIGN_BUT）)<br>（SRFUR__TASK_ASSIGN_BUT） |
 | 3 | [任务暂停](#操作权限-任务暂停（SRFUR__TASK_PAUSE_BUT）)<br>（SRFUR__TASK_PAUSE_BUT） |
@@ -4238,7 +4238,7 @@ yyyy-MM-dd
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [任务状态](#属性-任务状态（STATUS1）)<br>（STATUS1） | wait |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 1 |
 | [任务类型](#属性-任务类型（TASKTYPE）)<br>（TASKTYPE） | 20 |
@@ -4254,7 +4254,7 @@ yyyy-MM-dd
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [任务删除](#操作权限-任务删除（SRFUR__TASK_DELETE_BUT）)<br>（SRFUR__TASK_DELETE_BUT） |
 | 2 | [任务转交](#操作权限-任务转交（SRFUR__TASK_FORWARD_BUT）)<br>（SRFUR__TASK_FORWARD_BUT） |
 | 3 | [任务指派](#操作权限-任务指派（SRFUR__TASK_ASSIGN_BUT）)<br>（SRFUR__TASK_ASSIGN_BUT） |
@@ -4277,7 +4277,7 @@ yyyy-MM-dd
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [任务状态](#属性-任务状态（STATUS1）)<br>（STATUS1） | wait |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 1 |
 | [任务类型](#属性-任务类型（TASKTYPE）)<br>（TASKTYPE） | 30 |
@@ -4293,7 +4293,7 @@ yyyy-MM-dd
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [任务激活](#操作权限-任务激活（SRFUR__TASK_ACTIVATION_BUT）)<br>（SRFUR__TASK_ACTIVATION_BUT） |
 | 2 | [任务确认需求变更](#操作权限-任务确认需求变更（SRFUR__TASK_XQCHANGE_BUT）)<br>（SRFUR__TASK_XQCHANGE_BUT） |
 | 3 | [任务暂停](#操作权限-任务暂停（SRFUR__TASK_PAUSE_BUT）)<br>（SRFUR__TASK_PAUSE_BUT） |
@@ -4310,7 +4310,7 @@ yyyy-MM-dd
 
 #### 状态值
 | 属性名 | 状态值 |
-| -- | -- |
+| ---- | ---- |
 | [任务状态](#属性-任务状态（STATUS1）)<br>（STATUS1） | wait |
 | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | 1 |
 | [任务类型](#属性-任务类型（TASKTYPE）)<br>（TASKTYPE） | 40 |
@@ -4326,7 +4326,7 @@ yyyy-MM-dd
 允许模式：拒绝
 拒绝提示信息：无
 | 序号 | 操作权限 |
-| -- | -- |
+| ---- | ---- |
 | 1 | [任务激活](#操作权限-任务激活（SRFUR__TASK_ACTIVATION_BUT）)<br>（SRFUR__TASK_ACTIVATION_BUT） |
 | 2 | [任务子任务](#操作权限-任务子任务（SRFUR__TASK_SUBTASKS_BUT）)<br>（SRFUR__TASK_SUBTASKS_BUT） |
 | 3 | [任务确认需求变更](#操作权限-任务确认需求变更（SRFUR__TASK_XQCHANGE_BUT）)<br>（SRFUR__TASK_XQCHANGE_BUT） |
@@ -4338,7 +4338,7 @@ yyyy-MM-dd
 
 ## 实体行为
 | 序号 | 行为 | 行为名 | 行为类型 | 行为持有者 |
-| -- | -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- | ---- |
 | 1 | [Create](#实体行为-Create（Create）) | Create | 内置方法 | 后台及前台 |
 | 2 | [CreateTemp](#实体行为-CreateTemp（CreateTemp）) | CreateTemp | 内置方法 | 前台 |
 | 3 | [CreateTempMajor](#实体行为-CreateTempMajor（CreateTempMajor）) | CreateTempMajor | 内置方法 | 前台 |
@@ -4427,7 +4427,7 @@ Update
 
 #### 逻辑附加
 | 序号 | 附加逻辑 | 附加模式 | 内部逻辑 | 备注 |
-| -- | -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- | ---- |
 | 1 | [行为[Update]主状态拒绝逻辑<br>（Update__MSDeny）](#逻辑处理-行为[Update]主状态拒绝逻辑（Update__MSDeny）) | 检查 | 是 |  |
 ### 实体行为-UpdateTemp（UpdateTemp）
 #### 说明
@@ -4441,7 +4441,7 @@ UpdateTemp
 
 #### 逻辑附加
 | 序号 | 附加逻辑 | 附加模式 | 内部逻辑 | 备注 |
-| -- | -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- | ---- |
 | 1 | [行为[UpdateTemp]主状态拒绝逻辑<br>（UpdateTemp__MSDeny）](#逻辑处理-行为[UpdateTemp]主状态拒绝逻辑（UpdateTemp__MSDeny）) | 检查 | 是 |  |
 ### 实体行为-UpdateTempMajor（UpdateTempMajor）
 #### 说明
@@ -4455,7 +4455,7 @@ UpdateTempMajor
 
 #### 逻辑附加
 | 序号 | 附加逻辑 | 附加模式 | 内部逻辑 | 备注 |
-| -- | -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- | ---- |
 | 1 | [行为[UpdateTempMajor]主状态拒绝逻辑<br>（UpdateTempMajor__MSDeny）](#逻辑处理-行为[UpdateTempMajor]主状态拒绝逻辑（UpdateTempMajor__MSDeny）) | 检查 | 是 |  |
 ### 实体行为-Remove（Remove）
 #### 说明
@@ -4469,7 +4469,7 @@ Remove
 
 #### 逻辑附加
 | 序号 | 附加逻辑 | 附加模式 | 内部逻辑 | 备注 |
-| -- | -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- | ---- |
 | 1 | [行为[Remove]主状态拒绝逻辑<br>（Remove__MSDeny）](#逻辑处理-行为[Remove]主状态拒绝逻辑（Remove__MSDeny）) | 检查 | 是 |  |
 ### 实体行为-RemoveTemp（RemoveTemp）
 #### 说明
@@ -4483,7 +4483,7 @@ RemoveTemp
 
 #### 逻辑附加
 | 序号 | 附加逻辑 | 附加模式 | 内部逻辑 | 备注 |
-| -- | -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- | ---- |
 | 1 | [行为[RemoveTemp]主状态拒绝逻辑<br>（RemoveTemp__MSDeny）](#逻辑处理-行为[RemoveTemp]主状态拒绝逻辑（RemoveTemp__MSDeny）) | 检查 | 是 |  |
 ### 实体行为-RemoveTempMajor（RemoveTempMajor）
 #### 说明
@@ -4497,7 +4497,7 @@ RemoveTempMajor
 
 #### 逻辑附加
 | 序号 | 附加逻辑 | 附加模式 | 内部逻辑 | 备注 |
-| -- | -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- | ---- |
 | 1 | [行为[RemoveTempMajor]主状态拒绝逻辑<br>（RemoveTempMajor__MSDeny）](#逻辑处理-行为[RemoveTempMajor]主状态拒绝逻辑（RemoveTempMajor__MSDeny）) | 检查 | 是 |  |
 ### 实体行为-Get（Get）
 #### 说明
@@ -4511,7 +4511,7 @@ Get
 
 #### 逻辑附加
 | 序号 | 附加逻辑 | 附加模式 | 内部逻辑 | 备注 |
-| -- | -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- | ---- |
 | 1 | [重置工时统计值<br>（ResetTaskestimate）](#逻辑处理-重置工时统计值（ResetTaskestimate）) | 执行之后 | 是 | 填写工时时重置已有工时 |
 ### 实体行为-GetTemp（GetTemp）
 #### 说明
@@ -4861,12 +4861,12 @@ FAVORITES
 
 #### 逻辑附加
 | 序号 | 附加逻辑 | 附加模式 | 内部逻辑 | 备注 |
-| -- | -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- | ---- |
 | 1 | [行为[updateStoryVersion]主状态拒绝逻辑<br>（UpdateStoryVersion__MSDeny）](#逻辑处理-行为[updateStoryVersion]主状态拒绝逻辑（UpdateStoryVersion__MSDeny）) | 检查 | 是 |  |
 
 ## 逻辑处理
 | 序号 | 逻辑 | 逻辑名 | 逻辑持有者 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | [重置工时统计值](#逻辑处理-重置工时统计值（ResetTaskestimate）) | ResetTaskestimate | 后台 |
 | 2 | [任务取消收藏](#逻辑处理-任务取消收藏（TaskCancleFavorites）) | TaskCancleFavorites | 后台 |
 | 3 | [任务收藏](#逻辑处理-任务收藏（TaskFavorites）) | TaskFavorites | 后台 |
@@ -4890,7 +4890,7 @@ FAVORITES
 
 #### 逻辑节点
 | 序号 | 节点 | 节点名 | 节点类型 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | 开始 | Begin | 开始 |
 | 2 | 重置工时统计 | Prepareparam1 | 准备参数 |
 ### 逻辑处理-任务取消收藏（TaskCancleFavorites）
@@ -4902,7 +4902,7 @@ FAVORITES
 
 #### 逻辑节点
 | 序号 | 节点 | 节点名 | 节点类型 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | 开始 | Begin | 开始 |
 | 2 | 取消收藏 | Rawsqlcall1 | 直接SQL调用 |
 ### 逻辑处理-任务收藏（TaskFavorites）
@@ -4914,7 +4914,7 @@ FAVORITES
 
 #### 逻辑节点
 | 序号 | 节点 | 节点名 | 节点类型 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | 开始 | Begin | 开始 |
 | 2 | 设置收藏参数 | Prepareparam1 | 准备参数 |
 | 3 | 创建收藏信息 | Deaction1 | 实体行为 |
@@ -4927,7 +4927,7 @@ FAVORITES
 
 #### 逻辑节点
 | 序号 | 节点 | 节点名 | 节点类型 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | 开始 | Begin | 开始 |
 | 2 | 获取需求版本 | Rawsqlcall1 | 直接SQL调用 |
 | 3 | 重置需求版本 | Prepareparam1 | 准备参数 |
@@ -4940,7 +4940,7 @@ FAVORITES
 
 #### 逻辑节点
 | 序号 | 节点 | 节点名 | 节点类型 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | 项目团队 | Rawsqlcall2 | 直接SQL调用 |
 | 2 | 任务团队 | Rawsqlcall1 | 直接SQL调用 |
 | 3 | 开始 | Begin | 开始 |
@@ -4953,7 +4953,7 @@ FAVORITES
 
 #### 逻辑节点
 | 序号 | 节点 | 节点名 | 节点类型 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | 开始 | Begin | 开始 |
 | 2 | 项目团队 | Rawsqlcall2 | 直接SQL调用 |
 ### 逻辑处理-行为[Update]主状态拒绝逻辑（Update__MSDeny）
@@ -4965,7 +4965,7 @@ FAVORITES
 
 #### 逻辑节点
 | 序号 | 节点 | 节点名 | 节点类型 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | 状态[已暂停_已收藏_多人任务]拒绝[Update]操作 | DenyBypause_1_10 | 抛出异常 |
 | 2 | 状态[进行中_未收藏_父任务]拒绝[Update]操作 | DenyBydoing_0_20 | 抛出异常 |
 | 3 | 状态[已完成_已收藏_常规任务]拒绝[Update]操作 | DenyBydone_1_30 | 抛出异常 |
@@ -5028,7 +5028,7 @@ FAVORITES
 
 #### 逻辑节点
 | 序号 | 节点 | 节点名 | 节点类型 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | 状态[已关闭_已收藏_父任务]拒绝[UpdateTemp]操作 | DenyByclosed_1_20 | 抛出异常 |
 | 2 | 状态[已关闭_已收藏_常规任务]拒绝[UpdateTemp]操作 | DenyByclosed_1_30 | 抛出异常 |
 | 3 | 状态[进行中_已收藏_子任务]拒绝[UpdateTemp]操作 | DenyBydoing_1_40 | 抛出异常 |
@@ -5091,7 +5091,7 @@ FAVORITES
 
 #### 逻辑节点
 | 序号 | 节点 | 节点名 | 节点类型 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | 状态[已完成_未收藏_常规任务]拒绝[UpdateTempMajor]操作 | DenyBydone_0_30 | 抛出异常 |
 | 2 | 状态[已关闭_未收藏_子任务]拒绝[UpdateTempMajor]操作 | DenyByclosed_0_40 | 抛出异常 |
 | 3 | 状态[已取消_已收藏_常规任务]拒绝[UpdateTempMajor]操作 | DenyBycancel_1_30 | 抛出异常 |
@@ -5160,7 +5160,7 @@ FAVORITES
 
 #### 逻辑节点
 | 序号 | 节点 | 节点名 | 节点类型 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | 状态[未进行_已收藏_常规任务]拒绝[Remove]操作 | DenyBywait_1_30 | 抛出异常 |
 | 2 | 状态[已取消_未收藏_父任务]拒绝[Remove]操作 | DenyBycancel_0_20 | 抛出异常 |
 | 3 | 状态[已完成_未收藏_子任务]拒绝[Remove]操作 | DenyBydone_0_40 | 抛出异常 |
@@ -5223,7 +5223,7 @@ FAVORITES
 
 #### 逻辑节点
 | 序号 | 节点 | 节点名 | 节点类型 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | 状态[进行中_已收藏_多人任务]拒绝[RemoveTemp]操作 | DenyBydoing_1_10 | 抛出异常 |
 | 2 | 状态[已关闭_未收藏_多人任务]拒绝[RemoveTemp]操作 | DenyByclosed_0_10 | 抛出异常 |
 | 3 | 状态[已取消_已收藏_常规任务]拒绝[RemoveTemp]操作 | DenyBycancel_1_30 | 抛出异常 |
@@ -5286,7 +5286,7 @@ FAVORITES
 
 #### 逻辑节点
 | 序号 | 节点 | 节点名 | 节点类型 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | 状态[未进行_未收藏_多人任务]拒绝[RemoveTempMajor]操作 | DenyBywait_0_10 | 抛出异常 |
 | 2 | 状态[已取消_未收藏_多人任务]拒绝[RemoveTempMajor]操作 | DenyBycancel_0_10 | 抛出异常 |
 | 3 | 状态[已取消_已收藏_子任务]拒绝[RemoveTempMajor]操作 | DenyBycancel_1_40 | 抛出异常 |
@@ -5355,7 +5355,7 @@ FAVORITES
 
 #### 逻辑节点
 | 序号 | 节点 | 节点名 | 节点类型 |
-| -- | -- | -- | -- |
+| ---- | ---- | ---- | ---- |
 | 1 | 状态[未进行_未收藏_常规任务]拒绝[更新需求版本]操作 | DenyBywait_0_30 | 抛出异常 |
 | 2 | 状态[需求变更_未收藏_多人任务]拒绝[更新需求版本]操作 | DenyBystorychange_0_10 | 抛出异常 |
 | 3 | 状态[已完成_已收藏_子任务]拒绝[更新需求版本]操作 | DenyBydone_1_40 | 抛出异常 |

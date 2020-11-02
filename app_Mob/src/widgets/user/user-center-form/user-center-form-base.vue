@@ -33,8 +33,12 @@
     :error="detailsModel.realname.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.realname" 
-    :context="context" 
+    v-if="data.realname"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.realname" 
     :itemParam="{}"/>
 </app-form-item>
@@ -57,11 +61,15 @@
     :error="detailsModel.gender.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        codeListType="STATIC" 
+    codeListType="STATIC" 
     tag="User__gender"
     :isCache="false" 
-    v-if="data.gender" 
-    :context="context" 
+    v-if="data.gender"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.gender" 
     :itemParam="{}"/>
 </app-form-item>
@@ -84,8 +92,12 @@
     :error="detailsModel.account.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.account" 
-    :context="context" 
+    v-if="data.account"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.account" 
     :itemParam="{}"/>
 </app-form-item>
@@ -108,8 +120,12 @@
     :error="detailsModel.address.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.address" 
-    :context="context" 
+    v-if="data.address"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.address" 
     :itemParam="{}"/>
 </app-form-item>
@@ -132,8 +148,12 @@
     :error="detailsModel.dingding.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.dingding" 
-    :context="context" 
+    v-if="data.dingding"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.dingding" 
     :itemParam="{}"/>
 </app-form-item>
@@ -156,8 +176,12 @@
     :error="detailsModel.phone.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.phone" 
-    :context="context" 
+    v-if="data.phone"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.phone" 
     :itemParam="{}"/>
 </app-form-item>
@@ -180,8 +204,12 @@
     :error="detailsModel.mobile.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.mobile" 
-    :context="context" 
+    v-if="data.mobile"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.mobile" 
     :itemParam="{}"/>
 </app-form-item>
@@ -204,11 +232,15 @@
     :error="detailsModel.role.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        codeListType="DYNAMIC" 
+    codeListType="DYNAMIC" 
     tag="Role"
     :isCache="false" 
-    v-if="data.role" 
-    :context="context" 
+    v-if="data.role"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.role" 
     :itemParam="{}"/>
 </app-form-item>
@@ -231,8 +263,12 @@
     :error="detailsModel.qq.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.qq" 
-    :context="context" 
+    v-if="data.qq"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.qq" 
     :itemParam="{}"/>
 </app-form-item>
@@ -255,8 +291,12 @@
     :error="detailsModel.weixin.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.weixin" 
-    :context="context" 
+    v-if="data.weixin"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.weixin" 
     :itemParam="{}"/>
 </app-form-item>

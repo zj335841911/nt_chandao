@@ -254,7 +254,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         }
 
 
-        if (et.getConsumed() > old.getConsumed())
+        if (et.getConsumed() < old.getConsumed())
             throw new RuntimeException("总计消耗必须大于之前消耗");
 
         if (et.getProject() != old.getProject()) {
@@ -576,6 +576,39 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         }
         return next;
     }
+
+
+
+    @Transactional
+    public Task getNextTeamUser(Task et){
+        et = this.getById(et.getId());
+        List<Team> teamList = teamHelper.list(new QueryWrapper<Team>().eq("root",et.getId()).eq("type","task"));
+        if (teamList.size() == 0) {
+            et.setAssignedto(et.getOpenedby());
+        }else {
+            int index = -1;
+            for (int i = 0; i < teamList.size(); i++) {
+                if (teamList.get(i).getAccount().equals(et.getAssignedto())) {
+                    index = i;
+                    break;
+                }
+            }
+            if (index == teamList.size() - 1) {
+                et.setAssignedto(null);
+            } else {
+                String next = "";
+                for (int i = 0; i < teamList.size(); i++) {
+                    if (teamList.get(i).getAccount().equals(et.getAssignedto()) && i != teamList.size() - 1) {
+                        next = teamList.get(i + 1).getAccount();
+                        break;
+                    }
+                }
+                et.setAssignedto(next);
+            }
+        }
+        return et;
+    }
+
 
     public void computeBeginAndEnd(Task et) {
         if(et.getId() == null)
@@ -1079,6 +1112,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         newTask.setLasteditedby(AuthenticationUser.getAuthenticationUser().getUsername());
         newTask.setConsumed(et.getTotaltime() != null ? et.getTotaltime() : (et.getConsumed() + et.getCurrentconsumed()));
         newTask.setCurrentconsumed(et.getCurrentconsumed());
+        newTask.setFiles(et.getFiles());
         double consumed = 0;
         if (teams.size() == 0){
             newTask.setLeft(0d);
