@@ -77,7 +77,8 @@ export class TaskGridView9_AssignedToMeBase extends GridView9Base {
 	 * @memberof TaskGridView9_AssignedToMeBase
 	 */
     protected customViewParams: any = {
-        'n_assignedto_eq': { isRawValue: false, value: 'srfloginname' }
+        'n_assignedto_eq': { isRawValue: false, value: 'srfloginname' },
+        'size': { isRawValue: true, value: '5' }
     };
 
     /**

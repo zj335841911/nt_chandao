@@ -4,6 +4,12 @@
             
             指派任务
             </span>
+            <span class="portlet-action">
+                <a @click="uiAction('uddf7311', $event)" v-show="uiactionModel['more'].visabled" :disabled="uiactionModel['more'].disabled">
+                  <i class="fa fa-plus" />
+                  <span>更多</span>
+                </a>
+            </span>
         </p>
         <div class="portlet-with-title">
         <task-grid-view9-assigned-to-me :portletState="viewState" :viewUsage="4" :viewdata="JSON.stringify(context)" :viewDefaultUsage="false" ></task-grid-view9-assigned-to-me>

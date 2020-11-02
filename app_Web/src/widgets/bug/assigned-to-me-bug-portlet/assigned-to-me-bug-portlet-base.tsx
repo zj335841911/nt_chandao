@@ -69,6 +69,34 @@ export class AssignedToMeBugPortletBase extends MainControlBase {
      */  
     public appUIService:BugUIService = new BugUIService(this.$store);
 
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public dashboard_sysportlet4_ubc43135_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:BugUIService  = new BugUIService();
+        curUIService.Bug_More(datas,contextJO, paramJO,  $event, xData,this,"Bug");
+    }
+
 
     /**
      * 长度
@@ -100,6 +128,7 @@ export class AssignedToMeBugPortletBase extends MainControlBase {
      * @memberof AssignedToMeBugBase
      */
     public uiactionModel: any = {
+        more: {name: 'more', actiontarget: 'NONE', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: '', uiaction: { tag: 'More', target: 'NONE' } },
     }
 
 
@@ -218,6 +247,16 @@ export class AssignedToMeBugPortletBase extends MainControlBase {
         }
     }
 
+    /**
+     * 执行界面行为
+     *
+     * @memberof AssignedToMeBugBase
+     */
+    public uiAction(tag:string,event:any){
+        if(Object.is(tag,'ubc43135')){
+            this.dashboard_sysportlet4_ubc43135_click(null,tag,event);
+        }
+    }
 
     /**
      * 刷新

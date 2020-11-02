@@ -75,7 +75,7 @@ export class TrendsListBase extends ListControlBase {
      * @type {number}
      * @memberof TrendsListBase
      */
-    public limit: number = 1000;
+    public limit: number = 50;
 
     /**
      * 排序方向

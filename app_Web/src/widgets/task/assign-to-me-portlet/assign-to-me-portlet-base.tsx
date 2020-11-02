@@ -69,6 +69,34 @@ export class AssignToMePortletBase extends MainControlBase {
      */  
     public appUIService:TaskUIService = new TaskUIService(this.$store);
 
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public dashboard_sysportlet6_uddf7311_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:TaskUIService  = new TaskUIService();
+        curUIService.Task_More(datas,contextJO, paramJO,  $event, xData,this,"Task");
+    }
+
 
     /**
      * 长度
@@ -100,6 +128,7 @@ export class AssignToMePortletBase extends MainControlBase {
      * @memberof AssignToMeBase
      */
     public uiactionModel: any = {
+        more: {name: 'more', actiontarget: 'NONE', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: '', uiaction: { tag: 'More', target: 'NONE' } },
     }
 
 
@@ -218,6 +247,16 @@ export class AssignToMePortletBase extends MainControlBase {
         }
     }
 
+    /**
+     * 执行界面行为
+     *
+     * @memberof AssignToMeBase
+     */
+    public uiAction(tag:string,event:any){
+        if(Object.is(tag,'uddf7311')){
+            this.dashboard_sysportlet6_uddf7311_click(null,tag,event);
+        }
+    }
 
     /**
      * 刷新

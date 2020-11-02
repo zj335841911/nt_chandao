@@ -30,7 +30,7 @@
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.neednotreview.visible" :style="{}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 8, offset: 0 }">
-    <app-form-item name='neednotreview' :itemRules="this.rules().neednotreview" class='' :caption="$t('entities.story.storyspec_editmode_form.details.neednotreview')" uiStyle="DEFAULT" :labelWidth="10" :isShowCaption="true" :error="detailsModel.neednotreview.error" :isEmptyCaption="true" labelPos="RIGHT">
+    <app-form-item name='neednotreview' :itemRules="this.rules().neednotreview" class='' :caption="$t('entities.story.storyspec_editmode_form.details.neednotreview')" uiStyle="DEFAULT" :labelWidth="10" :isShowCaption="true" :error="detailsModel.neednotreview.error" :isEmptyCaption="true" labelPos="LEFT">
     
 <app-checkbox-list 
   v-model="data.neednotreview" 
