@@ -119,10 +119,6 @@ export class PlanNewEditFormBase extends EditFormControlBase {
             { required: this.detailsModel.prodoctname.required, type: 'string', message: '所属产品 值不能为空', trigger: 'change' },
             { required: this.detailsModel.prodoctname.required, type: 'string', message: '所属产品 值不能为空', trigger: 'blur' },
         ],
-        assignedto: [
-            { required: this.detailsModel.assignedto.required, type: 'string', message: '由谁评审 值不能为空', trigger: 'change' },
-            { required: this.detailsModel.assignedto.required, type: 'string', message: '由谁评审 值不能为空', trigger: 'blur' },
-        ],
         title: [
             { required: this.detailsModel.title.required, type: 'string', message: '需求名称 值不能为空', trigger: 'change' },
             { required: this.detailsModel.title.required, type: 'string', message: '需求名称 值不能为空', trigger: 'blur' },
@@ -182,7 +178,7 @@ export class PlanNewEditFormBase extends EditFormControlBase {
 
         sourcenote: new FormItemModel({ caption: '来源备注', detailType: 'FORMITEM', name: 'sourcenote', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 
-        assignedto: new FormItemModel({ caption: '由谁评审', detailType: 'FORMITEM', name: 'assignedto', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:true, disabled: false, enableCond: 3 }),
+        assignedto: new FormItemModel({ caption: '由谁评审', detailType: 'FORMITEM', name: 'assignedto', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 
         neednotreview: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'neednotreview', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 
@@ -260,12 +256,12 @@ export class PlanNewEditFormBase extends EditFormControlBase {
 
 
         if (Object.is(name, '') || Object.is(name, 'neednotreview')) {
-            let ret = true;
+            let ret = false;
             const _neednotreview = this.data.neednotreview;
-            if (this.$verify.testCond(_neednotreview, 'ISNULL', '') || this.$verify.testCond(_neednotreview, 'EQ', '0')) {
-                ret = false;
+            if (this.$verify.testCond(_neednotreview, 'ISNULL', '')) {
+                ret = true;
             }
-            this.detailsModel.assignedto.required = ret;
+            this.detailsModel.assignedto.setDisabled(!ret);
         }
 
 
