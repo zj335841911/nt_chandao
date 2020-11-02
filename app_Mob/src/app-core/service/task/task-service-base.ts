@@ -2990,6 +2990,52 @@ export class TaskServiceBase extends EntityService {
     }
 
     /**
+     * GetNextTeamUser接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TaskServiceBase
+     */
+    public async GetNextTeamUser(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && context.task){
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/getnextteamuser`,isloading);
+                        this.tempStorage.setItem(context.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskestimates',JSON.stringify(res.data.taskestimates?res.data.taskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams?res.data.taskteams:[]));
+
+            return res;
+        }
+        if(context.project && context.task){
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/getnextteamuser`,isloading);
+                        this.tempStorage.setItem(context.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskestimates',JSON.stringify(res.data.taskestimates?res.data.taskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams?res.data.taskteams:[]));
+
+            return res;
+        }
+        if(context.story && context.task){
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/getnextteamuser`,isloading);
+                        this.tempStorage.setItem(context.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskestimates',JSON.stringify(res.data.taskestimates?res.data.taskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams?res.data.taskteams:[]));
+
+            return res;
+        }
+            let res:any = await Http.getInstance().get(`/tasks/${context.task}/getnextteamuser`,isloading);
+                        this.tempStorage.setItem(context.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskestimates',JSON.stringify(res.data.taskestimates?res.data.taskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams?res.data.taskteams:[]));
+
+            return res;
+    }
+
+    /**
      * GetUsernames接口方法
      *
      * @param {*} [context={}]

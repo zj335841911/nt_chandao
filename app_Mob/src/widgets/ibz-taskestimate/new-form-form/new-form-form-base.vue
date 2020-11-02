@@ -477,6 +477,12 @@ export default class NewFormBase extends Vue implements ControlInterface {
      * @memberof NewForm
      */
     protected rules: any = {
+        consumed: [
+            {validator:(rule:any, value:any)=>{return this.verifyDeRules("consumed").isPast}}
+        ],
+        left: [
+            {validator:(rule:any, value:any)=>{return this.verifyDeRules("left").isPast}}
+        ],
     }
 
     /**
@@ -486,6 +492,32 @@ export default class NewFormBase extends Vue implements ControlInterface {
      * @memberof NewFormBase
      */
     public deRules:any = {
+                consumed:[
+                  {
+                      type:"VALUERANGE2",
+                      condOP:"",
+                      ruleInfo:"总计消耗大于等于0", 
+                      isKeyCond:false,
+                      isNotMode:false,
+                      minValue:0,
+                      deName:"consumed",
+                      isIncludeMaxValue:false,
+                      isIncludeMinValue:true,
+                  },
+                ],
+                left:[
+                  {
+                      type:"VALUERANGE2",
+                      condOP:"",
+                      ruleInfo:"预计剩余大于等于0", 
+                      isKeyCond:false,
+                      isNotMode:false,
+                      minValue:0,
+                      deName:"left",
+                      isIncludeMaxValue:false,
+                      isIncludeMinValue:true,
+                  },
+                ],
     };
 
     /**

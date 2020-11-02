@@ -198,6 +198,9 @@ export class MobPickupViewpickupviewpanelModel {
       {
         name: 'hasdetail',
       },
+      {
+        name: 'updatedate',
+      },
     ]
   }
 

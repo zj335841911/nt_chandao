@@ -61,6 +61,7 @@ export default {
     isfinished: "是否完成",
     replycount: "回复数量",
     hasdetail: "是否填写描述",
+    updatedate: "最后的更新日期",
   },
 	views: {
 		mobmdview: {

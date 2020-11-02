@@ -198,6 +198,9 @@ export class MyTaskMobModel {
       {
         name: 'hasdetail',
       },
+      {
+        name: 'updatedate',
+      },
     ]
   }
 
