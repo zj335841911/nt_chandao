@@ -78,10 +78,12 @@
     :error="detailsModel.createman.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        codeListType="DYNAMIC" 
+    codeListType="DYNAMIC" 
     tag="SysOperator"
     :isCache="false" 
-    v-if="data.createman" 
+    v-if="data.createman"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :context="context" 
     :value="data.createman" 
     :itemParam="{}"/>
@@ -105,7 +107,9 @@
     :error="detailsModel.createdate.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.createdate" 
+    v-if="data.createdate"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :context="context" 
     :value="data.createdate" 
     :itemParam="{}"/>
@@ -129,10 +133,12 @@
     :error="detailsModel.updateman.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        codeListType="DYNAMIC" 
+    codeListType="DYNAMIC" 
     tag="SysOperator"
     :isCache="false" 
-    v-if="data.updateman" 
+    v-if="data.updateman"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :context="context" 
     :value="data.updateman" 
     :itemParam="{}"/>
@@ -156,7 +162,9 @@
     :error="detailsModel.updatedate.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.updatedate" 
+    v-if="data.updatedate"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :context="context" 
     :value="data.updatedate" 
     :itemParam="{}"/>

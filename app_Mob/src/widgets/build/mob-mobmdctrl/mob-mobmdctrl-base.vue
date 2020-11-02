@@ -3,7 +3,7 @@
         <div class="app-mob-mdctrl-mdctrl" ref="mdctrl">
             <ion-list class="items" ref="ionlist">
                 <template v-if="(viewType == 'DEMOBMDVIEW9') && controlStyle != 'SWIPERVIEW' ">
-                    <ion-item-sliding ref="sliding" v-for="item in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
+                    <ion-item-sliding ref="sliding" v-for="(item,index) in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
                             <ion-item-option v-show="item.MobEditBuild.visabled" :disabled="item.MobEditBuild.disabled" color="primary" @click="mdctrl_click($event, 'ud918ed6', item)"><ion-icon v-if="item.MobEditBuild.icon && item.MobEditBuild.isShowIcon" :name="item.MobEditBuild.icon"></ion-icon><ion-label v-if="item.MobEditBuild.isShowCaption">编辑版本</ion-label></ion-item-option>
                             <ion-item-option v-show="item.MobDelete.visabled" :disabled="item.MobDelete.disabled" color="primary" @click="mdctrl_click($event, 'u651837c', item)"><ion-icon v-if="item.MobDelete.icon && item.MobDelete.isShowIcon" :name="item.MobDelete.icon"></ion-icon><ion-label v-if="item.MobDelete.isShowCaption">删除</ion-label></ion-item-option>
@@ -19,7 +19,7 @@
             </ion-list>
             <ion-list class="items" ref="ionlist" >
                 <template v-if="(viewType == 'DEMOBMDVIEW') && controlStyle != 'SWIPERVIEW' ">
-                      <ion-item-sliding  :ref="item.srfkey" v-for="item in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
+                      <ion-item-sliding  :ref="item.srfkey" v-for="(item,index) in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
                             <ion-item-option v-show="item.MobEditBuild.visabled" :disabled="item.MobEditBuild.disabled" color="primary" @click="mdctrl_click($event, 'ud918ed6', item)"><ion-icon v-if="item.MobEditBuild.icon && item.MobEditBuild.isShowIcon" :name="item.MobEditBuild.icon"></ion-icon><ion-label v-if="item.MobEditBuild.isShowCaption">编辑版本</ion-label></ion-item-option>
                             <ion-item-option v-show="item.MobDelete.visabled" :disabled="item.MobDelete.disabled" color="primary" @click="mdctrl_click($event, 'u651837c', item)"><ion-icon v-if="item.MobDelete.icon && item.MobDelete.isShowIcon" :name="item.MobDelete.icon"></ion-icon><ion-label v-if="item.MobDelete.isShowCaption">删除</ion-label></ion-item-option>

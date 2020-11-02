@@ -33,7 +33,9 @@
     :error="detailsModel.name.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.name" 
+    v-if="data.name"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :context="context" 
     :value="data.name" 
     :itemParam="{}"/>
@@ -57,7 +59,9 @@
     :error="detailsModel.date.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.date" 
+    v-if="data.date"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :context="context" 
     :value="data.date" 
     :itemParam="{}"/>
@@ -81,10 +85,12 @@
     :error="detailsModel.builder.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        codeListType="DYNAMIC" 
+    codeListType="DYNAMIC" 
     tag="UserRealName"
     :isCache="false" 
-    v-if="data.builder" 
+    v-if="data.builder"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :context="context" 
     :value="data.builder" 
     :itemParam="{}"/>
@@ -108,7 +114,9 @@
     :error="detailsModel.scmpath.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.scmpath" 
+    v-if="data.scmpath"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :context="context" 
     :value="data.scmpath" 
     :itemParam="{}"/>
@@ -132,7 +140,9 @@
     :error="detailsModel.filepath.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.filepath" 
+    v-if="data.filepath"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :context="context" 
     :value="data.filepath" 
     :itemParam="{}"/>

@@ -33,7 +33,9 @@
     :error="detailsModel.name.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.name" 
+    v-if="data.name"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :context="context" 
     :value="data.name" 
     :itemParam="{}"/>
@@ -57,7 +59,9 @@
     :error="detailsModel.date.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.date" 
+    v-if="data.date"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :context="context" 
     :value="data.date" 
     :itemParam="{}"/>
@@ -81,7 +85,9 @@
     :error="detailsModel.buildname.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.buildname" 
+    v-if="data.buildname"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :context="context" 
     :value="data.buildname" 
     :itemParam="{}"/>
@@ -105,10 +111,12 @@
     :error="detailsModel.marker.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        codeListType="STATIC" 
+    codeListType="STATIC" 
     tag="YesNo"
     :isCache="false" 
-    v-if="data.marker" 
+    v-if="data.marker"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :context="context" 
     :value="data.marker" 
     :itemParam="{}"/>
@@ -132,10 +140,12 @@
     :error="detailsModel.status.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        codeListType="STATIC" 
+    codeListType="STATIC" 
     tag="Release__status"
     :isCache="false" 
-    v-if="data.status" 
+    v-if="data.status"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :context="context" 
     :value="data.status" 
     :itemParam="{}"/>

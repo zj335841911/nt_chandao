@@ -33,7 +33,9 @@
     :error="detailsModel.name.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.name" 
+    v-if="data.name"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :context="context" 
     :value="data.name" 
     :itemParam="{}"/>
@@ -57,10 +59,12 @@
     :error="detailsModel.type.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        codeListType="STATIC" 
+    codeListType="STATIC" 
     tag="Testsuite__type"
     :isCache="false" 
-    v-if="data.type" 
+    v-if="data.type"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :context="context" 
     :value="data.type" 
     :itemParam="{}"/>
@@ -84,10 +88,12 @@
     :error="detailsModel.addedby.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        codeListType="DYNAMIC" 
+    codeListType="DYNAMIC" 
     tag="UserRealName"
     :isCache="false" 
-    v-if="data.addedby" 
+    v-if="data.addedby"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :context="context" 
     :value="data.addedby" 
     :itemParam="{}"/>
@@ -111,7 +117,9 @@
     :error="detailsModel.addeddate.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.addeddate" 
+    v-if="data.addeddate"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :context="context" 
     :value="data.addeddate" 
     :itemParam="{}"/>
@@ -135,10 +143,12 @@
     :error="detailsModel.lasteditedby.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        codeListType="DYNAMIC" 
+    codeListType="DYNAMIC" 
     tag="UserRealName"
     :isCache="false" 
-    v-if="data.lasteditedby" 
+    v-if="data.lasteditedby"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :context="context" 
     :value="data.lasteditedby" 
     :itemParam="{}"/>
@@ -162,7 +172,9 @@
     :error="detailsModel.lastediteddate.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.lastediteddate" 
+    v-if="data.lastediteddate"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :context="context" 
     :value="data.lastediteddate" 
     :itemParam="{}"/>

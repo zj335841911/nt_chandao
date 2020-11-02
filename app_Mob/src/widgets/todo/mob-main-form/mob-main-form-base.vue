@@ -33,7 +33,9 @@
     :error="detailsModel.name.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.name" 
+    v-if="data.name"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :context="context" 
     :value="data.name" 
     :itemParam="{}"/>
@@ -57,10 +59,12 @@
     :error="detailsModel.pri.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        codeListType="STATIC" 
+    codeListType="STATIC" 
     tag="Pri"
     :isCache="false" 
-    v-if="data.pri" 
+    v-if="data.pri"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :context="context" 
     :value="data.pri" 
     :itemParam="{}"/>
@@ -84,7 +88,9 @@
     :error="detailsModel.date1.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.date1" 
+    v-if="data.date1"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :context="context" 
     :value="data.date1" 
     :itemParam="{}"/>
@@ -108,10 +114,12 @@
     :error="detailsModel.begin.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        codeListType="STATIC" 
+    codeListType="STATIC" 
     tag="BeginendDropList"
     :isCache="false" 
-    v-if="data.begin" 
+    v-if="data.begin"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :context="context" 
     :value="data.begin" 
     :itemParam="{}"/>
@@ -135,10 +143,12 @@
     :error="detailsModel.end.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        codeListType="STATIC" 
+    codeListType="STATIC" 
     tag="BeginendDropList"
     :isCache="false" 
-    v-if="data.end" 
+    v-if="data.end"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :context="context" 
     :value="data.end" 
     :itemParam="{}"/>
@@ -162,10 +172,12 @@
     :error="detailsModel.type.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        codeListType="STATIC" 
+    codeListType="STATIC" 
     tag="Type"
     :isCache="false" 
-    v-if="data.type" 
+    v-if="data.type"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :context="context" 
     :value="data.type" 
     :itemParam="{}"/>
@@ -189,10 +201,12 @@
     :error="detailsModel.status.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        codeListType="STATIC" 
+    codeListType="STATIC" 
     tag="Todo__status"
     :isCache="false" 
-    v-if="data.status" 
+    v-if="data.status"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :context="context" 
     :value="data.status" 
     :itemParam="{}"/>
@@ -216,10 +230,12 @@
     :error="detailsModel.assignedby.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        codeListType="DYNAMIC" 
+    codeListType="DYNAMIC" 
     tag="UserRealName"
     :isCache="false" 
-    v-if="data.assignedby" 
+    v-if="data.assignedby"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :context="context" 
     :value="data.assignedby" 
     :itemParam="{}"/>
@@ -243,7 +259,9 @@
     :error="detailsModel.assigneddate.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.assigneddate" 
+    v-if="data.assigneddate"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :context="context" 
     :value="data.assigneddate" 
     :itemParam="{}"/>
@@ -267,10 +285,12 @@
     :error="detailsModel.assignedto.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        codeListType="DYNAMIC" 
+    codeListType="DYNAMIC" 
     tag="UserRealName"
     :isCache="false" 
-    v-if="data.assignedto" 
+    v-if="data.assignedto"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :context="context" 
     :value="data.assignedto" 
     :itemParam="{}"/>

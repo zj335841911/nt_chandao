@@ -33,7 +33,9 @@
     :error="detailsModel.name.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.name" 
+    v-if="data.name"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :context="context" 
     :value="data.name" 
     :itemParam="{}"/>
@@ -57,7 +59,9 @@
     :error="detailsModel.code.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.code" 
+    v-if="data.code"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :context="context" 
     :value="data.code" 
     :itemParam="{}"/>
@@ -81,10 +85,12 @@
     :error="detailsModel.pm.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        codeListType="DYNAMIC" 
+    codeListType="DYNAMIC" 
     tag="UserRealName"
     :isCache="false" 
-    v-if="data.pm" 
+    v-if="data.pm"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :context="context" 
     :value="data.pm" 
     :itemParam="{}"/>
@@ -108,10 +114,12 @@
     :error="detailsModel.po.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        codeListType="DYNAMIC" 
+    codeListType="DYNAMIC" 
     tag="UserRealName"
     :isCache="false" 
-    v-if="data.po" 
+    v-if="data.po"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :context="context" 
     :value="data.po" 
     :itemParam="{}"/>
@@ -135,10 +143,12 @@
     :error="detailsModel.qd.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        codeListType="DYNAMIC" 
+    codeListType="DYNAMIC" 
     tag="UserRealName"
     :isCache="false" 
-    v-if="data.qd" 
+    v-if="data.qd"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :context="context" 
     :value="data.qd" 
     :itemParam="{}"/>
@@ -162,10 +172,12 @@
     :error="detailsModel.rd.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        codeListType="DYNAMIC" 
+    codeListType="DYNAMIC" 
     tag="UserRealName"
     :isCache="false" 
-    v-if="data.rd" 
+    v-if="data.rd"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :context="context" 
     :value="data.rd" 
     :itemParam="{}"/>
@@ -189,7 +201,9 @@
     :error="detailsModel.begin.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.begin" 
+    v-if="data.begin"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :context="context" 
     :value="data.begin" 
     :itemParam="{}"/>
@@ -213,7 +227,9 @@
     :error="detailsModel.end.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.end" 
+    v-if="data.end"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :context="context" 
     :value="data.end" 
     :itemParam="{}"/>
@@ -237,7 +253,9 @@
     :error="detailsModel.days.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.days" 
+    v-if="data.days"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :context="context" 
     :value="data.days" 
     :itemParam="{}"/>
@@ -261,7 +279,9 @@
     :error="detailsModel.team.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.team" 
+    v-if="data.team"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :context="context" 
     :value="data.team" 
     :itemParam="{}"/>
@@ -285,10 +305,12 @@
     :error="detailsModel.status.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        codeListType="STATIC" 
+    codeListType="STATIC" 
     tag="Project__status"
     :isCache="false" 
-    v-if="data.status" 
+    v-if="data.status"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :context="context" 
     :value="data.status" 
     :itemParam="{}"/>
@@ -312,7 +334,9 @@
     :error="detailsModel.storycnt.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.storycnt" 
+    v-if="data.storycnt"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :context="context" 
     :value="data.storycnt" 
     :itemParam="{}"/>
@@ -336,7 +360,9 @@
     :error="detailsModel.bugcnt.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.bugcnt" 
+    v-if="data.bugcnt"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :context="context" 
     :value="data.bugcnt" 
     :itemParam="{}"/>
@@ -360,7 +386,9 @@
     :error="detailsModel.taskcnt.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.taskcnt" 
+    v-if="data.taskcnt"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :context="context" 
     :value="data.taskcnt" 
     :itemParam="{}"/>
@@ -384,7 +412,9 @@
     :error="detailsModel.totalestimate.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.totalestimate" 
+    v-if="data.totalestimate"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :context="context" 
     :value="data.totalestimate" 
     :itemParam="{}"/>
@@ -408,7 +438,9 @@
     :error="detailsModel.totalconsumed.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.totalconsumed" 
+    v-if="data.totalconsumed"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :context="context" 
     :value="data.totalconsumed" 
     :itemParam="{}"/>

@@ -33,7 +33,9 @@
     :error="detailsModel.title.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.title" 
+    v-if="data.title"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :context="context" 
     :value="data.title" 
     :itemParam="{}"/>
@@ -57,10 +59,12 @@
     :error="detailsModel.type.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        codeListType="STATIC" 
+    codeListType="STATIC" 
     tag="Testcase__type"
     :isCache="false" 
-    v-if="data.type" 
+    v-if="data.type"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :context="context" 
     :value="data.type" 
     :itemParam="{}"/>
@@ -84,10 +88,12 @@
     :error="detailsModel.stage.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        codeListType="STATIC" 
+    codeListType="STATIC" 
     tag="Testcase__stage"
     :isCache="false" 
-    v-if="data.stage" 
+    v-if="data.stage"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :context="context" 
     :value="data.stage" 
     :itemParam="{}"/>
@@ -111,7 +117,9 @@
     :error="detailsModel.precondition.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.precondition" 
+    v-if="data.precondition"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :context="context" 
     :value="data.precondition" 
     :itemParam="{}"/>
@@ -135,10 +143,12 @@
     :error="detailsModel.version.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        codeListType="DYNAMIC" 
+    codeListType="DYNAMIC" 
     tag="CurCaseVersion"
     :isCache="false" 
-    v-if="data.version" 
+    v-if="data.version"
+    :navigateContext ='{ "case": "%id%" } '
+    :navigateParam ='{ "case": "%id%" } ' 
     :context="context" 
     :value="data.version" 
     :itemParam="{}"/>
@@ -188,7 +198,9 @@
     :error="detailsModel.keywords.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.keywords" 
+    v-if="data.keywords"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :context="context" 
     :value="data.keywords" 
     :itemParam="{}"/>

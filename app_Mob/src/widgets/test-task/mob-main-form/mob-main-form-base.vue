@@ -33,7 +33,9 @@
     :error="detailsModel.name.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.name" 
+    v-if="data.name"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :context="context" 
     :value="data.name" 
     :itemParam="{}"/>
@@ -57,7 +59,9 @@
     :error="detailsModel.buildname.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.buildname" 
+    v-if="data.buildname"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :context="context" 
     :value="data.buildname" 
     :itemParam="{}"/>
@@ -81,10 +85,12 @@
     :error="detailsModel.pri.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        codeListType="STATIC" 
+    codeListType="STATIC" 
     tag="Testtask__pri"
     :isCache="false" 
-    v-if="data.pri" 
+    v-if="data.pri"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :context="context" 
     :value="data.pri" 
     :itemParam="{}"/>
@@ -108,10 +114,12 @@
     :error="detailsModel.status.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        codeListType="STATIC" 
+    codeListType="STATIC" 
     tag="Testtask__status"
     :isCache="false" 
-    v-if="data.status" 
+    v-if="data.status"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :context="context" 
     :value="data.status" 
     :itemParam="{}"/>
@@ -135,10 +143,12 @@
     :error="detailsModel.owner.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        codeListType="DYNAMIC" 
+    codeListType="DYNAMIC" 
     tag="UserRealName"
     :isCache="false" 
-    v-if="data.owner" 
+    v-if="data.owner"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :context="context" 
     :value="data.owner" 
     :itemParam="{}"/>
@@ -162,7 +172,9 @@
     :error="detailsModel.begin.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.begin" 
+    v-if="data.begin"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :context="context" 
     :value="data.begin" 
     :itemParam="{}"/>
@@ -186,7 +198,9 @@
     :error="detailsModel.end.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.end" 
+    v-if="data.end"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :context="context" 
     :value="data.end" 
     :itemParam="{}"/>

@@ -3,7 +3,7 @@
         <div class="app-mob-mdctrl-mdctrl" ref="mdctrl">
             <ion-list class="items" ref="ionlist">
                 <template v-if="(viewType == 'DEMOBMDVIEW9') && controlStyle != 'SWIPERVIEW' ">
-                    <ion-item-sliding ref="sliding" v-for="item in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
+                    <ion-item-sliding ref="sliding" v-for="(item,index) in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
                             <ion-item-option v-show="item.ConfirmBugMob.visabled" :disabled="item.ConfirmBugMob.disabled" color="primary" @click="mdctrl_click($event, 'u1c99d88', item)"><ion-icon v-if="item.ConfirmBugMob.icon && item.ConfirmBugMob.isShowIcon" :name="item.ConfirmBugMob.icon"></ion-icon><ion-label v-if="item.ConfirmBugMob.isShowCaption">确认</ion-label></ion-item-option>
                             <ion-item-option v-show="item.AssingToBugMob.visabled" :disabled="item.AssingToBugMob.disabled" color="primary" @click="mdctrl_click($event, 'u79d161d', item)"><ion-icon v-if="item.AssingToBugMob.icon && item.AssingToBugMob.isShowIcon" :name="item.AssingToBugMob.icon"></ion-icon><ion-label v-if="item.AssingToBugMob.isShowCaption">指派</ion-label></ion-item-option>
@@ -29,7 +29,7 @@
                           <template #title>
                             <div>{{obj.text}}（<label v-if="obj.items && obj.items.length > 0">{{obj.items.length}}</label>）</div>
                           </template>
-                      <ion-item-sliding  :ref="item.srfkey" v-for="item in obj.items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
+                      <ion-item-sliding  :ref="item.srfkey" v-for="(item,index) in obj.items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
                             <ion-item-option v-show="item.ConfirmBugMob.visabled" :disabled="item.ConfirmBugMob.disabled" color="primary" @click="mdctrl_click($event, 'u1c99d88', item)"><ion-icon v-if="item.ConfirmBugMob.icon && item.ConfirmBugMob.isShowIcon" :name="item.ConfirmBugMob.icon"></ion-icon><ion-label v-if="item.ConfirmBugMob.isShowCaption">确认</ion-label></ion-item-option>
                             <ion-item-option v-show="item.AssingToBugMob.visabled" :disabled="item.AssingToBugMob.disabled" color="primary" @click="mdctrl_click($event, 'u79d161d', item)"><ion-icon v-if="item.AssingToBugMob.icon && item.AssingToBugMob.isShowIcon" :name="item.AssingToBugMob.icon"></ion-icon><ion-label v-if="item.AssingToBugMob.isShowCaption">指派</ion-label></ion-item-option>

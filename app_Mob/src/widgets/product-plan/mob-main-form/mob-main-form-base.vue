@@ -33,10 +33,12 @@
     :error="detailsModel.branch.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        codeListType="DYNAMIC" 
+    codeListType="DYNAMIC" 
     tag="ProductBranch_Cache"
     :isCache="false" 
-    v-if="data.branch" 
+    v-if="data.branch"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :context="context" 
     :value="data.branch" 
     :itemParam="{}"/>
@@ -60,7 +62,9 @@
     :error="detailsModel.title.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.title" 
+    v-if="data.title"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :context="context" 
     :value="data.title" 
     :itemParam="{}"/>
@@ -84,7 +88,9 @@
     :error="detailsModel.begin.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.begin" 
+    v-if="data.begin"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :context="context" 
     :value="data.begin" 
     :itemParam="{}"/>
@@ -108,7 +114,9 @@
     :error="detailsModel.end.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.end" 
+    v-if="data.end"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :context="context" 
     :value="data.end" 
     :itemParam="{}"/>
@@ -132,7 +140,9 @@
     :error="detailsModel.storycnt.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.storycnt" 
+    v-if="data.storycnt"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :context="context" 
     :value="data.storycnt" 
     :itemParam="{}"/>
@@ -221,7 +231,9 @@
     :error="detailsModel.bugcnt.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.bugcnt" 
+    v-if="data.bugcnt"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :context="context" 
     :value="data.bugcnt" 
     :itemParam="{}"/>

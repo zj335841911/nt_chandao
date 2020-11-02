@@ -33,7 +33,9 @@
     :error="detailsModel.realname.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.realname" 
+    v-if="data.realname"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :context="context" 
     :value="data.realname" 
     :itemParam="{}"/>
@@ -57,10 +59,12 @@
     :error="detailsModel.gender.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        codeListType="STATIC" 
+    codeListType="STATIC" 
     tag="User__gender"
     :isCache="false" 
-    v-if="data.gender" 
+    v-if="data.gender"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :context="context" 
     :value="data.gender" 
     :itemParam="{}"/>
@@ -84,7 +88,9 @@
     :error="detailsModel.account.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.account" 
+    v-if="data.account"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :context="context" 
     :value="data.account" 
     :itemParam="{}"/>
@@ -108,7 +114,9 @@
     :error="detailsModel.address.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.address" 
+    v-if="data.address"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :context="context" 
     :value="data.address" 
     :itemParam="{}"/>
@@ -132,7 +140,9 @@
     :error="detailsModel.dingding.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.dingding" 
+    v-if="data.dingding"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :context="context" 
     :value="data.dingding" 
     :itemParam="{}"/>
@@ -156,7 +166,9 @@
     :error="detailsModel.phone.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.phone" 
+    v-if="data.phone"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :context="context" 
     :value="data.phone" 
     :itemParam="{}"/>
@@ -180,7 +192,9 @@
     :error="detailsModel.mobile.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.mobile" 
+    v-if="data.mobile"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :context="context" 
     :value="data.mobile" 
     :itemParam="{}"/>
@@ -204,10 +218,12 @@
     :error="detailsModel.role.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        codeListType="DYNAMIC" 
+    codeListType="DYNAMIC" 
     tag="Role"
     :isCache="false" 
-    v-if="data.role" 
+    v-if="data.role"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :context="context" 
     :value="data.role" 
     :itemParam="{}"/>
@@ -231,7 +247,9 @@
     :error="detailsModel.qq.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.qq" 
+    v-if="data.qq"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :context="context" 
     :value="data.qq" 
     :itemParam="{}"/>
@@ -255,7 +273,9 @@
     :error="detailsModel.weixin.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.weixin" 
+    v-if="data.weixin"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :context="context" 
     :value="data.weixin" 
     :itemParam="{}"/>

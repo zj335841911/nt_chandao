@@ -33,7 +33,9 @@
     :error="detailsModel.projectname.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.projectname" 
+    v-if="data.projectname"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :context="context" 
     :value="data.projectname" 
     :itemParam="{}"/>
@@ -57,7 +59,9 @@
     :error="detailsModel.modulename.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.modulename" 
+    v-if="data.modulename"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :context="context" 
     :value="data.modulename" 
     :itemParam="{}"/>
@@ -81,7 +85,9 @@
     :error="detailsModel.name.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.name" 
+    v-if="data.name"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :context="context" 
     :value="data.name" 
     :itemParam="{}"/>
@@ -105,10 +111,12 @@
     :error="detailsModel.type.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        codeListType="STATIC" 
+    codeListType="STATIC" 
     tag="Task__type"
     :isCache="false" 
-    v-if="data.type" 
+    v-if="data.type"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :context="context" 
     :value="data.type" 
     :itemParam="{}"/>
@@ -132,10 +140,12 @@
     :error="detailsModel.assignedto.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        codeListType="DYNAMIC" 
+    codeListType="DYNAMIC" 
     tag="UserRealName"
     :isCache="false" 
-    v-if="data.assignedto" 
+    v-if="data.assignedto"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :context="context" 
     :value="data.assignedto" 
     :itemParam="{}"/>
@@ -159,7 +169,9 @@
     :error="detailsModel.assigneddate.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.assigneddate" 
+    v-if="data.assigneddate"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :context="context" 
     :value="data.assigneddate" 
     :itemParam="{}"/>
@@ -228,10 +240,12 @@
     :error="detailsModel.status.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        codeListType="STATIC" 
+    codeListType="STATIC" 
     tag="Task__status"
     :isCache="false" 
-    v-if="data.status" 
+    v-if="data.status"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :context="context" 
     :value="data.status" 
     :itemParam="{}"/>
@@ -255,10 +269,12 @@
     :error="detailsModel.pri.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        codeListType="STATIC" 
+    codeListType="STATIC" 
     tag="Task__pri"
     :isCache="false" 
-    v-if="data.pri" 
+    v-if="data.pri"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :context="context" 
     :value="data.pri" 
     :itemParam="{}"/>
@@ -282,7 +298,9 @@
     :error="detailsModel.estimate.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.estimate" 
+    v-if="data.estimate"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :context="context" 
     :value="data.estimate" 
     :itemParam="{}"/>
@@ -306,7 +324,9 @@
     :error="detailsModel.consumed.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.consumed" 
+    v-if="data.consumed"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :context="context" 
     :value="data.consumed" 
     :itemParam="{}"/>
@@ -330,7 +350,9 @@
     :error="detailsModel.left.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.left" 
+    v-if="data.left"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :context="context" 
     :value="data.left" 
     :itemParam="{}"/>
@@ -354,7 +376,9 @@
     :error="detailsModel.eststarted.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.eststarted" 
+    v-if="data.eststarted"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :context="context" 
     :value="data.eststarted" 
     :itemParam="{}"/>
@@ -378,7 +402,9 @@
     :error="detailsModel.realstarted.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.realstarted" 
+    v-if="data.realstarted"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :context="context" 
     :value="data.realstarted" 
     :itemParam="{}"/>
@@ -402,7 +428,9 @@
     :error="detailsModel.deadline.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.deadline" 
+    v-if="data.deadline"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :context="context" 
     :value="data.deadline" 
     :itemParam="{}"/>
@@ -426,10 +454,12 @@
     :error="detailsModel.finishedby.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        codeListType="DYNAMIC" 
+    codeListType="DYNAMIC" 
     tag="UserRealName"
     :isCache="false" 
-    v-if="data.finishedby" 
+    v-if="data.finishedby"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :context="context" 
     :value="data.finishedby" 
     :itemParam="{}"/>
@@ -453,10 +483,12 @@
     :error="detailsModel.closedby.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        codeListType="DYNAMIC" 
+    codeListType="DYNAMIC" 
     tag="UserRealName"
     :isCache="false" 
-    v-if="data.closedby" 
+    v-if="data.closedby"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :context="context" 
     :value="data.closedby" 
     :itemParam="{}"/>
@@ -480,7 +512,9 @@
     :error="detailsModel.closeddate.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.closeddate" 
+    v-if="data.closeddate"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :context="context" 
     :value="data.closeddate" 
     :itemParam="{}"/>
@@ -504,10 +538,12 @@
     :error="detailsModel.closedreason.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        codeListType="STATIC" 
+    codeListType="STATIC" 
     tag="Task__closed_reason"
     :isCache="false" 
-    v-if="data.closedreason" 
+    v-if="data.closedreason"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :context="context" 
     :value="data.closedreason" 
     :itemParam="{}"/>

@@ -33,7 +33,9 @@
     :error="detailsModel.title.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.title" 
+    v-if="data.title"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } ' 
     :context="context" 
     :value="data.title" 
     :itemParam="{}"/>
