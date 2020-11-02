@@ -36,7 +36,9 @@
     v-if="data.name"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
-    :context="context" 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.name" 
     :itemParam="{}"/>
 </app-form-item>
@@ -62,7 +64,9 @@
     v-if="data.code"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
-    :context="context" 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.code" 
     :itemParam="{}"/>
 </app-form-item>
@@ -91,7 +95,9 @@
     v-if="data.pm"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
-    :context="context" 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.pm" 
     :itemParam="{}"/>
 </app-form-item>
@@ -120,7 +126,9 @@
     v-if="data.po"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
-    :context="context" 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.po" 
     :itemParam="{}"/>
 </app-form-item>
@@ -149,7 +157,9 @@
     v-if="data.qd"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
-    :context="context" 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.qd" 
     :itemParam="{}"/>
 </app-form-item>
@@ -178,7 +188,9 @@
     v-if="data.rd"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
-    :context="context" 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.rd" 
     :itemParam="{}"/>
 </app-form-item>
@@ -204,7 +216,9 @@
     v-if="data.begin"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
-    :context="context" 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.begin" 
     :itemParam="{}"/>
 </app-form-item>
@@ -230,7 +244,9 @@
     v-if="data.end"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
-    :context="context" 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.end" 
     :itemParam="{}"/>
 </app-form-item>
@@ -256,7 +272,9 @@
     v-if="data.days"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
-    :context="context" 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.days" 
     :itemParam="{}"/>
 </app-form-item>
@@ -282,7 +300,9 @@
     v-if="data.team"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
-    :context="context" 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.team" 
     :itemParam="{}"/>
 </app-form-item>
@@ -311,7 +331,9 @@
     v-if="data.status"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
-    :context="context" 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.status" 
     :itemParam="{}"/>
 </app-form-item>
@@ -337,7 +359,9 @@
     v-if="data.storycnt"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
-    :context="context" 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.storycnt" 
     :itemParam="{}"/>
 </app-form-item>
@@ -363,7 +387,9 @@
     v-if="data.bugcnt"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
-    :context="context" 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.bugcnt" 
     :itemParam="{}"/>
 </app-form-item>
@@ -389,7 +415,9 @@
     v-if="data.taskcnt"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
-    :context="context" 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.taskcnt" 
     :itemParam="{}"/>
 </app-form-item>
@@ -415,7 +443,9 @@
     v-if="data.totalestimate"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
-    :context="context" 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.totalestimate" 
     :itemParam="{}"/>
 </app-form-item>
@@ -441,7 +471,9 @@
     v-if="data.totalconsumed"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
-    :context="context" 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.totalconsumed" 
     :itemParam="{}"/>
 </app-form-item>

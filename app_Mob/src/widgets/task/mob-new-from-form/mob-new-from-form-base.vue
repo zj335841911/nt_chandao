@@ -866,6 +866,7 @@ export default class MobNewFromBase extends Vue implements ControlInterface {
         name: [
             { required: true, type: 'string', message: '任务名称 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '任务名称 值不能为空', trigger: 'blur' },
+            {validator:(rule:any, value:any)=>{return this.verifyDeRules("name").isPast}}
         ],
     }
 
@@ -876,6 +877,19 @@ export default class MobNewFromBase extends Vue implements ControlInterface {
      * @memberof MobNewFromBase
      */
     public deRules:any = {
+                name:[
+                  {
+                      type:"STRINGLENGTH",
+                      condOP:"",
+                      ruleInfo:"任务名称不大于10", 
+                      isKeyCond:false,
+                      isNotMode:false,
+                      maxValue:10,
+                      deName:"name",
+                      isIncludeMaxValue:true,
+                      isIncludeMinValue:false,
+                  },
+                ],
     };
 
     /**

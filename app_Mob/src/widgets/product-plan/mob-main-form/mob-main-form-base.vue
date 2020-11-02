@@ -39,7 +39,9 @@
     v-if="data.branch"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
-    :context="context" 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.branch" 
     :itemParam="{}"/>
 </app-form-item>
@@ -65,7 +67,9 @@
     v-if="data.title"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
-    :context="context" 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.title" 
     :itemParam="{}"/>
 </app-form-item>
@@ -91,7 +95,9 @@
     v-if="data.begin"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
-    :context="context" 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.begin" 
     :itemParam="{}"/>
 </app-form-item>
@@ -117,7 +123,9 @@
     v-if="data.end"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
-    :context="context" 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.end" 
     :itemParam="{}"/>
 </app-form-item>
@@ -143,7 +151,9 @@
     v-if="data.storycnt"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
-    :context="context" 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.storycnt" 
     :itemParam="{}"/>
 </app-form-item>
@@ -234,7 +244,9 @@
     v-if="data.bugcnt"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
-    :context="context" 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.bugcnt" 
     :itemParam="{}"/>
 </app-form-item>

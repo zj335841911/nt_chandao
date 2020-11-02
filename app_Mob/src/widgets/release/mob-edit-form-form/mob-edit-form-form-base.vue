@@ -36,7 +36,9 @@
     v-if="data.productname"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
-    :context="context" 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.productname" 
     :itemParam="{}"/>
 </app-form-item>

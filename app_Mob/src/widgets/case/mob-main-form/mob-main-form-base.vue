@@ -36,7 +36,9 @@
     v-if="data.title"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
-    :context="context" 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.title" 
     :itemParam="{}"/>
 </app-form-item>
@@ -65,7 +67,9 @@
     v-if="data.type"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
-    :context="context" 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.type" 
     :itemParam="{}"/>
 </app-form-item>
@@ -94,7 +98,9 @@
     v-if="data.stage"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
-    :context="context" 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.stage" 
     :itemParam="{}"/>
 </app-form-item>
@@ -120,7 +126,9 @@
     v-if="data.precondition"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
-    :context="context" 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.precondition" 
     :itemParam="{}"/>
 </app-form-item>
@@ -149,7 +157,9 @@
     v-if="data.version"
     :navigateContext ='{ "case": "%id%" } '
     :navigateParam ='{ "case": "%id%" } ' 
-    :context="context" 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.version" 
     :itemParam="{}"/>
 </app-form-item>
@@ -201,7 +211,9 @@
     v-if="data.keywords"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
-    :context="context" 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.keywords" 
     :itemParam="{}"/>
 </app-form-item>

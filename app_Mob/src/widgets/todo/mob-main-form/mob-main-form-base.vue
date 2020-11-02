@@ -36,7 +36,9 @@
     v-if="data.name"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
-    :context="context" 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.name" 
     :itemParam="{}"/>
 </app-form-item>
@@ -65,7 +67,9 @@
     v-if="data.pri"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
-    :context="context" 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.pri" 
     :itemParam="{}"/>
 </app-form-item>
@@ -91,7 +95,9 @@
     v-if="data.date1"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
-    :context="context" 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.date1" 
     :itemParam="{}"/>
 </app-form-item>
@@ -120,7 +126,9 @@
     v-if="data.begin"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
-    :context="context" 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.begin" 
     :itemParam="{}"/>
 </app-form-item>
@@ -149,7 +157,9 @@
     v-if="data.end"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
-    :context="context" 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.end" 
     :itemParam="{}"/>
 </app-form-item>
@@ -178,7 +188,9 @@
     v-if="data.type"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
-    :context="context" 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.type" 
     :itemParam="{}"/>
 </app-form-item>
@@ -207,7 +219,9 @@
     v-if="data.status"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
-    :context="context" 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.status" 
     :itemParam="{}"/>
 </app-form-item>
@@ -236,7 +250,9 @@
     v-if="data.assignedby"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
-    :context="context" 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.assignedby" 
     :itemParam="{}"/>
 </app-form-item>
@@ -262,7 +278,9 @@
     v-if="data.assigneddate"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
-    :context="context" 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.assigneddate" 
     :itemParam="{}"/>
 </app-form-item>
@@ -291,7 +309,9 @@
     v-if="data.assignedto"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
-    :context="context" 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.assignedto" 
     :itemParam="{}"/>
 </app-form-item>

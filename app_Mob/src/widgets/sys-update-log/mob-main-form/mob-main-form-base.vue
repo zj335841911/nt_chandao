@@ -36,7 +36,9 @@
     v-if="data.sys_update_logname"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
-    :context="context" 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.sys_update_logname" 
     :itemParam="{}"/>
 </app-form-item>
@@ -62,7 +64,9 @@
     v-if="data.update"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
-    :context="context" 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.update" 
     :itemParam="{}"/>
 </app-form-item>

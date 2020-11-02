@@ -36,7 +36,9 @@
     v-if="data.projectname"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
-    :context="context" 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.projectname" 
     :itemParam="{}"/>
 </app-form-item>
@@ -62,7 +64,9 @@
     v-if="data.modulename"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
-    :context="context" 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.modulename" 
     :itemParam="{}"/>
 </app-form-item>
@@ -88,7 +92,9 @@
     v-if="data.name"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
-    :context="context" 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.name" 
     :itemParam="{}"/>
 </app-form-item>
@@ -117,7 +123,9 @@
     v-if="data.type"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
-    :context="context" 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.type" 
     :itemParam="{}"/>
 </app-form-item>
@@ -146,7 +154,9 @@
     v-if="data.assignedto"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
-    :context="context" 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.assignedto" 
     :itemParam="{}"/>
 </app-form-item>
@@ -172,7 +182,9 @@
     v-if="data.assigneddate"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
-    :context="context" 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.assigneddate" 
     :itemParam="{}"/>
 </app-form-item>
@@ -246,7 +258,9 @@
     v-if="data.status"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
-    :context="context" 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.status" 
     :itemParam="{}"/>
 </app-form-item>
@@ -275,7 +289,9 @@
     v-if="data.pri"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
-    :context="context" 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.pri" 
     :itemParam="{}"/>
 </app-form-item>
@@ -301,7 +317,9 @@
     v-if="data.estimate"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
-    :context="context" 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.estimate" 
     :itemParam="{}"/>
 </app-form-item>
@@ -327,7 +345,9 @@
     v-if="data.consumed"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
-    :context="context" 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.consumed" 
     :itemParam="{}"/>
 </app-form-item>
@@ -353,7 +373,9 @@
     v-if="data.left"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
-    :context="context" 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.left" 
     :itemParam="{}"/>
 </app-form-item>
@@ -379,7 +401,9 @@
     v-if="data.eststarted"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
-    :context="context" 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.eststarted" 
     :itemParam="{}"/>
 </app-form-item>
@@ -405,7 +429,9 @@
     v-if="data.realstarted"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
-    :context="context" 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.realstarted" 
     :itemParam="{}"/>
 </app-form-item>
@@ -431,7 +457,9 @@
     v-if="data.deadline"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
-    :context="context" 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.deadline" 
     :itemParam="{}"/>
 </app-form-item>
@@ -460,7 +488,9 @@
     v-if="data.finishedby"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
-    :context="context" 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.finishedby" 
     :itemParam="{}"/>
 </app-form-item>
@@ -489,7 +519,9 @@
     v-if="data.closedby"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
-    :context="context" 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.closedby" 
     :itemParam="{}"/>
 </app-form-item>
@@ -515,7 +547,9 @@
     v-if="data.closeddate"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
-    :context="context" 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.closeddate" 
     :itemParam="{}"/>
 </app-form-item>
@@ -544,7 +578,9 @@
     v-if="data.closedreason"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
-    :context="context" 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.closedreason" 
     :itemParam="{}"/>
 </app-form-item>

@@ -806,7 +806,9 @@
     v-if="data.openedby"
     :navigateContext ='{ } '
     :navigateParam ='{ } ' 
-    :context="context" 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
     :value="data.openedby" 
     :itemParam="{}"/>
 </app-form-item>
