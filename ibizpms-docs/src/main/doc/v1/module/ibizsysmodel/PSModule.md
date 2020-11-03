@@ -10,10 +10,10 @@
 ### 1:N
 | 序号 | 关系实体 | 关系类型 |
 | ---- | ---- | ---- |
-| 1 | [实体（PSDATAENTITY）](../ibizsysmodel/PSDataEntity) | （默认）
-| 2 | [外部服务接口（PSSUBSYSSERVICEAPI）](../ibizsysmodel/PSSubSysServiceAPI) | （默认）
-| 3 | [系统需求模块（PSSYSREQMODULE）](../ibizsysmodel/PSSysReqModule) | （默认）
-| 4 | [系统服务接口（PSSYSSERVICEAPI）](../ibizsysmodel/PSSysServiceAPI) | （默认）
+| 1 | [实体（PSDATAENTITY）](../ibizsysmodel/PSDataEntity) | （默认） |
+| 2 | [外部服务接口（PSSUBSYSSERVICEAPI）](../ibizsysmodel/PSSubSysServiceAPI) | （默认） |
+| 3 | [系统需求模块（PSSYSREQMODULE）](../ibizsysmodel/PSSysReqModule) | （默认） |
+| 4 | [系统服务接口（PSSYSSERVICEAPI）](../ibizsysmodel/PSSysServiceAPI) | （默认） |
 ### N:1
 无
 

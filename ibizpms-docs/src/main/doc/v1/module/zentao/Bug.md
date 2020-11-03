@@ -10,28 +10,28 @@ Bug
 ### 1:N
 | 序号 | 关系实体 | 关系类型 |
 | ---- | ---- | ---- |
-| 1 | [Bug（ZT_BUG）](../zentao/Bug) | （默认）
-| 2 | [测试用例（ZT_CASE）](../zentao/Case) | （默认）
-| 3 | [需求（ZT_STORY）](../zentao/Story) | （默认）
-| 4 | [需求（ZT_STORY）](../zentao/Story) | （默认）
-| 5 | [任务（ZT_TASK）](../zentao/Task) | （默认）
+| 1 | [Bug（ZT_BUG）](../zentao/Bug) | （默认） |
+| 2 | [测试用例（ZT_CASE）](../zentao/Case) | （默认） |
+| 3 | [需求（ZT_STORY）](../zentao/Story) | （默认） |
+| 4 | [需求（ZT_STORY）](../zentao/Story) | （默认） |
+| 5 | [任务（ZT_TASK）](../zentao/Task) | （默认） |
 ### N:1
 | 序号 | 关系实体 | 关系类型 |
 | ---- | ---- | ---- |
-| 1 | [产品的分支和平台信息（ZT_BRANCH）](../zentao/Branch) | （默认）
-| 2 | [Bug（ZT_BUG）](../zentao/Bug) | （默认）
-| 3 | [测试用例（ZT_CASE）](../zentao/Case) | （默认）
-| 4 | [entry（ZT_ENTRY）](../zentao/Entry) | （默认）
-| 5 | [模块（ZT_MODULE）](../zentao/Module) | （默认）
-| 6 | [产品计划（ZT_PRODUCTPLAN）](../zentao/ProductPlan) | （默认）
-| 7 | [产品（ZT_PRODUCT）](../zentao/Product) | （默认）
-| 8 | [项目（ZT_PROJECT）](../zentao/Project) | （默认）
-| 9 | [repo（ZT_REPO）](../zentao/Repo) | （默认）
-| 10 | [需求（ZT_STORY）](../zentao/Story) | （默认）
-| 11 | [需求（ZT_STORY）](../zentao/Story) | （默认）
-| 12 | [任务（ZT_TASK）](../zentao/Task) | （默认）
-| 13 | [任务（ZT_TASK）](../zentao/Task) | （默认）
-| 14 | [测试版本（ZT_TESTTASK）](../zentao/TestTask) | （默认）
+| 1 | [产品的分支和平台信息（ZT_BRANCH）](../zentao/Branch) | （默认） |
+| 2 | [Bug（ZT_BUG）](../zentao/Bug) | （默认） |
+| 3 | [测试用例（ZT_CASE）](../zentao/Case) | （默认） |
+| 4 | [entry（ZT_ENTRY）](../zentao/Entry) | （默认） |
+| 5 | [模块（ZT_MODULE）](../zentao/Module) | （默认） |
+| 6 | [产品计划（ZT_PRODUCTPLAN）](../zentao/ProductPlan) | （默认） |
+| 7 | [产品（ZT_PRODUCT）](../zentao/Product) | （默认） |
+| 8 | [项目（ZT_PROJECT）](../zentao/Project) | （默认） |
+| 9 | [repo（ZT_REPO）](../zentao/Repo) | （默认） |
+| 10 | [需求（ZT_STORY）](../zentao/Story) | （默认） |
+| 11 | [需求（ZT_STORY）](../zentao/Story) | （默认） |
+| 12 | [任务（ZT_TASK）](../zentao/Task) | （默认） |
+| 13 | [任务（ZT_TASK）](../zentao/Task) | （默认） |
+| 14 | [测试版本（ZT_TESTTASK）](../zentao/TestTask) | （默认） |
 
 
 ## 实体属性

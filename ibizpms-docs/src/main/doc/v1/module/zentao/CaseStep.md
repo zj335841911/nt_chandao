@@ -10,12 +10,12 @@
 ### 1:N
 | 序号 | 关系实体 | 关系类型 |
 | ---- | ---- | ---- |
-| 1 | [用例步骤（ZT_CASESTEP）](../zentao/CaseStep) | （默认）
+| 1 | [用例步骤（ZT_CASESTEP）](../zentao/CaseStep) | （默认） |
 ### N:1
 | 序号 | 关系实体 | 关系类型 |
 | ---- | ---- | ---- |
-| 1 | [测试用例（ZT_CASE）](../zentao/Case) | 嵌套操作
-| 2 | [用例步骤（ZT_CASESTEP）](../zentao/CaseStep) | （默认）
+| 1 | [测试用例（ZT_CASE）](../zentao/Case) | 嵌套操作 |
+| 2 | [用例步骤（ZT_CASESTEP）](../zentao/CaseStep) | （默认） |
 
 
 ## 实体属性

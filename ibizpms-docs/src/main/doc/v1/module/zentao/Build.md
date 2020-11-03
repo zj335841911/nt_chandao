@@ -10,14 +10,14 @@
 ### 1:N
 | 序号 | 关系实体 | 关系类型 |
 | ---- | ---- | ---- |
-| 1 | [发布（ZT_RELEASE）](../zentao/Release) | （默认）
-| 2 | [测试版本（ZT_TESTTASK）](../zentao/TestTask) | （默认）
+| 1 | [发布（ZT_RELEASE）](../zentao/Release) | （默认） |
+| 2 | [测试版本（ZT_TESTTASK）](../zentao/TestTask) | （默认） |
 ### N:1
 | 序号 | 关系实体 | 关系类型 |
 | ---- | ---- | ---- |
-| 1 | [产品的分支和平台信息（ZT_BRANCH）](../zentao/Branch) | （默认）
-| 2 | [产品（ZT_PRODUCT）](../zentao/Product) | （默认）
-| 3 | [项目（ZT_PROJECT）](../zentao/Project) | （默认）
+| 1 | [产品的分支和平台信息（ZT_BRANCH）](../zentao/Branch) | （默认） |
+| 2 | [产品（ZT_PRODUCT）](../zentao/Product) | （默认） |
+| 3 | [项目（ZT_PROJECT）](../zentao/Project) | （默认） |
 
 
 ## 实体属性

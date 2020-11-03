@@ -10,7 +10,7 @@
 ### 1:N
 | 序号 | 关系实体 | 关系类型 |
 | ---- | ---- | ---- |
-| 1 | [系统模板（IBZPRO_SYSTPL）](../ibizpro/IBZProSysTpl) | （默认）
+| 1 | [系统模板（IBZPRO_SYSTPL）](../ibizpro/IBZProSysTpl) | （默认） |
 ### N:1
 无
 

@@ -12,7 +12,7 @@
 ### N:1
 | 序号 | 关系实体 | 关系类型 |
 | ---- | ---- | ---- |
-| 1 | [项目（ZT_PROJECT）](../zentao/Project) | （默认）
+| 1 | [项目（ZT_PROJECT）](../zentao/Project) | （默认） |
 
 
 ## 实体属性

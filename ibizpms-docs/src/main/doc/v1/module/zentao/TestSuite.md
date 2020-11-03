@@ -10,12 +10,12 @@
 ### 1:N
 | 序号 | 关系实体 | 关系类型 |
 | ---- | ---- | ---- |
-| 1 | [测试用例（ZT_CASE）](../zentao/Case) | （默认）
-| 2 | [套件用例（ZT_SUITECASE）](../zentao/SuiteCase) | （默认）
+| 1 | [测试用例（ZT_CASE）](../zentao/Case) | （默认） |
+| 2 | [套件用例（ZT_SUITECASE）](../zentao/SuiteCase) | （默认） |
 ### N:1
 | 序号 | 关系实体 | 关系类型 |
 | ---- | ---- | ---- |
-| 1 | [产品（ZT_PRODUCT）](../zentao/Product) | （默认）
+| 1 | [产品（ZT_PRODUCT）](../zentao/Product) | （默认） |
 
 
 ## 实体属性

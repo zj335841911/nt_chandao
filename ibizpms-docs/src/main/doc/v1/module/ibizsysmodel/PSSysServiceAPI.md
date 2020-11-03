@@ -10,13 +10,13 @@
 ### 1:N
 | 序号 | 关系实体 | 关系类型 |
 | ---- | ---- | ---- |
-| 1 | [外部服务接口（PSSUBSYSSERVICEAPI）](../ibizsysmodel/PSSubSysServiceAPI) | （默认）
-| 2 | [系统应用（PSSYSAPP）](../ibizsysmodel/PSSysApp) | （默认）
-| 3 | [系统运行会话（PSSYSRUNSESSION）](../ibizsysmodel/PSSysRunSession) | （默认）
+| 1 | [外部服务接口（PSSUBSYSSERVICEAPI）](../ibizsysmodel/PSSubSysServiceAPI) | （默认） |
+| 2 | [系统应用（PSSYSAPP）](../ibizsysmodel/PSSysApp) | （默认） |
+| 3 | [系统运行会话（PSSYSRUNSESSION）](../ibizsysmodel/PSSysRunSession) | （默认） |
 ### N:1
 | 序号 | 关系实体 | 关系类型 |
 | ---- | ---- | ---- |
-| 1 | [系统模块（PSMODULE）](../ibizsysmodel/PSModule) | （默认）
+| 1 | [系统模块（PSMODULE）](../ibizsysmodel/PSModule) | （默认） |
 
 
 ## 实体属性

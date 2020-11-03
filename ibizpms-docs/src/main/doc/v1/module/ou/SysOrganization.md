@@ -10,13 +10,13 @@
 ### 1:N
 | 序号 | 关系实体 | 关系类型 |
 | ---- | ---- | ---- |
-| 1 | [人员（IBZEMP）](../ou/SysEmployee) | （默认）
-| 2 | [部门（SYS_DEPT）](../ou/SysDepartment) | 嵌套操作
-| 3 | [单位（SYS_ORG）](../ou/SysOrganization) | （默认）
+| 1 | [人员（IBZEMP）](../ou/SysEmployee) | （默认） |
+| 2 | [部门（SYS_DEPT）](../ou/SysDepartment) | 嵌套操作 |
+| 3 | [单位（SYS_ORG）](../ou/SysOrganization) | （默认） |
 ### N:1
 | 序号 | 关系实体 | 关系类型 |
 | ---- | ---- | ---- |
-| 1 | [单位（SYS_ORG）](../ou/SysOrganization) | （默认）
+| 1 | [单位（SYS_ORG）](../ou/SysOrganization) | （默认） |
 
 
 ## 实体属性

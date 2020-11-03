@@ -12,10 +12,10 @@
 ### N:1
 | 序号 | 关系实体 | 关系类型 |
 | ---- | ---- | ---- |
-| 1 | [测试用例（ZT_CASE）](../zentao/Case) | （默认）
-| 2 | [compile（ZT_COMPILE）](../zentao/Compile) | （默认）
-| 3 | [job（ZT_JOB）](../zentao/Job) | （默认）
-| 4 | [测试运行（ZT_TESTRUN）](../zentao/TestRun) | （默认）
+| 1 | [测试用例（ZT_CASE）](../zentao/Case) | （默认） |
+| 2 | [compile（ZT_COMPILE）](../zentao/Compile) | （默认） |
+| 3 | [job（ZT_JOB）](../zentao/Job) | （默认） |
+| 4 | [测试运行（ZT_TESTRUN）](../zentao/TestRun) | （默认） |
 
 
 ## 实体属性

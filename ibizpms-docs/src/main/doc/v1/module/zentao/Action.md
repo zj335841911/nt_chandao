@@ -10,11 +10,11 @@
 ### 1:N
 | 序号 | 关系实体 | 关系类型 |
 | ---- | ---- | ---- |
-| 1 | [操作历史（ZT_HISTORY）](../zentao/History) | （默认）
+| 1 | [操作历史（ZT_HISTORY）](../zentao/History) | （默认） |
 ### N:1
 | 序号 | 关系实体 | 关系类型 |
 | ---- | ---- | ---- |
-| 1 | [项目（ZT_PROJECT）](../zentao/Project) | （默认）
+| 1 | [项目（ZT_PROJECT）](../zentao/Project) | （默认） |
 
 
 ## 实体属性

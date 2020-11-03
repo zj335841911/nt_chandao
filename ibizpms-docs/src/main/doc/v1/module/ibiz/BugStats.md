@@ -12,7 +12,7 @@ Bug统计
 ### N:1
 | 序号 | 关系实体 | 关系类型 |
 | ---- | ---- | ---- |
-| 1 | [产品（ZT_PRODUCT）](../zentao/Product) | （默认）
+| 1 | [产品（ZT_PRODUCT）](../zentao/Product) | （默认） |
 
 
 ## 实体属性

@@ -10,7 +10,7 @@ job
 ### 1:N
 | 序号 | 关系实体 | 关系类型 |
 | ---- | ---- | ---- |
-| 1 | [测试结果（ZT_TESTRESULT）](../zentao/TestResult) | （默认）
+| 1 | [测试结果（ZT_TESTRESULT）](../zentao/TestResult) | （默认） |
 ### N:1
 无
 

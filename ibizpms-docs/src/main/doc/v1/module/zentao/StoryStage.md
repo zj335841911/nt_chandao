@@ -12,8 +12,8 @@
 ### N:1
 | 序号 | 关系实体 | 关系类型 |
 | ---- | ---- | ---- |
-| 1 | [产品的分支和平台信息（ZT_BRANCH）](../zentao/Branch) | （默认）
-| 2 | [需求（ZT_STORY）](../zentao/Story) | （默认）
+| 1 | [产品的分支和平台信息（ZT_BRANCH）](../zentao/Branch) | （默认） |
+| 2 | [需求（ZT_STORY）](../zentao/Story) | （默认） |
 
 
 ## 实体属性

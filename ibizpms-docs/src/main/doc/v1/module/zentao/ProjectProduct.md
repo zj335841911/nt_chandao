@@ -12,10 +12,10 @@
 ### N:1
 | 序号 | 关系实体 | 关系类型 |
 | ---- | ---- | ---- |
-| 1 | [产品的分支和平台信息（ZT_BRANCH）](../zentao/Branch) | （默认）
-| 2 | [产品计划（ZT_PRODUCTPLAN）](../zentao/ProductPlan) | （默认）
-| 3 | [产品（ZT_PRODUCT）](../zentao/Product) | （默认）
-| 4 | [项目（ZT_PROJECT）](../zentao/Project) | （默认）
+| 1 | [产品的分支和平台信息（ZT_BRANCH）](../zentao/Branch) | （默认） |
+| 2 | [产品计划（ZT_PRODUCTPLAN）](../zentao/ProductPlan) | （默认） |
+| 3 | [产品（ZT_PRODUCT）](../zentao/Product) | （默认） |
+| 4 | [项目（ZT_PROJECT）](../zentao/Project) | （默认） |
 
 
 ## 实体属性

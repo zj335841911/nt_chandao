@@ -10,8 +10,8 @@
 ### 1:N
 | 序号 | 关系实体 | 关系类型 |
 | ---- | ---- | ---- |
-| 1 | [测试用例（IBZ_CASE）](../ibiz/IbzCase) | （默认）
-| 2 | [用例库模块（IBZ_LIBMODULE）](../ibiz/IbzLibModule) | （默认）
+| 1 | [测试用例（IBZ_CASE）](../ibiz/IbzCase) | （默认） |
+| 2 | [用例库模块（IBZ_LIBMODULE）](../ibiz/IbzLibModule) | （默认） |
 ### N:1
 无
 

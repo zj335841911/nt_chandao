@@ -10,8 +10,8 @@
 ### 1:N
 | 序号 | 关系实体 | 关系类型 |
 | ---- | ---- | ---- |
-| 1 | [需求模块（IBZPRO_STORYMODULE）](../ibizpro/IBZProStoryModule) | （默认）
-| 2 | [需求（IBZPRO_STORY）](../ibizpro/IBZProStory) | （默认）
+| 1 | [需求模块（IBZPRO_STORYMODULE）](../ibizpro/IBZProStoryModule) | （默认） |
+| 2 | [需求（IBZPRO_STORY）](../ibizpro/IBZProStory) | （默认） |
 ### N:1
 无
 

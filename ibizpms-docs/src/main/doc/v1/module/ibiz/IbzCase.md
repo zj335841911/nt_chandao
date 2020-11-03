@@ -10,12 +10,12 @@
 ### 1:N
 | 序号 | 关系实体 | 关系类型 |
 | ---- | ---- | ---- |
-| 1 | [用例库用例步骤（IBZ_LIBCASESTEPS）](../ibiz/IbzLibCaseSteps) | 嵌套操作
+| 1 | [用例库用例步骤（IBZ_LIBCASESTEPS）](../ibiz/IbzLibCaseSteps) | 嵌套操作 |
 ### N:1
 | 序号 | 关系实体 | 关系类型 |
 | ---- | ---- | ---- |
-| 1 | [用例库模块（IBZ_LIBMODULE）](../ibiz/IbzLibModule) | （默认）
-| 2 | [用例库（IBZ_LIB）](../ibiz/IbzLib) | （默认）
+| 1 | [用例库模块（IBZ_LIBMODULE）](../ibiz/IbzLibModule) | （默认） |
+| 2 | [用例库（IBZ_LIB）](../ibiz/IbzLib) | （默认） |
 
 
 ## 实体属性

@@ -10,13 +10,13 @@
 ### 1:N
 | 序号 | 关系实体 | 关系类型 |
 | ---- | ---- | ---- |
-| 1 | [测试用例（IBZ_CASE）](../ibiz/IbzCase) | （默认）
-| 2 | [用例库模块（IBZ_LIBMODULE）](../ibiz/IbzLibModule) | （默认）
+| 1 | [测试用例（IBZ_CASE）](../ibiz/IbzCase) | （默认） |
+| 2 | [用例库模块（IBZ_LIBMODULE）](../ibiz/IbzLibModule) | （默认） |
 ### N:1
 | 序号 | 关系实体 | 关系类型 |
 | ---- | ---- | ---- |
-| 1 | [用例库模块（IBZ_LIBMODULE）](../ibiz/IbzLibModule) | （默认）
-| 2 | [用例库（IBZ_LIB）](../ibiz/IbzLib) | （默认）
+| 1 | [用例库模块（IBZ_LIBMODULE）](../ibiz/IbzLibModule) | （默认） |
+| 2 | [用例库（IBZ_LIB）](../ibiz/IbzLib) | （默认） |
 
 
 ## 实体属性

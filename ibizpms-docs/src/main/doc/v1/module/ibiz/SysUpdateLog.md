@@ -10,7 +10,7 @@
 ### 1:N
 | 序号 | 关系实体 | 关系类型 |
 | ---- | ---- | ---- |
-| 1 | [系统更新功能（SYS_UPDATE_FEATURES）](../ibiz/SysUpdateFeatures) | （默认）
+| 1 | [系统更新功能（SYS_UPDATE_FEATURES）](../ibiz/SysUpdateFeatures) | （默认） |
 ### N:1
 无
 

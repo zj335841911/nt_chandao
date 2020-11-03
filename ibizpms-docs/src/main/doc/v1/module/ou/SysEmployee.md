@@ -12,8 +12,8 @@
 ### N:1
 | 序号 | 关系实体 | 关系类型 |
 | ---- | ---- | ---- |
-| 1 | [部门（SYS_DEPT）](../ou/SysDepartment) | （默认）
-| 2 | [单位（SYS_ORG）](../ou/SysOrganization) | （默认）
+| 1 | [部门（SYS_DEPT）](../ou/SysDepartment) | （默认） |
+| 2 | [单位（SYS_ORG）](../ou/SysOrganization) | （默认） |
 
 
 ## 实体属性

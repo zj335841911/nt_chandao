@@ -10,22 +10,22 @@
 ### 1:N
 | 序号 | 关系实体 | 关系类型 |
 | ---- | ---- | ---- |
-| 1 | [Bug（ZT_BUG）](../zentao/Bug) | （默认）
-| 2 | [用例步骤（ZT_CASESTEP）](../zentao/CaseStep) | 嵌套操作
-| 3 | [测试用例（ZT_CASE）](../zentao/Case) | （默认）
-| 4 | [套件用例（ZT_SUITECASE）](../zentao/SuiteCase) | （默认）
-| 5 | [测试结果（ZT_TESTRESULT）](../zentao/TestResult) | （默认）
-| 6 | [测试运行（ZT_TESTRUN）](../zentao/TestRun) | （默认）
+| 1 | [Bug（ZT_BUG）](../zentao/Bug) | （默认） |
+| 2 | [用例步骤（ZT_CASESTEP）](../zentao/CaseStep) | 嵌套操作 |
+| 3 | [测试用例（ZT_CASE）](../zentao/Case) | （默认） |
+| 4 | [套件用例（ZT_SUITECASE）](../zentao/SuiteCase) | （默认） |
+| 5 | [测试结果（ZT_TESTRESULT）](../zentao/TestResult) | （默认） |
+| 6 | [测试运行（ZT_TESTRUN）](../zentao/TestRun) | （默认） |
 ### N:1
 | 序号 | 关系实体 | 关系类型 |
 | ---- | ---- | ---- |
-| 1 | [产品的分支和平台信息（ZT_BRANCH）](../zentao/Branch) | （默认）
-| 2 | [Bug（ZT_BUG）](../zentao/Bug) | （默认）
-| 3 | [测试用例（ZT_CASE）](../zentao/Case) | （默认）
-| 4 | [模块（ZT_MODULE）](../zentao/Module) | （默认）
-| 5 | [产品（ZT_PRODUCT）](../zentao/Product) | （默认）
-| 6 | [需求（ZT_STORY）](../zentao/Story) | （默认）
-| 7 | [测试套件（ZT_TESTSUITE）](../zentao/TestSuite) | （默认）
+| 1 | [产品的分支和平台信息（ZT_BRANCH）](../zentao/Branch) | （默认） |
+| 2 | [Bug（ZT_BUG）](../zentao/Bug) | （默认） |
+| 3 | [测试用例（ZT_CASE）](../zentao/Case) | （默认） |
+| 4 | [模块（ZT_MODULE）](../zentao/Module) | （默认） |
+| 5 | [产品（ZT_PRODUCT）](../zentao/Product) | （默认） |
+| 6 | [需求（ZT_STORY）](../zentao/Story) | （默认） |
+| 7 | [测试套件（ZT_TESTSUITE）](../zentao/TestSuite) | （默认） |
 
 
 ## 实体属性

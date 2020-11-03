@@ -10,12 +10,12 @@
 ### 1:N
 | 序号 | 关系实体 | 关系类型 |
 | ---- | ---- | ---- |
-| 1 | [文档（ZT_DOC）](../zentao/Doc) | （默认）
+| 1 | [文档（ZT_DOC）](../zentao/Doc) | （默认） |
 ### N:1
 | 序号 | 关系实体 | 关系类型 |
 | ---- | ---- | ---- |
-| 1 | [产品（ZT_PRODUCT）](../zentao/Product) | （默认）
-| 2 | [项目（ZT_PROJECT）](../zentao/Project) | （默认）
+| 1 | [产品（ZT_PRODUCT）](../zentao/Product) | （默认） |
+| 2 | [项目（ZT_PROJECT）](../zentao/Project) | （默认） |
 
 
 ## 实体属性

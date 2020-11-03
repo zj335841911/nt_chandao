@@ -10,12 +10,12 @@
 ### 1:N
 | 序号 | 关系实体 | 关系类型 |
 | ---- | ---- | ---- |
-| 1 | [测试结果（ZT_TESTRESULT）](../zentao/TestResult) | （默认）
+| 1 | [测试结果（ZT_TESTRESULT）](../zentao/TestResult) | （默认） |
 ### N:1
 | 序号 | 关系实体 | 关系类型 |
 | ---- | ---- | ---- |
-| 1 | [测试用例（ZT_CASE）](../zentao/Case) | （默认）
-| 2 | [测试版本（ZT_TESTTASK）](../zentao/TestTask) | （默认）
+| 1 | [测试用例（ZT_CASE）](../zentao/Case) | （默认） |
+| 2 | [测试版本（ZT_TESTTASK）](../zentao/TestTask) | （默认） |
 
 
 ## 实体属性

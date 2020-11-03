@@ -10,13 +10,13 @@
 ### 1:N
 | 序号 | 关系实体 | 关系类型 |
 | ---- | ---- | ---- |
-| 1 | [需求模块（IBZ_PRODUCTMODULE）](../ibiz/ProductModule) | （默认）
-| 2 | [需求（ZT_STORY）](../zentao/Story) | （默认）
+| 1 | [需求模块（IBZ_PRODUCTMODULE）](../ibiz/ProductModule) | （默认） |
+| 2 | [需求（ZT_STORY）](../zentao/Story) | （默认） |
 ### N:1
 | 序号 | 关系实体 | 关系类型 |
 | ---- | ---- | ---- |
-| 1 | [需求模块（IBZ_PRODUCTMODULE）](../ibiz/ProductModule) | （默认）
-| 2 | [产品（ZT_PRODUCT）](../zentao/Product) | （默认）
+| 1 | [需求模块（IBZ_PRODUCTMODULE）](../ibiz/ProductModule) | （默认） |
+| 2 | [产品（ZT_PRODUCT）](../zentao/Product) | （默认） |
 
 
 ## 实体属性

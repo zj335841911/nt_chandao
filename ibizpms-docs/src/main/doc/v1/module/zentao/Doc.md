@@ -10,14 +10,14 @@
 ### 1:N
 | 序号 | 关系实体 | 关系类型 |
 | ---- | ---- | ---- |
-| 1 | [文档内容（ZT_DOCCONTENT）](../zentao/DocContent) | （默认）
+| 1 | [文档内容（ZT_DOCCONTENT）](../zentao/DocContent) | （默认） |
 ### N:1
 | 序号 | 关系实体 | 关系类型 |
 | ---- | ---- | ---- |
-| 1 | [文档库（ZT_DOCLIB）](../zentao/DocLib) | （默认）
-| 2 | [模块（ZT_MODULE）](../zentao/Module) | （默认）
-| 3 | [产品（ZT_PRODUCT）](../zentao/Product) | （默认）
-| 4 | [项目（ZT_PROJECT）](../zentao/Project) | （默认）
+| 1 | [文档库（ZT_DOCLIB）](../zentao/DocLib) | （默认） |
+| 2 | [模块（ZT_MODULE）](../zentao/Module) | （默认） |
+| 3 | [产品（ZT_PRODUCT）](../zentao/Product) | （默认） |
+| 4 | [项目（ZT_PROJECT）](../zentao/Project) | （默认） |
 
 
 ## 实体属性

@@ -10,13 +10,13 @@
 ### 1:N
 | 序号 | 关系实体 | 关系类型 |
 | ---- | ---- | ---- |
-| 1 | [需求模块（IBZPRO_STORYMODULE）](../ibizpro/IBZProStoryModule) | （默认）
-| 2 | [需求（IBZPRO_STORY）](../ibizpro/IBZProStory) | （默认）
+| 1 | [需求模块（IBZPRO_STORYMODULE）](../ibizpro/IBZProStoryModule) | （默认） |
+| 2 | [需求（IBZPRO_STORY）](../ibizpro/IBZProStory) | （默认） |
 ### N:1
 | 序号 | 关系实体 | 关系类型 |
 | ---- | ---- | ---- |
-| 1 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) | （默认）
-| 2 | [需求模块（IBZPRO_STORYMODULE）](../ibizpro/IBZProStoryModule) | （默认）
+| 1 | [平台产品（IBZPRO_PRODUCT）](../ibizpro/IBZProProduct) | （默认） |
+| 2 | [需求模块（IBZPRO_STORYMODULE）](../ibizpro/IBZProStoryModule) | （默认） |
 
 
 ## 实体属性

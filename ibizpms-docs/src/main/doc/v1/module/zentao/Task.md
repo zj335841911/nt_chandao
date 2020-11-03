@@ -10,20 +10,20 @@
 ### 1:N
 | 序号 | 关系实体 | 关系类型 |
 | ---- | ---- | ---- |
-| 1 | [任务团队（IBZ_TASKTEAM）](../ibiz/TaskTeam) | 嵌套操作
-| 2 | [Bug（ZT_BUG）](../zentao/Bug) | （默认）
-| 3 | [Bug（ZT_BUG）](../zentao/Bug) | （默认）
-| 4 | [burn（ZT_BURN）](../zentao/Burn) | （默认）
-| 5 | [任务预计（ZT_TASKESTIMATE）](../zentao/TaskEstimate) | 嵌套操作
-| 6 | [任务（ZT_TASK）](../zentao/Task) | （默认）
+| 1 | [任务团队（IBZ_TASKTEAM）](../ibiz/TaskTeam) | 嵌套操作 |
+| 2 | [Bug（ZT_BUG）](../zentao/Bug) | （默认） |
+| 3 | [Bug（ZT_BUG）](../zentao/Bug) | （默认） |
+| 4 | [burn（ZT_BURN）](../zentao/Burn) | （默认） |
+| 5 | [任务预计（ZT_TASKESTIMATE）](../zentao/TaskEstimate) | 嵌套操作 |
+| 6 | [任务（ZT_TASK）](../zentao/Task) | （默认） |
 ### N:1
 | 序号 | 关系实体 | 关系类型 |
 | ---- | ---- | ---- |
-| 1 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) | （默认）
-| 2 | [Bug（ZT_BUG）](../zentao/Bug) | （默认）
-| 3 | [项目（ZT_PROJECT）](../zentao/Project) | （默认）
-| 4 | [需求（ZT_STORY）](../zentao/Story) | （默认）
-| 5 | [任务（ZT_TASK）](../zentao/Task) | （默认）
+| 1 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) | （默认） |
+| 2 | [Bug（ZT_BUG）](../zentao/Bug) | （默认） |
+| 3 | [项目（ZT_PROJECT）](../zentao/Project) | （默认） |
+| 4 | [需求（ZT_STORY）](../zentao/Story) | （默认） |
+| 5 | [任务（ZT_TASK）](../zentao/Task) | （默认） |
 
 
 ## 实体属性

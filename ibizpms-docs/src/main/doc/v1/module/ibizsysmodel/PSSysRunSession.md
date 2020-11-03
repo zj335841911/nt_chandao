@@ -12,9 +12,9 @@
 ### N:1
 | 序号 | 关系实体 | 关系类型 |
 | ---- | ---- | ---- |
-| 1 | [系统应用（PSSYSAPP）](../ibizsysmodel/PSSysApp) | （默认）
-| 2 | [系统应用（PSSYSAPP）](../ibizsysmodel/PSSysApp) | （默认）
-| 3 | [系统服务接口（PSSYSSERVICEAPI）](../ibizsysmodel/PSSysServiceAPI) | （默认）
+| 1 | [系统应用（PSSYSAPP）](../ibizsysmodel/PSSysApp) | （默认） |
+| 2 | [系统应用（PSSYSAPP）](../ibizsysmodel/PSSysApp) | （默认） |
+| 3 | [系统服务接口（PSSYSSERVICEAPI）](../ibizsysmodel/PSSysServiceAPI) | （默认） |
 
 
 ## 实体属性

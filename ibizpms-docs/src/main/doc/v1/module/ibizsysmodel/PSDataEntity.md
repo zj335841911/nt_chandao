@@ -10,14 +10,14 @@
 ### 1:N
 | 序号 | 关系实体 | 关系类型 |
 | ---- | ---- | ---- |
-| 1 | [实体属性（PSDEFIELD）](../ibizsysmodel/PSDEField) | （默认）
+| 1 | [实体属性（PSDEFIELD）](../ibizsysmodel/PSDEField) | （默认） |
 ### N:1
 | 序号 | 关系实体 | 关系类型 |
 | ---- | ---- | ---- |
-| 1 | [系统模块（PSMODULE）](../ibizsysmodel/PSModule) | （默认）
-| 2 | [外部接口实体（PSSUBSYSSADE）](../ibizsysmodel/PSSubSysSADE) | （默认）
-| 3 | [外部服务接口（PSSUBSYSSERVICEAPI）](../ibizsysmodel/PSSubSysServiceAPI) | （默认）
-| 4 | [系统需求项（PSSYSREQITEM）](../ibizsysmodel/PSSysReqItem) | （默认）
+| 1 | [系统模块（PSMODULE）](../ibizsysmodel/PSModule) | （默认） |
+| 2 | [外部接口实体（PSSUBSYSSADE）](../ibizsysmodel/PSSubSysSADE) | （默认） |
+| 3 | [外部服务接口（PSSUBSYSSERVICEAPI）](../ibizsysmodel/PSSubSysServiceAPI) | （默认） |
+| 4 | [系统需求项（PSSYSREQITEM）](../ibizsysmodel/PSSysReqItem) | （默认） |
 
 
 ## 实体属性

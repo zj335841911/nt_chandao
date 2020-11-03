@@ -10,20 +10,20 @@
 ### 1:N
 | 序号 | 关系实体 | 关系类型 |
 | ---- | ---- | ---- |
-| 1 | [实体属性（PSDEFIELD）](../ibizsysmodel/PSDEField) | （默认）
-| 2 | [实体属性（PSDEFIELD）](../ibizsysmodel/PSDEField) | （默认）
-| 3 | [实体属性（PSDEFIELD）](../ibizsysmodel/PSDEField) | （默认）
-| 4 | [实体属性（PSDEFIELD）](../ibizsysmodel/PSDEField) | （默认）
-| 5 | [实体属性（PSDEFIELD）](../ibizsysmodel/PSDEField) | （默认）
+| 1 | [实体属性（PSDEFIELD）](../ibizsysmodel/PSDEField) | （默认） |
+| 2 | [实体属性（PSDEFIELD）](../ibizsysmodel/PSDEField) | （默认） |
+| 3 | [实体属性（PSDEFIELD）](../ibizsysmodel/PSDEField) | （默认） |
+| 4 | [实体属性（PSDEFIELD）](../ibizsysmodel/PSDEField) | （默认） |
+| 5 | [实体属性（PSDEFIELD）](../ibizsysmodel/PSDEField) | （默认） |
 ### N:1
 | 序号 | 关系实体 | 关系类型 |
 | ---- | ---- | ---- |
-| 1 | [实体（PSDATAENTITY）](../ibizsysmodel/PSDataEntity) | （默认）
-| 2 | [实体属性（PSDEFIELD）](../ibizsysmodel/PSDEField) | （默认）
-| 3 | [实体属性（PSDEFIELD）](../ibizsysmodel/PSDEField) | （默认）
-| 4 | [实体属性（PSDEFIELD）](../ibizsysmodel/PSDEField) | （默认）
-| 5 | [实体属性（PSDEFIELD）](../ibizsysmodel/PSDEField) | （默认）
-| 6 | [实体属性（PSDEFIELD）](../ibizsysmodel/PSDEField) | （默认）
+| 1 | [实体（PSDATAENTITY）](../ibizsysmodel/PSDataEntity) | （默认） |
+| 2 | [实体属性（PSDEFIELD）](../ibizsysmodel/PSDEField) | （默认） |
+| 3 | [实体属性（PSDEFIELD）](../ibizsysmodel/PSDEField) | （默认） |
+| 4 | [实体属性（PSDEFIELD）](../ibizsysmodel/PSDEField) | （默认） |
+| 5 | [实体属性（PSDEFIELD）](../ibizsysmodel/PSDEField) | （默认） |
+| 6 | [实体属性（PSDEFIELD）](../ibizsysmodel/PSDEField) | （默认） |
 
 
 ## 实体属性

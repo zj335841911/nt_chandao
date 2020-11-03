@@ -10,12 +10,12 @@
 ### 1:N
 | 序号 | 关系实体 | 关系类型 |
 | ---- | ---- | ---- |
-| 1 | [系统运行会话（PSSYSRUNSESSION）](../ibizsysmodel/PSSysRunSession) | （默认）
-| 2 | [系统运行会话（PSSYSRUNSESSION）](../ibizsysmodel/PSSysRunSession) | （默认）
+| 1 | [系统运行会话（PSSYSRUNSESSION）](../ibizsysmodel/PSSysRunSession) | （默认） |
+| 2 | [系统运行会话（PSSYSRUNSESSION）](../ibizsysmodel/PSSysRunSession) | （默认） |
 ### N:1
 | 序号 | 关系实体 | 关系类型 |
 | ---- | ---- | ---- |
-| 1 | [系统服务接口（PSSYSSERVICEAPI）](../ibizsysmodel/PSSysServiceAPI) | （默认）
+| 1 | [系统服务接口（PSSYSSERVICEAPI）](../ibizsysmodel/PSSysServiceAPI) | （默认） |
 
 
 ## 实体属性

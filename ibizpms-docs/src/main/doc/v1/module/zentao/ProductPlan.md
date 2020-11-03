@@ -10,15 +10,15 @@
 ### 1:N
 | 序号 | 关系实体 | 关系类型 |
 | ---- | ---- | ---- |
-| 1 | [Bug（ZT_BUG）](../zentao/Bug) | （默认）
-| 2 | [项目产品（ZT_PROJECTPRODUCT）](../zentao/ProjectProduct) | （默认）
-| 3 | [产品计划（ZT_PRODUCTPLAN）](../zentao/ProductPlan) | （默认）
+| 1 | [Bug（ZT_BUG）](../zentao/Bug) | （默认） |
+| 2 | [项目产品（ZT_PROJECTPRODUCT）](../zentao/ProjectProduct) | （默认） |
+| 3 | [产品计划（ZT_PRODUCTPLAN）](../zentao/ProductPlan) | （默认） |
 ### N:1
 | 序号 | 关系实体 | 关系类型 |
 | ---- | ---- | ---- |
-| 1 | [产品的分支和平台信息（ZT_BRANCH）](../zentao/Branch) | （默认）
-| 2 | [产品（ZT_PRODUCT）](../zentao/Product) | （默认）
-| 3 | [产品计划（ZT_PRODUCTPLAN）](../zentao/ProductPlan) | （默认）
+| 1 | [产品的分支和平台信息（ZT_BRANCH）](../zentao/Branch) | （默认） |
+| 2 | [产品（ZT_PRODUCT）](../zentao/Product) | （默认） |
+| 3 | [产品计划（ZT_PRODUCTPLAN）](../zentao/ProductPlan) | （默认） |
 
 
 ## 实体属性

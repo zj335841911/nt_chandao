@@ -10,19 +10,19 @@
 ### 1:N
 | 序号 | 关系实体 | 关系类型 |
 | ---- | ---- | ---- |
-| 1 | [Bug（ZT_BUG）](../zentao/Bug) | （默认）
-| 2 | [版本（ZT_BUILD）](../zentao/Build) | （默认）
-| 3 | [测试用例（ZT_CASE）](../zentao/Case) | （默认）
-| 4 | [模块（ZT_MODULE）](../zentao/Module) | （默认）
-| 5 | [产品计划（ZT_PRODUCTPLAN）](../zentao/ProductPlan) | （默认）
-| 6 | [项目产品（ZT_PROJECTPRODUCT）](../zentao/ProjectProduct) | （默认）
-| 7 | [发布（ZT_RELEASE）](../zentao/Release) | （默认）
-| 8 | [需求阶段（ZT_STORYSTAGE）](../zentao/StoryStage) | （默认）
-| 9 | [需求（ZT_STORY）](../zentao/Story) | （默认）
+| 1 | [Bug（ZT_BUG）](../zentao/Bug) | （默认） |
+| 2 | [版本（ZT_BUILD）](../zentao/Build) | （默认） |
+| 3 | [测试用例（ZT_CASE）](../zentao/Case) | （默认） |
+| 4 | [模块（ZT_MODULE）](../zentao/Module) | （默认） |
+| 5 | [产品计划（ZT_PRODUCTPLAN）](../zentao/ProductPlan) | （默认） |
+| 6 | [项目产品（ZT_PROJECTPRODUCT）](../zentao/ProjectProduct) | （默认） |
+| 7 | [发布（ZT_RELEASE）](../zentao/Release) | （默认） |
+| 8 | [需求阶段（ZT_STORYSTAGE）](../zentao/StoryStage) | （默认） |
+| 9 | [需求（ZT_STORY）](../zentao/Story) | （默认） |
 ### N:1
 | 序号 | 关系实体 | 关系类型 |
 | ---- | ---- | ---- |
-| 1 | [产品（ZT_PRODUCT）](../zentao/Product) | （默认）
+| 1 | [产品（ZT_PRODUCT）](../zentao/Product) | （默认） |
 
 
 ## 实体属性
