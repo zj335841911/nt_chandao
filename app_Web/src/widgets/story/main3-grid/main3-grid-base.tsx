@@ -473,6 +473,15 @@ export class Main3GridBase extends GridControlBase {
     }
 
     /**
+     * 属性值规则
+     *
+     * @type {*}
+     * @memberof Main3Base
+     */
+    public deRules:any = {
+    };
+
+    /**
      * 获取对应列class
      *
      * @type {*}

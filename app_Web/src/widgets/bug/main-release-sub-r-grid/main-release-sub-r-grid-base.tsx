@@ -255,6 +255,15 @@ export class Main_ReleaseSubRGridBase extends GridControlBase {
     }
 
     /**
+     * 属性值规则
+     *
+     * @type {*}
+     * @memberof Main_ReleaseSubRBase
+     */
+    public deRules:any = {
+    };
+
+    /**
      * 获取对应列class
      *
      * @type {*}

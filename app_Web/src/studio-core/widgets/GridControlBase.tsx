@@ -81,6 +81,22 @@ export class GridControlBase extends MDControlBase {
     public columnKeyName: string = '';
 
     /**
+     * 属性值规则
+     *
+     * @param {*}
+     * @memberof GridControlBase
+     */
+    public deRules:any;
+
+    /**
+     * 当前编辑行数据
+     *
+     * @type {*}
+     * @memberof GridControlBase
+     */
+    public curEditRowData:any;
+
+    /**
      * 选中值变化
      *
      * @param {*} newVal
@@ -449,7 +465,33 @@ export class GridControlBase extends MDControlBase {
             this.$Notice.success({ title: '', desc: (this.$t('app.commonWords.saveSuccess') as string) });
         } else {
             errorItems.forEach((item: any, index: number) => {
-                this.$Notice.error({ title: (this.$t('app.commonWords.saveFailed') as string), desc: (item[this.majorInfoColName]?item[this.majorInfoColName]:"") + (this.$t('app.commonWords.saveFailed') as string) + '!' });
+                if(errorMessage[index] && errorMessage[index].data) {
+                    if(Object.is(errorMessage[index].data.errorKey, 'DupCheck')) {
+                        let errorProp: string = errorMessage[index].data.message.match(/\[[a-zA-Z]*\]/)[0];
+                        let name: string = errorProp ? this.service.getNameByProp(errorProp.substr(1, errorProp.length-2)) : '';
+                        if(name) {
+                            let desc: any = this.allColumns.find((column: any) =>{
+                                return Object.is(column.name, name);
+                            });
+                            this.$Notice.error({
+                                title: (this.$t('app.commonWords.createFailed') as string),
+                                desc: (desc ? desc.label : '') + " : " + item[name] + (this.$t('app.commonWords.isExist') as string) + '!',
+                            });
+                        } else {
+                            this.$Notice.error({
+                                title: (this.$t('app.commonWords.createFailed') as string),
+                                desc: errorMessage[index].data.message,
+                            });
+                        }
+                    } else {
+                        this.$Notice.error({
+                            title: (this.$t('app.commonWords.saveFailed') as string),
+                            desc: errorMessage[index].data.message,
+                        });
+                    }
+                } else {
+                    this.$Notice.error({ title: (this.$t('app.commonWords.saveFailed') as string), desc: (item[this.majorInfoColName]?item[this.majorInfoColName]:"") + (this.$t('app.commonWords.saveFailed') as string) + '!' });
+                }
                 console.error(errorMessage[index]);
             });
         }
@@ -1210,6 +1252,7 @@ export class GridControlBase extends MDControlBase {
      */
     public gridEditItemChange(row: any, property: string, value: any, rowIndex: number): void {
         row.rowDataState = row.rowDataState ? row.rowDataState : "update";
+        this.curEditRowData = row;
         this.validate(property, row, rowIndex);
     }
 
@@ -1263,4 +1306,67 @@ export class GridControlBase extends MDControlBase {
      * @memberof GridControlBase
      */
     public uiAction(row: any, tag: any, $event: any) { }
+
+    /**
+     * 校验属性值规则
+     *
+     * @public
+     * @param {{ name: string }} { name }
+     * @memberof GridControlBase
+     */
+    public verifyDeRules(name:string,rule:any = this.deRules,op:string = "AND",value:any) :{isPast:boolean}{
+        let falg:any = {};
+        if(!rule || !rule[name]){
+            return falg;
+        }
+        let opValue = op == 'AND'? true :false;
+        let startOp = (val:boolean)=>{
+            if(falg.isPast){
+                if(opValue){
+                    falg.isPast = falg && val;
+                }else{
+                    falg.isPast = falg || val;
+                }
+            }else{
+                falg.isPast = val;
+            }
+        }
+        rule[name].forEach((item:any) => {
+            // 常规规则
+            if(item.type == 'SIMPLE'){
+                startOp(!this.$verify.checkFieldSimpleRule(value,item.condOP,item.paramValue,item.ruleInfo,item.paramType,this.curEditRowData,item.isKeyCond));
+            }
+            // 数值范围
+            if(item.type == 'VALUERANGE2'){
+                startOp( !this.$verify.checkFieldValueRangeRule(value,item.minValue,item.isIncludeMinValue,item.maxValue,item.isIncludeMaxValue,item.ruleInfo,item.isKeyCond));
+            }
+            // 正则式
+            if (item.type == "REGEX") {
+                startOp(!this.$verify.checkFieldRegExRule(value,item.regExCode,item.ruleInfo,item.isKeyCond));
+            }
+            // 长度
+            if (item.type == "STRINGLENGTH") {
+                startOp(!this.$verify.checkFieldStringLengthRule(value,item.minValue,item.isIncludeMinValue,item.maxValue,item.isIncludeMaxValue,item.ruleInfo,item.isKeyCond)); 
+            }
+            // 系统值规则
+            if(item.type == "SYSVALUERULE") {
+                startOp(!this.$verify.checkFieldSysValueRule(value,item.sysRule.regExCode,item.ruleInfo,item.isKeyCond));
+            }
+            // 分组
+            if(item.type == 'GROUP'){
+                falg = this.verifyDeRules('group',item,"AND",value)
+                if(item.isNotMode){
+                   falg.isPast = !falg.isPast;
+                }
+            }
+            
+        });
+        if(!falg.hasOwnProperty("isPast")){
+            falg.isPast = true;
+        }
+        if(!value){
+           falg.isPast = true;
+        }
+        return falg;
+    }
 }

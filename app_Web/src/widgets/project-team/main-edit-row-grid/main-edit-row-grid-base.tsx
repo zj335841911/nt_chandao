@@ -346,6 +346,15 @@ export class Main_EditRowGridBase extends GridControlBase {
     }
 
     /**
+     * 属性值规则
+     *
+     * @type {*}
+     * @memberof Main_EditRowBase
+     */
+    public deRules:any = {
+    };
+
+    /**
      * 获取对应列class
      *
      * @type {*}

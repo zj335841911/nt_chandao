@@ -286,6 +286,15 @@ export class SubStoryNewGridBase extends GridControlBase {
     }
 
     /**
+     * 属性值规则
+     *
+     * @type {*}
+     * @memberof SubStoryNewBase
+     */
+    public deRules:any = {
+    };
+
+    /**
      * 获取对应列class
      *
      * @type {*}

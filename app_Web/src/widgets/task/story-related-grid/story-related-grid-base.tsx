@@ -205,6 +205,15 @@ export class StoryRelatedGridBase extends GridControlBase {
     }
 
     /**
+     * 属性值规则
+     *
+     * @type {*}
+     * @memberof StoryRelatedBase
+     */
+    public deRules:any = {
+    };
+
+    /**
      * 获取对应列class
      *
      * @type {*}

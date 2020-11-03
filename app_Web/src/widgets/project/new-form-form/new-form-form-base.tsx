@@ -302,6 +302,9 @@ export class NewFormEditFormBase extends EditFormControlBase {
      * @memberof NewFormEditFormBase
      */
     public createDefault(){                    
+        if (this.data.hasOwnProperty('begin')) {
+            this.data['begin'] = this.$util.dateFormat(new Date());
+        }
         if (this.data.hasOwnProperty('type')) {
             this.data['type'] = 'sprint';
         }

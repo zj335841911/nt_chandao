@@ -290,6 +290,7 @@ export class SubTaskNewGridBase extends GridControlBase {
         estimate: [
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '预计 值不能为空', trigger: 'change' },
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '预计 值不能为空', trigger: 'blur' },
+            {validator:(rule:any, value:any, callback:any)=>{return this.verifyDeRules("estimate",this.deRules,"AND",value).isPast},message: "预计消耗大于等于0", trigger: 'blur' },
         ],
         srfkey: [
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '编号 值不能为空', trigger: 'change' },
@@ -318,6 +319,7 @@ export class SubTaskNewGridBase extends GridControlBase {
         name: [
             { required: true, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '任务名称 值不能为空', trigger: 'change' },
             { required: true, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '任务名称 值不能为空', trigger: 'blur' },
+            {validator:(rule:any, value:any, callback:any)=>{return this.verifyDeRules("name",this.deRules,"AND",value).isPast},message: "任务名称不大于10", trigger: 'blur' },
         ],
         allmodules: [
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '所有模块 值不能为空', trigger: 'change' },
@@ -334,8 +336,56 @@ export class SubTaskNewGridBase extends GridControlBase {
         deadline: [
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '截止日期 值不能为空', trigger: 'change' },
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '截止日期 值不能为空', trigger: 'blur' },
+            {validator:(rule:any, value:any, callback:any)=>{return this.verifyDeRules("deadline",this.deRules,"AND",value).isPast},message: "截至日期必须大于等于预计开始", trigger: 'blur' },
         ],
     }
+
+    /**
+     * 属性值规则
+     *
+     * @type {*}
+     * @memberof SubTaskNewBase
+     */
+    public deRules:any = {
+                estimate:[
+                  {
+                      type:"VALUERANGE2",
+                      condOP:"",
+                      ruleInfo:"预计消耗大于等于0", 
+                      isKeyCond:false,
+                      isNotMode:false,
+                      minValue:0,
+                      deName:"estimate",
+                      isIncludeMaxValue:false,
+                      isIncludeMinValue:true,
+                  },
+                ],
+                deadline:[
+                  {
+                      type:"SIMPLE",
+                      condOP:"GTANDEQ",
+                      ruleInfo:"截至日期必须大于等于预计开始", 
+                      isKeyCond:false,
+                      paramValue:"ESTSTARTED",
+                      paramType:"ENTITYFIELD",
+                      isNotMode:false,
+                      deName:"deadline",
+                  },
+                ],
+                name:[
+                  {
+                      type:"STRINGLENGTH",
+                      condOP:"",
+                      ruleInfo:"任务名称不大于10", 
+                      isKeyCond:false,
+                      isNotMode:false,
+                      maxValue:100,
+                      deName:"name",
+                      isIncludeMaxValue:true,
+                      isIncludeMinValue:false,
+                  },
+                ],
+    };
 
     /**
      * 获取对应列class

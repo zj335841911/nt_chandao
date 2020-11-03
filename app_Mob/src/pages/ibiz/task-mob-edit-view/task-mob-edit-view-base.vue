@@ -97,6 +97,7 @@
         
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_restartmobteamtask.disabled}" v-show="righttoolbarModels.deuiaction1_restartmobteamtask.visabled">
                 <ion-button :disabled="righttoolbarModels.deuiaction1_restartmobteamtask.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_restartmobteamtask' }, $event)" size="large">
+                    <ion-icon name="step-forward"></ion-icon>
                 <span class="btn-inner-text">{{$t('task.mobeditviewrighttoolbar_toolbar.deuiaction1_restartmobteamtask.caption')}}</span>
                 </ion-button>
                 <span class="btn-out-text">{{$t('task.mobeditviewrighttoolbar_toolbar.deuiaction1_restartmobteamtask.caption')}}</span>

@@ -420,15 +420,33 @@ export class EditFormControlBase extends FormControlBase {
                 resolve(response);
             }).catch((response: any) => {
                 if (response && response.status && response.data) {
-                    if (response.data.errorKey && Object.is(response.data.errorKey, "versionCheck")) {
-                        this.$Modal.confirm({
-                            title: (this.$t('app.formpage.saveerror') as string),
-                            content: (this.$t('app.formpage.savecontent') as string),
-                            onOk: () => {
-                                this.refresh([]);
-                            },
-                            onCancel: () => { }
-                        });
+                    if (response.data.errorKey) {
+                        if(Object.is(response.data.errorKey, "versionCheck")) {
+                            this.$Modal.confirm({
+                                title: (this.$t('app.formpage.saveerror') as string),
+                                content: (this.$t('app.formpage.savecontent') as string),
+                                onOk: () => {
+                                    this.refresh([]);
+                                },
+                                onCancel: () => { }
+                            });
+                        } else if(Object.is(response.data.errorKey, 'DupCheck')) {
+                            let errorProp: string = response.data.message.match(/\[[a-zA-Z]*\]/)[0];
+                            let name: string = this.service.getNameByProp(errorProp.substr(1, errorProp.length-2));
+                            if(name) {
+                                this.$Notice.error({
+                                    title: (this.$t('app.commonWords.createFailed') as string),
+                                    desc: this.detailsModel[name].caption + " : " + arg[name] + (this.$t('app.commonWords.isExist') as string) + '!',
+                                });
+                            } else {
+                                this.$Notice.error({
+                                    title: (this.$t('app.commonWords.createFailed') as string),
+                                    desc: response.data.message,
+                                })
+                            }
+                        } else {
+                            this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: response.data.message });
+                        }
                     } else {
                         this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: response.data.message });
                         reject(response);
@@ -437,7 +455,7 @@ export class EditFormControlBase extends FormControlBase {
                 } else {
                     this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: (this.$t('app.commonWords.sysException') as string) });
                     reject(response);
-                }
+                }    
                 reject(response);
             });
         })

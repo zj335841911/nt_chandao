@@ -414,6 +414,12 @@ export class MainEditFormBase extends EditFormControlBase {
      * @memberof MainEditFormBase
      */
     public createDefault(){                    
+        if (this.data.hasOwnProperty('date')) {
+            this.data['date'] = this.$util.dateFormat(new Date());
+        }
+        if (this.data.hasOwnProperty('formitem')) {
+            this.data['formitem'] = this.$util.dateFormat(new Date());
+        }
         if (this.data.hasOwnProperty('status')) {
             this.data['status'] = 'wait';
         }
