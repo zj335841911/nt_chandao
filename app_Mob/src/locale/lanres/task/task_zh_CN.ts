@@ -409,7 +409,7 @@ export default {
 			caption: '确认',
 			tip: '确认',
 		},
-		deuiaction1_starttaskmob: {
+		deuiaction1_startmobteamtask: {
 			caption: '开始',
 			tip: '开始',
 		},
@@ -417,7 +417,7 @@ export default {
 			caption: '指派',
 			tip: '指派',
 		},
-		deuiaction1_workhoursmob: {
+		deuiaction1_consumedmobtaskteam: {
 			caption: '工时',
 			tip: '工时',
 		},

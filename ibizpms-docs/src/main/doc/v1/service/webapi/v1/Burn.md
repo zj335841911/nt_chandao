@@ -574,7 +574,8 @@ POST
 | 5 | estimate | Double | 允许 | 最初预计 |
 | 6 | project | Long | 允许 | 所属项目 |
 | 7 | task | Long | 允许 | 任务 |
-| 8 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 8 | isweekend | String | 允许 | 周末 |
+| 9 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### BurnSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

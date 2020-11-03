@@ -1145,6 +1145,27 @@ public class StaticDict {
 
 
     /**
+     * 代码表[燃尽图快速分组]
+     */
+    @Getter
+    public enum BurnQuickpacket {
+        EXWEEK("exWeek","去除周末"),
+        WEEK("Week","显示周末");
+
+        private String value;
+        private String text;
+        private String valueSeparator="";
+        private String textSeparator="";
+        private String emptyText="";
+
+        BurnQuickpacket(String value , String text) {
+            this.value=value;
+            this.text = text;
+        }
+    }
+
+
+    /**
      * 代码表[表单嵌入表格工具栏能力]
      */
     @Getter

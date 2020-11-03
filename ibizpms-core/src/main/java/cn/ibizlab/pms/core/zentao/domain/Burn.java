@@ -92,6 +92,13 @@ public class Burn extends EntityMP implements Serializable {
     @JSONField(name = "task")
     @JsonProperty("task")
     private Long task;
+    /**
+     * 周末
+     */
+    @TableField(exist = false)
+    @JSONField(name = "isweekend")
+    @JsonProperty("isweekend")
+    private String isweekend;
 
     /**
      * 
