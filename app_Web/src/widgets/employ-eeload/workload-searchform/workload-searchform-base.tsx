@@ -138,6 +138,9 @@ export class WorkloadSearchFormBase extends SearchFormControlBase {
      * @memberof WorkloadBase
      */
     public createDefault(){                    
+        if (this.data.hasOwnProperty('begin')) {
+          this.data['begin'] = this.$util.dateFormat(new Date());
+        }
         if (this.data.hasOwnProperty('workday')) {
           this.data['workday'] = 6;
         }

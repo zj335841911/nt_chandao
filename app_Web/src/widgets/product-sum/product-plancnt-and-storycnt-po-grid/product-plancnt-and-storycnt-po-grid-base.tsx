@@ -182,6 +182,15 @@ export class ProductPlancntAndStorycnt_POGridBase extends GridControlBase {
     }
 
     /**
+     * 属性值规则
+     *
+     * @type {*}
+     * @memberof ProductPlancntAndStorycnt_POBase
+     */
+    public deRules:any = {
+    };
+
+    /**
      * 获取对应列class
      *
      * @type {*}

@@ -309,4 +309,13 @@ export class ResolveEditFormBase extends EditFormControlBase {
 
 
     }
+
+    /**
+     * 更新默认值
+     * @memberof ResolveEditFormBase
+     */
+    public updateDefault(){                    
+        if (this.data.hasOwnProperty('resolveddate') && !this.data.resolveddate) {
+        }
+    }
 }
