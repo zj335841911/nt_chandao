@@ -119,8 +119,8 @@
     :context="context" 
     :viewparams="viewparams"
     :value="data.assignedto"  
-    :navigateContext ='{ "id": "%id%", "project": "%project%", "multiple": "%multiple%" } '
-    :navigateParam ='{ "id": "%id%", "project": "%project%", "multiple": "%multiple%" } '
+    :navigateContext ='{ "id": "%id%", "project": "%project%", "multiple": "0" } '
+    :navigateParam ='{ "id": "%id%", "project": "%project%", "multiple": "0" } '
     @change="($event)=>this.data.assignedto = $event" />
 </app-form-item>
 
