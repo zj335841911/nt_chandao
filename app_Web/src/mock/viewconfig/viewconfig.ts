@@ -1015,6 +1015,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "IbzLibEditView9",
             "viewtag": "471a8a8d5b7ebf2a2e0fa7995c4e883c"
         },
+        "tasktreeeditview": {
+            "title": "任务编辑视图（树导航显示）",
+            "caption": "树导航显示",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "zentao",
+            "viewname": "TaskTreeEditView",
+            "viewtag": "47d1f969efd9c8e4eb6a593de45d78d6"
+        },
         "testreportgridview": {
             "title": "测试报告表格视图",
             "caption": "测试报告",

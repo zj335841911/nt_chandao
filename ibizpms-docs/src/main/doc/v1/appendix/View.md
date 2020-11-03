@@ -301,6 +301,7 @@ SRFNAVPARAM.project=%project%|
 |-|Bug|DEEDITVIEW|&nbsp;临时充当主信息展示页面|
 |-|平台产品表格视图|DEGRIDVIEW|&nbsp;|
 |-|用例库编辑视图|DEEDITVIEW9|&nbsp;|
+|-|任务编辑视图（树导航显示）|DEEDITVIEW|&nbsp;|
 |-|测试报告表格视图|DEGRIDVIEW|&nbsp;|
 |-|需求|DEEDITVIEW|&nbsp;|
 |-|团队|DEGRIDVIEW9|&nbsp;|
