@@ -229,6 +229,16 @@ public class SysEmployeeServiceImpl implements ISysEmployeeService {
 
 
     /**
+     * 查询集合 任务多人团队
+     */
+    @Override
+    public Page<SysEmployee> searchTaskMTeam(SysEmployeeSearchContext context) {
+        Page<SysEmployee> sysEmployees=sysEmployeeFeignClient.searchTaskMTeam(context);
+        return sysEmployees;
+    }
+
+
+    /**
      * 查询集合 数据查询2
      */
     @Override

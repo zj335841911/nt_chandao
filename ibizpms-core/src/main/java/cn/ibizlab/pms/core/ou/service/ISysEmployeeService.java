@@ -39,6 +39,7 @@ public interface ISysEmployeeService{
     Page<SysEmployee> searchProjectTeamM(SysEmployeeSearchContext context) ;
     Page<SysEmployee> searchProjectTeamUser(SysEmployeeSearchContext context) ;
     Page<SysEmployee> searchProjectTeamUser_Task(SysEmployeeSearchContext context) ;
+    Page<SysEmployee> searchTaskMTeam(SysEmployeeSearchContext context) ;
     Page<SysEmployee> searchTaskTeam(SysEmployeeSearchContext context) ;
     List<SysEmployee> selectByMdeptid(String deptid) ;
     void removeByMdeptid(String deptid) ;
