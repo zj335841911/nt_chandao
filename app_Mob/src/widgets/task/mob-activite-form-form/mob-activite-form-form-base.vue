@@ -1,9 +1,6 @@
 <template>
     <div ref='form' class="app-form task-form ">
-        <ion-tabs class="app-form-tabs" @ionTabsDidChange="detailsModel.form.clickPage($event)">
-            <ion-tab class="app-form-tab" tab="formpage1">
-                <ion-row>
-                        
+                
 
 <app-form-group 
     class='' 
@@ -133,75 +130,6 @@ FTL stack trace ("~" means nesting-related):
 
 
 
-                </ion-row>
-            </ion-tab>
-            <ion-tab class="app-form-tab" tab="formpage2">
-                <ion-row>
-                        
-
-<app-form-group 
-    class='' 
-    layoutType='TABLE_24COL' 
-    titleStyle='' 
-    uiStyle="DEFAULT" 
-    v-show="detailsModel.group2.visible" 
-    :uiActionGroup="detailsModel.group2.uiActionGroup" 
-    :caption="$t('task.mobactiviteform_form.details.group2')" 
-    :isShowCaption="true" 
-    :titleBarCloseMode="0" 
-    :isInfoGroupMode="false" 
-    :data="transformData(data)"
-    :uiService="deUIService"
-    @groupuiactionclick="groupUIActionClick($event)">
-    
-<app-form-item 
-    name='updatedate' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="updatedate_item"  
-    :itemValue="this.data.updatedate" 
-    v-show="detailsModel.updatedate.visible" 
-    :itemRules="this.rules.updatedate" 
-    :caption="$t('task.mobactiviteform_form.details.updatedate')"  
-    :labelWidth="130"  
-    :isShowCaption="true"
-    :disabled="detailsModel.updatedate.disabled"
-    :error="detailsModel.updatedate.error" 
-    :isEmptyCaption="false">
-        <app-mob-span  
-    v-if="data.updatedate"
-    :navigateContext ='{ } '
-    :navigateParam ='{ } ' 
-    :data="data"
-    :context="context"
-    :viewparams="viewparams"
-    :value="data.updatedate" 
-    :itemParam="{}"/>
-</app-form-item>
-
-
-    
-</app-form-group>
-
-
-
-
-                </ion-row>
-            </ion-tab>
-            <ion-tab-bar slot="top">
-                <ion-tab-button tab="formpage1" :disabled="!detailsModel.formpage1.visible">
-                    <ion-label class="caption">
-                        {{$t('task.mobactiviteform_form.details.formpage1')}}
-                    </ion-label>
-                </ion-tab-button>
-                <ion-tab-button tab="formpage2" :disabled="!detailsModel.formpage2.visible">
-                    <ion-label class="caption">
-                        {{$t('task.mobactiviteform_form.details.formpage2')}}
-                    </ion-label>
-                </ion-tab-button>
-            </ion-tab-bar>
-        </ion-tabs>
     </div>
 </template>
 <script lang='ts'>
@@ -534,7 +462,6 @@ export default class MobActiviteFormBase extends Vue implements ControlInterface
         comment: null,
         project: null,
         multiple: null,
-        updatedate: null,
         id: null,
         task: null,
     };
@@ -691,10 +618,6 @@ export default class MobActiviteFormBase extends Vue implements ControlInterface
 , 
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this })
 , 
-        group2: new FormGroupPanelModel({ caption: '操作信息', detailType: 'GROUPPANEL', name: 'group2', visible: true, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'task.mobactiviteform_form', extractMode: 'ITEM', details: [] } })
-, 
-        formpage2: new FormPageModel({ caption: '其它', detailType: 'FORMPAGE', name: 'formpage2', visible: true, isShowCaption: true, form: this })
-, 
         srfupdatedate: new FormItemModel({ caption: '最后修改日期', detailType: 'FORMITEM', name: 'srfupdatedate', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
 , 
         srforikey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srforikey', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
@@ -721,11 +644,8 @@ export default class MobActiviteFormBase extends Vue implements ControlInterface
 , 
         multiple: new FormItemModel({ caption: '多人任务', detailType: 'FORMITEM', name: 'multiple', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        updatedate: new FormItemModel({ caption: '最后的更新日期', detailType: 'FORMITEM', name: 'updatedate', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
         id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
 , 
-        form: new FormTabPanelModel({ caption: 'form', detailType: 'TABPANEL', name: 'form', visible: true, isShowCaption: true, form: this, tabPages: [{ name: 'formpage1', index: 0, visible: true }, { name: 'formpage2', index: 1, visible: true }] }),
     };
 
     /**
@@ -885,18 +805,6 @@ export default class MobActiviteFormBase extends Vue implements ControlInterface
     }
 
     /**
-     * 监控表单属性 updatedate 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobActiviteForm
-     */
-    @Watch('data.updatedate')
-    onUpdatedateChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'updatedate', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
      * 监控表单属性 id 值
      *
      * @param {*} newVal
@@ -944,9 +852,6 @@ export default class MobActiviteFormBase extends Vue implements ControlInterface
      */
     private async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }){
                 
-
-
-
 
 
 

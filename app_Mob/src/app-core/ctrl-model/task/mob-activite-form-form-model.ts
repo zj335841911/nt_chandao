@@ -76,11 +76,6 @@ export class MobActiviteFormModel {
                 dataType: 'TEXT',
             },
             {
-                name: 'updatedate',
-                prop: 'updatedate',
-                dataType: 'DATE',
-            },
-            {
                 name: 'id',
                 prop: 'id',
                 dataType: 'ACID',
