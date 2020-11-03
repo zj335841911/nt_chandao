@@ -107,6 +107,14 @@ export class Project_NewEditFormBase extends EditFormControlBase {
     };
 
     /**
+     * 主信息属性映射表单项名称
+     *
+     * @type {*}
+     * @memberof Project_NewEditFormBase
+     */
+    public majorMessageField: string = "title";
+
+    /**
      * 属性值规则
      *
      * @type {*}
@@ -114,6 +122,8 @@ export class Project_NewEditFormBase extends EditFormControlBase {
      */
     public rules():any{
         return {
+    formitemex1: [
+        ],
         owner: [
             { required: this.detailsModel.owner.required, type: 'string', message: '负责人 值不能为空', trigger: 'change' },
             { required: this.detailsModel.owner.required, type: 'string', message: '负责人 值不能为空', trigger: 'blur' },

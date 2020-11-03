@@ -106,15 +106,17 @@ export default class RunSQL {
      */
     public doItems(items: any[]): any[] {
         let _items: any[] = [];
-        items.forEach((item: any) => {
-            let itemdata:any = {};
-            Object.assign(itemdata,{id:item.pssystemdbcfgid});
-            Object.assign(itemdata,{value:item.pssystemdbcfgid});
-            Object.assign(itemdata,{text:item.pssystemdbcfgname});
-            Object.assign(itemdata,{label:item.pssystemdbcfgname});
-            
-            _items.push(itemdata);
-        });
+        if(items && items.length >0){
+            items.forEach((item: any) => {
+                let itemdata:any = {};
+                Object.assign(itemdata,{id:item.pssystemdbcfgid});
+                Object.assign(itemdata,{value:item.pssystemdbcfgid});
+                Object.assign(itemdata,{text:item.pssystemdbcfgname});
+                Object.assign(itemdata,{label:item.pssystemdbcfgname});
+                
+                _items.push(itemdata);
+            });
+        }
         return _items;
     }
 

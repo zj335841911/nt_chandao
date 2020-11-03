@@ -97,6 +97,14 @@ export class MainLEditFormBase extends EditFormControlBase {
     };
 
     /**
+     * 主信息属性映射表单项名称
+     *
+     * @type {*}
+     * @memberof MainLEditFormBase
+     */
+    public majorMessageField: string = "sys_update_logname";
+
+    /**
      * 属性值规则
      *
      * @type {*}

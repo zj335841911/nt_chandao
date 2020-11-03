@@ -106,6 +106,14 @@ export class CompleteFormEditFormBase extends EditFormControlBase {
     };
 
     /**
+     * 主信息属性映射表单项名称
+     *
+     * @type {*}
+     * @memberof CompleteFormEditFormBase
+     */
+    public majorMessageField: string = "";
+
+    /**
      * 属性值规则
      *
      * @type {*}

@@ -100,6 +100,14 @@ export class ActivateEditFormBase extends EditFormControlBase {
     };
 
     /**
+     * 主信息属性映射表单项名称
+     *
+     * @type {*}
+     * @memberof ActivateEditFormBase
+     */
+    public majorMessageField: string = "";
+
+    /**
      * 属性值规则
      *
      * @type {*}
@@ -107,6 +115,8 @@ export class ActivateEditFormBase extends EditFormControlBase {
      */
     public rules():any{
         return {
+    formitemex1: [
+        ],
         }
     }
 

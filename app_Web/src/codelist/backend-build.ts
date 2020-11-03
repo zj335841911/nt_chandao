@@ -106,15 +106,17 @@ export default class BackendBuild {
      */
     public doItems(items: any[]): any[] {
         let _items: any[] = [];
-        items.forEach((item: any) => {
-            let itemdata:any = {};
-            Object.assign(itemdata,{id:item.pssyssfpubid});
-            Object.assign(itemdata,{value:item.pssyssfpubid});
-            Object.assign(itemdata,{text:item.pssyssfpubname});
-            Object.assign(itemdata,{label:item.pssyssfpubname});
-            
-            _items.push(itemdata);
-        });
+        if(items && items.length >0){
+            items.forEach((item: any) => {
+                let itemdata:any = {};
+                Object.assign(itemdata,{id:item.pssyssfpubid});
+                Object.assign(itemdata,{value:item.pssyssfpubid});
+                Object.assign(itemdata,{text:item.pssyssfpubname});
+                Object.assign(itemdata,{label:item.pssyssfpubname});
+                
+                _items.push(itemdata);
+            });
+        }
         return _items;
     }
 

@@ -115,6 +115,14 @@ export class PendingSubmissionEditFormBase extends EditFormControlBase {
     };
 
     /**
+     * 主信息属性映射表单项名称
+     *
+     * @type {*}
+     * @memberof PendingSubmissionEditFormBase
+     */
+    public majorMessageField: string = "name";
+
+    /**
      * 属性值规则
      *
      * @type {*}
@@ -137,6 +145,8 @@ export class PendingSubmissionEditFormBase extends EditFormControlBase {
         name: [
             { required: this.detailsModel.name.required, type: 'string', message: '任务名称 值不能为空', trigger: 'change' },
             { required: this.detailsModel.name.required, type: 'string', message: '任务名称 值不能为空', trigger: 'blur' },
+        ],
+    formitemex1: [
         ],
         }
     }

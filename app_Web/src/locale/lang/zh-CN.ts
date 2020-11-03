@@ -95,7 +95,9 @@ const data: any = {
             deleteError: "删除失败！",
             delDataFail: "删除数据失败",
             noData: "暂无数据",
-            startsuccess:"启动成功"
+            startsuccess:"启动成功",
+            createFailed: '无法创建',
+            isExist: '已存在'
         },
         local:{
             new: "新建",

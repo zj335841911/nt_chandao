@@ -107,6 +107,14 @@ export class Main_EditEditFormBase extends EditFormControlBase {
     };
 
     /**
+     * 主信息属性映射表单项名称
+     *
+     * @type {*}
+     * @memberof Main_EditEditFormBase
+     */
+    public majorMessageField: string = "name";
+
+    /**
      * 属性值规则
      *
      * @type {*}
@@ -135,6 +143,8 @@ export class Main_EditEditFormBase extends EditFormControlBase {
         days: [
             { required: this.detailsModel.days.required, type: 'number', message: '可用工作日 值不能为空', trigger: 'change' },
             { required: this.detailsModel.days.required, type: 'number', message: '可用工作日 值不能为空', trigger: 'blur' },
+        ],
+    formitemex2: [
         ],
         }
     }

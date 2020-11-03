@@ -117,6 +117,14 @@ export class MainEditFormBase extends EditFormControlBase {
     };
 
     /**
+     * 主信息属性映射表单项名称
+     *
+     * @type {*}
+     * @memberof MainEditFormBase
+     */
+    public majorMessageField: string = "name";
+
+    /**
      * 属性值规则
      *
      * @type {*}
@@ -142,7 +150,7 @@ export class MainEditFormBase extends EditFormControlBase {
             {validator:(rule:any, value:any)=>{return this.verifyDeRules("name").isPast},message: this.verifyDeRules("name").infoMessage, trigger: 'change' },
             {validator:(rule:any, value:any)=>{return this.verifyDeRules("name").isPast},message: this.verifyDeRules("name").infoMessage, trigger: 'blur' },
         ],
-        deadline: [
+    formitemex1: [
             {validator:(rule:any, value:any)=>{return this.verifyDeRules("deadline").isPast},message: this.verifyDeRules("deadline").infoMessage, trigger: 'change' },
             {validator:(rule:any, value:any)=>{return this.verifyDeRules("deadline").isPast},message: this.verifyDeRules("deadline").infoMessage, trigger: 'blur' },
         ],

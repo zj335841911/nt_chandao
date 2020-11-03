@@ -106,15 +106,17 @@ export default class UserRealNameProject {
      */
     public doItems(items: any[]): any[] {
         let _items: any[] = [];
-        items.forEach((item: any) => {
-            let itemdata:any = {};
-            Object.assign(itemdata,{id:item.username});
-            Object.assign(itemdata,{value:item.username});
-            Object.assign(itemdata,{text:item.personname});
-            Object.assign(itemdata,{label:item.personname});
-            
-            _items.push(itemdata);
-        });
+        if(items && items.length >0){
+            items.forEach((item: any) => {
+                let itemdata:any = {};
+                Object.assign(itemdata,{id:item.username});
+                Object.assign(itemdata,{value:item.username});
+                Object.assign(itemdata,{text:item.personname});
+                Object.assign(itemdata,{label:item.personname});
+                
+                _items.push(itemdata);
+            });
+        }
         return _items;
     }
 

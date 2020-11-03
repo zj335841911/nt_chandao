@@ -107,15 +107,17 @@ export default class CurStory {
      */
     public doItems(items: any[]): any[] {
         let _items: any[] = [];
-        items.forEach((item: any) => {
-            let itemdata:any = {};
-            Object.assign(itemdata,{id:item.version});
-            Object.assign(itemdata,{value:item.version});
-            Object.assign(itemdata,{text:item.title});
-            Object.assign(itemdata,{label:item.title});
-            
-            _items.push(itemdata);
-        });
+        if(items && items.length >0){
+            items.forEach((item: any) => {
+                let itemdata:any = {};
+                Object.assign(itemdata,{id:item.version});
+                Object.assign(itemdata,{value:item.version});
+                Object.assign(itemdata,{text:item.title});
+                Object.assign(itemdata,{label:item.title});
+                
+                _items.push(itemdata);
+            });
+        }
         return _items;
     }
 

@@ -73,6 +73,14 @@ export class EditFormControlBase extends FormControlBase {
     public createAction!: string;
 
     /**
+     * 主信息属性映射表单项名称
+     *
+     * @type {string}
+     * @memberof EditFormControlBase
+     */
+    public majorMessageField: string = '';
+
+    /**
      * 表单值变化
      *
      * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
@@ -278,6 +286,7 @@ export class EditFormControlBase extends FormControlBase {
         }
         const arg: any = { ...opt };
         const data = this.getValues();
+        data.srfmajortext = data[this.majorMessageField];
         Object.assign(arg, data);
         if (this.viewparams && this.viewparams.copymode) {
             data.srfuf = '0';
@@ -308,15 +317,33 @@ export class EditFormControlBase extends FormControlBase {
             });
         }).catch((response: any) => {
             if (response && response.status && response.data) {
-                if (response.data.errorKey && Object.is(response.data.errorKey, "versionCheck")) {
-                    this.$Modal.confirm({
-                        title: (this.$t('app.formpage.saveerror') as string),
-                        content: (this.$t('app.formpage.savecontent') as string),
-                        onOk: () => {
-                            this.refresh([]);
-                        },
-                        onCancel: () => { }
-                    });
+                if (response.data.errorKey) {
+                    if(Object.is(response.data.errorKey, "versionCheck")) {
+                        this.$Modal.confirm({
+                            title: (this.$t('app.formpage.saveerror') as string),
+                            content: (this.$t('app.formpage.savecontent') as string),
+                            onOk: () => {
+                                this.refresh([]);
+                            },
+                            onCancel: () => { }
+                        });
+                    } else if(Object.is(response.data.errorKey, 'DupCheck')) {
+                        let errorProp: string = response.data.message.match(/\[[a-zA-Z]*\]/)[0];
+                        let name: string = this.service.getNameByProp(errorProp.substr(1, errorProp.length-2));
+                        if(name) {
+                            this.$Notice.error({
+                                title: (this.$t('app.commonWords.createFailed') as string),
+                                desc: this.detailsModel[name].caption + " : " + arg[name] + (this.$t('app.commonWords.isExist') as string) + '!',
+                            });
+                        } else {
+                            this.$Notice.error({
+                                title: (this.$t('app.commonWords.createFailed') as string),
+                                desc: response.data.message,
+                            })
+                        }
+                    } else {
+                        this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: response.data.message });
+                    }
                 } else {
                     this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: response.data.message });
                 }
@@ -375,6 +402,7 @@ export class EditFormControlBase extends FormControlBase {
             }
             const arg: any = { ...opt };
             const data = this.getValues();
+            data.srfmajortext = data[this.majorMessageField];
             Object.assign(arg, this.context);
             Object.assign(arg, data);
             if (ifStateNext && this.drCount > 0) {

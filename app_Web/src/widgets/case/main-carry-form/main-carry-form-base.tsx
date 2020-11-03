@@ -101,6 +101,14 @@ export class MainCarryEditFormBase extends EditFormControlBase {
     };
 
     /**
+     * 主信息属性映射表单项名称
+     *
+     * @type {*}
+     * @memberof MainCarryEditFormBase
+     */
+    public majorMessageField: string = "";
+
+    /**
      * 属性值规则
      *
      * @type {*}

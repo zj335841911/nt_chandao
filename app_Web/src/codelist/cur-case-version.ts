@@ -107,15 +107,17 @@ export default class CurCaseVersion {
      */
     public doItems(items: any[]): any[] {
         let _items: any[] = [];
-        items.forEach((item: any) => {
-            let itemdata:any = {};
-            Object.assign(itemdata,{id:item.version});
-            Object.assign(itemdata,{value:item.version});
-            Object.assign(itemdata,{text:item.expect});
-            Object.assign(itemdata,{label:item.expect});
-            
-            _items.push(itemdata);
-        });
+        if(items && items.length >0){
+            items.forEach((item: any) => {
+                let itemdata:any = {};
+                Object.assign(itemdata,{id:item.version});
+                Object.assign(itemdata,{value:item.version});
+                Object.assign(itemdata,{text:item.expect});
+                Object.assign(itemdata,{label:item.expect});
+                
+                _items.push(itemdata);
+            });
+        }
         return _items;
     }
 

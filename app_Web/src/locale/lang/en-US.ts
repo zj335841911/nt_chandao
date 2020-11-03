@@ -95,7 +95,9 @@ const data: any = {
             deleteError: "Failed to delete",
             delDataFail: "Failed to delete data",
             noData: "No data",
-            startsuccess:"Start successful"
+            startsuccess:"Start successful",
+            createFailed: 'Unable to create',
+            isExist: 'existed'
         },
         local:{
             new: "New",

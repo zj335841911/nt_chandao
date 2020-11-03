@@ -107,6 +107,14 @@ export class StorySpec_EditModeEditFormBase extends EditFormControlBase {
     };
 
     /**
+     * 主信息属性映射表单项名称
+     *
+     * @type {*}
+     * @memberof StorySpec_EditModeEditFormBase
+     */
+    public majorMessageField: string = "title";
+
+    /**
      * 属性值规则
      *
      * @type {*}

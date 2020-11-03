@@ -135,6 +135,14 @@ export class DashboardMainEditEditFormBase extends EditFormControlBase {
     };
 
     /**
+     * 主信息属性映射表单项名称
+     *
+     * @type {*}
+     * @memberof DashboardMainEditEditFormBase
+     */
+    public majorMessageField: string = "title";
+
+    /**
      * 属性值规则
      *
      * @type {*}
