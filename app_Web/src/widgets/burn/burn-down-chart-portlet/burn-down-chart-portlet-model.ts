@@ -36,6 +36,9 @@ export default class BurnDownChartModel {
       {
         name: 'task',
       },
+      {
+        name: 'isweekend',
+      },
     ]
   }
 

@@ -7,6 +7,7 @@ export default {
     estimate: "最初预计",
     project: "所属项目",
     task: "任务",
+    isweekend: "周末",
   },
 	views: {
 		chartview: {
