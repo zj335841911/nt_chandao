@@ -90,6 +90,8 @@ export default class SysEmployeeUIActionBase extends EntityUIActionBase {
      * @memberof  SysEmployeeUIServiceBase
      */  
     public initViewMap(){
+        this.allViewMap.set(':',{viewname:'mobpickuptreeview',srfappde:'sysemployees'});
+        this.allViewMap.set(':',{viewname:'treemobpickupview',srfappde:'sysemployees'});
     }
 
     /**

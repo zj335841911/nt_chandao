@@ -30,4 +30,12 @@ export default {
     createman: "建立人",
     updatedate: "更新时间",
   },
+	views: {
+		mobpickuptreeview: {
+			caption: '人员',
+		},
+		treemobpickupview: {
+			caption: '人员',
+		},
+	},
 };

@@ -63,6 +63,7 @@
 |-|任务选项操作视图（开始）|DEMOBOPTVIEW|&nbsp;|
 |-|测试版本选项操作视图（激活）|DEMOBOPTVIEW|&nbsp;|
 |-|需求移动端多数据视图（更新日志）|DEMOBMDVIEW9|&nbsp;|
+|-|人员移动端选择树视图|DEMOBPICKUPTREEVIEW|&nbsp;|
 |-|Bug移动端多数据视图|DEMOBMDVIEW|&nbsp;|
 |-|项目移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
 |-|待办事宜表移动端列表视图|DEMOBLISTVIEW|&nbsp;|
@@ -116,6 +117,7 @@
 |-|产品移动端多数据视图|DEMOBMDVIEW|&nbsp;|
 |-|项目移动端数据选择视图|DEMOBPICKUPVIEW|&nbsp;|
 |-|任务团队多表单编辑视图|DEMOBMEDITVIEW9|&nbsp;|
+|-|人员移动端数据选择视图|DEMOBPICKUPVIEW|&nbsp;|
 |-|附件移动端多数据视图|DEMOBMDVIEW9|&nbsp;|
 |-|需求移动端多数据视图|DEMOBMDVIEW|&nbsp;|
 |-|需求模块移动端选择多数据视图|DEMOBPICKUPMDVIEW|&nbsp;|

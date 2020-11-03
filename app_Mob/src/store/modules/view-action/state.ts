@@ -50,6 +50,7 @@ export const viewstate: any = {
                 'd739ee414172cbfdc3d6e2d2e01e3676',
                 'e6b8dc7c5f604f8cc4cabb89752aac17',
                 '78beacb29481bfa83dfce62ac4bd9d13',
+                '32dbba2bbd37a177d91162cdd28c5948',
                 '4a68a7fca37b1f7d3cf396c66fd2347a',
                 '16bfeba2aa5ae0287f8821660cf2dc78',
             ],
@@ -644,6 +645,15 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'd096e8789265e730da5eefa1423479dc',
+            ],
+        },
+        {
+            viewtag: '58837f4113cb00c058a20da29656ffea',
+            viewmodule: 'ou',
+            viewname: 'SysEmployeeMobPickupTreeView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
             ],
         },
         {
@@ -1252,6 +1262,16 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '99f684f22f1b774d72964f4419f16d8d',
+            ],
+        },
+        {
+            viewtag: 'b39f9237d088a6173a2d1889f2eaa562',
+            viewmodule: 'ou',
+            viewname: 'SysEmployeeTreeMobPickupView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '58837f4113cb00c058a20da29656ffea',
             ],
         },
         {
