@@ -66,6 +66,11 @@ export default class CompleteFormModel {
         dataType: 'ACID',
       },
       {
+        name: 'project',
+        prop: 'project',
+        dataType: 'PICKUP',
+      },
+      {
         name: 'currentconsumed',
         prop: 'currentconsumed',
         dataType: 'FLOAT',

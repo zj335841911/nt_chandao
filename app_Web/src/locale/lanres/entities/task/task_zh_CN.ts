@@ -311,6 +311,7 @@ export default {
 			srfsourcekey: "", 
 			consumed: "之前消耗", 
 			id: "编号", 
+			project: "所属项目", 
 			currentconsumed: "本次消耗", 
 			totaltime: "总计耗时", 
 			assignedto: "指派给", 

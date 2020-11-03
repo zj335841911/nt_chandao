@@ -1667,7 +1667,7 @@ String
 无
 
 #### 取值范围/公式
-(CASE WHEN EXISTS (SELECT 1 FROM ZT_TASK WHERE  PARENT = %1$s AND DELETED = '0') THEN FALSE ELSE TRUE  END )
+( CASE WHEN t1.parent > 0 THEN TRUE ELSE FALSE END )
 
 #### 数据格式
 无
@@ -1926,7 +1926,7 @@ String
 无
 
 #### 取值范围/公式
-(case when ( SELECT case when count( t.`id` ) > 0 then 1 else 0 end FROM `zt_team` t WHERE t.`type` = 'task' AND t.`root` = t1.`id` )  = 1 then '10' when t1.parent = -1 or (select case when count(t.id) > 0 then 1 else 0 end from zt_task t where t.deleted = '0' and t.parent = t1.id ) = 1  then '20' when t1.parent = 0 then '30' else '40' end)
+( CASE WHEN ( SELECT CASE	 WHEN count( t.`id` ) > 0 THEN 1 ELSE 0  END  FROM `zt_team` t  WHERE t.`type` = 'task'  AND t.`root` = t1.`id`  ) = 1 THEN '10'  WHEN t1.parent = - 1 THEN'20'   WHEN t1.parent = 0 THEN '30' ELSE '40' END)
 
 #### 数据格式
 无
