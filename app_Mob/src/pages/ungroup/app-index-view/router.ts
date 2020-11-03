@@ -362,6 +362,74 @@ const router = new Router({
                     component: () => import('@pages/ibiz/bug-mob-mdview/bug-mob-mdview.vue'),
                 },
                 {
+                    path: 'products/:product?/stories/:story?/tasks/:task?/usr2moboptionview',
+                    name: 'task_usr2moboptionview',
+                    meta: {
+                        caption: 'task.views.usr2moboptionview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'usr2moboptionview', parameterName: 'usr2moboptionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/task-usr2-mob-option-view/task-usr2-mob-option-view.vue'),
+                },
+                {
+                    path: 'projects/:project?/tasks/:task?/usr2moboptionview',
+                    name: 'task_usr2moboptionview',
+                    meta: {
+                        caption: 'task.views.usr2moboptionview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'usr2moboptionview', parameterName: 'usr2moboptionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/task-usr2-mob-option-view/task-usr2-mob-option-view.vue'),
+                },
+                {
+                    path: 'stories/:story?/tasks/:task?/usr2moboptionview',
+                    name: 'task_usr2moboptionview',
+                    meta: {
+                        caption: 'task.views.usr2moboptionview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'usr2moboptionview', parameterName: 'usr2moboptionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/task-usr2-mob-option-view/task-usr2-mob-option-view.vue'),
+                },
+                {
+                    path: 'tasks/:task?/usr2moboptionview',
+                    name: 'task_usr2moboptionview',
+                    meta: {
+                        caption: 'task.views.usr2moboptionview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'usr2moboptionview', parameterName: 'usr2moboptionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/task-usr2-mob-option-view/task-usr2-mob-option-view.vue'),
+                },
+                {
                     path: 'projects/:project?/mobpickupmdview',
                     name: 'project_mobpickupmdview',
                     meta: {

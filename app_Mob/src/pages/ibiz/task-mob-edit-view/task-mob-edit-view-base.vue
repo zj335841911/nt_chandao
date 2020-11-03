@@ -95,6 +95,13 @@
                 <span class="btn-out-text">{{$t('task.mobeditviewrighttoolbar_toolbar.deuiaction1_pausemobteamtask.caption')}}</span>
             </div>
         
+                    <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_restartmobteamtask.disabled}" v-show="righttoolbarModels.deuiaction1_restartmobteamtask.visabled">
+                <ion-button :disabled="righttoolbarModels.deuiaction1_restartmobteamtask.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_restartmobteamtask' }, $event)" size="large">
+                <span class="btn-inner-text">{{$t('task.mobeditviewrighttoolbar_toolbar.deuiaction1_restartmobteamtask.caption')}}</span>
+                </ion-button>
+                <span class="btn-out-text">{{$t('task.mobeditviewrighttoolbar_toolbar.deuiaction1_restartmobteamtask.caption')}}</span>
+            </div>
+        
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_canceltaskmob.disabled}" v-show="righttoolbarModels.deuiaction1_canceltaskmob.visabled">
                 <ion-button :disabled="righttoolbarModels.deuiaction1_canceltaskmob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_canceltaskmob' }, $event)" size="large">
                     <ion-icon name="power"></ion-icon>
@@ -380,6 +387,8 @@ export default class TaskMobEditViewBase extends Vue {
             deuiaction1_finishtask1: { name: 'deuiaction1_finishtask1', caption: '完成', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_COMPLETE_BUT', uiaction: { tag: 'finishTask1', target: 'SINGLEKEY' } },
 
             deuiaction1_pausemobteamtask: { name: 'deuiaction1_pausemobteamtask', caption: '暂停', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_PAUSE_BUT', uiaction: { tag: 'PauseMobTeamTask', target: 'SINGLEKEY' } },
+
+            deuiaction1_restartmobteamtask: { name: 'deuiaction1_restartmobteamtask', caption: '继续', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_PROCEED_BUT', uiaction: { tag: 'RestartMobTeamTask', target: 'SINGLEKEY' } },
 
             deuiaction1_canceltaskmob: { name: 'deuiaction1_canceltaskmob', caption: '取消', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_CANCEL_BUT', uiaction: { tag: 'CancelTaskMob', target: 'SINGLEKEY' } },
 
@@ -688,6 +697,9 @@ export default class TaskMobEditViewBase extends Vue {
         if (Object.is($event.tag, 'deuiaction1_pausemobteamtask')) {
             this.righttoolbar_deuiaction1_pausemobteamtask_click($event, '', $event2);
         }
+        if (Object.is($event.tag, 'deuiaction1_restartmobteamtask')) {
+            this.righttoolbar_deuiaction1_restartmobteamtask_click($event, '', $event2);
+        }
         if (Object.is($event.tag, 'deuiaction1_canceltaskmob')) {
             this.righttoolbar_deuiaction1_canceltaskmob_click($event, '', $event2);
         }
@@ -892,6 +904,38 @@ export default class TaskMobEditViewBase extends Vue {
         const curUIService: any = await this.globaluiservice.getService('task_ui_action');
         if (curUIService) {
             curUIService.Task_PauseMobTeamTask(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof TaskMobEditViewBase
+     */
+    protected async righttoolbar_deuiaction1_restartmobteamtask_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+        // 参数
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this.$refs.form;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('task_ui_action');
+        if (curUIService) {
+            curUIService.Task_RestartMobTeamTask(datas, contextJO, paramJO, $event, xData, this);
         }
     }
 

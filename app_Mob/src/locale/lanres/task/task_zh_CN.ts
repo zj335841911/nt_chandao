@@ -121,6 +121,9 @@ export default {
 		newmobeditview: {
 			caption: '任务',
 		},
+		usr2moboptionview: {
+			caption: '继续',
+		},
 	},
 	mobstartform_form: {
 		details: {
@@ -428,6 +431,10 @@ export default {
 		deuiaction1_pausemobteamtask: {
 			caption: '暂停',
 			tip: '暂停',
+		},
+		deuiaction1_restartmobteamtask: {
+			caption: '继续',
+			tip: '继续',
 		},
 		deuiaction1_canceltaskmob: {
 			caption: '取消',

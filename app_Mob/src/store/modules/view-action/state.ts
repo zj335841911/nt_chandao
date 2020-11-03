@@ -149,6 +149,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                'f2bd99acc8e4a6ddf45d4bbe7264cd59',
                 '3dceefbdc55213c1c17b2eb35095fb3c',
                 '20d9ad91186fc647b9fd98d0b562341b',
                 '5417edd9f4126190105417c652149d76',
@@ -1690,6 +1691,16 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+            ],
+        },
+        {
+            viewtag: 'f2bd99acc8e4a6ddf45d4bbe7264cd59',
+            viewmodule: 'zentao',
+            viewname: 'TaskUsr2MobOptionView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '3c4e9f0d609bc0f1cf08431649cc8e67',
             ],
         },
         {
