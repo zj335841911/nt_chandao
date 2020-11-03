@@ -88,6 +88,7 @@
         
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_pausemobteamtask.disabled}" v-show="righttoolbarModels.deuiaction1_pausemobteamtask.visabled">
                 <ion-button :disabled="righttoolbarModels.deuiaction1_pausemobteamtask.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_pausemobteamtask' }, $event)" size="large">
+                    <ion-icon name="pause"></ion-icon>
                 <span class="btn-inner-text">{{$t('task.mobeditviewrighttoolbar_toolbar.deuiaction1_pausemobteamtask.caption')}}</span>
                 </ion-button>
                 <span class="btn-out-text">{{$t('task.mobeditviewrighttoolbar_toolbar.deuiaction1_pausemobteamtask.caption')}}</span>
@@ -881,7 +882,7 @@ export default class TaskMobEditViewBase extends Vue {
         const _this: any = this;
         let contextJO: any = {};
         let paramJO: any = {};
-        
+        Object.assign(paramJO, {});
         xData = this.$refs.form;
         if (xData.getDatas && xData.getDatas instanceof Function) {
             datas = [...xData.getDatas()];

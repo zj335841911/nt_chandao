@@ -689,7 +689,7 @@ export default class TaskUIActionBase extends EntityUIActionBase {
             delete context.srfsessionid;
         }
         // 导航参数
-        let panelNavParam= { } ;
+        let panelNavParam= { "actioninfo": "当前任务只有%1$s才可以暂停。" } ;
         let panelNavContext= { } ;
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
         const backend = async () => {
