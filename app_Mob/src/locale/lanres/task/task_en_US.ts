@@ -425,9 +425,9 @@ export default {
 			caption: '完成',
 			tip: 'deuiaction1_finishtask1',
 		},
-		deuiaction1_pausetaskmob: {
+		deuiaction1_pausemobteamtask: {
 			caption: '暂停',
-			tip: 'deuiaction1_pausetaskmob',
+			tip: 'deuiaction1_pausemobteamtask',
 		},
 		deuiaction1_canceltaskmob: {
 			caption: '取消',

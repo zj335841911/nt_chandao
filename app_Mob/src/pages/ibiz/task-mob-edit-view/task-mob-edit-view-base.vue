@@ -86,12 +86,11 @@
                 <span class="btn-out-text">{{$t('task.mobeditviewrighttoolbar_toolbar.deuiaction1_finishtask1.caption')}}</span>
             </div>
         
-                    <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_pausetaskmob.disabled}" v-show="righttoolbarModels.deuiaction1_pausetaskmob.visabled">
-                <ion-button :disabled="righttoolbarModels.deuiaction1_pausetaskmob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_pausetaskmob' }, $event)" size="large">
-                    <ion-icon name="pause"></ion-icon>
-                <span class="btn-inner-text">{{$t('task.mobeditviewrighttoolbar_toolbar.deuiaction1_pausetaskmob.caption')}}</span>
+                    <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_pausemobteamtask.disabled}" v-show="righttoolbarModels.deuiaction1_pausemobteamtask.visabled">
+                <ion-button :disabled="righttoolbarModels.deuiaction1_pausemobteamtask.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_pausemobteamtask' }, $event)" size="large">
+                <span class="btn-inner-text">{{$t('task.mobeditviewrighttoolbar_toolbar.deuiaction1_pausemobteamtask.caption')}}</span>
                 </ion-button>
-                <span class="btn-out-text">{{$t('task.mobeditviewrighttoolbar_toolbar.deuiaction1_pausetaskmob.caption')}}</span>
+                <span class="btn-out-text">{{$t('task.mobeditviewrighttoolbar_toolbar.deuiaction1_pausemobteamtask.caption')}}</span>
             </div>
         
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_canceltaskmob.disabled}" v-show="righttoolbarModels.deuiaction1_canceltaskmob.visabled">
@@ -378,7 +377,7 @@ export default class TaskMobEditViewBase extends Vue {
 
             deuiaction1_finishtask1: { name: 'deuiaction1_finishtask1', caption: '完成', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_COMPLETE_BUT', uiaction: { tag: 'finishTask1', target: 'SINGLEKEY' } },
 
-            deuiaction1_pausetaskmob: { name: 'deuiaction1_pausetaskmob', caption: '暂停', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_PAUSE_BUT', uiaction: { tag: 'PauseTaskMob', target: 'SINGLEKEY' } },
+            deuiaction1_pausemobteamtask: { name: 'deuiaction1_pausemobteamtask', caption: '暂停', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_PAUSE_BUT', uiaction: { tag: 'PauseMobTeamTask', target: 'SINGLEKEY' } },
 
             deuiaction1_canceltaskmob: { name: 'deuiaction1_canceltaskmob', caption: '取消', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_CANCEL_BUT', uiaction: { tag: 'CancelTaskMob', target: 'SINGLEKEY' } },
 
@@ -684,8 +683,8 @@ export default class TaskMobEditViewBase extends Vue {
         if (Object.is($event.tag, 'deuiaction1_finishtask1')) {
             this.righttoolbar_deuiaction1_finishtask1_click($event, '', $event2);
         }
-        if (Object.is($event.tag, 'deuiaction1_pausetaskmob')) {
-            this.righttoolbar_deuiaction1_pausetaskmob_click($event, '', $event2);
+        if (Object.is($event.tag, 'deuiaction1_pausemobteamtask')) {
+            this.righttoolbar_deuiaction1_pausemobteamtask_click($event, '', $event2);
         }
         if (Object.is($event.tag, 'deuiaction1_canceltaskmob')) {
             this.righttoolbar_deuiaction1_canceltaskmob_click($event, '', $event2);
@@ -872,7 +871,7 @@ export default class TaskMobEditViewBase extends Vue {
      * @returns {Promise<any>}
      * @memberof TaskMobEditViewBase
      */
-    protected async righttoolbar_deuiaction1_pausetaskmob_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+    protected async righttoolbar_deuiaction1_pausemobteamtask_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
         // 参数
 
         // 取数
@@ -890,7 +889,7 @@ export default class TaskMobEditViewBase extends Vue {
         // 界面行为
         const curUIService: any = await this.globaluiservice.getService('task_ui_action');
         if (curUIService) {
-            curUIService.Task_PauseTaskMob(datas, contextJO, paramJO, $event, xData, this);
+            curUIService.Task_PauseMobTeamTask(datas, contextJO, paramJO, $event, xData, this);
         }
     }
 

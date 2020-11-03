@@ -425,7 +425,7 @@ export default {
 			caption: '完成',
 			tip: '完成',
 		},
-		deuiaction1_pausetaskmob: {
+		deuiaction1_pausemobteamtask: {
 			caption: '暂停',
 			tip: '暂停',
 		},
