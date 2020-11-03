@@ -61,6 +61,11 @@ export default class CompleteFormModel {
         dataType: 'FLOAT',
       },
       {
+        name: 'id',
+        prop: 'id',
+        dataType: 'ACID',
+      },
+      {
         name: 'currentconsumed',
         prop: 'currentconsumed',
         dataType: 'FLOAT',
@@ -94,11 +99,6 @@ export default class CompleteFormModel {
         name: 'comment',
         prop: 'comment',
         dataType: 'HTMLTEXT',
-      },
-      {
-        name: 'id',
-        prop: 'id',
-        dataType: 'ACID',
       },
       {
         name: 'task',

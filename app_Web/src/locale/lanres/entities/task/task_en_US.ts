@@ -306,6 +306,7 @@ export default {
 			srfdeid: "", 
 			srfsourcekey: "", 
 			consumed: "之前消耗", 
+			id: "编号", 
 			currentconsumed: "本次消耗", 
 			totaltime: "总计耗时", 
 			assignedto: "指派给", 
@@ -313,7 +314,6 @@ export default {
 			multiple: "多人任务", 
 			files: "附件", 
 			comment: "备注", 
-			id: "编号", 
 		},
 		uiactions: {
 		},
