@@ -504,7 +504,7 @@ export default class TaskTreeService extends ControlService {
 
             Object.assign(treeNode, { id: strNodeId });
 
-            Object.assign(treeNode, { expanded: filter.isAutoexpand });
+            Object.assign(treeNode, { expanded: true });
             Object.assign(treeNode, { leaf: false });
             Object.assign(treeNode, { nodeid: treeNode.srfkey });
             Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
