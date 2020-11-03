@@ -157,7 +157,7 @@ export default class TodoUIActionBase extends EntityUIActionBase {
         // 导航参数
         let panelNavParam= { } ;
         let panelNavContext= { } ;
-        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
+        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
         const backend = async () => {
             const curUIService: any = await this.globaluiservice.getAppEntityService('todo');
             const response: any = await curUIService.Finish(_context, _params);
@@ -211,7 +211,7 @@ export default class TodoUIActionBase extends EntityUIActionBase {
         // 导航参数
         let panelNavParam= { } ;
         let panelNavContext= { } ;
-        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
+        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
         const backend = async () => {
             const curUIService: any = await this.globaluiservice.getAppEntityService('todo');
             const response: any = await curUIService.Activate(_context, _params);
@@ -257,7 +257,7 @@ export default class TodoUIActionBase extends EntityUIActionBase {
         Object.assign(params, parentObj);
         let panelNavParam= { } ;
         let panelNavContext= { } ;
-        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
+        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
         let response: any = null;
         const view: any = { 
             viewname: 'todo-new-mob-edit-view', 
@@ -311,7 +311,7 @@ export default class TodoUIActionBase extends EntityUIActionBase {
         // 导航参数
         let panelNavParam= { } ;
         let panelNavContext= { } ;
-        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
+        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
         const backend = async () => {
             const curUIService: any = await this.globaluiservice.getAppEntityService('todo');
             const response: any = await curUIService.Remove(_context, _params);
@@ -360,7 +360,7 @@ export default class TodoUIActionBase extends EntityUIActionBase {
         Object.assign(params, parentObj);
         let panelNavParam= { } ;
         let panelNavContext= { } ;
-        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
+        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
         let response: any = null;
         const view: any = { 
             viewname: 'todo-mob-option-view', 
@@ -409,7 +409,7 @@ export default class TodoUIActionBase extends EntityUIActionBase {
         Object.assign(params, parentObj);
         let panelNavParam= { } ;
         let panelNavContext= { } ;
-        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
+        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
         let response: any = null;
         const view: any = { 
             viewname: 'todo-new-mob-edit-view', 
@@ -458,7 +458,7 @@ export default class TodoUIActionBase extends EntityUIActionBase {
         // 导航参数
         let panelNavParam= { } ;
         let panelNavContext= { } ;
-        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
+        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
         const backend = async () => {
             const curUIService: any = await this.globaluiservice.getAppEntityService('todo');
             const response: any = await curUIService.Close(_context, _params);

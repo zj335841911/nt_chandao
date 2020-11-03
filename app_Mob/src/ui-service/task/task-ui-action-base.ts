@@ -275,7 +275,7 @@ export default class TaskUIActionBase extends EntityUIActionBase {
         // 导航参数
         let panelNavParam= { } ;
         let panelNavContext= { } ;
-        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
+        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
         const backend = async () => {
             const curUIService: any = await this.globaluiservice.getAppEntityService('task');
             const response: any = await curUIService.ConfirmStoryChange(_context, _params);
@@ -324,7 +324,7 @@ export default class TaskUIActionBase extends EntityUIActionBase {
         Object.assign(params, parentObj);
         let panelNavParam= { } ;
         let panelNavContext= { } ;
-        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
+        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
         let response: any = null;
         let deResParameters: any[] = [];
         if (context.product && context.story && true) {
@@ -389,7 +389,7 @@ export default class TaskUIActionBase extends EntityUIActionBase {
         // 导航参数
         let panelNavParam= { "actioninfo": "当前任务只有%1$s才可以记录工时。" } ;
         let panelNavContext= { } ;
-        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
+        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
         const backend = async () => {
             const curUIService: any = await this.globaluiservice.getAppEntityService('task');
             const response: any = await curUIService.TaskForward(_context, _params);
@@ -452,7 +452,7 @@ export default class TaskUIActionBase extends EntityUIActionBase {
         // 导航参数
         let panelNavParam= { } ;
         let panelNavContext= { } ;
-        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
+        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
         const backend = async () => {
             const curUIService: any = await this.globaluiservice.getAppEntityService('task');
             const response: any = await curUIService.TaskNFavorites(_context, _params);
@@ -498,7 +498,7 @@ export default class TaskUIActionBase extends EntityUIActionBase {
         Object.assign(params, parentObj);
         let panelNavParam= { } ;
         let panelNavContext= { } ;
-        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
+        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
         let response: any = null;
         let deResParameters: any[] = [];
         if (context.product && context.story && true) {
@@ -558,7 +558,7 @@ export default class TaskUIActionBase extends EntityUIActionBase {
         Object.assign(params, parentObj);
         let panelNavParam= { } ;
         let panelNavContext= { "task": "%id%" } ;
-        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
+        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
         let response: any = null;
         let deResParameters: any[] = [];
         if (context.product && context.story && true) {
@@ -628,7 +628,7 @@ export default class TaskUIActionBase extends EntityUIActionBase {
         // 导航参数
         let panelNavParam= { "actioninfo": "当前任务只有%1$s才可以完成。" } ;
         let panelNavContext= { } ;
-        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
+        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
         const backend = async () => {
             const curUIService: any = await this.globaluiservice.getAppEntityService('task');
             const response: any = await curUIService.TaskForward(_context, _params);
@@ -691,7 +691,7 @@ export default class TaskUIActionBase extends EntityUIActionBase {
         // 导航参数
         let panelNavParam= { "actioninfo": "当前任务只有%1$s才可以暂停。" } ;
         let panelNavContext= { } ;
-        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
+        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
         const backend = async () => {
             const curUIService: any = await this.globaluiservice.getAppEntityService('task');
             const response: any = await curUIService.TaskForward(_context, _params);
@@ -754,7 +754,7 @@ export default class TaskUIActionBase extends EntityUIActionBase {
         // 导航参数
         let panelNavParam= { "actioninfo": "当前任务只有%1$s才可以开始。" } ;
         let panelNavContext= { } ;
-        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
+        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
         const backend = async () => {
             const curUIService: any = await this.globaluiservice.getAppEntityService('task');
             const response: any = await curUIService.TaskForward(_context, _params);
@@ -812,7 +812,7 @@ export default class TaskUIActionBase extends EntityUIActionBase {
         Object.assign(params, parentObj);
         let panelNavParam= { } ;
         let panelNavContext= { "task": "%id%" } ;
-        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
+        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
         let response: any = null;
         let deResParameters: any[] = [];
         if (context.product && context.story && true) {
@@ -881,7 +881,7 @@ export default class TaskUIActionBase extends EntityUIActionBase {
         // 导航参数
         let panelNavParam= { } ;
         let panelNavContext= { } ;
-        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
+        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
               container.closeView(null);
         const backend = async () => {
             const curUIService: any = await this.globaluiservice.getAppEntityService('task');
@@ -931,7 +931,7 @@ export default class TaskUIActionBase extends EntityUIActionBase {
         Object.assign(params, parentObj);
         let panelNavParam= { } ;
         let panelNavContext= { } ;
-        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
+        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
         let response: any = null;
         let deResParameters: any[] = [];
         if (context.product && context.story && true) {
@@ -996,7 +996,7 @@ export default class TaskUIActionBase extends EntityUIActionBase {
         Object.assign(params, parentObj);
         let panelNavParam= { } ;
         let panelNavContext= { } ;
-        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
+        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
         let response: any = null;
         let deResParameters: any[] = [];
         if (context.product && context.story && true) {
@@ -1066,7 +1066,7 @@ export default class TaskUIActionBase extends EntityUIActionBase {
         // 导航参数
         let panelNavParam= { } ;
         let panelNavContext= { } ;
-        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
+        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
         const backend = async () => {
             const curUIService: any = await this.globaluiservice.getAppEntityService('task');
             const response: any = await curUIService.TaskFavorites(_context, _params);
@@ -1115,7 +1115,7 @@ export default class TaskUIActionBase extends EntityUIActionBase {
         Object.assign(params, parentObj);
         let panelNavParam= { } ;
         let panelNavContext= { } ;
-        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
+        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
         let response: any = null;
         let deResParameters: any[] = [];
         if (context.product && context.story && true) {
@@ -1180,7 +1180,7 @@ export default class TaskUIActionBase extends EntityUIActionBase {
         Object.assign(params, parentObj);
         let panelNavParam= { } ;
         let panelNavContext= { } ;
-        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
+        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
         let response: any = null;
         let deResParameters: any[] = [];
         if (context.product && context.story && true) {
@@ -1237,7 +1237,7 @@ export default class TaskUIActionBase extends EntityUIActionBase {
         Object.assign(params, parentObj);
         let panelNavParam= { } ;
         let panelNavContext= { } ;
-        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
+        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
         let response: any = null;
         let deResParameters: any[] = [];
         if (context.product && context.story && true) {
@@ -1299,7 +1299,7 @@ export default class TaskUIActionBase extends EntityUIActionBase {
         Object.assign(params, parentObj);
         let panelNavParam= { } ;
         let panelNavContext= { } ;
-        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
+        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
         let response: any = null;
         let deResParameters: any[] = [];
         if (context.product && context.story && true) {
@@ -1359,7 +1359,7 @@ export default class TaskUIActionBase extends EntityUIActionBase {
         Object.assign(params, parentObj);
         let panelNavParam= { } ;
         let panelNavContext= { } ;
-        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
+        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
         let response: any = null;
         let deResParameters: any[] = [];
         if (context.product && context.story && true) {

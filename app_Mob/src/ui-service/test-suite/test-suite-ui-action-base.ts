@@ -139,7 +139,7 @@ export default class TestSuiteUIActionBase extends EntityUIActionBase {
         Object.assign(params, parentObj);
         let panelNavParam= { } ;
         let panelNavContext= { } ;
-        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
+        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
         let response: any = null;
         const deResParameters: any[] = [];
         const parameters: any[] = [

@@ -111,7 +111,7 @@
     :error="detailsModel.assignedto.error" 
     :isEmptyCaption="false">
         <app-mob-select 
-    tag="UserRealNameTaskTeam"
+    tag="UserRealNameTaskMTeam"
     codeListType="DYNAMIC" 
     :isCache="false" 
     :disabled="detailsModel.assignedto.disabled" 
@@ -119,8 +119,8 @@
     :context="context" 
     :viewparams="viewparams"
     :value="data.assignedto"  
-    :navigateContext ='{ "project": "%project%", "multiple": "%multiple%" } '
-    :navigateParam ='{ "project": "%project%", "multiple": "%multiple%" } '
+    :navigateContext ='{ "id": "%id%", "project": "%project%", "multiple": "%multiple%" } '
+    :navigateParam ='{ "id": "%id%", "project": "%project%", "multiple": "%multiple%" } '
     @change="($event)=>this.data.assignedto = $event" />
 </app-form-item>
 

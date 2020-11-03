@@ -963,9 +963,7 @@ export default class BugAssMoreMobMDViewBase extends Vue {
 
         const mdctrl: any = this.$refs.mdctrl;
         if (mdctrl) {
-            let response = await mdctrl.quickSearch(this.query);
-            if (response) {
-            }
+            mdctrl.quickSearch(this.query);
         }
     }
 

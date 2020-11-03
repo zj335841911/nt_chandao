@@ -153,7 +153,7 @@ export default class BuildUIActionBase extends EntityUIActionBase {
         // 导航参数
         let panelNavParam= { } ;
         let panelNavContext= { } ;
-        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
+        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
         const backend = async () => {
             const curUIService: any = await this.globaluiservice.getAppEntityService('build');
             const response: any = await curUIService.Remove(_context, _params);
@@ -199,7 +199,7 @@ export default class BuildUIActionBase extends EntityUIActionBase {
         Object.assign(params, parentObj);
         let panelNavParam= { } ;
         let panelNavContext= { } ;
-        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
+        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
         let response: any = null;
         let deResParameters: any[] = [];
         if (context.project && true) {
@@ -258,7 +258,7 @@ export default class BuildUIActionBase extends EntityUIActionBase {
         Object.assign(params, parentObj);
         let panelNavParam= { } ;
         let panelNavContext= { } ;
-        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
+        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
         let response: any = null;
         let deResParameters: any[] = [];
         if (context.project && true) {

@@ -652,10 +652,7 @@ export default class StoryLinkStoryMobMPickupViewBase extends Vue {
         const pickupviewpanel: any = this.$refs.pickupviewpanel;
         if (pickupviewpanel) {
             this.quickValue = event.detail.value;
-            let response = await pickupviewpanel.quickSearch(this.quickValue);
-            if (response) {
-                
-            }
+            pickupviewpanel.quickSearch(this.quickValue);
         }
     }
 

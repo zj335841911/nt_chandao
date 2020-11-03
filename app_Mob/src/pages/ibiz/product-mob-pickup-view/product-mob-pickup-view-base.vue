@@ -613,10 +613,7 @@ export default class ProductMobPickupViewBase extends Vue {
     public async quickValueChange(event: any) {
         const pickupviewpanel: any = this.$refs.pickupviewpanel;
         if (pickupviewpanel) {
-            let response = await pickupviewpanel.quickSearch(this.quickValue);
-            if (response) {
-                
-            }
+            pickupviewpanel.quickSearch(this.quickValue);
         }
     }
 
