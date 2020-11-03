@@ -524,6 +524,9 @@ public class StoryExService extends StoryServiceImpl {
     public Page<Story> searchByModule(StorySearchContext context) {
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<Story> pages = baseMapper.searchByModule(context.getPages(), context, context.getSelectCond());
         for (Story story : pages.getRecords()) {
+            if(story.getParent() == 0) {
+                continue;
+            }
             StorySearchContext storySearchContext = new StorySearchContext();
             storySearchContext.setSelectCond(context.getSelectCond().clone());
             storySearchContext.setN_parent_eq(story.getId());
@@ -539,6 +542,9 @@ public class StoryExService extends StoryServiceImpl {
     public Page<Story> searchParentDefault(StorySearchContext context) {
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<Story> pages = baseMapper.searchParentDefault(context.getPages(), context, context.getSelectCond());
         for (Story story : pages.getRecords()) {
+            if(story.getParent() == 0) {
+                continue;
+            }
             StorySearchContext storySearchContext = new StorySearchContext();
             storySearchContext.setSelectCond(context.getSelectCond().clone());
             storySearchContext.setN_parent_eq(story.getId());
