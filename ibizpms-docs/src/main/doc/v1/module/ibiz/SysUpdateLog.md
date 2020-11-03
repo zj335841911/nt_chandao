@@ -592,8 +592,8 @@ Save
 | 序号 | 属性 | 组合方式 |
 | ---- | ---- | ---- |
 | 1 | [更新名称（SYS_UPDATE_LOGNAME）](#属性-更新名称（SYS_UPDATE_LOGNAME）) | `%like%` |
-| 1 | [最新更新（LATESTUPDATE）](#属性-最新更新（LATESTUPDATE）) | `=` |
-| 1 | [更新平台（UPDATEBRANCH）](#属性-更新平台（UPDATEBRANCH）) | `=` |
+| 2 | [最新更新（LATESTUPDATE）](#属性-最新更新（LATESTUPDATE）) | `=` |
+| 3 | [更新平台（UPDATEBRANCH）](#属性-更新平台（UPDATEBRANCH）) | `=` |
 
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |

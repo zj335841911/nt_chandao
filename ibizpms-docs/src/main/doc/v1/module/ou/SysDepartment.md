@@ -946,12 +946,12 @@ Save
 | 序号 | 属性 | 组合方式 |
 | ---- | ---- | ---- |
 | 1 | [部门名称（DEPTNAME）](#属性-部门名称（DEPTNAME）) | `%like%` |
-| 1 | [单位（ORGID）](#属性-单位（ORGID）) | `=` |
-| 1 | [上级部门（PDEPTID）](#属性-上级部门（PDEPTID）) | `=` |
-| 1 | [单位（ORGNAME）](#属性-单位（ORGNAME）) | `=` |
-| 2 | [单位（ORGNAME）](#属性-单位（ORGNAME）) | `%like%` |
-| 1 | [上级部门（PDEPTNAME）](#属性-上级部门（PDEPTNAME）) | `=` |
-| 2 | [上级部门（PDEPTNAME）](#属性-上级部门（PDEPTNAME）) | `%like%` |
+| 2 | [单位（ORGID）](#属性-单位（ORGID）) | `=` |
+| 3 | [上级部门（PDEPTID）](#属性-上级部门（PDEPTID）) | `=` |
+| 4 | [单位（ORGNAME）](#属性-单位（ORGNAME）) | `=` |
+| 5 | [单位（ORGNAME）](#属性-单位（ORGNAME）) | `%like%` |
+| 6 | [上级部门（PDEPTNAME）](#属性-上级部门（PDEPTNAME）) | `=` |
+| 7 | [上级部门（PDEPTNAME）](#属性-上级部门（PDEPTNAME）) | `%like%` |
 
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |

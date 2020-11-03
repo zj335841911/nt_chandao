@@ -1987,18 +1987,18 @@ Save
 | 序号 | 属性 | 组合方式 |
 | ---- | ---- | ---- |
 | 1 | [需求名称（TITLE）](#属性-需求名称（TITLE）) | `%like%` |
-| 1 | [id（MODULE）](#属性-id（MODULE）) | `=` |
-| 1 | [编号（PRODUCT）](#属性-编号（PRODUCT）) | `=` |
-| 1 | [IBIZ标识（IBIZ_ID）](#属性-IBIZ标识（IBIZ_ID）) | `=` |
-| 1 | [需求来源（SOURCE）](#属性-需求来源（SOURCE）) | `=` |
-| 1 | [来源备注（SOURCENOTE）](#属性-来源备注（SOURCENOTE）) | `=` |
-| 1 | [来源对象（IBIZ_SOURCEOBJECT）](#属性-来源对象（IBIZ_SOURCEOBJECT）) | `=` |
-| 1 | [状态（STATUS）](#属性-状态（STATUS）) | `=` |
-| 1 | [需求类型（TYPE）](#属性-需求类型（TYPE）) | `=` |
-| 1 | [需求阶段（STAGE）](#属性-需求阶段（STAGE）) | `=` |
-| 1 | [优先级（PRI）](#属性-优先级（PRI）) | `=` |
-| 1 | [颜色（COLOR）](#属性-颜色（COLOR）) | `=` |
-| 1 | [设置阶段者（STAGEDBY）](#属性-设置阶段者（STAGEDBY）) | `=` |
+| 2 | [id（MODULE）](#属性-id（MODULE）) | `=` |
+| 3 | [编号（PRODUCT）](#属性-编号（PRODUCT）) | `=` |
+| 4 | [IBIZ标识（IBIZ_ID）](#属性-IBIZ标识（IBIZ_ID）) | `=` |
+| 5 | [需求来源（SOURCE）](#属性-需求来源（SOURCE）) | `=` |
+| 6 | [来源备注（SOURCENOTE）](#属性-来源备注（SOURCENOTE）) | `=` |
+| 7 | [来源对象（IBIZ_SOURCEOBJECT）](#属性-来源对象（IBIZ_SOURCEOBJECT）) | `=` |
+| 8 | [状态（STATUS）](#属性-状态（STATUS）) | `=` |
+| 9 | [需求类型（TYPE）](#属性-需求类型（TYPE）) | `=` |
+| 10 | [需求阶段（STAGE）](#属性-需求阶段（STAGE）) | `=` |
+| 11 | [优先级（PRI）](#属性-优先级（PRI）) | `=` |
+| 12 | [颜色（COLOR）](#属性-颜色（COLOR）) | `=` |
+| 13 | [设置阶段者（STAGEDBY）](#属性-设置阶段者（STAGEDBY）) | `=` |
 
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |

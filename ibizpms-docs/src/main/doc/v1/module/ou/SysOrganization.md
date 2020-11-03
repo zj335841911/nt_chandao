@@ -650,9 +650,9 @@ Save
 | 序号 | 属性 | 组合方式 |
 | ---- | ---- | ---- |
 | 1 | [名称（ORGNAME）](#属性-名称（ORGNAME）) | `%like%` |
-| 1 | [上级单位（PORGID）](#属性-上级单位（PORGID）) | `=` |
-| 1 | [上级单位（PORGNAME）](#属性-上级单位（PORGNAME）) | `=` |
-| 2 | [上级单位（PORGNAME）](#属性-上级单位（PORGNAME）) | `%like%` |
+| 2 | [上级单位（PORGID）](#属性-上级单位（PORGID）) | `=` |
+| 3 | [上级单位（PORGNAME）](#属性-上级单位（PORGNAME）) | `=` |
+| 4 | [上级单位（PORGNAME）](#属性-上级单位（PORGNAME）) | `%like%` |
 
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |

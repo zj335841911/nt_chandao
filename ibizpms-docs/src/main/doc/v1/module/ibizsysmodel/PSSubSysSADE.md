@@ -1080,12 +1080,12 @@ Save
 | 序号 | 属性 | 组合方式 |
 | ---- | ---- | ---- |
 | 1 | [外部接口实体名称（PSSUBSYSSADENAME）](#属性-外部接口实体名称（PSSUBSYSSADENAME）) | `%like%` |
-| 1 | [接口模式（MAJORFLAG）](#属性-接口模式（MAJORFLAG）) | `=` |
-| 1 | [同步模型模式（SYNCMODELMODE）](#属性-同步模型模式（SYNCMODELMODE）) | `=` |
-| 1 | [用户分类（USERCAT）](#属性-用户分类（USERCAT）) | `=` |
-| 1 | [子系统接口（PSSUBSYSSERVICEAPINAME）](#属性-子系统接口（PSSUBSYSSERVICEAPINAME）) | `=` |
-| 2 | [子系统接口（PSSUBSYSSERVICEAPINAME）](#属性-子系统接口（PSSUBSYSSERVICEAPINAME）) | `%like%` |
-| 1 | [子系统接口（PSSUBSYSSERVICEAPIID）](#属性-子系统接口（PSSUBSYSSERVICEAPIID）) | `=` |
+| 2 | [接口模式（MAJORFLAG）](#属性-接口模式（MAJORFLAG）) | `=` |
+| 3 | [同步模型模式（SYNCMODELMODE）](#属性-同步模型模式（SYNCMODELMODE）) | `=` |
+| 4 | [用户分类（USERCAT）](#属性-用户分类（USERCAT）) | `=` |
+| 5 | [子系统接口（PSSUBSYSSERVICEAPINAME）](#属性-子系统接口（PSSUBSYSSERVICEAPINAME）) | `=` |
+| 6 | [子系统接口（PSSUBSYSSERVICEAPINAME）](#属性-子系统接口（PSSUBSYSSERVICEAPINAME）) | `%like%` |
+| 7 | [子系统接口（PSSUBSYSSERVICEAPIID）](#属性-子系统接口（PSSUBSYSSERVICEAPIID）) | `=` |
 
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |

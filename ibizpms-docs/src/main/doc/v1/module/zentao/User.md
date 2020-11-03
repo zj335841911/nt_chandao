@@ -1491,10 +1491,10 @@ Save
 | 序号 | 属性 | 组合方式 |
 | ---- | ---- | ---- |
 | 1 | [真实姓名（REALNAME）](#属性-真实姓名（REALNAME）) | `%like%` |
-| 1 | [所属部门（DEPT）](#属性-所属部门（DEPT）) | `=` |
-| 1 | [职位（ROLE）](#属性-职位（ROLE）) | `=` |
-| 1 | [clientStatus（CLIENTSTATUS）](#属性-clientStatus（CLIENTSTATUS）) | `=` |
-| 1 | [性别（GENDER）](#属性-性别（GENDER）) | `=` |
+| 2 | [所属部门（DEPT）](#属性-所属部门（DEPT）) | `=` |
+| 3 | [职位（ROLE）](#属性-职位（ROLE）) | `=` |
+| 4 | [clientStatus（CLIENTSTATUS）](#属性-clientStatus（CLIENTSTATUS）) | `=` |
+| 5 | [性别（GENDER）](#属性-性别（GENDER）) | `=` |
 
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |

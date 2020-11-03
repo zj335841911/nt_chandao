@@ -1329,10 +1329,10 @@ Save
 | 序号 | 属性 | 组合方式 |
 | ---- | ---- | ---- |
 | 1 | [系统模块名称（PSMODULENAME）](#属性-系统模块名称（PSMODULENAME）) | `%like%` |
-| 1 | [模型锁模式（LOCKFLAG）](#属性-模型锁模式（LOCKFLAG）) | `=` |
-| 1 | [服务API模式（SERVICEAPIFLAG）](#属性-服务API模式（SERVICEAPIFLAG）) | `=` |
-| 1 | [用户分类（USERCAT）](#属性-用户分类（USERCAT）) | `=` |
-| 1 | [子系统类型（SYSREFTYPE）](#属性-子系统类型（SYSREFTYPE）) | `=` |
+| 2 | [模型锁模式（LOCKFLAG）](#属性-模型锁模式（LOCKFLAG）) | `=` |
+| 3 | [服务API模式（SERVICEAPIFLAG）](#属性-服务API模式（SERVICEAPIFLAG）) | `=` |
+| 4 | [用户分类（USERCAT）](#属性-用户分类（USERCAT）) | `=` |
+| 5 | [子系统类型（SYSREFTYPE）](#属性-子系统类型（SYSREFTYPE）) | `=` |
 
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |

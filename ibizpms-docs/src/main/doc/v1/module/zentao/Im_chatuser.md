@@ -566,9 +566,9 @@ Save
 | 序号 | 属性 | 组合方式 |
 | ---- | ---- | ---- |
 | 1 | [freeze（FREEZE）](#属性-freeze（FREEZE）) | `=` |
-| 1 | [star（STAR）](#属性-star（STAR）) | `=` |
-| 1 | [hide（HIDE）](#属性-hide（HIDE）) | `=` |
-| 1 | [mute（MUTE）](#属性-mute（MUTE）) | `=` |
+| 2 | [star（STAR）](#属性-star（STAR）) | `=` |
+| 3 | [hide（HIDE）](#属性-hide（HIDE）) | `=` |
+| 4 | [mute（MUTE）](#属性-mute（MUTE）) | `=` |
 
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |

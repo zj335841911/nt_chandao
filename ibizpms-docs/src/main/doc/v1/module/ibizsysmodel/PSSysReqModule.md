@@ -1242,13 +1242,13 @@ Save
 | 序号 | 属性 | 组合方式 |
 | ---- | ---- | ---- |
 | 1 | [系统需求模块名称（PSSYSREQMODULENAME）](#属性-系统需求模块名称（PSSYSREQMODULENAME）) | `%like%` |
-| 1 | [用户分类（USERCAT）](#属性-用户分类（USERCAT）) | `=` |
-| 1 | [父需求模块（PPSSYSREQMODULEID）](#属性-父需求模块（PPSSYSREQMODULEID）) | `=` |
-| 1 | [父需求模块（PPSSYSREQMODULENAME）](#属性-父需求模块（PPSSYSREQMODULENAME）) | `=` |
-| 2 | [父需求模块（PPSSYSREQMODULENAME）](#属性-父需求模块（PPSSYSREQMODULENAME）) | `%like%` |
-| 1 | [系统模块（PSMODULEID）](#属性-系统模块（PSMODULEID）) | `=` |
-| 1 | [系统模块（PSMODULENAME）](#属性-系统模块（PSMODULENAME）) | `=` |
-| 2 | [系统模块（PSMODULENAME）](#属性-系统模块（PSMODULENAME）) | `%like%` |
+| 2 | [用户分类（USERCAT）](#属性-用户分类（USERCAT）) | `=` |
+| 3 | [父需求模块（PPSSYSREQMODULEID）](#属性-父需求模块（PPSSYSREQMODULEID）) | `=` |
+| 4 | [父需求模块（PPSSYSREQMODULENAME）](#属性-父需求模块（PPSSYSREQMODULENAME）) | `=` |
+| 5 | [父需求模块（PPSSYSREQMODULENAME）](#属性-父需求模块（PPSSYSREQMODULENAME）) | `%like%` |
+| 6 | [系统模块（PSMODULEID）](#属性-系统模块（PSMODULEID）) | `=` |
+| 7 | [系统模块（PSMODULENAME）](#属性-系统模块（PSMODULENAME）) | `=` |
+| 8 | [系统模块（PSMODULENAME）](#属性-系统模块（PSMODULENAME）) | `%like%` |
 
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |

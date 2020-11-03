@@ -2085,9 +2085,9 @@ Save
 | 序号 | 属性 | 组合方式 |
 | ---- | ---- | ---- |
 | 1 | [账户（ACCOUNT）](#属性-账户（ACCOUNT）) | `=` |
-| 1 | [真实姓名（REALNAME）](#属性-真实姓名（REALNAME）) | `%like%` |
-| 1 | [男女（GENDER）](#属性-男女（GENDER）) | `=` |
-| 1 | [clientStatus（CLIENTSTATUS）](#属性-clientStatus（CLIENTSTATUS）) | `=` |
+| 2 | [真实姓名（REALNAME）](#属性-真实姓名（REALNAME）) | `%like%` |
+| 3 | [男女（GENDER）](#属性-男女（GENDER）) | `=` |
+| 4 | [clientStatus（CLIENTSTATUS）](#属性-clientStatus（CLIENTSTATUS）) | `=` |
 
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |

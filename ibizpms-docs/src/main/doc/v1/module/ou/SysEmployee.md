@@ -1373,14 +1373,14 @@ Save
 | 2 | [用户全局名（USERNAME）](#属性-用户全局名（USERNAME）) | `in(...)` |
 | 3 | [用户全局名（USERNAME）](#属性-用户全局名（USERNAME）) | `%like%` |
 | 4 | [用户全局名（USERNAME）](#属性-用户全局名（USERNAME）) | `notin(...)` |
-| 1 | [姓名（PERSONNAME）](#属性-姓名（PERSONNAME）) | `%like%` |
-| 1 | [主部门（MDEPTID）](#属性-主部门（MDEPTID）) | `=` |
-| 1 | [主部门名称（MDEPTNAME）](#属性-主部门名称（MDEPTNAME）) | `=` |
-| 2 | [主部门名称（MDEPTNAME）](#属性-主部门名称（MDEPTNAME）) | `%like%` |
-| 1 | [单位（ORGID）](#属性-单位（ORGID）) | `=` |
-| 1 | [单位名称（ORGNAME）](#属性-单位名称（ORGNAME）) | `=` |
-| 2 | [单位名称（ORGNAME）](#属性-单位名称（ORGNAME）) | `%like%` |
-| 1 | [性别（SEX）](#属性-性别（SEX）) | `=` |
+| 5 | [姓名（PERSONNAME）](#属性-姓名（PERSONNAME）) | `%like%` |
+| 6 | [主部门（MDEPTID）](#属性-主部门（MDEPTID）) | `=` |
+| 7 | [主部门名称（MDEPTNAME）](#属性-主部门名称（MDEPTNAME）) | `=` |
+| 8 | [主部门名称（MDEPTNAME）](#属性-主部门名称（MDEPTNAME）) | `%like%` |
+| 9 | [单位（ORGID）](#属性-单位（ORGID）) | `=` |
+| 10 | [单位名称（ORGNAME）](#属性-单位名称（ORGNAME）) | `=` |
+| 11 | [单位名称（ORGNAME）](#属性-单位名称（ORGNAME）) | `%like%` |
+| 12 | [性别（SEX）](#属性-性别（SEX）) | `=` |
 
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |

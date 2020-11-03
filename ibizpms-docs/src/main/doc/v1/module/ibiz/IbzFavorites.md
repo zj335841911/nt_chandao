@@ -480,9 +480,9 @@ Save
 | 序号 | 属性 | 组合方式 |
 | ---- | ---- | ---- |
 | 1 | [收藏名称（IBZ_FAVORITESNAME）](#属性-收藏名称（IBZ_FAVORITESNAME）) | `%like%` |
-| 1 | [数据对象标识（OBJECTID）](#属性-数据对象标识（OBJECTID）) | `=` |
-| 1 | [收藏用户（ACCOUNT）](#属性-收藏用户（ACCOUNT）) | `=` |
-| 1 | [类型（TYPE）](#属性-类型（TYPE）) | `=` |
+| 2 | [数据对象标识（OBJECTID）](#属性-数据对象标识（OBJECTID）) | `=` |
+| 3 | [收藏用户（ACCOUNT）](#属性-收藏用户（ACCOUNT）) | `=` |
+| 4 | [类型（TYPE）](#属性-类型（TYPE）) | `=` |
 
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |

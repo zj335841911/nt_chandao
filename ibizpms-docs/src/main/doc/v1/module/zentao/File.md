@@ -605,9 +605,9 @@ Save
 | 序号 | 属性 | 组合方式 |
 | ---- | ---- | ---- |
 | 1 | [对象ID（OBJECTID）](#属性-对象ID（OBJECTID）) | `=` |
-| 1 | [对象类型（OBJECTTYPE）](#属性-对象类型（OBJECTTYPE）) | `=` |
-| 1 | [标题（TITLE）](#属性-标题（TITLE）) | `%like%` |
-| 1 | [备注（EXTRA）](#属性-备注（EXTRA）) | `=` |
+| 2 | [对象类型（OBJECTTYPE）](#属性-对象类型（OBJECTTYPE）) | `=` |
+| 3 | [标题（TITLE）](#属性-标题（TITLE）) | `%like%` |
+| 4 | [备注（EXTRA）](#属性-备注（EXTRA）) | `=` |
 
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |

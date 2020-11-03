@@ -2062,19 +2062,19 @@ Save
 | 序号 | 属性 | 组合方式 |
 | ---- | ---- | ---- |
 | 1 | [系统服务接口名称（PSSYSSERVICEAPINAME）](#属性-系统服务接口名称（PSSYSSERVICEAPINAME）) | `%like%` |
-| 1 | [接口模式（APIMODE）](#属性-接口模式（APIMODE）) | `=` |
-| 1 | [接口类型（APITYPE）](#属性-接口类型（APITYPE）) | `=` |
-| 1 | [认证模式（AUTHMODE）](#属性-认证模式（AUTHMODE）) | `=` |
-| 1 | [默认实体行为请求方式（DEFDEACTIONREQMETHOD）](#属性-默认实体行为请求方式（DEFDEACTIONREQMETHOD）) | `=` |
-| 1 | [模型锁标志（LOCKFLAG）](#属性-模型锁标志（LOCKFLAG）) | `=` |
-| 1 | [默认查询请求方式（DEFSELECTREQMETHOD）](#属性-默认查询请求方式（DEFSELECTREQMETHOD）) | `=` |
-| 1 | [默认结果集请求方式（DEFDEDATASETREQMETHOD）](#属性-默认结果集请求方式（DEFDEDATASETREQMETHOD）) | `=` |
-| 1 | [平台预定义类型（PREDEFINEDTYPE）](#属性-平台预定义类型（PREDEFINEDTYPE）) | `=` |
-| 1 | [服务类型（SERVICETYPE）](#属性-服务类型（SERVICETYPE）) | `=` |
-| 1 | [用户分类（USERCAT）](#属性-用户分类（USERCAT）) | `=` |
-| 1 | [系统模块（PSMODULEID）](#属性-系统模块（PSMODULEID）) | `=` |
-| 1 | [系统模块（PSMODULENAME）](#属性-系统模块（PSMODULENAME）) | `=` |
-| 2 | [系统模块（PSMODULENAME）](#属性-系统模块（PSMODULENAME）) | `%like%` |
+| 2 | [接口模式（APIMODE）](#属性-接口模式（APIMODE）) | `=` |
+| 3 | [接口类型（APITYPE）](#属性-接口类型（APITYPE）) | `=` |
+| 4 | [认证模式（AUTHMODE）](#属性-认证模式（AUTHMODE）) | `=` |
+| 5 | [默认实体行为请求方式（DEFDEACTIONREQMETHOD）](#属性-默认实体行为请求方式（DEFDEACTIONREQMETHOD）) | `=` |
+| 6 | [模型锁标志（LOCKFLAG）](#属性-模型锁标志（LOCKFLAG）) | `=` |
+| 7 | [默认查询请求方式（DEFSELECTREQMETHOD）](#属性-默认查询请求方式（DEFSELECTREQMETHOD）) | `=` |
+| 8 | [默认结果集请求方式（DEFDEDATASETREQMETHOD）](#属性-默认结果集请求方式（DEFDEDATASETREQMETHOD）) | `=` |
+| 9 | [平台预定义类型（PREDEFINEDTYPE）](#属性-平台预定义类型（PREDEFINEDTYPE）) | `=` |
+| 10 | [服务类型（SERVICETYPE）](#属性-服务类型（SERVICETYPE）) | `=` |
+| 11 | [用户分类（USERCAT）](#属性-用户分类（USERCAT）) | `=` |
+| 12 | [系统模块（PSMODULEID）](#属性-系统模块（PSMODULEID）) | `=` |
+| 13 | [系统模块（PSMODULENAME）](#属性-系统模块（PSMODULENAME）) | `=` |
+| 14 | [系统模块（PSMODULENAME）](#属性-系统模块（PSMODULENAME）) | `%like%` |
 
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |

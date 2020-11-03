@@ -1539,13 +1539,13 @@ Save
 | 序号 | 属性 | 组合方式 |
 | ---- | ---- | ---- |
 | 1 | [标题（TITLE）](#属性-标题（TITLE）) | `%like%` |
-| 1 | [对象类型（OBJECTTYPE）](#属性-对象类型（OBJECTTYPE）) | `=` |
-| 1 | [所属产品（PRODUCT）](#属性-所属产品（PRODUCT）) | `=` |
-| 1 | [所属项目（PROJECT）](#属性-所属项目（PROJECT）) | `=` |
-| 1 | [所属产品（PRODUCTNAME）](#属性-所属产品（PRODUCTNAME）) | `=` |
-| 2 | [所属产品（PRODUCTNAME）](#属性-所属产品（PRODUCTNAME）) | `%like%` |
-| 1 | [所属项目（PROJECTNAME）](#属性-所属项目（PROJECTNAME）) | `=` |
-| 2 | [所属项目（PROJECTNAME）](#属性-所属项目（PROJECTNAME）) | `%like%` |
+| 2 | [对象类型（OBJECTTYPE）](#属性-对象类型（OBJECTTYPE）) | `=` |
+| 3 | [所属产品（PRODUCT）](#属性-所属产品（PRODUCT）) | `=` |
+| 4 | [所属项目（PROJECT）](#属性-所属项目（PROJECT）) | `=` |
+| 5 | [所属产品（PRODUCTNAME）](#属性-所属产品（PRODUCTNAME）) | `=` |
+| 6 | [所属产品（PRODUCTNAME）](#属性-所属产品（PRODUCTNAME）) | `%like%` |
+| 7 | [所属项目（PROJECTNAME）](#属性-所属项目（PROJECTNAME）) | `=` |
+| 8 | [所属项目（PROJECTNAME）](#属性-所属项目（PROJECTNAME）) | `%like%` |
 
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |

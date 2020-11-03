@@ -645,10 +645,10 @@ Save
 | 序号 | 属性 | 组合方式 |
 | ---- | ---- | ---- |
 | 1 | [系统更新功能名称（SYS_UPDATE_FEATURESNAME）](#属性-系统更新功能名称（SYS_UPDATE_FEATURESNAME）) | `%like%` |
-| 1 | [系统更新日志标识（SYS_UPDATE_LOGID）](#属性-系统更新日志标识（SYS_UPDATE_LOGID）) | `=` |
-| 1 | [所属更新（SYS_UPDATE_LOGNAME）](#属性-所属更新（SYS_UPDATE_LOGNAME）) | `=` |
-| 2 | [所属更新（SYS_UPDATE_LOGNAME）](#属性-所属更新（SYS_UPDATE_LOGNAME）) | `%like%` |
-| 1 | [更新类型（TYPE）](#属性-更新类型（TYPE）) | `=` |
+| 2 | [系统更新日志标识（SYS_UPDATE_LOGID）](#属性-系统更新日志标识（SYS_UPDATE_LOGID）) | `=` |
+| 3 | [所属更新（SYS_UPDATE_LOGNAME）](#属性-所属更新（SYS_UPDATE_LOGNAME）) | `=` |
+| 4 | [所属更新（SYS_UPDATE_LOGNAME）](#属性-所属更新（SYS_UPDATE_LOGNAME）) | `%like%` |
+| 5 | [更新类型（TYPE）](#属性-更新类型（TYPE）) | `=` |
 
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |

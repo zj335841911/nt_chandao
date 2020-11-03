@@ -802,14 +802,14 @@ UpdateTime
 | 序号 | 属性 | 组合方式 |
 | ---- | ---- | ---- |
 | 1 | [任务名（NAME）](#属性-任务名（NAME）) | `%like%` |
-| 1 | [项目编号（PROJECT）](#属性-项目编号（PROJECT）) | `=` |
-| 1 | [项目（PROJECTNAME）](#属性-项目（PROJECTNAME）) | `=` |
-| 2 | [项目（PROJECTNAME）](#属性-项目（PROJECTNAME）) | `%like%` |
-| 1 | [部门（DEPT）](#属性-部门（DEPT）) | `=` |
-| 1 | [属性（BEGIN）](#属性-属性（BEGIN）) | `<=` |
-| 1 | [结束（END）](#属性-结束（END）) | `>=` |
-| 1 | [工作日天数（WORKDAY）](#属性-工作日天数（WORKDAY）) | `=` |
-| 1 | [是否指派（ASSIGN）](#属性-是否指派（ASSIGN）) | `=` |
+| 2 | [项目编号（PROJECT）](#属性-项目编号（PROJECT）) | `=` |
+| 3 | [项目（PROJECTNAME）](#属性-项目（PROJECTNAME）) | `=` |
+| 4 | [项目（PROJECTNAME）](#属性-项目（PROJECTNAME）) | `%like%` |
+| 5 | [部门（DEPT）](#属性-部门（DEPT）) | `=` |
+| 6 | [属性（BEGIN）](#属性-属性（BEGIN）) | `<=` |
+| 7 | [结束（END）](#属性-结束（END）) | `>=` |
+| 8 | [工作日天数（WORKDAY）](#属性-工作日天数（WORKDAY）) | `=` |
+| 9 | [是否指派（ASSIGN）](#属性-是否指派（ASSIGN）) | `=` |
 
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |

@@ -1469,17 +1469,17 @@ Save
 | 序号 | 属性 | 组合方式 |
 | ---- | ---- | ---- |
 | 1 | [用例标题（TITLE）](#属性-用例标题（TITLE）) | `%like%` |
-| 1 | [优先级（PRI）](#属性-优先级（PRI）) | `=` |
-| 1 | [用例类型（TYPE）](#属性-用例类型（TYPE）) | `=` |
-| 1 | [状态（STATUS）](#属性-状态（STATUS）) | `=` |
-| 1 | [由谁创建（OPENEDBY）](#属性-由谁创建（OPENEDBY）) | `=` |
-| 1 | [最后修改者（LASTEDITEDBY）](#属性-最后修改者（LASTEDITEDBY）) | `=` |
-| 1 | [编号（LIB）](#属性-编号（LIB）) | `=` |
-| 1 | [id（MODULE）](#属性-id（MODULE）) | `=` |
-| 1 | [所属模块（MODULENAME）](#属性-所属模块（MODULENAME）) | `=` |
-| 2 | [所属模块（MODULENAME）](#属性-所属模块（MODULENAME）) | `%like%` |
-| 1 | [用例库（LIBNAME）](#属性-用例库（LIBNAME）) | `=` |
-| 2 | [用例库（LIBNAME）](#属性-用例库（LIBNAME）) | `%like%` |
+| 2 | [优先级（PRI）](#属性-优先级（PRI）) | `=` |
+| 3 | [用例类型（TYPE）](#属性-用例类型（TYPE）) | `=` |
+| 4 | [状态（STATUS）](#属性-状态（STATUS）) | `=` |
+| 5 | [由谁创建（OPENEDBY）](#属性-由谁创建（OPENEDBY）) | `=` |
+| 6 | [最后修改者（LASTEDITEDBY）](#属性-最后修改者（LASTEDITEDBY）) | `=` |
+| 7 | [编号（LIB）](#属性-编号（LIB）) | `=` |
+| 8 | [id（MODULE）](#属性-id（MODULE）) | `=` |
+| 9 | [所属模块（MODULENAME）](#属性-所属模块（MODULENAME）) | `=` |
+| 10 | [所属模块（MODULENAME）](#属性-所属模块（MODULENAME）) | `%like%` |
+| 11 | [用例库（LIBNAME）](#属性-用例库（LIBNAME）) | `=` |
+| 12 | [用例库（LIBNAME）](#属性-用例库（LIBNAME）) | `%like%` |
 
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |

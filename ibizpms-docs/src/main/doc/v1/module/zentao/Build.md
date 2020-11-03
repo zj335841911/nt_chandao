@@ -1108,17 +1108,17 @@ Save
 | 序号 | 属性 | 组合方式 |
 | ---- | ---- | ---- |
 | 1 | [名称编号（NAME）](#属性-名称编号（NAME）) | `%like%` |
-| 1 | [打包日期（DATE）](#属性-打包日期（DATE）) | `<=` |
-| 1 | [产品（PRODUCT）](#属性-产品（PRODUCT）) | `=` |
-| 1 | [平台/分支（BRANCH）](#属性-平台/分支（BRANCH）) | `=` |
-| 1 | [所属项目（PROJECT）](#属性-所属项目（PROJECT）) | `=` |
-| 1 | [产品名称（PRODUCTNAME）](#属性-产品名称（PRODUCTNAME）) | `=` |
-| 2 | [产品名称（PRODUCTNAME）](#属性-产品名称（PRODUCTNAME）) | `%like%` |
-| 1 | [重新构建（REBUILD）](#属性-重新构建（REBUILD）) | `=` |
-| 1 | [运行模式（RELEASETYPE）](#属性-运行模式（RELEASETYPE）) | `=` |
-| 1 | [系统应用（FRONTAPPLICATION）](#属性-系统应用（FRONTAPPLICATION）) | `=` |
-| 1 | [后台体系（BACKGROUNDID）](#属性-后台体系（BACKGROUNDID）) | `=` |
-| 1 | [运行数据库（SQLID）](#属性-运行数据库（SQLID）) | `=` |
+| 2 | [打包日期（DATE）](#属性-打包日期（DATE）) | `<=` |
+| 3 | [产品（PRODUCT）](#属性-产品（PRODUCT）) | `=` |
+| 4 | [平台/分支（BRANCH）](#属性-平台/分支（BRANCH）) | `=` |
+| 5 | [所属项目（PROJECT）](#属性-所属项目（PROJECT）) | `=` |
+| 6 | [产品名称（PRODUCTNAME）](#属性-产品名称（PRODUCTNAME）) | `=` |
+| 7 | [产品名称（PRODUCTNAME）](#属性-产品名称（PRODUCTNAME）) | `%like%` |
+| 8 | [重新构建（REBUILD）](#属性-重新构建（REBUILD）) | `=` |
+| 9 | [运行模式（RELEASETYPE）](#属性-运行模式（RELEASETYPE）) | `=` |
+| 10 | [系统应用（FRONTAPPLICATION）](#属性-系统应用（FRONTAPPLICATION）) | `=` |
+| 11 | [后台体系（BACKGROUNDID）](#属性-后台体系（BACKGROUNDID）) | `=` |
+| 12 | [运行数据库（SQLID）](#属性-运行数据库（SQLID）) | `=` |
 
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |

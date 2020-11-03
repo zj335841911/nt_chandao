@@ -611,9 +611,9 @@ Save
 | 序号 | 属性 | 组合方式 |
 | ---- | ---- | ---- |
 | 1 | [部门名称（NAME）](#属性-部门名称（NAME）) | `%like%` |
-| 1 | [上级部门（PARENTNAME）](#属性-上级部门（PARENTNAME）) | `=` |
-| 2 | [上级部门（PARENTNAME）](#属性-上级部门（PARENTNAME）) | `%like%` |
-| 1 | [parent（PARENT）](#属性-parent（PARENT）) | `=` |
+| 2 | [上级部门（PARENTNAME）](#属性-上级部门（PARENTNAME）) | `=` |
+| 3 | [上级部门（PARENTNAME）](#属性-上级部门（PARENTNAME）) | `%like%` |
+| 4 | [parent（PARENT）](#属性-parent（PARENT）) | `=` |
 
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |

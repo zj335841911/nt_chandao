@@ -793,13 +793,13 @@ Save
 | 序号 | 属性 | 组合方式 |
 | ---- | ---- | ---- |
 | 1 | [名称（NAME）](#属性-名称（NAME）) | `%like%` |
-| 1 | [编号（ROOT）](#属性-编号（ROOT）) | `=` |
-| 1 | [IBIZ标识（IBIZ_ID）](#属性-IBIZ标识（IBIZ_ID）) | `=` |
-| 1 | [类型（TYPE）](#属性-类型（TYPE）) | `=` |
-| 1 | [id（PARENT）](#属性-id（PARENT）) | `=` |
-| 1 | [产品（PRODUCTNAME）](#属性-产品（PRODUCTNAME）) | `=` |
-| 2 | [产品（PRODUCTNAME）](#属性-产品（PRODUCTNAME）) | `%like%` |
-| 1 | [需求模块类型（IBIZ_STORYTYPE）](#属性-需求模块类型（IBIZ_STORYTYPE）) | `=` |
+| 2 | [编号（ROOT）](#属性-编号（ROOT）) | `=` |
+| 3 | [IBIZ标识（IBIZ_ID）](#属性-IBIZ标识（IBIZ_ID）) | `=` |
+| 4 | [类型（TYPE）](#属性-类型（TYPE）) | `=` |
+| 5 | [id（PARENT）](#属性-id（PARENT）) | `=` |
+| 6 | [产品（PRODUCTNAME）](#属性-产品（PRODUCTNAME）) | `=` |
+| 7 | [产品（PRODUCTNAME）](#属性-产品（PRODUCTNAME）) | `%like%` |
+| 8 | [需求模块类型（IBIZ_STORYTYPE）](#属性-需求模块类型（IBIZ_STORYTYPE）) | `=` |
 
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |

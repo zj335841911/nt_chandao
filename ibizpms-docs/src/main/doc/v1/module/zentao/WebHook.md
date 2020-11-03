@@ -827,7 +827,7 @@ Save
 | 序号 | 属性 | 组合方式 |
 | ---- | ---- | ---- |
 | 1 | [name（NAME）](#属性-name（NAME）) | `%like%` |
-| 1 | [sendType（SENDTYPE）](#属性-sendType（SENDTYPE）) | `=` |
+| 2 | [sendType（SENDTYPE）](#属性-sendType（SENDTYPE）) | `=` |
 
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |

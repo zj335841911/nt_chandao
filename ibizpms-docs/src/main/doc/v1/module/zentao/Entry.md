@@ -674,7 +674,7 @@ Save
 | 序号 | 属性 | 组合方式 |
 | ---- | ---- | ---- |
 | 1 | [freePasswd（FREEPASSWD）](#属性-freePasswd（FREEPASSWD）) | `=` |
-| 1 | [name（NAME）](#属性-name（NAME）) | `%like%` |
+| 2 | [name（NAME）](#属性-name（NAME）) | `%like%` |
 
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |

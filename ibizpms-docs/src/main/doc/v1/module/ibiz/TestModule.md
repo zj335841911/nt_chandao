@@ -916,13 +916,13 @@ Save
 | 序号 | 属性 | 组合方式 |
 | ---- | ---- | ---- |
 | 1 | [名称（NAME）](#属性-名称（NAME）) | `%like%` |
-| 1 | [branch（BRANCH）](#属性-branch（BRANCH）) | `=` |
-| 1 | [id（PARENT）](#属性-id（PARENT）) | `=` |
-| 1 | [上级模块（PARENTNAME）](#属性-上级模块（PARENTNAME）) | `=` |
-| 2 | [上级模块（PARENTNAME）](#属性-上级模块（PARENTNAME）) | `%like%` |
-| 1 | [编号（ROOT）](#属性-编号（ROOT）) | `=` |
-| 1 | [测试（ROOTNAME）](#属性-测试（ROOTNAME）) | `=` |
-| 2 | [测试（ROOTNAME）](#属性-测试（ROOTNAME）) | `%like%` |
+| 2 | [branch（BRANCH）](#属性-branch（BRANCH）) | `=` |
+| 3 | [id（PARENT）](#属性-id（PARENT）) | `=` |
+| 4 | [上级模块（PARENTNAME）](#属性-上级模块（PARENTNAME）) | `=` |
+| 5 | [上级模块（PARENTNAME）](#属性-上级模块（PARENTNAME）) | `%like%` |
+| 6 | [编号（ROOT）](#属性-编号（ROOT）) | `=` |
+| 7 | [测试（ROOTNAME）](#属性-测试（ROOTNAME）) | `=` |
+| 8 | [测试（ROOTNAME）](#属性-测试（ROOTNAME）) | `%like%` |
 
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |

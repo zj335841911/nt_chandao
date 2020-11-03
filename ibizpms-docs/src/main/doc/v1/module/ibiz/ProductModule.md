@@ -927,15 +927,15 @@ Save
 | 序号 | 属性 | 组合方式 |
 | ---- | ---- | ---- |
 | 1 | [名称（NAME）](#属性-名称（NAME）) | `%like%` |
-| 1 | [branch（BRANCH）](#属性-branch（BRANCH）) | `=` |
-| 2 | [branch（BRANCH）](#属性-branch（BRANCH）) | `!=`或者`<>` |
-| 1 | [类型（story）（TYPE）](#属性-类型（story）（TYPE）) | `=` |
-| 1 | [产品（ROOT）](#属性-产品（ROOT）) | `=` |
-| 1 | [id（PARENT）](#属性-id（PARENT）) | `=` |
-| 1 | [所属产品（ROOTNAME）](#属性-所属产品（ROOTNAME）) | `=` |
-| 2 | [所属产品（ROOTNAME）](#属性-所属产品（ROOTNAME）) | `%like%` |
-| 1 | [上级模块（PARENTNAME）](#属性-上级模块（PARENTNAME）) | `=` |
-| 2 | [上级模块（PARENTNAME）](#属性-上级模块（PARENTNAME）) | `%like%` |
+| 2 | [branch（BRANCH）](#属性-branch（BRANCH）) | `=` |
+| 3 | [branch（BRANCH）](#属性-branch（BRANCH）) | `!=`或者`<>` |
+| 4 | [类型（story）（TYPE）](#属性-类型（story）（TYPE）) | `=` |
+| 5 | [产品（ROOT）](#属性-产品（ROOT）) | `=` |
+| 6 | [id（PARENT）](#属性-id（PARENT）) | `=` |
+| 7 | [所属产品（ROOTNAME）](#属性-所属产品（ROOTNAME）) | `=` |
+| 8 | [所属产品（ROOTNAME）](#属性-所属产品（ROOTNAME）) | `%like%` |
+| 9 | [上级模块（PARENTNAME）](#属性-上级模块（PARENTNAME）) | `=` |
+| 10 | [上级模块（PARENTNAME）](#属性-上级模块（PARENTNAME）) | `%like%` |
 
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |

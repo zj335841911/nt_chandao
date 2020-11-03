@@ -365,7 +365,7 @@ Save
 | 序号 | 属性 | 组合方式 |
 | ---- | ---- | ---- |
 | 1 | [title（TITLE）](#属性-title（TITLE）) | `%like%` |
-| 1 | [public（PUBLIC）](#属性-public（PUBLIC）) | `=` |
+| 2 | [public（PUBLIC）](#属性-public（PUBLIC）) | `=` |
 
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |

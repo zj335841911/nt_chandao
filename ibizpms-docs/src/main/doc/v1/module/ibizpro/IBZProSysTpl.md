@@ -610,10 +610,10 @@ Save
 | 序号 | 属性 | 组合方式 |
 | ---- | ---- | ---- |
 | 1 | [系统模板名称（IBZPRO_SYSTPLNAME）](#属性-系统模板名称（IBZPRO_SYSTPLNAME）) | `%like%` |
-| 1 | [是否公开（PUBLIC）](#属性-是否公开（PUBLIC）) | `=` |
-| 1 | [来源对象（IBIZ_SOURCEOBJECT）](#属性-来源对象（IBIZ_SOURCEOBJECT）) | `=` |
-| 1 | [IBIZ模板类型（TPLTYPE）](#属性-IBIZ模板类型（TPLTYPE）) | `=` |
-| 1 | [id（FILE）](#属性-id（FILE）) | `=` |
+| 2 | [是否公开（PUBLIC）](#属性-是否公开（PUBLIC）) | `=` |
+| 3 | [来源对象（IBIZ_SOURCEOBJECT）](#属性-来源对象（IBIZ_SOURCEOBJECT）) | `=` |
+| 4 | [IBIZ模板类型（TPLTYPE）](#属性-IBIZ模板类型（TPLTYPE）) | `=` |
+| 5 | [id（FILE）](#属性-id（FILE）) | `=` |
 
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |

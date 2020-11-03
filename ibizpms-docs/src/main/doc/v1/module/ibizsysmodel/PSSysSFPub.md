@@ -1659,12 +1659,12 @@ Save
 | 序号 | 属性 | 组合方式 |
 | ---- | ---- | ---- |
 | 1 | [后台服务架构名称（PSSYSSFPUBNAME）](#属性-后台服务架构名称（PSSYSSFPUBNAME）) | `%like%` |
-| 1 | [发布内容类型（CONTENTTYPE）](#属性-发布内容类型（CONTENTTYPE）) | `=` |
-| 1 | [删除模式（REMOVEFLAG）](#属性-删除模式（REMOVEFLAG）) | `=` |
-| 1 | [用户分类（USERCAT）](#属性-用户分类（USERCAT）) | `=` |
-| 1 | [父后台服务体系（PPSSYSSFPUBID）](#属性-父后台服务体系（PPSSYSSFPUBID）) | `=` |
-| 1 | [父后台服务体系（PPSSYSSFPUBNAME）](#属性-父后台服务体系（PPSSYSSFPUBNAME）) | `=` |
-| 2 | [父后台服务体系（PPSSYSSFPUBNAME）](#属性-父后台服务体系（PPSSYSSFPUBNAME）) | `%like%` |
+| 2 | [发布内容类型（CONTENTTYPE）](#属性-发布内容类型（CONTENTTYPE）) | `=` |
+| 3 | [删除模式（REMOVEFLAG）](#属性-删除模式（REMOVEFLAG）) | `=` |
+| 4 | [用户分类（USERCAT）](#属性-用户分类（USERCAT）) | `=` |
+| 5 | [父后台服务体系（PPSSYSSFPUBID）](#属性-父后台服务体系（PPSSYSSFPUBID）) | `=` |
+| 6 | [父后台服务体系（PPSSYSSFPUBNAME）](#属性-父后台服务体系（PPSSYSSFPUBNAME）) | `=` |
+| 7 | [父后台服务体系（PPSSYSSFPUBNAME）](#属性-父后台服务体系（PPSSYSSFPUBNAME）) | `%like%` |
 
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |

@@ -565,9 +565,9 @@ Save
 | 序号 | 属性 | 组合方式 |
 | ---- | ---- | ---- |
 | 1 | [status（STATUS）](#属性-status（STATUS）) | `=` |
-| 1 | [name（NAME）](#属性-name（NAME）) | `%like%` |
-| 1 | [todo（TODO）](#属性-todo（TODO）) | `=` |
-| 1 | [type（TYPE）](#属性-type（TYPE）) | `=` |
+| 2 | [name（NAME）](#属性-name（NAME）) | `%like%` |
+| 3 | [todo（TODO）](#属性-todo（TODO）) | `=` |
+| 4 | [type（TYPE）](#属性-type（TYPE）) | `=` |
 
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |

@@ -911,13 +911,13 @@ Save
 | 序号 | 属性 | 组合方式 |
 | ---- | ---- | ---- |
 | 1 | [类型（task）（TYPE）](#属性-类型（task）（TYPE）) | `=` |
-| 1 | [名称（NAME）](#属性-名称（NAME）) | `%like%` |
-| 1 | [id（PARENT）](#属性-id（PARENT）) | `=` |
-| 1 | [项目（ROOT）](#属性-项目（ROOT）) | `=` |
-| 1 | [所属项目（ROOTNAME）](#属性-所属项目（ROOTNAME）) | `=` |
-| 2 | [所属项目（ROOTNAME）](#属性-所属项目（ROOTNAME）) | `%like%` |
-| 1 | [上级模块（PARENTNAME）](#属性-上级模块（PARENTNAME）) | `=` |
-| 2 | [上级模块（PARENTNAME）](#属性-上级模块（PARENTNAME）) | `%like%` |
+| 2 | [名称（NAME）](#属性-名称（NAME）) | `%like%` |
+| 3 | [id（PARENT）](#属性-id（PARENT）) | `=` |
+| 4 | [项目（ROOT）](#属性-项目（ROOT）) | `=` |
+| 5 | [所属项目（ROOTNAME）](#属性-所属项目（ROOTNAME）) | `=` |
+| 6 | [所属项目（ROOTNAME）](#属性-所属项目（ROOTNAME）) | `%like%` |
+| 7 | [上级模块（PARENTNAME）](#属性-上级模块（PARENTNAME）) | `=` |
+| 8 | [上级模块（PARENTNAME）](#属性-上级模块（PARENTNAME）) | `%like%` |
 
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |

@@ -1677,19 +1677,19 @@ Save
 | 序号 | 属性 | 组合方式 |
 | ---- | ---- | ---- |
 | 1 | [系统运行会话名称（PSSYSRUNSESSIONNAME）](#属性-系统运行会话名称（PSSYSRUNSESSIONNAME）) | `%like%` |
-| 1 | [打包模式（PACKMODE）](#属性-打包模式（PACKMODE）) | `=` |
-| 1 | [运行模式（RUNMODE）](#属性-运行模式（RUNMODE）) | `=` |
-| 1 | [重新构建（REBUILDMODE）](#属性-重新构建（REBUILDMODE）) | `=` |
-| 1 | [运行状态（RUNSTATE）](#属性-运行状态（RUNSTATE）) | `=` |
-| 1 | [系统应用2（PSSYSAPPNAME2）](#属性-系统应用2（PSSYSAPPNAME2）) | `=` |
-| 2 | [系统应用2（PSSYSAPPNAME2）](#属性-系统应用2（PSSYSAPPNAME2）) | `%like%` |
-| 1 | [系统应用2（PSSYSAPPID2）](#属性-系统应用2（PSSYSAPPID2）) | `=` |
-| 1 | [系统应用（PSSYSAPPNAME）](#属性-系统应用（PSSYSAPPNAME）) | `=` |
-| 2 | [系统应用（PSSYSAPPNAME）](#属性-系统应用（PSSYSAPPNAME）) | `%like%` |
-| 1 | [系统应用（PSSYSAPPID）](#属性-系统应用（PSSYSAPPID）) | `=` |
-| 1 | [系统服务接口（PSSYSSERVICEAPINAME）](#属性-系统服务接口（PSSYSSERVICEAPINAME）) | `=` |
-| 2 | [系统服务接口（PSSYSSERVICEAPINAME）](#属性-系统服务接口（PSSYSSERVICEAPINAME）) | `%like%` |
-| 1 | [系统服务接口（PSSYSSERVICEAPIID）](#属性-系统服务接口（PSSYSSERVICEAPIID）) | `=` |
+| 2 | [打包模式（PACKMODE）](#属性-打包模式（PACKMODE）) | `=` |
+| 3 | [运行模式（RUNMODE）](#属性-运行模式（RUNMODE）) | `=` |
+| 4 | [重新构建（REBUILDMODE）](#属性-重新构建（REBUILDMODE）) | `=` |
+| 5 | [运行状态（RUNSTATE）](#属性-运行状态（RUNSTATE）) | `=` |
+| 6 | [系统应用2（PSSYSAPPNAME2）](#属性-系统应用2（PSSYSAPPNAME2）) | `=` |
+| 7 | [系统应用2（PSSYSAPPNAME2）](#属性-系统应用2（PSSYSAPPNAME2）) | `%like%` |
+| 8 | [系统应用2（PSSYSAPPID2）](#属性-系统应用2（PSSYSAPPID2）) | `=` |
+| 9 | [系统应用（PSSYSAPPNAME）](#属性-系统应用（PSSYSAPPNAME）) | `=` |
+| 10 | [系统应用（PSSYSAPPNAME）](#属性-系统应用（PSSYSAPPNAME）) | `%like%` |
+| 11 | [系统应用（PSSYSAPPID）](#属性-系统应用（PSSYSAPPID）) | `=` |
+| 12 | [系统服务接口（PSSYSSERVICEAPINAME）](#属性-系统服务接口（PSSYSSERVICEAPINAME）) | `=` |
+| 13 | [系统服务接口（PSSYSSERVICEAPINAME）](#属性-系统服务接口（PSSYSSERVICEAPINAME）) | `%like%` |
+| 14 | [系统服务接口（PSSYSSERVICEAPIID）](#属性-系统服务接口（PSSYSSERVICEAPIID）) | `=` |
 
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |

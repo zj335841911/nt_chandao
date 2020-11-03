@@ -556,7 +556,7 @@ Save
 | 序号 | 属性 | 组合方式 |
 | ---- | ---- | ---- |
 | 1 | [type（TYPE）](#属性-type（TYPE）) | `=` |
-| 1 | [contentType（CONTENTTYPE）](#属性-contentType（CONTENTTYPE）) | `=` |
+| 2 | [contentType（CONTENTTYPE）](#属性-contentType（CONTENTTYPE）) | `=` |
 
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |

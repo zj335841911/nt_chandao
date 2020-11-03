@@ -1376,14 +1376,14 @@ Save
 | 序号 | 属性 | 组合方式 |
 | ---- | ---- | ---- |
 | 1 | [系统需求项名称（PSSYSREQITEMNAME）](#属性-系统需求项名称（PSSYSREQITEMNAME）) | `%like%` |
-| 1 | [项类型（ITEMTYPE）](#属性-项类型（ITEMTYPE）) | `=` |
-| 1 | [用户分类（USERCAT）](#属性-用户分类（USERCAT）) | `=` |
-| 1 | [父需求项（PPSSYSREQITEMID）](#属性-父需求项（PPSSYSREQITEMID）) | `=` |
-| 1 | [父需求项（PPSSYSREQITEMNAME）](#属性-父需求项（PPSSYSREQITEMNAME）) | `=` |
-| 2 | [父需求项（PPSSYSREQITEMNAME）](#属性-父需求项（PPSSYSREQITEMNAME）) | `%like%` |
-| 1 | [需求模块（PSSYSREQMODULEID）](#属性-需求模块（PSSYSREQMODULEID）) | `=` |
-| 1 | [需求模块（PSSYSREQMODULENAME）](#属性-需求模块（PSSYSREQMODULENAME）) | `=` |
-| 2 | [需求模块（PSSYSREQMODULENAME）](#属性-需求模块（PSSYSREQMODULENAME）) | `%like%` |
+| 2 | [项类型（ITEMTYPE）](#属性-项类型（ITEMTYPE）) | `=` |
+| 3 | [用户分类（USERCAT）](#属性-用户分类（USERCAT）) | `=` |
+| 4 | [父需求项（PPSSYSREQITEMID）](#属性-父需求项（PPSSYSREQITEMID）) | `=` |
+| 5 | [父需求项（PPSSYSREQITEMNAME）](#属性-父需求项（PPSSYSREQITEMNAME）) | `=` |
+| 6 | [父需求项（PPSSYSREQITEMNAME）](#属性-父需求项（PPSSYSREQITEMNAME）) | `%like%` |
+| 7 | [需求模块（PSSYSREQMODULEID）](#属性-需求模块（PSSYSREQMODULEID）) | `=` |
+| 8 | [需求模块（PSSYSREQMODULENAME）](#属性-需求模块（PSSYSREQMODULENAME）) | `=` |
+| 9 | [需求模块（PSSYSREQMODULENAME）](#属性-需求模块（PSSYSREQMODULENAME）) | `%like%` |
 
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |

@@ -652,12 +652,12 @@ Save
 | 序号 | 属性 | 组合方式 |
 | ---- | ---- | ---- |
 | 1 | [外部服务接口名称（PSSUBSYSSERVICEAPINAME）](#属性-外部服务接口名称（PSSUBSYSSERVICEAPINAME）) | `%like%` |
-| 1 | [系统模块（PSMODULENAME）](#属性-系统模块（PSMODULENAME）) | `=` |
-| 2 | [系统模块（PSMODULENAME）](#属性-系统模块（PSMODULENAME）) | `%like%` |
-| 1 | [系统模块（PSMODULEID）](#属性-系统模块（PSMODULEID）) | `=` |
-| 1 | [系统服务接口（PSSYSSERVICEAPINAME）](#属性-系统服务接口（PSSYSSERVICEAPINAME）) | `=` |
-| 2 | [系统服务接口（PSSYSSERVICEAPINAME）](#属性-系统服务接口（PSSYSSERVICEAPINAME）) | `%like%` |
-| 1 | [系统服务接口（PSSYSSERVICEAPIID）](#属性-系统服务接口（PSSYSSERVICEAPIID）) | `=` |
+| 2 | [系统模块（PSMODULENAME）](#属性-系统模块（PSMODULENAME）) | `=` |
+| 3 | [系统模块（PSMODULENAME）](#属性-系统模块（PSMODULENAME）) | `%like%` |
+| 4 | [系统模块（PSMODULEID）](#属性-系统模块（PSMODULEID）) | `=` |
+| 5 | [系统服务接口（PSSYSSERVICEAPINAME）](#属性-系统服务接口（PSSYSSERVICEAPINAME）) | `=` |
+| 6 | [系统服务接口（PSSYSSERVICEAPINAME）](#属性-系统服务接口（PSSYSSERVICEAPINAME）) | `%like%` |
+| 7 | [系统服务接口（PSSYSSERVICEAPIID）](#属性-系统服务接口（PSSYSSERVICEAPIID）) | `=` |
 
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |

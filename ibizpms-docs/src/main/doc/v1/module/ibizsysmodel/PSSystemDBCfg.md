@@ -1438,10 +1438,10 @@ Save
 | 序号 | 属性 | 组合方式 |
 | ---- | ---- | ---- |
 | 1 | [系统数据库名称（PSSYSTEMDBCFGNAME）](#属性-系统数据库名称（PSSYSTEMDBCFGNAME）) | `%like%` |
-| 1 | [空值排序（NULLVALORDER）](#属性-空值排序（NULLVALORDER）) | `=` |
-| 1 | [对象名称转换（OBJNAMECASE）](#属性-对象名称转换（OBJNAMECASE）) | `=` |
-| 1 | [资源状态（RESSTATE）](#属性-资源状态（RESSTATE）) | `=` |
-| 1 | [用户分类（USERCAT）](#属性-用户分类（USERCAT）) | `=` |
+| 2 | [空值排序（NULLVALORDER）](#属性-空值排序（NULLVALORDER）) | `=` |
+| 3 | [对象名称转换（OBJNAMECASE）](#属性-对象名称转换（OBJNAMECASE）) | `=` |
+| 4 | [资源状态（RESSTATE）](#属性-资源状态（RESSTATE）) | `=` |
+| 5 | [用户分类（USERCAT）](#属性-用户分类（USERCAT）) | `=` |
 
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |

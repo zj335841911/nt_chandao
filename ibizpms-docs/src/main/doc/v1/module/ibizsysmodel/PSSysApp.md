@@ -2729,20 +2729,20 @@ Save
 | 序号 | 属性 | 组合方式 |
 | ---- | ---- | ---- |
 | 1 | [系统应用名称（PSSYSAPPNAME）](#属性-系统应用名称（PSSYSAPPNAME）) | `%like%` |
-| 1 | [应用模式（APPMODE）](#属性-应用模式（APPMODE）) | `=` |
-| 1 | [按钮无权限显示模式（BTNNOPRIVDM）](#属性-按钮无权限显示模式（BTNNOPRIVDM）) | `=` |
-| 1 | [表单项无权限显示模式（FINOPRIVDM）](#属性-表单项无权限显示模式（FINOPRIVDM）) | `=` |
-| 1 | [表格列无权限显示模式（GCNOPRIVDM）](#属性-表格列无权限显示模式（GCNOPRIVDM）) | `=` |
-| 1 | [表格列启用链接（GRIDCOLENABLELINK）](#属性-表格列启用链接（GRIDCOLENABLELINK）) | `=` |
-| 1 | [表格行激活模式（GRIDROWACTIVEMODE）](#属性-表格行激活模式（GRIDROWACTIVEMODE）) | `=` |
-| 1 | [视图主菜单方向（MAINMENUSIDE）](#属性-视图主菜单方向（MAINMENUSIDE）) | `=` |
-| 1 | [移动端方向设置（ORIENTATIONMODE）](#属性-移动端方向设置（ORIENTATIONMODE）) | `=` |
-| 1 | [删除模式（REMOVEFLAG）](#属性-删除模式（REMOVEFLAG）) | `=` |
-| 1 | [内建界面式样（UISTYLE）](#属性-内建界面式样（UISTYLE）) | `=` |
-| 1 | [默认服务接口（PSSYSSERVICEAPINAME）](#属性-默认服务接口（PSSYSSERVICEAPINAME）) | `=` |
-| 2 | [默认服务接口（PSSYSSERVICEAPINAME）](#属性-默认服务接口（PSSYSSERVICEAPINAME）) | `%like%` |
-| 1 | [默认服务接口（PSSYSSERVICEAPIID）](#属性-默认服务接口（PSSYSSERVICEAPIID）) | `=` |
-| 1 | [用户分类（USERCAT）](#属性-用户分类（USERCAT）) | `=` |
+| 2 | [应用模式（APPMODE）](#属性-应用模式（APPMODE）) | `=` |
+| 3 | [按钮无权限显示模式（BTNNOPRIVDM）](#属性-按钮无权限显示模式（BTNNOPRIVDM）) | `=` |
+| 4 | [表单项无权限显示模式（FINOPRIVDM）](#属性-表单项无权限显示模式（FINOPRIVDM）) | `=` |
+| 5 | [表格列无权限显示模式（GCNOPRIVDM）](#属性-表格列无权限显示模式（GCNOPRIVDM）) | `=` |
+| 6 | [表格列启用链接（GRIDCOLENABLELINK）](#属性-表格列启用链接（GRIDCOLENABLELINK）) | `=` |
+| 7 | [表格行激活模式（GRIDROWACTIVEMODE）](#属性-表格行激活模式（GRIDROWACTIVEMODE）) | `=` |
+| 8 | [视图主菜单方向（MAINMENUSIDE）](#属性-视图主菜单方向（MAINMENUSIDE）) | `=` |
+| 9 | [移动端方向设置（ORIENTATIONMODE）](#属性-移动端方向设置（ORIENTATIONMODE）) | `=` |
+| 10 | [删除模式（REMOVEFLAG）](#属性-删除模式（REMOVEFLAG）) | `=` |
+| 11 | [内建界面式样（UISTYLE）](#属性-内建界面式样（UISTYLE）) | `=` |
+| 12 | [默认服务接口（PSSYSSERVICEAPINAME）](#属性-默认服务接口（PSSYSSERVICEAPINAME）) | `=` |
+| 13 | [默认服务接口（PSSYSSERVICEAPINAME）](#属性-默认服务接口（PSSYSSERVICEAPINAME）) | `%like%` |
+| 14 | [默认服务接口（PSSYSSERVICEAPIID）](#属性-默认服务接口（PSSYSSERVICEAPIID）) | `=` |
+| 15 | [用户分类（USERCAT）](#属性-用户分类（USERCAT）) | `=` |
 
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |

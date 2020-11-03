@@ -922,10 +922,10 @@ Save
 | 序号 | 属性 | 组合方式 |
 | ---- | ---- | ---- |
 | 1 | [名称（TITLE）](#属性-名称（TITLE）) | `%like%` |
-| 1 | [由谁创建（OPENEDBY）](#属性-由谁创建（OPENEDBY）) | `=` |
-| 1 | [不予解决（BUGWILLNOTFIX）](#属性-不予解决（BUGWILLNOTFIX）) | `<=` |
-| 1 | [编号（PRODUCT）](#属性-编号（PRODUCT）) | `=` |
-| 1 | [指派给（ASSIGNEDTO）](#属性-指派给（ASSIGNEDTO）) | `=` |
+| 2 | [由谁创建（OPENEDBY）](#属性-由谁创建（OPENEDBY）) | `=` |
+| 3 | [不予解决（BUGWILLNOTFIX）](#属性-不予解决（BUGWILLNOTFIX）) | `<=` |
+| 4 | [编号（PRODUCT）](#属性-编号（PRODUCT）) | `=` |
+| 5 | [指派给（ASSIGNEDTO）](#属性-指派给（ASSIGNEDTO）) | `=` |
 
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |
