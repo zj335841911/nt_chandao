@@ -614,5 +614,23 @@ public class TestTaskResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(testtaskMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+    @Autowired
+    cn.ibizlab.pms.core.zentao.mapping.TestTaskDataImport dataimportImpMapping;
+
+    @RequestMapping(method = RequestMethod.POST, value = "/testtasks/import")
+    public ResponseEntity<JSONObject> importData(@RequestParam(value = "config") String config , @RequestBody List<TestTask> dtos){
+        JSONObject rs=new JSONObject();
+        if(dtos.size()==0){
+            rs.put("rst", 1);
+            rs.put("msg", "未传入内容");
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(rs);
+        }
+        else{
+            if(config.equals("DataImport")){
+                rs=testtaskService.importData(dataimportImpMapping.toDomain(dtos),1000,false);
+            }
+            return ResponseEntity.status(HttpStatus.OK).body(rs);
+        }
+    }
 }
 
