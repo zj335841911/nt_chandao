@@ -244,7 +244,7 @@ export default class ProjectUIActionBase extends EntityUIActionBase {
                     _args = [...args];
                 }
                 if (this.globaluiservice.Exit && this.globaluiservice.Exit instanceof Function) {
-                    this.globaluiservice.Exit(response.datas, contextJO, paramJO, $event, xData, container);
+                    this.globaluiservice.Exit(response.data, contextJO, paramJO, $event, xData, container);
                 }
             } else {
                 this.notice.error('系统异常！');

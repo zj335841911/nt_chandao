@@ -406,7 +406,7 @@ export default class TaskUIActionBase extends EntityUIActionBase {
                 }
                 const nextPSUIActionUIService: any = await this.globaluiservice.getService('task_ui_action');
                 if (nextPSUIActionUIService) {
-                    nextPSUIActionUIService.Task_WorkHoursMob(response.datas, contextJO, paramJO, $event, xData, container);
+                    nextPSUIActionUIService.Task_WorkHoursMob(response.data, contextJO, paramJO, $event, xData, container);
                 }
             } else {
                 this.notice.error('系统异常！');
@@ -645,7 +645,7 @@ export default class TaskUIActionBase extends EntityUIActionBase {
                 }
                 const nextPSUIActionUIService: any = await this.globaluiservice.getService('task_ui_action');
                 if (nextPSUIActionUIService) {
-                    nextPSUIActionUIService.Task_DoneTaskMob(response.datas, contextJO, paramJO, $event, xData, container);
+                    nextPSUIActionUIService.Task_DoneTaskMob(response.data, contextJO, paramJO, $event, xData, container);
                 }
             } else {
                 this.notice.error('系统异常！');
@@ -708,7 +708,7 @@ export default class TaskUIActionBase extends EntityUIActionBase {
                 }
                 const nextPSUIActionUIService: any = await this.globaluiservice.getService('task_ui_action');
                 if (nextPSUIActionUIService) {
-                    nextPSUIActionUIService.Task_PauseTaskMob(response.datas, contextJO, paramJO, $event, xData, container);
+                    nextPSUIActionUIService.Task_PauseTaskMob(response.data, contextJO, paramJO, $event, xData, container);
                 }
             } else {
                 this.notice.error('系统异常！');
@@ -771,7 +771,7 @@ export default class TaskUIActionBase extends EntityUIActionBase {
                 }
                 const nextPSUIActionUIService: any = await this.globaluiservice.getService('task_ui_action');
                 if (nextPSUIActionUIService) {
-                    nextPSUIActionUIService.Task_StartTaskMob(response.datas, contextJO, paramJO, $event, xData, container);
+                    nextPSUIActionUIService.Task_StartTaskMob(response.data, contextJO, paramJO, $event, xData, container);
                 }
             } else {
                 this.notice.error('系统异常！');
