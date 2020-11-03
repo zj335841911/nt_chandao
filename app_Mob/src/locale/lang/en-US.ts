@@ -14,6 +14,7 @@ import storyspec_en_US from '@locale/lanres/story-spec/story-spec_en_US';
 import action_en_US from '@locale/lanres/action/action_en_US';
 import casestep_en_US from '@locale/lanres/case-step/case-step_en_US';
 import productline_en_US from '@locale/lanres/product-line/product-line_en_US';
+import sysdepartment_en_US from '@locale/lanres/sys-department/sys-department_en_US';
 import release_en_US from '@locale/lanres/release/release_en_US';
 import taskteam_en_US from '@locale/lanres/task-team/task-team_en_US';
 import productmodule_en_US from '@locale/lanres/product-module/product-module_en_US';
@@ -188,6 +189,7 @@ export default {
     action: action_en_US,
     casestep: casestep_en_US,
     productline: productline_en_US,
+    sysdepartment: sysdepartment_en_US,
     release: release_en_US,
     taskteam: taskteam_en_US,
     productmodule: productmodule_en_US,

@@ -30,6 +30,7 @@ export class AuthServiceConstructor extends ServiceConstructorBase {
         this.allService.set('action', () => import('@/app-core/auth-service/action/action-auth-service'));
         this.allService.set('casestep', () => import('@/app-core/auth-service/case-step/case-step-auth-service'));
         this.allService.set('productline', () => import('@/app-core/auth-service/product-line/product-line-auth-service'));
+        this.allService.set('sysdepartment', () => import('@/app-core/auth-service/sys-department/sys-department-auth-service'));
         this.allService.set('release', () => import('@/app-core/auth-service/release/release-auth-service'));
         this.allService.set('taskteam', () => import('@/app-core/auth-service/task-team/task-team-auth-service'));
         this.allService.set('productmodule', () => import('@/app-core/auth-service/product-module/product-module-auth-service'));

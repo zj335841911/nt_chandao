@@ -14,6 +14,7 @@ import storyspec_zh_CN from '@locale/lanres/story-spec/story-spec_zh_CN';
 import action_zh_CN from '@locale/lanres/action/action_zh_CN';
 import casestep_zh_CN from '@locale/lanres/case-step/case-step_zh_CN';
 import productline_zh_CN from '@locale/lanres/product-line/product-line_zh_CN';
+import sysdepartment_zh_CN from '@locale/lanres/sys-department/sys-department_zh_CN';
 import release_zh_CN from '@locale/lanres/release/release_zh_CN';
 import taskteam_zh_CN from '@locale/lanres/task-team/task-team_zh_CN';
 import productmodule_zh_CN from '@locale/lanres/product-module/product-module_zh_CN';
@@ -189,6 +190,7 @@ export default {
     action: action_zh_CN,
     casestep: casestep_zh_CN,
     productline: productline_zh_CN,
+    sysdepartment: sysdepartment_zh_CN,
     release: release_zh_CN,
     taskteam: taskteam_zh_CN,
     productmodule: productmodule_zh_CN,
