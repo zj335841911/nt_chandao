@@ -27443,7 +27443,7 @@
     "physical_field":0,
     "data_type":"VARCHAR",
     "data_length":200,
-    "expression":"(CASE WHEN EXISTS (SELECT 1 FROM ZT_STORY WHERE  PARENT = %1$s AND DELETED = '0') THEN FALSE ELSE TRUE  END )",
+    "expression":"( CASE WHEN t1.parent > 0 THEN TRUE ELSE FALSE END )",
     "key_field":0,
     "show_order":1000,
     "major_field":0

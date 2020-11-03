@@ -49,7 +49,6 @@ public interface ITestTaskService extends IService<TestTask>{
     void removeByProduct(Long id) ;
     List<TestTask> selectByProject(Long id) ;
     void removeByProject(Long id) ;
-    JSONObject importData(List<TestTask> entities,int batchSize,boolean isIgnoreError);
     /**
      *自定义查询SQL
      * @param sql  select * from table where id =#{et.param}
