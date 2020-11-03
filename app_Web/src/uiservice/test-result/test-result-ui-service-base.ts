@@ -188,7 +188,7 @@ export default class TestResultUIServiceBase extends UIService {
                 height: 0, 
                 width: 0,  
                 title: actionContext.$t('entities.bug.views.casetobugeditview.title'),
-                placement: 'DRAWER_TOP',
+                placement: 'DRAWER_RIGHT',
             };
             openDrawer(view, data);
     }
