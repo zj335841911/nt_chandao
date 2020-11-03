@@ -301,6 +301,212 @@ public class TestTaskServiceImpl extends ServiceImpl<TestTaskMapper, TestTask> i
     }
 
 
+    @Autowired
+    @Lazy
+    ITestTaskService proxyService;
+
+    @Value("${ibiz.syncImportLimit:1000}")
+    private int syncImportLimit;
+
+    /**
+     * 上传数据检查
+     * @param entities
+     * @param isIgnoreError
+     * @return
+     */
+    private JSONObject testImportData(List<TestTask> entities,boolean isIgnoreError) {
+
+        JSONObject rs=new JSONObject();
+        Set ids=new HashSet<>();
+        List<String> errorMsgs = new ArrayList<>();
+        List<Integer> errorLines = new ArrayList<>();
+        List<TestTask> duplicateKeys=new ArrayList<>();
+        String keyField= DEFieldCacheMap.getDEKeyField(TestTask.class);
+        if(ObjectUtils.isEmpty(keyField)){
+            errorLines.add(1);
+            rs.put("rst", 1);
+            rs.put("msg", "数据导入失败，未能获取到实体[TestTask]的主键属性");
+            rs.put("errorLines", errorLines);
+            return rs;
+        }
+        //主键重复性判断.外键约束判断（上传数据自身的检查/数据库的检查）
+        for(int i=0;i<entities.size();i++) {
+            TestTask entity = entities.get(i);
+            Object id = entity.get(keyField);
+            if(ObjectUtils.isEmpty(id)) {
+                id = entity.getDefaultKey(true);
+                entity.set(keyField, id);
+            }
+            if(!ids.contains(id)){
+                ids.add(id);
+            }
+            else{
+                Integer lineNum = i + 1;
+                errorLines.add(lineNum);
+                errorMsgs.add("第" + lineNum + "行：导入数据之间存在重复数据。");
+                if(isIgnoreError){
+                    duplicateKeys.add(entity);
+                    continue;
+                }
+                else{
+                    break;
+                }
+            }
+        //实体关系[DER1N_ZT_TESTTASK_ZT_BUILD_BUILD]
+        if(!ObjectUtils.isEmpty(entity.getBuild())){
+            cn.ibizlab.pms.core.zentao.domain.Build fkEntity=buildService.getById(entity.getBuild());
+            if(ObjectUtils.isEmpty(fkEntity)){
+                Integer lineNum = i + 1;
+                errorLines.add(lineNum);
+                errorMsgs.add(String.format("第" + lineNum + "行：[%s]父数据有误。",entity.getBuild()));
+                if(isIgnoreError){
+                    entity.setBuild(null);
+                    continue;
+                }
+                else{
+                   break;
+                }
+            }
+        }
+        //实体关系[DER1N_ZT_TESTTASK_ZT_PRODUCT_PRODUCT]
+        if(!ObjectUtils.isEmpty(entity.getProduct())){
+            cn.ibizlab.pms.core.zentao.domain.Product fkEntity=productService.getById(entity.getProduct());
+            if(ObjectUtils.isEmpty(fkEntity)){
+                Integer lineNum = i + 1;
+                errorLines.add(lineNum);
+                errorMsgs.add(String.format("第" + lineNum + "行：[%s]父数据有误。",entity.getProduct()));
+                if(isIgnoreError){
+                    entity.setProduct(null);
+                    continue;
+                }
+                else{
+                   break;
+                }
+            }
+        }
+        //实体关系[DER1N_ZT_TESTTASK_ZT_PROJECT_PROJECT]
+        if(!ObjectUtils.isEmpty(entity.getProject())){
+            cn.ibizlab.pms.core.zentao.domain.Project fkEntity=projectService.getById(entity.getProject());
+            if(ObjectUtils.isEmpty(fkEntity)){
+                Integer lineNum = i + 1;
+                errorLines.add(lineNum);
+                errorMsgs.add(String.format("第" + lineNum + "行：[%s]父数据有误。",entity.getProject()));
+                if(isIgnoreError){
+                    entity.setProject(null);
+                    continue;
+                }
+                else{
+                   break;
+                }
+            }
+        }
+        }
+        if(duplicateKeys.size()>0){
+            for(TestTask duplicateKey:duplicateKeys){
+                entities.remove(duplicateKey);
+            }
+        }
+        if (errorMsgs.size() > 0) {
+            rs.put("rst", 1);
+            rs.put("msg", String.join("<br>", errorMsgs));
+            rs.put("errorLines", errorLines);
+            return rs;
+        }
+        rs.put("rst", 0);
+        return rs;
+    }
+
+    /**
+     * 实体数据导入
+     * @param entities
+     * @param batchSize
+     * @param isIgnoreError
+     * @return
+     */
+    @Override
+    @Transactional
+    public JSONObject importData(List<TestTask> entities, int batchSize ,boolean isIgnoreError) {
+        if(entities.size()>syncImportLimit){
+            proxyService.asyncImportData(entities,batchSize,isIgnoreError);
+            JSONObject rs=new JSONObject();
+            rs.put("rst", 0);
+            rs.put("msg",String.format("当前导入数据已超过同步导入数量上限[%s]，系统正在进行异步导入，请稍后!",syncImportLimit));
+            rs.put("data",entities);
+            return rs;
+        }
+        else{
+            return syncImportData(entities,batchSize,isIgnoreError);
+        }
+    }
+
+    @Transactional
+    public void asyncImportData(List<TestTask> entities, int batchSize ,boolean isIgnoreError){
+        executeImportData(entities,batchSize,isIgnoreError);
+    }
+
+    @Transactional
+    public JSONObject syncImportData(List<TestTask> entities, int batchSize ,boolean isIgnoreError){
+        return executeImportData(entities,batchSize,isIgnoreError);
+    }
+
+    @Transactional
+    public JSONObject executeImportData(List<TestTask> entities, int batchSize ,boolean isIgnoreError) {
+
+        JSONObject rs=testImportData(entities,isIgnoreError);
+        if(rs.getInteger("rst")==1 && !isIgnoreError)
+            return rs;
+
+        String keyField= DEFieldCacheMap.getDEKeyField(TestTask.class);
+        List<TestTask> tempDEList=new ArrayList<>();
+        Set tempIds=new HashSet<>();
+
+        for(int i=0;i<entities.size();i++) {
+            TestTask entity = entities.get(i);
+            tempDEList.add(entity);
+            Object id=entity.get(keyField);
+            if(!ObjectUtils.isEmpty(id))
+                tempIds.add(id);
+            if(tempDEList.size()>=batchSize || (tempDEList.size()<batchSize && i==entities.size()-1)){
+                commit(tempDEList,tempIds);
+                tempDEList.clear();
+                tempIds.clear();
+                }
+            }
+        rs.put("rst", 0);
+        rs.put("data",entities);
+        return rs;
+    }
+
+    /**
+     * 批量提交
+     * @param entities 数据
+     * @param ids 要提交数据的id
+     */
+    @Transactional
+    public void commit(List<TestTask> entities, Set ids){
+
+        String keyField= DEFieldCacheMap.getDEKeyField(TestTask.class);
+        List<TestTask> _create=new ArrayList<>();
+        List<TestTask> _update=new ArrayList<>();
+        Set oldIds=new HashSet<>();
+        if(ids.size()>0){
+            List<TestTask> oldEntities=this.listByIds(ids);
+            for(TestTask entity:oldEntities){
+                oldIds.add(entity.get(keyField));
+            }
+        }
+        for(TestTask entity:entities){
+            Object id=entity.get(keyField);
+            if(oldIds.contains(id))
+                _update.add(entity);
+            else
+                _create.add(entity);
+        }
+        if(_update.size()>0)
+            proxyService.updateBatch(_update);
+        if(_create.size()>0)
+            proxyService.createBatch(_create);
+    }
 }
 
 

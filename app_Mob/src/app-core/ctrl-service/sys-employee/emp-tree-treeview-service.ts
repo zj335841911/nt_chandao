@@ -97,6 +97,15 @@ export class EmpTreeService extends TreeViewServiceBase {
 	public TREENODE_DEPART: string = 'Depart';
 
     /**
+     * 人员节点分隔符号
+     *
+     * @public
+     * @type {string}
+     * @memberof EmpTreeService
+     */
+	public TREENODE_IBZEMP: string = 'IBZEMP';
+
+    /**
      * 默认根节点节点分隔符号
      *
      * @public
@@ -188,6 +197,10 @@ export class EmpTreeService extends TreeViewServiceBase {
         }
         if (Object.is(strNodeType, this.TREENODE_DEPART)) {
             await this.fillDepartNodeChilds(context,filter, list);
+            return Promise.resolve({ status: 200, data: list });
+        }
+        if (Object.is(strNodeType, this.TREENODE_IBZEMP)) {
+            await this.fillIbzempNodeChilds(context,filter, list);
             return Promise.resolve({ status: 200, data: list });
         }
         if (Object.is(strNodeType, this.TREENODE_ROOT)) {
@@ -327,12 +340,22 @@ export class EmpTreeService extends TreeViewServiceBase {
             let DepartRsNavParams:any = {};
             let DepartRsParams:any = {};
 			await this.fillDepartNodes(context, filter, list ,DepartRsNavContext,DepartRsNavParams,DepartRsParams);
+			// 填充人员
+            let IbzempRsNavContext:any = {};
+            let IbzempRsNavParams:any = {};
+            let IbzempRsParams:any = {};
+			await this.fillIbzempNodes(context, filter, list ,IbzempRsNavContext,IbzempRsNavParams,IbzempRsParams);
 		} else {
 			// 填充部门
             let DepartRsNavContext:any = {};
             let DepartRsNavParams:any = {};
             let DepartRsParams:any = {};
 			await this.fillDepartNodes(context, filter, list ,DepartRsNavContext,DepartRsNavParams,DepartRsParams);
+			// 填充人员
+            let IbzempRsNavContext:any = {};
+            let IbzempRsNavParams:any = {};
+            let IbzempRsParams:any = {};
+			await this.fillIbzempNodes(context, filter, list ,IbzempRsNavContext,IbzempRsNavParams,IbzempRsParams);
 		}
 	}
 
@@ -377,7 +400,7 @@ export class EmpTreeService extends TreeViewServiceBase {
                         strNodeId += strId;
                         Object.assign(treeNode, { id: strNodeId });
                         Object.assign(treeNode, { expanded: filter.isautoexpand });
-                        Object.assign(treeNode, { leaf: true });
+                        Object.assign(treeNode, { leaf: false });
                         Object.assign(treeNode, { curData: entity });
                         Object.assign(treeNode, { nodeid: treeNode.srfkey });
                         Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
@@ -461,7 +484,17 @@ export class EmpTreeService extends TreeViewServiceBase {
      */
     public async fillProjectteamNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
 		if (filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")) {
+			// 填充人员
+            let IbzempRsNavContext:any = {};
+            let IbzempRsNavParams:any = {};
+            let IbzempRsParams:any = {};
+			await this.fillIbzempNodes(context, filter, list ,IbzempRsNavContext,IbzempRsNavParams,IbzempRsParams);
 		} else {
+			// 填充人员
+            let IbzempRsNavContext:any = {};
+            let IbzempRsNavParams:any = {};
+            let IbzempRsParams:any = {};
+			await this.fillIbzempNodes(context, filter, list ,IbzempRsNavContext,IbzempRsNavParams,IbzempRsParams);
 		}
 	}
 
@@ -495,6 +528,145 @@ export class EmpTreeService extends TreeViewServiceBase {
      * @memberof EmpTreeService
      */
     public async fillDepartNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
+		if (filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")) {
+			// 填充人员
+            let IbzempRsNavContext:any = {};
+            let IbzempRsNavParams:any = {};
+            let IbzempRsParams:any = {};
+			await this.fillIbzempNodes(context, filter, list ,IbzempRsNavContext,IbzempRsNavParams,IbzempRsParams);
+		} else {
+			// 填充人员
+            let IbzempRsNavContext:any = {};
+            let IbzempRsNavParams:any = {};
+            let IbzempRsParams:any = {};
+			await this.fillIbzempNodes(context, filter, list ,IbzempRsNavContext,IbzempRsNavParams,IbzempRsParams);
+		}
+	}
+
+    /**
+     * 填充 树视图节点[人员]
+     *
+     * @public
+     * @param {any{}} context     
+     * @param {*} filter
+     * @param {any[]} list
+     * @param {*} rsNavContext   
+     * @param {*} rsNavParams
+     * @param {*} rsParams
+     * @returns {Promise<any>}
+     * @memberof EmpTreeService
+     */
+    public fillIbzempNodes(context:any={},filter: any, list: any[],rsNavContext?:any,rsNavParams?:any,rsParams?:any): Promise<any> {
+        context = this.handleResNavContext(context,filter,rsNavContext);
+        filter = this.handleResNavParams(context,filter,rsNavParams,rsParams);
+        return new Promise((resolve:any,reject:any) =>{
+            let searchFilter: any = {};
+            Object.assign(searchFilter, { total: false });
+            let bFirst: boolean = true;
+            let records: any[] = [];
+            try {
+                this.searchIbzemp(context, searchFilter, filter).then((records:any) =>{
+                    if(records && records.length >0){
+                        records.forEach((entity: any) => {
+                        let treeNode: any = {};
+                        // 整理context
+                        let strId: string = entity.username;
+                        let strText: string = entity.personname;
+                        Object.assign(treeNode,{srfparentdename:'SysEmployee',srfparentkey:entity.username});
+                        let tempContext:any = JSON.parse(JSON.stringify(context));
+                        Object.assign(tempContext,{srfparentdename:'SysEmployee',srfparentkey:entity.username,sysemployee:strId})
+                        Object.assign(treeNode,{srfappctx:tempContext});
+                        Object.assign(treeNode,{'sysemployee':strId});
+                        Object.assign(treeNode, { srfkey: strId });
+                        Object.assign(treeNode, { text: strText, srfmajortext: strText });
+                        let strNodeId: string = 'IBZEMP';
+                        strNodeId += this.TREENODE_SEPARATOR;
+                        strNodeId += strId;
+                        Object.assign(treeNode, { id: strNodeId });
+                        Object.assign(treeNode, { expanded: filter.isautoexpand });
+                        Object.assign(treeNode, { leaf: true });
+                        Object.assign(treeNode, { curData: entity });
+                        Object.assign(treeNode, { nodeid: treeNode.srfkey });
+                        Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
+                        list.push(treeNode);
+                        resolve(list);
+                        bFirst = false;
+                    });
+                    }else{
+                        resolve(list);
+                    }
+                });
+            } catch (error) {
+                console.error(error);
+            }
+        });
+
+	}
+
+    /**
+     * 获取查询集合
+     *
+     * @public
+     * @param {any{}} context     
+     * @param {*} searchFilter
+     * @param {*} filter
+     * @returns {any[]}
+     * @memberof TestEnetityDatasService
+     */
+    public searchIbzemp(context:any={}, searchFilter: any, filter: any): Promise<any> {
+        return new Promise((resolve:any,reject:any) =>{
+            if(filter.viewparams){
+                Object.assign(searchFilter,filter.viewparams);
+            }
+            if(!searchFilter.page){
+                Object.assign(searchFilter,{page:0});
+            }
+            if(!searchFilter.size){
+                Object.assign(searchFilter,{size:1000});
+            }
+            if(context && context.srfparentdename){
+                Object.assign(searchFilter,{srfparentdename:JSON.parse(JSON.stringify(context)).srfparentdename});
+            }
+            if(context && context.srfparentkey){
+                Object.assign(searchFilter,{srfparentkey:JSON.parse(JSON.stringify(context)).srfparentkey});
+            }
+            const _appEntityService: any = this.service;
+            let list: any[] = [];
+            if (_appEntityService['FetchDefault'] && _appEntityService['FetchDefault'] instanceof Function) {
+                const response: Promise<any> = _appEntityService['FetchDefault'](context, searchFilter, false);
+                response.then((response: any) => {
+                    if (!response.status || response.status !== 200) {
+                        resolve([]);
+                        console.log(JSON.stringify(context));
+                        console.error('查询FetchDefault数据集异常!');
+                    }
+                    const data: any = response.data;
+                    if (Object.keys(data).length > 0) {
+                        list = JSON.parse(JSON.stringify(data));
+                        resolve(list);
+                    } else {
+                        resolve([]);
+                    }
+                }).catch((response: any) => {
+                        resolve([]);
+                        console.log(JSON.stringify(context));
+                        console.error('查询FetchDefault数据集异常!');
+                });
+            }
+        })
+    }
+
+    /**
+     * 填充 树视图节点[人员]子节点
+     *
+     * @public
+     * @param {any{}} context         
+     * @param {*} filter
+     * @param {any[]} list
+     * @returns {Promise<any>}
+     * @memberof EmpTreeService
+     */
+    public async fillIbzempNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
 		if (filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")) {
 		} else {
 		}

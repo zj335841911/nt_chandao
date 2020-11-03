@@ -16,15 +16,25 @@
         </template>
        </ion-list>
         <div class="tree-partition tree-partition-bigger" v-if="rootNodes.length > 0"></div>
-        <ion-list v-if="viewType != 'DEMOBPICKUPTREEVIEW'">
+        <!-- 树视图 -->
+        <ion-list v-if="viewType == 'DEMOBTREEVIEW'">
         <template v-for="item in valueNodes">
             <ion-item v-if="!item.isNode"  :key="item.id">
-                <ion-checkbox color="secondary" v-if="viewType == 'DEMOBMPICKUPTREEVIEW'" :checked="item.checked" :value="item.srfkey" @ionChange="checkboxChange"  slot="end"></ion-checkbox>
                 <ion-label>{{item.text}}</ion-label>
             </ion-item>
         </template>
        </ion-list>
-        <ion-radio-group v-if="viewType == 'DEMOBPICKUPTREEVIEW'"  :value="selectedValue" >
+       <!-- 树多选 -->
+        <ion-list v-else-if="viewType == 'DEMOBPICKUPTREEVIEW' && !isSingleSelect">
+        <template v-for="item in valueNodes">
+            <ion-item v-if="!item.isNode"  :key="item.id">
+                <ion-checkbox color="secondary" v-if="viewType == 'DEMOBPICKUPTREEVIEW' && !isSingleSelect"  :checked="item.checked" :value="item.id" slot="end" @ionChange="onChecked"></ion-checkbox>
+                <ion-label>{{item.text}}</ion-label>
+            </ion-item>
+        </template>
+       </ion-list>
+       <!-- 树单选 -->
+        <ion-radio-group v-else-if="viewType == 'DEMOBPICKUPTREEVIEW' && isSingleSelect" :value="selectedValue" >
             <template v-for="item in valueNodes">
                 <ion-item  :key="item.id"   @click="onSimpleSelChange(item)">
                     <ion-label>{{item.text}}</ion-label>
@@ -847,17 +857,7 @@ export default class EmpTreeBase extends Vue implements ControlInterface {
         }
         this.$emit('nodedblclick', this.selectedNodes);
     }
-
-    /**
-     * 节点点击行为
-     *
-     * @param {*} node
-     * @memberof EmpTreeBase
-     */   
-    public node_click(){
-        console.log(1);
-    }
-
+    
     /**
     * 单选选择值
     *
@@ -869,12 +869,36 @@ export default class EmpTreeBase extends Vue implements ControlInterface {
     /**
      * 单选点击行为
      *
-     * @param {*} node
+     * @param {*} item
      * @memberof EmpTreeBase
      */
     public onSimpleSelChange(item:any){
         this.$emit('selectchange', [item]);
         this.selectedValue = item.srfkey;
+    }
+
+    /**
+     * 多选点击行为
+     *
+     * @param {*} data
+     * @memberof EmpTreeBase
+     */
+    public onChecked(data:any){
+        let { detail } = data;
+        if (!detail) {
+            return;
+        }
+        let { value } = detail;
+        this.valueNodes.forEach((item: any, index: number) => {
+            if (Object.is(item.id, value)) {
+                if (detail.checked) {
+                    this.selectedNodes.push(this.valueNodes[index]);
+                } else {
+                    this.selectedNodes.splice(this.selectedNodes.findIndex((i: any) => i.value === item.value), 1)
+                }
+            }
+        });
+        this.$emit('selectchange', this.selectedNodes);
     }
 }
 </script>

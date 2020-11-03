@@ -12,6 +12,7 @@
     loadAction='Get'
     createAction='Create'
     viewType="DEMOBPICKUPTREEVIEW"
+    :isSingleSelect="isSingleSelect"
     name="tree"  
     ref='tree' 
     @selectchange="tree_selectchange($event)"  
@@ -19,7 +20,6 @@
     @load="tree_load($event)"  
     @closeview="closeView($event)">
 </view_tree>
-
     </div>
 </div>
 </template>
