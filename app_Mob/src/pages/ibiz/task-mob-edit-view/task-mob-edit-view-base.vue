@@ -72,6 +72,7 @@
         
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_consumedmobtaskteam.disabled}" v-show="righttoolbarModels.deuiaction1_consumedmobtaskteam.visabled">
                 <ion-button :disabled="righttoolbarModels.deuiaction1_consumedmobtaskteam.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_consumedmobtaskteam' }, $event)" size="large">
+                    <ion-icon name="clock-o"></ion-icon>
                 <span class="btn-inner-text">{{$t('task.mobeditviewrighttoolbar_toolbar.deuiaction1_consumedmobtaskteam.caption')}}</span>
                 </ion-button>
                 <span class="btn-out-text">{{$t('task.mobeditviewrighttoolbar_toolbar.deuiaction1_consumedmobtaskteam.caption')}}</span>
