@@ -22,6 +22,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.util.ObjectUtils;
 import org.springframework.beans.factory.annotation.Value;
+import cn.ibizlab.pms.util.errors.BadRequestAlertException;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.context.annotation.Lazy;
 import cn.ibizlab.pms.core.ibiz.domain.SysUpdateLog;
@@ -35,6 +36,7 @@ import cn.ibizlab.pms.util.helper.DEFieldCacheMap;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import cn.ibizlab.pms.core.ibiz.mapper.SysUpdateLogMapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.util.StringUtils;
@@ -67,6 +69,7 @@ public class SysUpdateLogServiceImpl extends ServiceImpl<SysUpdateLogMapper, Sys
     }
 
     @Override
+    @Transactional
     public void createBatch(List<SysUpdateLog> list) {
         this.saveBatch(list,batchSize);
     }
@@ -74,13 +77,14 @@ public class SysUpdateLogServiceImpl extends ServiceImpl<SysUpdateLogMapper, Sys
     @Override
     @Transactional
     public boolean update(SysUpdateLog et) {
-        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("sys_update_logid",et.getSysupdatelogid())))
+         if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("sys_update_logid",et.getSysupdatelogid())))
             return false;
         CachedBeanCopier.copy(get(et.getSysupdatelogid()),et);
         return true;
     }
 
     @Override
+    @Transactional
     public void updateBatch(List<SysUpdateLog> list) {
         updateBatchById(list,batchSize);
     }
@@ -88,12 +92,15 @@ public class SysUpdateLogServiceImpl extends ServiceImpl<SysUpdateLogMapper, Sys
     @Override
     @Transactional
     public boolean remove(String key) {
+        sysupdatefeaturesService.removeBySysupdatelogid(key);
         boolean result=removeById(key);
         return result ;
     }
 
     @Override
+    @Transactional
     public void removeBatch(Collection<String> idList) {
+        sysupdatefeaturesService.removeBySysupdatelogid(idList);
         removeByIds(idList);
     }
 
@@ -145,12 +152,14 @@ public class SysUpdateLogServiceImpl extends ServiceImpl<SysUpdateLogMapper, Sys
     }
 
     @Override
+    @Transactional
     public boolean saveBatch(Collection<SysUpdateLog> list) {
         saveOrUpdateBatch(list,batchSize);
         return true;
     }
 
     @Override
+    @Transactional
     public void saveBatch(List<SysUpdateLog> list) {
         saveOrUpdateBatch(list,batchSize);
     }
@@ -215,6 +224,9 @@ public class SysUpdateLogServiceImpl extends ServiceImpl<SysUpdateLogMapper, Sys
         else
            return entities;
     }
+
+
+
 
 }
 

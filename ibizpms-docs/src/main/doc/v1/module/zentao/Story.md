@@ -4,5 +4,5 @@ Tip: If the failing expression is known to be legally refer to something that's 
 
 ----
 FTL stack trace ("~" means nesting-related):
-	- Failed at: ${deactionlogic.getPSDELogic().getLog...  [in template "CODETEMPL_en_US" at line 191, column 43]
+	- Failed at: ${formatBoolean1(field.isKeyDEField())}  [in template "CODETEMPL_en_US" at line 70, column 1]
 ----

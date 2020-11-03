@@ -16,5 +16,5 @@
 | 项目 | 说明 |
 | ---- | ---- |
 | 实体 | [部门](../module/ou/SysDepartment) |
-| 结果集合 | [数据集（Default）]() |
+| 结果集合 | [数据集（Default）](../module/ou/SysDepartment/#数据集合-数据集（Default）) |
 

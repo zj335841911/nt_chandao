@@ -22,6 +22,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.util.ObjectUtils;
 import org.springframework.beans.factory.annotation.Value;
+import cn.ibizlab.pms.util.errors.BadRequestAlertException;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.context.annotation.Lazy;
 import cn.ibizlab.pms.core.zentao.domain.ProjectProduct;
@@ -35,6 +36,7 @@ import cn.ibizlab.pms.util.helper.DEFieldCacheMap;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import cn.ibizlab.pms.core.zentao.mapper.ProjectProductMapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.util.StringUtils;
@@ -72,6 +74,7 @@ public class ProjectProductServiceImpl extends ServiceImpl<ProjectProductMapper,
     }
 
     @Override
+    @Transactional
     public void createBatch(List<ProjectProduct> list) {
         list.forEach(item->fillParentData(item));
         this.saveBatch(list,batchSize);
@@ -81,13 +84,14 @@ public class ProjectProductServiceImpl extends ServiceImpl<ProjectProductMapper,
     @Transactional
     public boolean update(ProjectProduct et) {
         fillParentData(et);
-        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
+         if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
             return false;
         CachedBeanCopier.copy(get(et.getId()),et);
         return true;
     }
 
     @Override
+    @Transactional
     public void updateBatch(List<ProjectProduct> list) {
         list.forEach(item->fillParentData(item));
         updateBatchById(list,batchSize);
@@ -101,6 +105,7 @@ public class ProjectProductServiceImpl extends ServiceImpl<ProjectProductMapper,
     }
 
     @Override
+    @Transactional
     public void removeBatch(Collection<String> idList) {
         removeByIds(idList);
     }
@@ -147,6 +152,7 @@ public class ProjectProductServiceImpl extends ServiceImpl<ProjectProductMapper,
     }
 
     @Override
+    @Transactional
     public boolean saveBatch(Collection<ProjectProduct> list) {
         list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
@@ -154,6 +160,7 @@ public class ProjectProductServiceImpl extends ServiceImpl<ProjectProductMapper,
     }
 
     @Override
+    @Transactional
     public void saveBatch(List<ProjectProduct> list) {
         list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
@@ -164,7 +171,6 @@ public class ProjectProductServiceImpl extends ServiceImpl<ProjectProductMapper,
     public List<ProjectProduct> selectByBranch(Long id) {
         return baseMapper.selectByBranch(id);
     }
-
     @Override
     public void removeByBranch(Long id) {
         this.remove(new QueryWrapper<ProjectProduct>().eq("branch",id));
@@ -174,7 +180,6 @@ public class ProjectProductServiceImpl extends ServiceImpl<ProjectProductMapper,
     public List<ProjectProduct> selectByPlan(Long id) {
         return baseMapper.selectByPlan(id);
     }
-
     @Override
     public void removeByPlan(Long id) {
         this.remove(new QueryWrapper<ProjectProduct>().eq("plan",id));
@@ -184,7 +189,6 @@ public class ProjectProductServiceImpl extends ServiceImpl<ProjectProductMapper,
     public List<ProjectProduct> selectByProduct(Long id) {
         return baseMapper.selectByProduct(id);
     }
-
     @Override
     public void removeByProduct(Long id) {
         this.remove(new QueryWrapper<ProjectProduct>().eq("product",id));
@@ -194,7 +198,6 @@ public class ProjectProductServiceImpl extends ServiceImpl<ProjectProductMapper,
     public List<ProjectProduct> selectByProject(Long id) {
         return baseMapper.selectByProject(id);
     }
-
     @Override
     public void removeByProject(Long id) {
         this.remove(new QueryWrapper<ProjectProduct>().eq("project",id));
@@ -284,6 +287,9 @@ public class ProjectProductServiceImpl extends ServiceImpl<ProjectProductMapper,
         log.warn("暂未支持的SQL语法");
         return true;
     }
+
+
+
 
 
 }

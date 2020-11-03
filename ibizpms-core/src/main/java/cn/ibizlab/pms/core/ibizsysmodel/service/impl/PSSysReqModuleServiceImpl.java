@@ -22,6 +22,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.util.ObjectUtils;
 import org.springframework.beans.factory.annotation.Value;
+import cn.ibizlab.pms.util.errors.BadRequestAlertException;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.context.annotation.Lazy;
 import cn.ibizlab.pms.core.ibizsysmodel.domain.PSSysReqModule;
@@ -46,7 +47,7 @@ public class PSSysReqModuleServiceImpl implements IPSSysReqModuleService {
 
 //    @Autowired
     PSSysReqModuleFeignClient pSSysReqModuleFeignClient;
-    
+
     @Value("${ibiz.ref.service.ibizpssysmodelapi-sysmodelapi.serviceid:}")
     private String serviceName;
 
@@ -58,7 +59,7 @@ public class PSSysReqModuleServiceImpl implements IPSSysReqModuleService {
 
     @Value("${ibiz.ref.service.ibizpssysmodelapi-sysmodelapi.password:password}")
     private String password;
-    
+
     public PSSysReqModuleFeignClient getPSSysReqModuleFeignClient(String devSlnSysId) {
         if(StringUtils.isNotBlank(serviceName)){
             return OutsideAccessorUtils.buildAccessor(SpringContextHolder.getApplicationContext(), PSSysReqModuleFeignClient.class, serviceName, false, serviceName, false, loginname, password,devSlnSysId);
@@ -242,6 +243,13 @@ public class PSSysReqModuleServiceImpl implements IPSSysReqModuleService {
     }
 
     @Override
+    public List<PSSysReqModule> selectByPsmoduleid(Collection<String> ids) {
+        //暂未支持
+        return null;
+    }
+
+
+    @Override
     public void removeByPsmoduleid(String psmoduleid) {
         Set<String> delIds=new HashSet<String>();
         for(PSSysReqModule before:selectByPsmoduleid(psmoduleid)){
@@ -276,6 +284,13 @@ public class PSSysReqModuleServiceImpl implements IPSSysReqModuleService {
         context.setN_ppssysreqmoduleid_eq(pssysreqmoduleid);
         return getPSSysReqModuleFeignClient(devSlnSysId).searchDefault(context).getContent();
     }
+
+    @Override
+    public List<PSSysReqModule> selectByPpssysreqmoduleid(Collection<String> ids) {
+        //暂未支持
+        return null;
+    }
+
 
     @Override
     public void removeByPpssysreqmoduleid(String pssysreqmoduleid) {
@@ -313,6 +328,7 @@ public class PSSysReqModuleServiceImpl implements IPSSysReqModuleService {
         Page<PSSysReqModule> pSSysReqModules=getPSSysReqModuleFeignClient(devSlnSysId).searchDefault(context);
         return pSSysReqModules;
     }
+
 
 
 

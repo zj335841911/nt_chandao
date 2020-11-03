@@ -22,6 +22,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.util.ObjectUtils;
 import org.springframework.beans.factory.annotation.Value;
+import cn.ibizlab.pms.util.errors.BadRequestAlertException;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.context.annotation.Lazy;
 import cn.ibizlab.pms.core.ibizsysmodel.domain.PSSystemDBCfg;
@@ -46,7 +47,7 @@ public class PSSystemDBCfgServiceImpl implements IPSSystemDBCfgService {
 
 //    @Autowired
     PSSystemDBCfgFeignClient pSSystemDBCfgFeignClient;
-    
+
     @Value("${ibiz.ref.service.ibizpssysmodelapi-sysmodelapi.serviceid:}")
     private String serviceName;
 
@@ -58,7 +59,7 @@ public class PSSystemDBCfgServiceImpl implements IPSSystemDBCfgService {
 
     @Value("${ibiz.ref.service.ibizpssysmodelapi-sysmodelapi.password:password}")
     private String password;
-    
+
     public PSSystemDBCfgFeignClient getPSSystemDBCfgFeignClient(String devSlnSysId) {
         if(StringUtils.isNotBlank(serviceName)){
             return OutsideAccessorUtils.buildAccessor(SpringContextHolder.getApplicationContext(), PSSystemDBCfgFeignClient.class, serviceName, false, serviceName, false, loginname, password,devSlnSysId);
@@ -256,6 +257,7 @@ public class PSSystemDBCfgServiceImpl implements IPSSystemDBCfgService {
         Page<PSSystemDBCfg> pSSystemDBCfgs=getPSSystemDBCfgFeignClient(devSlnSysId).searchDefault(context);
         return pSSystemDBCfgs;
     }
+
 
 
 

@@ -22,6 +22,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.util.ObjectUtils;
 import org.springframework.beans.factory.annotation.Value;
+import cn.ibizlab.pms.util.errors.BadRequestAlertException;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.context.annotation.Lazy;
 import cn.ibizlab.pms.core.ibiz.domain.BugStats;
@@ -35,6 +36,7 @@ import cn.ibizlab.pms.util.helper.DEFieldCacheMap;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import cn.ibizlab.pms.core.ibiz.mapper.BugStatsMapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.util.StringUtils;
@@ -63,6 +65,7 @@ public class BugStatsServiceImpl extends ServiceImpl<BugStatsMapper, BugStats> i
     }
 
     @Override
+    @Transactional
     public void createBatch(List<BugStats> list) {
         list.forEach(item->fillParentData(item));
         this.saveBatch(list,batchSize);
@@ -72,13 +75,14 @@ public class BugStatsServiceImpl extends ServiceImpl<BugStatsMapper, BugStats> i
     @Transactional
     public boolean update(BugStats et) {
         fillParentData(et);
-        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
+         if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
             return false;
         CachedBeanCopier.copy(get(et.getId()),et);
         return true;
     }
 
     @Override
+    @Transactional
     public void updateBatch(List<BugStats> list) {
         list.forEach(item->fillParentData(item));
         updateBatchById(list,batchSize);
@@ -92,6 +96,7 @@ public class BugStatsServiceImpl extends ServiceImpl<BugStatsMapper, BugStats> i
     }
 
     @Override
+    @Transactional
     public void removeBatch(Collection<Long> idList) {
         removeByIds(idList);
     }
@@ -138,6 +143,7 @@ public class BugStatsServiceImpl extends ServiceImpl<BugStatsMapper, BugStats> i
     }
 
     @Override
+    @Transactional
     public boolean saveBatch(Collection<BugStats> list) {
         list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
@@ -145,6 +151,7 @@ public class BugStatsServiceImpl extends ServiceImpl<BugStatsMapper, BugStats> i
     }
 
     @Override
+    @Transactional
     public void saveBatch(List<BugStats> list) {
         list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
@@ -155,7 +162,6 @@ public class BugStatsServiceImpl extends ServiceImpl<BugStatsMapper, BugStats> i
     public List<BugStats> selectByProduct(Long id) {
         return baseMapper.selectByProduct(id);
     }
-
     @Override
     public void removeByProduct(Long id) {
         this.remove(new QueryWrapper<BugStats>().eq("product",id));
@@ -234,6 +240,9 @@ public class BugStatsServiceImpl extends ServiceImpl<BugStatsMapper, BugStats> i
         log.warn("暂未支持的SQL语法");
         return true;
     }
+
+
+
 
 
 }

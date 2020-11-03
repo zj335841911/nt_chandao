@@ -11,12 +11,12 @@ import java.math.BigInteger;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.scheduling.annotation.Async;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.cache.annotation.CacheEvict;
 
 import cn.ibizlab.pms.core.zentao.domain.Release;
 import cn.ibizlab.pms.core.zentao.filter.ReleaseSearchContext;
-
 
 import com.baomidou.mybatisplus.extension.service.IService;
 
@@ -48,11 +48,11 @@ public interface IReleaseService extends IService<Release>{
     Release unlinkBug(Release et) ;
     Page<Release> searchDefault(ReleaseSearchContext context) ;
     Page<Release> searchReportRelease(ReleaseSearchContext context) ;
-    List<Release> selectByBranch(Long id) ;
+    List<Release> selectByBranch(Long id);
     void removeByBranch(Long id) ;
-    List<Release> selectByBuild(Long id) ;
+    List<Release> selectByBuild(Long id);
     void removeByBuild(Long id) ;
-    List<Release> selectByProduct(Long id) ;
+    List<Release> selectByProduct(Long id);
     void removeByProduct(Long id) ;
     /**
      *自定义查询SQL

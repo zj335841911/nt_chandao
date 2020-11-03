@@ -22,6 +22,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.util.ObjectUtils;
 import org.springframework.beans.factory.annotation.Value;
+import cn.ibizlab.pms.util.errors.BadRequestAlertException;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.context.annotation.Lazy;
 import cn.ibizlab.pms.core.zentao.domain.TaskEstimate;
@@ -35,6 +36,7 @@ import cn.ibizlab.pms.util.helper.DEFieldCacheMap;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import cn.ibizlab.pms.core.zentao.mapper.TaskEstimateMapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.util.StringUtils;
@@ -62,6 +64,7 @@ public class TaskEstimateServiceImpl extends ServiceImpl<TaskEstimateMapper, Tas
     }
 
     @Override
+    @Transactional
     public void createBatch(List<TaskEstimate> list) {
         this.saveBatch(list,batchSize);
     }
@@ -131,12 +134,14 @@ public class TaskEstimateServiceImpl extends ServiceImpl<TaskEstimateMapper, Tas
     }
 
     @Override
+    @Transactional
     public boolean saveBatch(Collection<TaskEstimate> list) {
         saveOrUpdateBatch(list,batchSize);
         return true;
     }
 
     @Override
+    @Transactional
     public void saveBatch(List<TaskEstimate> list) {
         saveOrUpdateBatch(list,batchSize);
     }
@@ -146,7 +151,6 @@ public class TaskEstimateServiceImpl extends ServiceImpl<TaskEstimateMapper, Tas
     public List<TaskEstimate> selectByTask(Long id) {
         return baseMapper.selectByTask(id);
     }
-
     @Override
     public void removeByTask(Long id) {
         this.remove(new QueryWrapper<TaskEstimate>().eq("task",id));
@@ -232,6 +236,9 @@ public class TaskEstimateServiceImpl extends ServiceImpl<TaskEstimateMapper, Tas
         log.warn("暂未支持的SQL语法");
         return true;
     }
+
+
+
 
 
 }

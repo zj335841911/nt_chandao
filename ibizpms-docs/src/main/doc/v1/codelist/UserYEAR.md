@@ -16,5 +16,5 @@
 | 项目 | 说明 |
 | ---- | ---- |
 | 实体 | [系统日志](../module/zentao/Action) |
-| 结果集合 | [查询用户使用年（QueryUserYEAR）]() |
+| 结果集合 | [查询用户使用年（QueryUserYEAR）](../module/zentao/Action/#数据集合-查询用户使用年（QueryUserYEAR）) |
 

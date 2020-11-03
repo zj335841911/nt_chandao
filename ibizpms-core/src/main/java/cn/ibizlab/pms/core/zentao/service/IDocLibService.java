@@ -11,12 +11,12 @@ import java.math.BigInteger;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.scheduling.annotation.Async;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.cache.annotation.CacheEvict;
 
 import cn.ibizlab.pms.core.zentao.domain.DocLib;
 import cn.ibizlab.pms.core.zentao.filter.DocLibSearchContext;
-
 
 import com.baomidou.mybatisplus.extension.service.IService;
 
@@ -37,9 +37,9 @@ public interface IDocLibService extends IService<DocLib>{
     boolean save(DocLib et) ;
     void saveBatch(List<DocLib> list) ;
     Page<DocLib> searchDefault(DocLibSearchContext context) ;
-    List<DocLib> selectByProduct(Long id) ;
+    List<DocLib> selectByProduct(Long id);
     void removeByProduct(Long id) ;
-    List<DocLib> selectByProject(Long id) ;
+    List<DocLib> selectByProject(Long id);
     void removeByProject(Long id) ;
     /**
      *自定义查询SQL

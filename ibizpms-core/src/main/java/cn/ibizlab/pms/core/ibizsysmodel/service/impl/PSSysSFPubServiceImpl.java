@@ -22,6 +22,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.util.ObjectUtils;
 import org.springframework.beans.factory.annotation.Value;
+import cn.ibizlab.pms.util.errors.BadRequestAlertException;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.context.annotation.Lazy;
 import cn.ibizlab.pms.core.ibizsysmodel.domain.PSSysSFPub;
@@ -46,7 +47,7 @@ public class PSSysSFPubServiceImpl implements IPSSysSFPubService {
 
 //    @Autowired
     PSSysSFPubFeignClient pSSysSFPubFeignClient;
-    
+
     @Value("${ibiz.ref.service.ibizpssysmodelapi-sysmodelapi.serviceid:}")
     private String serviceName;
 
@@ -58,7 +59,7 @@ public class PSSysSFPubServiceImpl implements IPSSysSFPubService {
 
     @Value("${ibiz.ref.service.ibizpssysmodelapi-sysmodelapi.password:password}")
     private String password;
-    
+
     public PSSysSFPubFeignClient getPSSysSFPubFeignClient(String devSlnSysId) {
         if(StringUtils.isNotBlank(serviceName)){
             return OutsideAccessorUtils.buildAccessor(SpringContextHolder.getApplicationContext(), PSSysSFPubFeignClient.class, serviceName, false, serviceName, false, loginname, password,devSlnSysId);
@@ -242,6 +243,13 @@ public class PSSysSFPubServiceImpl implements IPSSysSFPubService {
     }
 
     @Override
+    public List<PSSysSFPub> selectByPpssyssfpubid(Collection<String> ids) {
+        //暂未支持
+        return null;
+    }
+
+
+    @Override
     public void removeByPpssyssfpubid(String pssyssfpubid) {
         Set<String> delIds=new HashSet<String>();
         for(PSSysSFPub before:selectByPpssyssfpubid(pssyssfpubid)){
@@ -292,6 +300,7 @@ public class PSSysSFPubServiceImpl implements IPSSysSFPubService {
         Page<PSSysSFPub> pSSysSFPubs=getPSSysSFPubFeignClient(devSlnSysId).searchDefault(context);
         return pSSysSFPubs;
     }
+
 
 
 

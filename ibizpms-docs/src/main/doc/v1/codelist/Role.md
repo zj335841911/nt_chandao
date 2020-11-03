@@ -16,5 +16,5 @@
 | 项目 | 说明 |
 | ---- | ---- |
 | 实体 | [群组](../module/zentao/Group) |
-| 结果集合 | [DEFAULT（Default）]() |
+| 结果集合 | [DEFAULT（Default）](../module/zentao/Group/#数据集合-DEFAULT（Default）) |
 

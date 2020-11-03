@@ -22,6 +22,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.util.ObjectUtils;
 import org.springframework.beans.factory.annotation.Value;
+import cn.ibizlab.pms.util.errors.BadRequestAlertException;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.context.annotation.Lazy;
 import cn.ibizlab.pms.core.ibiz.domain.IbzLibCaseSteps;
@@ -35,6 +36,7 @@ import cn.ibizlab.pms.util.helper.DEFieldCacheMap;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import cn.ibizlab.pms.core.ibiz.mapper.IbzLibCaseStepsMapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.util.StringUtils;
@@ -66,6 +68,7 @@ public class IbzLibCaseStepsServiceImpl extends ServiceImpl<IbzLibCaseStepsMappe
     }
 
     @Override
+    @Transactional
     public void createBatch(List<IbzLibCaseSteps> list) {
         list.forEach(item->fillParentData(item));
         this.saveBatch(list,batchSize);
@@ -75,7 +78,7 @@ public class IbzLibCaseStepsServiceImpl extends ServiceImpl<IbzLibCaseStepsMappe
     @Transactional
     public boolean update(IbzLibCaseSteps et) {
         fillParentData(et);
-        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
+         if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
             return false;
         ibzlibcasestepsService.saveByParent(et.getId(),et.getIbzlibcasesteps());
         CachedBeanCopier.copy(get(et.getId()),et);
@@ -83,6 +86,7 @@ public class IbzLibCaseStepsServiceImpl extends ServiceImpl<IbzLibCaseStepsMappe
     }
 
     @Override
+    @Transactional
     public void updateBatch(List<IbzLibCaseSteps> list) {
         list.forEach(item->fillParentData(item));
         updateBatchById(list,batchSize);
@@ -96,6 +100,7 @@ public class IbzLibCaseStepsServiceImpl extends ServiceImpl<IbzLibCaseStepsMappe
     }
 
     @Override
+    @Transactional
     public void removeBatch(Collection<Long> idList) {
         removeByIds(idList);
     }
@@ -143,6 +148,7 @@ public class IbzLibCaseStepsServiceImpl extends ServiceImpl<IbzLibCaseStepsMappe
     }
 
     @Override
+    @Transactional
     public boolean saveBatch(Collection<IbzLibCaseSteps> list) {
         list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
@@ -150,6 +156,7 @@ public class IbzLibCaseStepsServiceImpl extends ServiceImpl<IbzLibCaseStepsMappe
     }
 
     @Override
+    @Transactional
     public void saveBatch(List<IbzLibCaseSteps> list) {
         list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
@@ -160,7 +167,6 @@ public class IbzLibCaseStepsServiceImpl extends ServiceImpl<IbzLibCaseStepsMappe
     public List<IbzLibCaseSteps> selectByIbizcase(Long id) {
         return baseMapper.selectByIbizcase(id);
     }
-
     @Override
     public void removeByIbizcase(Long id) {
         this.remove(new QueryWrapper<IbzLibCaseSteps>().eq("case",id));
@@ -202,7 +208,6 @@ public class IbzLibCaseStepsServiceImpl extends ServiceImpl<IbzLibCaseStepsMappe
     public List<IbzLibCaseSteps> selectByParent(Long id) {
         return baseMapper.selectByParent(id);
     }
-
     @Override
     public void removeByParent(Long id) {
         this.remove(new QueryWrapper<IbzLibCaseSteps>().eq("parent",id));
@@ -292,6 +297,9 @@ public class IbzLibCaseStepsServiceImpl extends ServiceImpl<IbzLibCaseStepsMappe
         log.warn("暂未支持的SQL语法");
         return true;
     }
+
+
+
 
 
 }

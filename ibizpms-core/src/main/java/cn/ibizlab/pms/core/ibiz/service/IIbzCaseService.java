@@ -11,12 +11,12 @@ import java.math.BigInteger;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.scheduling.annotation.Async;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.cache.annotation.CacheEvict;
 
 import cn.ibizlab.pms.core.ibiz.domain.IbzCase;
 import cn.ibizlab.pms.core.ibiz.filter.IbzCaseSearchContext;
-
 
 import com.baomidou.mybatisplus.extension.service.IService;
 
@@ -37,9 +37,9 @@ public interface IIbzCaseService extends IService<IbzCase>{
     boolean save(IbzCase et) ;
     void saveBatch(List<IbzCase> list) ;
     Page<IbzCase> searchDefault(IbzCaseSearchContext context) ;
-    List<IbzCase> selectByModule(Long id) ;
+    List<IbzCase> selectByModule(Long id);
     void removeByModule(Long id) ;
-    List<IbzCase> selectByLib(Long id) ;
+    List<IbzCase> selectByLib(Long id);
     void removeByLib(Long id) ;
     /**
      *自定义查询SQL

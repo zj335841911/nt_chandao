@@ -16,5 +16,5 @@
 | 项目 | 说明 |
 | ---- | ---- |
 | 实体 | [后台服务架构](../module/ibizsysmodel/PSSysSFPub) |
-| 结果集合 | [数据集（Default）]() |
+| 结果集合 | [数据集（Default）](../module/ibizsysmodel/PSSysSFPub/#数据集合-数据集（Default）) |
 

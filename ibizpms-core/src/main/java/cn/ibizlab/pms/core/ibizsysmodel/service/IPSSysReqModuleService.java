@@ -11,6 +11,7 @@ import java.math.BigInteger;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.scheduling.annotation.Async;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.cache.annotation.CacheEvict;
 
@@ -35,9 +36,11 @@ public interface IPSSysReqModuleService{
     boolean save(PSSysReqModule et) ;
     void saveBatch(List<PSSysReqModule> list) ;
     Page<PSSysReqModule> searchDefault(PSSysReqModuleSearchContext context) ;
-    List<PSSysReqModule> selectByPsmoduleid(String psmoduleid) ;
+    List<PSSysReqModule> selectByPsmoduleid(String psmoduleid);
+    List<PSSysReqModule> selectByPsmoduleid(Collection<String> ids);
     void removeByPsmoduleid(String psmoduleid) ;
-    List<PSSysReqModule> selectByPpssysreqmoduleid(String pssysreqmoduleid) ;
+    List<PSSysReqModule> selectByPpssysreqmoduleid(String pssysreqmoduleid);
+    List<PSSysReqModule> selectByPpssysreqmoduleid(Collection<String> ids);
     void removeByPpssysreqmoduleid(String pssysreqmoduleid) ;
 
     boolean create(String devSlnSysId , PSSysReqModule et) ;

@@ -11,12 +11,12 @@ import java.math.BigInteger;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.scheduling.annotation.Async;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.cache.annotation.CacheEvict;
 
 import cn.ibizlab.pms.core.ibizpro.domain.IBZProProduct;
 import cn.ibizlab.pms.core.ibizpro.filter.IBZProProductSearchContext;
-
 
 import com.baomidou.mybatisplus.extension.service.IService;
 

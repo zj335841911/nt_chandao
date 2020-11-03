@@ -22,6 +22,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.util.ObjectUtils;
 import org.springframework.beans.factory.annotation.Value;
+import cn.ibizlab.pms.util.errors.BadRequestAlertException;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.context.annotation.Lazy;
 import cn.ibizlab.pms.core.ibizpro.domain.IBZProStoryModule;
@@ -35,6 +36,7 @@ import cn.ibizlab.pms.util.helper.DEFieldCacheMap;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import cn.ibizlab.pms.core.ibizpro.mapper.IBZProStoryModuleMapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.util.StringUtils;
@@ -73,6 +75,7 @@ public class IBZProStoryModuleServiceImpl extends ServiceImpl<IBZProStoryModuleM
     }
 
     @Override
+    @Transactional
     public void createBatch(List<IBZProStoryModule> list) {
         list.forEach(item->fillParentData(item));
         this.saveBatch(list,batchSize);
@@ -82,7 +85,7 @@ public class IBZProStoryModuleServiceImpl extends ServiceImpl<IBZProStoryModuleM
     @Transactional
     public boolean update(IBZProStoryModule et) {
         fillParentData(et);
-        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
+         if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
             return false;
         CachedBeanCopier.copy(get(et.getId()),et);
         fixpathLogic.execute(et);
@@ -90,6 +93,7 @@ public class IBZProStoryModuleServiceImpl extends ServiceImpl<IBZProStoryModuleM
     }
 
     @Override
+    @Transactional
     public void updateBatch(List<IBZProStoryModule> list) {
         list.forEach(item->fillParentData(item));
         updateBatchById(list,batchSize);
@@ -103,6 +107,7 @@ public class IBZProStoryModuleServiceImpl extends ServiceImpl<IBZProStoryModuleM
     }
 
     @Override
+    @Transactional
     public void removeBatch(Collection<Long> idList) {
         removeByIds(idList);
     }
@@ -149,6 +154,7 @@ public class IBZProStoryModuleServiceImpl extends ServiceImpl<IBZProStoryModuleM
     }
 
     @Override
+    @Transactional
     public boolean saveBatch(Collection<IBZProStoryModule> list) {
         list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
@@ -156,6 +162,7 @@ public class IBZProStoryModuleServiceImpl extends ServiceImpl<IBZProStoryModuleM
     }
 
     @Override
+    @Transactional
     public void saveBatch(List<IBZProStoryModule> list) {
         list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
@@ -173,7 +180,6 @@ public class IBZProStoryModuleServiceImpl extends ServiceImpl<IBZProStoryModuleM
     public List<IBZProStoryModule> selectByRoot(Long id) {
         return baseMapper.selectByRoot(id);
     }
-
     @Override
     public void removeByRoot(Long id) {
         this.remove(new QueryWrapper<IBZProStoryModule>().eq("root",id));
@@ -183,7 +189,6 @@ public class IBZProStoryModuleServiceImpl extends ServiceImpl<IBZProStoryModuleM
     public List<IBZProStoryModule> selectByParent(Long id) {
         return baseMapper.selectByParent(id);
     }
-
     @Override
     public void removeByParent(Long id) {
         this.remove(new QueryWrapper<IBZProStoryModule>().eq("parent",id));
@@ -244,6 +249,9 @@ public class IBZProStoryModuleServiceImpl extends ServiceImpl<IBZProStoryModuleM
         log.warn("暂未支持的SQL语法");
         return true;
     }
+
+
+
 
 
 }

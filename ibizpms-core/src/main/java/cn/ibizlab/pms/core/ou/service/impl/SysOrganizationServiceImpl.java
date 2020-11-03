@@ -22,6 +22,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.util.ObjectUtils;
 import org.springframework.beans.factory.annotation.Value;
+import cn.ibizlab.pms.util.errors.BadRequestAlertException;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.context.annotation.Lazy;
 import cn.ibizlab.pms.core.ou.domain.SysOrganization;
@@ -46,7 +47,7 @@ public class SysOrganizationServiceImpl implements ISysOrganizationService {
 
     @Autowired
     SysOrganizationFeignClient sysOrganizationFeignClient;
-    
+
 
 
     @Override
@@ -146,6 +147,13 @@ public class SysOrganizationServiceImpl implements ISysOrganizationService {
 
 
     @Override
+    public List<SysOrganization> selectByParentorgid(Collection<String> ids) {
+        //暂未支持
+        return null;
+    }
+
+
+    @Override
     public void removeByParentorgid(String orgid) {
         Set<String> delIds=new HashSet<String>();
         for(SysOrganization before:selectByParentorgid(orgid)){
@@ -166,6 +174,7 @@ public class SysOrganizationServiceImpl implements ISysOrganizationService {
         Page<SysOrganization> sysOrganizations=sysOrganizationFeignClient.searchDefault(context);
         return sysOrganizations;
     }
+
 
 
 

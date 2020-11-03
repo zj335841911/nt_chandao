@@ -22,6 +22,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.util.ObjectUtils;
 import org.springframework.beans.factory.annotation.Value;
+import cn.ibizlab.pms.util.errors.BadRequestAlertException;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.context.annotation.Lazy;
 import cn.ibizlab.pms.core.zentao.domain.Project;
@@ -35,6 +36,7 @@ import cn.ibizlab.pms.util.helper.DEFieldCacheMap;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import cn.ibizlab.pms.core.zentao.mapper.ProjectMapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.util.StringUtils;
@@ -277,6 +279,7 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectMapper, Project> impl
     }
 
     @Override
+    @Transactional
     public boolean saveBatch(Collection<Project> list) {
         list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
@@ -284,6 +287,7 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectMapper, Project> impl
     }
 
     @Override
+    @Transactional
     public void saveBatch(List<Project> list) {
         list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
@@ -324,7 +328,6 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectMapper, Project> impl
     public List<Project> selectByParent(Long id) {
         return baseMapper.selectByParent(id);
     }
-
     @Override
     public void removeByParent(Long id) {
         this.remove(new QueryWrapper<Project>().eq("parent",id));
@@ -457,6 +460,9 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectMapper, Project> impl
         log.warn("暂未支持的SQL语法");
         return true;
     }
+
+
+
 
 
 }

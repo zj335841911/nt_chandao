@@ -22,6 +22,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.util.ObjectUtils;
 import org.springframework.beans.factory.annotation.Value;
+import cn.ibizlab.pms.util.errors.BadRequestAlertException;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.context.annotation.Lazy;
 import cn.ibizlab.pms.core.ibizsysmodel.domain.PSSubSysSADE;
@@ -46,7 +47,7 @@ public class PSSubSysSADEServiceImpl implements IPSSubSysSADEService {
 
 //    @Autowired
     PSSubSysSADEFeignClient pSSubSysSADEFeignClient;
-    
+
     @Value("${ibiz.ref.service.ibizpssysmodelapi-sysmodelapi.serviceid:}")
     private String serviceName;
 
@@ -58,7 +59,7 @@ public class PSSubSysSADEServiceImpl implements IPSSubSysSADEService {
 
     @Value("${ibiz.ref.service.ibizpssysmodelapi-sysmodelapi.password:password}")
     private String password;
-    
+
     public PSSubSysSADEFeignClient getPSSubSysSADEFeignClient(String devSlnSysId) {
         if(StringUtils.isNotBlank(serviceName)){
             return OutsideAccessorUtils.buildAccessor(SpringContextHolder.getApplicationContext(), PSSubSysSADEFeignClient.class, serviceName, false, serviceName, false, loginname, password,devSlnSysId);
@@ -242,6 +243,13 @@ public class PSSubSysSADEServiceImpl implements IPSSubSysSADEService {
     }
 
     @Override
+    public List<PSSubSysSADE> selectByPssubsysserviceapiid(Collection<String> ids) {
+        //暂未支持
+        return null;
+    }
+
+
+    @Override
     public void removeByPssubsysserviceapiid(String pssubsysserviceapiid) {
         Set<String> delIds=new HashSet<String>();
         for(PSSubSysSADE before:selectByPssubsysserviceapiid(pssubsysserviceapiid)){
@@ -277,6 +285,7 @@ public class PSSubSysSADEServiceImpl implements IPSSubSysSADEService {
         Page<PSSubSysSADE> pSSubSysSADEs=getPSSubSysSADEFeignClient(devSlnSysId).searchDefault(context);
         return pSSubSysSADEs;
     }
+
 
 
 

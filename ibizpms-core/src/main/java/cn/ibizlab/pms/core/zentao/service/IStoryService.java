@@ -11,12 +11,12 @@ import java.math.BigInteger;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.scheduling.annotation.Async;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.cache.annotation.CacheEvict;
 
 import cn.ibizlab.pms.core.zentao.domain.Story;
 import cn.ibizlab.pms.core.zentao.filter.StorySearchContext;
-
 
 import com.baomidou.mybatisplus.extension.service.IService;
 
@@ -96,19 +96,19 @@ public interface IStoryService extends IService<Story>{
     Page<Story> searchStoryRelated(StorySearchContext context) ;
     Page<Story> searchSubStory(StorySearchContext context) ;
     Page<Story> searchTaskRelatedStory(StorySearchContext context) ;
-    List<Story> selectByModule(Long id) ;
+    List<Story> selectByModule(Long id);
     void removeByModule(Long id) ;
-    List<Story> selectByBranch(Long id) ;
+    List<Story> selectByBranch(Long id);
     void removeByBranch(Long id) ;
-    List<Story> selectByFrombug(Long id) ;
+    List<Story> selectByFrombug(Long id);
     void removeByFrombug(Long id) ;
-    List<Story> selectByTobug(Long id) ;
+    List<Story> selectByTobug(Long id);
     void removeByTobug(Long id) ;
-    List<Story> selectByProduct(Long id) ;
+    List<Story> selectByProduct(Long id);
     void removeByProduct(Long id) ;
-    List<Story> selectByDuplicatestory(Long id) ;
+    List<Story> selectByDuplicatestory(Long id);
     void removeByDuplicatestory(Long id) ;
-    List<Story> selectByParent(Long id) ;
+    List<Story> selectByParent(Long id);
     void removeByParent(Long id) ;
     /**
      *自定义查询SQL

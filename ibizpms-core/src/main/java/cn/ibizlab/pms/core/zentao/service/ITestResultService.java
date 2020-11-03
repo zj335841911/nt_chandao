@@ -11,12 +11,12 @@ import java.math.BigInteger;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.scheduling.annotation.Async;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.cache.annotation.CacheEvict;
 
 import cn.ibizlab.pms.core.zentao.domain.TestResult;
 import cn.ibizlab.pms.core.zentao.filter.TestResultSearchContext;
-
 
 import com.baomidou.mybatisplus.extension.service.IService;
 
@@ -38,13 +38,13 @@ public interface ITestResultService extends IService<TestResult>{
     void saveBatch(List<TestResult> list) ;
     Page<TestResult> searchCurTestRun(TestResultSearchContext context) ;
     Page<TestResult> searchDefault(TestResultSearchContext context) ;
-    List<TestResult> selectByIbizcase(Long id) ;
+    List<TestResult> selectByIbizcase(Long id);
     void removeByIbizcase(Long id) ;
-    List<TestResult> selectByCompile(Long id) ;
+    List<TestResult> selectByCompile(Long id);
     void removeByCompile(Long id) ;
-    List<TestResult> selectByJob(Long id) ;
+    List<TestResult> selectByJob(Long id);
     void removeByJob(Long id) ;
-    List<TestResult> selectByRun(Long id) ;
+    List<TestResult> selectByRun(Long id);
     void removeByRun(Long id) ;
     /**
      *自定义查询SQL

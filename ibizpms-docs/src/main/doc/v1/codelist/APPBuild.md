@@ -16,5 +16,5 @@
 | 项目 | 说明 |
 | ---- | ---- |
 | 实体 | [系统应用](../module/ibizsysmodel/PSSysApp) |
-| 结果集合 | [版本（Build）]() |
+| 结果集合 | [版本（Build）](../module/ibizsysmodel/PSSysApp/#数据集合-版本（Build）) |
 

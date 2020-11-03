@@ -22,6 +22,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.util.ObjectUtils;
 import org.springframework.beans.factory.annotation.Value;
+import cn.ibizlab.pms.util.errors.BadRequestAlertException;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.context.annotation.Lazy;
 import cn.ibizlab.pms.core.zentao.domain.Task;
@@ -35,6 +36,7 @@ import cn.ibizlab.pms.util.helper.DEFieldCacheMap;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import cn.ibizlab.pms.core.zentao.mapper.TaskMapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.util.StringUtils;
@@ -286,6 +288,7 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
     }
 
     @Override
+    @Transactional
     public boolean saveBatch(Collection<Task> list) {
         list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
@@ -293,6 +296,7 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
     }
 
     @Override
+    @Transactional
     public void saveBatch(List<Task> list) {
         list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
@@ -373,7 +377,6 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
     public List<Task> selectByModule(Long id) {
         return baseMapper.selectByModule(id);
     }
-
     @Override
     public void removeByModule(Long id) {
         this.remove(new QueryWrapper<Task>().eq("module",id));
@@ -383,7 +386,6 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
     public List<Task> selectByFrombug(Long id) {
         return baseMapper.selectByFrombug(id);
     }
-
     @Override
     public void removeByFrombug(Long id) {
         this.remove(new QueryWrapper<Task>().eq("frombug",id));
@@ -393,7 +395,6 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
     public List<Task> selectByProject(Long id) {
         return baseMapper.selectByProject(id);
     }
-
     @Override
     public void removeByProject(Long id) {
         this.remove(new QueryWrapper<Task>().eq("project",id));
@@ -403,7 +404,6 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
     public List<Task> selectByStory(Long id) {
         return baseMapper.selectByStory(id);
     }
-
     @Override
     public void removeByStory(Long id) {
         this.remove(new QueryWrapper<Task>().eq("story",id));
@@ -413,7 +413,6 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
     public List<Task> selectByParent(Long id) {
         return baseMapper.selectByParent(id);
     }
-
     @Override
     public void removeByParent(Long id) {
         this.remove(new QueryWrapper<Task>().eq("parent",id));
@@ -607,6 +606,9 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
         log.warn("暂未支持的SQL语法");
         return true;
     }
+
+
+
 
 
 }

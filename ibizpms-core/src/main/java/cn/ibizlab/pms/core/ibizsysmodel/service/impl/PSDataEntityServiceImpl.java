@@ -22,6 +22,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.util.ObjectUtils;
 import org.springframework.beans.factory.annotation.Value;
+import cn.ibizlab.pms.util.errors.BadRequestAlertException;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.context.annotation.Lazy;
 import cn.ibizlab.pms.core.ibizsysmodel.domain.PSDataEntity;
@@ -46,7 +47,7 @@ public class PSDataEntityServiceImpl implements IPSDataEntityService {
 
 //    @Autowired
     PSDataEntityFeignClient pSDataEntityFeignClient;
-    
+
     @Value("${ibiz.ref.service.ibizpssysmodelapi-sysmodelapi.serviceid:}")
     private String serviceName;
 
@@ -58,7 +59,7 @@ public class PSDataEntityServiceImpl implements IPSDataEntityService {
 
     @Value("${ibiz.ref.service.ibizpssysmodelapi-sysmodelapi.password:password}")
     private String password;
-    
+
     public PSDataEntityFeignClient getPSDataEntityFeignClient(String devSlnSysId) {
         if(StringUtils.isNotBlank(serviceName)){
             return OutsideAccessorUtils.buildAccessor(SpringContextHolder.getApplicationContext(), PSDataEntityFeignClient.class, serviceName, false, serviceName, false, loginname, password,devSlnSysId);
@@ -242,6 +243,13 @@ public class PSDataEntityServiceImpl implements IPSDataEntityService {
     }
 
     @Override
+    public List<PSDataEntity> selectByPsmoduleid(Collection<String> ids) {
+        //暂未支持
+        return null;
+    }
+
+
+    @Override
     public void removeByPsmoduleid(String psmoduleid) {
         Set<String> delIds=new HashSet<String>();
         for(PSDataEntity before:selectByPsmoduleid(psmoduleid)){
@@ -276,6 +284,13 @@ public class PSDataEntityServiceImpl implements IPSDataEntityService {
         context.setN_pssubsyssadeid_eq(pssubsyssadeid);
         return getPSDataEntityFeignClient(devSlnSysId).searchDefault(context).getContent();
     }
+
+    @Override
+    public List<PSDataEntity> selectByPssubsyssadeid(Collection<String> ids) {
+        //暂未支持
+        return null;
+    }
+
 
     @Override
     public void removeByPssubsyssadeid(String pssubsyssadeid) {
@@ -314,6 +329,13 @@ public class PSDataEntityServiceImpl implements IPSDataEntityService {
     }
 
     @Override
+    public List<PSDataEntity> selectByPssubsysserviceapiid(Collection<String> ids) {
+        //暂未支持
+        return null;
+    }
+
+
+    @Override
     public void removeByPssubsysserviceapiid(String pssubsysserviceapiid) {
         Set<String> delIds=new HashSet<String>();
         for(PSDataEntity before:selectByPssubsysserviceapiid(pssubsysserviceapiid)){
@@ -348,6 +370,13 @@ public class PSDataEntityServiceImpl implements IPSDataEntityService {
         context.setN_pssysreqitemid_eq(pssysreqitemid);
         return getPSDataEntityFeignClient(devSlnSysId).searchDefault(context).getContent();
     }
+
+    @Override
+    public List<PSDataEntity> selectByPssysreqitemid(Collection<String> ids) {
+        //暂未支持
+        return null;
+    }
+
 
     @Override
     public void removeByPssysreqitemid(String pssysreqitemid) {
@@ -385,6 +414,7 @@ public class PSDataEntityServiceImpl implements IPSDataEntityService {
         Page<PSDataEntity> pSDataEntitys=getPSDataEntityFeignClient(devSlnSysId).searchDefault(context);
         return pSDataEntitys;
     }
+
 
 
 

@@ -22,6 +22,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.util.ObjectUtils;
 import org.springframework.beans.factory.annotation.Value;
+import cn.ibizlab.pms.util.errors.BadRequestAlertException;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.context.annotation.Lazy;
 import cn.ibizlab.pms.core.ibizsysmodel.domain.PSDEField;
@@ -46,7 +47,7 @@ public class PSDEFieldServiceImpl implements IPSDEFieldService {
 
 //    @Autowired
     PSDEFieldFeignClient pSDEFieldFeignClient;
-    
+
     @Value("${ibiz.ref.service.ibizpssysmodelapi-sysmodelapi.serviceid:}")
     private String serviceName;
 
@@ -58,7 +59,7 @@ public class PSDEFieldServiceImpl implements IPSDEFieldService {
 
     @Value("${ibiz.ref.service.ibizpssysmodelapi-sysmodelapi.password:password}")
     private String password;
-    
+
     public PSDEFieldFeignClient getPSDEFieldFeignClient(String devSlnSysId) {
         if(StringUtils.isNotBlank(serviceName)){
             return OutsideAccessorUtils.buildAccessor(SpringContextHolder.getApplicationContext(), PSDEFieldFeignClient.class, serviceName, false, serviceName, false, loginname, password,devSlnSysId);
@@ -242,6 +243,11 @@ public class PSDEFieldServiceImpl implements IPSDEFieldService {
     }
 
     @Override
+    public void removeByPsdeid(Collection<String> ids) {
+    }
+
+
+    @Override
     public void removeByPsdeid(String psdataentityid) {
         Set<String> delIds=new HashSet<String>();
         for(PSDEField before:selectByPsdeid(psdataentityid)){
@@ -276,6 +282,13 @@ public class PSDEFieldServiceImpl implements IPSDEFieldService {
         context.setN_derpsdefid_eq(psdefieldid);
         return getPSDEFieldFeignClient(devSlnSysId).searchDefault(context).getContent();
     }
+
+    @Override
+    public List<PSDEField> selectByDerpsdefid(Collection<String> ids) {
+        //暂未支持
+        return null;
+    }
+
 
     @Override
     public void removeByDerpsdefid(String psdefieldid) {
@@ -314,6 +327,13 @@ public class PSDEFieldServiceImpl implements IPSDEFieldService {
     }
 
     @Override
+    public List<PSDEField> selectByDupcheckpsdefid(Collection<String> ids) {
+        //暂未支持
+        return null;
+    }
+
+
+    @Override
     public void removeByDupcheckpsdefid(String psdefieldid) {
         Set<String> delIds=new HashSet<String>();
         for(PSDEField before:selectByDupcheckpsdefid(psdefieldid)){
@@ -348,6 +368,13 @@ public class PSDEFieldServiceImpl implements IPSDEFieldService {
         context.setN_no2dupchkpsdefid_eq(psdefieldid);
         return getPSDEFieldFeignClient(devSlnSysId).searchDefault(context).getContent();
     }
+
+    @Override
+    public List<PSDEField> selectByNo2dupchkpsdefid(Collection<String> ids) {
+        //暂未支持
+        return null;
+    }
+
 
     @Override
     public void removeByNo2dupchkpsdefid(String psdefieldid) {
@@ -386,6 +413,13 @@ public class PSDEFieldServiceImpl implements IPSDEFieldService {
     }
 
     @Override
+    public List<PSDEField> selectByNo3dupchkpsdefid(Collection<String> ids) {
+        //暂未支持
+        return null;
+    }
+
+
+    @Override
     public void removeByNo3dupchkpsdefid(String psdefieldid) {
         Set<String> delIds=new HashSet<String>();
         for(PSDEField before:selectByNo3dupchkpsdefid(psdefieldid)){
@@ -420,6 +454,13 @@ public class PSDEFieldServiceImpl implements IPSDEFieldService {
         context.setN_valuepsdefid_eq(psdefieldid);
         return getPSDEFieldFeignClient(devSlnSysId).searchDefault(context).getContent();
     }
+
+    @Override
+    public List<PSDEField> selectByValuepsdefid(Collection<String> ids) {
+        //暂未支持
+        return null;
+    }
+
 
     @Override
     public void removeByValuepsdefid(String psdefieldid) {
@@ -457,6 +498,7 @@ public class PSDEFieldServiceImpl implements IPSDEFieldService {
         Page<PSDEField> pSDEFields=getPSDEFieldFeignClient(devSlnSysId).searchDefault(context);
         return pSDEFields;
     }
+
 
 
 

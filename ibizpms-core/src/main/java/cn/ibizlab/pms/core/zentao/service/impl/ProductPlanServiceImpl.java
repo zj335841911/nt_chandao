@@ -22,6 +22,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.util.ObjectUtils;
 import org.springframework.beans.factory.annotation.Value;
+import cn.ibizlab.pms.util.errors.BadRequestAlertException;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.context.annotation.Lazy;
 import cn.ibizlab.pms.core.zentao.domain.ProductPlan;
@@ -35,6 +36,7 @@ import cn.ibizlab.pms.util.helper.DEFieldCacheMap;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import cn.ibizlab.pms.core.zentao.mapper.ProductPlanMapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.util.StringUtils;
@@ -175,6 +177,7 @@ public class ProductPlanServiceImpl extends ServiceImpl<ProductPlanMapper, Produ
     }
 
     @Override
+    @Transactional
     public boolean saveBatch(Collection<ProductPlan> list) {
         list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
@@ -182,6 +185,7 @@ public class ProductPlanServiceImpl extends ServiceImpl<ProductPlanMapper, Produ
     }
 
     @Override
+    @Transactional
     public void saveBatch(List<ProductPlan> list) {
         list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
@@ -204,7 +208,6 @@ public class ProductPlanServiceImpl extends ServiceImpl<ProductPlanMapper, Produ
     public List<ProductPlan> selectByBranch(Long id) {
         return baseMapper.selectByBranch(id);
     }
-
     @Override
     public void removeByBranch(Long id) {
         this.remove(new QueryWrapper<ProductPlan>().eq("branch",id));
@@ -214,7 +217,6 @@ public class ProductPlanServiceImpl extends ServiceImpl<ProductPlanMapper, Produ
     public List<ProductPlan> selectByProduct(Long id) {
         return baseMapper.selectByProduct(id);
     }
-
     @Override
     public void removeByProduct(Long id) {
         this.remove(new QueryWrapper<ProductPlan>().eq("product",id));
@@ -224,7 +226,6 @@ public class ProductPlanServiceImpl extends ServiceImpl<ProductPlanMapper, Produ
     public List<ProductPlan> selectByParent(Long id) {
         return baseMapper.selectByParent(id);
     }
-
     @Override
     public void removeByParent(Long id) {
         this.remove(new QueryWrapper<ProductPlan>().eq("parent",id));
@@ -321,6 +322,9 @@ public class ProductPlanServiceImpl extends ServiceImpl<ProductPlanMapper, Produ
         log.warn("暂未支持的SQL语法");
         return true;
     }
+
+
+
 
 
 }

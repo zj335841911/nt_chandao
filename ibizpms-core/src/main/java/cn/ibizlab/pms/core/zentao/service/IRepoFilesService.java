@@ -11,12 +11,12 @@ import java.math.BigInteger;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.scheduling.annotation.Async;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.cache.annotation.CacheEvict;
 
 import cn.ibizlab.pms.core.zentao.domain.RepoFiles;
 import cn.ibizlab.pms.core.zentao.filter.RepoFilesSearchContext;
-
 
 import com.baomidou.mybatisplus.extension.service.IService;
 
@@ -37,7 +37,7 @@ public interface IRepoFilesService extends IService<RepoFiles>{
     boolean save(RepoFiles et) ;
     void saveBatch(List<RepoFiles> list) ;
     Page<RepoFiles> searchDefault(RepoFilesSearchContext context) ;
-    List<RepoFiles> selectByParent(Long id) ;
+    List<RepoFiles> selectByParent(Long id);
     void removeByParent(Long id) ;
     /**
      *自定义查询SQL

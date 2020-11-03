@@ -16,5 +16,5 @@
 | 项目 | 说明 |
 | ---- | ---- |
 | 实体 | [项目](../module/zentao/Project) |
-| 结果集合 | [项目团队（ProjectTeam）]() |
+| 结果集合 | [项目团队（ProjectTeam）](../module/zentao/Project/#数据集合-项目团队（ProjectTeam）) |
 

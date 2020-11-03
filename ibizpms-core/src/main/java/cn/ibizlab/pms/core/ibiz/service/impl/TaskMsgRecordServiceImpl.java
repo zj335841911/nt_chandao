@@ -22,6 +22,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.util.ObjectUtils;
 import org.springframework.beans.factory.annotation.Value;
+import cn.ibizlab.pms.util.errors.BadRequestAlertException;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.context.annotation.Lazy;
 import cn.ibizlab.pms.core.ibiz.domain.TaskMsgRecord;
@@ -35,6 +36,7 @@ import cn.ibizlab.pms.util.helper.DEFieldCacheMap;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import cn.ibizlab.pms.core.ibiz.mapper.TaskMsgRecordMapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.util.StringUtils;
@@ -59,6 +61,7 @@ public class TaskMsgRecordServiceImpl extends ServiceImpl<TaskMsgRecordMapper, T
     }
 
     @Override
+    @Transactional
     public void createBatch(List<TaskMsgRecord> list) {
         this.saveBatch(list,batchSize);
     }
@@ -66,13 +69,14 @@ public class TaskMsgRecordServiceImpl extends ServiceImpl<TaskMsgRecordMapper, T
     @Override
     @Transactional
     public boolean update(TaskMsgRecord et) {
-        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("taskmsgrecordid",et.getTaskmsgrecordid())))
+         if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("taskmsgrecordid",et.getTaskmsgrecordid())))
             return false;
         CachedBeanCopier.copy(get(et.getTaskmsgrecordid()),et);
         return true;
     }
 
     @Override
+    @Transactional
     public void updateBatch(List<TaskMsgRecord> list) {
         updateBatchById(list,batchSize);
     }
@@ -85,6 +89,7 @@ public class TaskMsgRecordServiceImpl extends ServiceImpl<TaskMsgRecordMapper, T
     }
 
     @Override
+    @Transactional
     public void removeBatch(Collection<String> idList) {
         removeByIds(idList);
     }
@@ -130,12 +135,14 @@ public class TaskMsgRecordServiceImpl extends ServiceImpl<TaskMsgRecordMapper, T
     }
 
     @Override
+    @Transactional
     public boolean saveBatch(Collection<TaskMsgRecord> list) {
         saveOrUpdateBatch(list,batchSize);
         return true;
     }
 
     @Override
+    @Transactional
     public void saveBatch(List<TaskMsgRecord> list) {
         saveOrUpdateBatch(list,batchSize);
     }
@@ -200,6 +207,9 @@ public class TaskMsgRecordServiceImpl extends ServiceImpl<TaskMsgRecordMapper, T
         else
            return entities;
     }
+
+
+
 
 }
 

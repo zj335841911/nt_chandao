@@ -22,6 +22,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.util.ObjectUtils;
 import org.springframework.beans.factory.annotation.Value;
+import cn.ibizlab.pms.util.errors.BadRequestAlertException;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.context.annotation.Lazy;
 import cn.ibizlab.pms.core.zentao.domain.DocContent;
@@ -35,6 +36,7 @@ import cn.ibizlab.pms.util.helper.DEFieldCacheMap;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import cn.ibizlab.pms.core.zentao.mapper.DocContentMapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.util.StringUtils;
@@ -63,6 +65,7 @@ public class DocContentServiceImpl extends ServiceImpl<DocContentMapper, DocCont
     }
 
     @Override
+    @Transactional
     public void createBatch(List<DocContent> list) {
         list.forEach(item->fillParentData(item));
         this.saveBatch(list,batchSize);
@@ -72,13 +75,14 @@ public class DocContentServiceImpl extends ServiceImpl<DocContentMapper, DocCont
     @Transactional
     public boolean update(DocContent et) {
         fillParentData(et);
-        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
+         if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
             return false;
         CachedBeanCopier.copy(get(et.getId()),et);
         return true;
     }
 
     @Override
+    @Transactional
     public void updateBatch(List<DocContent> list) {
         list.forEach(item->fillParentData(item));
         updateBatchById(list,batchSize);
@@ -92,6 +96,7 @@ public class DocContentServiceImpl extends ServiceImpl<DocContentMapper, DocCont
     }
 
     @Override
+    @Transactional
     public void removeBatch(Collection<Long> idList) {
         removeByIds(idList);
     }
@@ -138,6 +143,7 @@ public class DocContentServiceImpl extends ServiceImpl<DocContentMapper, DocCont
     }
 
     @Override
+    @Transactional
     public boolean saveBatch(Collection<DocContent> list) {
         list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
@@ -145,6 +151,7 @@ public class DocContentServiceImpl extends ServiceImpl<DocContentMapper, DocCont
     }
 
     @Override
+    @Transactional
     public void saveBatch(List<DocContent> list) {
         list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
@@ -155,7 +162,6 @@ public class DocContentServiceImpl extends ServiceImpl<DocContentMapper, DocCont
     public List<DocContent> selectByDoc(Long id) {
         return baseMapper.selectByDoc(id);
     }
-
     @Override
     public void removeByDoc(Long id) {
         this.remove(new QueryWrapper<DocContent>().eq("doc",id));
@@ -216,6 +222,9 @@ public class DocContentServiceImpl extends ServiceImpl<DocContentMapper, DocCont
         log.warn("暂未支持的SQL语法");
         return true;
     }
+
+
+
 
 
 }

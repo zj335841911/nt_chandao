@@ -22,6 +22,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.util.ObjectUtils;
 import org.springframework.beans.factory.annotation.Value;
+import cn.ibizlab.pms.util.errors.BadRequestAlertException;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.context.annotation.Lazy;
 import cn.ibizlab.pms.core.ibizpro.domain.IBZProSysTpl;
@@ -35,6 +36,7 @@ import cn.ibizlab.pms.util.helper.DEFieldCacheMap;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import cn.ibizlab.pms.core.ibizpro.mapper.IBZProSysTplMapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.util.StringUtils;
@@ -62,6 +64,7 @@ public class IBZProSysTplServiceImpl extends ServiceImpl<IBZProSysTplMapper, IBZ
     }
 
     @Override
+    @Transactional
     public void createBatch(List<IBZProSysTpl> list) {
         this.saveBatch(list,batchSize);
     }
@@ -69,13 +72,14 @@ public class IBZProSysTplServiceImpl extends ServiceImpl<IBZProSysTplMapper, IBZ
     @Override
     @Transactional
     public boolean update(IBZProSysTpl et) {
-        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("ibzpro_systplid",et.getIbzprosystplid())))
+         if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("ibzpro_systplid",et.getIbzprosystplid())))
             return false;
         CachedBeanCopier.copy(get(et.getIbzprosystplid()),et);
         return true;
     }
 
     @Override
+    @Transactional
     public void updateBatch(List<IBZProSysTpl> list) {
         updateBatchById(list,batchSize);
     }
@@ -88,6 +92,7 @@ public class IBZProSysTplServiceImpl extends ServiceImpl<IBZProSysTplMapper, IBZ
     }
 
     @Override
+    @Transactional
     public void removeBatch(Collection<String> idList) {
         removeByIds(idList);
     }
@@ -133,12 +138,14 @@ public class IBZProSysTplServiceImpl extends ServiceImpl<IBZProSysTplMapper, IBZ
     }
 
     @Override
+    @Transactional
     public boolean saveBatch(Collection<IBZProSysTpl> list) {
         saveOrUpdateBatch(list,batchSize);
         return true;
     }
 
     @Override
+    @Transactional
     public void saveBatch(List<IBZProSysTpl> list) {
         saveOrUpdateBatch(list,batchSize);
     }
@@ -148,7 +155,6 @@ public class IBZProSysTplServiceImpl extends ServiceImpl<IBZProSysTplMapper, IBZ
     public List<IBZProSysTpl> selectByFile(Long id) {
         return baseMapper.selectByFile(id);
     }
-
     @Override
     public void removeByFile(Long id) {
         this.remove(new QueryWrapper<IBZProSysTpl>().eq("file",id));
@@ -213,6 +219,9 @@ public class IBZProSysTplServiceImpl extends ServiceImpl<IBZProSysTplMapper, IBZ
         else
            return entities;
     }
+
+
+
 
 }
 

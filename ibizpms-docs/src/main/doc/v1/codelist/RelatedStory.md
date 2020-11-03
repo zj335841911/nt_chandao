@@ -16,5 +16,5 @@
 | 项目 | 说明 |
 | ---- | ---- |
 | 实体 | [需求](../module/zentao/Story) |
-| 结果集合 | [DEFAULT（Default）]() |
+| 结果集合 | [DEFAULT（Default）](../module/zentao/Story/#数据集合-DEFAULT（Default）) |
 

@@ -22,6 +22,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.util.ObjectUtils;
 import org.springframework.beans.factory.annotation.Value;
+import cn.ibizlab.pms.util.errors.BadRequestAlertException;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.context.annotation.Lazy;
 import cn.ibizlab.pms.core.ibizsysmodel.domain.PSSysApp;
@@ -46,7 +47,7 @@ public class PSSysAppServiceImpl implements IPSSysAppService {
 
 //    @Autowired
     PSSysAppFeignClient pSSysAppFeignClient;
-    
+
     @Value("${ibiz.ref.service.ibizpssysmodelapi-sysmodelapi.serviceid:}")
     private String serviceName;
 
@@ -58,7 +59,7 @@ public class PSSysAppServiceImpl implements IPSSysAppService {
 
     @Value("${ibiz.ref.service.ibizpssysmodelapi-sysmodelapi.password:password}")
     private String password;
-    
+
     public PSSysAppFeignClient getPSSysAppFeignClient(String devSlnSysId) {
         if(StringUtils.isNotBlank(serviceName)){
             return OutsideAccessorUtils.buildAccessor(SpringContextHolder.getApplicationContext(), PSSysAppFeignClient.class, serviceName, false, serviceName, false, loginname, password,devSlnSysId);
@@ -242,6 +243,13 @@ public class PSSysAppServiceImpl implements IPSSysAppService {
     }
 
     @Override
+    public List<PSSysApp> selectByPssysserviceapiid(Collection<String> ids) {
+        //暂未支持
+        return null;
+    }
+
+
+    @Override
     public void removeByPssysserviceapiid(String pssysserviceapiid) {
         Set<String> delIds=new HashSet<String>();
         for(PSSysApp before:selectByPssysserviceapiid(pssysserviceapiid)){
@@ -292,6 +300,7 @@ public class PSSysAppServiceImpl implements IPSSysAppService {
         Page<PSSysApp> pSSysApps=getPSSysAppFeignClient(devSlnSysId).searchDefault(context);
         return pSSysApps;
     }
+
 
 
 

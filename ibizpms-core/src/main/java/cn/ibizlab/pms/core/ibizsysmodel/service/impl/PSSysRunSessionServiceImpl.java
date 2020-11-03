@@ -22,6 +22,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.util.ObjectUtils;
 import org.springframework.beans.factory.annotation.Value;
+import cn.ibizlab.pms.util.errors.BadRequestAlertException;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.context.annotation.Lazy;
 import cn.ibizlab.pms.core.ibizsysmodel.domain.PSSysRunSession;
@@ -46,7 +47,7 @@ public class PSSysRunSessionServiceImpl implements IPSSysRunSessionService {
 
 //    @Autowired
     PSSysRunSessionFeignClient pSSysRunSessionFeignClient;
-    
+
     @Value("${ibiz.ref.service.ibizpssysmodelapi-sysmodelapi.serviceid:}")
     private String serviceName;
 
@@ -58,7 +59,7 @@ public class PSSysRunSessionServiceImpl implements IPSSysRunSessionService {
 
     @Value("${ibiz.ref.service.ibizpssysmodelapi-sysmodelapi.password:password}")
     private String password;
-    
+
     public PSSysRunSessionFeignClient getPSSysRunSessionFeignClient(String devSlnSysId) {
         if(StringUtils.isNotBlank(serviceName)){
             return OutsideAccessorUtils.buildAccessor(SpringContextHolder.getApplicationContext(), PSSysRunSessionFeignClient.class, serviceName, false, serviceName, false, loginname, password,devSlnSysId);
@@ -241,6 +242,7 @@ public class PSSysRunSessionServiceImpl implements IPSSysRunSessionService {
         return getPSSysRunSessionFeignClient(devSlnSysId).searchDefault(context).getContent();
     }
 
+
     @Override
     public void removeByPssysappid(String pssysappid) {
         Set<String> delIds=new HashSet<String>();
@@ -276,6 +278,7 @@ public class PSSysRunSessionServiceImpl implements IPSSysRunSessionService {
         context.setN_pssysappid2_eq(pssysappid);
         return getPSSysRunSessionFeignClient(devSlnSysId).searchDefault(context).getContent();
     }
+
 
     @Override
     public void removeByPssysappid2(String pssysappid) {
@@ -313,6 +316,7 @@ public class PSSysRunSessionServiceImpl implements IPSSysRunSessionService {
         return getPSSysRunSessionFeignClient(devSlnSysId).searchDefault(context).getContent();
     }
 
+
     @Override
     public void removeByPssysserviceapiid(String pssysserviceapiid) {
         Set<String> delIds=new HashSet<String>();
@@ -349,6 +353,7 @@ public class PSSysRunSessionServiceImpl implements IPSSysRunSessionService {
         Page<PSSysRunSession> pSSysRunSessions=getPSSysRunSessionFeignClient(devSlnSysId).searchDefault(context);
         return pSSysRunSessions;
     }
+
 
 
 

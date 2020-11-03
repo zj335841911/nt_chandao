@@ -16,5 +16,5 @@
 | 项目 | 说明 |
 | ---- | ---- |
 | 实体 | [版本](../module/zentao/Build) |
-| 结果集合 | [Bug产品版本（BugProductBuild）]() |
+| 结果集合 | [Bug产品版本（BugProductBuild）](../module/zentao/Build/#数据集合-Bug产品版本（BugProductBuild）) |
 

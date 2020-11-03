@@ -11,6 +11,7 @@ import java.math.BigInteger;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.scheduling.annotation.Async;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.cache.annotation.CacheEvict;
 
@@ -35,9 +36,11 @@ public interface ISysDepartmentService{
     boolean save(SysDepartment et) ;
     void saveBatch(List<SysDepartment> list) ;
     Page<SysDepartment> searchDefault(SysDepartmentSearchContext context) ;
-    List<SysDepartment> selectByParentdeptid(String deptid) ;
+    List<SysDepartment> selectByParentdeptid(String deptid);
+    List<SysDepartment> selectByParentdeptid(Collection<String> ids);
     void removeByParentdeptid(String deptid) ;
-    List<SysDepartment> selectByOrgid(String orgid) ;
+    List<SysDepartment> selectByOrgid(String orgid);
+    List<SysDepartment> selectByOrgid(Collection<String> ids);
     void removeByOrgid(String orgid) ;
     void saveByOrgid(String orgid,List<SysDepartment> list) ;
 

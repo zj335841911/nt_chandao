@@ -22,6 +22,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.util.ObjectUtils;
 import org.springframework.beans.factory.annotation.Value;
+import cn.ibizlab.pms.util.errors.BadRequestAlertException;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.context.annotation.Lazy;
 import cn.ibizlab.pms.core.ibiz.domain.IbzCase;
@@ -35,6 +36,7 @@ import cn.ibizlab.pms.util.helper.DEFieldCacheMap;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import cn.ibizlab.pms.core.ibiz.mapper.IbzCaseMapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.util.StringUtils;
@@ -135,6 +137,7 @@ public class IbzCaseServiceImpl extends ServiceImpl<IbzCaseMapper, IbzCase> impl
     }
 
     @Override
+    @Transactional
     public boolean saveBatch(Collection<IbzCase> list) {
         list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
@@ -142,6 +145,7 @@ public class IbzCaseServiceImpl extends ServiceImpl<IbzCaseMapper, IbzCase> impl
     }
 
     @Override
+    @Transactional
     public void saveBatch(List<IbzCase> list) {
         list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
@@ -152,7 +156,6 @@ public class IbzCaseServiceImpl extends ServiceImpl<IbzCaseMapper, IbzCase> impl
     public List<IbzCase> selectByModule(Long id) {
         return baseMapper.selectByModule(id);
     }
-
     @Override
     public void removeByModule(Long id) {
         this.remove(new QueryWrapper<IbzCase>().eq("module",id));
@@ -162,7 +165,6 @@ public class IbzCaseServiceImpl extends ServiceImpl<IbzCaseMapper, IbzCase> impl
     public List<IbzCase> selectByLib(Long id) {
         return baseMapper.selectByLib(id);
     }
-
     @Override
     public void removeByLib(Long id) {
         this.remove(new QueryWrapper<IbzCase>().eq("lib",id));
@@ -233,6 +235,9 @@ public class IbzCaseServiceImpl extends ServiceImpl<IbzCaseMapper, IbzCase> impl
         log.warn("暂未支持的SQL语法");
         return true;
     }
+
+
+
 
 
 }

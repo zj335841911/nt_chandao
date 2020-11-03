@@ -22,6 +22,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.util.ObjectUtils;
 import org.springframework.beans.factory.annotation.Value;
+import cn.ibizlab.pms.util.errors.BadRequestAlertException;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.context.annotation.Lazy;
 import cn.ibizlab.pms.core.zentao.domain.TestReport;
@@ -35,6 +36,7 @@ import cn.ibizlab.pms.util.helper.DEFieldCacheMap;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import cn.ibizlab.pms.core.zentao.mapper.TestReportMapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.util.StringUtils;
@@ -219,6 +221,7 @@ public class TestReportServiceImpl extends ServiceImpl<TestReportMapper, TestRep
     }
 
     @Override
+    @Transactional
     public boolean saveBatch(Collection<TestReport> list) {
         list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
@@ -226,6 +229,7 @@ public class TestReportServiceImpl extends ServiceImpl<TestReportMapper, TestRep
     }
 
     @Override
+    @Transactional
     public void saveBatch(List<TestReport> list) {
         list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
@@ -236,7 +240,6 @@ public class TestReportServiceImpl extends ServiceImpl<TestReportMapper, TestRep
     public List<TestReport> selectByProduct(Long id) {
         return baseMapper.selectByProduct(id);
     }
-
     @Override
     public void removeByProduct(Long id) {
         this.remove(new QueryWrapper<TestReport>().eq("product",id));
@@ -246,7 +249,6 @@ public class TestReportServiceImpl extends ServiceImpl<TestReportMapper, TestRep
     public List<TestReport> selectByProject(Long id) {
         return baseMapper.selectByProject(id);
     }
-
     @Override
     public void removeByProject(Long id) {
         this.remove(new QueryWrapper<TestReport>().eq("project",id));
@@ -317,6 +319,9 @@ public class TestReportServiceImpl extends ServiceImpl<TestReportMapper, TestRep
         log.warn("暂未支持的SQL语法");
         return true;
     }
+
+
+
 
 
 }

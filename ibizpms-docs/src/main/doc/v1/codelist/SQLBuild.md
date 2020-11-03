@@ -16,5 +16,5 @@
 | 项目 | 说明 |
 | ---- | ---- |
 | 实体 | [系统数据库](../module/ibizsysmodel/PSSystemDBCfg) |
-| 结果集合 | [版本（Build）]() |
+| 结果集合 | [版本（Build）](../module/ibizsysmodel/PSSystemDBCfg/#数据集合-版本（Build）) |
 

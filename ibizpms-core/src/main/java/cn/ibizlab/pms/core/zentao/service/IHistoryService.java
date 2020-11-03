@@ -11,12 +11,12 @@ import java.math.BigInteger;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.scheduling.annotation.Async;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.cache.annotation.CacheEvict;
 
 import cn.ibizlab.pms.core.zentao.domain.History;
 import cn.ibizlab.pms.core.zentao.filter.HistorySearchContext;
-
 
 import com.baomidou.mybatisplus.extension.service.IService;
 
@@ -37,7 +37,7 @@ public interface IHistoryService extends IService<History>{
     boolean save(History et) ;
     void saveBatch(List<History> list) ;
     Page<History> searchDefault(HistorySearchContext context) ;
-    List<History> selectByAction(Long id) ;
+    List<History> selectByAction(Long id);
     void removeByAction(Long id) ;
     /**
      *自定义查询SQL

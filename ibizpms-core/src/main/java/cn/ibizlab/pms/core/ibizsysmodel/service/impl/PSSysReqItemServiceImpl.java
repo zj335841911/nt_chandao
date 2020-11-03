@@ -22,6 +22,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.util.ObjectUtils;
 import org.springframework.beans.factory.annotation.Value;
+import cn.ibizlab.pms.util.errors.BadRequestAlertException;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.context.annotation.Lazy;
 import cn.ibizlab.pms.core.ibizsysmodel.domain.PSSysReqItem;
@@ -46,7 +47,7 @@ public class PSSysReqItemServiceImpl implements IPSSysReqItemService {
 
 //    @Autowired
     PSSysReqItemFeignClient pSSysReqItemFeignClient;
-    
+
     @Value("${ibiz.ref.service.ibizpssysmodelapi-sysmodelapi.serviceid:}")
     private String serviceName;
 
@@ -58,7 +59,7 @@ public class PSSysReqItemServiceImpl implements IPSSysReqItemService {
 
     @Value("${ibiz.ref.service.ibizpssysmodelapi-sysmodelapi.password:password}")
     private String password;
-    
+
     public PSSysReqItemFeignClient getPSSysReqItemFeignClient(String devSlnSysId) {
         if(StringUtils.isNotBlank(serviceName)){
             return OutsideAccessorUtils.buildAccessor(SpringContextHolder.getApplicationContext(), PSSysReqItemFeignClient.class, serviceName, false, serviceName, false, loginname, password,devSlnSysId);
@@ -242,6 +243,11 @@ public class PSSysReqItemServiceImpl implements IPSSysReqItemService {
     }
 
     @Override
+    public void removeByPpssysreqitemid(Collection<String> ids) {
+    }
+
+
+    @Override
     public void removeByPpssysreqitemid(String pssysreqitemid) {
         Set<String> delIds=new HashSet<String>();
         for(PSSysReqItem before:selectByPpssysreqitemid(pssysreqitemid)){
@@ -276,6 +282,13 @@ public class PSSysReqItemServiceImpl implements IPSSysReqItemService {
         context.setN_pssysreqmoduleid_eq(pssysreqmoduleid);
         return getPSSysReqItemFeignClient(devSlnSysId).searchDefault(context).getContent();
     }
+
+    @Override
+    public List<PSSysReqItem> selectByPssysreqmoduleid(Collection<String> ids) {
+        //暂未支持
+        return null;
+    }
+
 
     @Override
     public void removeByPssysreqmoduleid(String pssysreqmoduleid) {
@@ -313,6 +326,7 @@ public class PSSysReqItemServiceImpl implements IPSSysReqItemService {
         Page<PSSysReqItem> pSSysReqItems=getPSSysReqItemFeignClient(devSlnSysId).searchDefault(context);
         return pSSysReqItems;
     }
+
 
 
 

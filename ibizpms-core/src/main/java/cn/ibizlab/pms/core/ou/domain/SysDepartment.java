@@ -18,6 +18,8 @@ import cn.ibizlab.pms.util.domain.EntityBase;
 import cn.ibizlab.pms.util.annotation.DEField;
 import cn.ibizlab.pms.util.enums.DEPredefinedFieldType;
 import cn.ibizlab.pms.util.enums.DEFieldDefaultValueType;
+import cn.ibizlab.pms.util.helper.DataObject;
+import cn.ibizlab.pms.util.enums.DupCheck;
 import java.io.Serializable;
 import lombok.*;
 import org.springframework.data.annotation.Transient;
@@ -30,7 +32,7 @@ import cn.ibizlab.pms.util.domain.EntityClient;
  */
 @Data
 public class SysDepartment extends EntityClient implements Serializable {
-    
+
     /**
      * 部门标识
      */

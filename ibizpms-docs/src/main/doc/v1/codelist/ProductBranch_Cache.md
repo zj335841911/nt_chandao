@@ -16,5 +16,5 @@
 | 项目 | 说明 |
 | ---- | ---- |
 | 实体 | [产品的分支和平台信息](../module/zentao/Branch) |
-| 结果集合 | [CurProduct（CurProduct）]() |
+| 结果集合 | [CurProduct（CurProduct）](../module/zentao/Branch/#数据集合-CurProduct（CurProduct）) |
 

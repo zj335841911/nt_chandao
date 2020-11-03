@@ -16,5 +16,5 @@
 | 项目 | 说明 |
 | ---- | ---- |
 | 实体 | [系统数据库](../module/ibizsysmodel/PSSystemDBCfg) |
-| 结果集合 | [数据集（Default）]() |
+| 结果集合 | [数据集（Default）](../module/ibizsysmodel/PSSystemDBCfg/#数据集合-数据集（Default）) |
 

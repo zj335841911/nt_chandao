@@ -16,5 +16,5 @@
 | 项目 | 说明 |
 | ---- | ---- |
 | 实体 | [用例步骤](../module/zentao/CaseStep) |
-| 结果集合 | [版本1（Versions）]() |
+| 结果集合 | [版本1（Versions）](../module/zentao/CaseStep/#数据集合-版本1（Versions）) |
 

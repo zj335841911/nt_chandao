@@ -11,12 +11,12 @@ import java.math.BigInteger;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.scheduling.annotation.Async;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.cache.annotation.CacheEvict;
 
 import cn.ibizlab.pms.core.zentao.domain.Burn;
 import cn.ibizlab.pms.core.zentao.filter.BurnSearchContext;
-
 
 import com.baomidou.mybatisplus.extension.service.IService;
 
@@ -39,9 +39,9 @@ public interface IBurnService extends IService<Burn>{
     void saveBatch(List<Burn> list) ;
     Page<Burn> searchDefault(BurnSearchContext context) ;
     Page<Burn> searchESTIMATEANDLEFT(BurnSearchContext context) ;
-    List<Burn> selectByProject(Long id) ;
+    List<Burn> selectByProject(Long id);
     void removeByProject(Long id) ;
-    List<Burn> selectByTask(Long id) ;
+    List<Burn> selectByTask(Long id);
     void removeByTask(Long id) ;
     /**
      *自定义查询SQL

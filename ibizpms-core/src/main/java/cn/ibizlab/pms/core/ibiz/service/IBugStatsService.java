@@ -11,12 +11,12 @@ import java.math.BigInteger;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.scheduling.annotation.Async;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.cache.annotation.CacheEvict;
 
 import cn.ibizlab.pms.core.ibiz.domain.BugStats;
 import cn.ibizlab.pms.core.ibiz.filter.BugStatsSearchContext;
-
 
 import com.baomidou.mybatisplus.extension.service.IService;
 
@@ -39,7 +39,7 @@ public interface IBugStatsService extends IService<BugStats>{
     Page<BugStats> searchBugassignedTo(BugStatsSearchContext context) ;
     Page<BugStats> searchDefault(BugStatsSearchContext context) ;
     Page<BugStats> searchProductCreateBug(BugStatsSearchContext context) ;
-    List<BugStats> selectByProduct(Long id) ;
+    List<BugStats> selectByProduct(Long id);
     void removeByProduct(Long id) ;
     /**
      *自定义查询SQL

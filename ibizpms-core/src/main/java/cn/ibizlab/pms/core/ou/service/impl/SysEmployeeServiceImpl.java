@@ -22,6 +22,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.util.ObjectUtils;
 import org.springframework.beans.factory.annotation.Value;
+import cn.ibizlab.pms.util.errors.BadRequestAlertException;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.context.annotation.Lazy;
 import cn.ibizlab.pms.core.ou.domain.SysEmployee;
@@ -46,7 +47,7 @@ public class SysEmployeeServiceImpl implements ISysEmployeeService {
 
     @Autowired
     SysEmployeeFeignClient sysEmployeeFeignClient;
-    
+
 
 
     @Override
@@ -146,6 +147,15 @@ public class SysEmployeeServiceImpl implements ISysEmployeeService {
 
 
     @Override
+    public void resetByMdeptid(String deptid) {
+    }
+
+    @Override
+    public void resetByMdeptid(Collection<String> ids) {
+    }
+
+
+    @Override
     public void removeByMdeptid(String deptid) {
         Set<String> delIds=new HashSet<String>();
         for(SysEmployee before:selectByMdeptid(deptid)){
@@ -162,6 +172,15 @@ public class SysEmployeeServiceImpl implements ISysEmployeeService {
         context.setSize(Integer.MAX_VALUE);
         context.setN_orgid_eq(orgid);
         return sysEmployeeFeignClient.searchDefault(context).getContent();
+    }
+
+
+    @Override
+    public void resetByOrgid(String orgid) {
+    }
+
+    @Override
+    public void resetByOrgid(Collection<String> ids) {
     }
 
 
@@ -246,6 +265,7 @@ public class SysEmployeeServiceImpl implements ISysEmployeeService {
         Page<SysEmployee> sysEmployees=sysEmployeeFeignClient.searchTaskTeam(context);
         return sysEmployees;
     }
+
 
 
 

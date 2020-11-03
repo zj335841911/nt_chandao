@@ -22,6 +22,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.util.ObjectUtils;
 import org.springframework.beans.factory.annotation.Value;
+import cn.ibizlab.pms.util.errors.BadRequestAlertException;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.context.annotation.Lazy;
 import cn.ibizlab.pms.core.ibizsysmodel.domain.PSModule;
@@ -46,7 +47,7 @@ public class PSModuleServiceImpl implements IPSModuleService {
 
 //    @Autowired
     PSModuleFeignClient pSModuleFeignClient;
-    
+
     @Value("${ibiz.ref.service.ibizpssysmodelapi-sysmodelapi.serviceid:}")
     private String serviceName;
 
@@ -58,7 +59,7 @@ public class PSModuleServiceImpl implements IPSModuleService {
 
     @Value("${ibiz.ref.service.ibizpssysmodelapi-sysmodelapi.password:password}")
     private String password;
-    
+
     public PSModuleFeignClient getPSModuleFeignClient(String devSlnSysId) {
         if(StringUtils.isNotBlank(serviceName)){
             return OutsideAccessorUtils.buildAccessor(SpringContextHolder.getApplicationContext(), PSModuleFeignClient.class, serviceName, false, serviceName, false, loginname, password,devSlnSysId);
@@ -241,6 +242,7 @@ public class PSModuleServiceImpl implements IPSModuleService {
         Page<PSModule> pSModules=getPSModuleFeignClient(devSlnSysId).searchDefault(context);
         return pSModules;
     }
+
 
 
 

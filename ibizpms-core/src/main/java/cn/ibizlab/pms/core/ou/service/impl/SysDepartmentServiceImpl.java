@@ -22,6 +22,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.util.ObjectUtils;
 import org.springframework.beans.factory.annotation.Value;
+import cn.ibizlab.pms.util.errors.BadRequestAlertException;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.context.annotation.Lazy;
 import cn.ibizlab.pms.core.ou.domain.SysDepartment;
@@ -46,7 +47,7 @@ public class SysDepartmentServiceImpl implements ISysDepartmentService {
 
     @Autowired
     SysDepartmentFeignClient sysDepartmentFeignClient;
-    
+
 
 
     @Override
@@ -146,6 +147,13 @@ public class SysDepartmentServiceImpl implements ISysDepartmentService {
 
 
     @Override
+    public List<SysDepartment> selectByParentdeptid(Collection<String> ids) {
+        //暂未支持
+        return null;
+    }
+
+
+    @Override
     public void removeByParentdeptid(String deptid) {
         Set<String> delIds=new HashSet<String>();
         for(SysDepartment before:selectByParentdeptid(deptid)){
@@ -162,6 +170,13 @@ public class SysDepartmentServiceImpl implements ISysDepartmentService {
         context.setSize(Integer.MAX_VALUE);
         context.setN_orgid_eq(orgid);
         return sysDepartmentFeignClient.searchDefault(context).getContent();
+    }
+
+
+    @Override
+    public List<SysDepartment> selectByOrgid(Collection<String> ids) {
+        //暂未支持
+        return null;
     }
 
 
@@ -219,6 +234,7 @@ public class SysDepartmentServiceImpl implements ISysDepartmentService {
         Page<SysDepartment> sysDepartments=sysDepartmentFeignClient.searchDefault(context);
         return sysDepartments;
     }
+
 
 
 

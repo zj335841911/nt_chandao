@@ -22,6 +22,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.util.ObjectUtils;
 import org.springframework.beans.factory.annotation.Value;
+import cn.ibizlab.pms.util.errors.BadRequestAlertException;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.context.annotation.Lazy;
 import cn.ibizlab.pms.core.zentao.domain.Bug;
@@ -35,6 +36,7 @@ import cn.ibizlab.pms.util.helper.DEFieldCacheMap;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import cn.ibizlab.pms.core.zentao.mapper.BugMapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.util.StringUtils;
@@ -289,6 +291,7 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
     }
 
     @Override
+    @Transactional
     public boolean saveBatch(Collection<Bug> list) {
         list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
@@ -296,6 +299,7 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
     }
 
     @Override
+    @Transactional
     public void saveBatch(List<Bug> list) {
         list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
@@ -361,7 +365,6 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
     public List<Bug> selectByBranch(Long id) {
         return baseMapper.selectByBranch(id);
     }
-
     @Override
     public void removeByBranch(Long id) {
         this.remove(new QueryWrapper<Bug>().eq("branch",id));
@@ -371,7 +374,6 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
     public List<Bug> selectByDuplicatebug(Long id) {
         return baseMapper.selectByDuplicatebug(id);
     }
-
     @Override
     public void removeByDuplicatebug(Long id) {
         this.remove(new QueryWrapper<Bug>().eq("duplicatebug",id));
@@ -381,7 +383,6 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
     public List<Bug> selectByIbizcase(Long id) {
         return baseMapper.selectByIbizcase(id);
     }
-
     @Override
     public void removeByIbizcase(Long id) {
         this.remove(new QueryWrapper<Bug>().eq("case",id));
@@ -391,7 +392,6 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
     public List<Bug> selectByEntry(Long id) {
         return baseMapper.selectByEntry(id);
     }
-
     @Override
     public void removeByEntry(Long id) {
         this.remove(new QueryWrapper<Bug>().eq("entry",id));
@@ -401,7 +401,6 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
     public List<Bug> selectByModule(Long id) {
         return baseMapper.selectByModule(id);
     }
-
     @Override
     public void removeByModule(Long id) {
         this.remove(new QueryWrapper<Bug>().eq("module",id));
@@ -411,7 +410,6 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
     public List<Bug> selectByPlan(Long id) {
         return baseMapper.selectByPlan(id);
     }
-
     @Override
     public void removeByPlan(Long id) {
         this.remove(new QueryWrapper<Bug>().eq("plan",id));
@@ -421,7 +419,6 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
     public List<Bug> selectByProduct(Long id) {
         return baseMapper.selectByProduct(id);
     }
-
     @Override
     public void removeByProduct(Long id) {
         this.remove(new QueryWrapper<Bug>().eq("product",id));
@@ -431,7 +428,6 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
     public List<Bug> selectByProject(Long id) {
         return baseMapper.selectByProject(id);
     }
-
     @Override
     public void removeByProject(Long id) {
         this.remove(new QueryWrapper<Bug>().eq("project",id));
@@ -441,7 +437,6 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
     public List<Bug> selectByRepo(Long id) {
         return baseMapper.selectByRepo(id);
     }
-
     @Override
     public void removeByRepo(Long id) {
         this.remove(new QueryWrapper<Bug>().eq("repo",id));
@@ -451,7 +446,6 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
     public List<Bug> selectByStory(Long id) {
         return baseMapper.selectByStory(id);
     }
-
     @Override
     public void removeByStory(Long id) {
         this.remove(new QueryWrapper<Bug>().eq("story",id));
@@ -461,7 +455,6 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
     public List<Bug> selectByTostory(Long id) {
         return baseMapper.selectByTostory(id);
     }
-
     @Override
     public void removeByTostory(Long id) {
         this.remove(new QueryWrapper<Bug>().eq("tostory",id));
@@ -471,7 +464,6 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
     public List<Bug> selectByTask(Long id) {
         return baseMapper.selectByTask(id);
     }
-
     @Override
     public void removeByTask(Long id) {
         this.remove(new QueryWrapper<Bug>().eq("task",id));
@@ -481,7 +473,6 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
     public List<Bug> selectByTotask(Long id) {
         return baseMapper.selectByTotask(id);
     }
-
     @Override
     public void removeByTotask(Long id) {
         this.remove(new QueryWrapper<Bug>().eq("totask",id));
@@ -491,7 +482,6 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
     public List<Bug> selectByTesttask(Long id) {
         return baseMapper.selectByTesttask(id);
     }
-
     @Override
     public void removeByTesttask(Long id) {
         this.remove(new QueryWrapper<Bug>().eq("testtask",id));
@@ -857,6 +847,9 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
         log.warn("暂未支持的SQL语法");
         return true;
     }
+
+
+
 
 
 }

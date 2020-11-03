@@ -22,6 +22,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.util.ObjectUtils;
 import org.springframework.beans.factory.annotation.Value;
+import cn.ibizlab.pms.util.errors.BadRequestAlertException;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.context.annotation.Lazy;
 import cn.ibizlab.pms.core.zentao.domain.StoryStage;
@@ -35,6 +36,7 @@ import cn.ibizlab.pms.util.helper.DEFieldCacheMap;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import cn.ibizlab.pms.core.zentao.mapper.StoryStageMapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.util.StringUtils;
@@ -66,6 +68,7 @@ public class StoryStageServiceImpl extends ServiceImpl<StoryStageMapper, StorySt
     }
 
     @Override
+    @Transactional
     public void createBatch(List<StoryStage> list) {
         list.forEach(item->fillParentData(item));
         this.saveBatch(list,batchSize);
@@ -75,13 +78,14 @@ public class StoryStageServiceImpl extends ServiceImpl<StoryStageMapper, StorySt
     @Transactional
     public boolean update(StoryStage et) {
         fillParentData(et);
-        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
+         if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
             return false;
         CachedBeanCopier.copy(get(et.getId()),et);
         return true;
     }
 
     @Override
+    @Transactional
     public void updateBatch(List<StoryStage> list) {
         list.forEach(item->fillParentData(item));
         updateBatchById(list,batchSize);
@@ -95,6 +99,7 @@ public class StoryStageServiceImpl extends ServiceImpl<StoryStageMapper, StorySt
     }
 
     @Override
+    @Transactional
     public void removeBatch(Collection<String> idList) {
         removeByIds(idList);
     }
@@ -141,6 +146,7 @@ public class StoryStageServiceImpl extends ServiceImpl<StoryStageMapper, StorySt
     }
 
     @Override
+    @Transactional
     public boolean saveBatch(Collection<StoryStage> list) {
         list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
@@ -148,6 +154,7 @@ public class StoryStageServiceImpl extends ServiceImpl<StoryStageMapper, StorySt
     }
 
     @Override
+    @Transactional
     public void saveBatch(List<StoryStage> list) {
         list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
@@ -158,7 +165,6 @@ public class StoryStageServiceImpl extends ServiceImpl<StoryStageMapper, StorySt
     public List<StoryStage> selectByBranch(Long id) {
         return baseMapper.selectByBranch(id);
     }
-
     @Override
     public void removeByBranch(Long id) {
         this.remove(new QueryWrapper<StoryStage>().eq("branch",id));
@@ -168,7 +174,6 @@ public class StoryStageServiceImpl extends ServiceImpl<StoryStageMapper, StorySt
     public List<StoryStage> selectByStory(Long id) {
         return baseMapper.selectByStory(id);
     }
-
     @Override
     public void removeByStory(Long id) {
         this.remove(new QueryWrapper<StoryStage>().eq("story",id));
@@ -230,6 +235,9 @@ public class StoryStageServiceImpl extends ServiceImpl<StoryStageMapper, StorySt
         log.warn("暂未支持的SQL语法");
         return true;
     }
+
+
+
 
 
 }

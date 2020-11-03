@@ -11,12 +11,12 @@ import java.math.BigInteger;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.scheduling.annotation.Async;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.cache.annotation.CacheEvict;
 
 import cn.ibizlab.pms.core.zentao.domain.Task;
 import cn.ibizlab.pms.core.zentao.filter.TaskSearchContext;
-
 
 import com.baomidou.mybatisplus.extension.service.IService;
 
@@ -69,15 +69,15 @@ public interface ITaskService extends IService<Task>{
     Page<Task> searchRootTask(TaskSearchContext context) ;
     Page<Task> searchTodoListTask(TaskSearchContext context) ;
     Page<HashMap> searchTypeGroup(TaskSearchContext context) ;
-    List<Task> selectByModule(Long id) ;
+    List<Task> selectByModule(Long id);
     void removeByModule(Long id) ;
-    List<Task> selectByFrombug(Long id) ;
+    List<Task> selectByFrombug(Long id);
     void removeByFrombug(Long id) ;
-    List<Task> selectByProject(Long id) ;
+    List<Task> selectByProject(Long id);
     void removeByProject(Long id) ;
-    List<Task> selectByStory(Long id) ;
+    List<Task> selectByStory(Long id);
     void removeByStory(Long id) ;
-    List<Task> selectByParent(Long id) ;
+    List<Task> selectByParent(Long id);
     void removeByParent(Long id) ;
     /**
      *自定义查询SQL

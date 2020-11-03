@@ -22,6 +22,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.util.ObjectUtils;
 import org.springframework.beans.factory.annotation.Value;
+import cn.ibizlab.pms.util.errors.BadRequestAlertException;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.context.annotation.Lazy;
 import cn.ibizlab.pms.core.zentao.domain.Module;
@@ -35,6 +36,7 @@ import cn.ibizlab.pms.util.helper.DEFieldCacheMap;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import cn.ibizlab.pms.core.zentao.mapper.ModuleMapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.util.StringUtils;
@@ -77,6 +79,7 @@ public class ModuleServiceImpl extends ServiceImpl<ModuleMapper, Module> impleme
     }
 
     @Override
+    @Transactional
     public void createBatch(List<Module> list) {
         list.forEach(item->fillParentData(item));
         this.saveBatch(list,batchSize);
@@ -154,6 +157,7 @@ public class ModuleServiceImpl extends ServiceImpl<ModuleMapper, Module> impleme
     }
 
     @Override
+    @Transactional
     public boolean saveBatch(Collection<Module> list) {
         list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
@@ -161,6 +165,7 @@ public class ModuleServiceImpl extends ServiceImpl<ModuleMapper, Module> impleme
     }
 
     @Override
+    @Transactional
     public void saveBatch(List<Module> list) {
         list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
@@ -171,7 +176,6 @@ public class ModuleServiceImpl extends ServiceImpl<ModuleMapper, Module> impleme
     public List<Module> selectByBranch(Long id) {
         return baseMapper.selectByBranch(id);
     }
-
     @Override
     public void removeByBranch(Long id) {
         this.remove(new QueryWrapper<Module>().eq("branch",id));
@@ -181,7 +185,6 @@ public class ModuleServiceImpl extends ServiceImpl<ModuleMapper, Module> impleme
     public List<Module> selectByParent(Long id) {
         return baseMapper.selectByParent(id);
     }
-
     @Override
     public void removeByParent(Long id) {
         this.remove(new QueryWrapper<Module>().eq("parent",id));
@@ -278,6 +281,9 @@ public class ModuleServiceImpl extends ServiceImpl<ModuleMapper, Module> impleme
         log.warn("暂未支持的SQL语法");
         return true;
     }
+
+
+
 
 
 }

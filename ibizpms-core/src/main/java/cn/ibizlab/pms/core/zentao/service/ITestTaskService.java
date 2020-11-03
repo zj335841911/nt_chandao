@@ -11,12 +11,12 @@ import java.math.BigInteger;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.scheduling.annotation.Async;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.cache.annotation.CacheEvict;
 
 import cn.ibizlab.pms.core.zentao.domain.TestTask;
 import cn.ibizlab.pms.core.zentao.filter.TestTaskSearchContext;
-
 
 import com.baomidou.mybatisplus.extension.service.IService;
 
@@ -43,13 +43,16 @@ public interface ITestTaskService extends IService<TestTask>{
     TestTask start(TestTask et) ;
     TestTask unlinkCase(TestTask et) ;
     Page<TestTask> searchDefault(TestTaskSearchContext context) ;
-    List<TestTask> selectByBuild(Long id) ;
+    List<TestTask> selectByBuild(Long id);
     void removeByBuild(Long id) ;
-    List<TestTask> selectByProduct(Long id) ;
+    List<TestTask> selectByProduct(Long id);
     void removeByProduct(Long id) ;
-    List<TestTask> selectByProject(Long id) ;
+    List<TestTask> selectByProject(Long id);
     void removeByProject(Long id) ;
     JSONObject importData(List<TestTask> entities,int batchSize,boolean isIgnoreError);
+
+    @Async("asyncExecutor")
+    void asyncImportData(List<TestTask> entities,int batchSize,boolean isIgnoreError);
     /**
      *自定义查询SQL
      * @param sql  select * from table where id =#{et.param}

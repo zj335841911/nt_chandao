@@ -11,12 +11,12 @@ import java.math.BigInteger;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.scheduling.annotation.Async;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.cache.annotation.CacheEvict;
 
 import cn.ibizlab.pms.core.ibiz.domain.SysUpdateFeatures;
 import cn.ibizlab.pms.core.ibiz.filter.SysUpdateFeaturesSearchContext;
-
 
 import com.baomidou.mybatisplus.extension.service.IService;
 
@@ -37,7 +37,8 @@ public interface ISysUpdateFeaturesService extends IService<SysUpdateFeatures>{
     boolean save(SysUpdateFeatures et) ;
     void saveBatch(List<SysUpdateFeatures> list) ;
     Page<SysUpdateFeatures> searchDefault(SysUpdateFeaturesSearchContext context) ;
-    List<SysUpdateFeatures> selectBySysupdatelogid(String sysupdatelogid) ;
+    List<SysUpdateFeatures> selectBySysupdatelogid(String sysupdatelogid);
+    void removeBySysupdatelogid(Collection<String> ids);
     void removeBySysupdatelogid(String sysupdatelogid) ;
     /**
      *自定义查询SQL

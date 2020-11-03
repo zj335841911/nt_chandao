@@ -16,5 +16,5 @@
 | 项目 | 说明 |
 | ---- | ---- |
 | 实体 | [项目](../module/zentao/Project) |
-| 结果集合 | [当前项目（CurProduct）]() |
+| 结果集合 | [当前项目（CurProduct）](../module/zentao/Project/#数据集合-当前项目（CurProduct）) |
 

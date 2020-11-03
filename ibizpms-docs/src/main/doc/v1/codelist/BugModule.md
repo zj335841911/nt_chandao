@@ -16,5 +16,5 @@
 | 项目 | 说明 |
 | ---- | ---- |
 | 实体 | [模块](../module/zentao/Module) |
-| 结果集合 | [BugModule（BugModule）]() |
+| 结果集合 | [BugModule（BugModule）](../module/zentao/Module/#数据集合-BugModule（BugModule）) |
 

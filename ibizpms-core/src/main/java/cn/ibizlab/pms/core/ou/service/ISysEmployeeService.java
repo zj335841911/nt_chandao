@@ -11,6 +11,7 @@ import java.math.BigInteger;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.scheduling.annotation.Async;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.cache.annotation.CacheEvict;
 
@@ -41,9 +42,13 @@ public interface ISysEmployeeService{
     Page<SysEmployee> searchProjectTeamUser_Task(SysEmployeeSearchContext context) ;
     Page<SysEmployee> searchTaskMTeam(SysEmployeeSearchContext context) ;
     Page<SysEmployee> searchTaskTeam(SysEmployeeSearchContext context) ;
-    List<SysEmployee> selectByMdeptid(String deptid) ;
+    List<SysEmployee> selectByMdeptid(String deptid);
+    void resetByMdeptid(String deptid);
+    void resetByMdeptid(Collection<String> ids);
     void removeByMdeptid(String deptid) ;
-    List<SysEmployee> selectByOrgid(String orgid) ;
+    List<SysEmployee> selectByOrgid(String orgid);
+    void resetByOrgid(String orgid);
+    void resetByOrgid(Collection<String> ids);
     void removeByOrgid(String orgid) ;
 
 

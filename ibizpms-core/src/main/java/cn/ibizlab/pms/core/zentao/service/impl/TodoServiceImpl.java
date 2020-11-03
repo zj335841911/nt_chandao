@@ -22,6 +22,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.util.ObjectUtils;
 import org.springframework.beans.factory.annotation.Value;
+import cn.ibizlab.pms.util.errors.BadRequestAlertException;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.context.annotation.Lazy;
 import cn.ibizlab.pms.core.zentao.domain.Todo;
@@ -35,6 +36,7 @@ import cn.ibizlab.pms.util.helper.DEFieldCacheMap;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import cn.ibizlab.pms.core.zentao.mapper.TodoMapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.util.StringUtils;
@@ -167,12 +169,14 @@ public class TodoServiceImpl extends ServiceImpl<TodoMapper, Todo> implements IT
     }
 
     @Override
+    @Transactional
     public boolean saveBatch(Collection<Todo> list) {
         saveOrUpdateBatch(list,batchSize);
         return true;
     }
 
     @Override
+    @Transactional
     public void saveBatch(List<Todo> list) {
         saveOrUpdateBatch(list,batchSize);
     }
@@ -271,6 +275,9 @@ public class TodoServiceImpl extends ServiceImpl<TodoMapper, Todo> implements IT
         log.warn("暂未支持的SQL语法");
         return true;
     }
+
+
+
 
 
 }

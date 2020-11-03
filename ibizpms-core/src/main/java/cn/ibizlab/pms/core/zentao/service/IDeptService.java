@@ -11,12 +11,12 @@ import java.math.BigInteger;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.scheduling.annotation.Async;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.cache.annotation.CacheEvict;
 
 import cn.ibizlab.pms.core.zentao.domain.Dept;
 import cn.ibizlab.pms.core.zentao.filter.DeptSearchContext;
-
 
 import com.baomidou.mybatisplus.extension.service.IService;
 
@@ -38,7 +38,7 @@ public interface IDeptService extends IService<Dept>{
     void saveBatch(List<Dept> list) ;
     Page<Dept> searchDefault(DeptSearchContext context) ;
     Page<Dept> searchRoot(DeptSearchContext context) ;
-    List<Dept> selectByParent(Long id) ;
+    List<Dept> selectByParent(Long id);
     void removeByParent(Long id) ;
     /**
      *自定义查询SQL

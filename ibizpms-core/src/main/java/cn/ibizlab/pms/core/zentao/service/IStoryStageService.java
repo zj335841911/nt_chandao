@@ -11,12 +11,12 @@ import java.math.BigInteger;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.scheduling.annotation.Async;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.cache.annotation.CacheEvict;
 
 import cn.ibizlab.pms.core.zentao.domain.StoryStage;
 import cn.ibizlab.pms.core.zentao.filter.StoryStageSearchContext;
-
 
 import com.baomidou.mybatisplus.extension.service.IService;
 
@@ -37,9 +37,9 @@ public interface IStoryStageService extends IService<StoryStage>{
     boolean save(StoryStage et) ;
     void saveBatch(List<StoryStage> list) ;
     Page<StoryStage> searchDefault(StoryStageSearchContext context) ;
-    List<StoryStage> selectByBranch(Long id) ;
+    List<StoryStage> selectByBranch(Long id);
     void removeByBranch(Long id) ;
-    List<StoryStage> selectByStory(Long id) ;
+    List<StoryStage> selectByStory(Long id);
     void removeByStory(Long id) ;
     /**
      *自定义查询SQL

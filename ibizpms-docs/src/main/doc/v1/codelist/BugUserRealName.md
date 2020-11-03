@@ -16,5 +16,5 @@ BugUser
 | 项目 | 说明 |
 | ---- | ---- |
 | 实体 | [人员](../module/ou/SysEmployee) |
-| 结果集合 | [Bug用户（BugUser）]() |
+| 结果集合 | [Bug用户（BugUser）](../module/ou/SysEmployee/#数据集合-Bug用户（BugUser）) |
 

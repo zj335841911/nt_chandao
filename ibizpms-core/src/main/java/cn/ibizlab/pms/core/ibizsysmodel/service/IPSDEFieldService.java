@@ -11,6 +11,7 @@ import java.math.BigInteger;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.scheduling.annotation.Async;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.cache.annotation.CacheEvict;
 
@@ -35,17 +36,23 @@ public interface IPSDEFieldService{
     boolean save(PSDEField et) ;
     void saveBatch(List<PSDEField> list) ;
     Page<PSDEField> searchDefault(PSDEFieldSearchContext context) ;
-    List<PSDEField> selectByPsdeid(String psdataentityid) ;
+    List<PSDEField> selectByPsdeid(String psdataentityid);
+    void removeByPsdeid(Collection<String> ids);
     void removeByPsdeid(String psdataentityid) ;
-    List<PSDEField> selectByDerpsdefid(String psdefieldid) ;
+    List<PSDEField> selectByDerpsdefid(String psdefieldid);
+    List<PSDEField> selectByDerpsdefid(Collection<String> ids);
     void removeByDerpsdefid(String psdefieldid) ;
-    List<PSDEField> selectByDupcheckpsdefid(String psdefieldid) ;
+    List<PSDEField> selectByDupcheckpsdefid(String psdefieldid);
+    List<PSDEField> selectByDupcheckpsdefid(Collection<String> ids);
     void removeByDupcheckpsdefid(String psdefieldid) ;
-    List<PSDEField> selectByNo2dupchkpsdefid(String psdefieldid) ;
+    List<PSDEField> selectByNo2dupchkpsdefid(String psdefieldid);
+    List<PSDEField> selectByNo2dupchkpsdefid(Collection<String> ids);
     void removeByNo2dupchkpsdefid(String psdefieldid) ;
-    List<PSDEField> selectByNo3dupchkpsdefid(String psdefieldid) ;
+    List<PSDEField> selectByNo3dupchkpsdefid(String psdefieldid);
+    List<PSDEField> selectByNo3dupchkpsdefid(Collection<String> ids);
     void removeByNo3dupchkpsdefid(String psdefieldid) ;
-    List<PSDEField> selectByValuepsdefid(String psdefieldid) ;
+    List<PSDEField> selectByValuepsdefid(String psdefieldid);
+    List<PSDEField> selectByValuepsdefid(Collection<String> ids);
     void removeByValuepsdefid(String psdefieldid) ;
 
     boolean create(String devSlnSysId , PSDEField et) ;

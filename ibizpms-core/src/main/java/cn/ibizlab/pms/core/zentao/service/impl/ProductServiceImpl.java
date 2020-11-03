@@ -22,6 +22,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.util.ObjectUtils;
 import org.springframework.beans.factory.annotation.Value;
+import cn.ibizlab.pms.util.errors.BadRequestAlertException;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.context.annotation.Lazy;
 import cn.ibizlab.pms.core.zentao.domain.Product;
@@ -35,6 +36,7 @@ import cn.ibizlab.pms.util.helper.DEFieldCacheMap;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import cn.ibizlab.pms.core.zentao.mapper.ProductMapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.util.StringUtils;
@@ -240,6 +242,7 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
     }
 
     @Override
+    @Transactional
     public boolean saveBatch(Collection<Product> list) {
         list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
@@ -247,6 +250,7 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
     }
 
     @Override
+    @Transactional
     public void saveBatch(List<Product> list) {
         list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
@@ -257,7 +261,6 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
     public List<Product> selectByLine(Long id) {
         return baseMapper.selectByLine(id);
     }
-
     @Override
     public void removeByLine(Long id) {
         this.remove(new QueryWrapper<Product>().eq("line",id));
@@ -372,6 +375,9 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
         log.warn("暂未支持的SQL语法");
         return true;
     }
+
+
+
 
 
 }

@@ -11,6 +11,7 @@ import java.math.BigInteger;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.scheduling.annotation.Async;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.cache.annotation.CacheEvict;
 
@@ -35,11 +36,11 @@ public interface IPSSysRunSessionService{
     boolean save(PSSysRunSession et) ;
     void saveBatch(List<PSSysRunSession> list) ;
     Page<PSSysRunSession> searchDefault(PSSysRunSessionSearchContext context) ;
-    List<PSSysRunSession> selectByPssysappid(String pssysappid) ;
+    List<PSSysRunSession> selectByPssysappid(String pssysappid);
     void removeByPssysappid(String pssysappid) ;
-    List<PSSysRunSession> selectByPssysappid2(String pssysappid) ;
+    List<PSSysRunSession> selectByPssysappid2(String pssysappid);
     void removeByPssysappid2(String pssysappid) ;
-    List<PSSysRunSession> selectByPssysserviceapiid(String pssysserviceapiid) ;
+    List<PSSysRunSession> selectByPssysserviceapiid(String pssysserviceapiid);
     void removeByPssysserviceapiid(String pssysserviceapiid) ;
 
     boolean create(String devSlnSysId , PSSysRunSession et) ;

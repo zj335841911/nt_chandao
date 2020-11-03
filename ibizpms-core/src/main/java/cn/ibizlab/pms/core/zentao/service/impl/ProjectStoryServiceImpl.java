@@ -22,6 +22,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.util.ObjectUtils;
 import org.springframework.beans.factory.annotation.Value;
+import cn.ibizlab.pms.util.errors.BadRequestAlertException;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.context.annotation.Lazy;
 import cn.ibizlab.pms.core.zentao.domain.ProjectStory;
@@ -35,6 +36,7 @@ import cn.ibizlab.pms.util.helper.DEFieldCacheMap;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import cn.ibizlab.pms.core.zentao.mapper.ProjectStoryMapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.util.StringUtils;
@@ -69,6 +71,7 @@ public class ProjectStoryServiceImpl extends ServiceImpl<ProjectStoryMapper, Pro
     }
 
     @Override
+    @Transactional
     public void createBatch(List<ProjectStory> list) {
         list.forEach(item->fillParentData(item));
         this.saveBatch(list,batchSize);
@@ -78,13 +81,14 @@ public class ProjectStoryServiceImpl extends ServiceImpl<ProjectStoryMapper, Pro
     @Transactional
     public boolean update(ProjectStory et) {
         fillParentData(et);
-        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
+         if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
             return false;
         CachedBeanCopier.copy(get(et.getId()),et);
         return true;
     }
 
     @Override
+    @Transactional
     public void updateBatch(List<ProjectStory> list) {
         list.forEach(item->fillParentData(item));
         updateBatchById(list,batchSize);
@@ -98,6 +102,7 @@ public class ProjectStoryServiceImpl extends ServiceImpl<ProjectStoryMapper, Pro
     }
 
     @Override
+    @Transactional
     public void removeBatch(Collection<String> idList) {
         removeByIds(idList);
     }
@@ -144,6 +149,7 @@ public class ProjectStoryServiceImpl extends ServiceImpl<ProjectStoryMapper, Pro
     }
 
     @Override
+    @Transactional
     public boolean saveBatch(Collection<ProjectStory> list) {
         list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
@@ -151,6 +157,7 @@ public class ProjectStoryServiceImpl extends ServiceImpl<ProjectStoryMapper, Pro
     }
 
     @Override
+    @Transactional
     public void saveBatch(List<ProjectStory> list) {
         list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
@@ -161,7 +168,6 @@ public class ProjectStoryServiceImpl extends ServiceImpl<ProjectStoryMapper, Pro
     public List<ProjectStory> selectByProduct(Long id) {
         return baseMapper.selectByProduct(id);
     }
-
     @Override
     public void removeByProduct(Long id) {
         this.remove(new QueryWrapper<ProjectStory>().eq("product",id));
@@ -171,7 +177,6 @@ public class ProjectStoryServiceImpl extends ServiceImpl<ProjectStoryMapper, Pro
     public List<ProjectStory> selectByProject(Long id) {
         return baseMapper.selectByProject(id);
     }
-
     @Override
     public void removeByProject(Long id) {
         this.remove(new QueryWrapper<ProjectStory>().eq("project",id));
@@ -181,7 +186,6 @@ public class ProjectStoryServiceImpl extends ServiceImpl<ProjectStoryMapper, Pro
     public List<ProjectStory> selectByStory(Long id) {
         return baseMapper.selectByStory(id);
     }
-
     @Override
     public void removeByStory(Long id) {
         this.remove(new QueryWrapper<ProjectStory>().eq("story",id));
@@ -242,6 +246,9 @@ public class ProjectStoryServiceImpl extends ServiceImpl<ProjectStoryMapper, Pro
         log.warn("暂未支持的SQL语法");
         return true;
     }
+
+
+
 
 
 }

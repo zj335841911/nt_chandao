@@ -16,5 +16,5 @@
 | 项目 | 说明 |
 | ---- | ---- |
 | 实体 | [需求描述](../module/zentao/StorySpec) |
-| 结果集合 | [版本（Version）]() |
+| 结果集合 | [版本（Version）](../module/zentao/StorySpec/#数据集合-版本（Version）) |
 

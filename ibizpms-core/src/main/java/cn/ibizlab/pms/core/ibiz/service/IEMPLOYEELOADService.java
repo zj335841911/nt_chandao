@@ -11,12 +11,12 @@ import java.math.BigInteger;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.scheduling.annotation.Async;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.cache.annotation.CacheEvict;
 
 import cn.ibizlab.pms.core.ibiz.domain.EMPLOYEELOAD;
 import cn.ibizlab.pms.core.ibiz.filter.EMPLOYEELOADSearchContext;
-
 
 import com.baomidou.mybatisplus.extension.service.IService;
 
@@ -38,7 +38,7 @@ public interface IEMPLOYEELOADService extends IService<EMPLOYEELOAD>{
     void saveBatch(List<EMPLOYEELOAD> list) ;
     Page<EMPLOYEELOAD> searchDefault(EMPLOYEELOADSearchContext context) ;
     Page<EMPLOYEELOAD> searchGETWOERKLOAD(EMPLOYEELOADSearchContext context) ;
-    List<EMPLOYEELOAD> selectByProject(Long id) ;
+    List<EMPLOYEELOAD> selectByProject(Long id);
     void removeByProject(Long id) ;
     /**
      *自定义查询SQL

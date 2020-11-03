@@ -22,6 +22,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.util.ObjectUtils;
 import org.springframework.beans.factory.annotation.Value;
+import cn.ibizlab.pms.util.errors.BadRequestAlertException;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.context.annotation.Lazy;
 import cn.ibizlab.pms.core.ibizsysmodel.domain.PSSubSysServiceAPI;
@@ -46,7 +47,7 @@ public class PSSubSysServiceAPIServiceImpl implements IPSSubSysServiceAPIService
 
 //    @Autowired
     PSSubSysServiceAPIFeignClient pSSubSysServiceAPIFeignClient;
-    
+
     @Value("${ibiz.ref.service.ibizpssysmodelapi-sysmodelapi.serviceid:}")
     private String serviceName;
 
@@ -58,7 +59,7 @@ public class PSSubSysServiceAPIServiceImpl implements IPSSubSysServiceAPIService
 
     @Value("${ibiz.ref.service.ibizpssysmodelapi-sysmodelapi.password:password}")
     private String password;
-    
+
     public PSSubSysServiceAPIFeignClient getPSSubSysServiceAPIFeignClient(String devSlnSysId) {
         if(StringUtils.isNotBlank(serviceName)){
             return OutsideAccessorUtils.buildAccessor(SpringContextHolder.getApplicationContext(), PSSubSysServiceAPIFeignClient.class, serviceName, false, serviceName, false, loginname, password,devSlnSysId);
@@ -242,6 +243,13 @@ public class PSSubSysServiceAPIServiceImpl implements IPSSubSysServiceAPIService
     }
 
     @Override
+    public List<PSSubSysServiceAPI> selectByPsmoduleid(Collection<String> ids) {
+        //暂未支持
+        return null;
+    }
+
+
+    @Override
     public void removeByPsmoduleid(String psmoduleid) {
         Set<String> delIds=new HashSet<String>();
         for(PSSubSysServiceAPI before:selectByPsmoduleid(psmoduleid)){
@@ -276,6 +284,13 @@ public class PSSubSysServiceAPIServiceImpl implements IPSSubSysServiceAPIService
         context.setN_pssysserviceapiid_eq(pssysserviceapiid);
         return getPSSubSysServiceAPIFeignClient(devSlnSysId).searchDefault(context).getContent();
     }
+
+    @Override
+    public List<PSSubSysServiceAPI> selectByPssysserviceapiid(Collection<String> ids) {
+        //暂未支持
+        return null;
+    }
+
 
     @Override
     public void removeByPssysserviceapiid(String pssysserviceapiid) {
@@ -313,6 +328,7 @@ public class PSSubSysServiceAPIServiceImpl implements IPSSubSysServiceAPIService
         Page<PSSubSysServiceAPI> pSSubSysServiceAPIs=getPSSubSysServiceAPIFeignClient(devSlnSysId).searchDefault(context);
         return pSSubSysServiceAPIs;
     }
+
 
 
 

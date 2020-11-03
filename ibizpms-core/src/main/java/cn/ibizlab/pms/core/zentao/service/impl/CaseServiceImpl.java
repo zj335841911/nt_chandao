@@ -22,6 +22,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.util.ObjectUtils;
 import org.springframework.beans.factory.annotation.Value;
+import cn.ibizlab.pms.util.errors.BadRequestAlertException;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.context.annotation.Lazy;
 import cn.ibizlab.pms.core.zentao.domain.Case;
@@ -35,6 +36,7 @@ import cn.ibizlab.pms.util.helper.DEFieldCacheMap;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import cn.ibizlab.pms.core.zentao.mapper.CaseMapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.util.StringUtils;
@@ -241,6 +243,7 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
     }
 
     @Override
+    @Transactional
     public boolean saveBatch(Collection<Case> list) {
         list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
@@ -248,6 +251,7 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
     }
 
     @Override
+    @Transactional
     public void saveBatch(List<Case> list) {
         list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
@@ -303,7 +307,6 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
     public List<Case> selectByBranch(Long id) {
         return baseMapper.selectByBranch(id);
     }
-
     @Override
     public void removeByBranch(Long id) {
         this.remove(new QueryWrapper<Case>().eq("branch",id));
@@ -313,7 +316,6 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
     public List<Case> selectByFrombug(Long id) {
         return baseMapper.selectByFrombug(id);
     }
-
     @Override
     public void removeByFrombug(Long id) {
         this.remove(new QueryWrapper<Case>().eq("frombug",id));
@@ -323,7 +325,6 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
     public List<Case> selectByFromcaseid(Long id) {
         return baseMapper.selectByFromcaseid(id);
     }
-
     @Override
     public void removeByFromcaseid(Long id) {
         this.remove(new QueryWrapper<Case>().eq("fromcaseid",id));
@@ -333,7 +334,6 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
     public List<Case> selectByModule(Long id) {
         return baseMapper.selectByModule(id);
     }
-
     @Override
     public void removeByModule(Long id) {
         this.remove(new QueryWrapper<Case>().eq("module",id));
@@ -343,7 +343,6 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
     public List<Case> selectByProduct(Long id) {
         return baseMapper.selectByProduct(id);
     }
-
     @Override
     public void removeByProduct(Long id) {
         this.remove(new QueryWrapper<Case>().eq("product",id));
@@ -353,7 +352,6 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
     public List<Case> selectByStory(Long id) {
         return baseMapper.selectByStory(id);
     }
-
     @Override
     public void removeByStory(Long id) {
         this.remove(new QueryWrapper<Case>().eq("story",id));
@@ -363,7 +361,6 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
     public List<Case> selectByLib(Long id) {
         return baseMapper.selectByLib(id);
     }
-
     @Override
     public void removeByLib(Long id) {
         this.remove(new QueryWrapper<Case>().eq("lib",id));
@@ -636,6 +633,9 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
         log.warn("暂未支持的SQL语法");
         return true;
     }
+
+
+
 
 
 }

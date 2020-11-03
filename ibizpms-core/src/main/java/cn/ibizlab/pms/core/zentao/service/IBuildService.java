@@ -11,12 +11,12 @@ import java.math.BigInteger;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.scheduling.annotation.Async;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.cache.annotation.CacheEvict;
 
 import cn.ibizlab.pms.core.zentao.domain.Build;
 import cn.ibizlab.pms.core.zentao.filter.BuildSearchContext;
-
 
 import com.baomidou.mybatisplus.extension.service.IService;
 
@@ -44,11 +44,11 @@ public interface IBuildService extends IService<Build>{
     Page<Build> searchTestBuild(BuildSearchContext context) ;
     Page<Build> searchTestRounds(BuildSearchContext context) ;
     Page<Build> searchUpdateLog(BuildSearchContext context) ;
-    List<Build> selectByBranch(Long id) ;
+    List<Build> selectByBranch(Long id);
     void removeByBranch(Long id) ;
-    List<Build> selectByProduct(Long id) ;
+    List<Build> selectByProduct(Long id);
     void removeByProduct(Long id) ;
-    List<Build> selectByProject(Long id) ;
+    List<Build> selectByProject(Long id);
     void removeByProject(Long id) ;
     /**
      *自定义查询SQL

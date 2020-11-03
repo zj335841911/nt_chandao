@@ -11,6 +11,7 @@ import java.math.BigInteger;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.scheduling.annotation.Async;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.cache.annotation.CacheEvict;
 
@@ -35,13 +36,17 @@ public interface IPSDataEntityService{
     boolean save(PSDataEntity et) ;
     void saveBatch(List<PSDataEntity> list) ;
     Page<PSDataEntity> searchDefault(PSDataEntitySearchContext context) ;
-    List<PSDataEntity> selectByPsmoduleid(String psmoduleid) ;
+    List<PSDataEntity> selectByPsmoduleid(String psmoduleid);
+    List<PSDataEntity> selectByPsmoduleid(Collection<String> ids);
     void removeByPsmoduleid(String psmoduleid) ;
-    List<PSDataEntity> selectByPssubsyssadeid(String pssubsyssadeid) ;
+    List<PSDataEntity> selectByPssubsyssadeid(String pssubsyssadeid);
+    List<PSDataEntity> selectByPssubsyssadeid(Collection<String> ids);
     void removeByPssubsyssadeid(String pssubsyssadeid) ;
-    List<PSDataEntity> selectByPssubsysserviceapiid(String pssubsysserviceapiid) ;
+    List<PSDataEntity> selectByPssubsysserviceapiid(String pssubsysserviceapiid);
+    List<PSDataEntity> selectByPssubsysserviceapiid(Collection<String> ids);
     void removeByPssubsysserviceapiid(String pssubsysserviceapiid) ;
-    List<PSDataEntity> selectByPssysreqitemid(String pssysreqitemid) ;
+    List<PSDataEntity> selectByPssysreqitemid(String pssysreqitemid);
+    List<PSDataEntity> selectByPssysreqitemid(Collection<String> ids);
     void removeByPssysreqitemid(String pssysreqitemid) ;
 
     boolean create(String devSlnSysId , PSDataEntity et) ;

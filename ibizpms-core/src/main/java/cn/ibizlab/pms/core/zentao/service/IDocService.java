@@ -11,12 +11,12 @@ import java.math.BigInteger;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.scheduling.annotation.Async;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.cache.annotation.CacheEvict;
 
 import cn.ibizlab.pms.core.zentao.domain.Doc;
 import cn.ibizlab.pms.core.zentao.filter.DocSearchContext;
-
 
 import com.baomidou.mybatisplus.extension.service.IService;
 
@@ -37,13 +37,13 @@ public interface IDocService extends IService<Doc>{
     boolean save(Doc et) ;
     void saveBatch(List<Doc> list) ;
     Page<Doc> searchDefault(DocSearchContext context) ;
-    List<Doc> selectByLib(Long id) ;
+    List<Doc> selectByLib(Long id);
     void removeByLib(Long id) ;
-    List<Doc> selectByModule(Long id) ;
+    List<Doc> selectByModule(Long id);
     void removeByModule(Long id) ;
-    List<Doc> selectByProduct(Long id) ;
+    List<Doc> selectByProduct(Long id);
     void removeByProduct(Long id) ;
-    List<Doc> selectByProject(Long id) ;
+    List<Doc> selectByProject(Long id);
     void removeByProject(Long id) ;
     /**
      *自定义查询SQL

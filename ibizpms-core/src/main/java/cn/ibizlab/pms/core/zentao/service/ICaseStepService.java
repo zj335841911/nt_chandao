@@ -11,12 +11,12 @@ import java.math.BigInteger;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.scheduling.annotation.Async;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.cache.annotation.CacheEvict;
 
 import cn.ibizlab.pms.core.zentao.domain.CaseStep;
 import cn.ibizlab.pms.core.zentao.filter.CaseStepSearchContext;
-
 
 import com.baomidou.mybatisplus.extension.service.IService;
 
@@ -42,10 +42,10 @@ public interface ICaseStepService extends IService<CaseStep>{
     Page<CaseStep> searchMob(CaseStepSearchContext context) ;
     Page<CaseStep> searchVersion(CaseStepSearchContext context) ;
     Page<CaseStep> searchVersions(CaseStepSearchContext context) ;
-    List<CaseStep> selectByIbizcase(Long id) ;
+    List<CaseStep> selectByIbizcase(Long id);
     void removeByIbizcase(Long id) ;
     void saveByIbizcase(Long id,List<CaseStep> list) ;
-    List<CaseStep> selectByParent(Long id) ;
+    List<CaseStep> selectByParent(Long id);
     void removeByParent(Long id) ;
     void saveByParent(Long id,List<CaseStep> list) ;
     /**

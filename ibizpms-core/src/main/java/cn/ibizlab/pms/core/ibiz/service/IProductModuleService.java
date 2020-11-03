@@ -11,12 +11,12 @@ import java.math.BigInteger;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.scheduling.annotation.Async;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.cache.annotation.CacheEvict;
 
 import cn.ibizlab.pms.core.ibiz.domain.ProductModule;
 import cn.ibizlab.pms.core.ibiz.filter.ProductModuleSearchContext;
-
 
 import com.baomidou.mybatisplus.extension.service.IService;
 
@@ -45,9 +45,9 @@ public interface IProductModuleService extends IService<ProductModule>{
     Page<ProductModule> searchRoot(ProductModuleSearchContext context) ;
     Page<ProductModule> searchRoot_NoBranch(ProductModuleSearchContext context) ;
     Page<ProductModule> searchStoryModule(ProductModuleSearchContext context) ;
-    List<ProductModule> selectByParent(Long id) ;
+    List<ProductModule> selectByParent(Long id);
     void removeByParent(Long id) ;
-    List<ProductModule> selectByRoot(Long id) ;
+    List<ProductModule> selectByRoot(Long id);
     void removeByRoot(Long id) ;
     /**
      *自定义查询SQL

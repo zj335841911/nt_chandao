@@ -16,5 +16,5 @@
 | 项目 | 说明 |
 | ---- | ---- |
 | 实体 | [产品计划](../module/zentao/ProductPlan) |
-| 结果集合 | [项目计划列表（ProjectPlan）]() |
+| 结果集合 | [项目计划列表（ProjectPlan）](../module/zentao/ProductPlan/#数据集合-项目计划列表（ProjectPlan）) |
 

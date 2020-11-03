@@ -22,6 +22,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.util.ObjectUtils;
 import org.springframework.beans.factory.annotation.Value;
+import cn.ibizlab.pms.util.errors.BadRequestAlertException;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.context.annotation.Lazy;
 import cn.ibizlab.pms.core.zentao.domain.Build;
@@ -35,6 +36,7 @@ import cn.ibizlab.pms.util.helper.DEFieldCacheMap;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import cn.ibizlab.pms.core.zentao.mapper.BuildMapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.util.StringUtils;
@@ -153,6 +155,7 @@ public class BuildServiceImpl extends ServiceImpl<BuildMapper, Build> implements
     }
 
     @Override
+    @Transactional
     public boolean saveBatch(Collection<Build> list) {
         list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
@@ -160,6 +163,7 @@ public class BuildServiceImpl extends ServiceImpl<BuildMapper, Build> implements
     }
 
     @Override
+    @Transactional
     public void saveBatch(List<Build> list) {
         list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
@@ -170,7 +174,6 @@ public class BuildServiceImpl extends ServiceImpl<BuildMapper, Build> implements
     public List<Build> selectByBranch(Long id) {
         return baseMapper.selectByBranch(id);
     }
-
     @Override
     public void removeByBranch(Long id) {
         this.remove(new QueryWrapper<Build>().eq("branch",id));
@@ -180,7 +183,6 @@ public class BuildServiceImpl extends ServiceImpl<BuildMapper, Build> implements
     public List<Build> selectByProduct(Long id) {
         return baseMapper.selectByProduct(id);
     }
-
     @Override
     public void removeByProduct(Long id) {
         this.remove(new QueryWrapper<Build>().eq("product",id));
@@ -190,7 +192,6 @@ public class BuildServiceImpl extends ServiceImpl<BuildMapper, Build> implements
     public List<Build> selectByProject(Long id) {
         return baseMapper.selectByProject(id);
     }
-
     @Override
     public void removeByProject(Long id) {
         this.remove(new QueryWrapper<Build>().eq("project",id));
@@ -296,6 +297,9 @@ public class BuildServiceImpl extends ServiceImpl<BuildMapper, Build> implements
         log.warn("暂未支持的SQL语法");
         return true;
     }
+
+
+
 
 
 }

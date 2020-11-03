@@ -22,6 +22,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.util.ObjectUtils;
 import org.springframework.beans.factory.annotation.Value;
+import cn.ibizlab.pms.util.errors.BadRequestAlertException;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.context.annotation.Lazy;
 import cn.ibizlab.pms.core.zentao.domain.TestTask;
@@ -35,6 +36,7 @@ import cn.ibizlab.pms.util.helper.DEFieldCacheMap;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import cn.ibizlab.pms.core.zentao.mapper.TestTaskMapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.util.StringUtils;
@@ -169,6 +171,7 @@ public class TestTaskServiceImpl extends ServiceImpl<TestTaskMapper, TestTask> i
     }
 
     @Override
+    @Transactional
     public boolean saveBatch(Collection<TestTask> list) {
         list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
@@ -176,6 +179,7 @@ public class TestTaskServiceImpl extends ServiceImpl<TestTaskMapper, TestTask> i
     }
 
     @Override
+    @Transactional
     public void saveBatch(List<TestTask> list) {
         list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
@@ -198,7 +202,6 @@ public class TestTaskServiceImpl extends ServiceImpl<TestTaskMapper, TestTask> i
     public List<TestTask> selectByBuild(Long id) {
         return baseMapper.selectByBuild(id);
     }
-
     @Override
     public void removeByBuild(Long id) {
         this.remove(new QueryWrapper<TestTask>().eq("build",id));
@@ -208,7 +211,6 @@ public class TestTaskServiceImpl extends ServiceImpl<TestTaskMapper, TestTask> i
     public List<TestTask> selectByProduct(Long id) {
         return baseMapper.selectByProduct(id);
     }
-
     @Override
     public void removeByProduct(Long id) {
         this.remove(new QueryWrapper<TestTask>().eq("product",id));
@@ -218,7 +220,6 @@ public class TestTaskServiceImpl extends ServiceImpl<TestTaskMapper, TestTask> i
     public List<TestTask> selectByProject(Long id) {
         return baseMapper.selectByProject(id);
     }
-
     @Override
     public void removeByProject(Long id) {
         this.remove(new QueryWrapper<TestTask>().eq("project",id));
@@ -332,10 +333,18 @@ public class TestTaskServiceImpl extends ServiceImpl<TestTaskMapper, TestTask> i
         //主键重复性判断.外键约束判断（上传数据自身的检查/数据库的检查）
         for(int i=0;i<entities.size();i++) {
             TestTask entity = entities.get(i);
-            Object id = entity.get(keyField);
+            Object id = entity.getId();
             if(ObjectUtils.isEmpty(id)) {
                 id = entity.getDefaultKey(true);
-                entity.set(keyField, id);
+                if(ObjectUtils.isEmpty(id)){
+                    Integer lineNum = i + 1;
+                    errorLines.add(lineNum);
+                    errorMsgs.add("第" + lineNum + "行：无法获取当前数据主键。");
+                    continue;
+                }
+                else{
+                    entity.setId((Long) id);
+                }
             }
             if(!ids.contains(id)){
                 ids.add(id);
@@ -354,8 +363,9 @@ public class TestTaskServiceImpl extends ServiceImpl<TestTaskMapper, TestTask> i
             }
         //实体关系[DER1N_ZT_TESTTASK_ZT_BUILD_BUILD]
         if(!ObjectUtils.isEmpty(entity.getBuild())){
-            cn.ibizlab.pms.core.zentao.domain.Build fkEntity=buildService.getById(entity.getBuild());
-            if(ObjectUtils.isEmpty(fkEntity)){
+            cn.ibizlab.pms.core.zentao.domain.Build fkEntity=new cn.ibizlab.pms.core.zentao.domain.Build();
+            fkEntity.setId(entity.getBuild());
+            if(!buildService.checkKey(fkEntity)){
                 Integer lineNum = i + 1;
                 errorLines.add(lineNum);
                 errorMsgs.add(String.format("第" + lineNum + "行：[%s]父数据有误。",entity.getBuild()));
@@ -370,8 +380,9 @@ public class TestTaskServiceImpl extends ServiceImpl<TestTaskMapper, TestTask> i
         }
         //实体关系[DER1N_ZT_TESTTASK_ZT_PRODUCT_PRODUCT]
         if(!ObjectUtils.isEmpty(entity.getProduct())){
-            cn.ibizlab.pms.core.zentao.domain.Product fkEntity=productService.getById(entity.getProduct());
-            if(ObjectUtils.isEmpty(fkEntity)){
+            cn.ibizlab.pms.core.zentao.domain.Product fkEntity=new cn.ibizlab.pms.core.zentao.domain.Product();
+            fkEntity.setId(entity.getProduct());
+            if(!productService.checkKey(fkEntity)){
                 Integer lineNum = i + 1;
                 errorLines.add(lineNum);
                 errorMsgs.add(String.format("第" + lineNum + "行：[%s]父数据有误。",entity.getProduct()));
@@ -386,8 +397,9 @@ public class TestTaskServiceImpl extends ServiceImpl<TestTaskMapper, TestTask> i
         }
         //实体关系[DER1N_ZT_TESTTASK_ZT_PROJECT_PROJECT]
         if(!ObjectUtils.isEmpty(entity.getProject())){
-            cn.ibizlab.pms.core.zentao.domain.Project fkEntity=projectService.getById(entity.getProject());
-            if(ObjectUtils.isEmpty(fkEntity)){
+            cn.ibizlab.pms.core.zentao.domain.Project fkEntity=new cn.ibizlab.pms.core.zentao.domain.Project();
+            fkEntity.setId(entity.getProject());
+            if(!projectService.checkKey(fkEntity)){
                 Integer lineNum = i + 1;
                 errorLines.add(lineNum);
                 errorMsgs.add(String.format("第" + lineNum + "行：[%s]父数据有误。",entity.getProject()));
@@ -451,19 +463,16 @@ public class TestTaskServiceImpl extends ServiceImpl<TestTaskMapper, TestTask> i
 
     @Transactional
     public JSONObject executeImportData(List<TestTask> entities, int batchSize ,boolean isIgnoreError) {
-
         JSONObject rs=testImportData(entities,isIgnoreError);
         if(rs.getInteger("rst")==1 && !isIgnoreError)
             return rs;
-
-        String keyField= DEFieldCacheMap.getDEKeyField(TestTask.class);
         List<TestTask> tempDEList=new ArrayList<>();
         Set tempIds=new HashSet<>();
 
         for(int i=0;i<entities.size();i++) {
             TestTask entity = entities.get(i);
             tempDEList.add(entity);
-            Object id=entity.get(keyField);
+            Object id=entity.getId();
             if(!ObjectUtils.isEmpty(id))
                 tempIds.add(id);
             if(tempDEList.size()>=batchSize || (tempDEList.size()<batchSize && i==entities.size()-1)){
@@ -484,19 +493,17 @@ public class TestTaskServiceImpl extends ServiceImpl<TestTaskMapper, TestTask> i
      */
     @Transactional
     public void commit(List<TestTask> entities, Set ids){
-
-        String keyField= DEFieldCacheMap.getDEKeyField(TestTask.class);
         List<TestTask> _create=new ArrayList<>();
         List<TestTask> _update=new ArrayList<>();
         Set oldIds=new HashSet<>();
         if(ids.size()>0){
             List<TestTask> oldEntities=this.listByIds(ids);
             for(TestTask entity:oldEntities){
-                oldIds.add(entity.get(keyField));
+                oldIds.add(entity.getId());
             }
         }
         for(TestTask entity:entities){
-            Object id=entity.get(keyField);
+            Object id=entity.getId();
             if(oldIds.contains(id))
                 _update.add(entity);
             else
@@ -507,6 +514,9 @@ public class TestTaskServiceImpl extends ServiceImpl<TestTaskMapper, TestTask> i
         if(_create.size()>0)
             proxyService.createBatch(_create);
     }
+
+
+
 }
 
 

@@ -22,6 +22,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.util.ObjectUtils;
 import org.springframework.beans.factory.annotation.Value;
+import cn.ibizlab.pms.util.errors.BadRequestAlertException;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.context.annotation.Lazy;
 import cn.ibizlab.pms.core.zentao.domain.Story;
@@ -35,6 +36,7 @@ import cn.ibizlab.pms.util.helper.DEFieldCacheMap;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import cn.ibizlab.pms.core.zentao.mapper.StoryMapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.util.StringUtils;
@@ -383,6 +385,7 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
     }
 
     @Override
+    @Transactional
     public boolean saveBatch(Collection<Story> list) {
         list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
@@ -390,6 +393,7 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
     }
 
     @Override
+    @Transactional
     public void saveBatch(List<Story> list) {
         list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
@@ -463,7 +467,6 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
     public List<Story> selectByModule(Long id) {
         return baseMapper.selectByModule(id);
     }
-
     @Override
     public void removeByModule(Long id) {
         this.remove(new QueryWrapper<Story>().eq("module",id));
@@ -473,7 +476,6 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
     public List<Story> selectByBranch(Long id) {
         return baseMapper.selectByBranch(id);
     }
-
     @Override
     public void removeByBranch(Long id) {
         this.remove(new QueryWrapper<Story>().eq("branch",id));
@@ -483,7 +485,6 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
     public List<Story> selectByFrombug(Long id) {
         return baseMapper.selectByFrombug(id);
     }
-
     @Override
     public void removeByFrombug(Long id) {
         this.remove(new QueryWrapper<Story>().eq("frombug",id));
@@ -493,7 +494,6 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
     public List<Story> selectByTobug(Long id) {
         return baseMapper.selectByTobug(id);
     }
-
     @Override
     public void removeByTobug(Long id) {
         this.remove(new QueryWrapper<Story>().eq("tobug",id));
@@ -503,7 +503,6 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
     public List<Story> selectByProduct(Long id) {
         return baseMapper.selectByProduct(id);
     }
-
     @Override
     public void removeByProduct(Long id) {
         this.remove(new QueryWrapper<Story>().eq("product",id));
@@ -513,7 +512,6 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
     public List<Story> selectByDuplicatestory(Long id) {
         return baseMapper.selectByDuplicatestory(id);
     }
-
     @Override
     public void removeByDuplicatestory(Long id) {
         this.remove(new QueryWrapper<Story>().eq("duplicatestory",id));
@@ -523,7 +521,6 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
     public List<Story> selectByParent(Long id) {
         return baseMapper.selectByParent(id);
     }
-
     @Override
     public void removeByParent(Long id) {
         this.remove(new QueryWrapper<Story>().eq("parent",id));
@@ -804,6 +801,9 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
         log.warn("暂未支持的SQL语法");
         return true;
     }
+
+
+
 
 
 }

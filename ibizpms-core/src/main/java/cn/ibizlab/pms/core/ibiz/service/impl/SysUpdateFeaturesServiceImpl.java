@@ -22,6 +22,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.util.ObjectUtils;
 import org.springframework.beans.factory.annotation.Value;
+import cn.ibizlab.pms.util.errors.BadRequestAlertException;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.context.annotation.Lazy;
 import cn.ibizlab.pms.core.ibiz.domain.SysUpdateFeatures;
@@ -35,6 +36,7 @@ import cn.ibizlab.pms.util.helper.DEFieldCacheMap;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import cn.ibizlab.pms.core.ibiz.mapper.SysUpdateFeaturesMapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.util.StringUtils;
@@ -63,6 +65,7 @@ public class SysUpdateFeaturesServiceImpl extends ServiceImpl<SysUpdateFeaturesM
     }
 
     @Override
+    @Transactional
     public void createBatch(List<SysUpdateFeatures> list) {
         list.forEach(item->fillParentData(item));
         this.saveBatch(list,batchSize);
@@ -72,13 +75,14 @@ public class SysUpdateFeaturesServiceImpl extends ServiceImpl<SysUpdateFeaturesM
     @Transactional
     public boolean update(SysUpdateFeatures et) {
         fillParentData(et);
-        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("sys_update_featuresid",et.getSysupdatefeaturesid())))
+         if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("sys_update_featuresid",et.getSysupdatefeaturesid())))
             return false;
         CachedBeanCopier.copy(get(et.getSysupdatefeaturesid()),et);
         return true;
     }
 
     @Override
+    @Transactional
     public void updateBatch(List<SysUpdateFeatures> list) {
         list.forEach(item->fillParentData(item));
         updateBatchById(list,batchSize);
@@ -92,6 +96,7 @@ public class SysUpdateFeaturesServiceImpl extends ServiceImpl<SysUpdateFeaturesM
     }
 
     @Override
+    @Transactional
     public void removeBatch(Collection<String> idList) {
         removeByIds(idList);
     }
@@ -138,6 +143,7 @@ public class SysUpdateFeaturesServiceImpl extends ServiceImpl<SysUpdateFeaturesM
     }
 
     @Override
+    @Transactional
     public boolean saveBatch(Collection<SysUpdateFeatures> list) {
         list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
@@ -145,6 +151,7 @@ public class SysUpdateFeaturesServiceImpl extends ServiceImpl<SysUpdateFeaturesM
     }
 
     @Override
+    @Transactional
     public void saveBatch(List<SysUpdateFeatures> list) {
         list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
@@ -154,6 +161,10 @@ public class SysUpdateFeaturesServiceImpl extends ServiceImpl<SysUpdateFeaturesM
 	@Override
     public List<SysUpdateFeatures> selectBySysupdatelogid(String sysupdatelogid) {
         return baseMapper.selectBySysupdatelogid(sysupdatelogid);
+    }
+    @Override
+    public void removeBySysupdatelogid(Collection<String> ids) {
+        this.remove(new QueryWrapper<SysUpdateFeatures>().in("sys_update_logid",ids));
     }
 
     @Override
@@ -236,6 +247,9 @@ public class SysUpdateFeaturesServiceImpl extends ServiceImpl<SysUpdateFeaturesM
         else
            return entities;
     }
+
+
+
 
 }
 

@@ -22,6 +22,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.util.ObjectUtils;
 import org.springframework.beans.factory.annotation.Value;
+import cn.ibizlab.pms.util.errors.BadRequestAlertException;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.context.annotation.Lazy;
 import cn.ibizlab.pms.core.ibiz.domain.IbzTop;
@@ -35,6 +36,7 @@ import cn.ibizlab.pms.util.helper.DEFieldCacheMap;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import cn.ibizlab.pms.core.ibiz.mapper.IbzTopMapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.util.StringUtils;
@@ -59,6 +61,7 @@ public class IbzTopServiceImpl extends ServiceImpl<IbzTopMapper, IbzTop> impleme
     }
 
     @Override
+    @Transactional
     public void createBatch(List<IbzTop> list) {
         this.saveBatch(list,batchSize);
     }
@@ -66,13 +69,14 @@ public class IbzTopServiceImpl extends ServiceImpl<IbzTopMapper, IbzTop> impleme
     @Override
     @Transactional
     public boolean update(IbzTop et) {
-        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("ibz_topid",et.getIbztopid())))
+         if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("ibz_topid",et.getIbztopid())))
             return false;
         CachedBeanCopier.copy(get(et.getIbztopid()),et);
         return true;
     }
 
     @Override
+    @Transactional
     public void updateBatch(List<IbzTop> list) {
         updateBatchById(list,batchSize);
     }
@@ -85,6 +89,7 @@ public class IbzTopServiceImpl extends ServiceImpl<IbzTopMapper, IbzTop> impleme
     }
 
     @Override
+    @Transactional
     public void removeBatch(Collection<String> idList) {
         removeByIds(idList);
     }
@@ -130,12 +135,14 @@ public class IbzTopServiceImpl extends ServiceImpl<IbzTopMapper, IbzTop> impleme
     }
 
     @Override
+    @Transactional
     public boolean saveBatch(Collection<IbzTop> list) {
         saveOrUpdateBatch(list,batchSize);
         return true;
     }
 
     @Override
+    @Transactional
     public void saveBatch(List<IbzTop> list) {
         saveOrUpdateBatch(list,batchSize);
     }
@@ -200,6 +207,9 @@ public class IbzTopServiceImpl extends ServiceImpl<IbzTopMapper, IbzTop> impleme
         else
            return entities;
     }
+
+
+
 
 }
 

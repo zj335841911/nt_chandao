@@ -11,12 +11,12 @@ import java.math.BigInteger;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.scheduling.annotation.Async;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.cache.annotation.CacheEvict;
 
 import cn.ibizlab.pms.core.zentao.domain.Branch;
 import cn.ibizlab.pms.core.zentao.filter.BranchSearchContext;
-
 
 import com.baomidou.mybatisplus.extension.service.IService;
 
@@ -39,7 +39,7 @@ public interface IBranchService extends IService<Branch>{
     Branch sort(Branch et) ;
     Page<Branch> searchCurProduct(BranchSearchContext context) ;
     Page<Branch> searchDefault(BranchSearchContext context) ;
-    List<Branch> selectByProduct(Long id) ;
+    List<Branch> selectByProduct(Long id);
     void removeByProduct(Long id) ;
     /**
      *自定义查询SQL

@@ -22,6 +22,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.util.ObjectUtils;
 import org.springframework.beans.factory.annotation.Value;
+import cn.ibizlab.pms.util.errors.BadRequestAlertException;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.context.annotation.Lazy;
 import cn.ibizlab.pms.core.zentao.domain.DocLib;
@@ -35,6 +36,7 @@ import cn.ibizlab.pms.util.helper.DEFieldCacheMap;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import cn.ibizlab.pms.core.zentao.mapper.DocLibMapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.util.StringUtils;
@@ -68,6 +70,7 @@ public class DocLibServiceImpl extends ServiceImpl<DocLibMapper, DocLib> impleme
     }
 
     @Override
+    @Transactional
     public void createBatch(List<DocLib> list) {
         this.saveBatch(list,batchSize);
     }
@@ -75,13 +78,14 @@ public class DocLibServiceImpl extends ServiceImpl<DocLibMapper, DocLib> impleme
     @Override
     @Transactional
     public boolean update(DocLib et) {
-        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
+         if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
             return false;
         CachedBeanCopier.copy(get(et.getId()),et);
         return true;
     }
 
     @Override
+    @Transactional
     public void updateBatch(List<DocLib> list) {
         updateBatchById(list,batchSize);
     }
@@ -94,6 +98,7 @@ public class DocLibServiceImpl extends ServiceImpl<DocLibMapper, DocLib> impleme
     }
 
     @Override
+    @Transactional
     public void removeBatch(Collection<Long> idList) {
         removeByIds(idList);
     }
@@ -139,12 +144,14 @@ public class DocLibServiceImpl extends ServiceImpl<DocLibMapper, DocLib> impleme
     }
 
     @Override
+    @Transactional
     public boolean saveBatch(Collection<DocLib> list) {
         saveOrUpdateBatch(list,batchSize);
         return true;
     }
 
     @Override
+    @Transactional
     public void saveBatch(List<DocLib> list) {
         saveOrUpdateBatch(list,batchSize);
     }
@@ -154,7 +161,6 @@ public class DocLibServiceImpl extends ServiceImpl<DocLibMapper, DocLib> impleme
     public List<DocLib> selectByProduct(Long id) {
         return baseMapper.selectByProduct(id);
     }
-
     @Override
     public void removeByProduct(Long id) {
         this.remove(new QueryWrapper<DocLib>().eq("product",id));
@@ -164,7 +170,6 @@ public class DocLibServiceImpl extends ServiceImpl<DocLibMapper, DocLib> impleme
     public List<DocLib> selectByProject(Long id) {
         return baseMapper.selectByProject(id);
     }
-
     @Override
     public void removeByProject(Long id) {
         this.remove(new QueryWrapper<DocLib>().eq("project",id));
@@ -209,6 +214,9 @@ public class DocLibServiceImpl extends ServiceImpl<DocLibMapper, DocLib> impleme
         log.warn("暂未支持的SQL语法");
         return true;
     }
+
+
+
 
 
 }

@@ -11,12 +11,12 @@ import java.math.BigInteger;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.scheduling.annotation.Async;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.cache.annotation.CacheEvict;
 
 import cn.ibizlab.pms.core.zentao.domain.Bug;
 import cn.ibizlab.pms.core.zentao.filter.BugSearchContext;
-
 
 import com.baomidou.mybatisplus.extension.service.IService;
 
@@ -85,33 +85,33 @@ public interface IBugService extends IService<Bug>{
     Page<Bug> searchReleaseLinkableLeftBug(BugSearchContext context) ;
     Page<Bug> searchReleaseLinkableResolvedBug(BugSearchContext context) ;
     Page<Bug> searchReportBugs(BugSearchContext context) ;
-    List<Bug> selectByBranch(Long id) ;
+    List<Bug> selectByBranch(Long id);
     void removeByBranch(Long id) ;
-    List<Bug> selectByDuplicatebug(Long id) ;
+    List<Bug> selectByDuplicatebug(Long id);
     void removeByDuplicatebug(Long id) ;
-    List<Bug> selectByIbizcase(Long id) ;
+    List<Bug> selectByIbizcase(Long id);
     void removeByIbizcase(Long id) ;
-    List<Bug> selectByEntry(Long id) ;
+    List<Bug> selectByEntry(Long id);
     void removeByEntry(Long id) ;
-    List<Bug> selectByModule(Long id) ;
+    List<Bug> selectByModule(Long id);
     void removeByModule(Long id) ;
-    List<Bug> selectByPlan(Long id) ;
+    List<Bug> selectByPlan(Long id);
     void removeByPlan(Long id) ;
-    List<Bug> selectByProduct(Long id) ;
+    List<Bug> selectByProduct(Long id);
     void removeByProduct(Long id) ;
-    List<Bug> selectByProject(Long id) ;
+    List<Bug> selectByProject(Long id);
     void removeByProject(Long id) ;
-    List<Bug> selectByRepo(Long id) ;
+    List<Bug> selectByRepo(Long id);
     void removeByRepo(Long id) ;
-    List<Bug> selectByStory(Long id) ;
+    List<Bug> selectByStory(Long id);
     void removeByStory(Long id) ;
-    List<Bug> selectByTostory(Long id) ;
+    List<Bug> selectByTostory(Long id);
     void removeByTostory(Long id) ;
-    List<Bug> selectByTask(Long id) ;
+    List<Bug> selectByTask(Long id);
     void removeByTask(Long id) ;
-    List<Bug> selectByTotask(Long id) ;
+    List<Bug> selectByTotask(Long id);
     void removeByTotask(Long id) ;
-    List<Bug> selectByTesttask(Long id) ;
+    List<Bug> selectByTesttask(Long id);
     void removeByTesttask(Long id) ;
     /**
      *自定义查询SQL
