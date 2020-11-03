@@ -249,6 +249,26 @@ export default {
 		uiactions: {
 		},
 	},
+	estimatemob_form: {
+		details: {
+			druipart2: '', 
+			grouppanel1: '工时', 
+			druipart1: '', 
+			formpage1: '基本信息', 
+			srfupdatedate: '最后修改日期', 
+			srforikey: '', 
+			srfkey: '编号', 
+			srfmajortext: '任务名称', 
+			srftempmode: '', 
+			srfuf: '', 
+			srfdeid: '', 
+			srfsourcekey: '', 
+			id: '编号', 
+			name: '任务名称', 
+		},
+		uiactions: {
+		},
+	},
 	mobnewfrom_form: {
 		details: {
 			druipart1: '', 
@@ -323,26 +343,6 @@ export default {
 			closedreason: '关闭原因', 
 			desc: '任务描述', 
 			id: '编号', 
-		},
-		uiactions: {
-		},
-	},
-	estimatemob_form: {
-		details: {
-			druipart2: '', 
-			grouppanel1: '工时', 
-			druipart1: '', 
-			formpage1: '基本信息', 
-			srfupdatedate: '最后修改日期', 
-			srforikey: '', 
-			srfkey: '编号', 
-			srfmajortext: '任务名称', 
-			srftempmode: '', 
-			srfuf: '', 
-			srfdeid: '', 
-			srfsourcekey: '', 
-			id: '编号', 
-			name: '任务名称', 
 		},
 		uiactions: {
 		},

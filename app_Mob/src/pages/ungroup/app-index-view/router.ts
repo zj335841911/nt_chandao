@@ -1883,6 +1883,20 @@ const router = new Router({
                     component: () => import('@pages/ibiz/task-mob-option-view/task-mob-option-view.vue'),
                 },
                 {
+                    path: 'projects/:project?/mobtabexpview',
+                    name: 'project_mobtabexpview',
+                    meta: {
+                        caption: 'project.views.mobtabexpview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'mobtabexpview', parameterName: 'mobtabexpview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/project-mob-tab-exp-view/project-mob-tab-exp-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/tasks/:task?/gsmoboptionview',
                     name: 'task_gsmoboptionview',
                     meta: {
@@ -1949,20 +1963,6 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/ibiz/task-gsmob-option-view/task-gsmob-option-view.vue'),
-                },
-                {
-                    path: 'projects/:project?/mobtabexpview',
-                    name: 'project_mobtabexpview',
-                    meta: {
-                        caption: 'project.views.mobtabexpview.caption',
-                        parameters: [
-                            { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'projects', parameterName: 'project' },
-                            { pathName: 'mobtabexpview', parameterName: 'mobtabexpview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/project-mob-tab-exp-view/project-mob-tab-exp-view.vue'),
                 },
                 {
                     path: 'projects/:project?/builds/:build?/newmobeditview',
