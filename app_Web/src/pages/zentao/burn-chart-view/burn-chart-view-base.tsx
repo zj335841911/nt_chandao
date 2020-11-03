@@ -79,6 +79,7 @@ export class BurnChartViewBase extends ChartViewBase {
      * @memberof BurnChartViewBase
      */
     protected containerModel: any = {
+        view_quicksearchform: { name: 'quicksearchform', type: 'SEARCHFORM' },
         view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
         view_chart: { name: 'chart', type: 'CHART' },
     };
@@ -145,7 +146,7 @@ export class BurnChartViewBase extends ChartViewBase {
             chart: this.$refs.chart,
             keyPSDEField: 'burn',
             majorPSDEField: 'date',
-            isLoadDefault: false,
+            isLoadDefault: true,
         });
     }
 

@@ -15,6 +15,12 @@ export default {
       		title: "燃尽图",
 		},
 	},
+	quicksearchform_searchform: {
+		details: {
+		},
+		uiactions: {
+		},
+	},
 	chartviewtoolbar_toolbar: {
 		deuiaction1_computeburn: {
 			caption: "更新燃尽图",

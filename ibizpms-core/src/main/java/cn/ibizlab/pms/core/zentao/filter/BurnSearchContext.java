@@ -41,6 +41,13 @@ public class BurnSearchContext extends QueryWrapperContext<Burn> {
             this.getSearchCond().eq("task", n_task_eq);
         }
     }
+	private String n_isweekend_eq;//[周末]
+	public void setN_isweekend_eq(String n_isweekend_eq) {
+        this.n_isweekend_eq = n_isweekend_eq;
+        if(!ObjectUtils.isEmpty(this.n_isweekend_eq)){
+            this.getSearchCond().eq("isweekend", n_isweekend_eq);
+        }
+    }
 
     /**
 	 * 启用快速搜索

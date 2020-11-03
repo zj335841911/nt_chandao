@@ -76,6 +76,7 @@ hide members
 | --------   |------------|
 |所属项目(PROJECT)|EQ|
 |任务(TASK)|EQ|
+|周末(ISWEEKEND)|EQ|
 
 ## 导入模式
 无

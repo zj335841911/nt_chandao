@@ -4101,33 +4101,6 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         "items": []
     },
     {
-        srfkey: "BurnQuickpacket",
-        emptytext: "未定义",
-        "codelisttype":"static",
-        items: [
-            {
-                id: "exWeek",
-                label: "去除周末",
-                text: "去除周末",
-                "data":{"n_isweekend_eq":"0"},
-                "codename":"Exweek",
-                value: "exWeek",
-                
-                disabled: false,
-            },
-            {
-                id: "Week",
-                label: "显示周末",
-                text: "显示周末",
-                "data":{"n_isweekend_eq":"1"},
-                "codename":"Week",
-                value: "Week",
-                
-                disabled: false,
-            },
-        ]
-    },
-    {
         srfkey: "Testcase__stage",
         emptytext: "未定义",
         "codelisttype":"static",
