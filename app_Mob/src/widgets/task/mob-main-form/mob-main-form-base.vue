@@ -1028,6 +1028,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
         srfdeid: null,
         srfsourcekey: null,
         projectname: null,
+        project: null,
         modulename: null,
         name: null,
         type: null,
@@ -1261,6 +1262,8 @@ export default class MobMainBase extends Vue implements ControlInterface {
 , 
         projectname: new FormItemModel({ caption: '所属项目', detailType: 'FORMITEM', name: 'projectname', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
+        project: new FormItemModel({ caption: '所属项目', detailType: 'FORMITEM', name: 'project', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
         modulename: new FormItemModel({ caption: '所属模块', detailType: 'FORMITEM', name: 'modulename', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         name: new FormItemModel({ caption: '任务名称', detailType: 'FORMITEM', name: 'name', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
@@ -1409,6 +1412,18 @@ export default class MobMainBase extends Vue implements ControlInterface {
     @Watch('data.projectname')
     onProjectnameChange(newVal: any, oldVal: any) {
         this.formDataChange({ name: 'projectname', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 project 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMain
+     */
+    @Watch('data.project')
+    onProjectChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'project', newVal: newVal, oldVal: oldVal });
     }
 
     /**
@@ -1696,6 +1711,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
             }
             this.detailsModel.grouppanel1.setVisible(ret);
         }
+
 
 
 

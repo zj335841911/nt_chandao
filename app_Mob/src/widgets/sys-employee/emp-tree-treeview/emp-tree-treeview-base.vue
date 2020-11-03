@@ -1,6 +1,5 @@
 <template>
     <div class="app-mob-treeview sysemployee-tree ">
-        <ion-searchbar></ion-searchbar>
         <div class="treeNav">
             <template v-for="(item,index) in treeNav">
             <ion-label  :key="index" class="sc-ion-label-ios-h sc-ion-label-ios-s ios hydrated" :class="index+1 < treeNav.length? 'treeNav-active':'' " @click="nav_click(item)">{{item.text}}</ion-label>
@@ -17,13 +16,22 @@
         </template>
        </ion-list>
         <div class="tree-partition tree-partition-bigger" v-if="rootNodes.length > 0"></div>
-        <ion-list>
+        <ion-list v-if="viewType != 'DEMOBPICKUPTREEVIEW'">
         <template v-for="item in valueNodes">
             <ion-item v-if="!item.isNode"  :key="item.id">
+                <ion-checkbox color="secondary" v-if="viewType == 'DEMOBMPICKUPTREEVIEW'" :checked="item.checked" :value="item.srfkey" @ionChange="checkboxChange"  slot="end"></ion-checkbox>
                 <ion-label>{{item.text}}</ion-label>
             </ion-item>
         </template>
        </ion-list>
+        <ion-radio-group v-if="viewType == 'DEMOBPICKUPTREEVIEW'"  :value="selectedValue" >
+            <template v-for="item in valueNodes">
+                <ion-item  :key="item.id"   @click="onSimpleSelChange(item)">
+                    <ion-label>{{item.text}}</ion-label>
+                    <ion-radio slot="end" :checked="item.checked" :value="item.id"></ion-radio>
+                </ion-item>
+            </template>
+        </ion-radio-group>
     </div>
 </template>
 <script lang='ts'>
@@ -166,6 +174,14 @@ export default class EmpTreeBase extends Vue implements ControlInterface {
     }
 
 
+    /**
+     * 视图类型
+     *
+     * @type {string}
+     * @memberof Testtree
+     */
+    @Prop() protected viewType!: string;
+    
     /**
      * 树视图导航数组名称
      *
@@ -830,6 +846,35 @@ export default class EmpTreeBase extends Vue implements ControlInterface {
             const tags: string[] = data.id.split(';');
         }
         this.$emit('nodedblclick', this.selectedNodes);
+    }
+
+    /**
+     * 节点点击行为
+     *
+     * @param {*} node
+     * @memberof EmpTreeBase
+     */   
+    public node_click(){
+        console.log(1);
+    }
+
+    /**
+    * 单选选择值
+    *
+    * @param {string} 
+    * @memberof EmpTree
+    */
+    public selectedValue:string = ""; 
+
+    /**
+     * 单选点击行为
+     *
+     * @param {*} node
+     * @memberof EmpTreeBase
+     */
+    public onSimpleSelChange(item:any){
+        this.$emit('selectchange', [item]);
+        this.selectedValue = item.srfkey;
     }
 }
 </script>

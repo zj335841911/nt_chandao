@@ -320,6 +320,7 @@ export default {
 			srfdeid: '', 
 			srfsourcekey: '', 
 			projectname: '所属项目', 
+			project: '所属项目', 
 			modulename: '所属模块', 
 			name: '任务名称', 
 			type: '任务类型', 
