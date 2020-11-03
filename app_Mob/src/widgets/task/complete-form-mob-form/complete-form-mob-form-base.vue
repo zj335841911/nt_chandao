@@ -644,6 +644,19 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
      * @memberof CompleteFormMobBase
      */
     public deRules:any = {
+                currentConsumed:[
+                  {
+                      type:"VALUERANGE2",
+                      condOP:"",
+                      ruleInfo:"本次消耗必须大于0", 
+                      isKeyCond:false,
+                      isNotMode:false,
+                      minValue:0,
+                      deName:"currentconsumed",
+                      isIncludeMaxValue:false,
+                      isIncludeMinValue:false,
+                  },
+                ],
     };
 
     /**
