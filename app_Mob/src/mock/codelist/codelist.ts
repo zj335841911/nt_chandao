@@ -1687,14 +1687,6 @@ const datas: Array<any> = [
         ]
     },
     {
-        "srfkey": "UserRealNameTaskMTeam",
-        "emptytext": "未定义",
-        "codelisttype":"dynamic",
-        "appdataentity":"SysEmployee",
-        "appdedataset":"FetchTaskMTeam",
-        "items": []
-    },
-    {
         "srfkey": "BugUserRealName",
         "emptytext": "未定义",
         "codelisttype":"dynamic",

@@ -8,7 +8,6 @@ import  ProductBranch  from '@/app-core/code-list/product-branch';
 import  CurProductBuild  from '@/app-core/code-list/cur-product-build';
 import  BugModule  from '@/app-core/code-list/bug-module';
 import  Role  from '@/app-core/code-list/role';
-import  UserRealNameTaskMTeam  from '@/app-core/code-list/user-real-name-task-mteam';
 import  BugUserRealName  from '@/app-core/code-list/bug-user-real-name';
 import  CurCaseVersion  from '@/app-core/code-list/cur-case-version';
 import  ProductPlan  from '@/app-core/code-list/product-plan';
@@ -70,8 +69,6 @@ export class CodeListService {
         BugModule: new BugModule(),
         // 群组（动态）
         Role: new Role(),
-        // 用户真实名称（任务多人团队）
-        UserRealNameTaskMTeam: new UserRealNameTaskMTeam(),
         // 用户真实名称（动态）（Bug）
         BugUserRealName: new BugUserRealName(),
         // 当前用例版本（动态）

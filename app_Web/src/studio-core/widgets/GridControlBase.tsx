@@ -94,7 +94,7 @@ export class GridControlBase extends MDControlBase {
      * @type {*}
      * @memberof GridControlBase
      */
-    public curEditRowData:any;
+    public curEditRowData:any = {};
 
     /**
      * 选中值变化
@@ -368,15 +368,17 @@ export class GridControlBase extends MDControlBase {
         let validateState = true;
         let index = -1;
         for (let item of this.items) {
+            let tempMessage: string = '';
             index++;
             if (item.rowDataState === "create" || item.rowDataState === "update") {
                 for (let property of Object.keys(this.rules)) {
                     if (!await this.validate(property, item, index)) {
                         validateState = false;
-                        this.errorMessages.push(this.gridItemsModel[index][property].error);
+                        tempMessage = tempMessage + '<p>' + this.gridItemsModel[index][property].error + '<p>';
                     }
                 }
             }
+            this.errorMessages.push(tempMessage);
         }
         return validateState;
     }
@@ -419,11 +421,7 @@ export class GridControlBase extends MDControlBase {
     public async save(args: any[], params?: any, $event?: any, xData?: any) {
         if (!await this.validateAll()) {
             if(this.errorMessages && this.errorMessages.length > 0) {
-                let descMessage: string = '';
-                this.errorMessages.forEach((message: any) => {
-                    descMessage = descMessage + '<p>' + message + '<p>';
-                })
-                this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: descMessage });
+                this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: this.errorMessages[0] });
             } else {
                 this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: (this.$t('app.commonWords.rulesException') as string) });
             }
@@ -1331,26 +1329,38 @@ export class GridControlBase extends MDControlBase {
                 falg.isPast = val;
             }
         }
-        rule[name].forEach((item:any) => {
+        for(let i=0;i<rule[name].length;i++){
+            let item:any = rule[name][i];
+            // let dataValue = item.deName?this.data[this.service.getItemNameByDeName(item.deName)]:"";
             // 常规规则
             if(item.type == 'SIMPLE'){
                 startOp(!this.$verify.checkFieldSimpleRule(value,item.condOP,item.paramValue,item.ruleInfo,item.paramType,this.curEditRowData,item.isKeyCond));
+                falg.infoMessage = item.ruleInfo;
+                if(!falg.isPast) return falg;
             }
             // 数值范围
             if(item.type == 'VALUERANGE2'){
                 startOp( !this.$verify.checkFieldValueRangeRule(value,item.minValue,item.isIncludeMinValue,item.maxValue,item.isIncludeMaxValue,item.ruleInfo,item.isKeyCond));
+                falg.infoMessage = item.ruleInfo;
+                if(!falg.isPast) return falg;
             }
             // 正则式
             if (item.type == "REGEX") {
                 startOp(!this.$verify.checkFieldRegExRule(value,item.regExCode,item.ruleInfo,item.isKeyCond));
+                falg.infoMessage = item.ruleInfo;
+                if(!falg.isPast) return falg;
             }
             // 长度
             if (item.type == "STRINGLENGTH") {
                 startOp(!this.$verify.checkFieldStringLengthRule(value,item.minValue,item.isIncludeMinValue,item.maxValue,item.isIncludeMaxValue,item.ruleInfo,item.isKeyCond)); 
+                falg.infoMessage = item.ruleInfo;
+                if(!falg.isPast) return falg;
             }
             // 系统值规则
             if(item.type == "SYSVALUERULE") {
                 startOp(!this.$verify.checkFieldSysValueRule(value,item.sysRule.regExCode,item.ruleInfo,item.isKeyCond));
+                falg.infoMessage = item.ruleInfo;
+                if(!falg.isPast) return falg;
             }
             // 分组
             if(item.type == 'GROUP'){
@@ -1358,9 +1368,9 @@ export class GridControlBase extends MDControlBase {
                 if(item.isNotMode){
                    falg.isPast = !falg.isPast;
                 }
-            }
-            
-        });
+                if(!falg.isPast) return falg;
+            }   
+        }
         if(!falg.hasOwnProperty("isPast")){
             falg.isPast = true;
         }

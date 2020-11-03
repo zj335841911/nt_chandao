@@ -74,11 +74,24 @@
 
 
 
-!!!!模版产生代码错误:----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: ${P.getEditorCode(item, "EDITOR.vue")...  [in template "TEMPLCODE_en_US" at line 38, column 9]
-----
-无法获取指定编辑器[HTMLEDITOR]发布代码[FORMITEM][EDITOR.vue]模板
+<app-form-item 
+    name='comment' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="comment_item"  
+    :itemValue="this.data.comment" 
+    v-show="detailsModel.comment.visible" 
+    :itemRules="this.rules.comment" 
+    :caption="$t('task.mobactiviteform_form.details.comment')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :error="detailsModel.comment.error" 
+    :isEmptyCaption="false">
+        <app-mob-rich-text-editor-pms :formState="formState"  :value="data.comment" @change="(val) =>{this.data.comment =val}" :disabled="detailsModel.comment.disabled" :data="JSON.stringify(this.data)"  name="comment" :uploadparams='{}' :exportparams='{}'  style=""/>
+
+</app-form-item>
+
 
 
 <app-form-group 
