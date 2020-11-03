@@ -82,6 +82,15 @@ export default class TaskTreeService extends ControlService {
 	public TREENODE_CHILDTASK: string = 'ChildTask';
 
     /**
+     * 跟节点分隔符号
+     *
+     * @public
+     * @type {string}
+     * @memberof TaskTreeService
+     */
+	public TREENODE_ROOTINFO: string = 'rootinfo';
+
+    /**
      * 默认根节点节点分隔符号
      *
      * @public
@@ -172,6 +181,10 @@ export default class TaskTreeService extends ControlService {
             await this.fillChildtaskNodeChilds(context,filter, list);
             return Promise.resolve({ status: 200, data: list });
         }
+        if (Object.is(strNodeType, this.TREENODE_ROOTINFO)) {
+            await this.fillRootinfoNodeChilds(context,filter, list);
+            return Promise.resolve({ status: 200, data: list });
+        }
         if (Object.is(strNodeType, this.TREENODE_ROOT)) {
             await this.fillRootNodeChilds(context,filter, list);
             return Promise.resolve({ status: 200, data: list });
@@ -220,7 +233,7 @@ export default class TaskTreeService extends ControlService {
                         strNodeId += this.TREENODE_SEPARATOR;
                         strNodeId += strId;
                         Object.assign(treeNode, { id: strNodeId });
-                        Object.assign(treeNode, { expanded: filter.isautoexpand });
+                        Object.assign(treeNode, { expanded: true });
                         Object.assign(treeNode, { leaf: false });
                         Object.assign(treeNode, { curData: entity });
                         Object.assign(treeNode, { nodeid: treeNode.srfkey });
@@ -367,7 +380,7 @@ export default class TaskTreeService extends ControlService {
                         strNodeId += this.TREENODE_SEPARATOR;
                         strNodeId += strId;
                         Object.assign(treeNode, { id: strNodeId });
-                        Object.assign(treeNode, { expanded: filter.isautoexpand });
+                        Object.assign(treeNode, { expanded: true });
                         Object.assign(treeNode, { leaf: true });
                         Object.assign(treeNode, { curData: entity });
                         Object.assign(treeNode, { nodeid: treeNode.srfkey });
@@ -460,6 +473,75 @@ export default class TaskTreeService extends ControlService {
 	}
 
     /**
+     * 填充 树视图节点[跟]
+     *
+     * @public
+     * @param {any{}} context     
+     * @param {*} filter
+     * @param {any[]} list
+     * @param {*} rsNavContext   
+     * @param {*} rsNavParams
+     * @param {*} rsParams
+     * @returns {Promise<any>}
+     * @memberof TaskTreeService
+     */
+    @Errorlog
+    public fillRootinfoNodes(context:any={},filter: any, list: any[],rsNavContext?:any,rsNavParams?:any,rsParams?:any): Promise<any> {
+        context = this.handleResNavContext(context,filter,rsNavContext);
+        filter = this.handleResNavParams(context,filter,rsNavParams,rsParams);
+        return new Promise((resolve:any,reject:any) =>{
+            let treeNode: any = {};
+            Object.assign(treeNode, { text: i18n.t('entities.task.tasktree_treeview.nodes.rootinfo') });
+            Object.assign(treeNode, { isUseLangRes: true });
+            Object.assign(treeNode,{srfappctx:context});
+            Object.assign(treeNode, { srfmajortext: treeNode.text });
+            let strNodeId: string = 'rootinfo';
+
+            // 没有指定节点值，直接使用父节点值
+            Object.assign(treeNode, { srfkey: filter.strRealNodeId });
+            strNodeId += this.TREENODE_SEPARATOR;
+            strNodeId += filter.strRealNodeId;
+
+            Object.assign(treeNode, { id: strNodeId });
+
+            Object.assign(treeNode, { expanded: filter.isAutoexpand });
+            Object.assign(treeNode, { leaf: false });
+            Object.assign(treeNode, { nodeid: treeNode.srfkey });
+            Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
+            Object.assign(treeNode, { nodeType: "STATIC" });
+            list.push(treeNode);
+            resolve(list);
+        });
+	}
+
+    /**
+     * 填充 树视图节点[跟]子节点
+     *
+     * @public
+     * @param {any{}} context         
+     * @param {*} filter
+     * @param {any[]} list
+     * @returns {Promise<any>}
+     * @memberof TaskTreeService
+     */
+    @Errorlog
+    public async fillRootinfoNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
+		if (filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")) {
+			// 填充跟任务
+            let PtaskRsNavContext:any = {};
+            let PtaskRsNavParams:any = {};
+            let PtaskRsParams:any = {};
+			await this.fillPtaskNodes(context, filter, list ,PtaskRsNavContext,PtaskRsNavParams,PtaskRsParams);
+		} else {
+			// 填充跟任务
+            let PtaskRsNavContext:any = {};
+            let PtaskRsNavParams:any = {};
+            let PtaskRsParams:any = {};
+			await this.fillPtaskNodes(context, filter, list ,PtaskRsNavContext,PtaskRsNavParams,PtaskRsParams);
+		}
+	}
+
+    /**
      * 填充 树视图节点[默认根节点]
      *
      * @public
@@ -513,17 +595,17 @@ export default class TaskTreeService extends ControlService {
     @Errorlog
     public async fillRootNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
 		if (filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")) {
-			// 填充跟任务
-            let PtaskRsNavContext:any = {};
-            let PtaskRsNavParams:any = {};
-            let PtaskRsParams:any = {};
-			await this.fillPtaskNodes(context, filter, list ,PtaskRsNavContext,PtaskRsNavParams,PtaskRsParams);
+			// 填充跟
+            let RootinfoRsNavContext:any = {};
+            let RootinfoRsNavParams:any = {};
+            let RootinfoRsParams:any = {};
+			await this.fillRootinfoNodes(context, filter, list ,RootinfoRsNavContext,RootinfoRsNavParams,RootinfoRsParams);
 		} else {
-			// 填充跟任务
-            let PtaskRsNavContext:any = {};
-            let PtaskRsNavParams:any = {};
-            let PtaskRsParams:any = {};
-			await this.fillPtaskNodes(context, filter, list ,PtaskRsNavContext,PtaskRsNavParams,PtaskRsParams);
+			// 填充跟
+            let RootinfoRsNavContext:any = {};
+            let RootinfoRsNavParams:any = {};
+            let RootinfoRsParams:any = {};
+			await this.fillRootinfoNodes(context, filter, list ,RootinfoRsNavContext,RootinfoRsNavParams,RootinfoRsParams);
 		}
 	}
 

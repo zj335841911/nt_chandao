@@ -112,14 +112,14 @@ export class TreeExpViewtreeexpbarTreeExpBarBase extends TreeExpBarControlBase {
         }
         if (Object.is(expmode, 'CHILDTASK')) {
             return {  
-                viewname: 'task-main-edit-view', 
+                viewname: 'task-tree-edit-view', 
                 parentdata: {},
                 deKeyField:'task'
 			};
         }
         if (Object.is(expmode, 'PTASK')) {
             return {  
-                viewname: 'task-main-edit-view', 
+                viewname: 'task-tree-edit-view', 
                 parentdata: {},
                 deKeyField:'task'
 			};

@@ -296,6 +296,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '143e97f1ddaf50560e1602118613f0f0',
+            viewmodule: 'zentao',
+            viewname: 'TaskTreeExpView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '47d1f969efd9c8e4eb6a593de45d78d6',
+            ],
+        },
+        {
             viewtag: '14d95e9a02db631c2b9af47641fcec4e',
             viewmodule: 'zentao',
             viewname: 'CaseLinkCaseGridView',
@@ -1076,6 +1086,26 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '770a170098d148e438a7666b248e6519',
+            ],
+        },
+        {
+            viewtag: '47d1f969efd9c8e4eb6a593de45d78d6',
+            viewmodule: 'zentao',
+            viewname: 'TaskTreeEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'f27febc6ab4d30f9e419caf1e6930a94',
+                '843526ee13bf0af6fe937470853bf36b',
+                'a97ff9ae4f22d5974b51af2c0fae1aa2',
+                'c9c256aef78723e1bf9ddc1d38667c3f',
+                '12661bdb476cd339554799b417c6ea48',
+                'b03bf2445d2e295fccbb6280b2601248',
+                'a9d151a6bb5fb2481836a7e0ed5afb7e',
+                'abca63015fc84466991c6479f955f6d0',
+                '770a170098d148e438a7666b248e6519',
+                '35ba93bac795e0deb7297d2d471b7180',
+                '507c506d62dc910a814332e6ae242266',
             ],
         },
         {
@@ -3970,6 +4000,7 @@ export const viewstate: any = {
                 '5ef23f01b2cffa48351b3272dfeeaf14',
                 '64204774cc4b97f20aa3becb41b184d5',
                 '19641dcdbd1f1973c9693859003e1f60',
+                '143e97f1ddaf50560e1602118613f0f0',
                 '7088260bcd6a0303378af2f8e207f479',
                 '76bd64e6d21e10838e42517992e58c65',
                 '85ee867b09a2d6303c061d91374ec975',
