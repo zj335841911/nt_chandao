@@ -171,6 +171,13 @@ export class MainEditFormBase extends EditFormControlBase {
                 ],
                 deadline:[
                   {
+                      type:"GROUP",
+                      condOP:"OR",
+                      ruleInfo:"(截至日期必须大于等于预计开始)", 
+                      isKeyCond:false,
+                      isNotMode:false,
+                      group:[
+                  {
                       type:"SIMPLE",
                       condOP:"GTANDEQ",
                       ruleInfo:"截至日期必须大于等于预计开始", 
@@ -179,6 +186,16 @@ export class MainEditFormBase extends EditFormControlBase {
                       paramType:"ENTITYFIELD",
                       isNotMode:false,
                       deName:"deadline",
+                  },
+                  {
+                      type:"SIMPLE",
+                      condOP:"ISNULL",
+                      ruleInfo:"", 
+                      isKeyCond:false,
+                      isNotMode:false,
+                      deName:"deadline",
+                  },
+                        ]
                   },
                 ],
     };
