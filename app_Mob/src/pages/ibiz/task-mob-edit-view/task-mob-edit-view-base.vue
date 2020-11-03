@@ -81,6 +81,7 @@
         
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_finishtask1.disabled}" v-show="righttoolbarModels.deuiaction1_finishtask1.visabled">
                 <ion-button :disabled="righttoolbarModels.deuiaction1_finishtask1.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_finishtask1' }, $event)" size="large">
+                    <ion-icon name="checkmark-circle-outline"></ion-icon>
                 <span class="btn-inner-text">{{$t('task.mobeditviewrighttoolbar_toolbar.deuiaction1_finishtask1.caption')}}</span>
                 </ion-button>
                 <span class="btn-out-text">{{$t('task.mobeditviewrighttoolbar_toolbar.deuiaction1_finishtask1.caption')}}</span>
