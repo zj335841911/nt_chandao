@@ -1117,10 +1117,11 @@ wait
 | 7 | [AssignTo](#实体行为-AssignTo（AssignTo）) | AssignTo | 用户自定义 | 后台及前台 |
 | 8 | [CheckKey](#实体行为-CheckKey（CheckKey）) | CheckKey | 内置方法 | 后台及前台 |
 | 9 | [Close](#实体行为-Close（Close）) | Close | 用户自定义 | 后台及前台 |
-| 10 | [Finish](#实体行为-Finish（Finish）) | Finish | 用户自定义 | 后台及前台 |
-| 11 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
-| 12 | [行为](#实体行为-行为（SendMessage）) | sendMessage | 用户自定义 | 后台及前台 |
-| 13 | [发送消息前置处理](#实体行为-发送消息前置处理（SendMsgPreProcess）) | sendMsgPreProcess | 用户自定义 | 后台及前台 |
+| 10 | [定时创建周期](#实体行为-定时创建周期（CreateCycle）) | createCycle | 用户自定义 | 后台及前台 |
+| 11 | [Finish](#实体行为-Finish（Finish）) | Finish | 用户自定义 | 后台及前台 |
+| 12 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
+| 13 | [行为](#实体行为-行为（SendMessage）) | sendMessage | 用户自定义 | 后台及前台 |
+| 14 | [发送消息前置处理](#实体行为-发送消息前置处理（SendMsgPreProcess）) | sendMsgPreProcess | 用户自定义 | 后台及前台 |
 
 ### 实体行为-Create（Create）
 #### 说明
@@ -1224,6 +1225,18 @@ CheckKey
 ### 实体行为-Close（Close）
 #### 说明
 Close
+
+#### 行为类型
+用户自定义
+
+#### 行为持有者
+后台及前台
+
+#### 逻辑附加
+无
+### 实体行为-定时创建周期（CreateCycle）
+#### 说明
+定时创建周期
 
 #### 行为类型
 用户自定义

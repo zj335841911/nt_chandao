@@ -197,6 +197,20 @@ export default class TodoServiceBase extends EntityService {
     }
 
     /**
+     * CreateCycle接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TodoServiceBase
+     */
+    public async CreateCycle(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+            let res:any = Http.getInstance().post(`/todos/${context.todo}/createcycle`,data,isloading);
+            return res;
+    }
+
+    /**
      * Finish接口方法
      *
      * @param {*} [context={}]

@@ -153,6 +153,17 @@ public class TodoResource {
         return ResponseEntity.status(HttpStatus.OK).body(tododto);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Todo-CreateCycle-all')")
+    @ApiOperation(value = "定时创建周期", tags = {"待办" },  notes = "定时创建周期")
+	@RequestMapping(method = RequestMethod.POST, value = "/todos/{todo_id}/createcycle")
+    public ResponseEntity<TodoDTO> createCycle(@PathVariable("todo_id") Long todo_id, @RequestBody TodoDTO tododto) {
+        Todo domain = todoMapping.toDomain(tododto);
+        domain.setId(todo_id);
+        domain = todoService.createCycle(domain);
+        tododto = todoMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(tododto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Todo-Finish-all')")
     @ApiOperation(value = "Finish", tags = {"待办" },  notes = "Finish")
 	@RequestMapping(method = RequestMethod.POST, value = "/todos/{todo_id}/finish")

@@ -37,6 +37,7 @@ public interface ITodoService extends IService<Todo>{
     Todo assignTo(Todo et) ;
     boolean checkKey(Todo et) ;
     Todo close(Todo et) ;
+    Todo createCycle(Todo et) ;
     Todo finish(Todo et) ;
     boolean save(Todo et) ;
     void saveBatch(List<Todo> list) ;

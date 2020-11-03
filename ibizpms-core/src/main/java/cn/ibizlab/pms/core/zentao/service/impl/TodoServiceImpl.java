@@ -135,6 +135,13 @@ public class TodoServiceImpl extends ServiceImpl<TodoMapper, Todo> implements IT
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.TodoHelper.class).close(et);
     }
 
+    @Override
+    @Transactional
+    public Todo createCycle(Todo et) {
+        //自定义代码
+        return et;
+    }
+
         @Override
     @Transactional
     public Todo finish(Todo et) {
