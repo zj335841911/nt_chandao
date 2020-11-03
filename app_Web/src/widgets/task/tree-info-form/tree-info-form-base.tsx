@@ -354,6 +354,9 @@ export class TreeInfoEditFormBase extends EditFormControlBase {
         srfdeid: null,
         srfsourcekey: null,
         parent: null,
+        isfavorites: null,
+        tasktype: null,
+        status1: null,
         story: null,
         id: null,
         status: null,
@@ -409,31 +412,31 @@ export class TreeInfoEditFormBase extends EditFormControlBase {
      * @memberof TreeInfoEditFormBase
      */
     public detailsModel: any = {
-        button7: new FormButtonModel({ caption: '指派', detailType: 'BUTTON', name: 'button7', visible: true, isShowCaption: true, form: this, showMoreMode: 0,disabled: false, uiaction: { type: 'DEUIACTION', 
+        button7: new FormButtonModel({ caption: '指派', detailType: 'BUTTON', name: 'button7', visible: true, isShowCaption: false, form: this, showMoreMode: 0,disabled: false, uiaction: { type: 'DEUIACTION', 
  tag: 'AssignTaskDash',actiontarget: 'SINGLEKEY',noprivdisplaymode:2,dataaccaction:'SRFUR__TASK_ASSIGN_BUT',visabled: true,disabled: false} }),
 
-        button8: new FormButtonModel({ caption: '转交', detailType: 'BUTTON', name: 'button8', visible: true, isShowCaption: true, form: this, showMoreMode: 0,disabled: false, uiaction: { type: 'DEUIACTION', 
+        button8: new FormButtonModel({ caption: '转交', detailType: 'BUTTON', name: 'button8', visible: true, isShowCaption: false, form: this, showMoreMode: 0,disabled: false, uiaction: { type: 'DEUIACTION', 
  tag: 'checkForwardDash',actiontarget: 'SINGLEKEY',noprivdisplaymode:2,dataaccaction:'SRFUR__TASK_FORWARD_BUT',visabled: true,disabled: false} }),
 
-        button1: new FormButtonModel({ caption: '开始', detailType: 'BUTTON', name: 'button1', visible: true, isShowCaption: true, form: this, showMoreMode: 0,disabled: false, uiaction: { type: 'DEUIACTION', 
+        button1: new FormButtonModel({ caption: '开始', detailType: 'BUTTON', name: 'button1', visible: true, isShowCaption: false, form: this, showMoreMode: 0,disabled: false, uiaction: { type: 'DEUIACTION', 
  tag: 'MStartTaskDash',actiontarget: 'SINGLEKEY',noprivdisplaymode:2,dataaccaction:'SRFUR__TASK_START_BUT',visabled: true,disabled: false} }),
 
-        button2: new FormButtonModel({ caption: '完成', detailType: 'BUTTON', name: 'button2', visible: true, isShowCaption: true, form: this, showMoreMode: 0,disabled: false, uiaction: { type: 'DEUIACTION', 
+        button2: new FormButtonModel({ caption: '完成', detailType: 'BUTTON', name: 'button2', visible: true, isShowCaption: false, form: this, showMoreMode: 0,disabled: false, uiaction: { type: 'DEUIACTION', 
  tag: 'MDoneTask',actiontarget: 'SINGLEKEY',noprivdisplaymode:2,dataaccaction:'SRFUR__TASK_COMPLETE_BUT',visabled: true,disabled: false} }),
 
-        button3: new FormButtonModel({ caption: '激活', detailType: 'BUTTON', name: 'button3', visible: true, isShowCaption: true, form: this, showMoreMode: 0,disabled: false, uiaction: { type: 'DEUIACTION', 
+        button3: new FormButtonModel({ caption: '激活', detailType: 'BUTTON', name: 'button3', visible: true, isShowCaption: false, form: this, showMoreMode: 0,disabled: false, uiaction: { type: 'DEUIACTION', 
  tag: 'ActivationDash',actiontarget: 'SINGLEKEY',noprivdisplaymode:2,dataaccaction:'SRFUR__TASK_ACTIVATION_BUT',visabled: true,disabled: false} }),
 
-        button4: new FormButtonModel({ caption: '暂停', detailType: 'BUTTON', name: 'button4', visible: true, isShowCaption: true, form: this, showMoreMode: 0,disabled: false, uiaction: { type: 'DEUIACTION', 
+        button4: new FormButtonModel({ caption: '暂停', detailType: 'BUTTON', name: 'button4', visible: true, isShowCaption: false, form: this, showMoreMode: 0,disabled: false, uiaction: { type: 'DEUIACTION', 
  tag: 'MPauseTask',actiontarget: 'SINGLEKEY',noprivdisplaymode:2,dataaccaction:'SRFUR__TASK_PAUSE_BUT',visabled: true,disabled: false} }),
 
-        button5: new FormButtonModel({ caption: '取消', detailType: 'BUTTON', name: 'button5', visible: true, isShowCaption: true, form: this, showMoreMode: 0,disabled: false, uiaction: { type: 'DEUIACTION', 
+        button5: new FormButtonModel({ caption: '取消', detailType: 'BUTTON', name: 'button5', visible: true, isShowCaption: false, form: this, showMoreMode: 0,disabled: false, uiaction: { type: 'DEUIACTION', 
  tag: 'CancelTaskDash',actiontarget: 'SINGLEKEY',noprivdisplaymode:2,dataaccaction:'SRFUR__TASK_CANCEL_BUT',visabled: true,disabled: false} }),
 
-        button6: new FormButtonModel({ caption: '关闭', detailType: 'BUTTON', name: 'button6', visible: true, isShowCaption: true, form: this, showMoreMode: 0,disabled: false, uiaction: { type: 'DEUIACTION', 
+        button6: new FormButtonModel({ caption: '关闭', detailType: 'BUTTON', name: 'button6', visible: true, isShowCaption: false, form: this, showMoreMode: 0,disabled: false, uiaction: { type: 'DEUIACTION', 
  tag: 'CloseTaskDash',actiontarget: 'SINGLEKEY',noprivdisplaymode:2,dataaccaction:'SRFUR__TASK_CLOSE_BUT',visabled: true,disabled: false} }),
 
-        button9: new FormButtonModel({ caption: '子任务', detailType: 'BUTTON', name: 'button9', visible: true, isShowCaption: true, form: this, showMoreMode: 0,disabled: false, uiaction: { type: 'DEUIACTION', 
+        button9: new FormButtonModel({ caption: '子任务', detailType: 'BUTTON', name: 'button9', visible: true, isShowCaption: false, form: this, showMoreMode: 0,disabled: false, uiaction: { type: 'DEUIACTION', 
  tag: 'NewSubTaskDash',actiontarget: 'SINGLEKEY',noprivdisplaymode:2,dataaccaction:'SRFUR__TASK_SUBTASKS_BUT',visabled: true,disabled: false} }),
 
         grouppanel4: new FormGroupPanelModel({ caption: '操作', detailType: 'GROUPPANEL', name: 'grouppanel4', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.task.treeinfo_form', extractMode: 'ITEM', details: [] } }),
@@ -469,6 +472,12 @@ export class TreeInfoEditFormBase extends EditFormControlBase {
         srfsourcekey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfsourcekey', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 
         parent: new FormItemModel({ caption: '父任务', detailType: 'FORMITEM', name: 'parent', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+
+        isfavorites: new FormItemModel({ caption: '是否收藏', detailType: 'FORMITEM', name: 'isfavorites', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+
+        tasktype: new FormItemModel({ caption: '任务类型', detailType: 'FORMITEM', name: 'tasktype', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+
+        status1: new FormItemModel({ caption: '任务状态', detailType: 'FORMITEM', name: 'status1', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 
         story: new FormItemModel({ caption: '相关需求', detailType: 'FORMITEM', name: 'story', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 
@@ -517,6 +526,9 @@ export class TreeInfoEditFormBase extends EditFormControlBase {
             }
             this.detailsModel.grouppanel2.setVisible(ret);
         }
+
+
+
 
 
 

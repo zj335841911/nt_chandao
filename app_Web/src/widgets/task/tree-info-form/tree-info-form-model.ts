@@ -61,6 +61,21 @@ export default class TreeInfoModel {
         dataType: 'PICKUP',
       },
       {
+        name: 'isfavorites',
+        prop: 'isfavorites',
+        dataType: 'TEXT',
+      },
+      {
+        name: 'tasktype',
+        prop: 'tasktype',
+        dataType: 'SSCODELIST',
+      },
+      {
+        name: 'status1',
+        prop: 'status1',
+        dataType: 'SSCODELIST',
+      },
+      {
         name: 'story',
         prop: 'story',
         dataType: 'PICKUP',
