@@ -377,7 +377,7 @@ export default class TaskMobEditViewBase extends Vue {
 
             deuiaction1_workhoursmob: { name: 'deuiaction1_workhoursmob', caption: '工时', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_CONSUM_BUT', uiaction: { tag: 'WorkHoursMob', target: 'SINGLEKEY' } },
 
-            deuiaction1_finishtask1: { name: 'deuiaction1_finishtask1', caption: '完成任务(移动端)(多人任务检查)', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'finishTask1', target: 'SINGLEKEY' } },
+            deuiaction1_finishtask1: { name: 'deuiaction1_finishtask1', caption: '完成', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'finishTask1', target: 'SINGLEKEY' } },
 
             deuiaction1_pausetaskmob: { name: 'deuiaction1_pausetaskmob', caption: '暂停', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_PAUSE_BUT', uiaction: { tag: 'PauseTaskMob', target: 'SINGLEKEY' } },
 

@@ -530,7 +530,7 @@ export default class TaskUIActionBase extends EntityUIActionBase {
     }
 
     /**
-     * 完成任务(移动端)(多人任务检查)
+     * 完成
      *
      * @param {any[]} args 数据
      * @param {*} [contextJO={}] 行为上下文
@@ -570,7 +570,7 @@ export default class TaskUIActionBase extends EntityUIActionBase {
             const curUIService: any = await this.globaluiservice.getAppEntityService('task');
             const response: any = await curUIService.TaskForward(_context, _params);
             if (response && response.status === 200) {
-                this.notice.success('完成任务(移动端)(多人任务检查)成功！');
+                this.notice.success('完成成功！');
                 const { data: result } = response;
                 let _args: any[] = [];
                 if (Object.is(container.$util.typeOf(result), 'array')) {
