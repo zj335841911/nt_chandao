@@ -21,7 +21,6 @@
         <app-mob-input 
     class="app-form-item-input"  
         type="text"  
-    
     :value="data.n_title_like"
     
     :disabled="detailsModel.n_title_like.disabled" 

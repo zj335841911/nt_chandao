@@ -180,7 +180,6 @@
         <app-mob-input 
     class="app-form-item-input"  
         type="text"  
-    
     :value="data.estimate"
     unit=""
     :disabled="detailsModel.estimate.disabled" 

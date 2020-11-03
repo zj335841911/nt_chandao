@@ -384,7 +384,6 @@
         <app-mob-input 
     class="app-form-item-input"  
         type="text"  
-    
     :value="data.title"
     unit=""
     :disabled="detailsModel.title.disabled" 
@@ -621,7 +620,6 @@
         <app-mob-input 
     class="app-form-item-input"  
         type="text"  
-    
     :value="data.keywords"
     unit=""
     :disabled="detailsModel.keywords.disabled" 

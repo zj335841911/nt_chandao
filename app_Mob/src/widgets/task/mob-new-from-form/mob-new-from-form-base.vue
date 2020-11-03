@@ -291,7 +291,6 @@
         <app-mob-input 
     class="app-form-item-input"  
         type="text"  
-    
     :value="data.name"
     unit=""
     :disabled="detailsModel.name.disabled" 

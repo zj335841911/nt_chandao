@@ -35,7 +35,6 @@
         <app-mob-input 
     class="app-form-item-input"  
         type="text"  
-    
     :value="data.sys_update_featuresname"
     unit=""
     :disabled="detailsModel.sys_update_featuresname.disabled" 

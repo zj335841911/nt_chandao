@@ -50,7 +50,6 @@
         <app-mob-input 
     class="app-form-item-input"  
         type="text"  
-    
     :value="data.name"
     unit=""
     :disabled="detailsModel.name.disabled" 
@@ -77,7 +76,6 @@
         <app-mob-input 
     class="app-form-item-input"  
         type="text"  
-    
     :value="data.code"
     unit=""
     :disabled="detailsModel.code.disabled" 

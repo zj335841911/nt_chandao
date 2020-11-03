@@ -1,7 +1,7 @@
 <template>
   <div class="app-mob-rich-text-editor" @click="open">
     <div class="rich-text-editor-info" v-html="reValue"></div>
-    <ion-icon class="app-mob-rich-text-editor-icon" v-if="!reValue" name="options-outline" @click.stop="open"></ion-icon>
+    <ion-icon class="app-mob-rich-text-editor-icon" v-if="!reValue && !isInfoFormMode" name="options-outline" @click.stop="open"></ion-icon>
   </div>
 </template>
 <script lang = 'ts'>
@@ -54,6 +54,14 @@ export default class AppRichTextEditor extends Vue {
      * @memberof AppRichTextEditor
      */
     public export_params:any ;
+
+    /**
+     * 是否为信息表单
+     *
+     * @type {boolean}
+     * @memberof AppRichTextEditor
+     */
+    @Prop({default:false}) public isInfoFormMode?: boolean;
 
     /**
      * 上传参数

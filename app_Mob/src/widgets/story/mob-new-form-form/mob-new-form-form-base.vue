@@ -208,7 +208,6 @@
         <app-mob-input 
     class="app-form-item-input"  
         type="text"  
-    
     :value="data.sourcenote"
     unit=""
     :disabled="detailsModel.sourcenote.disabled" 
@@ -297,7 +296,6 @@
         <app-mob-input 
     class="app-form-item-input"  
         type="text"  
-    
     :value="data.title"
     unit=""
     :disabled="detailsModel.title.disabled" 
@@ -356,7 +354,6 @@
     class="app-form-item-input"  
         placeholder="工时"
     type="text"  
-    
     :value="data.estimate"
     unit=""
     :disabled="detailsModel.estimate.disabled" 
@@ -456,7 +453,6 @@
         <app-mob-input 
     class="app-form-item-input"  
         type="text"  
-    
     :value="data.keywords"
     unit=""
     :disabled="detailsModel.keywords.disabled" 

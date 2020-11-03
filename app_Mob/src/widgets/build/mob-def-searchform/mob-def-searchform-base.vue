@@ -21,7 +21,6 @@
         <app-mob-input 
     class="app-form-item-input"  
         type="text"  
-    
     :value="data.n_name_like"
     
     :disabled="detailsModel.n_name_like.disabled" 
@@ -49,7 +48,6 @@
         <app-mob-input 
     class="app-form-item-input"  
         type="text"  
-    
     :value="data.n_productname_like"
     
     :disabled="detailsModel.n_productname_like.disabled" 

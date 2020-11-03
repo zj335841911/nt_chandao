@@ -90,7 +90,6 @@
         <app-mob-input 
     class="app-form-item-input"  
         type="text"  
-    
     :value="data.name"
     unit=""
     :disabled="detailsModel.name.disabled" 
@@ -177,7 +176,6 @@
         <app-mob-input 
     class="app-form-item-input"  
         type="text"  
-    
     :value="data.scmpath"
     unit=""
     :disabled="detailsModel.scmpath.disabled" 
@@ -204,7 +202,6 @@
         <app-mob-input 
     class="app-form-item-input"  
         type="text"  
-    
     :value="data.filepath"
     unit=""
     :disabled="detailsModel.filepath.disabled" 
