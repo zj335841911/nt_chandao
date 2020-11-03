@@ -1090,6 +1090,12 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * @memberof MobMain
      */
     protected rules: any = {
+        name: [
+            {validator:(rule:any, value:any)=>{return this.verifyDeRules("name").isPast}}
+        ],
+        deadline: [
+            {validator:(rule:any, value:any)=>{return this.verifyDeRules("deadline").isPast}}
+        ],
     }
 
     /**
@@ -1099,6 +1105,31 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * @memberof MobMainBase
      */
     public deRules:any = {
+                deadline:[
+                  {
+                      type:"SIMPLE",
+                      condOP:"GTANDEQ",
+                      ruleInfo:"截至日期必须大于预计开始", 
+                      isKeyCond:false,
+                      paramValue:"eststarted",
+                      paramType:"ENTITYFIELD",
+                      isNotMode:false,
+                      deName:"deadline",
+                  },
+                ],
+                name:[
+                  {
+                      type:"STRINGLENGTH",
+                      condOP:"",
+                      ruleInfo:"任务名称不大于10", 
+                      isKeyCond:false,
+                      isNotMode:false,
+                      maxValue:100,
+                      deName:"name",
+                      isIncludeMaxValue:true,
+                      isIncludeMinValue:false,
+                  },
+                ],
     };
 
     /**

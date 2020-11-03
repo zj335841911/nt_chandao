@@ -1480,10 +1480,14 @@ export default class MobMainEditBase extends Vue implements ControlInterface {
         name: [
             { required: true, type: 'string', message: '任务名称 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '任务名称 值不能为空', trigger: 'blur' },
+            {validator:(rule:any, value:any)=>{return this.verifyDeRules("name").isPast}}
         ],
         type: [
             { required: true, type: 'string', message: '任务类型 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '任务类型 值不能为空', trigger: 'blur' },
+        ],
+        deadline: [
+            {validator:(rule:any, value:any)=>{return this.verifyDeRules("deadline").isPast}}
         ],
     }
 
@@ -1494,6 +1498,31 @@ export default class MobMainEditBase extends Vue implements ControlInterface {
      * @memberof MobMainEditBase
      */
     public deRules:any = {
+                deadline:[
+                  {
+                      type:"SIMPLE",
+                      condOP:"GTANDEQ",
+                      ruleInfo:"截至日期必须大于预计开始", 
+                      isKeyCond:false,
+                      paramValue:"eststarted",
+                      paramType:"ENTITYFIELD",
+                      isNotMode:false,
+                      deName:"deadline",
+                  },
+                ],
+                name:[
+                  {
+                      type:"STRINGLENGTH",
+                      condOP:"",
+                      ruleInfo:"任务名称不大于10", 
+                      isKeyCond:false,
+                      isNotMode:false,
+                      maxValue:100,
+                      deName:"name",
+                      isIncludeMaxValue:true,
+                      isIncludeMinValue:false,
+                  },
+                ],
     };
 
     /**
