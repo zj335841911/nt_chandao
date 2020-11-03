@@ -420,11 +420,7 @@ export class SubStoryNewGridBase extends GridControlBase {
     public async save() {
         if (!await this.validateAll()) {
             if(this.errorMessages && this.errorMessages.length > 0) {
-                let descMessage: string = '';
-                this.errorMessages.forEach((message: any) => {
-                    descMessage = descMessage + '<p>' + message + '<p>';
-                })
-                this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: descMessage });
+                this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: this.errorMessages[0] });
             } else {
                 this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: (this.$t('app.commonWords.rulesException') as string) });
             }
