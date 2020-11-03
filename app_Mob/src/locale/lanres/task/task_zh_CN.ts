@@ -190,6 +190,7 @@ export default {
 			srfdeid: '', 
 			srfsourcekey: '', 
 			id: '编号', 
+			project: '所属项目', 
 			consumed: '之前消耗', 
 			currentconsumed: '本次消耗', 
 			totaltime: '总计耗时', 

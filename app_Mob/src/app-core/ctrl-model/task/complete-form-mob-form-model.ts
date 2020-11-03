@@ -56,6 +56,11 @@ export class CompleteFormMobModel {
                 dataType: 'ACID',
             },
             {
+                name: 'project',
+                prop: 'project',
+                dataType: 'PICKUP',
+            },
+            {
                 name: 'consumed',
                 prop: 'consumed',
                 dataType: 'FLOAT',

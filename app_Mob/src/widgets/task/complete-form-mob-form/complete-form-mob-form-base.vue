@@ -581,6 +581,7 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
         srfdeid: null,
         srfsourcekey: null,
         id: null,
+        project: null,
         consumed: null,
         currentconsumed: null,
         totaltime: null,
@@ -763,6 +764,8 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
 , 
         id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
 , 
+        project: new FormItemModel({ caption: '所属项目', detailType: 'FORMITEM', name: 'project', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
         consumed: new FormItemModel({ caption: '之前消耗', detailType: 'FORMITEM', name: 'consumed', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
 , 
         currentconsumed: new FormItemModel({ caption: '本次消耗', detailType: 'FORMITEM', name: 'currentconsumed', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
@@ -887,6 +890,18 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
     @Watch('data.id')
     onIdChange(newVal: any, oldVal: any) {
         this.formDataChange({ name: 'id', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 project 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof CompleteFormMob
+     */
+    @Watch('data.project')
+    onProjectChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'project', newVal: newVal, oldVal: oldVal });
     }
 
     /**
@@ -1021,6 +1036,7 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
      */
     private async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }){
                 
+
 
 
 
