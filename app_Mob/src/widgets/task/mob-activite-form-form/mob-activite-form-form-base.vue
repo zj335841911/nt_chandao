@@ -578,6 +578,9 @@ export default class MobActiviteFormBase extends Vue implements ControlInterface
      * @memberof MobActiviteForm
      */
     protected rules: any = {
+        left: [
+            {validator:(rule:any, value:any)=>{return this.verifyDeRules("left").isPast}}
+        ],
     }
 
     /**
@@ -587,6 +590,19 @@ export default class MobActiviteFormBase extends Vue implements ControlInterface
      * @memberof MobActiviteFormBase
      */
     public deRules:any = {
+                left:[
+                  {
+                      type:"VALUERANGE2",
+                      condOP:"",
+                      ruleInfo:"预计剩余大于0", 
+                      isKeyCond:false,
+                      isNotMode:false,
+                      minValue:0,
+                      deName:"left",
+                      isIncludeMaxValue:false,
+                      isIncludeMinValue:false,
+                  },
+                ],
     };
 
     /**

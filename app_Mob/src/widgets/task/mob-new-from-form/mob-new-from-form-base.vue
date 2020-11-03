@@ -868,6 +868,9 @@ export default class MobNewFromBase extends Vue implements ControlInterface {
             { required: true, type: 'string', message: '任务名称 值不能为空', trigger: 'blur' },
             {validator:(rule:any, value:any)=>{return this.verifyDeRules("name").isPast}}
         ],
+        estimate: [
+            {validator:(rule:any, value:any)=>{return this.verifyDeRules("estimate").isPast}}
+        ],
         deadline: [
             {validator:(rule:any, value:any)=>{return this.verifyDeRules("deadline").isPast}}
         ],
@@ -920,6 +923,19 @@ export default class MobNewFromBase extends Vue implements ControlInterface {
                       deName:"name",
                       isIncludeMaxValue:true,
                       isIncludeMinValue:false,
+                  },
+                ],
+                estimate:[
+                  {
+                      type:"VALUERANGE2",
+                      condOP:"",
+                      ruleInfo:"预计消耗大于等于0", 
+                      isKeyCond:false,
+                      isNotMode:false,
+                      minValue:0,
+                      deName:"estimate",
+                      isIncludeMaxValue:false,
+                      isIncludeMinValue:true,
                   },
                 ],
     };
