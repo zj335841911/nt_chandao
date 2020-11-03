@@ -4,5 +4,5 @@ Tip: If the failing expression is known to be legally refer to something that's 
 
 ----
 FTL stack trace ("~" means nesting-related):
-	- Failed at: ${formatCondValueOp(defsm.getValueOP())}  [in template "CODETEMPL_en_US" at line 271, column 34]
+	- Failed at: #if dataimport.getMemo()?? && dataexp...  [in template "CODETEMPL_en_US" at line 520, column 1]
 ----
