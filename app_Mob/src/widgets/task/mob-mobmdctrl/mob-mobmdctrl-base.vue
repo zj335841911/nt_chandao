@@ -8,10 +8,10 @@
                             <ion-item-option v-show="item.confirmStoryChangeCz.visabled" :disabled="item.confirmStoryChangeCz.disabled" color="primary" @click="mdctrl_click($event, 'u50d1ea3', item)"><ion-icon v-if="item.confirmStoryChangeCz.icon && item.confirmStoryChangeCz.isShowIcon" :name="item.confirmStoryChangeCz.icon"></ion-icon><ion-label v-if="item.confirmStoryChangeCz.isShowCaption">确认</ion-label></ion-item-option>
                             <ion-item-option v-show="item.TaskFavoritesMob.visabled" :disabled="item.TaskFavoritesMob.disabled" color="primary" @click="mdctrl_click($event, 'u78657a8', item)"><ion-icon v-if="item.TaskFavoritesMob.icon && item.TaskFavoritesMob.isShowIcon" :name="item.TaskFavoritesMob.icon"></ion-icon><ion-label v-if="item.TaskFavoritesMob.isShowCaption">收藏</ion-label></ion-item-option>
                             <ion-item-option v-show="item.TaskNFavoritesMob.visabled" :disabled="item.TaskNFavoritesMob.disabled" color="primary" @click="mdctrl_click($event, 'u7e33b1f', item)"><ion-icon v-if="item.TaskNFavoritesMob.icon && item.TaskNFavoritesMob.isShowIcon" :name="item.TaskNFavoritesMob.icon"></ion-icon><ion-label v-if="item.TaskNFavoritesMob.isShowCaption">取消收藏</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.StartTaskMob.visabled" :disabled="item.StartTaskMob.disabled" color="primary" @click="mdctrl_click($event, 'ufe8825d', item)"><ion-icon v-if="item.StartTaskMob.icon && item.StartTaskMob.isShowIcon" :name="item.StartTaskMob.icon"></ion-icon><ion-label v-if="item.StartTaskMob.isShowCaption">开始</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.StartMobTeamTask.visabled" :disabled="item.StartMobTeamTask.disabled" color="primary" @click="mdctrl_click($event, 'uc655bcc', item)"><ion-icon v-if="item.StartMobTeamTask.icon && item.StartMobTeamTask.isShowIcon" :name="item.StartMobTeamTask.icon"></ion-icon><ion-label v-if="item.StartMobTeamTask.isShowCaption">开始</ion-label></ion-item-option>
                             <ion-item-option v-show="item.AssignTaskMob.visabled" :disabled="item.AssignTaskMob.disabled" color="primary" @click="mdctrl_click($event, 'uaa5b5c3', item)"><ion-icon v-if="item.AssignTaskMob.icon && item.AssignTaskMob.isShowIcon" :name="item.AssignTaskMob.icon"></ion-icon><ion-label v-if="item.AssignTaskMob.isShowCaption">指派</ion-label></ion-item-option>
                             <ion-item-option v-show="item.finishTask1.visabled" :disabled="item.finishTask1.disabled" color="primary" @click="mdctrl_click($event, 'uc50cd90', item)"><ion-icon v-if="item.finishTask1.icon && item.finishTask1.isShowIcon" :name="item.finishTask1.icon"></ion-icon><ion-label v-if="item.finishTask1.isShowCaption">完成</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.PauseTaskMob.visabled" :disabled="item.PauseTaskMob.disabled" color="primary" @click="mdctrl_click($event, 'uc1096d7', item)"><ion-icon v-if="item.PauseTaskMob.icon && item.PauseTaskMob.isShowIcon" :name="item.PauseTaskMob.icon"></ion-icon><ion-label v-if="item.PauseTaskMob.isShowCaption">暂停</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.PauseMobTeamTask.visabled" :disabled="item.PauseMobTeamTask.disabled" color="primary" @click="mdctrl_click($event, 'ue0846ea', item)"><ion-icon v-if="item.PauseMobTeamTask.icon && item.PauseMobTeamTask.isShowIcon" :name="item.PauseMobTeamTask.icon"></ion-icon><ion-label v-if="item.PauseMobTeamTask.isShowCaption">暂停</ion-label></ion-item-option>
                             <ion-item-option v-show="item.CancelTaskMob.visabled" :disabled="item.CancelTaskMob.disabled" color="primary" @click="mdctrl_click($event, 'u77523c1', item)"><ion-icon v-if="item.CancelTaskMob.icon && item.CancelTaskMob.isShowIcon" :name="item.CancelTaskMob.icon"></ion-icon><ion-label v-if="item.CancelTaskMob.isShowCaption">取消</ion-label></ion-item-option>
                             <ion-item-option v-show="item.CloseTaskMob.visabled" :disabled="item.CloseTaskMob.disabled" color="primary" @click="mdctrl_click($event, 'u3834ce6', item)"><ion-icon v-if="item.CloseTaskMob.icon && item.CloseTaskMob.isShowIcon" :name="item.CloseTaskMob.icon"></ion-icon><ion-label v-if="item.CloseTaskMob.isShowCaption">关闭</ion-label></ion-item-option>
                             <ion-item-option v-show="item.deleteMob.visabled" :disabled="item.deleteMob.disabled" color="primary" @click="mdctrl_click($event, 'u2ec10d0', item)"><ion-icon v-if="item.deleteMob.icon && item.deleteMob.isShowIcon" :name="item.deleteMob.icon"></ion-icon><ion-label v-if="item.deleteMob.isShowCaption">删除</ion-label></ion-item-option>
@@ -32,10 +32,10 @@
                             <ion-item-option v-show="item.confirmStoryChangeCz.visabled" :disabled="item.confirmStoryChangeCz.disabled" color="primary" @click="mdctrl_click($event, 'u50d1ea3', item)"><ion-icon v-if="item.confirmStoryChangeCz.icon && item.confirmStoryChangeCz.isShowIcon" :name="item.confirmStoryChangeCz.icon"></ion-icon><ion-label v-if="item.confirmStoryChangeCz.isShowCaption">确认</ion-label></ion-item-option>
                             <ion-item-option v-show="item.TaskFavoritesMob.visabled" :disabled="item.TaskFavoritesMob.disabled" color="primary" @click="mdctrl_click($event, 'u78657a8', item)"><ion-icon v-if="item.TaskFavoritesMob.icon && item.TaskFavoritesMob.isShowIcon" :name="item.TaskFavoritesMob.icon"></ion-icon><ion-label v-if="item.TaskFavoritesMob.isShowCaption">收藏</ion-label></ion-item-option>
                             <ion-item-option v-show="item.TaskNFavoritesMob.visabled" :disabled="item.TaskNFavoritesMob.disabled" color="primary" @click="mdctrl_click($event, 'u7e33b1f', item)"><ion-icon v-if="item.TaskNFavoritesMob.icon && item.TaskNFavoritesMob.isShowIcon" :name="item.TaskNFavoritesMob.icon"></ion-icon><ion-label v-if="item.TaskNFavoritesMob.isShowCaption">取消收藏</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.StartTaskMob.visabled" :disabled="item.StartTaskMob.disabled" color="primary" @click="mdctrl_click($event, 'ufe8825d', item)"><ion-icon v-if="item.StartTaskMob.icon && item.StartTaskMob.isShowIcon" :name="item.StartTaskMob.icon"></ion-icon><ion-label v-if="item.StartTaskMob.isShowCaption">开始</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.StartMobTeamTask.visabled" :disabled="item.StartMobTeamTask.disabled" color="primary" @click="mdctrl_click($event, 'uc655bcc', item)"><ion-icon v-if="item.StartMobTeamTask.icon && item.StartMobTeamTask.isShowIcon" :name="item.StartMobTeamTask.icon"></ion-icon><ion-label v-if="item.StartMobTeamTask.isShowCaption">开始</ion-label></ion-item-option>
                             <ion-item-option v-show="item.AssignTaskMob.visabled" :disabled="item.AssignTaskMob.disabled" color="primary" @click="mdctrl_click($event, 'uaa5b5c3', item)"><ion-icon v-if="item.AssignTaskMob.icon && item.AssignTaskMob.isShowIcon" :name="item.AssignTaskMob.icon"></ion-icon><ion-label v-if="item.AssignTaskMob.isShowCaption">指派</ion-label></ion-item-option>
                             <ion-item-option v-show="item.finishTask1.visabled" :disabled="item.finishTask1.disabled" color="primary" @click="mdctrl_click($event, 'uc50cd90', item)"><ion-icon v-if="item.finishTask1.icon && item.finishTask1.isShowIcon" :name="item.finishTask1.icon"></ion-icon><ion-label v-if="item.finishTask1.isShowCaption">完成</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.PauseTaskMob.visabled" :disabled="item.PauseTaskMob.disabled" color="primary" @click="mdctrl_click($event, 'uc1096d7', item)"><ion-icon v-if="item.PauseTaskMob.icon && item.PauseTaskMob.isShowIcon" :name="item.PauseTaskMob.icon"></ion-icon><ion-label v-if="item.PauseTaskMob.isShowCaption">暂停</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.PauseMobTeamTask.visabled" :disabled="item.PauseMobTeamTask.disabled" color="primary" @click="mdctrl_click($event, 'ue0846ea', item)"><ion-icon v-if="item.PauseMobTeamTask.icon && item.PauseMobTeamTask.isShowIcon" :name="item.PauseMobTeamTask.icon"></ion-icon><ion-label v-if="item.PauseMobTeamTask.isShowCaption">暂停</ion-label></ion-item-option>
                             <ion-item-option v-show="item.CancelTaskMob.visabled" :disabled="item.CancelTaskMob.disabled" color="primary" @click="mdctrl_click($event, 'u77523c1', item)"><ion-icon v-if="item.CancelTaskMob.icon && item.CancelTaskMob.isShowIcon" :name="item.CancelTaskMob.icon"></ion-icon><ion-label v-if="item.CancelTaskMob.isShowCaption">取消</ion-label></ion-item-option>
                             <ion-item-option v-show="item.CloseTaskMob.visabled" :disabled="item.CloseTaskMob.disabled" color="primary" @click="mdctrl_click($event, 'u3834ce6', item)"><ion-icon v-if="item.CloseTaskMob.icon && item.CloseTaskMob.isShowIcon" :name="item.CloseTaskMob.icon"></ion-icon><ion-label v-if="item.CloseTaskMob.isShowCaption">关闭</ion-label></ion-item-option>
                             <ion-item-option v-show="item.deleteMob.visabled" :disabled="item.deleteMob.disabled" color="primary" @click="mdctrl_click($event, 'u2ec10d0', item)"><ion-icon v-if="item.deleteMob.icon && item.deleteMob.isShowIcon" :name="item.deleteMob.icon"></ion-icon><ion-label v-if="item.deleteMob.isShowCaption">删除</ion-label></ion-item-option>
@@ -345,7 +345,7 @@ export default class MobBase extends Vue implements ControlInterface {
      * @returns {Promise<any>}
      * @memberof MdctrlBase
      */
-    protected async mdctrl_ufe8825d_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+    protected async mdctrl_uc655bcc_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
 
         // 取数
         let datas: any[] = [];
@@ -354,7 +354,7 @@ export default class MobBase extends Vue implements ControlInterface {
         const _this: any = this;
         let contextJO: any = {};
         let paramJO: any = {};
-        
+        Object.assign(paramJO, {});
         xData = this;
         if (_this.getDatas && _this.getDatas instanceof Function) {
             datas = [..._this.getDatas()];
@@ -362,7 +362,7 @@ export default class MobBase extends Vue implements ControlInterface {
         // 界面行为
         const curUIService: any = await this.globaluiservice.getService('task_ui_action');
         if (curUIService) {
-            curUIService.Task_StartTaskMob(datas, contextJO, paramJO, $event, xData, this);
+            curUIService.Task_StartMobTeamTask(datas, contextJO, paramJO, $event, xData, this);
         }
     }
 
@@ -438,7 +438,7 @@ export default class MobBase extends Vue implements ControlInterface {
      * @returns {Promise<any>}
      * @memberof MdctrlBase
      */
-    protected async mdctrl_uc1096d7_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+    protected async mdctrl_ue0846ea_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
 
         // 取数
         let datas: any[] = [];
@@ -447,7 +447,7 @@ export default class MobBase extends Vue implements ControlInterface {
         const _this: any = this;
         let contextJO: any = {};
         let paramJO: any = {};
-        
+        Object.assign(paramJO, {});
         xData = this;
         if (_this.getDatas && _this.getDatas instanceof Function) {
             datas = [..._this.getDatas()];
@@ -455,7 +455,7 @@ export default class MobBase extends Vue implements ControlInterface {
         // 界面行为
         const curUIService: any = await this.globaluiservice.getService('task_ui_action');
         if (curUIService) {
-            curUIService.Task_PauseTaskMob(datas, contextJO, paramJO, $event, xData, this);
+            curUIService.Task_PauseMobTeamTask(datas, contextJO, paramJO, $event, xData, this);
         }
     }
 
@@ -1345,8 +1345,8 @@ export default class MobBase extends Vue implements ControlInterface {
         if (Object.is(tag, 'u7e33b1f')) {
             this.mdctrl_u7e33b1f_click();
         }
-        if (Object.is(tag, 'ufe8825d')) {
-            this.mdctrl_ufe8825d_click();
+        if (Object.is(tag, 'uc655bcc')) {
+            this.mdctrl_uc655bcc_click();
         }
         if (Object.is(tag, 'uaa5b5c3')) {
             this.mdctrl_uaa5b5c3_click();
@@ -1354,8 +1354,8 @@ export default class MobBase extends Vue implements ControlInterface {
         if (Object.is(tag, 'uc50cd90')) {
             this.mdctrl_uc50cd90_click();
         }
-        if (Object.is(tag, 'uc1096d7')) {
-            this.mdctrl_uc1096d7_click();
+        if (Object.is(tag, 'ue0846ea')) {
+            this.mdctrl_ue0846ea_click();
         }
         if (Object.is(tag, 'u77523c1')) {
             this.mdctrl_u77523c1_click();
@@ -1464,11 +1464,13 @@ export default class MobBase extends Vue implements ControlInterface {
         confirmStoryChangeCz: { name: 'confirmStoryChangeCz',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_XQCHANGE_BUT', target: 'SINGLEKEY',icon:'search',isShowCaption:false,isShowIcon:true},
         TaskFavoritesMob: { name: 'TaskFavoritesMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_NFAVOR_BUT', target: 'SINGLEKEY',icon:'star-outline',isShowCaption:false,isShowIcon:true},
         TaskNFavoritesMob: { name: 'TaskNFavoritesMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_FAVOR_BUT', target: 'SINGLEKEY',icon:'star-half-outline',isShowCaption:false,isShowIcon:true},
-        StartTaskMob: { name: 'StartTaskMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_START_BUT', target: 'SINGLEKEY',icon:'play',isShowCaption:false,isShowIcon:true},
+        StartMobTeamTask: { name: 'StartMobTeamTask',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_START_BUT', target: 'SINGLEKEY',icon:'',isShowCaption:false,isShowIcon:true},
+        StartTaskMob: { name: 'StartTaskMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_START_BUT', target: 'SINGLEKEY',icon:'play',},
         AssignTaskMob: { name: 'AssignTaskMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_ASSIGN_BUT', target: 'SINGLEKEY',icon:'people',isShowCaption:false,isShowIcon:true},
         finishTask1: { name: 'finishTask1',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_COMPLETE_BUT', target: 'SINGLEKEY',icon:'checkmark-circle-outline',isShowCaption:false,isShowIcon:true},
         DoneTaskMob: { name: 'DoneTaskMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_COMPLETE_BUT', target: 'SINGLEKEY',icon:'checkmark-circle-outline',},
-        PauseTaskMob: { name: 'PauseTaskMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_PAUSE_BUT', target: 'SINGLEKEY',icon:'pause',isShowCaption:false,isShowIcon:true},
+        PauseMobTeamTask: { name: 'PauseMobTeamTask',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_PAUSE_BUT', target: 'SINGLEKEY',icon:'pause',isShowCaption:false,isShowIcon:true},
+        PauseTaskMob: { name: 'PauseTaskMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_PAUSE_BUT', target: 'SINGLEKEY',icon:'pause',},
         CancelTaskMob: { name: 'CancelTaskMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_CANCEL_BUT', target: 'SINGLEKEY',icon:'power',isShowCaption:false,isShowIcon:true},
         CloseTaskMob: { name: 'CloseTaskMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_CLOSE_BUT', target: 'SINGLEKEY',icon:'backspace',isShowCaption:false,isShowIcon:true},
         deleteMob: { name: 'deleteMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_DELETE_BUT', target: 'SINGLEKEY',icon:'remove',isShowCaption:false,isShowIcon:true}
