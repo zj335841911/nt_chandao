@@ -6,6 +6,8 @@ import cn.ibizlab.pms.core.ou.service.impl.SysEmployeeServiceImpl;
 import cn.ibizlab.pms.core.util.ibizzentao.helper.TeamHelper;
 import cn.ibizlab.pms.core.zentao.domain.Team;
 import cn.ibizlab.pms.core.zentao.service.ITaskService;
+import cn.ibizlab.pms.util.dict.StaticDict;
+import cn.ibizlab.pms.util.security.AuthenticationUser;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,7 +42,7 @@ public class SysEmployeeExService extends SysEmployeeServiceImpl {
         if(params.get("project") != null && !"0".equals(params.get("project"))) {
             // 项目团队
             log.info("SysEmployeeExService：searchBugUser-" + params.get("project").toString());
-            context.setN_username_in(getAccounts("project", params.get("project")));
+            context.setN_username_in(getAccounts(StaticDict.Team__type.PROJECT.getValue(), params.get("project")));
         }
         Page<SysEmployee> page = super.searchDefault(context);
         return page;
@@ -52,7 +54,7 @@ public class SysEmployeeExService extends SysEmployeeServiceImpl {
         Map<String,Object> params = context.getParams();
         if(params.get("srfparentkey") != null && !"0".equals(params.get("srfparentkey"))) {
             // 项目团队
-            context.setN_username_notin(getAccounts("project", params.get("srfparentkey"), params.get("account") != null ?  params.get("account").toString() : null));
+            context.setN_username_notin(getAccounts(StaticDict.Team__type.PROJECT.getValue(), params.get("srfparentkey"), params.get("account") != null ?  params.get("account").toString() : null));
 
         }
         return super.searchDefault(context);
@@ -64,7 +66,7 @@ public class SysEmployeeExService extends SysEmployeeServiceImpl {
         Map<String,Object> params = context.getParams();
         if(params.get("project") != null && !"0".equals(params.get("project"))) {
             // 项目团队
-            context.setN_username_in(getAccounts("project", params.get("project")));
+            context.setN_username_in(getAccounts(StaticDict.Team__type.PROJECT.getValue(), params.get("project")));
             if(params.get("account") != null) {
                 context.setN_username_notin(params.get("account").toString().replace(",",";"));
             }
@@ -79,9 +81,29 @@ public class SysEmployeeExService extends SysEmployeeServiceImpl {
         Map<String,Object> params = context.getParams();
         if(params.get("srfparentkey") != null && !"0".equals(params.get("srfparentkey"))) {
             // 项目团队
-            context.setN_username_in(getAccounts("project", iTaskService.get(Long.parseLong(params.get("srfparentkey").toString())).getProject()));
+            context.setN_username_in(getAccounts(StaticDict.Team__type.PROJECT.getValue(), iTaskService.get(Long.parseLong(params.get("srfparentkey").toString())).getProject()));
             if(params.get("account") != null) {
                 context.setN_username_notin(params.get("account").toString().replace(",",";"));
+            }
+        }
+        return super.searchDefault(context);
+    }
+
+    @Override
+    public Page<SysEmployee> searchTaskMTeam(SysEmployeeSearchContext context) {
+        log.info("SysEmployeeExService：searchTaskTeam");
+        Map<String,Object> params = context.getParams();
+        if((params.get("multiple") == null && params.get("project") != null) || (params.get("multiple") != null && "0".equals(params.get("multiple")))) {
+            // 项目团队
+            log.info("SysEmployeeExService：SysEmployeeExService-" + params.get("project").toString());
+            context.setN_username_in(getAccounts(StaticDict.Team__type.PROJECT.getValue(), params.get("project")));
+        }else {
+            // 任务团队
+            log.info("SysEmployeeExService：SysEmployeeExService-" + params.get("id").toString());
+            if(teamHelper.list(new QueryWrapper<Team>().eq("type", StaticDict.Team__type.TASK.getValue()).gt("`left`", 0).notIn("account", AuthenticationUser.getAuthenticationUser().getLoginname()).eq("root", params.get("id").toString())).size() == 0) {
+                context.setN_username_in(getAccounts(StaticDict.Team__type.PROJECT.getValue(), params.get("project")));
+            }else {
+                context.setN_username_in(getAccounts(StaticDict.Team__type.TASK.getValue(), params.get("id")));
             }
         }
         return super.searchDefault(context);
@@ -94,11 +116,11 @@ public class SysEmployeeExService extends SysEmployeeServiceImpl {
         if((params.get("multiple") == null && params.get("project") != null) || (params.get("multiple") != null && "0".equals(params.get("multiple")))) {
             // 项目团队
             log.info("SysEmployeeExService：SysEmployeeExService-" + params.get("project").toString());
-            context.setN_username_in(getAccounts("project", params.get("project")));
+            context.setN_username_in(getAccounts(StaticDict.Team__type.PROJECT.getValue(), params.get("project")));
         }else {
             // 任务团队
             log.info("SysEmployeeExService：SysEmployeeExService-" + params.get("id").toString());
-            context.setN_username_in(getAccounts("task", params.get("id")));
+            context.setN_username_in(getAccounts(StaticDict.Team__type.TASK.getValue(), params.get("id")));
         }
         return super.searchDefault(context);
     }
