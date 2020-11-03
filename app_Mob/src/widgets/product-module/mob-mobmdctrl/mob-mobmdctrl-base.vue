@@ -56,16 +56,16 @@
                 </template>
                 <template v-else>
                     <ion-list  v-model="selectedArray"   v-if="isMutli" class="pickUpList">
-                        <ion-item v-for="(item, index) of items" :key="index" class="app-mob-mdctrl-item" >
-                            <ion-checkbox color="secondary" :value="item.srfkey" @ionChange="checkboxChange"  slot="end"></ion-checkbox>
+                        <ion-item v-for="(item, index) of items" :key="item.srfkey" class="app-mob-mdctrl-item" >
+                            <ion-checkbox color="secondary" :checked="item.checked" :value="item.srfkey" @ionChange="checkboxChange"  slot="end"></ion-checkbox>
                             <ion-label>{{item.name}}</ion-label>
                         </ion-item>
                     </ion-list>
                     <div class="pickUpList">
                     <ion-radio-group  :value="selectedValue" v-if="!isMutli">
-                        <ion-item v-for="(item, index) of items" :key="index" class="app-mob-mdctrl-item"  @click="onSimpleSelChange(item)">
+                        <ion-item v-for="(item, index) of items" :key="item.srfkey" class="app-mob-mdctrl-item"  @click="onSimpleSelChange(item)">
                             <ion-label>{{item.name}}</ion-label>
-                            <ion-radio slot="end" :value="item.srfkey"></ion-radio>
+                            <ion-radio slot="end" :checked="item.checked" :value="item.srfkey"></ion-radio>
                         </ion-item>
                     </ion-radio-group>
                     </div>
@@ -745,7 +745,15 @@ export default class MobBase extends Vue implements ControlInterface {
             this.items = response.data.records;
         }
         this.items.forEach((item:any)=>{
-            Object.assign(item,this.getActionState(item));    
+            // 计算是否选中
+            let index = this.selectdata.findIndex((temp:any)=>{return temp.srfkey == item.srfkey});
+            if(index != -1 || Object.is(this.selectedValue,item.srfkey)){
+                item.checked = true;
+            }else{
+                item.checked = false;
+            }
+            Object.assign(item,this.getActionState(item)); 
+            // 计算权限   
             this.setSlidingDisabled(item);
         });
         if(this.isEnableGroup){

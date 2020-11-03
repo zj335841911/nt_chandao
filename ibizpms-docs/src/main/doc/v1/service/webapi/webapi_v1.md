@@ -8,6 +8,5 @@ Tip: If you need the same two values on most places, the programmers should set 
 
 ----
 FTL stack trace ("~" means nesting-related):
-	- Failed at: #assign newOut = newOut?replace("\\",...  [in template "CODETEMPL_en_US" in function "formatOutput" at line 8, column 5]
-	- Reached through: ${formatOutput(true)}  [in template "CODETEMPL_en_US" at line 79, column 1]
+	- Failed at: ${formatOutput(true)}  [in template "CODETEMPL_en_US" at line 82, column 1]
 ----

@@ -5,7 +5,7 @@
 
     
               <ion-toolbar>
-    <ion-searchbar style="height: 36px; padding-bottom: 0px;" :placeholder="$t('app.fastsearch')" debounce="500" @ionChange="quickValueChange($event)" show-cancel-button="focus" :cancel-button-text="$t('app.button.cancel')"></ion-searchbar>
+    <ion-searchbar style="height: 36px; padding-bottom: 0px;" :placeholder="$t('app.fastsearch')" debounce="500" @ionChange="quickValueChange($event)"></ion-searchbar>
   </ion-toolbar>
 
     </ion-header>
@@ -613,6 +613,7 @@ export default class TaskMobPickupViewBase extends Vue {
     public async quickValueChange(event: any) {
         const pickupviewpanel: any = this.$refs.pickupviewpanel;
         if (pickupviewpanel) {
+            this.quickValue = event.detail.value;
             pickupviewpanel.quickSearch(this.quickValue);
         }
     }

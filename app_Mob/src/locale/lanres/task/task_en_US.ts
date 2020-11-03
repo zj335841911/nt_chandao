@@ -79,6 +79,9 @@ export default {
 		editmobeditview: {
 			caption: '任务',
 		},
+		activemobtask: {
+			caption: '激活',
+		},
 		cancelmoboptionview: {
 			caption: '取消',
 		},
@@ -297,6 +300,33 @@ export default {
 		uiactions: {
 		},
 	},
+	mobactiviteform_form: {
+		details: {
+			druipart1: '', 
+			grouppanel1: '分组面板', 
+			group1: '任务基本信息', 
+			formpage1: '基本信息', 
+			group2: '操作信息', 
+			formpage2: '其它', 
+			srfupdatedate: '最后修改日期', 
+			srforikey: '', 
+			srfkey: '编号', 
+			srfmajortext: '任务名称', 
+			srftempmode: '', 
+			srfuf: '', 
+			srfdeid: '', 
+			srfsourcekey: '', 
+			assignedto: '指派给', 
+			left: '预计剩余', 
+			comment: '备注', 
+			project: '所属项目', 
+			multiple: '多人任务', 
+			updatedate: '最后的更新日期', 
+			id: '编号', 
+		},
+		uiactions: {
+		},
+	},
 	estimatemob_form: {
 		details: {
 			druipart2: '', 
@@ -419,6 +449,10 @@ export default {
 		deuiaction1_assigntaskmob: {
 			caption: '指派',
 			tip: 'deuiaction1_assigntaskmob',
+		},
+		deuiaction1_activemobtask: {
+			caption: '激活',
+			tip: 'deuiaction1_activemobtask',
 		},
 		deuiaction1_consumedmobtaskteam: {
 			caption: '工时',

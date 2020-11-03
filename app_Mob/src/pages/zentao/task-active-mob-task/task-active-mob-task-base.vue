@@ -1,37 +1,51 @@
+
 <template>
-<ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobpickupview': true, 'story-mob-pickup-view': true }">
+<ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demoboptview': true, 'task-active-mob-task': true }">
     
     <ion-header>
+        <ion-toolbar v-show="titleStatus" class="ionoc-view-header">
+            <ion-buttons slot="start">
+                <ion-button v-show="isShowBackButton" @click="closeView">
+                    <ion-icon name="chevron-back"></ion-icon>
+                    {{$t('app.button.back')}}
+                </ion-button>
+            </ion-buttons>
+            <ion-title class="view-title"><label class="title-label"><ion-icon v-if="model.icon" :name="model.icon"></ion-icon> <img v-else-if="model.iconcls" :src="model.iconcls" alt=""> {{$t(model.srfCaption)}}</label></ion-title>
+        </ion-toolbar>
 
     
-              <ion-toolbar>
-    <ion-searchbar style="height: 36px; padding-bottom: 0px;" :placeholder="$t('app.fastsearch')" debounce="500" @ionChange="quickValueChange($event)"></ion-searchbar>
-  </ion-toolbar>
-
     </ion-header>
 
     <ion-content >
-                <view_pickupviewpanel
+                <view_form
             :viewState="viewState"
-            viewName="StoryMobPickupView"  
+            viewName="TaskActiveMobTask"  
             :viewparams="viewparams" 
             :context="context" 
-            :isSingleSelect="isSingleSelect"
-            :isShowButtons="isShowButtons"
-            name="pickupviewpanel"  
-            ref='pickupviewpanel' 
-            @selectionchange="pickupviewpanel_selectionchange($event)"  
-            @load="pickupviewpanel_load($event)"  
+            :autosave="false" 
+            :viewtag="viewtag"
+            :showBusyIndicator="true"
+            updateAction="Activate"
+            removeAction="Remove"
+            loaddraftAction="GetDraft"
+            loadAction="Get"
+            createAction="Activate"
+            WFSubmitAction=""
+            WFStartAction=""
+            style='' 
+            name="form"  
+            ref='form' 
+            @save="form_save($event)"  
+            @remove="form_remove($event)"  
+            @load="form_load($event)"  
             @closeview="closeView($event)">
-        </view_pickupviewpanel>
+        </view_form>
     </ion-content>
     <ion-footer class="view-footer">
-        <ion-toolbar style="text-align: center;">
-    <div class="mobpickupview_button">
-      <ion-button class="pick-btn" @click="onClickCancel" color="medium">{{$t('app.button.cancel')}}</ion-button>
-      <ion-button class="pick-btn" @click="onClickOk" :disabled="viewSelections.length === 0">{{$t('app.button.confirm')}}</ion-button>
-    </div>
-</ion-toolbar>
+        <div class="option-view-btnbox">
+  <ion-button class="option-btn medium" color="medium" @click="back">返回</ion-button>
+  <ion-button class="option-btn success" @click="save">保存</ion-button> 
+</div>
 
     </ion-footer>
 </ion-page>
@@ -41,47 +55,47 @@
 import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import StoryService from '@/app-core/service/story/story-service';
+import TaskService from '@/app-core/service/task/task-service';
 
-import MobPickupViewEngine from '@engine/view/mob-pickup-view-engine';
-import StoryUIService from '@/ui-service/story/story-ui-action';
+import MobOptionViewEngine from '@engine/view/mob-option-view-engine';
+import TaskUIService from '@/ui-service/task/task-ui-action';
 
 @Component({
     components: {
     },
 })
-export default class StoryMobPickupViewBase extends Vue {
+export default class TaskActiveMobTaskBase extends Vue {
 
     /**
      * 全局 ui 服务
      *
      * @type {GlobalUiService}
-     * @memberof StoryMobPickupViewBase
+     * @memberof TaskActiveMobTaskBase
      */
     protected globaluiservice: GlobalUiService = new GlobalUiService();
 
     /**
      * 实体服务对象
      *
-     * @type {StoryService}
-     * @memberof StoryMobPickupViewBase
+     * @type {TaskService}
+     * @memberof TaskActiveMobTaskBase
      */
-    protected appEntityService: StoryService = new StoryService();
+    protected appEntityService: TaskService = new TaskService();
 
     /**
      * 实体UI服务对象
      *
-     * @type StoryUIService
-     * @memberof StoryMobPickupViewBase
+     * @type TaskUIService
+     * @memberof TaskActiveMobTaskBase
      */
-    public appUIService: StoryUIService = new StoryUIService(this.$store);
+    public appUIService: TaskUIService = new TaskUIService(this.$store);
 
     /**
      * 数据变化
      *
      * @param {*} val
      * @returns {*}
-     * @memberof StoryMobPickupViewBase
+     * @memberof TaskActiveMobTaskBase
      */
     @Emit() 
     protected viewDatasChange(val: any):any {
@@ -92,7 +106,7 @@ export default class StoryMobPickupViewBase extends Vue {
      * 视图上下文
      *
      * @type {string}
-     * @memberof StoryMobPickupViewBase
+     * @memberof TaskActiveMobTaskBase
      */
     @Prop() protected _context!: string;
 
@@ -100,7 +114,7 @@ export default class StoryMobPickupViewBase extends Vue {
      * 视图参数
      *
      * @type {string}
-     * @memberof StoryMobPickupViewBase
+     * @memberof TaskActiveMobTaskBase
      */
     @Prop() protected _viewparams!: string;
 
@@ -108,7 +122,7 @@ export default class StoryMobPickupViewBase extends Vue {
      * 视图默认使用
      *
      * @type {boolean}
-     * @memberof StoryMobPickupViewBase
+     * @memberof TaskActiveMobTaskBase
      */
     @Prop({ default: "routerView" }) protected viewDefaultUsage!: string;
 
@@ -116,15 +130,15 @@ export default class StoryMobPickupViewBase extends Vue {
 	 * 视图标识
 	 *
 	 * @type {string}
-	 * @memberof StoryMobPickupViewBase
+	 * @memberof TaskActiveMobTaskBase
 	 */
-	protected viewtag: string = 'f48661e4f3797c86502abe30dae2f89f';
+	protected viewtag: string = '32dbba2bbd37a177d91162cdd28c5948';
 
     /**
      * 视图上下文
      *
      * @type {*}
-     * @memberof StoryMobPickupViewBase
+     * @memberof TaskActiveMobTaskBase
      */
     protected context: any = {};
 
@@ -132,7 +146,7 @@ export default class StoryMobPickupViewBase extends Vue {
      * 视图参数
      *
      * @type {*}
-     * @memberof StoryMobPickupViewBase
+     * @memberof TaskActiveMobTaskBase
      */
     protected viewparams: any = {};
 
@@ -140,7 +154,7 @@ export default class StoryMobPickupViewBase extends Vue {
      * 是否为子视图
      *
      * @type {boolean}
-     * @memberof StoryMobPickupViewBase
+     * @memberof TaskActiveMobTaskBase
      */
     @Prop({ default: false }) protected isChildView?: boolean;
 
@@ -148,14 +162,14 @@ export default class StoryMobPickupViewBase extends Vue {
      * 是否为门户嵌入视图
      *
      * @type {boolean}
-     * @memberof StoryMobPickupViewBase
+     * @memberof TaskActiveMobTaskBase
      */
     @Prop({ default: false }) protected isPortalView?: boolean;
 
     /**
      * 标题状态
      *
-     * @memberof StoryMobPickupViewBase
+     * @memberof TaskActiveMobTaskBase
      */
     public titleStatus :boolean = true;
 
@@ -164,33 +178,33 @@ export default class StoryMobPickupViewBase extends Vue {
      *
      * @protected
      * @type {*}
-     * @memberof StoryMobPickupViewBase
+     * @memberof TaskActiveMobTaskBase
      */
-    protected navContext: any = {};
+    protected navContext: any = { 'objecttype': 'task', 'srfparentkey': '%task%' };
 
     /**
      * 视图导航参数
      *
      * @protected
      * @type {*}
-     * @memberof StoryMobPickupViewBase
+     * @memberof TaskActiveMobTaskBase
      */
-    protected navParam: any = {};
+    protected navParam: any = { 'srfparentkey': '%task%', 'objecttype': 'task' };
 
     /**
      * 视图模型数据
      *
      * @type {*}
-     * @memberof StoryMobPickupViewBase
+     * @memberof TaskActiveMobTaskBase
      */
     protected model: any = {
-        srfTitle: '需求移动端数据选择视图',
-        srfCaption: 'story.views.mobpickupview.caption',
+        srfTitle: '任务选项操作视图(激活)',
+        srfCaption: 'task.views.activemobtask.caption',
         srfSubCaption: '',
         dataInfo: '',
-        viewname:'story.mobpickupview',
+        viewname:'task.activemobtask',
         iconcls: '',
-        icon: 'star-o'
+        icon: 'tasks'
     }
 
     /**
@@ -198,7 +212,7 @@ export default class StoryMobPickupViewBase extends Vue {
      *
      * @param {string} newVal
      * @param {string} oldVal
-     * @memberof  StoryMobPickupViewBase
+     * @memberof  TaskActiveMobTaskBase
      */
     @Watch('_context')
     on_context(newVal: string, oldVal: string) {
@@ -226,7 +240,7 @@ export default class StoryMobPickupViewBase extends Vue {
     /**
      * 设置工具栏状态
      *
-     * @memberof StoryMobPickupViewBase
+     * @memberof TaskActiveMobTaskBase
      */
     public setViewTitleStatus(){
         const thirdPartyName = this.$store.getters.getThirdPartyName();
@@ -239,23 +253,17 @@ export default class StoryMobPickupViewBase extends Vue {
      * 容器模型
      *
      * @type {*}
-     * @memberof StoryMobPickupViewBase
+     * @memberof TaskActiveMobTaskBase
      */
     protected containerModel: any = {
-        view_pickupviewpanel: { name: 'pickupviewpanel', type: 'PICKUPVIEWPANEL' },
-        view_okbtn: { name: 'okbtn', type: 'button', text: '确定', disabled: true },
-        view_cancelbtn: { name: 'cancelbtn', type: 'button', text: '取消', disabled: false },
-        view_leftbtn: { name: 'leftbtn', type: 'button', text: '左移', disabled: true },
-        view_rightbtn: { name: 'rightbtn', type: 'button', text: '右移', disabled: true },
-        view_allleftbtn: { name: 'allleftbtn', type: 'button', text: '全部左移', disabled: true },
-        view_allrightbtn: { name: 'allrightbtn', type: 'button', text: '全部右移', disabled: true },
+        view_form: { name: 'form', type: 'FORM' },
     };
 
     /**
      * 视图状态订阅对象
      *
      * @type {Subject<{action: string, data: any}>}
-     * @memberof StoryMobPickupViewBase
+     * @memberof TaskActiveMobTaskBase
      */
     protected viewState: Subject<ViewState> = new Subject();
 
@@ -264,7 +272,7 @@ export default class StoryMobPickupViewBase extends Vue {
      * 是否显示标题
      *
      * @type {string}
-     * @memberof StoryMobPickupViewBase
+     * @memberof TaskActiveMobTaskBase
      */
     @Prop({default:true}) protected showTitle?: boolean;
 
@@ -272,14 +280,14 @@ export default class StoryMobPickupViewBase extends Vue {
     /**
      * 工具栏模型集合名
      *
-     * @memberof StoryMobPickupViewBase
+     * @memberof TaskActiveMobTaskBase
      */
     public toolbarModelList:any = []
 
     /**
      * 解析视图参数
      *
-     * @memberof StoryMobPickupViewBase
+     * @memberof TaskActiveMobTaskBase
      */
     protected parseViewParam(): void {
         const { context, param } = this.$viewTool.formatNavigateViewParam(this, true);
@@ -292,7 +300,7 @@ export default class StoryMobPickupViewBase extends Vue {
      *
      * @readonly
      * @type {boolean}
-     * @memberof StoryMobPickupViewBase
+     * @memberof TaskActiveMobTaskBase
      */
     get isShowBackButton(): boolean {
         // 存在路由，非路由使用，嵌入
@@ -306,21 +314,22 @@ export default class StoryMobPickupViewBase extends Vue {
      * 视图引擎
      *
      * @type {Engine}
-     * @memberof StoryMobPickupViewBase
+     * @memberof TaskActiveMobTaskBase
      */
-    protected engine: MobPickupViewEngine = new MobPickupViewEngine();
+    protected engine: MobOptionViewEngine = new MobOptionViewEngine();
 
     /**
      * 引擎初始化
      *
-     * @memberof StoryMobPickupViewBase
+     * @memberof TaskActiveMobTaskBase
      */
     protected engineInit(): void {
         this.engine.init({
             view: this,
-            pickupviewpanel: this.$refs.pickupviewpanel,
-            keyPSDEField: 'story',
-            majorPSDEField: 'title',
+            form: this.$refs.form,
+            p2k: '0',
+            keyPSDEField: 'task',
+            majorPSDEField: 'name',
             isLoadDefault: true,
         });
     }
@@ -328,7 +337,7 @@ export default class StoryMobPickupViewBase extends Vue {
     /**
      * Vue声明周期
      *
-     * @memberof StoryMobPickupViewBase
+     * @memberof TaskActiveMobTaskBase
      */
     protected created() {
         this.afterCreated();
@@ -337,7 +346,7 @@ export default class StoryMobPickupViewBase extends Vue {
     /**
      * 执行created后的逻辑
      *
-     * @memberof StoryMobPickupViewBase
+     * @memberof TaskActiveMobTaskBase
      */    
     protected afterCreated(){
         const secondtag = this.$util.createUUID();
@@ -353,7 +362,7 @@ export default class StoryMobPickupViewBase extends Vue {
     /**
      * 销毁之前
      *
-     * @memberof StoryMobPickupViewBase
+     * @memberof TaskActiveMobTaskBase
      */
     protected beforeDestroy() {
         this.$store.commit('viewaction/removeView', this.viewtag);
@@ -362,7 +371,7 @@ export default class StoryMobPickupViewBase extends Vue {
     /**
      * Vue声明周期
      *
-     * @memberof StoryMobPickupViewBase
+     * @memberof TaskActiveMobTaskBase
      */
     public activated() {
         this.thirdPartyInit();
@@ -373,7 +382,7 @@ export default class StoryMobPickupViewBase extends Vue {
     /**
      * Vue声明周期(组件初始化完毕)
      *
-     * @memberof StoryMobPickupViewBase
+     * @memberof TaskActiveMobTaskBase
      */
     protected mounted() {
         this.afterMounted();
@@ -383,7 +392,7 @@ export default class StoryMobPickupViewBase extends Vue {
     /**
      * 执行mounted后的逻辑
      * 
-     * @memberof StoryMobPickupViewBase
+     * @memberof TaskActiveMobTaskBase
      */
     protected afterMounted(){
         const _this: any = this;
@@ -398,7 +407,7 @@ export default class StoryMobPickupViewBase extends Vue {
     /**
      * 第三方容器初始化
      * 
-     * @memberof StoryMobPickupViewBase
+     * @memberof TaskActiveMobTaskBase
      */
     protected  thirdPartyInit(){
         if(!this.isChildView){
@@ -410,7 +419,7 @@ export default class StoryMobPickupViewBase extends Vue {
     /**
      * 销毁视图回调
      *
-     * @memberof StoryMobPickupViewBase
+     * @memberof TaskActiveMobTaskBase
      */
     protected destroyed(){
         this.afterDestroyed();
@@ -419,7 +428,7 @@ export default class StoryMobPickupViewBase extends Vue {
     /**
      * 执行destroyed后的逻辑
      * 
-     * @memberof StoryMobPickupViewBase
+     * @memberof TaskActiveMobTaskBase
      */
     protected afterDestroyed(){
         if (this.viewDefaultUsage !== "indexView" && Object.keys(localStorage).length > 0) {
@@ -433,25 +442,36 @@ export default class StoryMobPickupViewBase extends Vue {
     }
 
     /**
-     * pickupviewpanel 部件 selectionchange 事件
+     * form 部件 save 事件
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof StoryMobPickupViewBase
+     * @memberof TaskActiveMobTaskBase
      */
-    protected pickupviewpanel_selectionchange($event: any, $event2?: any) {
-        this.engine.onCtrlEvent('pickupviewpanel', 'selectionchange', $event);
+    protected form_save($event: any, $event2?: any) {
+        this.engine.onCtrlEvent('form', 'save', $event);
     }
 
     /**
-     * pickupviewpanel 部件 load 事件
+     * form 部件 remove 事件
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof StoryMobPickupViewBase
+     * @memberof TaskActiveMobTaskBase
      */
-    protected pickupviewpanel_load($event: any, $event2?: any) {
-        this.engine.onCtrlEvent('pickupviewpanel', 'load', $event);
+    protected form_remove($event: any, $event2?: any) {
+        this.engine.onCtrlEvent('form', 'remove', $event);
+    }
+
+    /**
+     * form 部件 load 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof TaskActiveMobTaskBase
+     */
+    protected form_load($event: any, $event2?: any) {
+        this.engine.onCtrlEvent('form', 'load', $event);
     }
 
 
@@ -459,7 +479,7 @@ export default class StoryMobPickupViewBase extends Vue {
      * 第三方关闭视图
      *
      * @param {any[]} args
-     * @memberof StoryMobPickupViewBase
+     * @memberof TaskActiveMobTaskBase
      */
     public quitFun() {
         if (!sessionStorage.getItem("firstQuit")) {  // 首次返回时
@@ -483,13 +503,15 @@ export default class StoryMobPickupViewBase extends Vue {
      * 关闭视图
      *
      * @param {any[]} args
-     * @memberof StoryMobPickupViewBase
+     * @memberof TaskActiveMobTaskBase
      */
     protected async closeView(args: any[]): Promise<any> {
         if(this.$store.state.searchformStatus){
              this.$store.commit('setSearchformStatus',false);
              return
         }
+              let result = await this.cheackChange();
+      if(result){
         if(this.viewDefaultUsage==="indexView" && this.$route.path === '/appindexview'){
             this.quitFun();
             return;
@@ -505,6 +527,8 @@ export default class StoryMobPickupViewBase extends Vue {
         if (this.viewDefaultUsage === "actionView") {
             this.$emit("close", { status: "success", action: "close", data: args instanceof MouseEvent ? null : args });
         }
+      }
+
         
     }
 
@@ -513,7 +537,7 @@ export default class StoryMobPickupViewBase extends Vue {
      *
      * @readonly
      * @type {(number | null)}
-     * @memberof StoryMobPickupViewBase
+     * @memberof TaskActiveMobTaskBase
      */
     get refreshdata(): number | null {
         return this.$store.getters['viewaction/getRefreshData'](this.viewtag);
@@ -525,7 +549,7 @@ export default class StoryMobPickupViewBase extends Vue {
      * @param {*} newVal
      * @param {*} oldVal
      * @returns
-     * @memberof StoryMobPickupViewBase
+     * @memberof TaskActiveMobTaskBase
      */
     @Watch('refreshdata')
     onRefreshData(newVal: any, oldVal: any) {
@@ -547,7 +571,7 @@ export default class StoryMobPickupViewBase extends Vue {
      * @param {*} val
      * @param {boolean} isCreate
      * @returns
-     * @memberof StoryMobPickupViewBase
+     * @memberof TaskActiveMobTaskBase
      */
     public initNavCaption(val:any,isCreate:boolean){
         this.$viewTool.setViewTitleOfThirdParty(this.$t(this.model.srfCaption) as string);        
@@ -556,71 +580,64 @@ export default class StoryMobPickupViewBase extends Vue {
 
 
     /**
-     * 视图选中数据
+     * 保存按钮事件
      *
-     * @type {any[]}
-     * @memberof StoryMobPickupView
+     * @protected
+     * @memberof MOBTESTMobOptionViewBase
      */
-    public viewSelections: any[] = [];
-
-    /**
-     * 是否显示按钮
-     *
-     * @type {boolean}
-     * @memberof StoryMobPickupView
-     */
-    @Prop({default: true}) public isShowButtons!: boolean;
-
-    /**
-     * 是否单选
-     *
-     * @type {boolean}
-     * @memberof StoryMobPickupView
-     */
-    public isSingleSelect: boolean = true;
-
-    /**
-     * 确定
-     *
-     * @memberof StoryMobPickupView
-     */
-    public onClickOk(): void {
-        this.viewDatasChange(this.viewSelections);
-        this.$emit('close', this.viewSelections);
+    protected save() {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        xData = this.$refs.form;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
+        }
+        this.viewState.next({ tag: 'form', action: 'saveandexit', data: datas });
     }
 
     /**
-     * 取消
+     * 返回按钮事件
      *
-     * @memberof StoryMobPickupView
+     * @protected
+     * @memberof MOBTESTMobOptionViewBase
      */
-    public onClickCancel(): void {
-        this.$emit('close', null);
-    }
-
-    /**
-     * 快速搜索值
-     *
-     * @memberof StoryMobPickupView
-     */
-    public quickValue = "";
-
-    /**
-     * 快速搜索
-     *
-     * @memberof StoryMobPickupView
-     */
-    public async quickValueChange(event: any) {
-        const pickupviewpanel: any = this.$refs.pickupviewpanel;
-        if (pickupviewpanel) {
-            this.quickValue = event.detail.value;
-            pickupviewpanel.quickSearch(this.quickValue);
+    protected back(args: any[]) {
+        if (this.viewDefaultUsage === "routerView" ) {
+            this.$store.commit("deletePage", this.$route.fullPath);
+            this.$router.go(-1);
+        } else {
+            this.$emit("close", { status: "success", action: "close", data: args instanceof MouseEvent ? null : args });
         }
     }
 
+    /**
+     * 检查表单是否修改
+     *
+     * @param {any[]} args
+     * @memberof PimEducationMobEditViewBase
+     */
+    public async cheackChange(): Promise<any>{
+        const view = this.$store.getters['viewaction/getAppView'](this.viewtag);
+        if (view && view.viewdatachange) {
+                const title: any = this.$t('app.tabpage.sureclosetip.title');
+                const contant: any = this.$t('app.tabpage.sureclosetip.content');
+                const result = await this.$notice.confirm(title, contant);
+                if (result) {
+                    this.$store.commit('viewaction/setViewDataChange', { viewtag: this.viewtag, viewdatachange: false });
+                    return true;
+                } else {
+                    return false;
+                }
+        }else{
+            return true;
+        }
+    }
 }
 </script>
 
 <style lang='less'>
-@import './story-mob-pickup-view.less';
+@import './task-active-mob-task.less';
 </style>

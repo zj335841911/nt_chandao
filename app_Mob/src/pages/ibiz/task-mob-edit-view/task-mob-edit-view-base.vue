@@ -71,6 +71,14 @@
                 <span class="btn-out-text">{{$t('task.mobeditviewrighttoolbar_toolbar.deuiaction1_assigntaskmob.caption')}}</span>
             </div>
         
+                    <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_activemobtask.disabled}" v-show="righttoolbarModels.deuiaction1_activemobtask.visabled">
+                <ion-button :disabled="righttoolbarModels.deuiaction1_activemobtask.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_activemobtask' }, $event)" size="large">
+                    <ion-icon name="facebook-square"></ion-icon>
+                <span class="btn-inner-text">{{$t('task.mobeditviewrighttoolbar_toolbar.deuiaction1_activemobtask.caption')}}</span>
+                </ion-button>
+                <span class="btn-out-text">{{$t('task.mobeditviewrighttoolbar_toolbar.deuiaction1_activemobtask.caption')}}</span>
+            </div>
+        
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_consumedmobtaskteam.disabled}" v-show="righttoolbarModels.deuiaction1_consumedmobtaskteam.visabled">
                 <ion-button :disabled="righttoolbarModels.deuiaction1_consumedmobtaskteam.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_consumedmobtaskteam' }, $event)" size="large">
                     <ion-icon name="clock-o"></ion-icon>
@@ -383,6 +391,8 @@ export default class TaskMobEditViewBase extends Vue {
 
             deuiaction1_assigntaskmob: { name: 'deuiaction1_assigntaskmob', caption: '指派', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_ASSIGN_BUT', uiaction: { tag: 'AssignTaskMob', target: 'SINGLEKEY' } },
 
+            deuiaction1_activemobtask: { name: 'deuiaction1_activemobtask', caption: '激活', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_ACTIVATION_BUT', uiaction: { tag: 'ActiveMobTask', target: 'SINGLEKEY' } },
+
             deuiaction1_consumedmobtaskteam: { name: 'deuiaction1_consumedmobtaskteam', caption: '工时', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_CONSUM_BUT', uiaction: { tag: 'ConsumedMobTaskTeam', target: 'SINGLEKEY' } },
 
             deuiaction1_finishtask1: { name: 'deuiaction1_finishtask1', caption: '完成', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_COMPLETE_BUT', uiaction: { tag: 'finishTask1', target: 'SINGLEKEY' } },
@@ -689,6 +699,9 @@ export default class TaskMobEditViewBase extends Vue {
         if (Object.is($event.tag, 'deuiaction1_assigntaskmob')) {
             this.righttoolbar_deuiaction1_assigntaskmob_click($event, '', $event2);
         }
+        if (Object.is($event.tag, 'deuiaction1_activemobtask')) {
+            this.righttoolbar_deuiaction1_activemobtask_click($event, '', $event2);
+        }
         if (Object.is($event.tag, 'deuiaction1_consumedmobtaskteam')) {
             this.righttoolbar_deuiaction1_consumedmobtaskteam_click($event, '', $event2);
         }
@@ -809,6 +822,38 @@ export default class TaskMobEditViewBase extends Vue {
         const curUIService: any = await this.globaluiservice.getService('task_ui_action');
         if (curUIService) {
             curUIService.Task_AssignTaskMob(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof TaskMobEditViewBase
+     */
+    protected async righttoolbar_deuiaction1_activemobtask_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+        // 参数
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this.$refs.form;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('task_ui_action');
+        if (curUIService) {
+            curUIService.Task_ActiveMobTask(datas, contextJO, paramJO, $event, xData, this);
         }
     }
 

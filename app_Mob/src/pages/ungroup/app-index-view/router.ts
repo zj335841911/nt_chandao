@@ -3725,6 +3725,74 @@ const router = new Router({
                     component: () => import('@pages/ibiz/story-mob-edit-view/story-mob-edit-view.vue'),
                 },
                 {
+                    path: 'products/:product?/stories/:story?/tasks/:task?/activemobtask',
+                    name: 'task_activemobtask',
+                    meta: {
+                        caption: 'task.views.activemobtask.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'activemobtask', parameterName: 'activemobtask' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/task-active-mob-task/task-active-mob-task.vue'),
+                },
+                {
+                    path: 'projects/:project?/tasks/:task?/activemobtask',
+                    name: 'task_activemobtask',
+                    meta: {
+                        caption: 'task.views.activemobtask.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'activemobtask', parameterName: 'activemobtask' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/task-active-mob-task/task-active-mob-task.vue'),
+                },
+                {
+                    path: 'stories/:story?/tasks/:task?/activemobtask',
+                    name: 'task_activemobtask',
+                    meta: {
+                        caption: 'task.views.activemobtask.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'activemobtask', parameterName: 'activemobtask' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/task-active-mob-task/task-active-mob-task.vue'),
+                },
+                {
+                    path: 'tasks/:task?/activemobtask',
+                    name: 'task_activemobtask',
+                    meta: {
+                        caption: 'task.views.activemobtask.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'activemobtask', parameterName: 'activemobtask' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/task-active-mob-task/task-active-mob-task.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/planmobmdview9',
                     name: 'bug_planmobmdview9',
                     meta: {

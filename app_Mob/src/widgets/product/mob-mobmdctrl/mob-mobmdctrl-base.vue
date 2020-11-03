@@ -900,7 +900,15 @@ export default class MobBase extends Vue implements ControlInterface {
             this.items = response.data.records;
         }
         this.items.forEach((item:any)=>{
-            Object.assign(item,this.getActionState(item));    
+            // 计算是否选中
+            let index = this.selectdata.findIndex((temp:any)=>{return temp.srfkey == item.srfkey});
+            if(index != -1 || Object.is(this.selectedValue,item.srfkey)){
+                item.checked = true;
+            }else{
+                item.checked = false;
+            }
+            Object.assign(item,this.getActionState(item)); 
+            // 计算权限   
             this.setSlidingDisabled(item);
         });
         if(this.isEnableGroup){
