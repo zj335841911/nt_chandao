@@ -139,6 +139,12 @@ export class MainEditFormBase extends EditFormControlBase {
         name: [
             { required: this.detailsModel.name.required, type: 'string', message: '任务名称 值不能为空', trigger: 'change' },
             { required: this.detailsModel.name.required, type: 'string', message: '任务名称 值不能为空', trigger: 'blur' },
+            {validator:(rule:any, value:any)=>{return this.verifyDeRules("name").isPast},message: this.verifyDeRules("name").infoMessage, trigger: 'change' },
+            {validator:(rule:any, value:any)=>{return this.verifyDeRules("name").isPast},message: this.verifyDeRules("name").infoMessage, trigger: 'blur' },
+        ],
+        deadline: [
+            {validator:(rule:any, value:any)=>{return this.verifyDeRules("deadline").isPast},message: this.verifyDeRules("deadline").infoMessage, trigger: 'change' },
+            {validator:(rule:any, value:any)=>{return this.verifyDeRules("deadline").isPast},message: this.verifyDeRules("deadline").infoMessage, trigger: 'blur' },
         ],
         }
     }
@@ -150,6 +156,31 @@ export class MainEditFormBase extends EditFormControlBase {
      * @memberof MainBase
      */
     public deRules:any = {
+                name:[
+                  {
+                      type:"STRINGLENGTH",
+                      condOP:"",
+                      ruleInfo:"任务名称不大于10", 
+                      isKeyCond:false,
+                      isNotMode:false,
+                      maxValue:100,
+                      deName:"name",
+                      isIncludeMaxValue:true,
+                      isIncludeMinValue:false,
+                  },
+                ],
+                deadline:[
+                  {
+                      type:"SIMPLE",
+                      condOP:"GTANDEQ",
+                      ruleInfo:"截至日期必须大于预计开始", 
+                      isKeyCond:false,
+                      paramValue:"ESTSTARTED",
+                      paramType:"ENTITYFIELD",
+                      isNotMode:false,
+                      deName:"deadline",
+                  },
+                ],
     };
 
     /**

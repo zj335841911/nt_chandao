@@ -147,6 +147,10 @@ export class MainEditEditFormBase extends EditFormControlBase {
             { required: this.detailsModel.type.required, type: 'string', message: '任务类型 值不能为空', trigger: 'change' },
             { required: this.detailsModel.type.required, type: 'string', message: '任务类型 值不能为空', trigger: 'blur' },
         ],
+        deadline: [
+            {validator:(rule:any, value:any)=>{return this.verifyDeRules("deadline").isPast},message: this.verifyDeRules("deadline").infoMessage, trigger: 'change' },
+            {validator:(rule:any, value:any)=>{return this.verifyDeRules("deadline").isPast},message: this.verifyDeRules("deadline").infoMessage, trigger: 'blur' },
+        ],
         }
     }
 
@@ -157,6 +161,18 @@ export class MainEditEditFormBase extends EditFormControlBase {
      * @memberof MainEditBase
      */
     public deRules:any = {
+                deadline:[
+                  {
+                      type:"SIMPLE",
+                      condOP:"GTANDEQ",
+                      ruleInfo:"截至日期必须大于预计开始", 
+                      isKeyCond:false,
+                      paramValue:"ESTSTARTED",
+                      paramType:"ENTITYFIELD",
+                      isNotMode:false,
+                      deName:"deadline",
+                  },
+                ],
     };
 
     /**
