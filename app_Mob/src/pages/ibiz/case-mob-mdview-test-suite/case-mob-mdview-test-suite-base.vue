@@ -230,7 +230,7 @@ export default class CaseMobMDView_TestSuiteBase extends Vue {
      * @type {*}
      * @memberof CaseMobMDView_TestSuiteBase
      */
-    protected navContext: any = { 'suite': '%srfparentkey%' };
+    protected navContext: any = {};
 
     /**
      * 视图导航参数
@@ -239,7 +239,7 @@ export default class CaseMobMDView_TestSuiteBase extends Vue {
      * @type {*}
      * @memberof CaseMobMDView_TestSuiteBase
      */
-    protected navParam: any = { 'suite': '%srfparentkey%' };
+    protected navParam: any = { 'srfparentkey': '%testsuite%' };
 
     /**
      * 视图模型数据
