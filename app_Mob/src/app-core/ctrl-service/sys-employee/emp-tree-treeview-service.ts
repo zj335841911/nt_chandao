@@ -841,6 +841,11 @@ export class EmpTreeService extends TreeViewServiceBase {
         filter = this.handleResNavParams(context,filter,rsNavParams,rsParams);
         return new Promise((resolve:any,reject:any) =>{
             let searchFilter: any = {};
+
+            if (Object.is(filter.strNodeType, this.TREENODE_PROJECTTEAM)) {
+                Object.assign(searchFilter, { n_project_eq: filter.nodeid });
+            }
+
             Object.assign(searchFilter, { total: false });
             let bFirst: boolean = true;
             let records: any[] = [];
