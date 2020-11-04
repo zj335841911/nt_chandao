@@ -1184,6 +1184,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '92ce5515ece97c1e9ad8f6676c3a260f',
+            viewmodule: 'zentao',
+            viewname: 'StoryUsr2MobMDView_5219',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'd096e8789265e730da5eefa1423479dc',
+            ],
+        },
+        {
             viewtag: '9349ea1684c700138349df5c672a7c19',
             viewmodule: 'ibiz',
             viewname: 'BugAssMobOptionView',
@@ -1320,6 +1330,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '98d17bc354594cf75704f92e9946f4e2',
                 '236b858424b0a6f5b0c05f6d689741a1',
                 '46c4b323d60fd1658313b26c6b3ac34d',
             ],

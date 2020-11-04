@@ -1,68 +1,16 @@
 <template>
-<ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobmdview': true, 'test-suite-mob-mdview': true }">
+<ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobmdview': true, 'story-usr2-mob-mdview-5219': true }">
     
     <ion-header>
-        <app-search-history @quickValueChange="quickValueChange" :model="model" :showfilter="true"></app-search-history>
+        <app-search-history @quickValueChange="quickValueChange" :model="model" :showfilter="false"></app-search-history>
 
     
     </ion-header>
 
-    <van-popup get-container="#app" :lazy-render="false" duration="0.2" v-model="searchformState" position="right" class="searchform" style="height: 100%; width: 85%;"  >
-        <ion-header>
-            <ion-toolbar translucent>
-                <ion-title>条件搜索</ion-title>
-            </ion-toolbar>
-        </ion-header>
-        <div class="searchform_content">
-            <view_searchform
-    :viewState="viewState"
-    viewName="TestSuiteMobMDView"  
-    :viewparams="viewparams" 
-    :context="context" 
-     
-    :viewtag="viewtag"
-    :showBusyIndicator="true"
-    updateAction=""
-    removeAction=""
-    loaddraftAction="FilterGetDraft"
-    loadAction="FilterGet"
-    createAction=""
-    WFSubmitAction=""
-    WFStartAction=""
-    style='' 
-    name="searchform"  
-    ref='searchform' 
-    @search="searchform_search($event)"  
-    @load="searchform_load($event)"  
-    @closeview="closeView($event)">
-</view_searchform>
-        </div>
-        <ion-footer>
-        <div class="search-btn">
-            <ion-button class="search-btn-item" shape="round" size="small" expand="full" color="light" @click="onReset">重置</ion-button>
-            <ion-button class="search-btn-item" shape="round" size="small" expand="full" @click="onSearch">搜索</ion-button>
-        </div>
-        </ion-footer>
-    </van-popup>
-    <div id="searchformtestsuitemobmdview"></div>
     <ion-content :scroll-events="true" @ionScroll="onScroll" ref="ionScroll" @ionScrollEnd="onScrollEnd">
-        <ion-refresher 
-            slot="fixed" 
-            ref="loadmore" 
-            pull-factor="0.5" 
-            pull-min="50" 
-            pull-max="100" 
-            @ionRefresh="pullDownToRefresh($event)">
-            <ion-refresher-content
-                pulling-icon="arrow-down-outline"
-                :pulling-text="$t('app.pulling_text')"
-                refreshing-spinner="circles"
-                refreshing-text="">
-            </ion-refresher-content>
-        </ion-refresher>
                 <view_mdctrl
             :viewState="viewState"
-            viewName="TestSuiteMobMDView"  
+            viewName="StoryUsr2MobMDView_5219"  
             :viewparams="viewparams" 
             :context="context" 
             viewType="DEMOBMDVIEW"
@@ -89,19 +37,6 @@
         </view_mdctrl>
     </ion-content>
     <ion-footer class="view-footer">
-                <div v-show="!isChoose" class = "fab_container">
-            <div class="scroll_tool">
-                <div class="scrollToTop" @click="onScrollToTop" v-show="isShouleBackTop" :style="{right:isScrollStop?'-18px':'-70px'}" > <van-icon name="back-top" /></div> 
-            </div>
-                <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1.disabled}" v-show="righttoolbarModels.deuiaction1.visabled">
-                <ion-button :disabled="righttoolbarModels.deuiaction1.disabled" @click="righttoolbar_click({ tag: 'deuiaction1' }, $event)" size="large">
-                    <ion-icon name="add"></ion-icon>
-                
-                </ion-button>
-                
-            </div>
-        
-        </div>
         
     </ion-footer>
 </ion-page>
@@ -111,47 +46,47 @@
 import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import TestSuiteService from '@/app-core/service/test-suite/test-suite-service';
+import StoryService from '@/app-core/service/story/story-service';
 
 import MobMDViewEngine from '@engine/view/mob-mdview-engine';
-import TestSuiteUIService from '@/ui-service/test-suite/test-suite-ui-action';
+import StoryUIService from '@/ui-service/story/story-ui-action';
 
 @Component({
     components: {
     },
 })
-export default class TestSuiteMobMDViewBase extends Vue {
+export default class StoryUsr2MobMDView_5219Base extends Vue {
 
     /**
      * 全局 ui 服务
      *
      * @type {GlobalUiService}
-     * @memberof TestSuiteMobMDViewBase
+     * @memberof StoryUsr2MobMDView_5219Base
      */
     protected globaluiservice: GlobalUiService = new GlobalUiService();
 
     /**
      * 实体服务对象
      *
-     * @type {TestSuiteService}
-     * @memberof TestSuiteMobMDViewBase
+     * @type {StoryService}
+     * @memberof StoryUsr2MobMDView_5219Base
      */
-    protected appEntityService: TestSuiteService = new TestSuiteService();
+    protected appEntityService: StoryService = new StoryService();
 
     /**
      * 实体UI服务对象
      *
-     * @type TestSuiteUIService
-     * @memberof TestSuiteMobMDViewBase
+     * @type StoryUIService
+     * @memberof StoryUsr2MobMDView_5219Base
      */
-    public appUIService: TestSuiteUIService = new TestSuiteUIService(this.$store);
+    public appUIService: StoryUIService = new StoryUIService(this.$store);
 
     /**
      * 数据变化
      *
      * @param {*} val
      * @returns {*}
-     * @memberof TestSuiteMobMDViewBase
+     * @memberof StoryUsr2MobMDView_5219Base
      */
     @Emit() 
     protected viewDatasChange(val: any):any {
@@ -162,7 +97,7 @@ export default class TestSuiteMobMDViewBase extends Vue {
      * 视图上下文
      *
      * @type {string}
-     * @memberof TestSuiteMobMDViewBase
+     * @memberof StoryUsr2MobMDView_5219Base
      */
     @Prop() protected _context!: string;
 
@@ -170,7 +105,7 @@ export default class TestSuiteMobMDViewBase extends Vue {
      * 视图参数
      *
      * @type {string}
-     * @memberof TestSuiteMobMDViewBase
+     * @memberof StoryUsr2MobMDView_5219Base
      */
     @Prop() protected _viewparams!: string;
 
@@ -178,7 +113,7 @@ export default class TestSuiteMobMDViewBase extends Vue {
      * 视图默认使用
      *
      * @type {boolean}
-     * @memberof TestSuiteMobMDViewBase
+     * @memberof StoryUsr2MobMDView_5219Base
      */
     @Prop({ default: "routerView" }) protected viewDefaultUsage!: string;
 
@@ -186,15 +121,15 @@ export default class TestSuiteMobMDViewBase extends Vue {
 	 * 视图标识
 	 *
 	 * @type {string}
-	 * @memberof TestSuiteMobMDViewBase
+	 * @memberof StoryUsr2MobMDView_5219Base
 	 */
-	protected viewtag: string = 'a35eef7478f4f4a30f95c6919a45227f';
+	protected viewtag: string = '92ce5515ece97c1e9ad8f6676c3a260f';
 
     /**
      * 视图上下文
      *
      * @type {*}
-     * @memberof TestSuiteMobMDViewBase
+     * @memberof StoryUsr2MobMDView_5219Base
      */
     protected context: any = {};
 
@@ -202,7 +137,7 @@ export default class TestSuiteMobMDViewBase extends Vue {
      * 视图参数
      *
      * @type {*}
-     * @memberof TestSuiteMobMDViewBase
+     * @memberof StoryUsr2MobMDView_5219Base
      */
     protected viewparams: any = {};
 
@@ -210,7 +145,7 @@ export default class TestSuiteMobMDViewBase extends Vue {
      * 是否为子视图
      *
      * @type {boolean}
-     * @memberof TestSuiteMobMDViewBase
+     * @memberof StoryUsr2MobMDView_5219Base
      */
     @Prop({ default: false }) protected isChildView?: boolean;
 
@@ -218,14 +153,14 @@ export default class TestSuiteMobMDViewBase extends Vue {
      * 是否为门户嵌入视图
      *
      * @type {boolean}
-     * @memberof TestSuiteMobMDViewBase
+     * @memberof StoryUsr2MobMDView_5219Base
      */
     @Prop({ default: false }) protected isPortalView?: boolean;
 
     /**
      * 标题状态
      *
-     * @memberof TestSuiteMobMDViewBase
+     * @memberof StoryUsr2MobMDView_5219Base
      */
     public titleStatus :boolean = true;
 
@@ -234,33 +169,33 @@ export default class TestSuiteMobMDViewBase extends Vue {
      *
      * @protected
      * @type {*}
-     * @memberof TestSuiteMobMDViewBase
+     * @memberof StoryUsr2MobMDView_5219Base
      */
-    protected navContext: any = { 'n_product_eq': '%product%' };
+    protected navContext: any = { 'plan': '%productplan%', 'n_plan_eq': '%productplan%' };
 
     /**
      * 视图导航参数
      *
      * @protected
      * @type {*}
-     * @memberof TestSuiteMobMDViewBase
+     * @memberof StoryUsr2MobMDView_5219Base
      */
-    protected navParam: any = { 'n_product_eq': '%product%' };
+    protected navParam: any = { 'n_plan_eq': '%productplan%', 'plan': '%productplan%' };
 
     /**
      * 视图模型数据
      *
      * @type {*}
-     * @memberof TestSuiteMobMDViewBase
+     * @memberof StoryUsr2MobMDView_5219Base
      */
     protected model: any = {
-        srfTitle: '测试套件移动端多数据视图',
-        srfCaption: 'testsuite.views.mobmdview.caption',
+        srfTitle: '需求移动端多数据视图',
+        srfCaption: 'story.views.usr2mobmdview_5219.caption',
         srfSubCaption: '',
         dataInfo: '',
-        viewname:'testsuite.mobmdview',
+        viewname:'story.usr2mobmdview_5219',
         iconcls: '',
-        icon: 'suitcase'
+        icon: 'star-o'
     }
 
     /**
@@ -268,7 +203,7 @@ export default class TestSuiteMobMDViewBase extends Vue {
      *
      * @param {string} newVal
      * @param {string} oldVal
-     * @memberof  TestSuiteMobMDViewBase
+     * @memberof  StoryUsr2MobMDView_5219Base
      */
     @Watch('_context')
     on_context(newVal: string, oldVal: string) {
@@ -296,7 +231,7 @@ export default class TestSuiteMobMDViewBase extends Vue {
     /**
      * 设置工具栏状态
      *
-     * @memberof TestSuiteMobMDViewBase
+     * @memberof StoryUsr2MobMDView_5219Base
      */
     public setViewTitleStatus(){
         const thirdPartyName = this.$store.getters.getThirdPartyName();
@@ -309,10 +244,9 @@ export default class TestSuiteMobMDViewBase extends Vue {
      * 容器模型
      *
      * @type {*}
-     * @memberof TestSuiteMobMDViewBase
+     * @memberof StoryUsr2MobMDView_5219Base
      */
     protected containerModel: any = {
-        view_searchform: { name: 'searchform', type: 'SEARCHFORM' },
         view_mdctrl: { name: 'mdctrl', type: 'MOBMDCTRL' },
         view_righttoolbar: { name: 'righttoolbar', type: 'TOOLBAR' },
     };
@@ -321,7 +255,7 @@ export default class TestSuiteMobMDViewBase extends Vue {
      * 视图状态订阅对象
      *
      * @type {Subject<{action: string, data: any}>}
-     * @memberof TestSuiteMobMDViewBase
+     * @memberof StoryUsr2MobMDView_5219Base
      */
     protected viewState: Subject<ViewState> = new Subject();
 
@@ -330,68 +264,20 @@ export default class TestSuiteMobMDViewBase extends Vue {
      * 是否显示标题
      *
      * @type {string}
-     * @memberof TestSuiteMobMDViewBase
+     * @memberof StoryUsr2MobMDView_5219Base
      */
     @Prop({default:true}) protected showTitle?: boolean;
 
 
 
-
    /**
-    * 工具栏 TestSuiteMobMDView 模型
+    * 工具栏 StoryUsr2MobMDView_5219 模型
     *
     * @type {*}
-    * @memberof TestSuiteMobMDView
+    * @memberof StoryUsr2MobMDView_5219
     */
     public righttoolbarModels: any = {
-            deuiaction1: { name: 'deuiaction1', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__BUILD_CREATE_BUT', uiaction: { tag: 'MobCreate', target: 'NONE' } },
-
     };
-
-    /**
-     * 工具栏显示状态
-     *
-     * @type {boolean}
-     * @memberof TestSuiteMobMDView 
-     */
-    public righttoolbarShowState: boolean = false;
-
-    /**
-     * 工具栏权限
-     *
-     * @type {boolean}
-     * @memberof TestSuiteMobMDView 
-     */
-    get getToolBarLimit() {
-        let toolBarVisable:boolean = false;
-        if(this.righttoolbarModels){
-            Object.keys(this.righttoolbarModels).forEach((tbitem:any)=>{
-                if(this.righttoolbarModels[tbitem].type !== 'ITEMS' && this.righttoolbarModels[tbitem].visabled === true){
-                    toolBarVisable = true;
-                    return;
-                }
-            })
-        }
-        return toolBarVisable;
-    }
-
-    /**
-     * 工具栏分组是否显示的条件
-     *
-     * @type {boolean}
-     * @memberof TestSuiteMobMDView 
-     */
-    public showGrop = false;
-
-    /**
-     * 工具栏分组是否显示的方法
-     *
-     * @type {boolean}
-     * @memberof TestSuiteMobMDView 
-     */
-    public popUpGroup (falg:boolean = false) {
-        this.showGrop = falg;
-    }
 
     
 
@@ -399,14 +285,14 @@ export default class TestSuiteMobMDViewBase extends Vue {
     /**
      * 工具栏模型集合名
      *
-     * @memberof TestSuiteMobMDViewBase
+     * @memberof StoryUsr2MobMDView_5219Base
      */
     public toolbarModelList:any = ['righttoolbarModels',]
 
     /**
      * 解析视图参数
      *
-     * @memberof TestSuiteMobMDViewBase
+     * @memberof StoryUsr2MobMDView_5219Base
      */
     protected parseViewParam(): void {
         const { context, param } = this.$viewTool.formatNavigateViewParam(this, true);
@@ -419,7 +305,7 @@ export default class TestSuiteMobMDViewBase extends Vue {
      *
      * @readonly
      * @type {boolean}
-     * @memberof TestSuiteMobMDViewBase
+     * @memberof StoryUsr2MobMDView_5219Base
      */
     get isShowBackButton(): boolean {
         // 存在路由，非路由使用，嵌入
@@ -430,34 +316,17 @@ export default class TestSuiteMobMDViewBase extends Vue {
     }
 
     /**
-     * 下拉刷新
-     *
-     * @param {*} $event
-     * @returns {Promise<any>}
-     * @memberof TestSuiteMobMDViewBase
-     */
-    public async pullDownToRefresh($event: any): Promise<any> {
-        let mdctrl: any = this.$refs.mdctrl;
-        if (mdctrl && mdctrl.pullDownToRefresh instanceof Function) {
-            const response: any = await mdctrl.pullDownToRefresh();
-            if (response) {
-                $event.srcElement.complete();
-            }
-        }
-    }
-
-    /**
      * 视图引擎
      *
      * @type {Engine}
-     * @memberof TestSuiteMobMDViewBase
+     * @memberof StoryUsr2MobMDView_5219Base
      */
     protected engine: MobMDViewEngine = new MobMDViewEngine();
 
     /**
      * 引擎初始化
      *
-     * @memberof TestSuiteMobMDViewBase
+     * @memberof StoryUsr2MobMDView_5219Base
      */
     protected engineInit(): void {
         this.engine.init({
@@ -469,9 +338,8 @@ export default class TestSuiteMobMDViewBase extends Vue {
             newdata: (args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string) => {
                 this.newdata(args, contextJO, paramJO, $event, xData, container, srfParentDeName);
             },
-            searchform: this.$refs.searchform,
-            keyPSDEField: 'testsuite',
-            majorPSDEField: 'name',
+            keyPSDEField: 'story',
+            majorPSDEField: 'title',
             isLoadDefault: true,
         });
     }
@@ -479,7 +347,7 @@ export default class TestSuiteMobMDViewBase extends Vue {
     /**
      * Vue声明周期
      *
-     * @memberof TestSuiteMobMDViewBase
+     * @memberof StoryUsr2MobMDView_5219Base
      */
     protected created() {
         this.afterCreated();
@@ -488,7 +356,7 @@ export default class TestSuiteMobMDViewBase extends Vue {
     /**
      * 执行created后的逻辑
      *
-     * @memberof TestSuiteMobMDViewBase
+     * @memberof StoryUsr2MobMDView_5219Base
      */    
     protected afterCreated(){
         const secondtag = this.$util.createUUID();
@@ -504,7 +372,7 @@ export default class TestSuiteMobMDViewBase extends Vue {
     /**
      * 销毁之前
      *
-     * @memberof TestSuiteMobMDViewBase
+     * @memberof StoryUsr2MobMDView_5219Base
      */
     protected beforeDestroy() {
         this.$store.commit('viewaction/removeView', this.viewtag);
@@ -513,10 +381,9 @@ export default class TestSuiteMobMDViewBase extends Vue {
     /**
      * Vue声明周期
      *
-     * @memberof TestSuiteMobMDViewBase
+     * @memberof StoryUsr2MobMDView_5219Base
      */
     public activated() {
-        this.popUpGroup();
         this.thirdPartyInit();
     }
 
@@ -525,7 +392,7 @@ export default class TestSuiteMobMDViewBase extends Vue {
     /**
      * Vue声明周期(组件初始化完毕)
      *
-     * @memberof TestSuiteMobMDViewBase
+     * @memberof StoryUsr2MobMDView_5219Base
      */
     protected mounted() {
         this.afterMounted();
@@ -535,7 +402,7 @@ export default class TestSuiteMobMDViewBase extends Vue {
     /**
      * 执行mounted后的逻辑
      * 
-     * @memberof TestSuiteMobMDViewBase
+     * @memberof StoryUsr2MobMDView_5219Base
      */
     protected afterMounted(){
         const _this: any = this;
@@ -550,7 +417,7 @@ export default class TestSuiteMobMDViewBase extends Vue {
     /**
      * 第三方容器初始化
      * 
-     * @memberof TestSuiteMobMDViewBase
+     * @memberof StoryUsr2MobMDView_5219Base
      */
     protected  thirdPartyInit(){
         if(!this.isChildView){
@@ -562,7 +429,7 @@ export default class TestSuiteMobMDViewBase extends Vue {
     /**
      * 销毁视图回调
      *
-     * @memberof TestSuiteMobMDViewBase
+     * @memberof StoryUsr2MobMDView_5219Base
      */
     protected destroyed(){
         this.afterDestroyed();
@@ -571,7 +438,7 @@ export default class TestSuiteMobMDViewBase extends Vue {
     /**
      * 执行destroyed后的逻辑
      * 
-     * @memberof TestSuiteMobMDViewBase
+     * @memberof StoryUsr2MobMDView_5219Base
      */
     protected afterDestroyed(){
         if (this.viewDefaultUsage !== "indexView" && Object.keys(localStorage).length > 0) {
@@ -585,33 +452,11 @@ export default class TestSuiteMobMDViewBase extends Vue {
     }
 
     /**
-     * searchform 部件 search 事件
-     *
-     * @param {*} [args={}]
-     * @param {*} $event
-     * @memberof TestSuiteMobMDViewBase
-     */
-    protected searchform_search($event: any, $event2?: any) {
-        this.engine.onCtrlEvent('searchform', 'search', $event);
-    }
-
-    /**
-     * searchform 部件 load 事件
-     *
-     * @param {*} [args={}]
-     * @param {*} $event
-     * @memberof TestSuiteMobMDViewBase
-     */
-    protected searchform_load($event: any, $event2?: any) {
-        this.engine.onCtrlEvent('searchform', 'load', $event);
-    }
-
-    /**
      * mdctrl 部件 selectionchange 事件
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof TestSuiteMobMDViewBase
+     * @memberof StoryUsr2MobMDView_5219Base
      */
     protected mdctrl_selectionchange($event: any, $event2?: any) {
         this.engine.onCtrlEvent('mdctrl', 'selectionchange', $event);
@@ -622,7 +467,7 @@ export default class TestSuiteMobMDViewBase extends Vue {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof TestSuiteMobMDViewBase
+     * @memberof StoryUsr2MobMDView_5219Base
      */
     protected mdctrl_beforeload($event: any, $event2?: any) {
         this.engine.onCtrlEvent('mdctrl', 'beforeload', $event);
@@ -633,7 +478,7 @@ export default class TestSuiteMobMDViewBase extends Vue {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof TestSuiteMobMDViewBase
+     * @memberof StoryUsr2MobMDView_5219Base
      */
     protected mdctrl_rowclick($event: any, $event2?: any) {
         this.engine.onCtrlEvent('mdctrl', 'rowclick', $event);
@@ -644,57 +489,12 @@ export default class TestSuiteMobMDViewBase extends Vue {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof TestSuiteMobMDViewBase
+     * @memberof StoryUsr2MobMDView_5219Base
      */
     protected mdctrl_load($event: any, $event2?: any) {
         this.engine.onCtrlEvent('mdctrl', 'load', $event);
     }
 
-    /**
-     * righttoolbar 部件 click 事件
-     *
-     * @param {*} [args={}]
-     * @param {*} $event
-     * @memberof TestSuiteMobMDViewBase
-     */
-    protected righttoolbar_click($event: any, $event2?: any) {
-        if (Object.is($event.tag, 'deuiaction1')) {
-            this.righttoolbar_deuiaction1_click($event, '', $event2);
-        }
-    }
-
-
-    /**
-     * 逻辑事件
-     *
-     * @protected
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @returns {Promise<any>}
-     * @memberof TestSuiteMobMDViewBase
-     */
-    protected async righttoolbar_deuiaction1_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
-        // 参数
-
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let contextJO: any = {};
-        let paramJO: any = {};
-        
-        xData = this.$refs.mdctrl;
-        if (xData.getDatas && xData.getDatas instanceof Function) {
-            datas = [...xData.getDatas()];
-        }
-        // 界面行为
-        const curUIService: any = await this.globaluiservice.getService('testsuite_ui_action');
-        if (curUIService) {
-            curUIService.TestSuite_MobCreate(datas, contextJO, paramJO, $event, xData, this);
-        }
-    }
 
     /**
      * 打开新建数据视图
@@ -707,7 +507,7 @@ export default class TestSuiteMobMDViewBase extends Vue {
      * @param {*} [container]
      * @param {string} [srfParentDeName]
      * @returns {Promise<any>}
-     * @memberof TestSuiteMobMDView
+     * @memberof StoryUsr2MobMDView_5219
      */
     public async newdata(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
         const params: any = { ...paramJO };
@@ -720,9 +520,15 @@ export default class TestSuiteMobMDViewBase extends Vue {
         let panelNavContext = { } ;
         //导航参数处理
         const { context: _context, param: _params } = this.$viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
-        const deResParameters: any[] = [];
+        let deResParameters: any[] = [];
+        if (context.product && true) {
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            ]
+        }
+
         const parameters: any[] = [
-            { pathName: 'testsuites', parameterName: 'testsuite' },
+            { pathName: 'stories', parameterName: 'story' },
             { pathName: 'mobeditview', parameterName: 'mobeditview' },
         ];
         const routeParam: any = this.globaluiservice.openService.formatRouteParam(_context, deResParameters, parameters, args, _params);
@@ -750,7 +556,7 @@ export default class TestSuiteMobMDViewBase extends Vue {
      * @param {*} [container]
      * @param {string} [srfParentDeName]
      * @returns {Promise<any>}
-     * @memberof TestSuiteMobMDView
+     * @memberof StoryUsr2MobMDView_5219
      */
     public async opendata(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
         const params: any = { ...paramJO };
@@ -763,10 +569,16 @@ export default class TestSuiteMobMDViewBase extends Vue {
         let panelNavContext = { } ;
         //导航参数处理
         const { context: _context, param: _params } = this.$viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
-        const deResParameters: any[] = [];
+        let deResParameters: any[] = [];
+        if (context.product && true) {
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            ]
+        }
+
         const parameters: any[] = [
-            { pathName: 'testsuites', parameterName: 'testsuite' },
-            { pathName: 'mobtabexpview', parameterName: 'mobtabexpview' },
+            { pathName: 'stories', parameterName: 'story' },
+            { pathName: 'mobeditview', parameterName: 'mobeditview' },
         ];
         const routeParam: any = this.globaluiservice.openService.formatRouteParam(_context, deResParameters, parameters, args, _params);
         response = await this.globaluiservice.openService.openView(routeParam);
@@ -786,7 +598,7 @@ export default class TestSuiteMobMDViewBase extends Vue {
      * 第三方关闭视图
      *
      * @param {any[]} args
-     * @memberof TestSuiteMobMDViewBase
+     * @memberof StoryUsr2MobMDView_5219Base
      */
     public quitFun() {
         if (!sessionStorage.getItem("firstQuit")) {  // 首次返回时
@@ -810,7 +622,7 @@ export default class TestSuiteMobMDViewBase extends Vue {
      * 关闭视图
      *
      * @param {any[]} args
-     * @memberof TestSuiteMobMDViewBase
+     * @memberof StoryUsr2MobMDView_5219Base
      */
     protected async closeView(args: any[]): Promise<any> {
         if(this.$store.state.searchformStatus){
@@ -840,7 +652,7 @@ export default class TestSuiteMobMDViewBase extends Vue {
      *
      * @readonly
      * @type {(number | null)}
-     * @memberof TestSuiteMobMDViewBase
+     * @memberof StoryUsr2MobMDView_5219Base
      */
     get refreshdata(): number | null {
         return this.$store.getters['viewaction/getRefreshData'](this.viewtag);
@@ -852,7 +664,7 @@ export default class TestSuiteMobMDViewBase extends Vue {
      * @param {*} newVal
      * @param {*} oldVal
      * @returns
-     * @memberof TestSuiteMobMDViewBase
+     * @memberof StoryUsr2MobMDView_5219Base
      */
     @Watch('refreshdata')
     onRefreshData(newVal: any, oldVal: any) {
@@ -874,7 +686,7 @@ export default class TestSuiteMobMDViewBase extends Vue {
      * @param {*} val
      * @param {boolean} isCreate
      * @returns
-     * @memberof TestSuiteMobMDViewBase
+     * @memberof StoryUsr2MobMDView_5219Base
      */
     public initNavCaption(val:any,isCreate:boolean){
         this.$viewTool.setViewTitleOfThirdParty(this.$t(this.model.srfCaption) as string);        
@@ -883,7 +695,7 @@ export default class TestSuiteMobMDViewBase extends Vue {
     /**
      * onScroll滚动事件
      *
-     * @memberof TestSuiteMobMDViewBase
+     * @memberof StoryUsr2MobMDView_5219Base
      */
     public async onScroll(e:any){
         this.isScrollStop = false;
@@ -913,7 +725,7 @@ export default class TestSuiteMobMDViewBase extends Vue {
     /**
      * onScroll滚动结束事件
      *
-     * @memberof TestSuiteMobMDViewBase
+     * @memberof StoryUsr2MobMDView_5219Base
      */
     public onScrollEnd(){
         this.isScrollStop = true;
@@ -922,7 +734,7 @@ export default class TestSuiteMobMDViewBase extends Vue {
     /**
      * 返回顶部
      *
-     * @memberof TestSuiteMobMDViewBase
+     * @memberof StoryUsr2MobMDView_5219Base
      */
     public onScrollToTop() {
         let ionScroll:any = this.$refs.ionScroll;
@@ -934,82 +746,23 @@ export default class TestSuiteMobMDViewBase extends Vue {
     /**
      * 是否应该显示返回顶部按钮
      *
-     * @memberof TestSuiteMobMDViewBase
+     * @memberof StoryUsr2MobMDView_5219Base
      */
     public isShouleBackTop = false;
 
     /**
      * 当前滚动条是否是停止状态
      *
-     * @memberof TestSuiteMobMDViewBase
+     * @memberof StoryUsr2MobMDView_5219Base
      */
     public isScrollStop = true;
 
-
-
-    /**
-     * 搜索表单状态
-     *
-     * @type {get}
-     * @memberof TestSuiteMobMDViewBase
-     */
-    get searchformState(){
-        return this.$store.state.searchformStatus;
-    }
-
-    /**
-     * 搜索表单状态
-     *
-     * @type {set}
-     * @memberof TestSuiteMobMDViewBase
-     */
-    set searchformState(val:any){
-        this.$store.commit('setSearchformStatus',val); 
-    }
-
-    /**
-     * 是否展开搜索表单
-     *
-     * @type {boolean}
-     * @memberof TestSuiteMobMDViewBase
-     */
-    public isExpandSearchForm: boolean = false;
-
-    /**
-     * 执行搜索表单
-     *
-     * @memberof TestSuiteMobMDViewBase
-     */
-    public onSearch(): void {
-        this.$store.commit('setSearchformStatus',false); 
-        this.isExpandSearchForm = true;
-        const form: any = this.$refs.searchform;
-        if (form) {
-            form.onSearch();
-        }
-        this.closeSearchform();
-    }
-
-    /**
-     * 重置搜索表单
-     *
-     * @memberof TestSuiteMobMDViewBase
-     */
-    public onReset(): void {
-        this.$store.commit('setSearchformStatus',false); 
-        this.isExpandSearchForm = false;
-        const form: any = this.$refs.searchform;
-        if (form) {
-            form.onReset();
-        }
-        this.closeSearchform();
-    }
 
     /**
      * 搜索值
      *
      * @type {string}
-     * @memberof TestSuiteMobMDViewBase
+     * @memberof StoryUsr2MobMDView_5219Base
      */
     public query: string = '';
 
@@ -1018,7 +771,7 @@ export default class TestSuiteMobMDViewBase extends Vue {
      *
      * @param {*} event
      * @returns
-     * @memberof TestSuiteMobMDViewBase
+     * @memberof StoryUsr2MobMDView_5219Base
      */
     public async quickValueChange(event: any) {
         let { detail } = event;
@@ -1038,7 +791,7 @@ export default class TestSuiteMobMDViewBase extends Vue {
      * 是否单选
      *
      * @type {boolean}
-     * @memberof TestSuiteMobMDViewBase
+     * @memberof StoryUsr2MobMDView_5219Base
      */
     @Prop({ default: true }) protected isSingleSelect!: boolean;
 
@@ -1046,7 +799,7 @@ export default class TestSuiteMobMDViewBase extends Vue {
      * 能否上拉加载
      *
      * @type {boolean}
-     * @memberof TestSuiteMobMDViewBase
+     * @memberof StoryUsr2MobMDView_5219Base
      */ 
     @Prop({ default: true }) public isEnablePullUp?: boolean;
 
@@ -1056,7 +809,7 @@ export default class TestSuiteMobMDViewBase extends Vue {
      * 分类值
      *
      * @type {boolean}
-     * @memberof TestSuiteMobMDViewBase
+     * @memberof StoryUsr2MobMDView_5219Base
      */
     public categoryValue :any = {};
 
@@ -1064,14 +817,14 @@ export default class TestSuiteMobMDViewBase extends Vue {
      * 排序值
      *
      * @type {boolean}
-     * @memberof TestSuiteMobMDViewBase
+     * @memberof StoryUsr2MobMDView_5219Base
      */
     public sortValue :any = {};
 
     /**
      * 刷新视图
      *
-     * @memberof TestSuiteMobMDViewBase
+     * @memberof StoryUsr2MobMDView_5219Base
      */
     public onRefreshView() {
         let mdctrl: any = this.$refs.mdctrl;
@@ -1083,10 +836,10 @@ export default class TestSuiteMobMDViewBase extends Vue {
     /**
      * 打开搜索表单
      *
-     * @memberof TestSuiteMobMDViewBase
+     * @memberof StoryUsr2MobMDView_5219Base
      */
     public openSearchform() {
-      let search :any = this.$refs.searchformtestsuitemobmdview;
+      let search :any = this.$refs.searchformstoryusr2mobmdview_5219;
       if(search){
           search.open();
       }
@@ -1095,10 +848,10 @@ export default class TestSuiteMobMDViewBase extends Vue {
     /**
      * 关闭搜索表单
      *
-     * @memberof TestSuiteMobMDViewBase
+     * @memberof StoryUsr2MobMDView_5219Base
      */
     public closeSearchform(){
-      let search :any = this.$refs.searchformtestsuitemobmdview;
+      let search :any = this.$refs.searchformstoryusr2mobmdview_5219;
       if(search){
           search.close();
       }
@@ -1107,7 +860,7 @@ export default class TestSuiteMobMDViewBase extends Vue {
     /**
      * 多选状态改变事件
      *
-     * @memberof TestSuiteMobMDViewBase
+     * @memberof StoryUsr2MobMDView_5219Base
      */
     public isChooseChange(value:any){
         this.isChoose = value;
@@ -1116,13 +869,13 @@ export default class TestSuiteMobMDViewBase extends Vue {
     /**
      * 多选状态
      *
-     * @memberof TestSuiteMobMDViewBase
+     * @memberof StoryUsr2MobMDView_5219Base
      */
     public isChoose = false;
 
     /**
      * 取消选择状态
-     * @memberof TestSuiteMobMDViewBase
+     * @memberof StoryUsr2MobMDView_5219Base
      */
     public cancelSelect() {
         this.isChooseChange(false);
@@ -1130,7 +883,7 @@ export default class TestSuiteMobMDViewBase extends Vue {
 
     /**
      * 视图加载（排序|分类）
-     * @memberof TestSuiteMobMDViewBase
+     * @memberof StoryUsr2MobMDView_5219Base
      */
     public onViewLoad() {
         let value = Object.assign(this.categoryValue,this.sortValue);
@@ -1141,7 +894,7 @@ export default class TestSuiteMobMDViewBase extends Vue {
      * 分类搜索
      *
      * @param {*} value
-     * @memberof TestSuiteMobMDViewBase
+     * @memberof StoryUsr2MobMDView_5219Base
      */
     public onCategory(value:any){
         Object.assign(this.categoryValue,value);
@@ -1154,5 +907,5 @@ export default class TestSuiteMobMDViewBase extends Vue {
 </script>
 
 <style lang='less'>
-@import './test-suite-mob-mdview.less';
+@import './story-usr2-mob-mdview-5219.less';
 </style>

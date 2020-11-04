@@ -1,10 +1,12 @@
 <template>
-    <ion-textarea
-      :placeholder="placeholder"
-      :auto-grow = "true"
-      :value = "value"
-      @ionChange = "valueChange($event)"
-    ></ion-textarea>
+  <div class="ion-textarea">
+        <ion-textarea
+        :placeholder="placeholder"
+        :auto-grow = "true"
+        :value = "value"
+        @ionChange = "valueChange($event)"
+      ></ion-textarea>
+  </div>
 </template>
 
 <script lang="ts">

@@ -1013,6 +1013,22 @@ const router = new Router({
                     component: () => import('@pages/ibiz/case-mob-edit-view/case-mob-edit-view.vue'),
                 },
                 {
+                    path: 'testsuites/:testsuite?/mobtabexpview',
+                    name: 'testsuite_mobtabexpview',
+                    meta: {
+                        caption: 'testsuite.views.mobtabexpview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-suitcase',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'testsuites', parameterName: 'testsuite' },
+                            { pathName: 'mobtabexpview', parameterName: 'mobtabexpview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/test-suite-mob-tab-exp-view/test-suite-mob-tab-exp-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/tasks/:task?/commoboptionview',
                     name: 'task_commoboptionview',
                     meta: {
@@ -2089,6 +2105,74 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/ibiz/task-mob-option-view/task-mob-option-view.vue'),
+                },
+                {
+                    path: 'products/:product?/stories/:story?/cases/:case?/mobmdview_testsuite',
+                    name: 'case_mobmdview_testsuite',
+                    meta: {
+                        caption: 'case.views.mobmdview_testsuite.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'cases', parameterName: 'case' },
+                            { pathName: 'mobmdview_testsuite', parameterName: 'mobmdview_testsuite' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/case-mob-mdview-test-suite/case-mob-mdview-test-suite.vue'),
+                },
+                {
+                    path: 'stories/:story?/cases/:case?/mobmdview_testsuite',
+                    name: 'case_mobmdview_testsuite',
+                    meta: {
+                        caption: 'case.views.mobmdview_testsuite.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'cases', parameterName: 'case' },
+                            { pathName: 'mobmdview_testsuite', parameterName: 'mobmdview_testsuite' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/case-mob-mdview-test-suite/case-mob-mdview-test-suite.vue'),
+                },
+                {
+                    path: 'products/:product?/cases/:case?/mobmdview_testsuite',
+                    name: 'case_mobmdview_testsuite',
+                    meta: {
+                        caption: 'case.views.mobmdview_testsuite.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'cases', parameterName: 'case' },
+                            { pathName: 'mobmdview_testsuite', parameterName: 'mobmdview_testsuite' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/case-mob-mdview-test-suite/case-mob-mdview-test-suite.vue'),
+                },
+                {
+                    path: 'cases/:case?/mobmdview_testsuite',
+                    name: 'case_mobmdview_testsuite',
+                    meta: {
+                        caption: 'case.views.mobmdview_testsuite.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'cases', parameterName: 'case' },
+                            { pathName: 'mobmdview_testsuite', parameterName: 'mobmdview_testsuite' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/case-mob-mdview-test-suite/case-mob-mdview-test-suite.vue'),
                 },
                 {
                     path: 'projects/:project?/mobtabexpview',
