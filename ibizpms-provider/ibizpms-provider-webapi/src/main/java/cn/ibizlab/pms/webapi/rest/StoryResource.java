@@ -840,6 +840,28 @@ public class StoryResource {
                 .body(new PageImpl(storyMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchProductPlanStories-all')")
+	@ApiOperation(value = "获取产品计划需求", tags = {"需求" } ,notes = "获取产品计划需求")
+    @RequestMapping(method= RequestMethod.GET , value="/stories/fetchproductplanstories")
+	public ResponseEntity<List<StoryDTO>> fetchProductPlanStories(StorySearchContext context) {
+        Page<Story> domains = storyService.searchProductPlanStories(context) ;
+        List<StoryDTO> list = storyMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchProductPlanStories-all')")
+	@ApiOperation(value = "查询产品计划需求", tags = {"需求" } ,notes = "查询产品计划需求")
+    @RequestMapping(method= RequestMethod.POST , value="/stories/searchproductplanstories")
+	public ResponseEntity<Page<StoryDTO>> searchProductPlanStories(@RequestBody StorySearchContext context) {
+        Page<Story> domains = storyService.searchProductPlanStories(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(storyMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchProjectLinkStory-all')")
 	@ApiOperation(value = "获取项目关联需求", tags = {"需求" } ,notes = "获取项目关联需求")
     @RequestMapping(method= RequestMethod.GET , value="/stories/fetchprojectlinkstory")
@@ -1860,6 +1882,29 @@ public class StoryResource {
 	public ResponseEntity<Page<StoryDTO>> searchStoryParentDefaultQByProduct(@PathVariable("product_id") Long product_id, @RequestBody StorySearchContext context) {
         context.setN_product_eq(product_id);
         Page<Story> domains = storyService.searchParentDefaultQ(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(storyMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchProductPlanStories-all')")
+	@ApiOperation(value = "根据产品获取产品计划需求", tags = {"需求" } ,notes = "根据产品获取产品计划需求")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/fetchproductplanstories")
+	public ResponseEntity<List<StoryDTO>> fetchStoryProductPlanStoriesByProduct(@PathVariable("product_id") Long product_id,StorySearchContext context) {
+        context.setN_product_eq(product_id);
+        Page<Story> domains = storyService.searchProductPlanStories(context) ;
+        List<StoryDTO> list = storyMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchProductPlanStories-all')")
+	@ApiOperation(value = "根据产品查询产品计划需求", tags = {"需求" } ,notes = "根据产品查询产品计划需求")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/searchproductplanstories")
+	public ResponseEntity<Page<StoryDTO>> searchStoryProductPlanStoriesByProduct(@PathVariable("product_id") Long product_id, @RequestBody StorySearchContext context) {
+        context.setN_product_eq(product_id);
+        Page<Story> domains = storyService.searchProductPlanStories(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(storyMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}

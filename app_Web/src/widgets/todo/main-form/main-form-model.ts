@@ -73,7 +73,7 @@ export default class MainModel {
       {
         name: 'idvalue',
         prop: 'idvalue',
-        dataType: 'INT',
+        dataType: 'BIGINT',
       },
       {
         name: 'formitem3',

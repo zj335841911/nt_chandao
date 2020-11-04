@@ -18,7 +18,7 @@
 |描述|DESC|LONGTEXT|&nbsp;|
 |由谁完成|FINISHEDBY|TEXT|&nbsp;|
 |开始|BEGIN|NSCODELIST|&nbsp;|
-|关联编号|IDVALUE|INT|&nbsp;|
+|关联编号|IDVALUE|BIGINT|&nbsp;|
 |由谁指派|ASSIGNEDBY|TEXT|&nbsp;|
 |完成时间|FINISHEDDATE|DATETIME|&nbsp;|
 |周期|CYCLE|INT|&nbsp;|

@@ -439,7 +439,7 @@ POST
 | 7 | desc | String | 允许 | 描述 |
 | 8 | finishedby | String | 允许 | 由谁完成 |
 | 9 | begin | Integer | 允许 | 开始 |
-| 10 | idvalue | Integer | 允许 | 关联编号 |
+| 10 | idvalue | Long | 允许 | 关联编号 |
 | 11 | assignedby | String | 允许 | 由谁指派 |
 | 12 | finisheddate | Timestamp | 允许 | 完成时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
 | 13 | cycle | Integer | 允许 | 周期 |

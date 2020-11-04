@@ -120,7 +120,7 @@ public class Todo extends EntityMP implements Serializable {
     @TableField(value = "`idvalue`")
     @JSONField(name = "idvalue")
     @JsonProperty("idvalue")
-    private Integer idvalue;
+    private Long idvalue;
     /**
      * 由谁指派
      */
@@ -358,7 +358,7 @@ public class Todo extends EntityMP implements Serializable {
     /**
      * 设置 [关联编号]
      */
-    public void setIdvalue(Integer idvalue){
+    public void setIdvalue(Long idvalue){
         this.idvalue = idvalue ;
         this.modify("idvalue",idvalue);
     }

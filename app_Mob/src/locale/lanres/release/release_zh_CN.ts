@@ -26,6 +26,9 @@ export default {
     builddate: "打包日期",
   },
 	views: {
+		mobtabexpview: {
+			caption: '发布',
+		},
 		mobpickupview: {
 			caption: '发布',
 		},
@@ -43,31 +46,6 @@ export default {
 		},
 		mobpickupmdview: {
 			caption: '发布',
-		},
-	},
-	mobnewform_form: {
-		details: {
-			grouppanel1: '分组面板', 
-			group1: 'release基本信息', 
-			formpage1: '基本信息', 
-			srforikey: '', 
-			srfkey: 'ID', 
-			srfmajortext: '发布名称', 
-			srftempmode: '', 
-			srfuf: '', 
-			srfdeid: '', 
-			srfsourcekey: '', 
-			product: '产品', 
-			productname: '产品名称', 
-			name: '发布名称', 
-			marker: '里程碑', 
-			buildname: '版本', 
-			date: '发布日期', 
-			desc: '描述', 
-			files: '附件', 
-			id: 'ID', 
-		},
-		uiactions: {
 		},
 	},
 	mobmain_form: {
@@ -120,6 +98,31 @@ export default {
 		uiactions: {
 		},
 	},
+	mobnewform_form: {
+		details: {
+			grouppanel1: '分组面板', 
+			group1: 'release基本信息', 
+			formpage1: '基本信息', 
+			srforikey: '', 
+			srfkey: 'ID', 
+			srfmajortext: '发布名称', 
+			srftempmode: '', 
+			srfuf: '', 
+			srfdeid: '', 
+			srfsourcekey: '', 
+			product: '产品', 
+			productname: '产品名称', 
+			name: '发布名称', 
+			marker: '里程碑', 
+			buildname: '版本', 
+			date: '发布日期', 
+			desc: '描述', 
+			files: '附件', 
+			id: 'ID', 
+		},
+		uiactions: {
+		},
+	},
 	mobdef_searchform: {
 		details: {
 			formpage1: '常规条件', 
@@ -128,18 +131,6 @@ export default {
 			n_date_ltandeq: '截止日期', 
 		},
 		uiactions: {
-		},
-	},
-	newmobeditviewrighttoolbar_toolbar: {
-		tbitem1: {
-			caption: '保存',
-			tip: '保存',
-		},
-	},
-	mobmdviewrighttoolbar_toolbar: {
-		deuiaction1: {
-			caption: '创建发布',
-			tip: '创建发布',
 		},
 	},
 	editmobeditviewrighttoolbar_toolbar: {
@@ -164,6 +155,18 @@ export default {
 		deuiaction1_mobremove: {
 			caption: '删除',
 			tip: '删除',
+		},
+	},
+	newmobeditviewrighttoolbar_toolbar: {
+		tbitem1: {
+			caption: '保存',
+			tip: '保存',
+		},
+	},
+	mobmdviewrighttoolbar_toolbar: {
+		deuiaction1: {
+			caption: '创建发布',
+			tip: '创建发布',
 		},
 	},
 };

@@ -114,7 +114,8 @@ public class TodoDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "idvalue")
     @JsonProperty("idvalue")
-    private Integer idvalue;
+    @JsonSerialize(using = ToStringSerializer.class)
+    private Long idvalue;
 
     /**
      * 属性 [ASSIGNEDBY]
@@ -369,7 +370,7 @@ public class TodoDTO extends DTOBase implements Serializable {
     /**
      * 设置 [IDVALUE]
      */
-    public void setIdvalue(Integer  idvalue){
+    public void setIdvalue(Long  idvalue){
         this.idvalue = idvalue ;
         this.modify("idvalue",idvalue);
     }

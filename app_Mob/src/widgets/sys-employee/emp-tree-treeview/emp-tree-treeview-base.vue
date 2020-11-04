@@ -9,7 +9,7 @@
         <div class="tree-partition" v-if="valueNodes.length > 0" ></div>
         <ion-list>
         <template v-for="item in rootNodes">
-            <ion-item v-if="item.isNode"  :key="item.id" @click="click_node(item)">
+            <ion-item  :key="item.id" @click="click_node(item)">
                 <ion-label>{{item.text}}</ion-label>
                 <ion-icon class="tree-icon" slot="end" name="chevron-forward-outline"></ion-icon>
             </ion-item>
@@ -19,7 +19,7 @@
         <!-- 树视图 -->
         <ion-list v-if="viewType == 'DEMOBTREEVIEW'">
         <template v-for="item in valueNodes">
-            <ion-item v-if="!item.isNode"  :key="item.id">
+            <ion-item :key="item.id">
                 <ion-label>{{item.text}}</ion-label>
             </ion-item>
         </template>
@@ -27,7 +27,7 @@
        <!-- 树多选 -->
         <ion-list v-else-if="viewType == 'DEMOBPICKUPTREEVIEW' && !isSingleSelect">
         <template v-for="item in valueNodes">
-            <ion-item v-if="!item.isNode"  :key="item.id">
+            <ion-item :key="item.id">
                 <ion-checkbox color="secondary" v-if="viewType == 'DEMOBPICKUPTREEVIEW' && !isSingleSelect"  :checked="item.checked" :value="item.id" slot="end" @ionChange="onChecked"></ion-checkbox>
                 <ion-label>{{item.text}}</ion-label>
             </ion-item>
@@ -198,7 +198,7 @@ export default class EmpTreeBase extends Vue implements ControlInterface {
      * @type {string[]}
      * @memberof EmpTreeBase
      */
-    public treeNav :any= [{id:"#",text:"人员选择树"}];
+    public treeNav :any= [{id:"#",text:"人员"}];
 
     /**
      * 获取多项数据
@@ -353,11 +353,11 @@ export default class EmpTreeBase extends Vue implements ControlInterface {
      * @param {*} nodes
      * @memberof EmpTreeBase
      */
-    public parsNodes(nodes:any) {
+    public parseNodes(nodes:any) {
         let rootNodes :any= [];
         let valueNodes :any= [];
         nodes.forEach((item:any) => {
-            if(item.isNode){
+            if(!item.leaf){
                 rootNodes.push(item);
             }else{
                 valueNodes.push(item);
@@ -658,7 +658,7 @@ export default class EmpTreeBase extends Vue implements ControlInterface {
             const _items = response.data;
             this.formatExpanded(_items);
             this.nodes = [..._items];
-            this.parsNodes(this.nodes);
+            this.parseNodes(this.nodes);
             let isRoot = Object.is(node.level,0);
             let isSelectedAll = node.checked;
             this.setDefaultSelection(_items, isRoot, isSelectedAll);

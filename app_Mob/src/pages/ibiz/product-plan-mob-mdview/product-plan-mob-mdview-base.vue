@@ -801,7 +801,7 @@ export default class ProductPlanMobMDViewBase extends Vue {
 
         const parameters: any[] = [
             { pathName: 'productplans', parameterName: 'productplan' },
-            { pathName: 'mobeditview', parameterName: 'mobeditview' },
+            { pathName: 'mobtabexpview', parameterName: 'mobtabexpview' },
         ];
         const routeParam: any = this.globaluiservice.openService.formatRouteParam(_context, deResParameters, parameters, args, _params);
         response = await this.globaluiservice.openService.openView(routeParam);

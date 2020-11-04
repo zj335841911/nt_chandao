@@ -3,7 +3,7 @@
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { BurnChartViewBase } from './burn-chart-view-base';
-import view_quicksearchform from '@widgets/burn/quicksearchform-searchform/quicksearchform-searchform.vue';
+import view_quicksearchform from '@widgets/burn/default-searchform/default-searchform.vue';
 import view_chart from '@widgets/burn/burn-down2-chart/burn-down2-chart.vue';
 
 /**

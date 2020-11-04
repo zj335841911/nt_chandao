@@ -11749,6 +11749,68 @@ WHERE t1.DELETED = '0'
 t1.`status` = 'active' and t1.stage = 'wait' 
 
 ```
+### 产品计划需求(ProductPlanStories)<div id="Story_ProductPlanStories"></div>
+```sql
+SELECT
+t1.`ASSIGNEDDATE`,
+t1.`ASSIGNEDTO`,
+t1.`BRANCH`,
+t41.`NAME` AS `BRANCHNAME`,
+t1.`CHILDSTORIES`,
+t1.`CLOSEDBY`,
+t1.`CLOSEDDATE`,
+t1.`CLOSEDREASON`,
+t1.`COLOR`,
+t1.`DELETED`,
+t1.`DUPLICATESTORY`,
+t1.`ESTIMATE`,
+t1.`FROMBUG`,
+t1.`ID`,
+(case when t1.parent in (-1) and t1.stage = 'wait' then '1' when t1.parent in (0) and t1.stage = 'wait' then '2'  else '0' end) AS `ISCHILD`,
+ (select (case when COUNT(t.IBZ_FAVORITESID) > 0 then 1 else 0 end ) as ISFAVORITES from T_IBZ_FAVORITES t where t.TYPE = 'story' and t.ACCOUNT = #{srf.sessioncontext.srfloginname} 
+and t.OBJECTID = t1.id) AS `ISFAVORITES`,
+( CASE WHEN t1.parent > 0 THEN TRUE ELSE FALSE END ) AS `ISLEAF`,
+t1.`KEYWORDS`,
+t1.`LASTEDITEDBY`,
+t1.`LASTEDITEDDATE`,
+t1.`LINKSTORIES`,
+t1.`MAILTO`,
+t1.`MODULE`,
+t11.`NAME` AS `MODULENAME`,
+(case when t1.module = '0' then '/' else (SELECT GROUP_CONCAT( tt.NAME SEPARATOR '>' ) FROM zt_module tt  WHERE FIND_IN_SET( tt.id, t11.path ) AND tt.type = 'story' GROUP BY	tt.root limit 0,1) end) AS `MODULENAME1`,
+t1.`OPENEDBY`,
+t1.`OPENEDDATE`,
+t1.`PARENT`,
+t21.`TITLE` AS `PARENTNAME`,
+t11.`PATH`,
+t1.`PLAN`,
+t1.`PRI`,
+t31.`NAME` AS `PRODOCTNAME`,
+t1.`PRODUCT`,
+t1.`REVIEWEDBY`,
+t1.`REVIEWEDDATE`,
+t1.`SOURCE`,
+t1.`SOURCENOTE`,
+t1.`STAGE`,
+t1.`STAGEDBY`,
+t1.`STATUS`,
+t1.`SUBSTATUS`,
+t1.`TITLE`,
+t1.`TOBUG`,
+t1.`TYPE`,
+t1.`VERSION`,
+t1.`VERSION` AS `VERSIONC`
+FROM `zt_story` t1 
+LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID 
+LEFT JOIN zt_story t21 ON t1.PARENT = t21.ID 
+LEFT JOIN zt_product t31 ON t1.PRODUCT = t31.ID 
+LEFT JOIN zt_branch t41 ON t1.BRANCH = t41.ID 
+WHERE t1.`DELETED` = '0'  and t1.plan = ${srfdatacontext('srfparentkey','{"defname":"ID","dename":"ZT_PRODUCTPLAN"}')}
+
+
+WHERE t1.DELETED = '0' 
+
+```
 ### 项目关联需求(projectLinkStory)<div id="Story_ProjectLinkStory"></div>
 ```sql
 SELECT
@@ -12473,6 +12535,41 @@ WHERE ( (t1.account = ${srfwebcontext('account','{"defname":"ACCOUNT","dename":"
 ```
 ### 项目团队成员(ProjectTeamUser_Task)<div id="SysEmployee_ProjectTeamUser_Task"></div>
 ```sql
+
+```
+### 项目团队成员选择(ProjectteamPk)<div id="SysEmployee_ProjectteamPk"></div>
+```sql
+SELECT
+t1.`ADDR`,
+t1.`AVATAR`,
+t1.`BCODE`,
+t1.`CREATEDATE`,
+t1.`CREATEMAN`,
+t1.`DOMAINS`,
+t1.`EMAIL`,
+t1.`ENABLE`,
+t1.`IPADDR`,
+t1.`LANG`,
+t1.`MDEPTCODE`,
+t1.`MDEPTID`,
+t1.`MDEPTNAME`,
+t1.`MEMO`,
+t1.`NICKNAME`,
+t1.`ORGCODE`,
+t1.`ORGID`,
+t1.`ORGNAME`,
+t1.`PERSONNAME`,
+t1.`PHONE`,
+t1.`RESERVER`,
+t1.`SEX`,
+t1.`SHOWORDER`,
+t1.`UPDATEDATE`,
+t1.`UPDATEMAN`,
+t1.`USERCODE`,
+t1.`USERICON`,
+t1.`USERID`,
+t1.`USERNAME`
+FROM `T_IBZEMP` t1 
 
 ```
 ### 任务多人团队(TaskMTeam)<div id="SysEmployee_TaskMTeam"></div>

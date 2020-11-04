@@ -29,6 +29,9 @@ export default {
 		logmobmdview: {
 			caption: '更新日志',
 		},
+		mobtabexpview: {
+			caption: '版本',
+		},
 		mobmdview: {
 			caption: '版本',
 		},
