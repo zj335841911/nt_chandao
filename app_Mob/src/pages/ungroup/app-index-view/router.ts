@@ -1402,6 +1402,35 @@ const router = new Router({
                     component: () => import('@pages/ibiz/product-mob-pickup-mdview/product-mob-pickup-mdview.vue'),
                 },
                 {
+                    path: 'products/:product?/productplans/:productplan?/mobtabexpview',
+                    name: 'productplan_mobtabexpview',
+                    meta: {
+                        caption: 'productplan.views.mobtabexpview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
+                            { pathName: 'mobtabexpview', parameterName: 'mobtabexpview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/product-plan-mob-tab-exp-view/product-plan-mob-tab-exp-view.vue'),
+                },
+                {
+                    path: 'productplans/:productplan?/mobtabexpview',
+                    name: 'productplan_mobtabexpview',
+                    meta: {
+                        caption: 'productplan.views.mobtabexpview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
+                            { pathName: 'mobtabexpview', parameterName: 'mobtabexpview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/product-plan-mob-tab-exp-view/product-plan-mob-tab-exp-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/cases/:case?/casesteps/:casestep?/mobmdview9',
                     name: 'casestep_mobmdview9',
                     meta: {
@@ -2970,20 +2999,6 @@ const router = new Router({
                     component: () => import('@pages/ibiz/task-team-mob-edit-view9/task-team-mob-edit-view9.vue'),
                 },
                 {
-                    path: 'todos/:todo?/mobeditview',
-                    name: 'todo_mobeditview',
-                    meta: {
-                        caption: 'todo.views.mobeditview.caption',
-                        parameters: [
-                            { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'todos', parameterName: 'todo' },
-                            { pathName: 'mobeditview', parameterName: 'mobeditview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/todo-mob-edit-view/todo-mob-edit-view.vue'),
-                },
-                {
                     path: 'projects/:project?/testtasks/:testtask?/mobeditview',
                     name: 'testtask_mobeditview',
                     meta: {
@@ -3032,6 +3047,20 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/ibiz/test-task-mob-edit-view/test-task-mob-edit-view.vue'),
+                },
+                {
+                    path: 'todos/:todo?/mobeditview',
+                    name: 'todo_mobeditview',
+                    meta: {
+                        caption: 'todo.views.mobeditview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'todos', parameterName: 'todo' },
+                            { pathName: 'mobeditview', parameterName: 'mobeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/todo-mob-edit-view/todo-mob-edit-view.vue'),
                 },
                 {
                     path: 'products/:product?/stories/:story?/cmoboptionview',
