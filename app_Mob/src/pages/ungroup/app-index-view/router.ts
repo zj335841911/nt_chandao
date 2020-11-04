@@ -3129,6 +3129,74 @@ const router = new Router({
                     component: () => import('@pages/ibiz/task-mob-pickup-view/task-mob-pickup-view.vue'),
                 },
                 {
+                    path: 'products/:product?/stories/:story?/cases/:case?/mobmdview_testtask',
+                    name: 'case_mobmdview_testtask',
+                    meta: {
+                        caption: 'case.views.mobmdview_testtask.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'cases', parameterName: 'case' },
+                            { pathName: 'mobmdview_testtask', parameterName: 'mobmdview_testtask' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/case-mob-mdview-test-task/case-mob-mdview-test-task.vue'),
+                },
+                {
+                    path: 'stories/:story?/cases/:case?/mobmdview_testtask',
+                    name: 'case_mobmdview_testtask',
+                    meta: {
+                        caption: 'case.views.mobmdview_testtask.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'cases', parameterName: 'case' },
+                            { pathName: 'mobmdview_testtask', parameterName: 'mobmdview_testtask' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/case-mob-mdview-test-task/case-mob-mdview-test-task.vue'),
+                },
+                {
+                    path: 'products/:product?/cases/:case?/mobmdview_testtask',
+                    name: 'case_mobmdview_testtask',
+                    meta: {
+                        caption: 'case.views.mobmdview_testtask.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'cases', parameterName: 'case' },
+                            { pathName: 'mobmdview_testtask', parameterName: 'mobmdview_testtask' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/case-mob-mdview-test-task/case-mob-mdview-test-task.vue'),
+                },
+                {
+                    path: 'cases/:case?/mobmdview_testtask',
+                    name: 'case_mobmdview_testtask',
+                    meta: {
+                        caption: 'case.views.mobmdview_testtask.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'cases', parameterName: 'case' },
+                            { pathName: 'mobmdview_testtask', parameterName: 'mobmdview_testtask' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/case-mob-mdview-test-task/case-mob-mdview-test-task.vue'),
+                },
+                {
                     path: 'modules/:module?/mobpickupview',
                     name: 'module_mobpickupview',
                     meta: {

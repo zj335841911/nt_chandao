@@ -4,6 +4,17 @@
 export const viewstate: any = {
     appviews: [
         {
+            viewtag: '0271b3d4e673b25df1637cdf2159d9fc',
+            viewmodule: 'ibiz',
+            viewname: 'CaseMobMDView_TestTask',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'a5df58fce83822477d21fefa32f84741',
+                '0e2762177f3bf384b00d863798bd744c',
+            ],
+        },
+        {
             viewtag: '04397afc992f5947c2d1b4250af66e37',
             viewmodule: 'zentao',
             viewname: 'StoryNewMobEditView',
@@ -418,7 +429,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                '3019f338b834faf1931f62e00d4ef414',
+                '0271b3d4e673b25df1637cdf2159d9fc',
                 '9576fe405a243332b6f648c8d0632e88',
             ],
         },
