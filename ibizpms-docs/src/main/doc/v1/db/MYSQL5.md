@@ -100278,7 +100278,7 @@ CREATE TABLE `zt_testtask`(
 | ACCOUNT        | 所有者  | VARCHAR      |   30   | &nbsp; |
 | BEGIN        | 开始  | INTEGER      |   4   | &nbsp; |
 | TYPE        | 类型  | VARCHAR      |   10   | &nbsp; |
-| IDVALUE        | 关联编号  | INTEGER      |   8   | &nbsp; |
+| IDVALUE        | 关联编号  |       |   8   | &nbsp; |
 | DESC        | 描述  | CLOB      |   65,535   | &nbsp; |
 | ID        | 编号  |       |   8   | 主键&nbsp; |
 | STATUS        | 状态  | VARCHAR      |   6   | &nbsp; |
@@ -101096,7 +101096,7 @@ CREATE TABLE `zt_todo`(
 ,`DESC`  MEDIUMTEXT COMMENT '描述' 
 ,`FINISHEDBY`  VARCHAR(30) COMMENT '由谁完成' 
 ,`BEGIN`  INTEGER COMMENT '开始' 
-,`IDVALUE`  INTEGER COMMENT '关联编号' 
+,`IDVALUE`  BIGINT(8) COMMENT '关联编号' 
 ,`ASSIGNEDBY`  VARCHAR(30) COMMENT '由谁指派' 
 ,`FINISHEDDATE`  DATETIME COMMENT '完成时间' 
 ,`CYCLE`  INTEGER COMMENT '周期' 
