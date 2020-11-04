@@ -180,7 +180,7 @@ export default class StoryUsr2MobMDViewBase extends Vue {
      * @type {*}
      * @memberof StoryUsr2MobMDViewBase
      */
-    protected navParam: any = {};
+    protected navParam: any = { 'n_plan_eq': '%srfparentkey%' };
 
     /**
      * 视图模型数据
