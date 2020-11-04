@@ -582,7 +582,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
     @Transactional
     public Task getNextTeamUser(Task et){
         et = this.getById(et.getId());
-        List<Team> teamList = teamHelper.list(new QueryWrapper<Team>().eq("root",et.getId()).eq("type","task"));
+        List<Team> teamList = teamHelper.list(new QueryWrapper<Team>().eq("root",et.getId()).eq("type", StaticDict.Team__type.TASK.getValue()).orderByAsc("`id`"));
         if (teamList.size() == 0) {
             et.setAssignedto(et.getOpenedby());
         }else {
@@ -594,7 +594,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
                 }
             }
             if (index == teamList.size() - 1) {
-                et.setAssignedto(null);
+                et.setAssignedto(et.getOpenedby());
             } else {
                 String next = "";
                 for (int i = 0; i < teamList.size(); i++) {
