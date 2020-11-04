@@ -76,9 +76,6 @@ export default {
 		colsemobeditview: {
 			caption: 'Bug',
 		},
-		usr3mobmdview9: {
-			caption: 'Bug',
-		},
 		planmobmdview9: {
 			caption: '计划下属',
 		},
@@ -476,9 +473,9 @@ export default {
 	},
 	mobmdviewrighttoolbar_toolbar: {
 	},
-	usr3mobmdview9righttoolbar_toolbar: {
-	},
 	usr4mobmdviewrighttoolbar_toolbar: {
+	},
+	usr5mobmdviewrighttoolbar_toolbar: {
 	},
 	newmobeditviewrighttoolbar_toolbar: {
 		tbitem1: {
@@ -515,7 +512,5 @@ export default {
 			caption: 'Save And Close',
 			tip: 'tbitem1',
 		},
-	},
-	usr5mobmdviewrighttoolbar_toolbar: {
 	},
 };

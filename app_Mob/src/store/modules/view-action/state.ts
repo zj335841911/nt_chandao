@@ -153,16 +153,6 @@ export const viewstate: any = {
             ],
         },
         {
-            viewtag: '15c9be89b69749718b0c736c97bdbed7',
-            viewmodule: 'zentao',
-            viewname: 'BugUsr3MobMDView9',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-                '69a540ab88c1edd1da7f89cebe5f4588',
-            ],
-        },
-        {
             viewtag: '15DFA5E1-68C2-4D93-A0FB-56E09EFEF56D',
             viewmodule: 'Ungroup',
             viewname: 'AppIndexView',
@@ -723,7 +713,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'e9edcd7c360c419ba4ae0114a3209465',
-                '15c9be89b69749718b0c736c97bdbed7',
+                'ff2b0cb11f7d0fbff690a79bfadc2ecd',
                 'a398978c3d19fbb73fe5277b65ce07db',
                 '72d73b7f458439bc2355414e5a810ad5',
             ],
