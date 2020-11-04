@@ -27,7 +27,7 @@
             loaddraftAction=""
             loadAction="Get"
             createAction="Create"
-            fetchAction="FetchReleaseLinkableResolvedBug" 
+            fetchAction="FetchReleaseBugs" 
             :isMutli="!isSingleSelect"
             :isNeedLoaddingText="!isPortalView"
             :showBusyIndicator="true" 

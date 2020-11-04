@@ -106,6 +106,7 @@ hide members
 |ProjectTeamM|项目团队管理([MYSQL5](../../appendix/query_MYSQL5.md#SysEmployee_ProjectTeamM))|否|&nbsp;排除当前项目已经选择的用户|
 |ProjectTeamUser|项目团队成员([MYSQL5](../../appendix/query_MYSQL5.md#SysEmployee_ProjectTeamUser))|否|&nbsp;|
 |ProjectTeamUser_Task|项目团队成员([MYSQL5](../../appendix/query_MYSQL5.md#SysEmployee_ProjectTeamUser_Task))|否|&nbsp;|
+|ProjectteamPk|项目团队成员选择([MYSQL5](../../appendix/query_MYSQL5.md#SysEmployee_ProjectteamPk))|否|&nbsp;|
 |TaskMTeam|任务多人团队([MYSQL5](../../appendix/query_MYSQL5.md#SysEmployee_TaskMTeam))|否|&nbsp;|
 |TASKTEAM|任务团队([MYSQL5](../../appendix/query_MYSQL5.md#SysEmployee_TaskTeam))|否|&nbsp;|
 |VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#SysEmployee_View))|否|&nbsp;|
@@ -119,6 +120,7 @@ hide members
 |ProjectTeamM|项目团队管理|ProjectTeamM|否|&nbsp;|
 |ProjectTeamUser|项目团队成员|ProjectTeamUser|否|&nbsp;|
 |ProjectTeamUser_Task|项目团队成员|ProjectTeamUser_Task|否|&nbsp;|
+|ProjectteamPk|项目团队成员选择|ProjectteamPk|否|&nbsp;|
 |TaskMTeam|任务多人团队|TaskMTeam|否|&nbsp;|
 |TASKTEAM|数据查询2|TASKTEAM|否|&nbsp;|
 
