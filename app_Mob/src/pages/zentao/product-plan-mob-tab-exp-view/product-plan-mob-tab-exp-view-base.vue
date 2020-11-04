@@ -177,7 +177,7 @@ export default class ProductPlanMobTabExpViewBase extends Vue {
      * @type {*}
      * @memberof ProductPlanMobTabExpViewBase
      */
-    protected navContext: any = {};
+    protected navContext: any = { 'plan': 'srfparentkey' };
 
     /**
      * 视图导航参数
@@ -186,7 +186,7 @@ export default class ProductPlanMobTabExpViewBase extends Vue {
      * @type {*}
      * @memberof ProductPlanMobTabExpViewBase
      */
-    protected navParam: any = { 'n_plan_eq': '%srfparentkey%' };
+    protected navParam: any = { 'n_plan_eq': '%srfparentkey%', 'plan': 'srfparentkey' };
 
     /**
      * 视图模型数据
