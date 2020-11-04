@@ -18,10 +18,10 @@
                         <ion-segment :value="activiedTabViewPanel" @ionChange="tabExpPanelChange($event)">
                             <ion-segment-button value="tabviewpanel4">
                             
-                            分页标题</ion-segment-button>
+                            计划详情</ion-segment-button>
                             <ion-segment-button value="tabviewpanel3">
                             
-                            分页标题</ion-segment-button>
+                            需求</ion-segment-button>
                             <ion-segment-button value="tabviewpanel2">
                             
                             Bug</ion-segment-button>
