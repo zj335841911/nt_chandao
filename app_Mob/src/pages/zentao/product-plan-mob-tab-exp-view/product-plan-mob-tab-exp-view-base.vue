@@ -186,7 +186,7 @@ export default class ProductPlanMobTabExpViewBase extends Vue {
      * @type {*}
      * @memberof ProductPlanMobTabExpViewBase
      */
-    protected navParam: any = { 'n_plan_eq': '%srfparentkey%' };
+    protected navParam: any = {};
 
     /**
      * 视图模型数据
