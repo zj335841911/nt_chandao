@@ -917,13 +917,13 @@ export class EmpTreeService extends TreeViewServiceBase {
             }
             const _appEntityService: any = this.service;
             let list: any[] = [];
-            if (_appEntityService['FetchProjectTeamUser'] && _appEntityService['FetchProjectTeamUser'] instanceof Function) {
-                const response: Promise<any> = _appEntityService['FetchProjectTeamUser'](context, searchFilter, false);
+            if (_appEntityService['FetchProjectTeamUser_Task'] && _appEntityService['FetchProjectTeamUser_Task'] instanceof Function) {
+                const response: Promise<any> = _appEntityService['FetchProjectTeamUser_Task'](context, searchFilter, false);
                 response.then((response: any) => {
                     if (!response.status || response.status !== 200) {
                         resolve([]);
                         console.log(JSON.stringify(context));
-                        console.error('查询FetchProjectTeamUser数据集异常!');
+                        console.error('查询FetchProjectTeamUser_Task数据集异常!');
                     }
                     const data: any = response.data;
                     if (Object.keys(data).length > 0) {
@@ -935,7 +935,7 @@ export class EmpTreeService extends TreeViewServiceBase {
                 }).catch((response: any) => {
                         resolve([]);
                         console.log(JSON.stringify(context));
-                        console.error('查询FetchProjectTeamUser数据集异常!');
+                        console.error('查询FetchProjectTeamUser_Task数据集异常!');
                 });
             }
         })
