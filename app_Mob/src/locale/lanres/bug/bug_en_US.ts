@@ -475,6 +475,8 @@ export default {
 	},
 	usr3mobmdview9righttoolbar_toolbar: {
 	},
+	usr2mobmdview9righttoolbar_toolbar: {
+	},
 	newmobeditviewrighttoolbar_toolbar: {
 		tbitem1: {
 			caption: 'Save And Close',
@@ -486,8 +488,6 @@ export default {
 			caption: '新建',
 			tip: 'deuiaction1',
 		},
-	},
-	usr2mobmdview9righttoolbar_toolbar: {
 	},
 	confirmmobeditviewrighttoolbar_toolbar: {
 		tbitem1: {
