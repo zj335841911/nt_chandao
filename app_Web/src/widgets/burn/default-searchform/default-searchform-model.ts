@@ -26,9 +26,7 @@ export default class DefaultModel {
         dataType: 'TEXT',
       },
       {
-        name: 'n_isweekend_eq',
-        prop: 'isweekend',
-        dataType: 'TEXT',
+        name: 'formitem',
       },
     ]
   }

@@ -5512,7 +5512,10 @@ public class StaticDict {
         ITEM_5("5","间隔5天"),
         ITEM_6("6","间隔6天"),
         ITEM_7("7","间隔7天"),
-        ITEM_8("8","间隔8天");
+        ITEM_8("8","间隔8天"),
+        ITEM_9("9","间隔9天"),
+        ITEM_10("10","间隔10天"),
+        ITEM_11("11","间隔11天");
 
         private String value;
         private String text;

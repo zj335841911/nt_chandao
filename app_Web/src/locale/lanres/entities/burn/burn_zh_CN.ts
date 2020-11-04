@@ -18,7 +18,7 @@ export default {
 	default_searchform: {
 		details: {
 			formpage1: "常规条件", 
-			n_isweekend_eq: "周末", 
+			formitem: "间隔", 
 		},
 		uiactions: {
 		},
