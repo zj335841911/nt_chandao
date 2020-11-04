@@ -15,8 +15,10 @@ export default {
       		title: "燃尽图",
 		},
 	},
-	quicksearchform_searchform: {
+	default_searchform: {
 		details: {
+			formpage1: "常规条件", 
+			n_isweekend_eq: "周末", 
 		},
 		uiactions: {
 		},

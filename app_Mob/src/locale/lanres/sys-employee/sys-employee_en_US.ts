@@ -35,7 +35,7 @@ export default {
 			caption: '人员',
 		},
 		treemobpickupview: {
-			caption: '人员',
+			caption: '人员树',
 		},
 	},
 };

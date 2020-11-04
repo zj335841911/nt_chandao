@@ -76,6 +76,9 @@ export default {
 		colsemobeditview: {
 			caption: 'Bug',
 		},
+		usr3mobmdview9: {
+			caption: 'Bug',
+		},
 		planmobmdview9: {
 			caption: '计划下属',
 		},
@@ -103,11 +106,20 @@ export default {
 		mobeditview: {
 			caption: 'Bug',
 		},
+		mobmdview9_8177: {
+			caption: 'Bug',
+		},
+		usr2mobmdview9: {
+			caption: 'Bug',
+		},
 		newmobeditview: {
 			caption: 'Bug',
 		},
 		assmoboptionview: {
 			caption: '指派Bug',
+		},
+		mobmdview9: {
+			caption: 'Bug',
 		},
 		confirmmobeditview: {
 			caption: 'Bug',
@@ -421,7 +433,7 @@ export default {
 			tip: '保存',
 		},
 	},
-	planmobmdview9righttoolbar_toolbar: {
+	mobmdview9righttoolbar_toolbar: {
 	},
 	editnewmobeditviewrighttoolbar_toolbar: {
 		tbitem1: {
@@ -455,7 +467,15 @@ export default {
 			tip: '关闭',
 		},
 	},
+	mobmdview9_8177righttoolbar_toolbar: {
+	},
+	planmobmdview9righttoolbar_toolbar: {
+	},
 	mobmdviewrighttoolbar_toolbar: {
+	},
+	usr3mobmdview9righttoolbar_toolbar: {
+	},
+	usr2mobmdview9righttoolbar_toolbar: {
 	},
 	newmobeditviewrighttoolbar_toolbar: {
 		tbitem1: {

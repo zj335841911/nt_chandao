@@ -2798,6 +2798,26 @@ export default class StoryServiceBase extends EntityService {
     }
 
     /**
+     * FetchProductPlanStories接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StoryServiceBase
+     */
+    public async FetchProductPlanStories(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/stories/fetchproductplanstories`,tempData,isloading);
+            return res;
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/stories/fetchproductplanstories`,tempData,isloading);
+        return res;
+    }
+
+    /**
      * FetchProjectLinkStory接口方法
      *
      * @param {*} [context={}]

@@ -93,14 +93,17 @@ export default class StoryUIActionBase extends EntityUIActionBase {
         this.allViewMap.set(':',{viewname:'newmobeditview',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'moblistview',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'mobmdview9',srfappde:'stories'});
+        this.allViewMap.set(':',{viewname:'usr2mobmdview',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'rmoboptionview',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'mobmdviewcurproject',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'mobpickupmdview',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'linkstorymobmpickupview',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'logmobmdview9',srfappde:'stories'});
+        this.allViewMap.set(':',{viewname:'usr3mobmdview',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'favoritemoremobmdview',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'asmoboptionview',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'assmobmdview9',srfappde:'stories'});
+        this.allViewMap.set(':',{viewname:'usr2mobmdview9',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'favoritemobmdview9',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'cmoboptionview',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'assmobmdview',srfappde:'stories'});

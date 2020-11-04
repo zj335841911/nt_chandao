@@ -1,0 +1,13 @@
+<i-form :model="this.data" class='app-search-form' ref='quicksearchform' style="">
+  <input style="display:none;"/>
+  <div class="form-content">
+                  
+          <i-col class="form-layout-container" v-show="detailsModel.n_isweekend_eq.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 6, offset: 0 }">
+              <app-form-item name='n_isweekend_eq' :itemRules="this.rules.n_isweekend_eq" class='' :caption="$t('entities.burn.default_searchform.details.n_isweekend_eq')" uiStyle="DEFAULT" :labelWidth="50" :isShowCaption="true" :error="detailsModel.n_isweekend_eq.error" :isEmptyCaption="false" labelPos="LEFT">
+              <app-switch name='n_isweekend_eq' :value="this.data.n_isweekend_eq" @change="($event)=>{this.data.n_isweekend_eq = $event} " :disabled="detailsModel.n_isweekend_eq.disabled" style=""></app-switch>
+          
+          </app-form-item>
+          
+          </i-col>
+  </div>
+</i-form>

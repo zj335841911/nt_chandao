@@ -246,6 +246,21 @@ export class SysEmployeeServiceBase extends EntityService {
     }
 
     /**
+     * FetchProjectteamPk接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SysEmployeeServiceBase
+     */
+    public async FetchProjectteamPk(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/sysemployees/fetchprojectteampk`,tempData,isloading);
+        return res;
+    }
+
+    /**
      * FetchTaskMTeam接口方法
      *
      * @param {*} [context={}]

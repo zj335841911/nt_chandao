@@ -801,7 +801,7 @@ export default class ReleaseMobMDViewBase extends Vue {
 
         const parameters: any[] = [
             { pathName: 'releases', parameterName: 'release' },
-            { pathName: 'mobeditview', parameterName: 'mobeditview' },
+            { pathName: 'mobtabexpview', parameterName: 'mobtabexpview' },
         ];
         const routeParam: any = this.globaluiservice.openService.formatRouteParam(_context, deResParameters, parameters, args, _params);
         response = await this.globaluiservice.openService.openView(routeParam);
