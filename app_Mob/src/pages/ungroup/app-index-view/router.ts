@@ -1839,6 +1839,39 @@ const router = new Router({
                     component: () => import('@pages/zentao/task-favorite-mob-mdview9/task-favorite-mob-mdview9.vue'),
                 },
                 {
+                    path: 'products/:product?/stories/:story?/usr3mobmdview',
+                    name: 'story_usr3mobmdview',
+                    meta: {
+                        caption: 'story.views.usr3mobmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'usr3mobmdview', parameterName: 'usr3mobmdview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/story-usr3-mob-mdview/story-usr3-mob-mdview.vue'),
+                },
+                {
+                    path: 'stories/:story?/usr3mobmdview',
+                    name: 'story_usr3mobmdview',
+                    meta: {
+                        caption: 'story.views.usr3mobmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'usr3mobmdview', parameterName: 'usr3mobmdview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/story-usr3-mob-mdview/story-usr3-mob-mdview.vue'),
+                },
+                {
                     path: 'projects/:project?/projectteams/:projectteam?/mobmdview',
                     name: 'projectteam_mobmdview',
                     meta: {
@@ -2627,6 +2660,39 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/release-new-mob-edit-view/release-new-mob-edit-view.vue'),
+                },
+                {
+                    path: 'products/:product?/releases/:release?/mobtabexpview',
+                    name: 'release_mobtabexpview',
+                    meta: {
+                        caption: 'release.views.mobtabexpview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-flag-o',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'releases', parameterName: 'release' },
+                            { pathName: 'mobtabexpview', parameterName: 'mobtabexpview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/release-mob-tab-exp-view/release-mob-tab-exp-view.vue'),
+                },
+                {
+                    path: 'releases/:release?/mobtabexpview',
+                    name: 'release_mobtabexpview',
+                    meta: {
+                        caption: 'release.views.mobtabexpview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-flag-o',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'releases', parameterName: 'release' },
+                            { pathName: 'mobtabexpview', parameterName: 'mobtabexpview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/release-mob-tab-exp-view/release-mob-tab-exp-view.vue'),
                 },
                 {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/assmobmdview9',

@@ -57,6 +57,17 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '09fb65f64bb7dc0e95e24e03aa8de907',
+            viewmodule: 'zentao',
+            viewname: 'ReleaseMobTabExpView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '592d81c326051b3b53d26f1eb18a72b9',
+                '5cfddd273247bd1dc4c940fae4671f14',
+            ],
+        },
+        {
             viewtag: '0a443f2f0f9dfa28a081d87d16655d27',
             viewmodule: 'ibiz',
             viewname: 'ProductModuleMobPickupView',
@@ -684,6 +695,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '592d81c326051b3b53d26f1eb18a72b9',
+            viewmodule: 'zentao',
+            viewname: 'StoryUsr3MobMDView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'd096e8789265e730da5eefa1423479dc',
+            ],
+        },
+        {
             viewtag: '5a5215f43247569540ff912edf51eb09',
             viewmodule: 'ibiz',
             viewname: 'ProjectMobEditView',
@@ -923,6 +944,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '5cfddd273247bd1dc4c940fae4671f14',
+                '09fb65f64bb7dc0e95e24e03aa8de907',
                 'd7bae89174844115043a363160868b7a',
             ],
         },
