@@ -96,9 +96,6 @@ export default {
 		assmobmdview9: {
 			caption: '需求',
 		},
-		usr2mobmdview9: {
-			caption: '需求',
-		},
 		favoritemobmdview9: {
 			caption: '需求',
 		},
@@ -107,6 +104,9 @@ export default {
 		},
 		cmoboptionview: {
 			caption: '关闭',
+		},
+		usr4mobmdview: {
+			caption: '需求',
 		},
 		assmobmdview: {
 			caption: '需求',
@@ -389,12 +389,12 @@ export default {
 			tip: '新建需求',
 		},
 	},
-	usr2mobmdviewrighttoolbar_toolbar: {
+	usr2mobmdview_5219righttoolbar_toolbar: {
 	},
-	usr2mobmdview9righttoolbar_toolbar: {
+	usr4mobmdviewrighttoolbar_toolbar: {
 	},
 	mobmdviewcurprojectrighttoolbar_toolbar: {
 	},
-	usr2mobmdview_5219righttoolbar_toolbar: {
+	usr2mobmdviewrighttoolbar_toolbar: {
 	},
 };

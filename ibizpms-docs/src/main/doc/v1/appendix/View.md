@@ -101,7 +101,6 @@
 |-|产品详情|DEMOBTABEXPVIEW|&nbsp;|
 |-|版本移动端数据选择视图|DEMOBPICKUPVIEW|&nbsp;|
 |-|测试|DEMOBMDVIEW|&nbsp;|
-|-|需求移动端多数据视图|DEMOBMDVIEW9|&nbsp;|
 |-|待办事宜表移动端多数据视图|DEMOBMDVIEW|&nbsp;|
 |-|版本移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
 |-|用户移动端选择多数据视图|DEMOBPICKUPMDVIEW|&nbsp;|
@@ -124,6 +123,7 @@
 |-|Bug移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
 |-|产品图表视图|DEMOBCHARTVIEW|&nbsp;|
 |-|测试套件移动端多数据视图|DEMOBMDVIEW|&nbsp;|
+|-|需求移动端多数据视图|DEMOBMDVIEW|&nbsp;|
 |-|需求移动端多数据视图|DEMOBMDVIEW|&nbsp;|
 |-|需求选项操作视图（激活）|DEMOBOPTVIEW|&nbsp;|
 |-|测试用例移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
@@ -179,6 +179,7 @@
 |-|需求移动端数据选择视图|DEMOBPICKUPVIEW|&nbsp;|
 |-|测试版本选项操作视图（阻塞）|DEMOBOPTVIEW|&nbsp;|
 |-|产品计划移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
+|-|Bug移动端多数据视图|DEMOBMDVIEW|&nbsp;|
 |-|任务预计移动端多数据视图|DEMOBMDVIEW9|&nbsp;|
 |-|用户移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
 |-|模块移动端选择多数据视图|DEMOBPICKUPMDVIEW|&nbsp;|

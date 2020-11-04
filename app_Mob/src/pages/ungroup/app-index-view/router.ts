@@ -209,39 +209,6 @@ const router = new Router({
                     component: () => import('@pages/ibiz/product-mob-tab-exp-view/product-mob-tab-exp-view.vue'),
                 },
                 {
-                    path: 'products/:product?/stories/:story?/usr2mobmdview9',
-                    name: 'story_usr2mobmdview9',
-                    meta: {
-                        caption: 'story.views.usr2mobmdview9.caption',
-                        imgPath: '',
-                        iconCls: 'fa fa-star-o',
-                        parameters: [
-                            { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'products', parameterName: 'product' },
-                            { pathName: 'stories', parameterName: 'story' },
-                            { pathName: 'usr2mobmdview9', parameterName: 'usr2mobmdview9' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/story-usr2-mob-mdview9/story-usr2-mob-mdview9.vue'),
-                },
-                {
-                    path: 'stories/:story?/usr2mobmdview9',
-                    name: 'story_usr2mobmdview9',
-                    meta: {
-                        caption: 'story.views.usr2mobmdview9.caption',
-                        imgPath: '',
-                        iconCls: 'fa fa-star-o',
-                        parameters: [
-                            { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'stories', parameterName: 'story' },
-                            { pathName: 'usr2mobmdview9', parameterName: 'usr2mobmdview9' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/story-usr2-mob-mdview9/story-usr2-mob-mdview9.vue'),
-                },
-                {
                     path: 'products/:product?/stories/:story?/tasks/:task?/closemoboptionview',
                     name: 'task_closemoboptionview',
                     meta: {
@@ -4576,6 +4543,39 @@ const router = new Router({
                     component: () => import('@pages/ibiz/bug-plan-mob-mdview9/bug-plan-mob-mdview9.vue'),
                 },
                 {
+                    path: 'products/:product?/stories/:story?/usr4mobmdview',
+                    name: 'story_usr4mobmdview',
+                    meta: {
+                        caption: 'story.views.usr4mobmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'usr4mobmdview', parameterName: 'usr4mobmdview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/story-usr4-mob-mdview/story-usr4-mob-mdview.vue'),
+                },
+                {
+                    path: 'stories/:story?/usr4mobmdview',
+                    name: 'story_usr4mobmdview',
+                    meta: {
+                        caption: 'story.views.usr4mobmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'usr4mobmdview', parameterName: 'usr4mobmdview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/story-usr4-mob-mdview/story-usr4-mob-mdview.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/mobpickupmdview',
                     name: 'story_mobpickupmdview',
                     meta: {
@@ -5528,6 +5528,39 @@ const router = new Router({
                     component: () => import('@pages/zentao/bug-new-mob-edit-view/bug-new-mob-edit-view.vue'),
                 },
                 {
+                    path: 'products/:product?/stories/:story?/usr2mobmdview_5219',
+                    name: 'story_usr2mobmdview_5219',
+                    meta: {
+                        caption: 'story.views.usr2mobmdview_5219.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'usr2mobmdview_5219', parameterName: 'usr2mobmdview_5219' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/story-usr2-mob-mdview-5219/story-usr2-mob-mdview-5219.vue'),
+                },
+                {
+                    path: 'stories/:story?/usr2mobmdview_5219',
+                    name: 'story_usr2mobmdview_5219',
+                    meta: {
+                        caption: 'story.views.usr2mobmdview_5219.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'usr2mobmdview_5219', parameterName: 'usr2mobmdview_5219' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/story-usr2-mob-mdview-5219/story-usr2-mob-mdview-5219.vue'),
+                },
+                {
                     path: 'ibzmyterritories/:ibzmyterritory?/mobdashboardview',
                     name: 'ibzmyterritory_mobdashboardview',
                     meta: {
@@ -5754,39 +5787,6 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/ibiz/project-activite-mob-edit-view/project-activite-mob-edit-view.vue'),
-                },
-                {
-                    path: 'products/:product?/stories/:story?/usr2mobmdview',
-                    name: 'story_usr2mobmdview',
-                    meta: {
-                        caption: 'story.views.usr2mobmdview.caption',
-                        imgPath: '',
-                        iconCls: 'fa fa-star-o',
-                        parameters: [
-                            { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'products', parameterName: 'product' },
-                            { pathName: 'stories', parameterName: 'story' },
-                            { pathName: 'usr2mobmdview', parameterName: 'usr2mobmdview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/story-usr2-mob-mdview/story-usr2-mob-mdview.vue'),
-                },
-                {
-                    path: 'stories/:story?/usr2mobmdview',
-                    name: 'story_usr2mobmdview',
-                    meta: {
-                        caption: 'story.views.usr2mobmdview.caption',
-                        imgPath: '',
-                        iconCls: 'fa fa-star-o',
-                        parameters: [
-                            { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'stories', parameterName: 'story' },
-                            { pathName: 'usr2mobmdview', parameterName: 'usr2mobmdview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/story-usr2-mob-mdview/story-usr2-mob-mdview.vue'),
                 },
                 {
                     path: 'products/:product?/stories/:story?/tasks/:task?/ibztaskteams/:ibztaskteam?/mobmeditview9',

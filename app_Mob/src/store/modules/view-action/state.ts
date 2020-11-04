@@ -723,8 +723,8 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '15c9be89b69749718b0c736c97bdbed7',
-                '897b1cde235b8de7aebfde36d4731410',
                 '825889968d4369bc1272df847c53bcec',
+                'a398978c3d19fbb73fe5277b65ce07db',
                 '72d73b7f458439bc2355414e5a810ad5',
             ],
         },
@@ -1091,16 +1091,6 @@ export const viewstate: any = {
             ],
         },
         {
-            viewtag: '897b1cde235b8de7aebfde36d4731410',
-            viewmodule: 'zentao',
-            viewname: 'StoryUsr2MobMDView9',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-                'd096e8789265e730da5eefa1423479dc',
-            ],
-        },
-        {
             viewtag: '899ab4d4cfc33b089a9c4aa5118acbf3',
             viewmodule: 'ibiz',
             viewname: 'TodoMobMDView',
@@ -1336,6 +1326,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'a398978c3d19fbb73fe5277b65ce07db',
+            viewmodule: 'zentao',
+            viewname: 'StoryUsr4MobMDView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'd096e8789265e730da5eefa1423479dc',
+            ],
+        },
+        {
             viewtag: 'a4a6fd9906bc1ecaac85b44ffcc466fe',
             viewmodule: 'ibiz',
             viewname: 'StoryAssMobMDView',
@@ -1436,8 +1436,8 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '92ce5515ece97c1e9ad8f6676c3a260f',
                 '1820afe6869fbb5e9b01ce076933efca',
-                '266b8e9626971dd7c27caa3bdea264d5',
                 'fa666a1ef668f58d01a55f0925d7e0fe',
             ],
         },
@@ -1944,6 +1944,16 @@ export const viewstate: any = {
                 'f1a8132f2473391e383ec58c657e4e2f',
                 '3c4e9f0d609bc0f1cf08431649cc8e67',
                 '15c27e8cd95482a59fd899c6841e3ec4',
+            ],
+        },
+        {
+            viewtag: 'facbb60c5f02c64a515fefaeaff1424f',
+            viewmodule: 'zentao',
+            viewname: 'BugUsr2MobMDView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '69a540ab88c1edd1da7f89cebe5f4588',
             ],
         },
         {

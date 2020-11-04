@@ -1,13 +1,13 @@
 <template>
     <div class='app-tab-view-panel productplan-tabviewpanel3 ' v-if='isActivied' >
-        <story-usr2-mob-mdview 
+        <story-usr2-mob-mdview-5219 
             :_context="JSON.stringify(_context)" 
             :_viewparams="JSON.stringify(_viewparams)" 
             :isChildView="true"
             :panelNavParam="panelNavParam"
             :panelNavContext="panelNavContext"
             viewDefaultUsage="includedView" >
-        </story-usr2-mob-mdview>
+        </story-usr2-mob-mdview-5219>
     </div>
 </template>
 

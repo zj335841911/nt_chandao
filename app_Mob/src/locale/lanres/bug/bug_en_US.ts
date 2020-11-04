@@ -145,6 +145,9 @@ export default {
 		assmoremobmdview: {
 			caption: '指派给我的Bug',
 		},
+		usr2mobmdview: {
+			caption: 'Bug',
+		},
 	},
 	closemob_form: {
 		details: {
@@ -512,5 +515,7 @@ export default {
 			caption: 'Save And Close',
 			tip: 'tbitem1',
 		},
+	},
+	usr2mobmdviewrighttoolbar_toolbar: {
 	},
 };
