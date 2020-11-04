@@ -66,6 +66,9 @@ export default {
 		mobmdview9: {
 			caption: '需求',
 		},
+		usr2mobmdview: {
+			caption: '需求',
+		},
 		rmoboptionview: {
 			caption: '评审',
 		},
@@ -376,5 +379,7 @@ export default {
 		},
 	},
 	mobmdviewcurprojectrighttoolbar_toolbar: {
+	},
+	usr2mobmdviewrighttoolbar_toolbar: {
 	},
 };

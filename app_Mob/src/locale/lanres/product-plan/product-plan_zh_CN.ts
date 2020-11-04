@@ -29,6 +29,9 @@ export default {
 		newmobeditview: {
 			caption: '产品计划',
 		},
+		mobtabexpview: {
+			caption: '产品计划',
+		},
 		editmobeditview: {
 			caption: '产品计划',
 		},
