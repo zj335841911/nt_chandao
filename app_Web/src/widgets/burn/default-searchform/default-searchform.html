@@ -2,17 +2,17 @@
   <input style="display:none;"/>
   <div class="form-content">
                   
-          <i-col class="form-layout-container" v-show="detailsModel.formitem.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 6, offset: 0 }">
-              <app-form-item name='formitem' :itemRules="this.rules.formitem" class='' :caption="$t('entities.burn.default_searchform.details.formitem')" uiStyle="DEFAULT" :labelWidth="50" :isShowCaption="true" :error="detailsModel.formitem.error" :isEmptyCaption="false" labelPos="LEFT">
+          <i-col class="form-layout-container" v-show="detailsModel.isweekend.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 6, offset: 0 }">
+              <app-form-item name='isweekend' :itemRules="this.rules.isweekend" class='' :caption="$t('entities.burn.default_searchform.details.isweekend')" uiStyle="DEFAULT" :labelWidth="50" :isShowCaption="true" :error="detailsModel.isweekend.error" :isEmptyCaption="false" labelPos="LEFT">
               
           <dropdown-list 
-              v-model="data.formitem"
+              v-model="data.isweekend"
               :data="data"
               :context="context"
               :viewparams="viewparams"
               :localContext ='{ }' 
               :localParam ='{ }' 
-              :disabled="detailsModel.formitem.disabled"
+              :disabled="detailsModel.isweekend.disabled"
               tag='Burninterval'
               codelistType='STATIC'
               placeholder='请选择...'

@@ -26,7 +26,7 @@ export default class DefaultModel {
         dataType: 'TEXT',
       },
       {
-        name: 'formitem',
+        name: 'isweekend',
       },
     ]
   }
