@@ -110,7 +110,6 @@
 |-|项目移动端编辑视图激活）|DEMOBEDITVIEW|&nbsp;|
 |-|需求移动端多数据视图|DEMOBMDVIEW|&nbsp;|
 |-|Bug选项操作视图（指派Bug）|DEMOBOPTVIEW|&nbsp;|
-|-|Bug移动端多数据视图|DEMOBMDVIEW9|&nbsp;|
 |-|系统更新功能移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
 |-|测试版本移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
 |-|需求选项操作视图（关闭）|DEMOBOPTVIEW|&nbsp;|
