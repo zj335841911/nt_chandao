@@ -236,7 +236,7 @@ export default class BuildMobMDViewBase extends Vue {
      * @type {*}
      * @memberof BuildMobMDViewBase
      */
-    protected navContext: any = {};
+    protected navContext: any = { 'project': '%project%' };
 
     /**
      * 视图导航参数
