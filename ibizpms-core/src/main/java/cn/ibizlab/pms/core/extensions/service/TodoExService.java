@@ -1,19 +1,32 @@
 package cn.ibizlab.pms.core.extensions.service;
 
+import cn.ibizlab.pms.core.ou.client.SysEmployeeFeignClient;
+import cn.ibizlab.pms.core.ou.filter.SysEmployeeSearchContext;
+import cn.ibizlab.pms.core.util.ibizzentao.helper.ActionHelper;
+import cn.ibizlab.pms.core.util.ibizzentao.helper.TodoHelper;
 import cn.ibizlab.pms.core.util.message.SendMessage;
 import cn.ibizlab.pms.core.zentao.service.impl.TodoServiceImpl;
 import cn.ibizlab.pms.util.dict.StaticDict;
+import cn.ibizlab.pms.util.helper.CachedBeanCopier;
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import lombok.extern.slf4j.Slf4j;
 import cn.ibizlab.pms.core.zentao.domain.Todo;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.context.annotation.Primary;
 
 import java.lang.reflect.Field;
 import java.math.BigInteger;
+import java.sql.Timestamp;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.*;
 
 /**
@@ -23,6 +36,14 @@ import java.util.*;
 @Primary
 @Service("TodoExService")
 public class TodoExService extends TodoServiceImpl {
+
+    @Autowired
+    ActionHelper actionHelper;
+
+    @Autowired
+    TodoHelper todoHelper;
+//    @Autowired
+//    SysEmployeeFeignClient sysEmployeeFeignClient;
 
     @Override
     protected Class currentModelClass() {
@@ -102,5 +123,17 @@ public class TodoExService extends TodoServiceImpl {
 
         return et;
     }
+
+    @Override
+    @Transactional
+    public Todo createCycle(Todo et) {
+        List<Todo> todoList = this.list(new QueryWrapper<Todo>().eq("cycle", 1));
+
+        for (Todo todo : todoList) {
+            todoHelper.createByCycle(todo);
+        }
+        return super.createCycle(et);
+    }
+
 }
 

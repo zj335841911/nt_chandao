@@ -10,12 +10,18 @@ import cn.ibizlab.pms.util.dict.StaticDict;
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
 import cn.ibizlab.pms.util.security.AuthenticationUser;
 import com.alibaba.fastjson.JSONObject;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.sql.Timestamp;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 @Component
@@ -39,10 +45,11 @@ public class TodoHelper extends ZTBaseHelper<TodoMapper, Todo> {
             et.setName(et.getBug());
         else if (StringUtils.compare(et.getType(), StaticDict.Type.STORY.getValue()) == 0)
             et.setName(et.getStory());
-
+         et.setDate(et.getDate() == null ? ZTDateUtil.now() : et.getDate());
         if (et.getCycle() != null && et.getCycle() == 1) {
             et.setType(StaticDict.Type.CYCLE.getValue());
             JSONObject config = new JSONObject();
+            config.put("begin", et.getDate());
             config.put("type", et.getConfigType());
             config.put("beforeDays", et.getConfigBeforedays());
             if (et.getConfigEnd() != null)
@@ -67,12 +74,136 @@ public class TodoHelper extends ZTBaseHelper<TodoMapper, Todo> {
 
         //周期循环处理
         if (et.getCycle() != null && et.getCycle() == 1) {
-
+            createByCycle(et);
         }
 
         actionHelper.create(StaticDict.Action__object_type.TODO.getValue(), et.getId(), StaticDict.Action__type.OPENED.getValue(), "", "", null, true);
 
         return true;
+    }
+
+    @Transactional
+    public void createByCycle(Todo todo) {
+        Date now = new Date(System.currentTimeMillis());
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Date today = null;
+        try {
+            today = sdf.parse(sdf.format(now));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        JSONObject config = JSONObject.parseObject(todo.getConfig());
+        Date begin = config.getDate("begin");
+        if(begin == null) {
+            begin = todo.getDate();
+        }
+        if(begin == null) {
+            begin = today;
+        }
+        Date end = config.getDate("end");
+        Integer beforeDays = config.getInteger("beforeDays");
+        Calendar calendar = Calendar.getInstance();
+        if (beforeDays != null && beforeDays > 0) {
+            if (begin != null) {
+                calendar.setTime(begin);
+            }
+            calendar.add(Calendar.DATE, -beforeDays);
+            begin = calendar.getTime();
+        }
+        if (today.before(begin) || (end != null && today.after(end))) {
+            return;
+        }
+
+        Todo newTodo = new Todo();
+        CachedBeanCopier.copy(todo,newTodo);
+
+        newTodo.setType(StaticDict.Type.CYCLE.getValue());
+        newTodo.setIdvalue(todo.getId());
+        newTodo.setCycle(0);
+
+        newTodo.setStatus(StaticDict.Todo__status.WAIT.getValue());
+        newTodo.setConfig("");
+
+        if (newTodo.getAssignedto() != null) {
+            newTodo.setAssigneddate(new Timestamp(now.getTime()));
+        }
+
+        calendar.setTime(today);
+        if (beforeDays != null) {
+            calendar.add(Calendar.DATE, beforeDays);
+        }
+        Date finish = calendar.getTime();
+        for (long time = begin.getTime(); time <= finish.getTime(); time += 86400000) {
+
+            Date today1 = new Date(time);
+            List<Todo> lastCycleList = this.list(new QueryWrapper<Todo>().eq("idvalue", todo.getId()).orderByDesc("date"));
+
+            Todo lastCycleJson = null;
+            if(lastCycleList.size() > 0) {
+                lastCycleJson = lastCycleList.get(0);
+            }
+
+            Date date = null;
+
+            if (StaticDict.CycleType.DAY.getValue().equals(config.getString("type"))) {
+                Integer day = config.getInteger("day");
+                if (day <= 0) {
+                    continue;
+                }
+                if (lastCycleJson == null) {
+                    calendar.setTime(today1);
+                    calendar.add(Calendar.DATE, day - 1);
+                    date = calendar.getTime();
+                }
+                else if (lastCycleJson.getDate() != null) {
+                    calendar.setTime(lastCycleJson.getDate());
+                    calendar.add(Calendar.DATE, day);
+                    date = calendar.getTime();
+                }
+            } else if (StaticDict.CycleType.WEEK.getValue().equals(config.getString("type"))) {
+                calendar.setTime(today1);
+                int week = calendar.get(Calendar.DAY_OF_WEEK);
+                if (config.getString("week").contains("" + week)) {
+                    if (lastCycleJson == null) {
+                        date = today1;
+                    }
+                    else if (lastCycleJson.getDate() != null && lastCycleJson.getDate().before(today1)) {
+                        date = today1;
+                    }
+                }
+            } else if (StaticDict.CycleType.MONTH.getValue().equals(config.getString("type"))) {
+                calendar.setTime(today1);
+                int day = calendar.get(Calendar.DAY_OF_MONTH);
+                if (config.getString("month").contains("" + day)) {
+                    if (lastCycleJson == null) {
+                        date = today1;
+                    }
+                    else if (lastCycleJson.getDate() != null && lastCycleJson.getDate().before(today1)) {
+                        date = today1;
+                    }
+                }
+            }
+
+            if (date == null) continue;
+            Date configBegin = config.getDate("begin");
+
+            if (configBegin == null) {
+                configBegin = todo.getDate();
+            }
+            if (configBegin == null || date.before(configBegin)) continue;
+
+            if (date.before(today)) continue;
+            if (date.after(finish)) continue;
+            if (end != null && date.after(end)) continue;
+
+            newTodo.setDate(new Timestamp(date.getTime()));
+            newTodo.setId(null);
+            this.baseMapper.insert(newTodo);
+            actionHelper.create(StaticDict.Action__object_type.TODO.getValue(), newTodo.getId(), StaticDict.Action__type.OPENED.getValue(),
+                    "", "", newTodo.getAccount(), true);
+
+        }
     }
 
     @Transactional
@@ -88,6 +219,7 @@ public class TodoHelper extends ZTBaseHelper<TodoMapper, Todo> {
             et.setName(et.getStory());
         if (et.getCycle() != null && et.getCycle() == 1) {
             JSONObject config = new JSONObject();
+            config.put("begin", et.getDate());
             config.put("type", et.getConfigType());
             config.put("beforeDays", et.getConfigBeforedays());
             if (et.getConfigEnd() != null)
