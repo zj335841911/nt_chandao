@@ -171,7 +171,7 @@ export default class StoryUsr2MobMDViewBase extends Vue {
      * @type {*}
      * @memberof StoryUsr2MobMDViewBase
      */
-    protected navContext: any = {};
+    protected navContext: any = { 'plan': '%srfparentkey%' };
 
     /**
      * 视图导航参数
@@ -180,7 +180,7 @@ export default class StoryUsr2MobMDViewBase extends Vue {
      * @type {*}
      * @memberof StoryUsr2MobMDViewBase
      */
-    protected navParam: any = {};
+    protected navParam: any = { 'n_plan_eq': '%srfparentkey%', 'plan': '%srfparentkey%' };
 
     /**
      * 视图模型数据

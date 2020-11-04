@@ -60,6 +60,9 @@ export default {
     files: "附件",
   },
 	views: {
+		mobmdview_testtask: {
+			caption: '测试用例',
+		},
 		mobmdview: {
 			caption: '测试用例',
 		},
@@ -104,8 +107,10 @@ export default {
 		uiactions: {
 		},
 	},
-	mobmdviewrighttoolbar_toolbar: {
+	mobmdview_testtaskrighttoolbar_toolbar: {
 	},
 	mobeditviewrighttoolbar_toolbar: {
+	},
+	mobmdviewrighttoolbar_toolbar: {
 	},
 };

@@ -90,6 +90,7 @@ export default class CaseUIActionBase extends EntityUIActionBase {
      * @memberof  CaseUIServiceBase
      */  
     public initViewMap(){
+        this.allViewMap.set(':',{viewname:'mobmdview_testtask',srfappde:'cases'});
         this.allViewMap.set('MOBMDATAVIEW:',{viewname:'mobmdview',srfappde:'cases'});
         this.allViewMap.set('MOBEDITVIEW:',{viewname:'mobeditview',srfappde:'cases'});
     }

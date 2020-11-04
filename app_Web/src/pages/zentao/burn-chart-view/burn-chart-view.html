@@ -5,10 +5,10 @@
     :viewparams="viewparams" 
     :context="context" 
     :showBusyIndicator="true"
-    v-show="isExpandSearchForm"
+    v-show="true"
     loaddraftAction="FilterGetDraft"
     loadAction="FilterGet"
-
+@valuechange="quickFormValueChange"
     name="quicksearchform"  
     ref='quicksearchform' 
     @closeview="closeView($event)">
