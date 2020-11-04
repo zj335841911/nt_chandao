@@ -27,6 +27,9 @@ export class MobModel {
 				name: 'builder',
 			},
 			{
+				name: 'project',
+			},
+			{
 				name: 'srfkey',
 				prop: 'id',
 				dataType: 'ACID',
@@ -44,11 +47,6 @@ export class MobModel {
 			{
 				name: 'branch',
 				prop: 'branch',
-				dataType: 'PICKUP',
-			},
-			{
-				name: 'project',
-				prop: 'project',
 				dataType: 'PICKUP',
 			},
 			{
