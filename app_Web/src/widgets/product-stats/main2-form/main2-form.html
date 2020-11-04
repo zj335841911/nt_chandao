@@ -53,7 +53,7 @@
         <i-col class="form-layout-container" v-show="detailsModel.button4.visible" :style="{}"  :lg="{ span: 8, offset: 8 }" :xl="{ span: 8, offset: 9 }">
         <i-button type="primary" @click="button4_click($event)"
          style="">
-           
+              <menu-icon :item="{iconcls: 'fa fa-search'}" />
         <span >{{$t('entities.productstats.main2_form.details.button4')}}</span>
     </i-button>
 
@@ -61,7 +61,6 @@
 <i-col class="form-layout-container" v-show="detailsModel.button5.visible" :style="{}"  :lg="{ span: 8, offset: 8 }" :xl="{ span: 8, offset: 9 }">
         <i-button type="primary" @click="button5_click($event)"
          style="">
-           
         <span >{{$t('entities.productstats.main2_form.details.button5')}}</span>
     </i-button>
 
@@ -179,7 +178,7 @@
 <i-col class="form-layout-container" v-show="detailsModel.button1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
         <i-button type="primary" @click="button1_click($event)"
          style="">
-        <i class="fa fa-plus" style="margin-right: 2px;"></i>   
+            <i class="fa fa-plus" style="margin-right: 2px;"></i>
         <span >{{$t('entities.productstats.main2_form.details.button1')}}</span>
     </i-button>
 
@@ -244,7 +243,7 @@
 <i-col class="form-layout-container" v-show="detailsModel.button2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
         <i-button type="primary" @click="button2_click($event)"
          style="">
-        <i class="fa fa-plus" style="margin-right: 2px;"></i>   
+            <i class="fa fa-plus" style="margin-right: 2px;"></i>
         <span >{{$t('entities.productstats.main2_form.details.button2')}}</span>
     </i-button>
 
@@ -296,7 +295,7 @@
 <i-col class="form-layout-container" v-show="detailsModel.button3.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
         <i-button type="primary" @click="button3_click($event)"
          style="">
-        <i class="fa fa-plus" style="margin-right: 2px;"></i>   
+            <i class="fa fa-plus" style="margin-right: 2px;"></i>
         <span >{{$t('entities.productstats.main2_form.details.button3')}}</span>
     </i-button>
 

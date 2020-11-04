@@ -319,6 +319,7 @@ export default class ControlService {
             return false;
         }
         let dataItems: any[] = model.getDataItems();
+        prop = prop.replace(/([A-Z])/g,"_$1").toLowerCase();
         let data: any = dataItems.find((item:any) => {
             return Object.is(prop, item.prop);
         });

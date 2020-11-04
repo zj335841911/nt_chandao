@@ -92,7 +92,7 @@ tag='Testresult__result' codelistType='STATIC' :data="data" :context="context" :
         <i-col class="form-layout-container" v-show="detailsModel.button1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 2, offset: 22 }">
         <i-button type="primary" @click="button1_click($event)"
          style="">
-           
+              <menu-icon :item="{iconcls: 'fa fa-bug'}" />
         <span >{{$t('entities.testresult.main_form.details.button1')}}</span>
     </i-button>
 
