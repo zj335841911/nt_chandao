@@ -30,6 +30,7 @@
 |-|Bug移动端编辑视图（新建）|DEMOBEDITVIEW|&nbsp;|
 |-|Bug选项操作视图（解决Bug）|DEMOBOPTVIEW|&nbsp;|
 |-|任务选项操作视图（暂停）|DEMOBOPTVIEW|&nbsp;|
+|-|测试用例移动端多数据视图|DEMOBMDVIEW|&nbsp;|
 |-|测试套件移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
 |-|项目移动端编辑视图（新建）|DEMOBEDITVIEW|&nbsp;|
 |-|需求移动端多数据视图|DEMOBMDVIEW|&nbsp;|
@@ -116,6 +117,7 @@
 |-|Bug移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
 |-|系统更新功能移动端多数据视图（功能增强）|DEMOBMDVIEW9|&nbsp;|
 |-|产品移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
+|-|测试套件分页导航视图|DEMOBTABEXPVIEW|&nbsp;|
 |-|版本移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
 |-|任务团队移动端编辑视图|DEMOBEDITVIEW9|&nbsp;|
 |-|Bug移动端编辑视图|DEMOBEDITVIEW|&nbsp;|

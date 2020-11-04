@@ -1,9 +1,9 @@
 <script lang='ts'>
 import { Component } from 'vue-property-decorator';
-import CaseMobMDView_TestTaskBase from './case-mob-mdview-test-task-base.vue';
+import CaseMobMDView_TestSuiteBase from './case-mob-mdview-test-suite-base.vue';
 
 import view_searchform from '@widgets/case/mob-def-searchform/mob-def-searchform.vue';
-import view_mdctrl from '@widgets/case/exp-test-task-mobmdctrl/exp-test-task-mobmdctrl.vue';
+import view_mdctrl from '@widgets/case/exp-test-suite-mobmdctrl/exp-test-suite-mobmdctrl.vue';
 @Component({
     components: {
         view_searchform, 
@@ -15,7 +15,7 @@ import view_mdctrl from '@widgets/case/exp-test-task-mobmdctrl/exp-test-task-mob
         });
     },
 })
-export default class CaseMobMDView_TestTask extends CaseMobMDView_TestTaskBase {
+export default class CaseMobMDView_TestSuite extends CaseMobMDView_TestSuiteBase {
 
 }
 </script>

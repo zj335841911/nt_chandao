@@ -18,6 +18,9 @@ export default {
 		mobeditview: {
 			caption: '测试套件',
 		},
+		mobtabexpview: {
+			caption: '测试套件',
+		},
 		mobmdview: {
 			caption: '测试套件',
 		},

@@ -63,6 +63,9 @@ export default {
 		mobmdview_testtask: {
 			caption: '测试用例',
 		},
+		mobmdview_testsuite: {
+			caption: '测试用例',
+		},
 		mobmdview: {
 			caption: '测试用例',
 		},
@@ -112,5 +115,7 @@ export default {
 	mobeditviewrighttoolbar_toolbar: {
 	},
 	mobmdviewrighttoolbar_toolbar: {
+	},
+	mobmdview_testsuiterighttoolbar_toolbar: {
 	},
 };

@@ -313,6 +313,17 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '217eb2abfcd984ded5db3d1458cdf17e',
+            viewmodule: 'ibiz',
+            viewname: 'CaseMobMDView_TestSuite',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'a5df58fce83822477d21fefa32f84741',
+                '0e2762177f3bf384b00d863798bd744c',
+            ],
+        },
+        {
             viewtag: '236b858424b0a6f5b0c05f6d689741a1',
             viewmodule: 'ibiz',
             viewname: 'TestSuiteNewMobEditView',
@@ -1251,6 +1262,17 @@ export const viewstate: any = {
             refviews: [
                 'c7a80e4f493974e2e06f5ae3ff9dc72c',
                 '3c4e9f0d609bc0f1cf08431649cc8e67',
+            ],
+        },
+        {
+            viewtag: '98d17bc354594cf75704f92e9946f4e2',
+            viewmodule: 'zentao',
+            viewname: 'TestSuiteMobTabExpView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '217eb2abfcd984ded5db3d1458cdf17e',
+                '46c4b323d60fd1658313b26c6b3ac34d',
             ],
         },
         {
