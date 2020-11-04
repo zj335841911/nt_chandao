@@ -286,8 +286,8 @@ export class EditFormControlBase extends FormControlBase {
         }
         const arg: any = { ...opt };
         const data = this.getValues();
-        data.srfmajortext = data[this.majorMessageField];
         Object.assign(arg, data);
+        Object.assign(arg,{srfmajortext:data[this.majorMessageField]});
         if (this.viewparams && this.viewparams.copymode) {
             data.srfuf = '0';
         }
@@ -402,9 +402,9 @@ export class EditFormControlBase extends FormControlBase {
             }
             const arg: any = { ...opt };
             const data = this.getValues();
-            data.srfmajortext = data[this.majorMessageField];
             Object.assign(arg, this.context);
             Object.assign(arg, data);
+            Object.assign(arg,{srfmajortext:data[this.majorMessageField]});
             if (ifStateNext && this.drCount > 0) {
                 this.drcounter = this.drCount;
                 this.drsaveopt = opt;
