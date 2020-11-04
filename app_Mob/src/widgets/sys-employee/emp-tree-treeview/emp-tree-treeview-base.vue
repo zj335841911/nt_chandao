@@ -198,7 +198,7 @@ export default class EmpTreeBase extends Vue implements ControlInterface {
      * @type {string[]}
      * @memberof EmpTreeBase
      */
-    public treeNav :any= [{id:"#",text:"人员选择树"}];
+    public treeNav :any= [{id:"#",text:"人员"}];
 
     /**
      * 获取多项数据

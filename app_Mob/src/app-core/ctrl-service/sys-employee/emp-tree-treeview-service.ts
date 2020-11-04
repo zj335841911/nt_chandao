@@ -88,13 +88,22 @@ export class EmpTreeService extends TreeViewServiceBase {
 	public TREENODE_ORG: string = 'Org';
 
     /**
-     * 项目团队节点分隔符号
+     * 项目节点分隔符号
      *
      * @public
      * @type {string}
      * @memberof EmpTreeService
      */
 	public TREENODE_PROJECTTEAM: string = 'ProjectTeam';
+
+    /**
+     * 项目团队节点分隔符号
+     *
+     * @public
+     * @type {string}
+     * @memberof EmpTreeService
+     */
+	public TREENODE_PROJECT: string = 'project';
 
     /**
      * 部门节点分隔符号
@@ -104,6 +113,24 @@ export class EmpTreeService extends TreeViewServiceBase {
      * @memberof EmpTreeService
      */
 	public TREENODE_DEPART: string = 'Depart';
+
+    /**
+     * 组织人员节点分隔符号
+     *
+     * @public
+     * @type {string}
+     * @memberof EmpTreeService
+     */
+	public TREENODE_ORGEMP: string = 'OrgEmp';
+
+    /**
+     * 项目人员节点分隔符号
+     *
+     * @public
+     * @type {string}
+     * @memberof EmpTreeService
+     */
+	public TREENODE_PROJECTEMP: string = 'ProjectEmp';
 
     /**
      * 人员节点分隔符号
@@ -204,8 +231,20 @@ export class EmpTreeService extends TreeViewServiceBase {
             await this.fillProjectteamNodeChilds(context,filter, list);
             return Promise.resolve({ status: 200, data: list });
         }
+        if (Object.is(strNodeType, this.TREENODE_PROJECT)) {
+            await this.fillProjectNodeChilds(context,filter, list);
+            return Promise.resolve({ status: 200, data: list });
+        }
         if (Object.is(strNodeType, this.TREENODE_DEPART)) {
             await this.fillDepartNodeChilds(context,filter, list);
+            return Promise.resolve({ status: 200, data: list });
+        }
+        if (Object.is(strNodeType, this.TREENODE_ORGEMP)) {
+            await this.fillOrgempNodeChilds(context,filter, list);
+            return Promise.resolve({ status: 200, data: list });
+        }
+        if (Object.is(strNodeType, this.TREENODE_PROJECTEMP)) {
+            await this.fillProjectempNodeChilds(context,filter, list);
             return Promise.resolve({ status: 200, data: list });
         }
         if (Object.is(strNodeType, this.TREENODE_IBZEMP)) {
@@ -369,7 +408,7 @@ export class EmpTreeService extends TreeViewServiceBase {
 	}
 
     /**
-     * 填充 树视图节点[项目团队]
+     * 填充 树视图节点[项目]
      *
      * @public
      * @param {any{}} context     
@@ -457,13 +496,13 @@ export class EmpTreeService extends TreeViewServiceBase {
             }
             const _appEntityService: any = this.projectService;
             let list: any[] = [];
-            if (_appEntityService['FetchCurUser'] && _appEntityService['FetchCurUser'] instanceof Function) {
-                const response: Promise<any> = _appEntityService['FetchCurUser'](context, searchFilter, false);
+            if (_appEntityService['FetchProjectTeam'] && _appEntityService['FetchProjectTeam'] instanceof Function) {
+                const response: Promise<any> = _appEntityService['FetchProjectTeam'](context, searchFilter, false);
                 response.then((response: any) => {
                     if (!response.status || response.status !== 200) {
                         resolve([]);
                         console.log(JSON.stringify(context));
-                        console.error('查询FetchCurUser数据集异常!');
+                        console.error('查询FetchProjectTeam数据集异常!');
                     }
                     const data: any = response.data;
                     if (Object.keys(data).length > 0) {
@@ -475,11 +514,78 @@ export class EmpTreeService extends TreeViewServiceBase {
                 }).catch((response: any) => {
                         resolve([]);
                         console.log(JSON.stringify(context));
-                        console.error('查询FetchCurUser数据集异常!');
+                        console.error('查询FetchProjectTeam数据集异常!');
                 });
             }
         })
     }
+
+    /**
+     * 填充 树视图节点[项目]子节点
+     *
+     * @public
+     * @param {any{}} context         
+     * @param {*} filter
+     * @param {any[]} list
+     * @returns {Promise<any>}
+     * @memberof EmpTreeService
+     */
+    public async fillProjectteamNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
+		if (filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")) {
+			// 填充项目人员
+            let ProjectempRsNavContext:any = {};
+            let ProjectempRsNavParams:any = {};
+            let ProjectempRsParams:any = {};
+			await this.fillProjectempNodes(context, filter, list ,ProjectempRsNavContext,ProjectempRsNavParams,ProjectempRsParams);
+		} else {
+			// 填充项目人员
+            let ProjectempRsNavContext:any = {};
+            let ProjectempRsNavParams:any = {};
+            let ProjectempRsParams:any = {};
+			await this.fillProjectempNodes(context, filter, list ,ProjectempRsNavContext,ProjectempRsNavParams,ProjectempRsParams);
+		}
+	}
+
+    /**
+     * 填充 树视图节点[项目团队]
+     *
+     * @public
+     * @param {any{}} context     
+     * @param {*} filter
+     * @param {any[]} list
+     * @param {*} rsNavContext   
+     * @param {*} rsNavParams
+     * @param {*} rsParams
+     * @returns {Promise<any>}
+     * @memberof EmpTreeService
+     */
+    public fillProjectNodes(context:any={},filter: any, list: any[],rsNavContext?:any,rsNavParams?:any,rsParams?:any): Promise<any> {
+        context = this.handleResNavContext(context,filter,rsNavContext);
+        filter = this.handleResNavParams(context,filter,rsNavParams,rsParams);
+        return new Promise((resolve:any,reject:any) =>{
+            let treeNode: any = {};
+            Object.assign(treeNode, { text: '项目团队'});
+            Object.assign(treeNode, { isUseLangRes: true });
+            Object.assign(treeNode, { isNode: true });
+            Object.assign(treeNode,{srfappctx:context});
+            Object.assign(treeNode, { srfmajortext: treeNode.text });
+            let strNodeId: string = 'project';
+
+            // 没有指定节点值，直接使用父节点值
+            Object.assign(treeNode, { srfkey: filter.strRealNodeId });
+            strNodeId += this.TREENODE_SEPARATOR;
+            strNodeId += filter.strRealNodeId;
+
+            Object.assign(treeNode, { id: strNodeId });
+
+            Object.assign(treeNode, { expanded: filter.isAutoexpand });
+            Object.assign(treeNode, { leaf: false });
+            Object.assign(treeNode, { nodeid: treeNode.srfkey });
+            Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
+            list.push(treeNode);
+            resolve(list);
+        });
+	}
 
     /**
      * 填充 树视图节点[项目团队]子节点
@@ -491,19 +597,19 @@ export class EmpTreeService extends TreeViewServiceBase {
      * @returns {Promise<any>}
      * @memberof EmpTreeService
      */
-    public async fillProjectteamNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
+    public async fillProjectNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
 		if (filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")) {
-			// 填充人员
-            let IbzempRsNavContext:any = {};
-            let IbzempRsNavParams:any = {};
-            let IbzempRsParams:any = {};
-			await this.fillIbzempNodes(context, filter, list ,IbzempRsNavContext,IbzempRsNavParams,IbzempRsParams);
+			// 填充项目
+            let ProjectteamRsNavContext:any = {};
+            let ProjectteamRsNavParams:any = {};
+            let ProjectteamRsParams:any = {};
+			await this.fillProjectteamNodes(context, filter, list ,ProjectteamRsNavContext,ProjectteamRsNavParams,ProjectteamRsParams);
 		} else {
-			// 填充人员
-            let IbzempRsNavContext:any = {};
-            let IbzempRsNavParams:any = {};
-            let IbzempRsParams:any = {};
-			await this.fillIbzempNodes(context, filter, list ,IbzempRsNavContext,IbzempRsNavParams,IbzempRsParams);
+			// 填充项目
+            let ProjectteamRsNavContext:any = {};
+            let ProjectteamRsNavParams:any = {};
+            let ProjectteamRsParams:any = {};
+			await this.fillProjectteamNodes(context, filter, list ,ProjectteamRsNavContext,ProjectteamRsNavParams,ProjectteamRsParams);
 		}
 	}
 
@@ -647,6 +753,202 @@ export class EmpTreeService extends TreeViewServiceBase {
             let IbzempRsNavParams:any = {};
             let IbzempRsParams:any = {};
 			await this.fillIbzempNodes(context, filter, list ,IbzempRsNavContext,IbzempRsNavParams,IbzempRsParams);
+		}
+	}
+
+    /**
+     * 填充 树视图节点[组织人员]
+     *
+     * @public
+     * @param {any{}} context     
+     * @param {*} filter
+     * @param {any[]} list
+     * @param {*} rsNavContext   
+     * @param {*} rsNavParams
+     * @param {*} rsParams
+     * @returns {Promise<any>}
+     * @memberof EmpTreeService
+     */
+    public fillOrgempNodes(context:any={},filter: any, list: any[],rsNavContext?:any,rsNavParams?:any,rsParams?:any): Promise<any> {
+        context = this.handleResNavContext(context,filter,rsNavContext);
+        filter = this.handleResNavParams(context,filter,rsNavParams,rsParams);
+        return new Promise((resolve:any,reject:any) =>{
+            let treeNode: any = {};
+            Object.assign(treeNode, { text: '组织人员'});
+            Object.assign(treeNode, { isUseLangRes: true });
+            Object.assign(treeNode, { isNode: true });
+            Object.assign(treeNode,{srfappctx:context});
+            Object.assign(treeNode, { srfmajortext: treeNode.text });
+            let strNodeId: string = 'OrgEmp';
+
+            // 没有指定节点值，直接使用父节点值
+            Object.assign(treeNode, { srfkey: filter.strRealNodeId });
+            strNodeId += this.TREENODE_SEPARATOR;
+            strNodeId += filter.strRealNodeId;
+
+            Object.assign(treeNode, { id: strNodeId });
+
+            Object.assign(treeNode, { expanded: filter.isAutoexpand });
+            Object.assign(treeNode, { leaf: false });
+            Object.assign(treeNode, { nodeid: treeNode.srfkey });
+            Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
+            list.push(treeNode);
+            resolve(list);
+        });
+	}
+
+    /**
+     * 填充 树视图节点[组织人员]子节点
+     *
+     * @public
+     * @param {any{}} context         
+     * @param {*} filter
+     * @param {any[]} list
+     * @returns {Promise<any>}
+     * @memberof EmpTreeService
+     */
+    public async fillOrgempNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
+		if (filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")) {
+			// 填充组织
+            let OrgRsNavContext:any = {};
+            let OrgRsNavParams:any = {};
+            let OrgRsParams:any = {};
+			await this.fillOrgNodes(context, filter, list ,OrgRsNavContext,OrgRsNavParams,OrgRsParams);
+		} else {
+			// 填充组织
+            let OrgRsNavContext:any = {};
+            let OrgRsNavParams:any = {};
+            let OrgRsParams:any = {};
+			await this.fillOrgNodes(context, filter, list ,OrgRsNavContext,OrgRsNavParams,OrgRsParams);
+		}
+	}
+
+    /**
+     * 填充 树视图节点[项目人员]
+     *
+     * @public
+     * @param {any{}} context     
+     * @param {*} filter
+     * @param {any[]} list
+     * @param {*} rsNavContext   
+     * @param {*} rsNavParams
+     * @param {*} rsParams
+     * @returns {Promise<any>}
+     * @memberof EmpTreeService
+     */
+    public fillProjectempNodes(context:any={},filter: any, list: any[],rsNavContext?:any,rsNavParams?:any,rsParams?:any): Promise<any> {
+        context = this.handleResNavContext(context,filter,rsNavContext);
+        filter = this.handleResNavParams(context,filter,rsNavParams,rsParams);
+        return new Promise((resolve:any,reject:any) =>{
+            let searchFilter: any = {};
+            Object.assign(searchFilter, { total: false });
+            let bFirst: boolean = true;
+            let records: any[] = [];
+            try {
+                this.searchProjectemp(context, searchFilter, filter).then((records:any) =>{
+                    if(records && records.length >0){
+                        records.forEach((entity: any) => {
+                        let treeNode: any = {};
+                        // 整理context
+                        let strId: string = entity.username;
+                        let strText: string = entity.personname;
+                        Object.assign(treeNode,{srfparentdename:'SysEmployee',srfparentkey:entity.username});
+                        let tempContext:any = JSON.parse(JSON.stringify(context));
+                        Object.assign(tempContext,{srfparentdename:'SysEmployee',srfparentkey:entity.username,sysemployee:strId})
+                        Object.assign(treeNode,{srfappctx:tempContext});
+                        Object.assign(treeNode,{'sysemployee':strId});
+                        Object.assign(treeNode, { srfkey: strId });
+                        Object.assign(treeNode, { text: strText, srfmajortext: strText });
+                        let strNodeId: string = 'ProjectEmp';
+                        strNodeId += this.TREENODE_SEPARATOR;
+                        strNodeId += strId;
+                        Object.assign(treeNode, { id: strNodeId });
+                        Object.assign(treeNode, { expanded: filter.isautoexpand });
+                        Object.assign(treeNode, { leaf: true });
+                        Object.assign(treeNode, { curData: entity });
+                        Object.assign(treeNode, { nodeid: treeNode.srfkey });
+                        Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
+                        list.push(treeNode);
+                        resolve(list);
+                        bFirst = false;
+                    });
+                    }else{
+                        resolve(list);
+                    }
+                });
+            } catch (error) {
+                console.error(error);
+            }
+        });
+
+	}
+
+    /**
+     * 获取查询集合
+     *
+     * @public
+     * @param {any{}} context     
+     * @param {*} searchFilter
+     * @param {*} filter
+     * @returns {any[]}
+     * @memberof TestEnetityDatasService
+     */
+    public searchProjectemp(context:any={}, searchFilter: any, filter: any): Promise<any> {
+        return new Promise((resolve:any,reject:any) =>{
+            if(filter.viewparams){
+                Object.assign(searchFilter,filter.viewparams);
+            }
+            if(!searchFilter.page){
+                Object.assign(searchFilter,{page:0});
+            }
+            if(!searchFilter.size){
+                Object.assign(searchFilter,{size:1000});
+            }
+            if(context && context.srfparentdename){
+                Object.assign(searchFilter,{srfparentdename:JSON.parse(JSON.stringify(context)).srfparentdename});
+            }
+            if(context && context.srfparentkey){
+                Object.assign(searchFilter,{srfparentkey:JSON.parse(JSON.stringify(context)).srfparentkey});
+            }
+            const _appEntityService: any = this.service;
+            let list: any[] = [];
+            if (_appEntityService['FetchProjectTeamUser'] && _appEntityService['FetchProjectTeamUser'] instanceof Function) {
+                const response: Promise<any> = _appEntityService['FetchProjectTeamUser'](context, searchFilter, false);
+                response.then((response: any) => {
+                    if (!response.status || response.status !== 200) {
+                        resolve([]);
+                        console.log(JSON.stringify(context));
+                        console.error('查询FetchProjectTeamUser数据集异常!');
+                    }
+                    const data: any = response.data;
+                    if (Object.keys(data).length > 0) {
+                        list = JSON.parse(JSON.stringify(data));
+                        resolve(list);
+                    } else {
+                        resolve([]);
+                    }
+                }).catch((response: any) => {
+                        resolve([]);
+                        console.log(JSON.stringify(context));
+                        console.error('查询FetchProjectTeamUser数据集异常!');
+                });
+            }
+        })
+    }
+
+    /**
+     * 填充 树视图节点[项目人员]子节点
+     *
+     * @public
+     * @param {any{}} context         
+     * @param {*} filter
+     * @param {any[]} list
+     * @returns {Promise<any>}
+     * @memberof EmpTreeService
+     */
+    public async fillProjectempNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
+		if (filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")) {
+		} else {
 		}
 	}
 
@@ -839,27 +1141,27 @@ export class EmpTreeService extends TreeViewServiceBase {
      */
     public async fillRootNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
 		if (filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")) {
-			// 填充组织
-            let OrgRsNavContext:any = {};
-            let OrgRsNavParams:any = {};
-            let OrgRsParams:any = {};
-			await this.fillOrgNodes(context, filter, list ,OrgRsNavContext,OrgRsNavParams,OrgRsParams);
+			// 填充组织人员
+            let OrgempRsNavContext:any = {};
+            let OrgempRsNavParams:any = {};
+            let OrgempRsParams:any = {};
+			await this.fillOrgempNodes(context, filter, list ,OrgempRsNavContext,OrgempRsNavParams,OrgempRsParams);
 			// 填充项目团队
-            let ProjectteamRsNavContext:any = {};
-            let ProjectteamRsNavParams:any = {};
-            let ProjectteamRsParams:any = {};
-			await this.fillProjectteamNodes(context, filter, list ,ProjectteamRsNavContext,ProjectteamRsNavParams,ProjectteamRsParams);
+            let ProjectRsNavContext:any = {};
+            let ProjectRsNavParams:any = {};
+            let ProjectRsParams:any = {};
+			await this.fillProjectNodes(context, filter, list ,ProjectRsNavContext,ProjectRsNavParams,ProjectRsParams);
 		} else {
-			// 填充组织
-            let OrgRsNavContext:any = {};
-            let OrgRsNavParams:any = {};
-            let OrgRsParams:any = {};
-			await this.fillOrgNodes(context, filter, list ,OrgRsNavContext,OrgRsNavParams,OrgRsParams);
+			// 填充组织人员
+            let OrgempRsNavContext:any = {};
+            let OrgempRsNavParams:any = {};
+            let OrgempRsParams:any = {};
+			await this.fillOrgempNodes(context, filter, list ,OrgempRsNavContext,OrgempRsNavParams,OrgempRsParams);
 			// 填充项目团队
-            let ProjectteamRsNavContext:any = {};
-            let ProjectteamRsNavParams:any = {};
-            let ProjectteamRsParams:any = {};
-			await this.fillProjectteamNodes(context, filter, list ,ProjectteamRsNavContext,ProjectteamRsNavParams,ProjectteamRsParams);
+            let ProjectRsNavContext:any = {};
+            let ProjectRsNavParams:any = {};
+            let ProjectRsParams:any = {};
+			await this.fillProjectNodes(context, filter, list ,ProjectRsNavContext,ProjectRsNavParams,ProjectRsParams);
 		}
 	}
 
