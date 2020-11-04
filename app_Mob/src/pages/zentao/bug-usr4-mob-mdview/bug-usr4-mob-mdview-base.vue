@@ -190,7 +190,7 @@ export default class BugUsr4MobMDViewBase extends Vue {
      * @type {*}
      * @memberof BugUsr4MobMDViewBase
      */
-    protected navContext: any = { 'project': '%project%', 'srfparentkey': 'build' };
+    protected navContext: any = { 'project': '%project%', 'srfparentkey': '%build%' };
 
     /**
      * 视图导航参数

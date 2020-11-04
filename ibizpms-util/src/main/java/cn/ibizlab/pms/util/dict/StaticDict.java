@@ -5500,6 +5500,32 @@ public class StaticDict {
     }
 
 
+    /**
+     * 代码表[燃尽图间隔显示]
+     */
+    @Getter
+    public enum Burninterval {
+        ITEM_1("1","间隔1天"),
+        ITEM_2("2","间隔2天"),
+        ITEM_3("3","间隔3天"),
+        ITEM_4("4","间隔4天"),
+        ITEM_5("5","间隔5天"),
+        ITEM_6("6","间隔6天"),
+        ITEM_7("7","间隔7天"),
+        ITEM_8("8","间隔8天");
+
+        private String value;
+        private String text;
+        private String valueSeparator="";
+        private String textSeparator="";
+        private String emptyText="";
+
+        Burninterval(String value , String text) {
+            this.value=value;
+            this.text = text;
+        }
+    }
+
 
     /**
      * 代码表[计划快速分组]
