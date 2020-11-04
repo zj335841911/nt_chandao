@@ -368,7 +368,6 @@ hide footbox
 |MyFavorites|我的收藏([MYSQL5](../../appendix/query_MYSQL5.md#Story_MyFavorites))|否|&nbsp;|
 |ParentDefault|数据查询([MYSQL5](../../appendix/query_MYSQL5.md#Story_ParentDefault))|否|&nbsp;|
 |ParentDefaultQ|数据查询([MYSQL5](../../appendix/query_MYSQL5.md#Story_ParentDefaultQ))|否|&nbsp;|
-|ProductPlanStories|产品计划需求([MYSQL5](../../appendix/query_MYSQL5.md#Story_ProductPlanStories))|否|&nbsp;|
 |projectLinkStory|项目关联需求([MYSQL5](../../appendix/query_MYSQL5.md#Story_ProjectLinkStory))|否|&nbsp;|
 |ProjectStories|项目相关需求([MYSQL5](../../appendix/query_MYSQL5.md#Story_ProjectStories))|否|&nbsp;|
 |ReleaseLinkableStories|版本可关联的完成的需求([MYSQL5](../../appendix/query_MYSQL5.md#Story_ReleaseLinkableStories))|否|&nbsp;|
@@ -397,7 +396,6 @@ hide footbox
 |MyFavorites|我的收藏|MyFavorites|否|&nbsp;|
 |ParentDefault|数据查询|ParentDefault|否|&nbsp;|
 |ParentDefaultQ|数据查询|ParentDefaultQ|否|&nbsp;|
-|ProductPlanStories|产品计划需求|ProductPlanStories|否|&nbsp;|
 |projectLinkStory|项目关联需求|projectLinkStory|否|&nbsp;|
 |ProjectStories|项目相关需求|ProjectStories|否|&nbsp;|
 |ReleaseLinkableStories|版本可关联的完成的需求|ReleaseLinkableStories|否|&nbsp;|

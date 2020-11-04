@@ -87,7 +87,6 @@ public interface IStoryService extends IService<Story>{
     Page<Story> searchMyFavorites(StorySearchContext context) ;
     Page<Story> searchParentDefault(StorySearchContext context) ;
     Page<Story> searchParentDefaultQ(StorySearchContext context) ;
-    Page<Story> searchProductPlanStories(StorySearchContext context) ;
     Page<Story> searchProjectLinkStory(StorySearchContext context) ;
     Page<Story> searchProjectStories(StorySearchContext context) ;
     Page<Story> searchReleaseLinkableStories(StorySearchContext context) ;
