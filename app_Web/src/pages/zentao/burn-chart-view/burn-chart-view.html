@@ -1,4 +1,7 @@
 <studio-view viewName="burnchartview" viewTitle="燃尽图" class='dechartview burn-chart-view'>
+    <template slot="quickGroupSearch">
+        <app-quick-group :items="quickGroupModel" @valuechange="quickGroupValueChange($event)"></app-quick-group>
+    </template>
     <template slot="quickSearchForm">
         <view_quicksearchform 
     :viewState="viewState"  

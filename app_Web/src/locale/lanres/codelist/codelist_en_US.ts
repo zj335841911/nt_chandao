@@ -564,6 +564,11 @@ export default {
     BackendBuild: {
         "empty": "",
     },
+    BurnQuickpacket: {
+        "exWeek": "去除周末",
+        "Week": "显示周末",
+        "empty": ""
+    },
     Testcase__stage: {
         "unittest": "单元测试阶段",
         "feature": "功能测试阶段",
