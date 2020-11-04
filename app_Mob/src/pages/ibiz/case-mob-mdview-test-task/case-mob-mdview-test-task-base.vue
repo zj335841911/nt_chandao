@@ -77,7 +77,7 @@
             loaddraftAction=""
             loadAction="Get"
             createAction="Create"
-            fetchAction="FetchDefault" 
+            fetchAction="FetchCurTestTask" 
             :isMutli="!isSingleSelect"
             :isNeedLoaddingText="!isPortalView"
             :showBusyIndicator="true" 

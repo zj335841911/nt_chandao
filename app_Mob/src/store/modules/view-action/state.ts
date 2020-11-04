@@ -77,7 +77,7 @@ export const viewstate: any = {
                 '592d81c326051b3b53d26f1eb18a72b9',
                 '6eaa09c8b655985f1461fcc458e1a6b8',
                 '5cfddd273247bd1dc4c940fae4671f14',
-                '93adfcb3ea22ac270a2603f7f2226a38',
+                'facbb60c5f02c64a515fefaeaff1424f',
             ],
         },
         {
@@ -1191,16 +1191,6 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '3c4e9f0d609bc0f1cf08431649cc8e67',
-            ],
-        },
-        {
-            viewtag: '93adfcb3ea22ac270a2603f7f2226a38',
-            viewmodule: 'zentao',
-            viewname: 'BugMobMDView9',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-                '69a540ab88c1edd1da7f89cebe5f4588',
             ],
         },
         {

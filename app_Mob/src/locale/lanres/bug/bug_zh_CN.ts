@@ -118,9 +118,6 @@ export default {
 		assmoboptionview: {
 			caption: '指派Bug',
 		},
-		mobmdview9: {
-			caption: 'Bug',
-		},
 		confirmmobeditview: {
 			caption: 'Bug',
 		},
@@ -436,7 +433,7 @@ export default {
 			tip: '保存',
 		},
 	},
-	mobmdview9righttoolbar_toolbar: {
+	usr2mobmdviewrighttoolbar_toolbar: {
 	},
 	editnewmobeditviewrighttoolbar_toolbar: {
 		tbitem1: {
@@ -515,7 +512,5 @@ export default {
 			caption: '保存',
 			tip: '保存',
 		},
-	},
-	usr2mobmdviewrighttoolbar_toolbar: {
 	},
 };
