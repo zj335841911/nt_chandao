@@ -96,7 +96,6 @@
 |-|任务选项操作视图（完成）|DEMOBOPTVIEW|&nbsp;|
 |-|任务预计选项操作视图|DEMOBOPTVIEW|&nbsp;|
 |-|产品计划移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
-|-|Bug移动端多数据视图|DEMOBMDVIEW9|&nbsp;|
 |-|产品详情|DEMOBTABEXPVIEW|&nbsp;|
 |-|版本移动端数据选择视图|DEMOBPICKUPVIEW|&nbsp;|
 |-|测试|DEMOBMDVIEW|&nbsp;|
@@ -183,6 +182,7 @@
 |-|任务预计移动端多数据视图|DEMOBMDVIEW9|&nbsp;|
 |-|用户移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
 |-|模块移动端选择多数据视图|DEMOBPICKUPMDVIEW|&nbsp;|
+|-|Bug移动端多数据视图|DEMOBMDVIEW|&nbsp;|
 |-|任务模块移动端数据选择视图|DEMOBPICKUPVIEW|&nbsp;|
 
 ## iBiz软件生产管理

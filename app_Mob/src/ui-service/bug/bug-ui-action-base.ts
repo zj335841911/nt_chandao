@@ -101,8 +101,6 @@ export default class BugUIActionBase extends EntityUIActionBase {
         this.allViewMap.set('MOBMDATAVIEW:',{viewname:'mobmdview',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'assmobmdview9',srfappde:'bugs'});
         this.allViewMap.set('MOBEDITVIEW:',{viewname:'mobeditview',srfappde:'bugs'});
-        this.allViewMap.set(':',{viewname:'mobmdview9_8177',srfappde:'bugs'});
-        this.allViewMap.set(':',{viewname:'usr2mobmdview9',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'newmobeditview',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'assmoboptionview',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'confirmmobeditview',srfappde:'bugs'});
@@ -111,9 +109,12 @@ export default class BugUIActionBase extends EntityUIActionBase {
         this.allViewMap.set(':',{viewname:'resolvemobeditview',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'logmobmdview9',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'activationmobeditview',srfappde:'bugs'});
+        this.allViewMap.set(':',{viewname:'usr4mobmdview',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'closemoboptionview',srfappde:'bugs'});
+        this.allViewMap.set(':',{viewname:'usr3mobmdview',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'assmoremobmdview',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'usr2mobmdview',srfappde:'bugs'});
+        this.allViewMap.set(':',{viewname:'usr5mobmdview',srfappde:'bugs'});
     }
 
     /**

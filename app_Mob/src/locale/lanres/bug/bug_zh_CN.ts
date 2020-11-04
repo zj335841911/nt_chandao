@@ -106,12 +106,6 @@ export default {
 		mobeditview: {
 			caption: 'Bug',
 		},
-		mobmdview9_8177: {
-			caption: 'Bug',
-		},
-		usr2mobmdview9: {
-			caption: 'Bug',
-		},
 		newmobeditview: {
 			caption: 'Bug',
 		},
@@ -136,13 +130,22 @@ export default {
 		activationmobeditview: {
 			caption: 'Bug',
 		},
+		usr4mobmdview: {
+			caption: 'Bug',
+		},
 		closemoboptionview: {
 			caption: '关闭Bug',
+		},
+		usr3mobmdview: {
+			caption: 'Bug',
 		},
 		assmoremobmdview: {
 			caption: '指派给我的Bug',
 		},
 		usr2mobmdview: {
+			caption: 'Bug',
+		},
+		usr5mobmdview: {
 			caption: 'Bug',
 		},
 	},
@@ -467,7 +470,7 @@ export default {
 			tip: '关闭',
 		},
 	},
-	mobmdview9_8177righttoolbar_toolbar: {
+	usr3mobmdviewrighttoolbar_toolbar: {
 	},
 	planmobmdview9righttoolbar_toolbar: {
 	},
@@ -475,7 +478,7 @@ export default {
 	},
 	usr3mobmdview9righttoolbar_toolbar: {
 	},
-	usr2mobmdview9righttoolbar_toolbar: {
+	usr4mobmdviewrighttoolbar_toolbar: {
 	},
 	newmobeditviewrighttoolbar_toolbar: {
 		tbitem1: {
@@ -512,5 +515,7 @@ export default {
 			caption: '保存',
 			tip: '保存',
 		},
+	},
+	usr5mobmdviewrighttoolbar_toolbar: {
 	},
 };
