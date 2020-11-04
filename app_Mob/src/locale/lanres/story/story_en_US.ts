@@ -96,6 +96,9 @@ export default {
 		assmobmdview9: {
 			caption: '需求',
 		},
+		usr2mobmdview9: {
+			caption: '需求',
+		},
 		favoritemobmdview9: {
 			caption: '需求',
 		},
@@ -386,5 +389,7 @@ export default {
 	mobmdviewcurprojectrighttoolbar_toolbar: {
 	},
 	usr2mobmdviewrighttoolbar_toolbar: {
+	},
+	usr2mobmdview9righttoolbar_toolbar: {
 	},
 };

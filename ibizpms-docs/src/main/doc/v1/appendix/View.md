@@ -16,6 +16,7 @@
 |-|快速新建|DEMOBEDITVIEW|&nbsp;|
 |-|用户移动端多数据选择视图|DEMOBMPICKUPVIEW|&nbsp;|
 |-|需求移动端多数据视图|DEMOBMDVIEW9|&nbsp;|
+|-|Bug移动端多数据视图|DEMOBMDVIEW9|&nbsp;|
 |-|iBiz软件生产管理|APPINDEXVIEW|&nbsp;|
 |-|任务移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
 |-|我的地盘移动端多数据视图|DEMOBMDVIEW9|&nbsp;|
@@ -65,6 +66,7 @@
 |-|任务选项操作视图（开始）|DEMOBOPTVIEW|&nbsp;|
 |-|测试版本选项操作视图（激活）|DEMOBOPTVIEW|&nbsp;|
 |-|需求移动端多数据视图（更新日志）|DEMOBMDVIEW9|&nbsp;|
+|-|版本分页导航视图|DEMOBTABEXPVIEW|&nbsp;|
 |-|人员移动端选择树视图|DEMOBPICKUPTREEVIEW|&nbsp;|
 |-|Bug移动端多数据视图|DEMOBMDVIEW|&nbsp;|
 |-|需求移动端多数据视图|DEMOBMDVIEW|&nbsp;|
@@ -92,9 +94,11 @@
 |-|任务选项操作视图（完成）|DEMOBOPTVIEW|&nbsp;|
 |-|任务预计选项操作视图|DEMOBOPTVIEW|&nbsp;|
 |-|产品计划移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
+|-|Bug移动端多数据视图|DEMOBMDVIEW9|&nbsp;|
 |-|产品详情|DEMOBTABEXPVIEW|&nbsp;|
 |-|版本移动端数据选择视图|DEMOBPICKUPVIEW|&nbsp;|
 |-|测试|DEMOBMDVIEW|&nbsp;|
+|-|需求移动端多数据视图|DEMOBMDVIEW9|&nbsp;|
 |-|待办事宜表移动端多数据视图|DEMOBMDVIEW|&nbsp;|
 |-|版本移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
 |-|用户移动端选择多数据视图|DEMOBPICKUPMDVIEW|&nbsp;|

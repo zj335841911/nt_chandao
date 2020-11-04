@@ -142,6 +142,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '15c9be89b69749718b0c736c97bdbed7',
+            viewmodule: 'zentao',
+            viewname: 'BugUsr3MobMDView9',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '69a540ab88c1edd1da7f89cebe5f4588',
+            ],
+        },
+        {
             viewtag: '15DFA5E1-68C2-4D93-A0FB-56E09EFEF56D',
             viewmodule: 'Ungroup',
             viewname: 'AppIndexView',
@@ -673,6 +683,19 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '5831fe43122c3d5778cce24bbaa52740',
+            viewmodule: 'zentao',
+            viewname: 'BuildMobTabExpView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '15c9be89b69749718b0c736c97bdbed7',
+                '897b1cde235b8de7aebfde36d4731410',
+                '825889968d4369bc1272df847c53bcec',
+                '72d73b7f458439bc2355414e5a810ad5',
+            ],
+        },
+        {
             viewtag: '58837f4113cb00c058a20da29656ffea',
             viewmodule: 'ou',
             viewname: 'SysEmployeeMobPickupTreeView',
@@ -989,6 +1012,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '825889968d4369bc1272df847c53bcec',
+            viewmodule: 'zentao',
+            viewname: 'BugUsr2MobMDView9',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '69a540ab88c1edd1da7f89cebe5f4588',
+            ],
+        },
+        {
             viewtag: '82f9b0fd0fdc90237c7aa1a1e543920e',
             viewmodule: 'ibiz',
             viewname: 'ProductStatsMobTabExpView',
@@ -1021,6 +1054,16 @@ export const viewstate: any = {
             refviews: [
                 '52913a5dcfd665154092ec7aedf84049',
                 '984a4d5ce6ca2ede5539d44590ef20a6',
+            ],
+        },
+        {
+            viewtag: '897b1cde235b8de7aebfde36d4731410',
+            viewmodule: 'zentao',
+            viewname: 'StoryUsr2MobMDView9',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'd096e8789265e730da5eefa1423479dc',
             ],
         },
         {

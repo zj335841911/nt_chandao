@@ -91,6 +91,7 @@ export default class BugUIActionBase extends EntityUIActionBase {
      */  
     public initViewMap(){
         this.allViewMap.set(':',{viewname:'colsemobeditview',srfappde:'bugs'});
+        this.allViewMap.set(':',{viewname:'usr3mobmdview9',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'planmobmdview9',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'cmoboptionview',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'editnewmobeditview',srfappde:'bugs'});
@@ -101,6 +102,7 @@ export default class BugUIActionBase extends EntityUIActionBase {
         this.allViewMap.set(':',{viewname:'assmobmdview9',srfappde:'bugs'});
         this.allViewMap.set('MOBEDITVIEW:',{viewname:'mobeditview',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'mobmdview9_8177',srfappde:'bugs'});
+        this.allViewMap.set(':',{viewname:'usr2mobmdview9',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'newmobeditview',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'assmoboptionview',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'mobmdview9',srfappde:'bugs'});

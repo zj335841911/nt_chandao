@@ -20,12 +20,12 @@ public interface TestTaskDataImport {
         @Mapping(target = "report",source = "report"),
         @Mapping(target = "comment",source = "comment"),
         @Mapping(target = "end",source = "end"),
-        @Mapping(target = "auto",source = "auto"),
         @Mapping(target = "product",source = "product"),
-        @Mapping(target = "projecttname",source = "projecttname"),
         @Mapping(target = "pri",source = "pri"),
         @Mapping(target = "status",source = "status"),
+        @Mapping(target = "auto",source = "auto"),
         @Mapping(target = "build",source = "build"),
+        @Mapping(target = "projecttname",source = "projecttname"),
         @Mapping(target = "name",source = "name"),
     })
     @BeanMapping(ignoreByDefault = true)
