@@ -582,7 +582,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
     @Transactional
     public Task getNextTeamUser(Task et){
         et = this.getById(et.getId());
-        List<Team> teamList = teamHelper.list(new QueryWrapper<Team>().eq("root",et.getId()).eq("type","task"));
+        List<Team> teamList = teamHelper.list(new QueryWrapper<Team>().eq("root",et.getId()).eq("type","task").orderByAsc("`id`"));
         if (teamList.size() == 0) {
             et.setAssignedto(et.getOpenedby());
         }else {
