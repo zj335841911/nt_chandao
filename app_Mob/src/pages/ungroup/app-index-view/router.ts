@@ -5604,6 +5604,39 @@ const router = new Router({
                     component: () => import('@pages/ibiz/project-activite-mob-edit-view/project-activite-mob-edit-view.vue'),
                 },
                 {
+                    path: 'products/:product?/stories/:story?/usr2mobmdview',
+                    name: 'story_usr2mobmdview',
+                    meta: {
+                        caption: 'story.views.usr2mobmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'usr2mobmdview', parameterName: 'usr2mobmdview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/story-usr2-mob-mdview/story-usr2-mob-mdview.vue'),
+                },
+                {
+                    path: 'stories/:story?/usr2mobmdview',
+                    name: 'story_usr2mobmdview',
+                    meta: {
+                        caption: 'story.views.usr2mobmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'usr2mobmdview', parameterName: 'usr2mobmdview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/story-usr2-mob-mdview/story-usr2-mob-mdview.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/tasks/:task?/ibztaskteams/:ibztaskteam?/mobmeditview9',
                     name: 'ibztaskteam_mobmeditview9',
                     meta: {
