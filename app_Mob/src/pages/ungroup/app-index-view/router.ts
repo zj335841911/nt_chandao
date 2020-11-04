@@ -3417,6 +3417,56 @@ const router = new Router({
                     component: () => import('@pages/zentao/bug-usr3-mob-mdview9/bug-usr3-mob-mdview9.vue'),
                 },
                 {
+                    path: 'projects/:project?/testtasks/:testtask?/mobtabexpview',
+                    name: 'testtask_mobtabexpview',
+                    meta: {
+                        caption: 'testtask.views.mobtabexpview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-clipboard',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'testtasks', parameterName: 'testtask' },
+                            { pathName: 'mobtabexpview', parameterName: 'mobtabexpview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/test-task-mob-tab-exp-view/test-task-mob-tab-exp-view.vue'),
+                },
+                {
+                    path: 'products/:product?/testtasks/:testtask?/mobtabexpview',
+                    name: 'testtask_mobtabexpview',
+                    meta: {
+                        caption: 'testtask.views.mobtabexpview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-clipboard',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'testtasks', parameterName: 'testtask' },
+                            { pathName: 'mobtabexpview', parameterName: 'mobtabexpview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/test-task-mob-tab-exp-view/test-task-mob-tab-exp-view.vue'),
+                },
+                {
+                    path: 'testtasks/:testtask?/mobtabexpview',
+                    name: 'testtask_mobtabexpview',
+                    meta: {
+                        caption: 'testtask.views.mobtabexpview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-clipboard',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'testtasks', parameterName: 'testtask' },
+                            { pathName: 'mobtabexpview', parameterName: 'mobtabexpview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/test-task-mob-tab-exp-view/test-task-mob-tab-exp-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/cmoboptionview',
                     name: 'story_cmoboptionview',
                     meta: {

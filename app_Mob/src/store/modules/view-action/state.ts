@@ -412,6 +412,17 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '30072289dbd1f1a6fc904d40ad724bf0',
+            viewmodule: 'zentao',
+            viewname: 'TestTaskMobTabExpView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '3019f338b834faf1931f62e00d4ef414',
+                '9576fe405a243332b6f648c8d0632e88',
+            ],
+        },
+        {
             viewtag: '3019f338b834faf1931f62e00d4ef414',
             viewmodule: 'ibiz',
             viewname: 'CaseMobMDView',
@@ -1684,6 +1695,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '30072289dbd1f1a6fc904d40ad724bf0',
                 '548e886996944f4ac071095c9959ced3',
                 '51d18e10db20ac282c1154bac5fa9b8f',
                 'e4b3ed76cdeea1217bbbe1b2098da73c',

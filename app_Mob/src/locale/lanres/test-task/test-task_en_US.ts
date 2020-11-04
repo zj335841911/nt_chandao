@@ -25,6 +25,9 @@ export default {
 		moboptionviewclose: {
 			caption: '关闭',
 		},
+		mobtabexpview: {
+			caption: '测试版本',
+		},
 		moboptionviewstart: {
 			caption: '开始',
 		},

@@ -16,18 +16,18 @@
     
                     <ion-toolbar>
                         <ion-segment :value="activiedTabViewPanel" @ionChange="tabExpPanelChange($event)">
-                            <ion-segment-button value="tabviewpanel5">
-                            
-                            遗留的bug</ion-segment-button>
-                            <ion-segment-button value="tabviewpanel4">
-                            
-                            解决的bug</ion-segment-button>
-                            <ion-segment-button value="tabviewpanel3">
-                            
-                            发布详情</ion-segment-button>
                             <ion-segment-button value="tabviewpanel2">
                             
                             完成的需求</ion-segment-button>
+                            <ion-segment-button value="tabviewpanel4">
+                            
+                            解决的bug</ion-segment-button>
+                            <ion-segment-button value="tabviewpanel5">
+                            
+                            遗留的bug</ion-segment-button>
+                            <ion-segment-button value="tabviewpanel3">
+                            
+                            发布详情</ion-segment-button>
                         </ion-segment>
                     </ion-toolbar>
     </ion-header>
@@ -339,7 +339,7 @@ export default class ReleaseMobTabExpViewBase extends Vue {
      * @type {string}
      * @memberof  ReleaseMobTabExpViewBase
      */
-    protected activiedTabViewPanel: string = 'tabviewpanel5';
+    protected activiedTabViewPanel: string = 'tabviewpanel2';
 
     /**
      * 分页导航栏激活
@@ -398,7 +398,7 @@ export default class ReleaseMobTabExpViewBase extends Vue {
         if (info.name && info.name == 'release' && info.id && info.id == this.context.release) {
           this.activiedTabViewPanel = info.value;
         } else { 
-          this.activiedTabViewPanel = 'tabviewpanel5';
+          this.activiedTabViewPanel = 'tabviewpanel2';
         }
         }
     }

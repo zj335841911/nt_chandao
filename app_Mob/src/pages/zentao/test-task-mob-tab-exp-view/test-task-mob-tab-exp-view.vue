@@ -1,11 +1,11 @@
 <script lang='ts'>
 import { Component } from 'vue-property-decorator';
-import StoryUsr2MobMDViewBase from './story-usr2-mob-mdview-base.vue';
+import TestTaskMobTabExpViewBase from './test-task-mob-tab-exp-view-base.vue';
 
-import view_mdctrl from '@widgets/story/mob-mobmdctrl/mob-mobmdctrl.vue';
+import view_tabexppanel from '@widgets/test-task/mob-tab-exp-viewtabexppanel-tabexppanel/mob-tab-exp-viewtabexppanel-tabexppanel.vue';
 @Component({
     components: {
-        view_mdctrl, 
+        view_tabexppanel, 
     },
     beforeRouteEnter: (to: any, from: any, next: any) => {
         next((vm: any) => {
@@ -13,7 +13,7 @@ import view_mdctrl from '@widgets/story/mob-mobmdctrl/mob-mobmdctrl.vue';
         });
     },
 })
-export default class StoryUsr2MobMDView extends StoryUsr2MobMDViewBase {
+export default class TestTaskMobTabExpView extends TestTaskMobTabExpViewBase {
 
 }
 </script>

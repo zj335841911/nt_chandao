@@ -40,6 +40,7 @@
 |-|需求选项操作视图（评审）|DEMOBOPTVIEW|&nbsp;|
 |-|任务预计移动端编辑视图|DEMOBEDITVIEW9|&nbsp;|
 |-|测试版本选项操作视图（关闭）|DEMOBOPTVIEW|&nbsp;|
+|-|测试版本分页导航视图|DEMOBTABEXPVIEW|&nbsp;|
 |-|测试用例移动端多数据视图|DEMOBMDVIEW|&nbsp;|
 |-|发布移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
 |-|任务移动端编辑视图（新建）|DEMOBEDITVIEW|&nbsp;|

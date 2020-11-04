@@ -1,48 +1,26 @@
 <template>
     <span>
+        <span v-show="activiedTabViewPanel == 'tabviewpanel'">
+                        <view_tabviewpanel
+                :viewState="viewState"
+                viewName="TestTaskMobTabExpView"  
+                :viewparams="viewparams" 
+                :context="context" 
+                name="tabviewpanel"  
+                ref='tabviewpanel' 
+                @closeview="closeView($event)">
+            </view_tabviewpanel>
+        </span>
         <span v-show="activiedTabViewPanel == 'tabviewpanel2'">
                         <view_tabviewpanel2
                 :viewState="viewState"
-                viewName="BuildMobTabExpView"  
+                viewName="TestTaskMobTabExpView"  
                 :viewparams="viewparams" 
                 :context="context" 
                 name="tabviewpanel2"  
                 ref='tabviewpanel2' 
                 @closeview="closeView($event)">
             </view_tabviewpanel2>
-        </span>
-        <span v-show="activiedTabViewPanel == 'tabviewpanel4'">
-                        <view_tabviewpanel4
-                :viewState="viewState"
-                viewName="BuildMobTabExpView"  
-                :viewparams="viewparams" 
-                :context="context" 
-                name="tabviewpanel4"  
-                ref='tabviewpanel4' 
-                @closeview="closeView($event)">
-            </view_tabviewpanel4>
-        </span>
-        <span v-show="activiedTabViewPanel == 'tabviewpanel3'">
-                        <view_tabviewpanel3
-                :viewState="viewState"
-                viewName="BuildMobTabExpView"  
-                :viewparams="viewparams" 
-                :context="context" 
-                name="tabviewpanel3"  
-                ref='tabviewpanel3' 
-                @closeview="closeView($event)">
-            </view_tabviewpanel3>
-        </span>
-        <span v-show="activiedTabViewPanel == 'tabviewpanel5'">
-                        <view_tabviewpanel5
-                :viewState="viewState"
-                viewName="BuildMobTabExpView"  
-                :viewparams="viewparams" 
-                :context="context" 
-                name="tabviewpanel5"  
-                ref='tabviewpanel5' 
-                @closeview="closeView($event)">
-            </view_tabviewpanel5>
         </span>
     </span>
 </template>
@@ -54,11 +32,11 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import BuildService from '@/app-core/service/build/build-service';
-import MobTabExpViewtabexppanelService from '@/app-core/ctrl-service/build/mob-tab-exp-viewtabexppanel-tabexppanel-service';
+import TestTaskService from '@/app-core/service/test-task/test-task-service';
+import MobTabExpViewtabexppanelService from '@/app-core/ctrl-service/test-task/mob-tab-exp-viewtabexppanel-tabexppanel-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
-import BuildUIService from '@/ui-service/build/build-ui-action';
+import TestTaskUIService from '@/ui-service/test-task/test-task-ui-action';
 
 
 
@@ -161,18 +139,18 @@ export default class MobTabExpViewtabexppanelBase extends Vue implements Control
     /**
      * 实体服务对象
      *
-     * @type {BuildService}
+     * @type {TestTaskService}
      * @memberof MobTabExpViewtabexppanel
      */
-    protected appEntityService: BuildService = new BuildService();
+    protected appEntityService: TestTaskService = new TestTaskService();
 
     /**
      * 界面UI服务对象
      *
-     * @type {BuildUIService}
+     * @type {TestTaskUIService}
      * @memberof MobTabExpViewtabexppanelBase
      */  
-    public deUIService:BuildUIService = new BuildUIService(this.$store);
+    public deUIService:TestTaskUIService = new TestTaskUIService(this.$store);
     
 
     /**
@@ -208,7 +186,7 @@ export default class MobTabExpViewtabexppanelBase extends Vue implements Control
     /**
      * 销毁计数器服务
      *
-     * @memberof BuildMobTabExpView
+     * @memberof TestTaskMobTabExpView
      */   
     public counterserviceDestroy(){
         this.counterServiceArray.forEach((item:any)=>{
@@ -251,7 +229,7 @@ export default class MobTabExpViewtabexppanelBase extends Vue implements Control
      * @type {string}
      * @memberof MobTabExpViewtabexppanel
      */
-    @Prop({ default: 'tabviewpanel2' }) protected activiedTabViewPanel?: string;     
+    @Prop({ default: 'tabviewpanel' }) protected activiedTabViewPanel?: string;     
 
     /**
      * 是否开启点击重新渲染
