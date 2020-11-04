@@ -87,7 +87,6 @@
 |-|项目移动端编辑视图挂起）|DEMOBEDITVIEW|&nbsp;|
 |-|项目|DEMOBTABEXPVIEW|&nbsp;|
 |-|任务移动端多数据视图|DEMOBMDVIEW|&nbsp;|
-|-|Bug移动端多数据视图|DEMOBMDVIEW9|&nbsp;|
 |-|我的地盘移动端数据看板视图|DEMOBPORTALVIEW|&nbsp;|
 |-|版本移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
 |-|任务模块移动端选择多数据视图|DEMOBPICKUPMDVIEW|&nbsp;|
