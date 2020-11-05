@@ -33,8 +33,8 @@ public interface ITestSuiteService extends IService<TestSuite>{
     void removeBatch(Collection<Long> idList) ;
     TestSuite get(Long key) ;
     TestSuite getDraft(TestSuite et) ;
-    TestSuite a1(TestSuite et) ;
     boolean checkKey(TestSuite et) ;
+    TestSuite mobTestSuiteCount(TestSuite et) ;
     boolean save(TestSuite et) ;
     void saveBatch(List<TestSuite> list) ;
     Page<TestSuite> searchDefault(TestSuiteSearchContext context) ;

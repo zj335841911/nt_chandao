@@ -117,16 +117,16 @@ public class TestSuiteServiceImpl extends ServiceImpl<TestSuiteMapper, TestSuite
     }
 
     @Override
+    public boolean checkKey(TestSuite et) {
+        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
+    }
+    @Override
     @Transactional
-    public TestSuite a1(TestSuite et) {
+    public TestSuite mobTestSuiteCount(TestSuite et) {
         mobtestsuitecountLogic.execute(et);
          return et ;
     }
 
-    @Override
-    public boolean checkKey(TestSuite et) {
-        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
-    }
     @Override
     @Transactional
     public boolean save(TestSuite et) {

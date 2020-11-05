@@ -140,20 +140,6 @@ export class TestSuiteServiceBase extends EntityService {
     }
 
     /**
-     * A1接口方法
-     *
-     * @param {*} [context={}]
-     * @param {*} [data={}]
-     * @param {boolean} [isloading]
-     * @returns {Promise<any>}
-     * @memberof TestSuiteServiceBase
-     */
-    public async A1(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/testsuites/${context.testsuite}/a1`,data,isloading);
-            return res;
-    }
-
-    /**
      * CheckKey接口方法
      *
      * @param {*} [context={}]
@@ -164,6 +150,20 @@ export class TestSuiteServiceBase extends EntityService {
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
             let res:any = Http.getInstance().post(`/testsuites/${context.testsuite}/checkkey`,data,isloading);
+            return res;
+    }
+
+    /**
+     * MobTestSuiteCount接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TestSuiteServiceBase
+     */
+    public async MobTestSuiteCount(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+            let res:any = Http.getInstance().post(`/testsuites/${context.testsuite}/mobtestsuitecount`,data,isloading);
             return res;
     }
 

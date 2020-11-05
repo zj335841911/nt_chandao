@@ -208,6 +208,16 @@ public class SysEmployeeServiceImpl implements ISysEmployeeService {
 
 
     /**
+     * 查询集合 联系人用户
+     */
+    @Override
+    public Page<SysEmployee> searchContActList(SysEmployeeSearchContext context) {
+        Page<SysEmployee> sysEmployees=sysEmployeeFeignClient.searchContActList(context);
+        return sysEmployees;
+    }
+
+
+    /**
      * 查询集合 数据集
      */
     @Override

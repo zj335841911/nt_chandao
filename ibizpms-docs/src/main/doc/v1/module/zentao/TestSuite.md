@@ -472,8 +472,8 @@ Long
 | 3 | [Remove](#实体行为-Remove（Remove）) | Remove | 内置方法 | 后台及前台 |
 | 4 | [Get](#实体行为-Get（Get）) | Get | 内置方法 | 后台及前台 |
 | 5 | [GetDraft](#实体行为-GetDraft（GetDraft）) | GetDraft | 内置方法 | 后台及前台 |
-| 6 | [测试移动端计数器](#实体行为-测试移动端计数器（A1）) | a1 | 实体处理逻辑 | 后台 |
-| 7 | [CheckKey](#实体行为-CheckKey（CheckKey）) | CheckKey | 内置方法 | 后台及前台 |
+| 6 | [CheckKey](#实体行为-CheckKey（CheckKey）) | CheckKey | 内置方法 | 后台及前台 |
+| 7 | [测试套件移动端计数器](#实体行为-测试套件移动端计数器（MobTestSuiteCount）) | MobTestSuiteCount | 实体处理逻辑 | 后台 |
 | 8 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
 
 ### 实体行为-Create（Create）
@@ -536,18 +536,6 @@ GetDraft
 
 #### 逻辑附加
 无
-### 实体行为-测试移动端计数器（A1）
-#### 说明
-测试移动端计数器
-
-- 行为类型
-实体处理逻辑
-
-- 行为持有者
-后台
-
-#### 逻辑附加
-无
 ### 实体行为-CheckKey（CheckKey）
 #### 说明
 CheckKey
@@ -557,6 +545,18 @@ CheckKey
 
 - 行为持有者
 后台及前台
+
+#### 逻辑附加
+无
+### 实体行为-测试套件移动端计数器（MobTestSuiteCount）
+#### 说明
+测试套件移动端计数器
+
+- 行为类型
+实体处理逻辑
+
+- 行为持有者
+后台
 
 #### 逻辑附加
 无

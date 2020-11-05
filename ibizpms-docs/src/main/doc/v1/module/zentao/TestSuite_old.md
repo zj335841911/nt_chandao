@@ -52,8 +52,8 @@ hide members
 |Remove|内置方法|&nbsp;|
 |Get|内置方法|&nbsp;|
 |GetDraft|内置方法|&nbsp;|
-|测试移动端计数器|实体处理逻辑|&nbsp;|
 |CheckKey|内置方法|&nbsp;|
+|测试套件移动端计数器|实体处理逻辑|&nbsp;|
 |Save|内置方法|&nbsp;|
 
 ## 处理逻辑

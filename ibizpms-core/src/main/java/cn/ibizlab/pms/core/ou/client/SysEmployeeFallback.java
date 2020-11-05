@@ -78,6 +78,11 @@ public class SysEmployeeFallback implements SysEmployeeFeignClient{
      }
 
 
+    public Page<SysEmployee> searchContActList(SysEmployeeSearchContext context){
+            return null;
+     }
+
+
     public Page<SysEmployee> searchDefault(SysEmployeeSearchContext context){
             return null;
      }

@@ -195,16 +195,16 @@ mock.onGet(new RegExp(/^\/testsuites\/getdraft$/)).reply((config: any) => {
     return [status, {}];
 });
         
-// A1
-mock.onPost(new RegExp(/^\/testsuites\/?([a-zA-Z0-9\-\;]{0,35})\/a1$/)).reply((config: any) => {
-    console.groupCollapsed("实体:testsuite 方法: A1");
+// CheckKey
+mock.onPost(new RegExp(/^\/testsuites\/?([a-zA-Z0-9\-\;]{0,35})\/checkkey$/)).reply((config: any) => {
+    console.groupCollapsed("实体:testsuite 方法: CheckKey");
     console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
     if (status !== 200) {
         return [status, null];
     }    
     const paramArray:Array<any> = ['id'];
-    const matchArray:any = new RegExp(/^\/testsuites\/([a-zA-Z0-9\-\;]{1,35})\/a1$/).exec(config.url);
+    const matchArray:any = new RegExp(/^\/testsuites\/([a-zA-Z0-9\-\;]{1,35})\/checkkey$/).exec(config.url);
     let tempValue: any = {};
     if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
         paramArray.forEach((item: any, index: number) => {
@@ -233,16 +233,16 @@ mock.onPost(new RegExp(/^\/testsuites\/?([a-zA-Z0-9\-\;]{0,35})\/a1$/)).reply((c
     return [status, data];
 });
         
-// CheckKey
-mock.onPost(new RegExp(/^\/testsuites\/?([a-zA-Z0-9\-\;]{0,35})\/checkkey$/)).reply((config: any) => {
-    console.groupCollapsed("实体:testsuite 方法: CheckKey");
+// MobTestSuiteCount
+mock.onPost(new RegExp(/^\/testsuites\/?([a-zA-Z0-9\-\;]{0,35})\/mobtestsuitecount$/)).reply((config: any) => {
+    console.groupCollapsed("实体:testsuite 方法: MobTestSuiteCount");
     console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
     if (status !== 200) {
         return [status, null];
     }    
     const paramArray:Array<any> = ['id'];
-    const matchArray:any = new RegExp(/^\/testsuites\/([a-zA-Z0-9\-\;]{1,35})\/checkkey$/).exec(config.url);
+    const matchArray:any = new RegExp(/^\/testsuites\/([a-zA-Z0-9\-\;]{1,35})\/mobtestsuitecount$/).exec(config.url);
     let tempValue: any = {};
     if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
         paramArray.forEach((item: any, index: number) => {

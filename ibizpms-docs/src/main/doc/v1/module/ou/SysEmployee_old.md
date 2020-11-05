@@ -103,6 +103,7 @@ hide members
 | 查询编号 | 查询名称       | 默认查询 |   备注|
 | --------  | --------   | --------   | ----- |
 |BugUser|Bug用户([MYSQL5](../../appendix/query_MYSQL5.md#SysEmployee_BugUser))|否|&nbsp;|
+|ContActList|联系人用户([MYSQL5](../../appendix/query_MYSQL5.md#SysEmployee_ContActList))|否|&nbsp;|
 |DEFAULT|数据查询([MYSQL5](../../appendix/query_MYSQL5.md#SysEmployee_Default))|否|&nbsp;|
 |ProjectTeamM|项目团队管理([MYSQL5](../../appendix/query_MYSQL5.md#SysEmployee_ProjectTeamM))|否|&nbsp;排除当前项目已经选择的用户|
 |ProjectTeamUser|项目团队成员([MYSQL5](../../appendix/query_MYSQL5.md#SysEmployee_ProjectTeamUser))|否|&nbsp;|
@@ -117,6 +118,7 @@ hide members
 | 集合编号 | 集合名称   |  包含查询  | 默认集合 |   备注|
 | --------  | --------   | -------- | --------   | ----- |
 |BugUser|Bug用户|BugUser|否|&nbsp;|
+|ContActList|联系人用户|ContActList|否|&nbsp;|
 |DEFAULT|数据集|DEFAULT|是|&nbsp;|
 |ProjectTeamM|项目团队管理|ProjectTeamM|否|&nbsp;|
 |ProjectTeamUser|项目团队成员|ProjectTeamUser|否|&nbsp;|
