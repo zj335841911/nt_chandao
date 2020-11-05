@@ -85,7 +85,6 @@ export class MainTabExpViewtabexppanelTabexppanelBase extends TabExpPanelControl
         tabviewpanel4:  false ,
         tabviewpanel7:  false ,
         tabviewpanel8:  false ,
-        tabviewpanel9:  false ,
         tabviewpanel13:  false ,
         tabviewpanel3:  false ,
         tabviewpanel10:  false ,
@@ -117,7 +116,7 @@ export class MainTabExpViewtabexppanelTabexppanelBase extends TabExpPanelControl
      * @type {*}
      * @memberof MainTabExpViewtabexppanelBase
      */
-    protected authResourceObject:any = {'tabviewpanel':{resourcetag:null,visabled: true,disabled: false},'tabviewpanel2':{resourcetag:null,visabled: true,disabled: false},'tabviewpanel6':{resourcetag:null,visabled: true,disabled: false},'tabviewpanel11':{resourcetag:null,visabled: true,disabled: false},'tabviewpanel5':{resourcetag:null,visabled: true,disabled: false},'tabviewpanel4':{resourcetag:null,visabled: true,disabled: false},'tabviewpanel7':{resourcetag:null,visabled: true,disabled: false},'tabviewpanel8':{resourcetag:null,visabled: true,disabled: false},'tabviewpanel9':{resourcetag:null,visabled: true,disabled: false},'tabviewpanel13':{resourcetag:null,visabled: true,disabled: false},'tabviewpanel3':{resourcetag:null,visabled: true,disabled: false},'tabviewpanel10':{resourcetag:null,visabled: true,disabled: false},'tabviewpanel12':{resourcetag:null,visabled: true,disabled: false}};
+    protected authResourceObject:any = {'tabviewpanel':{resourcetag:null,visabled: true,disabled: false},'tabviewpanel2':{resourcetag:null,visabled: true,disabled: false},'tabviewpanel6':{resourcetag:null,visabled: true,disabled: false},'tabviewpanel11':{resourcetag:null,visabled: true,disabled: false},'tabviewpanel5':{resourcetag:null,visabled: true,disabled: false},'tabviewpanel4':{resourcetag:null,visabled: true,disabled: false},'tabviewpanel7':{resourcetag:null,visabled: true,disabled: false},'tabviewpanel8':{resourcetag:null,visabled: true,disabled: false},'tabviewpanel13':{resourcetag:null,visabled: true,disabled: false},'tabviewpanel3':{resourcetag:null,visabled: true,disabled: false},'tabviewpanel10':{resourcetag:null,visabled: true,disabled: false},'tabviewpanel12':{resourcetag:null,visabled: true,disabled: false}};
 
     /**
      * 组件创建完毕
