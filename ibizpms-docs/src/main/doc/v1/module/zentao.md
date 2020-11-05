@@ -1,11 +1,11 @@
-# 禅道模块(zentao)
+# 基础管理模块(zentao)
 
   
 
 ## 实体关系
 {% plantuml %}
 
-package 禅道模块 {
+package 基础管理模块 {
 
 class 系统日志 {
 }

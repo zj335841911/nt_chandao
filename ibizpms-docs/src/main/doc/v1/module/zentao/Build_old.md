@@ -83,7 +83,18 @@ hide members
 |Save|内置方法|&nbsp;|
 
 ## 处理逻辑
-无
+* 移动端项目版本计数器 (MobProjectBuildCounter)
+  
+   
+
+{% plantuml %}
+hide footbox
+
+{% endplantuml %}
+
+| 步骤       | 操作        |
+| --------   | --------   |
+<center>移动端项目版本计数器</center>
 
 ## 查询集合
 

@@ -105,6 +105,15 @@ export default class UserContactUIServiceBase extends UIService {
             width: 0,
             height: 0
         });
+        this.allViewMap.set('MDATAVIEW:', {
+            viewname: 'gridview',
+            srfappde: 'usercontacts',
+            component: 'user-contact-grid-view',
+            openmode: '',
+            title: '用户联系方式',
+            width: 0,
+            height: 0
+        });
     }
 
     /**

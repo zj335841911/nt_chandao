@@ -40,6 +40,7 @@ public interface IActionService extends IService<Action>{
     void saveBatch(List<Action> list) ;
     Page<Action> searchDefault(ActionSearchContext context) ;
     Page<Action> searchMobType(ActionSearchContext context) ;
+    Page<Action> searchMyTrends(ActionSearchContext context) ;
     Page<Action> searchProductTrends(ActionSearchContext context) ;
     Page<Action> searchProjectTrends(ActionSearchContext context) ;
     Page<Action> searchQueryUserYEAR(ActionSearchContext context) ;

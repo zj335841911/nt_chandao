@@ -40,6 +40,10 @@ export default {
 			caption: "系统日志",
       		title: "产品动态",
 		},
+		mytrendslistview: {
+			caption: "系统日志",
+      		title: "系统日志列表视图",
+		},
 		producttrendslistview9: {
 			caption: "系统日志",
       		title: "产品动态",

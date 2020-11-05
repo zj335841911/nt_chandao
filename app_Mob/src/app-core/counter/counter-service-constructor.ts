@@ -24,6 +24,7 @@ export class CounterServiceConstructor extends ServiceConstructorBase {
         this.allService.set('mobproductplancounter', () => import('@/app-core/counter/mob-product-plan-counter/mob-product-plan-counter-counter'));
         this.allService.set('producttestmobcounter', () => import('@/app-core/counter/product-test-mob-counter/product-test-mob-counter-counter'));
         this.allService.set('mymobcounter', () => import('@/app-core/counter/my-mob-counter/my-mob-counter-counter'));
+        this.allService.set('mobproductreleasecounter', () => import('@/app-core/counter/mob-product-release-counter/mob-product-release-counter-counter'));
     }
 
 }
