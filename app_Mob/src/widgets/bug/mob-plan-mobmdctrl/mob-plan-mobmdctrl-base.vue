@@ -242,8 +242,8 @@ export default class Mob_PlanBase extends Vue implements ControlInterface {
         // _this 指向容器对象
         const _this: any = this;
         let contextJO: any = {};
-        let paramJO: any = {};
-        
+        let paramJO: any = {"productplan":"%productplan% "};
+        Object.assign(paramJO, {"productplan":"%productplan% "});
         xData = this;
         if (_this.getDatas && _this.getDatas instanceof Function) {
             datas = [..._this.getDatas()];
