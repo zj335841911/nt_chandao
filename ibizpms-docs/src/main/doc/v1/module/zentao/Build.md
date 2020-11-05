@@ -44,6 +44,7 @@
 | 19 | [系统应用](#属性-系统应用（FRONTAPPLICATION）) | FRONTAPPLICATION | 单项选择(文本值) | 否 | 是 | 是 |
 | 20 | [后台体系](#属性-后台体系（BACKGROUNDID）) | BACKGROUNDID | 单项选择(文本值) | 否 | 是 | 是 |
 | 21 | [运行数据库](#属性-运行数据库（SQLID）) | SQLID | 单项选择(文本值) | 否 | 是 | 是 |
+| 22 | [产生的bug](#属性-产生的bug（CREATEBUGCNT）) | CREATEBUGCNT | 长文本，没有长度限制 | 否 | 是 | 是 |
 
 ### 属性-名称编号（NAME）
 #### 属性说明
@@ -956,6 +957,47 @@ String
 | 关系属性 | [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
+### 属性-产生的bug（CREATEBUGCNT）
+#### 属性说明
+产生的bug
+
+- 是否是主键
+否
+
+- 属性类型
+物理字段[来自当前实体物理表字段]
+
+- 数据类型
+长文本，没有长度限制
+
+- Java类型
+String
+
+- 是否允许为为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
+| 关系属性 | [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
 
 ## 业务状态
 无
@@ -1368,6 +1410,7 @@ SELECT
 t1.`BRANCH`,
 t1.`BUGS`,
 t1.`BUILDER`,
+t1.`CREATEBUGCNT`,
 t1.`DATE`,
 t1.`DELETED`,
 t1.`DESC`,

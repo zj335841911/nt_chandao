@@ -78,6 +78,9 @@ export default class MainTabExpViewtabviewpanel2Model {
       {
         name: 'sqlid',
       },
+      {
+        name: 'createbugcnt',
+      },
     ]
   }
 

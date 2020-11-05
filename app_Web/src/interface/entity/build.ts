@@ -173,4 +173,12 @@ export interface Build {
      * @memberof Build
      */
     sqlid?: any;
+
+    /**
+     * 产生的bug
+     *
+     * @returns {*}
+     * @memberof Build
+     */
+    createbugcnt?: any;
 }

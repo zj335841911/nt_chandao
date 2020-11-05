@@ -2512,6 +2512,20 @@
     "key_field":0,
     "show_order":1000,
     "major_field":0
+    },
+    {
+    "fieldname":"CREATEBUGCNT" ,
+    "codename":"Createbugcnt",
+    "field_logic_name":"产生的bug",
+    "entity_name":"Build",
+    "field_type":"LONGTEXT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"TEXT",
+    "data_length":1048576,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
     }
     ],
     "subEntitys":[
@@ -34327,6 +34341,7 @@
     "physical_field":1,
     "data_type":"VARCHAR",
     "data_length":30,
+    "predefined":"CREATEMANNAME",
     "key_field":0,
     "show_order":1000,
     "major_field":0
