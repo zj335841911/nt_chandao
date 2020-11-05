@@ -1,5 +1,6 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
+import { UIActionTool,Util,ViewTool } from '@/utils';
 import { Watch, MainControlBase } from '@/studio-core';
 import IbzMyTerritoryService from '@/service/ibz-my-territory/ibz-my-territory-service';
 import TabExpViewtabviewpanel9Service from './tab-exp-viewtabviewpanel9-tabviewpanel-service';
@@ -65,6 +66,7 @@ export class TabExpViewtabviewpanel9TabviewpanelBase extends MainControlBase {
      * @memberof TabExpViewtabviewpanel9Base
      */  
     public appUIService:IbzMyTerritoryUIService = new IbzMyTerritoryUIService(this.$store);
+
 
     /**
      * 导航模式下项是否激活

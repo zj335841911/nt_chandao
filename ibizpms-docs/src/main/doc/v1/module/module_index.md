@@ -3,9 +3,9 @@
 | 模块编号   |   模块名称  |   备注 |
 | --------  | ------------ | -----------| 
 |ibiz|[iBiz增强模块](ibiz.md)||
-|zentao|[禅道模块](zentao.md)||
+|zentao|[基础管理模块](zentao.md)||
 |ibizpro|[iBizPro模块](ibizpro.md)||
-|ibizplugin|[iBiz插件](ibizplugin.md)||
+|ibizplugin|[iBiz插件模块](ibizplugin.md)||
 |ibizsysmodel|[iBiz系统模型](ibizsysmodel.md)||
 |uaa|[uaa权限模块](uaa.md)||
 |ou|[ou组织用户管理模块](ou.md)||
@@ -140,7 +140,7 @@ hide members
 
 {% plantuml %}
 
-package 禅道模块 {
+package 基础管理模块 {
 
 class 系统日志 {
 }
@@ -656,7 +656,7 @@ hide members
 
 {% plantuml %}
 
-package iBiz插件 {
+package iBiz插件模块 {
 
 
 

@@ -459,6 +459,7 @@ SRFNAVPARAM.project=%project%|
 |-|story表格视图|DEGRIDVIEW|&nbsp;|
 |-|用户年度工作内容统计编辑视图（标题）|DEEDITVIEW9|&nbsp;|
 |-|产品动态|DELISTVIEW9|&nbsp;|
+|-|系统日志列表视图|DELISTVIEW|&nbsp;|
 |-|需求|DEPICKUPGRIDVIEW|&nbsp;用于【版本】关联【需求】，显示项目下的所有需求。|
 |-|产品动态|DELISTVIEW9|&nbsp;|
 |-|团队|DEGRIDVIEW9|&nbsp;|

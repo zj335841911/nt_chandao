@@ -227,8 +227,9 @@ export const viewstate: any = {
             refviews: [
                 '24a03de02dc02b92a3c228b944e78ed9',
                 'cdba1a5e90e147e5f3bf9f2c08c87f56',
-                '202eafd29797672a733652aee093b6f9',
+                '96ed1661161ecbd9adbb979fddb405a5',
                 'd21c783cde14166ba9deb09e746a0f28',
+                'fad11065c8858a545a9df670cdccce44',
                 'd86b9d1e9fad770e8fc97718cee8ed31',
                 'bedf1f50199b74a65c2e17771144329c',
                 'd8df5ca51341d33ccc19208dde3f2cce',
@@ -514,16 +515,6 @@ export const viewstate: any = {
                 '5b139a407fa34f386f3f784f33841184',
                 '5273dc442a49b8c4d37ba9ff008531e7',
                 '7cba1f165fc6b4948ce752d3c3b68a34',
-            ],
-        },
-        {
-            viewtag: '202eafd29797672a733652aee093b6f9',
-            viewmodule: 'zentao',
-            viewname: 'UserContactTreeExpView',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-                '1eeb1cc3801fe7d3961fca4b3d753b04',
             ],
         },
         {
@@ -2342,6 +2333,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '96ed1661161ecbd9adbb979fddb405a5',
+            viewmodule: 'zentao',
+            viewname: 'ActionMyTrendsListView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'f8b69912b3ca27b5d083c8fb1971c84a',
+            ],
+        },
+        {
             viewtag: '971a6faeda9b1b090521472c06eba003',
             viewmodule: 'zentao',
             viewname: 'StoryPickupGridView2',
@@ -3967,6 +3968,16 @@ export const viewstate: any = {
                 '1540523a668e920d831510cfbec2c5e2',
                 '46517a803b2470cd0bef27aeda0dbcaf',
                 '8af65044ab1633eb5b68d99478e9350f',
+            ],
+        },
+        {
+            viewtag: 'fad11065c8858a545a9df670cdccce44',
+            viewmodule: 'zentao',
+            viewname: 'UserContactGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '1eeb1cc3801fe7d3961fca4b3d753b04',
             ],
         },
         {

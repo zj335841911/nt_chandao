@@ -105,6 +105,7 @@ hide footbox
 | --------  | --------   | --------   | ----- |
 |DEFAULT|DEFAULT([MYSQL5](../../appendix/query_MYSQL5.md#Action_Default))|否|&nbsp;|
 |MobType|动态(根据类型过滤)([MYSQL5](../../appendix/query_MYSQL5.md#Action_MobType))|否|&nbsp;|
+|MyTrends|项目动态(我的)([MYSQL5](../../appendix/query_MYSQL5.md#Action_MyTrends))|否|&nbsp;|
 |ProductTrends|产品动态(产品相关所有)([MYSQL5](../../appendix/query_MYSQL5.md#Action_ProductTrends))|否|&nbsp;|
 |ProjectTrends|项目动态(项目相关所有)([MYSQL5](../../appendix/query_MYSQL5.md#Action_ProjectTrends))|否|&nbsp;|
 |QueryUserYEAR|查询用户使用年([MYSQL5](../../appendix/query_MYSQL5.md#Action_QueryUserYEAR))|否|&nbsp;|
@@ -117,6 +118,7 @@ hide footbox
 | --------  | --------   | -------- | --------   | ----- |
 |DEFAULT|DEFAULT|DEFAULT|是|&nbsp;|
 |MobType|MobType|MobType|否|&nbsp;|
+|MyTrends|项目动态(我的)|MyTrends|否|&nbsp;|
 |ProductTrends|ProductTrends|ProductTrends|否|&nbsp;|
 |ProjectTrends|项目动态(项目相关所有)|ProjectTrends|否|&nbsp;|
 |QueryUserYEAR|查询用户使用年|QueryUserYEAR|否|&nbsp;|

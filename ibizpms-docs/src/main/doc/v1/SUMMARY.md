@@ -62,7 +62,7 @@
 
     * [用户年度工作内容统计](module/ibiz/UserYearWorkStats.md) 
 
-  * [禅道模块](module/zentao.md) 
+  * [基础管理模块](module/zentao.md) 
 
     * [系统日志](module/zentao/Action.md) 
 
@@ -214,7 +214,7 @@
 
     * [运行生产系统](module/ibizpro/IBZProSystem.md) 
 
-  * [iBiz插件](module/ibizplugin.md) 
+  * [iBiz插件模块](module/ibizplugin.md) 
 
   * [iBiz系统模型](module/ibizsysmodel.md) 
 

@@ -10,6 +10,7 @@ import view_tabviewpanel5 from '@widgets/ibz-my-territory/tab-exp-viewtabviewpan
 import view_tabviewpanel6 from '@widgets/ibz-my-territory/tab-exp-viewtabviewpanel6-tabviewpanel/tab-exp-viewtabviewpanel6-tabviewpanel.vue';
 import view_tabviewpanel2 from '@widgets/ibz-my-territory/tab-exp-viewtabviewpanel2-tabviewpanel/tab-exp-viewtabviewpanel2-tabviewpanel.vue';
 import view_tabviewpanel7 from '@widgets/ibz-my-territory/tab-exp-viewtabviewpanel7-tabviewpanel/tab-exp-viewtabviewpanel7-tabviewpanel.vue';
+import view_tabviewpanel9 from '@widgets/ibz-my-territory/tab-exp-viewtabviewpanel9-tabviewpanel/tab-exp-viewtabviewpanel9-tabviewpanel.vue';
 import view_tabviewpanel8 from '@widgets/ibz-my-territory/tab-exp-viewtabviewpanel8-tabviewpanel/tab-exp-viewtabviewpanel8-tabviewpanel.vue';
  
 
@@ -29,6 +30,7 @@ import view_tabviewpanel8 from '@widgets/ibz-my-territory/tab-exp-viewtabviewpan
         view_tabviewpanel6, 
         view_tabviewpanel2, 
         view_tabviewpanel7, 
+        view_tabviewpanel9, 
         view_tabviewpanel8, 
          
     }

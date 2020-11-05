@@ -21,6 +21,7 @@ public interface ActionMapper extends BaseMapper<Action>{
 
     Page<Action> searchDefault(IPage page, @Param("srf") ActionSearchContext context, @Param("ew") Wrapper<Action> wrapper) ;
     Page<Action> searchMobType(IPage page, @Param("srf") ActionSearchContext context, @Param("ew") Wrapper<Action> wrapper) ;
+    Page<Action> searchMyTrends(IPage page, @Param("srf") ActionSearchContext context, @Param("ew") Wrapper<Action> wrapper) ;
     Page<Action> searchProductTrends(IPage page, @Param("srf") ActionSearchContext context, @Param("ew") Wrapper<Action> wrapper) ;
     Page<Action> searchProjectTrends(IPage page, @Param("srf") ActionSearchContext context, @Param("ew") Wrapper<Action> wrapper) ;
     Page<Action> searchQueryUserYEAR(IPage page, @Param("srf") ActionSearchContext context, @Param("ew") Wrapper<Action> wrapper) ;

@@ -1,11 +1,11 @@
-# iBiz插件(ibizplugin)
+# iBiz插件模块(ibizplugin)
 
   
 
 ## 实体关系
 {% plantuml %}
 
-package iBiz插件 {
+package iBiz插件模块 {
 
 
 

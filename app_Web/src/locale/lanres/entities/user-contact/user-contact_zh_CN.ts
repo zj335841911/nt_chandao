@@ -14,6 +14,10 @@ export default {
 			caption: "用户联系方式",
       		title: "用户联系方式树导航视图",
 		},
+		gridview: {
+			caption: "用户联系方式",
+      		title: "usercontact表格视图",
+		},
 	},
 	main_form: {
 		details: {
@@ -31,6 +35,48 @@ export default {
 			id: "id", 
 		},
 		uiactions: {
+		},
+	},
+	main_grid: {
+		nodata: "",
+		columns: {
+			id: "编号",
+			listname: "标题",
+		},
+		uiactions: {
+		},
+	},
+	default_searchform: {
+		details: {
+			formpage1: "常规条件", 
+		},
+		uiactions: {
+		},
+	},
+	gridviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "新建",
+			tip: "新建",
+		},
+		deuiaction4: {
+			caption: "删除",
+			tip: "删除",
+		},
+		seperator1: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction2: {
+			caption: "刷新",
+			tip: "刷新",
+		},
+		seperator3: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction5: {
+			caption: "导出",
+			tip: "导出",
 		},
 	},
 	editviewtoolbar_toolbar: {

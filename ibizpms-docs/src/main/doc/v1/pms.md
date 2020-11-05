@@ -6,9 +6,9 @@ pms
 | 序号 | 模块 | 模块名 |
 | ---- | ---- | ---- |
 | 1 | [iBiz增强模块](module/ibiz) | ibiz |
-| 2 | [禅道模块](module/zentao) | zentao |
+| 2 | [基础管理模块](module/zentao) | zentao |
 | 3 | [iBizPro模块](module/ibizpro) | ibizpro |
-| 4 | [iBiz插件](module/ibizplugin) | ibizplugin |
+| 4 | [iBiz插件模块](module/ibizplugin) | ibizplugin |
 | 5 | [iBiz系统模型](module/ibizsysmodel) | ibizsysmodel |
 | 6 | [uaa权限模块](module/uaa) | uaa |
 | 7 | [ou组织用户管理模块](module/ou) | ou |
