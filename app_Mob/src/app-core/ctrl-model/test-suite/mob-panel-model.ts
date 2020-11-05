@@ -45,6 +45,9 @@ export class MobModel {
       {
         name: 'product',
       },
+      {
+        name: 'casecnt',
+      },
     ]
   }
 

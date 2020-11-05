@@ -517,7 +517,7 @@ Integer
 | 4 | [Get](#实体行为-Get（Get）) | Get | 内置方法 | 后台及前台 |
 | 5 | [GetDraft](#实体行为-GetDraft（GetDraft）) | GetDraft | 内置方法 | 后台及前台 |
 | 6 | [CheckKey](#实体行为-CheckKey（CheckKey）) | CheckKey | 内置方法 | 后台及前台 |
-| 7 | [测试套件移动端计数器](#实体行为-测试套件移动端计数器（MobTestSuiteCount）) | MobTestSuiteCount | 实体处理逻辑 | 后台 |
+| 7 | [移动端测试套件计数器](#实体行为-移动端测试套件计数器（MobTestSuiteCount）) | MobTestSuiteCount | 实体处理逻辑 | 后台 |
 | 8 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
 
 ### 实体行为-Create（Create）
@@ -592,9 +592,9 @@ CheckKey
 
 #### 逻辑附加
 无
-### 实体行为-测试套件移动端计数器（MobTestSuiteCount）
+### 实体行为-移动端测试套件计数器（MobTestSuiteCount）
 #### 说明
-测试套件移动端计数器
+移动端测试套件计数器
 
 - 行为类型
 实体处理逻辑

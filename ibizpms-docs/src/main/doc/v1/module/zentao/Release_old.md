@@ -98,24 +98,32 @@ hide members
 |关联Bug（解决Bug）|用户自定义|&nbsp;|
 |关联Bug（遗留Bug）|用户自定义|&nbsp;|
 |关联需求|用户自定义|&nbsp;|
+|移动端发布计数器|实体处理逻辑|&nbsp;|
 |一键发布|用户自定义|&nbsp;|
 |Save|内置方法|&nbsp;|
 |状态变更（停止维护）|用户自定义|&nbsp;|
 |解除关联Bug|用户自定义|&nbsp;|
 
 ## 处理逻辑
-* 产品发布计数器 (MobReleaseCounter)
+* 移动端产品发布计数器 (MobReleaseCounter)
   
    
 
 {% plantuml %}
 hide footbox
 
+发布 -> 发布: 获取完成需求数
+发布 -> 发布: 获取遗留的bug
+发布 -> 发布: 获取解决的bug
 {% endplantuml %}
 
 | 步骤       | 操作        |
 | --------   | --------   |
-<center>产品发布计数器</center>
+|0|开始 | 
+|1|获取完成需求数 |
+|2|获取遗留的bug |
+|3|获取解决的bug |
+<center>移动端产品发布计数器</center>
 * 行为[Update]主状态拒绝逻辑 (Update__MSDeny)
   
    

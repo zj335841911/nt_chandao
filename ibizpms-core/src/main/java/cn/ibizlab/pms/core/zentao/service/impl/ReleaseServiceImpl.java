@@ -66,6 +66,10 @@ public class ReleaseServiceImpl extends ServiceImpl<ReleaseMapper, Release> impl
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.logic.IReleaseRemove__MSDenyLogic remove__msdenyLogic;
 
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.zentao.service.logic.IReleaseMobReleaseCounterLogic mobreleasecounterLogic;
+
     protected int batchSize = 500;
 
         @Override
@@ -165,6 +169,13 @@ public class ReleaseServiceImpl extends ServiceImpl<ReleaseMapper, Release> impl
     @Transactional
     public Release linkStory(Release et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.ReleaseHelper.class).linkStory(et);
+    }
+
+    @Override
+    @Transactional
+    public Release mobReleaseCounter(Release et) {
+        mobreleasecounterLogic.execute(et);
+         return et ;
     }
 
     @Override
