@@ -31,6 +31,7 @@
 | 8 | [由谁创建](#属性-由谁创建（ADDEDBY）) | ADDEDBY | 文本，可指定长度 | 否 | 否 | 是 |
 | 9 | [描述](#属性-描述（DESC）) | DESC | 长文本，没有长度限制 | 否 | 否 | 是 |
 | 10 | [所属产品](#属性-所属产品（PRODUCT）) | PRODUCT | 外键值 | 否 | 是 | 是 |
+| 11 | [用例数](#属性-用例数（CASECNT）) | CASECNT | 整型 | 否 | 是 | 是 |
 
 ### 属性-名称（NAME）
 #### 属性说明
@@ -460,6 +461,49 @@ Long
 | 关系属性 | [编号（ID）](../zentao/Product/#属性-编号（ID）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
+### 属性-用例数（CASECNT）
+#### 属性说明
+用例数
+
+- 是否是主键
+否
+
+- 属性类型
+逻辑字段[来自计算式]
+
+- 数据类型
+整型
+
+- Java类型
+Integer
+
+- 是否允许为为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+```SQL
+(select count(1) from zt_suitecase t where t.suite = t1.id)
+```
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
+| 关系属性 | [编号（ID）](../zentao/Product/#属性-编号（ID）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
 
 ## 业务状态
 无
@@ -627,6 +671,7 @@ DEFAULT
 SELECT
 t1.`ADDEDBY`,
 t1.`ADDEDDATE`,
+(select count(1) from zt_suitecase t where t.suite = t1.id) AS `CASECNT`,
 t1.`DELETED`,
 t1.`ID`,
 t1.`LASTEDITEDBY`,
@@ -653,6 +698,7 @@ FROM `zt_testsuite` t1
 SELECT
 t1.`ADDEDBY`,
 t1.`ADDEDDATE`,
+(select count(1) from zt_suitecase t where t.suite = t1.id) AS `CASECNT`,
 t1.`DELETED`,
 t1.`ID`,
 t1.`LASTEDITEDBY`,
@@ -679,6 +725,7 @@ FROM `zt_testsuite` t1
 SELECT
 t1.`ADDEDBY`,
 t1.`ADDEDDATE`,
+(select count(1) from zt_suitecase t where t.suite = t1.id) AS `CASECNT`,
 t1.`DELETED`,
 t1.`DESC`,
 t1.`ID`,

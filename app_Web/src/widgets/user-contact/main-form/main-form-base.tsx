@@ -77,6 +77,7 @@ export class MainEditFormBase extends EditFormControlBase {
     public data: any = {
         srforikey: null,
         srfkey: null,
+        srfmajortext: null,
         srftempmode: null,
         srfuf: null,
         srfdeid: null,
@@ -93,7 +94,7 @@ export class MainEditFormBase extends EditFormControlBase {
      * @type {*}
      * @memberof MainEditFormBase
      */
-    public majorMessageField: string = "";
+    public majorMessageField: string = "listname";
 
     /**
      * 属性值规则
@@ -133,6 +134,8 @@ export class MainEditFormBase extends EditFormControlBase {
         srforikey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srforikey', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 
         srfkey: new FormItemModel({ caption: 'id', detailType: 'FORMITEM', name: 'srfkey', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 0 }),
+
+        srfmajortext: new FormItemModel({ caption: 'listName', detailType: 'FORMITEM', name: 'srfmajortext', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 
         srftempmode: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srftempmode', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 

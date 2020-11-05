@@ -120,6 +120,14 @@ public class TestSuiteDTO extends DTOBase implements Serializable {
     @JsonSerialize(using = ToStringSerializer.class)
     private Long product;
 
+    /**
+     * 属性 [CASECNT]
+     *
+     */
+    @JSONField(name = "casecnt")
+    @JsonProperty("casecnt")
+    private Integer casecnt;
+
 
     /**
      * 设置 [NAME]

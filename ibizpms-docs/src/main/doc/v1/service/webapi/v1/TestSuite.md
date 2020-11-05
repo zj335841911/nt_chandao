@@ -290,7 +290,8 @@ POST
 | 8 | addedby | String | 允许 | 由谁创建 |
 | 9 | desc | String | 允许 | 描述 |
 | 10 | product | Long | 允许 | 所属产品 |
-| 11 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 11 | casecnt | Integer | 允许 | 用例数 |
+| 12 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### TestSuiteSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

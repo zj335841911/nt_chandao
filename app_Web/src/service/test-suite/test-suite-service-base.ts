@@ -155,6 +155,20 @@ export default class TestSuiteServiceBase extends EntityService {
     }
 
     /**
+     * MobTestSuiteCount接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TestSuiteServiceBase
+     */
+    public async MobTestSuiteCount(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+            let res:any = Http.getInstance().post(`/testsuites/${context.testsuite}/mobtestsuitecount`,data,isloading);
+            return res;
+    }
+
+    /**
      * Save接口方法
      *
      * @param {*} [context={}]

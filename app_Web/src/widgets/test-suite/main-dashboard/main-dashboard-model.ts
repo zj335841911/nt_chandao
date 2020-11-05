@@ -45,6 +45,9 @@ export default class MainModel {
       {
         name: 'product',
       },
+      {
+        name: 'casecnt',
+      },
     ]
   }
 

@@ -45,6 +45,9 @@ export default class MainInfoViewModel {
       {
         name: 'product',
       },
+      {
+        name: 'casecnt',
+      },
     ]
   }
 

@@ -24,6 +24,7 @@ hide members
 |由谁创建|ADDEDBY|TEXT|&nbsp;|
 |描述|DESC|LONGTEXT|&nbsp;|
 |所属产品|PRODUCT|PICKUP|&nbsp;|
+|用例数|CASECNT|INT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -38,6 +39,7 @@ hide members
 |由谁创建|默认规则|内容长度必须小于等于[30]|
 |描述|默认规则|内容长度必须小于等于[65535]|
 |所属产品|默认规则|默认规则|
+|用例数|默认规则|默认规则|
 
 ## 状态控制
 
