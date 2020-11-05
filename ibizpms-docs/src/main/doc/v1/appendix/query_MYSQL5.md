@@ -13361,6 +13361,7 @@ LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID
 LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID 
 LEFT JOIN zt_user t61 on t1.ASSIGNEDTO =  t61.ACCOUNT
 WHERE t1.DELETED = '0' 
+t1.`PARENT` <= 0 
 
 ```
 ### todo任务列表查询(TodoListTask)<div id="Task_TodoListTask"></div>

@@ -183,7 +183,7 @@ export default class ProjectMobTabExpViewBase extends Vue {
      * @type {*}
      * @memberof ProjectMobTabExpViewBase
      */
-    protected navContext: any = {};
+    protected navContext: any = { 'project': '%project%' };
 
     /**
      * 视图导航参数
@@ -192,7 +192,7 @@ export default class ProjectMobTabExpViewBase extends Vue {
      * @type {*}
      * @memberof ProjectMobTabExpViewBase
      */
-    protected navParam: any = {};
+    protected navParam: any = { 'project': 'project' };
 
     /**
      * 视图模型数据
