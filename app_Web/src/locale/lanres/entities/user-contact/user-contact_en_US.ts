@@ -42,10 +42,6 @@ export default {
 			caption: "Remove And Close",
 			tip: "Remove And Close Window",
 		},
-		deuiaction4: {
-			caption: "New",
-			tip: "New",
-		},
 	},
 	concatlist_treeview: {
 		nodes: {

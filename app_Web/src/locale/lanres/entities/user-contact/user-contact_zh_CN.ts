@@ -42,10 +42,6 @@ export default {
 			caption: "删除",
 			tip: "删除",
 		},
-		deuiaction4: {
-			caption: "新建",
-			tip: "新建",
-		},
 	},
 	concatlist_treeview: {
 		nodes: {
