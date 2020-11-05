@@ -189,7 +189,7 @@ export default class BuildMobTabExpViewBase extends Vue {
      * @type {*}
      * @memberof BuildMobTabExpViewBase
      */
-    protected navParam: any = {};
+    protected navParam: any = { 'project': '%project%' };
 
     /**
      * 视图模型数据
