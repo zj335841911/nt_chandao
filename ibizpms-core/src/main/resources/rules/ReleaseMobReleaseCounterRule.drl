@@ -53,8 +53,9 @@ rule "rawsqlcall3"
 ruleflow-group "releasemobreleasecounterrawsqlcall3"
     when
     then
-    Map param = null;
-    String strSql="select count(1) as leftbugcnt from zt_bug t1 where t1.deleted = '0'  and    FIND_IN_SET(t1.id,(select leftbugs from zt_release where id = ?))";
+    Map param =new HashMap();
+    param.put("param0",releasemobreleasecounterdefault.get("id"));
+    String strSql="select count(1) as leftbugcnt from zt_bug t1 where t1.deleted = '0'  and    FIND_IN_SET(t1.id,(select leftbugs from zt_release where id = #{et.param0}))";
     java.util.List<JSONObject> entities=iBzSysReleaseDefaultService.select(strSql,param);//SQL调用
     if(entities.size()>0){
         JSONObject entity=entities.get(0);

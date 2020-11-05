@@ -844,7 +844,7 @@
     "dename":"UserContact",
     "delogicname":"用户联系方式",
     "sysmoudle":{"id":"ZENTAO","name":"基础管理模块"},
-    "dedataset":[{"id":"Default" , "name":"DEFAULT"},{"id":"MyUSERCONTACT" , "name":"我的联系人"}],
+    "dedataset":[{"id":"CurUSERCONTACT" , "name":"抄送联系人"},{"id":"Default" , "name":"DEFAULT"},{"id":"MyUSERCONTACT" , "name":"我的联系人"}],
     "deaction":[{"id":"Create" , "name":"Create" , "type":"BUILTIN" },{"id":"Update" , "name":"Update" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" },{"id":"Get" , "name":"Get" , "type":"BUILTIN" },{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" },{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" }],
     "datascope":[{"id":"all","name":"全部数据"}]
      }

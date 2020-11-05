@@ -150,6 +150,15 @@ public class UserContactServiceImpl extends ServiceImpl<UserContactMapper, UserC
 
 
     /**
+     * 查询集合 抄送联系人
+     */
+    @Override
+    public Page<UserContact> searchCurUSERCONTACT(UserContactSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<UserContact> pages=baseMapper.searchCurUSERCONTACT(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<UserContact>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
      * 查询集合 DEFAULT
      */
     @Override
