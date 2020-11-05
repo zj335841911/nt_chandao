@@ -199,7 +199,7 @@ public class ReleaseResource {
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Release-MobReleaseCounter-all')")
     @ApiOperation(value = "移动端发布计数器", tags = {"发布" },  notes = "移动端发布计数器")
-	@RequestMapping(method = RequestMethod.POST, value = "/releases/{release_id}/mobreleasecounter")
+	@RequestMapping(method = RequestMethod.PUT, value = "/releases/{release_id}/mobreleasecounter")
     public ResponseEntity<ReleaseDTO> mobReleaseCounter(@PathVariable("release_id") Long release_id, @RequestBody ReleaseDTO releasedto) {
         Release domain = releaseMapping.toDomain(releasedto);
         domain.setId(release_id);
@@ -465,7 +465,7 @@ public class ReleaseResource {
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Release-MobReleaseCounter-all')")
     @ApiOperation(value = "根据产品发布", tags = {"发布" },  notes = "根据产品发布")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/releases/{release_id}/mobreleasecounter")
+	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/releases/{release_id}/mobreleasecounter")
     public ResponseEntity<ReleaseDTO> mobReleaseCounterByProduct(@PathVariable("product_id") Long product_id, @PathVariable("release_id") Long release_id, @RequestBody ReleaseDTO releasedto) {
         Release domain = releaseMapping.toDomain(releasedto);
         domain.setProduct(product_id);

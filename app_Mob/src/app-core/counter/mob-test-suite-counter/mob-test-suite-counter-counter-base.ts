@@ -1,25 +1,25 @@
 import { CounterService } from '@/ibiz-core/counter/counter-service-base';
 /**
- * 产品计划移动端计数器计数器服务对象基类
+ * 移动端测试套件计数器计数器服务对象基类
  *
  * @export
- * @class MobProductPlanCounterCounterServiceBase
+ * @class MobTestSuiteCounterCounterServiceBase
  */
-export default class MobProductPlanCounterCounterServiceBase extends CounterService {
+export default class MobTestSuiteCounterCounterServiceBase extends CounterService {
 
     /**
      * 当前计数器数据对象
      * 
      * @param {*} [opts={}]
-     * @memberof  MobProductPlanCounterCounterServiceBase
+     * @memberof  MobTestSuiteCounterCounterServiceBase
      */
     public counterData:any ={};
 
     /**
-     * Creates an instance of  MobProductPlanCounterCounterServiceBase.
+     * Creates an instance of  MobTestSuiteCounterCounterServiceBase.
      * 
      * @param {*} [opts={}]
-     * @memberof  MobProductPlanCounterCounterServiceBase
+     * @memberof  MobTestSuiteCounterCounterServiceBase
      */
     constructor(opts: any = {}) {
         super(opts);
@@ -33,7 +33,7 @@ export default class MobProductPlanCounterCounterServiceBase extends CounterServ
      * 初始化当前计数器数据对象
      * 
      * @param {*} [opts={}]
-     * @memberof  MobProductPlanCounterCounterServiceBase
+     * @memberof  MobTestSuiteCounterCounterServiceBase
      */
     public initCounterData(){
         this.fetchCounterData(this.context,this.viewparams);
@@ -43,12 +43,12 @@ export default class MobProductPlanCounterCounterServiceBase extends CounterServ
      * 查询数据
      * 
      * @param {*} [opts={}]
-     * @memberof  MobProductPlanCounterCounterServiceBase
+     * @memberof  MobTestSuiteCounterCounterServiceBase
      */
     public async fetchCounterData(context:any,data:any){
-        let _appEntityService:any = await this.appEntityService.getService('productplan');
-        if (_appEntityService['MobProductPlanCounter'] && _appEntityService['MobProductPlanCounter'] instanceof Function) {
-            let result = await _appEntityService['MobProductPlanCounter'](context,data, false);
+        let _appEntityService:any = await this.appEntityService.getService('testsuite');
+        if (_appEntityService['MobTestSuiteCount'] && _appEntityService['MobTestSuiteCount'] instanceof Function) {
+            let result = await _appEntityService['MobTestSuiteCount'](context,data, false);
             this.counterData = result.data;
         }
     }
@@ -56,7 +56,7 @@ export default class MobProductPlanCounterCounterServiceBase extends CounterServ
     /**
      * 刷新数据
      *
-     * @memberof MobProductPlanCounterCounterServiceBase
+     * @memberof MobTestSuiteCounterCounterServiceBase
      */
     public async refreshData(){
         const res = await this.fetchCounterData(this.context,this.viewparams);
