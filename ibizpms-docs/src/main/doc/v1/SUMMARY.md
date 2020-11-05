@@ -214,6 +214,8 @@
 
     * [运行生产系统](module/ibizpro/IBZProSystem.md) 
 
+  * [iBiz插件](module/ibizplugin.md) 
+
   * [iBiz系统模型](module/ibizsysmodel.md) 
 
     * [实体属性](module/ibizsysmodel/PSDEField.md) 

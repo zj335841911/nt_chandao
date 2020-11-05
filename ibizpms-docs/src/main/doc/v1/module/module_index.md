@@ -5,6 +5,7 @@
 |ibiz|[iBiz增强模块](ibiz.md)||
 |zentao|[禅道模块](zentao.md)||
 |ibizpro|[iBizPro模块](ibizpro.md)||
+|ibizplugin|[iBiz插件](ibizplugin.md)||
 |ibizsysmodel|[iBiz系统模型](ibizsysmodel.md)||
 |uaa|[uaa权限模块](uaa.md)||
 |ou|[ou组织用户管理模块](ou.md)||
@@ -644,6 +645,18 @@ class 运行生产系统 {
 
 
 需求模块 *-- 需求 
+
+
+
+}
+
+hide members
+
+{% endplantuml %}
+
+{% plantuml %}
+
+package iBiz插件 {
 
 
 
