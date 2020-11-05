@@ -18,23 +18,23 @@
     @groupuiactionclick="groupUIActionClick($event)">
     
 <app-form-item 
-    name='assignto' 
+    name='assignedto1' 
     class='' 
     uiStyle="DEFAULT"  
     labelPos="LEFT" 
-    ref="assignto_item"  
-    :itemValue="this.data.assignto" 
-    v-show="detailsModel.assignto.visible" 
-    :itemRules="this.rules.assignto" 
-    :caption="$t('todo.assmob_form.details.assignto')"  
+    ref="assignedto1_item"  
+    :itemValue="this.data.assignedto1" 
+    v-show="detailsModel.assignedto1.visible" 
+    :itemRules="this.rules.assignedto1" 
+    :caption="$t('todo.assmob_form.details.assignedto1')"  
     :labelWidth="130"  
     :isShowCaption="true"
-    :disabled="detailsModel.assignto.disabled"
-    :error="detailsModel.assignto.error" 
+    :disabled="detailsModel.assignedto1.disabled"
+    :error="detailsModel.assignedto1.error" 
     :isEmptyCaption="false">
         <app-mob-picker
-    name='assignto'
-    valueitem='assignTo' 
+    name='assignedto1'
+    valueitem='assignedTo' 
     editortype="" 
     style=""  
     :formState="formState"
@@ -44,10 +44,10 @@
     :navigateContext ='{ } '
     :navigateParam ='{ } '
     :itemParam='{ }' 
-    :disabled="detailsModel.assignto.disabled"
+    :disabled="detailsModel.assignedto1.disabled"
     :service="service"
     :acParams="{ }"
-    :value="data.assignto" 
+    :value="data.assignedto1" 
     :pickupView="{ viewname: 'sys-employee-tree-mob-pickup-view', title: '人员移动端数据选择视图', deResParameters: [], parameters: [{ pathName: 'sysemployees', parameterName: 'sysemployee' }, { pathName: 'treemobpickupview', parameterName: 'treemobpickupview' } ], placement:'' }"
     @formitemvaluechange="onFormItemValueChange">
 </app-mob-picker>
@@ -474,7 +474,8 @@ export default class AssMobBase extends Vue implements ControlInterface {
         srfuf: null,
         srfdeid: null,
         srfsourcekey: null,
-        assignto: null,
+        assignedto: null,
+        assignedto1: null,
         date: null,
         begin: null,
         end: null,
@@ -521,7 +522,11 @@ export default class AssMobBase extends Vue implements ControlInterface {
      * @memberof AssMob
      */
     protected rules: any = {
-        assignto: [
+        assignedto: [
+            { required: true, type: 'string', message: '指派给 值不能为空', trigger: 'change' },
+            { required: true, type: 'string', message: '指派给 值不能为空', trigger: 'blur' },
+        ],
+        assignedto1: [
             { required: true, type: 'string', message: '指派给 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '指派给 值不能为空', trigger: 'blur' },
         ],
@@ -632,7 +637,9 @@ export default class AssMobBase extends Vue implements ControlInterface {
 , 
         srfsourcekey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfsourcekey', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        assignto: new FormItemModel({ caption: '指派给', detailType: 'FORMITEM', name: 'assignto', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        assignedto: new FormItemModel({ caption: '指派给', detailType: 'FORMITEM', name: 'assignedto', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        assignedto1: new FormItemModel({ caption: '指派给', detailType: 'FORMITEM', name: 'assignedto1', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         date: new FormItemModel({ caption: '日期', detailType: 'FORMITEM', name: 'date', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -729,15 +736,27 @@ export default class AssMobBase extends Vue implements ControlInterface {
     }
 
     /**
-     * 监控表单属性 assignto 值
+     * 监控表单属性 assignedto 值
      *
      * @param {*} newVal
      * @param {*} oldVal
      * @memberof AssMob
      */
-    @Watch('data.assignto')
-    onAssigntoChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'assignto', newVal: newVal, oldVal: oldVal });
+    @Watch('data.assignedto')
+    onAssignedtoChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'assignedto', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 assignedto1 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof AssMob
+     */
+    @Watch('data.assignedto1')
+    onAssignedto1Change(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'assignedto1', newVal: newVal, oldVal: oldVal });
     }
 
     /**
@@ -824,6 +843,7 @@ export default class AssMobBase extends Vue implements ControlInterface {
      */
     private async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }){
                 
+
 
 
 
