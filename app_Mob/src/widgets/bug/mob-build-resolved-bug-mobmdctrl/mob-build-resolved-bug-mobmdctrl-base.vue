@@ -5,12 +5,7 @@
                 <template v-if="(viewType == 'DEMOBMDVIEW9') && controlStyle != 'SWIPERVIEW' ">
                     <ion-item-sliding ref="sliding" v-for="(item,index) in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
-                            <ion-item-option v-show="item.ConfirmBugMob.visabled" :disabled="item.ConfirmBugMob.disabled" color="primary" @click="mdctrl_click($event, 'u1c99d88', item)"><ion-icon v-if="item.ConfirmBugMob.icon && item.ConfirmBugMob.isShowIcon" :name="item.ConfirmBugMob.icon"></ion-icon><ion-label v-if="item.ConfirmBugMob.isShowCaption">确认</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.AssingToBugMob.visabled" :disabled="item.AssingToBugMob.disabled" color="primary" @click="mdctrl_click($event, 'u79d161d', item)"><ion-icon v-if="item.AssingToBugMob.icon && item.AssingToBugMob.isShowIcon" :name="item.AssingToBugMob.icon"></ion-icon><ion-label v-if="item.AssingToBugMob.isShowCaption">指派</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.ResolveBugMob.visabled" :disabled="item.ResolveBugMob.disabled" color="primary" @click="mdctrl_click($event, 'u21df92f', item)"><ion-icon v-if="item.ResolveBugMob.icon && item.ResolveBugMob.isShowIcon" :name="item.ResolveBugMob.icon"></ion-icon><ion-label v-if="item.ResolveBugMob.isShowCaption">解决</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.ActivationMob.visabled" :disabled="item.ActivationMob.disabled" color="primary" @click="mdctrl_click($event, 'u2454fd8', item)"><ion-icon v-if="item.ActivationMob.icon && item.ActivationMob.isShowIcon" :name="item.ActivationMob.icon"></ion-icon><ion-label v-if="item.ActivationMob.isShowCaption">激活</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.CloseBugMob.visabled" :disabled="item.CloseBugMob.disabled" color="primary" @click="mdctrl_click($event, 'ubb3e16f', item)"><ion-icon v-if="item.CloseBugMob.icon && item.CloseBugMob.isShowIcon" :name="item.CloseBugMob.icon"></ion-icon><ion-label v-if="item.CloseBugMob.isShowCaption">关闭</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.deleteMob.visabled" :disabled="item.deleteMob.disabled" color="primary" @click="mdctrl_click($event, 'u3571afd', item)"><ion-icon v-if="item.deleteMob.icon && item.deleteMob.isShowIcon" :name="item.deleteMob.icon"></ion-icon><ion-label v-if="item.deleteMob.isShowCaption">删除</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.unlinkBug_buildMob.visabled" :disabled="item.unlinkBug_buildMob.disabled" color="primary" @click="mdctrl_click($event, 'u0f6e85b', item)"><ion-icon v-if="item.unlinkBug_buildMob.icon && item.unlinkBug_buildMob.isShowIcon" :name="item.unlinkBug_buildMob.icon"></ion-icon><ion-label v-if="item.unlinkBug_buildMob.isShowCaption">解除关联</ion-label></ion-item-option>
                         </ion-item-options>
                         <div style="width:100%;">
                             <ion-item class="ibz-ionic-item">
@@ -31,12 +26,7 @@
                           </template>
                       <ion-item-sliding  :ref="item.srfkey" v-for="(item,index) in obj.items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
-                            <ion-item-option v-show="item.ConfirmBugMob.visabled" :disabled="item.ConfirmBugMob.disabled" color="primary" @click="mdctrl_click($event, 'u1c99d88', item)"><ion-icon v-if="item.ConfirmBugMob.icon && item.ConfirmBugMob.isShowIcon" :name="item.ConfirmBugMob.icon"></ion-icon><ion-label v-if="item.ConfirmBugMob.isShowCaption">确认</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.AssingToBugMob.visabled" :disabled="item.AssingToBugMob.disabled" color="primary" @click="mdctrl_click($event, 'u79d161d', item)"><ion-icon v-if="item.AssingToBugMob.icon && item.AssingToBugMob.isShowIcon" :name="item.AssingToBugMob.icon"></ion-icon><ion-label v-if="item.AssingToBugMob.isShowCaption">指派</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.ResolveBugMob.visabled" :disabled="item.ResolveBugMob.disabled" color="primary" @click="mdctrl_click($event, 'u21df92f', item)"><ion-icon v-if="item.ResolveBugMob.icon && item.ResolveBugMob.isShowIcon" :name="item.ResolveBugMob.icon"></ion-icon><ion-label v-if="item.ResolveBugMob.isShowCaption">解决</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.ActivationMob.visabled" :disabled="item.ActivationMob.disabled" color="primary" @click="mdctrl_click($event, 'u2454fd8', item)"><ion-icon v-if="item.ActivationMob.icon && item.ActivationMob.isShowIcon" :name="item.ActivationMob.icon"></ion-icon><ion-label v-if="item.ActivationMob.isShowCaption">激活</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.CloseBugMob.visabled" :disabled="item.CloseBugMob.disabled" color="primary" @click="mdctrl_click($event, 'ubb3e16f', item)"><ion-icon v-if="item.CloseBugMob.icon && item.CloseBugMob.isShowIcon" :name="item.CloseBugMob.icon"></ion-icon><ion-label v-if="item.CloseBugMob.isShowCaption">关闭</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.deleteMob.visabled" :disabled="item.deleteMob.disabled" color="primary" @click="mdctrl_click($event, 'u3571afd', item)"><ion-icon v-if="item.deleteMob.icon && item.deleteMob.isShowIcon" :name="item.deleteMob.icon"></ion-icon><ion-label v-if="item.deleteMob.isShowCaption">删除</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.unlinkBug_buildMob.visabled" :disabled="item.unlinkBug_buildMob.disabled" color="primary" @click="mdctrl_click($event, 'u0f6e85b', item)"><ion-icon v-if="item.unlinkBug_buildMob.icon && item.unlinkBug_buildMob.isShowIcon" :name="item.unlinkBug_buildMob.icon"></ion-icon><ion-label v-if="item.unlinkBug_buildMob.isShowCaption">解除关联</ion-label></ion-item-option>
                         </ion-item-options>
                         <div style="width:100%;">
                             <ion-item class="ibz-ionic-item">
@@ -124,7 +114,7 @@ import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
 import BugService from '@/app-core/service/bug/bug-service';
-import MobService from '@/app-core/ctrl-service/bug/mob-mobmdctrl-service';
+import MOB_Build_ResolvedBugService from '@/app-core/ctrl-service/bug/mob-build-resolved-bug-mobmdctrl-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
 import BugUIService from '@/ui-service/bug/bug-ui-action';
@@ -135,13 +125,13 @@ import BugUIService from '@/ui-service/bug/bug-ui-action';
     components: {
     }
 })
-export default class MobBase extends Vue implements ControlInterface {
+export default class MOB_Build_ResolvedBugBase extends Vue implements ControlInterface {
 
     /**
      * 名称
      *
      * @type {string}
-     * @memberof Mob
+     * @memberof MOB_Build_ResolvedBug
      */
     @Prop() protected name?: string;
 
@@ -149,7 +139,7 @@ export default class MobBase extends Vue implements ControlInterface {
      * 视图名称
      *
      * @type {string}
-     * @memberof Mob
+     * @memberof MOB_Build_ResolvedBug
      */
     @Prop() protected viewName!: string;
 
@@ -158,7 +148,7 @@ export default class MobBase extends Vue implements ControlInterface {
      * 视图通讯对象
      *
      * @type {Subject<ViewState>}
-     * @memberof Mob
+     * @memberof MOB_Build_ResolvedBug
      */
     @Prop() protected viewState!: Subject<ViewState>;
 
@@ -166,7 +156,7 @@ export default class MobBase extends Vue implements ControlInterface {
      * 应用上下文
      *
      * @type {*}
-     * @memberof Mob
+     * @memberof MOB_Build_ResolvedBug
      */
     @Prop({ default: {} }) protected context?: any;
 
@@ -174,7 +164,7 @@ export default class MobBase extends Vue implements ControlInterface {
      * 视图参数
      *
      * @type {*}
-     * @memberof Mob
+     * @memberof MOB_Build_ResolvedBug
      */
     @Prop({ default: {} }) protected viewparams?: any;
 
@@ -183,7 +173,7 @@ export default class MobBase extends Vue implements ControlInterface {
      *
      * @protected
      * @type {(Subscription | undefined)}
-     * @memberof Mob
+     * @memberof MOB_Build_ResolvedBug
      */
     protected viewStateEvent: Subscription | undefined;
 
@@ -191,7 +181,7 @@ export default class MobBase extends Vue implements ControlInterface {
      * 获取部件类型
      *
      * @returns {string}
-     * @memberof Mob
+     * @memberof MOB_Build_ResolvedBug
      */
     protected getControlType(): string {
         return 'MOBMDCTRL'
@@ -201,7 +191,7 @@ export default class MobBase extends Vue implements ControlInterface {
      * 全局 ui 服务
      *
      * @type {GlobalUiService}
-     * @memberof Mob
+     * @memberof MOB_Build_ResolvedBug
      */
     protected globaluiservice: GlobalUiService = new GlobalUiService();
 
@@ -210,7 +200,7 @@ export default class MobBase extends Vue implements ControlInterface {
      * 转化数据
      *
      * @param {any} args
-     * @memberof  MobBase
+     * @memberof  MOB_Build_ResolvedBugBase
      */
     public transformData(args: any) {
         let _this: any = this;
@@ -222,16 +212,16 @@ export default class MobBase extends Vue implements ControlInterface {
     /**
      * 建构部件服务对象
      *
-     * @type {MobService}
-     * @memberof Mob
+     * @type {MOB_Build_ResolvedBugService}
+     * @memberof MOB_Build_ResolvedBug
      */
-    protected service: MobService = new MobService({$store:this.$store});
+    protected service: MOB_Build_ResolvedBugService = new MOB_Build_ResolvedBugService({$store:this.$store});
 
     /**
      * 实体服务对象
      *
      * @type {BugService}
-     * @memberof Mob
+     * @memberof MOB_Build_ResolvedBug
      */
     protected appEntityService: BugService = new BugService();
 
@@ -239,7 +229,7 @@ export default class MobBase extends Vue implements ControlInterface {
      * 界面UI服务对象
      *
      * @type {BugUIService}
-     * @memberof MobBase
+     * @memberof MOB_Build_ResolvedBugBase
      */  
     public deUIService:BugUIService = new BugUIService(this.$store);
     
@@ -254,7 +244,7 @@ export default class MobBase extends Vue implements ControlInterface {
      * @returns {Promise<any>}
      * @memberof MdctrlBase
      */
-    protected async mdctrl_u1c99d88_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+    protected async mdctrl_u0f6e85b_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
 
         // 取数
         let datas: any[] = [];
@@ -271,162 +261,7 @@ export default class MobBase extends Vue implements ControlInterface {
         // 界面行为
         const curUIService: any = await this.globaluiservice.getService('bug_ui_action');
         if (curUIService) {
-            curUIService.Bug_ConfirmBugMob(datas, contextJO, paramJO, $event, xData, this);
-        }
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @protected
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @returns {Promise<any>}
-     * @memberof MdctrlBase
-     */
-    protected async mdctrl_u79d161d_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
-
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let contextJO: any = {};
-        let paramJO: any = {};
-        
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        // 界面行为
-        const curUIService: any = await this.globaluiservice.getService('bug_ui_action');
-        if (curUIService) {
-            curUIService.Bug_AssingToBugMob(datas, contextJO, paramJO, $event, xData, this);
-        }
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @protected
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @returns {Promise<any>}
-     * @memberof MdctrlBase
-     */
-    protected async mdctrl_u21df92f_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
-
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let contextJO: any = {};
-        let paramJO: any = {};
-        
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        // 界面行为
-        const curUIService: any = await this.globaluiservice.getService('bug_ui_action');
-        if (curUIService) {
-            curUIService.Bug_ResolveBugMob(datas, contextJO, paramJO, $event, xData, this);
-        }
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @protected
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @returns {Promise<any>}
-     * @memberof MdctrlBase
-     */
-    protected async mdctrl_u2454fd8_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
-
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let contextJO: any = {};
-        let paramJO: any = {};
-        
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        // 界面行为
-        const curUIService: any = await this.globaluiservice.getService('bug_ui_action');
-        if (curUIService) {
-            curUIService.Bug_ActivationMob(datas, contextJO, paramJO, $event, xData, this);
-        }
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @protected
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @returns {Promise<any>}
-     * @memberof MdctrlBase
-     */
-    protected async mdctrl_ubb3e16f_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
-
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let contextJO: any = {};
-        let paramJO: any = {};
-        
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        // 界面行为
-        const curUIService: any = await this.globaluiservice.getService('bug_ui_action');
-        if (curUIService) {
-            curUIService.Bug_CloseBugMob(datas, contextJO, paramJO, $event, xData, this);
-        }
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @protected
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @returns {Promise<any>}
-     * @memberof MdctrlBase
-     */
-    protected async mdctrl_u3571afd_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
-
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let contextJO: any = {};
-        let paramJO: any = {};
-        
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        // 界面行为
-        const curUIService: any = await this.globaluiservice.getService('bug_ui_action');
-        if (curUIService) {
-            curUIService.Bug_deleteMob(datas, contextJO, paramJO, $event, xData, this);
+            curUIService.Bug_unlinkBug_buildMob(datas, contextJO, paramJO, $event, xData, this);
         }
     }
 
@@ -434,7 +269,7 @@ export default class MobBase extends Vue implements ControlInterface {
      * 关闭视图
      *
      * @param {any[]} args
-     * @memberof Mob
+     * @memberof MOB_Build_ResolvedBug
      */
     protected closeView(args: any[]): void {
         let _this: any = this;
@@ -446,7 +281,7 @@ export default class MobBase extends Vue implements ControlInterface {
      * 视图类型
      *
      * @type {string}
-     * @memberof Mob
+     * @memberof MOB_Build_ResolvedBug
      */
     @Prop() protected viewType?: string | 'DEMOBMDVIEW' | 'DEMOBMDVIEW9' | 'DEMOBWFMDVIEW';
 
@@ -454,7 +289,7 @@ export default class MobBase extends Vue implements ControlInterface {
      * 显示处理提示
      *
      * @type {boolean}
-     * @memberof Mob
+     * @memberof MOB_Build_ResolvedBug
      */
     @Prop({ default: true }) protected showBusyIndicator?: boolean;
 
@@ -462,7 +297,7 @@ export default class MobBase extends Vue implements ControlInterface {
      * 部件行为--update
      *
      * @type {string}
-     * @memberof Mob
+     * @memberof MOB_Build_ResolvedBug
      */
     @Prop() protected updateAction!: string;
     
@@ -470,7 +305,7 @@ export default class MobBase extends Vue implements ControlInterface {
      * 部件行为--fetch
      *
      * @type {string}
-     * @memberof Mob
+     * @memberof MOB_Build_ResolvedBug
      */
     @Prop() protected fetchAction!: string;
     
@@ -478,7 +313,7 @@ export default class MobBase extends Vue implements ControlInterface {
      * 部件行为--remove
      *
      * @type {string}
-     * @memberof Mob
+     * @memberof MOB_Build_ResolvedBug
      */
     @Prop() protected removeAction!: string;
     
@@ -486,7 +321,7 @@ export default class MobBase extends Vue implements ControlInterface {
      * 部件行为--load
      *
      * @type {string}
-     * @memberof Mob
+     * @memberof MOB_Build_ResolvedBug
      */
     @Prop() protected loadAction!: string;
     
@@ -494,7 +329,7 @@ export default class MobBase extends Vue implements ControlInterface {
      * 部件行为--loaddraft
      *
      * @type {string}
-     * @memberof Mob
+     * @memberof MOB_Build_ResolvedBug
      */
     @Prop() protected loaddraftAction!: string;
     
@@ -502,7 +337,7 @@ export default class MobBase extends Vue implements ControlInterface {
      * 部件行为--create
      *
      * @type {string}
-     * @memberof Mob
+     * @memberof MOB_Build_ResolvedBug
      */
     @Prop() protected createAction!: string;
 
@@ -510,14 +345,14 @@ export default class MobBase extends Vue implements ControlInterface {
      * 部件样式
      *
      * @type {string}
-     * @memberof Mob
+     * @memberof MOB_Build_ResolvedBug
      */
     @Prop({default: 'LISTVIEW'}) protected controlStyle!: string | 'ICONVIEW'  | 'LISTVIEW' | 'SWIPERVIEW' | 'LISTVIEW2' | 'LISTVIEW3' | 'LISTVIEW4';
 
     /**
     *上级传递的选中项
     *@type {Array}
-    *@memberof Mob
+    *@memberof MOB_Build_ResolvedBug
     */
      @Prop() public selectedData?:Array<any>;
 
@@ -525,7 +360,7 @@ export default class MobBase extends Vue implements ControlInterface {
      * 部件行为--update
      *
      * @type {string}
-     * @memberof Mob
+     * @memberof MOB_Build_ResolvedBug
      */
     @Prop({default: true}) protected needLoadMore?: boolean;
 
@@ -533,7 +368,7 @@ export default class MobBase extends Vue implements ControlInterface {
     * 新建打开视图
     *
     * @type {Function}
-    * @memberof Mob
+    * @memberof MOB_Build_ResolvedBug
     */
     @Prop() public newdata?: Function; 
 
@@ -542,7 +377,7 @@ export default class MobBase extends Vue implements ControlInterface {
     * 打开视图
     *
     * @type {Function}
-    * @memberof Mob
+    * @memberof MOB_Build_ResolvedBug
     */
     @Prop() public opendata?: Function; 
 
@@ -551,7 +386,7 @@ export default class MobBase extends Vue implements ControlInterface {
     * 当前选中数组
     *
     * @type {array}
-    * @memberof Mob
+    * @memberof MOB_Build_ResolvedBug
     */
     public  selectdata :any = [];
 
@@ -559,7 +394,7 @@ export default class MobBase extends Vue implements ControlInterface {
     * 关闭行为
     *
     * @type {Function}
-    * @memberof Mob
+    * @memberof MOB_Build_ResolvedBug
     */
     @Prop() public close?:Function;
 
@@ -567,7 +402,7 @@ export default class MobBase extends Vue implements ControlInterface {
     * 是否显示加载文字
     *
     * @type {boolean}
-    * @memberof Mob
+    * @memberof MOB_Build_ResolvedBug
     */
     @Prop({ default: true}) public isNeedLoaddingText?:boolean;
 
@@ -575,7 +410,7 @@ export default class MobBase extends Vue implements ControlInterface {
     * 是否为临时模式
     *
     * @type {boolean}
-    * @memberof Mob
+    * @memberof MOB_Build_ResolvedBug
     */
     @Prop({ default: false}) public isTempMode?:boolean;
 
@@ -583,7 +418,7 @@ export default class MobBase extends Vue implements ControlInterface {
     * 存放多数据选择数组（多选）
     *
     * @type {array}
-    * @memberof Mob
+    * @memberof MOB_Build_ResolvedBug
     */
     public checkboxList:Array<string> = [];
 
@@ -591,7 +426,7 @@ export default class MobBase extends Vue implements ControlInterface {
     * 是否为分组模式
     *
     * @type {boolean}
-    * @memberof Mob
+    * @memberof MOB_Build_ResolvedBug
     */
     public isEnableGroup:boolean =  true;
 
@@ -599,7 +434,7 @@ export default class MobBase extends Vue implements ControlInterface {
     * 代码表分组细节
     *
     * @type {Object}
-    * @memberof Mob
+    * @memberof MOB_Build_ResolvedBug
     */
     public group_detail:any =   [ {"value":'active',"text":'激活'}, {"value":'resolved',"text":'已解决'}, {"value":'closed',"text":'已关闭'},];
 
@@ -607,7 +442,7 @@ export default class MobBase extends Vue implements ControlInterface {
     * 分组模式
     *
     * @type {string}
-    * @memberof Mob
+    * @memberof MOB_Build_ResolvedBug
     */
     public group_mode = 'CODELIST';
 
@@ -615,7 +450,7 @@ export default class MobBase extends Vue implements ControlInterface {
     * 分组数据
     *
     * @type {array}
-    * @memberof Mob
+    * @memberof MOB_Build_ResolvedBug
     */
     public group_data?:any = [];
 
@@ -624,7 +459,7 @@ export default class MobBase extends Vue implements ControlInterface {
      *
      * @public
      * @type {(Subscription | undefined)}
-     * @memberof MobBase
+     * @memberof MOB_Build_ResolvedBugBase
      */
     public appStateEvent: Subscription | undefined;
 
@@ -632,14 +467,14 @@ export default class MobBase extends Vue implements ControlInterface {
     * 分组标识
     *
     * @type {array}
-    * @memberof Mob
+    * @memberof MOB_Build_ResolvedBug
     */
     public group_field:string = 'status';
 
     /**
      * 分组方法
      *
-     * @memberof Mob
+     * @memberof MOB_Build_ResolvedBug
      */
     public group(){
       let _this:any = this;
@@ -653,21 +488,21 @@ export default class MobBase extends Vue implements ControlInterface {
     /**
      * vant折叠面板数据
      *
-     * @memberof Mob
+     * @memberof MOB_Build_ResolvedBug
      */
     public activeName:Array<any> = [];
 
     /**
      * 只需第一次赋值面板
      *
-     * @memberof Mob
+     * @memberof MOB_Build_ResolvedBug
      */
     public valve:number = 0;
 
     /**
      * 折叠面板改变时
      *
-     * @memberof Mob
+     * @memberof MOB_Build_ResolvedBug
      */
     public changeCollapse($event:any){
       this.activeName = $event;
@@ -677,7 +512,7 @@ export default class MobBase extends Vue implements ControlInterface {
     * 存放数据选择数组(单选)
     *
     * @type {object}
-    * @memberof Mob
+    * @memberof MOB_Build_ResolvedBug
     */
     public radio:any = '';
 
@@ -686,7 +521,7 @@ export default class MobBase extends Vue implements ControlInterface {
     * 点击多选按钮触发
     *
     *
-    * @memberof Mob
+    * @memberof MOB_Build_ResolvedBug
     */
     public change(){
         if(this.isMutli){
@@ -708,7 +543,7 @@ export default class MobBase extends Vue implements ControlInterface {
     * 列表键值对
     *
     * @type {Map}
-    * @memberof Mob
+    * @memberof MOB_Build_ResolvedBug
     */
     public listMap: any = new Map();
 
@@ -716,7 +551,7 @@ export default class MobBase extends Vue implements ControlInterface {
     * 分页大小
     *
     * @type {number}
-    * @memberof Mob
+    * @memberof MOB_Build_ResolvedBug
     */
     public pageSize: number = 20;
 
@@ -724,7 +559,7 @@ export default class MobBase extends Vue implements ControlInterface {
     * 总页数
     *
     * @type {number}
-    * @memberof Mob
+    * @memberof MOB_Build_ResolvedBug
     */
      public pageTotal: number = 0;
 
@@ -732,7 +567,7 @@ export default class MobBase extends Vue implements ControlInterface {
     * 当前页数
     *
     * @type {number}
-    * @memberof Mob
+    * @memberof MOB_Build_ResolvedBug
     */
      public pageNumber: number = 1;
 
@@ -740,7 +575,7 @@ export default class MobBase extends Vue implements ControlInterface {
     * 判断底部数据是否全部加载完成，若为真，则 bottomMethod 不会被再次触发
     *
     * @type {number}
-    * @memberof Mob
+    * @memberof MOB_Build_ResolvedBug
     */
     get allLoaded() {
         return ((this.pageNumber + 1) * this.pageSize) >= this.pageTotal ? true : false;
@@ -750,7 +585,7 @@ export default class MobBase extends Vue implements ControlInterface {
     * searchKey 搜索关键字
     *
     * @type {string}
-    * @memberof Mob
+    * @memberof MOB_Build_ResolvedBug
     */
      public searchKey:string = '';
 
@@ -758,7 +593,7 @@ export default class MobBase extends Vue implements ControlInterface {
     * 列表数组
     *
     * @param {Array<any>}
-    * @memberof Mob
+    * @memberof MOB_Build_ResolvedBug
     */
     public items:Array<any> =[];
 
@@ -766,7 +601,7 @@ export default class MobBase extends Vue implements ControlInterface {
     * 选中数组
     *
     * @param {Array<any>}
-    * @memberof Mob
+    * @memberof MOB_Build_ResolvedBug
     */
     public selectedArray:Array<any> = [];
 
@@ -774,7 +609,7 @@ export default class MobBase extends Vue implements ControlInterface {
     * 多选计数
     *
     * @param {number}
-    * @memberof Mob
+    * @memberof MOB_Build_ResolvedBug
     */
     public selectednumber:number =0;
 
@@ -782,7 +617,7 @@ export default class MobBase extends Vue implements ControlInterface {
     * 搜索行为
     *
     * @param {string}
-    * @memberof Mob
+    * @memberof MOB_Build_ResolvedBug
     */
     @Prop() public searchAction?:string;
 
@@ -790,7 +625,7 @@ export default class MobBase extends Vue implements ControlInterface {
     * 是否为选择视图
     *
     * @param {boolean} 
-    * @memberof Mob
+    * @memberof MOB_Build_ResolvedBug
     */
     @Prop() public isSelected?:boolean;
 
@@ -798,7 +633,7 @@ export default class MobBase extends Vue implements ControlInterface {
     * 是否多选
     *
     * @type {boolean}
-    * @memberof Mob
+    * @memberof MOB_Build_ResolvedBug
     */
     @Prop({default:false}) public isMutli?: boolean;
 
@@ -806,7 +641,7 @@ export default class MobBase extends Vue implements ControlInterface {
     * 单选选择值
     *
     * @param {string} 
-    * @memberof Mob
+    * @memberof MOB_Build_ResolvedBug
     */
     public selectedValue:string = ""; 
 
@@ -814,7 +649,7 @@ export default class MobBase extends Vue implements ControlInterface {
     * 部件排序对象
     *
     * @param {object} 
-    * @memberof Mob
+    * @memberof MOB_Build_ResolvedBug
     */
     public sort: any = { sort:'id,desc'};
     
@@ -822,7 +657,7 @@ export default class MobBase extends Vue implements ControlInterface {
     /**
      * 上拉加载更多数据
      *
-     * @memberof Mob
+     * @memberof MOB_Build_ResolvedBug
      */
     public async loadBottom(): Promise<any> {
         if (this.allLoaded) {
@@ -915,7 +750,7 @@ export default class MobBase extends Vue implements ControlInterface {
     /**
      * 长按状态改变事件
      *
-     * @memberof Mob
+     * @memberof MOB_Build_ResolvedBug
      */
     public onCheackChange(){
         this.$emit('isChooseChange', !this.isChoose);
@@ -926,7 +761,7 @@ export default class MobBase extends Vue implements ControlInterface {
      *
      * @param {string} query
      * @returns {Promise<any>}
-     * @memberof Mob
+     * @memberof MOB_Build_ResolvedBug
      */
     public async quickSearch(query: string): Promise<any> {
         this.searchKey = query;
@@ -942,7 +777,7 @@ export default class MobBase extends Vue implements ControlInterface {
      * @param {*} [data={}]
      * @param {string} [type=""]
      * @returns {Promise<any>}
-     * @memberof Mob
+     * @memberof MOB_Build_ResolvedBug
      */
     private async load(data: any = {}, type: string = "",isloadding = this.showBusyIndicator): Promise<any> {
         if (!data.page) {
@@ -1007,7 +842,7 @@ export default class MobBase extends Vue implements ControlInterface {
     /**
      * 代码表分组，获取分组数据
      *
-     * @memberof Mob
+     * @memberof MOB_Build_ResolvedBug
      */
     public getGroupDataByCodeList(items:any){
       let group:Array<any> = [];
@@ -1043,7 +878,7 @@ export default class MobBase extends Vue implements ControlInterface {
      *
      * @param {*} data
      * @returns
-     * @memberof Mob
+     * @memberof MOB_Build_ResolvedBug
      */
     public checkboxChange(data: any) {
         let { detail } = data;
@@ -1071,7 +906,7 @@ export default class MobBase extends Vue implements ControlInterface {
      * 下拉刷新
      *
      * @returns {Promise<any>}
-     * @memberof Mob
+     * @memberof MOB_Build_ResolvedBug
      */
     public async pullDownToRefresh(): Promise<any> {
         this.pageNumber = 0;
@@ -1087,7 +922,7 @@ export default class MobBase extends Vue implements ControlInterface {
     /**
     * 点击回调事件
     *
-    * @memberof Mob
+    * @memberof MOB_Build_ResolvedBug
     */
     public item_click(item:any){
         if(this.isChoose){
@@ -1107,7 +942,7 @@ export default class MobBase extends Vue implements ControlInterface {
     /**
     * 点击列表数据跳转
     *
-    * @memberof Mob
+    * @memberof MOB_Build_ResolvedBug
     */
     public goPage(item: any) {
         this.$emit('rowclick',item);
@@ -1116,7 +951,7 @@ export default class MobBase extends Vue implements ControlInterface {
     /**
     * 获取多项数据
     *
-    * @memberof Mob
+    * @memberof MOB_Build_ResolvedBug
     */
     public getDatas(): any[] {
       return this.selectedArray;
@@ -1125,7 +960,7 @@ export default class MobBase extends Vue implements ControlInterface {
     /**
     * 获取单项数据
     *
-    * @memberof Mob
+    * @memberof MOB_Build_ResolvedBug
     */
     public getData(): any {
         return this.selectedArray[0];
@@ -1134,7 +969,7 @@ export default class MobBase extends Vue implements ControlInterface {
     /**
     * vue生命周期created
     *
-    * @memberof Mob
+    * @memberof MOB_Build_ResolvedBug
     */
     public created() {
         this.afterCreated();
@@ -1143,7 +978,7 @@ export default class MobBase extends Vue implements ControlInterface {
     /**
      * 执行created后的逻辑
      *
-     *  @memberof Mob
+     *  @memberof MOB_Build_ResolvedBug
      */    
     protected afterCreated(){
         if (this.viewState) {
@@ -1184,7 +1019,7 @@ export default class MobBase extends Vue implements ControlInterface {
     /**
      * ion-item-sliding拖动事件
      *
-     * @memberof Mob
+     * @memberof MOB_Build_ResolvedBug
      */
     public ionDrag(){
       this.$store.commit('setPopupStatus',false)
@@ -1193,7 +1028,7 @@ export default class MobBase extends Vue implements ControlInterface {
     /**
      * 滚动条事件（计算是否到底部）
      *
-     * @memberof Mob
+     * @memberof MOB_Build_ResolvedBug
      */
     public scroll(e:any){
         let list:any = this.$refs.mdctrl;
@@ -1213,14 +1048,14 @@ export default class MobBase extends Vue implements ControlInterface {
     /**
      * 底部加载状态
      *
-     * @memberof Mob
+     * @memberof MOB_Build_ResolvedBug
      */
     public bottomLoadding = false;
 
     /**
      * vue 生命周期
      *
-     * @memberof Mob
+     * @memberof MOB_Build_ResolvedBug
      */
     public beforeDestroy(){
       let list:any = this.$refs.mdctrl;
@@ -1234,7 +1069,7 @@ export default class MobBase extends Vue implements ControlInterface {
     /**
      * vue 生命周期
      *
-     * @memberof Mob
+     * @memberof MOB_Build_ResolvedBug
      */
     public destroyed() {
         this.afterDestroy();
@@ -1243,7 +1078,7 @@ export default class MobBase extends Vue implements ControlInterface {
     /**
      * 执行destroyed后的逻辑
      *
-     * @memberof Mob
+     * @memberof MOB_Build_ResolvedBug
      */
     protected afterDestroy() {
         if (this.viewStateEvent) {
@@ -1258,7 +1093,7 @@ export default class MobBase extends Vue implements ControlInterface {
     /**
      * vue 生命周期 activated
      *
-     * @memberof Mob
+     * @memberof MOB_Build_ResolvedBug
      */
     public activated() {
         this.closeSlidings()
@@ -1276,23 +1111,8 @@ export default class MobBase extends Vue implements ControlInterface {
         $event.stopPropagation();
         this.selectedArray = [];
         this.selectedArray.push(item);
-        if (Object.is(tag, 'u1c99d88')) {
-            this.mdctrl_u1c99d88_click();
-        }
-        if (Object.is(tag, 'u79d161d')) {
-            this.mdctrl_u79d161d_click();
-        }
-        if (Object.is(tag, 'u21df92f')) {
-            this.mdctrl_u21df92f_click();
-        }
-        if (Object.is(tag, 'u2454fd8')) {
-            this.mdctrl_u2454fd8_click();
-        }
-        if (Object.is(tag, 'ubb3e16f')) {
-            this.mdctrl_ubb3e16f_click();
-        }
-        if (Object.is(tag, 'u3571afd')) {
-            this.mdctrl_u3571afd_click();
+        if (Object.is(tag, 'u0f6e85b')) {
+            this.mdctrl_u0f6e85b_click();
         }
         this.closeSlidings();
     }
@@ -1386,15 +1206,10 @@ export default class MobBase extends Vue implements ControlInterface {
      * 界面行为模型
      *
      * @type {*}
-     * @memberof MobBase
+     * @memberof MOB_Build_ResolvedBugBase
      */  
     public ActionModel:any ={
-        ConfirmBugMob: { name: 'ConfirmBugMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__BUG_CONFIRM_BUT', target: 'SINGLEKEY',icon:'eye',isShowCaption:false,isShowIcon:true},
-        AssingToBugMob: { name: 'AssingToBugMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__BUG_ASSIGNTO_BUT', target: 'SINGLEKEY',icon:'hand-o-right',isShowCaption:false,isShowIcon:true},
-        ResolveBugMob: { name: 'ResolveBugMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__BUG_RESOLVE_BUT', target: 'SINGLEKEY',icon:'check-square-o',isShowCaption:false,isShowIcon:true},
-        ActivationMob: { name: 'ActivationMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__BUG_ACTIVATE_BUT', target: 'SINGLEKEY',icon:'color-wand',isShowCaption:false,isShowIcon:true},
-        CloseBugMob: { name: 'CloseBugMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__BUG_CLOSE_BUT', target: 'SINGLEKEY',icon:'close',isShowCaption:false,isShowIcon:true},
-        deleteMob: { name: 'deleteMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__BUG_DELETE_BUT', target: 'SINGLEKEY',icon:'remove',isShowCaption:false,isShowIcon:true}
+        unlinkBug_buildMob: { name: 'unlinkBug_buildMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__BUG_UNLINK_BUT', target: 'SINGLEKEY',icon:'trash',isShowCaption:false,isShowIcon:true}
     };
 
     
@@ -1402,7 +1217,7 @@ export default class MobBase extends Vue implements ControlInterface {
     /**
      * 获取界面行为权限状态
      *
-     * @memberof MobBase
+     * @memberof MOB_Build_ResolvedBugBase
      */
     public getActionState(data:any){
         //let targetData:any = this.transformData(data);
@@ -1414,7 +1229,7 @@ export default class MobBase extends Vue implements ControlInterface {
     /**
     * 判断列表项左滑右滑禁用状态
     *
-    * @memberof MobBase
+    * @memberof MOB_Build_ResolvedBugBase
     */
     public setSlidingDisabled(item:any){
         item.sliding_disabled = true;
@@ -1429,14 +1244,14 @@ export default class MobBase extends Vue implements ControlInterface {
     /**
      * 长按定时器
      *
-     * @memberof MobBase
+     * @memberof MOB_Build_ResolvedBugBase
      */
     public timeOutEvent :number = 0;
 
     /**
      * 开始长按
      *
-     * @memberof MobBase
+     * @memberof MOB_Build_ResolvedBugBase
      */
     public gotouchstart(){
         let _this = this;
@@ -1455,7 +1270,7 @@ export default class MobBase extends Vue implements ControlInterface {
      * touchmove
      *  如果手指有移动，则取消所有事件，此时说明用户只是要移动而不是长按
      *
-     * @memberof MobBase
+     * @memberof MOB_Build_ResolvedBugBase
      */
     public gotouchmove() {
         clearTimeout(this.timeOutEvent); //清除定时器
@@ -1466,7 +1281,7 @@ export default class MobBase extends Vue implements ControlInterface {
      * touchend
      * 结束长按
      *
-     * @memberof MobBase
+     * @memberof MOB_Build_ResolvedBugBase
      */
     public gotouchend() {
         this.timeOutEvent = 0;
@@ -1476,5 +1291,5 @@ export default class MobBase extends Vue implements ControlInterface {
 </script>
 
 <style lang='less'>
-@import './mob-mobmdctrl.less';
+@import './mob-build-resolved-bug-mobmdctrl.less';
 </style>
