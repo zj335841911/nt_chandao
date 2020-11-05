@@ -3,7 +3,7 @@ import { Component } from 'vue-property-decorator';
 import CaseMobMDView_TestTaskBase from './case-mob-mdview-test-task-base.vue';
 
 import view_searchform from '@widgets/case/mob-def-searchform/mob-def-searchform.vue';
-import view_mdctrl from '@widgets/case/mob-test-task-mobmdctrl/mob-test-task-mobmdctrl.vue';
+import view_mdctrl from '@widgets/case/exp-test-task-mobmdctrl/exp-test-task-mobmdctrl.vue';
 @Component({
     components: {
         view_searchform, 

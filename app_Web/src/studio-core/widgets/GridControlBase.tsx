@@ -1332,6 +1332,11 @@ export class GridControlBase extends MDControlBase {
         for(let i=0;i<rule[name].length;i++){
             let item:any = rule[name][i];
             // let dataValue = item.deName?this.data[this.service.getItemNameByDeName(item.deName)]:"";
+            // 为空值时，属性值规则不做校验
+            if(value === null || value === undefined || value === ""){
+                startOp(true);
+                return falg;
+            }
             // 常规规则
             if(item.type == 'SIMPLE'){
                 startOp(!this.$verify.checkFieldSimpleRule(value,item.condOP,item.paramValue,item.ruleInfo,item.paramType,this.curEditRowData,item.isKeyCond));

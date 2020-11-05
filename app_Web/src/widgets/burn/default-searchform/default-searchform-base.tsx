@@ -77,7 +77,7 @@ export class DefaultSearchFormBase extends SearchFormControlBase {
      * @memberof DefaultSearchFormBase
      */
     public data: any = {
-        n_isweekend_eq: null,
+        isweekend: null,
     };
 
     /**
@@ -89,7 +89,7 @@ export class DefaultSearchFormBase extends SearchFormControlBase {
     public detailsModel: any = {
         formpage1: new FormPageModel({ caption: '常规条件', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this })
 , 
-        n_isweekend_eq: new FormItemModel({ caption: '周末', detailType: 'FORMITEM', name: 'n_isweekend_eq', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        isweekend: new FormItemModel({ caption: '间隔', detailType: 'FORMITEM', name: 'isweekend', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
     };
 

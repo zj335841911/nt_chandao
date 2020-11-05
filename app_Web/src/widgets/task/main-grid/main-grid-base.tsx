@@ -394,7 +394,7 @@ export class MainGridBase extends GridControlBase {
             label: '任务名称',
             langtag: 'entities.task.main_grid.columns.name',
             show: true,
-            unit: 'STAR',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {

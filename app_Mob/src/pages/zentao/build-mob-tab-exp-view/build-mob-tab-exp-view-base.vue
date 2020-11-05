@@ -24,7 +24,7 @@
                             解决的bug</ion-segment-button>
                             <ion-segment-button value="tabviewpanel3">
                             
-                            遗留的bug</ion-segment-button>
+                            产生的bug</ion-segment-button>
                             <ion-segment-button value="tabviewpanel5">
                             
                             版本详情</ion-segment-button>

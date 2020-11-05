@@ -48,7 +48,7 @@ tag='Testresult__result' codelistType='STATIC' :data="data" :context="context" :
     contentStyle="medit-arrow"
     sizeStyle=""
     contentType="RAW"
-    :htmlContent="``"
+    :htmlContent='``'
 >
         <icon v-if="data.formitem == '1'" type="ios-arrow-down" @click="onFormItemValueChange({name: 'formitem', value: '0'})"/>
 <icon v-if="!data.formitem || data.formitem == '0'" type="ios-arrow-back" @click="onFormItemValueChange({name: 'formitem', value: '1'})"/>
@@ -92,7 +92,7 @@ tag='Testresult__result' codelistType='STATIC' :data="data" :context="context" :
         <i-col class="form-layout-container" v-show="detailsModel.button1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 2, offset: 22 }">
         <i-button type="primary" @click="button1_click($event)"
          style="">
-           
+              <menu-icon :item="{iconcls: 'fa fa-bug'}" />
         <span >{{$t('entities.testresult.main_form.details.button1')}}</span>
     </i-button>
 

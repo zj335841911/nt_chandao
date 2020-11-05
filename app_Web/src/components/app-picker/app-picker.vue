@@ -344,6 +344,8 @@ export default class AppPicker extends Vue {
     public onSelectOpen(flag: boolean): void {
         this.open = flag;
         if (this.open) {
+            // 清空旧数据
+            this.items = [];
             //设置下拉列表的最大宽度
             this.setDropdownWidth();
             this.onSearch(this.curvalue, null, true);

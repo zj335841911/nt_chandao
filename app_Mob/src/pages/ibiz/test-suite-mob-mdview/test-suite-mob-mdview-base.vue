@@ -766,7 +766,7 @@ export default class TestSuiteMobMDViewBase extends Vue {
         const deResParameters: any[] = [];
         const parameters: any[] = [
             { pathName: 'testsuites', parameterName: 'testsuite' },
-            { pathName: 'mobeditview', parameterName: 'mobeditview' },
+            { pathName: 'mobtabexpview', parameterName: 'mobtabexpview' },
         ];
         const routeParam: any = this.globaluiservice.openService.formatRouteParam(_context, deResParameters, parameters, args, _params);
         response = await this.globaluiservice.openService.openView(routeParam);

@@ -4101,6 +4101,33 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         "items": []
     },
     {
+        srfkey: "BurnQuickpacket",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "exWeek",
+                label: "去除周末",
+                text: "去除周末",
+                "data":{"n_isweekend_eq":"0"},
+                "codename":"Exweek",
+                value: "exWeek",
+                
+                disabled: false,
+            },
+            {
+                id: "Week",
+                label: "显示周末",
+                text: "显示周末",
+                "data":{"n_isweekend_eq":"1"},
+                "codename":"Week",
+                value: "Week",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
         srfkey: "Testcase__stage",
         emptytext: "未定义",
         "codelisttype":"static",
@@ -4948,6 +4975,123 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 "data":"",
                 "codename":"Item_31",
                 value: "31",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
+        srfkey: "Burninterval",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "1",
+                label: "间隔1天",
+                text: "间隔1天",
+                "data":"",
+                "codename":"Item_1",
+                value: "1",
+                
+                disabled: false,
+            },
+            {
+                id: "2",
+                label: "间隔2天",
+                text: "间隔2天",
+                "data":"",
+                "codename":"Item_2",
+                value: "2",
+                
+                disabled: false,
+            },
+            {
+                id: "3",
+                label: "间隔3天",
+                text: "间隔3天",
+                "data":"",
+                "codename":"Item_3",
+                value: "3",
+                
+                disabled: false,
+            },
+            {
+                id: "4",
+                label: "间隔4天",
+                text: "间隔4天",
+                "data":"",
+                "codename":"Item_4",
+                value: "4",
+                
+                disabled: false,
+            },
+            {
+                id: "5",
+                label: "间隔5天",
+                text: "间隔5天",
+                "data":"",
+                "codename":"Item_5",
+                value: "5",
+                
+                disabled: false,
+            },
+            {
+                id: "6",
+                label: "间隔6天",
+                text: "间隔6天",
+                "data":"",
+                "codename":"Item_6",
+                value: "6",
+                
+                disabled: false,
+            },
+            {
+                id: "7",
+                label: "间隔7天",
+                text: "间隔7天",
+                "data":"",
+                "codename":"Item_7",
+                value: "7",
+                
+                disabled: false,
+            },
+            {
+                id: "8",
+                label: "间隔8天",
+                text: "间隔8天",
+                "data":"",
+                "codename":"Item_8",
+                value: "8",
+                
+                disabled: false,
+            },
+            {
+                id: "9",
+                label: "间隔9天",
+                text: "间隔9天",
+                "data":"",
+                "codename":"Item_9",
+                value: "9",
+                
+                disabled: false,
+            },
+            {
+                id: "10",
+                label: "间隔10天",
+                text: "间隔10天",
+                "data":"",
+                "codename":"Item_10",
+                value: "10",
+                
+                disabled: false,
+            },
+            {
+                id: "11",
+                label: "间隔11天",
+                text: "间隔11天",
+                "data":"",
+                "codename":"Item_11",
+                value: "11",
                 
                 disabled: false,
             },
