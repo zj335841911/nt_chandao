@@ -242,8 +242,8 @@ export default class Mob_PlanBase extends Vue implements ControlInterface {
         // _this 指向容器对象
         const _this: any = this;
         let contextJO: any = {};
-        let paramJO: any = {"srfparentkey":"%productplan%"};
-        Object.assign(paramJO, {"srfparentkey":"%productplan%"});
+        let paramJO: any = {"srfparentkey":"%productplan%","productplan":"%productplan%"};
+        Object.assign(paramJO, {"srfparentkey":"%productplan%","productplan":"%productplan%"});
         xData = this;
         if (_this.getDatas && _this.getDatas instanceof Function) {
             datas = [..._this.getDatas()];
