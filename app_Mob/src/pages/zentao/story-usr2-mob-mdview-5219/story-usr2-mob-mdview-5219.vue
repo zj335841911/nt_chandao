@@ -2,7 +2,7 @@
 import { Component } from 'vue-property-decorator';
 import StoryUsr2MobMDView_5219Base from './story-usr2-mob-mdview-5219-base.vue';
 
-import view_mdctrl from '@widgets/story/mob-mobmdctrl/mob-mobmdctrl.vue';
+import view_mdctrl from '@widgets/story/mob-product-plan-story-mobmdctrl/mob-product-plan-story-mobmdctrl.vue';
 @Component({
     components: {
         view_mdctrl, 
