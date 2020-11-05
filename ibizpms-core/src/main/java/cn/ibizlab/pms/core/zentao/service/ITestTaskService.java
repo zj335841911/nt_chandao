@@ -38,6 +38,7 @@ public interface ITestTaskService extends IService<TestTask>{
     boolean checkKey(TestTask et) ;
     TestTask close(TestTask et) ;
     TestTask linkCase(TestTask et) ;
+    TestTask mobTestTaskCounter(TestTask et) ;
     boolean save(TestTask et) ;
     void saveBatch(List<TestTask> list) ;
     TestTask start(TestTask et) ;

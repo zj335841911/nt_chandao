@@ -20,6 +20,7 @@ export default {
     projecttName: "项目",
     buildName: "版本",
     comment: "备注",
+    casecnt: "用例数",
   },
 	views: {
 		moboptionviewclose: {
