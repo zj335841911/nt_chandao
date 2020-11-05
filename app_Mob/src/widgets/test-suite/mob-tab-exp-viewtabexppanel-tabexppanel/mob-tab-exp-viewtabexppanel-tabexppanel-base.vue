@@ -38,6 +38,7 @@ import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
 import TestSuiteUIService from '@/ui-service/test-suite/test-suite-ui-action';
 
+import  MobTestSuiteCounterCounterService  from '@/app-core/counter/mob-test-suite-counter/mob-test-suite-counter-counter';
 
 
 @Component({
@@ -164,6 +165,14 @@ export default class MobTabExpViewtabexppanelBase extends Vue implements Control
         _this.$emit('closeview', args);
     }
 
+    
+    /**
+     * MobTestSuiteCounterCounterService计数器服务对象
+     *
+     * @type {MobTestSuiteCounterCounterService}
+     * @memberof MobTabExpViewtabexppanel
+     */
+    protected MobTestSuiteCountercounterservice: MobTestSuiteCounterCounterService = new MobTestSuiteCounterCounterService({$store: this.$store,context:this.context,viewparams:this.viewparams});
 
     /**
      * 计数器服务对象集合
@@ -171,7 +180,7 @@ export default class MobTabExpViewtabexppanelBase extends Vue implements Control
      * @type {Array<*>}
      * @memberof MobTabExpViewtabexppanel
      */    
-    protected counterServiceArray:Array<any> = [];
+    protected counterServiceArray:Array<any> = [this.MobTestSuiteCountercounterservice];
 
     /**
      * 加载计数器数据

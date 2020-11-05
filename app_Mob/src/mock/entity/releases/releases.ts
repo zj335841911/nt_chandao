@@ -819,7 +819,7 @@ mock.onPost(new RegExp(/^\/releases\/?([a-zA-Z0-9\-\;]{0,35})\/linkstory$/)).rep
 
     
 // MobReleaseCounter
-mock.onPost(new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/releases\/([a-zA-Z0-9\-\;]{1,35})\/mobreleasecounter$/)).reply((config: any) => {
+mock.onPut(new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/releases\/([a-zA-Z0-9\-\;]{1,35})\/mobreleasecounter$/)).reply((config: any) => {
     console.groupCollapsed("实体:release 方法: MobReleaseCounter");
     console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
@@ -845,7 +845,7 @@ mock.onPost(new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/releases\/([a-zA-Z
 });
         
 // MobReleaseCounter
-mock.onPost(new RegExp(/^\/releases\/?([a-zA-Z0-9\-\;]{0,35})\/mobreleasecounter$/)).reply((config: any) => {
+mock.onPut(new RegExp(/^\/releases\/?([a-zA-Z0-9\-\;]{0,35})\/mobreleasecounter$/)).reply((config: any) => {
     console.groupCollapsed("实体:release 方法: MobReleaseCounter");
     console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);

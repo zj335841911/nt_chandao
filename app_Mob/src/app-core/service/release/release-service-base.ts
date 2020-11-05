@@ -361,11 +361,11 @@ export class ReleaseServiceBase extends EntityService {
         if(context.product && context.release){
             let masterData:any = {};
             Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/products/${context.product}/releases/${context.release}/mobreleasecounter`,data,isloading);
+            let res:any = await Http.getInstance().put(`/products/${context.product}/releases/${context.release}/mobreleasecounter`,data,isloading);
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/releases/${context.release}/mobreleasecounter`,data,isloading);
+            let res:any = Http.getInstance().put(`/releases/${context.release}/mobreleasecounter`,data,isloading);
             return res;
     }
 
