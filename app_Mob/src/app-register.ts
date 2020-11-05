@@ -97,6 +97,8 @@ export const AppComponents = {
         v.component('app-rich-text',() => import('@/components/editor/app-rich-text/app-rich-text.vue'));
         // 富文本项
         v.component('app-mob-rich-text-editor',() => import('@/components/editor/app-mob-rich-text-editor/app-mob-rich-text-editor.vue'));
+        // 下拉多选（带搜索）
+        v.component('app-mob-check-list-search',() => import('@/components/editor/app-mob-check-list-search/app-mob-check-list-search.vue'));
         // 编辑器 END
 
         // 菜单样式 BEGIN

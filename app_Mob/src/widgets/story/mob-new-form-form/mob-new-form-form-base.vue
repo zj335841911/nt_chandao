@@ -417,7 +417,7 @@
     :disabled="detailsModel.mailto.disabled"
     :error="detailsModel.mailto.error" 
     :isEmptyCaption="false">
-        <app-mob-check-list 
+        <app-mob-check-list-search 
     orMode="str"
     valueSeparator=","
     textSeparator=","
