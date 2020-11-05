@@ -171,7 +171,7 @@ export default class StoryUsr4MobMDViewBase extends Vue {
      * @type {*}
      * @memberof StoryUsr4MobMDViewBase
      */
-    protected navContext: any = {};
+    protected navContext: any = { 'project': 'project', 'product': '%product%' };
 
     /**
      * 视图导航参数
@@ -180,7 +180,7 @@ export default class StoryUsr4MobMDViewBase extends Vue {
      * @type {*}
      * @memberof StoryUsr4MobMDViewBase
      */
-    protected navParam: any = {};
+    protected navParam: any = { 'product': '%product%', 'project': '%project%' };
 
     /**
      * 视图模型数据

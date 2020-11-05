@@ -215,14 +215,14 @@ export default class AppPicker extends Vue {
      * @memberof AppPicker
      */
     get refvalue() {
-        if (this.valueitem && this.data) {
-            if (this.data[this.deMajorField]) {
-                return this.data[this.deMajorField];
-            } else {
-                return this.value;
-            }
+        // if (this.valueitem && this.data) {
+        //     if (this.data[this.deMajorField]) {
+        //         return this.data[this.deMajorField];
+        //     } else {
+        //         return this.value;
+        //     }
 
-        }
+        // }
         return this.curvalue;
     }
 

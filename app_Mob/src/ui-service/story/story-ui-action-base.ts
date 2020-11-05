@@ -601,6 +601,64 @@ export default class StoryUIActionBase extends EntityUIActionBase {
     }
 
     /**
+     * 解绑需求
+     *
+     * @param {any[]} args 数据
+     * @param {*} [contextJO={}] 行为上下文
+     * @param {*} [paramJO={}] 行为参数
+     * @param {*} [$event] 事件
+     * @param {*} [xData] 数据目标
+     * @param {*} [container] 行为容器对象
+     * @param {string} [srfParentDeName] 
+     * @returns {Promise<any>}
+     * @memberof StoryUIService
+     */
+    public async Story_buildUnlinkStory(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
+        const state: boolean = await Notice.getInstance().confirm('警告', '您确认移除该需求吗？');
+        if (!state) {
+            return Promise.reject();
+        }
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(contextJO, { story: '%story%' });
+        Object.assign(paramJO, { id: '%story%' });
+        Object.assign(paramJO, { title: '%title%' });
+        let context: any = this.handleContextParam(actionTarget, _args, contextJO);
+        let params: any = this.handleActionParam(actionTarget, _args, paramJO);
+        context = { ...container.context, ...context };
+        let parentObj: any = {
+            srfparentdename: srfParentDeName ? srfParentDeName : null,
+            srfparentkey: srfParentDeName ? context[srfParentDeName.toLowerCase()] : null,
+        };
+        Object.assign(context, parentObj);
+        Object.assign(params, parentObj);
+        // 直接调实体服务需要转换的数据
+        if (context && context.srfsessionid) {
+            context.srfsessionkey = context.srfsessionid;
+            delete context.srfsessionid;
+        }
+        // 导航参数
+        let panelNavParam= { "build": "%srfparentkey%" } ;
+        let panelNavContext= { "build": "%srfparentkey%" } ;
+        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
+        const backend = async () => {
+            const curUIService: any = await this.globaluiservice.getAppEntityService('story');
+            const response: any = await curUIService.BuildUnlinkStory(_context, _params);
+            if (response && response.status === 200) {
+                this.notice.success('解绑需求成功！');
+                if (xData && xData.refresh && xData.refresh instanceof Function) {
+                    xData.refresh(args);
+                    AppCenterService.notifyMessage({name:"Story",action:'appRefresh',data:args});
+                }
+            } else {
+                this.notice.error('系统异常！');
+            }
+            return response;
+        };
+        return backend();
+    }
+
+    /**
      * 更多
      *
      * @param {any[]} args 数据
