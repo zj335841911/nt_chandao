@@ -14692,6 +14692,17 @@ t1.`LISTNAME`
 FROM `zt_usercontact` t1 
 
 ```
+### 我的联系人(MyUSERCONTACT)<div id="UserContact_MyUSERCONTACT"></div>
+```sql
+SELECT
+t1.`ACCOUNT`,
+t1.`ID`,
+t1.`LISTNAME`
+FROM `zt_usercontact` t1 
+
+WHERE ( t1.`ACCOUNT` =  ${srfsessioncontext('srfloginname','{"defname":"ACCOUNT","dename":"ZT_USERCONTACT"}')} ) 
+
+```
 ### 默认（全部数据）(VIEW)<div id="UserContact_View"></div>
 ```sql
 SELECT

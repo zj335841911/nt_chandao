@@ -37,6 +37,7 @@ public interface IUserContactService extends IService<UserContact>{
     boolean save(UserContact et) ;
     void saveBatch(List<UserContact> list) ;
     Page<UserContact> searchDefault(UserContactSearchContext context) ;
+    Page<UserContact> searchMyUSERCONTACT(UserContactSearchContext context) ;
     /**
      *自定义查询SQL
      * @param sql  select * from table where id =#{et.param}

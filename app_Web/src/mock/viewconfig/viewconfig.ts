@@ -479,6 +479,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "iBizPMS",
             "viewtag": "1ed8a475f4c185fc99c487900bbcf69e"
         },
+        "usercontacteditview": {
+            "title": "usercontact编辑视图",
+            "caption": "用户联系方式",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "zentao",
+            "viewname": "UserContactEditView",
+            "viewtag": "1eeb1cc3801fe7d3961fca4b3d753b04"
+        },
         "testreportmainediteditview": {
             "title": "测试报告编辑视图",
             "caption": "测试报告",
@@ -502,6 +510,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "TestTaskMyYGridView",
             "viewtag": "1fdd9d52c2aa726e0d0372fb9e3ad916"
+        },
+        "usercontacttreeexpview": {
+            "title": "用户联系方式树导航视图",
+            "caption": "用户联系方式",
+            "viewtype": "DETREEEXPVIEW",
+            "viewmodule": "zentao",
+            "viewname": "UserContactTreeExpView",
+            "viewtag": "202eafd29797672a733652aee093b6f9"
         },
         "bugmpickupview": {
             "title": "关联Bug",

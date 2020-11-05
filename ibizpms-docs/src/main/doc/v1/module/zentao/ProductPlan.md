@@ -1242,6 +1242,7 @@ Save
 | ---- | ---- | ---- | ---- |
 | 1 | [获取开始日期和结束日期](#逻辑处理-获取开始日期和结束日期（GetBedinANDEnd）) | GetBedinANDEnd | 后台 |
 | 2 | [获取上一个计划的名称](#逻辑处理-获取上一个计划的名称（GetOldPlanName）) | GetOldPlanName | 后台 |
+| 3 | [移动端产品计划计数器](#逻辑处理-移动端产品计划计数器（MobProductPlanCounter）) | MobProductPlanCounter | 后台 |
 
 ### 逻辑处理-获取开始日期和结束日期（GetBedinANDEnd）
 #### 说明
@@ -1267,6 +1268,19 @@ Save
 | ---- | ---- | ---- | ---- |
 | 1 | 开始 | Begin | 开始 |
 | 2 | 获取名称 | Rawsqlcall1 | 直接SQL调用 |
+### 逻辑处理-移动端产品计划计数器（MobProductPlanCounter）
+#### 说明
+移动端产品计划计数器
+
+- 逻辑持有者
+后台
+
+#### 逻辑节点
+| 序号 | 节点 | 节点名 | 节点类型 |
+| ---- | ---- | ---- | ---- |
+| 1 | 开始 | Begin | 开始 |
+| 2 | 获取需求数 | Rawsqlcall1 | 直接SQL调用 |
+| 3 | 获取bug数 | Rawsqlcall2 | 直接SQL调用 |
 
 ## 实体搜索
 ### 快速搜索项

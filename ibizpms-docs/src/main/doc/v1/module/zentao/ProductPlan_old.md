@@ -124,6 +124,23 @@ hide footbox
 |0|开始 | 
 |1|获取名称 |
 <center>获取上一个计划的名称</center>
+* 移动端产品计划计数器 (MobProductPlanCounter)
+  
+   
+
+{% plantuml %}
+hide footbox
+
+产品计划 -> 产品计划: 获取bug数
+产品计划 -> 产品计划: 获取需求数
+{% endplantuml %}
+
+| 步骤       | 操作        |
+| --------   | --------   |
+|1|获取bug数 |
+|1|开始 | 
+|2|获取需求数 |
+<center>移动端产品计划计数器</center>
 
 ## 查询集合
 

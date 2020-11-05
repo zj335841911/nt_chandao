@@ -46,6 +46,7 @@ import productmodule_en_US from '@locale/lanres/entities/product-module/product-
 import module_en_US from '@locale/lanres/entities/module/module_en_US';
 import testmodule_en_US from '@locale/lanres/entities/test-module/test-module_en_US';
 import productlife_en_US from '@locale/lanres/entities/product-life/product-life_en_US';
+import usercontact_en_US from '@locale/lanres/entities/user-contact/user-contact_en_US';
 import task_en_US from '@locale/lanres/entities/task/task_en_US';
 import build_en_US from '@locale/lanres/entities/build/build_en_US';
 import testresult_en_US from '@locale/lanres/entities/test-result/test-result_en_US';
@@ -376,6 +377,7 @@ const data: any = {
         module: module_en_US,
         testmodule: testmodule_en_US,
         productlife: productlife_en_US,
+        usercontact: usercontact_en_US,
         task: task_en_US,
         build: build_en_US,
         testresult: testresult_en_US,
