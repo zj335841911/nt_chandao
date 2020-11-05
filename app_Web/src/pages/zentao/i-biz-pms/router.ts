@@ -11827,6 +11827,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/project-edit-view-activate/project-edit-view-activate.vue'),
                 },
                 {
+                    path: 'ibzmyterritories/:ibzmyterritory?/calendarview/:calendarview?',
+                    meta: {
+                        caption: 'entities.ibzmyterritory.views.calendarview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'ibzmyterritories', parameterName: 'ibzmyterritory' },
+                            { pathName: 'calendarview', parameterName: 'calendarview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/ibz-my-territory-calendar-view/ibz-my-territory-calendar-view.vue'),
+                },
+                {
                     path: 'sysupdatelogs/:sysupdatelog?/gridview/:gridview?',
                     meta: {
                         caption: 'entities.sysupdatelog.views.gridview.caption',

@@ -68,6 +68,10 @@ public class TestTaskServiceImpl extends ServiceImpl<TestTaskMapper, TestTask> i
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.logic.ITestTaskGetProductBuildLogic getproductbuildLogic;
 
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.zentao.service.logic.ITestTaskMobTestTaskCounterLogic mobtesttaskcounterLogic;
+
     protected int batchSize = 500;
 
         @Override
@@ -150,6 +154,13 @@ public class TestTaskServiceImpl extends ServiceImpl<TestTaskMapper, TestTask> i
     @Transactional
     public TestTask linkCase(TestTask et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.TestTaskHelper.class).linkCase(et);
+    }
+
+    @Override
+    @Transactional
+    public TestTask mobTestTaskCounter(TestTask et) {
+        mobtesttaskcounterLogic.execute(et);
+         return et ;
     }
 
     @Override

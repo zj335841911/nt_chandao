@@ -276,6 +276,7 @@ export const PageComponents = {
         Vue.component('case-step-carry-out-edit-mode', () => import('@pages/zentao/case-step-carry-out-edit-mode/case-step-carry-out-edit-mode.vue'));
         Vue.component('case-main-my-grid-view', () => import('@pages/zentao/case-main-my-grid-view/case-main-my-grid-view.vue'));
         Vue.component('module-line-grid-view', () => import('@pages/zentao/module-line-grid-view/module-line-grid-view.vue'));
+        Vue.component('ibz-my-territory-calendar-view', () => import('@pages/ibiz/ibz-my-territory-calendar-view/ibz-my-territory-calendar-view.vue'));
         Vue.component('sys-update-log-grid-view', () => import('@pages/ibiz/sys-update-log-grid-view/sys-update-log-grid-view.vue'));
         Vue.component('bug-confirm-view', () => import('@pages/zentao/bug-confirm-view/bug-confirm-view.vue'));
         Vue.component('bug-pickup-grid-view5', () => import('@pages/zentao/bug-pickup-grid-view5/bug-pickup-grid-view5.vue'));

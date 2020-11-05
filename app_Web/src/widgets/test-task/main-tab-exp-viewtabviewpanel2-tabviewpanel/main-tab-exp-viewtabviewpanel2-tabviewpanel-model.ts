@@ -75,6 +75,9 @@ export default class MainTabExpViewtabviewpanel2Model {
       {
         name: 'comment',
       },
+      {
+        name: 'casecnt',
+      },
     ]
   }
 

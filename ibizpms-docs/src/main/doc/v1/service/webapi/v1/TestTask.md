@@ -224,6 +224,25 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | [TestTaskDTO](#TestTaskDTO)：测试版本实体传输对象 |
 
+### 移动端测试版本计数器
+#### 访问路径
+/testtasks/{testtask_id}/mobtesttaskcounter
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | testtask_id | Long | 测试版本主键ID |
+| 2 | testtaskdto | [TestTaskDTO](#TestTaskDTO) | 测试版本实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [TestTaskDTO](#TestTaskDTO)：测试版本实体传输对象 |
+
 ### 保存测试版本
 #### 访问路径
 /testtasks/save
@@ -550,6 +569,26 @@ POST
 ### 关联测试用例
 #### 访问路径
 /products/{product_id}/testtasks/{testtask_id}/linkcase
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |
+| 2 | testtask_id | Long | 测试版本主键ID |
+| 3 | testtaskdto | [TestTaskDTO](#TestTaskDTO) | 测试版本实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [TestTaskDTO](#TestTaskDTO)：测试版本实体传输对象 |
+
+### 移动端测试版本计数器
+#### 访问路径
+/products/{product_id}/testtasks/{testtask_id}/mobtesttaskcounter
 
 #### 请求方法
 POST
@@ -916,6 +955,26 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | [TestTaskDTO](#TestTaskDTO)：测试版本实体传输对象 |
 
+### 移动端测试版本计数器
+#### 访问路径
+/projects/{project_id}/testtasks/{testtask_id}/mobtesttaskcounter
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | project_id | Long | 项目主键ID |
+| 2 | testtask_id | Long | 测试版本主键ID |
+| 3 | testtaskdto | [TestTaskDTO](#TestTaskDTO) | 测试版本实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [TestTaskDTO](#TestTaskDTO)：测试版本实体传输对象 |
+
 ### 根据保存测试版本
 #### 访问路径
 /projects/{project_id}/testtasks/save
@@ -1057,7 +1116,8 @@ POST
 | 18 | projecttname | String | 允许 | 项目 |
 | 19 | buildname | String | 允许 | 版本 |
 | 20 | comment | String | 允许 | 备注 |
-| 21 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 21 | casecnt | Integer | 允许 | 用例数 |
+| 22 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### TestTaskSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

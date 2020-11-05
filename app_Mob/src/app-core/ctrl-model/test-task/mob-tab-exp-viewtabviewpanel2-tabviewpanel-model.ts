@@ -75,6 +75,9 @@ export class MobTabExpViewtabviewpanel2Model {
       {
         name: 'comment',
       },
+      {
+        name: 'casecnt',
+      },
     ]
   }
 

@@ -165,4 +165,12 @@ export interface TestTask {
      * @memberof TestTask
      */
     comment?: any;
+
+    /**
+     * 用例数
+     *
+     * @returns {*}
+     * @memberof TestTask
+     */
+    casecnt?: any;
 }

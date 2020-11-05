@@ -19,3 +19,22 @@ ruleflow-group "testtaskmobtesttaskcounterbegin"
     then
     end
 
+//逻辑处理节点[获取测试用例数]
+rule "rawsqlcall1"
+ruleflow-group "testtaskmobtesttaskcounterrawsqlcall1"
+    when
+    then
+    Map param =new HashMap();
+    param.put("param0",testtaskmobtesttaskcounterdefault.get("id"));
+    param.put("param1",testtaskmobtesttaskcounterdefault.get("product"));
+    String strSql="SELECT count(1) CASECNT FROM `zt_case` t1 LEFT JOIN zt_testrun t41 ON t1.id = t41.`case` WHERE t41.`TASK` = #{et.param0} AND t1.DELETED = '0' AND t1.product = #{et.param1}";
+    java.util.List<JSONObject> entities=iBzSysTesttaskDefaultService.select(strSql,param);//SQL调用
+    if(entities.size()>0){
+        JSONObject entity=entities.get(0);
+        for (Map.Entry entry : entity.entrySet()) {
+            testtaskmobtesttaskcounterdefault.set(String.valueOf(entry.getKey()),entry.getValue());
+        }
+    }
+    update(testtaskmobtesttaskcounterdefault);//更新fact中变量值
+    end
+

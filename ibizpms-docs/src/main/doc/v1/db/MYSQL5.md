@@ -102603,6 +102603,7 @@ CREATE TABLE `zt_testsuite`(
 | BUILDNAME        | 版本  | VARCHAR      |   150   | &nbsp; |
 | REPORT        | report  | CLOB      |   65,535   | &nbsp; |
 | PRODUCT        | 所属产品  |       |   8   | &nbsp; |
+| CASECNT        | 用例数  | INTEGER      |   -1   | &nbsp; |
 | ID        | 编号  |       |   8   | 主键&nbsp; |
 | END        | 结束日期  | DATETIME      |   -1   | &nbsp; |
 | PRODUCTNAME        | 产品  | VARCHAR      |   90   | &nbsp; |

@@ -75,6 +75,9 @@ export default class MainDetailModel {
       {
         name: 'comment',
       },
+      {
+        name: 'casecnt',
+      },
     ]
   }
 

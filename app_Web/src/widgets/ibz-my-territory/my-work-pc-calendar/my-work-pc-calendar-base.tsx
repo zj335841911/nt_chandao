@@ -1,0 +1,744 @@
+
+
+import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
+import { Subject, Subscription } from 'rxjs';
+import { UIActionTool,Util,ViewTool } from '@/utils';
+import { Watch, MainControlBase } from '@/studio-core';
+import IbzMyTerritoryService from '@/service/ibz-my-territory/ibz-my-territory-service';
+import MyWorkPCService from './my-work-pc-calendar-service';
+import IbzMyTerritoryUIService from '@/uiservice/ibz-my-territory/ibz-my-territory-ui-service';
+import Vue from 'vue';
+import FullCalendar from '@fullcalendar/vue'
+import dayGridPlugin from '@fullcalendar/daygrid'
+import timeGridPlugin from '@fullcalendar/timegrid';
+import listPlugin from '@fullcalendar/list';
+import interactionPlugin from '@fullcalendar/interaction'
+import ContextMenu from '@components/context-menu/context-menu'
+
+
+/**
+ * calendar部件基类
+ *
+ * @export
+ * @class MainControlBase
+ * @extends {MyWorkPCCalendarBase}
+ */
+export class MyWorkPCCalendarBase extends MainControlBase {
+
+    /**
+     * 获取部件类型
+     *
+     * @protected
+     * @type {string}
+     * @memberof MyWorkPCCalendarBase
+     */
+    protected controlType: string = 'CALENDAR';
+
+    /**
+     * 建构部件服务对象
+     *
+     * @type {MyWorkPCService}
+     * @memberof MyWorkPCCalendarBase
+     */
+    public service: MyWorkPCService = new MyWorkPCService({ $store: this.$store });
+
+    /**
+     * 实体服务对象
+     *
+     * @type {IbzMyTerritoryService}
+     * @memberof MyWorkPCCalendarBase
+     */
+    public appEntityService: IbzMyTerritoryService = new IbzMyTerritoryService({ $store: this.$store });
+
+    /**
+     * 应用实体名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof MyWorkPCCalendarBase
+     */
+    protected appDeName: string = 'ibzmyterritory';
+
+    /**
+     * 应用实体中文名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof MyWorkPCCalendarBase
+     */
+    protected appDeLogicName: string = '我的地盘';
+
+    /**
+     * 界面UI服务对象
+     *
+     * @type {IbzMyTerritoryUIService}
+     * @memberof MyWorkPCBase
+     */  
+    public appUIService:IbzMyTerritoryUIService = new IbzMyTerritoryUIService(this.$store);
+
+
+    /**
+     * 是否默认选中第一条数据
+     *
+     * @type {boolean}
+     * @memberof MyWorkPC
+     */
+    @Prop({ default: false }) public isSelectFirstDefault!: boolean;
+
+    /**
+     * 显示处理提示
+     *
+     * @type {boolean}
+     * @memberof MyWorkPC
+     */
+    @Prop({ default: true }) public showBusyIndicator?: boolean;
+
+    /**
+     * 部件行为--load
+     *
+     * @type {string}
+     * @memberof MyWorkPC
+     */
+    @Prop() public loadAction!: string;
+
+    /**
+     * 打开新建数据视图
+     *
+     * @type {any}
+     * @memberof MyWorkPC
+     */
+    @Prop() public newdata: any;
+    /**
+     * 打开编辑数据视图
+     *
+     * @type {any}
+     * @memberof MyWorkPC
+     */
+    @Prop() public opendata: any;
+
+    /**
+     * 日历部件样式名
+     *
+     * @public
+     * @type {any[]}
+     * @memberof MyWorkPC
+     */
+    public calendarClass: string = "calendar";
+
+    /**
+     * 选中事件element元素
+     *
+     * @public
+     * @type {any[]}
+     * @memberof MyWorkPC
+     */
+    public selectedEventElement:any;
+
+    /**
+     * 引用插件集合
+     *
+     * @public
+     * @type {any[]}
+     * @memberof MyWorkPC
+     */
+    public calendarPlugins: any[] = [
+        dayGridPlugin, 
+        timeGridPlugin, 
+        listPlugin, 
+        interactionPlugin
+    ];
+
+    /**
+     * 设置头部显示
+     *
+     * @public
+     * @type {}
+     * @memberof MyWorkPC
+     */
+    public header: any = {
+        left: 'prev,next today gotoDate',
+        center: 'title',
+        right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+    };
+
+    /**
+     * 按钮文本集合
+     *
+     * @public
+     * @type {}
+     * @memberof MyWorkPC
+     */
+    public buttonText: any = {
+        today: '今天',
+        month: '月',
+        week: '周',
+        day: '天',
+        list: '列'
+    };
+
+    /**
+     * 自定义按钮集合
+     *
+     * @public
+     * @type {}
+     * @memberof MyWorkPC
+     */
+    public customButtons: any = {
+        gotoDate: {
+          text: "跳转",
+          click: this.openDateSelect
+        }
+    };
+
+    /**
+     * 模态显示控制变量
+     *
+     * @public
+     * @type boolean
+     * @memberof MyWorkPC
+     */
+    public modalVisible: boolean = false;
+
+    /**
+     * 跳转日期
+     *
+     * @public
+     * @type Date
+     * @memberof MyWorkPC
+     */
+    public selectedGotoDate: Date = new Date();
+
+    /**
+     * 打开时间选择模态
+     *
+     * @public
+     * @memberof MyWorkPC
+     */
+    public openDateSelect(){
+        this.modalVisible = true;
+    }
+
+    /**
+     * 跳转到指定时间
+     *
+     * @public
+     * @memberof MyWorkPC
+     */
+    public gotoDate(){
+        let appCalendar: any = this.$refs.calendar;
+        let api = appCalendar.getApi();
+        api.gotoDate(this.selectedGotoDate);
+    }
+
+    /**
+     * 有效日期范围
+     *
+     * @public
+     * @type {}
+     * @memberof MyWorkPC
+     */
+    public validRange: any = {
+        start:"0000-01-01",
+        end:"9999-12-31"
+    };
+
+    /**
+     * 默认加载日期
+     *
+     * @public
+     * @type {}
+     * @memberof MyWorkPC
+     */
+    public defaultDate: any = this.$util.dateFormat(new Date());
+
+    /**
+     * 设置按钮文本
+     *
+     * @public
+     * @memberof MyWorkPC
+     */
+    public setButtonText(){
+        this.buttonText.today = this.$t('app.calendar.today'),
+        this.buttonText.month = this.$t('app.calendar.month'),
+        this.buttonText.week = this.$t('app.calendar.week'),
+        this.buttonText.day = this.$t('app.calendar.day'),
+        this.buttonText.list = this.$t('app.calendar.list')
+        this.customButtons.gotoDate.text = this.$t('app.calendar.gotoDate')
+    }
+
+    /**
+     * 监听语言变化
+     *
+     * @public
+     * @memberof MyWorkPC
+     */
+    @Watch('$i18n.locale')
+    public onLocaleChange(newval: any, val: any) {
+        this.setButtonText();
+    }
+
+    /**
+     * 日程事件集合
+     *
+     * @public
+     * @type {any[]}
+     * @memberof MyWorkPC
+     */
+    public events: any[] = [];
+
+    /**
+     * 日历样式类型
+     *
+     * @public
+     * @type {string}
+     * @memberof MyWorkPC
+     */
+    public calendarType: string = "MONTH";
+
+    /**
+     * 图例显示控制
+     *
+     * @public
+     * @type {any}
+     * @memberof MyWorkPC
+     */
+    public isShowlegend: any = {
+        Bug:true,
+        task:true,
+        todo:true,
+    };
+
+    /**
+     * 图例点击事件
+     *
+     * @public
+     * @memberof MyWorkPC
+     */
+    legendTrigger(itemType:string){
+        this.isShowlegend[itemType] = !this.isShowlegend[itemType];
+        this.refresh();
+    }
+
+    /**
+     * 查询参数缓存
+     *
+     * @public
+     * @type {any}
+     * @memberof MyWorkPC
+     */
+    public searchArgCache: any = {};
+
+    /**
+     * 搜索获取日程事件
+     *
+     * @param {*} $event 日期信息
+     * @memberof MyWorkPC
+     */
+    public searchEvents(fetchInfo?:any, successCallback?:any, failureCallback?:any ) {
+        // 处理请求参数
+        let start = (fetchInfo && fetchInfo.start) ? this.$util.dateFormat(fetchInfo.start) : null;
+        let end = (fetchInfo && fetchInfo.end) ? this.$util.dateFormat(fetchInfo.end) : null;
+        let arg = { start: start, end: end };
+        if(fetchInfo && fetchInfo.query){
+            Object.assign(arg,{query : fetchInfo.query});
+        }
+        Object.assign(arg,{viewparams:this.viewparams});
+        const parentdata: any = {};
+        this.$emit('beforeload', parentdata);
+        Object.assign(arg, parentdata);
+        // 处理events数据
+        let _this = this;
+        let handleEvents = ()=>{
+            if(_this.isSelectFirstDefault){
+                // 模拟$event数据
+                let tempEvent = JSON.parse(JSON.stringify(_this.events[0]));
+                _this.onEventClick(tempEvent,true);
+                _this.events[0].className = "select-first-event";
+                _this.calendarClass = "calendar select-first-calendar";
+            }
+            let filterEvents = this.events.filter((event:any)=>{
+                return _this.isShowlegend[event.itemType];
+            });
+
+            if(successCallback){
+                successCallback(filterEvents);
+            }
+            // 刷新日历的大小（仅fullcalendar组件使用）
+            if(!Object.is(_this.calendarType,"TIMELINE")){
+                let appCalendar: any = _this.$refs.calendar;
+                let api = appCalendar.getApi();
+                api.updateSize();
+            }
+        }
+        if(JSON.stringify(arg) === JSON.stringify(this.searchArgCache)){
+            handleEvents();
+            return;
+        }else{
+            this.searchArgCache = arg;
+        }
+        const post: Promise<any> = this.service.search(this.loadAction, JSON.parse(JSON.stringify(this.context)), arg, this.showBusyIndicator);
+        post.then((response: any) => {
+            if (!response || response.status !== 200) {
+                if (response.errorMessage) {
+                    this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: response.errorMessage });
+                }
+                return;
+            }
+            // 默认选中第一项
+            this.events = response.data;
+            handleEvents();
+        }, (response: any) => {
+            if (response && response.status === 401) {
+                return;
+            }
+            this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: response.errorMessage });
+        });
+    }
+
+    /**
+     * 日期点击事件
+     *
+     * @param {*} $event 日期信息
+     * @memberof MyWorkPC
+     */
+    public onDateClick($event: any) {
+        let date = $event.date;
+        let datestr = $event.dateStr;
+    }
+
+    /**
+     * 获取编辑视图信息
+     *
+     * @param {*} $event 事件信息
+     * @memberof MyWorkPC
+     */
+    public getEditView(deName: string) {
+        let view: any = {};
+        switch(deName){
+            case "bug": 
+                view = {
+                    viewname: 'bug-main-dashboard-view', 
+                    height: 0, 
+                    width: 0,
+                    title: this.$t('entities.bug.views.maindashboardview.title'),
+                    placement: 'DRAWER_TOP',
+                    deResParameters: [{ pathName: 'products', parameterName: 'product' }, ],
+                    parameters: [{ pathName: 'bugs', parameterName: 'bug' }, { pathName: 'maindashboardview', parameterName: 'maindashboardview' } ],
+                };
+                break;
+            case "task": 
+                view = {
+                    viewname: 'task-main-dashboard-view', 
+                    height: 0, 
+                    width: 1360,
+                    title: this.$t('entities.task.views.maindashboardview.title'),
+                    placement: 'DRAWER_TOP',
+                    deResParameters: [{ pathName: 'stories', parameterName: 'story' }, ],
+                    parameters: [{ pathName: 'tasks', parameterName: 'task' }, { pathName: 'maindashboardview', parameterName: 'maindashboardview' } ],
+                };
+                break;
+            case "todo": 
+                view = {
+                    viewname: 'todo-dashboard-view', 
+                    height: 0, 
+                    width: 0,
+                    title: this.$t('entities.todo.views.dashboardview.title'),
+                    placement: 'DRAWER_TOP',
+                    deResParameters: [],
+                    parameters: [{ pathName: 'todos', parameterName: 'todo' }, { pathName: 'dashboardview', parameterName: 'dashboardview' } ],
+                };
+                break;
+        }
+        return view;
+    }
+
+    /**
+     * 日程点击事件
+     *
+     * @param {*} $event calendar事件对象或event数据
+     * @param {*} isOriginData true：$event是原始event数据，false：是组件
+     * @param {*} $event timeline事件对象
+     * @memberof MyWorkPC
+     */
+    public onEventClick($event: any, isOriginData:boolean = false, $event2?: any) {
+        // 处理event数据
+        let event: any = {};
+        if(isOriginData){
+            event = JSON.parse(JSON.stringify($event));
+        }else{
+            event = Object.assign({title: $event.event.title, start: $event.event.start, end: $event.event.end}, $event.event.extendedProps);
+        }
+        // 点击选中样式
+        let JSelement:any = null;
+        if(!isOriginData && $event.el){
+            JSelement = $event.el;
+        }else if(isOriginData && $event2 && $event2.currentTarget){
+            JSelement = $event2.currentTarget;
+        }
+        if(JSelement){
+            this.calendarClass = "calendar";
+            if(this.selectedEventElement){
+                this.selectedEventElement.classList.remove("selected-event");
+            }
+            this.selectedEventElement = JSelement;
+            this.selectedEventElement.classList.add("selected-event");
+        }
+        // 处理上下文数据
+        let _this = this;
+        let view: any = {};
+        let _context: any = Object.assign({},this.context);
+        switch(event.itemType) {
+            case "Bug":
+                _context.bug = event.bug;
+                view = this.getEditView("bug");
+                break;
+            case "task":
+                _context.task = event.task;
+                view = this.getEditView("task");
+                break;
+            case "todo":
+                _context.todo = event.todo;
+                view = this.getEditView("todo");
+                break;
+        }
+        this.selections = [event];
+        // 导航栏中不需要打开视图，只要抛出选中数据
+        if(this.isSelectFirstDefault){
+            this.$emit("selectionchange",this.selections);
+            return;
+        }
+        // 根据打开模式打开视图
+        if(!view.viewname){
+            return;
+        } else if (Object.is(view.placement, 'INDEXVIEWTAB') || Object.is(view.placement, '')) {
+            const routePath = this.$viewTool.buildUpRoutePath(this.$route, this.context, view.deResParameters, view.parameters, [JSON.parse(JSON.stringify(_context))] , JSON.parse(JSON.stringify(this.viewparams)));
+            this.$router.push(routePath);
+        } else {
+            let container: any = new Subject();
+            if (Object.is(view.placement, 'POPOVER')) {
+                container = this.$apppopover.openPop(isOriginData ? $event2 : $event.jsEvent, view,JSON.parse(JSON.stringify(_context)),  JSON.parse(JSON.stringify(this.viewparams)));
+            } else if (Object.is(view.placement, 'POPUPMODAL')) {
+                container = this.$appmodal.openModal(view,  JSON.parse(JSON.stringify(_context)),  JSON.parse(JSON.stringify(this.viewparams)));
+            } else if (view.placement.startsWith('DRAWER')) {
+                container = this.$appdrawer.openDrawer(view,  JSON.parse(JSON.stringify(_context)),  JSON.parse(JSON.stringify(this.viewparams)));
+            }
+            container.subscribe((result: any) => {
+                if (!result || !Object.is(result.ret, 'OK')) {
+                    return;
+                }
+                // 刷新日历
+                _this.refresh();
+            });
+        }
+    }
+
+    /**
+     * 日历刷新
+     *
+     * @memberof MyWorkPC
+     */
+    public refresh() {
+        if(Object.is(this.calendarType,"TIMELINE")){
+            this.searchEvents();
+        } else {
+            let calendarApi = (this.$refs.calendar as any).getApi();
+            calendarApi.refetchEvents();
+        }
+    }
+
+    /**
+     * 日程拖动事件
+     *
+     * @param {*} $event 事件信息
+     * @memberof MyWorkPC
+     */
+    public onEventDrop($event: any) {
+        if(this.isSelectFirstDefault){
+          return;
+        }
+        let arg: any = {};
+        let _context: any = Object.assign({},this.context);
+        arg.start = this.$util.dateFormat($event.event.start);
+        arg.end = this.$util.dateFormat($event.event.end);
+        let itemType = $event.event._def.extendedProps.itemType;
+        switch(itemType) {
+            case "Bug":
+                arg.bug = $event.event._def.extendedProps.bug;
+                _context.bug = $event.event._def.extendedProps.bug;
+                break;
+            case "task":
+                arg.task = $event.event._def.extendedProps.task;
+                _context.task = $event.event._def.extendedProps.task;
+                break;
+            case "todo":
+                arg.todo = $event.event._def.extendedProps.todo;
+                _context.todo = $event.event._def.extendedProps.todo;
+                break;
+        }
+        Object.assign(arg,{viewparams:this.viewparams});
+        const post: Promise<any> = this.service.update(itemType, JSON.parse(JSON.stringify(_context)), arg, this.showBusyIndicator);
+        post.then((response: any) => {
+            if (!response || response.status !== 200) {
+                if (response.errorMessage) {
+                    this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: response.errorMessage });
+                }
+                return;
+            }
+        }, (response: any) => {
+            if (response && response.status === 401) {
+                return;
+            }
+            this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: response.errorMessage });
+        });
+    }
+
+    /**
+     * 选中的数据
+     *
+     * @returns {any[]}
+     * @memberof MyWorkPC
+     */
+    public selections: any[] = [];
+
+    /**
+     * 获取多项数据
+     *
+     * @returns {any[]}
+     * @memberof MyWorkPC
+     */
+    public getDatas(): any[] {
+        return this.selections;
+    }
+
+    /**
+     * 获取单项数据
+     *
+     * @returns {*}
+     * @memberof MyWorkPC
+     */
+    public getData(): any {
+        return null;
+    }
+             
+    /**
+     * vue 生命周期
+     *
+     * @returns
+     * @memberof MyWorkPC
+     */
+    public created() {
+        this.setButtonText();
+        this.afterCreated();
+    }
+
+    /**
+     * 执行created后的逻辑
+     *
+     *  @memberof MyWorkPC
+     */    
+    public afterCreated(){
+        if (this.viewState) {
+            this.viewStateEvent = this.viewState.subscribe(({ tag, action, data }) => {
+                if (!Object.is(tag, this.name)) {
+                    return;
+                }
+            });
+        }
+    }
+
+    /**
+     * vue 生命周期
+     *
+     * @memberof MyWorkPCBase
+     */
+    public mounted(){
+        this.afterMounted();
+    }
+
+    /**
+     * 执行mounted后的逻辑
+     *
+     * @memberof MyWorkPCBase
+     */
+    public afterMounted(){
+        let appCalendar: any = this.$refs.calendar;
+        if(appCalendar){
+            let api = appCalendar.getApi();
+            api.updateSize()
+        }
+    }
+
+    /**
+     * vue 生命周期
+     *
+     * @memberof MyWorkPC
+     */
+    public destroyed() {
+        this.afterDestroy();
+    }
+
+    /**
+     * 执行destroyed后的逻辑
+     *
+     * @memberof MyWorkPC
+     */
+    public afterDestroy() {
+        if (this.viewStateEvent) {
+            this.viewStateEvent.unsubscribe();
+        }
+    }
+
+
+    
+    /**
+     * 事件绘制回调
+     *
+     * @param {*} info 信息
+     * @memberof MyWorkPC
+     */
+    public eventRender(info?:any,) {
+        let data = Object.assign({title: info.event.title, start: info.event.start, end: info.event.end}, info.event.extendedProps);
+        info.el.addEventListener('contextmenu', (event: MouseEvent) => {
+            event.preventDefault();
+            let props = { data: data, renderContent: this.renderContextMenu };
+            let component = ContextMenu;
+            const vm:any = new Vue({
+                render(h) {
+                    return h(component, { props });
+                }
+            }).$mount();
+            document.body.appendChild(vm.$el);
+            const comp: any = vm.$children[0];
+            comp.showContextMenu(event.clientX, event.clientY);
+        });
+    }
+
+    /**
+     * 绘制右键菜单
+     *
+     * @param {*} event
+     * @returns
+     * @memberof MyWorkPC
+     */
+    public renderContextMenu(event: any) {
+        let content;
+        if (event && event.itemType) {
+            const data: any = JSON.parse(JSON.stringify(event));
+            this.selections = [event];
+            switch(event.itemType){
+            }
+        }
+        return content;
+    }
+
+    /**
+     * 面板数据变化处理事件
+     * @param {any} item 当前数据
+     * @param {any} $event 面板事件数据
+     *
+     * @memberof MyWorkPCBase
+     */
+    public onPanelDataChange(item:any,$event:any) {
+        Object.assign(item, $event, {rowDataState:'update'});
+    }
+}

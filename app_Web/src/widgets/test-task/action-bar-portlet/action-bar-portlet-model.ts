@@ -75,6 +75,9 @@ export default class ActionBarModel {
       {
         name: 'comment',
       },
+      {
+        name: 'casecnt',
+      },
     ]
   }
 

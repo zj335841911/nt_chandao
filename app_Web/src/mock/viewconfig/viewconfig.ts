@@ -2015,6 +2015,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProductLeftSidebarListView",
             "viewtag": "8ca39819b87c5e3e8669fcd7409cf9a2"
         },
+        "ibzmyterritorycalendarview": {
+            "title": "我的地盘日历视图",
+            "caption": "我的地盘",
+            "viewtype": "DECALENDARVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "IbzMyTerritoryCalendarView",
+            "viewtag": "8cf3bd4450a7bbccd2f6aff9629bfdf2"
+        },
         "taskmaingridview_bymodule": {
             "title": "task表格视图",
             "caption": "任务",

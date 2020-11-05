@@ -18,6 +18,7 @@ export class CounterServiceConstructor extends ServiceConstructorBase {
     protected init(): void {
         this.allService.set('mobtestsuitecounter', () => import('@/app-core/counter/mob-test-suite-counter/mob-test-suite-counter-counter'));
         this.allService.set('projectcounter', () => import('@/app-core/counter/project-counter/project-counter-counter'));
+        this.allService.set('mobtesttaskcounter', () => import('@/app-core/counter/mob-test-task-counter/mob-test-task-counter-counter'));
         this.allService.set('mobprojectbuildcounter', () => import('@/app-core/counter/mob-project-build-counter/mob-project-build-counter-counter'));
         this.allService.set('mobmenucounter', () => import('@/app-core/counter/mob-menu-counter/mob-menu-counter-counter'));
         this.allService.set('myfavoritemobcounter', () => import('@/app-core/counter/my-favorite-mob-counter/my-favorite-mob-counter-counter'));
