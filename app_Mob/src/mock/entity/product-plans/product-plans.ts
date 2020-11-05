@@ -624,7 +624,7 @@ mock.onPost(new RegExp(/^\/productplans\/?([a-zA-Z0-9\-\;]{0,35})\/linkstory$/))
 
     
 // MobProductPlanCounter
-mock.onPost(new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/productplans\/([a-zA-Z0-9\-\;]{1,35})\/mobproductplancounter$/)).reply((config: any) => {
+mock.onPut(new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/productplans\/([a-zA-Z0-9\-\;]{1,35})\/mobproductplancounter$/)).reply((config: any) => {
     console.groupCollapsed("实体:productplan 方法: MobProductPlanCounter");
     console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
@@ -650,7 +650,7 @@ mock.onPost(new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/productplans\/([a-
 });
         
 // MobProductPlanCounter
-mock.onPost(new RegExp(/^\/productplans\/?([a-zA-Z0-9\-\;]{0,35})\/mobproductplancounter$/)).reply((config: any) => {
+mock.onPut(new RegExp(/^\/productplans\/?([a-zA-Z0-9\-\;]{0,35})\/mobproductplancounter$/)).reply((config: any) => {
     console.groupCollapsed("实体:productplan 方法: MobProductPlanCounter");
     console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);

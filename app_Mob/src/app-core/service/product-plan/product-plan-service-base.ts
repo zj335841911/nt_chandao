@@ -298,11 +298,11 @@ export class ProductPlanServiceBase extends EntityService {
         if(context.product && context.productplan){
             let masterData:any = {};
             Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/mobproductplancounter`,data,isloading);
+            let res:any = await Http.getInstance().put(`/products/${context.product}/productplans/${context.productplan}/mobproductplancounter`,data,isloading);
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/productplans/${context.productplan}/mobproductplancounter`,data,isloading);
+            let res:any = Http.getInstance().put(`/productplans/${context.productplan}/mobproductplancounter`,data,isloading);
             return res;
     }
 
