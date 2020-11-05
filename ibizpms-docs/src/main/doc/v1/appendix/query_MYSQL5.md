@@ -12599,6 +12599,93 @@ WHERE t1.ENABLE = 1
 
 ```
 
+# **岗位**(SYS_POST)
+
+### 数据查询(DEFAULT)<div id="SysPost_Default"></div>
+```sql
+SELECT
+t1.`DOMAINS`,
+t1.`MEMO`,
+t1.`POSTCODE`,
+t1.`POSTID`,
+t1.`POSTNAME`
+FROM `IBZPOST` t1 
+
+```
+### 默认（全部数据）(VIEW)<div id="SysPost_View"></div>
+```sql
+SELECT
+t1.`DOMAINS`,
+t1.`MEMO`,
+t1.`POSTCODE`,
+t1.`POSTID`,
+t1.`POSTNAME`
+FROM `IBZPOST` t1 
+
+```
+
+# **组**(SYS_TEAM)
+
+### 数据查询(DEFAULT)<div id="SysTeam_Default"></div>
+```sql
+SELECT
+t1.`DOMAINS`,
+t1.`MEMO`,
+t1.`TEAMID`,
+t1.`TEAMNAME`
+FROM `IBZTEAM` t1 
+
+```
+### 默认（全部数据）(VIEW)<div id="SysTeam_View"></div>
+```sql
+SELECT
+t1.`DOMAINS`,
+t1.`MEMO`,
+t1.`TEAMID`,
+t1.`TEAMNAME`
+FROM `IBZTEAM` t1 
+
+```
+
+# **组成员**(SYS_TEAMMEMBER)
+
+### 数据查询(DEFAULT)<div id="SysTeamMember_Default"></div>
+```sql
+SELECT
+t1.`DOMAINS`,
+t31.`PERSONNAME`,
+t1.`POSTID`,
+t21.`POSTNAME`,
+t1.`TEAMID`,
+t1.`TEAMMEMBERID`,
+t11.`TEAMNAME`,
+t1.`USERID`,
+t31.`USERNAME`
+FROM `IBZTEAMMEMBER` t1 
+LEFT JOIN IBZTEAM t11 ON t1.TEAMID = t11.TEAMID 
+LEFT JOIN IBZPOST t21 ON t1.POSTID = t21.POSTID 
+LEFT JOIN T_IBZEMP t31 ON t1.USERID = t31.USERID 
+
+```
+### 默认（全部数据）(VIEW)<div id="SysTeamMember_View"></div>
+```sql
+SELECT
+t1.`DOMAINS`,
+t31.`PERSONNAME`,
+t1.`POSTID`,
+t21.`POSTNAME`,
+t1.`TEAMID`,
+t1.`TEAMMEMBERID`,
+t11.`TEAMNAME`,
+t1.`USERID`,
+t31.`USERNAME`
+FROM `IBZTEAMMEMBER` t1 
+LEFT JOIN IBZTEAM t11 ON t1.TEAMID = t11.TEAMID 
+LEFT JOIN IBZPOST t21 ON t1.POSTID = t21.POSTID 
+LEFT JOIN T_IBZEMP t31 ON t1.USERID = t31.USERID 
+
+```
+
 # **系统更新功能**(SYS_UPDATE_FEATURES)
 
 ### 数据查询(DEFAULT)<div id="SysUpdateFeatures_Default"></div>

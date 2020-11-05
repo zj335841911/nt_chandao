@@ -1,3 +1,4 @@
+import syspost_zh_CN from '@locale/lanres/sys-post/sys-post_zh_CN';
 import branch_zh_CN from '@locale/lanres/branch/branch_zh_CN';
 import sysorganization_zh_CN from '@locale/lanres/sys-organization/sys-organization_zh_CN';
 import file_zh_CN from '@locale/lanres/file/file_zh_CN';
@@ -7,6 +8,7 @@ import projectteam_zh_CN from '@locale/lanres/project-team/project-team_zh_CN';
 import build_zh_CN from '@locale/lanres/build/build_zh_CN';
 import task_zh_CN from '@locale/lanres/task/task_zh_CN';
 import taskestimate_zh_CN from '@locale/lanres/task-estimate/task-estimate_zh_CN';
+import systeammember_zh_CN from '@locale/lanres/sys-team-member/sys-team-member_zh_CN';
 import module_zh_CN from '@locale/lanres/module/module_zh_CN';
 import product_zh_CN from '@locale/lanres/product/product_zh_CN';
 import dynadashboard_zh_CN from '@locale/lanres/dyna-dashboard/dyna-dashboard_zh_CN';
@@ -31,6 +33,7 @@ import projectstats_zh_CN from '@locale/lanres/project-stats/project-stats_zh_CN
 import sysemployee_zh_CN from '@locale/lanres/sys-employee/sys-employee_zh_CN';
 import ibztaskteam_zh_CN from '@locale/lanres/ibztaskteam/ibztaskteam_zh_CN';
 import sysupdatelog_zh_CN from '@locale/lanres/sys-update-log/sys-update-log_zh_CN';
+import systeam_zh_CN from '@locale/lanres/sys-team/sys-team_zh_CN';
 import bug_zh_CN from '@locale/lanres/bug/bug_zh_CN';
 import projectmodule_zh_CN from '@locale/lanres/project-module/project-module_zh_CN';
 import productstats_zh_CN from '@locale/lanres/product-stats/product-stats_zh_CN';
@@ -174,6 +177,7 @@ export default {
             5005: '数据删除失败'
         }
     },
+    syspost: syspost_zh_CN,
     branch: branch_zh_CN,
     sysorganization: sysorganization_zh_CN,
     file: file_zh_CN,
@@ -183,6 +187,7 @@ export default {
     build: build_zh_CN,
     task: task_zh_CN,
     taskestimate: taskestimate_zh_CN,
+    systeammember: systeammember_zh_CN,
     module: module_zh_CN,
     product: product_zh_CN,
     dynadashboard: dynadashboard_zh_CN,
@@ -207,6 +212,7 @@ export default {
     sysemployee: sysemployee_zh_CN,
     ibztaskteam: ibztaskteam_zh_CN,
     sysupdatelog: sysupdatelog_zh_CN,
+    systeam: systeam_zh_CN,
     bug: bug_zh_CN,
     projectmodule: projectmodule_zh_CN,
     productstats: productstats_zh_CN,

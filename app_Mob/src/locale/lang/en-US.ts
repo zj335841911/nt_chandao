@@ -1,3 +1,4 @@
+import syspost_en_US from '@locale/lanres/sys-post/sys-post_en_US';
 import branch_en_US from '@locale/lanres/branch/branch_en_US';
 import sysorganization_en_US from '@locale/lanres/sys-organization/sys-organization_en_US';
 import file_en_US from '@locale/lanres/file/file_en_US';
@@ -7,6 +8,7 @@ import projectteam_en_US from '@locale/lanres/project-team/project-team_en_US';
 import build_en_US from '@locale/lanres/build/build_en_US';
 import task_en_US from '@locale/lanres/task/task_en_US';
 import taskestimate_en_US from '@locale/lanres/task-estimate/task-estimate_en_US';
+import systeammember_en_US from '@locale/lanres/sys-team-member/sys-team-member_en_US';
 import module_en_US from '@locale/lanres/module/module_en_US';
 import product_en_US from '@locale/lanres/product/product_en_US';
 import dynadashboard_en_US from '@locale/lanres/dyna-dashboard/dyna-dashboard_en_US';
@@ -31,6 +33,7 @@ import projectstats_en_US from '@locale/lanres/project-stats/project-stats_en_US
 import sysemployee_en_US from '@locale/lanres/sys-employee/sys-employee_en_US';
 import ibztaskteam_en_US from '@locale/lanres/ibztaskteam/ibztaskteam_en_US';
 import sysupdatelog_en_US from '@locale/lanres/sys-update-log/sys-update-log_en_US';
+import systeam_en_US from '@locale/lanres/sys-team/sys-team_en_US';
 import bug_en_US from '@locale/lanres/bug/bug_en_US';
 import projectmodule_en_US from '@locale/lanres/project-module/project-module_en_US';
 import productstats_en_US from '@locale/lanres/product-stats/product-stats_en_US';
@@ -173,6 +176,7 @@ export default {
             5005: 'Data deletion failed'
         }
     },
+    syspost: syspost_en_US,
     branch: branch_en_US,
     sysorganization: sysorganization_en_US,
     file: file_en_US,
@@ -182,6 +186,7 @@ export default {
     build: build_en_US,
     task: task_en_US,
     taskestimate: taskestimate_en_US,
+    systeammember: systeammember_en_US,
     module: module_en_US,
     product: product_en_US,
     dynadashboard: dynadashboard_en_US,
@@ -206,6 +211,7 @@ export default {
     sysemployee: sysemployee_en_US,
     ibztaskteam: ibztaskteam_en_US,
     sysupdatelog: sysupdatelog_en_US,
+    systeam: systeam_en_US,
     bug: bug_en_US,
     projectmodule: projectmodule_en_US,
     productstats: productstats_en_US,

@@ -5,6 +5,7 @@ import './login/login';
 import './upload/upload';
 
 // 实体级接口对象
+import './entity/sys-posts/sys-posts';
 import './entity/branchs/branchs';
 import './entity/sys-organizations/sys-organizations';
 import './entity/files/files';
@@ -14,6 +15,7 @@ import './entity/project-teams/project-teams';
 import './entity/builds/builds';
 import './entity/tasks/tasks';
 import './entity/task-estimates/task-estimates';
+import './entity/sys-team-members/sys-team-members';
 import './entity/modules/modules';
 import './entity/products/products';
 import './entity/dyna-dashboards/dyna-dashboards';
@@ -38,6 +40,7 @@ import './entity/project-statss/project-statss';
 import './entity/sys-employees/sys-employees';
 import './entity/ibztaskteams/ibztaskteams';
 import './entity/sys-update-logs/sys-update-logs';
+import './entity/sys-teams/sys-teams';
 import './entity/bugs/bugs';
 import './entity/project-modules/project-modules';
 import './entity/product-statss/product-statss';

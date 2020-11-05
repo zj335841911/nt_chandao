@@ -16,6 +16,7 @@ export class AppEntityServiceConstructor extends ServiceConstructorBase {
      * @memberof AppEntityServiceConstructor
      */
     protected init(): void {
+        this.allService.set('syspost', () => import('@/app-core/service/sys-post/sys-post-service'));
         this.allService.set('branch', () => import('@/app-core/service/branch/branch-service'));
         this.allService.set('sysorganization', () => import('@/app-core/service/sys-organization/sys-organization-service'));
         this.allService.set('file', () => import('@/app-core/service/file/file-service'));
@@ -25,6 +26,7 @@ export class AppEntityServiceConstructor extends ServiceConstructorBase {
         this.allService.set('build', () => import('@/app-core/service/build/build-service'));
         this.allService.set('task', () => import('@/app-core/service/task/task-service'));
         this.allService.set('taskestimate', () => import('@/app-core/service/task-estimate/task-estimate-service'));
+        this.allService.set('systeammember', () => import('@/app-core/service/sys-team-member/sys-team-member-service'));
         this.allService.set('module', () => import('@/app-core/service/module/module-service'));
         this.allService.set('product', () => import('@/app-core/service/product/product-service'));
         this.allService.set('dynadashboard', () => import('@/app-core/service/dyna-dashboard/dyna-dashboard-service'));
@@ -49,6 +51,7 @@ export class AppEntityServiceConstructor extends ServiceConstructorBase {
         this.allService.set('sysemployee', () => import('@/app-core/service/sys-employee/sys-employee-service'));
         this.allService.set('ibztaskteam', () => import('@/app-core/service/ibztaskteam/ibztaskteam-service'));
         this.allService.set('sysupdatelog', () => import('@/app-core/service/sys-update-log/sys-update-log-service'));
+        this.allService.set('systeam', () => import('@/app-core/service/sys-team/sys-team-service'));
         this.allService.set('bug', () => import('@/app-core/service/bug/bug-service'));
         this.allService.set('projectmodule', () => import('@/app-core/service/project-module/project-module-service'));
         this.allService.set('productstats', () => import('@/app-core/service/product-stats/product-stats-service'));

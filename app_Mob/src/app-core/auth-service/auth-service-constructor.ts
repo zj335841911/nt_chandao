@@ -14,6 +14,7 @@ export class AuthServiceConstructor extends ServiceConstructorBase {
      * @memberof AuthServiceConstructor
      */
     protected init(): void {
+        this.allService.set('syspost', () => import('@/app-core/auth-service/sys-post/sys-post-auth-service'));
         this.allService.set('branch', () => import('@/app-core/auth-service/branch/branch-auth-service'));
         this.allService.set('sysorganization', () => import('@/app-core/auth-service/sys-organization/sys-organization-auth-service'));
         this.allService.set('file', () => import('@/app-core/auth-service/file/file-auth-service'));
@@ -23,6 +24,7 @@ export class AuthServiceConstructor extends ServiceConstructorBase {
         this.allService.set('build', () => import('@/app-core/auth-service/build/build-auth-service'));
         this.allService.set('task', () => import('@/app-core/auth-service/task/task-auth-service'));
         this.allService.set('taskestimate', () => import('@/app-core/auth-service/task-estimate/task-estimate-auth-service'));
+        this.allService.set('systeammember', () => import('@/app-core/auth-service/sys-team-member/sys-team-member-auth-service'));
         this.allService.set('module', () => import('@/app-core/auth-service/module/module-auth-service'));
         this.allService.set('product', () => import('@/app-core/auth-service/product/product-auth-service'));
         this.allService.set('dynadashboard', () => import('@/app-core/auth-service/dyna-dashboard/dyna-dashboard-auth-service'));
@@ -47,6 +49,7 @@ export class AuthServiceConstructor extends ServiceConstructorBase {
         this.allService.set('sysemployee', () => import('@/app-core/auth-service/sys-employee/sys-employee-auth-service'));
         this.allService.set('ibztaskteam', () => import('@/app-core/auth-service/ibztaskteam/ibztaskteam-auth-service'));
         this.allService.set('sysupdatelog', () => import('@/app-core/auth-service/sys-update-log/sys-update-log-auth-service'));
+        this.allService.set('systeam', () => import('@/app-core/auth-service/sys-team/sys-team-auth-service'));
         this.allService.set('bug', () => import('@/app-core/auth-service/bug/bug-auth-service'));
         this.allService.set('projectmodule', () => import('@/app-core/auth-service/project-module/project-module-auth-service'));
         this.allService.set('productstats', () => import('@/app-core/auth-service/product-stats/product-stats-auth-service'));

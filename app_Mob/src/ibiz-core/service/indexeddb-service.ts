@@ -37,6 +37,7 @@ export class IndexedDBService extends IndexedDBServiceBase {
      * @memberof IndexedDBServiceBase
      */
     protected entityConfigInit(): void {
+        this.entityConfigs.push({ name: 'syspost', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'branch', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'sysorganization', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'file', keyPath: 'srfsessionkey' });
@@ -46,6 +47,7 @@ export class IndexedDBService extends IndexedDBServiceBase {
         this.entityConfigs.push({ name: 'build', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'task', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'taskestimate', keyPath: 'srfsessionkey' });
+        this.entityConfigs.push({ name: 'systeammember', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'module', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'product', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'dynadashboard', keyPath: 'srfsessionkey' });
@@ -70,6 +72,7 @@ export class IndexedDBService extends IndexedDBServiceBase {
         this.entityConfigs.push({ name: 'sysemployee', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'ibztaskteam', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'sysupdatelog', keyPath: 'srfsessionkey' });
+        this.entityConfigs.push({ name: 'systeam', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'bug', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'projectmodule', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'productstats', keyPath: 'srfsessionkey' });
