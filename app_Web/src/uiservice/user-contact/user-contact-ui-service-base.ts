@@ -100,7 +100,7 @@ export default class UserContactUIServiceBase extends UIService {
             viewname: 'editview',
             srfappde: 'usercontacts',
             component: 'user-contact-edit-view',
-            openmode: '',
+            openmode: 'DRAWER_RIGHT',
             title: '用户联系方式',
             width: 0,
             height: 0
