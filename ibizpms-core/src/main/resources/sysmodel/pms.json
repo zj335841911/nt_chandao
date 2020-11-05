@@ -33732,6 +33732,21 @@
     "key_field":0,
     "show_order":1000,
     "major_field":0
+    },
+    {
+    "fieldname":"ASSIGNEDTOPK" ,
+    "codename":"Assignedtopk",
+    "field_logic_name":"指派给（选择）",
+    "entity_name":"Todo",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":200,
+    "expression":"t1.ASSIGNEDTO",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
     }
     ],
     "subEntitys":[

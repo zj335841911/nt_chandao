@@ -32,6 +32,7 @@ export default {
     story: "待办名称",
     date1: "日期",
     date_disable: "待定",
+    assignedtopk: "指派给（选择）",
   },
 	views: {
 		newmobeditview: {
@@ -86,7 +87,7 @@ export default {
 			srfdeid: '', 
 			srfsourcekey: '', 
 			assignedto: '指派给', 
-			assignedto1: '指派给', 
+			assignedtopk: '指派给', 
 			date: '日期', 
 			begin: '开始时间', 
 			end: '结束时间', 

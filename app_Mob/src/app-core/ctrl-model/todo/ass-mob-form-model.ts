@@ -51,7 +51,9 @@ export class AssMobModel {
                 dataType: 'TEXT',
             },
             {
-                name: 'assignedto1',
+                name: 'assignedtopk',
+                prop: 'assignedtopk',
+                dataType: 'TEXT',
             },
             {
                 name: 'date',

@@ -18,22 +18,22 @@
     @groupuiactionclick="groupUIActionClick($event)">
     
 <app-form-item 
-    name='assignedto1' 
+    name='assignedtopk' 
     class='' 
     uiStyle="DEFAULT"  
     labelPos="LEFT" 
-    ref="assignedto1_item"  
-    :itemValue="this.data.assignedto1" 
-    v-show="detailsModel.assignedto1.visible" 
-    :itemRules="this.rules.assignedto1" 
-    :caption="$t('todo.assmob_form.details.assignedto1')"  
+    ref="assignedtopk_item"  
+    :itemValue="this.data.assignedtopk" 
+    v-show="detailsModel.assignedtopk.visible" 
+    :itemRules="this.rules.assignedtopk" 
+    :caption="$t('todo.assmob_form.details.assignedtopk')"  
     :labelWidth="130"  
     :isShowCaption="true"
-    :disabled="detailsModel.assignedto1.disabled"
-    :error="detailsModel.assignedto1.error" 
+    :disabled="detailsModel.assignedtopk.disabled"
+    :error="detailsModel.assignedtopk.error" 
     :isEmptyCaption="false">
         <app-mob-picker
-    name='assignedto1'
+    name='assignedtopk'
     valueitem='assignedTo' 
     editortype="" 
     style=""  
@@ -44,10 +44,10 @@
     :navigateContext ='{ } '
     :navigateParam ='{ } '
     :itemParam='{ }' 
-    :disabled="detailsModel.assignedto1.disabled"
+    :disabled="detailsModel.assignedtopk.disabled"
     :service="service"
     :acParams="{ }"
-    :value="data.assignedto1" 
+    :value="data.assignedtopk" 
     :pickupView="{ viewname: 'sys-employee-tree-mob-pickup-view', title: '人员移动端数据选择视图', deResParameters: [], parameters: [{ pathName: 'sysemployees', parameterName: 'sysemployee' }, { pathName: 'treemobpickupview', parameterName: 'treemobpickupview' } ], placement:'' }"
     @formitemvaluechange="onFormItemValueChange">
 </app-mob-picker>
@@ -475,7 +475,7 @@ export default class AssMobBase extends Vue implements ControlInterface {
         srfdeid: null,
         srfsourcekey: null,
         assignedto: null,
-        assignedto1: null,
+        assignedtopk: null,
         date: null,
         begin: null,
         end: null,
@@ -523,10 +523,6 @@ export default class AssMobBase extends Vue implements ControlInterface {
      */
     protected rules: any = {
         assignedto: [
-            { required: true, type: 'string', message: '指派给 值不能为空', trigger: 'change' },
-            { required: true, type: 'string', message: '指派给 值不能为空', trigger: 'blur' },
-        ],
-        assignedto1: [
             { required: true, type: 'string', message: '指派给 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '指派给 值不能为空', trigger: 'blur' },
         ],
@@ -639,7 +635,7 @@ export default class AssMobBase extends Vue implements ControlInterface {
 , 
         assignedto: new FormItemModel({ caption: '指派给', detailType: 'FORMITEM', name: 'assignedto', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        assignedto1: new FormItemModel({ caption: '指派给', detailType: 'FORMITEM', name: 'assignedto1', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        assignedtopk: new FormItemModel({ caption: '指派给', detailType: 'FORMITEM', name: 'assignedtopk', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         date: new FormItemModel({ caption: '日期', detailType: 'FORMITEM', name: 'date', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -748,15 +744,15 @@ export default class AssMobBase extends Vue implements ControlInterface {
     }
 
     /**
-     * 监控表单属性 assignedto1 值
+     * 监控表单属性 assignedtopk 值
      *
      * @param {*} newVal
      * @param {*} oldVal
      * @memberof AssMob
      */
-    @Watch('data.assignedto1')
-    onAssignedto1Change(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'assignedto1', newVal: newVal, oldVal: oldVal });
+    @Watch('data.assignedtopk')
+    onAssignedtopkChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'assignedtopk', newVal: newVal, oldVal: oldVal });
     }
 
     /**
