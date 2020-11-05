@@ -106,6 +106,15 @@ export class EmpTreeService extends TreeViewServiceBase {
 	public TREENODE_PROJECT: string = 'project';
 
     /**
+     * 组节点分隔符号
+     *
+     * @public
+     * @type {string}
+     * @memberof EmpTreeService
+     */
+	public TREENODE_TEAM: string = 'Team';
+
+    /**
      * 部门节点分隔符号
      *
      * @public
@@ -115,7 +124,7 @@ export class EmpTreeService extends TreeViewServiceBase {
 	public TREENODE_DEPART: string = 'Depart';
 
     /**
-     * 组织人员节点分隔符号
+     * 组织机构节点分隔符号
      *
      * @public
      * @type {string}
@@ -233,6 +242,10 @@ export class EmpTreeService extends TreeViewServiceBase {
         }
         if (Object.is(strNodeType, this.TREENODE_PROJECT)) {
             await this.fillProjectNodeChilds(context,filter, list);
+            return Promise.resolve({ status: 200, data: list });
+        }
+        if (Object.is(strNodeType, this.TREENODE_TEAM)) {
+            await this.fillTeamNodeChilds(context,filter, list);
             return Promise.resolve({ status: 200, data: list });
         }
         if (Object.is(strNodeType, this.TREENODE_DEPART)) {
@@ -614,6 +627,63 @@ export class EmpTreeService extends TreeViewServiceBase {
 	}
 
     /**
+     * 填充 树视图节点[组]
+     *
+     * @public
+     * @param {any{}} context     
+     * @param {*} filter
+     * @param {any[]} list
+     * @param {*} rsNavContext   
+     * @param {*} rsNavParams
+     * @param {*} rsParams
+     * @returns {Promise<any>}
+     * @memberof EmpTreeService
+     */
+    public fillTeamNodes(context:any={},filter: any, list: any[],rsNavContext?:any,rsNavParams?:any,rsParams?:any): Promise<any> {
+        context = this.handleResNavContext(context,filter,rsNavContext);
+        filter = this.handleResNavParams(context,filter,rsNavParams,rsParams);
+        return new Promise((resolve:any,reject:any) =>{
+            let treeNode: any = {};
+            Object.assign(treeNode, { text: '组'});
+            Object.assign(treeNode, { isUseLangRes: true });
+            Object.assign(treeNode, { isNode: false });
+            Object.assign(treeNode,{srfappctx:context});
+            Object.assign(treeNode, { srfmajortext: treeNode.text });
+            let strNodeId: string = 'Team';
+
+            // 没有指定节点值，直接使用父节点值
+            Object.assign(treeNode, { srfkey: filter.strRealNodeId });
+            strNodeId += this.TREENODE_SEPARATOR;
+            strNodeId += filter.strRealNodeId;
+
+            Object.assign(treeNode, { id: strNodeId });
+
+            Object.assign(treeNode, { expanded: filter.isAutoexpand });
+            Object.assign(treeNode, { leaf: true });
+            Object.assign(treeNode, { nodeid: treeNode.srfkey });
+            Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
+            list.push(treeNode);
+            resolve(list);
+        });
+	}
+
+    /**
+     * 填充 树视图节点[组]子节点
+     *
+     * @public
+     * @param {any{}} context         
+     * @param {*} filter
+     * @param {any[]} list
+     * @returns {Promise<any>}
+     * @memberof EmpTreeService
+     */
+    public async fillTeamNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
+		if (filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")) {
+		} else {
+		}
+	}
+
+    /**
      * 填充 树视图节点[部门]
      *
      * @public
@@ -757,7 +827,7 @@ export class EmpTreeService extends TreeViewServiceBase {
 	}
 
     /**
-     * 填充 树视图节点[组织人员]
+     * 填充 树视图节点[组织机构]
      *
      * @public
      * @param {any{}} context     
@@ -774,7 +844,7 @@ export class EmpTreeService extends TreeViewServiceBase {
         filter = this.handleResNavParams(context,filter,rsNavParams,rsParams);
         return new Promise((resolve:any,reject:any) =>{
             let treeNode: any = {};
-            Object.assign(treeNode, { text: '组织人员'});
+            Object.assign(treeNode, { text: '组织机构'});
             Object.assign(treeNode, { isUseLangRes: true });
             Object.assign(treeNode, { isNode: true });
             Object.assign(treeNode,{srfappctx:context});
@@ -798,7 +868,7 @@ export class EmpTreeService extends TreeViewServiceBase {
 	}
 
     /**
-     * 填充 树视图节点[组织人员]子节点
+     * 填充 树视图节点[组织机构]子节点
      *
      * @public
      * @param {any{}} context         
@@ -1146,7 +1216,7 @@ export class EmpTreeService extends TreeViewServiceBase {
      */
     public async fillRootNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
 		if (filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")) {
-			// 填充组织人员
+			// 填充组织机构
             let OrgempRsNavContext:any = {};
             let OrgempRsNavParams:any = {};
             let OrgempRsParams:any = {};
@@ -1156,8 +1226,13 @@ export class EmpTreeService extends TreeViewServiceBase {
             let ProjectRsNavParams:any = {};
             let ProjectRsParams:any = {};
 			await this.fillProjectNodes(context, filter, list ,ProjectRsNavContext,ProjectRsNavParams,ProjectRsParams);
+			// 填充组
+            let TeamRsNavContext:any = {};
+            let TeamRsNavParams:any = {};
+            let TeamRsParams:any = {};
+			await this.fillTeamNodes(context, filter, list ,TeamRsNavContext,TeamRsNavParams,TeamRsParams);
 		} else {
-			// 填充组织人员
+			// 填充组织机构
             let OrgempRsNavContext:any = {};
             let OrgempRsNavParams:any = {};
             let OrgempRsParams:any = {};
@@ -1167,6 +1242,11 @@ export class EmpTreeService extends TreeViewServiceBase {
             let ProjectRsNavParams:any = {};
             let ProjectRsParams:any = {};
 			await this.fillProjectNodes(context, filter, list ,ProjectRsNavContext,ProjectRsNavParams,ProjectRsParams);
+			// 填充组
+            let TeamRsNavContext:any = {};
+            let TeamRsNavParams:any = {};
+            let TeamRsParams:any = {};
+			await this.fillTeamNodes(context, filter, list ,TeamRsNavContext,TeamRsNavParams,TeamRsParams);
 		}
 	}
 
