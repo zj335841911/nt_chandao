@@ -261,6 +261,8 @@
 
 * [第三方接口](client/client_index.md)
   
+  * [插件接入接口](client/PluginClientAPI.md) 
+
   * [iBiz平台系统模型接口](client/iBizPSSysModelAPI.md) 
 
   * [ibzou-api](client/IbzOuSysAPI.md) 
