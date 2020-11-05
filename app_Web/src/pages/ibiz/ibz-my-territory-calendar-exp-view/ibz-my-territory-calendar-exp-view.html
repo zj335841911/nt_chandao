@@ -1,0 +1,24 @@
+<div class="view-container decalendarexpview ibz-my-territory-calendar-exp-view">
+    <app-studioaction :viewTitle="$t(model.srfTitle)" viewName="ibzmyterritorycalendarexpview"></app-studioaction>
+    <card class='view-card  view-no-caption  view-no-toolbar' :dis-hover="true" :bordered="false">
+
+    
+    <div class="content-container">
+        <view_calendarexpbar 
+    :viewState="viewState"  
+    :viewparams="viewparams" 
+    :context="context" 
+    :showBusyIndicator="true" 
+    :viewUID="viewUID"
+    :newdata="newdata"
+    :opendata="opendata"
+    name="calendarexpbar"  
+    ref='calendarexpbar' 
+    @selectionchange="calendarexpbar_selectionchange($event)"  
+    @activated="calendarexpbar_activated($event)"  
+    @load="calendarexpbar_load($event)"  
+    @closeview="closeView($event)">
+</view_calendarexpbar>
+    </div>
+    </card>
+</div>

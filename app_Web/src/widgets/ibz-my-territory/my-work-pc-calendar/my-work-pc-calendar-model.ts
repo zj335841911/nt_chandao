@@ -10,7 +10,7 @@ export default class MyWorkPCModel {
 	 * 日历项类型
 	 *
 	 * @returns {any[]}
-	 * @memberof MyWorkPCCalendarMode
+	 * @memberof MyWorkPCCalendarexpbar_calendarMode
 	 */
 	public itemType: string = "";
 
@@ -18,7 +18,7 @@ export default class MyWorkPCModel {
 	 * 获取数据项集合
 	 *
 	 * @returns {any[]}
-	 * @memberof MyWorkPCCalendarMode
+	 * @memberof MyWorkPCCalendarexpbar_calendarMode
 	 */
 	public getDataItems(): any[] {
      let dataItems: any = [

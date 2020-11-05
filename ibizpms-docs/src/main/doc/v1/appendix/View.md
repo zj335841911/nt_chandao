@@ -310,6 +310,7 @@ SRFNAVPARAM.project=%project%|
 |-|指派表单视图|DEOPTVIEW|&nbsp;|
 |-|测试运行多表单编辑视图|DEMEDITVIEW9|&nbsp;|
 |-|bug表格视图|DEGRIDVIEW|&nbsp;|
+|-|我的地盘日历导航视图|DECALENDAREXPVIEW|&nbsp;|
 |-|燃尽图|DECHARTVIEW|&nbsp;|
 |-|Bug的一生|DEEDITVIEW9|&nbsp;|
 |-|测试版本编辑视图|DEEDITVIEW9|&nbsp;|

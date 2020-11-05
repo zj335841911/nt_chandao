@@ -1,0 +1,32 @@
+<split id="calendarexpviewcalendarexpbar" class="app-calendar-exp-bar " v-model="split" mode="horizontal" @on-move-end="onSplitChange.apply(_self, arguments)">
+    <div slot='left'>
+        <div class="container-header">
+        </div>
+        <div class='calendar-exp-bar-content2'>
+            <view_calendarexpbar_calendar 
+    :viewState="viewState"  
+    :viewparams="viewparams" 
+    :context="context" 
+    :showBusyIndicator="true"
+    :isSelectFirstDefault="true"
+    :newdata="newdata"
+    :opendata="opendata"
+    name="calendarexpbar_calendar"  
+    ref='calendarexpbar_calendar' 
+    @selectionchange="calendarexpbar_calendar_selectionchange($event)"  
+    @load="calendarexpbar_calendar_load($event)"  
+    @closeview="closeView($event)">
+</view_calendarexpbar_calendar>
+        </div>
+    </div>
+    <div slot='right'>
+        <component 
+        v-if="selection.view && !Object.is(this.selection.view.viewname, '')" 
+        :is="selection.view.viewname"
+        class="viewcontainer2"
+        :viewDefaultUsage="false"
+        :viewdata="JSON.stringify(selection.context)"
+        :viewparam="JSON.stringify(selection.viewparam)">
+        </component>
+    </div>
+</split>

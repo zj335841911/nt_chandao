@@ -9,7 +9,7 @@ import layout_buglayoutpanel from '@widgets/bug/mob-panel/mob-panel.vue';
  
 
 /**
- * calendar部件
+ * calendarexpbar_calendar部件
  *
  * @export
  * @class MyWorkPCCalendar
