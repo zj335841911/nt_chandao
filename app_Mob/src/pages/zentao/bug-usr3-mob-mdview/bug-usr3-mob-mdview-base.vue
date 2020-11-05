@@ -199,7 +199,7 @@ export default class BugUsr3MobMDViewBase extends Vue {
      * @type {*}
      * @memberof BugUsr3MobMDViewBase
      */
-    protected navParam: any = {};
+    protected navParam: any = { 'srfparentname': 'release', 'srfparentkey': '%release%' };
 
     /**
      * 视图模型数据
