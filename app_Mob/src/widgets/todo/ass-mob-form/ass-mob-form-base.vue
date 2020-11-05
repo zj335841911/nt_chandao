@@ -34,8 +34,8 @@
     :isEmptyCaption="false">
         <app-mob-picker
     name='assignedtopk'
-    deMajorField='sysemployeename'
-    deKeyField='sysemployeeid'
+    deMajorField='personname'
+    deKeyField='username'
     valueitem='assignedto' 
     editortype="" 
     style=""  
