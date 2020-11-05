@@ -56,6 +56,7 @@ export class IndexedDBService extends IndexedDBServiceBase {
         this.entityConfigs.push({ name: 'casestep', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'productline', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'sysdepartment', keyPath: 'srfsessionkey' });
+        this.entityConfigs.push({ name: 'usercontact', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'release', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'taskteam', keyPath: 'srfsessionkey' });
         this.entityConfigs.push({ name: 'productmodule', keyPath: 'srfsessionkey' });

@@ -58,6 +58,10 @@ public class TestSuiteServiceImpl extends ServiceImpl<TestSuiteMapper, TestSuite
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.IProductService productService;
 
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.zentao.service.logic.ITestSuiteMobTestSuiteCountLogic mobtestsuitecountLogic;
+
     protected int batchSize = 500;
 
         @Override
@@ -110,6 +114,13 @@ public class TestSuiteServiceImpl extends ServiceImpl<TestSuiteMapper, TestSuite
     @Override
     public TestSuite getDraft(TestSuite et) {
         return et;
+    }
+
+    @Override
+    @Transactional
+    public TestSuite a1(TestSuite et) {
+        mobtestsuitecountLogic.execute(et);
+         return et ;
     }
 
     @Override

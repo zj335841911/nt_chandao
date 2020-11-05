@@ -38,6 +38,7 @@ public interface IProductPlanService extends IService<ProductPlan>{
     boolean checkKey(ProductPlan et) ;
     ProductPlan linkBug(ProductPlan et) ;
     ProductPlan linkStory(ProductPlan et) ;
+    ProductPlan mobProductPlanCounter(ProductPlan et) ;
     boolean save(ProductPlan et) ;
     void saveBatch(List<ProductPlan> list) ;
     ProductPlan unlinkBug(ProductPlan et) ;

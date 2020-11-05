@@ -24,6 +24,7 @@ import './entity/actions/actions';
 import './entity/case-steps/case-steps';
 import './entity/product-lines/product-lines';
 import './entity/sys-departments/sys-departments';
+import './entity/user-contacts/user-contacts';
 import './entity/releases/releases';
 import './entity/task-teams/task-teams';
 import './entity/product-modules/product-modules';

@@ -4,19 +4,19 @@ import  { EntityService }  from '@/ibiz-core';
 
 
 /**
- * 测试套件服务对象基类
+ * 用户联系方式服务对象基类
  *
  * @export
- * @class TestSuiteServiceBase
+ * @class UserContactServiceBase
  * @extends {EntityServie}
  */
-export class TestSuiteServiceBase extends EntityService {
+export class UserContactServiceBase extends EntityService {
 
     /**
-     * Creates an instance of  TestSuiteServiceBase.
+     * Creates an instance of  UserContactServiceBase.
      * 
      * @param {*} [opts={}]
-     * @memberof  TestSuiteServiceBase
+     * @memberof  UserContactServiceBase
      */
     constructor(opts: any = {}) {
         super(opts);
@@ -25,13 +25,13 @@ export class TestSuiteServiceBase extends EntityService {
     /**
      * 初始化基础数据
      *
-     * @memberof TestSuiteServiceBase
+     * @memberof UserContactServiceBase
      */
     public initBasicData(){
-        this.APPLYDEKEY ='testsuite';
+        this.APPLYDEKEY ='usercontact';
         this.APPDEKEY = 'id';
-        this.APPDENAME = 'testsuites';
-        this.APPDETEXT = 'name';
+        this.APPDENAME = 'usercontacts';
+        this.APPDETEXT = 'listname';
         this.APPNAME = 'mob';
         this.SYSTEMNAME = 'pms';
     }
@@ -45,10 +45,10 @@ export class TestSuiteServiceBase extends EntityService {
      * @param {*} [data={}]
      * @param {boolean} [isloading]
      * @returns {Promise<any>}
-     * @memberof TestSuiteServiceBase
+     * @memberof UserContactServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().get(`/testsuites/${context.testsuite}/select`,isloading);
+            let res:any = Http.getInstance().get(`/usercontacts/${context.usercontact}/select`,isloading);
             
             return res;
     }
@@ -60,7 +60,7 @@ export class TestSuiteServiceBase extends EntityService {
      * @param {*} [data={}]
      * @param {boolean} [isloading]
      * @returns {Promise<any>}
-     * @memberof TestSuiteServiceBase
+     * @memberof UserContactServiceBase
      */
     public async Create(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let masterData:any = {};
@@ -72,7 +72,7 @@ export class TestSuiteServiceBase extends EntityService {
             delete data.srffrontuf;
         }
         let tempContext:any = JSON.parse(JSON.stringify(context));
-        let res:any = await Http.getInstance().post(`/testsuites`,data,isloading);
+        let res:any = await Http.getInstance().post(`/usercontacts`,data,isloading);
         
         return res;
     }
@@ -84,12 +84,12 @@ export class TestSuiteServiceBase extends EntityService {
      * @param {*} [data={}]
      * @param {boolean} [isloading]
      * @returns {Promise<any>}
-     * @memberof TestSuiteServiceBase
+     * @memberof UserContactServiceBase
      */
     public async Update(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let masterData:any = {};
         Object.assign(data,masterData);
-            let res:any = await  Http.getInstance().put(`/testsuites/${context.testsuite}`,data,isloading);
+            let res:any = await  Http.getInstance().put(`/usercontacts/${context.usercontact}`,data,isloading);
             
             return res;
     }
@@ -101,10 +101,10 @@ export class TestSuiteServiceBase extends EntityService {
      * @param {*} [data={}]
      * @param {boolean} [isloading]
      * @returns {Promise<any>}
-     * @memberof TestSuiteServiceBase
+     * @memberof UserContactServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().delete(`/testsuites/${context.testsuite}`,isloading);
+            let res:any = Http.getInstance().delete(`/usercontacts/${context.usercontact}`,isloading);
             return res;
     }
 
@@ -115,10 +115,10 @@ export class TestSuiteServiceBase extends EntityService {
      * @param {*} [data={}]
      * @param {boolean} [isloading]
      * @returns {Promise<any>}
-     * @memberof TestSuiteServiceBase
+     * @memberof UserContactServiceBase
      */
     public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = await Http.getInstance().get(`/testsuites/${context.testsuite}`,isloading);
+            let res:any = await Http.getInstance().get(`/usercontacts/${context.usercontact}`,isloading);
             
             return res;
     }
@@ -130,27 +130,13 @@ export class TestSuiteServiceBase extends EntityService {
      * @param {*} [data={}]
      * @param {boolean} [isloading]
      * @returns {Promise<any>}
-     * @memberof TestSuiteServiceBase
+     * @memberof UserContactServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let res:any = await  Http.getInstance().get(`/testsuites/getdraft`,isloading);
-        res.data.testsuite = data.testsuite;
+        let res:any = await  Http.getInstance().get(`/usercontacts/getdraft`,isloading);
+        res.data.usercontact = data.usercontact;
         
         return res;
-    }
-
-    /**
-     * A1接口方法
-     *
-     * @param {*} [context={}]
-     * @param {*} [data={}]
-     * @param {boolean} [isloading]
-     * @returns {Promise<any>}
-     * @memberof TestSuiteServiceBase
-     */
-    public async A1(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/testsuites/${context.testsuite}/a1`,data,isloading);
-            return res;
     }
 
     /**
@@ -160,10 +146,10 @@ export class TestSuiteServiceBase extends EntityService {
      * @param {*} [data={}]
      * @param {boolean} [isloading]
      * @returns {Promise<any>}
-     * @memberof TestSuiteServiceBase
+     * @memberof UserContactServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/testsuites/${context.testsuite}/checkkey`,data,isloading);
+            let res:any = Http.getInstance().post(`/usercontacts/${context.usercontact}/checkkey`,data,isloading);
             return res;
     }
 
@@ -174,12 +160,12 @@ export class TestSuiteServiceBase extends EntityService {
      * @param {*} [data={}]
      * @param {boolean} [isloading]
      * @returns {Promise<any>}
-     * @memberof TestSuiteServiceBase
+     * @memberof UserContactServiceBase
      */
     public async Save(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let masterData:any = {};
         Object.assign(data,masterData);
-            let res:any = await  Http.getInstance().post(`/testsuites/${context.testsuite}/save`,data,isloading);
+            let res:any = await  Http.getInstance().post(`/usercontacts/${context.usercontact}/save`,data,isloading);
             
             return res;
     }
@@ -191,26 +177,26 @@ export class TestSuiteServiceBase extends EntityService {
      * @param {*} [data={}]
      * @param {boolean} [isloading]
      * @returns {Promise<any>}
-     * @memberof TestSuiteServiceBase
+     * @memberof UserContactServiceBase
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/testsuites/fetchdefault`,tempData,isloading);
+        let res:any = Http.getInstance().get(`/usercontacts/fetchdefault`,tempData,isloading);
         return res;
     }
 
     /**
-     * FetchPublicTestSuite接口方法
+     * FetchMyUSERCONTACT接口方法
      *
      * @param {*} [context={}]
      * @param {*} [data={}]
      * @param {boolean} [isloading]
      * @returns {Promise<any>}
-     * @memberof TestSuiteServiceBase
+     * @memberof UserContactServiceBase
      */
-    public async FetchPublicTestSuite(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+    public async FetchMyUSERCONTACT(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/testsuites/fetchpublictestsuite`,tempData,isloading);
+        let res:any = Http.getInstance().get(`/usercontacts/fetchmyusercontact`,tempData,isloading);
         return res;
     }
 }

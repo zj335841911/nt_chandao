@@ -8,6 +8,7 @@ import SysPostService from '@/app-core/service/sys-post/sys-post-service';
 import SysDepartmentService from '@/app-core/service/sys-department/sys-department-service';
 import SysTeamMemberService from '@/app-core/service/sys-team-member/sys-team-member-service';
 import SysTeamService from '@/app-core/service/sys-team/sys-team-service';
+import UserContactService from '@/app-core/service/user-contact/user-contact-service';
 
 
 /**
@@ -95,6 +96,14 @@ export class EmpTreeService extends TreeViewServiceBase {
      * @memberof EmpTreeService
      */
     public systeamService: SysTeamService = new SysTeamService({ $store: this.getStore() });
+
+    /**
+     * 用户联系方式服务对象
+     *
+     * @type {UserContactService}
+     * @memberof EmpTreeService
+     */
+    public usercontactService: UserContactService = new UserContactService({ $store: this.getStore() });
 
     /**
      * 节点分隔符号
@@ -205,6 +214,15 @@ export class EmpTreeService extends TreeViewServiceBase {
 	public TREENODE_IBZEMP: string = 'IBZEMP';
 
     /**
+     * 联系人节点分隔符号
+     *
+     * @public
+     * @type {string}
+     * @memberof EmpTreeService
+     */
+	public TREENODE_CONCATLIST: string = 'ConcatList';
+
+    /**
      * 团队节点分隔符号
      *
      * @public
@@ -221,6 +239,15 @@ export class EmpTreeService extends TreeViewServiceBase {
      * @memberof EmpTreeService
      */
 	public TREENODE_ROOT: string = 'ROOT';
+
+    /**
+     * 联系列表节点分隔符号
+     *
+     * @public
+     * @type {string}
+     * @memberof EmpTreeService
+     */
+	public TREENODE_USERCONTACT: string = 'UserContact';
 
     /**
      * 获取节点数据
@@ -339,12 +366,20 @@ export class EmpTreeService extends TreeViewServiceBase {
             await this.fillIbzempNodeChilds(context,filter, list);
             return Promise.resolve({ status: 200, data: list });
         }
+        if (Object.is(strNodeType, this.TREENODE_CONCATLIST)) {
+            await this.fillConcatlistNodeChilds(context,filter, list);
+            return Promise.resolve({ status: 200, data: list });
+        }
         if (Object.is(strNodeType, this.TREENODE_SYSTEAM)) {
             await this.fillSysteamNodeChilds(context,filter, list);
             return Promise.resolve({ status: 200, data: list });
         }
         if (Object.is(strNodeType, this.TREENODE_ROOT)) {
             await this.fillRootNodeChilds(context,filter, list);
+            return Promise.resolve({ status: 200, data: list });
+        }
+        if (Object.is(strNodeType, this.TREENODE_USERCONTACT)) {
+            await this.fillUsercontactNodeChilds(context,filter, list);
             return Promise.resolve({ status: 200, data: list });
         }
         return Promise.resolve({ status: 500, data: { title: '失败', message: `树节点${strTreeNodeId}标识无效` } });
@@ -1597,6 +1632,73 @@ export class EmpTreeService extends TreeViewServiceBase {
 	}
 
     /**
+     * 填充 树视图节点[联系人]
+     *
+     * @public
+     * @param {any{}} context     
+     * @param {*} filter
+     * @param {any[]} list
+     * @param {*} rsNavContext   
+     * @param {*} rsNavParams
+     * @param {*} rsParams
+     * @returns {Promise<any>}
+     * @memberof EmpTreeService
+     */
+    public fillConcatlistNodes(context:any={},filter: any, list: any[],rsNavContext?:any,rsNavParams?:any,rsParams?:any): Promise<any> {
+        context = this.handleResNavContext(context,filter,rsNavContext);
+        filter = this.handleResNavParams(context,filter,rsNavParams,rsParams);
+        return new Promise((resolve:any,reject:any) =>{
+            let treeNode: any = {};
+            Object.assign(treeNode, { text: '联系人'});
+            Object.assign(treeNode, { isUseLangRes: true });
+            Object.assign(treeNode, { isNode: true });
+            Object.assign(treeNode,{srfappctx:context});
+            Object.assign(treeNode, { srfmajortext: treeNode.text });
+            let strNodeId: string = 'ConcatList';
+
+            // 没有指定节点值，直接使用父节点值
+            Object.assign(treeNode, { srfkey: filter.strRealNodeId });
+            strNodeId += this.TREENODE_SEPARATOR;
+            strNodeId += filter.strRealNodeId;
+
+            Object.assign(treeNode, { id: strNodeId });
+
+            Object.assign(treeNode, { expanded: filter.isAutoexpand });
+            Object.assign(treeNode, { leaf: false });
+            Object.assign(treeNode, { nodeid: treeNode.srfkey });
+            Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
+            list.push(treeNode);
+            resolve(list);
+        });
+	}
+
+    /**
+     * 填充 树视图节点[联系人]子节点
+     *
+     * @public
+     * @param {any{}} context         
+     * @param {*} filter
+     * @param {any[]} list
+     * @returns {Promise<any>}
+     * @memberof EmpTreeService
+     */
+    public async fillConcatlistNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
+		if (filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")) {
+			// 填充联系列表
+            let UsercontactRsNavContext:any = {};
+            let UsercontactRsNavParams:any = {};
+            let UsercontactRsParams:any = {};
+			await this.fillUsercontactNodes(context, filter, list ,UsercontactRsNavContext,UsercontactRsNavParams,UsercontactRsParams);
+		} else {
+			// 填充联系列表
+            let UsercontactRsNavContext:any = {};
+            let UsercontactRsNavParams:any = {};
+            let UsercontactRsParams:any = {};
+			await this.fillUsercontactNodes(context, filter, list ,UsercontactRsNavContext,UsercontactRsNavParams,UsercontactRsParams);
+		}
+	}
+
+    /**
      * 填充 树视图节点[团队]
      *
      * @public
@@ -1807,6 +1909,11 @@ export class EmpTreeService extends TreeViewServiceBase {
             let PostRsNavParams:any = {};
             let PostRsParams:any = {};
 			await this.fillPostNodes(context, filter, list ,PostRsNavContext,PostRsNavParams,PostRsParams);
+			// 填充联系人
+            let ConcatlistRsNavContext:any = {};
+            let ConcatlistRsNavParams:any = {};
+            let ConcatlistRsParams:any = {};
+			await this.fillConcatlistNodes(context, filter, list ,ConcatlistRsNavContext,ConcatlistRsNavParams,ConcatlistRsParams);
 		} else {
 			// 填充组织机构
             let OrgempRsNavContext:any = {};
@@ -1828,6 +1935,140 @@ export class EmpTreeService extends TreeViewServiceBase {
             let PostRsNavParams:any = {};
             let PostRsParams:any = {};
 			await this.fillPostNodes(context, filter, list ,PostRsNavContext,PostRsNavParams,PostRsParams);
+			// 填充联系人
+            let ConcatlistRsNavContext:any = {};
+            let ConcatlistRsNavParams:any = {};
+            let ConcatlistRsParams:any = {};
+			await this.fillConcatlistNodes(context, filter, list ,ConcatlistRsNavContext,ConcatlistRsNavParams,ConcatlistRsParams);
+		}
+	}
+
+    /**
+     * 填充 树视图节点[联系列表]
+     *
+     * @public
+     * @param {any{}} context     
+     * @param {*} filter
+     * @param {any[]} list
+     * @param {*} rsNavContext   
+     * @param {*} rsNavParams
+     * @param {*} rsParams
+     * @returns {Promise<any>}
+     * @memberof EmpTreeService
+     */
+    public fillUsercontactNodes(context:any={},filter: any, list: any[],rsNavContext?:any,rsNavParams?:any,rsParams?:any): Promise<any> {
+        context = this.handleResNavContext(context,filter,rsNavContext);
+        filter = this.handleResNavParams(context,filter,rsNavParams,rsParams);
+        return new Promise((resolve:any,reject:any) =>{
+            let searchFilter: any = {};
+            Object.assign(searchFilter, { total: false });
+            let bFirst: boolean = true;
+            let records: any[] = [];
+            try {
+                this.searchUsercontact(context, searchFilter, filter).then((records:any) =>{
+                    if(records && records.length >0){
+                        records.forEach((entity: any) => {
+                        let treeNode: any = {};
+                        // 整理context
+                        let strId: string = entity.id;
+                        let strText: string = entity.listname;
+                        Object.assign(treeNode,{srfparentdename:'UserContact',srfparentkey:entity.id});
+                        let tempContext:any = JSON.parse(JSON.stringify(context));
+                        Object.assign(tempContext,{srfparentdename:'UserContact',srfparentkey:entity.id,usercontact:strId})
+                        Object.assign(treeNode,{srfappctx:tempContext});
+                        Object.assign(treeNode,{'usercontact':strId});
+                        Object.assign(treeNode, { srfkey: strId });
+                        Object.assign(treeNode, { text: strText, srfmajortext: strText });
+                        let strNodeId: string = 'UserContact';
+                        strNodeId += this.TREENODE_SEPARATOR;
+                        strNodeId += strId;
+                        Object.assign(treeNode, { id: strNodeId });
+                        Object.assign(treeNode, { expanded: filter.isautoexpand });
+                        Object.assign(treeNode, { leaf: true });
+                        Object.assign(treeNode, { curData: entity });
+                        Object.assign(treeNode, { nodeid: treeNode.srfkey });
+                        Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
+                        list.push(treeNode);
+                        resolve(list);
+                        bFirst = false;
+                    });
+                    }else{
+                        resolve(list);
+                    }
+                });
+            } catch (error) {
+                console.error(error);
+            }
+        });
+
+	}
+
+    /**
+     * 获取查询集合
+     *
+     * @public
+     * @param {any{}} context     
+     * @param {*} searchFilter
+     * @param {*} filter
+     * @returns {any[]}
+     * @memberof TestEnetityDatasService
+     */
+    public searchUsercontact(context:any={}, searchFilter: any, filter: any): Promise<any> {
+        return new Promise((resolve:any,reject:any) =>{
+            if(filter.viewparams){
+                Object.assign(searchFilter,filter.viewparams);
+            }
+            if(!searchFilter.page){
+                Object.assign(searchFilter,{page:0});
+            }
+            if(!searchFilter.size){
+                Object.assign(searchFilter,{size:1000});
+            }
+            if(context && context.srfparentdename){
+                Object.assign(searchFilter,{srfparentdename:JSON.parse(JSON.stringify(context)).srfparentdename});
+            }
+            if(context && context.srfparentkey){
+                Object.assign(searchFilter,{srfparentkey:JSON.parse(JSON.stringify(context)).srfparentkey});
+            }
+            const _appEntityService: any = this.usercontactService;
+            let list: any[] = [];
+            if (_appEntityService['FetchMyUSERCONTACT'] && _appEntityService['FetchMyUSERCONTACT'] instanceof Function) {
+                const response: Promise<any> = _appEntityService['FetchMyUSERCONTACT'](context, searchFilter, false);
+                response.then((response: any) => {
+                    if (!response.status || response.status !== 200) {
+                        resolve([]);
+                        console.log(JSON.stringify(context));
+                        console.error('查询FetchMyUSERCONTACT数据集异常!');
+                    }
+                    const data: any = response.data;
+                    if (Object.keys(data).length > 0) {
+                        list = JSON.parse(JSON.stringify(data));
+                        resolve(list);
+                    } else {
+                        resolve([]);
+                    }
+                }).catch((response: any) => {
+                        resolve([]);
+                        console.log(JSON.stringify(context));
+                        console.error('查询FetchMyUSERCONTACT数据集异常!');
+                });
+            }
+        })
+    }
+
+    /**
+     * 填充 树视图节点[联系列表]子节点
+     *
+     * @public
+     * @param {any{}} context         
+     * @param {*} filter
+     * @param {any[]} list
+     * @returns {Promise<any>}
+     * @memberof EmpTreeService
+     */
+    public async fillUsercontactNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
+		if (filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")) {
+		} else {
 		}
 	}
 
