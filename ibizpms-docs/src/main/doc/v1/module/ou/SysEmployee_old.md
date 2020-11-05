@@ -4,6 +4,7 @@
 
 ## 关系
 {% plantuml %}
+人员 *-- 组成员 
 部门 *-- 人员 
 单位 *-- 人员 
 hide members
