@@ -190,7 +190,7 @@ export default class BugUsr5MobMDViewBase extends Vue {
      * @type {*}
      * @memberof BugUsr5MobMDViewBase
      */
-    protected navContext: any = {};
+    protected navContext: any = { 'project': '%project%', 'objecttype': 'build', 'srfparentkey': '%build%' };
 
     /**
      * 视图导航参数
@@ -199,7 +199,7 @@ export default class BugUsr5MobMDViewBase extends Vue {
      * @type {*}
      * @memberof BugUsr5MobMDViewBase
      */
-    protected navParam: any = {};
+    protected navParam: any = { 'srfparentkey': '%build%', 'project': '%project%', 'objecttype': 'build' };
 
     /**
      * 视图模型数据
