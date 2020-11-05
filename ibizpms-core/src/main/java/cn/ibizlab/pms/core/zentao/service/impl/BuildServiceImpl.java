@@ -64,6 +64,10 @@ public class BuildServiceImpl extends ServiceImpl<BuildMapper, Build> implements
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.IProjectService projectService;
 
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.zentao.service.logic.IBuildMobProjectBuildCounterLogic mobprojectbuildcounterLogic;
+
     protected int batchSize = 500;
 
         @Override
@@ -127,6 +131,13 @@ public class BuildServiceImpl extends ServiceImpl<BuildMapper, Build> implements
     @Transactional
     public Build linkStory(Build et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.BuildHelper.class).linkStory(et);
+    }
+
+    @Override
+    @Transactional
+    public Build mobProjectBuildCounter(Build et) {
+        mobprojectbuildcounterLogic.execute(et);
+         return et ;
     }
 
     @Override

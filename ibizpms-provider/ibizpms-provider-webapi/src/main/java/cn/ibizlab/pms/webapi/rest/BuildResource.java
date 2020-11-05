@@ -131,6 +131,17 @@ public class BuildResource {
         return ResponseEntity.status(HttpStatus.OK).body(builddto);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-MobProjectBuildCounter-all')")
+    @ApiOperation(value = "移动端项目版本计数器", tags = {"版本" },  notes = "移动端项目版本计数器")
+	@RequestMapping(method = RequestMethod.PUT, value = "/builds/{build_id}/mobprojectbuildcounter")
+    public ResponseEntity<BuildDTO> mobProjectBuildCounter(@PathVariable("build_id") Long build_id, @RequestBody BuildDTO builddto) {
+        Build domain = buildMapping.toDomain(builddto);
+        domain.setId(build_id);
+        domain = buildService.mobProjectBuildCounter(domain);
+        builddto = buildMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(builddto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-OneClickRelease-all')")
     @ApiOperation(value = "一键发布", tags = {"版本" },  notes = "一键发布")
 	@RequestMapping(method = RequestMethod.POST, value = "/builds/{build_id}/oneclickrelease")
@@ -382,6 +393,17 @@ public class BuildResource {
         Build domain = buildMapping.toDomain(builddto);
         domain.setProduct(product_id);
         domain = buildService.linkStory(domain) ;
+        builddto = buildMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(builddto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-MobProjectBuildCounter-all')")
+    @ApiOperation(value = "根据产品版本", tags = {"版本" },  notes = "根据产品版本")
+	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/builds/{build_id}/mobprojectbuildcounter")
+    public ResponseEntity<BuildDTO> mobProjectBuildCounterByProduct(@PathVariable("product_id") Long product_id, @PathVariable("build_id") Long build_id, @RequestBody BuildDTO builddto) {
+        Build domain = buildMapping.toDomain(builddto);
+        domain.setProduct(product_id);
+        domain = buildService.mobProjectBuildCounter(domain) ;
         builddto = buildMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(builddto);
     }
@@ -648,6 +670,17 @@ public class BuildResource {
         Build domain = buildMapping.toDomain(builddto);
         domain.setProject(project_id);
         domain = buildService.linkStory(domain) ;
+        builddto = buildMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(builddto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-MobProjectBuildCounter-all')")
+    @ApiOperation(value = "根据项目版本", tags = {"版本" },  notes = "根据项目版本")
+	@RequestMapping(method = RequestMethod.PUT, value = "/projects/{project_id}/builds/{build_id}/mobprojectbuildcounter")
+    public ResponseEntity<BuildDTO> mobProjectBuildCounterByProject(@PathVariable("project_id") Long project_id, @PathVariable("build_id") Long build_id, @RequestBody BuildDTO builddto) {
+        Build domain = buildMapping.toDomain(builddto);
+        domain.setProject(project_id);
+        domain = buildService.mobProjectBuildCounter(domain) ;
         builddto = buildMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(builddto);
     }

@@ -167,6 +167,25 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | [BuildDTO](#BuildDTO)：版本实体传输对象 |
 
+### 移动端项目版本计数器
+#### 访问路径
+/builds/{build_id}/mobprojectbuildcounter
+
+#### 请求方法
+PUT
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | build_id | Long | 版本主键ID |
+| 2 | builddto | [BuildDTO](#BuildDTO) | 版本实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [BuildDTO](#BuildDTO)：版本实体传输对象 |
+
 ### 一键发布
 #### 访问路径
 /builds/{build_id}/oneclickrelease
@@ -597,6 +616,26 @@ POST
 
 #### 请求方法
 POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |
+| 2 | build_id | Long | 版本主键ID |
+| 3 | builddto | [BuildDTO](#BuildDTO) | 版本实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [BuildDTO](#BuildDTO)：版本实体传输对象 |
+
+### 移动端项目版本计数器
+#### 访问路径
+/products/{product_id}/builds/{build_id}/mobprojectbuildcounter
+
+#### 请求方法
+PUT
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -1056,6 +1095,26 @@ POST
 
 #### 请求方法
 POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | project_id | Long | 项目主键ID |
+| 2 | build_id | Long | 版本主键ID |
+| 3 | builddto | [BuildDTO](#BuildDTO) | 版本实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [BuildDTO](#BuildDTO)：版本实体传输对象 |
+
+### 移动端项目版本计数器
+#### 访问路径
+/projects/{project_id}/builds/{build_id}/mobprojectbuildcounter
+
+#### 请求方法
+PUT
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |

@@ -971,8 +971,9 @@ String
 | 6 | [CheckKey](#实体行为-CheckKey（CheckKey）) | CheckKey | 内置方法 | 后台及前台 |
 | 7 | [关联需求](#实体行为-关联需求（LinkStory）) | LinkStory | 用户自定义 | 后台及前台 |
 | 8 | [提交测试](#实体行为-提交测试（MentionTest）) | mentionTest | 用户自定义 | 前台 |
-| 9 | [一键发布](#实体行为-一键发布（OneClickRelease）) | OneClickRelease | 用户自定义 | 后台及前台 |
-| 10 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
+| 9 | [移动端项目版本计数器](#实体行为-移动端项目版本计数器（MobProjectBuildCounter）) | MobProjectBuildCounter | 实体处理逻辑 | 后台 |
+| 10 | [一键发布](#实体行为-一键发布（OneClickRelease）) | OneClickRelease | 用户自定义 | 后台及前台 |
+| 11 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
 
 ### 实体行为-Create（Create）
 #### 说明
@@ -1070,6 +1071,18 @@ CheckKey
 
 #### 逻辑附加
 无
+### 实体行为-移动端项目版本计数器（MobProjectBuildCounter）
+#### 说明
+移动端项目版本计数器
+
+- 行为类型
+实体处理逻辑
+
+- 行为持有者
+后台
+
+#### 逻辑附加
+无
 ### 实体行为-一键发布（OneClickRelease）
 #### 说明
 一键发布
@@ -1110,7 +1123,10 @@ Save
 #### 逻辑节点
 | 序号 | 节点 | 节点名 | 节点类型 |
 | ---- | ---- | ---- | ---- |
-| 1 | 开始 | Begin | 开始 |
+| 1 | 获取完成的需求数 | Rawsqlcall1 | 直接SQL调用 |
+| 2 | 获取产生的bug | Rawsqlcall3 | 直接SQL调用 |
+| 3 | 获取解决的bug | Rawsqlcall2 | 直接SQL调用 |
+| 4 | 开始 | Begin | 开始 |
 
 ## 实体搜索
 ### 快速搜索项

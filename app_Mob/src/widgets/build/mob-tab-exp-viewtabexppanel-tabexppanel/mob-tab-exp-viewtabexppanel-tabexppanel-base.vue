@@ -60,6 +60,7 @@ import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
 import BuildUIService from '@/ui-service/build/build-ui-action';
 
+import  MobProjectBuildCounterCounterService  from '@/app-core/counter/mob-project-build-counter/mob-project-build-counter-counter';
 
 
 @Component({
@@ -186,6 +187,14 @@ export default class MobTabExpViewtabexppanelBase extends Vue implements Control
         _this.$emit('closeview', args);
     }
 
+    
+    /**
+     * MobProjectBuildCounterCounterService计数器服务对象
+     *
+     * @type {MobProjectBuildCounterCounterService}
+     * @memberof MobTabExpViewtabexppanel
+     */
+    protected MobProjectBuildCountercounterservice: MobProjectBuildCounterCounterService = new MobProjectBuildCounterCounterService({$store: this.$store,context:this.context,viewparams:this.viewparams});
 
     /**
      * 计数器服务对象集合
@@ -193,7 +202,7 @@ export default class MobTabExpViewtabexppanelBase extends Vue implements Control
      * @type {Array<*>}
      * @memberof MobTabExpViewtabexppanel
      */    
-    protected counterServiceArray:Array<any> = [];
+    protected counterServiceArray:Array<any> = [this.MobProjectBuildCountercounterservice];
 
     /**
      * 加载计数器数据
