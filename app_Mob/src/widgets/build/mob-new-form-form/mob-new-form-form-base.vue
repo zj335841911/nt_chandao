@@ -52,7 +52,6 @@
     deMajorField='name'
     deKeyField='product'
     valueitem='product' 
-    editortype="" 
     style=""  
     :formState="formState"
     :data="data"
