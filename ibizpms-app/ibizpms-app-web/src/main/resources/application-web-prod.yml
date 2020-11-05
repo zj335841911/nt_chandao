@@ -191,6 +191,10 @@ zuul:
       path: /productlives/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
+    zt_usercontact:
+      path: /usercontacts/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
     zt_task:
       path: /tasks/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}

@@ -589,6 +589,16 @@
         "viewtag": "1ed8a475f4c185fc99c487900bbcf69e",
         "memo": "\"????\" \"????\""
     },
+    "usercontacteditview": {
+        "title": "usercontact编辑视图",
+        "caption": "用户联系方式",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "zentao",
+        "viewname": "UserContactEditView",
+        "viewfilename": "user-contact-edit-view",
+        "viewtag": "1eeb1cc3801fe7d3961fca4b3d753b04",
+        "memo": ""
+    },
     "testreportmainediteditview": {
         "title": "测试报告编辑视图",
         "caption": "测试报告",
@@ -617,6 +627,16 @@
         "viewname": "TestTaskMyYGridView",
         "viewfilename": "test-task-my-ygrid-view",
         "viewtag": "1fdd9d52c2aa726e0d0372fb9e3ad916",
+        "memo": ""
+    },
+    "usercontacttreeexpview": {
+        "title": "用户联系方式树导航视图",
+        "caption": "用户联系方式",
+        "viewtype": "DETREEEXPVIEW",
+        "viewmodule": "zentao",
+        "viewname": "UserContactTreeExpView",
+        "viewfilename": "user-contact-tree-exp-view",
+        "viewtag": "202eafd29797672a733652aee093b6f9",
         "memo": ""
     },
     "bugmpickupview": {

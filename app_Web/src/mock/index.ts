@@ -53,6 +53,7 @@ import './entity/product-modules/product-modules';
 import './entity/modules/modules';
 import './entity/test-modules/test-modules';
 import './entity/product-lifes/product-lifes';
+import './entity/user-contacts/user-contacts';
 import './entity/tasks/tasks';
 import './entity/builds/builds';
 import './entity/test-results/test-results';

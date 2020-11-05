@@ -203,6 +203,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/product-my-test-tab-exp-view/product-my-test-tab-exp-view.vue'),
                 },
                 {
+                    path: 'usercontacts/:usercontact?/editview/:editview?',
+                    meta: {
+                        caption: 'entities.usercontact.views.editview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'usercontacts', parameterName: 'usercontact' },
+                            { pathName: 'editview', parameterName: 'editview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/user-contact-edit-view/user-contact-edit-view.vue'),
+                },
+                {
                     path: 'products/:product?/dashboardinfomainview9/:dashboardinfomainview9?',
                     meta: {
                         caption: 'entities.product.views.dashboardinfomainview9.caption',
@@ -2099,20 +2113,6 @@ const router = new Router({
                     component: () => import('@pages/zentao/case-case-favorite/case-case-favorite.vue'),
                 },
                 {
-                    path: 'todos/:todo?/assigntoview/:assigntoview?',
-                    meta: {
-                        caption: 'entities.todo.views.assigntoview.caption',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'todos', parameterName: 'todo' },
-                            { pathName: 'assigntoview', parameterName: 'assigntoview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/todo-assign-to-view/todo-assign-to-view.vue'),
-                },
-                {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/gridview9_storyformbug/:gridview9_storyformbug?',
                     meta: {
                         caption: 'entities.bug.views.gridview9_storyformbug.caption',
@@ -2196,6 +2196,20 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/bug-grid-view9-story-form-bug/bug-grid-view9-story-form-bug.vue'),
+                },
+                {
+                    path: 'todos/:todo?/assigntoview/:assigntoview?',
+                    meta: {
+                        caption: 'entities.todo.views.assigntoview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'todos', parameterName: 'todo' },
+                            { pathName: 'assigntoview', parameterName: 'assigntoview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/todo-assign-to-view/todo-assign-to-view.vue'),
                 },
                 {
                     path: 'products/:product?/stories/:story?/tasks/:task?/workinfoeditview9/:workinfoeditview9?',
@@ -13610,6 +13624,20 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/project-chart-view9/project-chart-view9.vue'),
+                },
+                {
+                    path: 'usercontacts/:usercontact?/treeexpview/:treeexpview?',
+                    meta: {
+                        caption: 'entities.usercontact.views.treeexpview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'usercontacts', parameterName: 'usercontact' },
+                            { pathName: 'treeexpview', parameterName: 'treeexpview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/user-contact-tree-exp-view/user-contact-tree-exp-view.vue'),
                 },
                 {
                     path: 'projects/:project?/testtasks/:testtask?/editview_committest/:editview_committest?',

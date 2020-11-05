@@ -248,9 +248,11 @@
 |-|bug选择表格视图|DEPICKUPGRIDVIEW|&nbsp;|
 |-|iBiz软件生产管理|APPINDEXVIEW|&nbsp;"????"
 "????"|
+|-|usercontact编辑视图|DEEDITVIEW|&nbsp;|
 |-|测试报告编辑视图|DEEDITVIEW|&nbsp;|
 |-|需求编辑视图|DEEDITVIEW9|&nbsp;|
 |-|测试单表格视图|DEGRIDVIEW|&nbsp;|
+|-|用户联系方式树导航视图|DETREEEXPVIEW|&nbsp;|
 |-|关联Bug|DEMPICKUPVIEW|&nbsp;|
 |-|任务|DEEDITVIEW|&nbsp;|
 |-|项目团队表格视图|DEGRIDVIEW|&nbsp;|

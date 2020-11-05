@@ -46,6 +46,7 @@ import productmodule_zh_CN from '@locale/lanres/entities/product-module/product-
 import module_zh_CN from '@locale/lanres/entities/module/module_zh_CN';
 import testmodule_zh_CN from '@locale/lanres/entities/test-module/test-module_zh_CN';
 import productlife_zh_CN from '@locale/lanres/entities/product-life/product-life_zh_CN';
+import usercontact_zh_CN from '@locale/lanres/entities/user-contact/user-contact_zh_CN';
 import task_zh_CN from '@locale/lanres/entities/task/task_zh_CN';
 import build_zh_CN from '@locale/lanres/entities/build/build_zh_CN';
 import testresult_zh_CN from '@locale/lanres/entities/test-result/test-result_zh_CN';
@@ -375,6 +376,7 @@ const data: any = {
         module: module_zh_CN,
         testmodule: testmodule_zh_CN,
         productlife: productlife_zh_CN,
+        usercontact: usercontact_zh_CN,
         task: task_zh_CN,
         build: build_zh_CN,
         testresult: testresult_zh_CN,

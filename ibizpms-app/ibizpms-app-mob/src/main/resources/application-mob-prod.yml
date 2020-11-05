@@ -83,6 +83,10 @@ zuul:
       path: /sysdepartments/**
       serviceId: ${ibiz.ref.service.ibzou-api:ibzou-api}
       stripPrefix: false
+    zt_usercontact:
+      path: /usercontacts/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
     zt_release:
       path: /releases/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}

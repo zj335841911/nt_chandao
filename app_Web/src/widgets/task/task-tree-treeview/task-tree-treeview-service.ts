@@ -282,6 +282,7 @@ export default class TaskTreeService extends ControlService {
             if(context && context.srfparentkey){
                 Object.assign(searchFilter,{srfparentkey:JSON.parse(JSON.stringify(context)).srfparentkey});
             }
+            Object.assign(searchFilter,{sort: 'id,desc'})
             const _appEntityService: any = this.appEntityService;
             let list: any[] = [];
             if (_appEntityService['FetchRootTask'] && _appEntityService['FetchRootTask'] instanceof Function) {
@@ -429,6 +430,7 @@ export default class TaskTreeService extends ControlService {
             if(context && context.srfparentkey){
                 Object.assign(searchFilter,{srfparentkey:JSON.parse(JSON.stringify(context)).srfparentkey});
             }
+            Object.assign(searchFilter,{sort: 'id,desc'})
             const _appEntityService: any = this.appEntityService;
             let list: any[] = [];
             if (_appEntityService['FetchChildTaskTree'] && _appEntityService['FetchChildTaskTree'] instanceof Function) {

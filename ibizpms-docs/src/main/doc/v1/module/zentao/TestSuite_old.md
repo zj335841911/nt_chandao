@@ -56,7 +56,18 @@ hide members
 |Save|内置方法|&nbsp;|
 
 ## 处理逻辑
-无
+* 移动端测试套件计数器 (MobTestSuiteCount)
+  
+   
+
+{% plantuml %}
+hide footbox
+
+{% endplantuml %}
+
+| 步骤       | 操作        |
+| --------   | --------   |
+<center>移动端测试套件计数器</center>
 
 ## 查询集合
 
