@@ -965,7 +965,7 @@ String
 否
 
 - 属性类型
-物理字段[来自当前实体物理表字段]
+应用界面字段[无存储]
 
 - 数据类型
 长文本，没有长度限制
@@ -1410,7 +1410,6 @@ SELECT
 t1.`BRANCH`,
 t1.`BUGS`,
 t1.`BUILDER`,
-t1.`CREATEBUGCNT`,
 t1.`DATE`,
 t1.`DELETED`,
 t1.`DESC`,

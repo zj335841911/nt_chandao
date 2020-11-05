@@ -2520,7 +2520,7 @@
     "entity_name":"Build",
     "field_type":"LONGTEXT",
     "nullable":1,
-    "physical_field":1,
+    "physical_field":0,
     "data_type":"TEXT",
     "data_length":1048576,
     "key_field":0,
