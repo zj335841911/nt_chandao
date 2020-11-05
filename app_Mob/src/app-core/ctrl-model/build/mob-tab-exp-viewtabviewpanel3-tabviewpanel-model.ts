@@ -78,6 +78,9 @@ export class MobTabExpViewtabviewpanel3Model {
       {
         name: 'sqlid',
       },
+      {
+        name: 'createbugcnt',
+      },
     ]
   }
 

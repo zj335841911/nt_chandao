@@ -78,6 +78,9 @@ export class Mob_8373Model {
       {
         name: 'sqlid',
       },
+      {
+        name: 'createbugcnt',
+      },
     ]
   }
 
