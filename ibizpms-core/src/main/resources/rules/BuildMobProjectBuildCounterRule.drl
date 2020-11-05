@@ -19,7 +19,7 @@ ruleflow-group "buildmobprojectbuildcounterrawsqlcall1"
     then
     Map param =new HashMap();
     param.put("param0",buildmobprojectbuildcounterdefault.get("id"));
-    String strSql="select count(1) as storycnt from zt_story t1 where t1.deleted = '0' and  FIND_IN_SET(t1.id,(select stories from zt_build where id = #{et.param0}))";
+    String strSql="select count(1) as stories  from zt_story t1 where t1.deleted = '0' and  FIND_IN_SET(t1.id,(select stories from zt_build where id = #{et.param0}))";
     java.util.List<JSONObject> entities=iBzSysBuildDefaultService.select(strSql,param);//SQL调用
     if(entities.size()>0){
         JSONObject entity=entities.get(0);
@@ -53,8 +53,9 @@ rule "rawsqlcall2"
 ruleflow-group "buildmobprojectbuildcounterrawsqlcall2"
     when
     then
-    Map param = null;
-    String strSql="select count(1) as resolvedbugcnt from zt_bug t1 where  t1.deleted = '0'  and FIND_IN_SET(t1.id,(select bugs from zt_build where id = ?)) ";
+    Map param =new HashMap();
+    param.put("param0",buildmobprojectbuildcounterdefault.get("id"));
+    String strSql="select count(1) as bugs from zt_bug t1 where  t1.deleted = '0'  and FIND_IN_SET(t1.id,(select bugs from zt_build where id = #{et.param0})) ";
     java.util.List<JSONObject> entities=iBzSysBuildDefaultService.select(strSql,param);//SQL调用
     if(entities.size()>0){
         JSONObject entity=entities.get(0);

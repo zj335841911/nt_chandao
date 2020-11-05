@@ -68,6 +68,7 @@ public class UserContact extends EntityMP implements Serializable {
     /**
      * account
      */
+    @DEField(preType = DEPredefinedFieldType.CREATEMANNAME)
     @TableField(value = "`account`")
     @JSONField(name = "account")
     @JsonProperty("account")
@@ -89,14 +90,6 @@ public class UserContact extends EntityMP implements Serializable {
     public void setListname(String listname){
         this.listname = listname ;
         this.modify("listname",listname);
-    }
-
-    /**
-     * 设置 [account]
-     */
-    public void setAccount(String account){
-        this.account = account ;
-        this.modify("account",account);
     }
 
 

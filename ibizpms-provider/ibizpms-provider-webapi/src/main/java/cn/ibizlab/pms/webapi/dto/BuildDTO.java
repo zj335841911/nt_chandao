@@ -218,6 +218,15 @@ public class BuildDTO extends DTOBase implements Serializable {
     @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
     private String sqlid;
 
+    /**
+     * 属性 [CREATEBUGCNT]
+     *
+     */
+    @JSONField(name = "createbugcnt")
+    @JsonProperty("createbugcnt")
+    @Size(min = 0, max = 1048576, message = "内容长度必须小于等于[1048576]")
+    private String createbugcnt;
+
 
     /**
      * 设置 [NAME]
@@ -305,6 +314,14 @@ public class BuildDTO extends DTOBase implements Serializable {
     public void setProject(Long  project){
         this.project = project ;
         this.modify("project",project);
+    }
+
+    /**
+     * 设置 [CREATEBUGCNT]
+     */
+    public void setCreatebugcnt(String  createbugcnt){
+        this.createbugcnt = createbugcnt ;
+        this.modify("createbugcnt",createbugcnt);
     }
 
 

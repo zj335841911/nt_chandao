@@ -19,7 +19,7 @@ ruleflow-group "releasemobreleasecounterrawsqlcall1"
     then
     Map param =new HashMap();
     param.put("param0",releasemobreleasecounterdefault.get("id"));
-    String strSql="select count(1) as storycnt from zt_story t1 where t1.deleted = '0'  and  FIND_IN_SET(t1.id,(select stories from zt_release where id = #{et.param0}))";
+    String strSql="select count(1) as stories from zt_story t1 where t1.deleted = '0'  and  FIND_IN_SET(t1.id,(select stories from zt_release where id = #{et.param0}))";
     java.util.List<JSONObject> entities=iBzSysReleaseDefaultService.select(strSql,param);//SQL调用
     if(entities.size()>0){
         JSONObject entity=entities.get(0);
@@ -37,7 +37,7 @@ ruleflow-group "releasemobreleasecounterrawsqlcall2"
     then
     Map param =new HashMap();
     param.put("param0",releasemobreleasecounterdefault.get("id"));
-    String strSql="select count(1) as resolvedbugcnt from zt_bug t1 where  t1.deleted = '0'  and   FIND_IN_SET(t1.id,(select bugs from zt_release where id = #{et.param0}))";
+    String strSql="select count(1) as bugs from zt_bug t1 where  t1.deleted = '0'  and   FIND_IN_SET(t1.id,(select bugs from zt_release where id = #{et.param0}))";
     java.util.List<JSONObject> entities=iBzSysReleaseDefaultService.select(strSql,param);//SQL调用
     if(entities.size()>0){
         JSONObject entity=entities.get(0);
@@ -55,7 +55,7 @@ ruleflow-group "releasemobreleasecounterrawsqlcall3"
     then
     Map param =new HashMap();
     param.put("param0",releasemobreleasecounterdefault.get("id"));
-    String strSql="select count(1) as leftbugcnt from zt_bug t1 where t1.deleted = '0'  and    FIND_IN_SET(t1.id,(select leftbugs from zt_release where id = #{et.param0}))";
+    String strSql="select count(1) as LEFTBUGS from zt_bug t1 where t1.deleted = '0'  and    FIND_IN_SET(t1.id,(select leftbugs from zt_release where id = #{et.param0}))";
     java.util.List<JSONObject> entities=iBzSysReleaseDefaultService.select(strSql,param);//SQL调用
     if(entities.size()>0){
         JSONObject entity=entities.get(0);

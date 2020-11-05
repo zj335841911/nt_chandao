@@ -203,6 +203,13 @@ public class Build extends EntityMP implements Serializable {
     @JSONField(name = "sqlid")
     @JsonProperty("sqlid")
     private String sqlid;
+    /**
+     * 产生的bug
+     */
+    @TableField(value = "`createbugcnt`")
+    @JSONField(name = "createbugcnt")
+    @JsonProperty("createbugcnt")
+    private String createbugcnt;
 
     /**
      * 
@@ -326,6 +333,14 @@ public class Build extends EntityMP implements Serializable {
     public void setProject(Long project){
         this.project = project ;
         this.modify("project",project);
+    }
+
+    /**
+     * 设置 [产生的bug]
+     */
+    public void setCreatebugcnt(String createbugcnt){
+        this.createbugcnt = createbugcnt ;
+        this.modify("createbugcnt",createbugcnt);
     }
 
 

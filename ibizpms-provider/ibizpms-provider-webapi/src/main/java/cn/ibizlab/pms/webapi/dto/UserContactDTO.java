@@ -82,14 +82,6 @@ public class UserContactDTO extends DTOBase implements Serializable {
         this.modify("listname",listname);
     }
 
-    /**
-     * 设置 [ACCOUNT]
-     */
-    public void setAccount(String  account){
-        this.account = account ;
-        this.modify("account",account);
-    }
-
 
 }
 
