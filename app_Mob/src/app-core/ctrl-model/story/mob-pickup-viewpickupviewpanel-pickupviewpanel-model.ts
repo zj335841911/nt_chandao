@@ -180,6 +180,9 @@ export class MobPickupViewpickupviewpanelModel {
       {
         name: 'ischild',
       },
+      {
+        name: 'mailtoconact',
+      },
     ]
   }
 

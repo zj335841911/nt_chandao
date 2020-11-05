@@ -180,6 +180,9 @@ export class MOBMyFavoriteStoryModel {
       {
         name: 'ischild',
       },
+      {
+        name: 'mailtoconact',
+      },
     ]
   }
 

@@ -114,7 +114,9 @@ export default {
 			title: '名称', 
 			begin: '开始日期', 
 			end: '结束日期', 
+			storycnt: '需求数', 
 			desc: '描述', 
+			bugcnt: 'bug数', 
 			id: '编号', 
 		},
 		uiactions: {
