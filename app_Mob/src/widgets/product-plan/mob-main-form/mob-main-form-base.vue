@@ -133,34 +133,6 @@
 
 
 <app-form-item 
-    name='storycnt' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="storycnt_item"  
-    :itemValue="this.data.storycnt" 
-    v-show="detailsModel.storycnt.visible" 
-    :itemRules="this.rules.storycnt" 
-    :caption="$t('productplan.mobmain_form.details.storycnt')"  
-    :labelWidth="100"  
-    :isShowCaption="true"
-    :disabled="detailsModel.storycnt.disabled"
-    :error="detailsModel.storycnt.error" 
-    :isEmptyCaption="false">
-        <app-mob-span  
-    v-if="data.storycnt"
-    :navigateContext ='{ } '
-    :navigateParam ='{ } ' 
-    :data="data"
-    :context="context"
-    :viewparams="viewparams"
-    :value="data.storycnt" 
-    :itemParam="{}"/>
-</app-form-item>
-
-
-
-<app-form-item 
     name='desc' 
     class='' 
     uiStyle="DEFAULT"  
@@ -222,34 +194,6 @@
 
     
 </app-form-group>
-
-
-
-<app-form-item 
-    name='bugcnt' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="bugcnt_item"  
-    :itemValue="this.data.bugcnt" 
-    v-show="detailsModel.bugcnt.visible" 
-    :itemRules="this.rules.bugcnt" 
-    :caption="$t('productplan.mobmain_form.details.bugcnt')"  
-    :labelWidth="100"  
-    :isShowCaption="true"
-    :disabled="detailsModel.bugcnt.disabled"
-    :error="detailsModel.bugcnt.error" 
-    :isEmptyCaption="false">
-        <app-mob-span  
-    v-if="data.bugcnt"
-    :navigateContext ='{ } '
-    :navigateParam ='{ } ' 
-    :data="data"
-    :context="context"
-    :viewparams="viewparams"
-    :value="data.bugcnt" 
-    :itemParam="{}"/>
-</app-form-item>
 
 
 
@@ -677,9 +621,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
         title: null,
         begin: null,
         end: null,
-        storycnt: null,
         desc: null,
-        bugcnt: null,
         id: null,
         productplan: null,
     };
@@ -850,11 +792,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
 , 
         end: new FormItemModel({ caption: '结束日期', detailType: 'FORMITEM', name: 'end', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        storycnt: new FormItemModel({ caption: '需求数', detailType: 'FORMITEM', name: 'storycnt', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
         desc: new FormItemModel({ caption: '描述', detailType: 'FORMITEM', name: 'desc', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        bugcnt: new FormItemModel({ caption: 'bug数', detailType: 'FORMITEM', name: 'bugcnt', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
 , 
@@ -993,18 +931,6 @@ export default class MobMainBase extends Vue implements ControlInterface {
     }
 
     /**
-     * 监控表单属性 storycnt 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobMain
-     */
-    @Watch('data.storycnt')
-    onStorycntChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'storycnt', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
      * 监控表单属性 desc 值
      *
      * @param {*} newVal
@@ -1014,18 +940,6 @@ export default class MobMainBase extends Vue implements ControlInterface {
     @Watch('data.desc')
     onDescChange(newVal: any, oldVal: any) {
         this.formDataChange({ name: 'desc', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 bugcnt 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobMain
-     */
-    @Watch('data.bugcnt')
-    onBugcntChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'bugcnt', newVal: newVal, oldVal: oldVal });
     }
 
     /**
@@ -1111,8 +1025,6 @@ export default class MobMainBase extends Vue implements ControlInterface {
             }
             this.detailsModel.grouppanel2.setVisible(ret);
         }
-
-
 
 
 
