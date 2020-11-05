@@ -72,7 +72,7 @@
             loaddraftAction=""
             loadAction="Get"
             createAction="Create"
-            fetchAction="FetchDefault" 
+            fetchAction="FetchPublicTestSuite" 
             :isMutli="!isSingleSelect"
             :isNeedLoaddingText="!isPortalView"
             :showBusyIndicator="true" 
@@ -236,7 +236,7 @@ export default class TestSuiteMobMDViewBase extends Vue {
      * @type {*}
      * @memberof TestSuiteMobMDViewBase
      */
-    protected navContext: any = { 'n_product_eq': '%product%' };
+    protected navContext: any = { 'srfparentkey': '%product%' };
 
     /**
      * 视图导航参数
@@ -245,7 +245,7 @@ export default class TestSuiteMobMDViewBase extends Vue {
      * @type {*}
      * @memberof TestSuiteMobMDViewBase
      */
-    protected navParam: any = { 'n_product_eq': '%product%' };
+    protected navParam: any = { 'srfparentkey': '%product%' };
 
     /**
      * 视图模型数据

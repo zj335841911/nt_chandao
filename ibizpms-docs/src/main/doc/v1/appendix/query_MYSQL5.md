@@ -14108,7 +14108,7 @@ t1.`TYPE`
 FROM `zt_testsuite` t1 
 
 WHERE t1.DELETED = '0' 
-( ( t1.`TYPE` = 'public'  OR  ( t1.`TYPE` = 'private'  AND  t1.`ADDEDBY` =  ${srfsessioncontext('srfloginname','{"defname":"ADDEDBY","dename":"ZT_TESTSUITE"}')} ) ) ) 
+( ( t1.`TYPE` = 'public'  OR  ( t1.`TYPE` = 'private'  AND  t1.`ADDEDBY` =  ${srfsessioncontext('srfloginname','{"defname":"ADDEDBY","dename":"ZT_TESTSUITE"}')} ) )  AND  t1.`PRODUCT` = ${srfwebcontext('srfparentkey','{"defname":"PRODUCT","dename":"ZT_TESTSUITE"}')} ) 
 
 ```
 ### 默认（全部数据）(VIEW)<div id="TestSuite_View"></div>
