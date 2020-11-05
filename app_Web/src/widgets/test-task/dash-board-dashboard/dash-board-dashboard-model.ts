@@ -75,6 +75,9 @@ export default class DashboardModel {
       {
         name: 'comment',
       },
+      {
+        name: 'casecnt',
+      },
     ]
   }
 

@@ -75,6 +75,9 @@ export default class ToTestTestTaskModel {
       {
         name: 'comment',
       },
+      {
+        name: 'casecnt',
+      },
     ]
   }
 

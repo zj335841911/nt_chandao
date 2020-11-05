@@ -1,0 +1,45 @@
+<div :class='calendarClass'>
+      <context-menu-container>
+      <template v-if="events.length > 0">
+        <div class="event-legends">
+          <div :class="{'event-lengend':true, 'Bug':true, 'event-disabled':!isShowlegend.Bug}" @click="legendTrigger('Bug')">
+            <div class="lengend-icon" style="background:rgba(254, 228, 90, 1);"></div>
+            <span style="color:rgba(17, 34, 132, 1);">Bug</span>
+          </div>
+          <div :class="{'event-lengend':true, 'task':true, 'event-disabled':!isShowlegend.task}" @click="legendTrigger('task')">
+            <div class="lengend-icon" style="background:rgba(247, 110, 154, 1);"></div>
+            <span style="color:rgba(247, 219, 15, 1);">任务</span>
+          </div>
+          <div :class="{'event-lengend':true, 'todo':true, 'event-disabled':!isShowlegend.todo}" @click="legendTrigger('todo')">
+            <div class="lengend-icon" style="background:rgba(255, 166, 0, 1);"></div>
+            <span style="color:;">待办</span>
+          </div>
+        </div>
+        <FullCalendar
+          ref="calendar"
+          :locale="$i18n.locale"
+          height="parent"
+          :firstDay="1"
+          :eventLimit="true"
+          :editable="!isSelectFirstDefault && true"
+          :buttonText="buttonText" 
+          :header="header"
+          :plugins="calendarPlugins"
+          :events="searchEvents"
+          :customButtons="customButtons"
+          :validRange="validRange"
+          :defaultDate="defaultDate"
+          :eventRender="eventRender"
+          @dateClick="onDateClick.apply(_self, arguments)"
+          @eventClick="onEventClick.apply(_self, arguments)"
+          @eventDrop="onEventDrop.apply(_self, arguments)"
+          defaultView="dayGridMonth"/>
+          <modal v-model="modalVisible" width="250px" :title="$t('app.calendar.dateSelectModalTitle')" class-name='date-select-modal' @on-ok="gotoDate.apply(_self, arguments)">
+            <el-date-picker style="width: 200px;" v-model="selectedGotoDate" type="date"></el-date-picker>
+          </modal>
+      </template>
+      <template v-else>
+        <span class="app-data-empty">{{ $t('entities.ibzmyterritory.myworkpc_calendar.nodata') }}</span>
+      </template>
+      </context-menu-container>
+</div>

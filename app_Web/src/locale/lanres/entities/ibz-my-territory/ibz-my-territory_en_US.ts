@@ -54,6 +54,10 @@ export default {
 			caption: "我的地盘",
       		title: "我的地盘",
 		},
+		calendarview: {
+			caption: "我的地盘",
+      		title: "我的地盘日历视图",
+		},
 		testtreeexpview: {
 			caption: "测试统计",
       		title: "我的地盘树导航视图（测试统计）",
@@ -118,6 +122,11 @@ export default {
 		},
 	},
 	welcome_list: {
+		nodata: "",
+		uiactions: {
+		},
+	},
+	myworkpc_calendar: {
 		nodata: "",
 		uiactions: {
 		},

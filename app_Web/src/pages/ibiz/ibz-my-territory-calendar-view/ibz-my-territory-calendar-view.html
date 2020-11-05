@@ -1,0 +1,17 @@
+<studio-view viewName="ibzmyterritorycalendarview" viewTitle="我的地盘日历视图" class='decalendarview ibz-my-territory-calendar-view'>
+    <template slot='title'>
+    <span class='caption-info'>{{viewCaption}}</span>
+    </template>
+        <view_calendar 
+                    :viewState="viewState"  
+                    :viewparams="viewparams" 
+                    :context="context" 
+                    :showBusyIndicator="true"
+                    @beforeload="onBeforeLoad($event)" 
+                    :newdata="newdata"
+                    :opendata="opendata"
+                    name="calendar"  
+                    ref='calendar' 
+                    @closeview="closeView($event)">
+                </view_calendar>
+</studio-view>

@@ -225,6 +225,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '8cf3bd4450a7bbccd2f6aff9629bfdf2',
                 '24a03de02dc02b92a3c228b944e78ed9',
                 'cdba1a5e90e147e5f3bf9f2c08c87f56',
                 '96ed1661161ecbd9adbb979fddb405a5',
@@ -2183,6 +2184,18 @@ export const viewstate: any = {
                 '6c7b582273d0726bcf77214807cfe40c',
                 '1381e29846ae321ca2d06d71bbe3082d',
                 'e042a1dee405b0a853f315b39a375783',
+            ],
+        },
+        {
+            viewtag: '8cf3bd4450a7bbccd2f6aff9629bfdf2',
+            viewmodule: 'ibiz',
+            viewname: 'IbzMyTerritoryCalendarView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '1540523a668e920d831510cfbec2c5e2',
+                '575fecad655143bbd28f17c581725a4e',
+                'ebf37bf3881bb27c09db9bbe5d0b0f77',
             ],
         },
         {
