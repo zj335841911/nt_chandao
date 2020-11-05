@@ -33285,7 +33285,7 @@
     "nullable":1,
     "physical_field":0,
     "data_type":"INT",
-    "expression":"0",
+    "expression":"SELECT count(1) CASECNT FROM `zt_case` t1 LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID LEFT JOIN zt_story t21 ON t1.STORY = t21.ID LEFT JOIN zt_product t31 ON t1.PRODUCT = t31.ID LEFT JOIN zt_testrun t41 ON t1.id = t41.`case` WHERE t41.`TASK` = ? AND t1.DELETED = '0' AND t1.product = ?",
     "key_field":0,
     "show_order":1000,
     "major_field":0
