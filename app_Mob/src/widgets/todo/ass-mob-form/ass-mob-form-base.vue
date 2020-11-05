@@ -34,6 +34,8 @@
     :isEmptyCaption="false">
         <app-mob-picker
     name='assignedtopk'
+    deMajorField='sysemployeename'
+    deKeyField='sysemployeeid'
     valueitem='assignedto' 
     editortype="" 
     style=""  
@@ -46,7 +48,7 @@
     :itemParam='{ }' 
     :disabled="detailsModel.assignedtopk.disabled"
     :service="service"
-    :acParams="{ }"
+    :acParams="{ serviceName: 'sysemployee', interfaceName: 'FetchDefault'}"
     :value="data.assignedtopk" 
     :pickupView="{ viewname: 'sys-employee-tree-mob-pickup-view', title: '人员移动端数据选择视图', deResParameters: [], parameters: [{ pathName: 'sysemployees', parameterName: 'sysemployee' }, { pathName: 'treemobpickupview', parameterName: 'treemobpickupview' } ], placement:'' }"
     @formitemvaluechange="onFormItemValueChange">
