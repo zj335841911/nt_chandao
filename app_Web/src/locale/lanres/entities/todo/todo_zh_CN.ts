@@ -32,6 +32,7 @@ export default {
     story: "待办名称",
     date1: "日期",
     date_disable: "待定",
+    assignedtopk: "指派给（选择）",
   },
 	views: {
 		baseeditview9: {

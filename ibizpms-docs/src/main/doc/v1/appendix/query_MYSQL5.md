@@ -13321,7 +13321,7 @@ t1.`CONSUMED`,
 t1.`DEADLINE`,
 t1.`DELETED`,
 (To_Days(t1.`DEADLINE`)-To_Days(t1.`ESTSTARTED`))  AS `DURATION`,
-(select (case when COUNT(t.IBZ_FAVORITESID) > 0 then 1 else 0 end ) as ISFAVORITES from T_IBZ_FAVORITES t where t.TYPE = 'task' and t.ACCOUNT = #{srf.sessioncontext.srfloginname} and t.OBJECTID = t1.id) AS `ISFAVORITES`,
+0 AS `ISFAVORITES`,
 ( CASE WHEN t1.parent > 0 THEN TRUE ELSE FALSE END ) AS `ISLEAF`,
 t1.`ESTIMATE`,
 t1.`ESTSTARTED`,
@@ -13334,7 +13334,7 @@ t1.`LASTEDITEDDATE`,
 t1.`LEFT`,
 t1.`MODULE`,
 t11.`NAME` AS `MODULENAME`,
-t1.`NAME`,
+CONCAT_WS('','任务-',t1.`name`,'-',t1.assignedTo,'-',t1.id) as `NAME`,
 t1.`OPENEDBY`,
 t1.`OPENEDDATE`,
 t1.`PARENT`,
@@ -13351,8 +13351,8 @@ t21.`TITLE` AS `STORYNAME`,
 t1.`STORYVERSION`,
 t1.`SUBSTATUS`,
 t1.`TYPE`,
-( CASE WHEN ( SELECT CASE	 WHEN count( t.`id` ) > 0 THEN 1 ELSE 0  END  FROM `zt_team` t  WHERE t.`type` = 'task'  AND t.`root` = t1.`id`  ) = 1 THEN '10'  WHEN t1.parent = - 1 THEN'20'   WHEN t1.parent = 0 THEN '30' ELSE '40' END) AS `TASKTYPE`,
-(case when t1.storyVersion < t21.version and t21.`status` <> 'changed' then 'storychange'  else t1.`status` end ) as `STATUS1`
+'40' AS `TASKTYPE`,
+t1.`status` as `STATUS1`
 FROM `zt_task` t1 
 LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID 
 LEFT JOIN zt_story t21 ON t1.STORY = t21.ID 
@@ -13360,11 +13360,8 @@ LEFT JOIN zt_project t31 ON t1.PROJECT = t31.ID
 LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID 
 LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID 
 LEFT JOIN zt_user t61 on t1.ASSIGNEDTO =  t61.ACCOUNT
+WHERE t1.DELETED = '0' 
 
-WHERE 
-t1.DELETED = '0' 
-AND
-( ( t1.`PARENT` = 0  OR  t1.`PARENT` IS NULL  OR  t1.`PARENT` = -1 ) )
 ```
 ### todo任务列表查询(TodoListTask)<div id="Task_TodoListTask"></div>
 ```sql

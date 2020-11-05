@@ -111,6 +111,9 @@ export default class TodoBaseModel {
       {
         name: 'date_disable',
       },
+      {
+        name: 'assignedtopk',
+      },
     ]
   }
 

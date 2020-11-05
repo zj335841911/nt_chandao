@@ -261,4 +261,12 @@ export interface Todo {
      * @memberof Todo
      */
     date_disable?: any;
+
+    /**
+     * 指派给（选择）
+     *
+     * @returns {*}
+     * @memberof Todo
+     */
+    assignedtopk?: any;
 }

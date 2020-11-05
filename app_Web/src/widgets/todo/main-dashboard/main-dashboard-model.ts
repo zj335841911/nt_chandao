@@ -111,6 +111,9 @@ export default class MainModel {
       {
         name: 'date_disable',
       },
+      {
+        name: 'assignedtopk',
+      },
     ]
   }
 
