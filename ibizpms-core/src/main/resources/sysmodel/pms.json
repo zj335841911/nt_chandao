@@ -27580,6 +27580,20 @@
     "key_field":0,
     "show_order":1000,
     "major_field":0
+    },
+    {
+    "fieldname":"MAILTOCONACT" ,
+    "codename":"Mailtoconact",
+    "field_logic_name":"联系人",
+    "entity_name":"Story",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
     }
     ],
     "subEntitys":[
@@ -32905,7 +32919,7 @@
     "nullable":1,
     "physical_field":0,
     "data_type":"INT",
-    "expression":"(select count(1) from zt_suitecase t where t.suite = t1.id)",
+    "expression":"0",
     "key_field":0,
     "show_order":1000,
     "major_field":0

@@ -42,8 +42,10 @@ export default {
 		columns: {
 			id: "编号",
 			listname: "标题",
+			uagridcolumn1: "操作",
 		},
 		uiactions: {
+        remove: "Remove",
 		},
 	},
 	default_searchform: {

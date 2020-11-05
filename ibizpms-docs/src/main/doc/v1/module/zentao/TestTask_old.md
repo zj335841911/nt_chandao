@@ -115,6 +115,18 @@ hide footbox
 |1|开始 | 
 |2|获取产品 |
 <center>获取产品及版本</center>
+* 移动端测试版本计数器 (MobTestTaskCounter)
+  
+   
+
+{% plantuml %}
+hide footbox
+
+{% endplantuml %}
+
+| 步骤       | 操作        |
+| --------   | --------   |
+<center>移动端测试版本计数器</center>
 
 ## 查询集合
 

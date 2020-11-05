@@ -133,34 +133,6 @@
 
 
 <app-form-item 
-    name='storycnt' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="storycnt_item"  
-    :itemValue="this.data.storycnt" 
-    v-show="detailsModel.storycnt.visible" 
-    :itemRules="this.rules.storycnt" 
-    :caption="$t('productplan.mobmain_form.details.storycnt')"  
-    :labelWidth="100"  
-    :isShowCaption="true"
-    :disabled="detailsModel.storycnt.disabled"
-    :error="detailsModel.storycnt.error" 
-    :isEmptyCaption="false">
-        <app-mob-span  
-    v-if="data.storycnt"
-    :navigateContext ='{ } '
-    :navigateParam ='{ } ' 
-    :data="data"
-    :context="context"
-    :viewparams="viewparams"
-    :value="data.storycnt" 
-    :itemParam="{}"/>
-</app-form-item>
-
-
-
-<app-form-item 
     name='desc' 
     class='' 
     uiStyle="DEFAULT"  
@@ -222,34 +194,6 @@
 
     
 </app-form-group>
-
-
-
-<app-form-item 
-    name='bugcnt' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="bugcnt_item"  
-    :itemValue="this.data.bugcnt" 
-    v-show="detailsModel.bugcnt.visible" 
-    :itemRules="this.rules.bugcnt" 
-    :caption="$t('productplan.mobmain_form.details.bugcnt')"  
-    :labelWidth="100"  
-    :isShowCaption="true"
-    :disabled="detailsModel.bugcnt.disabled"
-    :error="detailsModel.bugcnt.error" 
-    :isEmptyCaption="false">
-        <app-mob-span  
-    v-if="data.bugcnt"
-    :navigateContext ='{ } '
-    :navigateParam ='{ } ' 
-    :data="data"
-    :context="context"
-    :viewparams="viewparams"
-    :value="data.bugcnt" 
-    :itemParam="{}"/>
-</app-form-item>
 
 
 

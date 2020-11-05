@@ -14224,7 +14224,7 @@ FROM `zt_testrun` t1
 SELECT
 t1.`ADDEDBY`,
 t1.`ADDEDDATE`,
-(select count(1) from zt_suitecase t where t.suite = t1.id) AS `CASECNT`,
+0 AS `CASECNT`,
 t1.`DELETED`,
 t1.`ID`,
 t1.`LASTEDITEDBY`,
@@ -14242,7 +14242,7 @@ WHERE t1.DELETED = '0'
 SELECT
 t1.`ADDEDBY`,
 t1.`ADDEDDATE`,
-(select count(1) from zt_suitecase t where t.suite = t1.id) AS `CASECNT`,
+0 AS `CASECNT`,
 t1.`DELETED`,
 t1.`ID`,
 t1.`LASTEDITEDBY`,
@@ -14261,7 +14261,7 @@ WHERE t1.DELETED = '0'
 SELECT
 t1.`ADDEDBY`,
 t1.`ADDEDDATE`,
-(select count(1) from zt_suitecase t where t.suite = t1.id) AS `CASECNT`,
+0 AS `CASECNT`,
 t1.`DELETED`,
 t1.`DESC`,
 t1.`ID`,
@@ -14776,6 +14776,18 @@ WHERE t1.DELETED = '0'
 
 # **用户联系方式**(ZT_USERCONTACT)
 
+### 抄送联系人(CurUSERCONTACT)<div id="UserContact_CurUSERCONTACT"></div>
+```sql
+SELECT
+t1.`ACCOUNT`,
+t1.`ID`,
+t1.USERLIST,
+t1.`LISTNAME`
+FROM `zt_usercontact` t1 
+
+WHERE ( t1.`ACCOUNT` =  ${srfsessioncontext('srfloginname','{"defname":"ACCOUNT","dename":"ZT_USERCONTACT"}')} ) 
+
+```
 ### DEFAULT(DEFAULT)<div id="UserContact_Default"></div>
 ```sql
 SELECT

@@ -180,6 +180,9 @@ export default class BaseInfoModel {
       {
         name: 'ischild',
       },
+      {
+        name: 'mailtoconact',
+      },
     ]
   }
 

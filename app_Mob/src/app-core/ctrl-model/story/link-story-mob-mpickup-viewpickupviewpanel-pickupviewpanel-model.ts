@@ -180,6 +180,9 @@ export class LinkStoryMobMPickupViewpickupviewpanelModel {
       {
         name: 'ischild',
       },
+      {
+        name: 'mailtoconact',
+      },
     ]
   }
 

@@ -180,6 +180,9 @@ export default class StoryRelatedModel {
       {
         name: 'ischild',
       },
+      {
+        name: 'mailtoconact',
+      },
     ]
   }
 

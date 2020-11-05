@@ -445,4 +445,12 @@ export interface Story {
      * @memberof Story
      */
     ischild?: any;
+
+    /**
+     * 联系人
+     *
+     * @returns {*}
+     * @memberof Story
+     */
+    mailtoconact?: any;
 }

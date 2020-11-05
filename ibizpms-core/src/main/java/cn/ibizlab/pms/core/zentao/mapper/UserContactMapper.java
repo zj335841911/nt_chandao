@@ -19,6 +19,7 @@ import com.alibaba.fastjson.JSONObject;
 
 public interface UserContactMapper extends BaseMapper<UserContact>{
 
+    Page<UserContact> searchCurUSERCONTACT(IPage page, @Param("srf") UserContactSearchContext context, @Param("ew") Wrapper<UserContact> wrapper) ;
     Page<UserContact> searchDefault(IPage page, @Param("srf") UserContactSearchContext context, @Param("ew") Wrapper<UserContact> wrapper) ;
     Page<UserContact> searchMyUSERCONTACT(IPage page, @Param("srf") UserContactSearchContext context, @Param("ew") Wrapper<UserContact> wrapper) ;
     @Override

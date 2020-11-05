@@ -180,6 +180,9 @@ export class MyStoryModel {
       {
         name: 'ischild',
       },
+      {
+        name: 'mailtoconact',
+      },
     ]
   }
 

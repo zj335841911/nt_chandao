@@ -36,6 +36,7 @@ public interface IUserContactService extends IService<UserContact>{
     boolean checkKey(UserContact et) ;
     boolean save(UserContact et) ;
     void saveBatch(List<UserContact> list) ;
+    Page<UserContact> searchCurUSERCONTACT(UserContactSearchContext context) ;
     Page<UserContact> searchDefault(UserContactSearchContext context) ;
     Page<UserContact> searchMyUSERCONTACT(UserContactSearchContext context) ;
     /**

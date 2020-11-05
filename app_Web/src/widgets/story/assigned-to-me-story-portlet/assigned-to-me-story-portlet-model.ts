@@ -180,6 +180,9 @@ export default class AssignedToMeStoryModel {
       {
         name: 'ischild',
       },
+      {
+        name: 'mailtoconact',
+      },
     ]
   }
 

@@ -180,6 +180,9 @@ export default class TabExpViewtabexppanelModel {
       {
         name: 'ischild',
       },
+      {
+        name: 'mailtoconact',
+      },
     ]
   }
 

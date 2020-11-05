@@ -180,6 +180,9 @@ export default class MainPanelModel {
       {
         name: 'ischild',
       },
+      {
+        name: 'mailtoconact',
+      },
     ]
   }
 

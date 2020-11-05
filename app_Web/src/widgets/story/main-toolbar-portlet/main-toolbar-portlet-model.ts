@@ -180,6 +180,9 @@ export default class MainToolbarModel {
       {
         name: 'ischild',
       },
+      {
+        name: 'mailtoconact',
+      },
     ]
   }
 

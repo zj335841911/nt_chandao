@@ -445,4 +445,12 @@ export interface SubStory {
      * @memberof SubStory
      */
     ischild?: any;
+
+    /**
+     * 联系人
+     *
+     * @returns {*}
+     * @memberof SubStory
+     */
+    mailtoconact?: any;
 }

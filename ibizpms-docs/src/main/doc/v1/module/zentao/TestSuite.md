@@ -485,7 +485,7 @@ Integer
 
 - 取值范围/公式
 ```SQL
-(select count(1) from zt_suitecase t where t.suite = t1.id)
+0
 ```
 
 - 数据格式
@@ -671,7 +671,7 @@ DEFAULT
 SELECT
 t1.`ADDEDBY`,
 t1.`ADDEDDATE`,
-(select count(1) from zt_suitecase t where t.suite = t1.id) AS `CASECNT`,
+0 AS `CASECNT`,
 t1.`DELETED`,
 t1.`ID`,
 t1.`LASTEDITEDBY`,
@@ -698,7 +698,7 @@ FROM `zt_testsuite` t1
 SELECT
 t1.`ADDEDBY`,
 t1.`ADDEDDATE`,
-(select count(1) from zt_suitecase t where t.suite = t1.id) AS `CASECNT`,
+0 AS `CASECNT`,
 t1.`DELETED`,
 t1.`ID`,
 t1.`LASTEDITEDBY`,
@@ -725,7 +725,7 @@ FROM `zt_testsuite` t1
 SELECT
 t1.`ADDEDBY`,
 t1.`ADDEDDATE`,
-(select count(1) from zt_suitecase t where t.suite = t1.id) AS `CASECNT`,
+0 AS `CASECNT`,
 t1.`DELETED`,
 t1.`DESC`,
 t1.`ID`,

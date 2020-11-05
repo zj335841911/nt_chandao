@@ -601,6 +601,8 @@ export class FormControlBase extends MainControlBase {
         for(let i=0;i<rule[name].length;i++){
             let item:any = rule[name][i];
             let dataValue = item.deName?this.data[this.service.getItemNameByDeName(item.deName)]:"";
+            // 提供表单值规则默认提示信息(未配置值规则提示信息时)
+            item.ruleInfo = item.ruleInfo ? item.ruleInfo : this.$t('app.formpage.valuecheckex');
             // 为空值时，属性值规则不做校验
             if(dataValue === null || dataValue === undefined || dataValue === ""){
                 startOp(true);

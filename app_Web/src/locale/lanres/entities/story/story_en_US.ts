@@ -55,6 +55,7 @@ export default {
     neednotreview: "不需要评审",
     isfavorites: "是否收藏",
     ischild: "是否可以细分",
+    mailtoconact: "联系人",
   },
 	views: {
 		pickupgridview4: {
@@ -473,6 +474,7 @@ export default {
 			verify: "验收标准", 
 			files: "附件", 
 			mailto: "抄送给", 
+			mailtoconact: "", 
 			keywords: "关键词", 
 			id: "编号", 
 		},

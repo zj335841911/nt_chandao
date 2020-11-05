@@ -135,6 +135,28 @@ public class UserContactResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-UserContact-searchCurUSERCONTACT-all')")
+	@ApiOperation(value = "获取抄送联系人", tags = {"用户联系方式" } ,notes = "获取抄送联系人")
+    @RequestMapping(method= RequestMethod.GET , value="/usercontacts/fetchcurusercontact")
+	public ResponseEntity<List<UserContactDTO>> fetchCurUSERCONTACT(UserContactSearchContext context) {
+        Page<UserContact> domains = usercontactService.searchCurUSERCONTACT(context) ;
+        List<UserContactDTO> list = usercontactMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-UserContact-searchCurUSERCONTACT-all')")
+	@ApiOperation(value = "查询抄送联系人", tags = {"用户联系方式" } ,notes = "查询抄送联系人")
+    @RequestMapping(method= RequestMethod.POST , value="/usercontacts/searchcurusercontact")
+	public ResponseEntity<Page<UserContactDTO>> searchCurUSERCONTACT(@RequestBody UserContactSearchContext context) {
+        Page<UserContact> domains = usercontactService.searchCurUSERCONTACT(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(usercontactMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-UserContact-searchDefault-all')")
 	@ApiOperation(value = "获取DEFAULT", tags = {"用户联系方式" } ,notes = "获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/usercontacts/fetchdefault")
