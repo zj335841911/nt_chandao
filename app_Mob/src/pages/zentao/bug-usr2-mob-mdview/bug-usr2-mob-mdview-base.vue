@@ -190,7 +190,7 @@ export default class BugUsr2MobMDViewBase extends Vue {
      * @type {*}
      * @memberof BugUsr2MobMDViewBase
      */
-    protected navContext: any = {};
+    protected navContext: any = { 'srfparentkey': '%release%' };
 
     /**
      * 视图导航参数
@@ -199,7 +199,7 @@ export default class BugUsr2MobMDViewBase extends Vue {
      * @type {*}
      * @memberof BugUsr2MobMDViewBase
      */
-    protected navParam: any = {};
+    protected navParam: any = { 'srfparentkey': '%release%' };
 
     /**
      * 视图模型数据
