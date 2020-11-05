@@ -103007,6 +103007,7 @@ CREATE TABLE `zt_testtask`(
 | ID        | 编号  |       |   8   | 主键&nbsp; |
 | STATUS        | 状态  | VARCHAR      |   6   | &nbsp; |
 | FINISHEDBY        | 由谁完成  | VARCHAR      |   30   | &nbsp; |
+| ASSIGNEDTOPK        | 指派给（选择）  | VARCHAR      |   200   | &nbsp; |
 | FINISHEDDATE        | 完成时间  | DATETIME      |   -1   | &nbsp; |
 | PRIVATE        | 私人事务  | INTEGER      |   -1   | &nbsp; |
 | CLOSEDBY        | 由谁关闭  | VARCHAR      |   30   | &nbsp; |

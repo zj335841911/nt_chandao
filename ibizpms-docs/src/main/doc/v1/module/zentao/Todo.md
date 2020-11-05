@@ -48,6 +48,7 @@
 | 30 | [待办名称](#属性-待办名称（STORY）) | STORY | 文本，可指定长度 | 否 | 否 | 是 |
 | 31 | [日期](#属性-日期（DATE1）) | DATE1 | 文本，可指定长度 | 否 | 否 | 是 |
 | 32 | [待定](#属性-待定（DATE_DISABLE）) | DATE_DISABLE | 文本，可指定长度 | 否 | 否 | 是 |
+| 33 | [指派给（选择）](#属性-指派给（选择）（ASSIGNEDTOPK）) | ASSIGNEDTOPK | 文本，可指定长度 | 否 | 否 | 是 |
 
 ### 属性-编号（ID）
 #### 属性说明
@@ -1296,6 +1297,45 @@ String
 #### 关系属性
 无
 
+### 属性-指派给（选择）（ASSIGNEDTOPK）
+#### 属性说明
+指派给（选择）
+
+- 是否是主键
+否
+
+- 属性类型
+逻辑字段[来自计算式]
+
+- 数据类型
+文本，可指定长度
+
+- Java类型
+String
+
+- 是否允许为为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+```SQL
+t1.ASSIGNEDTO
+```
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
 
 ## 业务状态
 | 序号 | 状态名称 | [状态](#属性-状态（STATUS）)<br>（STATUS） | 默认 |
@@ -1818,6 +1858,7 @@ t1.`ACCOUNT`,
 t1.`ASSIGNEDBY`,
 t1.`ASSIGNEDDATE`,
 t1.`ASSIGNEDTO`,
+t1.ASSIGNEDTO AS `ASSIGNEDTOPK`,
 t1.`BEGIN`,
 t1.`CLOSEDBY`,
 t1.`CLOSEDDATE`,

@@ -310,6 +310,15 @@ public class TodoDTO extends DTOBase implements Serializable {
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
     private String dateDisable;
 
+    /**
+     * 属性 [ASSIGNEDTOPK]
+     *
+     */
+    @JSONField(name = "assignedtopk")
+    @JsonProperty("assignedtopk")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String assignedtopk;
+
 
     /**
      * 设置 [CLOSEDDATE]
