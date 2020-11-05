@@ -45,6 +45,9 @@ export class MobTabExpViewtabviewpanelModel {
       {
         name: 'product',
       },
+      {
+        name: 'casecnt',
+      },
     ]
   }
 

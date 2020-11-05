@@ -148,7 +148,7 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | true：处理成功。false：处理失败。 |
 
-### 测试套件移动端计数器
+### 移动端测试套件计数器
 #### 访问路径
 /testsuites/{testsuite_id}/mobtestsuitecount
 

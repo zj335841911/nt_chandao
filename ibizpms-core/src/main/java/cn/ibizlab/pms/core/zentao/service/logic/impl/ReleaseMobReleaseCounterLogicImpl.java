@@ -46,7 +46,7 @@ public class ReleaseMobReleaseCounterLogicImpl implements IReleaseMobReleaseCoun
            kieSession.startProcess("cn.ibizlab.pms.core.zentao.service.logic.releasemobreleasecounter");
 
         }catch(Exception e){
-            throw new RuntimeException("执行[产品发布计数器]处理逻辑发生异常"+e);
+            throw new RuntimeException("执行[移动端产品发布计数器]处理逻辑发生异常"+e);
         }finally {
             if(kieSession!=null)
             kieSession.destroy();

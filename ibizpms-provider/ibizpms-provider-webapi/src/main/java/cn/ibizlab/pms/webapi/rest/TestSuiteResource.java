@@ -122,7 +122,7 @@ public class TestSuiteResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestSuite-MobTestSuiteCount-all')")
-    @ApiOperation(value = "测试套件移动端计数器", tags = {"测试套件" },  notes = "测试套件移动端计数器")
+    @ApiOperation(value = "移动端测试套件计数器", tags = {"测试套件" },  notes = "移动端测试套件计数器")
 	@RequestMapping(method = RequestMethod.POST, value = "/testsuites/{testsuite_id}/mobtestsuitecount")
     public ResponseEntity<TestSuiteDTO> mobTestSuiteCount(@PathVariable("testsuite_id") Long testsuite_id, @RequestBody TestSuiteDTO testsuitedto) {
         TestSuite domain = testsuiteMapping.toDomain(testsuitedto);

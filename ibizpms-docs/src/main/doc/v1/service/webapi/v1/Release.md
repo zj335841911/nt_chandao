@@ -281,6 +281,25 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | [ReleaseDTO](#ReleaseDTO)：发布实体传输对象 |
 
+### 移动端发布计数器
+#### 访问路径
+/releases/{release_id}/mobreleasecounter
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | release_id | Long | 发布主键ID |
+| 2 | releasedto | [ReleaseDTO](#ReleaseDTO) | 发布实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [ReleaseDTO](#ReleaseDTO)：发布实体传输对象 |
+
 ### 一键发布
 #### 访问路径
 /releases/{release_id}/oneclickrelease
@@ -722,6 +741,26 @@ POST
 ### 关联需求
 #### 访问路径
 /products/{product_id}/releases/{release_id}/linkstory
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |
+| 2 | release_id | Long | 发布主键ID |
+| 3 | releasedto | [ReleaseDTO](#ReleaseDTO) | 发布实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [ReleaseDTO](#ReleaseDTO)：发布实体传输对象 |
+
+### 移动端发布计数器
+#### 访问路径
+/products/{product_id}/releases/{release_id}/mobreleasecounter
 
 #### 请求方法
 POST
