@@ -6132,15 +6132,16 @@ FAVORITES
 | 2 | [Bug相关任务](#数据查询-Bug相关任务（BugTask）) | BugTask | 否 |
 | 3 | [通过模块查询](#数据查询-通过模块查询（ByModule）) | ByModule | 否 |
 | 4 | [子任务](#数据查询-子任务（ChildTask）) | ChildTask | 否 |
-| 5 | [用户年度完成任务](#数据查询-用户年度完成任务（CurFinishTask）) | CurFinishTask | 否 |
-| 6 | [DEFAULT](#数据查询-DEFAULT（Default）) | Default | 否 |
-| 7 | [DefaultRow](#数据查询-DefaultRow（DefaultRow）) | DefaultRow | 否 |
-| 8 | [我的收藏](#数据查询-我的收藏（MyFavorites）) | MyFavorites | 否 |
-| 9 | [项目任务](#数据查询-项目任务（ProjectTASK）) | ProjectTASK | 否 |
-| 10 | [根任务](#数据查询-根任务（RootTask）) | RootTask | 否 |
-| 11 | [todo任务列表查询](#数据查询-todo任务列表查询（TodoListTask）) | TodoListTask | 否 |
-| 12 | [任务类型分组](#数据查询-任务类型分组（TypeGroup）) | TypeGroup | 否 |
-| 13 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 5 | [子任务（树）](#数据查询-子任务（树）（ChildTaskTree）) | ChildTaskTree | 否 |
+| 6 | [用户年度完成任务](#数据查询-用户年度完成任务（CurFinishTask）) | CurFinishTask | 否 |
+| 7 | [DEFAULT](#数据查询-DEFAULT（Default）) | Default | 否 |
+| 8 | [DefaultRow](#数据查询-DefaultRow（DefaultRow）) | DefaultRow | 否 |
+| 9 | [我的收藏](#数据查询-我的收藏（MyFavorites）) | MyFavorites | 否 |
+| 10 | [项目任务](#数据查询-项目任务（ProjectTASK）) | ProjectTASK | 否 |
+| 11 | [根任务](#数据查询-根任务（RootTask）) | RootTask | 否 |
+| 12 | [todo任务列表查询](#数据查询-todo任务列表查询（TodoListTask）) | TodoListTask | 否 |
+| 13 | [任务类型分组](#数据查询-任务类型分组（TypeGroup）) | TypeGroup | 否 |
+| 14 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
 ### 数据查询-指派给我任务（AssignedToMyTask）
 #### 说明
@@ -6413,6 +6414,21 @@ LEFT JOIN zt_story t21 ON t1.STORY = t21.ID
 LEFT JOIN zt_project t31 ON t1.PROJECT = t31.ID 
 LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID 
 LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID 
+
+```
+### 数据查询-子任务（树）（ChildTaskTree）
+#### 说明
+子任务（树）
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
 
 ```
 ### 数据查询-用户年度完成任务（CurFinishTask）
