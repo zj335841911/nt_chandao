@@ -4,6 +4,9 @@
             <ion-list class="items" ref="ionlist">
                 <template v-if="(viewType == 'DEMOBMDVIEW9') && controlStyle != 'SWIPERVIEW' ">
                     <ion-item-sliding ref="sliding" v-for="(item,index) in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
+                        <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
+                            <ion-item-option v-show="item.mobUnlinkCase.visabled" :disabled="item.mobUnlinkCase.disabled" color="primary" @click="mdctrl_click($event, 'ua077d7d', item)"><ion-icon v-if="item.mobUnlinkCase.icon && item.mobUnlinkCase.isShowIcon" :name="item.mobUnlinkCase.icon"></ion-icon><ion-label v-if="item.mobUnlinkCase.isShowCaption">移除</ion-label></ion-item-option>
+                        </ion-item-options>
                         <div style="width:100%;">
                             <ion-item class="ibz-ionic-item">
                                 <ion-checkbox slot="start" class="iconcheck" v-show="isChoose" @click.stop="checkboxSelect(item)"></ion-checkbox>
@@ -16,6 +19,9 @@
             <ion-list class="items" ref="ionlist" >
                 <template v-if="(viewType == 'DEMOBMDVIEW') && controlStyle != 'SWIPERVIEW' ">
                       <ion-item-sliding  :ref="item.srfkey" v-for="(item,index) in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
+                        <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
+                            <ion-item-option v-show="item.mobUnlinkCase.visabled" :disabled="item.mobUnlinkCase.disabled" color="primary" @click="mdctrl_click($event, 'ua077d7d', item)"><ion-icon v-if="item.mobUnlinkCase.icon && item.mobUnlinkCase.isShowIcon" :name="item.mobUnlinkCase.icon"></ion-icon><ion-label v-if="item.mobUnlinkCase.isShowCaption">移除</ion-label></ion-item-option>
+                        </ion-item-options>
                         <div style="width:100%;">
                             <ion-item class="ibz-ionic-item">
                                 <ion-checkbox slot="start" class="iconcheck" v-show="isChoose" @click.stop="checkboxSelect(item)"></ion-checkbox>
@@ -217,6 +223,37 @@ export default class Exp_TestTaskBase extends Vue implements ControlInterface {
      */  
     public deUIService:CaseUIService = new CaseUIService(this.$store);
     
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof MdctrlBase
+     */
+    protected async mdctrl_ua077d7d_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        Object.assign(paramJO, {});
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('case_ui_action');
+        if (curUIService) {
+            curUIService.Case_mobUnlinkCase(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
 
     /**
      * 关闭视图
@@ -1010,6 +1047,9 @@ export default class Exp_TestTaskBase extends Vue implements ControlInterface {
         $event.stopPropagation();
         this.selectedArray = [];
         this.selectedArray.push(item);
+        if (Object.is(tag, 'ua077d7d')) {
+            this.mdctrl_ua077d7d_click();
+        }
         this.closeSlidings();
     }
 
@@ -1105,6 +1145,7 @@ export default class Exp_TestTaskBase extends Vue implements ControlInterface {
      * @memberof Exp_TestTaskBase
      */  
     public ActionModel:any ={
+        mobUnlinkCase: { name: 'mobUnlinkCase',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__CASE_UNLINK_BUT', target: 'SINGLEKEY',icon:'',isShowCaption:false,isShowIcon:true}
     };
 
     
