@@ -14169,6 +14169,7 @@ FROM `zt_testrun` t1
 SELECT
 t1.`ADDEDBY`,
 t1.`ADDEDDATE`,
+(select count(1) from zt_suitecase t where t.suite = t1.id) AS `CASECNT`,
 t1.`DELETED`,
 t1.`ID`,
 t1.`LASTEDITEDBY`,
@@ -14186,6 +14187,7 @@ WHERE t1.DELETED = '0'
 SELECT
 t1.`ADDEDBY`,
 t1.`ADDEDDATE`,
+(select count(1) from zt_suitecase t where t.suite = t1.id) AS `CASECNT`,
 t1.`DELETED`,
 t1.`ID`,
 t1.`LASTEDITEDBY`,
@@ -14204,6 +14206,7 @@ WHERE t1.DELETED = '0'
 SELECT
 t1.`ADDEDBY`,
 t1.`ADDEDDATE`,
+(select count(1) from zt_suitecase t where t.suite = t1.id) AS `CASECNT`,
 t1.`DELETED`,
 t1.`DESC`,
 t1.`ID`,

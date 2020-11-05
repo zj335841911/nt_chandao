@@ -31,7 +31,15 @@ export class UserContactEditViewBase extends EditViewBase {
      * @memberof UserContactEditViewBase
      */
     protected appDeKey: string = 'id';
-// 应用实体「UserContact」未设置主文本属性
+
+    /**
+     * 应用实体主信息
+     *
+     * @protected
+     * @type {string}
+     * @memberof UserContactEditViewBase
+     */
+    protected appDeMajor: string = 'listname';
 
     /**
      * 数据部件名称
@@ -155,6 +163,7 @@ export class UserContactEditViewBase extends EditViewBase {
             form: this.$refs.form,
             p2k: '0',
             keyPSDEField: 'usercontact',
+            majorPSDEField: 'listname',
             isLoadDefault: true,
         });
     }

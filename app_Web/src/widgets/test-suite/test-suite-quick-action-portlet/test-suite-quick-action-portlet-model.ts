@@ -45,6 +45,9 @@ export default class TestSuiteQuickActionModel {
       {
         name: 'product',
       },
+      {
+        name: 'casecnt',
+      },
     ]
   }
 

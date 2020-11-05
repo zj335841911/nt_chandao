@@ -45,6 +45,9 @@ export default class CurSuitCaseGridViewModel {
       {
         name: 'product',
       },
+      {
+        name: 'casecnt',
+      },
     ]
   }
 

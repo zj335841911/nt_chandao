@@ -275,7 +275,7 @@ export default class ConcatListService extends ControlService {
                         strNodeId += this.TREENODE_SEPARATOR;
                         strNodeId += strId;
                         Object.assign(treeNode, { id: strNodeId });
-                        Object.assign(treeNode, { expanded: filter.isautoexpand });
+                        Object.assign(treeNode, { expanded: true });
                         Object.assign(treeNode, { leaf: true });
                         Object.assign(treeNode, { curData: entity });
                         Object.assign(treeNode, { nodeid: treeNode.srfkey });

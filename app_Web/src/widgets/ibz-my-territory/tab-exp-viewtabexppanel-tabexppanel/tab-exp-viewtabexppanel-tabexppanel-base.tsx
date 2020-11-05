@@ -77,14 +77,14 @@ export class TabExpViewtabexppanelTabexppanelBase extends TabExpPanelControlBase
      * @memberof TabExpViewtabexppanelBase
      */
     protected isInit: any = {
-        tabviewpanel8:  true ,
-        tabviewpanel:  false ,
+        tabviewpanel:  true ,
         tabviewpanel3:  false ,
         tabviewpanel4:  false ,
         tabviewpanel5:  false ,
         tabviewpanel6:  false ,
         tabviewpanel2:  false ,
         tabviewpanel7:  false ,
+        tabviewpanel8:  false ,
     }
 
     /**
@@ -94,7 +94,7 @@ export class TabExpViewtabexppanelTabexppanelBase extends TabExpPanelControlBase
      * @type {string}
      * @memberof TabExpViewtabexppanelBase
      */
-    protected activatedTabViewPanel: string = 'tabviewpanel8';
+    protected activatedTabViewPanel: string = 'tabviewpanel';
 
     /**
      * 实体权限服务对象
@@ -112,7 +112,7 @@ export class TabExpViewtabexppanelTabexppanelBase extends TabExpPanelControlBase
      * @type {*}
      * @memberof TabExpViewtabexppanelBase
      */
-    protected authResourceObject:any = {'tabviewpanel8':{resourcetag:null,visabled: true,disabled: false},'tabviewpanel':{resourcetag:null,visabled: true,disabled: false},'tabviewpanel3':{resourcetag:null,visabled: true,disabled: false},'tabviewpanel4':{resourcetag:null,visabled: true,disabled: false},'tabviewpanel5':{resourcetag:null,visabled: true,disabled: false},'tabviewpanel6':{resourcetag:null,visabled: true,disabled: false},'tabviewpanel2':{resourcetag:null,visabled: true,disabled: false},'tabviewpanel7':{resourcetag:null,visabled: true,disabled: false}};
+    protected authResourceObject:any = {'tabviewpanel':{resourcetag:null,visabled: true,disabled: false},'tabviewpanel3':{resourcetag:null,visabled: true,disabled: false},'tabviewpanel4':{resourcetag:null,visabled: true,disabled: false},'tabviewpanel5':{resourcetag:null,visabled: true,disabled: false},'tabviewpanel6':{resourcetag:null,visabled: true,disabled: false},'tabviewpanel2':{resourcetag:null,visabled: true,disabled: false},'tabviewpanel7':{resourcetag:null,visabled: true,disabled: false},'tabviewpanel8':{resourcetag:null,visabled: true,disabled: false}};
 
     /**
      * 组件创建完毕

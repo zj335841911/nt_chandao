@@ -104,6 +104,18 @@ hide members
 |解除关联Bug|用户自定义|&nbsp;|
 
 ## 处理逻辑
+* 产品发布计数器 (MobReleaseCounter)
+  
+   
+
+{% plantuml %}
+hide footbox
+
+{% endplantuml %}
+
+| 步骤       | 操作        |
+| --------   | --------   |
+<center>产品发布计数器</center>
 * 行为[Update]主状态拒绝逻辑 (Update__MSDeny)
   
    

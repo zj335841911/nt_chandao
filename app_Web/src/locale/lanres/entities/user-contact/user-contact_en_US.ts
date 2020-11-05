@@ -21,6 +21,7 @@ export default {
 			formpage1: "基本信息", 
 			srforikey: "", 
 			srfkey: "id", 
+			srfmajortext: "listName", 
 			srftempmode: "", 
 			srfuf: "", 
 			srfdeid: "", 

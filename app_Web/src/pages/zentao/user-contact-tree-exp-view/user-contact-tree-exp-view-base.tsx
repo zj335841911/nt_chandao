@@ -31,7 +31,15 @@ export class UserContactTreeExpViewBase extends TreeExpViewBase {
      * @memberof UserContactTreeExpViewBase
      */
     protected appDeKey: string = 'id';
-// 应用实体「UserContact」未设置主文本属性
+
+    /**
+     * 应用实体主信息
+     *
+     * @protected
+     * @type {string}
+     * @memberof UserContactTreeExpViewBase
+     */
+    protected appDeMajor: string = 'listname';
 
     /**
      * 实体服务对象
@@ -130,6 +138,7 @@ export class UserContactTreeExpViewBase extends TreeExpViewBase {
             view: this,
             treeexpbar: this.$refs.treeexpbar,
             keyPSDEField: 'usercontact',
+            majorPSDEField: 'listname',
             isLoadDefault: true,
         });
     }

@@ -32,7 +32,7 @@ export default class UserContactServiceBase extends EntityService {
         this.APPLYDEKEY ='usercontact';
         this.APPDEKEY = 'id';
         this.APPDENAME = 'usercontacts';
-        this.APPDETEXT = '';
+        this.APPDETEXT = 'listname';
         this.APPNAME = 'web';
         this.SYSTEMNAME = 'pms';
     }

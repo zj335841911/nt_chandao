@@ -32895,6 +32895,20 @@
     "key_field":0,
     "show_order":1000,
     "major_field":0
+    },
+    {
+    "fieldname":"CASECNT" ,
+    "codename":"Casecnt",
+    "field_logic_name":"用例数",
+    "entity_name":"TestSuite",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "expression":"(select count(1) from zt_suitecase t where t.suite = t1.id)",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
     }
     ],
     "subEntitys":[

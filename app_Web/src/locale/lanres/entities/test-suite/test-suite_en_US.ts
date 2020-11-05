@@ -10,6 +10,7 @@ export default {
     addedby: "由谁创建",
     desc: "描述",
     product: "所属产品",
+    casecnt: "用例数",
   },
 	views: {
 		editview9: {

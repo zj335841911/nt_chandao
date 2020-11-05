@@ -101674,6 +101674,7 @@ CREATE TABLE `zt_testrun`(
 | LASTEDITEDBY        | 最后编辑人  | VARCHAR      |   30   | &nbsp; |
 | LASTEDITEDDATE        | 最后编辑时间  | DATETIME      |   -1   | &nbsp; |
 | TYPE        | 类型  | VARCHAR      |   20   | &nbsp; |
+| CASECNT        | 用例数  | INTEGER      |   -1   | &nbsp; |
 | NAME        | 名称  | VARCHAR      |   255   | &nbsp; |
 
 
