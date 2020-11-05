@@ -34,7 +34,7 @@
     :isEmptyCaption="false">
         <app-mob-picker
     name='assignto'
-    valueitem='' 
+    valueitem='assignTo' 
     editortype="" 
     style=""  
     :formState="formState"
