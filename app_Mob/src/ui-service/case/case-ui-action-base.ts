@@ -287,7 +287,7 @@ export default class CaseUIActionBase extends EntityUIActionBase {
         }
         // 导航参数
         let panelNavParam= { } ;
-        let panelNavContext= { "srfparentdename": "testtask" } ;
+        let panelNavContext= { "srfparentdename": ""testtask"" } ;
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
         const backend = async () => {
             const curUIService: any = await this.globaluiservice.getAppEntityService('case');
