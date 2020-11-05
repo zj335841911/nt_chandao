@@ -1,14 +1,15 @@
 <template>
   <div class="app-mob-mpicker">
-    <ion-input :disabled="disabled" :value="(curValue.length > 0 ? 'hasValue' : '')" readonly>
-      <div>
+    <ion-input :disabled="disabled" :value="(curValue.length > 0 ? 'hasValue' : '')" readonly @click="openView">
+      <div class="text" >
         <template v-for="(item,index) in curValue">
             {{item.text}}
             <span v-if="index < curValue.length-1">,</span>
         </template>
       </div>
     </ion-input>
-    <ion-icon class="open-picker" name="search-outline" @click="openView"></ion-icon>
+    <ion-icon class="open-picker" v-if="!curValue.length > 0" name="search-outline" @click.stop="openView"></ion-icon>
+    <ion-icon  v-else class="open-picker" name="close-circle-outline" @click.stop="onClear"></ion-icon>
   </div>
 </template>
 
@@ -261,6 +262,15 @@ export default class AppMobMpicker extends Vue {
           value: datas.length > 0 ? JSON.stringify(datas) : null
         });
       }
+    }
+
+    /**
+     * 清除
+     */
+    public onClear($event: any): void {
+        if (this.name) {
+            this.$emit('formitemvaluechange', { name: this.name, value: '' });
+        }
     }
 }
 </script>

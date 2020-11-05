@@ -1,8 +1,8 @@
 <template>
-    <div  class="app-picker">
-        <ion-input :disabled="disabled" class="ibz-input" :value="refvalue"  readonly></ion-input>
+    <div  class="app-picker" >
+        <ion-input :disabled="disabled" class="ibz-input" :value="refvalue"  readonly @click="openView"></ion-input>
         <ion-icon  v-show="refvalue" class="delete-value " name="close-circle-outline" @click="onClear"></ion-icon>
-        <ion-icon  v-show="refvalue == '' || refvalue == null" class="open-picker" name="search-outline" @click="openView"></ion-icon>
+        <ion-icon  v-show="refvalue == '' || refvalue == null" class="open-picker" name="search-outline" @click.stop="openView"></ion-icon>
     </div>
 </template>
 <script lang="ts">
