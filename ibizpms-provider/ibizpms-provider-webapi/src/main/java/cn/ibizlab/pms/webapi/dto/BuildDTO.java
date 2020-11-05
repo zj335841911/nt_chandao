@@ -316,14 +316,6 @@ public class BuildDTO extends DTOBase implements Serializable {
         this.modify("project",project);
     }
 
-    /**
-     * 设置 [CREATEBUGCNT]
-     */
-    public void setCreatebugcnt(String  createbugcnt){
-        this.createbugcnt = createbugcnt ;
-        this.modify("createbugcnt",createbugcnt);
-    }
-
 
 }
 

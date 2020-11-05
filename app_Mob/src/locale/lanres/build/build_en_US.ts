@@ -21,6 +21,7 @@ export default {
     frontapplication: "系统应用",
     backgroundid: "后台体系",
     sqlid: "运行数据库",
+    createbugcnt: "产生的bug",
   },
 	views: {
 		mobpickupmdview: {
