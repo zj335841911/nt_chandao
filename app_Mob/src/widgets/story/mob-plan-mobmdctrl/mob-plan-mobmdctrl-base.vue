@@ -1145,7 +1145,7 @@ export default class Mob_PlanBase extends Vue implements ControlInterface {
      * @memberof Mob_PlanBase
      */  
     public ActionModel:any ={
-        UnlinkStoryMob: { name: 'UnlinkStoryMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_UNLP_BUT', target: 'SINGLEKEY',icon:'trash',isShowCaption:false,isShowIcon:true}
+        UnlinkStoryMob: { name: 'UnlinkStoryMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_UNLP_BUT', target: 'SINGLEKEY',icon:'unlink',isShowCaption:false,isShowIcon:true}
     };
 
     

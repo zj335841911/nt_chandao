@@ -1145,7 +1145,7 @@ export default class Mob_ProductPlan_StoryBase extends Vue implements ControlInt
      * @memberof Mob_ProductPlan_StoryBase
      */  
     public ActionModel:any ={
-        UnlinkStoryMob: { name: 'UnlinkStoryMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_UNLP_BUT', target: 'SINGLEKEY',icon:'trash',isShowCaption:false,isShowIcon:true}
+        UnlinkStoryMob: { name: 'UnlinkStoryMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_UNLP_BUT', target: 'SINGLEKEY',icon:'unlink',isShowCaption:false,isShowIcon:true}
     };
 
     
