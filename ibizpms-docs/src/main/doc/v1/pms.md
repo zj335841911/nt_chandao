@@ -8,9 +8,10 @@ pms
 | 1 | [iBiz增强模块](module/ibiz) | ibiz |
 | 2 | [禅道模块](module/zentao) | zentao |
 | 3 | [iBizPro模块](module/ibizpro) | ibizpro |
-| 4 | [iBiz系统模型](module/ibizsysmodel) | ibizsysmodel |
-| 5 | [uaa权限模块](module/uaa) | uaa |
-| 6 | [ou组织用户管理模块](module/ou) | ou |
+| 4 | [iBiz插件](module/ibizplugin) | ibizplugin |
+| 5 | [iBiz系统模型](module/ibizsysmodel) | ibizsysmodel |
+| 6 | [uaa权限模块](module/uaa) | uaa |
+| 7 | [ou组织用户管理模块](module/ou) | ou |
 
 ## 系统服务
 | 序号 | 服务 | 服务名 | 当前版本 |

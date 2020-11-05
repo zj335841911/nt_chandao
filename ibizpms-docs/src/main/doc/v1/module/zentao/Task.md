@@ -6132,15 +6132,16 @@ FAVORITES
 | 2 | [Bug相关任务](#数据查询-Bug相关任务（BugTask）) | BugTask | 否 |
 | 3 | [通过模块查询](#数据查询-通过模块查询（ByModule）) | ByModule | 否 |
 | 4 | [子任务](#数据查询-子任务（ChildTask）) | ChildTask | 否 |
-| 5 | [用户年度完成任务](#数据查询-用户年度完成任务（CurFinishTask）) | CurFinishTask | 否 |
-| 6 | [DEFAULT](#数据查询-DEFAULT（Default）) | Default | 否 |
-| 7 | [DefaultRow](#数据查询-DefaultRow（DefaultRow）) | DefaultRow | 否 |
-| 8 | [我的收藏](#数据查询-我的收藏（MyFavorites）) | MyFavorites | 否 |
-| 9 | [项目任务](#数据查询-项目任务（ProjectTASK）) | ProjectTASK | 否 |
-| 10 | [根任务](#数据查询-根任务（RootTask）) | RootTask | 否 |
-| 11 | [todo任务列表查询](#数据查询-todo任务列表查询（TodoListTask）) | TodoListTask | 否 |
-| 12 | [任务类型分组](#数据查询-任务类型分组（TypeGroup）) | TypeGroup | 否 |
-| 13 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 5 | [子任务（树）](#数据查询-子任务（树）（ChildTaskTree）) | ChildTaskTree | 否 |
+| 6 | [用户年度完成任务](#数据查询-用户年度完成任务（CurFinishTask）) | CurFinishTask | 否 |
+| 7 | [DEFAULT](#数据查询-DEFAULT（Default）) | Default | 否 |
+| 8 | [DefaultRow](#数据查询-DefaultRow（DefaultRow）) | DefaultRow | 否 |
+| 9 | [我的收藏](#数据查询-我的收藏（MyFavorites）) | MyFavorites | 否 |
+| 10 | [项目任务](#数据查询-项目任务（ProjectTASK）) | ProjectTASK | 否 |
+| 11 | [根任务](#数据查询-根任务（RootTask）) | RootTask | 否 |
+| 12 | [todo任务列表查询](#数据查询-todo任务列表查询（TodoListTask）) | TodoListTask | 否 |
+| 13 | [任务类型分组](#数据查询-任务类型分组（TypeGroup）) | TypeGroup | 否 |
+| 14 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
 ### 数据查询-指派给我任务（AssignedToMyTask）
 #### 说明
@@ -6414,6 +6415,72 @@ LEFT JOIN zt_project t31 ON t1.PROJECT = t31.ID
 LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID 
 LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID 
 
+```
+### 数据查询-子任务（树）（ChildTaskTree）
+#### 说明
+子任务（树）
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+SELECT
+t1.`ASSIGNEDDATE`,
+t61.`REALNAME`  AS `ASSIGNEDTO`,
+t1.`CANCELEDBY`,
+t1.`CANCELEDDATE`,
+t1.`CLOSEDBY`,
+t1.`CLOSEDDATE`,
+t1.`CLOSEDREASON`,
+t1.`COLOR`,
+t1.`CONSUMED`,
+t1.`DEADLINE`,
+t1.`DELETED`,
+(To_Days(t1.`DEADLINE`)-To_Days(t1.`ESTSTARTED`))  AS `DURATION`,
+0 AS `ISFAVORITES`,
+( CASE WHEN t1.parent > 0 THEN TRUE ELSE FALSE END ) AS `ISLEAF`,
+t1.`ESTIMATE`,
+t1.`ESTSTARTED`,
+t1.`FINISHEDBY`,
+t1.`FINISHEDDATE`,
+t1.`FROMBUG`,
+t1.`ID`,
+t1.`LASTEDITEDBY`,
+t1.`LASTEDITEDDATE`,
+t1.`LEFT`,
+t1.`MODULE`,
+t11.`NAME` AS `MODULENAME`,
+CONCAT_WS('','任务-',t1.`name`,'-',t1.assignedTo,'-',t1.id) as `NAME`,
+t1.`OPENEDBY`,
+t1.`OPENEDDATE`,
+t1.`PARENT`,
+t51.`NAME` AS `PARENTNAME`,
+t1.`PRI`,
+t21.`PRODUCT`,
+t41.`NAME` AS `PRODUCTNAME`,
+t1.`PROJECT`,
+t31.`NAME` AS `PROJECTNAME`,
+t1.`REALSTARTED`,
+t1.`STATUS`,
+t1.`STORY`,
+t21.`TITLE` AS `STORYNAME`,
+t1.`STORYVERSION`,
+t1.`SUBSTATUS`,
+t1.`TYPE`,
+'40' AS `TASKTYPE`,
+t1.`status` as `STATUS1`
+FROM `zt_task` t1 
+LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID 
+LEFT JOIN zt_story t21 ON t1.STORY = t21.ID 
+LEFT JOIN zt_project t31 ON t1.PROJECT = t31.ID 
+LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID 
+LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID 
+LEFT JOIN zt_user t61 on t1.ASSIGNEDTO =  t61.ACCOUNT
 ```
 ### 数据查询-用户年度完成任务（CurFinishTask）
 #### 说明
@@ -6784,7 +6851,7 @@ t1.`CONSUMED`,
 t1.`DEADLINE`,
 t1.`DELETED`,
 (To_Days(t1.`DEADLINE`)-To_Days(t1.`ESTSTARTED`))  AS `DURATION`,
-(select (case when COUNT(t.IBZ_FAVORITESID) > 0 then 1 else 0 end ) as ISFAVORITES from T_IBZ_FAVORITES t where t.TYPE = 'task' and t.ACCOUNT = #{srf.sessioncontext.srfloginname} and t.OBJECTID = t1.id) AS `ISFAVORITES`,
+0 AS `ISFAVORITES`,
 ( CASE WHEN t1.parent > 0 THEN TRUE ELSE FALSE END ) AS `ISLEAF`,
 t1.`ESTIMATE`,
 t1.`ESTSTARTED`,
@@ -6797,7 +6864,7 @@ t1.`LASTEDITEDDATE`,
 t1.`LEFT`,
 t1.`MODULE`,
 t11.`NAME` AS `MODULENAME`,
-t1.`NAME`,
+CONCAT_WS('','任务-',t1.`name`,'-',t1.assignedTo,'-',t1.id) as `NAME`,
 t1.`OPENEDBY`,
 t1.`OPENEDDATE`,
 t1.`PARENT`,
@@ -6814,8 +6881,8 @@ t21.`TITLE` AS `STORYNAME`,
 t1.`STORYVERSION`,
 t1.`SUBSTATUS`,
 t1.`TYPE`,
-( CASE WHEN ( SELECT CASE	 WHEN count( t.`id` ) > 0 THEN 1 ELSE 0  END  FROM `zt_team` t  WHERE t.`type` = 'task'  AND t.`root` = t1.`id`  ) = 1 THEN '10'  WHEN t1.parent = - 1 THEN'20'   WHEN t1.parent = 0 THEN '30' ELSE '40' END) AS `TASKTYPE`,
-(case when t1.storyVersion < t21.version and t21.`status` <> 'changed' then 'storychange'  else t1.`status` end ) as `STATUS1`
+'40' AS `TASKTYPE`,
+t1.`status` as `STATUS1`
 FROM `zt_task` t1 
 LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID 
 LEFT JOIN zt_story t21 ON t1.STORY = t21.ID 
@@ -6823,11 +6890,6 @@ LEFT JOIN zt_project t31 ON t1.PROJECT = t31.ID
 LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID 
 LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID 
 LEFT JOIN zt_user t61 on t1.ASSIGNEDTO =  t61.ACCOUNT
-
-WHERE 
-t1.DELETED = '0' 
-AND
-( ( t1.`PARENT` = 0  OR  t1.`PARENT` IS NULL  OR  t1.`PARENT` = -1 ) )
 ```
 ### 数据查询-todo任务列表查询（TodoListTask）
 #### 说明
@@ -7035,14 +7097,15 @@ LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID
 | 2 | [Bug相关任务](#数据集合-Bug相关任务（BugTask）) | BugTask | 否 |
 | 3 | [通过模块查询](#数据集合-通过模块查询（ByModule）) | ByModule | 否 |
 | 4 | [子任务](#数据集合-子任务（ChildTask）) | ChildTask | 否 |
-| 5 | [用户年度完成任务](#数据集合-用户年度完成任务（CurFinishTask）) | CurFinishTask | 否 |
-| 6 | [DEFAULT](#数据集合-DEFAULT（Default）) | Default | 是 |
-| 7 | [DefaultRow](#数据集合-DefaultRow（DefaultRow）) | DefaultRow | 否 |
-| 8 | [我的收藏](#数据集合-我的收藏（MyFavorites）) | MyFavorites | 否 |
-| 9 | [项目任务](#数据集合-项目任务（ProjectTASK）) | ProjectTASK | 否 |
-| 10 | [根任务](#数据集合-根任务（RootTask）) | RootTask | 否 |
-| 11 | [todo列表查询](#数据集合-todo列表查询（TodoListTask）) | TodoListTask | 否 |
-| 12 | [任务类型分组](#数据集合-任务类型分组（TypeGroup）) | TypeGroup | 否 |
+| 5 | [子任务（树）](#数据集合-子任务（树）（ChildTaskTree）) | ChildTaskTree | 否 |
+| 6 | [用户年度完成任务](#数据集合-用户年度完成任务（CurFinishTask）) | CurFinishTask | 否 |
+| 7 | [DEFAULT](#数据集合-DEFAULT（Default）) | Default | 是 |
+| 8 | [DefaultRow](#数据集合-DefaultRow（DefaultRow）) | DefaultRow | 否 |
+| 9 | [我的收藏](#数据集合-我的收藏（MyFavorites）) | MyFavorites | 否 |
+| 10 | [项目任务](#数据集合-项目任务（ProjectTASK）) | ProjectTASK | 否 |
+| 11 | [根任务](#数据集合-根任务（RootTask）) | RootTask | 否 |
+| 12 | [todo列表查询](#数据集合-todo列表查询（TodoListTask）) | TodoListTask | 否 |
+| 13 | [任务类型分组](#数据集合-任务类型分组（TypeGroup）) | TypeGroup | 否 |
 
 ### 数据集合-指派给我任务（AssignedToMyTask）
 #### 说明
@@ -7100,6 +7163,20 @@ Bug相关任务
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [子任务（ChildTask）](#数据查询-子任务（ChildTask）) |
+### 数据集合-子任务（树）（ChildTaskTree）
+#### 说明
+子任务（树）
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [子任务（树）（ChildTaskTree）](#数据查询-子任务（树）（ChildTaskTree）) |
 ### 数据集合-用户年度完成任务（CurFinishTask）
 #### 说明
 用户年度完成任务

@@ -1,11 +1,11 @@
 <template>
-    <div  class="app-mob-mdctrl case-mdctrl ">
+    <div  class="app-mob-mdctrl bug-mdctrl ">
         <div class="app-mob-mdctrl-mdctrl" ref="mdctrl">
             <ion-list class="items" ref="ionlist">
                 <template v-if="(viewType == 'DEMOBMDVIEW9') && controlStyle != 'SWIPERVIEW' ">
                     <ion-item-sliding ref="sliding" v-for="(item,index) in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
-                            <ion-item-option v-show="item.mobUnlinkCase.visabled" :disabled="item.mobUnlinkCase.disabled" color="primary" @click="mdctrl_click($event, 'ua077d7d', item)"><ion-icon v-if="item.mobUnlinkCase.icon && item.mobUnlinkCase.isShowIcon" :name="item.mobUnlinkCase.icon"></ion-icon><ion-label v-if="item.mobUnlinkCase.isShowCaption">移除</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.releaseUnlinkBugByLeftBug.visabled" :disabled="item.releaseUnlinkBugByLeftBug.disabled" color="primary" @click="mdctrl_click($event, 'uc0d3ab5', item)"><ion-icon v-if="item.releaseUnlinkBugByLeftBug.icon && item.releaseUnlinkBugByLeftBug.isShowIcon" :name="item.releaseUnlinkBugByLeftBug.icon"></ion-icon><ion-label v-if="item.releaseUnlinkBugByLeftBug.isShowCaption">移除bug</ion-label></ion-item-option>
                         </ion-item-options>
                         <div style="width:100%;">
                             <ion-item class="ibz-ionic-item">
@@ -18,9 +18,15 @@
             </ion-list>
             <ion-list class="items" ref="ionlist" >
                 <template v-if="(viewType == 'DEMOBMDVIEW') && controlStyle != 'SWIPERVIEW' ">
-                      <ion-item-sliding  :ref="item.srfkey" v-for="(item,index) in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
+                      <div class="item-grouped" v-for="obj in group_data" :key="obj.index">
+                      <van-collapse v-model="activeName" @change="changeCollapse">
+                        <van-collapse-item v-if="obj.items && obj.items.length > 0" :name="obj.text">
+                          <template #title>
+                            <div>{{obj.text}}（<label v-if="obj.items && obj.items.length > 0">{{obj.items.length}}</label>）</div>
+                          </template>
+                      <ion-item-sliding  :ref="item.srfkey" v-for="(item,index) in obj.items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
-                            <ion-item-option v-show="item.mobUnlinkCase.visabled" :disabled="item.mobUnlinkCase.disabled" color="primary" @click="mdctrl_click($event, 'ua077d7d', item)"><ion-icon v-if="item.mobUnlinkCase.icon && item.mobUnlinkCase.isShowIcon" :name="item.mobUnlinkCase.icon"></ion-icon><ion-label v-if="item.mobUnlinkCase.isShowCaption">移除</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.releaseUnlinkBugByLeftBug.visabled" :disabled="item.releaseUnlinkBugByLeftBug.disabled" color="primary" @click="mdctrl_click($event, 'uc0d3ab5', item)"><ion-icon v-if="item.releaseUnlinkBugByLeftBug.icon && item.releaseUnlinkBugByLeftBug.isShowIcon" :name="item.releaseUnlinkBugByLeftBug.icon"></ion-icon><ion-label v-if="item.releaseUnlinkBugByLeftBug.isShowCaption">移除bug</ion-label></ion-item-option>
                         </ion-item-options>
                         <div style="width:100%;">
                             <ion-item class="ibz-ionic-item">
@@ -29,6 +35,10 @@
                             </ion-item>
                         </div>
                       </ion-item-sliding>
+                        </van-collapse-item>
+                      </van-collapse>
+                      </div>
+
                 </template>
                 <template v-else-if="(viewType == 'DEMOBMDVIEW9')">
                 </template>
@@ -103,11 +113,11 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import CaseService from '@/app-core/service/case/case-service';
-import Exp_TestTaskService from '@/app-core/ctrl-service/case/exp-test-task-mobmdctrl-service';
+import BugService from '@/app-core/service/bug/bug-service';
+import MOB_Release_YiLiuBugService from '@/app-core/ctrl-service/bug/mob-release-yi-liu-bug-mobmdctrl-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
-import CaseUIService from '@/ui-service/case/case-ui-action';
+import BugUIService from '@/ui-service/bug/bug-ui-action';
 
 
 
@@ -115,13 +125,13 @@ import CaseUIService from '@/ui-service/case/case-ui-action';
     components: {
     }
 })
-export default class Exp_TestTaskBase extends Vue implements ControlInterface {
+export default class MOB_Release_YiLiuBugBase extends Vue implements ControlInterface {
 
     /**
      * 名称
      *
      * @type {string}
-     * @memberof Exp_TestTask
+     * @memberof MOB_Release_YiLiuBug
      */
     @Prop() protected name?: string;
 
@@ -129,7 +139,7 @@ export default class Exp_TestTaskBase extends Vue implements ControlInterface {
      * 视图名称
      *
      * @type {string}
-     * @memberof Exp_TestTask
+     * @memberof MOB_Release_YiLiuBug
      */
     @Prop() protected viewName!: string;
 
@@ -138,7 +148,7 @@ export default class Exp_TestTaskBase extends Vue implements ControlInterface {
      * 视图通讯对象
      *
      * @type {Subject<ViewState>}
-     * @memberof Exp_TestTask
+     * @memberof MOB_Release_YiLiuBug
      */
     @Prop() protected viewState!: Subject<ViewState>;
 
@@ -146,7 +156,7 @@ export default class Exp_TestTaskBase extends Vue implements ControlInterface {
      * 应用上下文
      *
      * @type {*}
-     * @memberof Exp_TestTask
+     * @memberof MOB_Release_YiLiuBug
      */
     @Prop({ default: {} }) protected context?: any;
 
@@ -154,7 +164,7 @@ export default class Exp_TestTaskBase extends Vue implements ControlInterface {
      * 视图参数
      *
      * @type {*}
-     * @memberof Exp_TestTask
+     * @memberof MOB_Release_YiLiuBug
      */
     @Prop({ default: {} }) protected viewparams?: any;
 
@@ -163,7 +173,7 @@ export default class Exp_TestTaskBase extends Vue implements ControlInterface {
      *
      * @protected
      * @type {(Subscription | undefined)}
-     * @memberof Exp_TestTask
+     * @memberof MOB_Release_YiLiuBug
      */
     protected viewStateEvent: Subscription | undefined;
 
@@ -171,7 +181,7 @@ export default class Exp_TestTaskBase extends Vue implements ControlInterface {
      * 获取部件类型
      *
      * @returns {string}
-     * @memberof Exp_TestTask
+     * @memberof MOB_Release_YiLiuBug
      */
     protected getControlType(): string {
         return 'MOBMDCTRL'
@@ -181,7 +191,7 @@ export default class Exp_TestTaskBase extends Vue implements ControlInterface {
      * 全局 ui 服务
      *
      * @type {GlobalUiService}
-     * @memberof Exp_TestTask
+     * @memberof MOB_Release_YiLiuBug
      */
     protected globaluiservice: GlobalUiService = new GlobalUiService();
 
@@ -190,7 +200,7 @@ export default class Exp_TestTaskBase extends Vue implements ControlInterface {
      * 转化数据
      *
      * @param {any} args
-     * @memberof  Exp_TestTaskBase
+     * @memberof  MOB_Release_YiLiuBugBase
      */
     public transformData(args: any) {
         let _this: any = this;
@@ -202,26 +212,26 @@ export default class Exp_TestTaskBase extends Vue implements ControlInterface {
     /**
      * 建构部件服务对象
      *
-     * @type {Exp_TestTaskService}
-     * @memberof Exp_TestTask
+     * @type {MOB_Release_YiLiuBugService}
+     * @memberof MOB_Release_YiLiuBug
      */
-    protected service: Exp_TestTaskService = new Exp_TestTaskService({$store:this.$store});
+    protected service: MOB_Release_YiLiuBugService = new MOB_Release_YiLiuBugService({$store:this.$store});
 
     /**
      * 实体服务对象
      *
-     * @type {CaseService}
-     * @memberof Exp_TestTask
+     * @type {BugService}
+     * @memberof MOB_Release_YiLiuBug
      */
-    protected appEntityService: CaseService = new CaseService();
+    protected appEntityService: BugService = new BugService();
 
     /**
      * 界面UI服务对象
      *
-     * @type {CaseUIService}
-     * @memberof Exp_TestTaskBase
+     * @type {BugUIService}
+     * @memberof MOB_Release_YiLiuBugBase
      */  
-    public deUIService:CaseUIService = new CaseUIService(this.$store);
+    public deUIService:BugUIService = new BugUIService(this.$store);
     
 
     /**
@@ -234,7 +244,7 @@ export default class Exp_TestTaskBase extends Vue implements ControlInterface {
      * @returns {Promise<any>}
      * @memberof MdctrlBase
      */
-    protected async mdctrl_ua077d7d_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+    protected async mdctrl_uc0d3ab5_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
 
         // 取数
         let datas: any[] = [];
@@ -249,9 +259,9 @@ export default class Exp_TestTaskBase extends Vue implements ControlInterface {
             datas = [..._this.getDatas()];
         }
         // 界面行为
-        const curUIService: any = await this.globaluiservice.getService('case_ui_action');
+        const curUIService: any = await this.globaluiservice.getService('bug_ui_action');
         if (curUIService) {
-            curUIService.Case_mobUnlinkCase(datas, contextJO, paramJO, $event, xData, this);
+            curUIService.Bug_releaseUnlinkBugByLeftBug(datas, contextJO, paramJO, $event, xData, this);
         }
     }
 
@@ -259,7 +269,7 @@ export default class Exp_TestTaskBase extends Vue implements ControlInterface {
      * 关闭视图
      *
      * @param {any[]} args
-     * @memberof Exp_TestTask
+     * @memberof MOB_Release_YiLiuBug
      */
     protected closeView(args: any[]): void {
         let _this: any = this;
@@ -271,7 +281,7 @@ export default class Exp_TestTaskBase extends Vue implements ControlInterface {
      * 视图类型
      *
      * @type {string}
-     * @memberof Exp_TestTask
+     * @memberof MOB_Release_YiLiuBug
      */
     @Prop() protected viewType?: string | 'DEMOBMDVIEW' | 'DEMOBMDVIEW9' | 'DEMOBWFMDVIEW';
 
@@ -279,7 +289,7 @@ export default class Exp_TestTaskBase extends Vue implements ControlInterface {
      * 显示处理提示
      *
      * @type {boolean}
-     * @memberof Exp_TestTask
+     * @memberof MOB_Release_YiLiuBug
      */
     @Prop({ default: true }) protected showBusyIndicator?: boolean;
 
@@ -287,7 +297,7 @@ export default class Exp_TestTaskBase extends Vue implements ControlInterface {
      * 部件行为--update
      *
      * @type {string}
-     * @memberof Exp_TestTask
+     * @memberof MOB_Release_YiLiuBug
      */
     @Prop() protected updateAction!: string;
     
@@ -295,7 +305,7 @@ export default class Exp_TestTaskBase extends Vue implements ControlInterface {
      * 部件行为--fetch
      *
      * @type {string}
-     * @memberof Exp_TestTask
+     * @memberof MOB_Release_YiLiuBug
      */
     @Prop() protected fetchAction!: string;
     
@@ -303,7 +313,7 @@ export default class Exp_TestTaskBase extends Vue implements ControlInterface {
      * 部件行为--remove
      *
      * @type {string}
-     * @memberof Exp_TestTask
+     * @memberof MOB_Release_YiLiuBug
      */
     @Prop() protected removeAction!: string;
     
@@ -311,7 +321,7 @@ export default class Exp_TestTaskBase extends Vue implements ControlInterface {
      * 部件行为--load
      *
      * @type {string}
-     * @memberof Exp_TestTask
+     * @memberof MOB_Release_YiLiuBug
      */
     @Prop() protected loadAction!: string;
     
@@ -319,7 +329,7 @@ export default class Exp_TestTaskBase extends Vue implements ControlInterface {
      * 部件行为--loaddraft
      *
      * @type {string}
-     * @memberof Exp_TestTask
+     * @memberof MOB_Release_YiLiuBug
      */
     @Prop() protected loaddraftAction!: string;
     
@@ -327,7 +337,7 @@ export default class Exp_TestTaskBase extends Vue implements ControlInterface {
      * 部件行为--create
      *
      * @type {string}
-     * @memberof Exp_TestTask
+     * @memberof MOB_Release_YiLiuBug
      */
     @Prop() protected createAction!: string;
 
@@ -335,14 +345,14 @@ export default class Exp_TestTaskBase extends Vue implements ControlInterface {
      * 部件样式
      *
      * @type {string}
-     * @memberof Exp_TestTask
+     * @memberof MOB_Release_YiLiuBug
      */
     @Prop({default: 'LISTVIEW'}) protected controlStyle!: string | 'ICONVIEW'  | 'LISTVIEW' | 'SWIPERVIEW' | 'LISTVIEW2' | 'LISTVIEW3' | 'LISTVIEW4';
 
     /**
     *上级传递的选中项
     *@type {Array}
-    *@memberof Exp_TestTask
+    *@memberof MOB_Release_YiLiuBug
     */
      @Prop() public selectedData?:Array<any>;
 
@@ -350,7 +360,7 @@ export default class Exp_TestTaskBase extends Vue implements ControlInterface {
      * 部件行为--update
      *
      * @type {string}
-     * @memberof Exp_TestTask
+     * @memberof MOB_Release_YiLiuBug
      */
     @Prop({default: true}) protected needLoadMore?: boolean;
 
@@ -358,7 +368,7 @@ export default class Exp_TestTaskBase extends Vue implements ControlInterface {
     * 新建打开视图
     *
     * @type {Function}
-    * @memberof Exp_TestTask
+    * @memberof MOB_Release_YiLiuBug
     */
     @Prop() public newdata?: Function; 
 
@@ -367,7 +377,7 @@ export default class Exp_TestTaskBase extends Vue implements ControlInterface {
     * 打开视图
     *
     * @type {Function}
-    * @memberof Exp_TestTask
+    * @memberof MOB_Release_YiLiuBug
     */
     @Prop() public opendata?: Function; 
 
@@ -376,7 +386,7 @@ export default class Exp_TestTaskBase extends Vue implements ControlInterface {
     * 当前选中数组
     *
     * @type {array}
-    * @memberof Exp_TestTask
+    * @memberof MOB_Release_YiLiuBug
     */
     public  selectdata :any = [];
 
@@ -384,7 +394,7 @@ export default class Exp_TestTaskBase extends Vue implements ControlInterface {
     * 关闭行为
     *
     * @type {Function}
-    * @memberof Exp_TestTask
+    * @memberof MOB_Release_YiLiuBug
     */
     @Prop() public close?:Function;
 
@@ -392,7 +402,7 @@ export default class Exp_TestTaskBase extends Vue implements ControlInterface {
     * 是否显示加载文字
     *
     * @type {boolean}
-    * @memberof Exp_TestTask
+    * @memberof MOB_Release_YiLiuBug
     */
     @Prop({ default: true}) public isNeedLoaddingText?:boolean;
 
@@ -400,7 +410,7 @@ export default class Exp_TestTaskBase extends Vue implements ControlInterface {
     * 是否为临时模式
     *
     * @type {boolean}
-    * @memberof Exp_TestTask
+    * @memberof MOB_Release_YiLiuBug
     */
     @Prop({ default: false}) public isTempMode?:boolean;
 
@@ -408,7 +418,7 @@ export default class Exp_TestTaskBase extends Vue implements ControlInterface {
     * 存放多数据选择数组（多选）
     *
     * @type {array}
-    * @memberof Exp_TestTask
+    * @memberof MOB_Release_YiLiuBug
     */
     public checkboxList:Array<string> = [];
 
@@ -416,31 +426,31 @@ export default class Exp_TestTaskBase extends Vue implements ControlInterface {
     * 是否为分组模式
     *
     * @type {boolean}
-    * @memberof Exp_TestTask
+    * @memberof MOB_Release_YiLiuBug
     */
-    public isEnableGroup:boolean =  false;
+    public isEnableGroup:boolean =  true;
 
     /**
     * 代码表分组细节
     *
     * @type {Object}
-    * @memberof Exp_TestTask
+    * @memberof MOB_Release_YiLiuBug
     */
-    public group_detail:any = [];
+    public group_detail:any =   [ {"value":'active',"text":'激活'}, {"value":'resolved',"text":'已解决'}, {"value":'closed',"text":'已关闭'},];
 
     /**
     * 分组模式
     *
     * @type {string}
-    * @memberof Exp_TestTask
+    * @memberof MOB_Release_YiLiuBug
     */
-    public group_mode = 'NONE';
+    public group_mode = 'CODELIST';
 
     /**
     * 分组数据
     *
     * @type {array}
-    * @memberof Exp_TestTask
+    * @memberof MOB_Release_YiLiuBug
     */
     public group_data?:any = [];
 
@@ -449,7 +459,7 @@ export default class Exp_TestTaskBase extends Vue implements ControlInterface {
      *
      * @public
      * @type {(Subscription | undefined)}
-     * @memberof Exp_TestTaskBase
+     * @memberof MOB_Release_YiLiuBugBase
      */
     public appStateEvent: Subscription | undefined;
 
@@ -457,14 +467,14 @@ export default class Exp_TestTaskBase extends Vue implements ControlInterface {
     * 分组标识
     *
     * @type {array}
-    * @memberof Exp_TestTask
+    * @memberof MOB_Release_YiLiuBug
     */
-    public group_field:string = '';
+    public group_field:string = 'status';
 
     /**
      * 分组方法
      *
-     * @memberof Exp_TestTask
+     * @memberof MOB_Release_YiLiuBug
      */
     public group(){
       let _this:any = this;
@@ -475,12 +485,34 @@ export default class Exp_TestTaskBase extends Vue implements ControlInterface {
       }
     }
 
+    /**
+     * vant折叠面板数据
+     *
+     * @memberof MOB_Release_YiLiuBug
+     */
+    public activeName:Array<any> = [];
+
+    /**
+     * 只需第一次赋值面板
+     *
+     * @memberof MOB_Release_YiLiuBug
+     */
+    public valve:number = 0;
+
+    /**
+     * 折叠面板改变时
+     *
+     * @memberof MOB_Release_YiLiuBug
+     */
+    public changeCollapse($event:any){
+      this.activeName = $event;
+    }
 
     /**
     * 存放数据选择数组(单选)
     *
     * @type {object}
-    * @memberof Exp_TestTask
+    * @memberof MOB_Release_YiLiuBug
     */
     public radio:any = '';
 
@@ -489,7 +521,7 @@ export default class Exp_TestTaskBase extends Vue implements ControlInterface {
     * 点击多选按钮触发
     *
     *
-    * @memberof Exp_TestTask
+    * @memberof MOB_Release_YiLiuBug
     */
     public change(){
         if(this.isMutli){
@@ -511,7 +543,7 @@ export default class Exp_TestTaskBase extends Vue implements ControlInterface {
     * 列表键值对
     *
     * @type {Map}
-    * @memberof Exp_TestTask
+    * @memberof MOB_Release_YiLiuBug
     */
     public listMap: any = new Map();
 
@@ -519,15 +551,15 @@ export default class Exp_TestTaskBase extends Vue implements ControlInterface {
     * 分页大小
     *
     * @type {number}
-    * @memberof Exp_TestTask
+    * @memberof MOB_Release_YiLiuBug
     */
-    public pageSize: number = 1000;
+    public pageSize: number = 20;
 
     /**
     * 总页数
     *
     * @type {number}
-    * @memberof Exp_TestTask
+    * @memberof MOB_Release_YiLiuBug
     */
      public pageTotal: number = 0;
 
@@ -535,7 +567,7 @@ export default class Exp_TestTaskBase extends Vue implements ControlInterface {
     * 当前页数
     *
     * @type {number}
-    * @memberof Exp_TestTask
+    * @memberof MOB_Release_YiLiuBug
     */
      public pageNumber: number = 1;
 
@@ -543,7 +575,7 @@ export default class Exp_TestTaskBase extends Vue implements ControlInterface {
     * 判断底部数据是否全部加载完成，若为真，则 bottomMethod 不会被再次触发
     *
     * @type {number}
-    * @memberof Exp_TestTask
+    * @memberof MOB_Release_YiLiuBug
     */
     get allLoaded() {
         return ((this.pageNumber + 1) * this.pageSize) >= this.pageTotal ? true : false;
@@ -553,7 +585,7 @@ export default class Exp_TestTaskBase extends Vue implements ControlInterface {
     * searchKey 搜索关键字
     *
     * @type {string}
-    * @memberof Exp_TestTask
+    * @memberof MOB_Release_YiLiuBug
     */
      public searchKey:string = '';
 
@@ -561,7 +593,7 @@ export default class Exp_TestTaskBase extends Vue implements ControlInterface {
     * 列表数组
     *
     * @param {Array<any>}
-    * @memberof Exp_TestTask
+    * @memberof MOB_Release_YiLiuBug
     */
     public items:Array<any> =[];
 
@@ -569,7 +601,7 @@ export default class Exp_TestTaskBase extends Vue implements ControlInterface {
     * 选中数组
     *
     * @param {Array<any>}
-    * @memberof Exp_TestTask
+    * @memberof MOB_Release_YiLiuBug
     */
     public selectedArray:Array<any> = [];
 
@@ -577,7 +609,7 @@ export default class Exp_TestTaskBase extends Vue implements ControlInterface {
     * 多选计数
     *
     * @param {number}
-    * @memberof Exp_TestTask
+    * @memberof MOB_Release_YiLiuBug
     */
     public selectednumber:number =0;
 
@@ -585,7 +617,7 @@ export default class Exp_TestTaskBase extends Vue implements ControlInterface {
     * 搜索行为
     *
     * @param {string}
-    * @memberof Exp_TestTask
+    * @memberof MOB_Release_YiLiuBug
     */
     @Prop() public searchAction?:string;
 
@@ -593,7 +625,7 @@ export default class Exp_TestTaskBase extends Vue implements ControlInterface {
     * 是否为选择视图
     *
     * @param {boolean} 
-    * @memberof Exp_TestTask
+    * @memberof MOB_Release_YiLiuBug
     */
     @Prop() public isSelected?:boolean;
 
@@ -601,7 +633,7 @@ export default class Exp_TestTaskBase extends Vue implements ControlInterface {
     * 是否多选
     *
     * @type {boolean}
-    * @memberof Exp_TestTask
+    * @memberof MOB_Release_YiLiuBug
     */
     @Prop({default:false}) public isMutli?: boolean;
 
@@ -609,7 +641,7 @@ export default class Exp_TestTaskBase extends Vue implements ControlInterface {
     * 单选选择值
     *
     * @param {string} 
-    * @memberof Exp_TestTask
+    * @memberof MOB_Release_YiLiuBug
     */
     public selectedValue:string = ""; 
 
@@ -617,7 +649,7 @@ export default class Exp_TestTaskBase extends Vue implements ControlInterface {
     * 部件排序对象
     *
     * @param {object} 
-    * @memberof Exp_TestTask
+    * @memberof MOB_Release_YiLiuBug
     */
     public sort: any = { sort:'id,desc'};
     
@@ -625,7 +657,7 @@ export default class Exp_TestTaskBase extends Vue implements ControlInterface {
     /**
      * 上拉加载更多数据
      *
-     * @memberof Exp_TestTask
+     * @memberof MOB_Release_YiLiuBug
      */
     public async loadBottom(): Promise<any> {
         if (this.allLoaded) {
@@ -675,7 +707,7 @@ export default class Exp_TestTaskBase extends Vue implements ControlInterface {
         }
         return new Promise((resolve, reject) => {
             const _remove = async () => {
-                let _context: any = { case: keys.join(';') }
+                let _context: any = { bug: keys.join(';') }
                 const response: any = await this.service.delete(this.removeAction, Object.assign({}, this.context, _context), arg, this.showBusyIndicator);
                 if (response && response.status === 200 && response.data.records) {
                     this.$notice.success((this.$t('app.message.deleteSccess') as string));
@@ -718,7 +750,7 @@ export default class Exp_TestTaskBase extends Vue implements ControlInterface {
     /**
      * 长按状态改变事件
      *
-     * @memberof Exp_TestTask
+     * @memberof MOB_Release_YiLiuBug
      */
     public onCheackChange(){
         this.$emit('isChooseChange', !this.isChoose);
@@ -729,7 +761,7 @@ export default class Exp_TestTaskBase extends Vue implements ControlInterface {
      *
      * @param {string} query
      * @returns {Promise<any>}
-     * @memberof Exp_TestTask
+     * @memberof MOB_Release_YiLiuBug
      */
     public async quickSearch(query: string): Promise<any> {
         this.searchKey = query;
@@ -745,7 +777,7 @@ export default class Exp_TestTaskBase extends Vue implements ControlInterface {
      * @param {*} [data={}]
      * @param {string} [type=""]
      * @returns {Promise<any>}
-     * @memberof Exp_TestTask
+     * @memberof MOB_Release_YiLiuBug
      */
     private async load(data: any = {}, type: string = "",isloadding = this.showBusyIndicator): Promise<any> {
         if (!data.page) {
@@ -807,6 +839,38 @@ export default class Exp_TestTaskBase extends Vue implements ControlInterface {
         return response;
     }
 
+    /**
+     * 代码表分组，获取分组数据
+     *
+     * @memberof MOB_Release_YiLiuBug
+     */
+    public getGroupDataByCodeList(items:any){
+      let group:Array<any> = [];
+      this.group_detail.forEach((obj:any,index:number)=>{
+        let data:any = [];
+        items.forEach((item:any,i:number)=>{
+          if (item[this.group_field] === obj.value) {
+            data.push(item);
+          }
+        })
+        group.push(data);
+      })
+      group.forEach((arr:any,index:number)=>{
+        this.group_data[index] = {};
+        this.group_data[index].text = this.group_detail[index].text;
+        this.group_data[index].items = arr;
+      })
+      this.group_data.forEach((item:any,i:number)=>{
+        if (item.items.length == 0) {
+          this.group_data.splice(i,1);
+        }
+      })
+      // vant 折叠面板
+      if (this.valve == 0) {
+        this.activeName[0] = this.group_data[0].text;
+        this.valve++;
+      }
+    }
 
 
     /**
@@ -814,7 +878,7 @@ export default class Exp_TestTaskBase extends Vue implements ControlInterface {
      *
      * @param {*} data
      * @returns
-     * @memberof Exp_TestTask
+     * @memberof MOB_Release_YiLiuBug
      */
     public checkboxChange(data: any) {
         let { detail } = data;
@@ -827,7 +891,7 @@ export default class Exp_TestTaskBase extends Vue implements ControlInterface {
             if (item.value) {
                 this.selectednumber++;
             }
-            if (Object.is(item.caseid, value)) {
+            if (Object.is(item.bugid, value)) {
                 if (detail.checked) {
                     this.selectdata.push(this.items[index]);
                 } else {
@@ -842,7 +906,7 @@ export default class Exp_TestTaskBase extends Vue implements ControlInterface {
      * 下拉刷新
      *
      * @returns {Promise<any>}
-     * @memberof Exp_TestTask
+     * @memberof MOB_Release_YiLiuBug
      */
     public async pullDownToRefresh(): Promise<any> {
         this.pageNumber = 0;
@@ -858,7 +922,7 @@ export default class Exp_TestTaskBase extends Vue implements ControlInterface {
     /**
     * 点击回调事件
     *
-    * @memberof Exp_TestTask
+    * @memberof MOB_Release_YiLiuBug
     */
     public item_click(item:any){
         if(this.isChoose){
@@ -878,7 +942,7 @@ export default class Exp_TestTaskBase extends Vue implements ControlInterface {
     /**
     * 点击列表数据跳转
     *
-    * @memberof Exp_TestTask
+    * @memberof MOB_Release_YiLiuBug
     */
     public goPage(item: any) {
         this.$emit('rowclick',item);
@@ -887,7 +951,7 @@ export default class Exp_TestTaskBase extends Vue implements ControlInterface {
     /**
     * 获取多项数据
     *
-    * @memberof Exp_TestTask
+    * @memberof MOB_Release_YiLiuBug
     */
     public getDatas(): any[] {
       return this.selectedArray;
@@ -896,7 +960,7 @@ export default class Exp_TestTaskBase extends Vue implements ControlInterface {
     /**
     * 获取单项数据
     *
-    * @memberof Exp_TestTask
+    * @memberof MOB_Release_YiLiuBug
     */
     public getData(): any {
         return this.selectedArray[0];
@@ -905,7 +969,7 @@ export default class Exp_TestTaskBase extends Vue implements ControlInterface {
     /**
     * vue生命周期created
     *
-    * @memberof Exp_TestTask
+    * @memberof MOB_Release_YiLiuBug
     */
     public created() {
         this.afterCreated();
@@ -914,7 +978,7 @@ export default class Exp_TestTaskBase extends Vue implements ControlInterface {
     /**
      * 执行created后的逻辑
      *
-     *  @memberof Exp_TestTask
+     *  @memberof MOB_Release_YiLiuBug
      */    
     protected afterCreated(){
         if (this.viewState) {
@@ -942,7 +1006,7 @@ export default class Exp_TestTaskBase extends Vue implements ControlInterface {
         }
         if(AppCenterService && AppCenterService.getMessageCenter()){
             this.appStateEvent = AppCenterService.getMessageCenter().subscribe(({ name, action, data }) =>{
-                if(!Object.is(name,"Case")){
+                if(!Object.is(name,"Bug")){
                     return;
                 }
                 if(Object.is(action,'appRefresh')){
@@ -955,7 +1019,7 @@ export default class Exp_TestTaskBase extends Vue implements ControlInterface {
     /**
      * ion-item-sliding拖动事件
      *
-     * @memberof Exp_TestTask
+     * @memberof MOB_Release_YiLiuBug
      */
     public ionDrag(){
       this.$store.commit('setPopupStatus',false)
@@ -964,7 +1028,7 @@ export default class Exp_TestTaskBase extends Vue implements ControlInterface {
     /**
      * 滚动条事件（计算是否到底部）
      *
-     * @memberof Exp_TestTask
+     * @memberof MOB_Release_YiLiuBug
      */
     public scroll(e:any){
         let list:any = this.$refs.mdctrl;
@@ -984,14 +1048,14 @@ export default class Exp_TestTaskBase extends Vue implements ControlInterface {
     /**
      * 底部加载状态
      *
-     * @memberof Exp_TestTask
+     * @memberof MOB_Release_YiLiuBug
      */
     public bottomLoadding = false;
 
     /**
      * vue 生命周期
      *
-     * @memberof Exp_TestTask
+     * @memberof MOB_Release_YiLiuBug
      */
     public beforeDestroy(){
       let list:any = this.$refs.mdctrl;
@@ -1005,7 +1069,7 @@ export default class Exp_TestTaskBase extends Vue implements ControlInterface {
     /**
      * vue 生命周期
      *
-     * @memberof Exp_TestTask
+     * @memberof MOB_Release_YiLiuBug
      */
     public destroyed() {
         this.afterDestroy();
@@ -1014,7 +1078,7 @@ export default class Exp_TestTaskBase extends Vue implements ControlInterface {
     /**
      * 执行destroyed后的逻辑
      *
-     * @memberof Exp_TestTask
+     * @memberof MOB_Release_YiLiuBug
      */
     protected afterDestroy() {
         if (this.viewStateEvent) {
@@ -1029,7 +1093,7 @@ export default class Exp_TestTaskBase extends Vue implements ControlInterface {
     /**
      * vue 生命周期 activated
      *
-     * @memberof Exp_TestTask
+     * @memberof MOB_Release_YiLiuBug
      */
     public activated() {
         this.closeSlidings()
@@ -1047,8 +1111,8 @@ export default class Exp_TestTaskBase extends Vue implements ControlInterface {
         $event.stopPropagation();
         this.selectedArray = [];
         this.selectedArray.push(item);
-        if (Object.is(tag, 'ua077d7d')) {
-            this.mdctrl_ua077d7d_click();
+        if (Object.is(tag, 'uc0d3ab5')) {
+            this.mdctrl_uc0d3ab5_click();
         }
         this.closeSlidings();
     }
@@ -1142,10 +1206,10 @@ export default class Exp_TestTaskBase extends Vue implements ControlInterface {
      * 界面行为模型
      *
      * @type {*}
-     * @memberof Exp_TestTaskBase
+     * @memberof MOB_Release_YiLiuBugBase
      */  
     public ActionModel:any ={
-        mobUnlinkCase: { name: 'mobUnlinkCase',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__CASE_UNLINK_BUT', target: 'SINGLEKEY',icon:'unlink',isShowCaption:false,isShowIcon:true}
+        releaseUnlinkBugByLeftBug: { name: 'releaseUnlinkBugByLeftBug',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__BUG_UNLINK_BUT', target: 'SINGLEKEY',icon:'unlink',isShowCaption:false,isShowIcon:true}
     };
 
     
@@ -1153,7 +1217,7 @@ export default class Exp_TestTaskBase extends Vue implements ControlInterface {
     /**
      * 获取界面行为权限状态
      *
-     * @memberof Exp_TestTaskBase
+     * @memberof MOB_Release_YiLiuBugBase
      */
     public getActionState(data:any){
         //let targetData:any = this.transformData(data);
@@ -1165,7 +1229,7 @@ export default class Exp_TestTaskBase extends Vue implements ControlInterface {
     /**
     * 判断列表项左滑右滑禁用状态
     *
-    * @memberof Exp_TestTaskBase
+    * @memberof MOB_Release_YiLiuBugBase
     */
     public setSlidingDisabled(item:any){
         item.sliding_disabled = true;
@@ -1180,14 +1244,14 @@ export default class Exp_TestTaskBase extends Vue implements ControlInterface {
     /**
      * 长按定时器
      *
-     * @memberof Exp_TestTaskBase
+     * @memberof MOB_Release_YiLiuBugBase
      */
     public timeOutEvent :number = 0;
 
     /**
      * 开始长按
      *
-     * @memberof Exp_TestTaskBase
+     * @memberof MOB_Release_YiLiuBugBase
      */
     public gotouchstart(){
         let _this = this;
@@ -1206,7 +1270,7 @@ export default class Exp_TestTaskBase extends Vue implements ControlInterface {
      * touchmove
      *  如果手指有移动，则取消所有事件，此时说明用户只是要移动而不是长按
      *
-     * @memberof Exp_TestTaskBase
+     * @memberof MOB_Release_YiLiuBugBase
      */
     public gotouchmove() {
         clearTimeout(this.timeOutEvent); //清除定时器
@@ -1217,7 +1281,7 @@ export default class Exp_TestTaskBase extends Vue implements ControlInterface {
      * touchend
      * 结束长按
      *
-     * @memberof Exp_TestTaskBase
+     * @memberof MOB_Release_YiLiuBugBase
      */
     public gotouchend() {
         this.timeOutEvent = 0;
@@ -1227,5 +1291,5 @@ export default class Exp_TestTaskBase extends Vue implements ControlInterface {
 </script>
 
 <style lang='less'>
-@import './exp-test-task-mobmdctrl.less';
+@import './mob-release-yi-liu-bug-mobmdctrl.less';
 </style>
