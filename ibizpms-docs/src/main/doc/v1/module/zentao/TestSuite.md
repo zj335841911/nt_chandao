@@ -473,7 +473,8 @@ Long
 | 4 | [Get](#实体行为-Get（Get）) | Get | 内置方法 | 后台及前台 |
 | 5 | [GetDraft](#实体行为-GetDraft（GetDraft）) | GetDraft | 内置方法 | 后台及前台 |
 | 6 | [CheckKey](#实体行为-CheckKey（CheckKey）) | CheckKey | 内置方法 | 后台及前台 |
-| 7 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
+| 7 | [测试套件移动端计数器](#实体行为-测试套件移动端计数器（MobTestSuiteCount）) | MobTestSuiteCount | 实体处理逻辑 | 后台 |
+| 8 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
 
 ### 实体行为-Create（Create）
 #### 说明
@@ -547,6 +548,18 @@ CheckKey
 
 #### 逻辑附加
 无
+### 实体行为-测试套件移动端计数器（MobTestSuiteCount）
+#### 说明
+测试套件移动端计数器
+
+- 行为类型
+实体处理逻辑
+
+- 行为持有者
+后台
+
+#### 逻辑附加
+无
 ### 实体行为-Save（Save）
 #### 说明
 Save
@@ -575,7 +588,8 @@ Save
 #### 逻辑节点
 | 序号 | 节点 | 节点名 | 节点类型 |
 | ---- | ---- | ---- | ---- |
-| 1 | 开始 | Begin | 开始 |
+| 1 | 查询测试用例数 | Rawsqlcall1 | 直接SQL调用 |
+| 2 | 开始 | Begin | 开始 |
 
 ## 实体搜索
 ### 快速搜索项

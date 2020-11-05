@@ -72,6 +72,11 @@ public interface SysEmployeeFeignClient {
 
 
 
+    @RequestMapping(method = RequestMethod.POST, value = "/sysemployees/searchcontactlist")
+    Page<SysEmployee> searchContActList(@RequestBody SysEmployeeSearchContext context);
+
+
+
     @RequestMapping(method = RequestMethod.POST, value = "/sysemployees/searchdefault")
     Page<SysEmployee> searchDefault(@RequestBody SysEmployeeSearchContext context);
 

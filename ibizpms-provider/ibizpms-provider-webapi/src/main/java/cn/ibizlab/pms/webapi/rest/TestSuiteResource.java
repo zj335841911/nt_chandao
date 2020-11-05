@@ -121,6 +121,17 @@ public class TestSuiteResource {
         return  ResponseEntity.status(HttpStatus.OK).body(testsuiteService.checkKey(testsuiteMapping.toDomain(testsuitedto)));
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestSuite-MobTestSuiteCount-all')")
+    @ApiOperation(value = "测试套件移动端计数器", tags = {"测试套件" },  notes = "测试套件移动端计数器")
+	@RequestMapping(method = RequestMethod.POST, value = "/testsuites/{testsuite_id}/mobtestsuitecount")
+    public ResponseEntity<TestSuiteDTO> mobTestSuiteCount(@PathVariable("testsuite_id") Long testsuite_id, @RequestBody TestSuiteDTO testsuitedto) {
+        TestSuite domain = testsuiteMapping.toDomain(testsuitedto);
+        domain.setId(testsuite_id);
+        domain = testsuiteService.mobTestSuiteCount(domain);
+        testsuitedto = testsuiteMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(testsuitedto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestSuite-Save-all')")
     @ApiOperation(value = "保存测试套件", tags = {"测试套件" },  notes = "保存测试套件")
 	@RequestMapping(method = RequestMethod.POST, value = "/testsuites/save")

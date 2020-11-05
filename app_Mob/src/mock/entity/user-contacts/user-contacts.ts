@@ -8,8 +8,8 @@ const mockDatas: Array<any> = [
 
 
 //getwflink
-mock.onGet(new RegExp(/^\/wfcore\/pms-app-mob\/testsuites\/[a-zA-Z0-9\-\;]+\/usertasks\/[a-zA-Z0-9\-\;]+\/ways$/)).reply((config: any) => {
-    console.groupCollapsed("实体:testsuite 方法: getwflink");
+mock.onGet(new RegExp(/^\/wfcore\/pms-app-mob\/usercontacts\/[a-zA-Z0-9\-\;]+\/usertasks\/[a-zA-Z0-9\-\;]+\/ways$/)).reply((config: any) => {
+    console.groupCollapsed("实体:usercontact 方法: getwflink");
     console.table({url:config.url, method: config.method, data:config.data});
     console.groupEnd();
     let status = MockAdapter.mockStatus(config);
@@ -27,8 +27,8 @@ mock.onGet(new RegExp(/^\/wfcore\/pms-app-mob\/testsuites\/[a-zA-Z0-9\-\;]+\/use
 });
 
 // getwfstep
-mock.onGet(new RegExp(/^\/wfcore\/pms-app-mob\/testsuites\/process-definitions-nodes$/)).reply((config: any) => {
-    console.groupCollapsed("实体:testsuite 方法: getwfstep");
+mock.onGet(new RegExp(/^\/wfcore\/pms-app-mob\/usercontacts\/process-definitions-nodes$/)).reply((config: any) => {
+    console.groupCollapsed("实体:usercontact 方法: getwfstep");
     console.table({url:config.url, method: config.method, data:config.data});
     console.groupEnd();
     let status = MockAdapter.mockStatus(config);
@@ -51,8 +51,8 @@ mock.onGet(new RegExp(/^\/wfcore\/pms-app-mob\/testsuites\/process-definitions-n
 });
 
 // createBatch
-mock.onPost(new RegExp(/^\/testsuites\/batch$/)).reply((config: any) => {
-    console.groupCollapsed("实体:testsuite 方法: createBatch");
+mock.onPost(new RegExp(/^\/usercontacts\/batch$/)).reply((config: any) => {
+    console.groupCollapsed("实体:usercontact 方法: createBatch");
     console.table({url:config.url, method: config.method, data:config.data});
     console.groupEnd();
     let status = MockAdapter.mockStatus(config);
@@ -63,8 +63,8 @@ mock.onPost(new RegExp(/^\/testsuites\/batch$/)).reply((config: any) => {
 });
 
 // updateBatch
-mock.onPut(new RegExp(/^\/testsuites\/batch$/)).reply((config: any) => {
-    console.groupCollapsed("实体:testsuite 方法: updateBatch");
+mock.onPut(new RegExp(/^\/usercontacts\/batch$/)).reply((config: any) => {
+    console.groupCollapsed("实体:usercontact 方法: updateBatch");
     console.table({url:config.url, method: config.method, data:config.data});
     console.groupEnd();
     let status = MockAdapter.mockStatus(config);
@@ -75,8 +75,8 @@ mock.onPut(new RegExp(/^\/testsuites\/batch$/)).reply((config: any) => {
 });
 
 // removeBatch
-mock.onDelete(new RegExp(/^\/testsuites\/batch$/)).reply((config: any) => {
-    console.groupCollapsed("实体:testsuite 方法: removeBatch");
+mock.onDelete(new RegExp(/^\/usercontacts\/batch$/)).reply((config: any) => {
+    console.groupCollapsed("实体:usercontact 方法: removeBatch");
     console.table({url:config.url, method: config.method, data:config.data});
     console.groupEnd();
     let status = MockAdapter.mockStatus(config);
@@ -88,15 +88,15 @@ mock.onDelete(new RegExp(/^\/testsuites\/batch$/)).reply((config: any) => {
 
 
 // Select
-mock.onGet(new RegExp(/^\/testsuites\/([a-zA-Z0-9\-\;]{1,35})\/select$/)).reply((config: any) => {
-    console.groupCollapsed("实体:testsuite 方法: Select");
+mock.onGet(new RegExp(/^\/usercontacts\/([a-zA-Z0-9\-\;]{1,35})\/select$/)).reply((config: any) => {
+    console.groupCollapsed("实体:usercontact 方法: Select");
     console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
     if (status !== 200) {
         return [status, null];
     }    
     const paramArray:Array<any> = ['id'];
-    const matchArray:any = new RegExp(/^\/testsuites\/([a-zA-Z0-9\-\;]{1,35})\/select$/).exec(config.url);
+    const matchArray:any = new RegExp(/^\/usercontacts\/([a-zA-Z0-9\-\;]{1,35})\/select$/).exec(config.url);
     let tempValue: any = {};
     if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
         paramArray.forEach((item: any, index: number) => {
@@ -116,15 +116,15 @@ mock.onGet(new RegExp(/^\/testsuites\/([a-zA-Z0-9\-\;]{1,35})\/select$/)).reply(
 });
         
 // Create
-mock.onPost(new RegExp(/^\/testsuites\/?([a-zA-Z0-9\-\;]{0,35})$/)).reply((config: any) => {
-    console.groupCollapsed("实体:testsuite 方法: Create");
+mock.onPost(new RegExp(/^\/usercontacts\/?([a-zA-Z0-9\-\;]{0,35})$/)).reply((config: any) => {
+    console.groupCollapsed("实体:usercontact 方法: Create");
     console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
     if (status !== 200) {
         return [status, null];
     }    
     const paramArray:Array<any> = ['id'];
-    const matchArray:any = new RegExp(/^\/testsuites\/([a-zA-Z0-9\-\;]{1,35})$/).exec(config.url);
+    const matchArray:any = new RegExp(/^\/usercontacts\/([a-zA-Z0-9\-\;]{1,35})$/).exec(config.url);
     let tempValue: any = {};
     if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
         paramArray.forEach((item: any, index: number) => {
@@ -142,15 +142,15 @@ mock.onPost(new RegExp(/^\/testsuites\/?([a-zA-Z0-9\-\;]{0,35})$/)).reply((confi
 });
         
 // Update
-mock.onPut(new RegExp(/^\/testsuites\/?([a-zA-Z0-9\-\;]{0,35})$/)).reply((config: any) => {
-    console.groupCollapsed("实体:testsuite 方法: Update");
+mock.onPut(new RegExp(/^\/usercontacts\/?([a-zA-Z0-9\-\;]{0,35})$/)).reply((config: any) => {
+    console.groupCollapsed("实体:usercontact 方法: Update");
     console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
     if (status !== 200) {
         return [status, null];
     }    
     const paramArray:Array<any> = ['id'];
-    const matchArray:any = new RegExp(/^\/testsuites\/([a-zA-Z0-9\-\;]{1,35})$/).exec(config.url);
+    const matchArray:any = new RegExp(/^\/usercontacts\/([a-zA-Z0-9\-\;]{1,35})$/).exec(config.url);
     let tempValue: any = {};
     if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
         paramArray.forEach((item: any, index: number) => {
@@ -180,8 +180,8 @@ mock.onPut(new RegExp(/^\/testsuites\/?([a-zA-Z0-9\-\;]{0,35})$/)).reply((config
 });
 
 // GetDraft
-mock.onGet(new RegExp(/^\/testsuites\/getdraft$/)).reply((config: any) => {
-    console.groupCollapsed("实体:testsuite 方法: GetDraft");
+mock.onGet(new RegExp(/^\/usercontacts\/getdraft$/)).reply((config: any) => {
+    console.groupCollapsed("实体:usercontact 方法: GetDraft");
     console.table({url:config.url, method: config.method, data:config.data});
     // GetDraft
     let status = MockAdapter.mockStatus(config);
@@ -196,53 +196,15 @@ mock.onGet(new RegExp(/^\/testsuites\/getdraft$/)).reply((config: any) => {
 });
         
 // CheckKey
-mock.onPost(new RegExp(/^\/testsuites\/?([a-zA-Z0-9\-\;]{0,35})\/checkkey$/)).reply((config: any) => {
-    console.groupCollapsed("实体:testsuite 方法: CheckKey");
+mock.onPost(new RegExp(/^\/usercontacts\/?([a-zA-Z0-9\-\;]{0,35})\/checkkey$/)).reply((config: any) => {
+    console.groupCollapsed("实体:usercontact 方法: CheckKey");
     console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
     if (status !== 200) {
         return [status, null];
     }    
     const paramArray:Array<any> = ['id'];
-    const matchArray:any = new RegExp(/^\/testsuites\/([a-zA-Z0-9\-\;]{1,35})\/checkkey$/).exec(config.url);
-    let tempValue: any = {};
-    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
-        paramArray.forEach((item: any, index: number) => {
-            Object.defineProperty(tempValue, item, {
-                enumerable: true,
-                value: matchArray[index + 1]
-            });
-        });
-    }
-    //let items = mockDatas ? mockDatas : [];
-    //let _items = items.find((item: any) => Object.is(item.id, tempValue.id));
-      let data = JSON.parse(config.data);
-    mockDatas.forEach((item)=>{
-        if(item['id'] == tempValue['id'] ){
-            for(let value in data){
-              if(item.hasOwnProperty(value)){
-                  item[value] = data[value];
-              }
-            }
-        }
-    })
-    console.groupCollapsed("response数据  status: "+status+" data: ");
-    console.table(data);
-    console.groupEnd();
-    console.groupEnd();
-    return [status, data];
-});
-        
-// MobTestSuiteCount
-mock.onPost(new RegExp(/^\/testsuites\/?([a-zA-Z0-9\-\;]{0,35})\/mobtestsuitecount$/)).reply((config: any) => {
-    console.groupCollapsed("实体:testsuite 方法: MobTestSuiteCount");
-    console.table({url:config.url, method: config.method, data:config.data});
-    let status = MockAdapter.mockStatus(config);
-    if (status !== 200) {
-        return [status, null];
-    }    
-    const paramArray:Array<any> = ['id'];
-    const matchArray:any = new RegExp(/^\/testsuites\/([a-zA-Z0-9\-\;]{1,35})\/mobtestsuitecount$/).exec(config.url);
+    const matchArray:any = new RegExp(/^\/usercontacts\/([a-zA-Z0-9\-\;]{1,35})\/checkkey$/).exec(config.url);
     let tempValue: any = {};
     if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
         paramArray.forEach((item: any, index: number) => {
@@ -272,15 +234,15 @@ mock.onPost(new RegExp(/^\/testsuites\/?([a-zA-Z0-9\-\;]{0,35})\/mobtestsuitecou
 });
         
 // Save
-mock.onPost(new RegExp(/^\/testsuites\/?([a-zA-Z0-9\-\;]{0,35})\/save$/)).reply((config: any) => {
-    console.groupCollapsed("实体:testsuite 方法: Save");
+mock.onPost(new RegExp(/^\/usercontacts\/?([a-zA-Z0-9\-\;]{0,35})\/save$/)).reply((config: any) => {
+    console.groupCollapsed("实体:usercontact 方法: Save");
     console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
     if (status !== 200) {
         return [status, null];
     }    
     const paramArray:Array<any> = ['id'];
-    const matchArray:any = new RegExp(/^\/testsuites\/([a-zA-Z0-9\-\;]{1,35})\/save$/).exec(config.url);
+    const matchArray:any = new RegExp(/^\/usercontacts\/([a-zA-Z0-9\-\;]{1,35})\/save$/).exec(config.url);
     let tempValue: any = {};
     if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
         paramArray.forEach((item: any, index: number) => {
@@ -310,8 +272,8 @@ mock.onPost(new RegExp(/^\/testsuites\/?([a-zA-Z0-9\-\;]{0,35})\/save$/)).reply(
 });
     
 // FetchDefault
-mock.onGet(new RegExp(/^\/testsuites\/fetchdefault$/)).reply((config: any) => {
-    console.groupCollapsed("实体:testsuite 方法: FetchDefault");
+mock.onGet(new RegExp(/^\/usercontacts\/fetchdefault$/)).reply((config: any) => {
+    console.groupCollapsed("实体:usercontact 方法: FetchDefault");
     console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
     if (status !== 200) {
@@ -325,8 +287,8 @@ mock.onGet(new RegExp(/^\/testsuites\/fetchdefault$/)).reply((config: any) => {
 });
 
 // FetchDefault
-mock.onGet(new RegExp(/^\/testsuites\/fetchdefault(\?[\w-./?%&=,]*)*$/)).reply((config: any) => {
-    console.groupCollapsed("实体:testsuite 方法: FetchDefault");
+mock.onGet(new RegExp(/^\/usercontacts\/fetchdefault(\?[\w-./?%&=,]*)*$/)).reply((config: any) => {
+    console.groupCollapsed("实体:usercontact 方法: FetchDefault");
     console.table({url:config.url, method: config.method, data:config.data});
     if(config.url.includes('page')){
         let url = config.url.split('?')[1];
@@ -353,9 +315,9 @@ mock.onGet(new RegExp(/^\/testsuites\/fetchdefault(\?[\w-./?%&=,]*)*$/)).reply((
     return [status, records ?  records : []];
 });
     
-// FetchPublicTestSuite
-mock.onGet(new RegExp(/^\/testsuites\/fetchpublictestsuite$/)).reply((config: any) => {
-    console.groupCollapsed("实体:testsuite 方法: FetchPublicTestSuite");
+// FetchMyUSERCONTACT
+mock.onGet(new RegExp(/^\/usercontacts\/fetchmyusercontact$/)).reply((config: any) => {
+    console.groupCollapsed("实体:usercontact 方法: FetchMyUSERCONTACT");
     console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
     if (status !== 200) {
@@ -368,9 +330,9 @@ mock.onGet(new RegExp(/^\/testsuites\/fetchpublictestsuite$/)).reply((config: an
     return [status, mockDatas ? mockDatas : []];
 });
 
-// FetchPublicTestSuite
-mock.onGet(new RegExp(/^\/testsuites\/fetchpublictestsuite(\?[\w-./?%&=,]*)*$/)).reply((config: any) => {
-    console.groupCollapsed("实体:testsuite 方法: FetchPublicTestSuite");
+// FetchMyUSERCONTACT
+mock.onGet(new RegExp(/^\/usercontacts\/fetchmyusercontact(\?[\w-./?%&=,]*)*$/)).reply((config: any) => {
+    console.groupCollapsed("实体:usercontact 方法: FetchMyUSERCONTACT");
     console.table({url:config.url, method: config.method, data:config.data});
     if(config.url.includes('page')){
         let url = config.url.split('?')[1];
@@ -406,15 +368,15 @@ mock.onGet(new RegExp(/^\/testsuites\/fetchpublictestsuite(\?[\w-./?%&=,]*)*$/))
 
 
 // Remove
-mock.onDelete(new RegExp(/^\/testsuites\/([a-zA-Z0-9\-\;]{1,35})$/)).reply((config: any) => {
-    console.groupCollapsed("实体:testsuite 方法: Remove");
+mock.onDelete(new RegExp(/^\/usercontacts\/([a-zA-Z0-9\-\;]{1,35})$/)).reply((config: any) => {
+    console.groupCollapsed("实体:usercontact 方法: Remove");
     console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
     if (status !== 200) {
         return [status, null];
     }    
     const paramArray:Array<any> = ['id'];
-    const matchArray:any = new RegExp(/^\/testsuites\/([a-zA-Z0-9\-\;]{1,35})$/).exec(config.url);
+    const matchArray:any = new RegExp(/^\/usercontacts\/([a-zA-Z0-9\-\;]{1,35})$/).exec(config.url);
     let tempValue: any = {};
     if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
         paramArray.forEach((item: any, index: number) => {
@@ -434,15 +396,15 @@ mock.onDelete(new RegExp(/^\/testsuites\/([a-zA-Z0-9\-\;]{1,35})$/)).reply((conf
 });
 
 // Get
-mock.onGet(new RegExp(/^\/testsuites\/([a-zA-Z0-9\-\;]{1,35})$/)).reply((config: any) => {
-    console.groupCollapsed("实体:testsuite 方法: Get");
+mock.onGet(new RegExp(/^\/usercontacts\/([a-zA-Z0-9\-\;]{1,35})$/)).reply((config: any) => {
+    console.groupCollapsed("实体:usercontact 方法: Get");
     console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
     if (status !== 200) {
         return [status, null];
     }    
     const paramArray:Array<any> = ['id'];
-    const matchArray:any = new RegExp(/^\/testsuites\/([a-zA-Z0-9\-\;]{1,35})$/).exec(config.url);
+    const matchArray:any = new RegExp(/^\/usercontacts\/([a-zA-Z0-9\-\;]{1,35})$/).exec(config.url);
     let tempValue: any = {};
     if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
         paramArray.forEach((item: any, index: number) => {

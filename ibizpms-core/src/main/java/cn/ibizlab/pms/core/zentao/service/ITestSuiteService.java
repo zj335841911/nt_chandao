@@ -34,6 +34,7 @@ public interface ITestSuiteService extends IService<TestSuite>{
     TestSuite get(Long key) ;
     TestSuite getDraft(TestSuite et) ;
     boolean checkKey(TestSuite et) ;
+    TestSuite mobTestSuiteCount(TestSuite et) ;
     boolean save(TestSuite et) ;
     void saveBatch(List<TestSuite> list) ;
     Page<TestSuite> searchDefault(TestSuiteSearchContext context) ;

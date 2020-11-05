@@ -164,6 +164,17 @@ public class ProductPlanResource {
         return ResponseEntity.status(HttpStatus.OK).body(productplandto);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-MobProductPlanCounter-all')")
+    @ApiOperation(value = "移动端产品计划计数器", tags = {"产品计划" },  notes = "移动端产品计划计数器")
+	@RequestMapping(method = RequestMethod.PUT, value = "/productplans/{productplan_id}/mobproductplancounter")
+    public ResponseEntity<ProductPlanDTO> mobProductPlanCounter(@PathVariable("productplan_id") Long productplan_id, @RequestBody ProductPlanDTO productplandto) {
+        ProductPlan domain = productplanMapping.toDomain(productplandto);
+        domain.setId(productplan_id);
+        domain = productplanService.mobProductPlanCounter(domain);
+        productplandto = productplanMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(productplandto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-Save-all')")
     @ApiOperation(value = "保存产品计划", tags = {"产品计划" },  notes = "保存产品计划")
 	@RequestMapping(method = RequestMethod.POST, value = "/productplans/save")
@@ -437,6 +448,17 @@ public class ProductPlanResource {
         ProductPlan domain = productplanMapping.toDomain(productplandto);
         domain.setProduct(product_id);
         domain = productplanService.linkStory(domain) ;
+        productplandto = productplanMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(productplandto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-MobProductPlanCounter-all')")
+    @ApiOperation(value = "根据产品产品计划", tags = {"产品计划" },  notes = "根据产品产品计划")
+	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/productplans/{productplan_id}/mobproductplancounter")
+    public ResponseEntity<ProductPlanDTO> mobProductPlanCounterByProduct(@PathVariable("product_id") Long product_id, @PathVariable("productplan_id") Long productplan_id, @RequestBody ProductPlanDTO productplandto) {
+        ProductPlan domain = productplanMapping.toDomain(productplandto);
+        domain.setProduct(product_id);
+        domain = productplanService.mobProductPlanCounter(domain) ;
         productplandto = productplanMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(productplandto);
     }

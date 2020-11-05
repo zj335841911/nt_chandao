@@ -147,6 +147,26 @@ public class SysEmployeeResource {
                 .body(new PageImpl(sysemployeeMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
+	@ApiOperation(value = "获取联系人用户", tags = {"人员" } ,notes = "获取联系人用户")
+    @RequestMapping(method= RequestMethod.GET , value="/sysemployees/fetchcontactlist")
+	public ResponseEntity<List<SysEmployeeDTO>> fetchContActList(SysEmployeeSearchContext context) {
+        Page<SysEmployee> domains = sysemployeeService.searchContActList(context) ;
+        List<SysEmployeeDTO> list = sysemployeeMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+	@ApiOperation(value = "查询联系人用户", tags = {"人员" } ,notes = "查询联系人用户")
+    @RequestMapping(method= RequestMethod.POST , value="/sysemployees/searchcontactlist")
+	public ResponseEntity<Page<SysEmployeeDTO>> searchContActList(@RequestBody SysEmployeeSearchContext context) {
+        Page<SysEmployee> domains = sysemployeeService.searchContActList(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(sysemployeeMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
 	@ApiOperation(value = "获取数据集", tags = {"人员" } ,notes = "获取数据集")
     @RequestMapping(method= RequestMethod.GET , value="/sysemployees/fetchdefault")
 	public ResponseEntity<List<SysEmployeeDTO>> fetchDefault(SysEmployeeSearchContext context) {

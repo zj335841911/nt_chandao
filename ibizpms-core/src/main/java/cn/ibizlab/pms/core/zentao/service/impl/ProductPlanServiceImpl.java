@@ -71,6 +71,10 @@ public class ProductPlanServiceImpl extends ServiceImpl<ProductPlanMapper, Produ
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.logic.IProductPlanGetOldPlanNameLogic getoldplannameLogic;
 
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.zentao.service.logic.IProductPlanMobProductPlanCounterLogic mobproductplancounterLogic;
+
     protected int batchSize = 500;
 
         @Override
@@ -156,6 +160,13 @@ public class ProductPlanServiceImpl extends ServiceImpl<ProductPlanMapper, Produ
     @Transactional
     public ProductPlan linkStory(ProductPlan et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.ProductPlanHelper.class).linkStory(et);
+    }
+
+    @Override
+    @Transactional
+    public ProductPlan mobProductPlanCounter(ProductPlan et) {
+        mobproductplancounterLogic.execute(et);
+         return et ;
     }
 
     @Override

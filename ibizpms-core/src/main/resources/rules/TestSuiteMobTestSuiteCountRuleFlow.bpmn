@@ -7,9 +7,12 @@
             <tns:import name="cn.ibizlab.pms.util.helper.RuleUtils"/>
         <tns:global identifier="testsuitemobtestsuitecountdefault" type="cn.ibizlab.pms.core.zentao.domain.TestSuite" />
         </extensionElements>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="testsuitemobtestsuitecountrawsqlcall1" id="rawsqlcall1" implementation="http://www.jboss.org/drools/rule" name="查询测试用例数"/>
+     <endEvent id="rawsqlcall1_end" name="end"/>
+     <sequenceFlow id="rawsqlcall1_end_line" sourceRef="rawsqlcall1" targetRef="rawsqlcall1_end"/>
      <startEvent id="begin" isInterrupting="true"/>
-     <endEvent id="begin_end" name="end"/>
-     <sequenceFlow id="begin_end_line" sourceRef="begin" targetRef="begin_end"/>
+     <sequenceFlow id="begin_rawsqlcall1" sourceRef="begin" targetRef="rawsqlcall1">
+     </sequenceFlow>
     </process>
 </definitions>
 
