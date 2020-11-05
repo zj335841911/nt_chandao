@@ -273,7 +273,7 @@ export default class AppPicker extends Vue {
      * @memberof AppPicker
      */
     public created() {
-        if (Object.is(this.editortype, 'dropdown')) {
+        if (this.acParams && this.service) {
             this.onSearch("", null, true);
         }
         this.inputImageStabilizationEvent = this.inputImageStabilization.pipe(
@@ -364,12 +364,24 @@ export default class AppPicker extends Vue {
                     if (callback) {
                         callback(this.items);
                     }
+                    this.parseValue();
                 }).catch((response: any) => {
                     if (callback) {
                         callback([]);
                     }
                 });
             }
+        }
+    }
+
+
+    /**
+     * 解析回填文本
+     */
+    public parseValue(){
+        let index = this.items.findIndex((item)=>{return Object.is(item[this.deKeyField],this.refvalue)});
+        if(index > -1){
+            this.curvalue = this.items[index][this.deMajorField];
         }
     }
 
