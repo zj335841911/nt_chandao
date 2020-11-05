@@ -350,6 +350,27 @@ export default class ReleaseServiceBase extends EntityService {
     }
 
     /**
+     * MobReleaseCounter接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ReleaseServiceBase
+     */
+    public async MobReleaseCounter(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.release){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().put(`/products/${context.product}/releases/${context.release}/mobreleasecounter`,data,isloading);
+            
+            return res;
+        }
+            let res:any = Http.getInstance().put(`/releases/${context.release}/mobreleasecounter`,data,isloading);
+            return res;
+    }
+
+    /**
      * OneClickRelease接口方法
      *
      * @param {*} [context={}]
