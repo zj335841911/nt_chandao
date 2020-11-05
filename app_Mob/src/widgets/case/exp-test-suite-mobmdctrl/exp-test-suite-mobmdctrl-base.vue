@@ -4,6 +4,9 @@
             <ion-list class="items" ref="ionlist">
                 <template v-if="(viewType == 'DEMOBMDVIEW9') && controlStyle != 'SWIPERVIEW' ">
                     <ion-item-sliding ref="sliding" v-for="(item,index) in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
+                        <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
+                            <ion-item-option v-show="item.mobUnlinkSuiteCase.visabled" :disabled="item.mobUnlinkSuiteCase.disabled" color="primary" @click="mdctrl_click($event, 'ued2d3f2', item)"><ion-icon v-if="item.mobUnlinkSuiteCase.icon && item.mobUnlinkSuiteCase.isShowIcon" :name="item.mobUnlinkSuiteCase.icon"></ion-icon><ion-label v-if="item.mobUnlinkSuiteCase.isShowCaption">移除</ion-label></ion-item-option>
+                        </ion-item-options>
                         <div style="width:100%;">
                             <ion-item class="ibz-ionic-item">
                                 <ion-checkbox slot="start" class="iconcheck" v-show="isChoose" @click.stop="checkboxSelect(item)"></ion-checkbox>
@@ -16,6 +19,9 @@
             <ion-list class="items" ref="ionlist" >
                 <template v-if="(viewType == 'DEMOBMDVIEW') && controlStyle != 'SWIPERVIEW' ">
                       <ion-item-sliding  :ref="item.srfkey" v-for="(item,index) in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
+                        <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
+                            <ion-item-option v-show="item.mobUnlinkSuiteCase.visabled" :disabled="item.mobUnlinkSuiteCase.disabled" color="primary" @click="mdctrl_click($event, 'ued2d3f2', item)"><ion-icon v-if="item.mobUnlinkSuiteCase.icon && item.mobUnlinkSuiteCase.isShowIcon" :name="item.mobUnlinkSuiteCase.icon"></ion-icon><ion-label v-if="item.mobUnlinkSuiteCase.isShowCaption">移除</ion-label></ion-item-option>
+                        </ion-item-options>
                         <div style="width:100%;">
                             <ion-item class="ibz-ionic-item">
                                 <ion-checkbox slot="start" class="iconcheck" v-show="isChoose" @click.stop="checkboxSelect(item)"></ion-checkbox>
@@ -217,6 +223,37 @@ export default class Exp_TestSuiteBase extends Vue implements ControlInterface {
      */  
     public deUIService:CaseUIService = new CaseUIService(this.$store);
     
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof MdctrlBase
+     */
+    protected async mdctrl_ued2d3f2_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        Object.assign(paramJO, {});
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('case_ui_action');
+        if (curUIService) {
+            curUIService.Case_mobUnlinkSuiteCase(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
 
     /**
      * 关闭视图
@@ -1010,6 +1047,9 @@ export default class Exp_TestSuiteBase extends Vue implements ControlInterface {
         $event.stopPropagation();
         this.selectedArray = [];
         this.selectedArray.push(item);
+        if (Object.is(tag, 'ued2d3f2')) {
+            this.mdctrl_ued2d3f2_click();
+        }
         this.closeSlidings();
     }
 
@@ -1105,6 +1145,7 @@ export default class Exp_TestSuiteBase extends Vue implements ControlInterface {
      * @memberof Exp_TestSuiteBase
      */  
     public ActionModel:any ={
+        mobUnlinkSuiteCase: { name: 'mobUnlinkSuiteCase',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__CASE_UNLINK_BUT', target: 'SINGLEKEY',icon:'unlink',isShowCaption:false,isShowIcon:true}
     };
 
     
