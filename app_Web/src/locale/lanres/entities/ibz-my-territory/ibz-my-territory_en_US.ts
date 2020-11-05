@@ -54,6 +54,10 @@ export default {
 			caption: "我的地盘",
       		title: "我的地盘",
 		},
+		calendarexpview: {
+			caption: "我的地盘",
+      		title: "我的地盘日历导航视图",
+		},
 		calendarview: {
 			caption: "我的地盘",
       		title: "我的地盘日历视图",

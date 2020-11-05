@@ -967,6 +967,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "BugBuildSubGridView_New_9212",
             "viewtag": "43c2d1a2b73b0363036aee72dc9312c5"
         },
+        "ibzmyterritorycalendarexpview": {
+            "title": "我的地盘日历导航视图",
+            "caption": "我的地盘",
+            "viewtype": "DECALENDAREXPVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "IbzMyTerritoryCalendarExpView",
+            "viewtag": "43d566a4567a5e337a73afa187dae97c"
+        },
         "burnchartview": {
             "title": "燃尽图",
             "caption": "燃尽图",
