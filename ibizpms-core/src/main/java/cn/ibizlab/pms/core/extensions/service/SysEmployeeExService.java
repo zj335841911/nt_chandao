@@ -5,10 +5,13 @@ import cn.ibizlab.pms.core.ou.filter.SysEmployeeSearchContext;
 import cn.ibizlab.pms.core.ou.service.impl.SysEmployeeServiceImpl;
 import cn.ibizlab.pms.core.util.ibizzentao.helper.TeamHelper;
 import cn.ibizlab.pms.core.zentao.domain.Team;
+import cn.ibizlab.pms.core.zentao.domain.UserContact;
 import cn.ibizlab.pms.core.zentao.service.ITaskService;
+import cn.ibizlab.pms.core.zentao.service.IUserContactService;
 import cn.ibizlab.pms.util.dict.StaticDict;
 import cn.ibizlab.pms.util.security.AuthenticationUser;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import liquibase.pro.packaged.A;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
@@ -28,6 +31,9 @@ public class SysEmployeeExService extends SysEmployeeServiceImpl {
 
     @Autowired
     ITaskService iTaskService;
+
+    @Autowired
+    IUserContactService userContactService;
 
     @Override
     public Page<SysEmployee> searchDefault(SysEmployeeSearchContext context) {
@@ -90,6 +96,17 @@ public class SysEmployeeExService extends SysEmployeeServiceImpl {
     }
 
     @Override
+    public Page<SysEmployee> searchProjectteamPk(SysEmployeeSearchContext context) {
+        log.info("SysEmployeeExService：searchProjectteamPk");
+        Map<String,Object> params = context.getParams();
+        if(params.get("srfparentkey") != null && !"0".equals(params.get("srfparentkey"))) {
+            // 项目团队
+            context.setN_username_in(getAccounts(StaticDict.Team__type.PROJECT.getValue(), params.get("srfparentkey")));
+        }
+        return super.searchDefault(context);
+    }
+
+    @Override
     public Page<SysEmployee> searchTaskMTeam(SysEmployeeSearchContext context) {
         log.info("SysEmployeeExService：searchTaskTeam");
         Map<String,Object> params = context.getParams();
@@ -105,6 +122,21 @@ public class SysEmployeeExService extends SysEmployeeServiceImpl {
             }else {
                 context.setN_username_in(getAccounts(StaticDict.Team__type.TASK.getValue(), params.get("id")));
             }
+        }
+        return super.searchDefault(context);
+    }
+
+    /**
+     * 查询集合 联系人用户
+     */
+    @Override
+    public Page<SysEmployee> searchContActList(SysEmployeeSearchContext context) {
+        log.info("SysEmployeeExService：searchContActList");
+        Map<String,Object> params = context.getParams();
+        if(params.get("srfparentkey") != null && !"0".equals(params.get("srfparentkey"))) {
+            // 联系人
+            UserContact userContact = userContactService.get(Long.parseLong(params.get("srfparentkey").toString()));
+            context.setN_username_in(userContact.getUserlist().replaceAll(",", ";"));
         }
         return super.searchDefault(context);
     }

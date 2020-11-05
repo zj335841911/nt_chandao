@@ -40,6 +40,7 @@ public class ActionHelper extends ZTBaseHelper<ActionMapper, Action> {
 
     @Transactional
     public boolean create(Action et) {
+        et.setComment(et.getComment() == null ? "" : et.getComment());
         super.create(et);
 
         messageHelper.send(et.getObjecttype(), et.getObjectid(), et.getAction(), et.getId(), et.getActor());
