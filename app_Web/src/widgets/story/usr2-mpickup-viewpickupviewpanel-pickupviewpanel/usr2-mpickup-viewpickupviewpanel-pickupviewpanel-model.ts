@@ -180,6 +180,9 @@ export default class Usr2MPickupViewpickupviewpanelModel {
       {
         name: 'ischild',
       },
+      {
+        name: 'mailtoconact',
+      },
     ]
   }
 

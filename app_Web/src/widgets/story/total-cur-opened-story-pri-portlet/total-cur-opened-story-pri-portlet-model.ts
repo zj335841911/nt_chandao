@@ -180,6 +180,9 @@ export default class TotalCurOpenedStoryPriModel {
       {
         name: 'ischild',
       },
+      {
+        name: 'mailtoconact',
+      },
     ]
   }
 

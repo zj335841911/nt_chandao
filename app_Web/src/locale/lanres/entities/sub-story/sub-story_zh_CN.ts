@@ -55,6 +55,7 @@ export default {
     neednotreview: "不需要评审",
     isfavorites: "是否收藏",
     ischild: "是否可以细分",
+    mailtoconact: "联系人",
   },
 	views: {
 		subgridview: {

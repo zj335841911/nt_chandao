@@ -180,6 +180,9 @@ export default class StoryspecModel {
       {
         name: 'ischild',
       },
+      {
+        name: 'mailtoconact',
+      },
     ]
   }
 

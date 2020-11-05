@@ -180,6 +180,9 @@ export default class MPickupView3pickupviewpanelModel {
       {
         name: 'ischild',
       },
+      {
+        name: 'mailtoconact',
+      },
     ]
   }
 
