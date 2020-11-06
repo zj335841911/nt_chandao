@@ -64,10 +64,6 @@ public class DocServiceImpl extends ServiceImpl<DocMapper, Doc> implements IDocS
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.IProjectService projectService;
 
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.zentao.service.logic.IDocByVersionUpdateContextLogic byversionupdatecontextLogic;
-
     protected int batchSize = 500;
 
     @Override
@@ -120,8 +116,6 @@ public class DocServiceImpl extends ServiceImpl<DocMapper, Doc> implements IDocS
     @Override
     @Transactional
     public Doc get(Long key) {
-        Doc tempET=new Doc();
-        tempET.set("id",key);
         Doc et = getById(key);
         if(et==null){
             et=new Doc();
@@ -129,7 +123,6 @@ public class DocServiceImpl extends ServiceImpl<DocMapper, Doc> implements IDocS
         }
         else{
         }
-        byversionupdatecontextLogic.execute(et);
         return et;
     }
 
@@ -142,8 +135,8 @@ public class DocServiceImpl extends ServiceImpl<DocMapper, Doc> implements IDocS
     @Override
     @Transactional
     public Doc byVersionUpdateContext(Doc et) {
-        byversionupdatecontextLogic.execute(et);
-         return et ;
+        //自定义代码
+        return et;
     }
 
     @Override

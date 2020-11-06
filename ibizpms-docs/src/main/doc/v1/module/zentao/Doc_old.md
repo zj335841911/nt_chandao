@@ -82,7 +82,7 @@ hide members
 |Remove|内置方法|&nbsp;|
 |Get|内置方法|&nbsp;|
 |GetDraft|内置方法|&nbsp;|
-|根据版本更新正文信息|实体处理逻辑|&nbsp;|
+|根据版本更新正文信息|用户自定义|&nbsp;|
 |CheckKey|内置方法|&nbsp;|
 |Save|内置方法|&nbsp;|
 

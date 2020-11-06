@@ -1075,7 +1075,7 @@ String
 | 3 | [Remove](#实体行为-Remove（Remove）) | Remove | 内置方法 | 后台及前台 |
 | 4 | [Get](#实体行为-Get（Get）) | Get | 内置方法 | 后台及前台 |
 | 5 | [GetDraft](#实体行为-GetDraft（GetDraft）) | GetDraft | 内置方法 | 后台及前台 |
-| 6 | [根据版本更新正文信息](#实体行为-根据版本更新正文信息（ByVersionUpdateContext）) | ByVersionUpdateContext | 实体处理逻辑 | 后台 |
+| 6 | [根据版本更新正文信息](#实体行为-根据版本更新正文信息（ByVersionUpdateContext）) | ByVersionUpdateContext | 用户自定义 | 后台 |
 | 7 | [CheckKey](#实体行为-CheckKey（CheckKey）) | CheckKey | 内置方法 | 后台及前台 |
 | 8 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
 
@@ -1126,9 +1126,7 @@ Get
 后台及前台
 
 #### 逻辑附加
-| 序号 | 附加逻辑 | 附加模式 | 内部逻辑 | 备注 |
-| ---- | ---- | ---- | ---- | ---- |
-| 1 | [根据版本更新正文信息<br>（ByVersionUpdateContext）](#逻辑处理-根据版本更新正文信息（ByVersionUpdateContext）) | 执行之后 | 是 |  |
+无
 ### 实体行为-GetDraft（GetDraft）
 #### 说明
 GetDraft
@@ -1146,7 +1144,7 @@ GetDraft
 根据版本更新正文信息
 
 - 行为类型
-实体处理逻辑
+用户自定义
 
 - 行为持有者
 后台
