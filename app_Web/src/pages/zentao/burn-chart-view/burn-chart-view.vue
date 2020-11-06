@@ -20,5 +20,22 @@ import view_chart from '@widgets/burn/burn-down2-chart/burn-down2-chart.vue';
     }
 })
 @VueLifeCycleProcessing()
-export default class BurnChartView extends BurnChartViewBase { }
+export default class BurnChartView extends BurnChartViewBase { 
+    /**
+     * 引擎初始化
+     *
+     * @public
+     * @memberof BurnChartViewBase
+     */
+    public engineInit(): void {
+        this.engine.init({
+            view: this,
+            chart: this.$refs.chart,
+            searchform: this.$refs.quicksearchform,
+            keyPSDEField: 'burn',
+            majorPSDEField: 'date',
+            isLoadDefault: false,
+        });
+    }
+}
 </script>
