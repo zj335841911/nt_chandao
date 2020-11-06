@@ -68,6 +68,34 @@ export class MainGridBase extends GridControlBase {
      */  
     public appUIService:DocLibUIService = new DocLibUIService(this.$store);
 
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public grid_uagridcolumn1_ufb2a8ed_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:DocLibUIService  = new DocLibUIService();
+        curUIService.DocLib_LookFile(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
+    }
+
 
     /**
      * 界面行为模型
@@ -76,6 +104,7 @@ export class MainGridBase extends GridControlBase {
      * @memberof MainBase
      */  
     public ActionModel: any = {
+        LookFile: { name: 'LookFile',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: 'SINGLEKEY'}
     };
 
     /**
@@ -116,6 +145,15 @@ export class MainGridBase extends GridControlBase {
             name: 'doccnt',
             label: '文档数量',
             langtag: 'entities.doclib.main_grid.columns.doccnt',
+            show: true,
+            unit: 'PX',
+            isEnableRowEdit: false,
+            enableCond: 3 ,
+        },
+        {
+            name: 'uagridcolumn1',
+            label: '操作',
+            langtag: 'entities.doclib.main_grid.columns.uagridcolumn1',
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
@@ -166,6 +204,7 @@ export class MainGridBase extends GridControlBase {
     public hasRowEdit: any = {
         'name':false,
         'doccnt':false,
+        'uagridcolumn1':false,
     };
 
     /**
@@ -194,6 +233,21 @@ export class MainGridBase extends GridControlBase {
         ]);
     }
 
+
+    /**
+     * 界面行为
+     *
+     * @param {*} row
+     * @param {*} tag
+     * @param {*} $event
+     * @memberof MainGridBase
+     */
+	public uiAction(row: any, tag: any, $event: any): void {
+        $event.stopPropagation();
+        if(Object.is('LookFile', tag)) {
+            this.grid_uagridcolumn1_ufb2a8ed_click(row, tag, $event);
+        }
+    }
 
     /**
      * 更新默认值

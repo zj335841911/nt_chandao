@@ -50,8 +50,10 @@ export default {
 		columns: {
 			name: "文档库名称",
 			doccnt: "文档数量",
+			uagridcolumn1: "操作",
 		},
 		uiactions: {
+			doclib_lookfile: "查看",
 		},
 	},
 	default_searchform: {

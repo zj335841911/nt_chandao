@@ -132,6 +132,7 @@
 |-|需求移动端选择多数据视图|DEMOBPICKUPMDVIEW|&nbsp;|
 |-|Bug移动端选择多数据视图|DEMOBPICKUPMDVIEW|&nbsp;|
 |-|产品移动端多数据视图|DEMOBMDVIEW|&nbsp;|
+|-|Bug移动端多数据选择视图|DEMOBMPICKUPVIEW|&nbsp;|
 |-|项目移动端数据选择视图|DEMOBPICKUPVIEW|&nbsp;|
 |-|任务团队多表单编辑视图|DEMOBMEDITVIEW9|&nbsp;|
 |-|人员移动端数据选择视图|DEMOBPICKUPVIEW|&nbsp;|
@@ -145,6 +146,7 @@
 |-|需求移动端多数据视图|DEMOBMDVIEW|&nbsp;|
 |-|需求移动端多数据视图|DEMOBMDVIEW|&nbsp;|
 |-|项目移动端编辑视图（关闭）|DEMOBEDITVIEW|&nbsp;|
+|-|Bug移动端选择多数据视图|DEMOBPICKUPMDVIEW|&nbsp;|
 |-|产品线移动端选择多数据视图|DEMOBPICKUPMDVIEW|&nbsp;|
 |-|关闭产品|DEMOBEDITVIEW|&nbsp;|
 |-|需求选项操作视图（变更）|DEMOBOPTVIEW|&nbsp;|
