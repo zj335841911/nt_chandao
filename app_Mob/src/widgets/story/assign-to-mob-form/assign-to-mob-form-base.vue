@@ -49,6 +49,46 @@
 
 
 <app-form-item 
+    name='assignedtopk' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="assignedtopk_item"  
+    :itemValue="this.data.assignedtopk" 
+    v-show="detailsModel.assignedtopk.visible" 
+    :itemRules="this.rules.assignedtopk" 
+    :caption="$t('story.assigntomob_form.details.assignedtopk')"  
+    :labelWidth="100"  
+    :isShowCaption="true"
+    :disabled="detailsModel.assignedtopk.disabled"
+    :error="detailsModel.assignedtopk.error" 
+    :isEmptyCaption="false">
+        <app-mob-picker
+    name='assignedtopk'
+    deMajorField='personname'
+    deKeyField='username'
+    valueitem='assignedto' 
+    style=""  
+    :formState="formState"
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } '
+    :itemParam='{ }' 
+    :disabled="detailsModel.assignedtopk.disabled"
+    :service="service"
+    :acParams="{ serviceName: 'sysemployee', interfaceName: 'FetchDefault'}"
+    :value="data.assignedtopk" 
+    :pickupView="{ viewname: 'sys-employee-tree-mob-pickup-view', title: '人员移动端数据选择视图', deResParameters: [], parameters: [{ pathName: 'sysemployees', parameterName: 'sysemployee' }, { pathName: 'treemobpickupview', parameterName: 'treemobpickupview' } ], placement:'' }"
+    @formitemvaluechange="onFormItemValueChange">
+</app-mob-picker>
+
+</app-form-item>
+
+
+
+<app-form-item 
     name='comment' 
     class='' 
     uiStyle="DEFAULT"  
@@ -445,6 +485,7 @@ export default class AssignToMobBase extends Vue implements ControlInterface {
         srfdeid: null,
         srfsourcekey: null,
         assignedto: null,
+        assignedtopk: null,
         comment: null,
         id: null,
         story: null,
@@ -604,6 +645,8 @@ export default class AssignToMobBase extends Vue implements ControlInterface {
 , 
         assignedto: new FormItemModel({ caption: '指派给', detailType: 'FORMITEM', name: 'assignedto', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
+        assignedtopk: new FormItemModel({ caption: '指派给', detailType: 'FORMITEM', name: 'assignedtopk', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
         comment: new FormItemModel({ caption: '备注', detailType: 'FORMITEM', name: 'comment', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
@@ -719,6 +762,18 @@ export default class AssignToMobBase extends Vue implements ControlInterface {
     }
 
     /**
+     * 监控表单属性 assignedtopk 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof AssignToMob
+     */
+    @Watch('data.assignedtopk')
+    onAssignedtopkChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'assignedtopk', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
      * 监控表单属性 comment 值
      *
      * @param {*} newVal
@@ -778,6 +833,7 @@ export default class AssignToMobBase extends Vue implements ControlInterface {
      */
     private async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }){
                 
+
 
 
 

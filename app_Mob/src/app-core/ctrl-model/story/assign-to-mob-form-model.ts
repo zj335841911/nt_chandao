@@ -56,6 +56,11 @@ export class AssignToMobModel {
                 dataType: 'TEXT',
             },
             {
+                name: 'assignedtopk',
+                prop: 'assignedtopk',
+                dataType: 'TEXT',
+            },
+            {
                 name: 'comment',
                 prop: 'comment',
                 dataType: 'HTMLTEXT',
