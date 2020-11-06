@@ -168,7 +168,7 @@ export default class StoryUsr2MobPickupMDBuildViewBase extends Vue {
      * @type {*}
      * @memberof StoryUsr2MobPickupMDBuildViewBase
      */
-    protected navParam: any = {};
+    protected navParam: any = { 'product': '%product%', 'project': '%project%', 'n_parent_gtandeq': '0', 'build': '%build%' };
 
     /**
      * 视图模型数据

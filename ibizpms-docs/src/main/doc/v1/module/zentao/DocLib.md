@@ -34,6 +34,7 @@
 | 11 | [项目库](#属性-项目库（PROJECT）) | PROJECT | 外键值 | 否 | 是 | 是 |
 | 12 | [产品库](#属性-产品库（PRODUCT）) | PRODUCT | 外键值 | 否 | 是 | 是 |
 | 13 | [文档数量](#属性-文档数量（DOCCNT）) | DOCCNT | 整型 | 否 | 是 | 是 |
+| 14 | [文件库类型](#属性-文件库类型（DOCLIBTYPE）) | DOCLIBTYPE | 单项选择(文本值) | 否 | 是 | 是 |
 
 ### 属性-文档类型（TYPE）
 #### 属性说明
@@ -607,6 +608,51 @@ Integer
 | 关系属性 | [编号（ID）](../zentao/Product/#属性-编号（ID）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
+### 属性-文件库类型（DOCLIBTYPE）
+#### 属性说明
+文件库类型
+
+- 是否是主键
+否
+
+- 属性类型
+逻辑字段[来自计算式]
+
+- 数据类型
+单项选择(文本值)
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+```SQL
+doc
+```
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+| 序号 | 组合方式 |
+| ---- | ---- |
+| 1 | `=` |
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
+| 关系属性 | [编号（ID）](../zentao/Product/#属性-编号（ID）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
 
 ## 业务状态
 无
@@ -725,6 +771,7 @@ Save
 | 4 | [文档库名称（NAME）](#属性-文档库名称（NAME）) | `%like%` |
 | 5 | [项目库（PROJECT）](#属性-项目库（PROJECT）) | `=` |
 | 6 | [产品库（PRODUCT）](#属性-产品库（PRODUCT）) | `=` |
+| 7 | [文件库类型（DOCLIBTYPE）](#属性-文件库类型（DOCLIBTYPE）) | `=` |
 
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |
@@ -750,6 +797,7 @@ Save
 SELECT
 t1.`ACL`,
 t1.`DELETED`,
+doc AS `DOCLIBTYPE`,
 t1.`GROUPS`,
 t1.`ID`,
 t1.`MAIN`,
@@ -821,6 +869,7 @@ DEFAULT
 SELECT
 t1.`ACL`,
 t1.`DELETED`,
+doc AS `DOCLIBTYPE`,
 t1.`GROUPS`,
 t1.`ID`,
 t1.`MAIN`,
@@ -849,6 +898,7 @@ SELECT
 t1.`ACL`,
 t1.`COLLECTOR`,
 t1.`DELETED`,
+doc AS `DOCLIBTYPE`,
 t1.`GROUPS`,
 t1.`ID`,
 t1.`MAIN`,

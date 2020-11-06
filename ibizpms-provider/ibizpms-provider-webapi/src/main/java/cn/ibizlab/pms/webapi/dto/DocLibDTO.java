@@ -144,6 +144,15 @@ public class DocLibDTO extends DTOBase implements Serializable {
     @JsonProperty("doccnt")
     private Integer doccnt;
 
+    /**
+     * 属性 [DOCLIBTYPE]
+     *
+     */
+    @JSONField(name = "doclibtype")
+    @JsonProperty("doclibtype")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String doclibtype;
+
 
     /**
      * 设置 [TYPE]

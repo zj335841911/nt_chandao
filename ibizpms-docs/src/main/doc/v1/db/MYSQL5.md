@@ -14997,6 +14997,7 @@ CREATE TABLE `zt_casestep`(
 | COLLECTOR        | 收藏者  | CLOB      |   65,535   | &nbsp; |
 | TYPE        | 文档类型  | VARCHAR      |   30   | &nbsp; |
 | DELETED        | 已删除  | VARCHAR      |   1   | &nbsp; |
+| DOCLIBTYPE        | 文件库类型  | VARCHAR      |   200   | &nbsp; |
 | ACL        | 权限  | VARCHAR      |   10   | &nbsp; |
 
 

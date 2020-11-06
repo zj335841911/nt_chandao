@@ -69,6 +69,13 @@ public class DocLibSearchContext extends QueryWrapperContext<DocLib> {
             this.getSearchCond().eq("product", n_product_eq);
         }
     }
+	private String n_doclibtype_eq;//[文件库类型]
+	public void setN_doclibtype_eq(String n_doclibtype_eq) {
+        this.n_doclibtype_eq = n_doclibtype_eq;
+        if(!ObjectUtils.isEmpty(this.n_doclibtype_eq)){
+            this.getSearchCond().eq("doclibtype", n_doclibtype_eq);
+        }
+    }
 
     /**
 	 * 启用快速搜索

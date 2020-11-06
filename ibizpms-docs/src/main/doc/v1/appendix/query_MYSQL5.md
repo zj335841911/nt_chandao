@@ -4683,6 +4683,7 @@ FROM `zt_doccontent` t1
 SELECT
 t1.`ACL`,
 t1.`DELETED`,
+doc AS `DOCLIBTYPE`,
 t1.`GROUPS`,
 t1.`ID`,
 t1.`MAIN`,
@@ -4738,6 +4739,7 @@ t1.project = #{srf.datacontext.project}
 SELECT
 t1.`ACL`,
 t1.`DELETED`,
+doc AS `DOCLIBTYPE`,
 t1.`GROUPS`,
 t1.`ID`,
 t1.`MAIN`,
@@ -4757,6 +4759,7 @@ SELECT
 t1.`ACL`,
 t1.`COLLECTOR`,
 t1.`DELETED`,
+doc AS `DOCLIBTYPE`,
 t1.`GROUPS`,
 t1.`ID`,
 t1.`MAIN`,
