@@ -81,6 +81,9 @@ export class MobModel {
       {
         name: 'createbugcnt',
       },
+      {
+        name: 'builderpk',
+      },
     ]
   }
 

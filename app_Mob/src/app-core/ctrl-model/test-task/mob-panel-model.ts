@@ -78,6 +78,9 @@ export class MobModel {
       {
         name: 'casecnt',
       },
+      {
+        name: 'ownerpk',
+      },
     ]
   }
 

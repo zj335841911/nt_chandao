@@ -2526,6 +2526,21 @@
     "key_field":0,
     "show_order":1000,
     "major_field":0
+    },
+    {
+    "fieldname":"BUILDERPK" ,
+    "codename":"Builderpk",
+    "field_logic_name":"构建者（选择）",
+    "entity_name":"Build",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":200,
+    "expression":"t1.BUILDER",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
     }
     ],
     "subEntitys":[
@@ -33375,6 +33390,21 @@
     "physical_field":0,
     "data_type":"INT",
     "expression":"0",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"OWNERPK" ,
+    "codename":"Ownerpk",
+    "field_logic_name":"负责人（选择）",
+    "entity_name":"TestTask",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":200,
+    "expression":"t1.OWNER",
     "key_field":0,
     "show_order":1000,
     "major_field":0

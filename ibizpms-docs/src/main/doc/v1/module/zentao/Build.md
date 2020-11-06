@@ -45,6 +45,7 @@
 | 20 | [后台体系](#属性-后台体系（BACKGROUNDID）) | BACKGROUNDID | 单项选择(文本值) | 否 | 是 | 是 |
 | 21 | [运行数据库](#属性-运行数据库（SQLID）) | SQLID | 单项选择(文本值) | 否 | 是 | 是 |
 | 22 | [产生的bug](#属性-产生的bug（CREATEBUGCNT）) | CREATEBUGCNT | 长文本，没有长度限制 | 否 | 是 | 是 |
+| 23 | [构建者（选择）](#属性-构建者（选择）（BUILDERPK）) | BUILDERPK | 文本，可指定长度 | 否 | 是 | 是 |
 
 ### 属性-名称编号（NAME）
 #### 属性说明
@@ -998,6 +999,49 @@ String
 | 关系属性 | [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
+### 属性-构建者（选择）（BUILDERPK）
+#### 属性说明
+构建者（选择）
+
+- 是否是主键
+否
+
+- 属性类型
+逻辑字段[来自计算式]
+
+- 数据类型
+文本，可指定长度
+
+- Java类型
+String
+
+- 是否允许为为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+```SQL
+t1.BUILDER
+```
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
+| 关系属性 | [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
 
 ## 业务状态
 无
@@ -1263,6 +1307,7 @@ FROM
 SELECT
 t1.`BRANCH`,
 t1.`BUILDER`,
+t1.BUILDER AS `BUILDERPK`,
 t1.`DATE`,
 t1.`DELETED`,
 t1.`FILEPATH`,
@@ -1292,6 +1337,7 @@ DEFAULT
 SELECT
 t1.`BRANCH`,
 t1.`BUILDER`,
+t1.BUILDER AS `BUILDERPK`,
 t1.`DATE`,
 t1.`DELETED`,
 t1.`FILEPATH`,
@@ -1349,6 +1395,7 @@ LEFT JOIN zt_product t11 ON t1.PRODUCT = t11.ID
 SELECT
 t1.`BRANCH`,
 t1.`BUILDER`,
+t1.BUILDER AS `BUILDERPK`,
 t1.`DATE`,
 t1.`DELETED`,
 t1.`FILEPATH`,
@@ -1410,6 +1457,7 @@ SELECT
 t1.`BRANCH`,
 t1.`BUGS`,
 t1.`BUILDER`,
+t1.BUILDER AS `BUILDERPK`,
 t1.`DATE`,
 t1.`DELETED`,
 t1.`DESC`,

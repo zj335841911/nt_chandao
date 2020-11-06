@@ -63,6 +63,12 @@ export class MobEditTableService extends FormServiceBase {
             const response: any = await service.FetchTestBuild(data);
             return this.doItems(response);
         }
+        if (Object.is(serviceName, 'SysEmployeeService') && Object.is(interfaceName, 'FetchDefault')) {
+            const service: any = await this.getService('sysemployee');
+            await this.onBeforeAction(interfaceName, context, data, isLoading);
+            const response: any = await service.FetchDefault(data);
+            return this.doItems(response);
+        }
         return [];
     }
 

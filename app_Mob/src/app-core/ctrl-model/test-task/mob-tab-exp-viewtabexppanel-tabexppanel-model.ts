@@ -78,6 +78,9 @@ export class MobTabExpViewtabexppanelModel {
       {
         name: 'casecnt',
       },
+      {
+        name: 'ownerpk',
+      },
     ]
   }
 

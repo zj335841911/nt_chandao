@@ -210,6 +210,13 @@ public class Build extends EntityMP implements Serializable {
     @JSONField(name = "createbugcnt")
     @JsonProperty("createbugcnt")
     private String createbugcnt;
+    /**
+     * 构建者（选择）
+     */
+    @TableField(exist = false)
+    @JSONField(name = "builderpk")
+    @JsonProperty("builderpk")
+    private String builderpk;
 
     /**
      * 

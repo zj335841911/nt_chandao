@@ -206,6 +206,13 @@ public class TestTask extends EntityMP implements Serializable {
     @JSONField(name = "casecnt")
     @JsonProperty("casecnt")
     private Integer casecnt;
+    /**
+     * 负责人（选择）
+     */
+    @TableField(exist = false)
+    @JSONField(name = "ownerpk")
+    @JsonProperty("ownerpk")
+    private String ownerpk;
 
     /**
      * 

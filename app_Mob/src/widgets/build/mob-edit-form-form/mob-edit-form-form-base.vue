@@ -99,32 +99,41 @@
 
 
 <app-form-item 
-    name='builder' 
+    name='builderpk' 
     class='' 
     uiStyle="DEFAULT"  
     labelPos="LEFT" 
-    ref="builder_item"  
-    :itemValue="this.data.builder" 
-    v-show="detailsModel.builder.visible" 
-    :itemRules="this.rules.builder" 
-    :caption="$t('build.mobeditform_form.details.builder')"  
+    ref="builderpk_item"  
+    :itemValue="this.data.builderpk" 
+    v-show="detailsModel.builderpk.visible" 
+    :itemRules="this.rules.builderpk" 
+    :caption="$t('build.mobeditform_form.details.builderpk')"  
     :labelWidth="100"  
     :isShowCaption="true"
-    :disabled="detailsModel.builder.disabled"
-    :error="detailsModel.builder.error" 
+    :disabled="detailsModel.builderpk.disabled"
+    :error="detailsModel.builderpk.error" 
     :isEmptyCaption="false">
-        <app-mob-select 
-    tag="UserRealName"
-    codeListType="DYNAMIC" 
-    :isCache="false" 
-    :disabled="detailsModel.builder.disabled" 
-    :data="data" 
-    :context="context" 
+        <app-mob-picker
+    name='builderpk'
+    deMajorField='personname'
+    deKeyField='username'
+    valueitem='builder' 
+    style=""  
+    :formState="formState"
+    :data="data"
+    :context="context"
     :viewparams="viewparams"
-    :value="data.builder"  
     :navigateContext ='{ } '
     :navigateParam ='{ } '
-    @change="($event)=>this.data.builder = $event" />
+    :itemParam='{ }' 
+    :disabled="detailsModel.builderpk.disabled"
+    :service="service"
+    :acParams="{ serviceName: 'sysemployee', interfaceName: 'FetchDefault'}"
+    :value="data.builderpk" 
+    :pickupView="{ viewname: 'sys-employee-tree-mob-pickup-view', title: '人员移动端数据选择视图', deResParameters: [], parameters: [{ pathName: 'sysemployees', parameterName: 'sysemployee' }, { pathName: 'treemobpickupview', parameterName: 'treemobpickupview' } ], placement:'' }"
+    @formitemvaluechange="onFormItemValueChange">
+</app-mob-picker>
+
 </app-form-item>
 
 
@@ -597,13 +606,14 @@ export default class MobEditFormBase extends Vue implements ControlInterface {
         project: null,
         productname: null,
         name: null,
-        builder: null,
+        builderpk: null,
         date: null,
         scmpath: null,
         filepath: null,
         files: null,
         desc: null,
         id: null,
+        builder: null,
         build: null,
     };
 
@@ -653,10 +663,6 @@ export default class MobEditFormBase extends Vue implements ControlInterface {
         name: [
             { required: true, type: 'string', message: '名称编号 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '名称编号 值不能为空', trigger: 'blur' },
-        ],
-        builder: [
-            { required: true, type: 'string', message: '构建者 值不能为空', trigger: 'change' },
-            { required: true, type: 'string', message: '构建者 值不能为空', trigger: 'blur' },
         ],
         date: [
             { required: true, type: 'string', message: '打包日期 值不能为空', trigger: 'change' },
@@ -777,7 +783,7 @@ export default class MobEditFormBase extends Vue implements ControlInterface {
 , 
         name: new FormItemModel({ caption: '名称编号', detailType: 'FORMITEM', name: 'name', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        builder: new FormItemModel({ caption: '构建者', detailType: 'FORMITEM', name: 'builder', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        builderpk: new FormItemModel({ caption: '构建者', detailType: 'FORMITEM', name: 'builderpk', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         date: new FormItemModel({ caption: '打包日期', detailType: 'FORMITEM', name: 'date', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -790,6 +796,8 @@ export default class MobEditFormBase extends Vue implements ControlInterface {
         desc: new FormItemModel({ caption: '描述', detailType: 'FORMITEM', name: 'desc', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         id: new FormItemModel({ caption: 'id', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
+, 
+        builder: new FormItemModel({ caption: '构建者', detailType: 'FORMITEM', name: 'builder', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
     };
 
@@ -914,15 +922,15 @@ export default class MobEditFormBase extends Vue implements ControlInterface {
     }
 
     /**
-     * 监控表单属性 builder 值
+     * 监控表单属性 builderpk 值
      *
      * @param {*} newVal
      * @param {*} oldVal
      * @memberof MobEditForm
      */
-    @Watch('data.builder')
-    onBuilderChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'builder', newVal: newVal, oldVal: oldVal });
+    @Watch('data.builderpk')
+    onBuilderpkChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'builderpk', newVal: newVal, oldVal: oldVal });
     }
 
     /**
@@ -997,6 +1005,18 @@ export default class MobEditFormBase extends Vue implements ControlInterface {
         this.formDataChange({ name: 'id', newVal: newVal, oldVal: oldVal });
     }
 
+    /**
+     * 监控表单属性 builder 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobEditForm
+     */
+    @Watch('data.builder')
+    onBuilderChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'builder', newVal: newVal, oldVal: oldVal });
+    }
+
 
     /**
      * 重置表单项值
@@ -1033,6 +1053,7 @@ export default class MobEditFormBase extends Vue implements ControlInterface {
      */
     private async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }){
                 
+
 
 
 
@@ -1827,9 +1848,6 @@ export default class MobEditFormBase extends Vue implements ControlInterface {
      * @memberof MobEditForm
      */
     public createDefault(){                    
-                if (this.data.hasOwnProperty('builder')) {
-                    this.data['builder'] = this.viewparams['srfloginname'];
-                }
     }
 
         /**

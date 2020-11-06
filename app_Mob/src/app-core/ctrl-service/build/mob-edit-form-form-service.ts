@@ -57,6 +57,12 @@ export class MobEditFormService extends FormServiceBase {
             const response: any = await service.FetchCurProject(data);
             return this.doItems(response);
         }
+        if (Object.is(serviceName, 'SysEmployeeService') && Object.is(interfaceName, 'FetchDefault')) {
+            const service: any = await this.getService('sysemployee');
+            await this.onBeforeAction(interfaceName, context, data, isLoading);
+            const response: any = await service.FetchDefault(data);
+            return this.doItems(response);
+        }
         return [];
     }
 
@@ -69,7 +75,6 @@ export class MobEditFormService extends FormServiceBase {
      */
     public mergeDefaults(response:any = {}): void {
         if (response.data) {
-            Object.assign(response.data, { 'builder': 'srfloginname' });
         }
     }
 

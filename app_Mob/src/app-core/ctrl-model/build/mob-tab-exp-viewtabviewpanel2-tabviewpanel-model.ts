@@ -81,6 +81,9 @@ export class MobTabExpViewtabviewpanel2Model {
       {
         name: 'createbugcnt',
       },
+      {
+        name: 'builderpk',
+      },
     ]
   }
 

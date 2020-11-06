@@ -81,6 +81,9 @@ export class MobMPickupViewpickupviewpanelModel {
       {
         name: 'createbugcnt',
       },
+      {
+        name: 'builderpk',
+      },
     ]
   }
 

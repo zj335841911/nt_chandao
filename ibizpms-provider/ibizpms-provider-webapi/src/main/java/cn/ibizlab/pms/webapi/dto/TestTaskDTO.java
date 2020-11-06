@@ -217,6 +217,15 @@ public class TestTaskDTO extends DTOBase implements Serializable {
     @JsonProperty("casecnt")
     private Integer casecnt;
 
+    /**
+     * 属性 [OWNERPK]
+     *
+     */
+    @JSONField(name = "ownerpk")
+    @JsonProperty("ownerpk")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String ownerpk;
+
 
     /**
      * 设置 [END]

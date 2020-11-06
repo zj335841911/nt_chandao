@@ -98,32 +98,41 @@
 
 
 <app-form-item 
-    name='owner' 
+    name='ownerpk' 
     class='' 
     uiStyle="DEFAULT"  
     labelPos="LEFT" 
-    ref="owner_item"  
-    :itemValue="this.data.owner" 
-    v-show="detailsModel.owner.visible" 
-    :itemRules="this.rules.owner" 
-    :caption="$t('testtask.mobedittable_form.details.owner')"  
+    ref="ownerpk_item"  
+    :itemValue="this.data.ownerpk" 
+    v-show="detailsModel.ownerpk.visible" 
+    :itemRules="this.rules.ownerpk" 
+    :caption="$t('testtask.mobedittable_form.details.ownerpk')"  
     :labelWidth="100"  
     :isShowCaption="true"
-    :disabled="detailsModel.owner.disabled"
-    :error="detailsModel.owner.error" 
+    :disabled="detailsModel.ownerpk.disabled"
+    :error="detailsModel.ownerpk.error" 
     :isEmptyCaption="false">
-        <app-mob-select 
-    tag="UserRealName"
-    codeListType="DYNAMIC" 
-    :isCache="false" 
-    :disabled="detailsModel.owner.disabled" 
-    :data="data" 
-    :context="context" 
+        <app-mob-picker
+    name='ownerpk'
+    deMajorField='personname'
+    deKeyField='username'
+    valueitem='owner' 
+    style=""  
+    :formState="formState"
+    :data="data"
+    :context="context"
     :viewparams="viewparams"
-    :value="data.owner"  
     :navigateContext ='{ } '
     :navigateParam ='{ } '
-    @change="($event)=>this.data.owner = $event" />
+    :itemParam='{ }' 
+    :disabled="detailsModel.ownerpk.disabled"
+    :service="service"
+    :acParams="{ serviceName: 'sysemployee', interfaceName: 'FetchDefault'}"
+    :value="data.ownerpk" 
+    :pickupView="{ viewname: 'sys-employee-tree-mob-pickup-view', title: '人员移动端数据选择视图', deResParameters: [], parameters: [{ pathName: 'sysemployees', parameterName: 'sysemployee' }, { pathName: 'treemobpickupview', parameterName: 'treemobpickupview' } ], placement:'' }"
+    @formitemvaluechange="onFormItemValueChange">
+</app-mob-picker>
+
 </app-form-item>
 
 
@@ -652,7 +661,7 @@ export default class MobEditTableBase extends Vue implements ControlInterface {
         srfsourcekey: null,
         projecttname: null,
         buildname: null,
-        owner: null,
+        ownerpk: null,
         pri: null,
         begin: null,
         end: null,
@@ -664,6 +673,7 @@ export default class MobEditTableBase extends Vue implements ControlInterface {
         desc: null,
         mailto: null,
         id: null,
+        owner: null,
         testtask: null,
     };
 
@@ -837,7 +847,7 @@ export default class MobEditTableBase extends Vue implements ControlInterface {
 , 
         buildname: new FormItemModel({ caption: '版本', detailType: 'FORMITEM', name: 'buildname', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        owner: new FormItemModel({ caption: '负责人', detailType: 'FORMITEM', name: 'owner', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        ownerpk: new FormItemModel({ caption: '负责人', detailType: 'FORMITEM', name: 'ownerpk', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         pri: new FormItemModel({ caption: '优先级', detailType: 'FORMITEM', name: 'pri', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -860,6 +870,8 @@ export default class MobEditTableBase extends Vue implements ControlInterface {
         mailto: new FormItemModel({ caption: '抄送给', detailType: 'FORMITEM', name: 'mailto', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
+, 
+        owner: new FormItemModel({ caption: '负责人', detailType: 'FORMITEM', name: 'owner', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
     };
 
@@ -972,15 +984,15 @@ export default class MobEditTableBase extends Vue implements ControlInterface {
     }
 
     /**
-     * 监控表单属性 owner 值
+     * 监控表单属性 ownerpk 值
      *
      * @param {*} newVal
      * @param {*} oldVal
      * @memberof MobEditTable
      */
-    @Watch('data.owner')
-    onOwnerChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'owner', newVal: newVal, oldVal: oldVal });
+    @Watch('data.ownerpk')
+    onOwnerpkChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'ownerpk', newVal: newVal, oldVal: oldVal });
     }
 
     /**
@@ -1115,6 +1127,18 @@ export default class MobEditTableBase extends Vue implements ControlInterface {
         this.formDataChange({ name: 'id', newVal: newVal, oldVal: oldVal });
     }
 
+    /**
+     * 监控表单属性 owner 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobEditTable
+     */
+    @Watch('data.owner')
+    onOwnerChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'owner', newVal: newVal, oldVal: oldVal });
+    }
+
 
     /**
      * 重置表单项值
@@ -1151,6 +1175,7 @@ export default class MobEditTableBase extends Vue implements ControlInterface {
      */
     private async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }){
                 
+
 
 
 

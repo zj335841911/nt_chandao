@@ -66,8 +66,8 @@ export class MobNewFormModel {
                 dataType: 'TEXT',
             },
             {
-                name: 'builder',
-                prop: 'builder',
+                name: 'builderpk',
+                prop: 'builderpk',
                 dataType: 'TEXT',
             },
             {
@@ -99,6 +99,11 @@ export class MobNewFormModel {
                 name: 'id',
                 prop: 'id',
                 dataType: 'ACID',
+            },
+            {
+                name: 'builder',
+                prop: 'builder',
+                dataType: 'TEXT',
             },
             {
                 name: 'build',

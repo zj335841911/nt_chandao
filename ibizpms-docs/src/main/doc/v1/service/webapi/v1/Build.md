@@ -1442,7 +1442,8 @@ POST
 | 20 | backgroundid | String | 允许 | 后台体系 |
 | 21 | sqlid | String | 允许 | 运行数据库 |
 | 22 | createbugcnt | String | 允许 | 产生的bug |
-| 23 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 23 | builderpk | String | 允许 | 构建者（选择） |
+| 24 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### BuildSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

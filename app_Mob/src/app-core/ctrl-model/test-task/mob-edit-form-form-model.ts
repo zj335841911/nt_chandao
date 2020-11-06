@@ -61,8 +61,8 @@ export class MobEditFormModel {
                 dataType: 'PICKUPTEXT',
             },
             {
-                name: 'owner',
-                prop: 'owner',
+                name: 'ownerpk',
+                prop: 'ownerpk',
                 dataType: 'TEXT',
             },
             {
@@ -109,6 +109,11 @@ export class MobEditFormModel {
                 name: 'id',
                 prop: 'id',
                 dataType: 'ACID',
+            },
+            {
+                name: 'owner',
+                prop: 'owner',
+                dataType: 'TEXT',
             },
             {
                 name: 'testtask',

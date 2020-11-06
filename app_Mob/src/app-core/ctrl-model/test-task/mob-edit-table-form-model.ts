@@ -56,8 +56,8 @@ export class MobEditTableModel {
                 dataType: 'PICKUPTEXT',
             },
             {
-                name: 'owner',
-                prop: 'owner',
+                name: 'ownerpk',
+                prop: 'ownerpk',
                 dataType: 'TEXT',
             },
             {
@@ -114,6 +114,11 @@ export class MobEditTableModel {
                 name: 'id',
                 prop: 'id',
                 dataType: 'ACID',
+            },
+            {
+                name: 'owner',
+                prop: 'owner',
+                dataType: 'TEXT',
             },
             {
                 name: 'testtask',

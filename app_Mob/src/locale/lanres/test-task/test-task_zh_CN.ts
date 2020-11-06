@@ -21,6 +21,7 @@ export default {
     buildname: "版本",
     comment: "备注",
     casecnt: "用例数",
+    ownerpk: "负责人（选择）",
   },
 	views: {
 		moboptionviewclose: {
@@ -145,7 +146,7 @@ export default {
 			srfsourcekey: '', 
 			projecttname: '项目', 
 			buildname: '版本', 
-			owner: '负责人', 
+			ownerpk: '负责人', 
 			pri: '优先级', 
 			begin: '开始日期', 
 			end: '结束日期', 
@@ -157,6 +158,7 @@ export default {
 			desc: '描述', 
 			mailto: '抄送给', 
 			id: '编号', 
+			owner: '负责人', 
 		},
 		uiactions: {
 		},
@@ -202,7 +204,7 @@ export default {
 			projecttname: '项目', 
 			product: '所属产品', 
 			buildname: '版本', 
-			owner: '负责人', 
+			ownerpk: '负责人', 
 			pri: '优先级', 
 			begin: '开始日期', 
 			end: '结束日期', 
@@ -212,6 +214,7 @@ export default {
 			comment: '备注', 
 			mailto: '抄送给', 
 			id: '编号', 
+			owner: '负责人', 
 		},
 		uiactions: {
 		},

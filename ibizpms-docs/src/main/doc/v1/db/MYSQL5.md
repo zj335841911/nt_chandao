@@ -4771,6 +4771,7 @@ CREATE TABLE `zt_bug`(
 | BUILDER        | 构建者  | VARCHAR      |   30   | &nbsp; |
 | PRODUCT        | 产品  |       |   8   | &nbsp; |
 | STORIES        | 完成的需求  | CLOB      |   65,535   | &nbsp; |
+| BUILDERPK        | 构建者（选择）  | VARCHAR      |   200   | &nbsp; |
 | PROJECT        | 所属项目  |       |   8   | &nbsp; |
 
 
@@ -102622,6 +102623,7 @@ CREATE TABLE `zt_testsuite`(
 | SUBSTATUS        | 子状态  | VARCHAR      |   30   | &nbsp; |
 | DELETED        | 已删除  | VARCHAR      |   1   | &nbsp; |
 | DESC        | 描述  | CLOB      |   65,535   | &nbsp; |
+| OWNERPK        | 负责人（选择）  | VARCHAR      |   200   | &nbsp; |
 | AUTO        | auto  | VARCHAR      |   10   | &nbsp; |
 
 

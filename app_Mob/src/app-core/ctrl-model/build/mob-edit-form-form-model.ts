@@ -61,8 +61,8 @@ export class MobEditFormModel {
                 dataType: 'TEXT',
             },
             {
-                name: 'builder',
-                prop: 'builder',
+                name: 'builderpk',
+                prop: 'builderpk',
                 dataType: 'TEXT',
             },
             {
@@ -94,6 +94,11 @@ export class MobEditFormModel {
                 name: 'id',
                 prop: 'id',
                 dataType: 'ACID',
+            },
+            {
+                name: 'builder',
+                prop: 'builder',
+                dataType: 'TEXT',
             },
             {
                 name: 'build',
