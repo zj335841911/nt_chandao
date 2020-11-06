@@ -105444,7 +105444,7 @@ CREATE TABLE `zt_todo`(
 | 字段        |    中文名称    | 类型    |  数长度  |  备注  |
 | --------   |------------| :-----:   | :----: | :--------- | 
 | USERLIST        | userList  | CLOB      |   65,535   | &nbsp; |
-| LISTNAME        | listName  | VARCHAR      |   60   | &nbsp; |
+| LISTNAME        | 标题  | VARCHAR      |   60   | &nbsp; |
 | ACCOUNT        | account  | VARCHAR      |   30   | &nbsp; |
 | ID        | id  |       |   -1   | 主键&nbsp; |
 
@@ -106340,7 +106340,7 @@ CREATE TABLE `zt_todo`(
 ```sql
 CREATE TABLE `zt_usercontact`(
 `USERLIST`  MEDIUMTEXT COMMENT 'userList' 
-,`LISTNAME`  VARCHAR(60) COMMENT 'listName' 
+,`LISTNAME`  VARCHAR(60) COMMENT '标题' 
 ,`ID`  BIGINT(20)  UNSIGNED  NOT NULL AUTO_INCREMENT PRIMARY KEY COMMENT 'id' 
 ,`ACCOUNT`  VARCHAR(30) COMMENT 'account' 
 )COMMENT='用户联系方式';

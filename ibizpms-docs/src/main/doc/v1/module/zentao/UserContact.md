@@ -17,7 +17,7 @@
 | 序号 | 属性 | 属性名 | 数据类型 | 主键 | 外键 | 允许为空 |
 | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
 | 1 | [userList](#属性-userList（USERLIST）) | USERLIST | 长文本，没有长度限制 | 否 | 否 | 是 |
-| 2 | [listName](#属性-listName（LISTNAME）) | LISTNAME | 文本，可指定长度 | 否 | 否 | 是 |
+| 2 | [标题](#属性-标题（LISTNAME）) | LISTNAME | 文本，可指定长度 | 否 | 否 | 是 |
 | 3 | [id](#属性-id（ID）) | ID | 自增标识，整数类型，用户不可见 | 是 | 否 | 否 |
 | 4 | [account](#属性-account（ACCOUNT）) | ACCOUNT | 文本，可指定长度 | 否 | 否 | 是 |
 
@@ -58,9 +58,9 @@ String
 #### 关系属性
 无
 
-### 属性-listName（LISTNAME）
+### 属性-标题（LISTNAME）
 #### 属性说明
-listName
+标题
 
 - 是否是主键
 否
@@ -276,7 +276,7 @@ Save
 ### 快速搜索项
 | 序号 | 属性 |
 | ---- | ---- |
-| 1 | [listName（LISTNAME）](#属性-listName（LISTNAME）) |
+| 1 | [标题（LISTNAME）](#属性-标题（LISTNAME）) |
 
 ### 搜索条件
 | 序号 | 属性 | 组合方式 |

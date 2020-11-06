@@ -1145,7 +1145,7 @@ export default class Exp_TestTaskBase extends Vue implements ControlInterface {
      * @memberof Exp_TestTaskBase
      */  
     public ActionModel:any ={
-        mobUnlinkCase: { name: 'mobUnlinkCase',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__CASE_UNLINK_BUT', target: 'SINGLEKEY',icon:'unlink',isShowCaption:false,isShowIcon:true}
+        mobUnlinkCase: { name: 'mobUnlinkCase',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__CASE_UNLINK_BUT', target: 'SINGLEKEY',icon:'unlink',isShowCaption:false,isShowIcon:true}
     };
 
     

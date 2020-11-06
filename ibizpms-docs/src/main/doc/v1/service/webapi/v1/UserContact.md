@@ -298,7 +298,7 @@ POST
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | ---- | ---- | ---- | ---- | ---- |
 | 1 | userlist | String | 允许 | userList |
-| 2 | listname | String | 允许 | listName |
+| 2 | listname | String | 允许 | 标题 |
 | 3 | id | Long | 不可 | id |
 | 4 | account | String | 允许 | account |
 | 5 | <动态属性> | Object | 允许 | 支持动态属性 |

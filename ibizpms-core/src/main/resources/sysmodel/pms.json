@@ -34321,7 +34321,7 @@
     {
     "fieldname":"LISTNAME" ,
     "codename":"ListName",
-    "field_logic_name":"listName",
+    "field_logic_name":"标题",
     "entity_name":"UserContact",
     "field_type":"TEXT",
     "nullable":1,

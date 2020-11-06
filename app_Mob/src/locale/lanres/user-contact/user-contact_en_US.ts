@@ -1,7 +1,7 @@
 export default {
   fields: {
     userList: "userList",
-    listName: "listName",
+    listName: "标题",
     id: "id",
     account: "account",
   },

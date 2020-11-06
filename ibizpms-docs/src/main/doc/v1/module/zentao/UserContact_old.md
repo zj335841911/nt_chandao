@@ -10,7 +10,7 @@
 | 属性名称        |    中文名称    | 类型     |  备注  |
 | --------   |------------| -----   |  -------- | 
 |userList|USERLIST|LONGTEXT|&nbsp;|
-|listName|LISTNAME|TEXT|&nbsp;|
+|标题|LISTNAME|TEXT|&nbsp;|
 |id|ID|ACID|&nbsp;|
 |account|ACCOUNT|TEXT|&nbsp;|
 
@@ -18,7 +18,7 @@
 | 属性名称    | 规则    |  说明  |
 | --------   |------------| ----- | 
 |userList|默认规则|内容长度必须小于等于[65535]|
-|listName|默认规则|内容长度必须小于等于[60]|
+|标题|默认规则|内容长度必须小于等于[60]|
 |id|默认规则|默认规则|
 |account|默认规则|内容长度必须小于等于[30]|
 

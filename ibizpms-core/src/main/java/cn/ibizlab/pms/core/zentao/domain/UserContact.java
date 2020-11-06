@@ -51,7 +51,7 @@ public class UserContact extends EntityMP implements Serializable {
     @JsonProperty("userlist")
     private String userlist;
     /**
-     * listName
+     * 标题
      */
     @TableField(value = "`listname`")
     @JSONField(name = "listname")
@@ -85,7 +85,7 @@ public class UserContact extends EntityMP implements Serializable {
     }
 
     /**
-     * 设置 [listName]
+     * 设置 [标题]
      */
     public void setListname(String listname){
         this.listname = listname ;
