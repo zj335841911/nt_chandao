@@ -338,7 +338,6 @@ export default class CaseUIActionBase extends EntityUIActionBase {
         let panelNavContext= { "task": "%testtask%" } ;
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
         let response: any = null;
-        container.closeView(null);
         let deResParameters: any[] = [];
         if (context.product && context.story && true) {
             deResParameters = [

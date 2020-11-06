@@ -13,7 +13,7 @@
     loaddraftAction=""
     loadAction="Get"
     createAction="Create"
-    fetchAction="FetchDefault" 
+    fetchAction="FetchBuildLinkCompletedStories" 
     :isMutli="!isSingleSelect"
     :isNeedLoaddingText="!isPortalView"
     :showBusyIndicator="true" 
