@@ -148,6 +148,9 @@ export default {
 		usr2mobmdview: {
 			caption: 'Bug',
 		},
+		usr6mobmdview: {
+			caption: 'Bug',
+		},
 		usr5mobmdview: {
 			caption: 'Bug',
 		},
@@ -476,6 +479,8 @@ export default {
 	usr3mobmdviewrighttoolbar_toolbar: {
 	},
 	planmobmdview9righttoolbar_toolbar: {
+	},
+	usr6mobmdviewrighttoolbar_toolbar: {
 	},
 	mobmdviewrighttoolbar_toolbar: {
 	},

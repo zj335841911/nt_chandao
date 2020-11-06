@@ -1421,8 +1421,8 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                'fb9c24d670e38ce76584ef9e3e800d1f',
                 '92ce5515ece97c1e9ad8f6676c3a260f',
-                '1820afe6869fbb5e9b01ce076933efca',
                 'fa666a1ef668f58d01a55f0925d7e0fe',
             ],
         },
@@ -1977,6 +1977,16 @@ export const viewstate: any = {
             viewtag: 'facbb60c5f02c64a515fefaeaff1424f',
             viewmodule: 'zentao',
             viewname: 'BugUsr2MobMDView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '69a540ab88c1edd1da7f89cebe5f4588',
+            ],
+        },
+        {
+            viewtag: 'fb9c24d670e38ce76584ef9e3e800d1f',
+            viewmodule: 'zentao',
+            viewname: 'BugUsr6MobMDView',
             viewaction: '',
             viewdatachange: false,
             refviews: [

@@ -5626,6 +5626,91 @@ const router = new Router({
                     component: () => import('@pages/ibiz/story-link-story-mob-mpickup-view/story-link-story-mob-mpickup-view.vue'),
                 },
                 {
+                    path: 'products/:product?/stories/:story?/bugs/:bug?/usr6mobmdview',
+                    name: 'bug_usr6mobmdview',
+                    meta: {
+                        caption: 'bug.views.usr6mobmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'usr6mobmdview', parameterName: 'usr6mobmdview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-usr6-mob-mdview/bug-usr6-mob-mdview.vue'),
+                },
+                {
+                    path: 'projects/:project?/bugs/:bug?/usr6mobmdview',
+                    name: 'bug_usr6mobmdview',
+                    meta: {
+                        caption: 'bug.views.usr6mobmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'usr6mobmdview', parameterName: 'usr6mobmdview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-usr6-mob-mdview/bug-usr6-mob-mdview.vue'),
+                },
+                {
+                    path: 'stories/:story?/bugs/:bug?/usr6mobmdview',
+                    name: 'bug_usr6mobmdview',
+                    meta: {
+                        caption: 'bug.views.usr6mobmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'usr6mobmdview', parameterName: 'usr6mobmdview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-usr6-mob-mdview/bug-usr6-mob-mdview.vue'),
+                },
+                {
+                    path: 'products/:product?/bugs/:bug?/usr6mobmdview',
+                    name: 'bug_usr6mobmdview',
+                    meta: {
+                        caption: 'bug.views.usr6mobmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'usr6mobmdview', parameterName: 'usr6mobmdview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-usr6-mob-mdview/bug-usr6-mob-mdview.vue'),
+                },
+                {
+                    path: 'bugs/:bug?/usr6mobmdview',
+                    name: 'bug_usr6mobmdview',
+                    meta: {
+                        caption: 'bug.views.usr6mobmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'usr6mobmdview', parameterName: 'usr6mobmdview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-usr6-mob-mdview/bug-usr6-mob-mdview.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/usr2mobmdview_5219',
                     name: 'story_usr2mobmdview_5219',
                     meta: {
