@@ -98,6 +98,7 @@ export default class StoryUIActionBase extends EntityUIActionBase {
         this.allViewMap.set(':',{viewname:'mobmdviewcurproject',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'mobpickupmdview',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'linkstorymobmpickupview',srfappde:'stories'});
+        this.allViewMap.set(':',{viewname:'usr2mobmpickupbuildview',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'logmobmdview9',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'usr3mobmdview',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'favoritemoremobmdview',srfappde:'stories'});
@@ -117,6 +118,7 @@ export default class StoryUIActionBase extends EntityUIActionBase {
         this.allViewMap.set(':',{viewname:'changemoboptionview',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'linkstorymobpickupmdview',srfappde:'stories'});
         this.allViewMap.set('MOBEDITVIEW:',{viewname:'mobeditview',srfappde:'stories'});
+        this.allViewMap.set(':',{viewname:'usr2mobpickupmdbuildview',srfappde:'stories'});
         this.allViewMap.set('MOBPICKUPVIEW:',{viewname:'mobpickupview',srfappde:'stories'});
     }
 
@@ -991,6 +993,64 @@ export default class StoryUIActionBase extends EntityUIActionBase {
             return response;
         };
         return backend();
+    }
+
+    /**
+     * 关联需求
+     *
+     * @param {any[]} args 数据
+     * @param {*} [contextJO={}] 行为上下文
+     * @param {*} [paramJO={}] 行为参数
+     * @param {*} [$event] 事件
+     * @param {*} [xData] 数据目标
+     * @param {*} [container] 行为容器对象
+     * @param {string} [srfParentDeName] 
+     * @returns {Promise<any>}
+     * @memberof StoryUIService
+     */
+    public async Story_MobBuildLinkStory(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'NONE';
+        let context: any = this.handleContextParam(actionTarget, _args, contextJO);
+        let params: any = this.handleActionParam(actionTarget, _args, paramJO);
+        context = { ...container.context, ...context };
+        let parentObj: any = {
+            srfparentdename: srfParentDeName ? srfParentDeName : null,
+            srfparentkey: srfParentDeName ? context[srfParentDeName.toLowerCase()] : null,
+        };
+        Object.assign(context, parentObj);
+        Object.assign(params, parentObj);
+        // 直接调实体服务需要转换的数据
+        if (context && context.srfsessionid) {
+            context.srfsessionkey = context.srfsessionid;
+            delete context.srfsessionid;
+        }
+        // 导航参数
+        let panelNavParam= { } ;
+        let panelNavContext= { } ;
+        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
+        const backend = async () => {
+            const curUIService: any = await this.globaluiservice.getAppEntityService('story');
+            const response: any = await curUIService.BuildLinkStory(_context, _params);
+            if (response && response.status === 200) {
+                this.notice.success('关联需求成功！');
+            } else {
+                this.notice.error('系统异常！');
+            }
+            return response;
+        };
+        const view: any = { 
+            viewname: 'story-usr2-mob-mpickup-build-view', 
+            height: 0, 
+            width: 0,  
+            title: '需求移动端多数据选择视图', 
+            placement: '',
+        };
+        const result: any = await this.openService.openModal(view, _context, _params);
+        if (result && Object.is(result.ret, 'OK')) {
+            Object.assign(params, { srfactionparam: result.datas });
+            return backend();
+        }
     }
 
     /**

@@ -56,6 +56,19 @@
         </view_mdctrl>
     </ion-content>
     <ion-footer class="view-footer">
+                <div v-show="!isChoose" class = "fab_container">
+            <div class="scroll_tool">
+                <div class="scrollToTop" @click="onScrollToTop" v-show="isShouleBackTop" :style="{right:isScrollStop?'-18px':'-70px'}" > <van-icon name="back-top" /></div> 
+            </div>
+                <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1.disabled}" v-show="righttoolbarModels.deuiaction1.visabled">
+                <ion-button :disabled="righttoolbarModels.deuiaction1.disabled" @click="righttoolbar_click({ tag: 'deuiaction1' }, $event)" size="large">
+                    <ion-icon name="link"></ion-icon>
+                
+                </ion-button>
+                
+            </div>
+        
+        </div>
         
     </ion-footer>
 </ion-page>
@@ -300,6 +313,51 @@ export default class BugUsr3MobMDViewBase extends Vue {
 
     };
 
+    /**
+     * 工具栏显示状态
+     *
+     * @type {boolean}
+     * @memberof BugUsr3MobMDView 
+     */
+    public righttoolbarShowState: boolean = false;
+
+    /**
+     * 工具栏权限
+     *
+     * @type {boolean}
+     * @memberof BugUsr3MobMDView 
+     */
+    get getToolBarLimit() {
+        let toolBarVisable:boolean = false;
+        if(this.righttoolbarModels){
+            Object.keys(this.righttoolbarModels).forEach((tbitem:any)=>{
+                if(this.righttoolbarModels[tbitem].type !== 'ITEMS' && this.righttoolbarModels[tbitem].visabled === true){
+                    toolBarVisable = true;
+                    return;
+                }
+            })
+        }
+        return toolBarVisable;
+    }
+
+    /**
+     * 工具栏分组是否显示的条件
+     *
+     * @type {boolean}
+     * @memberof BugUsr3MobMDView 
+     */
+    public showGrop = false;
+
+    /**
+     * 工具栏分组是否显示的方法
+     *
+     * @type {boolean}
+     * @memberof BugUsr3MobMDView 
+     */
+    public popUpGroup (falg:boolean = false) {
+        this.showGrop = falg;
+    }
+
     
 
 
@@ -405,6 +463,7 @@ export default class BugUsr3MobMDViewBase extends Vue {
      * @memberof BugUsr3MobMDViewBase
      */
     public activated() {
+        this.popUpGroup();
         this.thirdPartyInit();
     }
 

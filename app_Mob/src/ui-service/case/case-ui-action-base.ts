@@ -324,6 +324,7 @@ export default class CaseUIActionBase extends EntityUIActionBase {
     public async Case_MobTaskLinkCase(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
         const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'NONE';
+            
         let context: any = this.handleContextParam(actionTarget, _args, contextJO);
         let params: any = this.handleActionParam(actionTarget, _args, paramJO);
         context = { ...container.context, ...context };
@@ -333,37 +334,41 @@ export default class CaseUIActionBase extends EntityUIActionBase {
         };
         Object.assign(context, parentObj);
         Object.assign(params, parentObj);
-        // 直接调实体服务需要转换的数据
-        if (context && context.srfsessionid) {
-            context.srfsessionkey = context.srfsessionid;
-            delete context.srfsessionid;
+        let panelNavParam= { "task": "%testtask%" } ;
+        let panelNavContext= { "task": "%testtask%" } ;
+        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
+        let response: any = null;
+        container.closeView(null);
+        let deResParameters: any[] = [];
+        if (context.product && context.story && true) {
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            { pathName: 'stories', parameterName: 'story' },
+            ]
         }
-        // 导航参数
-        let panelNavParam= { } ;
-        let panelNavContext= { } ;
-        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
-        const backend = async () => {
-            const curUIService: any = await this.globaluiservice.getAppEntityService('case');
-            const response: any = await curUIService.LinkCase(_context, _params);
-            if (response && response.status === 200) {
-                this.notice.success('关联用例成功！');
-            } else {
-                this.notice.error('系统异常！');
+        if (context.story && true) {
+            deResParameters = [
+            { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
+        if (context.product && true) {
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            ]
+        }
+
+        const parameters: any[] = [
+            { pathName: 'cases', parameterName: 'case' },
+            { pathName: 'usr2mobmpickupview', parameterName: 'usr2mobmpickupview' },
+        ];
+        const routeParam: any = this.openService.formatRouteParam(_context, deResParameters, parameters, _args, _params);
+        response = await this.openService.openView(routeParam);
+        if (response) {
+            if (xData && xData.refresh && xData.refresh instanceof Function) {
+                xData.refresh(args);
             }
-            return response;
-        };
-        const view: any = { 
-            viewname: 'case-usr2-mob-mpickup-view', 
-            height: 0, 
-            width: 0,  
-            title: '测试用例移动端多数据选择视图', 
-            placement: '',
-        };
-        const result: any = await this.openService.openModal(view, _context, _params);
-        if (result && Object.is(result.ret, 'OK')) {
-            Object.assign(params, { srfactionparam: result.datas });
-            return backend();
         }
+        return response;
     }
 
     /**

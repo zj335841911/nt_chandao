@@ -84,6 +84,9 @@ export default {
 		linkstorymobmpickupview: {
 			caption: '管理需求',
 		},
+		usr2mobmpickupbuildview: {
+			caption: '关联需求',
+		},
 		logmobmdview9: {
 			caption: '更新日志',
 		},
@@ -140,6 +143,9 @@ export default {
 		},
 		mobeditview: {
 			caption: '需求',
+		},
+		usr2mobpickupmdbuildview: {
+			caption: '关联需求',
 		},
 		mobpickupview: {
 			caption: '需求',
@@ -415,6 +421,10 @@ export default {
 		},
 	},
 	usr4mobmdviewrighttoolbar_toolbar: {
+		deuiaction1: {
+			caption: '关联需求',
+			tip: 'deuiaction1',
+		},
 	},
 	mobmdviewcurprojectrighttoolbar_toolbar: {
 	},

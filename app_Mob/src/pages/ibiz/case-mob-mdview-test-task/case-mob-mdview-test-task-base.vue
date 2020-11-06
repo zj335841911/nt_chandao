@@ -351,7 +351,7 @@ export default class CaseMobMDView_TestTaskBase extends Vue {
     * @memberof CaseMobMDView_TestTask
     */
     public righttoolbarModels: any = {
-            deuiaction1: { name: 'deuiaction1', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'MobTaskLinkCase', target: 'NONE' } },
+            deuiaction1: { name: 'deuiaction1', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__CASE_UNLINK_BUT', uiaction: { tag: 'MobTaskLinkCase', target: 'NONE' } },
 
     };
 
@@ -707,7 +707,7 @@ export default class CaseMobMDView_TestTaskBase extends Vue {
         const _this: any = this;
         let contextJO: any = {};
         let paramJO: any = {};
-        
+        Object.assign(paramJO, {});
         xData = this.$refs.mdctrl;
         if (xData.getDatas && xData.getDatas instanceof Function) {
             datas = [...xData.getDatas()];

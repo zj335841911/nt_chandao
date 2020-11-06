@@ -1,6 +1,8 @@
 export const PageComponents = {
     install(Vue: any, opt: any) {
-                Vue.component('task-cancel-mob-option-view', () => import('@pages/ibiz/task-cancel-mob-option-view/task-cancel-mob-option-view.vue'));
+                Vue.component('bug-usr3-mob-mpickup-build-create-bug-view', () => import('@pages/zentao/bug-usr3-mob-mpickup-build-create-bug-view/bug-usr3-mob-mpickup-build-create-bug-view.vue'));
+        Vue.component('task-cancel-mob-option-view', () => import('@pages/ibiz/task-cancel-mob-option-view/task-cancel-mob-option-view.vue'));
+        Vue.component('story-usr2-mob-mpickup-build-view', () => import('@pages/zentao/story-usr2-mob-mpickup-build-view/story-usr2-mob-mpickup-build-view.vue'));
         Vue.component('task-stop-mob-option-view', () => import('@pages/ibiz/task-stop-mob-option-view/task-stop-mob-option-view.vue'));
         Vue.component('product-mob-tab-exp-view', () => import('@pages/ibiz/product-mob-tab-exp-view/product-mob-tab-exp-view.vue'));
         Vue.component('sys-employee-user-tree-mob-mpickup-view', () => import('@pages/ou/sys-employee-user-tree-mob-mpickup-view/sys-employee-user-tree-mob-mpickup-view.vue'));
@@ -118,6 +120,7 @@ export const PageComponents = {
         Vue.component('bug-mob-edit-view', () => import('@pages/ibiz/bug-mob-edit-view/bug-mob-edit-view.vue'));
         Vue.component('task-ass-more-mob-mdview', () => import('@pages/ibiz/task-ass-more-mob-mdview/task-ass-more-mob-mdview.vue'));
         Vue.component('sys-update-features-ymob-mdview9', () => import('@pages/ibiz/sys-update-features-ymob-mdview9/sys-update-features-ymob-mdview9.vue'));
+        Vue.component('bug-usr3-mob-pickup-build-resolved-mdview', () => import('@pages/zentao/bug-usr3-mob-pickup-build-resolved-mdview/bug-usr3-mob-pickup-build-resolved-mdview.vue'));
         Vue.component('test-suite-mob-mdview', () => import('@pages/ibiz/test-suite-mob-mdview/test-suite-mob-mdview.vue'));
         Vue.component('product-new-mob-edit-view', () => import('@pages/ibiz/product-new-mob-edit-view/product-new-mob-edit-view.vue'));
         Vue.component('story-mob-mdview', () => import('@pages/zentao/story-mob-mdview/story-mob-mdview.vue'));
@@ -140,6 +143,7 @@ export const PageComponents = {
         Vue.component('case-usr2-mob-pickup-mdview', () => import('@pages/zentao/case-usr2-mob-pickup-mdview/case-usr2-mob-pickup-mdview.vue'));
         Vue.component('product-prod-mob-tab-exp-view', () => import('@pages/zentao/product-prod-mob-tab-exp-view/product-prod-mob-tab-exp-view.vue'));
         Vue.component('bug-usr2-mob-mpickup-view', () => import('@pages/zentao/bug-usr2-mob-mpickup-view/bug-usr2-mob-mpickup-view.vue'));
+        Vue.component('story-usr2-mob-pickup-mdbuild-view', () => import('@pages/zentao/story-usr2-mob-pickup-mdbuild-view/story-usr2-mob-pickup-mdbuild-view.vue'));
         Vue.component('task-mob-mdview', () => import('@pages/zentao/task-mob-mdview/task-mob-mdview.vue'));
         Vue.component('project-activite-mob-edit-view', () => import('@pages/ibiz/project-activite-mob-edit-view/project-activite-mob-edit-view.vue'));
         Vue.component('story-link-story-mob-pickup-mdview', () => import('@pages/ibiz/story-link-story-mob-pickup-mdview/story-link-story-mob-pickup-mdview.vue'));

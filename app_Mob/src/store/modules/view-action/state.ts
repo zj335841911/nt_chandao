@@ -94,6 +94,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '0a6b789809245ace89e3a005f76ca854',
+            viewmodule: 'zentao',
+            viewname: 'BugUsr3MobMPickupBuildCreateBugView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'bbd1f1ee06963455848eadd5a6f530e4',
+            ],
+        },
+        {
             viewtag: '0d3c069c216a16c6d57a9464e959a805',
             viewmodule: 'zentao',
             viewname: 'ProductProdMobTabExpView',
@@ -642,6 +652,16 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '94cbc86dd0c1a91abdeef24049c57747',
+            ],
+        },
+        {
+            viewtag: '4edc69e98efc64904c60c937cd7f9ae7',
+            viewmodule: 'zentao',
+            viewname: 'StoryUsr2MobMPickupBuildView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'efe6c0907f23f66eb908b5d39b80e495',
             ],
         },
         {
@@ -1350,6 +1370,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '4edc69e98efc64904c60c937cd7f9ae7',
                 'd096e8789265e730da5eefa1423479dc',
             ],
         },
@@ -1526,6 +1547,15 @@ export const viewstate: any = {
             viewtag: 'b8b92f3bf481c3723dbc5b79ccfee2a5',
             viewmodule: 'ibiz',
             viewname: 'ProductModuleMobPickupMDView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
+            viewtag: 'bbd1f1ee06963455848eadd5a6f530e4',
+            viewmodule: 'zentao',
+            viewname: 'BugUsr3MobPickupBuildResolvedMDView',
             viewaction: '',
             viewdatachange: false,
             refviews: [
@@ -1934,6 +1964,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '0a6b789809245ace89e3a005f76ca854',
                 '69a540ab88c1edd1da7f89cebe5f4588',
             ],
         },
@@ -1976,6 +2007,15 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'b39f9237d088a6173a2d1889f2eaa562',
+            ],
+        },
+        {
+            viewtag: 'efe6c0907f23f66eb908b5d39b80e495',
+            viewmodule: 'zentao',
+            viewname: 'StoryUsr2MobPickupMDBuildView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
             ],
         },
         {

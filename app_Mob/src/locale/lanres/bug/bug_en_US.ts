@@ -76,6 +76,9 @@ export default {
 		colsemobeditview: {
 			caption: 'Bug',
 		},
+		usr3mobmpickupbuildcreatebugview: {
+			caption: '关联bug',
+		},
 		planmobmdview9: {
 			caption: '计划下属',
 		},
@@ -129,6 +132,9 @@ export default {
 		},
 		usr2mobmpickupview: {
 			caption: '关联bug',
+		},
+		usr3mobpickupbuildresolvedmdview: {
+			caption: 'Bug',
 		},
 		usr3mobpickupmdview1: {
 			caption: 'Bug',
@@ -509,6 +515,10 @@ export default {
 	mobmdviewrighttoolbar_toolbar: {
 	},
 	usr4mobmdviewrighttoolbar_toolbar: {
+		deuiaction1: {
+			caption: '关联bug',
+			tip: 'deuiaction1',
+		},
 	},
 	usr5mobmdviewrighttoolbar_toolbar: {
 	},
