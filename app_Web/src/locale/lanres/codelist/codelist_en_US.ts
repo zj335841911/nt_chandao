@@ -61,6 +61,11 @@ export default {
         "ICLOSE": "由我关闭",
         "empty": ""
     },
+    DOCLIBTYPE: {
+        "doc": "文档",
+        "file": "附件",
+        "empty": ""
+    },
     RealNameProjectM: {
         "empty": "",
     },

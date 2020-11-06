@@ -109,4 +109,12 @@ export interface DocLib {
      * @memberof DocLib
      */
     doccnt?: any;
+
+    /**
+     * 文件库类型
+     *
+     * @returns {*}
+     * @memberof DocLib
+     */
+    doclibtype?: any;
 }

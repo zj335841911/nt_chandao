@@ -13,6 +13,7 @@ export default {
     project: "项目库",
     product: "产品库",
     doccnt: "文档数量",
+    doclibtype: "文件库类型",
   },
 	views: {
 		editview: {
@@ -54,6 +55,7 @@ export default {
 		},
 		uiactions: {
 			doclib_lookfile: "查看",
+			doclib_lookdoc: "查看",
 		},
 	},
 	default_searchform: {

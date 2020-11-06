@@ -2,36 +2,36 @@
 import { Subject } from 'rxjs';
 import { UIActionTool, ViewTool } from '@/utils';
 import { GridViewBase } from '@/studio-core';
-import FileService from '@/service/file/file-service';
-import FileAuthService from '@/authservice/file/file-auth-service';
+import DocService from '@/service/doc/doc-service';
+import DocAuthService from '@/authservice/doc/doc-auth-service';
 import GridViewEngine from '@engine/view/grid-view-engine';
-import FileUIService from '@/uiservice/file/file-ui-service';
+import DocUIService from '@/uiservice/doc/doc-ui-service';
 import CodeListService from "@service/app/codelist-service";
 
 
 /**
- * file表格视图视图基类
+ * doc表格视图视图基类
  *
  * @export
- * @class FileGridViewBase
+ * @class DocGridViewBase
  * @extends {GridViewBase}
  */
-export class FileGridViewBase extends GridViewBase {
+export class DocGridViewBase extends GridViewBase {
     /**
      * 视图对应应用实体名称
      *
      * @protected
      * @type {string}
-     * @memberof FileGridViewBase
+     * @memberof DocGridViewBase
      */
-    protected appDeName: string = 'file';
+    protected appDeName: string = 'doc';
 
     /**
      * 应用实体主键
      *
      * @protected
      * @type {string}
-     * @memberof FileGridViewBase
+     * @memberof DocGridViewBase
      */
     protected appDeKey: string = 'id';
 
@@ -40,7 +40,7 @@ export class FileGridViewBase extends GridViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof FileGridViewBase
+     * @memberof DocGridViewBase
      */
     protected appDeMajor: string = 'title';
 
@@ -49,48 +49,37 @@ export class FileGridViewBase extends GridViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof FileGridViewBase
+     * @memberof DocGridViewBase
      */ 
     protected dataControl:string = "grid";
 
     /**
      * 实体服务对象
      *
-     * @type {FileService}
-     * @memberof FileGridViewBase
+     * @type {DocService}
+     * @memberof DocGridViewBase
      */
-    protected appEntityService: FileService = new FileService;
+    protected appEntityService: DocService = new DocService;
 
     /**
      * 实体权限服务对象
      *
-     * @type FileUIService
-     * @memberof FileGridViewBase
+     * @type DocUIService
+     * @memberof DocGridViewBase
      */
-    public appUIService: FileUIService = new FileUIService(this.$store);
-
-	/**
-	 * 自定义视图导航参数集合
-	 *
-     * @protected
-	 * @type {*}
-	 * @memberof FileGridViewBase
-	 */
-    protected customViewParams: any = {
-        'project': { isRawValue: false, value: 'project' }
-    };
+    public appUIService: DocUIService = new DocUIService(this.$store);
 
     /**
      * 视图模型数据
      *
      * @protected
      * @type {*}
-     * @memberof FileGridViewBase
+     * @memberof DocGridViewBase
      */
     protected model: any = {
-        srfCaption: 'entities.file.views.gridview.caption',
-        srfTitle: 'entities.file.views.gridview.title',
-        srfSubTitle: 'entities.file.views.gridview.subtitle',
+        srfCaption: 'entities.doc.views.gridview.caption',
+        srfTitle: 'entities.doc.views.gridview.title',
+        srfSubTitle: 'entities.doc.views.gridview.subtitle',
         dataInfo: ''
     }
 
@@ -99,7 +88,7 @@ export class FileGridViewBase extends GridViewBase {
      *
      * @protected
      * @type {*}
-     * @memberof FileGridViewBase
+     * @memberof DocGridViewBase
      */
     protected containerModel: any = {
         view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
@@ -111,7 +100,7 @@ export class FileGridViewBase extends GridViewBase {
      * 工具栏模型
      *
      * @type {*}
-     * @memberof FileGridView
+     * @memberof DocGridView
      */
     public toolBarModels: any = {
         tbitem13: { name: 'tbitem13', caption: '导出', 'isShowCaption': true, 'isShowIcon': true, tooltip: '导出', iconcls: 'fa fa-file-excel-o', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ExportExcel', target: '' }, MaxRowCount: 1000, class: '' },
@@ -125,18 +114,18 @@ export class FileGridViewBase extends GridViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof FileGridViewBase
+     * @memberof DocGridViewBase
      */
-	protected viewtag: string = '007d984e6319843d935a48b30587ab1b';
+	protected viewtag: string = '4503911318e1f1f26599b68a6c6e681d';
 
     /**
      * 视图名称
      *
      * @protected
      * @type {string}
-     * @memberof FileGridViewBase
+     * @memberof DocGridViewBase
      */ 
-    protected viewName:string = "FileGridView";
+    protected viewName:string = "DocGridView";
 
 
     /**
@@ -144,7 +133,7 @@ export class FileGridViewBase extends GridViewBase {
      *
      * @public
      * @type {Engine}
-     * @memberof FileGridViewBase
+     * @memberof DocGridViewBase
      */
     public engine: GridViewEngine = new GridViewEngine();
 
@@ -153,7 +142,7 @@ export class FileGridViewBase extends GridViewBase {
      * 计数器服务对象集合
      *
      * @type {Array<*>}
-     * @memberof FileGridViewBase
+     * @memberof DocGridViewBase
      */    
     public counterServiceArray:Array<any> = [];
 
@@ -161,7 +150,7 @@ export class FileGridViewBase extends GridViewBase {
      * 引擎初始化
      *
      * @public
-     * @memberof FileGridViewBase
+     * @memberof DocGridViewBase
      */
     public engineInit(): void {
         this.engine.init({
@@ -174,7 +163,7 @@ export class FileGridViewBase extends GridViewBase {
             },
             grid: this.$refs.grid,
             searchform: this.$refs.searchform,
-            keyPSDEField: 'file',
+            keyPSDEField: 'doc',
             majorPSDEField: 'title',
             isLoadDefault: true,
         });
@@ -185,7 +174,7 @@ export class FileGridViewBase extends GridViewBase {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof FileGridViewBase
+     * @memberof DocGridViewBase
      */
     public toolbar_click($event: any, $event2?: any): void {
         if (Object.is($event.tag, 'tbitem13')) {
@@ -198,7 +187,7 @@ export class FileGridViewBase extends GridViewBase {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof FileGridViewBase
+     * @memberof DocGridViewBase
      */
     public grid_selectionchange($event: any, $event2?: any): void {
         this.engine.onCtrlEvent('grid', 'selectionchange', $event);
@@ -209,7 +198,7 @@ export class FileGridViewBase extends GridViewBase {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof FileGridViewBase
+     * @memberof DocGridViewBase
      */
     public grid_beforeload($event: any, $event2?: any): void {
         this.engine.onCtrlEvent('grid', 'beforeload', $event);
@@ -220,7 +209,7 @@ export class FileGridViewBase extends GridViewBase {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof FileGridViewBase
+     * @memberof DocGridViewBase
      */
     public grid_rowdblclick($event: any, $event2?: any): void {
         this.engine.onCtrlEvent('grid', 'rowdblclick', $event);
@@ -231,7 +220,7 @@ export class FileGridViewBase extends GridViewBase {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof FileGridViewBase
+     * @memberof DocGridViewBase
      */
     public grid_remove($event: any, $event2?: any): void {
         this.engine.onCtrlEvent('grid', 'remove', $event);
@@ -242,7 +231,7 @@ export class FileGridViewBase extends GridViewBase {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof FileGridViewBase
+     * @memberof DocGridViewBase
      */
     public grid_load($event: any, $event2?: any): void {
         this.engine.onCtrlEvent('grid', 'load', $event);
@@ -253,7 +242,7 @@ export class FileGridViewBase extends GridViewBase {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof FileGridViewBase
+     * @memberof DocGridViewBase
      */
     public searchform_save($event: any, $event2?: any): void {
         this.engine.onCtrlEvent('searchform', 'save', $event);
@@ -264,7 +253,7 @@ export class FileGridViewBase extends GridViewBase {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof FileGridViewBase
+     * @memberof DocGridViewBase
      */
     public searchform_search($event: any, $event2?: any): void {
         this.engine.onCtrlEvent('searchform', 'search', $event);
@@ -275,7 +264,7 @@ export class FileGridViewBase extends GridViewBase {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof FileGridViewBase
+     * @memberof DocGridViewBase
      */
     public searchform_load($event: any, $event2?: any): void {
         this.engine.onCtrlEvent('searchform', 'load', $event);
@@ -306,7 +295,7 @@ export class FileGridViewBase extends GridViewBase {
           datas = [params];
         }
         // 界面行为
-        this.ExportExcel(datas, contextJO,paramJO,  $event, xData,this,"File");
+        this.ExportExcel(datas, contextJO,paramJO,  $event, xData,this,"Doc");
     }
 
     /**
@@ -317,12 +306,36 @@ export class FileGridViewBase extends GridViewBase {
      * @param {*} [fullargs]
      * @param {*} [$event]
      * @param {*} [xData]
-     * @memberof FileGridView
+     * @memberof DocGridView
      */
     public newdata(args: any[],fullargs?:any[], params?: any, $event?: any, xData?: any) {
         let localContext:any = null;
         let localViewParam:any =null;
-    this.$Notice.warning({ title: '错误', desc: '未指定关系视图' });
+        const data: any = {};
+        if(args[0].srfsourcekey){
+            data.srfsourcekey = args[0].srfsourcekey;
+        }
+        if(fullargs && (fullargs as any).copymode) {
+            Object.assign(data, { copymode: (fullargs as any).copymode });
+        }
+        let tempContext = JSON.parse(JSON.stringify(this.context));
+        delete tempContext.doc;
+        if(args.length >0){
+            Object.assign(tempContext,args[0]);
+        }
+        const deResParameters: any[] = [];
+        const parameters: any[] = [
+            { pathName: 'docs', parameterName: 'doc' },
+            { pathName: 'editview', parameterName: 'editview' },
+        ];
+        const _this: any = this;
+        const openIndexViewTab = (data: any) => {
+            const _data: any = { w: (new Date().getTime()) };
+            Object.assign(_data, data);
+            const routePath = this.$viewTool.buildUpRoutePath(this.$route, tempContext, deResParameters, parameters, args, _data);
+            this.$router.push(routePath);
+        }
+        openIndexViewTab(data);
     }
 
 
@@ -334,10 +347,27 @@ export class FileGridViewBase extends GridViewBase {
      * @param {*} [fullargs]
      * @param {*} [$event]
      * @param {*} [xData]
-     * @memberof FileGridView
+     * @memberof DocGridView
      */
     public opendata(args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) {
-    this.$Notice.warning({ title: '错误', desc: '未指定关系视图' });
+        const localContext: any = null;
+        const localViewParam: any =null;
+        const data: any = {};
+        let tempContext = JSON.parse(JSON.stringify(this.context));
+        if(args.length >0){
+            Object.assign(tempContext,args[0]);
+        }
+        const deResParameters: any[] = [];
+        const parameters: any[] = [
+            { pathName: 'docs', parameterName: 'doc' },
+            { pathName: 'editview', parameterName: 'editview' },
+        ];
+        const _this: any = this;
+        const openIndexViewTab = (data: any) => {
+            const routePath = this.$viewTool.buildUpRoutePath(this.$route, tempContext, deResParameters, parameters, args, data);
+            this.$router.push(routePath);
+        }
+        openIndexViewTab(data);
     }
 
 
@@ -350,7 +380,7 @@ export class FileGridViewBase extends GridViewBase {
      * @param {*} [$event] 事件源
      * @param {*} [xData]  执行行为所需当前部件
      * @param {*} [actionContext]  执行行为上下文
-     * @memberof FileGridViewBase
+     * @memberof DocGridViewBase
      */
     public ExportExcel(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
         const _this: any = this;

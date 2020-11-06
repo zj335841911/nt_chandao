@@ -25,7 +25,6 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                'd05d51fbbdb75506a5d0b36ab527d47a',
             ],
         },
         {
@@ -1067,6 +1066,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '4503911318e1f1f26599b68a6c6e681d',
+            viewmodule: 'zentao',
+            viewname: 'DocGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'b6e02216d1e5c69d79b32342d8b67c7a',
+            ],
+        },
+        {
             viewtag: '451eacde0c0c638e29bdfc9cbc789c13',
             viewmodule: 'zentao',
             viewname: 'TestTaskEditView9_Detail',
@@ -1462,6 +1471,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '007d984e6319843d935a48b30587ab1b',
+                '4503911318e1f1f26599b68a6c6e681d',
                 '41693a4d3b2bd3a7195d31ceae6cdcf3',
             ],
         },
@@ -2473,7 +2483,6 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                'd05d51fbbdb75506a5d0b36ab527d47a',
             ],
         },
         {
@@ -2856,6 +2865,15 @@ export const viewstate: any = {
             refviews: [
                 '9ed41cee96088630f3d4b0a91e705930',
                 '80a70857025f1c997cddb437e76ff6e1',
+            ],
+        },
+        {
+            viewtag: 'b6e02216d1e5c69d79b32342d8b67c7a',
+            viewmodule: 'zentao',
+            viewname: 'DocEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
             ],
         },
         {
@@ -3352,15 +3370,6 @@ export const viewstate: any = {
             refviews: [
                 '41bfd828761fc42ef9a7acdd4f4babcf',
                 'd5171a52df7b22d69c6a5ca34699233a',
-            ],
-        },
-        {
-            viewtag: 'd05d51fbbdb75506a5d0b36ab527d47a',
-            viewmodule: 'zentao',
-            viewname: 'FileEditView',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
             ],
         },
         {

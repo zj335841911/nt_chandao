@@ -410,6 +410,33 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
+        srfkey: "DOCLIBTYPE",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "doc",
+                label: "文档",
+                text: "文档",
+                "data":"",
+                "codename":"Doc",
+                value: "doc",
+                
+                disabled: false,
+            },
+            {
+                id: "file",
+                label: "附件",
+                text: "附件",
+                "data":"",
+                "codename":"File",
+                value: "file",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
         "srfkey": "RealNameProjectM",
         "emptytext": "未定义",
         "codelisttype":"dynamic",

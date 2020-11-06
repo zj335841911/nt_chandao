@@ -18,7 +18,7 @@
             ref='multipleTable' :data="items" :show-header="!isHideHeader"
         >
             <template slot="empty">
-                {{$t('entities.file.doclibl_grid.nodata')}} 
+                {{$t('entities.doc.main_grid.nodata')}} 
                 <span class="quick-toolbar">
                 </span>
             </template>
@@ -26,10 +26,10 @@
                 <el-table-column align="center" type='selection' :width="checkboxColWidth"></el-table-column>
             </template>
             <template v-if="getColumnState('id')">
-                <el-table-column show-overflow-tooltip :prop="'id'" :label="$t('entities.file.doclibl_grid.columns.id')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'id'" :label="$t('entities.doc.main_grid.columns.id')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
-                        {{$t('entities.file.doclibl_grid.columns.id')}}
+                        {{$t('entities.doc.main_grid.columns.id')}}
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
@@ -38,10 +38,10 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('title')">
-                <el-table-column show-overflow-tooltip :prop="'title'" :label="$t('entities.file.doclibl_grid.columns.title')" :width="300"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'title'" :label="$t('entities.doc.main_grid.columns.title')" :min-width="150"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
-                        {{$t('entities.file.doclibl_grid.columns.title')}}
+                        {{$t('entities.doc.main_grid.columns.title')}}
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
@@ -49,63 +49,23 @@
                     </template>
                 </el-table-column>
             </template>
-            <template v-if="getColumnState('pathname')">
-                <el-table-column show-overflow-tooltip :prop="'pathname'" :label="$t('entities.file.doclibl_grid.columns.pathname')" :min-width="100"  :align="'left'" :sortable="'custom'">
-                    <template v-slot:header="{column}">
-                      <span class="column-header ">
-                        {{$t('entities.file.doclibl_grid.columns.pathname')}}
-                      </span>
-                    </template>
-                    <template v-slot="{row,column,$index}">
-                        <span>{{row.pathname}}</span>
-                    </template>
-                </el-table-column>
-            </template>
-            <template v-if="getColumnState('objecttype')">
-                <el-table-column show-overflow-tooltip :prop="'objecttype'" :label="$t('entities.file.doclibl_grid.columns.objecttype')" :width="100"  :align="'left'" :sortable="'custom'">
-                    <template v-slot:header="{column}">
-                      <span class="column-header ">
-                        {{$t('entities.file.doclibl_grid.columns.objecttype')}}
-                      </span>
-                    </template>
-                    <template v-slot="{row,column,$index}">
-                        <template >
-            <codelist :value="row.objecttype" tag='File__object_type' codelistType='STATIC' ></codelist>
-                        </template>
-                    </template>
-                </el-table-column>
-            </template>
-            <template v-if="getColumnState('strsize')">
-                <el-table-column show-overflow-tooltip :prop="'strsize'" :label="$t('entities.file.doclibl_grid.columns.strsize')" :width="100"  :align="'left'" :sortable="'custom'">
-                    <template v-slot:header="{column}">
-                      <span class="column-header ">
-                        {{$t('entities.file.doclibl_grid.columns.strsize')}}
-                      </span>
-                    </template>
-                    <template v-slot="{row,column,$index}">
-                        <span>{{row.strsize}}</span>
-                    </template>
-                </el-table-column>
-            </template>
             <template v-if="getColumnState('addedby')">
-                <el-table-column show-overflow-tooltip :prop="'addedby'" :label="$t('entities.file.doclibl_grid.columns.addedby')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'addedby'" :label="$t('entities.doc.main_grid.columns.addedby')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
-                        {{$t('entities.file.doclibl_grid.columns.addedby')}}
+                        {{$t('entities.doc.main_grid.columns.addedby')}}
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <template >
-            <codelist :value="row.addedby" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
-                        </template>
+                        <span>{{row.addedby}}</span>
                     </template>
                 </el-table-column>
             </template>
             <template v-if="getColumnState('addeddate')">
-                <el-table-column show-overflow-tooltip :prop="'addeddate'" :label="$t('entities.file.doclibl_grid.columns.addeddate')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'addeddate'" :label="$t('entities.doc.main_grid.columns.addeddate')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
-                        {{$t('entities.file.doclibl_grid.columns.addeddate')}}
+                        {{$t('entities.doc.main_grid.columns.addeddate')}}
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
@@ -113,25 +73,27 @@
                     </template>
                 </el-table-column>
             </template>
-            <template v-if="getColumnState('uagridcolumn1')">
-                <el-table-column :column-key="'uagridcolumn1'" fixed="right" :label="$t('entities.file.doclibl_grid.columns.uagridcolumn1')" :width="100"  :align="'center'">
+            <template v-if="getColumnState('editedby')">
+                <el-table-column show-overflow-tooltip :prop="'editedby'" :label="$t('entities.doc.main_grid.columns.editedby')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
-                        {{$t('entities.file.doclibl_grid.columns.uagridcolumn1')}}
+                        {{$t('entities.doc.main_grid.columns.editedby')}}
                       </span>
                     </template>
-                    <template slot-scope="scope">
-                        <div style="text-align: center;">
-                          <a v-show="scope.row.ibzdownload.visabled" :disabled="scope.row.ibzdownload.disabled" @click="uiAction(scope.row, 'ibzdownload', $event)" :title="$t('entities.file.doclibl_grid.uiactions.file_ibzdownload')">
-                            <i class='fa fa-download'></i>
-                            
-                          </a>
-                          <divider v-show="scope.row.delete.visabled" type='vertical'></divider>
-                          <a v-show="scope.row.delete.visabled" :disabled="scope.row.delete.disabled" @click="uiAction(scope.row, 'delete', $event)" :title="$t('entities.file.doclibl_grid.uiactions.file_delete')">
-                            <i class='fa fa-remove'></i>
-                            
-                          </a>
-                        </div>
+                    <template v-slot="{row,column,$index}">
+                        <span>{{row.editedby}}</span>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('editeddate')">
+                <el-table-column show-overflow-tooltip :prop="'editeddate'" :label="$t('entities.doc.main_grid.columns.editeddate')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.doc.main_grid.columns.editeddate')}}
+                      </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                        <app-format-data format="YYYY-MM-DD HH:mm:ss" :data="row.editeddate"></app-format-data>
                     </template>
                 </el-table-column>
             </template>

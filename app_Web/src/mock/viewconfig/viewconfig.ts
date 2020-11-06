@@ -1007,6 +1007,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "BugBugLifeEditView9",
             "viewtag": "443935a0b9d0fa8daf3131956a8bacc9"
         },
+        "docgridview": {
+            "title": "doc表格视图",
+            "caption": "文档",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "DocGridView",
+            "viewtag": "4503911318e1f1f26599b68a6c6e681d"
+        },
         "testtaskeditview9_detail": {
             "title": "测试版本编辑视图",
             "caption": "测试版本",
@@ -2646,6 +2654,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "ibiz",
             "viewname": "IbzCaseMainEditView9",
             "viewtag": "b613f8c14c436a5c95be4e1b9e730e6d"
+        },
+        "doceditview": {
+            "title": "doc编辑视图",
+            "caption": "文档",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "zentao",
+            "viewname": "DocEditView",
+            "viewtag": "b6e02216d1e5c69d79b32342d8b67c7a"
         },
         "bugstatsgridview": {
             "title": "Bug统计表格视图",

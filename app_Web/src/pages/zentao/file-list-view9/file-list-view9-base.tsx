@@ -233,31 +233,7 @@ export class FileListView9Base extends ListView9Base {
     public newdata(args: any[],fullargs?:any[], params?: any, $event?: any, xData?: any) {
         let localContext:any = null;
         let localViewParam:any =null;
-        const data: any = {};
-        if(args[0].srfsourcekey){
-            data.srfsourcekey = args[0].srfsourcekey;
-        }
-        if(fullargs && (fullargs as any).copymode) {
-            Object.assign(data, { copymode: (fullargs as any).copymode });
-        }
-        let tempContext = JSON.parse(JSON.stringify(this.context));
-        delete tempContext.file;
-        if(args.length >0){
-            Object.assign(tempContext,args[0]);
-        }
-        const deResParameters: any[] = [];
-        const parameters: any[] = [
-            { pathName: 'files', parameterName: 'file' },
-            { pathName: 'editview', parameterName: 'editview' },
-        ];
-        const _this: any = this;
-        const openIndexViewTab = (data: any) => {
-            const _data: any = { w: (new Date().getTime()) };
-            Object.assign(_data, data);
-            const routePath = this.$viewTool.buildUpRoutePath(this.$route, tempContext, deResParameters, parameters, args, _data);
-            this.$router.push(routePath);
-        }
-        openIndexViewTab(data);
+    this.$Notice.warning({ title: '错误', desc: '未指定关系视图' });
     }
 
 
@@ -272,24 +248,7 @@ export class FileListView9Base extends ListView9Base {
      * @memberof FileListView9
      */
     public opendata(args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) {
-        const localContext: any = null;
-        const localViewParam: any =null;
-        const data: any = {};
-        let tempContext = JSON.parse(JSON.stringify(this.context));
-        if(args.length >0){
-            Object.assign(tempContext,args[0]);
-        }
-        const deResParameters: any[] = [];
-        const parameters: any[] = [
-            { pathName: 'files', parameterName: 'file' },
-            { pathName: 'editview', parameterName: 'editview' },
-        ];
-        const _this: any = this;
-        const openIndexViewTab = (data: any) => {
-            const routePath = this.$viewTool.buildUpRoutePath(this.$route, tempContext, deResParameters, parameters, args, data);
-            this.$router.push(routePath);
-        }
-        openIndexViewTab(data);
+    this.$Notice.warning({ title: '错误', desc: '未指定关系视图' });
     }
 
 

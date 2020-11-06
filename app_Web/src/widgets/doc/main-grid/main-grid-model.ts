@@ -27,14 +27,55 @@ export default class MainModel {
     }else{
 		  return [
         {
-          name: 'name',
-          prop: 'name',
+          name: 'id',
+          prop: 'id',
+          dataType: 'ACID',
+        },
+        {
+          name: 'title',
+          prop: 'title',
           dataType: 'TEXT',
         },
         {
-          name: 'doccnt',
-          prop: 'doccnt',
-          dataType: 'INT',
+          name: 'addedby',
+          prop: 'addedby',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'addeddate',
+          prop: 'addeddate',
+          dataType: 'DATETIME',
+        },
+        {
+          name: 'editedby',
+          prop: 'editedby',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'editeddate',
+          prop: 'editeddate',
+          dataType: 'DATETIME',
+        },
+        {
+          name: 'module',
+          prop: 'module',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'srfmajortext',
+          prop: 'title',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'srfkey',
+          prop: 'id',
+          dataType: 'ACID',
+          isEditable:true
+        },
+        {
+          name: 'srfdataaccaction',
+          prop: 'id',
+          dataType: 'ACID',
         },
         {
           name: 'product',
@@ -47,31 +88,12 @@ export default class MainModel {
           dataType: 'PICKUP',
         },
         {
-          name: 'doclibtype',
-          prop: 'doclibtype',
-          dataType: 'SSCODELIST',
+          name: 'lib',
+          prop: 'lib',
+          dataType: 'PICKUP',
         },
         {
-          name: 'srfmstag',
-        },
-        {
-          name: 'srfmajortext',
-          prop: 'name',
-          dataType: 'TEXT',
-        },
-        {
-          name: 'srfdataaccaction',
-          prop: 'id',
-          dataType: 'ACID',
-        },
-        {
-          name: 'srfkey',
-          prop: 'id',
-          dataType: 'ACID',
-          isEditable:true
-        },
-        {
-          name: 'doclib',
+          name: 'doc',
           prop: 'id',
         },
 

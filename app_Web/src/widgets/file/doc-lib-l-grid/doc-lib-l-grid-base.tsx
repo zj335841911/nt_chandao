@@ -340,6 +340,14 @@ export class DocLibLGridBase extends GridControlBase {
                 textSeparator: '、',
                 valueSeparator: ',',
             },
+            {
+                name: 'addedby',
+                srfkey: 'UserRealName',
+                codelistType : 'DYNAMIC',
+                textSeparator: ',',
+                renderMode: 'string',
+                valueSeparator: ",",
+            },
         ]);
     }
 

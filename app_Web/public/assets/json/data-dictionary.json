@@ -466,6 +466,37 @@
         ]
     }, 
     {
+        "srfkey": "DOCLIBTYPE",
+        "emptytext": "未定义",
+        "codelisttype":"static",
+        "items": [
+             {
+                "id": "doc",
+                "label": "文档",
+                "text": "文档",
+                "class":"",
+                "data":"",
+                "codename":"Doc",
+                "value": "doc",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "file",
+                "label": "附件",
+                "text": "附件",
+                "class":"",
+                "data":"",
+                "codename":"File",
+                "value": "file",
+                
+                "disabled": false,
+                "default": false
+            }
+        ]
+    }, 
+    {
         "srfkey": "RealNameProjectM",
         "emptytext": "未定义",
         "codelisttype":"dynamic",

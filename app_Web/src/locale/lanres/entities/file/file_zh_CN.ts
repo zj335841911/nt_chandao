@@ -71,6 +71,12 @@ export default {
 		uiactions: {
 		},
 	},
+	gridviewtoolbar_toolbar: {
+		tbitem13: {
+			caption: "导出",
+			tip: "导出",
+		},
+	},
 	editviewtoolbar_toolbar: {
 		tbitem3: {
 			caption: "保存",
@@ -87,12 +93,6 @@ export default {
 		tbitem7: {
 			caption: "删除",
 			tip: "删除",
-		},
-	},
-	gridviewtoolbar_toolbar: {
-		tbitem13: {
-			caption: "导出",
-			tip: "导出",
 		},
 	},
 	list_list: {

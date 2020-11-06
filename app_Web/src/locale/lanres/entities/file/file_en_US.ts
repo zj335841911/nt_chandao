@@ -71,6 +71,12 @@ export default {
 		uiactions: {
 		},
 	},
+	gridviewtoolbar_toolbar: {
+		tbitem13: {
+			caption: "Export",
+			tip: "Export {0} Data To Excel",
+		},
+	},
 	editviewtoolbar_toolbar: {
 		tbitem3: {
 			caption: "Save",
@@ -87,12 +93,6 @@ export default {
 		tbitem7: {
 			caption: "Remove And Close",
 			tip: "Remove And Close Window",
-		},
-	},
-	gridviewtoolbar_toolbar: {
-		tbitem13: {
-			caption: "Export",
-			tip: "Export {0} Data To Excel",
 		},
 	},
 	list_list: {

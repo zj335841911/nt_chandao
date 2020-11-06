@@ -2,9 +2,9 @@ import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
 import { UIActionTool,Util,ViewTool } from '@/utils';
 import { Watch, GridControlBase } from '@/studio-core';
-import DocLibService from '@/service/doc-lib/doc-lib-service';
+import DocService from '@/service/doc/doc-service';
 import MainService from './main-grid-service';
-import DocLibUIService from '@/uiservice/doc-lib/doc-lib-ui-service';
+import DocUIService from '@/uiservice/doc/doc-ui-service';
 import { FormItemModel } from '@/model/form-detail';
 
 
@@ -37,10 +37,10 @@ export class MainGridBase extends GridControlBase {
     /**
      * 实体服务对象
      *
-     * @type {DocLibService}
+     * @type {DocService}
      * @memberof MainGridBase
      */
-    public appEntityService: DocLibService = new DocLibService({ $store: this.$store });
+    public appEntityService: DocService = new DocService({ $store: this.$store });
 
     /**
      * 应用实体名称
@@ -49,7 +49,7 @@ export class MainGridBase extends GridControlBase {
      * @type {string}
      * @memberof MainGridBase
      */
-    protected appDeName: string = 'doclib';
+    protected appDeName: string = 'doc';
 
     /**
      * 应用实体中文名称
@@ -58,71 +58,15 @@ export class MainGridBase extends GridControlBase {
      * @type {string}
      * @memberof MainGridBase
      */
-    protected appDeLogicName: string = '文档库';
+    protected appDeLogicName: string = '文档';
 
     /**
      * 界面UI服务对象
      *
-     * @type {DocLibUIService}
+     * @type {DocUIService}
      * @memberof MainBase
      */  
-    public appUIService:DocLibUIService = new DocLibUIService(this.$store);
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public grid_uagridcolumn1_ufb2a8ed_click(params: any = {}, tag?: any, $event?: any) {
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        let contextJO:any = {};
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        const curUIService:DocLibUIService  = new DocLibUIService();
-        curUIService.DocLib_LookFile(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public grid_uagridcolumn1_u7b44b31_click(params: any = {}, tag?: any, $event?: any) {
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        let contextJO:any = {};
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        const curUIService:DocLibUIService  = new DocLibUIService();
-        curUIService.DocLib_LookDoc(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
-    }
+    public appUIService:DocUIService = new DocUIService(this.$store);
 
 
     /**
@@ -132,8 +76,6 @@ export class MainGridBase extends GridControlBase {
      * @memberof MainBase
      */  
     public ActionModel: any = {
-        LookFile: { name: 'LookFile',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'FILE', actiontarget: 'SINGLEKEY'},
-        LookDoc: { name: 'LookDoc',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'DOC', actiontarget: 'SINGLEKEY'}
     };
 
     /**
@@ -142,8 +84,15 @@ export class MainGridBase extends GridControlBase {
      * @type {string}
      * @memberof MainBase
      */  
-    public majorInfoColName:string = "name";
+    public majorInfoColName:string = "title";
 
+    /**
+     * 列主键属性名称
+     *
+     * @type {string}
+     * @memberof MainGridBase
+     */
+    public columnKeyName: string = "id";
 
     /**
      * 本地缓存标识
@@ -152,7 +101,7 @@ export class MainGridBase extends GridControlBase {
      * @type {string}
      * @memberof MainBase
      */
-    protected localStorageTag: string = 'zt_doclib_main_grid';
+    protected localStorageTag: string = 'zt_doc_main_grid';
 
     /**
      * 所有列成员
@@ -162,27 +111,54 @@ export class MainGridBase extends GridControlBase {
      */
     public allColumns: any[] = [
         {
-            name: 'name',
-            label: '文档库名称',
-            langtag: 'entities.doclib.main_grid.columns.name',
-            show: true,
-            unit: 'STAR',
-            isEnableRowEdit: false,
-            enableCond: 3 ,
-        },
-        {
-            name: 'doccnt',
-            label: '文档数量',
-            langtag: 'entities.doclib.main_grid.columns.doccnt',
+            name: 'id',
+            label: '文档编号',
+            langtag: 'entities.doc.main_grid.columns.id',
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
             enableCond: 3 ,
         },
         {
-            name: 'uagridcolumn1',
-            label: '操作',
-            langtag: 'entities.doclib.main_grid.columns.uagridcolumn1',
+            name: 'title',
+            label: '文档标题',
+            langtag: 'entities.doc.main_grid.columns.title',
+            show: true,
+            unit: 'STAR',
+            isEnableRowEdit: false,
+            enableCond: 3 ,
+        },
+        {
+            name: 'addedby',
+            label: '由谁添加',
+            langtag: 'entities.doc.main_grid.columns.addedby',
+            show: true,
+            unit: 'PX',
+            isEnableRowEdit: false,
+            enableCond: 3 ,
+        },
+        {
+            name: 'addeddate',
+            label: '添加时间',
+            langtag: 'entities.doc.main_grid.columns.addeddate',
+            show: true,
+            unit: 'PX',
+            isEnableRowEdit: false,
+            enableCond: 3 ,
+        },
+        {
+            name: 'editedby',
+            label: '由谁更新',
+            langtag: 'entities.doc.main_grid.columns.editedby',
+            show: true,
+            unit: 'PX',
+            isEnableRowEdit: false,
+            enableCond: 3 ,
+        },
+        {
+            name: 'editeddate',
+            label: '更新时间',
+            langtag: 'entities.doc.main_grid.columns.editeddate',
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
@@ -210,8 +186,8 @@ export class MainGridBase extends GridControlBase {
      */
     public rules: any = {
         srfkey: [
-            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '编号 值不能为空', trigger: 'change' },
-            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '编号 值不能为空', trigger: 'blur' },
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '文档编号 值不能为空', trigger: 'change' },
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '文档编号 值不能为空', trigger: 'blur' },
         ],
     }
 
@@ -231,9 +207,12 @@ export class MainGridBase extends GridControlBase {
      * @memberof MainBase
      */
     public hasRowEdit: any = {
-        'name':false,
-        'doccnt':false,
-        'uagridcolumn1':false,
+        'id':false,
+        'title':false,
+        'addedby':false,
+        'addeddate':false,
+        'editedby':false,
+        'editeddate':false,
     };
 
     /**
@@ -262,24 +241,6 @@ export class MainGridBase extends GridControlBase {
         ]);
     }
 
-
-    /**
-     * 界面行为
-     *
-     * @param {*} row
-     * @param {*} tag
-     * @param {*} $event
-     * @memberof MainGridBase
-     */
-	public uiAction(row: any, tag: any, $event: any): void {
-        $event.stopPropagation();
-        if(Object.is('LookFile', tag)) {
-            this.grid_uagridcolumn1_ufb2a8ed_click(row, tag, $event);
-        }
-        if(Object.is('LookDoc', tag)) {
-            this.grid_uagridcolumn1_u7b44b31_click(row, tag, $event);
-        }
-    }
 
     /**
      * 更新默认值

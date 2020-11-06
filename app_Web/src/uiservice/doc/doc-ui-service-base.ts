@@ -96,6 +96,24 @@ export default class DocUIServiceBase extends UIService {
      * @memberof  DocUIServiceBase
      */  
     public initViewMap(){
+        this.allViewMap.set('MDATAVIEW:', {
+            viewname: 'gridview',
+            srfappde: 'docs',
+            component: 'doc-grid-view',
+            openmode: '',
+            title: '文档',
+            width: 0,
+            height: 0
+        });
+        this.allViewMap.set('EDITVIEW:', {
+            viewname: 'editview',
+            srfappde: 'docs',
+            component: 'doc-edit-view',
+            openmode: '',
+            title: '文档',
+            width: 0,
+            height: 0
+        });
     }
 
     /**

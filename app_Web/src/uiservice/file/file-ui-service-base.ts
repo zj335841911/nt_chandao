@@ -105,15 +105,6 @@ export default class FileUIServiceBase extends UIService {
             width: 0,
             height: 0
         });
-        this.allViewMap.set('EDITVIEW:', {
-            viewname: 'editview',
-            srfappde: 'files',
-            component: 'file-edit-view',
-            openmode: '',
-            title: '附件',
-            width: 0,
-            height: 0
-        });
     }
 
     /**
