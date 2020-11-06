@@ -1,38 +1,38 @@
 /**
- * Mob 部件模型
+ * MOB_ProductPlanLink_Bug 部件模型
  *
  * @export
- * @class MobModel
+ * @class MOB_ProductPlanLink_BugModel
  */
-export class MobModel {
+export class MOB_ProductPlanLink_BugModel {
 
 	/**
 	 * 获取数据项集合
 	 *
 	 * @returns {any[]}
-	 * @memberof MobMdctrlModel
+	 * @memberof MOB_ProductPlanLink_BugMdctrlModel
 	 */
 	public getDataItems(): any[] {
 		return [
-			{
-				name: 'resolution',
-			},
 			{
 				name: 'pri1',
 				prop: 'pri',
 				dataType: 'NSCODELIST',
 			},
 			{
-				name: 'severity',
+				name: 'status',
+			},
+			{
+				name: 'resolution',
+			},
+			{
+				name: 'assignedto',
 			},
 			{
 				name: 'title',
 			},
 			{
-				name: 'status',
-			},
-			{
-				name: 'assignedto',
+				name: 'severity',
 			},
 			{
 				name: 'srfkey',
@@ -122,37 +122,6 @@ export class MobModel {
 				prop: 'id',
 				dataType: 'FONTKEY',
 			},
-            {
-                name: 'n_title_like',
-                prop: 'n_title_like', 
-                dataType: 'TEXT',
-            },
-            {
-                name: 'n_status_eq',
-                prop: 'n_status_eq', 
-                dataType: 'SSCODELIST',
-            },
-            {
-                name: 'n_type_eq',
-                prop: 'n_type_eq', 
-                dataType: 'SSCODELIST',
-            },
-            {
-                name: 'n_openedby_eq',
-                prop: 'n_openedby_eq', 
-                dataType: 'SSCODELIST',
-            },
-            {
-                name: 'n_severity_eq',
-                prop: 'n_severity_eq', 
-                dataType: 'NSCODELIST',
-            },
-            {
-                name: 'n_modulename_like',
-                prop: 'n_modulename_like', 
-                dataType: 'PICKUPTEXT',
-            },
-
 			{
 				name: 'size',
 				prop: 'size'
@@ -187,4 +156,4 @@ export class MobModel {
 
 }
 // 默认导出
-export default MobModel;
+export default MOB_ProductPlanLink_BugModel;
