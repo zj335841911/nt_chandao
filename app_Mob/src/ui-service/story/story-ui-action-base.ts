@@ -692,8 +692,8 @@ export default class StoryUIActionBase extends EntityUIActionBase {
             delete context.srfsessionid;
         }
         // 导航参数
-        let panelNavParam= { "build": "%srfparentkey%" } ;
-        let panelNavContext= { "build": "%srfparentkey%" } ;
+        let panelNavParam= { "build": "%build%" } ;
+        let panelNavContext= { "build": "%build%" } ;
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
         const backend = async () => {
             const curUIService: any = await this.globaluiservice.getAppEntityService('story');
