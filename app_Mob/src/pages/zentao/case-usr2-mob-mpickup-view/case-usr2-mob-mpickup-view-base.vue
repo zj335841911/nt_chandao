@@ -166,7 +166,7 @@ export default class CaseUsr2MobMPickupViewBase extends Vue {
      * @type {*}
      * @memberof CaseUsr2MobMPickupViewBase
      */
-    protected navContext: any = { 'task': '%testtask%' };
+    protected navContext: any = {};
 
     /**
      * 视图导航参数
@@ -175,7 +175,7 @@ export default class CaseUsr2MobMPickupViewBase extends Vue {
      * @type {*}
      * @memberof CaseUsr2MobMPickupViewBase
      */
-    protected navParam: any = { 'task': '%testtask%' };
+    protected navParam: any = {};
 
     /**
      * 视图模型数据
