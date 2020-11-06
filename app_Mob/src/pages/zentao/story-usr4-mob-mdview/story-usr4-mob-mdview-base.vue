@@ -20,7 +20,7 @@
             loaddraftAction=""
             loadAction="Get"
             createAction="Create"
-            fetchAction="FetchDefault" 
+            fetchAction="FetchBuildStories" 
             :isMutli="!isSingleSelect"
             :isNeedLoaddingText="!isPortalView"
             :showBusyIndicator="true" 
@@ -171,7 +171,7 @@ export default class StoryUsr4MobMDViewBase extends Vue {
      * @type {*}
      * @memberof StoryUsr4MobMDViewBase
      */
-    protected navContext: any = { 'project': 'project', 'product': '%product%' };
+    protected navContext: any = { 'project': '%project%', 'product': '%product%' };
 
     /**
      * 视图导航参数

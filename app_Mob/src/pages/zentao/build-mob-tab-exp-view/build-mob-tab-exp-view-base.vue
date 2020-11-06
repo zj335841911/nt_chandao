@@ -180,7 +180,7 @@ export default class BuildMobTabExpViewBase extends Vue {
      * @type {*}
      * @memberof BuildMobTabExpViewBase
      */
-    protected navContext: any = { 'project': '%project%', 'objecttype': '%build%' };
+    protected navContext: any = { 'project': '%project%', 'objecttype': 'build' };
 
     /**
      * 视图导航参数
