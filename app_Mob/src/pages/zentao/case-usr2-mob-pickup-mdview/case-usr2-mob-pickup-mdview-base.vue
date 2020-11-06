@@ -13,7 +13,7 @@
     loaddraftAction=""
     loadAction="Get"
     createAction="Create"
-    fetchAction="FetchDefault" 
+    fetchAction="FetchNotCurTestTask" 
     :isMutli="!isSingleSelect"
     :isNeedLoaddingText="!isPortalView"
     :showBusyIndicator="true" 
@@ -159,7 +159,7 @@ export default class CaseUsr2MobPickupMDViewBase extends Vue {
      * @type {*}
      * @memberof CaseUsr2MobPickupMDViewBase
      */
-    protected navContext: any = { 'task': '%testtask%', 'srfparentdename': 'Case' };
+    protected navContext: any = { 'task': '%testtask%' };
 
     /**
      * 视图导航参数
@@ -168,7 +168,7 @@ export default class CaseUsr2MobPickupMDViewBase extends Vue {
      * @type {*}
      * @memberof CaseUsr2MobPickupMDViewBase
      */
-    protected navParam: any = { 'srfparentdename': 'Case', 'task': '%testtask%' };
+    protected navParam: any = { 'task': '%testtask%' };
 
     /**
      * 视图模型数据
