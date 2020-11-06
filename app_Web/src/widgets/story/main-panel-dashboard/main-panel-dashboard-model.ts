@@ -183,6 +183,12 @@ export default class MainPanelModel {
       {
         name: 'mailtoconact',
       },
+      {
+        name: 'mailtopk',
+      },
+      {
+        name: 'assignedtopk',
+      },
     ]
   }
 

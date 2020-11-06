@@ -1,7 +1,7 @@
 export default {
   fields: {
     userlist: "userList",
-    listname: "listName",
+    listname: "标题",
     id: "id",
     account: "account",
   },
@@ -25,7 +25,7 @@ export default {
 			formpage1: "基本信息", 
 			srforikey: "", 
 			srfkey: "id", 
-			srfmajortext: "listName", 
+			srfmajortext: "标题", 
 			srftempmode: "", 
 			srfuf: "", 
 			srfdeid: "", 

@@ -103,6 +103,7 @@ export default class ProductServiceBase extends EntityService {
         this.tempStorage.setItem(tempContext.srfsessionkey+'_stories',JSON.stringify(res.data.stories?res.data.stories:[]));
         this.tempStorage.setItem(tempContext.srfsessionkey+'_testmodules',JSON.stringify(res.data.testmodules?res.data.testmodules:[]));
         this.tempStorage.setItem(tempContext.srfsessionkey+'_testreports',JSON.stringify(res.data.testreports?res.data.testreports:[]));
+        this.tempStorage.setItem(tempContext.srfsessionkey+'_testsuites',JSON.stringify(res.data.testsuites?res.data.testsuites:[]));
         this.tempStorage.setItem(tempContext.srfsessionkey+'_testtasks',JSON.stringify(res.data.testtasks?res.data.testtasks:[]));
         
         return res;

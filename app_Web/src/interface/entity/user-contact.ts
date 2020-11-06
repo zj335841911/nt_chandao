@@ -15,7 +15,7 @@ export interface UserContact {
     userlist?: any;
 
     /**
-     * listName
+     * 标题
      *
      * @returns {*}
      * @memberof UserContact

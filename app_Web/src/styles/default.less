@@ -7,6 +7,10 @@
 @import './app-code-list.less';
 @import './var.css';
 @import './vue-transition.less';
+@import '~@fullcalendar/core/main.css';
+@import '~@fullcalendar/daygrid/main.css';
+@import '~@fullcalendar/timegrid/main.css';
+@import '~@fullcalendar/list/main.css';
 
 // 滚动条宽度
 div::-webkit-scrollbar {
@@ -210,7 +214,11 @@ div::-webkit-scrollbar-thumb {
         >.el-table__header-wrapper,
         .el-table__fixed-header-wrapper {
             height: 30px;
-
+            .cell{
+                text-overflow: ellipsis;
+                overflow: hidden;
+                white-space: nowrap;
+            }
             >table {
 
                 >thead {
@@ -1507,9 +1515,96 @@ div::-webkit-scrollbar-thumb {
 }
 
 // 日历部件
-.calendar {
-    height: 100%;
-    width: 100%;
+.calendar{
+    height:100%;
+    overflow: auto;
+    .el-timeline{
+      padding-left: 2px;
+    }
+    .app-data-empty{
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .event-legends{
+      width: 100%;
+      text-align: center;
+      .event-lengend{
+        display: inline-block;
+        margin-left: 10px;
+        height: 20px;
+        .lengend-icon{
+          display: inline-block;
+          width: 30px;
+          height: 20px;
+          border-radius: 5px;
+        }
+        span{
+          display: inline-block;
+          margin-left: 5px;
+          line-height: 20px;
+          vertical-align: top;
+        }
+      }
+      .event-lengend.event-disabled{
+        .lengend-icon{
+          background:#cccccc !important;
+        }
+        span{
+          color:#cccccc !important;
+        }
+      }
+    }
+  }
+  // 选中样式
+  .calendar .selected-event,
+  .select-first-calendar .select-first-event{
+    border: 2px solid #ff8711 !important;
+  }
+  .calendar .fc-dayGrid-view .selected-event:before,
+  .select-first-calendar .fc-dayGrid-view .select-first-event:before,
+  .calendar .fc-timeGrid-view .selected-event:before,
+  .select-first-calendar .fc-timeGrid-view .select-first-event:before{
+    content: '';
+    display: block;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    border: 9px solid #ff8711;
+    border-top-color: transparent;
+    border-left-color: transparent;
+    color: #fff;
+  }
+  .calendar .fc-dayGrid-view .selected-event:after,
+  .select-first-calendar .fc-dayGrid-view .select-first-event:after,
+  .calendar .fc-timeGrid-view .selected-event:after,
+  .select-first-calendar .fc-timeGrid-view .select-first-event:after{
+    content: '';
+    display: block;
+    width: 4px;
+    height: 11px;
+    position: absolute;
+    right: 1px;
+    bottom: 0px;
+    border: 2px solid #fff;
+    border-top-color: transparent;
+    border-left-color: transparent;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    box-sizing: content-box;
+  }
+  // 选择跳转日期模态
+  .date-select-modal{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .ivu-modal{
+        top: 0;
+        .ivu-modal-body {
+          text-align: center;
+        }
+    }
 }
 
 // 分页导航

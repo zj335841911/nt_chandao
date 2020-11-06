@@ -77,8 +77,8 @@ export class TestTaskMyDGridViewBase extends GridViewBase {
 	 * @memberof TestTaskMyDGridViewBase
 	 */
     protected customViewParams: any = {
-        'n_owner_eq': { isRawValue: false, value: 'srfloginname' },
-        'n_status_eq': { isRawValue: true, value: 'wait' }
+        'n_status_noteq': { isRawValue: true, value: 'done' },
+        'n_owner_eq': { isRawValue: false, value: 'srfloginname' }
     };
 
     /**

@@ -183,6 +183,12 @@ export default class BaseInfoModel {
       {
         name: 'mailtoconact',
       },
+      {
+        name: 'mailtopk',
+      },
+      {
+        name: 'assignedtopk',
+      },
     ]
   }
 

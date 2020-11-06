@@ -253,8 +253,8 @@ export default class BugUIServiceBase extends UIService {
         let parentContext:any = {};
         let parentViewParam:any = {};
         const _this: any = actionContext;
-        Object.assign(context,{RELEASE:"%srfparentkey%"});
-        Object.assign(params,{release:"%srfparentkey%"});
+        Object.assign(context,{RELEASE:"%release%"});
+        Object.assign(params,{release:"%release%"});
         const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(context, { bug: '%bug%' });
@@ -609,8 +609,8 @@ export default class BugUIServiceBase extends UIService {
         let parentContext:any = {};
         let parentViewParam:any = {};
         const _this: any = actionContext;
-        Object.assign(context,{RELEASE:"%srfparentkey%"});
-        Object.assign(params,{release:"%srfparentkey%"});
+        Object.assign(context,{RELEASE:"%release%"});
+        Object.assign(params,{release:"%release%"});
         const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(context, { bug: '%bug%' });

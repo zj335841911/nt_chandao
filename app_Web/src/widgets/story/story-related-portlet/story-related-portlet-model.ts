@@ -183,6 +183,12 @@ export default class StoryRelatedModel {
       {
         name: 'mailtoconact',
       },
+      {
+        name: 'mailtopk',
+      },
+      {
+        name: 'assignedtopk',
+      },
     ]
   }
 

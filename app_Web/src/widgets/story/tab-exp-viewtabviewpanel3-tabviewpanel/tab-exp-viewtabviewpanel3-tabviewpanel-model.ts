@@ -183,6 +183,12 @@ export default class TabExpViewtabviewpanel3Model {
       {
         name: 'mailtoconact',
       },
+      {
+        name: 'mailtopk',
+      },
+      {
+        name: 'assignedtopk',
+      },
     ]
   }
 

@@ -453,4 +453,20 @@ export interface Story {
      * @memberof Story
      */
     mailtoconact?: any;
+
+    /**
+     * 抄送给
+     *
+     * @returns {*}
+     * @memberof Story
+     */
+    mailtopk?: any;
+
+    /**
+     * 指派给（选择）
+     *
+     * @returns {*}
+     * @memberof Story
+     */
+    assignedtopk?: any;
 }

@@ -453,4 +453,20 @@ export interface SubStory {
      * @memberof SubStory
      */
     mailtoconact?: any;
+
+    /**
+     * 抄送给
+     *
+     * @returns {*}
+     * @memberof SubStory
+     */
+    mailtopk?: any;
+
+    /**
+     * 指派给（选择）
+     *
+     * @returns {*}
+     * @memberof SubStory
+     */
+    assignedtopk?: any;
 }

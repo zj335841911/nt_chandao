@@ -19,6 +19,7 @@
 <script lang="ts">
 import { Vue, Component, Watch, Prop, Model } from 'vue-property-decorator';
 import CodeListService from "@service/app/codelist-service";
+import { Subject, Subscription } from 'rxjs';
 import { Util } from '@/utils';
 
 @Component({
@@ -175,6 +176,22 @@ export default class DropDownList extends Vue {
      */
     @Prop() public placeholder?: string;
 
+    /**
+     * 表单状态对象
+     *
+     * @type {Subject<any>}
+     * @memberof AppEmbedPicker
+     */
+    @Prop() public formState?: Subject<any>;
+
+    /**
+     * 订阅对象
+     *
+     * @protected
+     * @type {(Subscription | undefined)}
+     * @memberof SelectType
+     */
+    protected formStateEvent: Subscription | undefined;
 
     /**
      * 计算属性(当前值)
@@ -302,8 +319,17 @@ export default class DropDownList extends Vue {
      * @memberof DropDownList
      */
     public created() {
-        this.readyCodelist();
-        this.readyValue();
+        if(this.formState) {
+            this.formStateEvent = this.formState.subscribe(({ type, data }) => {
+                if (Object.is('load', type)) {
+                    this.readyCodelist();
+                    this.readyValue();
+                }
+            });
+        }else{
+            this.readyCodelist();
+            this.readyValue();
+        }  
     }
     
     /**
@@ -436,6 +462,16 @@ export default class DropDownList extends Vue {
         })
     }
 
+    /**
+     * vue 生命周期
+     *
+     * @memberof DropDownList
+     */
+    public destroyed() {
+        if (this.formStateEvent) {
+            this.formStateEvent.unsubscribe();
+        }
+    }
 }
 </script>
 <style lang='less'>

@@ -183,6 +183,12 @@ export default class Usr2MPickupViewpickupviewpanelModel {
       {
         name: 'mailtoconact',
       },
+      {
+        name: 'mailtopk',
+      },
+      {
+        name: 'assignedtopk',
+      },
     ]
   }
 

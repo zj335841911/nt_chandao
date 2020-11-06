@@ -183,6 +183,12 @@ export default class TotalCurOpenedStoryStageModel {
       {
         name: 'mailtoconact',
       },
+      {
+        name: 'mailtopk',
+      },
+      {
+        name: 'assignedtopk',
+      },
     ]
   }
 

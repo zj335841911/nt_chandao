@@ -183,6 +183,12 @@ export default class MPickupView2pickupviewpanelModel {
       {
         name: 'mailtoconact',
       },
+      {
+        name: 'mailtopk',
+      },
+      {
+        name: 'assignedtopk',
+      },
     ]
   }
 

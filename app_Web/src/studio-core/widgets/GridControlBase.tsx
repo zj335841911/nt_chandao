@@ -478,19 +478,29 @@ export class GridControlBase extends MDControlBase {
                         } else {
                             this.$Notice.error({
                                 title: (this.$t('app.commonWords.createFailed') as string),
-                                desc: errorMessage[index].data.message,
+                                desc: errorMessage[index].data.message?errorMessage[index].data.message:(this.$t('app.commonWords.sysException') as string),
                             });
                         }
-                    } else {
+                    } else if(Object.is(errorMessage[index].data.errorKey, 'DuplicateKeyException')){
+                        let name: string = this.service.getNameByProp(this.columnKeyName);
+                        if(name){
+                            let desc: any = this.allColumns.find((column: any) =>{
+                                return Object.is(column.name, name);
+                            });
+                            this.$Notice.error({
+                                title: (this.$t('app.commonWords.createFailed') as string),
+                                desc: (desc ? desc.label : '') + " : " + item[name] + (this.$t('app.commonWords.isExist') as string) + '!',
+                            });
+                        }
+                    }else {
                         this.$Notice.error({
                             title: (this.$t('app.commonWords.saveFailed') as string),
-                            desc: errorMessage[index].data.message,
+                            desc: errorMessage[index].data.message?errorMessage[index].data.message:(this.$t('app.commonWords.sysException') as string),
                         });
                     }
                 } else {
                     this.$Notice.error({ title: (this.$t('app.commonWords.saveFailed') as string), desc: (item[this.majorInfoColName]?item[this.majorInfoColName]:"") + (this.$t('app.commonWords.saveFailed') as string) + '!' });
                 }
-                console.error(errorMessage[index]);
             });
         }
         return successItems;

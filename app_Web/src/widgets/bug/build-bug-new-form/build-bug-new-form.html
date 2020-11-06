@@ -41,6 +41,7 @@
     v-model="data.branch"
     :data="data"
     :context="context"
+    :formState="formState"
     :viewparams="viewparams"
     :localContext ='{ PRODUCT:"%product%" }' 
     :localParam ='{ product:"%product%" }' 
@@ -61,6 +62,7 @@
     v-model="data.module"
     :data="data"
     :context="context"
+    :formState="formState"
     :viewparams="viewparams"
     :localContext ='{ N_BRANCH_EQ:"%branch%", PRODUCT:"%product%", N_ROOT_EQ:"%product%", BRANCH:"%branch%" }' 
     :localParam ='{ product:"%product%", n_root_eq:"%product%", branch:"%branch%", n_branch_eq:"%branch%" }' 
@@ -125,6 +127,7 @@
     v-model="data.assignedto"
     :data="data"
     :context="context"
+    :formState="formState"
     :viewparams="viewparams"
     :localContext ='{ PROJECT:"%project%" }' 
     :localParam ='{ project:"%project%" }' 
@@ -152,6 +155,7 @@
     v-model="data.type"
     :data="data"
     :context="context"
+    :formState="formState"
     :viewparams="viewparams"
     :localContext ='{ }' 
     :localParam ='{ }' 
@@ -172,6 +176,7 @@
     v-model="data.os"
     :data="data"
     :context="context"
+    :formState="formState"
     :viewparams="viewparams"
     :localContext ='{ }' 
     :localParam ='{ }' 
@@ -192,6 +197,7 @@
     v-model="data.browser"
     :data="data"
     :context="context"
+    :formState="formState"
     :viewparams="viewparams"
     :localContext ='{ }' 
     :localParam ='{ }' 
@@ -231,6 +237,7 @@
     v-model="data.severity"
     :data="data"
     :context="context"
+    :formState="formState"
     :viewparams="viewparams"
     :localContext ='{ }' 
     :localParam ='{ }' 
@@ -251,6 +258,7 @@
     v-model="data.pri"
     :data="data"
     :context="context"
+    :formState="formState"
     :viewparams="viewparams"
     :localContext ='{ }' 
     :localParam ='{ }' 

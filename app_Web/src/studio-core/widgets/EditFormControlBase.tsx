@@ -338,14 +338,19 @@ export class EditFormControlBase extends FormControlBase {
                         } else {
                             this.$Notice.error({
                                 title: (this.$t('app.commonWords.createFailed') as string),
-                                desc: response.data.message,
+                                desc: response.data.message?response.data.message:(this.$t('app.commonWords.sysException') as string),
                             })
                         }
+                    }else if(Object.is(response.data.errorKey, 'DuplicateKeyException')){
+                        this.$Notice.error({
+                            title: (this.$t('app.commonWords.createFailed') as string),
+                            desc: this.detailsModel[this.formKeyItemName].caption + " : " + arg[this.formKeyItemName] + (this.$t('app.commonWords.isExist') as string) + '!',
+                        });
                     } else {
-                        this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: response.data.message });
+                        this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: response.data.message?response.data.message:(this.$t('app.commonWords.sysException') as string) });
                     }
                 } else {
-                    this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: response.data.message });
+                    this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: response.data.message?response.data.message:(this.$t('app.commonWords.sysException') as string) });
                 }
                 return;
             } else {
@@ -469,14 +474,19 @@ export class EditFormControlBase extends FormControlBase {
                             } else {
                                 this.$Notice.error({
                                     title: (this.$t('app.commonWords.createFailed') as string),
-                                    desc: response.data.message,
+                                    desc: response.data.message?response.data.message:(this.$t('app.commonWords.sysException') as string),
                                 })
                             }
+                        }else if(Object.is(response.data.errorKey, 'DuplicateKeyException')){
+                            this.$Notice.error({
+                                title: (this.$t('app.commonWords.createFailed') as string),
+                                desc: this.detailsModel[this.formKeyItemName].caption + " : " + arg[this.formKeyItemName] + (this.$t('app.commonWords.isExist') as string) + '!',
+                            });
                         } else {
-                            this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: response.data.message });
+                            this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: response.data.message?response.data.message:(this.$t('app.commonWords.sysException') as string) });
                         }
                     } else {
-                        this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: response.data.message });
+                        this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: response.data.message?response.data.message:(this.$t('app.commonWords.sysException') as string) });
                         reject(response);
                     }
                     return;

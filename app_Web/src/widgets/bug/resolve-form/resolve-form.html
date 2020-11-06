@@ -16,6 +16,7 @@
     v-model="data.resolution"
     :data="data"
     :context="context"
+    :formState="formState"
     :viewparams="viewparams"
     :localContext ='{ }' 
     :localParam ='{ }' 
@@ -40,6 +41,7 @@
     v-model="data.resolvedbuild"
     :data="data"
     :context="context"
+    :formState="formState"
     :viewparams="viewparams"
     :localContext ='{ BUGPRODUCT:"%product%", PRODUCT:"%product%" }' 
     :localParam ='{ product:"%product%", bugproduct:"%product%" }' 
@@ -60,6 +62,7 @@
     v-model="data.buildproject"
     :data="data"
     :context="context"
+    :formState="formState"
     :viewparams="viewparams"
     :localContext ='{ N_PRODUCT_EQ:"%product%" }' 
     :localParam ='{ n_product_eq:"%product%" }' 
@@ -132,6 +135,7 @@
     v-model="data.assignedto"
     :data="data"
     :context="context"
+    :formState="formState"
     :viewparams="viewparams"
     :localContext ='{ PROJECT:"%project%" }' 
     :localParam ='{ project:"%project%" }' 

@@ -1053,8 +1053,8 @@ export default class StoryUIServiceBase extends UIService {
         let parentContext:any = {};
         let parentViewParam:any = {};
         const _this: any = actionContext;
-        Object.assign(context,{RELEASE:"%srfparentkey%"});
-        Object.assign(params,{release:"%srfparentkey%"});
+        Object.assign(context,{RELEASE:"%release%"});
+        Object.assign(params,{release:"%release%"});
         const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(context, { story: '%story%' });
@@ -1506,8 +1506,7 @@ export default class StoryUIServiceBase extends UIService {
         let parentContext:any = {};
         let parentViewParam:any = {};
         const _this: any = actionContext;
-        Object.assign(context,{STORY:"0"});
-        Object.assign(params,{productplan:"%productplan%"});
+        Object.assign(context,{PRODUCTPLAN:"%productplan%",STORY:"0"});
         const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'NONE';
         if(_this.context){
@@ -1600,8 +1599,8 @@ export default class StoryUIServiceBase extends UIService {
         let parentContext:any = {};
         let parentViewParam:any = {};
         const _this: any = actionContext;
-        Object.assign(context,{BUILD:"%srfparentkey%"});
-        Object.assign(params,{build:"%srfparentkey%"});
+        Object.assign(context,{BUILD:"%build%"});
+        Object.assign(params,{build:"%build%"});
         const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(context, { story: '%story%' });

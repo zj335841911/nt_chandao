@@ -183,6 +183,12 @@ export default class TotalCurOpenedStoryPriModel {
       {
         name: 'mailtoconact',
       },
+      {
+        name: 'mailtopk',
+      },
+      {
+        name: 'assignedtopk',
+      },
     ]
   }
 
