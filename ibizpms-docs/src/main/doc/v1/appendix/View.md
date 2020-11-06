@@ -39,6 +39,7 @@
 |-|发布移动端数据选择视图|DEMOBPICKUPVIEW|&nbsp;|
 |-|产品移动端选择多数据视图|DEMOBPICKUPMDVIEW|&nbsp;|
 |-|需求选项操作视图（评审）|DEMOBOPTVIEW|&nbsp;|
+|-|测试用例移动端多数据选择视图|DEMOBMPICKUPVIEW|&nbsp;|
 |-|任务预计移动端编辑视图|DEMOBEDITVIEW9|&nbsp;|
 |-|测试版本选项操作视图（关闭）|DEMOBOPTVIEW|&nbsp;|
 |-|测试版本分页导航视图|DEMOBTABEXPVIEW|&nbsp;|
@@ -82,6 +83,7 @@
 |-|需求移动端多数据视图|DEMOBMDVIEW|&nbsp;|
 |-|Bug移动端多数据视图|DEMOBMDVIEW9|&nbsp;|
 |-|需求选项操作视图（指派）|DEMOBOPTVIEW|&nbsp;|
+|-|测试用例移动端选择多数据视图|DEMOBPICKUPMDVIEW|&nbsp;|
 |-|Bug移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
 |-|版本移动端多数据视图|DEMOBMDVIEW|&nbsp;|
 |-|项目移动端编辑视图挂起）|DEMOBEDITVIEW|&nbsp;|
@@ -119,6 +121,7 @@
 |-|版本移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
 |-|任务团队移动端编辑视图|DEMOBEDITVIEW9|&nbsp;|
 |-|Bug移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
+|-|Bug移动端多数据选择视图|DEMOBMPICKUPVIEW|&nbsp;|
 |-|产品图表视图|DEMOBCHARTVIEW|&nbsp;|
 |-|测试套件移动端多数据视图|DEMOBMDVIEW|&nbsp;|
 |-|需求移动端多数据视图|DEMOBMDVIEW|&nbsp;|

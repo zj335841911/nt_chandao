@@ -66,8 +66,14 @@ export default {
 		mobmdview_testsuite: {
 			caption: '测试用例',
 		},
+		usr2mobmpickupview: {
+			caption: '关联用例',
+		},
 		mobmdview: {
 			caption: '测试用例',
+		},
+		usr2mobpickupmdview: {
+			caption: '关联用例',
 		},
 		mobeditview: {
 			caption: '测试用例',

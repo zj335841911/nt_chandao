@@ -186,6 +186,21 @@ export class FileServiceBase extends EntityService {
     }
 
     /**
+     * FetchDocLibFile接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof FileServiceBase
+     */
+    public async FetchDocLibFile(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/files/fetchdoclibfile`,tempData,isloading);
+        return res;
+    }
+
+    /**
      * FetchType接口方法
      *
      * @param {*} [context={}]
