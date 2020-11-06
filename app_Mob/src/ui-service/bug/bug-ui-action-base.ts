@@ -104,7 +104,9 @@ export default class BugUIActionBase extends EntityUIActionBase {
         this.allViewMap.set(':',{viewname:'assmoboptionview',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'confirmmobeditview',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'assigntomobeditview',srfappde:'bugs'});
+        this.allViewMap.set(':',{viewname:'usr3mobmpickupview',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'assmobmdview',srfappde:'bugs'});
+        this.allViewMap.set(':',{viewname:'usr3mobpickupmdview',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'usr2mobmpickupview',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'usr2mobpickupmdview',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'resolvemobeditview',srfappde:'bugs'});
@@ -472,6 +474,64 @@ export default class BugUIActionBase extends EntityUIActionBase {
             }
         }
         return response;
+    }
+
+    /**
+     * 关联bug
+     *
+     * @param {any[]} args 数据
+     * @param {*} [contextJO={}] 行为上下文
+     * @param {*} [paramJO={}] 行为参数
+     * @param {*} [$event] 事件
+     * @param {*} [xData] 数据目标
+     * @param {*} [container] 行为容器对象
+     * @param {string} [srfParentDeName] 
+     * @returns {Promise<any>}
+     * @memberof BugUIService
+     */
+    public async Bug_MobReleaseLinkResolvedBug(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'NONE';
+        let context: any = this.handleContextParam(actionTarget, _args, contextJO);
+        let params: any = this.handleActionParam(actionTarget, _args, paramJO);
+        context = { ...container.context, ...context };
+        let parentObj: any = {
+            srfparentdename: srfParentDeName ? srfParentDeName : null,
+            srfparentkey: srfParentDeName ? context[srfParentDeName.toLowerCase()] : null,
+        };
+        Object.assign(context, parentObj);
+        Object.assign(params, parentObj);
+        // 直接调实体服务需要转换的数据
+        if (context && context.srfsessionid) {
+            context.srfsessionkey = context.srfsessionid;
+            delete context.srfsessionid;
+        }
+        // 导航参数
+        let panelNavParam= { } ;
+        let panelNavContext= { } ;
+        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
+        const backend = async () => {
+            const curUIService: any = await this.globaluiservice.getAppEntityService('bug');
+            const response: any = await curUIService.ReleaseLinkBugbyBug(_context, _params);
+            if (response && response.status === 200) {
+                this.notice.success('关联bug成功！');
+            } else {
+                this.notice.error('系统异常！');
+            }
+            return response;
+        };
+        const view: any = { 
+            viewname: 'bug-usr3-mob-mpickup-view', 
+            height: 0, 
+            width: 0,  
+            title: 'Bug移动端多数据选择视图', 
+            placement: '',
+        };
+        const result: any = await this.openService.openModal(view, _context, _params);
+        if (result && Object.is(result.ret, 'OK')) {
+            Object.assign(params, { srfactionparam: result.datas });
+            return backend();
+        }
     }
 
     /**

@@ -131,6 +131,7 @@ export const PageComponents = {
         Vue.component('story-ass-mob-mdview9', () => import('@pages/zentao/story-ass-mob-mdview9/story-ass-mob-mdview9.vue'));
         Vue.component('product-module-mob-pickup-mdview', () => import('@pages/ibiz/product-module-mob-pickup-mdview/product-module-mob-pickup-mdview.vue'));
         Vue.component('product-mob-edit-view', () => import('@pages/ibiz/product-mob-edit-view/product-mob-edit-view.vue'));
+        Vue.component('bug-usr3-mob-mpickup-view', () => import('@pages/zentao/bug-usr3-mob-mpickup-view/bug-usr3-mob-mpickup-view.vue'));
         Vue.component('project-close-mob-edit-view', () => import('@pages/ibiz/project-close-mob-edit-view/project-close-mob-edit-view.vue'));
         Vue.component('todo-mob-option-view', () => import('@pages/zentao/todo-mob-option-view/todo-mob-option-view.vue'));
         Vue.component('product-prod-mob-tab-exp-view', () => import('@pages/zentao/product-prod-mob-tab-exp-view/product-prod-mob-tab-exp-view.vue'));
@@ -150,6 +151,7 @@ export const PageComponents = {
         Vue.component('case-mob-mdview', () => import('@pages/ibiz/case-mob-mdview/case-mob-mdview.vue'));
         Vue.component('release-mob-edit-view', () => import('@pages/ibiz/release-mob-edit-view/release-mob-edit-view.vue'));
         Vue.component('test-suite-mob-edit-view', () => import('@pages/ibiz/test-suite-mob-edit-view/test-suite-mob-edit-view.vue'));
+        Vue.component('bug-usr3-mob-pickup-mdview', () => import('@pages/zentao/bug-usr3-mob-pickup-mdview/bug-usr3-mob-pickup-mdview.vue'));
         Vue.component('build-mob-pickup-view', () => import('@pages/ibiz/build-mob-pickup-view/build-mob-pickup-view.vue'));
     }
 };

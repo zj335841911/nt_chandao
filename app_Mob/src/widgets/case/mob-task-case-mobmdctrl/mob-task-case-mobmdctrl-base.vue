@@ -1,5 +1,5 @@
 <template>
-    <div  class="app-mob-mdctrl story-mdctrl ">
+    <div  class="app-mob-mdctrl case-mdctrl ">
         <div class="app-mob-mdctrl-mdctrl" ref="mdctrl">
             <ion-list class="items" ref="ionlist">
                 <template v-if="(viewType == 'DEMOBMDVIEW9') && controlStyle != 'SWIPERVIEW' ">
@@ -89,11 +89,11 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import StoryService from '@/app-core/service/story/story-service';
-import MOB_Release_StoryService from '@/app-core/ctrl-service/story/mob-release-story-mobmdctrl-service';
+import CaseService from '@/app-core/service/case/case-service';
+import Mob_Task_CaseService from '@/app-core/ctrl-service/case/mob-task-case-mobmdctrl-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
-import StoryUIService from '@/ui-service/story/story-ui-action';
+import CaseUIService from '@/ui-service/case/case-ui-action';
 
 
 
@@ -101,13 +101,13 @@ import StoryUIService from '@/ui-service/story/story-ui-action';
     components: {
     }
 })
-export default class MOB_Release_StoryBase extends Vue implements ControlInterface {
+export default class Mob_Task_CaseBase extends Vue implements ControlInterface {
 
     /**
      * 名称
      *
      * @type {string}
-     * @memberof MOB_Release_Story
+     * @memberof Mob_Task_Case
      */
     @Prop() protected name?: string;
 
@@ -115,7 +115,7 @@ export default class MOB_Release_StoryBase extends Vue implements ControlInterfa
      * 视图名称
      *
      * @type {string}
-     * @memberof MOB_Release_Story
+     * @memberof Mob_Task_Case
      */
     @Prop() protected viewName!: string;
 
@@ -124,7 +124,7 @@ export default class MOB_Release_StoryBase extends Vue implements ControlInterfa
      * 视图通讯对象
      *
      * @type {Subject<ViewState>}
-     * @memberof MOB_Release_Story
+     * @memberof Mob_Task_Case
      */
     @Prop() protected viewState!: Subject<ViewState>;
 
@@ -132,7 +132,7 @@ export default class MOB_Release_StoryBase extends Vue implements ControlInterfa
      * 应用上下文
      *
      * @type {*}
-     * @memberof MOB_Release_Story
+     * @memberof Mob_Task_Case
      */
     @Prop({ default: {} }) protected context?: any;
 
@@ -140,7 +140,7 @@ export default class MOB_Release_StoryBase extends Vue implements ControlInterfa
      * 视图参数
      *
      * @type {*}
-     * @memberof MOB_Release_Story
+     * @memberof Mob_Task_Case
      */
     @Prop({ default: {} }) protected viewparams?: any;
 
@@ -149,7 +149,7 @@ export default class MOB_Release_StoryBase extends Vue implements ControlInterfa
      *
      * @protected
      * @type {(Subscription | undefined)}
-     * @memberof MOB_Release_Story
+     * @memberof Mob_Task_Case
      */
     protected viewStateEvent: Subscription | undefined;
 
@@ -157,7 +157,7 @@ export default class MOB_Release_StoryBase extends Vue implements ControlInterfa
      * 获取部件类型
      *
      * @returns {string}
-     * @memberof MOB_Release_Story
+     * @memberof Mob_Task_Case
      */
     protected getControlType(): string {
         return 'MOBMDCTRL'
@@ -167,7 +167,7 @@ export default class MOB_Release_StoryBase extends Vue implements ControlInterfa
      * 全局 ui 服务
      *
      * @type {GlobalUiService}
-     * @memberof MOB_Release_Story
+     * @memberof Mob_Task_Case
      */
     protected globaluiservice: GlobalUiService = new GlobalUiService();
 
@@ -176,7 +176,7 @@ export default class MOB_Release_StoryBase extends Vue implements ControlInterfa
      * 转化数据
      *
      * @param {any} args
-     * @memberof  MOB_Release_StoryBase
+     * @memberof  Mob_Task_CaseBase
      */
     public transformData(args: any) {
         let _this: any = this;
@@ -188,33 +188,33 @@ export default class MOB_Release_StoryBase extends Vue implements ControlInterfa
     /**
      * 建构部件服务对象
      *
-     * @type {MOB_Release_StoryService}
-     * @memberof MOB_Release_Story
+     * @type {Mob_Task_CaseService}
+     * @memberof Mob_Task_Case
      */
-    protected service: MOB_Release_StoryService = new MOB_Release_StoryService({$store:this.$store});
+    protected service: Mob_Task_CaseService = new Mob_Task_CaseService({$store:this.$store});
 
     /**
      * 实体服务对象
      *
-     * @type {StoryService}
-     * @memberof MOB_Release_Story
+     * @type {CaseService}
+     * @memberof Mob_Task_Case
      */
-    protected appEntityService: StoryService = new StoryService();
+    protected appEntityService: CaseService = new CaseService();
 
     /**
      * 界面UI服务对象
      *
-     * @type {StoryUIService}
-     * @memberof MOB_Release_StoryBase
+     * @type {CaseUIService}
+     * @memberof Mob_Task_CaseBase
      */  
-    public deUIService:StoryUIService = new StoryUIService(this.$store);
+    public deUIService:CaseUIService = new CaseUIService(this.$store);
     
 
     /**
      * 关闭视图
      *
      * @param {any[]} args
-     * @memberof MOB_Release_Story
+     * @memberof Mob_Task_Case
      */
     protected closeView(args: any[]): void {
         let _this: any = this;
@@ -226,7 +226,7 @@ export default class MOB_Release_StoryBase extends Vue implements ControlInterfa
      * 视图类型
      *
      * @type {string}
-     * @memberof MOB_Release_Story
+     * @memberof Mob_Task_Case
      */
     @Prop() protected viewType?: string | 'DEMOBMDVIEW' | 'DEMOBMDVIEW9' | 'DEMOBWFMDVIEW';
 
@@ -234,7 +234,7 @@ export default class MOB_Release_StoryBase extends Vue implements ControlInterfa
      * 显示处理提示
      *
      * @type {boolean}
-     * @memberof MOB_Release_Story
+     * @memberof Mob_Task_Case
      */
     @Prop({ default: true }) protected showBusyIndicator?: boolean;
 
@@ -242,7 +242,7 @@ export default class MOB_Release_StoryBase extends Vue implements ControlInterfa
      * 部件行为--update
      *
      * @type {string}
-     * @memberof MOB_Release_Story
+     * @memberof Mob_Task_Case
      */
     @Prop() protected updateAction!: string;
     
@@ -250,7 +250,7 @@ export default class MOB_Release_StoryBase extends Vue implements ControlInterfa
      * 部件行为--fetch
      *
      * @type {string}
-     * @memberof MOB_Release_Story
+     * @memberof Mob_Task_Case
      */
     @Prop() protected fetchAction!: string;
     
@@ -258,7 +258,7 @@ export default class MOB_Release_StoryBase extends Vue implements ControlInterfa
      * 部件行为--remove
      *
      * @type {string}
-     * @memberof MOB_Release_Story
+     * @memberof Mob_Task_Case
      */
     @Prop() protected removeAction!: string;
     
@@ -266,7 +266,7 @@ export default class MOB_Release_StoryBase extends Vue implements ControlInterfa
      * 部件行为--load
      *
      * @type {string}
-     * @memberof MOB_Release_Story
+     * @memberof Mob_Task_Case
      */
     @Prop() protected loadAction!: string;
     
@@ -274,7 +274,7 @@ export default class MOB_Release_StoryBase extends Vue implements ControlInterfa
      * 部件行为--loaddraft
      *
      * @type {string}
-     * @memberof MOB_Release_Story
+     * @memberof Mob_Task_Case
      */
     @Prop() protected loaddraftAction!: string;
     
@@ -282,7 +282,7 @@ export default class MOB_Release_StoryBase extends Vue implements ControlInterfa
      * 部件行为--create
      *
      * @type {string}
-     * @memberof MOB_Release_Story
+     * @memberof Mob_Task_Case
      */
     @Prop() protected createAction!: string;
 
@@ -290,14 +290,14 @@ export default class MOB_Release_StoryBase extends Vue implements ControlInterfa
      * 部件样式
      *
      * @type {string}
-     * @memberof MOB_Release_Story
+     * @memberof Mob_Task_Case
      */
     @Prop({default: 'LISTVIEW'}) protected controlStyle!: string | 'ICONVIEW'  | 'LISTVIEW' | 'SWIPERVIEW' | 'LISTVIEW2' | 'LISTVIEW3' | 'LISTVIEW4';
 
     /**
     *上级传递的选中项
     *@type {Array}
-    *@memberof MOB_Release_Story
+    *@memberof Mob_Task_Case
     */
      @Prop() public selectedData?:Array<any>;
 
@@ -305,7 +305,7 @@ export default class MOB_Release_StoryBase extends Vue implements ControlInterfa
      * 部件行为--update
      *
      * @type {string}
-     * @memberof MOB_Release_Story
+     * @memberof Mob_Task_Case
      */
     @Prop({default: true}) protected needLoadMore?: boolean;
 
@@ -313,7 +313,7 @@ export default class MOB_Release_StoryBase extends Vue implements ControlInterfa
     * 新建打开视图
     *
     * @type {Function}
-    * @memberof MOB_Release_Story
+    * @memberof Mob_Task_Case
     */
     @Prop() public newdata?: Function; 
 
@@ -322,7 +322,7 @@ export default class MOB_Release_StoryBase extends Vue implements ControlInterfa
     * 打开视图
     *
     * @type {Function}
-    * @memberof MOB_Release_Story
+    * @memberof Mob_Task_Case
     */
     @Prop() public opendata?: Function; 
 
@@ -331,7 +331,7 @@ export default class MOB_Release_StoryBase extends Vue implements ControlInterfa
     * 当前选中数组
     *
     * @type {array}
-    * @memberof MOB_Release_Story
+    * @memberof Mob_Task_Case
     */
     public  selectdata :any = [];
 
@@ -339,7 +339,7 @@ export default class MOB_Release_StoryBase extends Vue implements ControlInterfa
     * 关闭行为
     *
     * @type {Function}
-    * @memberof MOB_Release_Story
+    * @memberof Mob_Task_Case
     */
     @Prop() public close?:Function;
 
@@ -347,7 +347,7 @@ export default class MOB_Release_StoryBase extends Vue implements ControlInterfa
     * 是否显示加载文字
     *
     * @type {boolean}
-    * @memberof MOB_Release_Story
+    * @memberof Mob_Task_Case
     */
     @Prop({ default: true}) public isNeedLoaddingText?:boolean;
 
@@ -355,7 +355,7 @@ export default class MOB_Release_StoryBase extends Vue implements ControlInterfa
     * 是否为临时模式
     *
     * @type {boolean}
-    * @memberof MOB_Release_Story
+    * @memberof Mob_Task_Case
     */
     @Prop({ default: false}) public isTempMode?:boolean;
 
@@ -363,7 +363,7 @@ export default class MOB_Release_StoryBase extends Vue implements ControlInterfa
     * 存放多数据选择数组（多选）
     *
     * @type {array}
-    * @memberof MOB_Release_Story
+    * @memberof Mob_Task_Case
     */
     public checkboxList:Array<string> = [];
 
@@ -371,7 +371,7 @@ export default class MOB_Release_StoryBase extends Vue implements ControlInterfa
     * 是否为分组模式
     *
     * @type {boolean}
-    * @memberof MOB_Release_Story
+    * @memberof Mob_Task_Case
     */
     public isEnableGroup:boolean =  false;
 
@@ -379,7 +379,7 @@ export default class MOB_Release_StoryBase extends Vue implements ControlInterfa
     * 代码表分组细节
     *
     * @type {Object}
-    * @memberof MOB_Release_Story
+    * @memberof Mob_Task_Case
     */
     public group_detail:any = [];
 
@@ -387,7 +387,7 @@ export default class MOB_Release_StoryBase extends Vue implements ControlInterfa
     * 分组模式
     *
     * @type {string}
-    * @memberof MOB_Release_Story
+    * @memberof Mob_Task_Case
     */
     public group_mode = 'NONE';
 
@@ -395,7 +395,7 @@ export default class MOB_Release_StoryBase extends Vue implements ControlInterfa
     * 分组数据
     *
     * @type {array}
-    * @memberof MOB_Release_Story
+    * @memberof Mob_Task_Case
     */
     public group_data?:any = [];
 
@@ -404,7 +404,7 @@ export default class MOB_Release_StoryBase extends Vue implements ControlInterfa
      *
      * @public
      * @type {(Subscription | undefined)}
-     * @memberof MOB_Release_StoryBase
+     * @memberof Mob_Task_CaseBase
      */
     public appStateEvent: Subscription | undefined;
 
@@ -412,14 +412,14 @@ export default class MOB_Release_StoryBase extends Vue implements ControlInterfa
     * 分组标识
     *
     * @type {array}
-    * @memberof MOB_Release_Story
+    * @memberof Mob_Task_Case
     */
     public group_field:string = '';
 
     /**
      * 分组方法
      *
-     * @memberof MOB_Release_Story
+     * @memberof Mob_Task_Case
      */
     public group(){
       let _this:any = this;
@@ -435,7 +435,7 @@ export default class MOB_Release_StoryBase extends Vue implements ControlInterfa
     * 存放数据选择数组(单选)
     *
     * @type {object}
-    * @memberof MOB_Release_Story
+    * @memberof Mob_Task_Case
     */
     public radio:any = '';
 
@@ -444,7 +444,7 @@ export default class MOB_Release_StoryBase extends Vue implements ControlInterfa
     * 点击多选按钮触发
     *
     *
-    * @memberof MOB_Release_Story
+    * @memberof Mob_Task_Case
     */
     public change(){
         if(this.isMutli){
@@ -466,7 +466,7 @@ export default class MOB_Release_StoryBase extends Vue implements ControlInterfa
     * 列表键值对
     *
     * @type {Map}
-    * @memberof MOB_Release_Story
+    * @memberof Mob_Task_Case
     */
     public listMap: any = new Map();
 
@@ -474,15 +474,15 @@ export default class MOB_Release_StoryBase extends Vue implements ControlInterfa
     * 分页大小
     *
     * @type {number}
-    * @memberof MOB_Release_Story
+    * @memberof Mob_Task_Case
     */
-    public pageSize: number = 25;
+    public pageSize: number = 1000;
 
     /**
     * 总页数
     *
     * @type {number}
-    * @memberof MOB_Release_Story
+    * @memberof Mob_Task_Case
     */
      public pageTotal: number = 0;
 
@@ -490,7 +490,7 @@ export default class MOB_Release_StoryBase extends Vue implements ControlInterfa
     * 当前页数
     *
     * @type {number}
-    * @memberof MOB_Release_Story
+    * @memberof Mob_Task_Case
     */
      public pageNumber: number = 1;
 
@@ -498,7 +498,7 @@ export default class MOB_Release_StoryBase extends Vue implements ControlInterfa
     * 判断底部数据是否全部加载完成，若为真，则 bottomMethod 不会被再次触发
     *
     * @type {number}
-    * @memberof MOB_Release_Story
+    * @memberof Mob_Task_Case
     */
     get allLoaded() {
         return ((this.pageNumber + 1) * this.pageSize) >= this.pageTotal ? true : false;
@@ -508,7 +508,7 @@ export default class MOB_Release_StoryBase extends Vue implements ControlInterfa
     * searchKey 搜索关键字
     *
     * @type {string}
-    * @memberof MOB_Release_Story
+    * @memberof Mob_Task_Case
     */
      public searchKey:string = '';
 
@@ -516,7 +516,7 @@ export default class MOB_Release_StoryBase extends Vue implements ControlInterfa
     * 列表数组
     *
     * @param {Array<any>}
-    * @memberof MOB_Release_Story
+    * @memberof Mob_Task_Case
     */
     public items:Array<any> =[];
 
@@ -524,7 +524,7 @@ export default class MOB_Release_StoryBase extends Vue implements ControlInterfa
     * 选中数组
     *
     * @param {Array<any>}
-    * @memberof MOB_Release_Story
+    * @memberof Mob_Task_Case
     */
     public selectedArray:Array<any> = [];
 
@@ -532,7 +532,7 @@ export default class MOB_Release_StoryBase extends Vue implements ControlInterfa
     * 多选计数
     *
     * @param {number}
-    * @memberof MOB_Release_Story
+    * @memberof Mob_Task_Case
     */
     public selectednumber:number =0;
 
@@ -540,7 +540,7 @@ export default class MOB_Release_StoryBase extends Vue implements ControlInterfa
     * 搜索行为
     *
     * @param {string}
-    * @memberof MOB_Release_Story
+    * @memberof Mob_Task_Case
     */
     @Prop() public searchAction?:string;
 
@@ -548,7 +548,7 @@ export default class MOB_Release_StoryBase extends Vue implements ControlInterfa
     * 是否为选择视图
     *
     * @param {boolean} 
-    * @memberof MOB_Release_Story
+    * @memberof Mob_Task_Case
     */
     @Prop() public isSelected?:boolean;
 
@@ -556,7 +556,7 @@ export default class MOB_Release_StoryBase extends Vue implements ControlInterfa
     * 是否多选
     *
     * @type {boolean}
-    * @memberof MOB_Release_Story
+    * @memberof Mob_Task_Case
     */
     @Prop({default:false}) public isMutli?: boolean;
 
@@ -564,7 +564,7 @@ export default class MOB_Release_StoryBase extends Vue implements ControlInterfa
     * 单选选择值
     *
     * @param {string} 
-    * @memberof MOB_Release_Story
+    * @memberof Mob_Task_Case
     */
     public selectedValue:string = ""; 
 
@@ -572,7 +572,7 @@ export default class MOB_Release_StoryBase extends Vue implements ControlInterfa
     * 部件排序对象
     *
     * @param {object} 
-    * @memberof MOB_Release_Story
+    * @memberof Mob_Task_Case
     */
     public sort: any = { sort:'id,desc'};
     
@@ -580,7 +580,7 @@ export default class MOB_Release_StoryBase extends Vue implements ControlInterfa
     /**
      * 上拉加载更多数据
      *
-     * @memberof MOB_Release_Story
+     * @memberof Mob_Task_Case
      */
     public async loadBottom(): Promise<any> {
         if (this.allLoaded) {
@@ -630,7 +630,7 @@ export default class MOB_Release_StoryBase extends Vue implements ControlInterfa
         }
         return new Promise((resolve, reject) => {
             const _remove = async () => {
-                let _context: any = { story: keys.join(';') }
+                let _context: any = { case: keys.join(';') }
                 const response: any = await this.service.delete(this.removeAction, Object.assign({}, this.context, _context), arg, this.showBusyIndicator);
                 if (response && response.status === 200 && response.data.records) {
                     this.$notice.success((this.$t('app.message.deleteSccess') as string));
@@ -673,7 +673,7 @@ export default class MOB_Release_StoryBase extends Vue implements ControlInterfa
     /**
      * 长按状态改变事件
      *
-     * @memberof MOB_Release_Story
+     * @memberof Mob_Task_Case
      */
     public onCheackChange(){
         this.$emit('isChooseChange', !this.isChoose);
@@ -684,7 +684,7 @@ export default class MOB_Release_StoryBase extends Vue implements ControlInterfa
      *
      * @param {string} query
      * @returns {Promise<any>}
-     * @memberof MOB_Release_Story
+     * @memberof Mob_Task_Case
      */
     public async quickSearch(query: string): Promise<any> {
         this.searchKey = query;
@@ -700,7 +700,7 @@ export default class MOB_Release_StoryBase extends Vue implements ControlInterfa
      * @param {*} [data={}]
      * @param {string} [type=""]
      * @returns {Promise<any>}
-     * @memberof MOB_Release_Story
+     * @memberof Mob_Task_Case
      */
     private async load(data: any = {}, type: string = "",isloadding = this.showBusyIndicator): Promise<any> {
         if (!data.page) {
@@ -769,7 +769,7 @@ export default class MOB_Release_StoryBase extends Vue implements ControlInterfa
      *
      * @param {*} data
      * @returns
-     * @memberof MOB_Release_Story
+     * @memberof Mob_Task_Case
      */
     public checkboxChange(data: any) {
         let { detail } = data;
@@ -782,7 +782,7 @@ export default class MOB_Release_StoryBase extends Vue implements ControlInterfa
             if (item.value) {
                 this.selectednumber++;
             }
-            if (Object.is(item.storyid, value)) {
+            if (Object.is(item.caseid, value)) {
                 if (detail.checked) {
                     this.selectdata.push(this.items[index]);
                 } else {
@@ -797,7 +797,7 @@ export default class MOB_Release_StoryBase extends Vue implements ControlInterfa
      * 下拉刷新
      *
      * @returns {Promise<any>}
-     * @memberof MOB_Release_Story
+     * @memberof Mob_Task_Case
      */
     public async pullDownToRefresh(): Promise<any> {
         this.pageNumber = 0;
@@ -813,7 +813,7 @@ export default class MOB_Release_StoryBase extends Vue implements ControlInterfa
     /**
     * 点击回调事件
     *
-    * @memberof MOB_Release_Story
+    * @memberof Mob_Task_Case
     */
     public item_click(item:any){
         if(this.isChoose){
@@ -833,7 +833,7 @@ export default class MOB_Release_StoryBase extends Vue implements ControlInterfa
     /**
     * 点击列表数据跳转
     *
-    * @memberof MOB_Release_Story
+    * @memberof Mob_Task_Case
     */
     public goPage(item: any) {
         this.$emit('rowclick',item);
@@ -842,7 +842,7 @@ export default class MOB_Release_StoryBase extends Vue implements ControlInterfa
     /**
     * 获取多项数据
     *
-    * @memberof MOB_Release_Story
+    * @memberof Mob_Task_Case
     */
     public getDatas(): any[] {
       return this.selectedArray;
@@ -851,7 +851,7 @@ export default class MOB_Release_StoryBase extends Vue implements ControlInterfa
     /**
     * 获取单项数据
     *
-    * @memberof MOB_Release_Story
+    * @memberof Mob_Task_Case
     */
     public getData(): any {
         return this.selectedArray[0];
@@ -860,7 +860,7 @@ export default class MOB_Release_StoryBase extends Vue implements ControlInterfa
     /**
     * vue生命周期created
     *
-    * @memberof MOB_Release_Story
+    * @memberof Mob_Task_Case
     */
     public created() {
         this.afterCreated();
@@ -869,7 +869,7 @@ export default class MOB_Release_StoryBase extends Vue implements ControlInterfa
     /**
      * 执行created后的逻辑
      *
-     *  @memberof MOB_Release_Story
+     *  @memberof Mob_Task_Case
      */    
     protected afterCreated(){
         if (this.viewState) {
@@ -897,7 +897,7 @@ export default class MOB_Release_StoryBase extends Vue implements ControlInterfa
         }
         if(AppCenterService && AppCenterService.getMessageCenter()){
             this.appStateEvent = AppCenterService.getMessageCenter().subscribe(({ name, action, data }) =>{
-                if(!Object.is(name,"Story")){
+                if(!Object.is(name,"Case")){
                     return;
                 }
                 if(Object.is(action,'appRefresh')){
@@ -922,7 +922,7 @@ export default class MOB_Release_StoryBase extends Vue implements ControlInterfa
     /**
      * ion-item-sliding拖动事件
      *
-     * @memberof MOB_Release_Story
+     * @memberof Mob_Task_Case
      */
     public ionDrag(){
       this.$store.commit('setPopupStatus',false)
@@ -931,7 +931,7 @@ export default class MOB_Release_StoryBase extends Vue implements ControlInterfa
     /**
      * 滚动条事件（计算是否到底部）
      *
-     * @memberof MOB_Release_Story
+     * @memberof Mob_Task_Case
      */
     public scroll(e:any){
         let list:any = this.$refs.mdctrl;
@@ -951,14 +951,14 @@ export default class MOB_Release_StoryBase extends Vue implements ControlInterfa
     /**
      * 底部加载状态
      *
-     * @memberof MOB_Release_Story
+     * @memberof Mob_Task_Case
      */
     public bottomLoadding = false;
 
     /**
      * vue 生命周期
      *
-     * @memberof MOB_Release_Story
+     * @memberof Mob_Task_Case
      */
     public beforeDestroy(){
       let list:any = this.$refs.mdctrl;
@@ -972,7 +972,7 @@ export default class MOB_Release_StoryBase extends Vue implements ControlInterfa
     /**
      * vue 生命周期
      *
-     * @memberof MOB_Release_Story
+     * @memberof Mob_Task_Case
      */
     public destroyed() {
         this.afterDestroy();
@@ -981,7 +981,7 @@ export default class MOB_Release_StoryBase extends Vue implements ControlInterfa
     /**
      * 执行destroyed后的逻辑
      *
-     * @memberof MOB_Release_Story
+     * @memberof Mob_Task_Case
      */
     protected afterDestroy() {
         if (this.viewStateEvent) {
@@ -996,7 +996,7 @@ export default class MOB_Release_StoryBase extends Vue implements ControlInterfa
     /**
      * vue 生命周期 activated
      *
-     * @memberof MOB_Release_Story
+     * @memberof Mob_Task_Case
      */
     public activated() {
         this.closeSlidings()
@@ -1106,7 +1106,7 @@ export default class MOB_Release_StoryBase extends Vue implements ControlInterfa
      * 界面行为模型
      *
      * @type {*}
-     * @memberof MOB_Release_StoryBase
+     * @memberof Mob_Task_CaseBase
      */  
     public ActionModel:any ={
     };
@@ -1116,7 +1116,7 @@ export default class MOB_Release_StoryBase extends Vue implements ControlInterfa
     /**
      * 获取界面行为权限状态
      *
-     * @memberof MOB_Release_StoryBase
+     * @memberof Mob_Task_CaseBase
      */
     public getActionState(data:any){
         //let targetData:any = this.transformData(data);
@@ -1128,7 +1128,7 @@ export default class MOB_Release_StoryBase extends Vue implements ControlInterfa
     /**
     * 判断列表项左滑右滑禁用状态
     *
-    * @memberof MOB_Release_StoryBase
+    * @memberof Mob_Task_CaseBase
     */
     public setSlidingDisabled(item:any){
         item.sliding_disabled = true;
@@ -1143,14 +1143,14 @@ export default class MOB_Release_StoryBase extends Vue implements ControlInterfa
     /**
      * 长按定时器
      *
-     * @memberof MOB_Release_StoryBase
+     * @memberof Mob_Task_CaseBase
      */
     public timeOutEvent :number = 0;
 
     /**
      * 开始长按
      *
-     * @memberof MOB_Release_StoryBase
+     * @memberof Mob_Task_CaseBase
      */
     public gotouchstart(){
         let _this = this;
@@ -1169,7 +1169,7 @@ export default class MOB_Release_StoryBase extends Vue implements ControlInterfa
      * touchmove
      *  如果手指有移动，则取消所有事件，此时说明用户只是要移动而不是长按
      *
-     * @memberof MOB_Release_StoryBase
+     * @memberof Mob_Task_CaseBase
      */
     public gotouchmove() {
         clearTimeout(this.timeOutEvent); //清除定时器
@@ -1180,7 +1180,7 @@ export default class MOB_Release_StoryBase extends Vue implements ControlInterfa
      * touchend
      * 结束长按
      *
-     * @memberof MOB_Release_StoryBase
+     * @memberof Mob_Task_CaseBase
      */
     public gotouchend() {
         this.timeOutEvent = 0;
@@ -1190,5 +1190,5 @@ export default class MOB_Release_StoryBase extends Vue implements ControlInterfa
 </script>
 
 <style lang='less'>
-@import './mob-release-story-mobmdctrl.less';
+@import './mob-task-case-mobmdctrl.less';
 </style>

@@ -115,7 +115,13 @@ export default {
 		assigntomobeditview: {
 			caption: 'Bug',
 		},
+		usr3mobmpickupview: {
+			caption: '关联bug',
+		},
 		assmobmdview: {
+			caption: 'Bug',
+		},
+		usr3mobpickupmdview: {
 			caption: 'Bug',
 		},
 		usr2mobmpickupview: {
@@ -443,6 +449,10 @@ export default {
 		},
 	},
 	usr2mobmdviewrighttoolbar_toolbar: {
+		deuiaction1: {
+			caption: '关联bug',
+			tip: 'deuiaction1',
+		},
 	},
 	editnewmobeditviewrighttoolbar_toolbar: {
 		tbitem1: {
