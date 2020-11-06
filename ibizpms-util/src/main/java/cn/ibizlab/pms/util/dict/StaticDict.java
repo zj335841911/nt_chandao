@@ -5454,6 +5454,27 @@ public class StaticDict {
 
 
     /**
+     * 代码表[文件库类型]
+     */
+    @Getter
+    public enum DOCLIBTYPE {
+        DOC("doc","文档"),
+        FILE("file","附件");
+
+        private String value;
+        private String text;
+        private String valueSeparator="";
+        private String textSeparator="";
+        private String emptyText="";
+
+        DOCLIBTYPE(String value , String text) {
+            this.value=value;
+            this.text = text;
+        }
+    }
+
+
+    /**
      * 代码表[页面资源类型]
      */
     @Getter

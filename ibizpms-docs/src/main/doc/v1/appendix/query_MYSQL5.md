@@ -4711,6 +4711,7 @@ select t1.* from (SELECT
 	t1.`PRODUCT`,
 	t1.`PROJECT`,
 	t1.`TYPE` ,
+        'doc' as DOCLIBTYPE,
 	(select count(1) from zt_doc t where t.lib = t1.id and t.project = t1.project and t.deleted = '0') as DOCCNT
 FROM
 	`zt_doclib` t1 
@@ -4727,6 +4728,7 @@ FROM
 	0 as `PRODUCT`,
 	#{srf.datacontext.project} as `PROJECT`,
 	'project' as `TYPE` ,
+        'file' as DOCLIBTYPE,
 	(select count(1) from zt_file t where ((t.objectType ='project' and t.objectID = #{srf.datacontext.project}) or (t.objectType = 'task' and exists(select 1 from zt_task tt where tt.id = t.objectID and tt.project = #{srf.datacontext.project} and tt.deleted = '0')) or (t.objectType = 'build' and exists(select 1 from zt_build tt where tt.id = t.objectID and tt.project = #{srf.datacontext.project} and tt.deleted = '0')) or (t.objectType = 'doc' and EXISTS(select 1 from zt_doc tt where tt.id = t.objectID and tt.project = #{srf.datacontext.project} and tt.deleted = '0'))) and t.deleted = '0') as DOCCNT
 FROM
 	dual  ) t1

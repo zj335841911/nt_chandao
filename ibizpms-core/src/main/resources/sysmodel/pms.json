@@ -5435,6 +5435,7 @@
     "field_logic_name":"文件库类型",
     "entity_name":"DocLib",
     "field_type":"SSCODELIST",
+    "dict":"DOCLIBTYPE",
     "nullable":1,
     "physical_field":0,
     "data_type":"VARCHAR",
