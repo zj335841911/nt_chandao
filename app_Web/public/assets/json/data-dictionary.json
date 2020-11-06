@@ -6137,6 +6137,289 @@
         ]
     }, 
     {
+        "srfkey": "File__object_type",
+        "emptytext": "未定义",
+        "codelisttype":"static",
+        "items": [
+             {
+                "id": "product",
+                "label": "产品",
+                "text": "产品",
+                "class":"",
+                "data":"",
+                "codename":"Product",
+                "value": "product",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "story",
+                "label": "需求",
+                "text": "需求",
+                "class":"",
+                "data":"",
+                "codename":"Story",
+                "value": "story",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "productplan",
+                "label": "计划",
+                "text": "计划",
+                "class":"",
+                "data":"",
+                "codename":"Productplan",
+                "value": "productplan",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "release",
+                "label": "发布",
+                "text": "发布",
+                "class":"",
+                "data":"",
+                "codename":"Release",
+                "value": "release",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "project",
+                "label": "项目",
+                "text": "项目",
+                "class":"",
+                "data":"",
+                "codename":"Project",
+                "value": "project",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "task",
+                "label": "任务",
+                "text": "任务",
+                "class":"",
+                "data":"",
+                "codename":"Task",
+                "value": "task",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "build",
+                "label": "版本",
+                "text": "版本",
+                "class":"",
+                "data":"",
+                "codename":"Build",
+                "value": "build",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "bug",
+                "label": "Bug",
+                "text": "Bug",
+                "class":"",
+                "data":"",
+                "codename":"Bug",
+                "value": "bug",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "case",
+                "label": "用例",
+                "text": "用例",
+                "class":"",
+                "data":"",
+                "codename":"Case",
+                "value": "case",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "caseresult",
+                "label": "用例结果",
+                "text": "用例结果",
+                "class":"",
+                "data":"",
+                "codename":"Caseresult",
+                "value": "caseresult",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "stepresult",
+                "label": "用例步骤",
+                "text": "用例步骤",
+                "class":"",
+                "data":"",
+                "codename":"Stepresult",
+                "value": "stepresult",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "testtask",
+                "label": "测试单",
+                "text": "测试单",
+                "class":"",
+                "data":"",
+                "codename":"Testtask",
+                "value": "testtask",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "user",
+                "label": "用户",
+                "text": "用户",
+                "class":"",
+                "data":"",
+                "codename":"User",
+                "value": "user",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "doc",
+                "label": "文档",
+                "text": "文档",
+                "class":"",
+                "data":"",
+                "codename":"Doc",
+                "value": "doc",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "doclib",
+                "label": "文档库",
+                "text": "文档库",
+                "class":"",
+                "data":"",
+                "codename":"Doclib",
+                "value": "doclib",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "todo",
+                "label": "待办",
+                "text": "待办",
+                "class":"",
+                "data":"",
+                "codename":"Todo",
+                "value": "todo",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "branch",
+                "label": "分支",
+                "text": "分支",
+                "class":"",
+                "data":"",
+                "codename":"Branch",
+                "value": "branch",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "module",
+                "label": "模块",
+                "text": "模块",
+                "class":"",
+                "data":"",
+                "codename":"Module",
+                "value": "module",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "testsuite",
+                "label": "套件",
+                "text": "套件",
+                "class":"",
+                "data":"",
+                "codename":"Testsuite",
+                "value": "testsuite",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "caselib",
+                "label": "用例库",
+                "text": "用例库",
+                "class":"",
+                "data":"",
+                "codename":"Caselib",
+                "value": "caselib",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "testreport",
+                "label": "报告",
+                "text": "报告",
+                "class":"",
+                "data":"",
+                "codename":"Testreport",
+                "value": "testreport",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "entry",
+                "label": "应用",
+                "text": "应用",
+                "class":"",
+                "data":"",
+                "codename":"Entry",
+                "value": "entry",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "webhook",
+                "label": "Webhook",
+                "text": "Webhook",
+                "class":"",
+                "data":"",
+                "codename":"Webhook",
+                "value": "webhook",
+                
+                "disabled": false,
+                "default": false
+            }
+        ]
+    }, 
+    {
         "srfkey": "Module__type",
         "emptytext": "未定义",
         "codelisttype":"static",

@@ -46,14 +46,18 @@ export default {
 		uiactions: {
 		},
 	},
-	main_grid: {
+	doclibl_grid: {
 		nodata: "",
 		columns: {
-			title: "标题",
-			uagridcolumn1: "操作",
+			id: "文档编号",
+			title: "附件名",
+			pathname: "地址",
+			objecttype: "类型",
+			size: "大小",
+			addedby: "由谁添加",
+			addeddate: "添加时间",
 		},
 		uiactions: {
-			file_delete: "删除",
 		},
 	},
 	default_searchform: {

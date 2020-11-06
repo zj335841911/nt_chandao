@@ -3,7 +3,7 @@
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { FileGridViewBase } from './file-grid-view-base';
-import view_grid from '@widgets/file/main-grid/main-grid.vue';
+import view_grid from '@widgets/file/doc-lib-l-grid/doc-lib-l-grid.vue';
 import view_searchform from '@widgets/file/default-searchform/default-searchform.vue';
 
 /**

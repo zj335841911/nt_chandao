@@ -5237,6 +5237,243 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
+        srfkey: "File__object_type",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "product",
+                label: "产品",
+                text: "产品",
+                "data":"",
+                "codename":"Product",
+                value: "product",
+                
+                disabled: false,
+            },
+            {
+                id: "story",
+                label: "需求",
+                text: "需求",
+                "data":"",
+                "codename":"Story",
+                value: "story",
+                
+                disabled: false,
+            },
+            {
+                id: "productplan",
+                label: "计划",
+                text: "计划",
+                "data":"",
+                "codename":"Productplan",
+                value: "productplan",
+                
+                disabled: false,
+            },
+            {
+                id: "release",
+                label: "发布",
+                text: "发布",
+                "data":"",
+                "codename":"Release",
+                value: "release",
+                
+                disabled: false,
+            },
+            {
+                id: "project",
+                label: "项目",
+                text: "项目",
+                "data":"",
+                "codename":"Project",
+                value: "project",
+                
+                disabled: false,
+            },
+            {
+                id: "task",
+                label: "任务",
+                text: "任务",
+                "data":"",
+                "codename":"Task",
+                value: "task",
+                
+                disabled: false,
+            },
+            {
+                id: "build",
+                label: "版本",
+                text: "版本",
+                "data":"",
+                "codename":"Build",
+                value: "build",
+                
+                disabled: false,
+            },
+            {
+                id: "bug",
+                label: "Bug",
+                text: "Bug",
+                "data":"",
+                "codename":"Bug",
+                value: "bug",
+                
+                disabled: false,
+            },
+            {
+                id: "case",
+                label: "用例",
+                text: "用例",
+                "data":"",
+                "codename":"Case",
+                value: "case",
+                
+                disabled: false,
+            },
+            {
+                id: "caseresult",
+                label: "用例结果",
+                text: "用例结果",
+                "data":"",
+                "codename":"Caseresult",
+                value: "caseresult",
+                
+                disabled: false,
+            },
+            {
+                id: "stepresult",
+                label: "用例步骤",
+                text: "用例步骤",
+                "data":"",
+                "codename":"Stepresult",
+                value: "stepresult",
+                
+                disabled: false,
+            },
+            {
+                id: "testtask",
+                label: "测试单",
+                text: "测试单",
+                "data":"",
+                "codename":"Testtask",
+                value: "testtask",
+                
+                disabled: false,
+            },
+            {
+                id: "user",
+                label: "用户",
+                text: "用户",
+                "data":"",
+                "codename":"User",
+                value: "user",
+                
+                disabled: false,
+            },
+            {
+                id: "doc",
+                label: "文档",
+                text: "文档",
+                "data":"",
+                "codename":"Doc",
+                value: "doc",
+                
+                disabled: false,
+            },
+            {
+                id: "doclib",
+                label: "文档库",
+                text: "文档库",
+                "data":"",
+                "codename":"Doclib",
+                value: "doclib",
+                
+                disabled: false,
+            },
+            {
+                id: "todo",
+                label: "待办",
+                text: "待办",
+                "data":"",
+                "codename":"Todo",
+                value: "todo",
+                
+                disabled: false,
+            },
+            {
+                id: "branch",
+                label: "分支",
+                text: "分支",
+                "data":"",
+                "codename":"Branch",
+                value: "branch",
+                
+                disabled: false,
+            },
+            {
+                id: "module",
+                label: "模块",
+                text: "模块",
+                "data":"",
+                "codename":"Module",
+                value: "module",
+                
+                disabled: false,
+            },
+            {
+                id: "testsuite",
+                label: "套件",
+                text: "套件",
+                "data":"",
+                "codename":"Testsuite",
+                value: "testsuite",
+                
+                disabled: false,
+            },
+            {
+                id: "caselib",
+                label: "用例库",
+                text: "用例库",
+                "data":"",
+                "codename":"Caselib",
+                value: "caselib",
+                
+                disabled: false,
+            },
+            {
+                id: "testreport",
+                label: "报告",
+                text: "报告",
+                "data":"",
+                "codename":"Testreport",
+                value: "testreport",
+                
+                disabled: false,
+            },
+            {
+                id: "entry",
+                label: "应用",
+                text: "应用",
+                "data":"",
+                "codename":"Entry",
+                value: "entry",
+                
+                disabled: false,
+            },
+            {
+                id: "webhook",
+                label: "Webhook",
+                text: "Webhook",
+                "data":"",
+                "codename":"Webhook",
+                value: "webhook",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
         srfkey: "Module__type",
         emptytext: "未定义",
         "codelisttype":"static",
