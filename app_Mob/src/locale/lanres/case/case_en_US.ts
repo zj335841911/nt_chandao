@@ -117,6 +117,10 @@ export default {
 		},
 	},
 	mobmdview_testtaskrighttoolbar_toolbar: {
+		deuiaction1: {
+			caption: '关联需求',
+			tip: 'deuiaction1',
+		},
 	},
 	mobeditviewrighttoolbar_toolbar: {
 	},

@@ -124,8 +124,14 @@ export default {
 		usr3mobpickupmdview: {
 			caption: 'Bug',
 		},
+		usr3mobmpickupleftview: {
+			caption: '关联bug',
+		},
 		usr2mobmpickupview: {
 			caption: '关联bug',
+		},
+		usr3mobpickupmdview1: {
+			caption: 'Bug',
 		},
 		usr2mobpickupmdview: {
 			caption: '关联bug',

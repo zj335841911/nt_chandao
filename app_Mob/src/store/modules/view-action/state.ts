@@ -12,6 +12,7 @@ export const viewstate: any = {
             refviews: [
                 'a5df58fce83822477d21fefa32f84741',
                 '0e2762177f3bf384b00d863798bd744c',
+                '2d928b4a4ce059216ed4d52ab28351c1',
             ],
         },
         {
@@ -1436,6 +1437,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'afcafdb4d30f172f86678c9f44b0e8e1',
+            viewmodule: 'zentao',
+            viewname: 'BugUsr3MobMPickupLeftView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'c5fb7ab4959d7dacf105f0a51695180b',
+            ],
+        },
+        {
             viewtag: 'b1c76392040ff2e9ed2e3ae2b0260602',
             viewmodule: 'ibiz',
             viewname: 'ProjectMobPickupView',
@@ -1572,6 +1583,15 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '3c4e9f0d609bc0f1cf08431649cc8e67',
+            ],
+        },
+        {
+            viewtag: 'c5fb7ab4959d7dacf105f0a51695180b',
+            viewmodule: 'zentao',
+            viewname: 'BugUsr3MobPickupMDView1',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
             ],
         },
         {
