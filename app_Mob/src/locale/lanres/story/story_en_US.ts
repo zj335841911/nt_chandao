@@ -262,10 +262,10 @@ export default {
 			srfuf: '', 
 			srfdeid: '', 
 			srfsourcekey: '', 
-			assignedto: '指派给', 
 			assignedtopk: '指派给', 
 			comment: '备注', 
 			id: '编号', 
+			assignedto: '指派给', 
 		},
 		uiactions: {
 		},

@@ -18,37 +18,6 @@
     @groupuiactionclick="groupUIActionClick($event)">
     
 <app-form-item 
-    name='assignedto' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="assignedto_item"  
-    :itemValue="this.data.assignedto" 
-    v-show="detailsModel.assignedto.visible" 
-    :itemRules="this.rules.assignedto" 
-    :caption="$t('story.assigntomob_form.details.assignedto')"  
-    :labelWidth="100"  
-    :isShowCaption="true"
-    :disabled="detailsModel.assignedto.disabled"
-    :error="detailsModel.assignedto.error" 
-    :isEmptyCaption="false">
-        <app-mob-select 
-    tag="UserRealName"
-    codeListType="DYNAMIC" 
-    :isCache="false" 
-    :disabled="detailsModel.assignedto.disabled" 
-    :data="data" 
-    :context="context" 
-    :viewparams="viewparams"
-    :value="data.assignedto"  
-    :navigateContext ='{ } '
-    :navigateParam ='{ } '
-    @change="($event)=>this.data.assignedto = $event" />
-</app-form-item>
-
-
-
-<app-form-item 
     name='assignedtopk' 
     class='' 
     uiStyle="DEFAULT"  
@@ -484,10 +453,10 @@ export default class AssignToMobBase extends Vue implements ControlInterface {
         srfuf: null,
         srfdeid: null,
         srfsourcekey: null,
-        assignedto: null,
         assignedtopk: null,
         comment: null,
         id: null,
+        assignedto: null,
         story: null,
     };
 
@@ -643,13 +612,13 @@ export default class AssignToMobBase extends Vue implements ControlInterface {
 , 
         srfsourcekey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfsourcekey', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        assignedto: new FormItemModel({ caption: '指派给', detailType: 'FORMITEM', name: 'assignedto', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
         assignedtopk: new FormItemModel({ caption: '指派给', detailType: 'FORMITEM', name: 'assignedtopk', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         comment: new FormItemModel({ caption: '备注', detailType: 'FORMITEM', name: 'comment', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
+, 
+        assignedto: new FormItemModel({ caption: '指派给', detailType: 'FORMITEM', name: 'assignedto', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
     };
 
@@ -750,18 +719,6 @@ export default class AssignToMobBase extends Vue implements ControlInterface {
     }
 
     /**
-     * 监控表单属性 assignedto 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof AssignToMob
-     */
-    @Watch('data.assignedto')
-    onAssignedtoChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'assignedto', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
      * 监控表单属性 assignedtopk 值
      *
      * @param {*} newVal
@@ -795,6 +752,18 @@ export default class AssignToMobBase extends Vue implements ControlInterface {
     @Watch('data.id')
     onIdChange(newVal: any, oldVal: any) {
         this.formDataChange({ name: 'id', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 assignedto 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof AssignToMob
+     */
+    @Watch('data.assignedto')
+    onAssignedtoChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'assignedto', newVal: newVal, oldVal: oldVal });
     }
 
 
