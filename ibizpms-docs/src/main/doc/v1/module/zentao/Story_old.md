@@ -83,6 +83,7 @@ hide members
 |是否收藏|ISFAVORITES|TEXT|&nbsp;|
 |是否可以细分|ISCHILD|TEXT|&nbsp;|
 |联系人|MAILTOCONACT|TEXT|&nbsp;|
+|抄送给|MAILTOPK|SMCODELIST|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -143,6 +144,7 @@ hide members
 |是否收藏|默认规则|内容长度必须小于等于[200]|
 |是否可以细分|默认规则|内容长度必须小于等于[200]|
 |联系人|默认规则|内容长度必须小于等于[100]|
+|抄送给|默认规则|内容长度必须小于等于[65535]|
 
 ## 状态控制
 

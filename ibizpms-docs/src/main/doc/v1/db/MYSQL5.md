@@ -82055,6 +82055,7 @@ CREATE TABLE `zt_release`(
 | ISLEAF        | 是否子需求  | VARCHAR      |   200   | &nbsp; |
 | STAGEDBY        | 设置阶段者  | VARCHAR      |   200   | &nbsp; |
 | TYPE        | 需求类型  | VARCHAR      |   30   | &nbsp; |
+| MAILTOPK        | 抄送给  | VARCHAR      |   65,535   | &nbsp; |
 | CLOSEDREASON        | 关闭原因  | VARCHAR      |   30   | &nbsp; |
 | MODULENAME1        | 所属模块名称  | VARCHAR      |   200   | &nbsp; |
 | VERSION        | 版本号  | INTEGER      |   6   | &nbsp; |

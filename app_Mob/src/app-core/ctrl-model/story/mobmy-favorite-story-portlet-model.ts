@@ -183,6 +183,9 @@ export class MOBMyFavoriteStoryModel {
       {
         name: 'mailtoconact',
       },
+      {
+        name: 'mailtopk',
+      },
     ]
   }
 

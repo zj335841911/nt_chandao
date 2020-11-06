@@ -180,7 +180,7 @@ export default class ReleaseMobTabExpViewBase extends Vue {
      * @type {*}
      * @memberof ReleaseMobTabExpViewBase
      */
-    protected navContext: any = { 'srfparentkey': '%release%' };
+    protected navContext: any = {};
 
     /**
      * 视图导航参数
@@ -189,7 +189,7 @@ export default class ReleaseMobTabExpViewBase extends Vue {
      * @type {*}
      * @memberof ReleaseMobTabExpViewBase
      */
-    protected navParam: any = { 'srfparentkey': '%release%' };
+    protected navParam: any = {};
 
     /**
      * 视图模型数据

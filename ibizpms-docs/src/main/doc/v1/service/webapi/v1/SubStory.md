@@ -5333,7 +5333,8 @@ POST
 | 54 | isfavorites | String | 允许 | 是否收藏 |
 | 55 | ischild | String | 允许 | 是否可以细分 |
 | 56 | mailtoconact | String | 允许 | 联系人 |
-| 57 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 57 | mailtopk | String | 允许 | 抄送给 |
+| 58 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### StorySearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

@@ -183,6 +183,9 @@ export class MobModel {
       {
         name: 'mailtoconact',
       },
+      {
+        name: 'mailtopk',
+      },
     ]
   }
 

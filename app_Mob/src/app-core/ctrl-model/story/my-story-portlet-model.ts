@@ -183,6 +183,9 @@ export class MyStoryModel {
       {
         name: 'mailtoconact',
       },
+      {
+        name: 'mailtopk',
+      },
     ]
   }
 

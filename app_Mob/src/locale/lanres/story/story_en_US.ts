@@ -56,6 +56,7 @@ export default {
     isfavorites: "是否收藏",
     ischild: "是否可以细分",
     mailtoconact: "联系人",
+    mailtopk: "抄送给",
   },
 	views: {
 		newmobeditview: {

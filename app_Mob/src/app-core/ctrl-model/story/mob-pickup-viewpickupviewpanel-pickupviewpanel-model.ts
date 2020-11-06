@@ -183,6 +183,9 @@ export class MobPickupViewpickupviewpanelModel {
       {
         name: 'mailtoconact',
       },
+      {
+        name: 'mailtopk',
+      },
     ]
   }
 
