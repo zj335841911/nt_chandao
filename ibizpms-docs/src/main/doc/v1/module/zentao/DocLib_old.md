@@ -26,6 +26,7 @@ hide members
 |排序|ORDER|INT|&nbsp;|
 |项目库|PROJECT|PICKUP|&nbsp;|
 |产品库|PRODUCT|PICKUP|&nbsp;|
+|文档数量|DOCCNT|INT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -42,6 +43,7 @@ hide members
 |排序|默认规则|默认规则|
 |项目库|默认规则|默认规则|
 |产品库|默认规则|默认规则|
+|文档数量|默认规则|默认规则|
 
 ## 状态控制
 

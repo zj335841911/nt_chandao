@@ -12,5 +12,6 @@ export default {
     order: "排序",
     project: "项目库",
     product: "产品库",
+    doccnt: "文档数量",
   },
 };

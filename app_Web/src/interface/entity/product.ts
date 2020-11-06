@@ -325,4 +325,28 @@ export interface Product {
      * @memberof Product
      */
     testsuitecnt?: any;
+
+    /**
+     * 产品负责人（选择）
+     *
+     * @returns {*}
+     * @memberof Product
+     */
+    popk?: any;
+
+    /**
+     * 测试负责人（选择）
+     *
+     * @returns {*}
+     * @memberof Product
+     */
+    qdpk?: any;
+
+    /**
+     * 发布负责人（选择）
+     *
+     * @returns {*}
+     * @memberof Product
+     */
+    rdpk?: any;
 }

@@ -101,4 +101,12 @@ export interface DocLib {
      * @memberof DocLib
      */
     product?: any;
+
+    /**
+     * 文档数量
+     *
+     * @returns {*}
+     * @memberof DocLib
+     */
+    doccnt?: any;
 }

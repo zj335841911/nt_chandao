@@ -63431,7 +63431,10 @@ CREATE TABLE `zt_module`(
 | DOCCNT        | 文档数  | INTEGER      |   -1   | &nbsp; |
 | ACL        | 访问控制  | VARCHAR      |   7   | &nbsp; |
 | ISTOP        | 是否置顶  | INTEGER      |   -1   | &nbsp; |
+| POPK        | 产品负责人（选择）  | VARCHAR      |   200   | &nbsp; |
 | QD        | 测试负责人  | VARCHAR      |   30   | &nbsp; |
+| RDPK        | 发布负责人（选择）  | VARCHAR      |   200   | &nbsp; |
+| QDPK        | 测试负责人（选择）  | VARCHAR      |   200   | &nbsp; |
 | CREATEDDATE        | 创建日期  | DATETIME      |   -1   | &nbsp; |
 | LINENAME        | 产品线  | VARCHAR      |   60   | &nbsp; |
 | NAME        | 产品名称  | VARCHAR      |   90   | &nbsp; |

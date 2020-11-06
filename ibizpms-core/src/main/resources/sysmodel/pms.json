@@ -5400,6 +5400,19 @@
     "key_field":0,
     "show_order":1000,
     "major_field":0
+    },
+    {
+    "fieldname":"DOCCNT" ,
+    "codename":"Doccnt",
+    "field_logic_name":"文档数量",
+    "entity_name":"DocLib",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
     }
     ],
     "subEntitys":[
@@ -21437,6 +21450,51 @@
     "nullable":1,
     "physical_field":0,
     "data_type":"INT",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"POPK" ,
+    "codename":"Popk",
+    "field_logic_name":"产品负责人（选择）",
+    "entity_name":"Product",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":200,
+    "expression":"t1.PO",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"QDPK" ,
+    "codename":"Qdpk",
+    "field_logic_name":"测试负责人（选择）",
+    "entity_name":"Product",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":200,
+    "expression":"t1.QD",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"RDPK" ,
+    "codename":"Rdpk",
+    "field_logic_name":"发布负责人（选择）",
+    "entity_name":"Product",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":200,
+    "expression":"t1.RD",
     "key_field":0,
     "show_order":1000,
     "major_field":0

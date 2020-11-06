@@ -370,6 +370,33 @@ public class ProductDTO extends DTOBase implements Serializable {
     @JsonProperty("testsuitecnt")
     private Integer testsuitecnt;
 
+    /**
+     * 属性 [POPK]
+     *
+     */
+    @JSONField(name = "popk")
+    @JsonProperty("popk")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String popk;
+
+    /**
+     * 属性 [QDPK]
+     *
+     */
+    @JSONField(name = "qdpk")
+    @JsonProperty("qdpk")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String qdpk;
+
+    /**
+     * 属性 [RDPK]
+     *
+     */
+    @JSONField(name = "rdpk")
+    @JsonProperty("rdpk")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String rdpk;
+
 
     /**
      * 设置 [QD]

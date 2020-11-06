@@ -237,7 +237,8 @@ POST
 | 10 | order | Integer | 允许 | 排序 |
 | 11 | project | Long | 允许 | 项目库 |
 | 12 | product | Long | 允许 | 产品库 |
-| 13 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 13 | doccnt | Integer | 允许 | 文档数量 |
+| 14 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### DocLibSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

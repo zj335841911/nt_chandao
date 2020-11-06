@@ -576,7 +576,10 @@ POST
 | 38 | istop | Integer | 允许 | 是否置顶 |
 | 39 | testtaskcnt | Integer | 允许 | 测试单数 |
 | 40 | testsuitecnt | Integer | 允许 | 套件数 |
-| 41 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 41 | popk | String | 允许 | 产品负责人（选择） |
+| 42 | qdpk | String | 允许 | 测试负责人（选择） |
+| 43 | rdpk | String | 允许 | 发布负责人（选择） |
+| 44 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### ProductSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

@@ -77,6 +77,9 @@
 | 38 | [是否置顶](#属性-是否置顶（ISTOP）) | ISTOP | 整型 | 否 | 是 | 是 |
 | 39 | [测试单数](#属性-测试单数（TESTTASKCNT）) | TESTTASKCNT | 整型 | 否 | 是 | 是 |
 | 40 | [套件数](#属性-套件数（TESTSUITECNT）) | TESTSUITECNT | 整型 | 否 | 是 | 是 |
+| 41 | [产品负责人（选择）](#属性-产品负责人（选择）（POPK）) | POPK | 文本，可指定长度 | 否 | 是 | 是 |
+| 42 | [测试负责人（选择）](#属性-测试负责人（选择）（QDPK）) | QDPK | 文本，可指定长度 | 否 | 是 | 是 |
+| 43 | [发布负责人（选择）](#属性-发布负责人（选择）（RDPK）) | RDPK | 文本，可指定长度 | 否 | 是 | 是 |
 
 ### 属性-测试负责人（QD）
 #### 属性说明
@@ -1802,6 +1805,135 @@ Integer
 | 关系属性 | [id（ID）](../zentao/Module/#属性-id（ID）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
+### 属性-产品负责人（选择）（POPK）
+#### 属性说明
+产品负责人（选择）
+
+- 是否是主键
+否
+
+- 属性类型
+逻辑字段[来自计算式]
+
+- 数据类型
+文本，可指定长度
+
+- Java类型
+String
+
+- 是否允许为为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+```SQL
+t1.PO
+```
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [模块（ZT_MODULE）](../zentao/Module) |
+| 关系属性 | [id（ID）](../zentao/Module/#属性-id（ID）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
+### 属性-测试负责人（选择）（QDPK）
+#### 属性说明
+测试负责人（选择）
+
+- 是否是主键
+否
+
+- 属性类型
+逻辑字段[来自计算式]
+
+- 数据类型
+文本，可指定长度
+
+- Java类型
+String
+
+- 是否允许为为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+```SQL
+t1.QD
+```
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [模块（ZT_MODULE）](../zentao/Module) |
+| 关系属性 | [id（ID）](../zentao/Module/#属性-id（ID）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
+### 属性-发布负责人（选择）（RDPK）
+#### 属性说明
+发布负责人（选择）
+
+- 是否是主键
+否
+
+- 属性类型
+逻辑字段[来自计算式]
+
+- 数据类型
+文本，可指定长度
+
+- Java类型
+String
+
+- 是否允许为为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+```SQL
+t1.RD
+```
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [模块（ZT_MODULE）](../zentao/Module) |
+| 关系属性 | [id（ID）](../zentao/Module/#属性-id（ID）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
 
 ## 业务状态
 | 序号 | 状态名称 | [状态](#属性-状态（STATUS）)<br>（STATUS） | [是否置顶](#属性-是否置顶（ISTOP）)<br>（ISTOP） | 默认 |
@@ -2292,9 +2424,12 @@ t1.`NAME`,
 t1.`ORDER`,
 t1.`order` AS `ORDER1`,
 t1.`PO`,
+t1.PO AS `POPK`,
 (SELECT COUNT(1) FROM ZT_PRODUCTPLAN WHERE PRODUCT= t1.`ID` AND DELETED = '0') AS `PRODUCTPLANCNT`,
 t1.`QD`,
+t1.QD AS `QDPK`,
 t1.`RD`,
+t1.RD AS `RDPK`,
 (SELECT COUNT(1) FROM ZT_BUG WHERE PRODUCT = t1.`ID` AND DELETED = '0') AS `RELATEDBUGCNT`,
 (select count(1) from zt_projectproduct t inner join zt_project t2 on t2.id = t.project where t.product = t1.id and t2.deleted = '0') AS `RELATEDPROJECTS`,
 (SELECT COUNT(1) FROM ZT_RELEASE WHERE PRODUCT= t1.`ID` AND DELETED = '0') AS `RELEASECNT`,
@@ -2361,9 +2496,12 @@ t1.`NAME`,
 t1.`ORDER`,
 t1.`order` AS `ORDER1`,
 t1.`PO`,
+t1.PO AS `POPK`,
 (SELECT COUNT(1) FROM ZT_PRODUCTPLAN WHERE PRODUCT= t1.`ID` AND DELETED = '0') AS `PRODUCTPLANCNT`,
 t1.`QD`,
+t1.QD AS `QDPK`,
 t1.`RD`,
+t1.RD AS `RDPK`,
 (SELECT COUNT(1) FROM ZT_BUG WHERE PRODUCT = t1.`ID` AND DELETED = '0') AS `RELATEDBUGCNT`,
 (select count(1) from zt_projectproduct t inner join zt_project t2 on t2.id = t.project where t.product = t1.id and t2.deleted = '0') AS `RELATEDPROJECTS`,
 (SELECT COUNT(1) FROM ZT_RELEASE WHERE PRODUCT= t1.`ID` AND DELETED = '0') AS `RELEASECNT`,
@@ -2546,9 +2684,12 @@ t1.`NAME`,
 t1.`ORDER`,
 t1.`order` AS `ORDER1`,
 t1.`PO`,
+t1.PO AS `POPK`,
 (SELECT COUNT(1) FROM ZT_PRODUCTPLAN WHERE PRODUCT= t1.`ID` AND DELETED = '0') AS `PRODUCTPLANCNT`,
 t1.`QD`,
+t1.QD AS `QDPK`,
 t1.`RD`,
+t1.RD AS `RDPK`,
 (SELECT COUNT(1) FROM ZT_BUG WHERE PRODUCT = t1.`ID` AND DELETED = '0') AS `RELATEDBUGCNT`,
 (select count(1) from zt_projectproduct t inner join zt_project t2 on t2.id = t.project where t.product = t1.id and t2.deleted = '0') AS `RELATEDPROJECTS`,
 (SELECT COUNT(1) FROM ZT_RELEASE WHERE PRODUCT= t1.`ID` AND DELETED = '0') AS `RELEASECNT`,
@@ -2612,9 +2753,12 @@ t1.`NAME`,
 t1.`ORDER`,
 t1.`order` AS `ORDER1`,
 t1.`PO`,
+t1.PO AS `POPK`,
 (SELECT COUNT(1) FROM ZT_PRODUCTPLAN WHERE PRODUCT= t1.`ID` AND DELETED = '0') AS `PRODUCTPLANCNT`,
 t1.`QD`,
+t1.QD AS `QDPK`,
 t1.`RD`,
+t1.RD AS `RDPK`,
 (SELECT COUNT(1) FROM ZT_BUG WHERE PRODUCT = t1.`ID` AND DELETED = '0') AS `RELATEDBUGCNT`,
 (select count(1) from zt_projectproduct t inner join zt_project t2 on t2.id = t.project where t.product = t1.id and t2.deleted = '0') AS `RELATEDPROJECTS`,
 (SELECT COUNT(1) FROM ZT_RELEASE WHERE PRODUCT= t1.`ID` AND DELETED = '0') AS `RELEASECNT`,
@@ -2664,9 +2808,12 @@ t1.`NAME`,
 t1.`ORDER`,
 t1.`order` AS `ORDER1`,
 t1.`PO`,
+t1.PO AS `POPK`,
 (SELECT COUNT(1) FROM ZT_PRODUCTPLAN WHERE PRODUCT= t1.`ID` AND DELETED = '0') AS `PRODUCTPLANCNT`,
 t1.`QD`,
+t1.QD AS `QDPK`,
 t1.`RD`,
+t1.RD AS `RDPK`,
 (SELECT COUNT(1) FROM ZT_BUG WHERE PRODUCT = t1.`ID` AND DELETED = '0') AS `RELATEDBUGCNT`,
 (select count(1) from zt_projectproduct t inner join zt_project t2 on t2.id = t.project where t.product = t1.id and t2.deleted = '0') AS `RELATEDPROJECTS`,
 (SELECT COUNT(1) FROM ZT_RELEASE WHERE PRODUCT= t1.`ID` AND DELETED = '0') AS `RELEASECNT`,

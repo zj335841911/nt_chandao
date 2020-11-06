@@ -40,6 +40,9 @@ export default {
     istop: "是否置顶",
     testtaskcnt: "测试单数",
     testsuitecnt: "套件数",
+    popk: "产品负责人（选择）",
+    qdpk: "测试负责人（选择）",
+    rdpk: "发布负责人（选择）",
   },
 	views: {
 		testtabexpview: {

@@ -136,6 +136,14 @@ public class DocLibDTO extends DTOBase implements Serializable {
     @JsonSerialize(using = ToStringSerializer.class)
     private Long product;
 
+    /**
+     * 属性 [DOCCNT]
+     *
+     */
+    @JSONField(name = "doccnt")
+    @JsonProperty("doccnt")
+    private Integer doccnt;
+
 
     /**
      * 设置 [TYPE]
