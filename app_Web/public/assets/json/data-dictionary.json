@@ -6615,6 +6615,14 @@
         ]
     }, 
     {
+        "srfkey": "CurDocVersion",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"DocContent",
+        "appdedataset":"FetchCurVersion",
+        "items": []
+    }, 
+    {
         "srfkey": "CaseQuickpacketMy",
         "emptytext": "未定义",
         "codelisttype":"static",

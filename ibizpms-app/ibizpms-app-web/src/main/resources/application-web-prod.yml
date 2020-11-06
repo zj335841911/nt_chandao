@@ -71,6 +71,10 @@ zuul:
       path: /employeeloads/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
+    zt_doccontent:
+      path: /doccontents/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
     zt_storyspec:
       path: /storyspecs/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}

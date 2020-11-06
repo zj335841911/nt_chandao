@@ -1073,6 +1073,14 @@
     "datascope":[{"id":"all","name":"全部数据"}]
      }
     ,    {
+    "dename":"DocContent",
+    "delogicname":"文档内容",
+    "sysmoudle":{"id":"ZENTAO","name":"基础管理模块"},
+    "dedataset":[{"id":"CurVersion" , "name":"当前版本"},{"id":"Default" , "name":"DEFAULT"}],
+    "deaction":[{"id":"Create" , "name":"Create" , "type":"BUILTIN" },{"id":"Update" , "name":"Update" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" },{"id":"Get" , "name":"Get" , "type":"BUILTIN" },{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" },{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" }],
+    "datascope":[{"id":"all","name":"全部数据"}]
+     }
+    ,    {
     "dename":"UserTpl",
     "delogicname":"用户模板",
     "sysmoudle":{"id":"ZENTAO","name":"基础管理模块"},

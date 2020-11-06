@@ -480,9 +480,25 @@ Save
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |
 | ---- | ---- | ---- | ---- |
-| 1 | [DEFAULT](#数据查询-DEFAULT（Default）) | Default | 否 |
-| 2 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 1 | [当前版本](#数据查询-当前版本（CurVersion）) | CurVersion | 否 |
+| 2 | [DEFAULT](#数据查询-DEFAULT（Default）) | Default | 否 |
+| 3 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
+### 数据查询-当前版本（CurVersion）
+#### 说明
+当前版本
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+SELECT t1.id AS `ID`, t1.`DOC`, t1.`VERSION`, CONCAT('#',t1.`version`) as `TITLE` FROM `zt_doccontent` t1
+```
 ### 数据查询-DEFAULT（Default）
 #### 说明
 DEFAULT
@@ -535,8 +551,23 @@ FROM `zt_doccontent` t1
 ## 数据集合
 | 序号 | 集合 | 集合名 | 默认 |
 | ---- | ---- | ---- | ---- |
-| 1 | [DEFAULT](#数据集合-DEFAULT（Default）) | Default | 是 |
+| 1 | [当前版本](#数据集合-当前版本（CurVersion）) | CurVersion | 否 |
+| 2 | [DEFAULT](#数据集合-DEFAULT（Default）) | Default | 是 |
 
+### 数据集合-当前版本（CurVersion）
+#### 说明
+当前版本
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [当前版本（CurVersion）](#数据查询-当前版本（CurVersion）) |
 ### 数据集合-DEFAULT（Default）
 #### 说明
 DEFAULT

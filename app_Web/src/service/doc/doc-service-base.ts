@@ -74,6 +74,7 @@ export default class DocServiceBase extends EntityService {
         }
         let tempContext:any = JSON.parse(JSON.stringify(context));
         let res:any = await Http.getInstance().post(`/docs`,data,isloading);
+        this.tempStorage.setItem(tempContext.srfsessionkey+'_doccontents',JSON.stringify(res.data.doccontents?res.data.doccontents:[]));
         
         return res;
     }

@@ -4665,6 +4665,10 @@ WHERE t1.DELETED = '0'
 
 # **文档内容**(ZT_DOCCONTENT)
 
+### 当前版本(CurVersion)<div id="DocContent_CurVersion"></div>
+```sql
+SELECT t1.id AS `ID`, t1.`DOC`, t1.`VERSION`, CONCAT('#',t1.`version`) as `TITLE` FROM `zt_doccontent` t1
+```
 ### DEFAULT(DEFAULT)<div id="DocContent_Default"></div>
 ```sql
 SELECT

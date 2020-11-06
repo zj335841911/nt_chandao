@@ -510,7 +510,7 @@
 
 
     <!--输出实体[ZT_DOC]数据结构 -->
-    <changeSet author="zentao" id="tab-zt_doc-80-15">
+    <changeSet author="zentao" id="tab-zt_doc-84-15">
         <createTable tableName="zt_doc">
                 <column name="GROUPS" remarks="" type="VARCHAR(255)">
                 </column>
@@ -556,7 +556,7 @@
 
 
     <!--输出实体[ZT_DOCCONTENT]数据结构 -->
-    <changeSet author="zentao" id="tab-zt_doccontent-12-16">
+    <changeSet author="zentao" id="tab-zt_doccontent-14-16">
         <createTable tableName="zt_doccontent">
                 <column name="FILES" remarks="" type="TEXT(65535)">
                 </column>
@@ -2523,20 +2523,20 @@
        <addForeignKeyConstraint baseColumnNames="PARENT" baseTableName="zt_dept" constraintName="DER1N__ZT_DEPT__ZT_DEPT__PAREN" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_dept" validate="true"/>
     </changeSet>
         <!--输出实体[ZT_DOC]外键关系 -->
-    <changeSet author="zentao" id="fk-zt_doc-80-133">
+    <changeSet author="zentao" id="fk-zt_doc-84-133">
        <addForeignKeyConstraint baseColumnNames="LIB" baseTableName="zt_doc" constraintName="DER1N_ZT_DOC_ZT_DOCLIB_LIB" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_doclib" validate="true"/>
     </changeSet>
-    <changeSet author="zentao" id="fk-zt_doc-80-134">
+    <changeSet author="zentao" id="fk-zt_doc-84-134">
        <addForeignKeyConstraint baseColumnNames="MODULE" baseTableName="zt_doc" constraintName="DER1N_ZT_DOC_ZT_MODULE_MODULE" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_module" validate="true"/>
     </changeSet>
-    <changeSet author="zentao" id="fk-zt_doc-80-135">
+    <changeSet author="zentao" id="fk-zt_doc-84-135">
        <addForeignKeyConstraint baseColumnNames="PRODUCT" baseTableName="zt_doc" constraintName="DER1N_ZT_DOC_ZT_PRODUCT_PRODUC" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_product" validate="true"/>
     </changeSet>
-    <changeSet author="zentao" id="fk-zt_doc-80-136">
+    <changeSet author="zentao" id="fk-zt_doc-84-136">
        <addForeignKeyConstraint baseColumnNames="PROJECT" baseTableName="zt_doc" constraintName="DER1N_ZT_DOC_ZT_PROJECT_PROJEC" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_project" validate="true"/>
     </changeSet>
         <!--输出实体[ZT_DOCCONTENT]外键关系 -->
-    <changeSet author="zentao" id="fk-zt_doccontent-12-137">
+    <changeSet author="zentao" id="fk-zt_doccontent-14-137">
        <addForeignKeyConstraint baseColumnNames="DOC" baseTableName="zt_doccontent" constraintName="DER1N_ZT_DOCCONTENT_ZT_DOC_DOC" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_doc" validate="true"/>
     </changeSet>
         <!--输出实体[ZT_DOCLIB]外键关系 -->

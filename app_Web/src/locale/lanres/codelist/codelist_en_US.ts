@@ -763,6 +763,9 @@ export default {
         "closed": "已关闭",
         "empty": ""
     },
+    CurDocVersion: {
+        "empty": "",
+    },
     CaseQuickpacketMy: {
         "TOME": "给我的用例",
         "ICREATE": "我建的用例",

@@ -19,6 +19,7 @@ import com.alibaba.fastjson.JSONObject;
 
 public interface DocContentMapper extends BaseMapper<DocContent>{
 
+    Page<DocContent> searchCurVersion(IPage page, @Param("srf") DocContentSearchContext context, @Param("ew") Wrapper<DocContent> wrapper) ;
     Page<DocContent> searchDefault(IPage page, @Param("srf") DocContentSearchContext context, @Param("ew") Wrapper<DocContent> wrapper) ;
     @Override
     DocContent selectById(Serializable id);

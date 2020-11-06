@@ -162,6 +162,15 @@ public class DocContentServiceImpl extends ServiceImpl<DocContentMapper, DocCont
 
 
     /**
+     * 查询集合 当前版本
+     */
+    @Override
+    public Page<DocContent> searchCurVersion(DocContentSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<DocContent> pages=baseMapper.searchCurVersion(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<DocContent>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
      * 查询集合 DEFAULT
      */
     @Override

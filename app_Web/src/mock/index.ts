@@ -23,6 +23,7 @@ import './entity/burns/burns';
 import './entity/sub-storys/sub-storys';
 import './entity/sub-product-plans/sub-product-plans';
 import './entity/employ-eeloads/employ-eeloads';
+import './entity/doc-contents/doc-contents';
 import './entity/story-specs/story-specs';
 import './entity/user-tpls/user-tpls';
 import './entity/ibz-favoritess/ibz-favoritess';
