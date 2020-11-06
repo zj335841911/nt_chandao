@@ -282,172 +282,12 @@ export default class StoryUIActionBase extends EntityUIActionBase {
         return response;
     }
 
-    /**
-     * 移除关联
-     *
-     * @param {any[]} args 数据
-     * @param {*} [contextJO={}] 行为上下文
-     * @param {*} [paramJO={}] 行为参数
-     * @param {*} [$event] 事件
-     * @param {*} [xData] 数据目标
-     * @param {*} [container] 行为容器对象
-     * @param {string} [srfParentDeName] 
-     * @returns {Promise<any>}
-     * @memberof StoryUIService
-     */
-    public async Story_UnlinkStoryMob(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        const state: boolean = await Notice.getInstance().confirm('警告', '是否移除需求关联');
-        if (!state) {
-            return Promise.reject();
-        }
-        const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'SINGLEKEY';
-        Object.assign(contextJO, { story: '%story%' });
-        Object.assign(paramJO, { id: '%story%' });
-        Object.assign(paramJO, { title: '%title%' });
-        let context: any = this.handleContextParam(actionTarget, _args, contextJO);
-        let params: any = this.handleActionParam(actionTarget, _args, paramJO);
-        context = { ...container.context, ...context };
-        let parentObj: any = {
-            srfparentdename: srfParentDeName ? srfParentDeName : null,
-            srfparentkey: srfParentDeName ? context[srfParentDeName.toLowerCase()] : null,
-        };
-        Object.assign(context, parentObj);
-        Object.assign(params, parentObj);
-        // 直接调实体服务需要转换的数据
-        if (context && context.srfsessionid) {
-            context.srfsessionkey = context.srfsessionid;
-            delete context.srfsessionid;
-        }
-        // 导航参数
-        let panelNavParam= { "srfparentkey": "%productplan%", "productplan": "%productplan%" } ;
-        let panelNavContext= { } ;
-        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
-        const backend = async () => {
-            const curUIService: any = await this.globaluiservice.getAppEntityService('story');
-            const response: any = await curUIService.UnlinkStory(_context, _params);
-            if (response && response.status === 200) {
-                this.notice.success('移除成功');
-                if (xData && xData.refresh && xData.refresh instanceof Function) {
-                    xData.refresh(args);
-                    AppCenterService.notifyMessage({name:"Story",action:'appRefresh',data:args});
-                }
-            } else {
-                this.notice.error('系统异常！');
-            }
-            return response;
-        };
-        return backend();
-    }
-
-    /**
-     * 取消收藏
-     *
-     * @param {any[]} args 数据
-     * @param {*} [contextJO={}] 行为上下文
-     * @param {*} [paramJO={}] 行为参数
-     * @param {*} [$event] 事件
-     * @param {*} [xData] 数据目标
-     * @param {*} [container] 行为容器对象
-     * @param {string} [srfParentDeName] 
-     * @returns {Promise<any>}
-     * @memberof StoryUIService
-     */
-    public async Story_StoryNFavoritesMob(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'SINGLEKEY';
-        Object.assign(contextJO, { story: '%story%' });
-        Object.assign(paramJO, { id: '%story%' });
-        Object.assign(paramJO, { title: '%title%' });
-        let context: any = this.handleContextParam(actionTarget, _args, contextJO);
-        let params: any = this.handleActionParam(actionTarget, _args, paramJO);
-        context = { ...container.context, ...context };
-        let parentObj: any = {
-            srfparentdename: srfParentDeName ? srfParentDeName : null,
-            srfparentkey: srfParentDeName ? context[srfParentDeName.toLowerCase()] : null,
-        };
-        Object.assign(context, parentObj);
-        Object.assign(params, parentObj);
-        // 直接调实体服务需要转换的数据
-        if (context && context.srfsessionid) {
-            context.srfsessionkey = context.srfsessionid;
-            delete context.srfsessionid;
-        }
-        // 导航参数
-        let panelNavParam= { } ;
-        let panelNavContext= { } ;
-        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
-        const backend = async () => {
-            const curUIService: any = await this.globaluiservice.getAppEntityService('story');
-            const response: any = await curUIService.StoryNFavorites(_context, _params);
-            if (response && response.status === 200) {
-                this.notice.success('取消收藏成功！');
-                if (xData && xData.refresh && xData.refresh instanceof Function) {
-                    xData.refresh(args);
-                    AppCenterService.notifyMessage({name:"Story",action:'appRefresh',data:args});
-                }
-            } else {
-                this.notice.error('系统异常！');
-            }
-            return response;
-        };
-        return backend();
-    }
-
-    /**
-     * 收藏
-     *
-     * @param {any[]} args 数据
-     * @param {*} [contextJO={}] 行为上下文
-     * @param {*} [paramJO={}] 行为参数
-     * @param {*} [$event] 事件
-     * @param {*} [xData] 数据目标
-     * @param {*} [container] 行为容器对象
-     * @param {string} [srfParentDeName] 
-     * @returns {Promise<any>}
-     * @memberof StoryUIService
-     */
-    public async Story_StoryFavoritesMob(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'SINGLEKEY';
-        Object.assign(contextJO, { story: '%story%' });
-        Object.assign(paramJO, { id: '%story%' });
-        Object.assign(paramJO, { title: '%title%' });
-        let context: any = this.handleContextParam(actionTarget, _args, contextJO);
-        let params: any = this.handleActionParam(actionTarget, _args, paramJO);
-        context = { ...container.context, ...context };
-        let parentObj: any = {
-            srfparentdename: srfParentDeName ? srfParentDeName : null,
-            srfparentkey: srfParentDeName ? context[srfParentDeName.toLowerCase()] : null,
-        };
-        Object.assign(context, parentObj);
-        Object.assign(params, parentObj);
-        // 直接调实体服务需要转换的数据
-        if (context && context.srfsessionid) {
-            context.srfsessionkey = context.srfsessionid;
-            delete context.srfsessionid;
-        }
-        // 导航参数
-        let panelNavParam= { } ;
-        let panelNavContext= { } ;
-        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
-        const backend = async () => {
-            const curUIService: any = await this.globaluiservice.getAppEntityService('story');
-            const response: any = await curUIService.StoryFavorites(_context, _params);
-            if (response && response.status === 200) {
-                this.notice.success('收藏成功！');
-                if (xData && xData.refresh && xData.refresh instanceof Function) {
-                    xData.refresh(args);
-                    AppCenterService.notifyMessage({name:"Story",action:'appRefresh',data:args});
-                }
-            } else {
-                this.notice.error('系统异常！');
-            }
-            return response;
-        };
-        return backend();
-    }
-
+!!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 266, column 13:
+Unexpected directive, "#else". Check if you have a valid #if-#elseif-#else or #list-#else structure.
+!!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 266, column 13:
+Unexpected directive, "#else". Check if you have a valid #if-#elseif-#else or #list-#else structure.
+!!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 266, column 13:
+Unexpected directive, "#else". Check if you have a valid #if-#elseif-#else or #list-#else structure.
     /**
      * 指派
      *
@@ -502,60 +342,8 @@ export default class StoryUIActionBase extends EntityUIActionBase {
         return response;
     }
 
-    /**
-     * 移除关联
-     *
-     * @param {any[]} args 数据
-     * @param {*} [contextJO={}] 行为上下文
-     * @param {*} [paramJO={}] 行为参数
-     * @param {*} [$event] 事件
-     * @param {*} [xData] 数据目标
-     * @param {*} [container] 行为容器对象
-     * @param {string} [srfParentDeName] 
-     * @returns {Promise<any>}
-     * @memberof StoryUIService
-     */
-    public async Story_releaseUnlinkStory(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'SINGLEKEY';
-        Object.assign(contextJO, { story: '%story%' });
-        Object.assign(paramJO, { id: '%story%' });
-        Object.assign(paramJO, { title: '%title%' });
-        let context: any = this.handleContextParam(actionTarget, _args, contextJO);
-        let params: any = this.handleActionParam(actionTarget, _args, paramJO);
-        context = { ...container.context, ...context };
-        let parentObj: any = {
-            srfparentdename: srfParentDeName ? srfParentDeName : null,
-            srfparentkey: srfParentDeName ? context[srfParentDeName.toLowerCase()] : null,
-        };
-        Object.assign(context, parentObj);
-        Object.assign(params, parentObj);
-        // 直接调实体服务需要转换的数据
-        if (context && context.srfsessionid) {
-            context.srfsessionkey = context.srfsessionid;
-            delete context.srfsessionid;
-        }
-        // 导航参数
-        let panelNavParam= { "release": "%release%" } ;
-        let panelNavContext= { "release": "%release%" } ;
-        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
-        const backend = async () => {
-            const curUIService: any = await this.globaluiservice.getAppEntityService('story');
-            const response: any = await curUIService.ReleaseUnlinkStory(_context, _params);
-            if (response && response.status === 200) {
-                this.notice.success('移除关联成功！');
-                if (xData && xData.refresh && xData.refresh instanceof Function) {
-                    xData.refresh(args);
-                    AppCenterService.notifyMessage({name:"Story",action:'appRefresh',data:args});
-                }
-            } else {
-                this.notice.error('系统异常！');
-            }
-            return response;
-        };
-        return backend();
-    }
-
+!!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 266, column 13:
+Unexpected directive, "#else". Check if you have a valid #if-#elseif-#else or #list-#else structure.
     /**
      * 评审
      *
@@ -654,64 +442,8 @@ export default class StoryUIActionBase extends EntityUIActionBase {
         return response;
     }
 
-    /**
-     * 解绑需求
-     *
-     * @param {any[]} args 数据
-     * @param {*} [contextJO={}] 行为上下文
-     * @param {*} [paramJO={}] 行为参数
-     * @param {*} [$event] 事件
-     * @param {*} [xData] 数据目标
-     * @param {*} [container] 行为容器对象
-     * @param {string} [srfParentDeName] 
-     * @returns {Promise<any>}
-     * @memberof StoryUIService
-     */
-    public async Story_buildUnlinkStory(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        const state: boolean = await Notice.getInstance().confirm('警告', '您确认移除该需求吗？');
-        if (!state) {
-            return Promise.reject();
-        }
-        const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'SINGLEKEY';
-        Object.assign(contextJO, { story: '%story%' });
-        Object.assign(paramJO, { id: '%story%' });
-        Object.assign(paramJO, { title: '%title%' });
-        let context: any = this.handleContextParam(actionTarget, _args, contextJO);
-        let params: any = this.handleActionParam(actionTarget, _args, paramJO);
-        context = { ...container.context, ...context };
-        let parentObj: any = {
-            srfparentdename: srfParentDeName ? srfParentDeName : null,
-            srfparentkey: srfParentDeName ? context[srfParentDeName.toLowerCase()] : null,
-        };
-        Object.assign(context, parentObj);
-        Object.assign(params, parentObj);
-        // 直接调实体服务需要转换的数据
-        if (context && context.srfsessionid) {
-            context.srfsessionkey = context.srfsessionid;
-            delete context.srfsessionid;
-        }
-        // 导航参数
-        let panelNavParam= { "build": "%build%" } ;
-        let panelNavContext= { "build": "%build%" } ;
-        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
-        const backend = async () => {
-            const curUIService: any = await this.globaluiservice.getAppEntityService('story');
-            const response: any = await curUIService.BuildUnlinkStory(_context, _params);
-            if (response && response.status === 200) {
-                this.notice.success('解绑需求成功！');
-                if (xData && xData.refresh && xData.refresh instanceof Function) {
-                    xData.refresh(args);
-                    AppCenterService.notifyMessage({name:"Story",action:'appRefresh',data:args});
-                }
-            } else {
-                this.notice.error('系统异常！');
-            }
-            return response;
-        };
-        return backend();
-    }
-
+!!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 266, column 13:
+Unexpected directive, "#else". Check if you have a valid #if-#elseif-#else or #list-#else structure.
     /**
      * 更多
      *
@@ -812,73 +544,10 @@ export default class StoryUIActionBase extends EntityUIActionBase {
         return response;
     }
 
-!!!!模版产生代码错误:----
-Tip: If the parameter value expression on the caller side is known to be legally null/missing, you may want to specify a default value for it with the "!" operator, like paramValue!defaultValue.
-----
-
-----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: @outPutViewInfo dataview  [in template "TEMPLCODE_en_US" at line 237, column 13]
-----
-    /**
-     * 删除
-     *
-     * @param {any[]} args 数据
-     * @param {*} [contextJO={}] 行为上下文
-     * @param {*} [paramJO={}] 行为参数
-     * @param {*} [$event] 事件
-     * @param {*} [xData] 数据目标
-     * @param {*} [container] 行为容器对象
-     * @param {string} [srfParentDeName] 
-     * @returns {Promise<any>}
-     * @memberof StoryUIService
-     */
-    public async Story_deleteMob(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        const state: boolean = await Notice.getInstance().confirm('警告', '确认要删除，删除操作将不可恢复？');
-        if (!state) {
-            return Promise.reject();
-        }
-        const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'SINGLEKEY';
-        Object.assign(contextJO, { story: '%story%' });
-        Object.assign(paramJO, { id: '%story%' });
-        Object.assign(paramJO, { title: '%title%' });
-        let context: any = this.handleContextParam(actionTarget, _args, contextJO);
-        let params: any = this.handleActionParam(actionTarget, _args, paramJO);
-        context = { ...container.context, ...context };
-        let parentObj: any = {
-            srfparentdename: srfParentDeName ? srfParentDeName : null,
-            srfparentkey: srfParentDeName ? context[srfParentDeName.toLowerCase()] : null,
-        };
-        Object.assign(context, parentObj);
-        Object.assign(params, parentObj);
-        // 直接调实体服务需要转换的数据
-        if (context && context.srfsessionid) {
-            context.srfsessionkey = context.srfsessionid;
-            delete context.srfsessionid;
-        }
-        // 导航参数
-        let panelNavParam= { } ;
-        let panelNavContext= { } ;
-        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
-              container.closeView(null);
-        const backend = async () => {
-            const curUIService: any = await this.globaluiservice.getAppEntityService('story');
-            const response: any = await curUIService.Remove(_context, _params);
-            if (response && response.status === 200) {
-                this.notice.success('已删除');
-                if (xData && xData.refresh && xData.refresh instanceof Function) {
-                    xData.refresh(args);
-                    AppCenterService.notifyMessage({name:"Story",action:'appRefresh',data:args});
-                }
-            } else {
-                this.notice.error('系统异常！');
-            }
-            return response;
-        };
-        return backend();
-    }
-
+!!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 266, column 13:
+Unexpected directive, "#else". Check if you have a valid #if-#elseif-#else or #list-#else structure.
+!!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 266, column 13:
+Unexpected directive, "#else". Check if you have a valid #if-#elseif-#else or #list-#else structure.
     /**
      * 新建需求
      *
@@ -930,64 +599,8 @@ FTL stack trace ("~" means nesting-related):
         return response;
     }
 
-    /**
-     * 移除
-     *
-     * @param {any[]} args 数据
-     * @param {*} [contextJO={}] 行为上下文
-     * @param {*} [paramJO={}] 行为参数
-     * @param {*} [$event] 事件
-     * @param {*} [xData] 数据目标
-     * @param {*} [container] 行为容器对象
-     * @param {string} [srfParentDeName] 
-     * @returns {Promise<any>}
-     * @memberof StoryUIService
-     */
-    public async Story_ProjectUnlinkStoryMob(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        const state: boolean = await Notice.getInstance().confirm('警告', '您确定从该项目中移除该需求吗？');
-        if (!state) {
-            return Promise.reject();
-        }
-        const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'SINGLEKEY';
-        Object.assign(contextJO, { story: '%story%' });
-        Object.assign(paramJO, { id: '%story%' });
-        Object.assign(paramJO, { title: '%title%' });
-        let context: any = this.handleContextParam(actionTarget, _args, contextJO);
-        let params: any = this.handleActionParam(actionTarget, _args, paramJO);
-        context = { ...container.context, ...context };
-        let parentObj: any = {
-            srfparentdename: srfParentDeName ? srfParentDeName : null,
-            srfparentkey: srfParentDeName ? context[srfParentDeName.toLowerCase()] : null,
-        };
-        Object.assign(context, parentObj);
-        Object.assign(params, parentObj);
-        // 直接调实体服务需要转换的数据
-        if (context && context.srfsessionid) {
-            context.srfsessionkey = context.srfsessionid;
-            delete context.srfsessionid;
-        }
-        // 导航参数
-        let panelNavParam= { } ;
-        let panelNavContext= { } ;
-        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
-        const backend = async () => {
-            const curUIService: any = await this.globaluiservice.getAppEntityService('story');
-            const response: any = await curUIService.ProjectUnlinkStory(_context, _params);
-            if (response && response.status === 200) {
-                this.notice.success('已移除');
-                if (xData && xData.refresh && xData.refresh instanceof Function) {
-                    xData.refresh(args);
-                    AppCenterService.notifyMessage({name:"Story",action:'appRefresh',data:args});
-                }
-            } else {
-                this.notice.error('系统异常！');
-            }
-            return response;
-        };
-        return backend();
-    }
-
+!!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 266, column 13:
+Unexpected directive, "#else". Check if you have a valid #if-#elseif-#else or #list-#else structure.
 
     /**
      * 获取指定数据的重定向页面

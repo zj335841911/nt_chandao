@@ -6,47 +6,10 @@
     
               <ion-toolbar>
     <ion-searchbar style="height: 36px; padding-bottom: 0px;" :placeholder="$t('app.fastsearch')" debounce="500" @ionChange="quickValueChange($event)"></ion-searchbar>
-    <ion-button class="filter-btn" size="small" slot="end"  @click="openSearchform"><ion-icon  slot="end" name="filter-outline"></ion-icon>过滤</ion-button>  
   </ion-toolbar>
 
     </ion-header>
 
-    <van-popup get-container="#app" :lazy-render="false" duration="0.2" v-model="searchformState" position="right" class="searchform" style="height: 100%; width: 85%;"  >
-        <ion-header>
-            <ion-toolbar translucent>
-                <ion-title>条件搜索</ion-title>
-            </ion-toolbar>
-        </ion-header>
-        <div class="searchform_content">
-            <view_searchform
-    :viewState="viewState"
-    viewName="StoryLinkStoryMobMPickupView"  
-    :viewparams="viewparams" 
-    :context="context" 
-     
-    :viewtag="viewtag"
-    :showBusyIndicator="true"
-    updateAction=""
-    removeAction=""
-    loaddraftAction="FilterGetDraft"
-    loadAction="FilterGet"
-    createAction=""
-    WFSubmitAction=""
-    WFStartAction=""
-    style='' 
-    name="searchform"  
-    ref='searchform' 
-    @closeview="closeView($event)">
-</view_searchform>
-        </div>
-        <ion-footer>
-        <div class="search-btn">
-            <ion-button class="search-btn-item" shape="round" size="small" expand="full" color="light" @click="onReset">重置</ion-button>
-            <ion-button class="search-btn-item" shape="round" size="small" expand="full" @click="onSearch">搜索</ion-button>
-        </div>
-        </ion-footer>
-    </van-popup>
-    <div id="searchformstorylinkstorymobmpickupview"></div>
     <ion-content >
                 <view_pickupviewpanel
             :viewState="viewState"
@@ -279,7 +242,6 @@ export default class StoryLinkStoryMobMPickupViewBase extends Vue {
      * @memberof StoryLinkStoryMobMPickupViewBase
      */
     protected containerModel: any = {
-        view_searchform: { name: 'searchform', type: 'SEARCHFORM' },
         view_pickupviewpanel: { name: 'pickupviewpanel', type: 'PICKUPVIEWPANEL' },
         view_okbtn: { name: 'okbtn', type: 'button', text: '确定', disabled: true },
         view_cancelbtn: { name: 'cancelbtn', type: 'button', text: '取消', disabled: false },
@@ -305,7 +267,6 @@ export default class StoryLinkStoryMobMPickupViewBase extends Vue {
      * @memberof StoryLinkStoryMobMPickupViewBase
      */
     @Prop({default:true}) protected showTitle?: boolean;
-
 
 
     /**

@@ -121,114 +121,10 @@ export default class TodoUIActionBase extends EntityUIActionBase {
         this.allDeMainStateOPPrivsMap.set('wait',Object.assign({'ACTIVATE':0,'ASSIGNTO':0,'CLOSE':0,'CREATE':0,'DELETE':0,'FINISH':0,'READ':0,'TOBUG':0,'TOTASK':0,'UPDATE':0},{'FINISH':1,'TOBUG':1,'DELETE':1,'UPDATE':1,'ASSIGNTO':1,'TOTASK':1,}));
     }
 
-    /**
-     * 完成
-     *
-     * @param {any[]} args 数据
-     * @param {*} [contextJO={}] 行为上下文
-     * @param {*} [paramJO={}] 行为参数
-     * @param {*} [$event] 事件
-     * @param {*} [xData] 数据目标
-     * @param {*} [container] 行为容器对象
-     * @param {string} [srfParentDeName] 
-     * @returns {Promise<any>}
-     * @memberof TodoUIService
-     */
-    public async Todo_finishMob(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'SINGLEKEY';
-        Object.assign(contextJO, { todo: '%todo%' });
-        Object.assign(paramJO, { id: '%todo%' });
-        Object.assign(paramJO, { name: '%name%' });
-        let context: any = this.handleContextParam(actionTarget, _args, contextJO);
-        let params: any = this.handleActionParam(actionTarget, _args, paramJO);
-        context = { ...container.context, ...context };
-        let parentObj: any = {
-            srfparentdename: srfParentDeName ? srfParentDeName : null,
-            srfparentkey: srfParentDeName ? context[srfParentDeName.toLowerCase()] : null,
-        };
-        Object.assign(context, parentObj);
-        Object.assign(params, parentObj);
-        // 直接调实体服务需要转换的数据
-        if (context && context.srfsessionid) {
-            context.srfsessionkey = context.srfsessionid;
-            delete context.srfsessionid;
-        }
-        // 导航参数
-        let panelNavParam= { } ;
-        let panelNavContext= { } ;
-        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
-        const backend = async () => {
-            const curUIService: any = await this.globaluiservice.getAppEntityService('todo');
-            const response: any = await curUIService.Finish(_context, _params);
-            if (response && response.status === 200) {
-                this.notice.success('完成成功！');
-                if (xData && xData.refresh && xData.refresh instanceof Function) {
-                    xData.refresh(args);
-                    AppCenterService.notifyMessage({name:"Todo",action:'appRefresh',data:args});
-                }
-            } else {
-                this.notice.error('系统异常！');
-            }
-            return response;
-        };
-        return backend();
-    }
-
-    /**
-     * 激活
-     *
-     * @param {any[]} args 数据
-     * @param {*} [contextJO={}] 行为上下文
-     * @param {*} [paramJO={}] 行为参数
-     * @param {*} [$event] 事件
-     * @param {*} [xData] 数据目标
-     * @param {*} [container] 行为容器对象
-     * @param {string} [srfParentDeName] 
-     * @returns {Promise<any>}
-     * @memberof TodoUIService
-     */
-    public async Todo_activateMob(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'SINGLEKEY';
-        Object.assign(contextJO, { todo: '%todo%' });
-        Object.assign(paramJO, { id: '%todo%' });
-        Object.assign(paramJO, { name: '%name%' });
-        let context: any = this.handleContextParam(actionTarget, _args, contextJO);
-        let params: any = this.handleActionParam(actionTarget, _args, paramJO);
-        context = { ...container.context, ...context };
-        let parentObj: any = {
-            srfparentdename: srfParentDeName ? srfParentDeName : null,
-            srfparentkey: srfParentDeName ? context[srfParentDeName.toLowerCase()] : null,
-        };
-        Object.assign(context, parentObj);
-        Object.assign(params, parentObj);
-        // 直接调实体服务需要转换的数据
-        if (context && context.srfsessionid) {
-            context.srfsessionkey = context.srfsessionid;
-            delete context.srfsessionid;
-        }
-        // 导航参数
-        let panelNavParam= { } ;
-        let panelNavContext= { } ;
-        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
-        const backend = async () => {
-            const curUIService: any = await this.globaluiservice.getAppEntityService('todo');
-            const response: any = await curUIService.Activate(_context, _params);
-            if (response && response.status === 200) {
-                this.notice.success('激活成功！');
-                if (xData && xData.refresh && xData.refresh instanceof Function) {
-                    xData.refresh(args);
-                    AppCenterService.notifyMessage({name:"Todo",action:'appRefresh',data:args});
-                }
-            } else {
-                this.notice.error('系统异常！');
-            }
-            return response;
-        };
-        return backend();
-    }
-
+!!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 266, column 13:
+Unexpected directive, "#else". Check if you have a valid #if-#elseif-#else or #list-#else structure.
+!!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 266, column 13:
+Unexpected directive, "#else". Check if you have a valid #if-#elseif-#else or #list-#else structure.
     /**
      * 新建
      *
@@ -275,60 +171,8 @@ export default class TodoUIActionBase extends EntityUIActionBase {
         return response;
     }
 
-    /**
-     * 删除
-     *
-     * @param {any[]} args 数据
-     * @param {*} [contextJO={}] 行为上下文
-     * @param {*} [paramJO={}] 行为参数
-     * @param {*} [$event] 事件
-     * @param {*} [xData] 数据目标
-     * @param {*} [container] 行为容器对象
-     * @param {string} [srfParentDeName] 
-     * @returns {Promise<any>}
-     * @memberof TodoUIService
-     */
-    public async Todo_deleteMob(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'SINGLEKEY';
-        Object.assign(contextJO, { todo: '%todo%' });
-        Object.assign(paramJO, { id: '%todo%' });
-        Object.assign(paramJO, { name: '%name%' });
-        let context: any = this.handleContextParam(actionTarget, _args, contextJO);
-        let params: any = this.handleActionParam(actionTarget, _args, paramJO);
-        context = { ...container.context, ...context };
-        let parentObj: any = {
-            srfparentdename: srfParentDeName ? srfParentDeName : null,
-            srfparentkey: srfParentDeName ? context[srfParentDeName.toLowerCase()] : null,
-        };
-        Object.assign(context, parentObj);
-        Object.assign(params, parentObj);
-        // 直接调实体服务需要转换的数据
-        if (context && context.srfsessionid) {
-            context.srfsessionkey = context.srfsessionid;
-            delete context.srfsessionid;
-        }
-        // 导航参数
-        let panelNavParam= { } ;
-        let panelNavContext= { } ;
-        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
-        const backend = async () => {
-            const curUIService: any = await this.globaluiservice.getAppEntityService('todo');
-            const response: any = await curUIService.Remove(_context, _params);
-            if (response && response.status === 200) {
-                this.notice.success('删除成功！');
-                if (xData && xData.refresh && xData.refresh instanceof Function) {
-                    xData.refresh(args);
-                    AppCenterService.notifyMessage({name:"Todo",action:'appRefresh',data:args});
-                }
-            } else {
-                this.notice.error('系统异常！');
-            }
-            return response;
-        };
-        return backend();
-    }
-
+!!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 266, column 13:
+Unexpected directive, "#else". Check if you have a valid #if-#elseif-#else or #list-#else structure.
     /**
      * 指派
      *
@@ -422,60 +266,8 @@ export default class TodoUIActionBase extends EntityUIActionBase {
         return response;
     }
 
-    /**
-     * 关闭
-     *
-     * @param {any[]} args 数据
-     * @param {*} [contextJO={}] 行为上下文
-     * @param {*} [paramJO={}] 行为参数
-     * @param {*} [$event] 事件
-     * @param {*} [xData] 数据目标
-     * @param {*} [container] 行为容器对象
-     * @param {string} [srfParentDeName] 
-     * @returns {Promise<any>}
-     * @memberof TodoUIService
-     */
-    public async Todo_closeMob(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'SINGLEKEY';
-        Object.assign(contextJO, { todo: '%todo%' });
-        Object.assign(paramJO, { id: '%todo%' });
-        Object.assign(paramJO, { name: '%name%' });
-        let context: any = this.handleContextParam(actionTarget, _args, contextJO);
-        let params: any = this.handleActionParam(actionTarget, _args, paramJO);
-        context = { ...container.context, ...context };
-        let parentObj: any = {
-            srfparentdename: srfParentDeName ? srfParentDeName : null,
-            srfparentkey: srfParentDeName ? context[srfParentDeName.toLowerCase()] : null,
-        };
-        Object.assign(context, parentObj);
-        Object.assign(params, parentObj);
-        // 直接调实体服务需要转换的数据
-        if (context && context.srfsessionid) {
-            context.srfsessionkey = context.srfsessionid;
-            delete context.srfsessionid;
-        }
-        // 导航参数
-        let panelNavParam= { } ;
-        let panelNavContext= { } ;
-        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
-        const backend = async () => {
-            const curUIService: any = await this.globaluiservice.getAppEntityService('todo');
-            const response: any = await curUIService.Close(_context, _params);
-            if (response && response.status === 200) {
-                this.notice.success('关闭成功！');
-                if (xData && xData.refresh && xData.refresh instanceof Function) {
-                    xData.refresh(args);
-                    AppCenterService.notifyMessage({name:"Todo",action:'appRefresh',data:args});
-                }
-            } else {
-                this.notice.error('系统异常！');
-            }
-            return response;
-        };
-        return backend();
-    }
-
+!!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 266, column 13:
+Unexpected directive, "#else". Check if you have a valid #if-#elseif-#else or #list-#else structure.
 
     /**
      * 获取指定数据的重定向页面
