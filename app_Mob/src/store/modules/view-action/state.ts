@@ -23,6 +23,7 @@ export const viewstate: any = {
             refviews: [
                 '0a443f2f0f9dfa28a081d87d16655d27',
                 '61b907edfc7822d020b6b2c2246ee8e0',
+                'eef4931ab99bfda807489700470bad47',
             ],
         },
         {
@@ -517,6 +518,15 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '3c4e9f0d609bc0f1cf08431649cc8e67',
+            ],
+        },
+        {
+            viewtag: '3f3ce1e1a97aa0a275343052c5fb6d6c',
+            viewmodule: 'ou',
+            viewname: 'SysEmployeeMpkMobPickupTreeView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
             ],
         },
         {
@@ -1836,6 +1846,16 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '69a540ab88c1edd1da7f89cebe5f4588',
+            ],
+        },
+        {
+            viewtag: 'eef4931ab99bfda807489700470bad47',
+            viewmodule: 'ou',
+            viewname: 'SysEmployeeUserTreeMobMPickupView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '3f3ce1e1a97aa0a275343052c5fb6d6c',
             ],
         },
         {

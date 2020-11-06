@@ -50,6 +50,7 @@
 |-|系统日志移动端多数据视图（通用）|DEMOBMDVIEW9|&nbsp;|
 |-|Bug选项操作视图（激活Bug）|DEMOBOPTVIEW|&nbsp;|
 |-|任务选项操作视图（取消）|DEMOBOPTVIEW|&nbsp;|
+|-|人员移动端选择树视图|DEMOBPICKUPTREEVIEW|&nbsp;|
 |-|需求移动端多数据视图|DEMOBMDVIEW|&nbsp;|
 |-|需求移动端选择多数据视图|DEMOBPICKUPMDVIEW|&nbsp;|
 |-|产品图表视图|DEMOBCHARTVIEW9|&nbsp;|
@@ -169,6 +170,7 @@
 |-|Bug移动端多数据视图|DEMOBMDVIEW|&nbsp;|
 |-|Bug选项操作视图（关闭Bug）|DEMOBOPTVIEW|&nbsp;|
 |-|Bug移动端多数据视图|DEMOBMDVIEW|&nbsp;|
+|-|人员移动端多数据选择视图（人员树）|DEMOBMPICKUPVIEW|&nbsp;|
 |-|待办事宜表选项操作视图|DEMOBOPTVIEW|&nbsp;|
 |-|Bug移动端多数据视图|DEMOBMDVIEW|&nbsp;|
 |-|产品计划移动端编辑视图|DEMOBEDITVIEW|&nbsp;|

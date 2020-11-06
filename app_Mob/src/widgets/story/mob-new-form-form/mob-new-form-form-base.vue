@@ -417,20 +417,20 @@
     :disabled="detailsModel.mailto.disabled"
     :error="detailsModel.mailto.error" 
     :isEmptyCaption="false">
-        <app-mob-check-list-search 
-    orMode="str"
-    valueSeparator=","
-    textSeparator=","
-    type="dynamic"  
-    tag="UserRealName"
-    :disabled="detailsModel.mailto.disabled" 
+        <app-mob-mpicker 
     :data="data"
-    :context="context"
-    :viewparams="viewparams"
-    :value="data.mailto"   
     :navigateContext ='{ } '
     :navigateParam ='{ } '
-    @change="($event)=>this.data.mailto = $event"/>
+    :disabled="detailsModel.mailto.disabled"
+    :value="data.mailto"
+    name="mailto"
+    :context="context"
+    :viewparams="viewparams"
+    :service="service"
+    :pickupView="{ viewname: 'sys-employee-user-tree-mob-mpickup-view', title: '人员移动端多数据选择视图（人员树）', deResParameters: [], parameters: [{ pathName: 'sysemployees', parameterName: 'sysemployee' }, { pathName: 'usertreemobmpickupview', parameterName: 'usertreemobmpickupview' } ], placement:'' }"
+    @formitemvaluechange="onFormItemValueChange" 
+    style=""/>
+
 </app-form-item>
 
 

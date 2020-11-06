@@ -209,6 +209,20 @@ const router = new Router({
                     component: () => import('@pages/ibiz/product-mob-tab-exp-view/product-mob-tab-exp-view.vue'),
                 },
                 {
+                    path: 'sysemployees/:sysemployee?/usertreemobmpickupview',
+                    name: 'sysemployee_usertreemobmpickupview',
+                    meta: {
+                        caption: 'sysemployee.views.usertreemobmpickupview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'sysemployees', parameterName: 'sysemployee' },
+                            { pathName: 'usertreemobmpickupview', parameterName: 'usertreemobmpickupview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ou/sys-employee-user-tree-mob-mpickup-view/sys-employee-user-tree-mob-mpickup-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/tasks/:task?/closemoboptionview',
                     name: 'task_closemoboptionview',
                     meta: {
@@ -5893,6 +5907,20 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/ibiz/ibz-my-territory-mob-calendar-view/ibz-my-territory-mob-calendar-view.vue'),
+                },
+                {
+                    path: 'sysemployees/:sysemployee?/mpkmobpickuptreeview',
+                    name: 'sysemployee_mpkmobpickuptreeview',
+                    meta: {
+                        caption: 'sysemployee.views.mpkmobpickuptreeview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'sysemployees', parameterName: 'sysemployee' },
+                            { pathName: 'mpkmobpickuptreeview', parameterName: 'mpkmobpickuptreeview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ou/sys-employee-mpk-mob-pickup-tree-view/sys-employee-mpk-mob-pickup-tree-view.vue'),
                 },
                 {
                     path: 'products/:product?/stories/:story?/mobmdview9',

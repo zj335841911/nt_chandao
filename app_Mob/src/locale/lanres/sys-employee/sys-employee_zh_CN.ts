@@ -31,10 +31,16 @@ export default {
     updatedate: "更新时间",
   },
 	views: {
+		mpkmobpickuptreeview: {
+			caption: '人员',
+		},
 		mobpickuptreeview: {
 			caption: '人员',
 		},
 		treemobpickupview: {
+			caption: '人员',
+		},
+		usertreemobmpickupview: {
 			caption: '人员',
 		},
 	},
