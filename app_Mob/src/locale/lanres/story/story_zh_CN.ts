@@ -160,7 +160,7 @@ export default {
 			source: '需求来源', 
 			sourcenote: '来源备注', 
 			reviewedby: '由谁评审', 
-			assignedto: '由谁评审', 
+			assignedtopk: '由谁评审', 
 			neednotreview: '', 
 			title: '需求名称', 
 			pri: '优先级', 
@@ -171,6 +171,7 @@ export default {
 			mailtopk: '抄送给', 
 			keywords: '关键词', 
 			id: '编号', 
+			assignedto: '指派给', 
 		},
 		uiactions: {
 		},

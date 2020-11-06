@@ -118,6 +118,12 @@ export default {
 		assmobmdview: {
 			caption: 'Bug',
 		},
+		usr2mobmpickupview: {
+			caption: '关联bug',
+		},
+		usr2mobpickupmdview: {
+			caption: '关联bug',
+		},
 		resolvemobeditview: {
 			caption: 'Bug',
 		},

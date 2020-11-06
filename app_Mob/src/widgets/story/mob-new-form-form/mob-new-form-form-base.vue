@@ -217,32 +217,41 @@
 
 
 <app-form-item 
-    name='assignedto' 
+    name='assignedtopk' 
     class='' 
     uiStyle="DEFAULT"  
     labelPos="LEFT" 
-    ref="assignedto_item"  
-    :itemValue="this.data.assignedto" 
-    v-show="detailsModel.assignedto.visible" 
-    :itemRules="this.rules.assignedto" 
-    :caption="$t('story.mobnewform_form.details.assignedto')"  
+    ref="assignedtopk_item"  
+    :itemValue="this.data.assignedtopk" 
+    v-show="detailsModel.assignedtopk.visible" 
+    :itemRules="this.rules.assignedtopk" 
+    :caption="$t('story.mobnewform_form.details.assignedtopk')"  
     :labelWidth="100"  
     :isShowCaption="true"
-    :disabled="detailsModel.assignedto.disabled"
-    :error="detailsModel.assignedto.error" 
+    :disabled="detailsModel.assignedtopk.disabled"
+    :error="detailsModel.assignedtopk.error" 
     :isEmptyCaption="false">
-        <app-mob-select 
-    tag="UserRealName"
-    codeListType="DYNAMIC" 
-    :isCache="false" 
-    :disabled="detailsModel.assignedto.disabled" 
-    :data="data" 
-    :context="context" 
+        <app-mob-picker
+    name='assignedtopk'
+    deMajorField='personname'
+    deKeyField='username'
+    valueitem='assignedto' 
+    style=""  
+    :formState="formState"
+    :data="data"
+    :context="context"
     :viewparams="viewparams"
-    :value="data.assignedto"  
     :navigateContext ='{ } '
     :navigateParam ='{ } '
-    @change="($event)=>this.data.assignedto = $event" />
+    :itemParam='{ }' 
+    :disabled="detailsModel.assignedtopk.disabled"
+    :service="service"
+    :acParams="{ serviceName: 'sysemployee', interfaceName: 'FetchDefault'}"
+    :value="data.assignedtopk" 
+    :pickupView="{ viewname: 'sys-employee-tree-mob-pickup-view', title: '人员移动端数据选择视图', deResParameters: [], parameters: [{ pathName: 'sysemployees', parameterName: 'sysemployee' }, { pathName: 'treemobpickupview', parameterName: 'treemobpickupview' } ], placement:'' }"
+    @formitemvaluechange="onFormItemValueChange">
+</app-mob-picker>
+
 </app-form-item>
 
 
@@ -804,7 +813,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
         source: null,
         sourcenote: null,
         reviewedby: null,
-        assignedto: null,
+        assignedtopk: null,
         neednotreview: null,
         title: null,
         pri: null,
@@ -815,6 +824,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
         mailtopk: null,
         keywords: null,
         id: null,
+        assignedto: null,
         story: null,
     };
 
@@ -988,7 +998,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
 , 
         reviewedby: new FormItemModel({ caption: '由谁评审', detailType: 'FORMITEM', name: 'reviewedby', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        assignedto: new FormItemModel({ caption: '由谁评审', detailType: 'FORMITEM', name: 'assignedto', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        assignedtopk: new FormItemModel({ caption: '由谁评审', detailType: 'FORMITEM', name: 'assignedtopk', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         neednotreview: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'neednotreview', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -1009,6 +1019,8 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
         keywords: new FormItemModel({ caption: '关键词', detailType: 'FORMITEM', name: 'keywords', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
+, 
+        assignedto: new FormItemModel({ caption: '指派给', detailType: 'FORMITEM', name: 'assignedto', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
     };
 
@@ -1217,15 +1229,15 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
     }
 
     /**
-     * 监控表单属性 assignedto 值
+     * 监控表单属性 assignedtopk 值
      *
      * @param {*} newVal
      * @param {*} oldVal
      * @memberof MobNewForm
      */
-    @Watch('data.assignedto')
-    onAssignedtoChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'assignedto', newVal: newVal, oldVal: oldVal });
+    @Watch('data.assignedtopk')
+    onAssignedtopkChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'assignedtopk', newVal: newVal, oldVal: oldVal });
     }
 
     /**
@@ -1348,6 +1360,18 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
         this.formDataChange({ name: 'id', newVal: newVal, oldVal: oldVal });
     }
 
+    /**
+     * 监控表单属性 assignedto 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobNewForm
+     */
+    @Watch('data.assignedto')
+    onAssignedtoChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'assignedto', newVal: newVal, oldVal: oldVal });
+    }
+
 
     /**
      * 重置表单项值
@@ -1368,6 +1392,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
             this.onFormItemValueChange({ name: 'plan', value: null });
         }
         if (Object.is(name, 'neednotreview')) {
+            this.onFormItemValueChange({ name: 'assignedtopk', value: null });
             this.onFormItemValueChange({ name: 'assignedto', value: null });
         }
     }
@@ -1422,8 +1447,9 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
             if (this.$verify.testCond(_neednotreview, 'ISNULL', '')) {
                 ret = true;
             }
-            this.detailsModel.assignedto.setDisabled(!ret);
+            this.detailsModel.assignedtopk.setDisabled(!ret);
         }
+
 
 
 
