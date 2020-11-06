@@ -86,8 +86,8 @@ export class ReviewMobModel {
                 dataType: 'SSCODELIST',
             },
             {
-                name: 'assignedto',
-                prop: 'assignedto',
+                name: 'assignedtopk',
+                prop: 'assignedtopk',
                 dataType: 'TEXT',
             },
             {
@@ -109,6 +109,11 @@ export class ReviewMobModel {
                 name: 'id',
                 prop: 'id',
                 dataType: 'ACID',
+            },
+            {
+                name: 'assignedto',
+                prop: 'assignedto',
+                dataType: 'TEXT',
             },
             {
                 name: 'story',

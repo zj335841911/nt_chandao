@@ -51,8 +51,8 @@ export class ActiviteMobModel {
                 name: 'srfsourcekey',
             },
             {
-                name: 'assignedto',
-                prop: 'assignedto',
+                name: 'assignedtopk',
+                prop: 'assignedtopk',
                 dataType: 'TEXT',
             },
             {
@@ -64,6 +64,11 @@ export class ActiviteMobModel {
                 name: 'id',
                 prop: 'id',
                 dataType: 'ACID',
+            },
+            {
+                name: 'assignedto',
+                prop: 'assignedto',
+                dataType: 'TEXT',
             },
             {
                 name: 'story',
