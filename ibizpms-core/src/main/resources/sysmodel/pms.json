@@ -6633,6 +6633,21 @@
     "key_field":0,
     "show_order":1000,
     "major_field":0
+    },
+    {
+    "fieldname":"STRSIZE" ,
+    "codename":"Strsize",
+    "field_logic_name":"显示大小",
+    "entity_name":"File",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":200,
+    "expression":"CONCAT_WS('',ROUND(t1.size/1024, 1),'k')",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
     }
     ],
     "subEntitys":[

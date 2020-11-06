@@ -309,7 +309,8 @@ POST
 | 10 | size | Integer | 允许 | 大小 |
 | 11 | id | Long | 不可 | id |
 | 12 | extra | String | 允许 | 备注 |
-| 13 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 13 | strsize | String | 允许 | 显示大小 |
+| 14 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### FileSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

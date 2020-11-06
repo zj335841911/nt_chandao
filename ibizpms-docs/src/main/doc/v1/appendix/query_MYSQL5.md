@@ -5017,6 +5017,7 @@ t1.`OBJECTID`,
 t1.`OBJECTTYPE`,
 t1.`PATHNAME`,
 t1.`SIZE`,
+CONCAT_WS('',ROUND(t1.size/1024, 1),'k') AS `STRSIZE`,
 t1.`TITLE`
 FROM `zt_file` t1 
 
@@ -5036,7 +5037,8 @@ t1.`ID`,
 t1.`OBJECTID`,
 t1.`OBJECTTYPE`,
 t1.`PATHNAME`,
-CONCAT_WS('',ROUND(t1.size/1024, 1),'k') as `SIZE`,
+CONCAT_WS('',ROUND(t1.size/1024, 1),'k') as `STRSIZE`,
+t1.size,
 CONCAT_WS('',t1.`TITLE`,' [',UPPER(t1.objectType),' #',t1.objectID,']') AS `TITLE`
 FROM `zt_file` t1
 WHERE t1.deleted = '0' 
@@ -5057,6 +5059,7 @@ t1.`OBJECTID`,
 t1.`OBJECTTYPE`,
 t1.`PATHNAME`,
 t1.`SIZE`,
+CONCAT_WS('',ROUND(t1.size/1024, 1),'k') AS `STRSIZE`,
 t1.`TITLE`
 FROM `zt_file` t1 
 
@@ -5078,6 +5081,7 @@ t1.`OBJECTID`,
 t1.`OBJECTTYPE`,
 t1.`PATHNAME`,
 t1.`SIZE`,
+CONCAT_WS('',ROUND(t1.size/1024, 1),'k') AS `STRSIZE`,
 t1.`TITLE`
 FROM `zt_file` t1 
 

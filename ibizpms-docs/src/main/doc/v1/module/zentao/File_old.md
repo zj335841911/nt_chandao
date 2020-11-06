@@ -24,6 +24,7 @@ hide members
 |大小|SIZE|INT|&nbsp;|
 |id|ID|ACID|&nbsp;|
 |备注|EXTRA|TEXT|&nbsp;|
+|显示大小|STRSIZE|TEXT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -40,6 +41,7 @@ hide members
 |大小|默认规则|默认规则|
 |id|默认规则|默认规则|
 |备注|默认规则|内容长度必须小于等于[255]|
+|显示大小|默认规则|内容长度必须小于等于[200]|
 
 ## 状态控制
 

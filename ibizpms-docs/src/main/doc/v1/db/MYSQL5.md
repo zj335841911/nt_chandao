@@ -20530,6 +20530,7 @@ CREATE TABLE `ZT_TASK`(
 | --------   |------------| :-----:   | :----: | :--------- | 
 | ADDEDDATE        | 添加时间  | DATETIME      |   -1   | &nbsp; |
 | PATHNAME        | 路径  | VARCHAR      |   100   | &nbsp; |
+| STRSIZE        | 显示大小  | VARCHAR      |   200   | &nbsp; |
 | TITLE        | 标题  | VARCHAR      |   255   | &nbsp; |
 | EXTRA        | 备注  | VARCHAR      |   255   | &nbsp; |
 | DOWNLOADS        | 下载次数  | INTEGER      |   -1   | &nbsp; |
