@@ -186,6 +186,9 @@ export class MyStoryModel {
       {
         name: 'mailtopk',
       },
+      {
+        name: 'assignedtopk',
+      },
     ]
   }
 

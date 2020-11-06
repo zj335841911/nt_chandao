@@ -82059,6 +82059,7 @@ CREATE TABLE `zt_release`(
 | CLOSEDREASON        | 关闭原因  | VARCHAR      |   30   | &nbsp; |
 | MODULENAME1        | 所属模块名称  | VARCHAR      |   200   | &nbsp; |
 | VERSION        | 版本号  | INTEGER      |   6   | &nbsp; |
+| ASSIGNEDTOPK        | 指派给（选择）  | VARCHAR      |   200   | &nbsp; |
 | MAILTO        | 抄送给  | VARCHAR      |   65,535   | &nbsp; |
 | REVIEWEDBY        | 由谁评审  | VARCHAR      |   255   | &nbsp; |
 | LASTEDITEDBY        | 最后修改  | VARCHAR      |   200   | &nbsp; |

@@ -186,6 +186,9 @@ export class LinkStoryMobMPickupViewpickupviewpanelModel {
       {
         name: 'mailtopk',
       },
+      {
+        name: 'assignedtopk',
+      },
     ]
   }
 

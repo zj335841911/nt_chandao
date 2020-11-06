@@ -84,6 +84,7 @@ hide members
 |是否可以细分|ISCHILD|TEXT|&nbsp;|
 |联系人|MAILTOCONACT|TEXT|&nbsp;|
 |抄送给|MAILTOPK|SMCODELIST|&nbsp;|
+|指派给（选择）|ASSIGNEDTOPK|TEXT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -145,6 +146,7 @@ hide members
 |是否可以细分|默认规则|内容长度必须小于等于[200]|
 |联系人|默认规则|内容长度必须小于等于[100]|
 |抄送给|默认规则|内容长度必须小于等于[65535]|
+|指派给（选择）|默认规则|内容长度必须小于等于[200]|
 
 ## 状态控制
 

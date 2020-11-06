@@ -478,6 +478,13 @@ public class Story extends EntityMP implements Serializable {
     @JSONField(name = "mailtopk")
     @JsonProperty("mailtopk")
     private String mailtopk;
+    /**
+     * 指派给（选择）
+     */
+    @TableField(exist = false)
+    @JSONField(name = "assignedtopk")
+    @JsonProperty("assignedtopk")
+    private String assignedtopk;
 
     /**
      * 

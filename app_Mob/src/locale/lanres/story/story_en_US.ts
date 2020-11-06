@@ -57,6 +57,7 @@ export default {
     ischild: "是否可以细分",
     mailtoconact: "联系人",
     mailtopk: "抄送给",
+    assignedtopk: "指派给（选择）",
   },
 	views: {
 		newmobeditview: {
