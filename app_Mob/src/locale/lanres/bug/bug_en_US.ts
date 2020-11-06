@@ -481,6 +481,10 @@ export default {
 	planmobmdview9righttoolbar_toolbar: {
 	},
 	usr6mobmdviewrighttoolbar_toolbar: {
+		deuiaction1: {
+			caption: '关联bug',
+			tip: 'deuiaction1',
+		},
 	},
 	mobmdviewrighttoolbar_toolbar: {
 	},
