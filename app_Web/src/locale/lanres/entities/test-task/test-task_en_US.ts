@@ -21,6 +21,7 @@ export default {
     buildname: "版本",
     comment: "备注",
     casecnt: "用例数",
+    ownerpk: "负责人（选择）",
   },
 	views: {
 		myygridview: {

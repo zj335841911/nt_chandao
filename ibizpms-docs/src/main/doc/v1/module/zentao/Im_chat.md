@@ -47,7 +47,7 @@ admins
 - Java类型
 String
 
-- 是否允许为为空
+- 是否允许为空
 是
 
 - 默认值
@@ -84,7 +84,7 @@ createdBy
 - Java类型
 String
 
-- 是否允许为为空
+- 是否允许为空
 是
 
 - 默认值
@@ -121,7 +121,7 @@ editedDate
 - Java类型
 Timestamp
 
-- 是否允许为为空
+- 是否允许为空
 是
 
 - 默认值
@@ -161,7 +161,7 @@ dismissDate
 - Java类型
 Timestamp
 
-- 是否允许为为空
+- 是否允许为空
 是
 
 - 默认值
@@ -201,7 +201,7 @@ createdDate
 - Java类型
 Timestamp
 
-- 是否允许为为空
+- 是否允许为空
 是
 
 - 默认值
@@ -241,7 +241,7 @@ committers
 - Java类型
 String
 
-- 是否允许为为空
+- 是否允许为空
 是
 
 - 默认值
@@ -278,7 +278,7 @@ public
 - Java类型
 String
 
-- 是否允许为为空
+- 是否允许为空
 是
 
 - 默认值
@@ -317,7 +317,7 @@ id
 - Java类型
 Long
 
-- 是否允许为为空
+- 是否允许为空
 否
 
 - 默认值
@@ -354,7 +354,7 @@ name
 - Java类型
 String
 
-- 是否允许为为空
+- 是否允许为空
 否
 
 - 默认值
@@ -393,7 +393,7 @@ type
 - Java类型
 String
 
-- 是否允许为为空
+- 是否允许为空
 是
 
 - 默认值
@@ -433,7 +433,7 @@ editedBy
 - Java类型
 String
 
-- 是否允许为为空
+- 是否允许为空
 是
 
 - 默认值
@@ -470,7 +470,7 @@ subject
 - Java类型
 Integer
 
-- 是否允许为为空
+- 是否允许为空
 是
 
 - 默认值
@@ -510,7 +510,7 @@ lastActiveTime
 - Java类型
 Timestamp
 
-- 是否允许为为空
+- 是否允许为空
 是
 
 - 默认值
@@ -550,7 +550,7 @@ gid
 - Java类型
 String
 
-- 是否允许为为空
+- 是否允许为空
 是
 
 - 默认值

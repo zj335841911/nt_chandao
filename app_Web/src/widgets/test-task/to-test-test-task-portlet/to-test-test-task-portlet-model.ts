@@ -78,6 +78,9 @@ export default class ToTestTestTaskModel {
       {
         name: 'casecnt',
       },
+      {
+        name: 'ownerpk',
+      },
     ]
   }
 

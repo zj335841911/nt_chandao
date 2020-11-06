@@ -10742,6 +10742,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/bug-release-sub-grid-view-done/bug-release-sub-grid-view-done.vue'),
                 },
                 {
+                    path: 'doclibs/:doclib?/editview/:editview?',
+                    meta: {
+                        caption: 'entities.doclib.views.editview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'doclibs', parameterName: 'doclib' },
+                            { pathName: 'editview', parameterName: 'editview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/doc-lib-edit-view/doc-lib-edit-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/cases/:case?/optionview/:optionview?',
                     meta: {
                         caption: 'entities.case.views.optionview.caption',
@@ -14395,6 +14409,20 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/project-edit-view/project-edit-view.vue'),
+                },
+                {
+                    path: 'doclibs/:doclib?/gridview/:gridview?',
+                    meta: {
+                        caption: 'entities.doclib.views.gridview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'doclibs', parameterName: 'doclib' },
+                            { pathName: 'gridview', parameterName: 'gridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/doc-lib-grid-view/doc-lib-grid-view.vue'),
                 },
                 {
                     path: 'products/:product?/stories/:story?/usr2mpickupview/:usr2mpickupview?',

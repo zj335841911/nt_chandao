@@ -895,6 +895,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProductEditView_Close",
             "viewtag": "3fa1a1978a4380209df04704e2f8059f"
         },
+        "doclibeditview": {
+            "title": "doclib编辑视图",
+            "caption": "文档库",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "zentao",
+            "viewname": "DocLibEditView",
+            "viewtag": "41693a4d3b2bd3a7195d31ceae6cdcf3"
+        },
         "casemaingridview": {
             "title": "功能测试",
             "caption": "功能测试",
@@ -1334,6 +1342,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "ProductStoryTreeExpView",
             "viewtag": "58a943454a652d4f4ce2702d6447c079"
+        },
+        "doclibgridview": {
+            "title": "doclib表格视图",
+            "caption": "文档库",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "DocLibGridView",
+            "viewtag": "599bad7e939d0de2523f0fcf4444f8c7"
         },
         "projectpickupview": {
             "title": "项目数据选择视图",

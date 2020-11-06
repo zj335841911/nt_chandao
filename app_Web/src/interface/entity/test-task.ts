@@ -173,4 +173,12 @@ export interface TestTask {
      * @memberof TestTask
      */
     casecnt?: any;
+
+    /**
+     * 负责人（选择）
+     *
+     * @returns {*}
+     * @memberof TestTask
+     */
+    ownerpk?: any;
 }

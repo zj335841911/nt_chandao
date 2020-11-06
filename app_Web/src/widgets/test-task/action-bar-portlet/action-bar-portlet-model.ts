@@ -78,6 +78,9 @@ export default class ActionBarModel {
       {
         name: 'casecnt',
       },
+      {
+        name: 'ownerpk',
+      },
     ]
   }
 

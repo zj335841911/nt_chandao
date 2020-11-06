@@ -78,6 +78,9 @@ export default class DashboardModel {
       {
         name: 'casecnt',
       },
+      {
+        name: 'ownerpk',
+      },
     ]
   }
 

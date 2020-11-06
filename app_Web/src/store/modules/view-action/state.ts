@@ -946,6 +946,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '41693a4d3b2bd3a7195d31ceae6cdcf3',
+            viewmodule: 'zentao',
+            viewname: 'DocLibEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '417541fa331fc089b84936b8359403fa',
             viewmodule: 'zentao',
             viewname: 'CaseMainGridView',
@@ -1433,6 +1442,16 @@ export const viewstate: any = {
             refviews: [
                 'a2c585e16c82b5dec03db7146b9a6fa4',
                 '95d25c1556e049e220af04b99b06edeb',
+            ],
+        },
+        {
+            viewtag: '599bad7e939d0de2523f0fcf4444f8c7',
+            viewmodule: 'zentao',
+            viewname: 'DocLibGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '41693a4d3b2bd3a7195d31ceae6cdcf3',
             ],
         },
         {
@@ -4028,16 +4047,17 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '103bc77ad54de2476db1d4e9c788cd4e',
-                '5ef23f01b2cffa48351b3272dfeeaf14',
                 '64204774cc4b97f20aa3becb41b184d5',
+                '5ef23f01b2cffa48351b3272dfeeaf14',
                 '19641dcdbd1f1973c9693859003e1f60',
+                '76bd64e6d21e10838e42517992e58c65',
+                '599bad7e939d0de2523f0fcf4444f8c7',
+                '7d34636d1c24d613abf8d3fdc64ec7ba',
                 '143e97f1ddaf50560e1602118613f0f0',
                 '7088260bcd6a0303378af2f8e207f479',
-                '76bd64e6d21e10838e42517992e58c65',
                 '85ee867b09a2d6303c061d91374ec975',
                 'bb8860972029d9947daa3652a4b5d291',
                 '231eecf4805f0b378601ea1a7912077f',
-                '7d34636d1c24d613abf8d3fdc64ec7ba',
                 '441544d65ca067ea5ea625645b70e610',
             ],
         },

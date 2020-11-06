@@ -181,4 +181,12 @@ export interface Build {
      * @memberof Build
      */
     createbugcnt?: any;
+
+    /**
+     * 构建者（选择）
+     *
+     * @returns {*}
+     * @memberof Build
+     */
+    builderpk?: any;
 }

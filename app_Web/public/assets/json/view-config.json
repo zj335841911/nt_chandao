@@ -1109,6 +1109,16 @@
         "viewtag": "3fa1a1978a4380209df04704e2f8059f",
         "memo": ""
     },
+    "doclibeditview": {
+        "title": "doclib编辑视图",
+        "caption": "文档库",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "zentao",
+        "viewname": "DocLibEditView",
+        "viewfilename": "doc-lib-edit-view",
+        "viewtag": "41693a4d3b2bd3a7195d31ceae6cdcf3",
+        "memo": ""
+    },
     "casemaingridview": {
         "title": "功能测试",
         "caption": "功能测试",
@@ -1657,6 +1667,16 @@
         "viewname": "ProductStoryTreeExpView",
         "viewfilename": "product-story-tree-exp-view",
         "viewtag": "58a943454a652d4f4ce2702d6447c079",
+        "memo": ""
+    },
+    "doclibgridview": {
+        "title": "doclib表格视图",
+        "caption": "文档库",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "zentao",
+        "viewname": "DocLibGridView",
+        "viewfilename": "doc-lib-grid-view",
+        "viewtag": "599bad7e939d0de2523f0fcf4444f8c7",
         "memo": ""
     },
     "projectpickupview": {

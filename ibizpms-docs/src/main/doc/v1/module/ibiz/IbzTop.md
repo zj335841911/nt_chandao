@@ -43,7 +43,7 @@
 - Java类型
 String
 
-- 是否允许为为空
+- 是否允许为空
 否
 
 - 默认值
@@ -80,7 +80,7 @@ String
 - Java类型
 Timestamp
 
-- 是否允许为为空
+- 是否允许为空
 否
 
 - 默认值
@@ -117,7 +117,7 @@ yyyy-MM-dd HH:mm:ss
 - Java类型
 String
 
-- 是否允许为为空
+- 是否允许为空
 否
 
 - 默认值
@@ -154,7 +154,7 @@ String
 - Java类型
 String
 
-- 是否允许为为空
+- 是否允许为空
 是
 
 - 默认值
@@ -193,7 +193,7 @@ String
 - Java类型
 String
 
-- 是否允许为为空
+- 是否允许为空
 否
 
 - 默认值
@@ -230,7 +230,7 @@ String
 - Java类型
 Timestamp
 
-- 是否允许为为空
+- 是否允许为空
 否
 
 - 默认值
@@ -267,7 +267,7 @@ yyyy-MM-dd HH:mm:ss
 - Java类型
 String
 
-- 是否允许为为空
+- 是否允许为空
 是
 
 - 默认值
@@ -306,7 +306,7 @@ String
 - Java类型
 Integer
 
-- 是否允许为为空
+- 是否允许为空
 是
 
 - 默认值
@@ -343,7 +343,7 @@ Integer
 - Java类型
 Integer
 
-- 是否允许为为空
+- 是否允许为空
 是
 
 - 默认值
@@ -380,7 +380,7 @@ Integer
 - Java类型
 String
 
-- 是否允许为为空
+- 是否允许为空
 是
 
 - 默认值

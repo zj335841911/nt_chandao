@@ -46,7 +46,7 @@ createdDate
 - Java类型
 Timestamp
 
-- 是否允许为为空
+- 是否允许为空
 是
 
 - 默认值
@@ -83,7 +83,7 @@ ccList
 - Java类型
 String
 
-- 是否允许为为空
+- 是否允许为空
 是
 
 - 默认值
@@ -120,7 +120,7 @@ failReason
 - Java类型
 String
 
-- 是否允许为为空
+- 是否允许为空
 是
 
 - 默认值
@@ -157,7 +157,7 @@ action
 - Java类型
 Integer
 
-- 是否允许为为空
+- 是否允许为空
 是
 
 - 默认值
@@ -194,7 +194,7 @@ id
 - Java类型
 Long
 
-- 是否允许为为空
+- 是否允许为空
 否
 
 - 默认值
@@ -231,7 +231,7 @@ createdBy
 - Java类型
 String
 
-- 是否允许为为空
+- 是否允许为空
 是
 
 - 默认值
@@ -268,7 +268,7 @@ status
 - Java类型
 String
 
-- 是否允许为为空
+- 是否允许为空
 是
 
 - 默认值
@@ -308,7 +308,7 @@ subject
 - Java类型
 String
 
-- 是否允许为为空
+- 是否允许为空
 是
 
 - 默认值
@@ -345,7 +345,7 @@ objectID
 - Java类型
 Integer
 
-- 是否允许为为空
+- 是否允许为空
 是
 
 - 默认值
@@ -382,7 +382,7 @@ data
 - Java类型
 String
 
-- 是否允许为为空
+- 是否允许为空
 是
 
 - 默认值
@@ -419,7 +419,7 @@ toList
 - Java类型
 String
 
-- 是否允许为为空
+- 是否允许为空
 是
 
 - 默认值
@@ -456,7 +456,7 @@ sendTime
 - Java类型
 Timestamp
 
-- 是否允许为为空
+- 是否允许为空
 是
 
 - 默认值
@@ -493,7 +493,7 @@ objectType
 - Java类型
 String
 
-- 是否允许为为空
+- 是否允许为空
 是
 
 - 默认值

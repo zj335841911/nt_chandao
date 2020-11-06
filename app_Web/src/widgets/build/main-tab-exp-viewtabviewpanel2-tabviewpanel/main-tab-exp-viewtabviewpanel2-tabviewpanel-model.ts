@@ -81,6 +81,9 @@ export default class MainTabExpViewtabviewpanel2Model {
       {
         name: 'createbugcnt',
       },
+      {
+        name: 'builderpk',
+      },
     ]
   }
 

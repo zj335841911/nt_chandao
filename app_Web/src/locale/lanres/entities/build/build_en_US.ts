@@ -22,6 +22,7 @@ export default {
     backgroundid: "后台体系",
     sqlid: "运行数据库",
     createbugcnt: "产生的bug",
+    builderpk: "构建者（选择）",
   },
 	views: {
 		optionview: {

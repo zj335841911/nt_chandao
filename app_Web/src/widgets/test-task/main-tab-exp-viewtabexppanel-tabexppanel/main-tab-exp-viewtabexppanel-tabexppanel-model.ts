@@ -78,6 +78,9 @@ export default class MainTabExpViewtabexppanelModel {
       {
         name: 'casecnt',
       },
+      {
+        name: 'ownerpk',
+      },
     ]
   }
 

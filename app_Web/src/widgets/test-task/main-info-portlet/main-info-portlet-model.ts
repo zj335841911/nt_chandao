@@ -78,6 +78,9 @@ export default class MainInfoModel {
       {
         name: 'casecnt',
       },
+      {
+        name: 'ownerpk',
+      },
     ]
   }
 
