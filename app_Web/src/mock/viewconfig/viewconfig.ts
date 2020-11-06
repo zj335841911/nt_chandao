@@ -15,6 +15,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProductTestTabExpView",
             "viewtag": "005b0ba30f9e9e982e087961bd50c681"
         },
+        "filegridview": {
+            "title": "file表格视图",
+            "caption": "附件",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "FileGridView",
+            "viewtag": "007d984e6319843d935a48b30587ab1b"
+        },
         "productexpeditview": {
             "title": "产品编辑视图",
             "caption": "产品",
@@ -3062,6 +3070,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "ProjectProductListView9",
             "viewtag": "d0454a2ae9eb44aca3613b27169f3b18"
+        },
+        "fileeditview": {
+            "title": "file编辑视图",
+            "caption": "附件",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "zentao",
+            "viewname": "FileEditView",
+            "viewtag": "d05d51fbbdb75506a5d0b36ab527d47a"
         },
         "branchpickupview": {
             "title": "平台数据选择视图",

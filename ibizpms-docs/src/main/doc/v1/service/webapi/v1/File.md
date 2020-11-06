@@ -220,6 +220,42 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | Page<[FileDTO](#FileDTO)>：附件实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
 
+### 获取文件库查询
+#### 访问路径
+/files/fetchdoclibfile
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [FileSearchContext](#FileSearchContext) | 附件查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[FileDTO](#FileDTO)>：附件实体传输对象列表 |
+
+### 查询文件库查询
+#### 访问路径
+/files/searchdoclibfile
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [FileSearchContext](#FileSearchContext) | 附件查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[FileDTO](#FileDTO)>：附件实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
 ### 获取动态(根据类型过滤)
 #### 访问路径
 /files/fetchtype

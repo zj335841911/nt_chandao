@@ -5023,6 +5023,26 @@ FROM `zt_file` t1
 WHERE t1.DELETED = '0' 
 
 ```
+### 文件库查询(DocLibFile)<div id="File_DocLibFile"></div>
+```sql
+SELECT
+t1.`ADDEDBY`,
+t1.`ADDEDDATE`,
+t1.`DELETED`,
+t1.`DOWNLOADS`,
+t1.`EXTENSION`,
+t1.`EXTRA`,
+t1.`ID`,
+t1.`OBJECTID`,
+t1.`OBJECTTYPE`,
+t1.`PATHNAME`,
+CONCAT_WS('',ROUND(t1.size/1024, 1),'k') as `SIZE`,
+CONCAT_WS('',t1.`TITLE`,' [',UPPER(t1.objectType),' #',t1.objectID,']') AS `TITLE`
+FROM `zt_file` t1
+WHERE t1.deleted = '0' 
+((t1.objectType = 'project' and t1.objectID = #{srf.datacontext.project}) or (t1.objectType = 'task' and EXISTS(select 1 from zt_task t where t.deleted = '0' and t.project = #{srf.datacontext.project} and t.id = t1.objectID)) or (t1.objectType = 'doc' and EXISTS(select 1 from zt_doc t where t.deleted = '0' and t.project = #{srf.datacontext.project} and t.id = t1.objectID)) or (t1.objectType = 'build' and EXISTS(select 1 from zt_build t where t.deleted = '0' and t.project = #{srf.datacontext.project} and t.id = t1.objectID)) ) 
+
+```
 ### 动态(根据类型过滤)(Type)<div id="File_Type"></div>
 ```sql
 SELECT

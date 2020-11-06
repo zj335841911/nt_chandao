@@ -67,6 +67,7 @@ hide members
 | 查询编号 | 查询名称       | 默认查询 |   备注|
 | --------  | --------   | --------   | ----- |
 |DEFAULT|DEFAULT([MYSQL5](../../appendix/query_MYSQL5.md#File_Default))|否|&nbsp;|
+|DocLibFile|文件库查询([MYSQL5](../../appendix/query_MYSQL5.md#File_DocLibFile))|否|&nbsp;|
 |Type|动态(根据类型过滤)([MYSQL5](../../appendix/query_MYSQL5.md#File_Type))|否|&nbsp;过滤编辑器中上传的图片|
 |VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#File_View))|否|&nbsp;|
 
@@ -75,6 +76,7 @@ hide members
 | 集合编号 | 集合名称   |  包含查询  | 默认集合 |   备注|
 | --------  | --------   | -------- | --------   | ----- |
 |DEFAULT|DEFAULT|DEFAULT|是|&nbsp;|
+|DocLibFile|文件库查询|DocLibFile|否|&nbsp;|
 |Type|动态(根据类型过滤)|Type|否|&nbsp;|
 
 ## 查询模式

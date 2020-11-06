@@ -62,6 +62,7 @@ import projectstats_zh_CN from '@locale/lanres/entities/project-stats/project-st
 import testrun_zh_CN from '@locale/lanres/entities/test-run/test-run_zh_CN';
 import ibzmyterritory_zh_CN from '@locale/lanres/entities/ibz-my-territory/ibz-my-territory_zh_CN';
 import sysupdatelog_zh_CN from '@locale/lanres/entities/sys-update-log/sys-update-log_zh_CN';
+import doc_zh_CN from '@locale/lanres/entities/doc/doc_zh_CN';
 import bug_zh_CN from '@locale/lanres/entities/bug/bug_zh_CN';
 import projectmodule_zh_CN from '@locale/lanres/entities/project-module/project-module_zh_CN';
 import ibzdoc_zh_CN from '@locale/lanres/entities/ibz-doc/ibz-doc_zh_CN';
@@ -392,6 +393,7 @@ const data: any = {
         testrun: testrun_zh_CN,
         ibzmyterritory: ibzmyterritory_zh_CN,
         sysupdatelog: sysupdatelog_zh_CN,
+        doc: doc_zh_CN,
         bug: bug_zh_CN,
         projectmodule: projectmodule_zh_CN,
         ibzdoc: ibzdoc_zh_CN,

@@ -69,6 +69,7 @@ import './entity/project-statss/project-statss';
 import './entity/test-runs/test-runs';
 import './entity/ibz-my-territorys/ibz-my-territorys';
 import './entity/sys-update-logs/sys-update-logs';
+import './entity/docs/docs';
 import './entity/bugs/bugs';
 import './entity/project-modules/project-modules';
 import './entity/ibz-docs/ibz-docs';

@@ -69,6 +69,28 @@ export class DocLibGridViewBase extends GridViewBase {
      */
     public appUIService: DocLibUIService = new DocLibUIService(this.$store);
 
+	/**
+	 * 自定义视图导航上下文集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof DocLibGridViewBase
+	 */
+    protected customViewNavContexts: any = {
+        'PROJECT': { isRawValue: false, value: 'srfparentkey' }
+    };
+
+	/**
+	 * 自定义视图导航参数集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof DocLibGridViewBase
+	 */
+    protected customViewParams: any = {
+        'project': { isRawValue: false, value: 'srfparentkey' }
+    };
+
     /**
      * 视图模型数据
      *
@@ -316,8 +338,8 @@ export class DocLibGridViewBase extends GridViewBase {
         }
         const deResParameters: any[] = [];
         const parameters: any[] = [
-            { pathName: 'doclibs', parameterName: 'doclib' },
-            { pathName: 'editview', parameterName: 'editview' },
+            { pathName: 'files', parameterName: 'file' },
+            { pathName: 'gridview', parameterName: 'gridview' },
         ];
         const _this: any = this;
         const openIndexViewTab = (data: any) => {

@@ -613,8 +613,9 @@ Save
 | 序号 | 查询 | 查询名 | 默认 |
 | ---- | ---- | ---- | ---- |
 | 1 | [DEFAULT](#数据查询-DEFAULT（Default）) | Default | 否 |
-| 2 | [动态(根据类型过滤)](#数据查询-动态(根据类型过滤)（Type）) | Type | 否 |
-| 3 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 2 | [文件库查询](#数据查询-文件库查询（DocLibFile）) | DocLibFile | 否 |
+| 3 | [动态(根据类型过滤)](#数据查询-动态(根据类型过滤)（Type）) | Type | 否 |
+| 4 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
 ### 数据查询-DEFAULT（Default）
 #### 说明
@@ -644,6 +645,34 @@ t1.`SIZE`,
 t1.`TITLE`
 FROM `zt_file` t1 
 
+```
+### 数据查询-文件库查询（DocLibFile）
+#### 说明
+文件库查询
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+SELECT
+t1.`ADDEDBY`,
+t1.`ADDEDDATE`,
+t1.`DELETED`,
+t1.`DOWNLOADS`,
+t1.`EXTENSION`,
+t1.`EXTRA`,
+t1.`ID`,
+t1.`OBJECTID`,
+t1.`OBJECTTYPE`,
+t1.`PATHNAME`,
+CONCAT_WS('',ROUND(t1.size/1024, 1),'k') as `SIZE`,
+CONCAT_WS('',t1.`TITLE`,' [',UPPER(t1.objectType),' #',t1.objectID,']') AS `TITLE`
+FROM `zt_file` t1
 ```
 ### 数据查询-动态(根据类型过滤)（Type）
 #### 说明
@@ -708,7 +737,8 @@ FROM `zt_file` t1
 | 序号 | 集合 | 集合名 | 默认 |
 | ---- | ---- | ---- | ---- |
 | 1 | [DEFAULT](#数据集合-DEFAULT（Default）) | Default | 是 |
-| 2 | [动态(根据类型过滤)](#数据集合-动态(根据类型过滤)（Type）) | Type | 否 |
+| 2 | [文件库查询](#数据集合-文件库查询（DocLibFile）) | DocLibFile | 否 |
+| 3 | [动态(根据类型过滤)](#数据集合-动态(根据类型过滤)（Type）) | Type | 否 |
 
 ### 数据集合-DEFAULT（Default）
 #### 说明
@@ -724,6 +754,20 @@ DEFAULT
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [DEFAULT（Default）](#数据查询-DEFAULT（Default）) |
+### 数据集合-文件库查询（DocLibFile）
+#### 说明
+文件库查询
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [文件库查询（DocLibFile）](#数据查询-文件库查询（DocLibFile）) |
 ### 数据集合-动态(根据类型过滤)（Type）
 #### 说明
 动态(根据类型过滤)

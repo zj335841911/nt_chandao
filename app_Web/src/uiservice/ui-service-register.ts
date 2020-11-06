@@ -101,6 +101,7 @@ export class UIServiceRegister {
         this.allUIService.set('testrun', () => import('@/uiservice/test-run/test-run-ui-service'));
         this.allUIService.set('ibzmyterritory', () => import('@/uiservice/ibz-my-territory/ibz-my-territory-ui-service'));
         this.allUIService.set('sysupdatelog', () => import('@/uiservice/sys-update-log/sys-update-log-ui-service'));
+        this.allUIService.set('doc', () => import('@/uiservice/doc/doc-ui-service'));
         this.allUIService.set('bug', () => import('@/uiservice/bug/bug-ui-service'));
         this.allUIService.set('projectmodule', () => import('@/uiservice/project-module/project-module-ui-service'));
         this.allUIService.set('ibzdoc', () => import('@/uiservice/ibz-doc/ibz-doc-ui-service'));

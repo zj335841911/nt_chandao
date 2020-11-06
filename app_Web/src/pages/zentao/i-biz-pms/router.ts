@@ -7954,6 +7954,20 @@ const router = new Router({
                     component: () => import('@pages/ibiz/user-year-work-stats-dashboard-view/user-year-work-stats-dashboard-view.vue'),
                 },
                 {
+                    path: 'files/:file?/editview/:editview?',
+                    meta: {
+                        caption: 'entities.file.views.editview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'files', parameterName: 'file' },
+                            { pathName: 'editview', parameterName: 'editview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/file-edit-view/file-edit-view.vue'),
+                },
+                {
                     path: 'productsums/:productsum?/editview/:editview?',
                     meta: {
                         caption: 'entities.productsum.views.editview.caption',
@@ -11907,6 +11921,20 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/project-edit-view-activate/project-edit-view-activate.vue'),
+                },
+                {
+                    path: 'files/:file?/gridview/:gridview?',
+                    meta: {
+                        caption: 'entities.file.views.gridview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'files', parameterName: 'file' },
+                            { pathName: 'gridview', parameterName: 'gridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/file-grid-view/file-grid-view.vue'),
                 },
                 {
                     path: 'sysupdatelogs/:sysupdatelog?/gridview/:gridview?',

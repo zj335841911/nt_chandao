@@ -1,0 +1,23 @@
+export default {
+  fields: {
+    groups: "分组",
+    editeddate: "更新时间",
+    views: "views",
+    version: "版本号",
+    editedby: "由谁更新",
+    id: "文档编号",
+    title: "文档标题",
+    deleted: "已删除",
+    type: "文档类型",
+    addeddate: "添加时间",
+    acl: "权限",
+    users: "用户",
+    keywords: "关键字",
+    collector: "收藏者",
+    addedby: "由谁添加",
+    lib: "所属文档库",
+    project: "所属项目",
+    product: "所属产品",
+    module: "所属分类",
+  },
+};

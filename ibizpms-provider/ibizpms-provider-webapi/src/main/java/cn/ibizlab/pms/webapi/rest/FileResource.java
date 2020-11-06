@@ -157,6 +157,28 @@ public class FileResource {
                 .body(new PageImpl(fileMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-File-searchDocLibFile-all')")
+	@ApiOperation(value = "获取文件库查询", tags = {"附件" } ,notes = "获取文件库查询")
+    @RequestMapping(method= RequestMethod.GET , value="/files/fetchdoclibfile")
+	public ResponseEntity<List<FileDTO>> fetchDocLibFile(FileSearchContext context) {
+        Page<File> domains = fileService.searchDocLibFile(context) ;
+        List<FileDTO> list = fileMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-File-searchDocLibFile-all')")
+	@ApiOperation(value = "查询文件库查询", tags = {"附件" } ,notes = "查询文件库查询")
+    @RequestMapping(method= RequestMethod.POST , value="/files/searchdoclibfile")
+	public ResponseEntity<Page<FileDTO>> searchDocLibFile(@RequestBody FileSearchContext context) {
+        Page<File> domains = fileService.searchDocLibFile(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(fileMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-File-searchType-all')")
 	@ApiOperation(value = "获取动态(根据类型过滤)", tags = {"附件" } ,notes = "获取动态(根据类型过滤)")
     @RequestMapping(method= RequestMethod.GET , value="/files/fetchtype")

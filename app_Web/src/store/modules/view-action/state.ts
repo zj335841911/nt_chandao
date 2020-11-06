@@ -19,6 +19,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '007d984e6319843d935a48b30587ab1b',
+            viewmodule: 'zentao',
+            viewname: 'FileGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'd05d51fbbdb75506a5d0b36ab527d47a',
+            ],
+        },
+        {
             viewtag: '01384caaa1bc452610f056415c86aaf4',
             viewmodule: 'ibiz',
             viewname: 'ProductModuleGridViewBranch',
@@ -1451,6 +1461,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '007d984e6319843d935a48b30587ab1b',
                 '41693a4d3b2bd3a7195d31ceae6cdcf3',
             ],
         },
@@ -2462,6 +2473,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                'd05d51fbbdb75506a5d0b36ab527d47a',
             ],
         },
         {
@@ -3340,6 +3352,15 @@ export const viewstate: any = {
             refviews: [
                 '41bfd828761fc42ef9a7acdd4f4babcf',
                 'd5171a52df7b22d69c6a5ca34699233a',
+            ],
+        },
+        {
+            viewtag: 'd05d51fbbdb75506a5d0b36ab527d47a',
+            viewmodule: 'zentao',
+            viewname: 'FileEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
             ],
         },
         {
