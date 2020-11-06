@@ -332,6 +332,7 @@ SRFNAVPARAM.project=%project%|
 |-|我的地盘日历导航视图|DECALENDAREXPVIEW|&nbsp;|
 |-|燃尽图|DECHARTVIEW|&nbsp;|
 |-|Bug的一生|DEEDITVIEW9|&nbsp;|
+|-|doc表格视图|DEGRIDVIEW|&nbsp;|
 |-|测试版本编辑视图|DEEDITVIEW9|&nbsp;|
 |-|功能测试|DEPORTALVIEW|&nbsp;|
 |-|需求|DEPICKUPGRIDVIEW|&nbsp;用于【版本】关联【需求】，显示项目下的所有需求。|
@@ -537,6 +538,7 @@ SRFNAVPARAM.project=%project%|
 |-|待办提交|DEEDITVIEW|&nbsp;|
 |-|产品信息|DEEDITVIEW9|&nbsp;|
 |-|用例库用例编辑视图（主信息）|DEEDITVIEW9|&nbsp;|
+|-|doc编辑视图|DEEDITVIEW|&nbsp;|
 |-|Bug统计表格视图|DEGRIDVIEW|&nbsp;|
 |-|story表格视图|DEGRIDVIEW|&nbsp;|
 |-|系统更新功能表格视图|DEGRIDVIEW|&nbsp;|
