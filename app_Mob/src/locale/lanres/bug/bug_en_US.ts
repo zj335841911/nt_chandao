@@ -493,6 +493,10 @@ export default {
 		},
 	},
 	usr3mobmdviewrighttoolbar_toolbar: {
+		deuiaction1: {
+			caption: '关联bug',
+			tip: 'deuiaction1',
+		},
 	},
 	planmobmdview9righttoolbar_toolbar: {
 	},
