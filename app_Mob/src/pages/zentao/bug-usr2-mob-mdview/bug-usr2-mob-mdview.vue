@@ -2,7 +2,7 @@
 import { Component } from 'vue-property-decorator';
 import BugUsr2MobMDViewBase from './bug-usr2-mob-mdview-base.vue';
 
-import view_mdctrl from '@widgets/bug/mob-release-bug-mobmdctrl/mob-release-bug-mobmdctrl.vue';
+import view_mdctrl from '@widgets/bug/mob-release-link-re-bug-mobmdctrl/mob-release-link-re-bug-mobmdctrl.vue';
 @Component({
     components: {
         view_mdctrl, 
