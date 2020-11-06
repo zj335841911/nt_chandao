@@ -66,18 +66,18 @@ export class MobNewFROMModel {
                 dataType: 'PICKUPTEXT',
             },
             {
-                name: 'po',
-                prop: 'po',
+                name: 'popk',
+                prop: 'popk',
                 dataType: 'TEXT',
             },
             {
-                name: 'qd',
-                prop: 'qd',
+                name: 'qdpk',
+                prop: 'qdpk',
                 dataType: 'TEXT',
             },
             {
-                name: 'rd',
-                prop: 'rd',
+                name: 'rdpk',
+                prop: 'rdpk',
                 dataType: 'TEXT',
             },
             {
@@ -99,6 +99,21 @@ export class MobNewFROMModel {
                 name: 'id',
                 prop: 'id',
                 dataType: 'ACID',
+            },
+            {
+                name: 'po',
+                prop: 'po',
+                dataType: 'TEXT',
+            },
+            {
+                name: 'rd',
+                prop: 'rd',
+                dataType: 'TEXT',
+            },
+            {
+                name: 'qd',
+                prop: 'qd',
+                dataType: 'TEXT',
             },
             {
                 name: 'product',

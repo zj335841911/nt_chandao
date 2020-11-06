@@ -135,6 +135,15 @@ export class MobPickupViewpickupviewpanelModel {
       {
         name: 'testsuitecnt',
       },
+      {
+        name: 'popk',
+      },
+      {
+        name: 'qdpk',
+      },
+      {
+        name: 'rdpk',
+      },
     ]
   }
 

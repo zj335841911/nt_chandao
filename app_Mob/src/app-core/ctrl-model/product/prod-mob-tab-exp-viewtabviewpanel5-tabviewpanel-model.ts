@@ -135,6 +135,15 @@ export class ProdMobTabExpViewtabviewpanel5Model {
       {
         name: 'testsuitecnt',
       },
+      {
+        name: 'popk',
+      },
+      {
+        name: 'qdpk',
+      },
+      {
+        name: 'rdpk',
+      },
     ]
   }
 

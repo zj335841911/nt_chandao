@@ -135,6 +135,15 @@ export class ProductStatusChartMobModel {
       {
         name: 'testsuitecnt',
       },
+      {
+        name: 'popk',
+      },
+      {
+        name: 'qdpk',
+      },
+      {
+        name: 'rdpk',
+      },
     ]
   }
 

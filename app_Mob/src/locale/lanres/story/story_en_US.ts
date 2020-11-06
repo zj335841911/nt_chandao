@@ -395,6 +395,10 @@ export default {
 		},
 	},
 	usr2mobmdview_5219righttoolbar_toolbar: {
+		deuiaction1: {
+			caption: '新建需求',
+			tip: 'deuiaction1',
+		},
 	},
 	usr4mobmdviewrighttoolbar_toolbar: {
 	},

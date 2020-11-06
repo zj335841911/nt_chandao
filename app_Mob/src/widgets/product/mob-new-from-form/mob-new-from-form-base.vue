@@ -144,94 +144,121 @@
 
 
 <app-form-item 
-    name='po' 
+    name='popk' 
     class='' 
     uiStyle="DEFAULT"  
     labelPos="LEFT" 
-    ref="po_item"  
-    :itemValue="this.data.po" 
-    v-show="detailsModel.po.visible" 
-    :itemRules="this.rules.po" 
-    :caption="$t('product.mobnewfrom_form.details.po')"  
+    ref="popk_item"  
+    :itemValue="this.data.popk" 
+    v-show="detailsModel.popk.visible" 
+    :itemRules="this.rules.popk" 
+    :caption="$t('product.mobnewfrom_form.details.popk')"  
     :labelWidth="130"  
     :isShowCaption="true"
-    :disabled="detailsModel.po.disabled"
-    :error="detailsModel.po.error" 
+    :disabled="detailsModel.popk.disabled"
+    :error="detailsModel.popk.error" 
     :isEmptyCaption="false">
-        <app-mob-select 
-    tag="UserRealName"
-    codeListType="DYNAMIC" 
-    :isCache="false" 
-    :disabled="detailsModel.po.disabled" 
-    :data="data" 
-    :context="context" 
+        <app-mob-picker
+    name='popk'
+    deMajorField='personname'
+    deKeyField='username'
+    valueitem='po' 
+    style=""  
+    :formState="formState"
+    :data="data"
+    :context="context"
     :viewparams="viewparams"
-    :value="data.po"  
     :navigateContext ='{ } '
     :navigateParam ='{ } '
-    @change="($event)=>this.data.po = $event" />
+    :itemParam='{ }' 
+    :disabled="detailsModel.popk.disabled"
+    :service="service"
+    :acParams="{ serviceName: 'sysemployee', interfaceName: 'FetchDefault'}"
+    :value="data.popk" 
+    :pickupView="{ viewname: 'sys-employee-tree-mob-pickup-view', title: '人员移动端数据选择视图', deResParameters: [], parameters: [{ pathName: 'sysemployees', parameterName: 'sysemployee' }, { pathName: 'treemobpickupview', parameterName: 'treemobpickupview' } ], placement:'' }"
+    @formitemvaluechange="onFormItemValueChange">
+</app-mob-picker>
+
 </app-form-item>
 
 
 
 <app-form-item 
-    name='qd' 
+    name='qdpk' 
     class='' 
     uiStyle="DEFAULT"  
     labelPos="LEFT" 
-    ref="qd_item"  
-    :itemValue="this.data.qd" 
-    v-show="detailsModel.qd.visible" 
-    :itemRules="this.rules.qd" 
-    :caption="$t('product.mobnewfrom_form.details.qd')"  
+    ref="qdpk_item"  
+    :itemValue="this.data.qdpk" 
+    v-show="detailsModel.qdpk.visible" 
+    :itemRules="this.rules.qdpk" 
+    :caption="$t('product.mobnewfrom_form.details.qdpk')"  
     :labelWidth="130"  
     :isShowCaption="true"
-    :disabled="detailsModel.qd.disabled"
-    :error="detailsModel.qd.error" 
+    :disabled="detailsModel.qdpk.disabled"
+    :error="detailsModel.qdpk.error" 
     :isEmptyCaption="false">
-        <app-mob-select 
-    tag="UserRealName"
-    codeListType="DYNAMIC" 
-    :isCache="false" 
-    :disabled="detailsModel.qd.disabled" 
-    :data="data" 
-    :context="context" 
+        <app-mob-picker
+    name='qdpk'
+    deMajorField='personname'
+    deKeyField='username'
+    valueitem='qd' 
+    style=""  
+    :formState="formState"
+    :data="data"
+    :context="context"
     :viewparams="viewparams"
-    :value="data.qd"  
     :navigateContext ='{ } '
     :navigateParam ='{ } '
-    @change="($event)=>this.data.qd = $event" />
+    :itemParam='{ }' 
+    :disabled="detailsModel.qdpk.disabled"
+    :service="service"
+    :acParams="{ serviceName: 'sysemployee', interfaceName: 'FetchDefault'}"
+    :value="data.qdpk" 
+    :pickupView="{ viewname: 'sys-employee-tree-mob-pickup-view', title: '人员移动端数据选择视图', deResParameters: [], parameters: [{ pathName: 'sysemployees', parameterName: 'sysemployee' }, { pathName: 'treemobpickupview', parameterName: 'treemobpickupview' } ], placement:'' }"
+    @formitemvaluechange="onFormItemValueChange">
+</app-mob-picker>
+
 </app-form-item>
 
 
 
 <app-form-item 
-    name='rd' 
+    name='rdpk' 
     class='' 
     uiStyle="DEFAULT"  
     labelPos="LEFT" 
-    ref="rd_item"  
-    :itemValue="this.data.rd" 
-    v-show="detailsModel.rd.visible" 
-    :itemRules="this.rules.rd" 
-    :caption="$t('product.mobnewfrom_form.details.rd')"  
+    ref="rdpk_item"  
+    :itemValue="this.data.rdpk" 
+    v-show="detailsModel.rdpk.visible" 
+    :itemRules="this.rules.rdpk" 
+    :caption="$t('product.mobnewfrom_form.details.rdpk')"  
     :labelWidth="130"  
     :isShowCaption="true"
-    :disabled="detailsModel.rd.disabled"
-    :error="detailsModel.rd.error" 
+    :disabled="detailsModel.rdpk.disabled"
+    :error="detailsModel.rdpk.error" 
     :isEmptyCaption="false">
-        <app-mob-select 
-    tag="UserRealName"
-    codeListType="DYNAMIC" 
-    :isCache="false" 
-    :disabled="detailsModel.rd.disabled" 
-    :data="data" 
-    :context="context" 
+        <app-mob-picker
+    name='rdpk'
+    deMajorField='personname'
+    deKeyField='username'
+    valueitem='rd' 
+    style=""  
+    :formState="formState"
+    :data="data"
+    :context="context"
     :viewparams="viewparams"
-    :value="data.rd"  
     :navigateContext ='{ } '
     :navigateParam ='{ } '
-    @change="($event)=>this.data.rd = $event" />
+    :itemParam='{ }' 
+    :disabled="detailsModel.rdpk.disabled"
+    :service="service"
+    :acParams="{ serviceName: 'sysemployee', interfaceName: 'FetchDefault'}"
+    :value="data.rdpk" 
+    :pickupView="{ viewname: 'sys-employee-tree-mob-pickup-view', title: '人员移动端数据选择视图', deResParameters: [], parameters: [{ pathName: 'sysemployees', parameterName: 'sysemployee' }, { pathName: 'treemobpickupview', parameterName: 'treemobpickupview' } ], placement:'' }"
+    @formitemvaluechange="onFormItemValueChange">
+</app-mob-picker>
+
 </app-form-item>
 
 
@@ -657,13 +684,16 @@ export default class MobNewFROMBase extends Vue implements ControlInterface {
         code: null,
         line: null,
         linename: null,
-        po: null,
-        qd: null,
-        rd: null,
+        popk: null,
+        qdpk: null,
+        rdpk: null,
         type: null,
         desc: null,
         acl: null,
         id: null,
+        po: null,
+        rd: null,
+        qd: null,
         product: null,
     };
 
@@ -833,11 +863,11 @@ export default class MobNewFROMBase extends Vue implements ControlInterface {
 , 
         linename: new FormItemModel({ caption: '产品线', detailType: 'FORMITEM', name: 'linename', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        po: new FormItemModel({ caption: '产品负责人', detailType: 'FORMITEM', name: 'po', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        popk: new FormItemModel({ caption: '产品负责人', detailType: 'FORMITEM', name: 'popk', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        qd: new FormItemModel({ caption: '测试负责人', detailType: 'FORMITEM', name: 'qd', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        qdpk: new FormItemModel({ caption: '测试负责人', detailType: 'FORMITEM', name: 'qdpk', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        rd: new FormItemModel({ caption: '发布负责人', detailType: 'FORMITEM', name: 'rd', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        rdpk: new FormItemModel({ caption: '发布负责人', detailType: 'FORMITEM', name: 'rdpk', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         type: new FormItemModel({ caption: '产品类型', detailType: 'FORMITEM', name: 'type', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -846,6 +876,12 @@ export default class MobNewFROMBase extends Vue implements ControlInterface {
         acl: new FormItemModel({ caption: '访问控制', detailType: 'FORMITEM', name: 'acl', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
+, 
+        po: new FormItemModel({ caption: '产品负责人', detailType: 'FORMITEM', name: 'po', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        rd: new FormItemModel({ caption: '发布负责人', detailType: 'FORMITEM', name: 'rd', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        qd: new FormItemModel({ caption: '测试负责人', detailType: 'FORMITEM', name: 'qd', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
     };
 
@@ -982,39 +1018,39 @@ export default class MobNewFROMBase extends Vue implements ControlInterface {
     }
 
     /**
-     * 监控表单属性 po 值
+     * 监控表单属性 popk 值
      *
      * @param {*} newVal
      * @param {*} oldVal
      * @memberof MobNewFROM
      */
-    @Watch('data.po')
-    onPoChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'po', newVal: newVal, oldVal: oldVal });
+    @Watch('data.popk')
+    onPopkChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'popk', newVal: newVal, oldVal: oldVal });
     }
 
     /**
-     * 监控表单属性 qd 值
+     * 监控表单属性 qdpk 值
      *
      * @param {*} newVal
      * @param {*} oldVal
      * @memberof MobNewFROM
      */
-    @Watch('data.qd')
-    onQdChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'qd', newVal: newVal, oldVal: oldVal });
+    @Watch('data.qdpk')
+    onQdpkChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'qdpk', newVal: newVal, oldVal: oldVal });
     }
 
     /**
-     * 监控表单属性 rd 值
+     * 监控表单属性 rdpk 值
      *
      * @param {*} newVal
      * @param {*} oldVal
      * @memberof MobNewFROM
      */
-    @Watch('data.rd')
-    onRdChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'rd', newVal: newVal, oldVal: oldVal });
+    @Watch('data.rdpk')
+    onRdpkChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'rdpk', newVal: newVal, oldVal: oldVal });
     }
 
     /**
@@ -1065,6 +1101,42 @@ export default class MobNewFROMBase extends Vue implements ControlInterface {
         this.formDataChange({ name: 'id', newVal: newVal, oldVal: oldVal });
     }
 
+    /**
+     * 监控表单属性 po 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobNewFROM
+     */
+    @Watch('data.po')
+    onPoChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'po', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 rd 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobNewFROM
+     */
+    @Watch('data.rd')
+    onRdChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'rd', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 qd 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobNewFROM
+     */
+    @Watch('data.qd')
+    onQdChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'qd', newVal: newVal, oldVal: oldVal });
+    }
+
 
     /**
      * 重置表单项值
@@ -1101,6 +1173,9 @@ export default class MobNewFROMBase extends Vue implements ControlInterface {
      */
     private async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }){
                 
+
+
+
 
 
 
