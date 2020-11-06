@@ -339,8 +339,8 @@ export default class CaseUIActionBase extends EntityUIActionBase {
             delete context.srfsessionid;
         }
         // 导航参数
-        let panelNavParam= { "id": "0", "versions": "%version%", "ids": "%id%", "task": "%task%" } ;
-        let panelNavContext= { "ids": "%id%", "task": "%task%", "id": "0", "versions": "%version%" } ;
+        let panelNavParam= { "task": "%testtask%" } ;
+        let panelNavContext= { "task": "%testtask%", "srfparentdename": ""Case"" } ;
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
               container.closeView(null);
         const backend = async () => {
