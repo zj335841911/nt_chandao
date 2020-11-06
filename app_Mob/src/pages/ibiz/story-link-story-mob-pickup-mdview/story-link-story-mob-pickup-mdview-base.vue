@@ -159,7 +159,7 @@ export default class StoryLinkStoryMobPickupMDViewBase extends Vue {
      * @type {*}
      * @memberof StoryLinkStoryMobPickupMDViewBase
      */
-    protected navContext: any = {};
+    protected navContext: any = { 'n_parent_gtandeq': '0', 'n_status_noteq': 'closed' };
 
     /**
      * 视图导航参数
@@ -168,7 +168,7 @@ export default class StoryLinkStoryMobPickupMDViewBase extends Vue {
      * @type {*}
      * @memberof StoryLinkStoryMobPickupMDViewBase
      */
-    protected navParam: any = {};
+    protected navParam: any = { 'n_status_noteq': 'closed', 'n_parent_gtandeq': '0' };
 
     /**
      * 视图模型数据
