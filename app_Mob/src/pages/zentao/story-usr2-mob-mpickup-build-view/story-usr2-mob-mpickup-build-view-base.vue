@@ -166,7 +166,7 @@ export default class StoryUsr2MobMPickupBuildViewBase extends Vue {
      * @type {*}
      * @memberof StoryUsr2MobMPickupBuildViewBase
      */
-    protected navContext: any = {};
+    protected navContext: any = { 'product': '%product%' };
 
     /**
      * 视图导航参数
@@ -175,7 +175,7 @@ export default class StoryUsr2MobMPickupBuildViewBase extends Vue {
      * @type {*}
      * @memberof StoryUsr2MobMPickupBuildViewBase
      */
-    protected navParam: any = {};
+    protected navParam: any = { 'project': '%project%' };
 
     /**
      * 视图模型数据
