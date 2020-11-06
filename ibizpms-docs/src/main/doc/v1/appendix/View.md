@@ -222,6 +222,7 @@
 |-|Bug|DEGRIDVIEW|&nbsp;|
 |-|路线图|DELISTVIEW|&nbsp;视图参数转换|
 |-|需求表格视图|DEGRIDVIEW|&nbsp;|
+|-|文档编辑视图（基本信息）|DEEDITVIEW9|&nbsp;|
 |-|iBiz软件生产管理|DEHTMLVIEW|&nbsp;|
 |-|计划|DETABEXPVIEW|&nbsp;|
 |-|testresult编辑视图|DEEDITVIEW|&nbsp;|
@@ -235,6 +236,7 @@
 |-|测试套件编辑视图|DEEDITVIEW9|&nbsp;|
 |-|用例库用例表格视图|DEGRIDVIEW|&nbsp;|
 |-|关联Bug|DEMPICKUPVIEW|&nbsp;|
+|-|文档编辑视图（正文）|DEEDITVIEW9|&nbsp;|
 |-|case我得收藏|DEGRIDVIEW|&nbsp;|
 |-|我的地盘|DETABEXPVIEW|&nbsp;|
 |-|发布选项操作视图|DEOPTVIEW|&nbsp;|
@@ -275,6 +277,7 @@
 |-|任务|DEEDITVIEW|&nbsp;|
 |-|项目团队表格视图|DEGRIDVIEW|&nbsp;|
 |-|测试用例表格视图（测试结果条目）|DEGRIDVIEW|&nbsp;|
+|-|文档数据看板视图|DEPORTALVIEW|&nbsp;|
 |-|关联需求|DEMPICKUPVIEW|&nbsp;|
 |-|任务表格视图|DEGRIDVIEW|&nbsp;|
 |-|项目相关成员编辑视图（相关成员）|DEEDITVIEW9|&nbsp;|
@@ -456,6 +459,7 @@ SRFNAVPARAM.project=%project%|
 |-|测试用例图表视图（测试类型）|DECHARTVIEW9|&nbsp;|
 |-|测试报告编辑视图|DEEDITVIEW|&nbsp;|
 |-|测试报告编辑视图|DEEDITVIEW|&nbsp;|
+|-|文档编辑视图（文档摘要）|DEEDITVIEW9|&nbsp;|
 |-|Bug表格视图|DEGRIDVIEW|&nbsp;版本-----已解决的Bug---关联bug—打开表格视图进行Bug批量关联（设置为已解决）|
 |-|任务预计表格视图|DEGRIDVIEW9|&nbsp;|
 |-|产品统计表格视图|DEGRIDVIEW9|&nbsp;|
@@ -644,6 +648,7 @@ SRFNAVPARAM.project=%project%|
 |-|任务编辑视图|DEEDITVIEW|&nbsp;|
 |-|测试报告分页导航视图|DETABEXPVIEW|&nbsp;|
 |-|测试报告数据看板视图|DEPORTALVIEW|&nbsp;|
+|-|文档编辑视图（关键字）|DEEDITVIEW9|&nbsp;|
 |-|待办事宜表数据看板视图|DEPORTALVIEW|&nbsp;|
 |-|用例库|DETABEXPVIEW|&nbsp;|
 |-|主信息|DEEDITVIEW9|&nbsp;|

@@ -42,6 +42,11 @@
 | 17 | [所属项目](#属性-所属项目（PROJECT）) | PROJECT | 外键值 | 否 | 是 | 是 |
 | 18 | [所属产品](#属性-所属产品（PRODUCT）) | PRODUCT | 外键值 | 否 | 是 | 是 |
 | 19 | [所属分类](#属性-所属分类（MODULE）) | MODULE | 外键值 | 否 | 是 | 是 |
+| 20 | [所属项目](#属性-所属项目（PROJECTNAME）) | PROJECTNAME | 外键值文本 | 否 | 是 | 是 |
+| 21 | [所属产品](#属性-所属产品（PRODUCTNAME）) | PRODUCTNAME | 外键值文本 | 否 | 是 | 是 |
+| 22 | [所属文档库](#属性-所属文档库（LIBNAME）) | LIBNAME | 外键值文本 | 否 | 是 | 是 |
+| 23 | [模块分类](#属性-模块分类（MODULENAME）) | MODULENAME | 外键值文本 | 否 | 是 | 是 |
+| 24 | [文档正文](#属性-文档正文（CONTENT）) | CONTENT | HTML文本，没有长度限制 | 否 | 是 | 是 |
 
 ### 属性-分组（GROUPS）
 #### 属性说明
@@ -81,7 +86,7 @@ String
 | 项目 | 说明 |
 | ---- | ---- |
 | 关系实体 | [模块（ZT_MODULE）](../zentao/Module) |
-| 关系属性 | [id（ID）](../zentao/Module/#属性-id（ID）) |
+| 关系属性 | [模块名称（NAME）](../zentao/Module/#属性-模块名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-更新时间（EDITEDDATE）
@@ -122,7 +127,7 @@ yyyy-MM-dd HH:mm:ss
 | 项目 | 说明 |
 | ---- | ---- |
 | 关系实体 | [模块（ZT_MODULE）](../zentao/Module) |
-| 关系属性 | [id（ID）](../zentao/Module/#属性-id（ID）) |
+| 关系属性 | [模块名称（NAME）](../zentao/Module/#属性-模块名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-views（VIEWS）
@@ -163,7 +168,7 @@ Integer
 | 项目 | 说明 |
 | ---- | ---- |
 | 关系实体 | [模块（ZT_MODULE）](../zentao/Module) |
-| 关系属性 | [id（ID）](../zentao/Module/#属性-id（ID）) |
+| 关系属性 | [模块名称（NAME）](../zentao/Module/#属性-模块名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-版本号（VERSION）
@@ -207,7 +212,7 @@ Integer
 | 项目 | 说明 |
 | ---- | ---- |
 | 关系实体 | [模块（ZT_MODULE）](../zentao/Module) |
-| 关系属性 | [id（ID）](../zentao/Module/#属性-id（ID）) |
+| 关系属性 | [模块名称（NAME）](../zentao/Module/#属性-模块名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-由谁更新（EDITEDBY）
@@ -248,7 +253,7 @@ String
 | 项目 | 说明 |
 | ---- | ---- |
 | 关系实体 | [模块（ZT_MODULE）](../zentao/Module) |
-| 关系属性 | [id（ID）](../zentao/Module/#属性-id（ID）) |
+| 关系属性 | [模块名称（NAME）](../zentao/Module/#属性-模块名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-文档编号（ID）
@@ -289,7 +294,7 @@ Long
 | 项目 | 说明 |
 | ---- | ---- |
 | 关系实体 | [模块（ZT_MODULE）](../zentao/Module) |
-| 关系属性 | [id（ID）](../zentao/Module/#属性-id（ID）) |
+| 关系属性 | [模块名称（NAME）](../zentao/Module/#属性-模块名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-文档标题（TITLE）
@@ -332,7 +337,7 @@ String
 | 项目 | 说明 |
 | ---- | ---- |
 | 关系实体 | [模块（ZT_MODULE）](../zentao/Module) |
-| 关系属性 | [id（ID）](../zentao/Module/#属性-id（ID）) |
+| 关系属性 | [模块名称（NAME）](../zentao/Module/#属性-模块名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-已删除（DELETED）
@@ -376,7 +381,7 @@ String
 | 项目 | 说明 |
 | ---- | ---- |
 | 关系实体 | [模块（ZT_MODULE）](../zentao/Module) |
-| 关系属性 | [id（ID）](../zentao/Module/#属性-id（ID）) |
+| 关系属性 | [模块名称（NAME）](../zentao/Module/#属性-模块名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-文档类型（TYPE）
@@ -417,7 +422,7 @@ String
 | 项目 | 说明 |
 | ---- | ---- |
 | 关系实体 | [模块（ZT_MODULE）](../zentao/Module) |
-| 关系属性 | [id（ID）](../zentao/Module/#属性-id（ID）) |
+| 关系属性 | [模块名称（NAME）](../zentao/Module/#属性-模块名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-添加时间（ADDEDDATE）
@@ -458,7 +463,7 @@ yyyy-MM-dd HH:mm:ss
 | 项目 | 说明 |
 | ---- | ---- |
 | 关系实体 | [模块（ZT_MODULE）](../zentao/Module) |
-| 关系属性 | [id（ID）](../zentao/Module/#属性-id（ID）) |
+| 关系属性 | [模块名称（NAME）](../zentao/Module/#属性-模块名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-权限（ACL）
@@ -502,7 +507,7 @@ String
 | 项目 | 说明 |
 | ---- | ---- |
 | 关系实体 | [模块（ZT_MODULE）](../zentao/Module) |
-| 关系属性 | [id（ID）](../zentao/Module/#属性-id（ID）) |
+| 关系属性 | [模块名称（NAME）](../zentao/Module/#属性-模块名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-用户（USERS）
@@ -543,7 +548,7 @@ String
 | 项目 | 说明 |
 | ---- | ---- |
 | 关系实体 | [模块（ZT_MODULE）](../zentao/Module) |
-| 关系属性 | [id（ID）](../zentao/Module/#属性-id（ID）) |
+| 关系属性 | [模块名称（NAME）](../zentao/Module/#属性-模块名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-关键字（KEYWORDS）
@@ -584,7 +589,7 @@ String
 | 项目 | 说明 |
 | ---- | ---- |
 | 关系实体 | [模块（ZT_MODULE）](../zentao/Module) |
-| 关系属性 | [id（ID）](../zentao/Module/#属性-id（ID）) |
+| 关系属性 | [模块名称（NAME）](../zentao/Module/#属性-模块名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-收藏者（COLLECTOR）
@@ -625,7 +630,7 @@ String
 | 项目 | 说明 |
 | ---- | ---- |
 | 关系实体 | [模块（ZT_MODULE）](../zentao/Module) |
-| 关系属性 | [id（ID）](../zentao/Module/#属性-id（ID）) |
+| 关系属性 | [模块名称（NAME）](../zentao/Module/#属性-模块名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-由谁添加（ADDEDBY）
@@ -666,7 +671,7 @@ String
 | 项目 | 说明 |
 | ---- | ---- |
 | 关系实体 | [模块（ZT_MODULE）](../zentao/Module) |
-| 关系属性 | [id（ID）](../zentao/Module/#属性-id（ID）) |
+| 关系属性 | [模块名称（NAME）](../zentao/Module/#属性-模块名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-所属文档库（LIB）
@@ -841,6 +846,223 @@ Long
 | 关系属性 | [id（ID）](../zentao/Module/#属性-id（ID）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
+### 属性-所属项目（PROJECTNAME）
+#### 属性说明
+所属项目
+
+- 是否是主键
+否
+
+- 属性类型
+链接字段[来自关系实体字段]
+
+- 数据类型
+外键值文本
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+| 序号 | 组合方式 |
+| ---- | ---- |
+| 1 | `=` |
+| 2 | `%like%` |
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
+| 关系属性 | [项目名称（NAME）](../zentao/Project/#属性-项目名称（NAME）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
+### 属性-所属产品（PRODUCTNAME）
+#### 属性说明
+所属产品
+
+- 是否是主键
+否
+
+- 属性类型
+链接字段[来自关系实体字段]
+
+- 数据类型
+外键值文本
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+| 序号 | 组合方式 |
+| ---- | ---- |
+| 1 | `=` |
+| 2 | `%like%` |
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
+| 关系属性 | [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
+### 属性-所属文档库（LIBNAME）
+#### 属性说明
+所属文档库
+
+- 是否是主键
+否
+
+- 属性类型
+链接字段[来自关系实体字段]
+
+- 数据类型
+外键值文本
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+| 序号 | 组合方式 |
+| ---- | ---- |
+| 1 | `=` |
+| 2 | `%like%` |
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [文档库（ZT_DOCLIB）](../zentao/DocLib) |
+| 关系属性 | [文档库名称（NAME）](../zentao/DocLib/#属性-文档库名称（NAME）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
+### 属性-模块分类（MODULENAME）
+#### 属性说明
+模块分类
+
+- 是否是主键
+否
+
+- 属性类型
+链接字段[来自关系实体字段]
+
+- 数据类型
+外键值文本
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+| 序号 | 组合方式 |
+| ---- | ---- |
+| 1 | `=` |
+| 2 | `%like%` |
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [模块（ZT_MODULE）](../zentao/Module) |
+| 关系属性 | [模块名称（NAME）](../zentao/Module/#属性-模块名称（NAME）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
+### 属性-文档正文（CONTENT）
+#### 属性说明
+文档正文
+
+- 是否是主键
+否
+
+- 属性类型
+应用界面字段[无存储]
+
+- 数据类型
+HTML文本，没有长度限制
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [模块（ZT_MODULE）](../zentao/Module) |
+| 关系属性 | [模块名称（NAME）](../zentao/Module/#属性-模块名称（NAME）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
 
 ## 业务状态
 无
@@ -853,8 +1075,9 @@ Long
 | 3 | [Remove](#实体行为-Remove（Remove）) | Remove | 内置方法 | 后台及前台 |
 | 4 | [Get](#实体行为-Get（Get）) | Get | 内置方法 | 后台及前台 |
 | 5 | [GetDraft](#实体行为-GetDraft（GetDraft）) | GetDraft | 内置方法 | 后台及前台 |
-| 6 | [CheckKey](#实体行为-CheckKey（CheckKey）) | CheckKey | 内置方法 | 后台及前台 |
-| 7 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
+| 6 | [根据版本更新正文信息](#实体行为-根据版本更新正文信息（ByVersionUpdateContext）) | ByVersionUpdateContext | 实体处理逻辑 | 后台 |
+| 7 | [CheckKey](#实体行为-CheckKey（CheckKey）) | CheckKey | 内置方法 | 后台及前台 |
+| 8 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
 
 ### 实体行为-Create（Create）
 #### 说明
@@ -903,7 +1126,9 @@ Get
 后台及前台
 
 #### 逻辑附加
-无
+| 序号 | 附加逻辑 | 附加模式 | 内部逻辑 | 备注 |
+| ---- | ---- | ---- | ---- | ---- |
+| 1 | [根据版本更新正文信息<br>（ByVersionUpdateContext）](#逻辑处理-根据版本更新正文信息（ByVersionUpdateContext）) | 执行之后 | 是 |  |
 ### 实体行为-GetDraft（GetDraft）
 #### 说明
 GetDraft
@@ -913,6 +1138,18 @@ GetDraft
 
 - 行为持有者
 后台及前台
+
+#### 逻辑附加
+无
+### 实体行为-根据版本更新正文信息（ByVersionUpdateContext）
+#### 说明
+根据版本更新正文信息
+
+- 行为类型
+实体处理逻辑
+
+- 行为持有者
+后台
 
 #### 逻辑附加
 无
@@ -942,7 +1179,22 @@ Save
 无
 
 ## 逻辑处理
-无
+| 序号 | 逻辑 | 逻辑名 | 逻辑持有者 |
+| ---- | ---- | ---- | ---- |
+| 1 | [根据版本更新正文信息](#逻辑处理-根据版本更新正文信息（ByVersionUpdateContext）) | ByVersionUpdateContext | 后台 |
+
+### 逻辑处理-根据版本更新正文信息（ByVersionUpdateContext）
+#### 说明
+根据版本更新正文信息
+
+- 逻辑持有者
+后台
+
+#### 逻辑节点
+| 序号 | 节点 | 节点名 | 节点类型 |
+| ---- | ---- | ---- | ---- |
+| 1 | 开始 | Begin | 开始 |
+| 2 | 获取正文信息 | Rawsqlcall1 | 直接SQL调用 |
 
 ## 实体搜索
 ### 快速搜索项
@@ -958,6 +1210,14 @@ Save
 | 3 | [所属项目（PROJECT）](#属性-所属项目（PROJECT）) | `=` |
 | 4 | [所属产品（PRODUCT）](#属性-所属产品（PRODUCT）) | `=` |
 | 5 | [所属分类（MODULE）](#属性-所属分类（MODULE）) | `=` |
+| 6 | [所属项目（PROJECTNAME）](#属性-所属项目（PROJECTNAME）) | `=` |
+| 7 | [所属项目（PROJECTNAME）](#属性-所属项目（PROJECTNAME）) | `%like%` |
+| 8 | [所属产品（PRODUCTNAME）](#属性-所属产品（PRODUCTNAME）) | `=` |
+| 9 | [所属产品（PRODUCTNAME）](#属性-所属产品（PRODUCTNAME）) | `%like%` |
+| 10 | [所属文档库（LIBNAME）](#属性-所属文档库（LIBNAME）) | `=` |
+| 11 | [所属文档库（LIBNAME）](#属性-所属文档库（LIBNAME）) | `%like%` |
+| 12 | [模块分类（MODULENAME）](#属性-模块分类（MODULENAME）) | `=` |
+| 13 | [模块分类（MODULENAME）](#属性-模块分类（MODULENAME）) | `%like%` |
 
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |
@@ -989,14 +1249,22 @@ t1.`GROUPS`,
 t1.`ID`,
 t1.`KEYWORDS`,
 t1.`LIB`,
+t31.`NAME` AS `LIBNAME`,
 t1.`MODULE`,
+t41.`NAME` AS `MODULENAME`,
 t1.`PRODUCT`,
+t21.`NAME` AS `PRODUCTNAME`,
 t1.`PROJECT`,
+t11.`NAME` AS `PROJECTNAME`,
 t1.`TITLE`,
 t1.`TYPE`,
 t1.`VERSION`,
 t1.`VIEWS`
 FROM `zt_doc` t1 
+LEFT JOIN zt_project t11 ON t1.PROJECT = t11.ID 
+LEFT JOIN zt_product t21 ON t1.PRODUCT = t21.ID 
+LEFT JOIN zt_doclib t31 ON t1.LIB = t31.ID 
+LEFT JOIN zt_module t41 ON t1.MODULE = t41.ID 
 
 ```
 ### 数据查询-默认（全部数据）（View）
@@ -1024,15 +1292,23 @@ t1.`GROUPS`,
 t1.`ID`,
 t1.`KEYWORDS`,
 t1.`LIB`,
+t31.`NAME` AS `LIBNAME`,
 t1.`MODULE`,
+t41.`NAME` AS `MODULENAME`,
 t1.`PRODUCT`,
+t21.`NAME` AS `PRODUCTNAME`,
 t1.`PROJECT`,
+t11.`NAME` AS `PROJECTNAME`,
 t1.`TITLE`,
 t1.`TYPE`,
 t1.`USERS`,
 t1.`VERSION`,
 t1.`VIEWS`
 FROM `zt_doc` t1 
+LEFT JOIN zt_project t11 ON t1.PROJECT = t11.ID 
+LEFT JOIN zt_product t21 ON t1.PRODUCT = t21.ID 
+LEFT JOIN zt_doclib t31 ON t1.LIB = t31.ID 
+LEFT JOIN zt_module t41 ON t1.MODULE = t41.ID 
 
 ```
 

@@ -64,11 +64,16 @@ public class DocServiceImpl extends ServiceImpl<DocMapper, Doc> implements IDocS
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.IProjectService projectService;
 
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.zentao.service.logic.IDocByVersionUpdateContextLogic byversionupdatecontextLogic;
+
     protected int batchSize = 500;
 
     @Override
     @Transactional
     public boolean create(Doc et) {
+        fillParentData(et);
         if(!this.retBool(this.baseMapper.insert(et)))
             return false;
         CachedBeanCopier.copy(get(et.getId()),et);
@@ -78,12 +83,14 @@ public class DocServiceImpl extends ServiceImpl<DocMapper, Doc> implements IDocS
     @Override
     @Transactional
     public void createBatch(List<Doc> list) {
+        list.forEach(item->fillParentData(item));
         this.saveBatch(list,batchSize);
     }
 
     @Override
     @Transactional
     public boolean update(Doc et) {
+        fillParentData(et);
          if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
             return false;
         CachedBeanCopier.copy(get(et.getId()),et);
@@ -93,6 +100,7 @@ public class DocServiceImpl extends ServiceImpl<DocMapper, Doc> implements IDocS
     @Override
     @Transactional
     public void updateBatch(List<Doc> list) {
+        list.forEach(item->fillParentData(item));
         updateBatchById(list,batchSize);
     }
 
@@ -112,6 +120,8 @@ public class DocServiceImpl extends ServiceImpl<DocMapper, Doc> implements IDocS
     @Override
     @Transactional
     public Doc get(Long key) {
+        Doc tempET=new Doc();
+        tempET.set("id",key);
         Doc et = getById(key);
         if(et==null){
             et=new Doc();
@@ -119,12 +129,21 @@ public class DocServiceImpl extends ServiceImpl<DocMapper, Doc> implements IDocS
         }
         else{
         }
+        byversionupdatecontextLogic.execute(et);
         return et;
     }
 
     @Override
     public Doc getDraft(Doc et) {
+        fillParentData(et);
         return et;
+    }
+
+    @Override
+    @Transactional
+    public Doc byVersionUpdateContext(Doc et) {
+        byversionupdatecontextLogic.execute(et);
+         return et ;
     }
 
     @Override
@@ -152,6 +171,7 @@ public class DocServiceImpl extends ServiceImpl<DocMapper, Doc> implements IDocS
     @Override
     @Transactional
     public boolean saveBatch(Collection<Doc> list) {
+        list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
         return true;
     }
@@ -159,6 +179,7 @@ public class DocServiceImpl extends ServiceImpl<DocMapper, Doc> implements IDocS
     @Override
     @Transactional
     public void saveBatch(List<Doc> list) {
+        list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
     }
 
@@ -211,6 +232,52 @@ public class DocServiceImpl extends ServiceImpl<DocMapper, Doc> implements IDocS
 
 
 
+    /**
+     * 为当前实体填充父数据（外键值文本、外键值附加数据）
+     * @param et
+     */
+    private void fillParentData(Doc et){
+        //实体关系[DER1N_ZT_DOC_ZT_DOCLIB_LIB]
+        if(!ObjectUtils.isEmpty(et.getLib())){
+            cn.ibizlab.pms.core.zentao.domain.DocLib ztDoclib=et.getZtDoclib();
+            if(ObjectUtils.isEmpty(ztDoclib)){
+                cn.ibizlab.pms.core.zentao.domain.DocLib majorEntity=doclibService.get(et.getLib());
+                et.setZtDoclib(majorEntity);
+                ztDoclib=majorEntity;
+            }
+            et.setLibname(ztDoclib.getName());
+        }
+        //实体关系[DER1N_ZT_DOC_ZT_MODULE_MODULE]
+        if(!ObjectUtils.isEmpty(et.getModule())){
+            cn.ibizlab.pms.core.zentao.domain.Module ztModule=et.getZtModule();
+            if(ObjectUtils.isEmpty(ztModule)){
+                cn.ibizlab.pms.core.zentao.domain.Module majorEntity=moduleService.get(et.getModule());
+                et.setZtModule(majorEntity);
+                ztModule=majorEntity;
+            }
+            et.setModulename(ztModule.getName());
+        }
+        //实体关系[DER1N_ZT_DOC_ZT_PRODUCT_PRODUCT]
+        if(!ObjectUtils.isEmpty(et.getProduct())){
+            cn.ibizlab.pms.core.zentao.domain.Product ztProduct=et.getZtProduct();
+            if(ObjectUtils.isEmpty(ztProduct)){
+                cn.ibizlab.pms.core.zentao.domain.Product majorEntity=productService.get(et.getProduct());
+                et.setZtProduct(majorEntity);
+                ztProduct=majorEntity;
+            }
+            et.setProductname(ztProduct.getName());
+        }
+        //实体关系[DER1N_ZT_DOC_ZT_PROJECT_PROJECT]
+        if(!ObjectUtils.isEmpty(et.getProject())){
+            cn.ibizlab.pms.core.zentao.domain.Project ztProject=et.getZtProject();
+            if(ObjectUtils.isEmpty(ztProject)){
+                cn.ibizlab.pms.core.zentao.domain.Project majorEntity=projectService.get(et.getProject());
+                et.setZtProject(majorEntity);
+                ztProject=majorEntity;
+            }
+            et.setProjectname(ztProject.getName());
+        }
+    }
 
 
 

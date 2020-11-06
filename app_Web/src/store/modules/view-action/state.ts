@@ -115,6 +115,17 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '08055fc34b36d97c0e0487b4703d363a',
+            viewmodule: 'zentao',
+            viewname: 'DocBasicEditView9',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '6c7b582273d0726bcf77214807cfe40c',
+                'fd0b8748ff96edcde009d39903a9f211',
+            ],
+        },
+        {
             viewtag: '0846a45e5ffdd4d8f857575cfa955dce',
             viewmodule: 'zentao',
             viewname: 'ProductHtmlView',
@@ -211,6 +222,16 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '1c4104beb7e8515d20d03262732ba4f8',
+            ],
+        },
+        {
+            viewtag: '0e393401d3992dd5e2d1f435cd2cf63c',
+            viewmodule: 'zentao',
+            viewname: 'DocMianBEditView9',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '9ed41cee96088630f3d4b0a91e705930',
             ],
         },
         {
@@ -2134,6 +2155,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '89c6b10a2c65ecc0a6c8ea97c7c2b25a',
+            viewmodule: 'zentao',
+            viewname: 'DocDocSumEditView9',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '8af65044ab1633eb5b68d99478e9350f',
             viewmodule: 'zentao',
             viewname: 'BugUsr2GridView',
@@ -3790,6 +3820,15 @@ export const viewstate: any = {
             viewtag: 'ea7b1f6631cb623ea079455b374ef9d4',
             viewmodule: 'zentao',
             viewname: 'TestReportprojectDashboardView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
+            viewtag: 'eb67eecdc733d1716683188c485f52ab',
+            viewmodule: 'zentao',
+            viewname: 'DocKEditView9',
             viewaction: '',
             viewdatachange: false,
             refviews: [

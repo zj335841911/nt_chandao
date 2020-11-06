@@ -114,6 +114,17 @@ public class DocResource {
         return ResponseEntity.status(HttpStatus.OK).body(docMapping.toDto(docService.getDraft(new Doc())));
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Doc-ByVersionUpdateContext-all')")
+    @ApiOperation(value = "根据版本更新正文信息", tags = {"文档" },  notes = "根据版本更新正文信息")
+	@RequestMapping(method = RequestMethod.PUT, value = "/docs/{doc_id}/byversionupdatecontext")
+    public ResponseEntity<DocDTO> byVersionUpdateContext(@PathVariable("doc_id") Long doc_id, @RequestBody DocDTO docdto) {
+        Doc domain = docMapping.toDomain(docdto);
+        domain.setId(doc_id);
+        domain = docService.byVersionUpdateContext(domain);
+        docdto = docMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(docdto);
+    }
+
     @ApiOperation(value = "检查文档", tags = {"文档" },  notes = "检查文档")
 	@RequestMapping(method = RequestMethod.POST, value = "/docs/checkkey")
     public ResponseEntity<Boolean> checkKey(@RequestBody DocDTO docdto) {

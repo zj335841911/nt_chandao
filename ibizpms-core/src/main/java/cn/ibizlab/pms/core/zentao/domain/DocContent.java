@@ -80,19 +80,20 @@ public class DocContent extends EntityMP implements Serializable {
     @JsonProperty("title")
     private String title;
     /**
+     * 版本号
+     */
+    @DEField(defaultValue = "1")
+    @TableField(value = "`version`")
+    @JSONField(name = "version")
+    @JsonProperty("version")
+    private Integer version;
+    /**
      * 文档摘要
      */
     @TableField(value = "`digest`")
     @JSONField(name = "digest")
     @JsonProperty("digest")
     private String digest;
-    /**
-     * 版本号
-     */
-    @TableField(value = "`version`")
-    @JSONField(name = "version")
-    @JsonProperty("version")
-    private Integer version;
     /**
      * 文档
      */
@@ -144,19 +145,19 @@ public class DocContent extends EntityMP implements Serializable {
     }
 
     /**
-     * 设置 [文档摘要]
-     */
-    public void setDigest(String digest){
-        this.digest = digest ;
-        this.modify("digest",digest);
-    }
-
-    /**
      * 设置 [版本号]
      */
     public void setVersion(Integer version){
         this.version = version ;
         this.modify("version",version);
+    }
+
+    /**
+     * 设置 [文档摘要]
+     */
+    public void setDigest(String digest){
+        this.digest = digest ;
+        this.modify("digest",digest);
     }
 
     /**

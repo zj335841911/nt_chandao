@@ -157,4 +157,44 @@ export interface Doc {
      * @memberof Doc
      */
     module?: any;
+
+    /**
+     * 所属项目
+     *
+     * @returns {*}
+     * @memberof Doc
+     */
+    projectname?: any;
+
+    /**
+     * 所属产品
+     *
+     * @returns {*}
+     * @memberof Doc
+     */
+    productname?: any;
+
+    /**
+     * 所属文档库
+     *
+     * @returns {*}
+     * @memberof Doc
+     */
+    libname?: any;
+
+    /**
+     * 模块分类
+     *
+     * @returns {*}
+     * @memberof Doc
+     */
+    modulename?: any;
+
+    /**
+     * 文档正文
+     *
+     * @returns {*}
+     * @memberof Doc
+     */
+    content?: any;
 }

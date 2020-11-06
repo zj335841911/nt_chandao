@@ -35,6 +35,11 @@ hide members
 |所属项目|PROJECT|PICKUP|&nbsp;|
 |所属产品|PRODUCT|PICKUP|&nbsp;|
 |所属分类|MODULE|PICKUP|&nbsp;|
+|所属项目|PROJECTNAME|PICKUPTEXT|&nbsp;|
+|所属产品|PRODUCTNAME|PICKUPTEXT|&nbsp;|
+|所属文档库|LIBNAME|PICKUPTEXT|&nbsp;|
+|模块分类|MODULENAME|PICKUPTEXT|&nbsp;|
+|文档正文|CONTENT|HTMLTEXT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -58,6 +63,11 @@ hide members
 |所属项目|默认规则|默认规则|
 |所属产品|默认规则|默认规则|
 |所属分类|默认规则|默认规则|
+|所属项目|默认规则|内容长度必须小于等于[90]|
+|所属产品|默认规则|内容长度必须小于等于[90]|
+|所属文档库|默认规则|内容长度必须小于等于[60]|
+|模块分类|默认规则|内容长度必须小于等于[60]|
+|文档正文|默认规则|内容长度必须小于等于[1048576]|
 
 ## 状态控制
 
@@ -72,11 +82,26 @@ hide members
 |Remove|内置方法|&nbsp;|
 |Get|内置方法|&nbsp;|
 |GetDraft|内置方法|&nbsp;|
+|根据版本更新正文信息|实体处理逻辑|&nbsp;|
 |CheckKey|内置方法|&nbsp;|
 |Save|内置方法|&nbsp;|
 
 ## 处理逻辑
-无
+* 根据版本更新正文信息 (ByVersionUpdateContext)
+  
+   
+
+{% plantuml %}
+hide footbox
+
+文档 -> 文档: 获取正文信息
+{% endplantuml %}
+
+| 步骤       | 操作        |
+| --------   | --------   |
+|0|开始 | 
+|1|获取正文信息 |
+<center>根据版本更新正文信息</center>
 
 ## 查询集合
 
@@ -101,6 +126,14 @@ hide members
 |所属项目(PROJECT)|EQ|
 |所属产品(PRODUCT)|EQ|
 |所属分类(MODULE)|EQ|
+|所属项目(PROJECTNAME)|EQ|
+|所属项目(PROJECTNAME)|LIKE|
+|所属产品(PRODUCTNAME)|EQ|
+|所属产品(PRODUCTNAME)|LIKE|
+|所属文档库(LIBNAME)|EQ|
+|所属文档库(LIBNAME)|LIKE|
+|模块分类(MODULENAME)|EQ|
+|模块分类(MODULENAME)|LIKE|
 
 ## 导入模式
 无

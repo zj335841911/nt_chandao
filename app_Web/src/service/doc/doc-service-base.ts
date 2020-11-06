@@ -141,6 +141,20 @@ export default class DocServiceBase extends EntityService {
     }
 
     /**
+     * ByVersionUpdateContext接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof DocServiceBase
+     */
+    public async ByVersionUpdateContext(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+            let res:any = Http.getInstance().put(`/docs/${context.doc}/byversionupdatecontext`,data,isloading);
+            return res;
+    }
+
+    /**
      * CheckKey接口方法
      *
      * @param {*} [context={}]

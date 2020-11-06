@@ -17,8 +17,8 @@ hide members
 |文档正文|CONTENT|LONGTEXT|&nbsp;|
 |文档类型|TYPE|SSCODELIST|&nbsp;|
 |文档标题|TITLE|TEXT|&nbsp;|
+|版本号|VERSION|INT|&nbsp;|
 |文档摘要|DIGEST|TEXT|&nbsp;|
-|版本号|VERSION|PICKUPDATA|&nbsp;|
 |文档|DOC|PICKUP|&nbsp;|
 
 ## 值规则
@@ -29,8 +29,8 @@ hide members
 |文档正文|默认规则|内容长度必须小于等于[65535]|
 |文档类型|默认规则|内容长度必须小于等于[10]|
 |文档标题|默认规则|内容长度必须小于等于[255]|
-|文档摘要|默认规则|内容长度必须小于等于[255]|
 |版本号|默认规则|默认规则|
+|文档摘要|默认规则|内容长度必须小于等于[255]|
 |文档|默认规则|默认规则|
 
 ## 状态控制

@@ -199,6 +199,51 @@ public class DocDTO extends DTOBase implements Serializable {
     @JsonSerialize(using = ToStringSerializer.class)
     private Long module;
 
+    /**
+     * 属性 [PROJECTNAME]
+     *
+     */
+    @JSONField(name = "projectname")
+    @JsonProperty("projectname")
+    @Size(min = 0, max = 90, message = "内容长度必须小于等于[90]")
+    private String projectname;
+
+    /**
+     * 属性 [PRODUCTNAME]
+     *
+     */
+    @JSONField(name = "productname")
+    @JsonProperty("productname")
+    @Size(min = 0, max = 90, message = "内容长度必须小于等于[90]")
+    private String productname;
+
+    /**
+     * 属性 [LIBNAME]
+     *
+     */
+    @JSONField(name = "libname")
+    @JsonProperty("libname")
+    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    private String libname;
+
+    /**
+     * 属性 [MODULENAME]
+     *
+     */
+    @JSONField(name = "modulename")
+    @JsonProperty("modulename")
+    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    private String modulename;
+
+    /**
+     * 属性 [CONTENT]
+     *
+     */
+    @JSONField(name = "content")
+    @JsonProperty("content")
+    @Size(min = 0, max = 1048576, message = "内容长度必须小于等于[1048576]")
+    private String content;
+
 
     /**
      * 设置 [GROUPS]

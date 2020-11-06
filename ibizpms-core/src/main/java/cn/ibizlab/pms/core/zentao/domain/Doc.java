@@ -185,6 +185,41 @@ public class Doc extends EntityMP implements Serializable {
     @JSONField(name = "module")
     @JsonProperty("module")
     private Long module;
+    /**
+     * 所属项目
+     */
+    @TableField(exist = false)
+    @JSONField(name = "projectname")
+    @JsonProperty("projectname")
+    private String projectname;
+    /**
+     * 所属产品
+     */
+    @TableField(exist = false)
+    @JSONField(name = "productname")
+    @JsonProperty("productname")
+    private String productname;
+    /**
+     * 所属文档库
+     */
+    @TableField(exist = false)
+    @JSONField(name = "libname")
+    @JsonProperty("libname")
+    private String libname;
+    /**
+     * 模块分类
+     */
+    @TableField(exist = false)
+    @JSONField(name = "modulename")
+    @JsonProperty("modulename")
+    private String modulename;
+    /**
+     * 文档正文
+     */
+    @TableField(exist = false)
+    @JSONField(name = "content")
+    @JsonProperty("content")
+    private String content;
 
     /**
      * 

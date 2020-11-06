@@ -33,6 +33,7 @@ public interface IDocService extends IService<Doc>{
     void removeBatch(Collection<Long> idList) ;
     Doc get(Long key) ;
     Doc getDraft(Doc et) ;
+    Doc byVersionUpdateContext(Doc et) ;
     boolean checkKey(Doc et) ;
     boolean save(Doc et) ;
     void saveBatch(List<Doc> list) ;

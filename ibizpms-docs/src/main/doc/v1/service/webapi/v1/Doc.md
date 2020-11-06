@@ -130,6 +130,25 @@ GET
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | [DocDTO](#DocDTO)：文档实体传输对象 |
 
+### 根据版本更新正文信息
+#### 访问路径
+/docs/{doc_id}/byversionupdatecontext
+
+#### 请求方法
+PUT
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | doc_id | Long | 文档主键ID |
+| 2 | docdto | [DocDTO](#DocDTO) | 文档实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [DocDTO](#DocDTO)：文档实体传输对象 |
+
 ### 检查文档
 #### 访问路径
 /docs/checkkey
@@ -244,7 +263,12 @@ POST
 | 17 | project | Long | 允许 | 所属项目 |
 | 18 | product | Long | 允许 | 所属产品 |
 | 19 | module | Long | 允许 | 所属分类 |
-| 20 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 20 | projectname | String | 允许 | 所属项目 |
+| 21 | productname | String | 允许 | 所属产品 |
+| 22 | libname | String | 允许 | 所属文档库 |
+| 23 | modulename | String | 允许 | 模块分类 |
+| 24 | content | String | 允许 | 文档正文 |
+| 25 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### DocSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
@@ -254,10 +278,18 @@ POST
 | 3 | n_project_eq | Long | 允许 | 条件字段：project<br>条件组合方式：`=` |
 | 4 | n_product_eq | Long | 允许 | 条件字段：product<br>条件组合方式：`=` |
 | 5 | n_module_eq | Long | 允许 | 条件字段：module<br>条件组合方式：`=` |
-| 6 | customcond | String | 允许 | 自定义查询条件 |
-| 7 | customparams | String | 允许 | 自定义查询参数 |
-| 8 | query | String | 允许 | 快速搜索 |
-| 9 | filter | QueryFilter | 允许 | 条件表达式<br>参照`cn.ibizlab.pms.util.filter.QueryFilter` |
-| 10 | page | int | 允许 | 当前页数<br>默认值0 |
-| 11 | size | int | 允许 | 每页显示条数<br>默认值20 |
-| 12 | sort | String | 允许 | 排序 |
+| 6 | n_projectname_eq | String | 允许 | 条件字段：projectname<br>条件组合方式：`=` |
+| 7 | n_projectname_like | String | 允许 | 条件字段：projectname<br>条件组合方式：`%like%` |
+| 8 | n_productname_eq | String | 允许 | 条件字段：productname<br>条件组合方式：`=` |
+| 9 | n_productname_like | String | 允许 | 条件字段：productname<br>条件组合方式：`%like%` |
+| 10 | n_libname_eq | String | 允许 | 条件字段：libname<br>条件组合方式：`=` |
+| 11 | n_libname_like | String | 允许 | 条件字段：libname<br>条件组合方式：`%like%` |
+| 12 | n_modulename_eq | String | 允许 | 条件字段：modulename<br>条件组合方式：`=` |
+| 13 | n_modulename_like | String | 允许 | 条件字段：modulename<br>条件组合方式：`%like%` |
+| 14 | customcond | String | 允许 | 自定义查询条件 |
+| 15 | customparams | String | 允许 | 自定义查询参数 |
+| 16 | query | String | 允许 | 快速搜索 |
+| 17 | filter | QueryFilter | 允许 | 条件表达式<br>参照`cn.ibizlab.pms.util.filter.QueryFilter` |
+| 18 | page | int | 允许 | 当前页数<br>默认值0 |
+| 19 | size | int | 允许 | 每页显示条数<br>默认值20 |
+| 20 | sort | String | 允许 | 排序 |

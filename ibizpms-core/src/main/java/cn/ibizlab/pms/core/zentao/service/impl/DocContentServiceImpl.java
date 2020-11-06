@@ -57,7 +57,6 @@ public class DocContentServiceImpl extends ServiceImpl<DocContentMapper, DocCont
     @Override
     @Transactional
     public boolean create(DocContent et) {
-        fillParentData(et);
         if(!this.retBool(this.baseMapper.insert(et)))
             return false;
         CachedBeanCopier.copy(get(et.getId()),et);
@@ -67,14 +66,12 @@ public class DocContentServiceImpl extends ServiceImpl<DocContentMapper, DocCont
     @Override
     @Transactional
     public void createBatch(List<DocContent> list) {
-        list.forEach(item->fillParentData(item));
         this.saveBatch(list,batchSize);
     }
 
     @Override
     @Transactional
     public boolean update(DocContent et) {
-        fillParentData(et);
          if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
             return false;
         CachedBeanCopier.copy(get(et.getId()),et);
@@ -84,7 +81,6 @@ public class DocContentServiceImpl extends ServiceImpl<DocContentMapper, DocCont
     @Override
     @Transactional
     public void updateBatch(List<DocContent> list) {
-        list.forEach(item->fillParentData(item));
         updateBatchById(list,batchSize);
     }
 
@@ -116,7 +112,6 @@ public class DocContentServiceImpl extends ServiceImpl<DocContentMapper, DocCont
 
     @Override
     public DocContent getDraft(DocContent et) {
-        fillParentData(et);
         return et;
     }
 
@@ -145,7 +140,6 @@ public class DocContentServiceImpl extends ServiceImpl<DocContentMapper, DocCont
     @Override
     @Transactional
     public boolean saveBatch(Collection<DocContent> list) {
-        list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
         return true;
     }
@@ -153,7 +147,6 @@ public class DocContentServiceImpl extends ServiceImpl<DocContentMapper, DocCont
     @Override
     @Transactional
     public void saveBatch(List<DocContent> list) {
-        list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
     }
 
@@ -179,22 +172,6 @@ public class DocContentServiceImpl extends ServiceImpl<DocContentMapper, DocCont
 
 
 
-    /**
-     * 为当前实体填充父数据（外键值文本、外键值附加数据）
-     * @param et
-     */
-    private void fillParentData(DocContent et){
-        //实体关系[DER1N_ZT_DOCCONTENT_ZT_DOC_DOC]
-        if(!ObjectUtils.isEmpty(et.getDoc())){
-            cn.ibizlab.pms.core.zentao.domain.Doc ztDoc=et.getZtDoc();
-            if(ObjectUtils.isEmpty(ztDoc)){
-                cn.ibizlab.pms.core.zentao.domain.Doc majorEntity=docService.get(et.getDoc());
-                et.setZtDoc(majorEntity);
-                ztDoc=majorEntity;
-            }
-            et.setVersion(ztDoc.getVersion());
-        }
-    }
 
 
 

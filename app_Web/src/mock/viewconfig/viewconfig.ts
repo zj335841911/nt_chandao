@@ -143,6 +143,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "IBZProStoryGridView",
             "viewtag": "077af636991c5ae68e1bc260baffc10f"
         },
+        "docbasiceditview9": {
+            "title": "文档编辑视图（基本信息）",
+            "caption": "基本信息",
+            "viewtype": "DEEDITVIEW9",
+            "viewmodule": "zentao",
+            "viewname": "DocBasicEditView9",
+            "viewtag": "08055fc34b36d97c0e0487b4703d363a"
+        },
         "producthtmlview": {
             "title": "iBiz软件生产管理",
             "caption": "iBiz软件生产管理",
@@ -246,6 +254,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "BugMPickupView4",
             "viewtag": "0dc54afa855dec1037987a074b6bc8a3"
+        },
+        "docmianbeditview9": {
+            "title": "文档编辑视图（正文）",
+            "caption": "正文",
+            "viewtype": "DEEDITVIEW9",
+            "viewmodule": "zentao",
+            "viewname": "DocMianBEditView9",
+            "viewtag": "0e393401d3992dd5e2d1f435cd2cf63c"
         },
         "casecasefavorite": {
             "title": "case我得收藏",
@@ -558,6 +574,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "CaseTypeEntryGridView",
             "viewtag": "2398b174d972ff2a5aebe52946ef3a53"
+        },
+        "docdashboardview": {
+            "title": "文档数据看板视图",
+            "caption": "文档",
+            "viewtype": "DEPORTALVIEW",
+            "viewmodule": "zentao",
+            "viewname": "DocDashboardView",
+            "viewtag": "23cc93d7fdddff5077a7952d26802a7b"
         },
         "storympickupview3": {
             "title": "关联需求",
@@ -1998,6 +2022,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "TestReportEditView_TestTasks",
             "viewtag": "88de710e1590f4e2c17360c3c1612308"
+        },
+        "docdocsumeditview9": {
+            "title": "文档编辑视图（文档摘要）",
+            "caption": "文档摘要",
+            "viewtype": "DEEDITVIEW9",
+            "viewmodule": "zentao",
+            "viewname": "DocDocSumEditView9",
+            "viewtag": "89c6b10a2c65ecc0a6c8ea97c7c2b25a"
         },
         "bugusr2gridview": {
             "title": "Bug表格视图",
@@ -3502,6 +3534,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "TestReportprojectDashboardView",
             "viewtag": "ea7b1f6631cb623ea079455b374ef9d4"
+        },
+        "dockeditview9": {
+            "title": "文档编辑视图（关键字）",
+            "caption": "关键字",
+            "viewtype": "DEEDITVIEW9",
+            "viewmodule": "zentao",
+            "viewname": "DocKEditView9",
+            "viewtag": "eb67eecdc733d1716683188c485f52ab"
         },
         "tododashboardview": {
             "title": "待办事宜表数据看板视图",
