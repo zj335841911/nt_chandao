@@ -119,8 +119,8 @@ export default class ReleaseUIActionBase extends EntityUIActionBase {
         this.allDeMainStateOPPrivsMap.set('terminate',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__RELEASE_TERMINATE':0,}));
     }
 
-!!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 266, column 13:
-Unexpected directive, "#else". Check if you have a valid #if-#elseif-#else or #list-#else structure.
+!!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 271, column 6:
+Unexpected end of file reached. You have an unclosed #if.
     /**
      * 创建发布
      *
@@ -172,10 +172,10 @@ Unexpected directive, "#else". Check if you have a valid #if-#elseif-#else or #l
         return response;
     }
 
-!!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 266, column 13:
-Unexpected directive, "#else". Check if you have a valid #if-#elseif-#else or #list-#else structure.
-!!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 266, column 13:
-Unexpected directive, "#else". Check if you have a valid #if-#elseif-#else or #list-#else structure.
+!!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 271, column 6:
+Unexpected end of file reached. You have an unclosed #if.
+!!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 271, column 6:
+Unexpected end of file reached. You have an unclosed #if.
     /**
      * 编辑
      *

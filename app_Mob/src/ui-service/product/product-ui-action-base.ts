@@ -171,10 +171,10 @@ export default class ProductUIActionBase extends EntityUIActionBase {
         return response;
     }
 
-!!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 266, column 13:
-Unexpected directive, "#else". Check if you have a valid #if-#elseif-#else or #list-#else structure.
-!!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 266, column 13:
-Unexpected directive, "#else". Check if you have a valid #if-#elseif-#else or #list-#else structure.
+!!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 271, column 6:
+Unexpected end of file reached. You have an unclosed #if.
+!!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 271, column 6:
+Unexpected end of file reached. You have an unclosed #if.
     /**
      * 关闭
      *
@@ -224,8 +224,8 @@ Unexpected directive, "#else". Check if you have a valid #if-#elseif-#else or #l
         return response;
     }
 
-!!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 266, column 13:
-Unexpected directive, "#else". Check if you have a valid #if-#elseif-#else or #list-#else structure.
+!!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 271, column 6:
+Unexpected end of file reached. You have an unclosed #if.
     /**
      * 新建
      *

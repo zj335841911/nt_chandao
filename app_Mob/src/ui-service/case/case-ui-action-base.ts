@@ -252,10 +252,10 @@ export default class CaseUIActionBase extends EntityUIActionBase {
         this.allDeMainStateOPPrivsMap.set('wait__pass__1',Object.assign({'CASECOF':1,'CASERESULT':1,'CASERUN':1,'CASETOBUG':1,'CONFIRM':1,'CREATE':1,'DELETE':1,'EDIT':1,'READ':1,'RESULT':1,'RUN':1,'TOBUG':1,'UNLINK':1,'UPDATE':1},{'SRFUR__CASE_TOBUG_BUT':0,'SRFUR__CASE_CONFIRM_BUT':0,'SRFUR__CASE_NFAVOR_BUT':0,'SRFUR__CASE_CASECOF_BUT':0,}));
     }
 
-!!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 266, column 13:
-Unexpected directive, "#else". Check if you have a valid #if-#elseif-#else or #list-#else structure.
-!!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 266, column 13:
-Unexpected directive, "#else". Check if you have a valid #if-#elseif-#else or #list-#else structure.
+!!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 271, column 6:
+Unexpected end of file reached. You have an unclosed #if.
+!!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 271, column 6:
+Unexpected end of file reached. You have an unclosed #if.
 
     /**
      * 获取指定数据的重定向页面

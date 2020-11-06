@@ -121,10 +121,10 @@ export default class TodoUIActionBase extends EntityUIActionBase {
         this.allDeMainStateOPPrivsMap.set('wait',Object.assign({'ACTIVATE':0,'ASSIGNTO':0,'CLOSE':0,'CREATE':0,'DELETE':0,'FINISH':0,'READ':0,'TOBUG':0,'TOTASK':0,'UPDATE':0},{'FINISH':1,'TOBUG':1,'DELETE':1,'UPDATE':1,'ASSIGNTO':1,'TOTASK':1,}));
     }
 
-!!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 266, column 13:
-Unexpected directive, "#else". Check if you have a valid #if-#elseif-#else or #list-#else structure.
-!!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 266, column 13:
-Unexpected directive, "#else". Check if you have a valid #if-#elseif-#else or #list-#else structure.
+!!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 271, column 6:
+Unexpected end of file reached. You have an unclosed #if.
+!!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 271, column 6:
+Unexpected end of file reached. You have an unclosed #if.
     /**
      * 新建
      *
@@ -171,8 +171,8 @@ Unexpected directive, "#else". Check if you have a valid #if-#elseif-#else or #l
         return response;
     }
 
-!!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 266, column 13:
-Unexpected directive, "#else". Check if you have a valid #if-#elseif-#else or #list-#else structure.
+!!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 271, column 6:
+Unexpected end of file reached. You have an unclosed #if.
     /**
      * 指派
      *
@@ -266,8 +266,8 @@ Unexpected directive, "#else". Check if you have a valid #if-#elseif-#else or #l
         return response;
     }
 
-!!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 266, column 13:
-Unexpected directive, "#else". Check if you have a valid #if-#elseif-#else or #list-#else structure.
+!!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 271, column 6:
+Unexpected end of file reached. You have an unclosed #if.
 
     /**
      * 获取指定数据的重定向页面

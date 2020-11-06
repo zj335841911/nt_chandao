@@ -241,8 +241,8 @@ export default class TaskUIActionBase extends EntityUIActionBase {
         this.allDeMainStateOPPrivsMap.set('wait__1__40',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TASK_ACTIVATION_BUT':0,'SRFUR__TASK_SUBTASKS_BUT':0,'SRFUR__TASK_XQCHANGE_BUT':0,'SRFUR__TASK_PAUSE_BUT':0,'SRFUR__TASK_PROCEED_BUT':0,'SRFUR__TASK_NFAVOR_BUT':0,'SRFUR__TASK_FORWARD_BUT':0,'SRFUR__TASK_CLOSE_BUT':0,}));
     }
 
-!!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 266, column 13:
-Unexpected directive, "#else". Check if you have a valid #if-#elseif-#else or #list-#else structure.
+!!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 271, column 6:
+Unexpected end of file reached. You have an unclosed #if.
     /**
      * 工时
      *
@@ -303,10 +303,10 @@ Unexpected directive, "#else". Check if you have a valid #if-#elseif-#else or #l
         return response;
     }
 
-!!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 266, column 13:
-Unexpected directive, "#else". Check if you have a valid #if-#elseif-#else or #list-#else structure.
-!!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 266, column 13:
-Unexpected directive, "#else". Check if you have a valid #if-#elseif-#else or #list-#else structure.
+!!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 271, column 6:
+Unexpected end of file reached. You have an unclosed #if.
+!!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 271, column 6:
+Unexpected end of file reached. You have an unclosed #if.
     /**
      * 更多
      *
@@ -429,8 +429,8 @@ Unexpected directive, "#else". Check if you have a valid #if-#elseif-#else or #l
         return response;
     }
 
-!!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 266, column 13:
-Unexpected directive, "#else". Check if you have a valid #if-#elseif-#else or #list-#else structure.
+!!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 271, column 6:
+Unexpected end of file reached. You have an unclosed #if.
     /**
      * 完成
      *
@@ -496,12 +496,12 @@ Unexpected directive, "#else". Check if you have a valid #if-#elseif-#else or #l
         return response;
     }
 
-!!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 266, column 13:
-Unexpected directive, "#else". Check if you have a valid #if-#elseif-#else or #list-#else structure.
-!!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 266, column 13:
-Unexpected directive, "#else". Check if you have a valid #if-#elseif-#else or #list-#else structure.
-!!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 266, column 13:
-Unexpected directive, "#else". Check if you have a valid #if-#elseif-#else or #list-#else structure.
+!!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 271, column 6:
+Unexpected end of file reached. You have an unclosed #if.
+!!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 271, column 6:
+Unexpected end of file reached. You have an unclosed #if.
+!!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 271, column 6:
+Unexpected end of file reached. You have an unclosed #if.
     /**
      * 开始
      *
@@ -562,8 +562,8 @@ Unexpected directive, "#else". Check if you have a valid #if-#elseif-#else or #l
         return response;
     }
 
-!!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 266, column 13:
-Unexpected directive, "#else". Check if you have a valid #if-#elseif-#else or #list-#else structure.
+!!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 271, column 6:
+Unexpected end of file reached. You have an unclosed #if.
     /**
      * 激活
      *
@@ -754,8 +754,8 @@ Unexpected directive, "#else". Check if you have a valid #if-#elseif-#else or #l
         return response;
     }
 
-!!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 266, column 13:
-Unexpected directive, "#else". Check if you have a valid #if-#elseif-#else or #list-#else structure.
+!!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 271, column 6:
+Unexpected end of file reached. You have an unclosed #if.
     /**
      * 指派
      *
