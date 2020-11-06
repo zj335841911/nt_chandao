@@ -812,14 +812,6 @@ export default class StoryUIActionBase extends EntityUIActionBase {
         return response;
     }
 
-!!!!模版产生代码错误:----
-Tip: If the parameter value expression on the caller side is known to be legally null/missing, you may want to specify a default value for it with the "!" operator, like paramValue!defaultValue.
-----
-
-----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: @outPutViewInfo dataview  [in template "TEMPLCODE_en_US" at line 237, column 13]
-----
     /**
      * 删除
      *

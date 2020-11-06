@@ -5593,39 +5593,6 @@ const router = new Router({
                     component: () => import('@pages/zentao/bug-new-mob-edit-view/bug-new-mob-edit-view.vue'),
                 },
                 {
-                    path: 'products/:product?/stories/:story?/linkstorymobmpickupview',
-                    name: 'story_linkstorymobmpickupview',
-                    meta: {
-                        caption: 'story.views.linkstorymobmpickupview.caption',
-                        imgPath: '',
-                        iconCls: 'fa fa-star-o',
-                        parameters: [
-                            { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'products', parameterName: 'product' },
-                            { pathName: 'stories', parameterName: 'story' },
-                            { pathName: 'linkstorymobmpickupview', parameterName: 'linkstorymobmpickupview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/story-link-story-mob-mpickup-view/story-link-story-mob-mpickup-view.vue'),
-                },
-                {
-                    path: 'stories/:story?/linkstorymobmpickupview',
-                    name: 'story_linkstorymobmpickupview',
-                    meta: {
-                        caption: 'story.views.linkstorymobmpickupview.caption',
-                        imgPath: '',
-                        iconCls: 'fa fa-star-o',
-                        parameters: [
-                            { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'stories', parameterName: 'story' },
-                            { pathName: 'linkstorymobmpickupview', parameterName: 'linkstorymobmpickupview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/story-link-story-mob-mpickup-view/story-link-story-mob-mpickup-view.vue'),
-                },
-                {
                     path: 'products/:product?/stories/:story?/usr2mobmdview_5219',
                     name: 'story_usr2mobmdview_5219',
                     meta: {
@@ -5885,39 +5852,6 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/ibiz/project-activite-mob-edit-view/project-activite-mob-edit-view.vue'),
-                },
-                {
-                    path: 'products/:product?/stories/:story?/linkstorymobpickupmdview',
-                    name: 'story_linkstorymobpickupmdview',
-                    meta: {
-                        caption: 'story.views.linkstorymobpickupmdview.caption',
-                        imgPath: '',
-                        iconCls: 'fa fa-star-o',
-                        parameters: [
-                            { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'products', parameterName: 'product' },
-                            { pathName: 'stories', parameterName: 'story' },
-                            { pathName: 'linkstorymobpickupmdview', parameterName: 'linkstorymobpickupmdview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/story-link-story-mob-pickup-mdview/story-link-story-mob-pickup-mdview.vue'),
-                },
-                {
-                    path: 'stories/:story?/linkstorymobpickupmdview',
-                    name: 'story_linkstorymobpickupmdview',
-                    meta: {
-                        caption: 'story.views.linkstorymobpickupmdview.caption',
-                        imgPath: '',
-                        iconCls: 'fa fa-star-o',
-                        parameters: [
-                            { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'stories', parameterName: 'story' },
-                            { pathName: 'linkstorymobpickupmdview', parameterName: 'linkstorymobpickupmdview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/story-link-story-mob-pickup-mdview/story-link-story-mob-pickup-mdview.vue'),
                 },
                 {
                     path: 'products/:product?/stories/:story?/tasks/:task?/ibztaskteams/:ibztaskteam?/mobmeditview9',

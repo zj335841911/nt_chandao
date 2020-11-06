@@ -37,19 +37,6 @@
         </view_mdctrl>
     </ion-content>
     <ion-footer class="view-footer">
-                <div v-show="!isChoose" class = "fab_container">
-            <div class="scroll_tool">
-                <div class="scrollToTop" @click="onScrollToTop" v-show="isShouleBackTop" :style="{right:isScrollStop?'-18px':'-70px'}" > <van-icon name="back-top" /></div> 
-            </div>
-                <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1.disabled}" v-show="righttoolbarModels.deuiaction1.visabled">
-                <ion-button :disabled="righttoolbarModels.deuiaction1.disabled" @click="righttoolbar_click({ tag: 'deuiaction1' }, $event)" size="large">
-                    <ion-icon name="link"></ion-icon>
-                
-                </ion-button>
-                
-            </div>
-        
-        </div>
         
     </ion-footer>
 </ion-page>
@@ -290,54 +277,9 @@ export default class StoryUsr2MobMDView_5219Base extends Vue {
     * @memberof StoryUsr2MobMDView_5219
     */
     public righttoolbarModels: any = {
-            deuiaction1: { name: 'deuiaction1', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'MobProductLinkStory', target: 'NONE' } },
+            deuiaction1: { name: 'deuiaction1', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_CREATE_BUT', uiaction: { tag: 'MobCreate', target: 'NONE' } },
 
     };
-
-    /**
-     * 工具栏显示状态
-     *
-     * @type {boolean}
-     * @memberof StoryUsr2MobMDView_5219 
-     */
-    public righttoolbarShowState: boolean = false;
-
-    /**
-     * 工具栏权限
-     *
-     * @type {boolean}
-     * @memberof StoryUsr2MobMDView_5219 
-     */
-    get getToolBarLimit() {
-        let toolBarVisable:boolean = false;
-        if(this.righttoolbarModels){
-            Object.keys(this.righttoolbarModels).forEach((tbitem:any)=>{
-                if(this.righttoolbarModels[tbitem].type !== 'ITEMS' && this.righttoolbarModels[tbitem].visabled === true){
-                    toolBarVisable = true;
-                    return;
-                }
-            })
-        }
-        return toolBarVisable;
-    }
-
-    /**
-     * 工具栏分组是否显示的条件
-     *
-     * @type {boolean}
-     * @memberof StoryUsr2MobMDView_5219 
-     */
-    public showGrop = false;
-
-    /**
-     * 工具栏分组是否显示的方法
-     *
-     * @type {boolean}
-     * @memberof StoryUsr2MobMDView_5219 
-     */
-    public popUpGroup (falg:boolean = false) {
-        this.showGrop = falg;
-    }
 
     
 
@@ -444,7 +386,6 @@ export default class StoryUsr2MobMDView_5219Base extends Vue {
      * @memberof StoryUsr2MobMDView_5219Base
      */
     public activated() {
-        this.popUpGroup();
         this.thirdPartyInit();
     }
 
@@ -598,7 +539,7 @@ export default class StoryUsr2MobMDView_5219Base extends Vue {
         // 界面行为
         const curUIService: any = await this.globaluiservice.getService('story_ui_action');
         if (curUIService) {
-            curUIService.Story_MobProductLinkStory(datas, contextJO, paramJO, $event, xData, this);
+            curUIService.Story_MobCreate(datas, contextJO, paramJO, $event, xData, this);
         }
     }
 

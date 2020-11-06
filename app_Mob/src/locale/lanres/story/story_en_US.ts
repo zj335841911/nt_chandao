@@ -396,7 +396,7 @@ export default {
 	},
 	usr2mobmdview_5219righttoolbar_toolbar: {
 		deuiaction1: {
-			caption: '关联需求',
+			caption: '新建需求',
 			tip: 'deuiaction1',
 		},
 	},
