@@ -72,10 +72,6 @@ export default {
 		},
 	},
 	gridviewtoolbar_toolbar: {
-		tbitem13: {
-			caption: "Export",
-			tip: "Export {0} Data To Excel",
-		},
 	},
 	editviewtoolbar_toolbar: {
 		tbitem3: {

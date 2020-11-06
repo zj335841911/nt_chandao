@@ -56,8 +56,11 @@ export default {
 			addeddate: "添加时间",
 			editedby: "由谁更新",
 			editeddate: "更新时间",
+			uagridcolumn1: "操作",
 		},
 		uiactions: {
+			doc_edit: "编辑",
+			doc_delete: "删除",
 		},
 	},
 	default_searchform: {

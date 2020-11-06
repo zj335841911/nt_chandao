@@ -72,10 +72,6 @@ export default {
 		},
 	},
 	gridviewtoolbar_toolbar: {
-		tbitem13: {
-			caption: "导出",
-			tip: "导出",
-		},
 	},
 	editviewtoolbar_toolbar: {
 		tbitem3: {

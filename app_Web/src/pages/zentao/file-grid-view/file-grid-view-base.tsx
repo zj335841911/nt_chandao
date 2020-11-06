@@ -114,8 +114,6 @@ export class FileGridViewBase extends GridViewBase {
      * @memberof FileGridView
      */
     public toolBarModels: any = {
-        tbitem13: { name: 'tbitem13', caption: '导出', 'isShowCaption': true, 'isShowIcon': true, tooltip: '导出', iconcls: 'fa fa-file-excel-o', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ExportExcel', target: '' }, MaxRowCount: 1000, class: '' },
-
     };
 
 
@@ -166,12 +164,6 @@ export class FileGridViewBase extends GridViewBase {
     public engineInit(): void {
         this.engine.init({
             view: this,
-            opendata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.opendata(args,fullargs, params, $event, xData);
-            },
-            newdata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.newdata(args,fullargs, params, $event, xData);
-            },
             grid: this.$refs.grid,
             searchform: this.$refs.searchform,
             keyPSDEField: 'file',
@@ -310,38 +302,6 @@ export class FileGridViewBase extends GridViewBase {
     }
 
     /**
-     * 打开新建数据视图
-     *
-     * @param {any[]} args
-     * @param {*} [params]
-     * @param {*} [fullargs]
-     * @param {*} [$event]
-     * @param {*} [xData]
-     * @memberof FileGridView
-     */
-    public newdata(args: any[],fullargs?:any[], params?: any, $event?: any, xData?: any) {
-        let localContext:any = null;
-        let localViewParam:any =null;
-    this.$Notice.warning({ title: '错误', desc: '未指定关系视图' });
-    }
-
-
-    /**
-     * 打开编辑数据视图
-     *
-     * @param {any[]} args
-     * @param {*} [params]
-     * @param {*} [fullargs]
-     * @param {*} [$event]
-     * @param {*} [xData]
-     * @memberof FileGridView
-     */
-    public opendata(args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) {
-    this.$Notice.warning({ title: '错误', desc: '未指定关系视图' });
-    }
-
-
-    /**
      * 导出
      *
      * @param {any[]} args 当前数据
@@ -359,4 +319,16 @@ export class FileGridViewBase extends GridViewBase {
         }
         xData.exportExcel($event.exportparms);
     }
+
+    /**
+     * 表格行数据默认激活模式
+     * 0 不激活
+     * 1 单击激活
+     * 2 双击激活
+     *
+     * @protected
+     * @type {(0 | 1 | 2)}
+     * @memberof FileGridViewBase
+     */
+    protected gridRowActiveMode: 0 | 1 | 2 = 0;
 }
