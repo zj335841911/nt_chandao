@@ -720,7 +720,13 @@ export default class TestSuiteMobMDViewBase extends Vue {
         let panelNavContext = { } ;
         //导航参数处理
         const { context: _context, param: _params } = this.$viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
-        const deResParameters: any[] = [];
+        let deResParameters: any[] = [];
+        if (context.product && true) {
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            ]
+        }
+
         const parameters: any[] = [
             { pathName: 'testsuites', parameterName: 'testsuite' },
             { pathName: 'mobeditview', parameterName: 'mobeditview' },
@@ -763,7 +769,13 @@ export default class TestSuiteMobMDViewBase extends Vue {
         let panelNavContext = { } ;
         //导航参数处理
         const { context: _context, param: _params } = this.$viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
-        const deResParameters: any[] = [];
+        let deResParameters: any[] = [];
+        if (context.product && true) {
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            ]
+        }
+
         const parameters: any[] = [
             { pathName: 'testsuites', parameterName: 'testsuite' },
             { pathName: 'mobtabexpview', parameterName: 'mobtabexpview' },

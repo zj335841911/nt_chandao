@@ -275,6 +275,293 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | Page<[TestSuiteDTO](#TestSuiteDTO)>：测试套件实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
 
+### 根据建立测试套件
+#### 访问路径
+/products/{product_id}/testsuites
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |
+| 2 | testsuitedto | [TestSuiteDTO](#TestSuiteDTO) | 测试套件实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [TestSuiteDTO](#TestSuiteDTO)：测试套件实体传输对象 |
+
+### 根据批量建立测试套件
+#### 访问路径
+/products/{product_id}/testsuites/batch
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |
+| 2 | testsuitedtos | List<[TestSuiteDTO](#TestSuiteDTO)> | 测试套件实体传输对象列表 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | true：处理成功。false：处理失败。 |
+
+### 根据更新测试套件
+#### 访问路径
+/products/{product_id}/testsuites/{testsuite_id}
+
+#### 请求方法
+PUT
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |
+| 2 | testsuite_id | Long | 测试套件主键ID |
+| 3 | testsuitedto | [TestSuiteDTO](#TestSuiteDTO) | 测试套件实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [TestSuiteDTO](#TestSuiteDTO)：测试套件实体传输对象 |
+
+### 根据批量更新测试套件
+#### 访问路径
+/products/{product_id}/testsuites/batch
+
+#### 请求方法
+PUT
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |
+| 2 | testsuitedtos | List<[TestSuiteDTO](#TestSuiteDTO)> | 测试套件实体传输对象列表 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | true：处理成功。false：处理失败。 |
+
+### 根据删除测试套件
+#### 访问路径
+/products/{product_id}/testsuites/{testsuite_id}
+
+#### 请求方法
+DELETE
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |
+| 2 | testsuite_id | Long | 测试套件主键ID |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | true：处理成功。false：处理失败。 |
+
+### 根据批量删除测试套件
+#### 访问路径
+/products/{product_id}/testsuites/batch
+
+#### 请求方法
+DELETE
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |
+| 2 | ids | List<Long> | 测试套件主键ID列表 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | true：处理成功。false：处理失败。 |
+
+### 根据获取测试套件
+#### 访问路径
+/products/{product_id}/testsuites/{testsuite_id}
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |
+| 2 | testsuite_id | Long | 测试套件主键ID |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [TestSuiteDTO](#TestSuiteDTO)：测试套件实体传输对象 |
+
+### 根据检查测试套件
+#### 访问路径
+/products/{product_id}/testsuites/checkkey
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |
+| 2 | testsuitedto | [TestSuiteDTO](#TestSuiteDTO) | 测试套件实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | true：处理成功。false：处理失败。 |
+
+### 移动端测试套件计数器
+#### 访问路径
+/products/{product_id}/testsuites/{testsuite_id}/mobtestsuitecount
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |
+| 2 | testsuite_id | Long | 测试套件主键ID |
+| 3 | testsuitedto | [TestSuiteDTO](#TestSuiteDTO) | 测试套件实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [TestSuiteDTO](#TestSuiteDTO)：测试套件实体传输对象 |
+
+### 根据保存测试套件
+#### 访问路径
+/products/{product_id}/testsuites/save
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |
+| 2 | testsuitedto | [TestSuiteDTO](#TestSuiteDTO) | 测试套件实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | true：处理成功。false：处理失败。 |
+
+### 根据批量保存测试套件
+#### 访问路径
+/products/{product_id}/testsuites/savebatch
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |
+| 2 | testsuitedtos | List<[TestSuiteDTO](#TestSuiteDTO)> | 测试套件实体传输对象列表 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | true：处理成功。false：处理失败。 |
+
+### 根据获取DEFAULT
+#### 访问路径
+/products/{product_id}/testsuites/fetchdefault
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |
+| 2 | context | [TestSuiteSearchContext](#TestSuiteSearchContext) | 测试套件查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[TestSuiteDTO](#TestSuiteDTO)>：测试套件实体传输对象列表 |
+
+### 根据查询DEFAULT
+#### 访问路径
+/products/{product_id}/testsuites/searchdefault
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |
+| 2 | context | [TestSuiteSearchContext](#TestSuiteSearchContext) | 测试套件查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[TestSuiteDTO](#TestSuiteDTO)>：测试套件实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 根据获取公开套件
+#### 访问路径
+/products/{product_id}/testsuites/fetchpublictestsuite
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |
+| 2 | context | [TestSuiteSearchContext](#TestSuiteSearchContext) | 测试套件查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[TestSuiteDTO](#TestSuiteDTO)>：测试套件实体传输对象列表 |
+
+### 根据查询公开套件
+#### 访问路径
+/products/{product_id}/testsuites/searchpublictestsuite
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |
+| 2 | context | [TestSuiteSearchContext](#TestSuiteSearchContext) | 测试套件查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[TestSuiteDTO](#TestSuiteDTO)>：测试套件实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
 ## 附录
 ### 数据类型说明
 #### TestSuiteDTO

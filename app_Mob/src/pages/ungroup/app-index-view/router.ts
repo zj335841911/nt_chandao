@@ -909,6 +909,23 @@ const router = new Router({
                     component: () => import('@pages/ibiz/case-mob-edit-view/case-mob-edit-view.vue'),
                 },
                 {
+                    path: 'products/:product?/testsuites/:testsuite?/mobtabexpview',
+                    name: 'testsuite_mobtabexpview',
+                    meta: {
+                        caption: 'testsuite.views.mobtabexpview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-suitcase',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'testsuites', parameterName: 'testsuite' },
+                            { pathName: 'mobtabexpview', parameterName: 'mobtabexpview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/test-suite-mob-tab-exp-view/test-suite-mob-tab-exp-view.vue'),
+                },
+                {
                     path: 'testsuites/:testsuite?/mobtabexpview',
                     name: 'testsuite_mobtabexpview',
                     meta: {
@@ -3891,6 +3908,23 @@ const router = new Router({
                     component: () => import('@pages/ibiz/project-module-mob-pickup-mdview/project-module-mob-pickup-mdview.vue'),
                 },
                 {
+                    path: 'products/:product?/testsuites/:testsuite?/newmobeditview',
+                    name: 'testsuite_newmobeditview',
+                    meta: {
+                        caption: 'testsuite.views.newmobeditview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-suitcase',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'testsuites', parameterName: 'testsuite' },
+                            { pathName: 'newmobeditview', parameterName: 'newmobeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/test-suite-new-mob-edit-view/test-suite-new-mob-edit-view.vue'),
+                },
+                {
                     path: 'testsuites/:testsuite?/newmobeditview',
                     name: 'testsuite_newmobeditview',
                     meta: {
@@ -5234,6 +5268,23 @@ const router = new Router({
                     component: () => import('@pages/ibiz/sys-update-features-ymob-mdview9/sys-update-features-ymob-mdview9.vue'),
                 },
                 {
+                    path: 'products/:product?/testsuites/:testsuite?/mobmdview',
+                    name: 'testsuite_mobmdview',
+                    meta: {
+                        caption: 'testsuite.views.mobmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-suitcase',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'testsuites', parameterName: 'testsuite' },
+                            { pathName: 'mobmdview', parameterName: 'mobmdview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/test-suite-mob-mdview/test-suite-mob-mdview.vue'),
+                },
+                {
                     path: 'testsuites/:testsuite?/mobmdview',
                     name: 'testsuite_mobmdview',
                     meta: {
@@ -6188,6 +6239,23 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/ibiz/release-mob-edit-view/release-mob-edit-view.vue'),
+                },
+                {
+                    path: 'products/:product?/testsuites/:testsuite?/mobeditview',
+                    name: 'testsuite_mobeditview',
+                    meta: {
+                        caption: 'testsuite.views.mobeditview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-suitcase',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'testsuites', parameterName: 'testsuite' },
+                            { pathName: 'mobeditview', parameterName: 'mobeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/test-suite-mob-edit-view/test-suite-mob-edit-view.vue'),
                 },
                 {
                     path: 'testsuites/:testsuite?/mobeditview',

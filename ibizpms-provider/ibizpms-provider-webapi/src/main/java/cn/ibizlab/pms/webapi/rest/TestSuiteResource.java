@@ -192,5 +192,169 @@ public class TestSuiteResource {
 	}
 
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestSuite-Create-all')")
+    @ApiOperation(value = "根据产品建立测试套件", tags = {"测试套件" },  notes = "根据产品建立测试套件")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/testsuites")
+    public ResponseEntity<TestSuiteDTO> createByProduct(@PathVariable("product_id") Long product_id, @RequestBody TestSuiteDTO testsuitedto) {
+        TestSuite domain = testsuiteMapping.toDomain(testsuitedto);
+        domain.setProduct(product_id);
+		testsuiteService.create(domain);
+        TestSuiteDTO dto = testsuiteMapping.toDto(domain);
+		return ResponseEntity.status(HttpStatus.OK).body(dto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestSuite-Create-all')")
+    @ApiOperation(value = "根据产品批量建立测试套件", tags = {"测试套件" },  notes = "根据产品批量建立测试套件")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/testsuites/batch")
+    public ResponseEntity<Boolean> createBatchByProduct(@PathVariable("product_id") Long product_id, @RequestBody List<TestSuiteDTO> testsuitedtos) {
+        List<TestSuite> domainlist=testsuiteMapping.toDomain(testsuitedtos);
+        for(TestSuite domain:domainlist){
+            domain.setProduct(product_id);
+        }
+        testsuiteService.createBatch(domainlist);
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @VersionCheck(entity = "testsuite" , versionfield = "lastediteddate")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestSuite-Update-all')")
+    @ApiOperation(value = "根据产品更新测试套件", tags = {"测试套件" },  notes = "根据产品更新测试套件")
+	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/testsuites/{testsuite_id}")
+    public ResponseEntity<TestSuiteDTO> updateByProduct(@PathVariable("product_id") Long product_id, @PathVariable("testsuite_id") Long testsuite_id, @RequestBody TestSuiteDTO testsuitedto) {
+        TestSuite domain = testsuiteMapping.toDomain(testsuitedto);
+        domain.setProduct(product_id);
+        domain.setId(testsuite_id);
+		testsuiteService.update(domain);
+        TestSuiteDTO dto = testsuiteMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(dto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestSuite-Update-all')")
+    @ApiOperation(value = "根据产品批量更新测试套件", tags = {"测试套件" },  notes = "根据产品批量更新测试套件")
+	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/testsuites/batch")
+    public ResponseEntity<Boolean> updateBatchByProduct(@PathVariable("product_id") Long product_id, @RequestBody List<TestSuiteDTO> testsuitedtos) {
+        List<TestSuite> domainlist=testsuiteMapping.toDomain(testsuitedtos);
+        for(TestSuite domain:domainlist){
+            domain.setProduct(product_id);
+        }
+        testsuiteService.updateBatch(domainlist);
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestSuite-Remove-all')")
+    @ApiOperation(value = "根据产品删除测试套件", tags = {"测试套件" },  notes = "根据产品删除测试套件")
+	@RequestMapping(method = RequestMethod.DELETE, value = "/products/{product_id}/testsuites/{testsuite_id}")
+    public ResponseEntity<Boolean> removeByProduct(@PathVariable("product_id") Long product_id, @PathVariable("testsuite_id") Long testsuite_id) {
+		return ResponseEntity.status(HttpStatus.OK).body(testsuiteService.remove(testsuite_id));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestSuite-Remove-all')")
+    @ApiOperation(value = "根据产品批量删除测试套件", tags = {"测试套件" },  notes = "根据产品批量删除测试套件")
+	@RequestMapping(method = RequestMethod.DELETE, value = "/products/{product_id}/testsuites/batch")
+    public ResponseEntity<Boolean> removeBatchByProduct(@RequestBody List<Long> ids) {
+        testsuiteService.removeBatch(ids);
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestSuite-Get-all')")
+    @ApiOperation(value = "根据产品获取测试套件", tags = {"测试套件" },  notes = "根据产品获取测试套件")
+	@RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}/testsuites/{testsuite_id}")
+    public ResponseEntity<TestSuiteDTO> getByProduct(@PathVariable("product_id") Long product_id, @PathVariable("testsuite_id") Long testsuite_id) {
+        TestSuite domain = testsuiteService.get(testsuite_id);
+        TestSuiteDTO dto = testsuiteMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(dto);
+    }
+
+    @ApiOperation(value = "根据产品获取测试套件草稿", tags = {"测试套件" },  notes = "根据产品获取测试套件草稿")
+    @RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}/testsuites/getdraft")
+    public ResponseEntity<TestSuiteDTO> getDraftByProduct(@PathVariable("product_id") Long product_id) {
+        TestSuite domain = new TestSuite();
+        domain.setProduct(product_id);
+        return ResponseEntity.status(HttpStatus.OK).body(testsuiteMapping.toDto(testsuiteService.getDraft(domain)));
+    }
+
+    @ApiOperation(value = "根据产品检查测试套件", tags = {"测试套件" },  notes = "根据产品检查测试套件")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/testsuites/checkkey")
+    public ResponseEntity<Boolean> checkKeyByProduct(@PathVariable("product_id") Long product_id, @RequestBody TestSuiteDTO testsuitedto) {
+        return  ResponseEntity.status(HttpStatus.OK).body(testsuiteService.checkKey(testsuiteMapping.toDomain(testsuitedto)));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestSuite-MobTestSuiteCount-all')")
+    @ApiOperation(value = "根据产品测试套件", tags = {"测试套件" },  notes = "根据产品测试套件")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/testsuites/{testsuite_id}/mobtestsuitecount")
+    public ResponseEntity<TestSuiteDTO> mobTestSuiteCountByProduct(@PathVariable("product_id") Long product_id, @PathVariable("testsuite_id") Long testsuite_id, @RequestBody TestSuiteDTO testsuitedto) {
+        TestSuite domain = testsuiteMapping.toDomain(testsuitedto);
+        domain.setProduct(product_id);
+        domain = testsuiteService.mobTestSuiteCount(domain) ;
+        testsuitedto = testsuiteMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(testsuitedto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestSuite-Save-all')")
+    @ApiOperation(value = "根据产品保存测试套件", tags = {"测试套件" },  notes = "根据产品保存测试套件")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/testsuites/save")
+    public ResponseEntity<Boolean> saveByProduct(@PathVariable("product_id") Long product_id, @RequestBody TestSuiteDTO testsuitedto) {
+        TestSuite domain = testsuiteMapping.toDomain(testsuitedto);
+        domain.setProduct(product_id);
+        return ResponseEntity.status(HttpStatus.OK).body(testsuiteService.save(domain));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestSuite-Save-all')")
+    @ApiOperation(value = "根据产品批量保存测试套件", tags = {"测试套件" },  notes = "根据产品批量保存测试套件")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/testsuites/savebatch")
+    public ResponseEntity<Boolean> saveBatchByProduct(@PathVariable("product_id") Long product_id, @RequestBody List<TestSuiteDTO> testsuitedtos) {
+        List<TestSuite> domainlist=testsuiteMapping.toDomain(testsuitedtos);
+        for(TestSuite domain:domainlist){
+             domain.setProduct(product_id);
+        }
+        testsuiteService.saveBatch(domainlist);
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestSuite-searchDefault-all')")
+	@ApiOperation(value = "根据产品获取DEFAULT", tags = {"测试套件" } ,notes = "根据产品获取DEFAULT")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/testsuites/fetchdefault")
+	public ResponseEntity<List<TestSuiteDTO>> fetchTestSuiteDefaultByProduct(@PathVariable("product_id") Long product_id,TestSuiteSearchContext context) {
+        context.setN_product_eq(product_id);
+        Page<TestSuite> domains = testsuiteService.searchDefault(context) ;
+        List<TestSuiteDTO> list = testsuiteMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestSuite-searchDefault-all')")
+	@ApiOperation(value = "根据产品查询DEFAULT", tags = {"测试套件" } ,notes = "根据产品查询DEFAULT")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/testsuites/searchdefault")
+	public ResponseEntity<Page<TestSuiteDTO>> searchTestSuiteDefaultByProduct(@PathVariable("product_id") Long product_id, @RequestBody TestSuiteSearchContext context) {
+        context.setN_product_eq(product_id);
+        Page<TestSuite> domains = testsuiteService.searchDefault(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(testsuiteMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestSuite-searchPublicTestSuite-all')")
+	@ApiOperation(value = "根据产品获取公开套件", tags = {"测试套件" } ,notes = "根据产品获取公开套件")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/testsuites/fetchpublictestsuite")
+	public ResponseEntity<List<TestSuiteDTO>> fetchTestSuitePublicTestSuiteByProduct(@PathVariable("product_id") Long product_id,TestSuiteSearchContext context) {
+        context.setN_product_eq(product_id);
+        Page<TestSuite> domains = testsuiteService.searchPublicTestSuite(context) ;
+        List<TestSuiteDTO> list = testsuiteMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestSuite-searchPublicTestSuite-all')")
+	@ApiOperation(value = "根据产品查询公开套件", tags = {"测试套件" } ,notes = "根据产品查询公开套件")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/testsuites/searchpublictestsuite")
+	public ResponseEntity<Page<TestSuiteDTO>> searchTestSuitePublicTestSuiteByProduct(@PathVariable("product_id") Long product_id, @RequestBody TestSuiteSearchContext context) {
+        context.setN_product_eq(product_id);
+        Page<TestSuite> domains = testsuiteService.searchPublicTestSuite(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(testsuiteMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
 }
 
