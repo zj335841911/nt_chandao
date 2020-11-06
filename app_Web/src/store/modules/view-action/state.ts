@@ -579,6 +579,21 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '23cc93d7fdddff5077a7952d26802a7b',
+            viewmodule: 'zentao',
+            viewname: 'DocDashboardView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '89c6b10a2c65ecc0a6c8ea97c7c2b25a',
+                '0e393401d3992dd5e2d1f435cd2cf63c',
+                'b6e02216d1e5c69d79b32342d8b67c7a',
+                '08055fc34b36d97c0e0487b4703d363a',
+                'eb67eecdc733d1716683188c485f52ab',
+                'aeee411b8bffcf0c30d65557a8deeeee',
+            ],
+        },
+        {
             viewtag: '2419b3758d42fb7e5a590153d28bd945',
             viewmodule: 'zentao',
             viewname: 'StoryMPickupView3',
@@ -1085,6 +1100,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'b6e02216d1e5c69d79b32342d8b67c7a',
+                '23cc93d7fdddff5077a7952d26802a7b',
             ],
         },
         {
