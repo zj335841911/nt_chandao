@@ -955,15 +955,6 @@ export const viewstate: any = {
             ],
         },
         {
-            viewtag: '41693a4d3b2bd3a7195d31ceae6cdcf3',
-            viewmodule: 'zentao',
-            viewname: 'DocLibEditView',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-            ],
-        },
-        {
             viewtag: '417541fa331fc089b84936b8359403fa',
             viewmodule: 'zentao',
             viewname: 'CaseMainGridView',
@@ -1472,7 +1463,6 @@ export const viewstate: any = {
             refviews: [
                 '007d984e6319843d935a48b30587ab1b',
                 '4503911318e1f1f26599b68a6c6e681d',
-                '41693a4d3b2bd3a7195d31ceae6cdcf3',
             ],
         },
         {

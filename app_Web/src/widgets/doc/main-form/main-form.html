@@ -6,7 +6,7 @@
     <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.group1" :data="data" :context="context" :viewparams="viewparams"/>
     <row>
         <i-col class="form-layout-container" v-show="detailsModel.title.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='title' :itemRules="this.rules().title" class='' :caption="$t('entities.doc.main_form.details.title')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.title.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='title' :itemRules="this.rules().title" class='' :caption="$t('entities.doc.main_form.details.title')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.title.error" :isEmptyCaption="false" labelPos="LEFT">
     <input-box 
     v-model="data.title"  
     @enter="onEnter($event)"  

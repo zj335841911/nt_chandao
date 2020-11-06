@@ -69,6 +69,18 @@ export class DocGridViewBase extends GridViewBase {
      */
     public appUIService: DocUIService = new DocUIService(this.$store);
 
+	/**
+	 * 自定义视图导航参数集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof DocGridViewBase
+	 */
+    protected customViewParams: any = {
+        'n_lib_eq': { isRawValue: false, value: 'srfparentkey' },
+        'n_project_eq': { isRawValue: false, value: 'project' }
+    };
+
     /**
      * 视图模型数据
      *

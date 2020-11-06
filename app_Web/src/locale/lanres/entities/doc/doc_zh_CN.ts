@@ -73,22 +73,4 @@ export default {
 			tip: "导出",
 		},
 	},
-	editviewtoolbar_toolbar: {
-		tbitem3: {
-			caption: "保存",
-			tip: "保存",
-		},
-		tbitem4: {
-			caption: "保存并新建",
-			tip: "保存并新建",
-		},
-		tbitem5: {
-			caption: "保存并关闭",
-			tip: "保存并关闭",
-		},
-		tbitem7: {
-			caption: "删除",
-			tip: "删除",
-		},
-	},
 };

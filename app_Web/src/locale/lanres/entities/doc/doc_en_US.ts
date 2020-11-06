@@ -73,22 +73,4 @@ export default {
 			tip: "Export {0} Data To Excel",
 		},
 	},
-	editviewtoolbar_toolbar: {
-		tbitem3: {
-			caption: "Save",
-			tip: "Save",
-		},
-		tbitem4: {
-			caption: "Save And New",
-			tip: "Save And New",
-		},
-		tbitem5: {
-			caption: "Save And Close",
-			tip: "Save And Close Window",
-		},
-		tbitem7: {
-			caption: "Remove And Close",
-			tip: "Remove And Close Window",
-		},
-	},
 };
