@@ -5711,6 +5711,39 @@ const router = new Router({
                     component: () => import('@pages/ibiz/story-link-story-mob-mpickup-view/story-link-story-mob-mpickup-view.vue'),
                 },
                 {
+                    path: 'products/:product?/stories/:story?/usr2mobmpickupview',
+                    name: 'story_usr2mobmpickupview',
+                    meta: {
+                        caption: 'story.views.usr2mobmpickupview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'usr2mobmpickupview', parameterName: 'usr2mobmpickupview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/story-usr2-mob-mpickup-view/story-usr2-mob-mpickup-view.vue'),
+                },
+                {
+                    path: 'stories/:story?/usr2mobmpickupview',
+                    name: 'story_usr2mobmpickupview',
+                    meta: {
+                        caption: 'story.views.usr2mobmpickupview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'usr2mobmpickupview', parameterName: 'usr2mobmpickupview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/story-usr2-mob-mpickup-view/story-usr2-mob-mpickup-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/usr6mobmdview',
                     name: 'bug_usr6mobmdview',
                     meta: {
@@ -6251,6 +6284,39 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/ibiz/task-team-mob-medit-view9/task-team-mob-medit-view9.vue'),
+                },
+                {
+                    path: 'products/:product?/stories/:story?/usr2mobpickupmdview',
+                    name: 'story_usr2mobpickupmdview',
+                    meta: {
+                        caption: 'story.views.usr2mobpickupmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'usr2mobpickupmdview', parameterName: 'usr2mobpickupmdview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/story-usr2-mob-pickup-mdview/story-usr2-mob-pickup-mdview.vue'),
+                },
+                {
+                    path: 'stories/:story?/usr2mobpickupmdview',
+                    name: 'story_usr2mobpickupmdview',
+                    meta: {
+                        caption: 'story.views.usr2mobpickupmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'usr2mobpickupmdview', parameterName: 'usr2mobpickupmdview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/story-usr2-mob-pickup-mdview/story-usr2-mob-pickup-mdview.vue'),
                 },
                 {
                     path: 'products/:product?/testmobmdview',

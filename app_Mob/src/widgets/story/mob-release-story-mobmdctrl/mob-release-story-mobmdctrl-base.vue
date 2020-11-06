@@ -4,9 +4,6 @@
             <ion-list class="items" ref="ionlist">
                 <template v-if="(viewType == 'DEMOBMDVIEW9') && controlStyle != 'SWIPERVIEW' ">
                     <ion-item-sliding ref="sliding" v-for="(item,index) in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
-                        <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
-                            <ion-item-option v-show="item.releaseUnlinkStory.visabled" :disabled="item.releaseUnlinkStory.disabled" color="primary" @click="mdctrl_click($event, 'ue198e4c', item)"><ion-icon v-if="item.releaseUnlinkStory.icon && item.releaseUnlinkStory.isShowIcon" :name="item.releaseUnlinkStory.icon"></ion-icon><ion-label v-if="item.releaseUnlinkStory.isShowCaption">移除关联</ion-label></ion-item-option>
-                        </ion-item-options>
                         <div style="width:100%;">
                             <ion-item class="ibz-ionic-item">
                                 <ion-checkbox slot="start" class="iconcheck" v-show="isChoose" @click.stop="checkboxSelect(item)"></ion-checkbox>
@@ -19,9 +16,6 @@
             <ion-list class="items" ref="ionlist" >
                 <template v-if="(viewType == 'DEMOBMDVIEW') && controlStyle != 'SWIPERVIEW' ">
                       <ion-item-sliding  :ref="item.srfkey" v-for="(item,index) in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
-                        <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
-                            <ion-item-option v-show="item.releaseUnlinkStory.visabled" :disabled="item.releaseUnlinkStory.disabled" color="primary" @click="mdctrl_click($event, 'ue198e4c', item)"><ion-icon v-if="item.releaseUnlinkStory.icon && item.releaseUnlinkStory.isShowIcon" :name="item.releaseUnlinkStory.icon"></ion-icon><ion-label v-if="item.releaseUnlinkStory.isShowCaption">移除关联</ion-label></ion-item-option>
-                        </ion-item-options>
                         <div style="width:100%;">
                             <ion-item class="ibz-ionic-item">
                                 <ion-checkbox slot="start" class="iconcheck" v-show="isChoose" @click.stop="checkboxSelect(item)"></ion-checkbox>
@@ -223,37 +217,6 @@ export default class MOB_Release_StoryBase extends Vue implements ControlInterfa
      */  
     public deUIService:StoryUIService = new StoryUIService(this.$store);
     
-
-    /**
-     * 逻辑事件
-     *
-     * @protected
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @returns {Promise<any>}
-     * @memberof MdctrlBase
-     */
-    protected async mdctrl_ue198e4c_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
-
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let contextJO: any = {};
-        let paramJO: any = {};
-        Object.assign(paramJO, {});
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        // 界面行为
-        const curUIService: any = await this.globaluiservice.getService('story_ui_action');
-        if (curUIService) {
-            curUIService.Story_releaseUnlinkStory(datas, contextJO, paramJO, $event, xData, this);
-        }
-    }
 
     /**
      * 关闭视图
@@ -950,6 +913,18 @@ export default class MOB_Release_StoryBase extends Vue implements ControlInterfa
                 }
             })
         }
+        if (!this.isMutli) {
+            if (this.selectedData && this.selectedData.length > 0) {
+                this.radio = this.selectedData[0].srfkey;
+            }
+        } else {
+            if (this.selectedData && this.selectedData.length > 0) {
+                this.checkboxList = [];
+                this.selectedData.forEach((item: any) => {
+                    this.checkboxList.push(item.srfkey);
+                })
+            }
+        }
     }
 
     /**
@@ -1047,9 +1022,6 @@ export default class MOB_Release_StoryBase extends Vue implements ControlInterfa
         $event.stopPropagation();
         this.selectedArray = [];
         this.selectedArray.push(item);
-        if (Object.is(tag, 'ue198e4c')) {
-            this.mdctrl_ue198e4c_click();
-        }
         this.closeSlidings();
     }
 
@@ -1145,7 +1117,6 @@ export default class MOB_Release_StoryBase extends Vue implements ControlInterfa
      * @memberof MOB_Release_StoryBase
      */  
     public ActionModel:any ={
-        releaseUnlinkStory: { name: 'releaseUnlinkStory',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_UNLP_BUT', target: 'SINGLEKEY',icon:'unlink',isShowCaption:false,isShowIcon:true}
     };
 
     

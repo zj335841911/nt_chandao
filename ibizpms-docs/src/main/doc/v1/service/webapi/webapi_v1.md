@@ -82,8 +82,9 @@ pms-webapi
 | 68 | [Bug统计](1/BugStats) | bugstats |  |
 | 69 | [任务](1/SubTask) | subtask |  |
 | 70 | [项目团队](1/ProjectTeam) | projectteam |  |
-| 71 | [用户](1/User) | user |  |
-| 72 | [收藏](1/IbzFavorites) | ibzfavorites |  |
-| 73 | [用户模板](1/UserTpl) | usertpl |  |
-| 74 | [岗位](1/SysPost) | syspost |  |
+| 71 | [文档](1/Doc) | doc |  |
+| 72 | [用户](1/User) | user |  |
+| 73 | [收藏](1/IbzFavorites) | ibzfavorites |  |
+| 74 | [用户模板](1/UserTpl) | usertpl |  |
+| 75 | [岗位](1/SysPost) | syspost |  |
 

@@ -36,6 +36,7 @@ public interface IDocLibService extends IService<DocLib>{
     boolean checkKey(DocLib et) ;
     boolean save(DocLib et) ;
     void saveBatch(List<DocLib> list) ;
+    Page<DocLib> searchByProject(DocLibSearchContext context) ;
     Page<DocLib> searchDefault(DocLibSearchContext context) ;
     List<DocLib> selectByProduct(Long id);
     void removeByProduct(Long id) ;

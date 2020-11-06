@@ -19,6 +19,7 @@ import com.alibaba.fastjson.JSONObject;
 
 public interface DocLibMapper extends BaseMapper<DocLib>{
 
+    Page<DocLib> searchByProject(IPage page, @Param("srf") DocLibSearchContext context, @Param("ew") Wrapper<DocLib> wrapper) ;
     Page<DocLib> searchDefault(IPage page, @Param("srf") DocLibSearchContext context, @Param("ew") Wrapper<DocLib> wrapper) ;
     @Override
     DocLib selectById(Serializable id);

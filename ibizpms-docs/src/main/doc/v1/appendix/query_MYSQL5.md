@@ -4697,6 +4697,42 @@ WHERE t1.DELETED = '0'
 ( t1.`PRODUCT` = ${srfdatacontext('product','{"defname":"PRODUCT","dename":"ZT_DOCLIB"}')} ) 
 
 ```
+### 项目文件库(ByProject)<div id="DocLib_ByProject"></div>
+```sql
+select t1.* from (SELECT
+	t1.`ACL`,
+	t1.`DELETED`,
+	t1.`GROUPS`,
+	t1.`ID`,
+	t1.`MAIN`,
+	t1.`NAME`,
+	t1.`ORDER`,
+	t1.`PRODUCT`,
+	t1.`PROJECT`,
+	t1.`TYPE` ,
+	(select count(1) from zt_doc t where t.lib = t1.id and t.project = t1.project and t.deleted = '0') as DOCCNT
+FROM
+	`zt_doclib` t1 
+	
+	UNION
+	SELECT
+	'default' as `ACL`,
+	'0' as `DELETED`,
+	'' as `GROUPS`,
+	0 as `ID`,
+	0 as `MAIN`,
+	'附件库' as `NAME`,
+	0 as `ORDER`,
+	0 as `PRODUCT`,
+	#{srf.datacontext.project} as `PROJECT`,
+	'project' as `TYPE` ,
+	(select count(1) from zt_file t where ((t.objectType ='project' and t.objectID = #{srf.datacontext.project}) or (t.objectType = 'task' and exists(select 1 from zt_task tt where tt.id = t.objectID and tt.project = #{srf.datacontext.project} and tt.deleted = '0')) or (t.objectType = 'build' and exists(select 1 from zt_build tt where tt.id = t.objectID and tt.project = #{srf.datacontext.project} and tt.deleted = '0')) or (t.objectType = 'doc' and EXISTS(select 1 from zt_doc tt where tt.id = t.objectID and tt.project = #{srf.datacontext.project} and tt.deleted = '0'))) and t.deleted = '0') as DOCCNT
+FROM
+	dual  ) t1
+WHERE t1.type = 'project'  AND t1.deleted = '0' 
+t1.project = #{srf.datacontext.project} 
+
+```
 ### DEFAULT(DEFAULT)<div id="DocLib_Default"></div>
 ```sql
 SELECT

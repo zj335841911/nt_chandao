@@ -50,6 +50,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '06f1b29446b9874204dbf79757c5ef16',
+            viewmodule: 'zentao',
+            viewname: 'TestTaskUsr2MobMPickupView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'd458fa3251d0bc6981a7c9f21960ae43',
+            ],
+        },
+        {
             viewtag: '0741315806513b247c661851d7746f51',
             viewmodule: 'zentao',
             viewname: 'TaskMobMDView',
@@ -761,6 +771,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '85de6d83db3b382b8448740bc09027db',
                 'd096e8789265e730da5eefa1423479dc',
             ],
         },
@@ -1060,6 +1071,16 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '2771dfa8ed94c48f35d293293bfbf6ac',
+            ],
+        },
+        {
+            viewtag: '85de6d83db3b382b8448740bc09027db',
+            viewmodule: 'zentao',
+            viewname: 'StoryUsr2MobMPickupView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'a7f7ac4849d3c395bc27d5c368a56b50',
             ],
         },
         {
@@ -1364,6 +1385,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'a7f7ac4849d3c395bc27d5c368a56b50',
+            viewmodule: 'zentao',
+            viewname: 'StoryUsr2MobPickupMDView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: 'af40519acfe1bc985738eb3f0ff91a24',
             viewmodule: 'ibiz',
             viewname: 'ProductMobMDView',
@@ -1638,6 +1668,15 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '52913a5dcfd665154092ec7aedf84049',
+            ],
+        },
+        {
+            viewtag: 'd458fa3251d0bc6981a7c9f21960ae43',
+            viewmodule: 'zentao',
+            viewname: 'TestTaskUsr2MobPickupMDView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
             ],
         },
         {

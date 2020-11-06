@@ -24,6 +24,9 @@ export default {
     ownerpk: "负责人（选择）",
   },
 	views: {
+		usr2mobmpickupview: {
+			caption: '关联用例',
+		},
 		moboptionviewclose: {
 			caption: '关闭',
 		},
@@ -40,6 +43,9 @@ export default {
 			caption: '测试版本',
 		},
 		editnewmobeditview: {
+			caption: '测试版本',
+		},
+		usr2mobpickupmdview: {
 			caption: '测试版本',
 		},
 		mobmdview: {

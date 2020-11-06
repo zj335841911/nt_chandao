@@ -255,6 +255,10 @@ zuul:
       path: /sysupdatelogs/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
+    zt_doc:
+      path: /docs/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
     zt_bug:
       path: /bugs/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}

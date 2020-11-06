@@ -99,6 +99,9 @@ export default {
 		assmobmdview9: {
 			caption: '需求',
 		},
+		usr2mobmpickupview: {
+			caption: '关联需求',
+		},
 		favoritemobmdview9: {
 			caption: '需求',
 		},
@@ -116,6 +119,9 @@ export default {
 		},
 		acmoboptionview: {
 			caption: '激活',
+		},
+		usr2mobpickupmdview: {
+			caption: '关联需求',
 		},
 		mobmdview: {
 			caption: '需求',
@@ -365,6 +371,10 @@ export default {
 		},
 	},
 	usr3mobmdviewrighttoolbar_toolbar: {
+		deuiaction1: {
+			caption: '关联需求',
+			tip: 'deuiaction1',
+		},
 	},
 	mobeditviewrighttoolbar_toolbar: {
 		deuiaction1_changestorydetailmob: {
