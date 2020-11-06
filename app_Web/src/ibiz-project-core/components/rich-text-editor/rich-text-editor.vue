@@ -654,6 +654,20 @@ export default class RichTextEditor extends Vue {
                 if (richtexteditor.disabled) {
                     richtexteditor.editor.setMode('readonly');
                 }
+                //  全屏状态下鼠标移除更新值
+                editor.on('mouseleave', () => {
+                    let content = editor.getContent();
+                    const url = richtexteditor.downloadUrl.indexOf('../') === 0 ? richtexteditor.downloadUrl.substring(3) : richtexteditor.downloadUrl;
+                    let newContent: string = "";
+                    const imgsrc = richtexteditor.imgsrc;
+                    if(imgsrc && imgsrc.length > 0){
+                        imgsrc.forEach((item: any)=>{
+                            newContent = content.replace(url+"/"+item.id,"{"+item.id+item.type+"}");
+                            content = newContent;
+                        });
+                    }
+                    richtexteditor.$emit('change', content);
+                }); 
             }
         });
     }
