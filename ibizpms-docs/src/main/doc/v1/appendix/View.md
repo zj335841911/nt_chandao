@@ -11,6 +11,7 @@
 |-|任务移动端多数据视图|DEMOBMDVIEW|&nbsp;|
 |-|发布分页导航视图|DEMOBTABEXPVIEW|&nbsp;|
 |-|需求模块移动端数据选择视图|DEMOBPICKUPVIEW|&nbsp;|
+|-|Bug移动端多数据选择视图|DEMOBMPICKUPVIEW|&nbsp;|
 |-|产品|DEMOBTABEXPVIEW|&nbsp;|
 |-|需求移动端列表视图|DEMOBLISTVIEW|&nbsp;|
 |-|模块移动端数据选择视图|DEMOBPICKUPVIEW|&nbsp;|
@@ -62,6 +63,7 @@
 |-|产品计划移动端多数据视图|DEMOBMDVIEW|&nbsp;|
 |-|需求移动端多数据选择视图（关联需求）|DEMOBMPICKUPVIEW|&nbsp;|
 |-|系统更新功能移动端多数据视图|DEMOBMDVIEW|&nbsp;|
+|-|需求移动端多数据选择视图|DEMOBMPICKUPVIEW|&nbsp;|
 |-|版本移动端多数据视图（更新日志）|DEMOBMDVIEW|&nbsp;|
 |-|产品统计移动端多数据视图|DEMOBMDVIEW|&nbsp;|
 |-|测试版本选项操作视图（开始）|DEMOBOPTVIEW|&nbsp;|
@@ -141,6 +143,7 @@
 |-|附件移动端多数据视图|DEMOBMDVIEW9|&nbsp;|
 |-|需求移动端多数据视图|DEMOBMDVIEW|&nbsp;|
 |-|需求模块移动端选择多数据视图|DEMOBPICKUPMDVIEW|&nbsp;|
+|-|Bug移动端选择多数据视图|DEMOBPICKUPMDVIEW|&nbsp;|
 |-|任务预计移动端多数据视图|DEMOBMDVIEW|&nbsp;|
 |-|用户移动端数据选择视图|DEMOBPICKUPVIEW|&nbsp;|
 |-|需求移动端多数据视图|DEMOBMDVIEW|&nbsp;|
@@ -182,6 +185,7 @@
 |-|Bug移动端多数据视图|DEMOBMDVIEW|&nbsp;|
 |-|人员移动端多数据选择视图（人员树）|DEMOBMPICKUPVIEW|&nbsp;|
 |-|待办事宜表选项操作视图|DEMOBOPTVIEW|&nbsp;|
+|-|需求移动端选择多数据视图|DEMOBPICKUPMDVIEW|&nbsp;|
 |-|Bug移动端多数据视图|DEMOBMDVIEW|&nbsp;|
 |-|产品计划移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
 |-|任务选项操作视图(继续)|DEMOBOPTVIEW|&nbsp;|

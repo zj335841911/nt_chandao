@@ -47,9 +47,9 @@ export default class DocLibLModel {
           dataType: 'SSCODELIST',
         },
         {
-          name: 'size',
-          prop: 'size',
-          dataType: 'INT',
+          name: 'strsize',
+          prop: 'strsize',
+          dataType: 'TEXT',
         },
         {
           name: 'addedby',
@@ -76,6 +76,11 @@ export default class DocLibLModel {
           prop: 'id',
           dataType: 'ACID',
           isEditable:true
+        },
+        {
+          name: 'size',
+          prop: 'size',
+          dataType: 'INT',
         },
         {
           name: 'file',

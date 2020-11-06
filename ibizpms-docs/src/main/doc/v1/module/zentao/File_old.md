@@ -57,6 +57,7 @@ hide members
 |Get|内置方法|&nbsp;|
 |GetDraft|内置方法|&nbsp;|
 |CheckKey|内置方法|&nbsp;|
+|下载|用户自定义|&nbsp;|
 |Save|内置方法|&nbsp;|
 
 ## 处理逻辑

@@ -215,4 +215,16 @@ export default class FileServiceBase extends EntityService {
         let res:any = Http.getInstance().get(`/files/fetchtype`,tempData,isloading);
         return res;
     }
+
+    /**
+     * Ibzdownload接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof FileServiceBase
+     */
+    public async Ibzdownload(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+    }
 }

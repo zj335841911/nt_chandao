@@ -68,6 +68,62 @@ export class DocLibLGridBase extends GridControlBase {
      */  
     public appUIService:FileUIService = new FileUIService(this.$store);
 
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public grid_uagridcolumn1_u9fd74e0_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:FileUIService  = new FileUIService();
+        curUIService.File_ibzdownload(datas,contextJO, paramJO,  $event, xData,this,"File");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public grid_uagridcolumn1_u9834869_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:FileUIService  = new FileUIService();
+        curUIService.File_delete(datas,contextJO, paramJO,  $event, xData,this,"File");
+    }
+
 
     /**
      * 界面行为模型
@@ -76,6 +132,8 @@ export class DocLibLGridBase extends GridControlBase {
      * @memberof DocLibLBase
      */  
     public ActionModel: any = {
+        ibzdownload: { name: 'ibzdownload',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: 'SINGLEKEY'},
+        delete: { name: 'delete',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__FILE_DELETE_BUT', actiontarget: 'SINGLEKEY'}
     };
 
     /**
@@ -102,6 +160,22 @@ export class DocLibLGridBase extends GridControlBase {
      * @memberof DocLibLBase
      */
     protected localStorageTag: string = 'zt_file_doclibl_grid';
+
+    /**
+     * 排序方向
+     *
+     * @type {string}
+     * @memberof DocLibLGridBase
+     */
+    public minorSortDir: string = 'DESC';
+
+    /**
+     * 排序字段
+     *
+     * @type {string}
+     * @memberof DocLibLGridBase
+     */
+    public minorSortPSDEF: string = 'id';
 
     /**
      * 所有列成员
@@ -147,9 +221,9 @@ export class DocLibLGridBase extends GridControlBase {
             enableCond: 3 ,
         },
         {
-            name: 'size',
+            name: 'strsize',
             label: '大小',
-            langtag: 'entities.file.doclibl_grid.columns.size',
+            langtag: 'entities.file.doclibl_grid.columns.strsize',
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
@@ -168,6 +242,15 @@ export class DocLibLGridBase extends GridControlBase {
             name: 'addeddate',
             label: '添加时间',
             langtag: 'entities.file.doclibl_grid.columns.addeddate',
+            show: true,
+            unit: 'PX',
+            isEnableRowEdit: false,
+            enableCond: 3 ,
+        },
+        {
+            name: 'uagridcolumn1',
+            label: '操作',
+            langtag: 'entities.file.doclibl_grid.columns.uagridcolumn1',
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
@@ -220,9 +303,10 @@ export class DocLibLGridBase extends GridControlBase {
         'title':false,
         'pathname':false,
         'objecttype':false,
-        'size':false,
+        'strsize':false,
         'addedby':false,
         'addeddate':false,
+        'uagridcolumn1':false,
     };
 
     /**
@@ -259,6 +343,24 @@ export class DocLibLGridBase extends GridControlBase {
         ]);
     }
 
+
+    /**
+     * 界面行为
+     *
+     * @param {*} row
+     * @param {*} tag
+     * @param {*} $event
+     * @memberof DocLibLGridBase
+     */
+	public uiAction(row: any, tag: any, $event: any): void {
+        $event.stopPropagation();
+        if(Object.is('ibzdownload', tag)) {
+            this.grid_uagridcolumn1_u9fd74e0_click(row, tag, $event);
+        }
+        if(Object.is('delete', tag)) {
+            this.grid_uagridcolumn1_u9834869_click(row, tag, $event);
+        }
+    }
 
     /**
      * 更新默认值

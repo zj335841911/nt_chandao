@@ -75,15 +75,15 @@
                     </template>
                 </el-table-column>
             </template>
-            <template v-if="getColumnState('size')">
-                <el-table-column show-overflow-tooltip :prop="'size'" :label="$t('entities.file.doclibl_grid.columns.size')" :width="100"  :align="'left'" :sortable="'custom'">
+            <template v-if="getColumnState('strsize')">
+                <el-table-column show-overflow-tooltip :prop="'strsize'" :label="$t('entities.file.doclibl_grid.columns.strsize')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
-                        {{$t('entities.file.doclibl_grid.columns.size')}}
+                        {{$t('entities.file.doclibl_grid.columns.strsize')}}
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.size}}</span>
+                        <span>{{row.strsize}}</span>
                     </template>
                 </el-table-column>
             </template>
@@ -108,6 +108,28 @@
                     </template>
                     <template v-slot="{row,column,$index}">
                         <app-format-data format="YYYY-MM-DD HH:mm:ss" :data="row.addeddate"></app-format-data>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('uagridcolumn1')">
+                <el-table-column :column-key="'uagridcolumn1'" fixed="right" :label="$t('entities.file.doclibl_grid.columns.uagridcolumn1')" :width="100"  :align="'center'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.file.doclibl_grid.columns.uagridcolumn1')}}
+                      </span>
+                    </template>
+                    <template slot-scope="scope">
+                        <div style="text-align: center;">
+                          <a v-show="scope.row.ibzdownload.visabled" :disabled="scope.row.ibzdownload.disabled" @click="uiAction(scope.row, 'ibzdownload', $event)" :title="$t('entities.file.doclibl_grid.uiactions.file_ibzdownload')">
+                            <i class='fa fa-download'></i>
+                            
+                          </a>
+                          <divider v-show="scope.row.delete.visabled" type='vertical'></divider>
+                          <a v-show="scope.row.delete.visabled" :disabled="scope.row.delete.disabled" @click="uiAction(scope.row, 'delete', $event)" :title="$t('entities.file.doclibl_grid.uiactions.file_delete')">
+                            <i class='fa fa-remove'></i>
+                            {{$t('entities.file.doclibl_grid.uiactions.file_delete')}}
+                          </a>
+                        </div>
                     </template>
                 </el-table-column>
             </template>

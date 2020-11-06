@@ -54,11 +54,14 @@ export default {
 			title: "附件名",
 			pathname: "地址",
 			objecttype: "类型",
-			size: "大小",
+			strsize: "大小",
 			addedby: "由谁添加",
 			addeddate: "添加时间",
+			uagridcolumn1: "操作",
 		},
 		uiactions: {
+        file_ibzdownload: "下载",
+        file_delete: "删除",
 		},
 	},
 	default_searchform: {
