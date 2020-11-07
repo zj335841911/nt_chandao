@@ -172,6 +172,15 @@ public class FileServiceImpl extends ServiceImpl<FileMapper, File> implements IF
     }
 
     /**
+     * 查询集合 文件库查询
+     */
+    @Override
+    public Page<File> searchProductDocLibFile(FileSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<File> pages=baseMapper.searchProductDocLibFile(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<File>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
      * 查询集合 动态(根据类型过滤)
      */
     @Override

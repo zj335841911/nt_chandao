@@ -849,20 +849,42 @@ Save
 #### SQL
 - MYSQL5
 ```SQL
-SELECT
-t1.`ACL`,
-t1.`DELETED`,
-doc AS `DOCLIBTYPE`,
-t1.`GROUPS`,
-t1.`ID`,
-t1.`MAIN`,
-t1.`NAME`,
-t1.`ORDER`,
-t1.`PRODUCT`,
-t1.`PROJECT`,
-t1.`TYPE`
-FROM `zt_doclib` t1 
-
+select t1.* from (SELECT
+	t1.`ACL`,
+	t1.`DELETED`,
+	t1.`GROUPS`,
+	t1.`ID`,
+	t1.`MAIN`,
+	t1.`NAME`,
+	t1.`ORDER`,
+	t1.`PRODUCT`,
+	t1.`PROJECT`,
+	t1.`TYPE` ,
+        'doc' as DOCLIBTYPE,
+	(select count(1) from zt_doc t where t.lib = t1.id and t.product = t1.product and t.deleted = '0') as DOCCNT
+FROM
+	`zt_doclib` t1 
+	
+	UNION
+	SELECT
+	'default' as `ACL`,
+	'0' as `DELETED`,
+	'' as `GROUPS`,
+	0 as `ID`,
+	0 as `MAIN`,
+	'附件库' as `NAME`,
+	0 as `ORDER`,
+	#{srf.datacontext.product} as `PRODUCT`, 
+	0 as `PROJECT`,
+	'product' as `TYPE` ,
+        'file' as DOCLIBTYPE,
+	(select count(1) from zt_file t where ((t.objectType ='product' and t.objectID =  #{srf.datacontext.product}
+	) or (t.objectType = 'story' and exists(select 1 from zt_story tt where tt.id = t.objectID and tt.product =  #{srf.datacontext.product} 
+	and tt.deleted = '0')) or (t.objectType = 'bug' and exists(select 1 from zt_bug tt where tt.id = t.objectID and tt.product =  #{srf.datacontext.product} 
+	and tt.deleted = '0')) or (t.objectType = 'doc' and EXISTS(select 1 from zt_doc tt where tt.id = t.objectID and tt.product = #{srf.datacontext.product}
+	and tt.deleted = '0'))) and t.deleted = '0') as DOCCNT
+FROM
+	dual  ) t1
 ```
 ### 数据查询-项目文件库（ByProject）
 #### 说明
@@ -972,9 +994,24 @@ FROM `zt_doclib` t1
 ## 数据集合
 | 序号 | 集合 | 集合名 | 默认 |
 | ---- | ---- | ---- | ---- |
-| 1 | [项目文件库](#数据集合-项目文件库（ByProject）) | ByProject | 否 |
-| 2 | [DEFAULT](#数据集合-DEFAULT（Default）) | Default | 是 |
+| 1 | [产品文档库](#数据集合-产品文档库（ByProduct）) | ByProduct | 否 |
+| 2 | [项目文件库](#数据集合-项目文件库（ByProject）) | ByProject | 否 |
+| 3 | [DEFAULT](#数据集合-DEFAULT（Default）) | Default | 是 |
 
+### 数据集合-产品文档库（ByProduct）
+#### 说明
+产品文档库
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [产品文档库（ByProduct）](#数据查询-产品文档库（ByProduct）) |
 ### 数据集合-项目文件库（ByProject）
 #### 说明
 项目文件库

@@ -90,6 +90,7 @@ hide members
 
 | 集合编号 | 集合名称   |  包含查询  | 默认集合 |   备注|
 | --------  | --------   | -------- | --------   | ----- |
+|ByProduct|产品文档库|ByProduct|否|&nbsp;|
 |ByProject|项目文件库|ByProject|否|&nbsp;|
 |DEFAULT|DEFAULT|DEFAULT|是|&nbsp;|
 

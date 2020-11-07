@@ -24,6 +24,10 @@ export default {
 			caption: "文档库",
       		title: "doclib表格视图",
 		},
+		productgridview: {
+			caption: "文档库",
+      		title: "doclib表格视图",
+		},
 	},
 	main_form: {
 		details: {
@@ -58,6 +62,18 @@ export default {
         doclib_lookdoc: "查看",
 		},
 	},
+	productmain_grid: {
+		nodata: "",
+		columns: {
+			name: "文档库名称",
+			doccnt: "文档数量",
+			uagridcolumn1: "操作",
+		},
+		uiactions: {
+        doclib_productlookdoc: "查看",
+        doclib_productlookfile: "查看",
+		},
+	},
 	default_searchform: {
 		details: {
 			formpage1: "常规条件", 
@@ -84,5 +100,7 @@ export default {
 			caption: "Remove And Close",
 			tip: "Remove And Close Window",
 		},
+	},
+	productgridviewtoolbar_toolbar: {
 	},
 };

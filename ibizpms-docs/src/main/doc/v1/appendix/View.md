@@ -401,6 +401,7 @@ SRFNAVPARAM.project=%project%|
 |-|测试用例|DEGRIDVIEW|&nbsp;|
 |-|版本编辑视图|DEEDITVIEW|&nbsp;|
 |-|任务预计表格视图|DEGRIDVIEW9|&nbsp;|
+|-|doclib表格视图|DEGRIDVIEW|&nbsp;|
 |-|执行|DEOPTVIEW|&nbsp;|
 |-|产品|DETABEXPVIEW|&nbsp;|
 |-|执行结果|DEEDITVIEW|&nbsp;|
@@ -561,6 +562,7 @@ SRFNAVPARAM.project=%project%|
 |-|bug选择表格视图|DEPICKUPGRIDVIEW|&nbsp;|
 |-|待办事宜表格视图|DEGRIDVIEW|&nbsp;|
 |-|我的地盘树导航视图（测试统计）|DETREEEXPVIEW|&nbsp;|
+|-|file表格视图|DEGRIDVIEW|&nbsp;|
 |-|产品编辑视图|DEEDITVIEW|&nbsp;|
 |-|解决Bug|DEOPTVIEW|&nbsp;|
 |-|我的工作|DELISTVIEW|&nbsp;|

@@ -1939,6 +1939,16 @@
         "viewtag": "6991c25388155df89dc9c44eeb11ad90",
         "memo": ""
     },
+    "doclibproductgridview": {
+        "title": "doclib表格视图",
+        "caption": "文档库",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "zentao",
+        "viewname": "DocLibProductGridView",
+        "viewfilename": "doc-lib-product-grid-view",
+        "viewtag": "6a667f9ae1a5096ceac93a16d1586978",
+        "memo": ""
+    },
     "casetestoptionview": {
         "title": "执行",
         "caption": "执行",
@@ -3537,6 +3547,16 @@
         "viewname": "IbzMyTerritoryTestTreeExpView",
         "viewfilename": "ibz-my-territory-test-tree-exp-view",
         "viewtag": "bef7c08b651990569cd09ce805ebcfe3",
+        "memo": ""
+    },
+    "fileproductgridview": {
+        "title": "file表格视图",
+        "caption": "附件",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "zentao",
+        "viewname": "FileProductGridView",
+        "viewfilename": "file-product-grid-view",
+        "viewtag": "bfdd5a8d625f1be3f009084fbc16c909",
         "memo": ""
     },
     "productmainview_edit": {

@@ -4700,22 +4700,44 @@ FROM `zt_doccontent` t1
 
 ### 产品文档库(ByProduct)<div id="DocLib_ByProduct"></div>
 ```sql
-SELECT
-t1.`ACL`,
-t1.`DELETED`,
-doc AS `DOCLIBTYPE`,
-t1.`GROUPS`,
-t1.`ID`,
-t1.`MAIN`,
-t1.`NAME`,
-t1.`ORDER`,
-t1.`PRODUCT`,
-t1.`PROJECT`,
-t1.`TYPE`
-FROM `zt_doclib` t1 
-
-WHERE t1.DELETED = '0' 
-( t1.`PRODUCT` = ${srfdatacontext('product','{"defname":"PRODUCT","dename":"ZT_DOCLIB"}')} ) 
+select t1.* from (SELECT
+	t1.`ACL`,
+	t1.`DELETED`,
+	t1.`GROUPS`,
+	t1.`ID`,
+	t1.`MAIN`,
+	t1.`NAME`,
+	t1.`ORDER`,
+	t1.`PRODUCT`,
+	t1.`PROJECT`,
+	t1.`TYPE` ,
+        'doc' as DOCLIBTYPE,
+	(select count(1) from zt_doc t where t.lib = t1.id and t.product = t1.product and t.deleted = '0') as DOCCNT
+FROM
+	`zt_doclib` t1 
+	
+	UNION
+	SELECT
+	'default' as `ACL`,
+	'0' as `DELETED`,
+	'' as `GROUPS`,
+	0 as `ID`,
+	0 as `MAIN`,
+	'附件库' as `NAME`,
+	0 as `ORDER`,
+	#{srf.datacontext.product} as `PRODUCT`, 
+	0 as `PROJECT`,
+	'product' as `TYPE` ,
+        'file' as DOCLIBTYPE,
+	(select count(1) from zt_file t where ((t.objectType ='product' and t.objectID =  #{srf.datacontext.product}
+	) or (t.objectType = 'story' and exists(select 1 from zt_story tt where tt.id = t.objectID and tt.product =  #{srf.datacontext.product} 
+	and tt.deleted = '0')) or (t.objectType = 'bug' and exists(select 1 from zt_bug tt where tt.id = t.objectID and tt.product =  #{srf.datacontext.product} 
+	and tt.deleted = '0')) or (t.objectType = 'doc' and EXISTS(select 1 from zt_doc tt where tt.id = t.objectID and tt.product = #{srf.datacontext.product}
+	and tt.deleted = '0'))) and t.deleted = '0') as DOCCNT
+FROM
+	dual  ) t1
+WHERE t1.type = 'product'  AND t1.deleted = '0' 
+( t1.`PRODUCT` = #{srf.datacontext.product} 
 
 ```
 ### 项目文件库(ByProject)<div id="DocLib_ByProject"></div>
@@ -5068,6 +5090,27 @@ CONCAT_WS('',t1.`TITLE`,' [',UPPER(t1.objectType),' #',t1.objectID,']') AS `TITL
 FROM `zt_file` t1
 WHERE t1.deleted = '0' 
 ((t1.objectType = 'project' and t1.objectID = #{srf.datacontext.project}) or (t1.objectType = 'task' and EXISTS(select 1 from zt_task t where t.deleted = '0' and t.project = #{srf.datacontext.project} and t.id = t1.objectID)) or (t1.objectType = 'doc' and EXISTS(select 1 from zt_doc t where t.deleted = '0' and t.project = #{srf.datacontext.project} and t.id = t1.objectID)) or (t1.objectType = 'build' and EXISTS(select 1 from zt_build t where t.deleted = '0' and t.project = #{srf.datacontext.project} and t.id = t1.objectID)) ) 
+
+```
+### 文件库查询(ProductDocLibFile)<div id="File_ProductDocLibFile"></div>
+```sql
+SELECT
+t1.`ADDEDBY`,
+t1.`ADDEDDATE`,
+t1.`DELETED`,
+t1.`DOWNLOADS`,
+t1.`EXTENSION`,
+t1.`EXTRA`,
+t1.`ID`,
+t1.`OBJECTID`,
+t1.`OBJECTTYPE`,
+t1.`PATHNAME`,
+CONCAT_WS('',ROUND(t1.size/1024, 1),'k') as `STRSIZE`,
+t1.size,
+CONCAT_WS('',t1.`TITLE`,' [',UPPER(t1.objectType),' #',t1.objectID,']') AS `TITLE`
+FROM `zt_file` t1
+WHERE t1.deleted = '0' 
+((t1.objectType = 'product' and t1.objectID = #{srf.datacontext.product}) or (t1.objectType = 'story' and EXISTS(select 1 from zt_story t where t.deleted = '0' and t.product = #{srf.datacontext.product} and t.id = t1.objectID)) or (t1.objectType = 'doc' and EXISTS(select 1 from zt_doc t where t.deleted = '0' and t.product = #{srf.datacontext.product} and t.id = t1.objectID)) or (t1.objectType = 'bug' and EXISTS(select 1 from zt_bug t where t.deleted = '0' and t.product = #{srf.datacontext.product} and t.id = t1.objectID)) ) 
 
 ```
 ### 动态(根据类型过滤)(Type)<div id="File_Type"></div>

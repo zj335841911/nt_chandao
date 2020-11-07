@@ -135,6 +135,28 @@ public class DocLibResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-DocLib-searchByProduct-all')")
+	@ApiOperation(value = "获取产品文档库", tags = {"文档库" } ,notes = "获取产品文档库")
+    @RequestMapping(method= RequestMethod.GET , value="/doclibs/fetchbyproduct")
+	public ResponseEntity<List<DocLibDTO>> fetchByProduct(DocLibSearchContext context) {
+        Page<DocLib> domains = doclibService.searchByProduct(context) ;
+        List<DocLibDTO> list = doclibMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-DocLib-searchByProduct-all')")
+	@ApiOperation(value = "查询产品文档库", tags = {"文档库" } ,notes = "查询产品文档库")
+    @RequestMapping(method= RequestMethod.POST , value="/doclibs/searchbyproduct")
+	public ResponseEntity<Page<DocLibDTO>> searchByProduct(@RequestBody DocLibSearchContext context) {
+        Page<DocLib> domains = doclibService.searchByProduct(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(doclibMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-DocLib-searchByProject-all')")
 	@ApiOperation(value = "获取项目文件库", tags = {"文档库" } ,notes = "获取项目文件库")
     @RequestMapping(method= RequestMethod.GET , value="/doclibs/fetchbyproject")

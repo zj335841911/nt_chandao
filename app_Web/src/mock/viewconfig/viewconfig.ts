@@ -1559,6 +1559,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TaskEstimateEditGridView9",
             "viewtag": "6991c25388155df89dc9c44eeb11ad90"
         },
+        "doclibproductgridview": {
+            "title": "doclib表格视图",
+            "caption": "文档库",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "DocLibProductGridView",
+            "viewtag": "6a667f9ae1a5096ceac93a16d1586978"
+        },
         "casetestoptionview": {
             "title": "执行",
             "caption": "执行",
@@ -2838,6 +2846,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "ibiz",
             "viewname": "IbzMyTerritoryTestTreeExpView",
             "viewtag": "bef7c08b651990569cd09ce805ebcfe3"
+        },
+        "fileproductgridview": {
+            "title": "file表格视图",
+            "caption": "附件",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "FileProductGridView",
+            "viewtag": "bfdd5a8d625f1be3f009084fbc16c909"
         },
         "productmainview_edit": {
             "title": "产品编辑视图",

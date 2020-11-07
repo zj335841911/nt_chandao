@@ -23,6 +23,10 @@ export default {
 			caption: "附件",
       		title: "附件",
 		},
+		productgridview: {
+			caption: "附件",
+      		title: "file表格视图",
+		},
 		editview: {
 			caption: "附件",
       		title: "file编辑视图",
@@ -72,6 +76,8 @@ export default {
 		},
 	},
 	gridviewtoolbar_toolbar: {
+	},
+	productgridviewtoolbar_toolbar: {
 	},
 	editviewtoolbar_toolbar: {
 		tbitem3: {

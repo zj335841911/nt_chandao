@@ -38,6 +38,7 @@ public interface IFileService extends IService<File>{
     void saveBatch(List<File> list) ;
     Page<File> searchDefault(FileSearchContext context) ;
     Page<File> searchDocLibFile(FileSearchContext context) ;
+    Page<File> searchProductDocLibFile(FileSearchContext context) ;
     Page<File> searchType(FileSearchContext context) ;
     /**
      *自定义查询SQL
