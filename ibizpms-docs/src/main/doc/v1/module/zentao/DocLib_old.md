@@ -28,6 +28,8 @@ hide members
 |产品库|PRODUCT|PICKUP|&nbsp;|
 |文档数量|DOCCNT|INT|&nbsp;|
 |文件库类型|DOCLIBTYPE|SSCODELIST|&nbsp;|
+|所属项目|PROJECTNAME|PICKUPTEXT|&nbsp;|
+|所属产品|PRODUCTNAME|PICKUPTEXT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -46,6 +48,8 @@ hide members
 |产品库|默认规则|默认规则|
 |文档数量|默认规则|默认规则|
 |文件库类型|默认规则|内容长度必须小于等于[200]|
+|所属项目|默认规则|内容长度必须小于等于[90]|
+|所属产品|默认规则|内容长度必须小于等于[90]|
 
 ## 状态控制
 
@@ -106,6 +110,10 @@ hide members
 |项目库(PROJECT)|EQ|
 |产品库(PRODUCT)|EQ|
 |文件库类型(DOCLIBTYPE)|EQ|
+|所属项目(PROJECTNAME)|EQ|
+|所属项目(PROJECTNAME)|LIKE|
+|所属产品(PRODUCTNAME)|EQ|
+|所属产品(PRODUCTNAME)|LIKE|
 
 ## 导入模式
 无

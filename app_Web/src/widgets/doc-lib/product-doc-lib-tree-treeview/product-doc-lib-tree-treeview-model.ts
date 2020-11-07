@@ -57,6 +57,12 @@ export default class ProductDocLibTreeModel {
       {
         name: 'doclibtype',
       },
+      {
+        name: 'projectname',
+      },
+      {
+        name: 'productname',
+      },
     ]
   }
 

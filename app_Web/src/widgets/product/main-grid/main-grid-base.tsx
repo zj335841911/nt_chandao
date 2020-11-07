@@ -86,6 +86,7 @@ export class MainGridBase extends GridControlBase {
      */  
     public majorInfoColName:string = "name";
 
+
     /**
      * 本地缓存标识
      *
@@ -189,6 +190,15 @@ export class MainGridBase extends GridControlBase {
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '编号 值不能为空', trigger: 'blur' },
         ],
     }
+
+    /**
+     * 属性值规则
+     *
+     * @type {*}
+     * @memberof MainBase
+     */
+    public deRules:any = {
+    };
 
     /**
      * 获取对应列class

@@ -35,6 +35,8 @@
 | 12 | [产品库](#属性-产品库（PRODUCT）) | PRODUCT | 外键值 | 否 | 是 | 是 |
 | 13 | [文档数量](#属性-文档数量（DOCCNT）) | DOCCNT | 整型 | 否 | 是 | 是 |
 | 14 | [文件库类型](#属性-文件库类型（DOCLIBTYPE）) | DOCLIBTYPE | 单项选择(文本值) | 否 | 是 | 是 |
+| 15 | [所属项目](#属性-所属项目（PROJECTNAME）) | PROJECTNAME | 外键值文本 | 否 | 是 | 是 |
+| 16 | [所属产品](#属性-所属产品（PRODUCTNAME）) | PRODUCTNAME | 外键值文本 | 否 | 是 | 是 |
 
 ### 属性-文档类型（TYPE）
 #### 属性说明
@@ -76,7 +78,7 @@ String
 | 项目 | 说明 |
 | ---- | ---- |
 | 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
-| 关系属性 | [编号（ID）](../zentao/Product/#属性-编号（ID）) |
+| 关系属性 | [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-收藏者（COLLECTOR）
@@ -120,7 +122,7 @@ String
 | 项目 | 说明 |
 | ---- | ---- |
 | 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
-| 关系属性 | [编号（ID）](../zentao/Product/#属性-编号（ID）) |
+| 关系属性 | [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-权限（ACL）
@@ -166,7 +168,7 @@ String
 | 项目 | 说明 |
 | ---- | ---- |
 | 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
-| 关系属性 | [编号（ID）](../zentao/Product/#属性-编号（ID）) |
+| 关系属性 | [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-已删除（DELETED）
@@ -210,7 +212,7 @@ String
 | 项目 | 说明 |
 | ---- | ---- |
 | 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
-| 关系属性 | [编号（ID）](../zentao/Product/#属性-编号（ID）) |
+| 关系属性 | [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-分组（GROUPS）
@@ -254,7 +256,7 @@ String
 | 项目 | 说明 |
 | ---- | ---- |
 | 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
-| 关系属性 | [编号（ID）](../zentao/Product/#属性-编号（ID）) |
+| 关系属性 | [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-编号（ID）
@@ -295,7 +297,7 @@ Long
 | 项目 | 说明 |
 | ---- | ---- |
 | 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
-| 关系属性 | [编号（ID）](../zentao/Product/#属性-编号（ID）) |
+| 关系属性 | [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-用户（USERS）
@@ -339,7 +341,7 @@ String
 | 项目 | 说明 |
 | ---- | ---- |
 | 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
-| 关系属性 | [编号（ID）](../zentao/Product/#属性-编号（ID）) |
+| 关系属性 | [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-是否是主库（MAIN）
@@ -385,7 +387,7 @@ Integer
 | 项目 | 说明 |
 | ---- | ---- |
 | 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
-| 关系属性 | [编号（ID）](../zentao/Product/#属性-编号（ID）) |
+| 关系属性 | [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-文档库名称（NAME）
@@ -428,7 +430,7 @@ String
 | 项目 | 说明 |
 | ---- | ---- |
 | 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
-| 关系属性 | [编号（ID）](../zentao/Product/#属性-编号（ID）) |
+| 关系属性 | [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-排序（ORDER）
@@ -472,7 +474,7 @@ Integer
 | 项目 | 说明 |
 | ---- | ---- |
 | 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
-| 关系属性 | [编号（ID）](../zentao/Product/#属性-编号（ID）) |
+| 关系属性 | [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-项目库（PROJECT）
@@ -651,6 +653,94 @@ String
 | 关系属性 | [编号（ID）](../zentao/Product/#属性-编号（ID）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
+### 属性-所属项目（PROJECTNAME）
+#### 属性说明
+所属项目
+
+- 是否是主键
+否
+
+- 属性类型
+链接字段[来自关系实体字段]
+
+- 数据类型
+外键值文本
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+| 序号 | 组合方式 |
+| ---- | ---- |
+| 1 | `=` |
+| 2 | `%like%` |
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
+| 关系属性 | [项目名称（NAME）](../zentao/Project/#属性-项目名称（NAME）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
+### 属性-所属产品（PRODUCTNAME）
+#### 属性说明
+所属产品
+
+- 是否是主键
+否
+
+- 属性类型
+链接字段[来自关系实体字段]
+
+- 数据类型
+外键值文本
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+| 序号 | 组合方式 |
+| ---- | ---- |
+| 1 | `=` |
+| 2 | `%like%` |
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
+| 关系属性 | [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
 
 ## 业务状态
 | 序号 | 状态名称 | [文件库类型](#属性-文件库类型（DOCLIBTYPE）)<br>（DOCLIBTYPE） | 默认 |
@@ -827,6 +917,10 @@ Save
 | 5 | [项目库（PROJECT）](#属性-项目库（PROJECT）) | `=` |
 | 6 | [产品库（PRODUCT）](#属性-产品库（PRODUCT）) | `=` |
 | 7 | [文件库类型（DOCLIBTYPE）](#属性-文件库类型（DOCLIBTYPE）) | `=` |
+| 8 | [所属项目（PROJECTNAME）](#属性-所属项目（PROJECTNAME）) | `=` |
+| 9 | [所属项目（PROJECTNAME）](#属性-所属项目（PROJECTNAME）) | `%like%` |
+| 10 | [所属产品（PRODUCTNAME）](#属性-所属产品（PRODUCTNAME）) | `=` |
+| 11 | [所属产品（PRODUCTNAME）](#属性-所属产品（PRODUCTNAME）) | `%like%` |
 
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |
@@ -860,9 +954,13 @@ t1.`MAIN`,
 t1.`NAME`,
 t1.`ORDER`,
 t1.`PRODUCT`,
+t21.`NAME` AS `PRODUCTNAME`,
 t1.`PROJECT`,
+t11.`NAME` AS `PROJECTNAME`,
 t1.`TYPE`
 FROM `zt_doclib` t1 
+LEFT JOIN zt_project t11 ON t1.PROJECT = t11.ID 
+LEFT JOIN zt_product t21 ON t1.PRODUCT = t21.ID 
 
 ```
 ### 数据查询-产品文档库（ByProduct）
@@ -984,9 +1082,13 @@ t1.`MAIN`,
 t1.`NAME`,
 t1.`ORDER`,
 t1.`PRODUCT`,
+t21.`NAME` AS `PRODUCTNAME`,
 t1.`PROJECT`,
+t11.`NAME` AS `PROJECTNAME`,
 t1.`TYPE`
 FROM `zt_doclib` t1 
+LEFT JOIN zt_project t11 ON t1.PROJECT = t11.ID 
+LEFT JOIN zt_product t21 ON t1.PRODUCT = t21.ID 
 
 ```
 ### 数据查询-默认（全部数据）（View）
@@ -1013,10 +1115,14 @@ t1.`MAIN`,
 t1.`NAME`,
 t1.`ORDER`,
 t1.`PRODUCT`,
+t21.`NAME` AS `PRODUCTNAME`,
 t1.`PROJECT`,
+t11.`NAME` AS `PROJECTNAME`,
 t1.`TYPE`,
 t1.`USERS`
 FROM `zt_doclib` t1 
+LEFT JOIN zt_project t11 ON t1.PROJECT = t11.ID 
+LEFT JOIN zt_product t21 ON t1.PRODUCT = t21.ID 
 
 ```
 

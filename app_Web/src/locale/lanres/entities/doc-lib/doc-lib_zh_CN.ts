@@ -14,6 +14,8 @@ export default {
     product: "产品库",
     doccnt: "文档数量",
     doclibtype: "文件库类型",
+    projectname: "所属项目",
+    productname: "所属产品",
   },
 	views: {
 		projecttreeexpview: {
@@ -49,8 +51,6 @@ export default {
 		details: {
 			group1: "doclib基本信息", 
 			formpage1: "基本信息", 
-			group2: "操作信息", 
-			formpage2: "其它", 
 			srforikey: "", 
 			srfkey: "编号", 
 			srfmajortext: "文档库名称", 
@@ -58,9 +58,14 @@ export default {
 			srfuf: "", 
 			srfdeid: "", 
 			srfsourcekey: "", 
+			type: "文档类型", 
+			projectname: "所属项目", 
+			productname: "所属产品", 
 			name: "文档库名称", 
+			acl: "访问控制", 
 			collector: "收藏者", 
 			project: "项目库", 
+			product: "产品库", 
 			id: "编号", 
 		},
 		uiactions: {
@@ -102,21 +107,15 @@ export default {
 	productgridviewtoolbar_toolbar: {
 	},
 	editviewtoolbar_toolbar: {
-		tbitem3: {
-			caption: "保存",
-			tip: "保存",
-		},
-		tbitem4: {
-			caption: "保存并新建",
-			tip: "保存并新建",
-		},
-		tbitem5: {
+		deuiaction1: {
 			caption: "保存并关闭",
 			tip: "保存并关闭",
 		},
-		tbitem7: {
-			caption: "删除",
-			tip: "删除",
+	},
+	libtabexpviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "创建文档库",
+			tip: "创建文档库",
 		},
 	},
 	projectdoclibtree_treeview: {

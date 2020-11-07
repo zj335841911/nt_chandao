@@ -57,6 +57,12 @@ export default class CustomDocLibTreeModel {
       {
         name: 'doclibtype',
       },
+      {
+        name: 'projectname',
+      },
+      {
+        name: 'productname',
+      },
     ]
   }
 

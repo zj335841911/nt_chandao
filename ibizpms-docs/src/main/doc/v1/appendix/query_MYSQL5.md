@@ -4710,9 +4710,13 @@ t1.`MAIN`,
 t1.`NAME`,
 t1.`ORDER`,
 t1.`PRODUCT`,
+t21.`NAME` AS `PRODUCTNAME`,
 t1.`PROJECT`,
+t11.`NAME` AS `PROJECTNAME`,
 t1.`TYPE`
 FROM `zt_doclib` t1 
+LEFT JOIN zt_project t11 ON t1.PROJECT = t11.ID 
+LEFT JOIN zt_product t21 ON t1.PRODUCT = t21.ID 
 
 WHERE t1.DELETED = '0' 
 ( t1.`TYPE` = 'custom' ) 
@@ -4810,9 +4814,13 @@ t1.`MAIN`,
 t1.`NAME`,
 t1.`ORDER`,
 t1.`PRODUCT`,
+t21.`NAME` AS `PRODUCTNAME`,
 t1.`PROJECT`,
+t11.`NAME` AS `PROJECTNAME`,
 t1.`TYPE`
 FROM `zt_doclib` t1 
+LEFT JOIN zt_project t11 ON t1.PROJECT = t11.ID 
+LEFT JOIN zt_product t21 ON t1.PRODUCT = t21.ID 
 
 WHERE t1.DELETED = '0' 
 
@@ -4830,10 +4838,14 @@ t1.`MAIN`,
 t1.`NAME`,
 t1.`ORDER`,
 t1.`PRODUCT`,
+t21.`NAME` AS `PRODUCTNAME`,
 t1.`PROJECT`,
+t11.`NAME` AS `PROJECTNAME`,
 t1.`TYPE`,
 t1.`USERS`
 FROM `zt_doclib` t1 
+LEFT JOIN zt_project t11 ON t1.PROJECT = t11.ID 
+LEFT JOIN zt_product t21 ON t1.PRODUCT = t21.ID 
 
 WHERE t1.DELETED = '0' 
 

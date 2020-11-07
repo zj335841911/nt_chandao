@@ -57,6 +57,12 @@ export default class ProjectTreeExpViewtreeexpbarModel {
       {
         name: 'doclibtype',
       },
+      {
+        name: 'projectname',
+      },
+      {
+        name: 'productname',
+      },
     ]
   }
 

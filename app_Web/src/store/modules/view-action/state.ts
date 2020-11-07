@@ -966,6 +966,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '3b346aee2b79b7b6b59bc870b4c67f72',
+            viewmodule: 'zentao',
+            viewname: 'ProjectPickupGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '3cecc451b691620a36a8dc8aa69d624d',
             viewmodule: 'ibiz',
             viewname: 'SysUpdateLogLastGridView',
@@ -1023,6 +1032,17 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '770a170098d148e438a7666b248e6519',
+            ],
+        },
+        {
+            viewtag: '41693a4d3b2bd3a7195d31ceae6cdcf3',
+            viewmodule: 'zentao',
+            viewname: 'DocLibEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '5a8a29268a7563b62fc0160233958830',
+                '7df0f0deee91304e0350f00baa8a92d6',
             ],
         },
         {
@@ -1538,6 +1558,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '5a8a29268a7563b62fc0160233958830',
+            viewmodule: 'zentao',
+            viewname: 'ProjectPickupView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '3b346aee2b79b7b6b59bc870b4c67f72',
+            ],
+        },
+        {
             viewtag: '5b1056f95f9015cdb45901308a758e25',
             viewmodule: 'zentao',
             viewname: 'StoryBuildSubGridView',
@@ -2031,6 +2061,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '7df0f0deee91304e0350f00baa8a92d6',
+            viewmodule: 'zentao',
+            viewname: 'ProductPickupView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '8d53a973712c13f448efb8e2182ccc0b',
+            ],
+        },
+        {
             viewtag: '7e9dfdd36617a43790494790f58117ec',
             viewmodule: 'ibiz',
             viewname: 'ProductSumUsr2GridView',
@@ -2050,6 +2090,7 @@ export const viewstate: any = {
                 '2d63c9fa825c7d4f7816cab45ad34bb6',
                 '092028347755c225e484250308db2d51',
                 '22dcf6656e1b870d0427a450cdbd7d20',
+                '41693a4d3b2bd3a7195d31ceae6cdcf3',
             ],
         },
         {
@@ -2335,6 +2376,15 @@ export const viewstate: any = {
                 'ea141fddc78fd1af4d06e494baf12cc1',
                 '35ba93bac795e0deb7297d2d471b7180',
                 '507c506d62dc910a814332e6ae242266',
+            ],
+        },
+        {
+            viewtag: '8d53a973712c13f448efb8e2182ccc0b',
+            viewmodule: 'zentao',
+            viewname: 'ProductPickupGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
             ],
         },
         {

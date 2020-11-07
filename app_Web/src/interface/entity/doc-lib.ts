@@ -117,4 +117,20 @@ export interface DocLib {
      * @memberof DocLib
      */
     doclibtype?: any;
+
+    /**
+     * 所属项目
+     *
+     * @returns {*}
+     * @memberof DocLib
+     */
+    projectname?: any;
+
+    /**
+     * 所属产品
+     *
+     * @returns {*}
+     * @memberof DocLib
+     */
+    productname?: any;
 }

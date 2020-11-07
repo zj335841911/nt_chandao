@@ -86,8 +86,21 @@ export class DocLibLibTabExpViewBase extends TabExpViewBase {
      * @memberof DocLibLibTabExpViewBase
      */
     protected containerModel: any = {
+        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
         view_tabexppanel: { name: 'tabexppanel', type: 'TABEXPPANEL' },
     };
+
+    /**
+     * 工具栏模型
+     *
+     * @type {*}
+     * @memberof DocLibLibTabExpView
+     */
+    public toolBarModels: any = {
+        deuiaction1: { name: 'deuiaction1', caption: '创建文档库', 'isShowCaption': true, 'isShowIcon': true, tooltip: '创建文档库', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Create', target: 'NONE', class: '' } },
+
+    };
+
 
 
 	/**
@@ -140,6 +153,47 @@ export class DocLibLibTabExpViewBase extends TabExpViewBase {
             majorPSDEField: 'name',
             isLoadDefault: true,
         });
+    }
+
+    /**
+     * toolbar 部件 click 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof DocLibLibTabExpViewBase
+     */
+    public toolbar_click($event: any, $event2?: any): void {
+        if (Object.is($event.tag, 'deuiaction1')) {
+            this.toolbar_deuiaction1_click(null, '', $event2);
+        }
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public toolbar_deuiaction1_click(params: any = {}, tag?: any, $event?: any) {
+        // 参数
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:DocLibUIService  = new DocLibUIService();
+        curUIService.DocLib_Create(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
     }
 
 

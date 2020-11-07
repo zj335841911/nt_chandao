@@ -57,6 +57,12 @@ export default class LibTabExpViewtabviewpanel3Model {
       {
         name: 'doclibtype',
       },
+      {
+        name: 'projectname',
+      },
+      {
+        name: 'productname',
+      },
     ]
   }
 

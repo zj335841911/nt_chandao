@@ -152,6 +152,20 @@ public class DocLib extends EntityMP implements Serializable {
     @JSONField(name = "doclibtype")
     @JsonProperty("doclibtype")
     private String doclibtype;
+    /**
+     * 所属项目
+     */
+    @TableField(exist = false)
+    @JSONField(name = "projectname")
+    @JsonProperty("projectname")
+    private String projectname;
+    /**
+     * 所属产品
+     */
+    @TableField(exist = false)
+    @JSONField(name = "productname")
+    @JsonProperty("productname")
+    private String productname;
 
     /**
      * 

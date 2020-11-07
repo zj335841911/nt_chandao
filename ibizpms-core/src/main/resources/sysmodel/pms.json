@@ -5526,6 +5526,42 @@
     "key_field":0,
     "show_order":1000,
     "major_field":0
+    },
+    {
+    "fieldname":"PROJECTNAME" ,
+    "codename":"ProjectName",
+    "field_logic_name":"所属项目",
+    "entity_name":"DocLib",
+    "ref_de":"ZT_PROJECT",
+    "ref_field_name":"NAME",
+    "relation_name":"DER1N_ZT_DOCLIB_ZT_PROJECT_PROJECT",
+    "relation_codename":"Zt_project",
+    "field_type":"PICKUPTEXT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":90,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"PRODUCTNAME" ,
+    "codename":"ProductName",
+    "field_logic_name":"所属产品",
+    "entity_name":"DocLib",
+    "ref_de":"ZT_PRODUCT",
+    "ref_field_name":"NAME",
+    "relation_name":"DER1N_ZT_DOCLIB_ZT_PRODUCT_PRODUCT",
+    "relation_codename":"Zt_product",
+    "field_type":"PICKUPTEXT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":90,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
     }
     ],
     "subEntitys":[

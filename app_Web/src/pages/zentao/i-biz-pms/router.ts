@@ -363,6 +363,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/bug-pickup-grid-view4/bug-pickup-grid-view4.vue'),
                 },
                 {
+                    path: 'products/:product?/pickupgridview/:pickupgridview?',
+                    meta: {
+                        caption: 'entities.product.views.pickupgridview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'pickupgridview', parameterName: 'pickupgridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/product-pickup-grid-view/product-pickup-grid-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/gridview9_storyrelated/:gridview9_storyrelated?',
                     meta: {
                         caption: 'entities.bug.views.gridview9_storyrelated.caption',
@@ -1048,6 +1062,20 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/product-story-tree-exp-view/product-story-tree-exp-view.vue'),
+                },
+                {
+                    path: 'projects/:project?/pickupgridview/:pickupgridview?',
+                    meta: {
+                        caption: 'entities.project.views.pickupgridview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'pickupgridview', parameterName: 'pickupgridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/project-pickup-grid-view/project-pickup-grid-view.vue'),
                 },
                 {
                     path: 'bugstats/:bugstats?/editview/:editview?',
@@ -8721,6 +8749,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/todo-desc-edit-view9/todo-desc-edit-view9.vue'),
                 },
                 {
+                    path: 'products/:product?/pickupview/:pickupview?',
+                    meta: {
+                        caption: 'entities.product.views.pickupview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'pickupview', parameterName: 'pickupview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/product-pickup-view/product-pickup-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/tasks/:task?/treeeditview/:treeeditview?',
                     meta: {
                         caption: 'entities.task.views.treeeditview.caption',
@@ -10896,6 +10938,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/bug-release-sub-grid-view-done/bug-release-sub-grid-view-done.vue'),
                 },
                 {
+                    path: 'doclibs/:doclib?/editview/:editview?',
+                    meta: {
+                        caption: 'entities.doclib.views.editview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'doclibs', parameterName: 'doclib' },
+                            { pathName: 'editview', parameterName: 'editview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/doc-lib-edit-view/doc-lib-edit-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/cases/:case?/optionview/:optionview?',
                     meta: {
                         caption: 'entities.case.views.optionview.caption',
@@ -12391,6 +12447,20 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/test-report-edit-view-tosumup/test-report-edit-view-tosumup.vue'),
+                },
+                {
+                    path: 'projects/:project?/pickupview/:pickupview?',
+                    meta: {
+                        caption: 'entities.project.views.pickupview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'pickupview', parameterName: 'pickupview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/project-pickup-view/project-pickup-view.vue'),
                 },
                 {
                     path: 'products/:product?/stories/:story?/reviewview/:reviewview?',

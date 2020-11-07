@@ -4466,6 +4466,43 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
+        srfkey: "Doclib__type",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "product",
+                label: "产品文档库",
+                text: "产品文档库",
+                "data":"",
+                "codename":"Product",
+                value: "product",
+                
+                disabled: false,
+            },
+            {
+                id: "project",
+                label: "项目文档库",
+                text: "项目文档库",
+                "data":"",
+                "codename":"Project",
+                value: "project",
+                
+                disabled: false,
+            },
+            {
+                id: "custom",
+                label: "自定义文档库",
+                text: "自定义文档库",
+                "data":"",
+                "codename":"Custom",
+                value: "custom",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
         srfkey: "ActionManner",
         emptytext: "未定义",
         "codelisttype":"static",
@@ -5670,6 +5707,43 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 "data":{"n_openedby_eq":"%srfloginname%"},
                 "codename":"Icreate",
                 value: "ICREATE",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
+        srfkey: "Doclib__acl",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "open",
+                label: "公开",
+                text: "公开",
+                "data":"",
+                "codename":"Open",
+                value: "open",
+                
+                disabled: false,
+            },
+            {
+                id: "private",
+                label: "私有",
+                text: "私有",
+                "data":"",
+                "codename":"Private",
+                value: "private",
+                
+                disabled: false,
+            },
+            {
+                id: "custom",
+                label: "自定义",
+                text: "自定义",
+                "data":"",
+                "codename":"Custom",
+                value: "custom",
                 
                 disabled: false,
             },

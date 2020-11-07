@@ -621,6 +621,12 @@ export default {
         "CANCELLED": "已取消",
         "empty": "",
     },
+    Doclib__type: {
+        "product": "产品文档库",
+        "project": "项目文档库",
+        "custom": "自定义文档库",
+        "empty": "",
+    },
     ActionManner: {
         "story_closed_willnotdo": "不做",
         "story_closed_cancel": "已取消",
@@ -769,6 +775,12 @@ export default {
     CaseQuickpacketMy: {
         "TOME": "给我的用例",
         "ICREATE": "我建的用例",
+        "empty": "",
+    },
+    Doclib__acl: {
+        "open": "公开",
+        "private": "私有",
+        "custom": "自定义",
         "empty": "",
     },
     YesNo2: {

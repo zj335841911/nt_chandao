@@ -15579,9 +15579,11 @@ CREATE TABLE `zt_doccontent`(
 | PRODUCT        | 产品库  |       |   8   | &nbsp; |
 | PROJECT        | 项目库  |       |   8   | &nbsp; |
 | MAIN        | 是否是主库  | INTEGER      |   1   | &nbsp; |
+| PRODUCTNAME        | 所属产品  | VARCHAR      |   90   | &nbsp; |
 | COLLECTOR        | 收藏者  | CLOB      |   65,535   | &nbsp; |
 | TYPE        | 文档类型  | VARCHAR      |   30   | &nbsp; |
 | DELETED        | 已删除  | VARCHAR      |   1   | &nbsp; |
+| PROJECTNAME        | 所属项目  | VARCHAR      |   90   | &nbsp; |
 | DOCLIBTYPE        | 文件库类型  | VARCHAR      |   200   | &nbsp; |
 | ACL        | 权限  | VARCHAR      |   10   | &nbsp; |
 
