@@ -1,0 +1,26 @@
+<template src="./lib-tab-exp-viewtabexppanel-tabexppanel.html"/>
+<script lang='tsx'>
+import { Component } from 'vue-property-decorator';
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { LibTabExpViewtabexppanelTabexppanelBase } from './lib-tab-exp-viewtabexppanel-tabexppanel-base';
+import view_tabviewpanel from '@widgets/doc-lib/lib-tab-exp-viewtabviewpanel-tabviewpanel/lib-tab-exp-viewtabviewpanel-tabviewpanel.vue';
+import view_tabviewpanel2 from '@widgets/doc-lib/lib-tab-exp-viewtabviewpanel2-tabviewpanel/lib-tab-exp-viewtabviewpanel2-tabviewpanel.vue';
+ 
+
+/**
+ * tabexppanel部件
+ *
+ * @export
+ * @class LibTabExpViewtabexppanelTabexppanel
+ * @extends {LibTabExpViewtabexppanelTabexppanelBase}
+ */
+@Component({
+    components: {
+        view_tabviewpanel, 
+        view_tabviewpanel2, 
+         
+    }
+})
+@VueLifeCycleProcessing()
+export default class LibTabExpViewtabexppanelTabexppanel extends LibTabExpViewtabexppanelTabexppanelBase { }
+</script>

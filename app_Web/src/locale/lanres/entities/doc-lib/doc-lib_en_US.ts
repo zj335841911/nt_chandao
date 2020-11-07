@@ -20,6 +20,10 @@ export default {
 			caption: "项目文档库",
       		title: "文档库树导航视图（项目文档库）",
 		},
+		producttreeexpview: {
+			caption: "产品文档库",
+      		title: "文档库树导航视图（产品文档库）",
+		},
 		editview: {
 			caption: "文档库",
       		title: "doclib编辑视图",
@@ -31,6 +35,10 @@ export default {
 		productgridview: {
 			caption: "文档库",
       		title: "doclib表格视图",
+		},
+		libtabexpview: {
+			caption: "文档",
+      		title: "文档库分页导航视图（文档）",
 		},
 	},
 	main_form: {
@@ -111,6 +119,14 @@ export default {
 		nodes: {
 			root: "默认根节点",
 			files: "附件库",
+		},
+		uiactions: {
+		},
+	},
+	productdoclibtree_treeview: {
+		nodes: {
+			files: "附件库",
+			root: "默认根节点",
 		},
 		uiactions: {
 		},

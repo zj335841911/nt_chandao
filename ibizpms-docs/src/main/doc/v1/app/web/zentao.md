@@ -43,7 +43,7 @@
 |产品主页|[查看功能](func/ProductPortalView.md)|
 |项目主页|[查看功能](func/ProjectPortalView.md)|
 |测试主页|[查看功能](func/TestPortalView.md)|
-|文档|[查看功能](func/DocLibProjectTreeExpView.md)|
+|文档|[查看功能](func/DocLibLibTabExpView.md)|
 |统计|[查看功能](func/IbzMyTerritoryStatsTabExpView.md)|
 |年度统计|[查看功能](func/UserYearWorkStatsEditView.md)|
 |用例库|[查看功能](func/IbzLibGridView.md)|

@@ -382,7 +382,7 @@ export class ZentaoBase extends Vue {
     }
     
     /**
-     * 项目文档
+     * 文档
      *
      * @param {*} [item={}]
      * @memberof Zentao
@@ -393,7 +393,7 @@ export class ZentaoBase extends Vue {
         const deResParameters: any[] = [];
         const parameters: any[] = [
             { pathName: 'doclibs', parameterName: 'doclib' },
-            { pathName: 'projecttreeexpview', parameterName: 'projecttreeexpview' },
+            { pathName: 'libtabexpview', parameterName: 'libtabexpview' },
         ];
         const path: string = this.$viewTool.buildUpRoutePath(this.$route, {}, deResParameters, parameters, [], viewparam);
         if(Object.is(this.$route.fullPath,path)){

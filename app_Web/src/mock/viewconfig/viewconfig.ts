@@ -567,6 +567,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TaskMainEditView",
             "viewtag": "21e00a7239d9737bbfda5c1608b4129c"
         },
+        "doclibproducttreeexpview": {
+            "title": "文档库树导航视图（产品文档库）",
+            "caption": "产品文档库",
+            "viewtype": "DETREEEXPVIEW",
+            "viewmodule": "zentao",
+            "viewname": "DocLibProductTreeExpView",
+            "viewtag": "22dcf6656e1b870d0427a450cdbd7d20"
+        },
         "projectteammaingridview": {
             "title": "项目团队表格视图",
             "caption": "项目团队",
@@ -1854,6 +1862,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "ibiz",
             "viewname": "ProductSumUsr2GridView",
             "viewtag": "7e9dfdd36617a43790494790f58117ec"
+        },
+        "docliblibtabexpview": {
+            "title": "文档库分页导航视图（文档）",
+            "caption": "文档",
+            "viewtype": "DETABEXPVIEW",
+            "viewmodule": "zentao",
+            "viewname": "DocLibLibTabExpView",
+            "viewtag": "7f0821e7efe42bbf91090b525b05c96d"
         },
         "taskwheditview": {
             "title": "工时",

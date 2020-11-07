@@ -276,6 +276,7 @@
 |-|用户联系方式树导航视图|DETREEEXPVIEW|&nbsp;|
 |-|关联Bug|DEMPICKUPVIEW|&nbsp;|
 |-|任务|DEEDITVIEW|&nbsp;|
+|-|文档库树导航视图（产品文档库）|DETREEEXPVIEW|&nbsp;|
 |-|项目团队表格视图|DEGRIDVIEW|&nbsp;|
 |-|测试用例表格视图（测试结果条目）|DEGRIDVIEW|&nbsp;|
 |-|文档数据看板视图|DEPORTALVIEW|&nbsp;|
@@ -438,6 +439,7 @@ SRFNAVPARAM.project=%project%|
 |-|产品数据选择视图|DEPICKUPVIEW|&nbsp;|
 |-|需求数据看板视图|DEPORTALVIEW|&nbsp;|
 |-|产品计划数和需求数实体表格视图|DEGRIDVIEW|&nbsp;|
+|-|文档库分页导航视图（文档）|DETABEXPVIEW|&nbsp;|
 |-|工时|DEEDITVIEW|&nbsp;|
 |-|测试用例表格视图|DEGRIDVIEW9|&nbsp;|
 |-|完成|DEOPTVIEW|&nbsp;|

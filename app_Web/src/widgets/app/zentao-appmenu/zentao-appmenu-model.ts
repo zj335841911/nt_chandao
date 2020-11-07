@@ -156,7 +156,7 @@ export default class ZentaoModel {
                 	textcls: '',
                 	appfunctag: 'AppFunc4',
                 	appfuncyype: 'APPVIEW',
-                	viewname: 'doc-lib-project-tree-exp-view',
+                	viewname: 'doc-lib-lib-tab-exp-view',
                 	authtag:'Web-zentao-menuitem16',
                 }
                 ,
@@ -688,12 +688,12 @@ export default class ZentaoModel {
             appfunctag: 'AppFunc4',
             appfuncyype: 'APPVIEW',
             openmode: '',
-            codename: 'doclibprojecttreeexpview',
+            codename: 'docliblibtabexpview',
             deResParameters: [],
-            routepath: '/ibizpms/:ibizpms?/doclibs/:doclib?/projecttreeexpview/:projecttreeexpview?',
+            routepath: '/ibizpms/:ibizpms?/doclibs/:doclib?/libtabexpview/:libtabexpview?',
             parameters: [
                 { pathName: 'doclibs', parameterName: 'doclib' },
-                { pathName: 'projecttreeexpview', parameterName: 'projecttreeexpview' },
+                { pathName: 'libtabexpview', parameterName: 'libtabexpview' },
             ],
         },
         {

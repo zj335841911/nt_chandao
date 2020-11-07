@@ -948,7 +948,7 @@ DEFAULT
 SELECT
 t1.`ACL`,
 t1.`DELETED`,
-doc AS `DOCLIBTYPE`,
+'doc' AS `DOCLIBTYPE`,
 t1.`GROUPS`,
 t1.`ID`,
 t1.`MAIN`,
@@ -977,7 +977,7 @@ SELECT
 t1.`ACL`,
 t1.`COLLECTOR`,
 t1.`DELETED`,
-doc AS `DOCLIBTYPE`,
+'doc' AS `DOCLIBTYPE`,
 t1.`GROUPS`,
 t1.`ID`,
 t1.`MAIN`,

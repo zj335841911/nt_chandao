@@ -7062,6 +7062,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/bug-steps-info-edit-view/bug-steps-info-edit-view.vue'),
                 },
                 {
+                    path: 'doclibs/:doclib?/producttreeexpview/:producttreeexpview?',
+                    meta: {
+                        caption: 'entities.doclib.views.producttreeexpview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'doclibs', parameterName: 'doclib' },
+                            { pathName: 'producttreeexpview', parameterName: 'producttreeexpview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/doc-lib-product-tree-exp-view/doc-lib-product-tree-exp-view.vue'),
+                },
+                {
                     path: 'projects/:project?/testreports/:testreport?/actioneditview/:actioneditview?',
                     meta: {
                         caption: 'entities.testreport.views.actioneditview.caption',
@@ -9339,20 +9353,6 @@ const router = new Router({
                     component: () => import('@pages/zentao/product-bug-tree-exp-view/product-bug-tree-exp-view.vue'),
                 },
                 {
-                    path: 'doclibs/:doclib?/projecttreeexpview/:projecttreeexpview?',
-                    meta: {
-                        caption: 'entities.doclib.views.projecttreeexpview.caption',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'doclibs', parameterName: 'doclib' },
-                            { pathName: 'projecttreeexpview', parameterName: 'projecttreeexpview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/doc-lib-project-tree-exp-view/doc-lib-project-tree-exp-view.vue'),
-                },
-                {
                     path: 'products/:product?/stories/:story?/tasks/:task?/mainmygridview/:mainmygridview?',
                     meta: {
                         caption: 'entities.task.views.mainmygridview.caption',
@@ -9419,6 +9419,20 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/task-main-my-grid-view/task-main-my-grid-view.vue'),
+                },
+                {
+                    path: 'doclibs/:doclib?/projecttreeexpview/:projecttreeexpview?',
+                    meta: {
+                        caption: 'entities.doclib.views.projecttreeexpview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'doclibs', parameterName: 'doclib' },
+                            { pathName: 'projecttreeexpview', parameterName: 'projecttreeexpview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/doc-lib-project-tree-exp-view/doc-lib-project-tree-exp-view.vue'),
                 },
                 {
                     path: 'products/:product?/stories/:story?/tasks/:task?/activationtaskview/:activationtaskview?',
@@ -13874,6 +13888,20 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/project-chart-view9/project-chart-view9.vue'),
+                },
+                {
+                    path: 'doclibs/:doclib?/libtabexpview/:libtabexpview?',
+                    meta: {
+                        caption: 'entities.doclib.views.libtabexpview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'doclibs', parameterName: 'doclib' },
+                            { pathName: 'libtabexpview', parameterName: 'libtabexpview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/doc-lib-lib-tab-exp-view/doc-lib-lib-tab-exp-view.vue'),
                 },
                 {
                     path: 'projects/:project?/testtasks/:testtask?/editview_committest/:editview_committest?',

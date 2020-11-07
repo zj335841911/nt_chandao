@@ -332,7 +332,7 @@
       * [测试边栏](app/Web/func/ProductTestLeftSidebarListView.md)
       * [员工年度统计（测试）](app/Web/func/UserYearWorkStatsQADashboardView.md)
       * [story主数据视图（链接）](app/Web/func/StoryMainView_Link.md)
-      * [项目文档](app/Web/func/DocLibProjectTreeExpView.md)
+      * [文档](app/Web/func/DocLibLibTabExpView.md)
       * [左边栏产品列表视图](app/Web/func/ProductLeftSidebarListView.md)
       * [员工年度统计（研发）](app/Web/func/UserYearWorkStatsDashboardView.md)
       * [产品测试](app/Web/func/ProductTestGridView.md)

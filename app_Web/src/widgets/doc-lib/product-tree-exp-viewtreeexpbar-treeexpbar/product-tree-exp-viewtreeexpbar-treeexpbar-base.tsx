@@ -3,7 +3,7 @@ import { Subject, Subscription } from 'rxjs';
 import { UIActionTool,Util,ViewTool } from '@/utils';
 import { Watch, TreeExpBarControlBase } from '@/studio-core';
 import DocLibService from '@/service/doc-lib/doc-lib-service';
-import ProjectTreeExpViewtreeexpbarService from './project-tree-exp-viewtreeexpbar-treeexpbar-service';
+import ProductTreeExpViewtreeexpbarService from './product-tree-exp-viewtreeexpbar-treeexpbar-service';
 import DocLibUIService from '@/uiservice/doc-lib/doc-lib-ui-service';
 
 
@@ -12,32 +12,32 @@ import DocLibUIService from '@/uiservice/doc-lib/doc-lib-ui-service';
  *
  * @export
  * @class TreeExpBarControlBase
- * @extends {ProjectTreeExpViewtreeexpbarTreeExpBarBase}
+ * @extends {ProductTreeExpViewtreeexpbarTreeExpBarBase}
  */
-export class ProjectTreeExpViewtreeexpbarTreeExpBarBase extends TreeExpBarControlBase {
+export class ProductTreeExpViewtreeexpbarTreeExpBarBase extends TreeExpBarControlBase {
 
     /**
      * 获取部件类型
      *
      * @protected
      * @type {string}
-     * @memberof ProjectTreeExpViewtreeexpbarTreeExpBarBase
+     * @memberof ProductTreeExpViewtreeexpbarTreeExpBarBase
      */
     protected controlType: string = 'TREEEXPBAR';
 
     /**
      * 建构部件服务对象
      *
-     * @type {ProjectTreeExpViewtreeexpbarService}
-     * @memberof ProjectTreeExpViewtreeexpbarTreeExpBarBase
+     * @type {ProductTreeExpViewtreeexpbarService}
+     * @memberof ProductTreeExpViewtreeexpbarTreeExpBarBase
      */
-    public service: ProjectTreeExpViewtreeexpbarService = new ProjectTreeExpViewtreeexpbarService({ $store: this.$store });
+    public service: ProductTreeExpViewtreeexpbarService = new ProductTreeExpViewtreeexpbarService({ $store: this.$store });
 
     /**
      * 实体服务对象
      *
      * @type {DocLibService}
-     * @memberof ProjectTreeExpViewtreeexpbarTreeExpBarBase
+     * @memberof ProductTreeExpViewtreeexpbarTreeExpBarBase
      */
     public appEntityService: DocLibService = new DocLibService({ $store: this.$store });
 
@@ -46,7 +46,7 @@ export class ProjectTreeExpViewtreeexpbarTreeExpBarBase extends TreeExpBarContro
      *
      * @protected
      * @type {string}
-     * @memberof ProjectTreeExpViewtreeexpbarTreeExpBarBase
+     * @memberof ProductTreeExpViewtreeexpbarTreeExpBarBase
      */
     protected appDeName: string = 'doclib';
 
@@ -55,7 +55,7 @@ export class ProjectTreeExpViewtreeexpbarTreeExpBarBase extends TreeExpBarContro
      *
      * @protected
      * @type {string}
-     * @memberof ProjectTreeExpViewtreeexpbarTreeExpBarBase
+     * @memberof ProductTreeExpViewtreeexpbarTreeExpBarBase
      */
     protected appDeLogicName: string = '文档库';
 
@@ -63,7 +63,7 @@ export class ProjectTreeExpViewtreeexpbarTreeExpBarBase extends TreeExpBarContro
      * 界面UI服务对象
      *
      * @type {DocLibUIService}
-     * @memberof ProjectTreeExpViewtreeexpbarBase
+     * @memberof ProductTreeExpViewtreeexpbarBase
      */  
     public appUIService:DocLibUIService = new DocLibUIService(this.$store);
 
@@ -72,7 +72,7 @@ export class ProjectTreeExpViewtreeexpbarTreeExpBarBase extends TreeExpBarContro
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof ProjectTreeExpViewtreeexpbarTreeExpBarBase
+     * @memberof ProductTreeExpViewtreeexpbarTreeExpBarBase
      */
     public treeexpbar_tree_selectionchange($event: any, $event2?: any) {
         this.treeexpbar_selectionchange($event, 'treeexpbar_tree', $event2);
@@ -83,7 +83,7 @@ export class ProjectTreeExpViewtreeexpbarTreeExpBarBase extends TreeExpBarContro
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof ProjectTreeExpViewtreeexpbarTreeExpBarBase
+     * @memberof ProductTreeExpViewtreeexpbarTreeExpBarBase
      */
     public treeexpbar_tree_load($event: any, $event2?: any) {
         this.treeexpbar_load($event, 'treeexpbar_tree', $event2);
@@ -94,7 +94,7 @@ export class ProjectTreeExpViewtreeexpbarTreeExpBarBase extends TreeExpBarContro
      * 控件宽度
      *
      * @type {number}
-     * @memberof ProjectTreeExpViewtreeexpbarBase
+     * @memberof ProductTreeExpViewtreeexpbarBase
      */
     public ctrlWidth:number = 0;
 
@@ -103,7 +103,7 @@ export class ProjectTreeExpViewtreeexpbarTreeExpBarBase extends TreeExpBarContro
      *
      * @param {*} [arg={}]
      * @returns {*}
-     * @memberof ProjectTreeExpViewtreeexpbarBase
+     * @memberof ProductTreeExpViewtreeexpbarBase
      */
     public getExpItemView(arg: any = {}): any {
         let expmode = arg.nodetype.toUpperCase();
@@ -112,15 +112,15 @@ export class ProjectTreeExpViewtreeexpbarTreeExpBarBase extends TreeExpBarContro
         }
         if (Object.is(expmode, 'FILES')) {
             return {  
-                viewname: 'file-grid-view', 
+                viewname: 'file-product-grid-view', 
                 parentdata: {},
                 deKeyField:'file'
 			};
         }
-        if (Object.is(expmode, 'PROJECT')) {
+        if (Object.is(expmode, 'PRODUCT')) {
             return {  
-                viewname: 'doc-lib-grid-view', 
-                parentdata: {"srfparentdefname":"project"},
+                viewname: 'doc-lib-product-grid-view', 
+                parentdata: {"srfparentdefname":"product"},
                 deKeyField:'doclib'
 			};
         }
@@ -137,13 +137,13 @@ export class ProjectTreeExpViewtreeexpbarTreeExpBarBase extends TreeExpBarContro
     /**
     * 执行mounted后的逻辑
     *
-    * @memberof ProjectTreeExpViewtreeexpbarBase
+    * @memberof ProductTreeExpViewtreeexpbarBase
     */
     public ctrlMounted(){ 
         if(this.$store.getters.getViewSplit(this.viewUID)){
             this.split = this.$store.getters.getViewSplit(this.viewUID);
         }else{
-            let containerWidth:number = (document.getElementById("projecttreeexpviewtreeexpbar") as any).offsetWidth;
+            let containerWidth:number = (document.getElementById("producttreeexpviewtreeexpbar") as any).offsetWidth;
             if(this.ctrlWidth){
                     this.split = this.ctrlWidth/containerWidth;
             }
@@ -155,7 +155,7 @@ export class ProjectTreeExpViewtreeexpbarTreeExpBarBase extends TreeExpBarContro
      * 视图数据加载完成
      *
      * @param {*} $event
-     * @memberof ProjectTreeExpViewtreeexpbarBase
+     * @memberof ProductTreeExpViewtreeexpbarBase
      */
     public onViewLoad($event: any): void {
         this.$emit('load', $event);
