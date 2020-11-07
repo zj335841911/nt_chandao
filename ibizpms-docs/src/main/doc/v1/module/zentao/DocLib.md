@@ -831,11 +831,40 @@ Save
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |
 | ---- | ---- | ---- | ---- |
-| 1 | [产品文档库](#数据查询-产品文档库（ByProduct）) | ByProduct | 否 |
-| 2 | [项目文件库](#数据查询-项目文件库（ByProject）) | ByProject | 否 |
-| 3 | [DEFAULT](#数据查询-DEFAULT（Default）) | Default | 否 |
-| 4 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 1 | [自定义文档库](#数据查询-自定义文档库（ByCustom）) | ByCustom | 否 |
+| 2 | [产品文档库](#数据查询-产品文档库（ByProduct）) | ByProduct | 否 |
+| 3 | [项目文件库](#数据查询-项目文件库（ByProject）) | ByProject | 否 |
+| 4 | [DEFAULT](#数据查询-DEFAULT（Default）) | Default | 否 |
+| 5 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
+### 数据查询-自定义文档库（ByCustom）
+#### 说明
+自定义文档库
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+SELECT
+t1.`ACL`,
+t1.`DELETED`,
+'doc' AS `DOCLIBTYPE`,
+t1.`GROUPS`,
+t1.`ID`,
+t1.`MAIN`,
+t1.`NAME`,
+t1.`ORDER`,
+t1.`PRODUCT`,
+t1.`PROJECT`,
+t1.`TYPE`
+FROM `zt_doclib` t1 
+
+```
 ### 数据查询-产品文档库（ByProduct）
 #### 说明
 产品文档库
@@ -994,10 +1023,25 @@ FROM `zt_doclib` t1
 ## 数据集合
 | 序号 | 集合 | 集合名 | 默认 |
 | ---- | ---- | ---- | ---- |
-| 1 | [产品文档库](#数据集合-产品文档库（ByProduct）) | ByProduct | 否 |
-| 2 | [项目文件库](#数据集合-项目文件库（ByProject）) | ByProject | 否 |
-| 3 | [DEFAULT](#数据集合-DEFAULT（Default）) | Default | 是 |
+| 1 | [自定义文档库](#数据集合-自定义文档库（ByCustom）) | ByCustom | 否 |
+| 2 | [产品文档库](#数据集合-产品文档库（ByProduct）) | ByProduct | 否 |
+| 3 | [项目文件库](#数据集合-项目文件库（ByProject）) | ByProject | 否 |
+| 4 | [DEFAULT](#数据集合-DEFAULT（Default）) | Default | 是 |
 
+### 数据集合-自定义文档库（ByCustom）
+#### 说明
+自定义文档库
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [自定义文档库（ByCustom）](#数据查询-自定义文档库（ByCustom）) |
 ### 数据集合-产品文档库（ByProduct）
 #### 说明
 产品文档库

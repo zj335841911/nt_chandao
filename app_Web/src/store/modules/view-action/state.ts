@@ -733,6 +733,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '2d63c9fa825c7d4f7816cab45ad34bb6',
+            viewmodule: 'zentao',
+            viewname: 'DocLibCustomTreeExpView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '4503911318e1f1f26599b68a6c6e681d',
+            ],
+        },
+        {
             viewtag: '2e0d4fb0f3e1ba1ba5bea16a5553cc21',
             viewmodule: 'zentao',
             viewname: 'TaskMainGridView9_Child',
@@ -2037,6 +2047,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '2d63c9fa825c7d4f7816cab45ad34bb6',
                 '092028347755c225e484250308db2d51',
                 '22dcf6656e1b870d0427a450cdbd7d20',
             ],

@@ -4698,6 +4698,26 @@ FROM `zt_doccontent` t1
 
 # **文档库**(ZT_DOCLIB)
 
+### 自定义文档库(ByCustom)<div id="DocLib_ByCustom"></div>
+```sql
+SELECT
+t1.`ACL`,
+t1.`DELETED`,
+'doc' AS `DOCLIBTYPE`,
+t1.`GROUPS`,
+t1.`ID`,
+t1.`MAIN`,
+t1.`NAME`,
+t1.`ORDER`,
+t1.`PRODUCT`,
+t1.`PROJECT`,
+t1.`TYPE`
+FROM `zt_doclib` t1 
+
+WHERE t1.DELETED = '0' 
+( t1.`TYPE` = 'custom' ) 
+
+```
 ### 产品文档库(ByProduct)<div id="DocLib_ByProduct"></div>
 ```sql
 select t1.* from (SELECT

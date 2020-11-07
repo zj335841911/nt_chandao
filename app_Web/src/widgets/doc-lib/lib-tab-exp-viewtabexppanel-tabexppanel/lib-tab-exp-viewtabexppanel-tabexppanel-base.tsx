@@ -79,6 +79,7 @@ export class LibTabExpViewtabexppanelTabexppanelBase extends TabExpPanelControlB
     protected isInit: any = {
         tabviewpanel:  true ,
         tabviewpanel2:  false ,
+        tabviewpanel3:  false ,
     }
 
     /**
@@ -106,7 +107,7 @@ export class LibTabExpViewtabexppanelTabexppanelBase extends TabExpPanelControlB
      * @type {*}
      * @memberof LibTabExpViewtabexppanelBase
      */
-    protected authResourceObject:any = {'tabviewpanel':{resourcetag:null,visabled: true,disabled: false},'tabviewpanel2':{resourcetag:null,visabled: true,disabled: false}};
+    protected authResourceObject:any = {'tabviewpanel':{resourcetag:null,visabled: true,disabled: false},'tabviewpanel2':{resourcetag:null,visabled: true,disabled: false},'tabviewpanel3':{resourcetag:null,visabled: true,disabled: false}};
 
     /**
      * 组件创建完毕

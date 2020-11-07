@@ -695,6 +695,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TodoDashboardView_Link",
             "viewtag": "2d522dfacc8d37f56c2d684791a39d5d"
         },
+        "doclibcustomtreeexpview": {
+            "title": "文档库树导航视图（自定义文档库）",
+            "caption": "自定义文档库",
+            "viewtype": "DETREEEXPVIEW",
+            "viewmodule": "zentao",
+            "viewname": "DocLibCustomTreeExpView",
+            "viewtag": "2d63c9fa825c7d4f7816cab45ad34bb6"
+        },
         "taskmaingridview9_child": {
             "title": "任务表格视图",
             "caption": "任务",

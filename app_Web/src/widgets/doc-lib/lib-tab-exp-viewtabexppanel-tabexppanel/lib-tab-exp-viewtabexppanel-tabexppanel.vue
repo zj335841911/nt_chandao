@@ -5,6 +5,7 @@ import { VueLifeCycleProcessing } from '@/studio-core';
 import { LibTabExpViewtabexppanelTabexppanelBase } from './lib-tab-exp-viewtabexppanel-tabexppanel-base';
 import view_tabviewpanel from '@widgets/doc-lib/lib-tab-exp-viewtabviewpanel-tabviewpanel/lib-tab-exp-viewtabviewpanel-tabviewpanel.vue';
 import view_tabviewpanel2 from '@widgets/doc-lib/lib-tab-exp-viewtabviewpanel2-tabviewpanel/lib-tab-exp-viewtabviewpanel2-tabviewpanel.vue';
+import view_tabviewpanel3 from '@widgets/doc-lib/lib-tab-exp-viewtabviewpanel3-tabviewpanel/lib-tab-exp-viewtabviewpanel3-tabviewpanel.vue';
  
 
 /**
@@ -18,6 +19,7 @@ import view_tabviewpanel2 from '@widgets/doc-lib/lib-tab-exp-viewtabviewpanel2-t
     components: {
         view_tabviewpanel, 
         view_tabviewpanel2, 
+        view_tabviewpanel3, 
          
     }
 })

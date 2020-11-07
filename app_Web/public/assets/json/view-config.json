@@ -859,6 +859,16 @@
         "viewtag": "2d522dfacc8d37f56c2d684791a39d5d",
         "memo": ""
     },
+    "doclibcustomtreeexpview": {
+        "title": "文档库树导航视图（自定义文档库）",
+        "caption": "自定义文档库",
+        "viewtype": "DETREEEXPVIEW",
+        "viewmodule": "zentao",
+        "viewname": "DocLibCustomTreeExpView",
+        "viewfilename": "doc-lib-custom-tree-exp-view",
+        "viewtag": "2d63c9fa825c7d4f7816cab45ad34bb6",
+        "memo": ""
+    },
     "taskmaingridview9_child": {
         "title": "任务表格视图",
         "caption": "任务",

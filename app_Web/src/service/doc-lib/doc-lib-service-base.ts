@@ -172,6 +172,21 @@ export default class DocLibServiceBase extends EntityService {
     }
 
     /**
+     * FetchByCustom接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof DocLibServiceBase
+     */
+    public async FetchByCustom(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/doclibs/fetchbycustom`,tempData,isloading);
+        return res;
+    }
+
+    /**
      * FetchByProduct接口方法
      *
      * @param {*} [context={}]

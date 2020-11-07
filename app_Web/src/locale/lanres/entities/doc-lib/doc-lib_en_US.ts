@@ -24,6 +24,10 @@ export default {
 			caption: "产品文档库",
       		title: "文档库树导航视图（产品文档库）",
 		},
+		customtreeexpview: {
+			caption: "自定义文档库",
+      		title: "文档库树导航视图（自定义文档库）",
+		},
 		editview: {
 			caption: "文档库",
       		title: "doclib编辑视图",
@@ -126,6 +130,13 @@ export default {
 	productdoclibtree_treeview: {
 		nodes: {
 			files: "附件库",
+			root: "默认根节点",
+		},
+		uiactions: {
+		},
+	},
+	customdoclibtree_treeview: {
+		nodes: {
 			root: "默认根节点",
 		},
 		uiactions: {

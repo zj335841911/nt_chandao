@@ -81,6 +81,7 @@ hide members
 
 | 查询编号 | 查询名称       | 默认查询 |   备注|
 | --------  | --------   | --------   | ----- |
+|ByCustom|自定义文档库([MYSQL5](../../appendix/query_MYSQL5.md#DocLib_ByCustom))|否|&nbsp;|
 |ByProduct|产品文档库([MYSQL5](../../appendix/query_MYSQL5.md#DocLib_ByProduct))|否|&nbsp;|
 |ByProject|项目文件库([MYSQL5](../../appendix/query_MYSQL5.md#DocLib_ByProject))|否|&nbsp;|
 |DEFAULT|DEFAULT([MYSQL5](../../appendix/query_MYSQL5.md#DocLib_Default))|否|&nbsp;|
@@ -90,6 +91,7 @@ hide members
 
 | 集合编号 | 集合名称   |  包含查询  | 默认集合 |   备注|
 | --------  | --------   | -------- | --------   | ----- |
+|ByCustom|自定义文档库|ByCustom|否|&nbsp;|
 |ByProduct|产品文档库|ByProduct|否|&nbsp;|
 |ByProject|项目文件库|ByProject|否|&nbsp;|
 |DEFAULT|DEFAULT|DEFAULT|是|&nbsp;|
