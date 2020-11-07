@@ -167,6 +167,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProductPlanMainTabExp",
             "viewtag": "08ca1b1e6234a0d038e1fbf52478ea7f"
         },
+        "doclibprojecttreeexpview": {
+            "title": "文档库树导航视图（项目文档库）",
+            "caption": "项目文档库",
+            "viewtype": "DETREEEXPVIEW",
+            "viewmodule": "zentao",
+            "viewname": "DocLibProjectTreeExpView",
+            "viewtag": "092028347755c225e484250308db2d51"
+        },
         "testresulteditview": {
             "title": "testresult编辑视图",
             "caption": "测试结果",

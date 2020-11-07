@@ -16,6 +16,10 @@ export default {
     doclibtype: "文件库类型",
   },
 	views: {
+		projecttreeexpview: {
+			caption: "项目文档库",
+      		title: "文档库树导航视图（项目文档库）",
+		},
 		editview: {
 			caption: "文档库",
       		title: "doclib编辑视图",
@@ -101,6 +105,14 @@ export default {
 		tbitem7: {
 			caption: "删除",
 			tip: "删除",
+		},
+	},
+	projectdoclibtree_treeview: {
+		nodes: {
+			root: "默认根节点",
+			files: "附件库",
+		},
+		uiactions: {
 		},
 	},
 };

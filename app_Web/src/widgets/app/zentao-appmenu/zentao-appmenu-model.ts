@@ -140,6 +140,27 @@ export default class ZentaoModel {
                 }
                 ,
                 		        {
+                	id: 'CC6C6D64-B2D5-4E49-AE4F-996AA44C8685',
+                	name: 'menuitem16',
+                	text: '文档',
+                	type: 'MENUITEM',
+                	counterid: '',
+                	tooltip: '文档',
+                	expanded: false,
+                	separator: false,
+                	hidden: false,
+                	hidesidebar: false,
+                	opendefault: false,
+                	iconcls: '',
+                	icon: '',
+                	textcls: '',
+                	appfunctag: 'AppFunc4',
+                	appfuncyype: 'APPVIEW',
+                	viewname: 'doc-lib-project-tree-exp-view',
+                	authtag:'Web-zentao-menuitem16',
+                }
+                ,
+                		        {
                 	id: '832B4ECF-B32B-48DD-B1EE-CE25A5A11DD7',
                 	name: 'menuitem22',
                 	text: '统计',
@@ -661,6 +682,18 @@ export default class ZentaoModel {
             parameters: [
                 { pathName: 'ibzlibs', parameterName: 'ibzlib' },
                 { pathName: 'gridview', parameterName: 'gridview' },
+            ],
+        },
+        {
+            appfunctag: 'AppFunc4',
+            appfuncyype: 'APPVIEW',
+            openmode: '',
+            codename: 'doclibprojecttreeexpview',
+            deResParameters: [],
+            routepath: '/ibizpms/:ibizpms?/doclibs/:doclib?/projecttreeexpview/:projecttreeexpview?',
+            parameters: [
+                { pathName: 'doclibs', parameterName: 'doclib' },
+                { pathName: 'projecttreeexpview', parameterName: 'projecttreeexpview' },
             ],
         },
         {

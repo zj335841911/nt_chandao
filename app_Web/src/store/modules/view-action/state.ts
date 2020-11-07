@@ -135,6 +135,17 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '092028347755c225e484250308db2d51',
+            viewmodule: 'zentao',
+            viewname: 'DocLibProjectTreeExpView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '007d984e6319843d935a48b30587ab1b',
+                '4503911318e1f1f26599b68a6c6e681d',
+            ],
+        },
+        {
             viewtag: '09b6c2af7dcc4b719d4c8aad2319f1c5',
             viewmodule: 'zentao',
             viewname: 'BugBuildSubGridView_New',
@@ -483,6 +494,7 @@ export const viewstate: any = {
                 '2d522dfacc8d37f56c2d684791a39d5d',
                 '7af111f4c127f7032c3e12e8c5fc0045',
                 'cfc7781789f7706e02b2d2504339de69',
+                '092028347755c225e484250308db2d51',
                 '0bd16cd21ee2e8951fb8a86599ac1510',
                 'A49E5FD9-FC90-434B-9E13-192873F6F2AC',
                 'db750bbb894c25f38ca2741f234df3c6',

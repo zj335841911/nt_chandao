@@ -215,6 +215,7 @@ const data: any = {
                 menuitem3: "产品主页",
                 menuitem2: "项目主页",
                 menuitem1: "测试主页",
+                menuitem16: "文档",
                 menuitem22: "统计",
                 menuitem25: "年度统计",
                 menuitem10: "用例库",

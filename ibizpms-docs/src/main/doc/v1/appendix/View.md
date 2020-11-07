@@ -225,6 +225,7 @@
 |-|文档编辑视图（基本信息）|DEEDITVIEW9|&nbsp;|
 |-|iBiz软件生产管理|DEHTMLVIEW|&nbsp;|
 |-|计划|DETABEXPVIEW|&nbsp;|
+|-|文档库树导航视图（项目文档库）|DETREEEXPVIEW|&nbsp;|
 |-|testresult编辑视图|DEEDITVIEW|&nbsp;|
 |-|bug表格视图|DEGRIDVIEW|&nbsp;|
 |-|用例库用例编辑视图（编辑）|DEEDITVIEW|&nbsp;|
