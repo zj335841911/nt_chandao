@@ -83,6 +83,8 @@ export default {
 	},
 	gridviewtoolbar_toolbar: {
 	},
+	productgridviewtoolbar_toolbar: {
+	},
 	editviewtoolbar_toolbar: {
 		tbitem3: {
 			caption: "保存",
@@ -100,7 +102,5 @@ export default {
 			caption: "删除",
 			tip: "删除",
 		},
-	},
-	productgridviewtoolbar_toolbar: {
 	},
 };

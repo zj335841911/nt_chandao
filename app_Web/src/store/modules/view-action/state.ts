@@ -1678,6 +1678,17 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '6a667f9ae1a5096ceac93a16d1586978',
+            viewmodule: 'zentao',
+            viewname: 'DocLibProductGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'bfdd5a8d625f1be3f009084fbc16c909',
+                '4503911318e1f1f26599b68a6c6e681d',
+            ],
+        },
+        {
             viewtag: '6b041208cbc10321a4d9cd74eaac3689',
             viewmodule: 'zentao',
             viewname: 'CaseTestOptionView',
@@ -1696,6 +1707,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '58a943454a652d4f4ce2702d6447c079',
+                '6a667f9ae1a5096ceac93a16d1586978',
                 '07327890c326f9c806b9343f0c660fc1',
                 '9ae49b10ec96e8f7b063be2ed4172247',
                 '522b28992d16207a0fc47340589bb2cf',
@@ -1703,7 +1715,6 @@ export const viewstate: any = {
                 '84104216ff9049079f9442c9cbd54342',
                 '776ea44ea05316c9c6cb9d5948e993f9',
                 'bc36be2ee4a78e69c13665a8ad03ab6a',
-                '599bad7e939d0de2523f0fcf4444f8c7',
                 'f7a278d765ff0f85a2c59cbb2485fa30',
             ],
         },
@@ -3093,6 +3104,15 @@ export const viewstate: any = {
             refviews: [
                 'b90624360f51aadfbfaa92d563dc1410',
                 'b7427fe34d292009905e126defc9fa22',
+            ],
+        },
+        {
+            viewtag: 'bfdd5a8d625f1be3f009084fbc16c909',
+            viewmodule: 'zentao',
+            viewname: 'FileProductGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
             ],
         },
         {

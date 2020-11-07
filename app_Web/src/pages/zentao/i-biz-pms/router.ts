@@ -2322,6 +2322,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/task-work-info-edit-view9/task-work-info-edit-view9.vue'),
                 },
                 {
+                    path: 'files/:file?/productgridview/:productgridview?',
+                    meta: {
+                        caption: 'entities.file.views.productgridview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'files', parameterName: 'file' },
+                            { pathName: 'productgridview', parameterName: 'productgridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/file-product-grid-view/file-product-grid-view.vue'),
+                },
+                {
                     path: 'products/:product?/testsuites/:testsuite?/editview9/:editview9?',
                     meta: {
                         caption: 'entities.testsuite.views.editview9.caption',
@@ -3269,20 +3283,6 @@ const router = new Router({
                     component: () => import('@pages/zentao/test-report-edit-view-r/test-report-edit-view-r.vue'),
                 },
                 {
-                    path: 'useryearworkstats/:useryearworkstats?/qadashboardview/:qadashboardview?',
-                    meta: {
-                        caption: 'entities.useryearworkstats.views.qadashboardview.caption',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'useryearworkstats', parameterName: 'useryearworkstats' },
-                            { pathName: 'qadashboardview', parameterName: 'qadashboardview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/user-year-work-stats-qadashboard-view/user-year-work-stats-qadashboard-view.vue'),
-                },
-                {
                     path: 'products/:product?/stories/:story?/cases/:case?/gridview9_storyaffect/:gridview9_storyaffect?',
                     meta: {
                         caption: 'entities.case.views.gridview9_storyaffect.caption',
@@ -3349,6 +3349,20 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/case-grid-view9-storyaffect/case-grid-view9-storyaffect.vue'),
+                },
+                {
+                    path: 'useryearworkstats/:useryearworkstats?/qadashboardview/:qadashboardview?',
+                    meta: {
+                        caption: 'entities.useryearworkstats.views.qadashboardview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'useryearworkstats', parameterName: 'useryearworkstats' },
+                            { pathName: 'qadashboardview', parameterName: 'qadashboardview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/user-year-work-stats-qadashboard-view/user-year-work-stats-qadashboard-view.vue'),
                 },
                 {
                     path: 'projects/:project?/listexpview/:listexpview?',
@@ -11720,6 +11734,20 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/ibiz/ibz-case-new-edit-view/ibz-case-new-edit-view.vue'),
+                },
+                {
+                    path: 'doclibs/:doclib?/productgridview/:productgridview?',
+                    meta: {
+                        caption: 'entities.doclib.views.productgridview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'doclibs', parameterName: 'doclib' },
+                            { pathName: 'productgridview', parameterName: 'productgridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/doc-lib-product-grid-view/doc-lib-product-grid-view.vue'),
                 },
                 {
                     path: 'projects/:project?/projectmodules/:projectmodule?/maingridview/:maingridview?',

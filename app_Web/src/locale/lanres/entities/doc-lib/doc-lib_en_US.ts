@@ -83,6 +83,8 @@ export default {
 	},
 	gridviewtoolbar_toolbar: {
 	},
+	productgridviewtoolbar_toolbar: {
+	},
 	editviewtoolbar_toolbar: {
 		tbitem3: {
 			caption: "Save",
@@ -100,7 +102,5 @@ export default {
 			caption: "Remove And Close",
 			tip: "Remove And Close Window",
 		},
-	},
-	productgridviewtoolbar_toolbar: {
 	},
 };
