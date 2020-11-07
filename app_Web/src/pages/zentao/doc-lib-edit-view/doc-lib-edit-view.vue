@@ -6,7 +6,7 @@ import { DocLibEditViewBase } from './doc-lib-edit-view-base';
 import view_form from '@widgets/doc-lib/main-form/main-form.vue';
 
 /**
- * doclib编辑视图视图
+ * 创建文档库视图
  *
  * @export
  * @class DocLibEditView

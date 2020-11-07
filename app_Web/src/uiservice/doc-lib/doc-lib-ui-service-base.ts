@@ -326,7 +326,7 @@ export default class DocLibUIServiceBase extends UIService {
             }
             const view: any = {
                 viewname: 'doc-lib-edit-view', 
-                height: 500, 
+                height: 400, 
                 width: 600,  
                 title: actionContext.$t('entities.doclib.views.editview.title'),
             };

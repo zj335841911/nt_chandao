@@ -32,7 +32,7 @@ export default {
 		},
 		editview: {
 			caption: "文档库",
-      		title: "doclib编辑视图",
+      		title: "创建文档库",
 		},
 		gridview: {
 			caption: "文档库",
@@ -43,7 +43,7 @@ export default {
       		title: "doclib表格视图",
 		},
 		libtabexpview: {
-			caption: "文档",
+			caption: "文档库主页",
       		title: "文档库分页导航视图（文档）",
 		},
 	},

@@ -7,7 +7,7 @@ import EditViewEngine from '@engine/view/edit-view-engine';
 import DocLibUIService from '@/uiservice/doc-lib/doc-lib-ui-service';
 
 /**
- * doclib编辑视图视图基类
+ * 创建文档库视图基类
  *
  * @export
  * @class DocLibEditViewBase

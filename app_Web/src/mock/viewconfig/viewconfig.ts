@@ -952,7 +952,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewtag": "3fa1a1978a4380209df04704e2f8059f"
         },
         "doclibeditview": {
-            "title": "doclib编辑视图",
+            "title": "创建文档库",
             "caption": "文档库",
             "viewtype": "DEEDITVIEW",
             "viewmodule": "zentao",
@@ -1873,7 +1873,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
         },
         "docliblibtabexpview": {
             "title": "文档库分页导航视图（文档）",
-            "caption": "文档",
+            "caption": "文档库主页",
             "viewtype": "DETABEXPVIEW",
             "viewmodule": "zentao",
             "viewname": "DocLibLibTabExpView",

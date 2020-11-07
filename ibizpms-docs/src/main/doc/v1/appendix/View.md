@@ -325,7 +325,7 @@ SRFNAVPARAM.project=%project%|
 |-|测试模块表格视图|DEGRIDVIEW|&nbsp;|
 |-|需求数据看板视图|DEPORTALVIEW|&nbsp;|
 |-|关闭产品|DEEDITVIEW|&nbsp;|
-|-|doclib编辑视图|DEEDITVIEW|&nbsp;|
+|-|创建文档库|DEEDITVIEW|&nbsp;|
 |-|功能测试|DEGRIDVIEW|&nbsp;|
 |-|用例步骤表格视图|DEGRIDVIEW9|&nbsp;|
 |-|实体表格视图|DEGRIDVIEW|&nbsp;|
