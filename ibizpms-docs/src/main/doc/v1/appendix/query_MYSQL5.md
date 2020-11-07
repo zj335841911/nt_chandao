@@ -4737,7 +4737,7 @@ FROM
 FROM
 	dual  ) t1
 WHERE t1.type = 'product'  AND t1.deleted = '0' 
-( t1.`PRODUCT` = #{srf.datacontext.product} 
+ t1.`PRODUCT` = #{srf.datacontext.product} 
 
 ```
 ### 项目文件库(ByProject)<div id="DocLib_ByProject"></div>
