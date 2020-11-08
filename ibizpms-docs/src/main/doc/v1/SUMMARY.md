@@ -216,6 +216,8 @@
 
   * [iBiz插件模块](module/ibizplugin.md) 
 
+    * [消息](module/ibizplugin/IBIZProMessage.md) 
+
   * [iBiz系统模型](module/ibizsysmodel.md) 
 
     * [实体属性](module/ibizsysmodel/PSDEField.md) 

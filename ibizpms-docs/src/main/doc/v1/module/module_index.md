@@ -658,6 +658,9 @@ hide members
 
 package iBiz插件模块 {
 
+class 消息 {
+}
+
 
 
 }

@@ -5265,6 +5265,45 @@ FROM `zt_history` t1
 
 ```
 
+# **消息**(IBIZPRO_MESSAGE)
+
+### 数据查询(DEFAULT)<div id="IBIZProMessage_Default"></div>
+```sql
+SELECT
+t1.`IBIZPRO_MESSAGEID`,
+t1.`IBIZPRO_MESSAGENAME`,
+t1.`ISLINK`,
+t1.`ISRETRY`,
+t1.`ISSYNC`,
+t1.`RETRYINTERVALTIME`,
+t1.`RETRYTIMES`,
+t1.`SUBJECT`,
+t1.`TYPE`
+FROM `T_IBIZPRO_MESSAGE` t1 
+
+```
+### 默认（全部数据）(VIEW)<div id="IBIZProMessage_View"></div>
+```sql
+SELECT
+t1.`BCC`,
+t1.`CC`,
+t1.`CONTENT`,
+t1.`FROM`,
+t1.`IBIZPRO_MESSAGEID`,
+t1.`IBIZPRO_MESSAGENAME`,
+t1.`ISLINK`,
+t1.`ISRETRY`,
+t1.`ISSYNC`,
+t1.`PARAM`,
+t1.`RETRYINTERVALTIME`,
+t1.`RETRYTIMES`,
+t1.`SUBJECT`,
+t1.`TO`,
+t1.`TYPE`
+FROM `T_IBIZPRO_MESSAGE` t1 
+
+```
+
 # **平台产品**(IBZPRO_PRODUCT)
 
 ### 数据查询(DEFAULT)<div id="IBZProProduct_Default"></div>
