@@ -31,7 +31,7 @@
           :defaultDate="defaultDate"
           :eventRender="eventRender.bind(_self)"
           @dateClick="onDateClick.bind(_self)"
-          @eventClick="onEventClick.bind(_self)"
+          @eventClick="onEventClick.apply(_self, arguments)"
           @eventDrop="onEventDrop.bind(_self)"
           defaultView="dayGridMonth"/>
           <modal v-model="modalVisible" width="250px" :title="$t('app.calendar.dateSelectModalTitle')" class-name='date-select-modal' @on-ok="gotoDate()">

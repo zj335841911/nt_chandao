@@ -388,6 +388,12 @@ export class MyWorkPCCalendarBase extends MainControlBase {
             if(successCallback){
                 successCallback(filterEvents);
             }
+            // 刷新日历的大小（仅fullcalendar组件使用）
+            if(!Object.is(_this.calendarType,"TIMELINE")){
+                let appCalendar: any = _this.$refs.calendar;
+                let api = appCalendar.getApi();
+                api.updateSize();
+            }
         }
         if(JSON.stringify(arg) === JSON.stringify(this.searchArgCache)){
             handleEvents();
