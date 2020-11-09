@@ -26,7 +26,7 @@ window.Environment = {
     // 启用更新日志
     useUpdateLog: true,
     // 访客模式地址
-    VisitorsUrl: '/login/guest'
+    VisitorsUrl: '/login/guest',
     // 是否开启第三方免登
     enableThirdPartyLogin:true,
 }
