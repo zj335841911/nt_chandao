@@ -419,7 +419,9 @@ String
 否
 
 - 搜索条件
-无
+| 序号 | 组合方式 |
+| ---- | ---- |
+| 1 | `=` |
 
 #### 关系属性
 | 项目 | 说明 |
@@ -504,7 +506,9 @@ String
 否
 
 - 搜索条件
-无
+| 序号 | 组合方式 |
+| ---- | ---- |
+| 1 | `=` |
 
 #### 关系属性
 | 项目 | 说明 |
@@ -1341,24 +1345,27 @@ Save
 | 序号 | 属性 | 组合方式 |
 | ---- | ---- | ---- |
 | 1 | [文档标题（TITLE）](#属性-文档标题（TITLE）) | `%like%` |
-| 2 | [所属文档库（LIB）](#属性-所属文档库（LIB）) | `=` |
-| 3 | [所属项目（PROJECT）](#属性-所属项目（PROJECT）) | `=` |
-| 4 | [所属产品（PRODUCT）](#属性-所属产品（PRODUCT）) | `=` |
-| 5 | [所属分类（MODULE）](#属性-所属分类（MODULE）) | `=` |
-| 6 | [所属项目（PROJECTNAME）](#属性-所属项目（PROJECTNAME）) | `=` |
-| 7 | [所属项目（PROJECTNAME）](#属性-所属项目（PROJECTNAME）) | `%like%` |
-| 8 | [所属产品（PRODUCTNAME）](#属性-所属产品（PRODUCTNAME）) | `=` |
-| 9 | [所属产品（PRODUCTNAME）](#属性-所属产品（PRODUCTNAME）) | `%like%` |
-| 10 | [所属文档库（LIBNAME）](#属性-所属文档库（LIBNAME）) | `=` |
-| 11 | [所属文档库（LIBNAME）](#属性-所属文档库（LIBNAME）) | `%like%` |
-| 12 | [模块分类（MODULENAME）](#属性-模块分类（MODULENAME）) | `=` |
-| 13 | [模块分类（MODULENAME）](#属性-模块分类（MODULENAME）) | `%like%` |
+| 2 | [文档类型（TYPE）](#属性-文档类型（TYPE）) | `=` |
+| 3 | [权限（ACL）](#属性-权限（ACL）) | `=` |
+| 4 | [所属文档库（LIB）](#属性-所属文档库（LIB）) | `=` |
+| 5 | [所属项目（PROJECT）](#属性-所属项目（PROJECT）) | `=` |
+| 6 | [所属产品（PRODUCT）](#属性-所属产品（PRODUCT）) | `=` |
+| 7 | [所属分类（MODULE）](#属性-所属分类（MODULE）) | `=` |
+| 8 | [所属项目（PROJECTNAME）](#属性-所属项目（PROJECTNAME）) | `=` |
+| 9 | [所属项目（PROJECTNAME）](#属性-所属项目（PROJECTNAME）) | `%like%` |
+| 10 | [所属产品（PRODUCTNAME）](#属性-所属产品（PRODUCTNAME）) | `=` |
+| 11 | [所属产品（PRODUCTNAME）](#属性-所属产品（PRODUCTNAME）) | `%like%` |
+| 12 | [所属文档库（LIBNAME）](#属性-所属文档库（LIBNAME）) | `=` |
+| 13 | [所属文档库（LIBNAME）](#属性-所属文档库（LIBNAME）) | `%like%` |
+| 14 | [模块分类（MODULENAME）](#属性-模块分类（MODULENAME）) | `=` |
+| 15 | [模块分类（MODULENAME）](#属性-模块分类（MODULENAME）) | `%like%` |
 
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |
 | ---- | ---- | ---- | ---- |
 | 1 | [DEFAULT](#数据查询-DEFAULT（Default）) | Default | 否 |
-| 2 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 2 | [文档库文档](#数据查询-文档库文档（DocLibDoc）) | DocLibDoc | 否 |
+| 3 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
 ### 数据查询-DEFAULT（Default）
 #### 说明
@@ -1402,6 +1409,70 @@ LEFT JOIN zt_product t21 ON t1.PRODUCT = t21.ID
 LEFT JOIN zt_doclib t31 ON t1.LIB = t31.ID 
 LEFT JOIN zt_module t41 ON t1.MODULE = t41.ID 
 
+```
+### 数据查询-文档库文档（DocLibDoc）
+#### 说明
+文档库文档
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+select t1.* from (select null as `ACL`,
+null as `ADDEDBY`,
+null as `ADDEDDATE`,
+'0' as `DELETED`,
+null as `EDITEDBY`,
+null as `EDITEDDATE`,
+null as  `GROUPS`,
+t1.`ID`,
+''`KEYWORDS`,
+${srfdatacontext('n_lib_eq','{"defname":"ROOT","dename":"ZT_MODULE"}')} as `LIB`,
+'' AS `LIBNAME`,
+0 as `MODULE`,
+'' AS `MODULENAME`,
+0 as `PRODUCT`,
+'' AS `PRODUCTNAME`,
+0 as `PROJECT`,
+'' AS `PROJECTNAME`,
+t1.`name` as `TITLE`,
+'text' as `TYPE`,
+1 as `VERSION`,
+'' as `VIEWS`,'module' as DOCQTYPE from zt_module t1 where t1.deleted = '0' and t1.type = 'doc' and t1.root = ${srfdatacontext('n_lib_eq','{"defname":"ROOT","dename":"ZT_MODULE"}')} and t1.parent = ${srfdatacontext('parent','{"defname":"ROOT","dename":"ZT_MODULE"}')}
+UNION
+SELECT
+t1.`ACL`,
+t1.`ADDEDBY`,
+t1.`ADDEDDATE`,
+t1.`DELETED`,
+t1.`EDITEDBY`,
+t1.`EDITEDDATE`,
+t1.`GROUPS`,
+t1.`ID`,
+t1.`KEYWORDS`,
+t1.`LIB`,
+t31.`NAME` AS `LIBNAME`,
+t1.`MODULE`,
+t41.`NAME` AS `MODULENAME`,
+t1.`PRODUCT`,
+t21.`NAME` AS `PRODUCTNAME`,
+t1.`PROJECT`,
+t11.`NAME` AS `PROJECTNAME`,
+t1.`TITLE`,
+t1.`TYPE`,
+t1.`VERSION`,
+t1.`VIEWS`,
+'doc' as DOCQTYPE
+FROM `zt_doc` t1 
+LEFT JOIN zt_project t11 ON t1.PROJECT = t11.ID 
+LEFT JOIN zt_product t21 ON t1.PRODUCT = t21.ID 
+LEFT JOIN zt_doclib t31 ON t1.LIB = t31.ID 
+LEFT JOIN zt_module t41 ON t1.MODULE = t41.ID ) t1
 ```
 ### 数据查询-默认（全部数据）（View）
 #### 说明
@@ -1453,6 +1524,7 @@ LEFT JOIN zt_module t41 ON t1.MODULE = t41.ID
 | 序号 | 集合 | 集合名 | 默认 |
 | ---- | ---- | ---- | ---- |
 | 1 | [DEFAULT](#数据集合-DEFAULT（Default）) | Default | 是 |
+| 2 | [文档库文档](#数据集合-文档库文档（DocLibDoc）) | DocLibDoc | 否 |
 
 ### 数据集合-DEFAULT（Default）
 #### 说明
@@ -1468,6 +1540,20 @@ DEFAULT
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [DEFAULT（Default）](#数据查询-DEFAULT（Default）) |
+### 数据集合-文档库文档（DocLibDoc）
+#### 说明
+文档库文档
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [文档库文档（DocLibDoc）](#数据查询-文档库文档（DocLibDoc）) |
 
 ## 数据导入
 无

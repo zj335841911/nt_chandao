@@ -34,6 +34,20 @@ public class DocSearchContext extends QueryWrapperContext<Doc> {
             this.getSearchCond().like("title", n_title_like);
         }
     }
+	private String n_type_eq;//[文档类型]
+	public void setN_type_eq(String n_type_eq) {
+        this.n_type_eq = n_type_eq;
+        if(!ObjectUtils.isEmpty(this.n_type_eq)){
+            this.getSearchCond().eq("type", n_type_eq);
+        }
+    }
+	private String n_acl_eq;//[权限]
+	public void setN_acl_eq(String n_acl_eq) {
+        this.n_acl_eq = n_acl_eq;
+        if(!ObjectUtils.isEmpty(this.n_acl_eq)){
+            this.getSearchCond().eq("acl", n_acl_eq);
+        }
+    }
 	private Long n_lib_eq;//[所属文档库]
 	public void setN_lib_eq(Long n_lib_eq) {
         this.n_lib_eq = n_lib_eq;

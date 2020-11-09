@@ -79,6 +79,8 @@ hide members
 
 无
 
+文档查询类型
+
 
 ## 行为
 | 行为    | 类型    |  说明  |
@@ -116,6 +118,7 @@ hide footbox
 | 查询编号 | 查询名称       | 默认查询 |   备注|
 | --------  | --------   | --------   | ----- |
 |DEFAULT|DEFAULT([MYSQL5](../../appendix/query_MYSQL5.md#Doc_Default))|否|&nbsp;|
+|DocLibDoc|文档库文档([MYSQL5](../../appendix/query_MYSQL5.md#Doc_DocLibDoc))|否|&nbsp;|
 |VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#Doc_View))|否|&nbsp;|
 
 * **数据集合**
@@ -123,11 +126,14 @@ hide footbox
 | 集合编号 | 集合名称   |  包含查询  | 默认集合 |   备注|
 | --------  | --------   | -------- | --------   | ----- |
 |DEFAULT|DEFAULT|DEFAULT|是|&nbsp;|
+|DocLibDoc|文档库文档|DocLibDoc|否|&nbsp;|
 
 ## 查询模式
 | 属性      |    搜索模式     |
 | --------   |------------|
 |文档标题(TITLE)|LIKE|
+|文档类型(TYPE)|EQ|
+|权限(ACL)|EQ|
 |所属文档库(LIB)|EQ|
 |所属项目(PROJECT)|EQ|
 |所属产品(PRODUCT)|EQ|

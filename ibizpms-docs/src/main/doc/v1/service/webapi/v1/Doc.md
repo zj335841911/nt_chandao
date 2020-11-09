@@ -239,6 +239,42 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | Page<[DocDTO](#DocDTO)>：文档实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
 
+### 获取文档库文档
+#### 访问路径
+/docs/fetchdoclibdoc
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [DocSearchContext](#DocSearchContext) | 文档查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[DocDTO](#DocDTO)>：文档实体传输对象列表 |
+
+### 查询文档库文档
+#### 访问路径
+/docs/searchdoclibdoc
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [DocSearchContext](#DocSearchContext) | 文档查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[DocDTO](#DocDTO)>：文档实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
 ## 附录
 ### 数据类型说明
 #### DocDTO
@@ -277,22 +313,24 @@ POST
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | ---- | ---- | ---- | ---- | ---- |
 | 1 | n_title_like | String | 允许 | 条件字段：title<br>条件组合方式：`%like%` |
-| 2 | n_lib_eq | Long | 允许 | 条件字段：lib<br>条件组合方式：`=` |
-| 3 | n_project_eq | Long | 允许 | 条件字段：project<br>条件组合方式：`=` |
-| 4 | n_product_eq | Long | 允许 | 条件字段：product<br>条件组合方式：`=` |
-| 5 | n_module_eq | Long | 允许 | 条件字段：module<br>条件组合方式：`=` |
-| 6 | n_projectname_eq | String | 允许 | 条件字段：projectname<br>条件组合方式：`=` |
-| 7 | n_projectname_like | String | 允许 | 条件字段：projectname<br>条件组合方式：`%like%` |
-| 8 | n_productname_eq | String | 允许 | 条件字段：productname<br>条件组合方式：`=` |
-| 9 | n_productname_like | String | 允许 | 条件字段：productname<br>条件组合方式：`%like%` |
-| 10 | n_libname_eq | String | 允许 | 条件字段：libname<br>条件组合方式：`=` |
-| 11 | n_libname_like | String | 允许 | 条件字段：libname<br>条件组合方式：`%like%` |
-| 12 | n_modulename_eq | String | 允许 | 条件字段：modulename<br>条件组合方式：`=` |
-| 13 | n_modulename_like | String | 允许 | 条件字段：modulename<br>条件组合方式：`%like%` |
-| 14 | customcond | String | 允许 | 自定义查询条件 |
-| 15 | customparams | String | 允许 | 自定义查询参数 |
-| 16 | query | String | 允许 | 快速搜索 |
-| 17 | filter | QueryFilter | 允许 | 条件表达式<br>参照`cn.ibizlab.pms.util.filter.QueryFilter` |
-| 18 | page | int | 允许 | 当前页数<br>默认值0 |
-| 19 | size | int | 允许 | 每页显示条数<br>默认值20 |
-| 20 | sort | String | 允许 | 排序 |
+| 2 | n_type_eq | String | 允许 | 条件字段：type<br>条件组合方式：`=` |
+| 3 | n_acl_eq | String | 允许 | 条件字段：acl<br>条件组合方式：`=` |
+| 4 | n_lib_eq | Long | 允许 | 条件字段：lib<br>条件组合方式：`=` |
+| 5 | n_project_eq | Long | 允许 | 条件字段：project<br>条件组合方式：`=` |
+| 6 | n_product_eq | Long | 允许 | 条件字段：product<br>条件组合方式：`=` |
+| 7 | n_module_eq | Long | 允许 | 条件字段：module<br>条件组合方式：`=` |
+| 8 | n_projectname_eq | String | 允许 | 条件字段：projectname<br>条件组合方式：`=` |
+| 9 | n_projectname_like | String | 允许 | 条件字段：projectname<br>条件组合方式：`%like%` |
+| 10 | n_productname_eq | String | 允许 | 条件字段：productname<br>条件组合方式：`=` |
+| 11 | n_productname_like | String | 允许 | 条件字段：productname<br>条件组合方式：`%like%` |
+| 12 | n_libname_eq | String | 允许 | 条件字段：libname<br>条件组合方式：`=` |
+| 13 | n_libname_like | String | 允许 | 条件字段：libname<br>条件组合方式：`%like%` |
+| 14 | n_modulename_eq | String | 允许 | 条件字段：modulename<br>条件组合方式：`=` |
+| 15 | n_modulename_like | String | 允许 | 条件字段：modulename<br>条件组合方式：`%like%` |
+| 16 | customcond | String | 允许 | 自定义查询条件 |
+| 17 | customparams | String | 允许 | 自定义查询参数 |
+| 18 | query | String | 允许 | 快速搜索 |
+| 19 | filter | QueryFilter | 允许 | 条件表达式<br>参照`cn.ibizlab.pms.util.filter.QueryFilter` |
+| 20 | page | int | 允许 | 当前页数<br>默认值0 |
+| 21 | size | int | 允许 | 每页显示条数<br>默认值20 |
+| 22 | sort | String | 允许 | 排序 |

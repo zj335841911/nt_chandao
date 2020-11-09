@@ -38,6 +38,7 @@ public interface IDocService extends IService<Doc>{
     boolean save(Doc et) ;
     void saveBatch(List<Doc> list) ;
     Page<Doc> searchDefault(DocSearchContext context) ;
+    Page<Doc> searchDocLibDoc(DocSearchContext context) ;
     List<Doc> selectByLib(Long id);
     void removeByLib(Long id) ;
     List<Doc> selectByModule(Long id);
