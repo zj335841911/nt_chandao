@@ -82,12 +82,9 @@ export default {
 		uiactions: {
 		},
 	},
-	editform_form: {
+	createeditform_form: {
 		details: {
-			group1: "文档基本信息", 
 			formpage1: "基本信息", 
-			group2: "操作信息", 
-			formpage2: "其它", 
 			srforikey: "", 
 			srfkey: "文档编号", 
 			srfmajortext: "文档标题", 
@@ -95,7 +92,17 @@ export default {
 			srfuf: "", 
 			srfdeid: "", 
 			srfsourcekey: "", 
+			lib: "所属文档库", 
+			libname: "所属文档库", 
+			module: "所属分类", 
+			modulename: "模块分类", 
 			title: "文档标题", 
+			keywords: "关键字", 
+			type: "文档类型", 
+			content: "文档正文", 
+			url: "文档链接", 
+			files: "附件", 
+			acl: "权限", 
 			id: "文档编号", 
 		},
 		uiactions: {
@@ -159,32 +166,6 @@ export default {
 		uiactions: {
 		},
 	},
-	createeditform_form: {
-		details: {
-			formpage1: "基本信息", 
-			srforikey: "", 
-			srfkey: "文档编号", 
-			srfmajortext: "文档标题", 
-			srftempmode: "", 
-			srfuf: "", 
-			srfdeid: "", 
-			srfsourcekey: "", 
-			lib: "所属文档库", 
-			libname: "所属文档库", 
-			module: "所属分类", 
-			modulename: "模块分类", 
-			title: "文档标题", 
-			keywords: "关键字", 
-			type: "文档类型", 
-			content: "文档正文", 
-			url: "文档链接", 
-			files: "附件", 
-			acl: "权限", 
-			id: "文档编号", 
-		},
-		uiactions: {
-		},
-	},
 	main_grid: {
 		nodata: "",
 		columns: {
@@ -208,6 +189,12 @@ export default {
 		uiactions: {
 		},
 	},
+	editviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "保存并关闭",
+			tip: "保存并关闭",
+		},
+	},
 	gridviewtoolbar_toolbar: {
 		deuiaction7: {
 			caption: "导出",
@@ -215,21 +202,9 @@ export default {
 		},
 	},
 	createeditviewtoolbar_toolbar: {
-		tbitem3: {
-			caption: "保存",
-			tip: "保存",
-		},
-		tbitem4: {
-			caption: "保存并新建",
-			tip: "保存并新建",
-		},
-		tbitem5: {
+		deuiaction1: {
 			caption: "保存并关闭",
 			tip: "保存并关闭",
-		},
-		tbitem7: {
-			caption: "删除",
-			tip: "删除",
 		},
 	},
 };
