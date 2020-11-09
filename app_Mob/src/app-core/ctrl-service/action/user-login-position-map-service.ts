@@ -41,8 +41,10 @@ export class UserLoginPositionService extends MapServiceBase {
 
  
      public async search(action: string, context: any = {}, data: any = {}, isLoading?: boolean): Promise<HttpResponse> {
-        let response: HttpResponse;
-        Object.assign(response.data,)
+        let responseData = {
+            
+        }
+        let response = new HttpResponse(200,responseData);
         return response;
     }
 

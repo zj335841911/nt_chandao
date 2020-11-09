@@ -929,8 +929,9 @@ Save
 | 1 | [自定义文档库](#数据查询-自定义文档库（ByCustom）) | ByCustom | 否 |
 | 2 | [产品文档库](#数据查询-产品文档库（ByProduct）) | ByProduct | 否 |
 | 3 | [项目文件库](#数据查询-项目文件库（ByProject）) | ByProject | 否 |
-| 4 | [DEFAULT](#数据查询-DEFAULT（Default）) | Default | 否 |
-| 5 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 4 | [所属文档库](#数据查询-所属文档库（CurDocLib）) | CurDocLib | 否 |
+| 5 | [DEFAULT](#数据查询-DEFAULT（Default）) | Default | 否 |
+| 6 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
 ### 数据查询-自定义文档库（ByCustom）
 #### 说明
@@ -1059,6 +1060,21 @@ FROM
 	(select count(1) from zt_file t where ((t.objectType ='project' and t.objectID = #{srf.datacontext.project}) or (t.objectType = 'task' and exists(select 1 from zt_task tt where tt.id = t.objectID and tt.project = #{srf.datacontext.project} and tt.deleted = '0')) or (t.objectType = 'build' and exists(select 1 from zt_build tt where tt.id = t.objectID and tt.project = #{srf.datacontext.project} and tt.deleted = '0')) or (t.objectType = 'doc' and EXISTS(select 1 from zt_doc tt where tt.id = t.objectID and tt.project = #{srf.datacontext.project} and tt.deleted = '0'))) and t.deleted = '0') as DOCCNT
 FROM
 	dual  ) t1
+```
+### 数据查询-所属文档库（CurDocLib）
+#### 说明
+所属文档库
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+
 ```
 ### 数据查询-DEFAULT（Default）
 #### 说明

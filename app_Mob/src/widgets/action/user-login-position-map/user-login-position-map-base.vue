@@ -17,6 +17,7 @@ import ActionUIService from '@/ui-service/action/action-ui-action';
 
 import echarts from 'echarts';
 import 'echarts/map/js/china.js'
+import { Http } from "@/ibiz-core/utils";
 
 
 @Component({
@@ -188,6 +189,14 @@ export default class UserLoginPositionBase extends Vue implements ControlInterfa
     public items:Array<any> =[];
 
     /**
+    * map数据
+    *
+    * @param {Array<any>}
+    * @memberof UserLoginPosition
+    */
+    public geoCoordMap:any = [];
+
+    /**
      * 获取单项树
      *
      * @returns {*}
@@ -264,9 +273,12 @@ export default class UserLoginPositionBase extends Vue implements ControlInterfa
             this.$notify({ type: 'danger', message: response.error.message });
             return response;
         }
-        this.$emit('load', (response.data && response.data.records) ? response.data.records : []);
+        this.$emit('load', (response.data && response.data) ? response.data : []);
         this.items = [];
-        this.items = response.data.records;
+        this.items = response.data;
+        this.series.forEach((temp:any) => {
+            temp.data = this.convertDat(this,temp.name);
+        });
         this.setOptions();
         return response;
     }
@@ -303,20 +315,17 @@ export default class UserLoginPositionBase extends Vue implements ControlInterfa
      */   
     public mapId:string = this.$util.createUUID();
 
+
+    public mapStyle = ""
+
     /**
-     * 数据
+     * 地图数据项模型
      *
      * @type {}
      * @memberof MapBase
      */   
-    public dataList: any = []
-
-
-    public mapStyle = ""
-
-    public mapItems = [
-                        {
-                            type:'test',
+    public mapItems = {
+                            'test':{
                             bkcolor:'',
                             color:'',
                             content:'',
@@ -325,7 +334,7 @@ export default class UserLoginPositionBase extends Vue implements ControlInterfa
                             text:'',
                             tips:'',
                         },
-                    ]
+                    }
 
     //点击弹出
     public tooltip = {
@@ -384,7 +393,18 @@ export default class UserLoginPositionBase extends Vue implements ControlInterfa
             name: 'test',
             type: 'scatter',
             geoIndex: 0,
-            data: this.dataList
+            encode: {
+                value: 2
+            },
+            label: {
+             
+                show: false
+            },
+            emphasis: {
+                label: {
+                    show: false
+                }
+            }
         }
         
 
@@ -408,6 +428,56 @@ export default class UserLoginPositionBase extends Vue implements ControlInterfa
             return
         }
         this.map.setOption(this.option);
+    }
+
+    /**
+     * 获取城市坐标
+     *
+     * @memberof AppCustomize
+     */
+    public loadCityList(): Promise<any> {
+        return new Promise((resolve: any, reject: any) => {
+        Http.getInstance()
+            .get("./assets/json/city.json")
+            .then((response: any) => {
+            if (response && response.status === 200 && response.data) {
+                let result: Array<any> = [];
+                if (typeof response.data == "string") {
+                const index: number = response.data.lastIndexOf(",");
+                result = JSON.parse(response.data);
+                } else {
+                    result = response.data;
+                }
+                resolve(result);
+            }
+            })
+            .catch((response: any) => {
+            });
+        });
+    }
+
+    // 定位数据位置
+    public convertDat (_this:any,tag:any) {
+        if( !this.geoCoordMap){
+            return []
+        }
+        let aa:any = [120.06,29.32];
+        let bb :any= [120.06,29.32];
+        let res:any = []
+        let mapItemModel = _this.mapItems[tag];
+        let mapItemData :any= _this.items[tag];
+        mapItemData.forEach((item:any) => {
+        let latitude = item[mapItemModel.latitude];
+        let longitude =  item[mapItemModel.longitude];
+        let geoCoord:number = _this.geoCoordMap.findIndex((temp:any)=>{return temp.latitude == latitude && temp.longitude == longitude});
+        if (geoCoord > -1) {
+            res.push({
+                name: this.geoCoordMap[geoCoord].name,
+                value: [latitude,longitude].concat(mapItemData.filter((temp:any)=>{return temp[mapItemModel.latitude] == latitude && temp[mapItemModel.longitude]==longitude }).length)
+            });
+        }
+        });
+        return res;
     }
 }
 </script>

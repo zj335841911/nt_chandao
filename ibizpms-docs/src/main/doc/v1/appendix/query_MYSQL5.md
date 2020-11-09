@@ -2319,6 +2319,9 @@ LEFT JOIN zt_case t71 ON t1.CASE = t71.ID
 
 WHERE t1.DELETED = '0' 
 ( t1.`PRODUCT` = ${srfdatacontext('product','{"defname":"PRODUCT","dename":"ZT_BUG"}')} ) 
+not FIND_IN_SET(t1.id,(select bugs from zt_release 
+where id =  ${srfdatacontext('release','{"defname":"id","dename":"ZT_RELEASE"}')} 
+)) 
 
 ```
 ### 发布可关联的bug（已解决）(ReleaseLinkableResolvedBug)<div id="Bug_ReleaseLinkableResolvedBug"></div>
@@ -4965,6 +4968,10 @@ WHERE t1.type = 'project'  AND t1.deleted = '0'
 t1.project = #{srf.datacontext.project} 
 
 ```
+### 所属文档库(CurDocLib)<div id="DocLib_CurDocLib"></div>
+```sql
+
+```
 ### DEFAULT(DEFAULT)<div id="DocLib_Default"></div>
 ```sql
 SELECT
@@ -6847,25 +6854,46 @@ WHERE t1.DELETED = '0'
 ```
 ### 文档目录查询(DocModule)<div id="Module_DocModule"></div>
 ```sql
-SELECT
-t1.`BRANCH`,
-t1.`DELETED`,
-t1.`GRADE`,
-t1.`ID`,
-t1.`NAME`,
-t1.`ORDER`,
-t1.`OWNER`,
-t1.`PARENT`,
-t11.`NAME` AS `PARENTNAME`,
-t1.`PATH`,
-t1.`ROOT`,
-t1.`SHORT`,
-t1.`TYPE`
-FROM `zt_module` t1 
-LEFT JOIN zt_module t11 ON t1.PARENT = t11.ID 
+select t1.* from (select '0' as DELETED, 0 as ID,'/' as name,0 as PARENT,',0,' as path, ${srfdatacontext('doclib','{"defname":"ROOT","dename":"ZT_MODULE"}')} as root,'doc' as type UNION
 
+SELECT
+	t1.`DELETED`,
+	t1.`ID`,
+	CONCAT(
+	'/',
+ case when	(
+SELECT
+	GROUP_CONCAT( tt.NAME SEPARATOR '/' ) 
+FROM
+	zt_module tt 
+WHERE
+	FIND_IN_SET( tt.id, t1.path ) 
+	AND tt.type = 'doc' 
+GROUP BY
+	tt.root 
+	LIMIT 0,1
+	) is not null then (
+SELECT
+	GROUP_CONCAT( tt.NAME SEPARATOR '/' ) 
+FROM
+	zt_module tt 
+WHERE
+	FIND_IN_SET( tt.id, t1.path ) 
+	AND tt.type = 'doc' 
+GROUP BY
+	tt.root 
+	LIMIT 0,1
+	) else t1.`name` end
+	) AS `NAME`,
+	t1.`PARENT`,
+	t1.`PATH`,
+	t1.`ROOT`,
+	t1.`TYPE` 
+FROM
+	`zt_module` t1
+	LEFT JOIN zt_module t11 ON t1.PARENT = t11.ID) t1
 WHERE t1.DELETED = '0' 
-( t1.`TYPE` = 'doc'  AND  t1.`ROOT` =  ${srfdatacontext('product','{"defname":"ROOT","dename":"ZT_MODULE"}')} ) 
+( t1.`TYPE` = 'doc'  AND  t1.`ROOT` =  ${srfdatacontext('doclib','{"defname":"ROOT","dename":"ZT_MODULE"}')} ) 
 
 ```
 ### 产品线(Line)<div id="Module_Line"></div>

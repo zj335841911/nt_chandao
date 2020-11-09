@@ -48,6 +48,8 @@ export const Environment = {
     useDefaultMenu: true,
     // 启用更新日志
     useUpdateLog: false,
+    // 是否开启第三方免登
+    enableThirdPartyLogin:false,
 };
 // 挂载外部配置文件
 if ((window as any).Environment) {
