@@ -16816,12 +16816,14 @@ CREATE TABLE `zt_doclib`(
 
 | 字段        |    中文名称    | 类型    |  数长度  |  备注  |
 | --------   |------------| :-----:   | :----: | :--------- | 
+| DOCLIBNAME        | 所属文档库  | VARCHAR      |   60   | &nbsp; |
 | SHORT        | 简称  | VARCHAR      |   30   | &nbsp; |
 | COLLECTOR        | collector  | CLOB      |   65,535   | &nbsp; |
 | GRADE        | grade  | INTEGER      |   -1   | &nbsp; |
 | BRANCH        | branch  | INTEGER      |   -1   | &nbsp; |
 | PARENT        | id  |       |   20   | &nbsp; |
 | NAME        | 名称  | VARCHAR      |   60   | &nbsp; |
+| MODULENAME        | 上级模块  | VARCHAR      |   60   | &nbsp; |
 | DELETED        | 逻辑删除标志  | VARCHAR      |   1   | &nbsp; |
 | ORDER        | 排序值  | INTEGER      |   -1   | &nbsp; |
 | ID        | id  |       |   20   | 主键&nbsp; |

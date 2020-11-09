@@ -159,7 +159,7 @@ export default class BugUsr2MobPickupMDViewBase extends Vue {
      * @type {*}
      * @memberof BugUsr2MobPickupMDViewBase
      */
-    protected navContext: any = { 'n_product_eq': '%product%', 'plan': '%productplan%' };
+    protected navContext: any = { 'plan': '%productplan%', 'product': '%product%' };
 
     /**
      * 视图导航参数
@@ -168,7 +168,7 @@ export default class BugUsr2MobPickupMDViewBase extends Vue {
      * @type {*}
      * @memberof BugUsr2MobPickupMDViewBase
      */
-    protected navParam: any = { 'n_product_eq': '%product%', 'plan': '%productplan%' };
+    protected navParam: any = { 'product': '%product%', 'plan': '%productplan%' };
 
     /**
      * 视图模型数据

@@ -191,6 +191,10 @@ zuul:
       path: /testmodules/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
+    ibz_doclibmodule:
+      path: /doclibmodules/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
     ibz_productlife:
       path: /productlives/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}

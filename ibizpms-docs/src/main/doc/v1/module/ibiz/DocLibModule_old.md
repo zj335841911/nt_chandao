@@ -28,6 +28,8 @@ hide members
 |类型（story）|TYPE|TEXT|&nbsp;|
 |编号|ROOT|PICKUP|&nbsp;|
 |id|PARENT|PICKUP|&nbsp;|
+|所属文档库|DOCLIBNAME|PICKUPTEXT|&nbsp;|
+|上级模块|MODULENAME|PICKUPTEXT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -46,6 +48,8 @@ hide members
 |类型（story）|默认规则|内容长度必须小于等于[30]|
 |编号|默认规则|默认规则|
 |id|默认规则|默认规则|
+|所属文档库|默认规则|内容长度必须小于等于[60]|
+|上级模块|默认规则|内容长度必须小于等于[60]|
 
 ## 状态控制
 
@@ -87,6 +91,10 @@ hide members
 |名称(NAME)|LIKE|
 |编号(ROOT)|EQ|
 |id(PARENT)|EQ|
+|所属文档库(DOCLIBNAME)|EQ|
+|所属文档库(DOCLIBNAME)|LIKE|
+|上级模块(MODULENAME)|EQ|
+|上级模块(MODULENAME)|LIKE|
 
 ## 导入模式
 无

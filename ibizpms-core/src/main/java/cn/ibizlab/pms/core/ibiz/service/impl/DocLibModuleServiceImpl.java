@@ -59,6 +59,7 @@ public class DocLibModuleServiceImpl extends ServiceImpl<DocLibModuleMapper, Doc
     @Override
     @Transactional
     public boolean create(DocLibModule et) {
+        fillParentData(et);
         if(!this.retBool(this.baseMapper.insert(et)))
             return false;
         CachedBeanCopier.copy(get(et.getId()),et);
@@ -68,12 +69,14 @@ public class DocLibModuleServiceImpl extends ServiceImpl<DocLibModuleMapper, Doc
     @Override
     @Transactional
     public void createBatch(List<DocLibModule> list) {
+        list.forEach(item->fillParentData(item));
         this.saveBatch(list,batchSize);
     }
 
     @Override
     @Transactional
     public boolean update(DocLibModule et) {
+        fillParentData(et);
          if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
             return false;
         CachedBeanCopier.copy(get(et.getId()),et);
@@ -83,6 +86,7 @@ public class DocLibModuleServiceImpl extends ServiceImpl<DocLibModuleMapper, Doc
     @Override
     @Transactional
     public void updateBatch(List<DocLibModule> list) {
+        list.forEach(item->fillParentData(item));
         updateBatchById(list,batchSize);
     }
 
@@ -114,6 +118,7 @@ public class DocLibModuleServiceImpl extends ServiceImpl<DocLibModuleMapper, Doc
 
     @Override
     public DocLibModule getDraft(DocLibModule et) {
+        fillParentData(et);
         return et;
     }
 
@@ -142,6 +147,7 @@ public class DocLibModuleServiceImpl extends ServiceImpl<DocLibModuleMapper, Doc
     @Override
     @Transactional
     public boolean saveBatch(Collection<DocLibModule> list) {
+        list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
         return true;
     }
@@ -149,6 +155,7 @@ public class DocLibModuleServiceImpl extends ServiceImpl<DocLibModuleMapper, Doc
     @Override
     @Transactional
     public void saveBatch(List<DocLibModule> list) {
+        list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
     }
 
@@ -183,6 +190,32 @@ public class DocLibModuleServiceImpl extends ServiceImpl<DocLibModuleMapper, Doc
 
 
 
+    /**
+     * 为当前实体填充父数据（外键值文本、外键值附加数据）
+     * @param et
+     */
+    private void fillParentData(DocLibModule et){
+        //实体关系[DER1N_IBZ_DOCLIBMODULE_IBZ_DOCLIBMODULE_PARENT]
+        if(!ObjectUtils.isEmpty(et.getParent())){
+            cn.ibizlab.pms.core.ibiz.domain.DocLibModule pdoclibmodule=et.getPdoclibmodule();
+            if(ObjectUtils.isEmpty(pdoclibmodule)){
+                cn.ibizlab.pms.core.ibiz.domain.DocLibModule majorEntity=doclibmoduleService.get(et.getParent());
+                et.setPdoclibmodule(majorEntity);
+                pdoclibmodule=majorEntity;
+            }
+            et.setModulename(pdoclibmodule.getName());
+        }
+        //实体关系[DER1N_IBZ_DOCLIBMODULE_ZT_DOCLIB_ROOT]
+        if(!ObjectUtils.isEmpty(et.getRoot())){
+            cn.ibizlab.pms.core.zentao.domain.DocLib doclib=et.getDoclib();
+            if(ObjectUtils.isEmpty(doclib)){
+                cn.ibizlab.pms.core.zentao.domain.DocLib majorEntity=doclibService.get(et.getRoot());
+                et.setDoclib(majorEntity);
+                doclib=majorEntity;
+            }
+            et.setDoclibname(doclib.getName());
+        }
+    }
 
 
 

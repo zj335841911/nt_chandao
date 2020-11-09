@@ -5805,6 +5805,42 @@
     "key_field":0,
     "show_order":1000,
     "major_field":0
+    },
+    {
+    "fieldname":"DOCLIBNAME" ,
+    "codename":"Doclibname",
+    "field_logic_name":"所属文档库",
+    "entity_name":"DocLibModule",
+    "ref_de":"ZT_DOCLIB",
+    "ref_field_name":"NAME",
+    "relation_name":"DER1N_IBZ_DOCLIBMODULE_ZT_DOCLIB_ROOT",
+    "relation_codename":"DocLib",
+    "field_type":"PICKUPTEXT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":60,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"MODULENAME" ,
+    "codename":"Modulename",
+    "field_logic_name":"上级模块",
+    "entity_name":"DocLibModule",
+    "ref_de":"IBZ_DOCLIBMODULE",
+    "ref_field_name":"NAME",
+    "relation_name":"DER1N_IBZ_DOCLIBMODULE_IBZ_DOCLIBMODULE_PARENT",
+    "relation_codename":"PDocLibModule",
+    "field_type":"PICKUPTEXT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":60,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
     }
     ],
     "subEntitys":[

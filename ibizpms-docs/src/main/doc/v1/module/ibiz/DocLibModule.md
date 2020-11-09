@@ -35,6 +35,8 @@
 | 12 | [类型（story）](#属性-类型（story）（TYPE）) | TYPE | 文本，可指定长度 | 否 | 否 | 是 |
 | 13 | [编号](#属性-编号（ROOT）) | ROOT | 外键值 | 否 | 是 | 是 |
 | 14 | [id](#属性-id（PARENT）) | PARENT | 外键值 | 否 | 是 | 是 |
+| 15 | [所属文档库](#属性-所属文档库（DOCLIBNAME）) | DOCLIBNAME | 外键值文本 | 否 | 是 | 是 |
+| 16 | [上级模块](#属性-上级模块（MODULENAME）) | MODULENAME | 外键值文本 | 否 | 是 | 是 |
 
 ### 属性-叶子模块（ISLEAF）
 #### 属性说明
@@ -76,7 +78,7 @@ String
 | 项目 | 说明 |
 | ---- | ---- |
 | 关系实体 | [文档库分类（IBZ_DOCLIBMODULE）](../ibiz/DocLibModule) |
-| 关系属性 | [id（ID）](../ibiz/DocLibModule/#属性-id（ID）) |
+| 关系属性 | [名称（NAME）](../ibiz/DocLibModule/#属性-名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-名称（NAME）
@@ -119,7 +121,7 @@ String
 | 项目 | 说明 |
 | ---- | ---- |
 | 关系实体 | [文档库分类（IBZ_DOCLIBMODULE）](../ibiz/DocLibModule) |
-| 关系属性 | [id（ID）](../ibiz/DocLibModule/#属性-id（ID）) |
+| 关系属性 | [名称（NAME）](../ibiz/DocLibModule/#属性-名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-简称（SHORT）
@@ -163,7 +165,7 @@ String
 | 项目 | 说明 |
 | ---- | ---- |
 | 关系实体 | [文档库分类（IBZ_DOCLIBMODULE）](../ibiz/DocLibModule) |
-| 关系属性 | [id（ID）](../ibiz/DocLibModule/#属性-id（ID）) |
+| 关系属性 | [名称（NAME）](../ibiz/DocLibModule/#属性-名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-grade（GRADE）
@@ -207,7 +209,7 @@ Integer
 | 项目 | 说明 |
 | ---- | ---- |
 | 关系实体 | [文档库分类（IBZ_DOCLIBMODULE）](../ibiz/DocLibModule) |
-| 关系属性 | [id（ID）](../ibiz/DocLibModule/#属性-id（ID）) |
+| 关系属性 | [名称（NAME）](../ibiz/DocLibModule/#属性-名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-collector（COLLECTOR）
@@ -251,7 +253,7 @@ String
 | 项目 | 说明 |
 | ---- | ---- |
 | 关系实体 | [文档库分类（IBZ_DOCLIBMODULE）](../ibiz/DocLibModule) |
-| 关系属性 | [id（ID）](../ibiz/DocLibModule/#属性-id（ID）) |
+| 关系属性 | [名称（NAME）](../ibiz/DocLibModule/#属性-名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-branch（BRANCH）
@@ -295,7 +297,7 @@ Integer
 | 项目 | 说明 |
 | ---- | ---- |
 | 关系实体 | [文档库分类（IBZ_DOCLIBMODULE）](../ibiz/DocLibModule) |
-| 关系属性 | [id（ID）](../ibiz/DocLibModule/#属性-id（ID）) |
+| 关系属性 | [名称（NAME）](../ibiz/DocLibModule/#属性-名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-id（ID）
@@ -336,7 +338,7 @@ Long
 | 项目 | 说明 |
 | ---- | ---- |
 | 关系实体 | [文档库分类（IBZ_DOCLIBMODULE）](../ibiz/DocLibModule) |
-| 关系属性 | [id（ID）](../ibiz/DocLibModule/#属性-id（ID）) |
+| 关系属性 | [名称（NAME）](../ibiz/DocLibModule/#属性-名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-排序值（ORDER）
@@ -380,7 +382,7 @@ Integer
 | 项目 | 说明 |
 | ---- | ---- |
 | 关系实体 | [文档库分类（IBZ_DOCLIBMODULE）](../ibiz/DocLibModule) |
-| 关系属性 | [id（ID）](../ibiz/DocLibModule/#属性-id（ID）) |
+| 关系属性 | [名称（NAME）](../ibiz/DocLibModule/#属性-名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-逻辑删除标志（DELETED）
@@ -424,7 +426,7 @@ String
 | 项目 | 说明 |
 | ---- | ---- |
 | 关系实体 | [文档库分类（IBZ_DOCLIBMODULE）](../ibiz/DocLibModule) |
-| 关系属性 | [id（ID）](../ibiz/DocLibModule/#属性-id（ID）) |
+| 关系属性 | [名称（NAME）](../ibiz/DocLibModule/#属性-名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-path（PATH）
@@ -468,7 +470,7 @@ String
 | 项目 | 说明 |
 | ---- | ---- |
 | 关系实体 | [文档库分类（IBZ_DOCLIBMODULE）](../ibiz/DocLibModule) |
-| 关系属性 | [id（ID）](../ibiz/DocLibModule/#属性-id（ID）) |
+| 关系属性 | [名称（NAME）](../ibiz/DocLibModule/#属性-名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-owner（OWNER）
@@ -512,7 +514,7 @@ String
 | 项目 | 说明 |
 | ---- | ---- |
 | 关系实体 | [文档库分类（IBZ_DOCLIBMODULE）](../ibiz/DocLibModule) |
-| 关系属性 | [id（ID）](../ibiz/DocLibModule/#属性-id（ID）) |
+| 关系属性 | [名称（NAME）](../ibiz/DocLibModule/#属性-名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-类型（story）（TYPE）
@@ -556,7 +558,7 @@ String
 | 项目 | 说明 |
 | ---- | ---- |
 | 关系实体 | [文档库分类（IBZ_DOCLIBMODULE）](../ibiz/DocLibModule) |
-| 关系属性 | [id（ID）](../ibiz/DocLibModule/#属性-id（ID）) |
+| 关系属性 | [名称（NAME）](../ibiz/DocLibModule/#属性-名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-编号（ROOT）
@@ -643,6 +645,94 @@ Long
 | ---- | ---- |
 | 关系实体 | [文档库分类（IBZ_DOCLIBMODULE）](../ibiz/DocLibModule) |
 | 关系属性 | [id（ID）](../ibiz/DocLibModule/#属性-id（ID）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
+### 属性-所属文档库（DOCLIBNAME）
+#### 属性说明
+所属文档库
+
+- 是否是主键
+否
+
+- 属性类型
+链接字段[来自关系实体字段]
+
+- 数据类型
+外键值文本
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+| 序号 | 组合方式 |
+| ---- | ---- |
+| 1 | `=` |
+| 2 | `%like%` |
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [文档库（ZT_DOCLIB）](../zentao/DocLib) |
+| 关系属性 | [文档库名称（NAME）](../zentao/DocLib/#属性-文档库名称（NAME）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
+### 属性-上级模块（MODULENAME）
+#### 属性说明
+上级模块
+
+- 是否是主键
+否
+
+- 属性类型
+链接字段[来自关系实体字段]
+
+- 数据类型
+外键值文本
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+| 序号 | 组合方式 |
+| ---- | ---- |
+| 1 | `=` |
+| 2 | `%like%` |
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [文档库分类（IBZ_DOCLIBMODULE）](../ibiz/DocLibModule) |
+| 关系属性 | [名称（NAME）](../ibiz/DocLibModule/#属性-名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 
@@ -760,6 +850,10 @@ Save
 | 1 | [名称（NAME）](#属性-名称（NAME）) | `%like%` |
 | 2 | [编号（ROOT）](#属性-编号（ROOT）) | `=` |
 | 3 | [id（PARENT）](#属性-id（PARENT）) | `=` |
+| 4 | [所属文档库（DOCLIBNAME）](#属性-所属文档库（DOCLIBNAME）) | `=` |
+| 5 | [所属文档库（DOCLIBNAME）](#属性-所属文档库（DOCLIBNAME）) | `%like%` |
+| 6 | [上级模块（MODULENAME）](#属性-上级模块（MODULENAME）) | `=` |
+| 7 | [上级模块（MODULENAME）](#属性-上级模块（MODULENAME）) | `%like%` |
 
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |
@@ -783,9 +877,11 @@ Save
 SELECT
 t1.`BRANCH`,
 t1.`DELETED`,
+t11.`NAME` AS `DOCLIBNAME`,
 t1.`GRADE`,
 t1.`ID`,
 (CASE WHEN EXISTS (SELECT 1 FROM ZT_MODULE WHERE  PARENT = t1.`ID`) THEN FALSE ELSE TRUE  END ) AS `ISLEAF`,
+t21.`NAME` AS `MODULENAME`,
 t1.`NAME`,
 t1.`ORDER`,
 t1.`OWNER`,
@@ -795,6 +891,8 @@ t1.`ROOT`,
 t1.`SHORT`,
 t1.`TYPE`
 FROM `zt_module` t1 
+LEFT JOIN zt_doclib t11 ON t1.ROOT = t11.ID 
+LEFT JOIN zt_module t21 ON t1.PARENT = t21.ID 
 
 ```
 ### 数据查询-默认（全部数据）（View）
@@ -814,9 +912,11 @@ SELECT
 t1.`BRANCH`,
 t1.`COLLECTOR`,
 t1.`DELETED`,
+t11.`NAME` AS `DOCLIBNAME`,
 t1.`GRADE`,
 t1.`ID`,
 (CASE WHEN EXISTS (SELECT 1 FROM ZT_MODULE WHERE  PARENT = t1.`ID`) THEN FALSE ELSE TRUE  END ) AS `ISLEAF`,
+t21.`NAME` AS `MODULENAME`,
 t1.`NAME`,
 t1.`ORDER`,
 t1.`OWNER`,
@@ -826,6 +926,8 @@ t1.`ROOT`,
 t1.`SHORT`,
 t1.`TYPE`
 FROM `zt_module` t1 
+LEFT JOIN zt_doclib t11 ON t1.ROOT = t11.ID 
+LEFT JOIN zt_module t21 ON t1.PARENT = t21.ID 
 
 ```
 
