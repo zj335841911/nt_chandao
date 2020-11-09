@@ -1553,7 +1553,7 @@ export default class MobBase extends Vue implements ControlInterface {
         PauseTaskMob: { name: 'PauseTaskMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_PAUSE_BUT', target: 'SINGLEKEY',icon:'pause',},
         CancelTaskMob: { name: 'CancelTaskMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_CANCEL_BUT', target: 'SINGLEKEY',icon:'power',isShowCaption:false,isShowIcon:true},
         CloseTaskMob: { name: 'CloseTaskMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_CLOSE_BUT', target: 'SINGLEKEY',icon:'backspace',isShowCaption:false,isShowIcon:true},
-        ActiveMobTask: { name: 'ActiveMobTask',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_ACTIVATION_BUT', target: 'SINGLEKEY',icon:'facebook-square',isShowCaption:false,isShowIcon:true},
+        ActiveMobTask: { name: 'ActiveMobTask',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_ACTIVATION_BUT', target: 'SINGLEKEY',icon:'magic',isShowCaption:false,isShowIcon:true},
         ConsumedMobTaskTeam: { name: 'ConsumedMobTaskTeam',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_CONSUM_BUT', target: 'SINGLEKEY',icon:'clock-o',isShowCaption:false,isShowIcon:true},
         WorkHoursMob: { name: 'WorkHoursMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_CONSUM_BUT', target: 'SINGLEKEY',icon:'clock-o',},
         deleteMob: { name: 'deleteMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_DELETE_BUT', target: 'SINGLEKEY',icon:'remove',isShowCaption:false,isShowIcon:true}

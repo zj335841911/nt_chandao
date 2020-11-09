@@ -73,23 +73,16 @@ public class DocLibServiceImpl extends ServiceImpl<DocLibMapper, DocLib> impleme
     public void createBatch(List<DocLib> list) {
 
     }
-    @Override
+        @Override
     @Transactional
     public boolean update(DocLib et) {
-        fillParentData(et);
-         if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
-            return false;
-        CachedBeanCopier.copy(get(et.getId()),et);
-        return true;
+  			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.DocLibHelper.class).edit(et);
     }
 
     @Override
-    @Transactional
     public void updateBatch(List<DocLib> list) {
-        list.forEach(item->fillParentData(item));
-        updateBatchById(list,batchSize);
-    }
 
+    }
     @Override
     @Transactional
     public boolean remove(Long key) {

@@ -42,8 +42,7 @@ public class StaticDict {
      */
     @Getter
     public enum Doclib__acl {
-        OPEN("open","公开"),
-        PRIVATE("private","私有"),
+        DEFAULT("default","默认"),
         CUSTOM("custom","自定义");
 
         private String value;

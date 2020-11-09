@@ -73,7 +73,7 @@
         
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_activemobtask.disabled}" v-show="righttoolbarModels.deuiaction1_activemobtask.visabled">
                 <ion-button :disabled="righttoolbarModels.deuiaction1_activemobtask.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_activemobtask' }, $event)" size="large">
-                    <ion-icon name="facebook-square"></ion-icon>
+                    <ion-icon name="magic"></ion-icon>
                 <span class="btn-inner-text">{{$t('task.mobeditviewrighttoolbar_toolbar.deuiaction1_activemobtask.caption')}}</span>
                 </ion-button>
                 <span class="btn-out-text">{{$t('task.mobeditviewrighttoolbar_toolbar.deuiaction1_activemobtask.caption')}}</span>
