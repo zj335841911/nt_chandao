@@ -19,6 +19,9 @@ package iBiz增强模块 {
 class Bug统计 {
 }
 
+class 文档库分类 {
+}
+
 class 动态数据看板 {
 }
 

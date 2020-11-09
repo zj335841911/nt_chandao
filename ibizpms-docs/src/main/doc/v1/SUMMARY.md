@@ -8,6 +8,8 @@
 
     * [Bug统计](module/ibiz/BugStats.md) 
 
+    * [文档库分类](module/ibiz/DocLibModule.md) 
+
     * [动态数据看板](module/ibiz/DynaDashboard.md) 
 
     * [员工负载表](module/ibiz/EMPLOYEELOAD.md) 

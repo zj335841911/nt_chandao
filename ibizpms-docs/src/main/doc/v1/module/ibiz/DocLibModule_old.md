@@ -1,0 +1,85 @@
+# 文档库分类(IBZ_DOCLIBMODULE)
+
+  
+
+## 关系
+无
+
+## 属性
+
+| 属性名称        |    中文名称    | 类型     |  备注  |
+| --------   |------------| -----   |  -------- | 
+|叶子模块|ISLEAF|TEXT|&nbsp;|
+|名称|NAME|TEXT|&nbsp;|
+|简称|SHORT|TEXT|&nbsp;|
+|grade|GRADE|INT|&nbsp;|
+|collector|COLLECTOR|LONGTEXT|&nbsp;|
+|branch|BRANCH|INT|&nbsp;|
+|id|ID|ACID|&nbsp;|
+|排序值|ORDER|INT|&nbsp;|
+|逻辑删除标志|DELETED|TEXT|&nbsp;|
+|path|PATH|TEXT|&nbsp;|
+|owner|OWNER|TEXT|&nbsp;|
+|类型（story）|TYPE|TEXT|&nbsp;|
+
+## 值规则
+| 属性名称    | 规则    |  说明  |
+| --------   |------------| ----- | 
+|叶子模块|默认规则|内容长度必须小于等于[200]|
+|名称|默认规则|内容长度必须小于等于[60]|
+|简称|默认规则|内容长度必须小于等于[30]|
+|grade|默认规则|默认规则|
+|collector|默认规则|内容长度必须小于等于[65535]|
+|branch|默认规则|默认规则|
+|id|默认规则|默认规则|
+|排序值|默认规则|默认规则|
+|逻辑删除标志|默认规则|内容长度必须小于等于[1]|
+|path|默认规则|内容长度必须小于等于[255]|
+|owner|默认规则|内容长度必须小于等于[30]|
+|类型（story）|默认规则|内容长度必须小于等于[30]|
+
+## 状态控制
+
+无
+
+
+## 行为
+| 行为    | 类型    |  说明  |
+| --------   |------------| ----- | 
+|Create|内置方法|&nbsp;|
+|Update|内置方法|&nbsp;|
+|Remove|内置方法|&nbsp;|
+|Get|内置方法|&nbsp;|
+|GetDraft|内置方法|&nbsp;|
+|CheckKey|内置方法|&nbsp;|
+|Save|内置方法|&nbsp;|
+
+## 处理逻辑
+无
+
+## 查询集合
+
+* **查询**
+
+| 查询编号 | 查询名称       | 默认查询 |   备注|
+| --------  | --------   | --------   | ----- |
+|DEFAULT|数据查询([MYSQL5](../../appendix/query_MYSQL5.md#DocLibModule_Default))|否|&nbsp;|
+|VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#DocLibModule_View))|否|&nbsp;|
+
+* **数据集合**
+
+| 集合编号 | 集合名称   |  包含查询  | 默认集合 |   备注|
+| --------  | --------   | -------- | --------   | ----- |
+|DEFAULT|数据集|DEFAULT|是|&nbsp;|
+
+## 查询模式
+| 属性      |    搜索模式     |
+| --------   |------------|
+|名称(NAME)|LIKE|
+
+## 导入模式
+无
+
+
+## 导出模式
+无

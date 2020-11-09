@@ -10,6 +10,9 @@ package iBiz增强模块 {
 class Bug统计 {
 }
 
+class 文档库分类 {
+}
+
 class 动态数据看板 {
 }
 
@@ -135,6 +138,7 @@ hide members
 | 实体编号    |    实体名称    |  实体类型     |  备注  |
 | --------   |------------| -----   |  -------- | 
 |IBZ_BUGSTATS|[Bug统计](ibiz/BugStats.md)|主实体|&nbsp;|
+|IBZ_DOCLIBMODULE|[文档库分类](ibiz/DocLibModule.md)|主实体|&nbsp;|
 |DYNADASHBOARD|[动态数据看板](ibiz/DynaDashboard.md)|主实体|&nbsp;|
 |IBZ_EMPLOYEELOAD|[员工负载表](ibiz/EMPLOYEELOAD.md)|主实体|&nbsp;|
 |IBZ_LOGIN|[实体](ibiz/IBZ_LOGIN.md)|主实体|&nbsp;|

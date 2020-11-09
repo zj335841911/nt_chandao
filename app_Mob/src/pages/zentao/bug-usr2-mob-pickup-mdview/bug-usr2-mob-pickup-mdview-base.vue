@@ -13,7 +13,7 @@
     loaddraftAction=""
     loadAction="Get"
     createAction="Create"
-    fetchAction="FetchDefault" 
+    fetchAction="FetchNotCurPlanLinkBug" 
     :isMutli="!isSingleSelect"
     :isNeedLoaddingText="!isPortalView"
     :showBusyIndicator="true" 
@@ -159,7 +159,7 @@ export default class BugUsr2MobPickupMDViewBase extends Vue {
      * @type {*}
      * @memberof BugUsr2MobPickupMDViewBase
      */
-    protected navContext: any = {};
+    protected navContext: any = { 'n_product_eq': '%product%', 'plan': '%productplan%' };
 
     /**
      * 视图导航参数
@@ -168,7 +168,7 @@ export default class BugUsr2MobPickupMDViewBase extends Vue {
      * @type {*}
      * @memberof BugUsr2MobPickupMDViewBase
      */
-    protected navParam: any = {};
+    protected navParam: any = { 'n_product_eq': '%product%', 'plan': '%productplan%' };
 
     /**
      * 视图模型数据

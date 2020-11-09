@@ -5009,6 +5009,48 @@ WHERE t1.DELETED = '0'
 
 ```
 
+# **文档库分类**(IBZ_DOCLIBMODULE)
+
+### 数据查询(DEFAULT)<div id="DocLibModule_Default"></div>
+```sql
+SELECT
+t1.`BRANCH`,
+t1.`DELETED`,
+t1.`GRADE`,
+t1.`ID`,
+(CASE WHEN EXISTS (SELECT 1 FROM ZT_MODULE WHERE  PARENT = t1.`ID`) THEN FALSE ELSE TRUE  END ) AS `ISLEAF`,
+t1.`NAME`,
+t1.`ORDER`,
+t1.`OWNER`,
+t1.`PATH`,
+t1.`SHORT`,
+t1.`TYPE`
+FROM `zt_module` t1 
+
+WHERE t1.DELETED = '0' 
+
+```
+### 默认（全部数据）(VIEW)<div id="DocLibModule_View"></div>
+```sql
+SELECT
+t1.`BRANCH`,
+t1.`COLLECTOR`,
+t1.`DELETED`,
+t1.`GRADE`,
+t1.`ID`,
+(CASE WHEN EXISTS (SELECT 1 FROM ZT_MODULE WHERE  PARENT = t1.`ID`) THEN FALSE ELSE TRUE  END ) AS `ISLEAF`,
+t1.`NAME`,
+t1.`ORDER`,
+t1.`OWNER`,
+t1.`PATH`,
+t1.`SHORT`,
+t1.`TYPE`
+FROM `zt_module` t1 
+
+WHERE t1.DELETED = '0' 
+
+```
+
 # **动态数据看板**(DYNADASHBOARD)
 
 ### DEFAULT(DEFAULT)<div id="DynaDashboard_Default"></div>
