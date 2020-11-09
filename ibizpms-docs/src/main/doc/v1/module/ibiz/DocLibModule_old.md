@@ -4,6 +4,8 @@
 
 ## 关系
 {% plantuml %}
+文档库分类 *-- 文档库分类 
+文档库分类 *-- 文档库分类 
 文档库 *-- 文档库分类 
 hide members
 {% endplantuml %}
@@ -25,6 +27,7 @@ hide members
 |owner|OWNER|TEXT|&nbsp;|
 |类型（story）|TYPE|TEXT|&nbsp;|
 |编号|ROOT|PICKUP|&nbsp;|
+|id|PARENT|PICKUP|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -42,6 +45,7 @@ hide members
 |owner|默认规则|内容长度必须小于等于[30]|
 |类型（story）|默认规则|内容长度必须小于等于[30]|
 |编号|默认规则|默认规则|
+|id|默认规则|默认规则|
 
 ## 状态控制
 
@@ -82,6 +86,7 @@ hide members
 | --------   |------------|
 |名称(NAME)|LIKE|
 |编号(ROOT)|EQ|
+|id(PARENT)|EQ|
 
 ## 导入模式
 无

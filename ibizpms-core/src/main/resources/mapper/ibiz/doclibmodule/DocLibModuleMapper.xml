@@ -5,7 +5,7 @@
 
     <!--该方法用于重写mybatis中selectById方法，以实现查询逻辑属性-->
 	<select id="selectById"  resultMap="DocLibModuleResultMap" databaseId="mysql">
-        <![CDATA[select t1.* from (SELECT t1.`BRANCH`, t1.`COLLECTOR`, t1.`DELETED`, t1.`GRADE`, t1.`ID`, (CASE WHEN EXISTS (SELECT 1 FROM ZT_MODULE WHERE  PARENT = t1.`ID`) THEN FALSE ELSE TRUE  END ) AS `ISLEAF`, t1.`NAME`, t1.`ORDER`, t1.`OWNER`, t1.`PATH`, t1.`ROOT`, t1.`SHORT`, t1.`TYPE` FROM `zt_module` t1  ) t1 where id=#{id}]]>
+        <![CDATA[select t1.* from (SELECT t1.`BRANCH`, t1.`COLLECTOR`, t1.`DELETED`, t1.`GRADE`, t1.`ID`, (CASE WHEN EXISTS (SELECT 1 FROM ZT_MODULE WHERE  PARENT = t1.`ID`) THEN FALSE ELSE TRUE  END ) AS `ISLEAF`, t1.`NAME`, t1.`ORDER`, t1.`OWNER`, t1.`PARENT`, t1.`PATH`, t1.`ROOT`, t1.`SHORT`, t1.`TYPE` FROM `zt_module` t1  ) t1 where id=#{id}]]>
     </select>
 
     <!--通过mybatis将查询结果注入到entity中,通过配置autoMapping="true"由mybatis自动处理映射关系 -->
@@ -13,12 +13,22 @@
 		<id property="id" column="id" /><!--主键字段映射-->
 		<result property="ibizshort" column="short" />
 		<result property="root" column="root" />
+		<result property="parent" column="parent" />
             
 		
+		<!--通过mybatis自动注入关系属性[主实体]，fetchType="lazy"为懒加载配置 -->
+		<association property="pdoclibmodule" javaType="cn.ibizlab.pms.core.ibiz.domain.DocLibModule" column="parent" select="cn.ibizlab.pms.core.ibiz.mapper.DocLibModuleMapper.selectById" fetchType="lazy"></association>
 		<!--通过mybatis自动注入关系属性[主实体]，fetchType="lazy"为懒加载配置 -->
 		<association property="doclib" javaType="cn.ibizlab.pms.core.zentao.domain.DocLib" column="root" select="cn.ibizlab.pms.core.zentao.mapper.DocLibMapper.selectById" fetchType="lazy"></association>
     </resultMap>
 
+	<!--关系实体暴露select方法供主实体通过外键查询关系实体数据[实体关系名称:DER1N_IBZ_DOCLIBMODULE_IBZ_DOCLIBMODULE_PARENT] -->
+	 <select id="selectByParent" resultMap="DocLibModuleResultMap">
+         select t1.* from (
+                <include refid="Default" />
+			 ) t1
+			 where  parent=#{id}
+     </select>
 	<!--关系实体暴露select方法供主实体通过外键查询关系实体数据[实体关系名称:DER1N_IBZ_DOCLIBMODULE_ZT_DOCLIB_ROOT] -->
 	 <select id="selectByRoot" resultMap="DocLibModuleResultMap">
          select t1.* from (
@@ -38,13 +48,13 @@
 
     <!--数据查询[Default]-->
     <sql id="Default" databaseId="mysql">
-		<![CDATA[ SELECT t1.`BRANCH`, t1.`DELETED`, t1.`GRADE`, t1.`ID`, (CASE WHEN EXISTS (SELECT 1 FROM ZT_MODULE WHERE  PARENT = t1.`ID`) THEN FALSE ELSE TRUE  END ) AS `ISLEAF`, t1.`NAME`, t1.`ORDER`, t1.`OWNER`, t1.`PATH`, t1.`ROOT`, t1.`SHORT`, t1.`TYPE` FROM `zt_module` t1  
+		<![CDATA[ SELECT t1.`BRANCH`, t1.`DELETED`, t1.`GRADE`, t1.`ID`, (CASE WHEN EXISTS (SELECT 1 FROM ZT_MODULE WHERE  PARENT = t1.`ID`) THEN FALSE ELSE TRUE  END ) AS `ISLEAF`, t1.`NAME`, t1.`ORDER`, t1.`OWNER`, t1.`PARENT`, t1.`PATH`, t1.`ROOT`, t1.`SHORT`, t1.`TYPE` FROM `zt_module` t1  
 					 WHERE 	t1.DELETED = '0'
 			]]>
     </sql>
     <!--数据查询[View]-->
     <sql id="View" databaseId="mysql">
-		<![CDATA[ SELECT t1.`BRANCH`, t1.`COLLECTOR`, t1.`DELETED`, t1.`GRADE`, t1.`ID`, (CASE WHEN EXISTS (SELECT 1 FROM ZT_MODULE WHERE  PARENT = t1.`ID`) THEN FALSE ELSE TRUE  END ) AS `ISLEAF`, t1.`NAME`, t1.`ORDER`, t1.`OWNER`, t1.`PATH`, t1.`ROOT`, t1.`SHORT`, t1.`TYPE` FROM `zt_module` t1  
+		<![CDATA[ SELECT t1.`BRANCH`, t1.`COLLECTOR`, t1.`DELETED`, t1.`GRADE`, t1.`ID`, (CASE WHEN EXISTS (SELECT 1 FROM ZT_MODULE WHERE  PARENT = t1.`ID`) THEN FALSE ELSE TRUE  END ) AS `ISLEAF`, t1.`NAME`, t1.`ORDER`, t1.`OWNER`, t1.`PARENT`, t1.`PATH`, t1.`ROOT`, t1.`SHORT`, t1.`TYPE` FROM `zt_module` t1  
 					 WHERE 	t1.DELETED = '0'
 			]]>
     </sql>

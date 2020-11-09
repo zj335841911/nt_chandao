@@ -5787,11 +5787,41 @@
     "key_field":0,
     "show_order":1000,
     "major_field":0
+    },
+    {
+    "fieldname":"PARENT" ,
+    "codename":"Parent",
+    "field_logic_name":"id",
+    "entity_name":"DocLibModule",
+    "ref_de":"IBZ_DOCLIBMODULE",
+    "ref_field_name":"ID",
+    "relation_name":"DER1N_IBZ_DOCLIBMODULE_IBZ_DOCLIBMODULE_PARENT",
+    "relation_codename":"PDocLibModule",
+    "field_type":"PICKUP",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"BIGINT",
+    "data_length":20,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
     }
     ],
     "subEntitys":[
+    {"name":"DER1N_IBZ_DOCLIBMODULE_IBZ_DOCLIBMODULE_PARENT",
+     "relation_type":"DER1N",
+     "code_name":"PDocLibModule",
+     "entity_name":"IBZ_DOCLIBMODULE",
+     "ref_entity_name":"IBZ_DOCLIBMODULE"
+    }
     ],
     "parentEntitys":[
+    {"name":"DER1N_IBZ_DOCLIBMODULE_IBZ_DOCLIBMODULE_PARENT",
+     "relation_type":"DER1N",
+     "code_name":"PDocLibModule",
+     "entity_name":"IBZ_DOCLIBMODULE",
+     "ref_entity_name":"IBZ_DOCLIBMODULE"
+    },
     {"name":"DER1N_IBZ_DOCLIBMODULE_ZT_DOCLIB_ROOT",
      "relation_type":"DER1N",
      "code_name":"DocLib",

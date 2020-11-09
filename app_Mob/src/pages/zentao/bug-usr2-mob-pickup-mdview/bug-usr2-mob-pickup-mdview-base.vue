@@ -290,6 +290,19 @@ export default class BugUsr2MobPickupMDViewBase extends Vue {
     }
 
     /**
+     * 下拉刷新
+     *
+     * @param {*} $event
+     * @returns {Promise<any>}
+     * @memberof BugUsr2MobPickupMDViewBase
+     */
+    public async pullDownToRefresh($event: any): Promise<any> {
+        setTimeout(() => {
+            $event.srcElement.complete();
+        }, 2000);
+    }
+
+    /**
      * 视图引擎
      *
      * @type {Engine}

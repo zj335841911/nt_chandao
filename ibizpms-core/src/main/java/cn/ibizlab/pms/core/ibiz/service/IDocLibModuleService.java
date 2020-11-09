@@ -37,6 +37,8 @@ public interface IDocLibModuleService extends IService<DocLibModule>{
     boolean save(DocLibModule et) ;
     void saveBatch(List<DocLibModule> list) ;
     Page<DocLibModule> searchDefault(DocLibModuleSearchContext context) ;
+    List<DocLibModule> selectByParent(Long id);
+    void removeByParent(Long id) ;
     List<DocLibModule> selectByRoot(Long id);
     void removeByRoot(Long id) ;
     /**

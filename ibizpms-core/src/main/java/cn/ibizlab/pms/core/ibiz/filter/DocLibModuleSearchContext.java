@@ -41,6 +41,13 @@ public class DocLibModuleSearchContext extends QueryWrapperContext<DocLibModule>
             this.getSearchCond().eq("root", n_root_eq);
         }
     }
+	private Long n_parent_eq;//[id]
+	public void setN_parent_eq(Long n_parent_eq) {
+        this.n_parent_eq = n_parent_eq;
+        if(!ObjectUtils.isEmpty(this.n_parent_eq)){
+            this.getSearchCond().eq("parent", n_parent_eq);
+        }
+    }
 
     /**
 	 * 启用快速搜索

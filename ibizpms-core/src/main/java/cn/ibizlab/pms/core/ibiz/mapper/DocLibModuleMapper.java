@@ -62,6 +62,8 @@ public interface DocLibModuleMapper extends BaseMapper<DocLibModule>{
     @Delete("${sql}")
     boolean deleteBySQL(@Param("sql") String sql, @Param("et")Map param);
 
+    List<DocLibModule> selectByParent(@Param("id") Serializable id) ;
+
     List<DocLibModule> selectByRoot(@Param("id") Serializable id) ;
 
 }

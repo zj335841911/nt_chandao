@@ -48,6 +48,8 @@ import org.springframework.util.StringUtils;
 @Service("DocLibModuleServiceImpl")
 public class DocLibModuleServiceImpl extends ServiceImpl<DocLibModuleMapper, DocLibModule> implements IDocLibModuleService {
 
+
+    protected cn.ibizlab.pms.core.ibiz.service.IDocLibModuleService doclibmoduleService = this;
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.IDocLibService doclibService;
@@ -150,6 +152,15 @@ public class DocLibModuleServiceImpl extends ServiceImpl<DocLibModuleMapper, Doc
         saveOrUpdateBatch(list,batchSize);
     }
 
+
+	@Override
+    public List<DocLibModule> selectByParent(Long id) {
+        return baseMapper.selectByParent(id);
+    }
+    @Override
+    public void removeByParent(Long id) {
+        this.remove(new QueryWrapper<DocLibModule>().eq("parent",id));
+    }
 
 	@Override
     public List<DocLibModule> selectByRoot(Long id) {

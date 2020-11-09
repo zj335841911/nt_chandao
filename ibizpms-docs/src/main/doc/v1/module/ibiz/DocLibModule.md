@@ -8,11 +8,14 @@
 
 ## 实体关系
 ### 1:N
-无
+| 序号 | 关系实体 | 关系类型 |
+| ---- | ---- | ---- |
+| 1 | [文档库分类（IBZ_DOCLIBMODULE）](../ibiz/DocLibModule) | （默认） |
 ### N:1
 | 序号 | 关系实体 | 关系类型 |
 | ---- | ---- | ---- |
-| 1 | [文档库（ZT_DOCLIB）](../zentao/DocLib) | （默认） |
+| 1 | [文档库分类（IBZ_DOCLIBMODULE）](../ibiz/DocLibModule) | （默认） |
+| 2 | [文档库（ZT_DOCLIB）](../zentao/DocLib) | （默认） |
 
 
 ## 实体属性
@@ -31,6 +34,7 @@
 | 11 | [owner](#属性-owner（OWNER）) | OWNER | 文本，可指定长度 | 否 | 否 | 是 |
 | 12 | [类型（story）](#属性-类型（story）（TYPE）) | TYPE | 文本，可指定长度 | 否 | 否 | 是 |
 | 13 | [编号](#属性-编号（ROOT）) | ROOT | 外键值 | 否 | 是 | 是 |
+| 14 | [id](#属性-id（PARENT）) | PARENT | 外键值 | 否 | 是 | 是 |
 
 ### 属性-叶子模块（ISLEAF）
 #### 属性说明
@@ -71,8 +75,8 @@ String
 #### 关系属性
 | 项目 | 说明 |
 | ---- | ---- |
-| 关系实体 | [文档库（ZT_DOCLIB）](../zentao/DocLib) |
-| 关系属性 | [编号（ID）](../zentao/DocLib/#属性-编号（ID）) |
+| 关系实体 | [文档库分类（IBZ_DOCLIBMODULE）](../ibiz/DocLibModule) |
+| 关系属性 | [id（ID）](../ibiz/DocLibModule/#属性-id（ID）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-名称（NAME）
@@ -114,8 +118,8 @@ String
 #### 关系属性
 | 项目 | 说明 |
 | ---- | ---- |
-| 关系实体 | [文档库（ZT_DOCLIB）](../zentao/DocLib) |
-| 关系属性 | [编号（ID）](../zentao/DocLib/#属性-编号（ID）) |
+| 关系实体 | [文档库分类（IBZ_DOCLIBMODULE）](../ibiz/DocLibModule) |
+| 关系属性 | [id（ID）](../ibiz/DocLibModule/#属性-id（ID）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-简称（SHORT）
@@ -158,8 +162,8 @@ String
 #### 关系属性
 | 项目 | 说明 |
 | ---- | ---- |
-| 关系实体 | [文档库（ZT_DOCLIB）](../zentao/DocLib) |
-| 关系属性 | [编号（ID）](../zentao/DocLib/#属性-编号（ID）) |
+| 关系实体 | [文档库分类（IBZ_DOCLIBMODULE）](../ibiz/DocLibModule) |
+| 关系属性 | [id（ID）](../ibiz/DocLibModule/#属性-id（ID）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-grade（GRADE）
@@ -202,8 +206,8 @@ Integer
 #### 关系属性
 | 项目 | 说明 |
 | ---- | ---- |
-| 关系实体 | [文档库（ZT_DOCLIB）](../zentao/DocLib) |
-| 关系属性 | [编号（ID）](../zentao/DocLib/#属性-编号（ID）) |
+| 关系实体 | [文档库分类（IBZ_DOCLIBMODULE）](../ibiz/DocLibModule) |
+| 关系属性 | [id（ID）](../ibiz/DocLibModule/#属性-id（ID）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-collector（COLLECTOR）
@@ -246,8 +250,8 @@ String
 #### 关系属性
 | 项目 | 说明 |
 | ---- | ---- |
-| 关系实体 | [文档库（ZT_DOCLIB）](../zentao/DocLib) |
-| 关系属性 | [编号（ID）](../zentao/DocLib/#属性-编号（ID）) |
+| 关系实体 | [文档库分类（IBZ_DOCLIBMODULE）](../ibiz/DocLibModule) |
+| 关系属性 | [id（ID）](../ibiz/DocLibModule/#属性-id（ID）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-branch（BRANCH）
@@ -290,8 +294,8 @@ Integer
 #### 关系属性
 | 项目 | 说明 |
 | ---- | ---- |
-| 关系实体 | [文档库（ZT_DOCLIB）](../zentao/DocLib) |
-| 关系属性 | [编号（ID）](../zentao/DocLib/#属性-编号（ID）) |
+| 关系实体 | [文档库分类（IBZ_DOCLIBMODULE）](../ibiz/DocLibModule) |
+| 关系属性 | [id（ID）](../ibiz/DocLibModule/#属性-id（ID）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-id（ID）
@@ -331,8 +335,8 @@ Long
 #### 关系属性
 | 项目 | 说明 |
 | ---- | ---- |
-| 关系实体 | [文档库（ZT_DOCLIB）](../zentao/DocLib) |
-| 关系属性 | [编号（ID）](../zentao/DocLib/#属性-编号（ID）) |
+| 关系实体 | [文档库分类（IBZ_DOCLIBMODULE）](../ibiz/DocLibModule) |
+| 关系属性 | [id（ID）](../ibiz/DocLibModule/#属性-id（ID）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-排序值（ORDER）
@@ -375,8 +379,8 @@ Integer
 #### 关系属性
 | 项目 | 说明 |
 | ---- | ---- |
-| 关系实体 | [文档库（ZT_DOCLIB）](../zentao/DocLib) |
-| 关系属性 | [编号（ID）](../zentao/DocLib/#属性-编号（ID）) |
+| 关系实体 | [文档库分类（IBZ_DOCLIBMODULE）](../ibiz/DocLibModule) |
+| 关系属性 | [id（ID）](../ibiz/DocLibModule/#属性-id（ID）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-逻辑删除标志（DELETED）
@@ -419,8 +423,8 @@ String
 #### 关系属性
 | 项目 | 说明 |
 | ---- | ---- |
-| 关系实体 | [文档库（ZT_DOCLIB）](../zentao/DocLib) |
-| 关系属性 | [编号（ID）](../zentao/DocLib/#属性-编号（ID）) |
+| 关系实体 | [文档库分类（IBZ_DOCLIBMODULE）](../ibiz/DocLibModule) |
+| 关系属性 | [id（ID）](../ibiz/DocLibModule/#属性-id（ID）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-path（PATH）
@@ -463,8 +467,8 @@ String
 #### 关系属性
 | 项目 | 说明 |
 | ---- | ---- |
-| 关系实体 | [文档库（ZT_DOCLIB）](../zentao/DocLib) |
-| 关系属性 | [编号（ID）](../zentao/DocLib/#属性-编号（ID）) |
+| 关系实体 | [文档库分类（IBZ_DOCLIBMODULE）](../ibiz/DocLibModule) |
+| 关系属性 | [id（ID）](../ibiz/DocLibModule/#属性-id（ID）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-owner（OWNER）
@@ -507,8 +511,8 @@ String
 #### 关系属性
 | 项目 | 说明 |
 | ---- | ---- |
-| 关系实体 | [文档库（ZT_DOCLIB）](../zentao/DocLib) |
-| 关系属性 | [编号（ID）](../zentao/DocLib/#属性-编号（ID）) |
+| 关系实体 | [文档库分类（IBZ_DOCLIBMODULE）](../ibiz/DocLibModule) |
+| 关系属性 | [id（ID）](../ibiz/DocLibModule/#属性-id（ID）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-类型（story）（TYPE）
@@ -551,8 +555,8 @@ String
 #### 关系属性
 | 项目 | 说明 |
 | ---- | ---- |
-| 关系实体 | [文档库（ZT_DOCLIB）](../zentao/DocLib) |
-| 关系属性 | [编号（ID）](../zentao/DocLib/#属性-编号（ID）) |
+| 关系实体 | [文档库分类（IBZ_DOCLIBMODULE）](../ibiz/DocLibModule) |
+| 关系属性 | [id（ID）](../ibiz/DocLibModule/#属性-id（ID）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-编号（ROOT）
@@ -596,6 +600,49 @@ Long
 | ---- | ---- |
 | 关系实体 | [文档库（ZT_DOCLIB）](../zentao/DocLib) |
 | 关系属性 | [编号（ID）](../zentao/DocLib/#属性-编号（ID）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
+### 属性-id（PARENT）
+#### 属性说明
+id
+
+- 是否是主键
+否
+
+- 属性类型
+物理字段[来自当前实体物理表字段]
+
+- 数据类型
+外键值
+
+- Java类型
+Long
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+| 序号 | 组合方式 |
+| ---- | ---- |
+| 1 | `=` |
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [文档库分类（IBZ_DOCLIBMODULE）](../ibiz/DocLibModule) |
+| 关系属性 | [id（ID）](../ibiz/DocLibModule/#属性-id（ID）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 
@@ -712,6 +759,7 @@ Save
 | ---- | ---- | ---- |
 | 1 | [名称（NAME）](#属性-名称（NAME）) | `%like%` |
 | 2 | [编号（ROOT）](#属性-编号（ROOT）) | `=` |
+| 3 | [id（PARENT）](#属性-id（PARENT）) | `=` |
 
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |
@@ -741,6 +789,7 @@ t1.`ID`,
 t1.`NAME`,
 t1.`ORDER`,
 t1.`OWNER`,
+t1.`PARENT`,
 t1.`PATH`,
 t1.`ROOT`,
 t1.`SHORT`,
@@ -771,6 +820,7 @@ t1.`ID`,
 t1.`NAME`,
 t1.`ORDER`,
 t1.`OWNER`,
+t1.`PARENT`,
 t1.`PATH`,
 t1.`ROOT`,
 t1.`SHORT`,

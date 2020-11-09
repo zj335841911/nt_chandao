@@ -145,6 +145,21 @@ public class DocLibModule extends EntityMP implements Serializable {
     @JSONField(name = "root")
     @JsonProperty("root")
     private Long root;
+    /**
+     * id
+     */
+    @TableField(value = "`parent`")
+    @JSONField(name = "parent")
+    @JsonProperty("parent")
+    private Long parent;
+
+    /**
+     * 父模块
+     */
+    @JsonIgnore
+    @JSONField(serialize = false)
+    @TableField(exist = false)
+    private cn.ibizlab.pms.core.ibiz.domain.DocLibModule pdoclibmodule;
 
     /**
      * 文档分类
@@ -234,6 +249,14 @@ public class DocLibModule extends EntityMP implements Serializable {
     public void setRoot(Long root){
         this.root = root ;
         this.modify("root",root);
+    }
+
+    /**
+     * 设置 [id]
+     */
+    public void setParent(Long parent){
+        this.parent = parent ;
+        this.modify("parent",parent);
     }
 
 
