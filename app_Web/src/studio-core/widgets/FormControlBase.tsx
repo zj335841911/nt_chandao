@@ -590,9 +590,9 @@ export class FormControlBase extends MainControlBase {
         let startOp = (val:boolean)=>{
             if(falg.isPast){
                 if(opValue){
-                    falg.isPast = falg && val;
+                    falg.isPast = falg.isPast && val;
                 }else{
-                    falg.isPast = falg || val;
+                    falg.isPast = falg.isPast || val;
                 }
             }else{
                 falg.isPast = val;
@@ -604,7 +604,7 @@ export class FormControlBase extends MainControlBase {
             // 提供表单值规则默认提示信息(未配置值规则提示信息时)
             item.ruleInfo = item.ruleInfo ? item.ruleInfo : this.$t('app.formpage.valuecheckex');
             // 为空值时，属性值规则不做校验
-            if(dataValue === null || dataValue === undefined || dataValue === ""){
+            if((dataValue === null || dataValue === undefined || dataValue === "") && (item.type != 'GROUP')){
                 startOp(true);
                 return falg;
             }
@@ -640,7 +640,7 @@ export class FormControlBase extends MainControlBase {
             }
             // 分组
             if(item.type == 'GROUP'){
-                falg = this.verifyDeRules('group',item)
+                falg = this.verifyDeRules('group',item,item.condOP?item.condOP:"AND")
                 if(item.isNotMode){
                    falg.isPast = !falg.isPast;
                 }

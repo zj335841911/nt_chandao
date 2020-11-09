@@ -1333,7 +1333,7 @@ export class GridControlBase extends MDControlBase {
                 if(opValue){
                     falg.isPast = falg.isPast && val;
                 }else{
-                    falg.isPast = falg.isPast && val;
+                    falg.isPast = falg.isPast || val;
                 }
             }else{
                 falg.isPast = val;
@@ -1343,7 +1343,7 @@ export class GridControlBase extends MDControlBase {
             let item:any = rule[name][i];
             // let dataValue = item.deName?this.data[this.service.getItemNameByDeName(item.deName)]:"";
             // 为空值时，属性值规则不做校验
-            if((value === null || value === undefined || value === "") && item.type != 'GROUP'){
+            if((value === null || value === undefined || value === "") && (item.type != 'GROUP')){
                 startOp(true);
                 return falg;
             }
