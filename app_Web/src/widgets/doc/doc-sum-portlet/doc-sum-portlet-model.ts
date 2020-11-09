@@ -90,6 +90,9 @@ export default class DocSumModel {
       {
         name: 'files',
       },
+      {
+        name: 'url',
+      },
     ]
   }
 

@@ -90,6 +90,9 @@ export default class KeywordsModel {
       {
         name: 'files',
       },
+      {
+        name: 'url',
+      },
     ]
   }
 

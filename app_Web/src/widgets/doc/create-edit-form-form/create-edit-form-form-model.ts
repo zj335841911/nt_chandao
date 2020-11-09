@@ -91,6 +91,11 @@ export default class CreateEditFormModel {
         dataType: 'HTMLTEXT',
       },
       {
+        name: 'url',
+        prop: 'url',
+        dataType: 'TEXT',
+      },
+      {
         name: 'files',
         prop: 'files',
         dataType: 'TEXT',

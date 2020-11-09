@@ -90,6 +90,9 @@ export default class MainBodyModel {
       {
         name: 'files',
       },
+      {
+        name: 'url',
+      },
     ]
   }
 

@@ -25,6 +25,7 @@ export default {
     modulename: "模块分类",
     content: "文档正文",
     files: "附件",
+    url: "文档链接",
   },
 	views: {
 		basiceditview9: {
@@ -176,6 +177,7 @@ export default {
 			keywords: "关键字", 
 			type: "文档类型", 
 			content: "文档正文", 
+			url: "文档链接", 
 			files: "附件", 
 			acl: "权限", 
 			id: "文档编号", 

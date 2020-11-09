@@ -205,4 +205,12 @@ export interface Doc {
      * @memberof Doc
      */
     files?: any;
+
+    /**
+     * 文档链接
+     *
+     * @returns {*}
+     * @memberof Doc
+     */
+    url?: any;
 }

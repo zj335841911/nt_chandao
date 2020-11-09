@@ -90,6 +90,9 @@ export default class DocActionModel {
       {
         name: 'files',
       },
+      {
+        name: 'url',
+      },
     ]
   }
 

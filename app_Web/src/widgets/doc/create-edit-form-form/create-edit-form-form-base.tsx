@@ -90,6 +90,7 @@ export class CreateEditFormEditFormBase extends EditFormControlBase {
         keywords: null,
         type: null,
         content: null,
+        url: null,
         files: null,
         acl: null,
         id: null,
@@ -165,7 +166,9 @@ export class CreateEditFormEditFormBase extends EditFormControlBase {
 
         type: new FormItemModel({ caption: '文档类型', detailType: 'FORMITEM', name: 'type', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 
-        content: new FormItemModel({ caption: '文档正文', detailType: 'FORMITEM', name: 'content', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+        content: new FormItemModel({ caption: '文档正文', detailType: 'FORMITEM', name: 'content', visible: false, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+
+        url: new FormItemModel({ caption: '文档链接', detailType: 'FORMITEM', name: 'url', visible: false, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 
         files: new FormItemModel({ caption: '附件', detailType: 'FORMITEM', name: 'files', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 
@@ -174,4 +177,76 @@ export class CreateEditFormEditFormBase extends EditFormControlBase {
         id: new FormItemModel({ caption: '文档编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 0 }),
 
     };
+
+    /**
+     * 重置表单项值
+     *
+     * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
+     * @memberof CreateEditFormEditFormBase
+     */
+    public resetFormData({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
+        if (Object.is(name, 'type')) {
+            this.onFormItemValueChange({ name: 'content', value: null });
+        }
+        if (Object.is(name, 'type')) {
+            this.onFormItemValueChange({ name: 'url', value: null });
+        }
+    }
+
+    /**
+     * 表单项逻辑
+     *
+     * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
+     * @returns {Promise<void>}
+     * @memberof CreateEditFormEditFormBase
+     */
+    public async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): Promise<void> {
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        if (Object.is(name, '') || Object.is(name, 'type')) {
+            let ret = false;
+            const _type = this.data.type;
+            if (this.$verify.testCond(_type, 'EQ', 'text')) {
+                ret = true;
+            }
+            this.detailsModel.content.setVisible(ret);
+        }
+
+        if (Object.is(name, '') || Object.is(name, 'type')) {
+            let ret = false;
+            const _type = this.data.type;
+            if (this.$verify.testCond(_type, 'EQ', 'url')) {
+                ret = true;
+            }
+            this.detailsModel.url.setVisible(ret);
+        }
+
+
+
+
+    }
+
+    /**
+     * 新建默认值
+     * @memberof CreateEditFormEditFormBase
+     */
+    public createDefault(){                    
+        if (this.data.hasOwnProperty('type')) {
+            this.data['type'] = 'text';
+        }
+    }
 }

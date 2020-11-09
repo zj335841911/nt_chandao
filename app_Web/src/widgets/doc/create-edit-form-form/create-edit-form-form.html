@@ -106,6 +106,20 @@
 </app-form-item>
 
 </i-col>
+<i-col class="form-layout-container" v-show="detailsModel.url.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='url' :itemRules="this.rules().url" class='' :caption="$t('entities.doc.createeditform_form.details.url')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.url.error" :isEmptyCaption="false" labelPos="LEFT">
+    <input-box 
+    v-model="data.url"  
+    @enter="onEnter($event)"  
+     unit=""  
+    :disabled="detailsModel.url.disabled" 
+    type='text' 
+    style="">
+</input-box>
+
+</app-form-item>
+
+</i-col>
 <i-col class="form-layout-container" v-show="detailsModel.files.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='files' :itemRules="this.rules().files" class='' :caption="$t('entities.doc.createeditform_form.details.files')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.files.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-file-upload :formState="formState" :ignorefieldvaluechange="ignorefieldvaluechange" @formitemvaluechange="onFormItemValueChange($event)" :data="JSON.stringify(this.data)" name='files' :value="data.files" :disabled="detailsModel.files.disabled" :uploadparams='{}' :exportparams='{}'  style="overflow: auto;"></app-file-upload>

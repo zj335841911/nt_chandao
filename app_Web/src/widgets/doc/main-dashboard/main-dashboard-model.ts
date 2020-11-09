@@ -90,6 +90,9 @@ export default class MainModel {
       {
         name: 'files',
       },
+      {
+        name: 'url',
+      },
     ]
   }
 
