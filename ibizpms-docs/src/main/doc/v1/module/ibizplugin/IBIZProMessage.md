@@ -32,6 +32,8 @@
 | 14 | [是否是链接消息](#属性-是否是链接消息（ISLINK）) | ISLINK | 单项选择(数值) | 否 | 否 | 是 |
 | 15 | [消息标识](#属性-消息标识（IBIZPRO_MESSAGEID）) | IBIZPRO_MESSAGEID | 文本，可指定长度 | 是 | 否 | 是 |
 | 16 | [是否已完成](#属性-是否已完成（ISDONE）) | ISDONE | 单项选择(数值) | 否 | 否 | 是 |
+| 17 | [链接地址](#属性-链接地址（LINKURL）) | LINKURL | 文本，可指定长度 | 否 | 否 | 是 |
+| 18 | [发送代理标识](#属性-发送代理标识（SENDPROXYID）) | SENDPROXYID | 文本，可指定长度 | 否 | 否 | 是 |
 
 ### 属性-重发次数（RETRYTIMES）
 #### 属性说明
@@ -637,6 +639,80 @@ Integer
 #### 关系属性
 无
 
+### 属性-链接地址（LINKURL）
+#### 属性说明
+链接地址
+
+- 是否是主键
+否
+
+- 属性类型
+物理字段[来自当前实体物理表字段]
+
+- 数据类型
+文本，可指定长度
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
+### 属性-发送代理标识（SENDPROXYID）
+#### 属性说明
+发送代理标识
+
+- 是否是主键
+否
+
+- 属性类型
+物理字段[来自当前实体物理表字段]
+
+- 数据类型
+文本，可指定长度
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
 
 ## 业务状态
 无
@@ -782,8 +858,10 @@ t1.`ISDONE`,
 t1.`ISLINK`,
 t1.`ISRETRY`,
 t1.`ISSYNC`,
+t1.`LINKURL`,
 t1.`RETRYINTERVALTIME`,
 t1.`RETRYTIMES`,
+t1.`SENDPROXYID`,
 t1.`SUBJECT`,
 t1.`TYPE`
 FROM `T_IBIZPRO_MESSAGE` t1 
@@ -813,9 +891,11 @@ t1.`ISDONE`,
 t1.`ISLINK`,
 t1.`ISRETRY`,
 t1.`ISSYNC`,
+t1.`LINKURL`,
 t1.`PARAM`,
 t1.`RETRYINTERVALTIME`,
 t1.`RETRYTIMES`,
+t1.`SENDPROXYID`,
 t1.`SUBJECT`,
 t1.`TO`,
 t1.`TYPE`

@@ -26553,6 +26553,7 @@ CREATE TABLE `zt_history`(
 | ISDONE        | 是否已完成  | INTEGER      |   -1   | &nbsp; |
 | RETRYINTERVALTIME        | 重发间隔时间  | INTEGER      |   -1   | &nbsp; |
 | IBIZPRO_MESSAGENAME        | 消息名称  | VARCHAR      |   100   | &nbsp; |
+| LINKURL        | 链接地址  | VARCHAR      |   100   | &nbsp; |
 | IBIZPRO_MESSAGEID        | 消息标识  | VARCHAR      |   100   | 主键&nbsp; |
 | TO        | 接收方  | CLOB      |   1,048,576   | &nbsp; |
 | ISSYNC        | 是否同步  | INTEGER      |   -1   | &nbsp; |
@@ -26562,6 +26563,7 @@ CREATE TABLE `zt_history`(
 | CONTENT        | 内容  | CLOB      |   1,048,576   | &nbsp; |
 | CC        | 抄送方  | CLOB      |   1,048,576   | &nbsp; |
 | PARAM        | 消息参数  | CLOB      |   1,048,576   | &nbsp; |
+| SENDPROXYID        | 发送代理标识  | VARCHAR      |   100   | &nbsp; |
 | BCC        | 密件抄送方  | CLOB      |   1,048,576   | &nbsp; |
 | TYPE        | 消息类型  | VARCHAR      |   60   | &nbsp; |
 

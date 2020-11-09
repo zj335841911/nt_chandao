@@ -147,6 +147,20 @@ public class IBIZProMessage extends EntityClient implements Serializable {
     @JsonProperty("isdone")
     private Integer isdone;
 
+    /**
+     * 链接地址
+     */
+    @JSONField(name = "linkurl")
+    @JsonProperty("linkurl")
+    private String linkurl;
+
+    /**
+     * 发送代理标识
+     */
+    @JSONField(name = "sendproxyid")
+    @JsonProperty("sendproxyid")
+    private String sendproxyid;
+
 
 
 
@@ -269,6 +283,22 @@ public class IBIZProMessage extends EntityClient implements Serializable {
     public void setIsdone(Integer isdone){
         this.isdone = isdone ;
         this.modify("isdone",isdone);
+    }
+
+    /**
+     * 设置 [链接地址]
+     */
+    public void setLinkurl(String linkurl){
+        this.linkurl = linkurl ;
+        this.modify("linkurl",linkurl);
+    }
+
+    /**
+     * 设置 [发送代理标识]
+     */
+    public void setSendproxyid(String sendproxyid){
+        this.sendproxyid = sendproxyid ;
+        this.modify("sendproxyid",sendproxyid);
     }
 
     /**

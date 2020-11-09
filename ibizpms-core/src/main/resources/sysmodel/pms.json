@@ -7612,6 +7612,34 @@
     "key_field":0,
     "show_order":1000,
     "major_field":0
+    },
+    {
+    "fieldname":"LINKURL" ,
+    "codename":"Linkurl",
+    "field_logic_name":"链接地址",
+    "entity_name":"IBIZProMessage",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"SENDPROXYID" ,
+    "codename":"Sendproxyid",
+    "field_logic_name":"发送代理标识",
+    "entity_name":"IBIZProMessage",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
     }
     ],
     "subEntitys":[
