@@ -237,7 +237,8 @@ export class Main_BuildSub3GridBase extends GridControlBase {
      * @type {*}
      * @memberof Main_BuildSub3GridBase
      */
-    public rules: any = {
+    public rules() {
+        return {
         resolvedby: [
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '解决者 值不能为空', trigger: 'change' },
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '解决者 值不能为空', trigger: 'blur' },
@@ -246,6 +247,7 @@ export class Main_BuildSub3GridBase extends GridControlBase {
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: 'Bug编号 值不能为空', trigger: 'change' },
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: 'Bug编号 值不能为空', trigger: 'blur' },
         ],
+    }
     }
 
     /**

@@ -174,11 +174,13 @@ export class Main2GridBase extends GridControlBase {
      * @type {*}
      * @memberof Main2GridBase
      */
-    public rules: any = {
+    public rules() {
+        return {
         srfkey: [
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '用例编号 值不能为空', trigger: 'change' },
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '用例编号 值不能为空', trigger: 'blur' },
         ],
+    }
     }
 
     /**

@@ -276,11 +276,13 @@ export class DocLibLGridBase extends GridControlBase {
      * @type {*}
      * @memberof DocLibLGridBase
      */
-    public rules: any = {
+    public rules() {
+        return {
         srfkey: [
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: 'id 值不能为空', trigger: 'change' },
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: 'id 值不能为空', trigger: 'blur' },
         ],
+    }
     }
 
     /**

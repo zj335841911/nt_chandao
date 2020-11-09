@@ -234,11 +234,13 @@ export class Main_ReportSubGridBase extends GridControlBase {
      * @type {*}
      * @memberof Main_ReportSubGridBase
      */
-    public rules: any = {
+    public rules() {
+        return {
         srfkey: [
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '编号 值不能为空', trigger: 'change' },
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '编号 值不能为空', trigger: 'blur' },
         ],
+    }
     }
 
     /**

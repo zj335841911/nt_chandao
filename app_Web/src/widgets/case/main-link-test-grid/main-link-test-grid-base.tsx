@@ -239,7 +239,8 @@ export class MainLinkTestGridBase extends GridControlBase {
      * @type {*}
      * @memberof MainLinkTestGridBase
      */
-    public rules: any = {
+    public rules() {
+        return {
         product: [
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '所属产品 值不能为空', trigger: 'change' },
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '所属产品 值不能为空', trigger: 'blur' },
@@ -256,6 +257,7 @@ export class MainLinkTestGridBase extends GridControlBase {
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '版本 值不能为空', trigger: 'change' },
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '版本 值不能为空', trigger: 'blur' },
         ],
+    }
     }
 
     /**

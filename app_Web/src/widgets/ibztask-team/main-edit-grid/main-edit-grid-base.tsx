@@ -180,7 +180,8 @@ export class MainEditGridBase extends GridControlBase {
      * @type {*}
      * @memberof MainEditGridBase
      */
-    public rules: any = {
+    public rules(){
+        return {
         consumed: [
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '总计消耗 值不能为空', trigger: 'change' },
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '总计消耗 值不能为空', trigger: 'blur' },
@@ -209,6 +210,7 @@ export class MainEditGridBase extends GridControlBase {
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '编号 值不能为空', trigger: 'change' },
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '编号 值不能为空', trigger: 'blur' },
         ],
+        }
     }
 
     /**

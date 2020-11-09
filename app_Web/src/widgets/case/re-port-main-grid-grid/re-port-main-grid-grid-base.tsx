@@ -263,11 +263,13 @@ export class RePortMainGridGridBase extends GridControlBase {
      * @type {*}
      * @memberof RePortMainGridGridBase
      */
-    public rules: any = {
+    public rules() {
+        return {
         srfkey: [
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '用例编号 值不能为空', trigger: 'change' },
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '用例编号 值不能为空', trigger: 'blur' },
         ],
+    }
     }
 
     /**

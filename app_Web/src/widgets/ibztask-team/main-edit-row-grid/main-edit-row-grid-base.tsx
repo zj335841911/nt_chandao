@@ -159,7 +159,8 @@ export class MainEditRowGridBase extends GridControlBase {
      * @type {*}
      * @memberof MainEditRowGridBase
      */
-    public rules: any = {
+    public rules(){
+        return {
         account: [
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '用户 值不能为空', trigger: 'change' },
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '用户 值不能为空', trigger: 'blur' },
@@ -176,6 +177,7 @@ export class MainEditRowGridBase extends GridControlBase {
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '编号 值不能为空', trigger: 'change' },
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '编号 值不能为空', trigger: 'blur' },
         ],
+        }
     }
 
     /**

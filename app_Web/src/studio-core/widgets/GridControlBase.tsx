@@ -221,7 +221,7 @@ export class GridControlBase extends MDControlBase {
      * @type {*}
      * @memberof GridControlBase
      */
-    public rules: any = {};
+    public rules() {};
 
     /**
      * 是否为实体导出对象
@@ -347,7 +347,7 @@ export class GridControlBase extends MDControlBase {
      */
     public validate(property: string, data: any, rowIndex: number): Promise<any> {
         return new Promise((resolve) => {
-            this.$util.validateItem(property, data, this.rules).then(() => {
+            this.$util.validateItem(property, data, this.rules()).then(() => {
                 this.gridItemsModel[rowIndex][property].setError(null);
                 resolve(true);
             }).catch((res: any) => {
@@ -371,7 +371,7 @@ export class GridControlBase extends MDControlBase {
             let tempMessage: string = '';
             index++;
             if (item.rowDataState === "create" || item.rowDataState === "update") {
-                for (let property of Object.keys(this.rules)) {
+                for (let property of Object.keys(this.rules() as any)) {
                     if (!await this.validate(property, item, index)) {
                         validateState = false;
                         tempMessage = tempMessage + '<p>' + this.gridItemsModel[index][property].error + '<p>';
@@ -1331,9 +1331,9 @@ export class GridControlBase extends MDControlBase {
         let startOp = (val:boolean)=>{
             if(falg.isPast){
                 if(opValue){
-                    falg.isPast = falg && val;
+                    falg.isPast = falg.isPast && val;
                 }else{
-                    falg.isPast = falg || val;
+                    falg.isPast = falg.isPast && val;
                 }
             }else{
                 falg.isPast = val;
@@ -1343,7 +1343,7 @@ export class GridControlBase extends MDControlBase {
             let item:any = rule[name][i];
             // let dataValue = item.deName?this.data[this.service.getItemNameByDeName(item.deName)]:"";
             // 为空值时，属性值规则不做校验
-            if(value === null || value === undefined || value === ""){
+            if((value === null || value === undefined || value === "") && item.type != 'GROUP'){
                 startOp(true);
                 return falg;
             }
@@ -1379,7 +1379,7 @@ export class GridControlBase extends MDControlBase {
             }
             // 分组
             if(item.type == 'GROUP'){
-                falg = this.verifyDeRules('group',item,"AND",value)
+                falg = this.verifyDeRules('group',item,item.condOP?item.condOP:"AND",value)
                 if(item.isNotMode){
                    falg.isPast = !falg.isPast;
                 }

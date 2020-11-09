@@ -262,7 +262,8 @@ export class SubTaskNewGridBase extends GridControlBase {
      * @type {*}
      * @memberof SubTaskNewGridBase
      */
-    public rules: any = {
+    public rules() {
+        return {
         module: [
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: 'id 值不能为空', trigger: 'change' },
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: 'id 值不能为空', trigger: 'blur' },
@@ -338,6 +339,7 @@ export class SubTaskNewGridBase extends GridControlBase {
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '截止日期 值不能为空', trigger: 'blur' },
             {validator:(rule:any, value:any, callback:any)=>{return this.verifyDeRules("deadline",this.deRules,"AND",value).isPast},message: "截至日期必须大于等于预计开始", trigger: 'blur' },
         ],
+    }
     }
 
     /**
