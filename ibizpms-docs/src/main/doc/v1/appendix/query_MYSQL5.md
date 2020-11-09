@@ -2399,6 +2399,9 @@ LEFT JOIN zt_case t71 ON t1.CASE = t71.ID
 
 WHERE t1.DELETED = '0' 
 ( t1.`PRODUCT` = ${srfdatacontext('product','{"defname":"PRODUCT","dename":"ZT_BUG"}')} ) 
+not FIND_IN_SET(t1.id,(select bugs from zt_release 
+where id =  ${srfdatacontext('release','{"defname":"id","dename":"ZT_RELEASE"}')} 
+)) 
 
 ```
 ### 发布关联Bug（未解决）(ReportBugs)<div id="Bug_ReportBugs"></div>

@@ -167,6 +167,7 @@ public class Doc extends EntityMP implements Serializable {
     /**
      * 所属项目
      */
+    @DEField(defaultValue = "0")
     @TableField(value = "`project`")
     @JSONField(name = "project")
     @JsonProperty("project")
@@ -174,6 +175,7 @@ public class Doc extends EntityMP implements Serializable {
     /**
      * 所属产品
      */
+    @DEField(defaultValue = "0")
     @TableField(value = "`product`")
     @JSONField(name = "product")
     @JsonProperty("product")
@@ -181,6 +183,7 @@ public class Doc extends EntityMP implements Serializable {
     /**
      * 所属分类
      */
+    @DEField(defaultValue = "0")
     @TableField(value = "`module`")
     @JSONField(name = "module")
     @JsonProperty("module")

@@ -606,7 +606,7 @@ export default class MOB_ReleaseLink_LeftBugBase extends Vue implements ControlI
     * @param {object} 
     * @memberof MOB_ReleaseLink_LeftBug
     */
-    public sort: any = { sort:'id,desc'};
+    public sort: any = { sort:'id,asc'};
     
 
     /**

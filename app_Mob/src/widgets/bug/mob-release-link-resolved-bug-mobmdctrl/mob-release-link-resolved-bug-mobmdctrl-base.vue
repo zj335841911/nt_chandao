@@ -606,7 +606,7 @@ export default class MOB_ReleaseLink_ResolvedBugBase extends Vue implements Cont
     * @param {object} 
     * @memberof MOB_ReleaseLink_ResolvedBug
     */
-    public sort: any = { sort:'id,desc'};
+    public sort: any = { sort:'id,asc'};
     
 
     /**
