@@ -149,7 +149,7 @@ export class AppIndexViewModel {
 	tooltip: '登录地图test',
 	expanded: false,
 	separator: false,
-	hidden: false,
+	hidden: true,
 	hidesidebar: false,
 	opendefault: false,
 	iconcls: '',
