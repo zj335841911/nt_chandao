@@ -19,6 +19,7 @@ import com.alibaba.fastjson.JSONObject;
 
 public interface DocMapper extends BaseMapper<Doc>{
 
+    Page<Doc> searchChildDocLibDoc(IPage page, @Param("srf") DocSearchContext context, @Param("ew") Wrapper<Doc> wrapper) ;
     Page<Doc> searchDefault(IPage page, @Param("srf") DocSearchContext context, @Param("ew") Wrapper<Doc> wrapper) ;
     Page<Doc> searchDocLibDoc(IPage page, @Param("srf") DocSearchContext context, @Param("ew") Wrapper<Doc> wrapper) ;
     @Override

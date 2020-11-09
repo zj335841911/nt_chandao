@@ -2815,6 +2815,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TestReportActionEditView",
             "viewtag": "ba3ac5351ca273bb889ffcb52ec7217b"
         },
+        "taskcalendareditview": {
+            "title": "任务编辑视图（日历航显示）",
+            "caption": "日历航显示",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "zentao",
+            "viewname": "TaskCalendarEditView",
+            "viewtag": "bad9ebb60029d8c0854e22a02600cbc7"
+        },
         "depteditview": {
             "title": "部门编辑视图",
             "caption": "部门信息",
@@ -3710,6 +3718,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "CaseStepMainGridView9",
             "viewtag": "f592519df78de708bd8199a52e5f584d"
+        },
+        "docmodulegridview": {
+            "title": "doc表格视图",
+            "caption": "文档",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "DocModuleGridView",
+            "viewtag": "f632e774266a6f1df31bfdcbbbe8f051"
         },
         "casegridview": {
             "title": "功能测试表格视图",

@@ -1588,9 +1588,24 @@ LEFT JOIN zt_module t41 ON t1.MODULE = t41.ID
 ## 数据集合
 | 序号 | 集合 | 集合名 | 默认 |
 | ---- | ---- | ---- | ---- |
-| 1 | [DEFAULT](#数据集合-DEFAULT（Default）) | Default | 是 |
-| 2 | [文档库文档](#数据集合-文档库文档（DocLibDoc）) | DocLibDoc | 否 |
+| 1 | [文档库文档（子库）](#数据集合-文档库文档（子库）（ChildDocLibDoc）) | ChildDocLibDoc | 否 |
+| 2 | [DEFAULT](#数据集合-DEFAULT（Default）) | Default | 是 |
+| 3 | [文档库文档](#数据集合-文档库文档（DocLibDoc）) | DocLibDoc | 否 |
 
+### 数据集合-文档库文档（子库）（ChildDocLibDoc）
+#### 说明
+文档库文档（子库）
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [文档库文档（子库）（ChildDocLibDoc）](#数据查询-文档库文档（子库）（ChildDocLibDoc）) |
 ### 数据集合-DEFAULT（Default）
 #### 说明
 DEFAULT

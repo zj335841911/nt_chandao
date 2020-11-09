@@ -3509,6 +3509,16 @@
         "viewtag": "ba3ac5351ca273bb889ffcb52ec7217b",
         "memo": ""
     },
+    "taskcalendareditview": {
+        "title": "任务编辑视图（日历航显示）",
+        "caption": "日历航显示",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "zentao",
+        "viewname": "TaskCalendarEditView",
+        "viewfilename": "task-calendar-edit-view",
+        "viewtag": "bad9ebb60029d8c0854e22a02600cbc7",
+        "memo": ""
+    },
     "depteditview": {
         "title": "部门编辑视图",
         "caption": "部门信息",
@@ -4627,6 +4637,16 @@
         "viewname": "CaseStepMainGridView9",
         "viewfilename": "case-step-main-grid-view9",
         "viewtag": "f592519df78de708bd8199a52e5f584d",
+        "memo": ""
+    },
+    "docmodulegridview": {
+        "title": "doc表格视图",
+        "caption": "文档",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "zentao",
+        "viewname": "DocModuleGridView",
+        "viewfilename": "doc-module-grid-view",
+        "viewtag": "f632e774266a6f1df31bfdcbbbe8f051",
         "memo": ""
     },
     "casegridview": {

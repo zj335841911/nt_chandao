@@ -61,6 +61,10 @@ export default {
 			caption: "关键字",
       		title: "文档编辑视图（关键字）",
 		},
+		modulegridview: {
+			caption: "文档",
+      		title: "doc表格视图",
+		},
 	},
 	createeditform_form: {
 		details: {
@@ -207,6 +211,12 @@ export default {
 		deuiaction1: {
 			caption: "保存并关闭",
 			tip: "保存并关闭",
+		},
+	},
+	modulegridviewtoolbar_toolbar: {
+		deuiaction7: {
+			caption: "导出",
+			tip: "导出",
 		},
 	},
 };
