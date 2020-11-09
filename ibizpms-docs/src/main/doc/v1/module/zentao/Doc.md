@@ -1472,7 +1472,7 @@ FROM `zt_doc` t1
 LEFT JOIN zt_project t11 ON t1.PROJECT = t11.ID 
 LEFT JOIN zt_product t21 ON t1.PRODUCT = t21.ID 
 LEFT JOIN zt_doclib t31 ON t1.LIB = t31.ID 
-LEFT JOIN zt_module t41 ON t1.MODULE = t41.ID ) t1
+LEFT JOIN zt_module t41 ON t1.MODULE = t41.ID where t1.module = ${srfdatacontext('parent','{"defname":"ROOT","dename":"ZT_MODULE"}')} ) t1
 ```
 ### 数据查询-默认（全部数据）（View）
 #### 说明
