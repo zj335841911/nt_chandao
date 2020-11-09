@@ -214,4 +214,10 @@ export default {
 			tip: "Export {0} Data To Excel",
 		},
 	},
+	createeditviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "Save And Close",
+			tip: "Save And Close Window",
+		},
+	},
 };

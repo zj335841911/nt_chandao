@@ -214,4 +214,10 @@ export default {
 			tip: "导出",
 		},
 	},
+	createeditviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "保存并关闭",
+			tip: "保存并关闭",
+		},
+	},
 };
