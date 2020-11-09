@@ -248,5 +248,8 @@ export class CreateEditFormEditFormBase extends EditFormControlBase {
         if (this.data.hasOwnProperty('type')) {
             this.data['type'] = 'text';
         }
+        if (this.data.hasOwnProperty('acl')) {
+            this.data['acl'] = 'open';
+        }
     }
 }

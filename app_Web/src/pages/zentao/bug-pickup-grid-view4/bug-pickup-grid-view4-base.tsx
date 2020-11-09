@@ -66,6 +66,17 @@ export class BugPickupGridView4Base extends PickupGridViewBase {
      */
     public appUIService: BugUIService = new BugUIService(this.$store);
 
+	/**
+	 * 自定义视图导航参数集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof BugPickupGridView4Base
+	 */
+    protected customViewParams: any = {
+        'release': { isRawValue: false, value: 'release' }
+    };
+
     /**
      * 视图模型数据
      *
