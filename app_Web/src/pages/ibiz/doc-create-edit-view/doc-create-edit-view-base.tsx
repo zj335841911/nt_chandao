@@ -66,28 +66,6 @@ export class DocCreateEditViewBase extends EditViewBase {
      */
     public appUIService: DocUIService = new DocUIService(this.$store);
 
-	/**
-	 * 自定义视图导航上下文集合
-	 *
-     * @protected
-	 * @type {*}
-	 * @memberof DocCreateEditViewBase
-	 */
-    protected customViewNavContexts: any = {
-        'DOCLIB': { isRawValue: false, value: 'lib' }
-    };
-
-	/**
-	 * 自定义视图导航参数集合
-	 *
-     * @protected
-	 * @type {*}
-	 * @memberof DocCreateEditViewBase
-	 */
-    protected customViewParams: any = {
-        'doclib': { isRawValue: false, value: 'lib' }
-    };
-
     /**
      * 是否显示信息栏
      *
