@@ -417,6 +417,7 @@ hide footbox
 |DEFAULT|DEFAULT|DEFAULT|是|&nbsp;|
 |MyCurOpenedBug|累计创建的Bug数|MyCurOpenedBug|否|&nbsp;|
 |MyFavorites|我的收藏|MyFavorites|否|&nbsp;|
+|NotCurPlanLinkBug|计划关联bug（去除已关联）|NotCurPlanLinkBug|否|&nbsp;|
 |ProjectBugs|遗留得Bug(项目)|SelectBugsByProject|否|&nbsp;|
 |ReleaseBugs|发布关联Bug（已解决）|ReleaseBugs|否|&nbsp;|
 |ReleaseLeftBugs|发布关联Bug（已解决）|ReleaseLeftBugs|否|&nbsp;|

@@ -687,6 +687,15 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
     }
 
     /**
+     * 查询集合 计划关联bug（去除已关联）
+     */
+    @Override
+    public Page<Bug> searchNotCurPlanLinkBug(BugSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Bug> pages=baseMapper.searchNotCurPlanLinkBug(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<Bug>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
      * 查询集合 遗留得Bug(项目)
      */
     @Override

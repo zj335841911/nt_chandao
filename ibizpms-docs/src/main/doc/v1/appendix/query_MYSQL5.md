@@ -2100,6 +2100,7 @@ LEFT JOIN zt_branch t61 ON t1.BRANCH = t61.ID
 LEFT JOIN zt_case t71 ON t1.CASE = t71.ID 
 
 WHERE t1.DELETED = '0' 
+t1.plan <> ${srfwebcontext('plan','{"defname":"id","dename":"ZT_PRODUCTPLAN"}')} 
 
 ```
 ### 发布关联Bug（已解决）(ReleaseBugs)<div id="Bug_ReleaseBugs"></div>

@@ -80,6 +80,7 @@ public interface IBugService extends IService<Bug>{
     Page<Bug> searchDefault(BugSearchContext context) ;
     Page<Bug> searchMyCurOpenedBug(BugSearchContext context) ;
     Page<Bug> searchMyFavorites(BugSearchContext context) ;
+    Page<Bug> searchNotCurPlanLinkBug(BugSearchContext context) ;
     Page<Bug> searchProjectBugs(BugSearchContext context) ;
     Page<Bug> searchReleaseBugs(BugSearchContext context) ;
     Page<Bug> searchReleaseLeftBugs(BugSearchContext context) ;
