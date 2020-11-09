@@ -614,7 +614,7 @@ export class ToolbarPortletBase extends MainControlBase {
         },
         { viewlogicname:"dashboard_sysportlet2_u4b8cbc4_click",
         text: "激活",
-        iconcls: "fa fa-facebook-square",
+        iconcls: "fa fa-magic",
         icon: "",
         noprivdisplaymode: 2,
         dataaccaction:'SRFUR__TASK_ACTIVATION_BUT',

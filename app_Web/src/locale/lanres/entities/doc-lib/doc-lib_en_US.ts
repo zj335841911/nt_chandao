@@ -105,13 +105,13 @@ export default {
 	},
 	gridviewtoolbar_toolbar: {
 	},
-	productgridviewtoolbar_toolbar: {
-	},
 	editviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "Save And Close",
 			tip: "Save And Close Window",
 		},
+	},
+	productgridviewtoolbar_toolbar: {
 	},
 	libtabexpviewtoolbar_toolbar: {
 		deuiaction7: {

@@ -105,13 +105,13 @@ export default {
 	},
 	gridviewtoolbar_toolbar: {
 	},
-	productgridviewtoolbar_toolbar: {
-	},
 	editviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "保存并关闭",
 			tip: "保存并关闭",
 		},
+	},
+	productgridviewtoolbar_toolbar: {
 	},
 	libtabexpviewtoolbar_toolbar: {
 		deuiaction7: {

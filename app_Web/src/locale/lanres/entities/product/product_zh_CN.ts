@@ -372,7 +372,7 @@ export default {
 		uiactions: {
 		},
 	},
-	test_grid: {
+	main_grid: {
 		nodata: "",
 		columns: {
 			name: "产品名称",
@@ -384,7 +384,7 @@ export default {
 		uiactions: {
 		},
 	},
-	main_grid: {
+	test_grid: {
 		nodata: "",
 		columns: {
 			name: "产品名称",
