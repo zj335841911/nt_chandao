@@ -66,13 +66,13 @@ Create [shape=none, margin=0, label=<
 
 
 
-LookDoc [shape=none, margin=0, label=<
+CreateFile [shape=none, margin=0, label=<
 <TABLE WIDTH="150" BORDER="1" CELLBORDER="1" >
 <TR>
 <TD WIDTH="115" BORDER="0" COLSPAN="3"></TD><TD WIDTH="35" BORDER="0">V</TD>
 </TR>
 <TR>
-<TD BORDER="0" COLSPAN="4" CELLPADDING="10">查看<BR/><BR/></TD>
+<TD BORDER="0" COLSPAN="4" CELLPADDING="10">创建文档<BR/><BR/></TD>
 </TR>
 </TABLE>
 >];
@@ -95,9 +95,9 @@ Create -> end ;
 
 
 
-part -> LookDoc [style=dashed,label=<查看<BR/>(迁移/popup)>];
+part -> CreateFile [style=dashed,label=<创建文档<BR/>(迁移/popup)>];
 
-LookDoc -> end ;
+CreateFile -> end ;
 
 
 

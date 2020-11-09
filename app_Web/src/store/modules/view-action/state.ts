@@ -2017,6 +2017,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '7b8d03598e32aa0f535758927a17b98e',
+            viewmodule: 'ibiz',
+            viewname: 'DocCreateEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'cb6c278fd7205b3de3fc041816d15dd8',
+            ],
+        },
+        {
             viewtag: '7c6956b0c4bcc773697adb506d3ce5e9',
             viewmodule: 'zentao',
             viewname: 'BugConfirmView',
@@ -2105,6 +2115,7 @@ export const viewstate: any = {
                 '22dcf6656e1b870d0427a450cdbd7d20',
                 '4503911318e1f1f26599b68a6c6e681d',
                 '41693a4d3b2bd3a7195d31ceae6cdcf3',
+                '7b8d03598e32aa0f535758927a17b98e',
             ],
         },
         {
