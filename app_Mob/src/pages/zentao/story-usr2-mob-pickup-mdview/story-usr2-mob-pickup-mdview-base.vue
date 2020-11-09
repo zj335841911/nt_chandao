@@ -159,7 +159,7 @@ export default class StoryUsr2MobPickupMDViewBase extends Vue {
      * @type {*}
      * @memberof StoryUsr2MobPickupMDViewBase
      */
-    protected navContext: any = { 'product': '%product%', 'srfparentkey': '%release%' };
+    protected navContext: any = { 'product': '%product%' };
 
     /**
      * 视图导航参数
@@ -168,7 +168,7 @@ export default class StoryUsr2MobPickupMDViewBase extends Vue {
      * @type {*}
      * @memberof StoryUsr2MobPickupMDViewBase
      */
-    protected navParam: any = { 'product': '%product%', 'srfparentkey': '%release%', 'project': '%project%', 'n_parent_gtandeq': '0', 'build': '%build%' };
+    protected navParam: any = { 'product': '%product%', 'project': '%project%', 'n_parent_gtandeq': '0', 'build': '%build%' };
 
     /**
      * 视图模型数据
