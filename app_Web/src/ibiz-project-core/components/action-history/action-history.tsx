@@ -164,7 +164,7 @@ export class ActionHistory extends Vue {
         let actionType: string = item.actiontype ? item.actiontype : item.action;
         return <div class="action-content">
             <div class="text">{item.date}，由&nbsp;<strong>{item.actor}</strong>&nbsp;{item.actionText}{this.renderFixedContent(item)}</div>
-            { (Object.is(actionType, 'changed') || Object.is(actionType, 'edited')  || Object.is(actionType, 'commented') || Object.is(actionType, 'assigned') || Object.is(actionType, 'reviewed') || Object.is(actionType, 'activated') || Object.is(actionType, 'resolved')) && this.load ? <div class="show-history">
+            { (Object.is(actionType, 'changed') || Object.is(actionType, 'edited')  || Object.is(actionType, 'commented') || Object.is(actionType, 'assigned') || Object.is(actionType, 'reviewed') || Object.is(actionType, 'activated') || Object.is(actionType, 'resolved') || Object.is(actionType, 'bugconfirmed')) && this.load ? <div class="show-history">
                 <i-button title="切换显示" type="text" ghost icon={item.expand === true ? 'md-remove-circle' : 'md-add-circle'} on-click={() => this.loadChildren(item)} />
             </div> : null}
         </div>;
