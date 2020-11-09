@@ -4257,35 +4257,121 @@ Save
 | 序号 | 查询 | 查询名 | 默认 |
 | ---- | ---- | ---- | ---- |
 | 1 | [指派给我Bug](#数据查询-指派给我Bug（AssignedToMyBug）) | AssignedToMyBug | 否 |
-| 2 | [版本关联Bug（已解决）](#数据查询-版本关联Bug（已解决）（BuildBugs）) | BuildBugs | 否 |
-| 3 | [版本可关联的已解决的Bugs集合](#数据查询-版本可关联的已解决的Bugs集合（BuildLinkResolvedBugs）) | BuildLinkResolvedBugs | 否 |
-| 4 | [版本关联Bug（已解决）](#数据查询-版本关联Bug（已解决）（BuildOpenBugs）) | BuildOpenBugs | 否 |
-| 5 | [Build产生的Bug](#数据查询-Build产生的Bug（BuildProduceBug）) | BuildProduceBug | 否 |
-| 6 | [Build产生的Bug-模块分布](#数据查询-Build产生的Bug-模块分布（BuildProduceBugModule）) | BuildProduceBugModule | 否 |
-| 7 | [Build产生的Bug-模块分布(项目)](#数据查询-Build产生的Bug-模块分布(项目)（BuildProduceBugModule_Project）) | BuildProduceBugModule_Project | 否 |
-| 8 | [Build产生的Bug-创建者分布](#数据查询-Build产生的Bug-创建者分布（BuildProduceBugOpenedBy）) | BuildProduceBugOpenedBy | 否 |
-| 9 | [Build产生的Bug-创建者分布(项目)](#数据查询-Build产生的Bug-创建者分布(项目)（BuildProduceBugOpenedBy_Project）) | BuildProduceBugOpenedBy_Project | 否 |
-| 10 | [Build产生的Bug（已解决）](#数据查询-Build产生的Bug（已解决）（BuildProduceBugRES）) | BuildProduceBugRES | 否 |
-| 11 | [Build产生的Bug-解决者分布](#数据查询-Build产生的Bug-解决者分布（BuildProduceBugRESOLVEDBY）) | BuildProduceBugRESOLVEDBY | 否 |
-| 12 | [Build产生的Bug-解决者分布(项目)](#数据查询-Build产生的Bug-解决者分布(项目)（BuildProduceBugRESOLVEDBY_Project）) | BuildProduceBugRESOLVEDBY_Project | 否 |
-| 13 | [Build产生的Bug-解决方案分布(项目)](#数据查询-Build产生的Bug-解决方案分布(项目)（BuildProduceBugResolution_Project）) | BuildProduceBugResolution_Project | 否 |
-| 14 | [Build产生的Bug-严重程度分布(项目)](#数据查询-Build产生的Bug-严重程度分布(项目)（BuildProduceBugSeverity_Project）) | BuildProduceBugSeverity_Project | 否 |
-| 15 | [Build产生的Bug-状态分布(项目)](#数据查询-Build产生的Bug-状态分布(项目)（BuildProduceBugStatus_Project）) | BuildProduceBugStatus_Project | 否 |
-| 16 | [Build产生的Bug-类型分布(项目)](#数据查询-Build产生的Bug-类型分布(项目)（BuildProduceBugType_Project）) | BuildProduceBugType_Project | 否 |
-| 17 | [当前用户解决的Bug](#数据查询-当前用户解决的Bug（CurUserResolve）) | CurUserResolve | 否 |
-| 18 | [DEFAULT](#数据查询-DEFAULT（Default）) | Default | 否 |
-| 19 | [累计创建的Bug数](#数据查询-累计创建的Bug数（MyCurOpenedBug）) | MyCurOpenedBug | 否 |
-| 20 | [我的收藏](#数据查询-我的收藏（MyFavorites）) | MyFavorites | 否 |
-| 21 | [发布关联Bug（已解决）](#数据查询-发布关联Bug（已解决）（ReleaseBugs）) | ReleaseBugs | 否 |
-| 22 | [发布关联Bug（未解决）](#数据查询-发布关联Bug（未解决）（ReleaseLeftBugs）) | ReleaseLeftBugs | 否 |
-| 23 | [发布可关联的bug（遗留）](#数据查询-发布可关联的bug（遗留）（ReleaseLinkableLeftBug）) | ReleaseLinkableLeftBug | 否 |
-| 24 | [发布可关联的bug（已解决）](#数据查询-发布可关联的bug（已解决）（ReleaseLinkableResolvedBug）) | ReleaseLinkableResolvedBug | 否 |
-| 25 | [发布关联Bug（未解决）](#数据查询-发布关联Bug（未解决）（ReportBugs）) | ReportBugs | 否 |
-| 26 | [版本关联bug(遗留得bug)](#数据查询-版本关联bug(遗留得bug)（SelectBugByBuild）) | SelectBugByBuild | 否 |
-| 27 | [查询遗留得bug(项目)](#数据查询-查询遗留得bug(项目)（SelectBugsByProject）) | SelectBugsByProject | 否 |
-| 28 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 2 | [指派给我Bug（PC）](#数据查询-指派给我Bug（PC）（AssignedToMyBugPc）) | AssignedToMyBugPc | 否 |
+| 3 | [版本关联Bug（已解决）](#数据查询-版本关联Bug（已解决）（BuildBugs）) | BuildBugs | 否 |
+| 4 | [版本可关联的已解决的Bugs集合](#数据查询-版本可关联的已解决的Bugs集合（BuildLinkResolvedBugs）) | BuildLinkResolvedBugs | 否 |
+| 5 | [版本关联Bug（已解决）](#数据查询-版本关联Bug（已解决）（BuildOpenBugs）) | BuildOpenBugs | 否 |
+| 6 | [Build产生的Bug](#数据查询-Build产生的Bug（BuildProduceBug）) | BuildProduceBug | 否 |
+| 7 | [Build产生的Bug-模块分布](#数据查询-Build产生的Bug-模块分布（BuildProduceBugModule）) | BuildProduceBugModule | 否 |
+| 8 | [Build产生的Bug-模块分布(项目)](#数据查询-Build产生的Bug-模块分布(项目)（BuildProduceBugModule_Project）) | BuildProduceBugModule_Project | 否 |
+| 9 | [Build产生的Bug-创建者分布](#数据查询-Build产生的Bug-创建者分布（BuildProduceBugOpenedBy）) | BuildProduceBugOpenedBy | 否 |
+| 10 | [Build产生的Bug-创建者分布(项目)](#数据查询-Build产生的Bug-创建者分布(项目)（BuildProduceBugOpenedBy_Project）) | BuildProduceBugOpenedBy_Project | 否 |
+| 11 | [Build产生的Bug（已解决）](#数据查询-Build产生的Bug（已解决）（BuildProduceBugRES）) | BuildProduceBugRES | 否 |
+| 12 | [Build产生的Bug-解决者分布](#数据查询-Build产生的Bug-解决者分布（BuildProduceBugRESOLVEDBY）) | BuildProduceBugRESOLVEDBY | 否 |
+| 13 | [Build产生的Bug-解决者分布(项目)](#数据查询-Build产生的Bug-解决者分布(项目)（BuildProduceBugRESOLVEDBY_Project）) | BuildProduceBugRESOLVEDBY_Project | 否 |
+| 14 | [Build产生的Bug-解决方案分布(项目)](#数据查询-Build产生的Bug-解决方案分布(项目)（BuildProduceBugResolution_Project）) | BuildProduceBugResolution_Project | 否 |
+| 15 | [Build产生的Bug-严重程度分布(项目)](#数据查询-Build产生的Bug-严重程度分布(项目)（BuildProduceBugSeverity_Project）) | BuildProduceBugSeverity_Project | 否 |
+| 16 | [Build产生的Bug-状态分布(项目)](#数据查询-Build产生的Bug-状态分布(项目)（BuildProduceBugStatus_Project）) | BuildProduceBugStatus_Project | 否 |
+| 17 | [Build产生的Bug-类型分布(项目)](#数据查询-Build产生的Bug-类型分布(项目)（BuildProduceBugType_Project）) | BuildProduceBugType_Project | 否 |
+| 18 | [当前用户解决的Bug](#数据查询-当前用户解决的Bug（CurUserResolve）) | CurUserResolve | 否 |
+| 19 | [DEFAULT](#数据查询-DEFAULT（Default）) | Default | 否 |
+| 20 | [累计创建的Bug数](#数据查询-累计创建的Bug数（MyCurOpenedBug）) | MyCurOpenedBug | 否 |
+| 21 | [我的收藏](#数据查询-我的收藏（MyFavorites）) | MyFavorites | 否 |
+| 22 | [发布关联Bug（已解决）](#数据查询-发布关联Bug（已解决）（ReleaseBugs）) | ReleaseBugs | 否 |
+| 23 | [发布关联Bug（未解决）](#数据查询-发布关联Bug（未解决）（ReleaseLeftBugs）) | ReleaseLeftBugs | 否 |
+| 24 | [发布可关联的bug（遗留）](#数据查询-发布可关联的bug（遗留）（ReleaseLinkableLeftBug）) | ReleaseLinkableLeftBug | 否 |
+| 25 | [发布可关联的bug（已解决）](#数据查询-发布可关联的bug（已解决）（ReleaseLinkableResolvedBug）) | ReleaseLinkableResolvedBug | 否 |
+| 26 | [发布关联Bug（未解决）](#数据查询-发布关联Bug（未解决）（ReportBugs）) | ReportBugs | 否 |
+| 27 | [版本关联bug(遗留得bug)](#数据查询-版本关联bug(遗留得bug)（SelectBugByBuild）) | SelectBugByBuild | 否 |
+| 28 | [查询遗留得bug(项目)](#数据查询-查询遗留得bug(项目)（SelectBugsByProject）) | SelectBugsByProject | 否 |
+| 29 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
 ### 数据查询-指派给我Bug（AssignedToMyBug）
+#### 说明
+指派给我Bug（移动端）
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+SELECT
+t1.`ACTIVATEDCOUNT`,
+t1.`ACTIVATEDDATE`,
+t1.`ASSIGNEDDATE`,
+t1.`ASSIGNEDTO`,
+t1.`BRANCH`,
+t61.`NAME` AS `BRANCHNAME`,
+t1.`BROWSER`,
+t1.`CASE`,
+t1.`CASEVERSION`,
+t1.`CLOSEDBY`,
+t1.`CLOSEDDATE`,
+t1.`COLOR`,
+t1.`CONFIRMED`,
+t1.`DEADLINE`,
+t1.`DELETED`,
+t1.`DUPLICATEBUG`,
+t1.`ENTRY`,
+t1.`FOUND`,
+t1.`HARDWARE`,
+t1.`ID`,
+(select (case when COUNT(t.IBZ_FAVORITESID) > 0 then 1 else 0 end ) as ISFAVORITES from T_IBZ_FAVORITES t where t.TYPE = 'bug' and t.ACCOUNT = #{srf.sessioncontext.srfloginname} and t.OBJECTID = t1.id) AS `ISFAVORITES`,
+t1.`KEYWORDS`,
+t1.`LASTEDITEDBY`,
+t1.`LASTEDITEDDATE`,
+t1.`LINES`,
+t1.`LINKBUG`,
+t1.`MAILTO`,
+t1.`MODULE`,
+t51.`NAME` AS `MODULENAME`,
+(SELECT GROUP_CONCAT( tt.NAME SEPARATOR '>' )  FROM zt_module tt WHERE FIND_IN_SET( tt.id, t51.path ) AND tt.type = 'story'  GROUP BY tt.root ) AS `MODULENAME1`,
+t1.`OPENEDBUILD`,
+t1.`OPENEDBY`,
+t1.`OPENEDDATE`,
+t1.`OS`,
+t1.`PLAN`,
+t1.`PRI`,
+t1.`PRODUCT`,
+t11.`NAME` AS `PRODUCTNAME`,
+t1.`PROJECT`,
+t21.`NAME` AS `PROJECTNAME`,
+t1.`REPO`,
+t1.`REPOTYPE`,
+t1.`RESOLUTION`,
+t1.`RESOLVEDBUILD`,
+t1.`RESOLVEDBY`,
+t1.`RESOLVEDDATE`,
+t1.`RESULT`,
+t1.`SEVERITY`,
+t1.`STATUS`,
+t1.`STORY`,
+t31.`TITLE` AS `STORYNAME`,
+t1.`STORYVERSION`,
+t1.`SUBSTATUS`,
+t1.`TASK`,
+t41.`NAME` AS `TASKNAME`,
+t1.`TESTTASK`,
+t1.`TITLE`,
+t1.`TOSTORY`,
+t1.`TOTASK`,
+t1.`TYPE`,
+t1.`V1`,
+t1.`V2`,
+(case when t1.DEADLINE = '0000-00-00' then 0 else datediff(t1.deadline, now() ) end) as overduebugs 
+FROM `zt_bug` t1 
+LEFT JOIN zt_product t11 ON t1.PRODUCT = t11.ID 
+LEFT JOIN zt_project t21 ON t1.PROJECT = t21.ID 
+LEFT JOIN zt_story t31 ON t1.STORY = t31.ID 
+LEFT JOIN zt_task t41 ON t1.TASK = t41.ID 
+LEFT JOIN zt_module t51 ON t1.MODULE = t51.ID 
+LEFT JOIN zt_branch t61 ON t1.BRANCH = t61.ID
+```
+### 数据查询-指派给我Bug（PC）（AssignedToMyBugPc）
 #### 说明
 指派给我Bug（移动端）
 
@@ -6731,32 +6817,33 @@ LEFT JOIN zt_case t71 ON t1.CASE = t71.ID
 | 序号 | 集合 | 集合名 | 默认 |
 | ---- | ---- | ---- | ---- |
 | 1 | [指派给我Bug](#数据集合-指派给我Bug（AssignedToMyBug）) | AssignedToMyBug | 否 |
-| 2 | [版本关联bug(遗留的)](#数据集合-版本关联bug(遗留的)（BugsByBuild）) | BugsByBuild | 否 |
-| 3 | [版本关联Bug（已解决）](#数据集合-版本关联Bug（已解决）（BuildBugs）) | BuildBugs | 否 |
-| 4 | [版本可关联的已解决的Bugs集合](#数据集合-版本可关联的已解决的Bugs集合（BuildLinkResolvedBugs）) | BuildLinkResolvedBugs | 否 |
-| 5 | [版本关联Bug（已解决）](#数据集合-版本关联Bug（已解决）（BuildOpenBugs）) | BuildOpenBugs | 否 |
-| 6 | [Build产生的Bug](#数据集合-Build产生的Bug（BuildProduceBug）) | BuildProduceBug | 否 |
-| 7 | [Build产生的Bug](#数据集合-Build产生的Bug（BuildProduceBugModule）) | BuildProduceBugModule | 否 |
-| 8 | [Build产生的Bug-创建者分布(项目)](#数据集合-Build产生的Bug-创建者分布(项目)（BuildProduceBugModule_Project）) | BuildProduceBugModule_Project | 否 |
-| 9 | [Build产生的Bug-创建分类](#数据集合-Build产生的Bug-创建分类（BuildProduceBugOpenedBy）) | BuildProduceBugOpenedBy | 否 |
-| 10 | [Build产生的Bug-创建者分布(项目)](#数据集合-Build产生的Bug-创建者分布(项目)（BuildProduceBugOpenedBy_Project）) | BuildProduceBugOpenedBy_Project | 否 |
-| 11 | [Build产生的Bug（已解决）](#数据集合-Build产生的Bug（已解决）（BuildProduceBugRES）) | BuildProduceBugRES | 否 |
-| 12 | [Build产生的Bug-解决者分布](#数据集合-Build产生的Bug-解决者分布（BuildProduceBugRESOLVEDBY）) | BuildProduceBugRESOLVEDBY | 否 |
-| 13 | [Build产生的Bug-解决者分布(项目)](#数据集合-Build产生的Bug-解决者分布(项目)（BuildProduceBugRESOLVEDBY_Project）) | BuildProduceBugRESOLVEDBY_Project | 否 |
-| 14 | [Build产生的Bug-解决方案分布(项目)](#数据集合-Build产生的Bug-解决方案分布(项目)（BuildProduceBugResolution_Project）) | BuildProduceBugResolution_Project | 否 |
-| 15 | [Build产生的Bug-严重程度分布(项目)](#数据集合-Build产生的Bug-严重程度分布(项目)（BuildProduceBugSeverity_Project）) | BuildProduceBugSeverity_Project | 否 |
-| 16 | [Build产生的Bug-状态分布(项目)](#数据集合-Build产生的Bug-状态分布(项目)（BuildProduceBugStatus_Project）) | BuildProduceBugStatus_Project | 否 |
-| 17 | [Build产生的Bug-类型分布(项目)](#数据集合-Build产生的Bug-类型分布(项目)（BuildProduceBugType_Project）) | BuildProduceBugType_Project | 否 |
-| 18 | [当前用户解决的Bug](#数据集合-当前用户解决的Bug（CurUserResolve）) | CurUserResolve | 否 |
-| 19 | [DEFAULT](#数据集合-DEFAULT（Default）) | Default | 是 |
-| 20 | [累计创建的Bug数](#数据集合-累计创建的Bug数（MyCurOpenedBug）) | MyCurOpenedBug | 否 |
-| 21 | [我的收藏](#数据集合-我的收藏（MyFavorites）) | MyFavorites | 否 |
-| 22 | [遗留得Bug(项目)](#数据集合-遗留得Bug(项目)（ProjectBugs）) | ProjectBugs | 否 |
-| 23 | [发布关联Bug（已解决）](#数据集合-发布关联Bug（已解决）（ReleaseBugs）) | ReleaseBugs | 否 |
-| 24 | [发布关联Bug（已解决）](#数据集合-发布关联Bug（已解决）（ReleaseLeftBugs）) | ReleaseLeftBugs | 否 |
-| 25 | [发布可关联的bug（遗留）](#数据集合-发布可关联的bug（遗留）（ReleaseLinkableLeftBug）) | ReleaseLinkableLeftBug | 否 |
-| 26 | [发布可关联的bug（已解决）](#数据集合-发布可关联的bug（已解决）（ReleaseLinkableResolvedBug）) | ReleaseLinkableResolvedBug | 否 |
-| 27 | [发布关联Bug（未解决）](#数据集合-发布关联Bug（未解决）（ReportBugs）) | ReportBugs | 否 |
+| 2 | [指派给我Bug（PC）](#数据集合-指派给我Bug（PC）（AssignedToMyBugPc）) | AssignedToMyBugPc | 否 |
+| 3 | [版本关联bug(遗留的)](#数据集合-版本关联bug(遗留的)（BugsByBuild）) | BugsByBuild | 否 |
+| 4 | [版本关联Bug（已解决）](#数据集合-版本关联Bug（已解决）（BuildBugs）) | BuildBugs | 否 |
+| 5 | [版本可关联的已解决的Bugs集合](#数据集合-版本可关联的已解决的Bugs集合（BuildLinkResolvedBugs）) | BuildLinkResolvedBugs | 否 |
+| 6 | [版本关联Bug（已解决）](#数据集合-版本关联Bug（已解决）（BuildOpenBugs）) | BuildOpenBugs | 否 |
+| 7 | [Build产生的Bug](#数据集合-Build产生的Bug（BuildProduceBug）) | BuildProduceBug | 否 |
+| 8 | [Build产生的Bug](#数据集合-Build产生的Bug（BuildProduceBugModule）) | BuildProduceBugModule | 否 |
+| 9 | [Build产生的Bug-创建者分布(项目)](#数据集合-Build产生的Bug-创建者分布(项目)（BuildProduceBugModule_Project）) | BuildProduceBugModule_Project | 否 |
+| 10 | [Build产生的Bug-创建分类](#数据集合-Build产生的Bug-创建分类（BuildProduceBugOpenedBy）) | BuildProduceBugOpenedBy | 否 |
+| 11 | [Build产生的Bug-创建者分布(项目)](#数据集合-Build产生的Bug-创建者分布(项目)（BuildProduceBugOpenedBy_Project）) | BuildProduceBugOpenedBy_Project | 否 |
+| 12 | [Build产生的Bug（已解决）](#数据集合-Build产生的Bug（已解决）（BuildProduceBugRES）) | BuildProduceBugRES | 否 |
+| 13 | [Build产生的Bug-解决者分布](#数据集合-Build产生的Bug-解决者分布（BuildProduceBugRESOLVEDBY）) | BuildProduceBugRESOLVEDBY | 否 |
+| 14 | [Build产生的Bug-解决者分布(项目)](#数据集合-Build产生的Bug-解决者分布(项目)（BuildProduceBugRESOLVEDBY_Project）) | BuildProduceBugRESOLVEDBY_Project | 否 |
+| 15 | [Build产生的Bug-解决方案分布(项目)](#数据集合-Build产生的Bug-解决方案分布(项目)（BuildProduceBugResolution_Project）) | BuildProduceBugResolution_Project | 否 |
+| 16 | [Build产生的Bug-严重程度分布(项目)](#数据集合-Build产生的Bug-严重程度分布(项目)（BuildProduceBugSeverity_Project）) | BuildProduceBugSeverity_Project | 否 |
+| 17 | [Build产生的Bug-状态分布(项目)](#数据集合-Build产生的Bug-状态分布(项目)（BuildProduceBugStatus_Project）) | BuildProduceBugStatus_Project | 否 |
+| 18 | [Build产生的Bug-类型分布(项目)](#数据集合-Build产生的Bug-类型分布(项目)（BuildProduceBugType_Project）) | BuildProduceBugType_Project | 否 |
+| 19 | [当前用户解决的Bug](#数据集合-当前用户解决的Bug（CurUserResolve）) | CurUserResolve | 否 |
+| 20 | [DEFAULT](#数据集合-DEFAULT（Default）) | Default | 是 |
+| 21 | [累计创建的Bug数](#数据集合-累计创建的Bug数（MyCurOpenedBug）) | MyCurOpenedBug | 否 |
+| 22 | [我的收藏](#数据集合-我的收藏（MyFavorites）) | MyFavorites | 否 |
+| 23 | [遗留得Bug(项目)](#数据集合-遗留得Bug(项目)（ProjectBugs）) | ProjectBugs | 否 |
+| 24 | [发布关联Bug（已解决）](#数据集合-发布关联Bug（已解决）（ReleaseBugs）) | ReleaseBugs | 否 |
+| 25 | [发布关联Bug（已解决）](#数据集合-发布关联Bug（已解决）（ReleaseLeftBugs）) | ReleaseLeftBugs | 否 |
+| 26 | [发布可关联的bug（遗留）](#数据集合-发布可关联的bug（遗留）（ReleaseLinkableLeftBug）) | ReleaseLinkableLeftBug | 否 |
+| 27 | [发布可关联的bug（已解决）](#数据集合-发布可关联的bug（已解决）（ReleaseLinkableResolvedBug）) | ReleaseLinkableResolvedBug | 否 |
+| 28 | [发布关联Bug（未解决）](#数据集合-发布关联Bug（未解决）（ReportBugs）) | ReportBugs | 否 |
 
 ### 数据集合-指派给我Bug（AssignedToMyBug）
 #### 说明
@@ -6772,6 +6859,20 @@ LEFT JOIN zt_case t71 ON t1.CASE = t71.ID
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [指派给我Bug（AssignedToMyBug）](#数据查询-指派给我Bug（AssignedToMyBug）) |
+### 数据集合-指派给我Bug（PC）（AssignedToMyBugPc）
+#### 说明
+指派给我Bug（PC）
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [指派给我Bug（PC）（AssignedToMyBugPc）](#数据查询-指派给我Bug（PC）（AssignedToMyBugPc）) |
 ### 数据集合-版本关联bug(遗留的)（BugsByBuild）
 #### 说明
 版本关联bug(遗留的)

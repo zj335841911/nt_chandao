@@ -360,6 +360,7 @@ hide footbox
 | 查询编号 | 查询名称       | 默认查询 |   备注|
 | --------  | --------   | --------   | ----- |
 |AssignedToMyBug|指派给我Bug([MYSQL5](../../appendix/query_MYSQL5.md#Bug_AssignedToMyBug))|否|&nbsp;指派给我Bug（移动端）|
+|AssignedToMyBugPc|指派给我Bug（PC）([MYSQL5](../../appendix/query_MYSQL5.md#Bug_AssignedToMyBugPc))|否|&nbsp;指派给我Bug（移动端）|
 |BuildBugs|版本关联Bug（已解决）([MYSQL5](../../appendix/query_MYSQL5.md#Bug_BuildBugs))|否|&nbsp;|
 |buildLinkResolvedBugs|版本可关联的已解决的Bugs集合([MYSQL5](../../appendix/query_MYSQL5.md#Bug_BuildLinkResolvedBugs))|否|&nbsp;用于版本中【已解决的Bug】表格页面【添加bug】拓展功能。
 查询Bug状态【不为已解决】的bug集合（当前项目），选择多项数据之后，批量设置其状态为【已解决】。|
@@ -394,6 +395,7 @@ hide footbox
 | 集合编号 | 集合名称   |  包含查询  | 默认集合 |   备注|
 | --------  | --------   | -------- | --------   | ----- |
 |AssignedToMyBug|指派给我Bug|AssignedToMyBug|否|&nbsp;|
+|AssignedToMyBugPc|指派给我Bug（PC）|AssignedToMyBugPc|否|&nbsp;|
 |BugsByBuild|版本关联bug(遗留的)|SelectBugByBuild|否|&nbsp;|
 |BuildBugs|版本关联Bug（已解决）|BuildBugs|否|&nbsp;|
 |buildLinkResolvedBugs|版本可关联的已解决的Bugs集合|buildLinkResolvedBugs|否|&nbsp;|

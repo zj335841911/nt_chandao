@@ -42,6 +42,15 @@
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
      </select>
 
+    <!--数据集合[MyTodoPc]-->
+	 <select id="searchMyTodoPc"  parameterType="cn.ibizlab.pms.core.zentao.filter.TodoSearchContext"  resultMap="TodoResultMap">
+         select t1.* from (
+                <include refid="MyTodoPc" />
+         )t1
+         <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
+         <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
+     </select>
+
     <!--数据集合[MyUpcoming]-->
 	 <select id="searchMyUpcoming"  parameterType="cn.ibizlab.pms.core.zentao.filter.TodoSearchContext"  resultMap="TodoResultMap">
          select t1.* from (
@@ -63,6 +72,14 @@
 		<![CDATA[ SELECT t1.`ACCOUNT`, t1.`ASSIGNEDBY`, t1.`ASSIGNEDDATE`, t1.`ASSIGNEDTO`, t1.`BEGIN`, t1.`CLOSEDBY`, t1.`CLOSEDDATE`, t1.`CONFIG`, t1.`CYCLE`, t1.`DATE`, (case when t1.`DATE` = '2030-01-01' then '待定' else t1.`DATE` end) AS `DATE1`, t1.`END`, t1.`FINISHEDBY`, t1.`FINISHEDDATE`, t1.`ID`, t1.`IDVALUE`, t1.`NAME`, t1.`PRI`, t1.`PRIVATE`, t1.`STATUS`, t1.`TYPE` FROM `zt_todo` t1  
 					 WHERE 	( t1.`ACCOUNT` =  #{srf.sessioncontext.srfloginname}  or t1.`assignedTo` =  #{srf.sessioncontext.srfloginname}  or t1.`finishedBy` =  #{srf.sessioncontext.srfloginname}   )
 						 AND t1.`CYCLE` = 0
+			]]>
+    </sql>
+    <!--数据查询[MyTodoPc]-->
+    <sql id="MyTodoPc" databaseId="mysql">
+		<![CDATA[ SELECT t1.`ACCOUNT`, t1.`ASSIGNEDBY`, t1.`ASSIGNEDDATE`, t1.`ASSIGNEDTO`, t1.`BEGIN`, t1.`CLOSEDBY`, t1.`CLOSEDDATE`, t1.`CONFIG`, t1.`CYCLE`, t1.`DATE`, (case when t1.`DATE` = '2030-01-01' then '待定' else t1.`DATE` end) AS `DATE1`, t1.`END`, t1.`FINISHEDBY`, t1.`FINISHEDDATE`, t1.`ID`, t1.`IDVALUE`, t1.`NAME`, t1.`PRI`, t1.`PRIVATE`, t1.`STATUS`, t1.`TYPE` FROM `zt_todo` t1  
+					 WHERE 	( t1.`ACCOUNT` =  #{srf.sessioncontext.srfloginname}  or t1.`assignedTo` =  #{srf.sessioncontext.srfloginname}  or t1.`finishedBy` =  #{srf.sessioncontext.srfloginname}   )
+						 AND t1.`CYCLE` = 0
+						 AND t1.date is not null
 			]]>
     </sql>
     <!--数据查询[MyUpcoming]-->

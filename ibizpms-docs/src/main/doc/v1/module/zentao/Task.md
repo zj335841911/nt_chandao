@@ -6129,21 +6129,90 @@ FAVORITES
 | 序号 | 查询 | 查询名 | 默认 |
 | ---- | ---- | ---- | ---- |
 | 1 | [指派给我任务](#数据查询-指派给我任务（AssignedToMyTask）) | AssignedToMyTask | 否 |
-| 2 | [Bug相关任务](#数据查询-Bug相关任务（BugTask）) | BugTask | 否 |
-| 3 | [通过模块查询](#数据查询-通过模块查询（ByModule）) | ByModule | 否 |
-| 4 | [子任务](#数据查询-子任务（ChildTask）) | ChildTask | 否 |
-| 5 | [子任务（树）](#数据查询-子任务（树）（ChildTaskTree）) | ChildTaskTree | 否 |
-| 6 | [用户年度完成任务](#数据查询-用户年度完成任务（CurFinishTask）) | CurFinishTask | 否 |
-| 7 | [DEFAULT](#数据查询-DEFAULT（Default）) | Default | 否 |
-| 8 | [DefaultRow](#数据查询-DefaultRow（DefaultRow）) | DefaultRow | 否 |
-| 9 | [我的收藏](#数据查询-我的收藏（MyFavorites）) | MyFavorites | 否 |
-| 10 | [项目任务](#数据查询-项目任务（ProjectTASK）) | ProjectTASK | 否 |
-| 11 | [根任务](#数据查询-根任务（RootTask）) | RootTask | 否 |
-| 12 | [todo任务列表查询](#数据查询-todo任务列表查询（TodoListTask）) | TodoListTask | 否 |
-| 13 | [任务类型分组](#数据查询-任务类型分组（TypeGroup）) | TypeGroup | 否 |
-| 14 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 2 | [指派给我任务（PC）](#数据查询-指派给我任务（PC）（AssignedToMyTaskPc）) | AssignedToMyTaskPc | 否 |
+| 3 | [Bug相关任务](#数据查询-Bug相关任务（BugTask）) | BugTask | 否 |
+| 4 | [通过模块查询](#数据查询-通过模块查询（ByModule）) | ByModule | 否 |
+| 5 | [子任务](#数据查询-子任务（ChildTask）) | ChildTask | 否 |
+| 6 | [子任务（树）](#数据查询-子任务（树）（ChildTaskTree）) | ChildTaskTree | 否 |
+| 7 | [用户年度完成任务](#数据查询-用户年度完成任务（CurFinishTask）) | CurFinishTask | 否 |
+| 8 | [DEFAULT](#数据查询-DEFAULT（Default）) | Default | 否 |
+| 9 | [DefaultRow](#数据查询-DefaultRow（DefaultRow）) | DefaultRow | 否 |
+| 10 | [我的收藏](#数据查询-我的收藏（MyFavorites）) | MyFavorites | 否 |
+| 11 | [项目任务](#数据查询-项目任务（ProjectTASK）) | ProjectTASK | 否 |
+| 12 | [根任务](#数据查询-根任务（RootTask）) | RootTask | 否 |
+| 13 | [todo任务列表查询](#数据查询-todo任务列表查询（TodoListTask）) | TodoListTask | 否 |
+| 14 | [任务类型分组](#数据查询-任务类型分组（TypeGroup）) | TypeGroup | 否 |
+| 15 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
 ### 数据查询-指派给我任务（AssignedToMyTask）
+#### 说明
+指派给我任务（移动端）
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+SELECT
+t1.`ASSIGNEDDATE`,
+t1.`ASSIGNEDTO`,
+t1.`CANCELEDBY`,
+t1.`CANCELEDDATE`,
+t1.`CLOSEDBY`,
+t1.`CLOSEDDATE`,
+t1.`CLOSEDREASON`,
+t1.`COLOR`,
+t1.`CONSUMED`,
+t1.`DEADLINE`,
+t1.`DELETED`,
+(To_Days(t1.`DEADLINE`)-To_Days(t1.`ESTSTARTED`)) AS `DURATION`,
+t1.`ESTIMATE`,
+t1.`ESTSTARTED`,
+t1.`FINISHEDBY`,
+t1.`FINISHEDDATE`,
+t1.`FROMBUG`,
+t1.`ID`,
+(select (case when COUNT(t.IBZ_FAVORITESID) > 0 then 1 else 0 end ) as ISFAVORITES from T_IBZ_FAVORITES t where t.TYPE = 'task' and t.ACCOUNT = #{srf.sessioncontext.srfloginname} and t.OBJECTID = t1.id) AS `ISFAVORITES`,
+( CASE WHEN t1.parent > 0 THEN TRUE ELSE FALSE END ) AS `ISLEAF`,
+t1.`LASTEDITEDBY`,
+t1.`LASTEDITEDDATE`,
+t1.`LEFT`,
+t1.`MODULE`,
+t11.`NAME` AS `MODULENAME`,
+(SELECT case when tt.type = 'task' then GROUP_CONCAT( tt.NAME SEPARATOR '>' ) else CONCAT_WS('',t2.`name`,'>',GROUP_CONCAT( tt.NAME SEPARATOR '>' )) end as `name` FROM zt_module tt left join zt_product t2 on tt.root = t2.id WHERE FIND_IN_SET( tt.id, t11.path ) GROUP BY tt.root limit 0,1) AS `MODULENAME1`,
+( SELECT case when count( t.`id` ) > 0 then 1 else 0 end FROM `zt_team` t WHERE t.`type` = 'task' AND t.`root` = t1.`id` ) AS `MULTIPLE`,
+t1.`NAME`,
+t1.`OPENEDBY`,
+t1.`OPENEDDATE`,
+t1.`PARENT`,
+t51.`NAME` AS `PARENTNAME`,
+t11.`PATH`,
+t1.`PRI`,
+t21.`PRODUCT`,
+t41.`NAME` AS `PRODUCTNAME`,
+t1.`PROJECT`,
+t31.`NAME` AS `PROJECTNAME`,
+t1.`REALSTARTED`,
+t1.`STATUS`,
+t1.`STORY`,
+t21.`TITLE` AS `STORYNAME`,
+t1.`STORYVERSION`,
+t1.`SUBSTATUS`,
+t1.`TYPE`,
+( CASE WHEN ( SELECT CASE	 WHEN count( t.`id` ) > 0 THEN 1 ELSE 0  END  FROM `zt_team` t  WHERE t.`type` = 'task'  AND t.`root` = t1.`id`  ) = 1 THEN '10'  WHEN t1.parent = - 1 THEN'20'   WHEN t1.parent = 0 THEN '30' ELSE '40' END) AS `TASKTYPE`,
+(case when t1.storyVersion < t21.version and t21.`status` <> 'changed' then 'storychange'  else t1.`status` end ) as `STATUS1`
+FROM `zt_task` t1 
+LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID 
+LEFT JOIN zt_story t21 ON t1.STORY = t21.ID 
+LEFT JOIN zt_project t31 ON t1.PROJECT = t31.ID 
+LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID 
+LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID
+```
+### 数据查询-指派给我任务（PC）（AssignedToMyTaskPc）
 #### 说明
 指派给我任务（移动端）
 
@@ -7094,18 +7163,19 @@ LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID
 | 序号 | 集合 | 集合名 | 默认 |
 | ---- | ---- | ---- | ---- |
 | 1 | [指派给我任务](#数据集合-指派给我任务（AssignedToMyTask）) | AssignedToMyTask | 否 |
-| 2 | [Bug相关任务](#数据集合-Bug相关任务（BugTask）) | BugTask | 否 |
-| 3 | [通过模块查询](#数据集合-通过模块查询（ByModule）) | ByModule | 否 |
-| 4 | [子任务](#数据集合-子任务（ChildTask）) | ChildTask | 否 |
-| 5 | [子任务（树）](#数据集合-子任务（树）（ChildTaskTree）) | ChildTaskTree | 否 |
-| 6 | [用户年度完成任务](#数据集合-用户年度完成任务（CurFinishTask）) | CurFinishTask | 否 |
-| 7 | [DEFAULT](#数据集合-DEFAULT（Default）) | Default | 是 |
-| 8 | [DefaultRow](#数据集合-DefaultRow（DefaultRow）) | DefaultRow | 否 |
-| 9 | [我的收藏](#数据集合-我的收藏（MyFavorites）) | MyFavorites | 否 |
-| 10 | [项目任务](#数据集合-项目任务（ProjectTASK）) | ProjectTASK | 否 |
-| 11 | [根任务](#数据集合-根任务（RootTask）) | RootTask | 否 |
-| 12 | [todo列表查询](#数据集合-todo列表查询（TodoListTask）) | TodoListTask | 否 |
-| 13 | [任务类型分组](#数据集合-任务类型分组（TypeGroup）) | TypeGroup | 否 |
+| 2 | [指派给我任务（PC）](#数据集合-指派给我任务（PC）（AssignedToMyTaskPc）) | AssignedToMyTaskPc | 否 |
+| 3 | [Bug相关任务](#数据集合-Bug相关任务（BugTask）) | BugTask | 否 |
+| 4 | [通过模块查询](#数据集合-通过模块查询（ByModule）) | ByModule | 否 |
+| 5 | [子任务](#数据集合-子任务（ChildTask）) | ChildTask | 否 |
+| 6 | [子任务（树）](#数据集合-子任务（树）（ChildTaskTree）) | ChildTaskTree | 否 |
+| 7 | [用户年度完成任务](#数据集合-用户年度完成任务（CurFinishTask）) | CurFinishTask | 否 |
+| 8 | [DEFAULT](#数据集合-DEFAULT（Default）) | Default | 是 |
+| 9 | [DefaultRow](#数据集合-DefaultRow（DefaultRow）) | DefaultRow | 否 |
+| 10 | [我的收藏](#数据集合-我的收藏（MyFavorites）) | MyFavorites | 否 |
+| 11 | [项目任务](#数据集合-项目任务（ProjectTASK）) | ProjectTASK | 否 |
+| 12 | [根任务](#数据集合-根任务（RootTask）) | RootTask | 否 |
+| 13 | [todo列表查询](#数据集合-todo列表查询（TodoListTask）) | TodoListTask | 否 |
+| 14 | [任务类型分组](#数据集合-任务类型分组（TypeGroup）) | TypeGroup | 否 |
 
 ### 数据集合-指派给我任务（AssignedToMyTask）
 #### 说明
@@ -7121,6 +7191,20 @@ LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [指派给我任务（AssignedToMyTask）](#数据查询-指派给我任务（AssignedToMyTask）) |
+### 数据集合-指派给我任务（PC）（AssignedToMyTaskPc）
+#### 说明
+指派给我任务（PC）
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [指派给我任务（PC）（AssignedToMyTaskPc）](#数据查询-指派给我任务（PC）（AssignedToMyTaskPc）) |
 ### 数据集合-Bug相关任务（BugTask）
 #### 说明
 Bug相关任务

@@ -1241,6 +1241,7 @@ hide footbox
 | 查询编号 | 查询名称       | 默认查询 |   备注|
 | --------  | --------   | --------   | ----- |
 |AssignedToMyTask|指派给我任务([MYSQL5](../../appendix/query_MYSQL5.md#Task_AssignedToMyTask))|否|&nbsp;指派给我任务（移动端）|
+|AssignedToMyTaskPc|指派给我任务（PC）([MYSQL5](../../appendix/query_MYSQL5.md#Task_AssignedToMyTaskPc))|否|&nbsp;指派给我任务（移动端）|
 |BugTask|Bug相关任务([MYSQL5](../../appendix/query_MYSQL5.md#Task_BugTask))|否|&nbsp;|
 |ByModule|通过模块查询([MYSQL5](../../appendix/query_MYSQL5.md#Task_ByModule))|否|&nbsp;|
 |ChildTask|子任务([MYSQL5](../../appendix/query_MYSQL5.md#Task_ChildTask))|否|&nbsp;|
@@ -1260,6 +1261,7 @@ hide footbox
 | 集合编号 | 集合名称   |  包含查询  | 默认集合 |   备注|
 | --------  | --------   | -------- | --------   | ----- |
 |AssignedToMyTask|指派给我任务|AssignedToMyTask|否|&nbsp;|
+|AssignedToMyTaskPc|指派给我任务（PC）|AssignedToMyTaskPc|否|&nbsp;|
 |BugTask|Bug相关任务|BugTask|否|&nbsp;|
 |ByModule|通过模块查询|ByModule|否|&nbsp;|
 |ChildTask|子任务|ChildTask|否|&nbsp;|

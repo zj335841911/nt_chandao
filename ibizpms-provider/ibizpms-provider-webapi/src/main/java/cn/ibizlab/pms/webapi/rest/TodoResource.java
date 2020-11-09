@@ -256,6 +256,28 @@ public class TodoResource {
                 .body(new PageImpl(todoMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Todo-searchMyTodoPc-all')")
+	@ApiOperation(value = "获取我的待办", tags = {"待办" } ,notes = "获取我的待办")
+    @RequestMapping(method= RequestMethod.GET , value="/todos/fetchmytodopc")
+	public ResponseEntity<List<TodoDTO>> fetchMyTodoPc(TodoSearchContext context) {
+        Page<Todo> domains = todoService.searchMyTodoPc(context) ;
+        List<TodoDTO> list = todoMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Todo-searchMyTodoPc-all')")
+	@ApiOperation(value = "查询我的待办", tags = {"待办" } ,notes = "查询我的待办")
+    @RequestMapping(method= RequestMethod.POST , value="/todos/searchmytodopc")
+	public ResponseEntity<Page<TodoDTO>> searchMyTodoPc(@RequestBody TodoSearchContext context) {
+        Page<Todo> domains = todoService.searchMyTodoPc(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(todoMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Todo-searchMyUpcoming-all')")
 	@ApiOperation(value = "获取MyUpcoming", tags = {"待办" } ,notes = "获取MyUpcoming")
     @RequestMapping(method= RequestMethod.GET , value="/todos/fetchmyupcoming")

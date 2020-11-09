@@ -58,6 +58,7 @@ public interface ITaskService extends IService<Task>{
     Task taskNFavorites(Task et) ;
     Task updateStoryVersion(Task et) ;
     Page<Task> searchAssignedToMyTask(TaskSearchContext context) ;
+    Page<Task> searchAssignedToMyTaskPc(TaskSearchContext context) ;
     Page<Task> searchBugTask(TaskSearchContext context) ;
     Page<Task> searchByModule(TaskSearchContext context) ;
     Page<Task> searchChildTask(TaskSearchContext context) ;

@@ -175,12 +175,6 @@ export class DocLibProductGridViewBase extends GridViewBase {
     public engineInit(): void {
         this.engine.init({
             view: this,
-            opendata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.opendata(args,fullargs, params, $event, xData);
-            },
-            newdata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.newdata(args,fullargs, params, $event, xData);
-            },
             grid: this.$refs.grid,
             searchform: this.$refs.searchform,
             keyPSDEField: 'doclib',
@@ -277,36 +271,16 @@ export class DocLibProductGridViewBase extends GridViewBase {
         this.engine.onCtrlEvent('searchform', 'load', $event);
     }
 
-    /**
-     * 打开新建数据视图
-     *
-     * @param {any[]} args
-     * @param {*} [params]
-     * @param {*} [fullargs]
-     * @param {*} [$event]
-     * @param {*} [xData]
-     * @memberof DocLibProductGridView
-     */
-    public newdata(args: any[],fullargs?:any[], params?: any, $event?: any, xData?: any) {
-        let localContext:any = null;
-        let localViewParam:any =null;
-    this.$Notice.warning({ title: '错误', desc: '未指定关系视图' });
-    }
-
 
     /**
-     * 打开编辑数据视图
+     * 表格行数据默认激活模式
+     * 0 不激活
+     * 1 单击激活
+     * 2 双击激活
      *
-     * @param {any[]} args
-     * @param {*} [params]
-     * @param {*} [fullargs]
-     * @param {*} [$event]
-     * @param {*} [xData]
-     * @memberof DocLibProductGridView
+     * @protected
+     * @type {(0 | 1 | 2)}
+     * @memberof DocLibProductGridViewBase
      */
-    public opendata(args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) {
-    this.$Notice.warning({ title: '错误', desc: '未指定关系视图' });
-    }
-
-
+    protected gridRowActiveMode: 0 | 1 | 2 = 0;
 }

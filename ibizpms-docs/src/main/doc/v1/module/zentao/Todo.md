@@ -1719,8 +1719,9 @@ Save
 | ---- | ---- | ---- | ---- |
 | 1 | [DEFAULT](#数据查询-DEFAULT（Default）) | Default | 否 |
 | 2 | [我的待办](#数据查询-我的待办（MyTodo）) | MyTodo | 否 |
-| 3 | [MyUpcoming](#数据查询-MyUpcoming（MyUpcoming）) | MyUpcoming | 否 |
-| 4 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 3 | [我的待办](#数据查询-我的待办（MyTodoPc）) | MyTodoPc | 否 |
+| 4 | [MyUpcoming](#数据查询-MyUpcoming（MyUpcoming）) | MyUpcoming | 否 |
+| 5 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
 ### 数据查询-DEFAULT（Default）
 #### 说明
@@ -1763,6 +1764,44 @@ LEFT JOIN zt_task t21 on t21.id = t1.idvalue
 LEFT JOIN zt_story t31 on t31.id = t1.idvalue
 ```
 ### 数据查询-我的待办（MyTodo）
+#### 说明
+我的待办
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+SELECT
+t1.`ACCOUNT`,
+t1.`ASSIGNEDBY`,
+t1.`ASSIGNEDDATE`,
+t1.`ASSIGNEDTO`,
+t1.`BEGIN`,
+t1.`CLOSEDBY`,
+t1.`CLOSEDDATE`,
+t1.`CONFIG`,
+t1.`CYCLE`,
+t1.`DATE`,
+(case when t1.`DATE` = '2030-01-01' then '待定' else t1.`DATE` end) AS `DATE1`,
+t1.`END`,
+t1.`FINISHEDBY`,
+t1.`FINISHEDDATE`,
+t1.`ID`,
+t1.`IDVALUE`,
+t1.`NAME`,
+t1.`PRI`,
+t1.`PRIVATE`,
+t1.`STATUS`,
+t1.`TYPE`
+FROM `zt_todo` t1 
+
+```
+### 数据查询-我的待办（MyTodoPc）
 #### 说明
 我的待办
 
@@ -1886,7 +1925,8 @@ FROM `zt_todo` t1
 | ---- | ---- | ---- | ---- |
 | 1 | [DEFAULT](#数据集合-DEFAULT（Default）) | Default | 是 |
 | 2 | [我的待办](#数据集合-我的待办（MyTodo）) | MyTodo | 否 |
-| 3 | [MyUpcoming](#数据集合-MyUpcoming（MyUpcoming）) | MyUpcoming | 否 |
+| 3 | [我的待办](#数据集合-我的待办（MyTodoPc）) | MyTodoPc | 否 |
+| 4 | [MyUpcoming](#数据集合-MyUpcoming（MyUpcoming）) | MyUpcoming | 否 |
 
 ### 数据集合-DEFAULT（Default）
 #### 说明
@@ -1916,6 +1956,20 @@ DEFAULT
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [我的待办（MyTodo）](#数据查询-我的待办（MyTodo）) |
+### 数据集合-我的待办（MyTodoPc）
+#### 说明
+我的待办
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [我的待办（MyTodoPc）](#数据查询-我的待办（MyTodoPc）) |
 ### 数据集合-MyUpcoming（MyUpcoming）
 #### 说明
 MyUpcoming

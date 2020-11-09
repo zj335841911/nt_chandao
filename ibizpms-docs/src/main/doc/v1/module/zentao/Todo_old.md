@@ -156,6 +156,7 @@ hide footbox
 | --------  | --------   | --------   | ----- |
 |DEFAULT|DEFAULT([MYSQL5](../../appendix/query_MYSQL5.md#Todo_Default))|否|&nbsp;|
 |MyTodo|我的待办([MYSQL5](../../appendix/query_MYSQL5.md#Todo_MyTodo))|否|&nbsp;|
+|MyTodoPc|我的待办([MYSQL5](../../appendix/query_MYSQL5.md#Todo_MyTodoPc))|否|&nbsp;|
 |MyUpcoming|MyUpcoming([MYSQL5](../../appendix/query_MYSQL5.md#Todo_MyUpcoming))|否|&nbsp;|
 |VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#Todo_View))|否|&nbsp;|
 
@@ -165,6 +166,7 @@ hide footbox
 | --------  | --------   | -------- | --------   | ----- |
 |DEFAULT|DEFAULT|DEFAULT|是|&nbsp;|
 |MyTodo|我的待办|MyTodo|否|&nbsp;|
+|MyTodoPc|我的待办|MyTodoPc|否|&nbsp;|
 |MyUpcoming|MyUpcoming|MyUpcoming|否|&nbsp;|
 
 ## 查询模式

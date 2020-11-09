@@ -112,11 +112,11 @@ export default class MyWorkPCService extends ControlService {
             let promises:any = [];
             let tempRequest:any;
             tempRequest = this.handleRequestData(action,context,data,true,"Bug");
-            promises.push(this.bugService.FetchAssignedToMyBug(tempRequest.context, tempRequest.data, isloading));
+            promises.push(this.bugService.FetchAssignedToMyBugPc(tempRequest.context, tempRequest.data, isloading));
             tempRequest = this.handleRequestData(action,context,data,true,"task");
-            promises.push(this.taskService.FetchAssignedToMyTask(tempRequest.context, tempRequest.data, isloading));
+            promises.push(this.taskService.FetchAssignedToMyTaskPc(tempRequest.context, tempRequest.data, isloading));
             tempRequest = this.handleRequestData(action,context,data,true,"todo");
-            promises.push(this.todoService.FetchMyTodo(tempRequest.context, tempRequest.data, isloading));
+            promises.push(this.todoService.FetchMyTodoPc(tempRequest.context, tempRequest.data, isloading));
             Promise.all(promises).then((resArray: any) => {
                 let _data:any = [];
                 resArray.forEach((response:any,resIndex:number) => {
