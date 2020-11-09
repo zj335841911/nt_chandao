@@ -1792,7 +1792,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewtag": "7b1cc190cbffe1cd122d87a9d03b2d21"
         },
         "doccreateeditview": {
-            "title": "doc编辑视图",
+            "title": "创建文档",
             "caption": "文档",
             "viewtype": "DEEDITVIEW",
             "viewmodule": "ibiz",

@@ -2230,7 +2230,7 @@
         "memo": ""
     },
     "doccreateeditview": {
-        "title": "doc编辑视图",
+        "title": "创建文档",
         "caption": "文档",
         "viewtype": "DEEDITVIEW",
         "viewmodule": "ibiz",

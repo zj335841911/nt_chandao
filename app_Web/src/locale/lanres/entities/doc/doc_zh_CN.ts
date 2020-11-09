@@ -46,7 +46,7 @@ export default {
 		},
 		createeditview: {
 			caption: "文档",
-      		title: "doc编辑视图",
+      		title: "创建文档",
 		},
 		docsumeditview9: {
 			caption: "文档摘要",

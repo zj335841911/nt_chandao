@@ -6,7 +6,7 @@ import { DocCreateEditViewBase } from './doc-create-edit-view-base';
 import view_form from '@widgets/doc/create-edit-form-form/create-edit-form-form.vue';
 
 /**
- * doc编辑视图视图
+ * 创建文档视图
  *
  * @export
  * @class DocCreateEditView

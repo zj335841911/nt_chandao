@@ -431,7 +431,7 @@ SRFNAVPARAM.project=%project%|
 |-|测试套件编辑视图|DEEDITVIEW|&nbsp;|
 |-|所有测试|DELISTVIEW|&nbsp;|
 |-|story表格视图|DEGRIDVIEW|&nbsp;|
-|-|doc编辑视图|DEEDITVIEW|&nbsp;|
+|-|创建文档|DEEDITVIEW|&nbsp;|
 |-|模块|DEGRIDVIEW|&nbsp;|
 |-|确认Bug|DEOPTVIEW|&nbsp;|
 |-|所有项目|DELISTVIEW|&nbsp;|
