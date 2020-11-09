@@ -24,7 +24,7 @@ hide members
 |文档编号|ID|ACID|&nbsp;|
 |文档标题|TITLE|TEXT|&nbsp;|
 |已删除|DELETED|TEXT|&nbsp;|
-|文档类型|TYPE|SMCODELIST|&nbsp;|
+|文档类型|TYPE|SSCODELIST|&nbsp;|
 |添加时间|ADDEDDATE|DATETIME|&nbsp;|
 |权限|ACL|SSCODELIST|&nbsp;|
 |用户|USERS|LONGTEXT|&nbsp;选择权限为自定义生效|
