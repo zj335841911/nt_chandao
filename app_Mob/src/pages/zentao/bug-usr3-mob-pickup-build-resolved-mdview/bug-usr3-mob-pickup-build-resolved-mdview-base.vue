@@ -13,7 +13,7 @@
     loaddraftAction=""
     loadAction="Get"
     createAction="Create"
-    fetchAction="FetchDefault" 
+    fetchAction="FetchBuildLinkResolvedBugs" 
     :isMutli="!isSingleSelect"
     :isNeedLoaddingText="!isPortalView"
     :showBusyIndicator="true" 
@@ -168,7 +168,7 @@ export default class BugUsr3MobPickupBuildResolvedMDViewBase extends Vue {
      * @type {*}
      * @memberof BugUsr3MobPickupBuildResolvedMDViewBase
      */
-    protected navParam: any = {};
+    protected navParam: any = { 'product': '%product%', 'project': '%project%', 'build': '%build%' };
 
     /**
      * 视图模型数据

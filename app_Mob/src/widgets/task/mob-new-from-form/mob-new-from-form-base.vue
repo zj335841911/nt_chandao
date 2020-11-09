@@ -887,10 +887,18 @@ export default class MobNewFromBase extends Vue implements ControlInterface {
                   {
                       type:"GROUP",
                       condOP:"OR",
-                      ruleInfo:"(截至日期必须大于等于预计开始)", 
+                      ruleInfo:"截至日期必须大于等于预计开始", 
                       isKeyCond:false,
                       isNotMode:false,
                       group:[
+                  {
+                      type:"SIMPLE",
+                      condOP:"ISNULL",
+                      ruleInfo:"", 
+                      isKeyCond:false,
+                      isNotMode:false,
+                      deName:"eststarted",
+                  },
                   {
                       type:"SIMPLE",
                       condOP:"GTANDEQ",
@@ -898,14 +906,6 @@ export default class MobNewFromBase extends Vue implements ControlInterface {
                       isKeyCond:false,
                       paramValue:"eststarted",
                       paramType:"ENTITYFIELD",
-                      isNotMode:false,
-                      deName:"deadline",
-                  },
-                  {
-                      type:"SIMPLE",
-                      condOP:"ISNULL",
-                      ruleInfo:"", 
-                      isKeyCond:false,
                       isNotMode:false,
                       deName:"deadline",
                   },
