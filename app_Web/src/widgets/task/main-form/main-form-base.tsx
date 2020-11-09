@@ -181,7 +181,7 @@ export class MainEditFormBase extends EditFormControlBase {
                   {
                       type:"GROUP",
                       condOP:"OR",
-                      ruleInfo:"(截至日期必须大于等于预计开始)", 
+                      ruleInfo:"截至日期必须大于等于预计开始", 
                       isKeyCond:false,
                       isNotMode:false,
                       group:[
@@ -201,7 +201,7 @@ export class MainEditFormBase extends EditFormControlBase {
                       ruleInfo:"", 
                       isKeyCond:false,
                       isNotMode:false,
-                      deName:"deadline",
+                      deName:"eststarted",
                   },
                         ]
                   },

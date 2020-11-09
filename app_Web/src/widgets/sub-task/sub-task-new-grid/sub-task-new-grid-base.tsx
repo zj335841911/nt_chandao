@@ -366,7 +366,7 @@ export class SubTaskNewGridBase extends GridControlBase {
                   {
                       type:"GROUP",
                       condOP:"OR",
-                      ruleInfo:"(截至日期必须大于等于预计开始)", 
+                      ruleInfo:"截至日期必须大于等于预计开始", 
                       isKeyCond:false,
                       isNotMode:false,
                       group:[
@@ -386,7 +386,7 @@ export class SubTaskNewGridBase extends GridControlBase {
                       ruleInfo:"", 
                       isKeyCond:false,
                       isNotMode:false,
-                      deName:"deadline",
+                      deName:"eststarted",
                   },
                         ]
                   },
