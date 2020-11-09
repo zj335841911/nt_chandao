@@ -13830,6 +13830,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/task-sub-task-new-view/task-sub-task-new-view.vue'),
                 },
                 {
+                    path: 'docs/:doc?/createeditview/:createeditview?',
+                    meta: {
+                        caption: 'entities.doc.views.createeditview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'docs', parameterName: 'doc' },
+                            { pathName: 'createeditview', parameterName: 'createeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/doc-create-edit-view/doc-create-edit-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/tasks/:task?/closetaskview/:closetaskview?',
                     meta: {
                         caption: 'entities.task.views.closetaskview.caption',

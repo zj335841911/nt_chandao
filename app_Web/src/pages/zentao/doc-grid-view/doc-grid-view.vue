@@ -3,8 +3,8 @@
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { DocGridViewBase } from './doc-grid-view-base';
-import view_grid from '@widgets/doc/main-grid/main-grid.vue';
 import view_searchform from '@widgets/doc/default-searchform/default-searchform.vue';
+import view_grid from '@widgets/doc/main-grid/main-grid.vue';
 
 /**
  * doc表格视图视图
@@ -15,8 +15,8 @@ import view_searchform from '@widgets/doc/default-searchform/default-searchform.
  */
 @Component({
     components: {
-        view_grid, 
         view_searchform, 
+        view_grid, 
     }
 })
 @VueLifeCycleProcessing()

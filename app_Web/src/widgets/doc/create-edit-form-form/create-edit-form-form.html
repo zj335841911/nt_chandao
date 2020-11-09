@@ -1,0 +1,149 @@
+<i-form :model="this.data" class='app-form' ref='form'  id='doc_createeditform' style="" @on-validate="formItemValidate.apply(_self, arguments)">
+    <input style="display:none;" />
+    <row >
+            <i-col class="form-layout-container" v-show="detailsModel.libname.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='libname' :itemRules="this.rules().libname" class='' :caption="$t('entities.doc.createeditform_form.details.libname')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.libname.error" :isEmptyCaption="false" labelPos="LEFT">
+    
+<app-picker  
+  :formState="formState"
+  :data="data"
+  :context="context"
+  :viewparams="viewparams"
+  :localContext ='{ }' 
+  :localParam ='{ }' 
+  :disabled="detailsModel.libname.disabled"
+  name='libname'
+  deMajorField='name'
+  deKeyField='doclib'
+  :service="service"
+  :acParams="{ serviceName: 'DocLibService', interfaceName: 'FetchDefault'}"
+  valueitem='lib'
+  :value="data.libname"
+  editortype="dropdown"
+  style=""
+  @formitemvaluechange="onFormItemValueChange($event)">
+</app-picker>
+</app-form-item>
+
+</i-col>
+<i-col class="form-layout-container" v-show="detailsModel.modulename.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='modulename' :itemRules="this.rules().modulename" class='' :caption="$t('entities.doc.createeditform_form.details.modulename')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.modulename.error" :isEmptyCaption="false" labelPos="LEFT">
+    
+  <app-picker 
+    :formState="formState"
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.modulename.disabled"
+    name='modulename'
+    deMajorField='name'
+    deKeyField='module'
+    :service="service"
+    :acParams="{ serviceName: 'ModuleService', interfaceName: 'FetchDefault'}"
+    valueitem='module' 
+    :value="data.modulename"
+    :pickupView="{ viewname: 'module-pickup-view', title: $t('entities.module.views.pickupview.title'), deResParameters: [], parameters: [{ pathName: 'modules', parameterName: 'module' }, { pathName: 'pickupview', parameterName: 'pickupview' } ], placement:'' }"
+    style=""  
+    @formitemvaluechange="onFormItemValueChange($event)">
+  </app-picker>
+
+</app-form-item>
+
+</i-col>
+<i-col class="form-layout-container" v-show="detailsModel.title.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='title' :itemRules="this.rules().title" class='' :caption="$t('entities.doc.createeditform_form.details.title')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.title.error" :isEmptyCaption="false" labelPos="LEFT">
+    <input-box 
+    v-model="data.title"  
+    @enter="onEnter($event)"  
+     unit=""  
+    :disabled="detailsModel.title.disabled" 
+    type='text' 
+    style="">
+</input-box>
+
+</app-form-item>
+
+</i-col>
+<i-col class="form-layout-container" v-show="detailsModel.keywords.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='keywords' :itemRules="this.rules().keywords" class='' :caption="$t('entities.doc.createeditform_form.details.keywords')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.keywords.error" :isEmptyCaption="false" labelPos="LEFT">
+    <input-box 
+    v-model="data.keywords"  
+    @enter="onEnter($event)"  
+     unit=""  
+    :disabled="detailsModel.keywords.disabled" 
+    type='text' 
+    style="">
+</input-box>
+
+</app-form-item>
+
+</i-col>
+<i-col class="form-layout-container" v-show="detailsModel.type.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='type' :itemRules="this.rules().type" class='' :caption="$t('entities.doc.createeditform_form.details.type')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.type.error" :isEmptyCaption="false" labelPos="LEFT">
+    
+<app-checkbox-list 
+  v-model="data.type" 
+  :data="data" 
+  :context="context"
+  :viewparams="viewparams" 
+  :disabled="detailsModel.type.disabled" 
+  :localContext ='{ }' 
+  :localParam ='{ }' 
+  tag='Doc__type' 
+  codelistType='STATIC' 
+  mode=""
+  name="type" 
+  style="">
+</app-checkbox-list>
+
+</app-form-item>
+
+</i-col>
+<i-col class="form-layout-container" v-show="detailsModel.content.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='content' :itemRules="this.rules().content" class='' :caption="$t('entities.doc.createeditform_form.details.content')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.content.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-rich-text-editor :formState="formState" :value="data.content" @change="(val) =>{this.data.content =val}" :disabled="detailsModel.content.disabled" :data="JSON.stringify(this.data)"  name="content" :context="context" :viewparams="viewparams" :uploadparams='{}' :exportparams='{}'  style=""></app-rich-text-editor>
+
+</app-form-item>
+
+</i-col>
+<i-col class="form-layout-container" v-show="detailsModel.files.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='files' :itemRules="this.rules().files" class='' :caption="$t('entities.doc.createeditform_form.details.files')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.files.error" :isEmptyCaption="false" labelPos="LEFT">
+    <input-box 
+    v-model="data.files"  
+    @enter="onEnter($event)"  
+     unit=""  
+    :disabled="detailsModel.files.disabled" 
+    type='text' 
+    style="">
+</input-box>
+
+</app-form-item>
+
+</i-col>
+<i-col class="form-layout-container" v-show="detailsModel.acl.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='acl' :itemRules="this.rules().acl" class='' :caption="$t('entities.doc.createeditform_form.details.acl')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.acl.error" :isEmptyCaption="false" labelPos="LEFT">
+    
+<dropdown-list 
+    v-model="data.acl"
+    :data="data"
+    :context="context"
+    :formState="formState"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.acl.disabled"
+    valueType="string"
+    tag='Doc__acl'
+    codelistType='STATIC'
+    placeholder='请选择...'
+    
+/>
+</app-form-item>
+
+</i-col>
+
+
+    </row>
+</i-form>
