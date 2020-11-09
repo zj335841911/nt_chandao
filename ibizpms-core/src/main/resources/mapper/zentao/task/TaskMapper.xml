@@ -209,6 +209,7 @@
 					 WHERE 	t1.DELETED = '0'
 						 AND ( t1.`ASSIGNEDTO` =  #{srf.sessioncontext.srfloginname} )
 						 AND t1.estStarted is not null and t1.estStarted <> '0000-00-00'
+						 AND t1.parent >= 0
 			]]>
     </sql>
     <!--数据查询[BugTask]-->
