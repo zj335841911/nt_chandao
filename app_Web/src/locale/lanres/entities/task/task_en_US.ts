@@ -665,6 +665,7 @@ export default {
 	},
 	calendarmain_form: {
 		details: {
+			grouppanel6: "分组面板", 
 			button7: "指派", 
 			button8: "转交", 
 			button1: "开始", 
@@ -674,6 +675,7 @@ export default {
 			button5: "取消", 
 			button6: "关闭", 
 			button9: "子任务", 
+			grouppanel5: "分组面板", 
 			grouppanel4: "操作", 
 			grouppanel3: "任务描述", 
 			druipart3: "", 

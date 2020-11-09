@@ -420,6 +420,8 @@ export class CalendarMainEditFormBase extends EditFormControlBase {
      * @memberof CalendarMainEditFormBase
      */
     public detailsModel: any = {
+        grouppanel6: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel6', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.task.calendarmain_form', extractMode: 'ITEM', details: [] } }),
+
         button7: new FormButtonModel({ caption: '指派', detailType: 'BUTTON', name: 'button7', visible: true, isShowCaption: false, form: this, showMoreMode: 0,disabled: false, uiaction: { type: 'DEUIACTION', 
  tag: 'AssignTaskDash',actiontarget: 'SINGLEKEY',noprivdisplaymode:2,dataaccaction:'SRFUR__TASK_ASSIGN_BUT',visabled: true,disabled: false} }),
 
@@ -446,6 +448,8 @@ export class CalendarMainEditFormBase extends EditFormControlBase {
 
         button9: new FormButtonModel({ caption: '子任务', detailType: 'BUTTON', name: 'button9', visible: true, isShowCaption: false, form: this, showMoreMode: 0,disabled: false, uiaction: { type: 'DEUIACTION', 
  tag: 'NewSubTaskDash',actiontarget: 'SINGLEKEY',noprivdisplaymode:2,dataaccaction:'SRFUR__TASK_SUBTASKS_BUT',visabled: true,disabled: false} }),
+
+        grouppanel5: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel5', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.task.calendarmain_form', extractMode: 'ITEM', details: [] } }),
 
         grouppanel4: new FormGroupPanelModel({ caption: '操作', detailType: 'GROUPPANEL', name: 'grouppanel4', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.task.calendarmain_form', extractMode: 'ITEM', details: [] } }),
 
@@ -514,6 +518,8 @@ export class CalendarMainEditFormBase extends EditFormControlBase {
      */
     public async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): Promise<void> {
                 
+
+
 
 
 
