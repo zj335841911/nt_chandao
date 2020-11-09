@@ -796,6 +796,28 @@ public class SubStoryResource {
                 .body(new PageImpl(substoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchNotCurPlanLinkStory-all')")
+	@ApiOperation(value = "获取计划关联需求(去除已关联)", tags = {"需求" } ,notes = "获取计划关联需求(去除已关联)")
+    @RequestMapping(method= RequestMethod.GET , value="/substories/fetchnotcurplanlinkstory")
+	public ResponseEntity<List<SubStoryDTO>> fetchNotCurPlanLinkStory(StorySearchContext context) {
+        Page<Story> domains = storyService.searchNotCurPlanLinkStory(context) ;
+        List<SubStoryDTO> list = substoryMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchNotCurPlanLinkStory-all')")
+	@ApiOperation(value = "查询计划关联需求(去除已关联)", tags = {"需求" } ,notes = "查询计划关联需求(去除已关联)")
+    @RequestMapping(method= RequestMethod.POST , value="/substories/searchnotcurplanlinkstory")
+	public ResponseEntity<Page<SubStoryDTO>> searchNotCurPlanLinkStory(@RequestBody StorySearchContext context) {
+        Page<Story> domains = storyService.searchNotCurPlanLinkStory(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(substoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchParentDefault-all')")
 	@ApiOperation(value = "获取数据查询", tags = {"需求" } ,notes = "获取数据查询")
     @RequestMapping(method= RequestMethod.GET , value="/substories/fetchparentdefault")
@@ -1814,6 +1836,29 @@ public class SubStoryResource {
 	public ResponseEntity<Page<SubStoryDTO>> searchSubStoryMyFavoritesByStory(@PathVariable("story_id") Long story_id, @RequestBody StorySearchContext context) {
         context.setN_parent_eq(story_id);
         Page<Story> domains = storyService.searchMyFavorites(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(substoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchNotCurPlanLinkStory-all')")
+	@ApiOperation(value = "根据需求获取计划关联需求(去除已关联)", tags = {"需求" } ,notes = "根据需求获取计划关联需求(去除已关联)")
+    @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/substories/fetchnotcurplanlinkstory")
+	public ResponseEntity<List<SubStoryDTO>> fetchSubStoryNotCurPlanLinkStoryByStory(@PathVariable("story_id") Long story_id,StorySearchContext context) {
+        context.setN_parent_eq(story_id);
+        Page<Story> domains = storyService.searchNotCurPlanLinkStory(context) ;
+        List<SubStoryDTO> list = substoryMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchNotCurPlanLinkStory-all')")
+	@ApiOperation(value = "根据需求查询计划关联需求(去除已关联)", tags = {"需求" } ,notes = "根据需求查询计划关联需求(去除已关联)")
+    @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/substories/searchnotcurplanlinkstory")
+	public ResponseEntity<Page<SubStoryDTO>> searchSubStoryNotCurPlanLinkStoryByStory(@PathVariable("story_id") Long story_id, @RequestBody StorySearchContext context) {
+        context.setN_parent_eq(story_id);
+        Page<Story> domains = storyService.searchNotCurPlanLinkStory(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(substoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
@@ -2845,6 +2890,29 @@ public class SubStoryResource {
 	public ResponseEntity<Page<SubStoryDTO>> searchSubStoryMyFavoritesByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody StorySearchContext context) {
         context.setN_parent_eq(story_id);
         Page<Story> domains = storyService.searchMyFavorites(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(substoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchNotCurPlanLinkStory-all')")
+	@ApiOperation(value = "根据产品需求获取计划关联需求(去除已关联)", tags = {"需求" } ,notes = "根据产品需求获取计划关联需求(去除已关联)")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/{story_id}/substories/fetchnotcurplanlinkstory")
+	public ResponseEntity<List<SubStoryDTO>> fetchSubStoryNotCurPlanLinkStoryByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id,StorySearchContext context) {
+        context.setN_parent_eq(story_id);
+        Page<Story> domains = storyService.searchNotCurPlanLinkStory(context) ;
+        List<SubStoryDTO> list = substoryMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchNotCurPlanLinkStory-all')")
+	@ApiOperation(value = "根据产品需求查询计划关联需求(去除已关联)", tags = {"需求" } ,notes = "根据产品需求查询计划关联需求(去除已关联)")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/substories/searchnotcurplanlinkstory")
+	public ResponseEntity<Page<SubStoryDTO>> searchSubStoryNotCurPlanLinkStoryByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody StorySearchContext context) {
+        context.setN_parent_eq(story_id);
+        Page<Story> domains = storyService.searchNotCurPlanLinkStory(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(substoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}

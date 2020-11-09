@@ -2758,6 +2758,26 @@ export default class StoryServiceBase extends EntityService {
     }
 
     /**
+     * FetchNotCurPlanLinkStory接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StoryServiceBase
+     */
+    public async FetchNotCurPlanLinkStory(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/stories/fetchnotcurplanlinkstory`,tempData,isloading);
+            return res;
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/stories/fetchnotcurplanlinkstory`,tempData,isloading);
+        return res;
+    }
+
+    /**
      * FetchParentDefault接口方法
      *
      * @param {*} [context={}]

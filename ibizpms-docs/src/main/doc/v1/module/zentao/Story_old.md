@@ -372,6 +372,7 @@ hide footbox
 |GetProductStories|获取产品需求([MYSQL5](../../appendix/query_MYSQL5.md#Story_GetProductStories))|否|&nbsp;获取指定产品（含分支）中当前用户的相关需求|
 |MyCurOpenedStory|所创建需求数和对应的优先级及状态([MYSQL5](../../appendix/query_MYSQL5.md#Story_MyCurOpenedStory))|否|&nbsp;|
 |MyFavorites|我的收藏([MYSQL5](../../appendix/query_MYSQL5.md#Story_MyFavorites))|否|&nbsp;|
+|NotCurPlanLinkStory|计划关联需求(去除已关联)([MYSQL5](../../appendix/query_MYSQL5.md#Story_NotCurPlanLinkStory))|否|&nbsp;|
 |ParentDefault|数据查询([MYSQL5](../../appendix/query_MYSQL5.md#Story_ParentDefault))|否|&nbsp;|
 |ParentDefaultQ|数据查询([MYSQL5](../../appendix/query_MYSQL5.md#Story_ParentDefaultQ))|否|&nbsp;|
 |projectLinkStory|项目关联需求([MYSQL5](../../appendix/query_MYSQL5.md#Story_ProjectLinkStory))|否|&nbsp;|
@@ -400,6 +401,7 @@ hide footbox
 |GetProductStories|获取产品需求|GetProductStories|否|&nbsp;|
 |MyCurOpenedStory|所创建需求数和对应的优先级及状态|MyCurOpenedStory|否|&nbsp;|
 |MyFavorites|我的收藏|MyFavorites|否|&nbsp;|
+|NotCurPlanLinkStory|计划关联需求(去除已关联)|NotCurPlanLinkStory|否|&nbsp;|
 |ParentDefault|数据查询|ParentDefault|否|&nbsp;|
 |ParentDefaultQ|数据查询|ParentDefaultQ|否|&nbsp;|
 |projectLinkStory|项目关联需求|projectLinkStory|否|&nbsp;|
