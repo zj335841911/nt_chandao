@@ -86,6 +86,16 @@ export default class CalendarMainModel {
         dataType: 'DATE',
       },
       {
+        name: 'isfavorites',
+        prop: 'isfavorites',
+        dataType: 'TEXT',
+      },
+      {
+        name: 'confirmed',
+        prop: 'confirmed',
+        dataType: 'NSCODELIST',
+      },
+      {
         name: 'steps',
         prop: 'steps',
         dataType: 'LONGTEXT',

@@ -247,6 +247,8 @@ export class CalendarMainEditFormBase extends EditFormControlBase {
         severity: null,
         pri: null,
         deadline: null,
+        isfavorites: null,
+        confirmed: null,
         steps: null,
         bug:null,
     };
@@ -342,6 +344,10 @@ export class CalendarMainEditFormBase extends EditFormControlBase {
         pri: new FormItemModel({ caption: '优先级', detailType: 'FORMITEM', name: 'pri', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 
         deadline: new FormItemModel({ caption: '截止日期', detailType: 'FORMITEM', name: 'deadline', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+
+        isfavorites: new FormItemModel({ caption: '是否收藏', detailType: 'FORMITEM', name: 'isfavorites', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+
+        confirmed: new FormItemModel({ caption: '是否确认', detailType: 'FORMITEM', name: 'confirmed', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 
         steps: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'steps', visible: true, isShowCaption: false, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 

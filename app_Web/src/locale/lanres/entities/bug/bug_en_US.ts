@@ -742,6 +742,8 @@ export default {
 			severity: "严重程度", 
 			pri: "优先级", 
 			deadline: "截止日期", 
+			isfavorites: "是否收藏", 
+			confirmed: "是否确认", 
 			steps: "", 
 		},
 		uiactions: {
