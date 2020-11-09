@@ -30,6 +30,7 @@
 |-|Bug移动端编辑视图（新建）|DEMOBEDITVIEW|&nbsp;|
 |-|Bug选项操作视图（解决Bug）|DEMOBOPTVIEW|&nbsp;|
 |-|任务选项操作视图（暂停）|DEMOBOPTVIEW|&nbsp;|
+|-|系统日志移动端地图视图|DEMOBMAPVIEW|&nbsp;|
 |-|测试用例移动端多数据视图|DEMOBMDVIEW|&nbsp;|
 |-|测试套件移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
 |-|项目移动端编辑视图（新建）|DEMOBEDITVIEW|&nbsp;|

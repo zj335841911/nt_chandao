@@ -12,6 +12,7 @@
 ** 个人中心
 ** 用户选择
 ** 更新日志
+** 登录地图test
 @endmindmap
 {% endplantuml %}
 
@@ -27,4 +28,5 @@
 |个人中心|[查看功能](func/UserUserCenterMobEditView.md)|
 |用户选择|[查看功能](func/UserMobPickupView.md)|
 |更新日志|[查看功能](func/SysUpdateLogMobMDView.md)|
+|登录地图test|[查看功能](func/ActionMobMapView.md)|
 

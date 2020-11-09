@@ -24,6 +24,9 @@ export default {
     srfkey: "前端键值",
   },
 	views: {
+		mobmapview: {
+			caption: '系统日志',
+		},
 		mobmdview9: {
 			caption: '通用',
 		},

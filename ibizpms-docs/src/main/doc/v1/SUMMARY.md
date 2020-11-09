@@ -300,6 +300,7 @@
       * [个人中心](app/Mob/func/UserUserCenterMobEditView.md)
       * [用户选择](app/Mob/func/UserMobPickupView.md)
       * [我的地盘](app/Mob/func/IbzMyTerritoryMobDashboardView.md)
+      * [人员登录地图](app/Mob/func/ActionMobMapView.md)
       * [我的需求](app/Mob/func/StoryMobMDView.md)
       * [项目](app/Mob/func/ProjectMobMDView.md)
       * [我的收藏](app/Mob/func/IbzFavoritesMobTabExpView.md)

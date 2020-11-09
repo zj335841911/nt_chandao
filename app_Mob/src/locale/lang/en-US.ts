@@ -99,6 +99,7 @@ export default {
                 menuitem6: '个人中心',
                 menuitem7: '用户选择',
                 menuitem8: '更新日志',
+                menuitem9: '登录地图test',
             },
             listmenu: {
                 menuitem1: '电脑',

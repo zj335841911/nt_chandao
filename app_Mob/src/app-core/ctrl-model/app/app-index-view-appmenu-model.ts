@@ -140,6 +140,24 @@ export class AppIndexViewModel {
 	appfunctag: 'AppFunc3',
 	resourcetag: '',
 },
+        {
+	id: 'A211AE8E-A134-4271-A075-5BB2D7F14E34',
+	name: 'menuitem9',
+	text: '登录地图test',
+	type: 'MENUITEM',
+	counterid: '',
+	tooltip: '登录地图test',
+	expanded: false,
+	separator: false,
+	hidden: false,
+	hidesidebar: false,
+	opendefault: false,
+	iconcls: '',
+	icon: '',
+	textcls: '',
+	appfunctag: 'AppFunc4',
+	resourcetag: '',
+},
     ];
 
 	/**
@@ -187,6 +205,19 @@ export class AppIndexViewModel {
             parameters: [
                 { pathName: 'products', parameterName: 'product' },
                 { pathName: 'mobmdview', parameterName: 'mobmdview' },
+            ],
+        },
+        {
+            appfunctag: 'AppFunc4',
+            appfuncyype: 'APPVIEW',
+            openmode: '', 
+            componentname: 'action-mob-map-view', 
+            codename: 'actionmobmapview',
+            deResParameters: [],
+            routepath: '/appindexview/:appindexview?/actions/:action?/mobmapview/:mobmapview?',
+            parameters: [
+                { pathName: 'actions', parameterName: 'action' },
+                { pathName: 'mobmapview', parameterName: 'mobmapview' },
             ],
         },
         {

@@ -1943,6 +1943,20 @@ const router = new Router({
                     component: () => import('@pages/ou/sys-employee-tree-mob-pickup-view/sys-employee-tree-mob-pickup-view.vue'),
                 },
                 {
+                    path: 'actions/:action?/mobmapview',
+                    name: 'action_mobmapview',
+                    meta: {
+                        caption: 'action.views.mobmapview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'actions', parameterName: 'action' },
+                            { pathName: 'mobmapview', parameterName: 'mobmapview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/action-mob-map-view/action-mob-map-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/rmoboptionview',
                     name: 'bug_rmoboptionview',
                     meta: {

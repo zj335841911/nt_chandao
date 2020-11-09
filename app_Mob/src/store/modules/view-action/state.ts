@@ -178,6 +178,7 @@ export const viewstate: any = {
                 'af40519acfe1bc985738eb3f0ff91a24',
                 '1afb3df498f4daa660709cca53ece0b2',
                 'c4c92d03808b0d9d6cbe4e1f943e6033',
+                '214508ca1f0caa399539566a9a8b90cc',
                 'fc2f8f2e45b4fb4f22e7e77d4e57a16c',
             ],
         },
@@ -313,6 +314,15 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '3c4e9f0d609bc0f1cf08431649cc8e67',
+            ],
+        },
+        {
+            viewtag: '214508ca1f0caa399539566a9a8b90cc',
+            viewmodule: 'zentao',
+            viewname: 'ActionMobMapView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
             ],
         },
         {
