@@ -280,6 +280,8 @@ export default class DocUIServiceBase extends UIService {
         let parentContext:any = {};
         let parentViewParam:any = {};
         const _this: any = actionContext;
+        Object.assign(context,{LIB:"%lib%",DOCQTYPE:"%docqtype%"});
+        Object.assign(params,{lib:"%lib%",docqtype:"%docqtype%"});
         const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(context, { doc: '%doc%' });
