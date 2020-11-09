@@ -3,7 +3,7 @@
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { TaskCalendarEditViewBase } from './task-calendar-edit-view-base';
-import view_form from '@widgets/task/tree-info-form/tree-info-form.vue';
+import view_form from '@widgets/task/calendar-main-form/calendar-main-form.vue';
 
 /**
  * 任务编辑视图（日历航显示）视图
