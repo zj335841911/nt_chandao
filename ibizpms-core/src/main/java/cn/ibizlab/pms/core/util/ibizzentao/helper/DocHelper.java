@@ -3,7 +3,6 @@ package cn.ibizlab.pms.core.util.ibizzentao.helper;
 import cn.ibizlab.pms.core.zentao.domain.Doc;
 import cn.ibizlab.pms.core.zentao.domain.DocContent;
 import cn.ibizlab.pms.core.zentao.domain.DocLib;
-import cn.ibizlab.pms.core.zentao.domain.File;
 import cn.ibizlab.pms.core.zentao.mapper.DocMapper;
 import cn.ibizlab.pms.util.dict.StaticDict;
 import com.alibaba.fastjson.JSONArray;
@@ -11,9 +10,6 @@ import com.alibaba.fastjson.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Component
 public class DocHelper extends ZTBaseHelper<DocMapper, Doc> {
@@ -49,10 +45,6 @@ public class DocHelper extends ZTBaseHelper<DocMapper, Doc> {
         et.setVersion(1);
         et.setGroups("");
         et.setUsers("");
-        String files = et.getFiles();
-        boolean bOk = super.create(et);
-        if (!bOk)
-            return bOk;
 
         DocContent docContent = new DocContent();
         if (StaticDict.Doc__type.TEXT.getValue().equals(et.getType())) {
@@ -68,6 +60,10 @@ public class DocHelper extends ZTBaseHelper<DocMapper, Doc> {
         docContent.setType(StaticDict.Doccontent__type.HTML.getValue());
         docContent.setDigest("");
 
+        String files = et.getFiles();
+        boolean bOk = super.create(et);
+        if (!bOk)
+            return bOk;
         StringBuilder filesId = new StringBuilder();
         if (files != null) {
             JSONArray jsonArray = JSONArray.parseArray(files);
