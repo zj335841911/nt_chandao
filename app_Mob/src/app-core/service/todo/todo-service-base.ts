@@ -299,6 +299,21 @@ export class TodoServiceBase extends EntityService {
     }
 
     /**
+     * FetchMyTodoPc接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TodoServiceBase
+     */
+    public async FetchMyTodoPc(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/todos/fetchmytodopc`,tempData,isloading);
+        return res;
+    }
+
+    /**
      * FetchMyUpcoming接口方法
      *
      * @param {*} [context={}]
