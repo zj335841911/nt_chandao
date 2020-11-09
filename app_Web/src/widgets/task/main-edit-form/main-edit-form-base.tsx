@@ -179,6 +179,14 @@ export class MainEditEditFormBase extends EditFormControlBase {
                       group:[
                   {
                       type:"SIMPLE",
+                      condOP:"ISNULL",
+                      ruleInfo:"", 
+                      isKeyCond:false,
+                      isNotMode:false,
+                      deName:"eststarted",
+                  },
+                  {
+                      type:"SIMPLE",
                       condOP:"GTANDEQ",
                       ruleInfo:"截至日期必须大于等于预计开始", 
                       isKeyCond:false,
@@ -186,14 +194,6 @@ export class MainEditEditFormBase extends EditFormControlBase {
                       paramType:"ENTITYFIELD",
                       isNotMode:false,
                       deName:"deadline",
-                  },
-                  {
-                      type:"SIMPLE",
-                      condOP:"ISNULL",
-                      ruleInfo:"", 
-                      isKeyCond:false,
-                      isNotMode:false,
-                      deName:"eststarted",
                   },
                         ]
                   },
