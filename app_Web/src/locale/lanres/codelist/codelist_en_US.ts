@@ -153,6 +153,11 @@ export default {
     ProductBranch: {
         "empty": "",
     },
+    Doc__type: {
+        "text": "文档",
+        "url": "链接",
+        "empty": ""
+    },
     RunSQL: {
         "empty": "",
     },
@@ -259,6 +264,12 @@ export default {
     },
     Role: {
         "empty": "",
+    },
+    Doc__acl: {
+        "open": "公开",
+        "private": "私有",
+        "custom": "自定义",
+        "empty": ""
     },
     Date_disable: {
         "on": "待定",

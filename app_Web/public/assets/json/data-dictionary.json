@@ -1171,6 +1171,37 @@
         "items": []
     }, 
     {
+        "srfkey": "Doc__type",
+        "emptytext": "未定义",
+        "codelisttype":"static",
+        "items": [
+             {
+                "id": "text",
+                "label": "文档",
+                "text": "文档",
+                "class":"",
+                "data":"",
+                "codename":"Text",
+                "value": "text",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "url",
+                "label": "链接",
+                "text": "链接",
+                "class":"",
+                "data":"",
+                "codename":"Url",
+                "value": "url",
+                
+                "disabled": false,
+                "default": false
+            }
+        ]
+    }, 
+    {
         "srfkey": "RunSQL",
         "emptytext": "未定义",
         "codelisttype":"dynamic",
@@ -1972,6 +2003,49 @@
         "appdataentity":"Group",
         "appdedataset":"FetchDefault",
         "items": []
+    }, 
+    {
+        "srfkey": "Doc__acl",
+        "emptytext": "未定义",
+        "codelisttype":"static",
+        "items": [
+             {
+                "id": "open",
+                "label": "公开",
+                "text": "公开",
+                "class":"",
+                "data":"",
+                "codename":"Open",
+                "value": "open",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "private",
+                "label": "私有",
+                "text": "私有",
+                "class":"",
+                "data":"",
+                "codename":"Private",
+                "value": "private",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "custom",
+                "label": "自定义",
+                "text": "自定义",
+                "class":"",
+                "data":"",
+                "codename":"Custom",
+                "value": "custom",
+                
+                "disabled": false,
+                "default": false
+            }
+        ]
     }, 
     {
         "srfkey": "Date_disable",

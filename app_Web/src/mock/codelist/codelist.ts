@@ -1015,6 +1015,33 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         "items": []
     },
     {
+        srfkey: "Doc__type",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "text",
+                label: "文档",
+                text: "文档",
+                "data":"",
+                "codename":"Text",
+                value: "text",
+                
+                disabled: false,
+            },
+            {
+                id: "url",
+                label: "链接",
+                text: "链接",
+                "data":"",
+                "codename":"Url",
+                value: "url",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
         "srfkey": "RunSQL",
         "emptytext": "未定义",
         "codelisttype":"dynamic",
@@ -1704,6 +1731,43 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         "appdataentity":"Group",
         "appdedataset":"FetchDefault",
         "items": []
+    },
+    {
+        srfkey: "Doc__acl",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "open",
+                label: "公开",
+                text: "公开",
+                "data":"",
+                "codename":"Open",
+                value: "open",
+                
+                disabled: false,
+            },
+            {
+                id: "private",
+                label: "私有",
+                text: "私有",
+                "data":"",
+                "codename":"Private",
+                value: "private",
+                
+                disabled: false,
+            },
+            {
+                id: "custom",
+                label: "自定义",
+                text: "自定义",
+                "data":"",
+                "codename":"Custom",
+                value: "custom",
+                
+                disabled: false,
+            },
+        ]
     },
     {
         srfkey: "Date_disable",

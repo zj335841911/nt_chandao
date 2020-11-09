@@ -43,6 +43,10 @@ export default {
 			caption: "文档",
       		title: "doc表格视图",
 		},
+		createeditview: {
+			caption: "文档",
+      		title: "doc编辑视图",
+		},
 		docsumeditview9: {
 			caption: "文档摘要",
       		title: "文档编辑视图（文档摘要）",
@@ -150,6 +154,31 @@ export default {
 			id: "文档编号", 
 			product: "所属产品", 
 			project: "所属项目", 
+		},
+		uiactions: {
+		},
+	},
+	createeditform_form: {
+		details: {
+			formpage1: "基本信息", 
+			srforikey: "", 
+			srfkey: "文档编号", 
+			srfmajortext: "文档标题", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			lib: "所属文档库", 
+			libname: "所属文档库", 
+			module: "所属分类", 
+			modulename: "模块分类", 
+			title: "文档标题", 
+			keywords: "关键字", 
+			type: "文档类型", 
+			content: "文档正文", 
+			files: "附件", 
+			acl: "权限", 
+			id: "文档编号", 
 		},
 		uiactions: {
 		},

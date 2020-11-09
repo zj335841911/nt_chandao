@@ -1791,6 +1791,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "StoryCurProjectGridView",
             "viewtag": "7b1cc190cbffe1cd122d87a9d03b2d21"
         },
+        "doccreateeditview": {
+            "title": "doc编辑视图",
+            "caption": "文档",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "DocCreateEditView",
+            "viewtag": "7b8d03598e32aa0f535758927a17b98e"
+        },
         "modulegridview": {
             "title": "模块",
             "caption": "模块",
