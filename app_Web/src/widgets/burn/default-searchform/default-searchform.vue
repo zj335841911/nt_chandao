@@ -20,3 +20,6 @@ import { DefaultSearchFormBase } from './default-searchform-base';
 @VueLifeCycleProcessing()
 export default class DefaultSearchForm extends DefaultSearchFormBase { }
 </script>
+<style lang='less'>
+@import './default-searchform.less';
+</style>

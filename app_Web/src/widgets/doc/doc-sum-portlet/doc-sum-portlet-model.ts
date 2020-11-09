@@ -93,6 +93,9 @@ export default class DocSumModel {
       {
         name: 'url',
       },
+      {
+        name: 'docqtype',
+      },
     ]
   }
 

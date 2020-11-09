@@ -213,4 +213,12 @@ export interface Doc {
      * @memberof Doc
      */
     url?: any;
+
+    /**
+     * 文档查询类型
+     *
+     * @returns {*}
+     * @memberof Doc
+     */
+    docqtype?: any;
 }

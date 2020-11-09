@@ -66,40 +66,33 @@ public class DocServiceImpl extends ServiceImpl<DocMapper, Doc> implements IDocS
 
     protected int batchSize = 500;
 
-    @Override
+        @Override
     @Transactional
     public boolean create(Doc et) {
-        fillParentData(et);
-        if(!this.retBool(this.baseMapper.insert(et)))
-            return false;
-        CachedBeanCopier.copy(get(et.getId()),et);
-        return true;
+  			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.DocHelper.class).create(et);
     }
 
     @Override
-    @Transactional
     public void createBatch(List<Doc> list) {
-        list.forEach(item->fillParentData(item));
-        this.saveBatch(list,batchSize);
-    }
 
-    @Override
+    }
+        @Override
     @Transactional
     public boolean update(Doc et) {
-        fillParentData(et);
-         if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
-            return false;
-        CachedBeanCopier.copy(get(et.getId()),et);
-        return true;
+        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
+        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTDocHelper.edit(zentaoSid, cn.ibizlab.pms.core.util.zentao.helper.TransHelper.ET2JO(et, "update"), rst);
+        if (bRst && rst.getEtId() != null) {
+            et = this.get(rst.getEtId());
+        }
+        et.set("ztrst", rst);
+        return bRst;
     }
 
     @Override
-    @Transactional
     public void updateBatch(List<Doc> list) {
-        list.forEach(item->fillParentData(item));
-        updateBatchById(list,batchSize);
-    }
 
+    }
     @Override
     @Transactional
     public boolean remove(Long key) {

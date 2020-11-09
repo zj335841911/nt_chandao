@@ -140,6 +140,13 @@ public class IBIZProMessage extends EntityClient implements Serializable {
     @JsonProperty("ibizpro_messageid")
     private String ibizproMessageid;
 
+    /**
+     * 是否已完成
+     */
+    @JSONField(name = "isdone")
+    @JsonProperty("isdone")
+    private Integer isdone;
+
 
 
 
@@ -254,6 +261,14 @@ public class IBIZProMessage extends EntityClient implements Serializable {
     public void setIslink(Integer islink){
         this.islink = islink ;
         this.modify("islink",islink);
+    }
+
+    /**
+     * 设置 [是否已完成]
+     */
+    public void setIsdone(Integer isdone){
+        this.isdone = isdone ;
+        this.modify("isdone",isdone);
     }
 
     /**

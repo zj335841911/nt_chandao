@@ -26,6 +26,7 @@ export default {
     content: "文档正文",
     files: "附件",
     url: "文档链接",
+    docqtype: "文档查询类型",
   },
 	views: {
 		basiceditview9: {

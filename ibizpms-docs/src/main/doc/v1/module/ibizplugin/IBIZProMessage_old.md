@@ -24,6 +24,7 @@
 |是否重发|ISRETRY|NSCODELIST|&nbsp;|
 |是否是链接消息|ISLINK|NSCODELIST|&nbsp;|
 |消息标识|IBIZPRO_MESSAGEID|TEXT|&nbsp;|
+|是否已完成|ISDONE|NSCODELIST|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -43,6 +44,7 @@
 |是否重发|默认规则|默认规则|
 |是否是链接消息|默认规则|默认规则|
 |消息标识|默认规则|内容长度必须小于等于[100]|
+|是否已完成|默认规则|默认规则|
 
 ## 状态控制
 
@@ -86,6 +88,7 @@
 |是否同步(ISSYNC)|EQ|
 |是否重发(ISRETRY)|EQ|
 |是否是链接消息(ISLINK)|EQ|
+|是否已完成(ISDONE)|EQ|
 
 ## 导入模式
 无

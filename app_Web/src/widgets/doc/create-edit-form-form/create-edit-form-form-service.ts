@@ -109,11 +109,11 @@ export default class CreateEditFormService extends ControlService {
     public getItems(serviceName: string, interfaceName: string, context: any = {}, data: any, isloading?: boolean): Promise<any[]> {
         data.page = data.page ? data.page : 0;
         data.size = data.size ? data.size : 1000;
-        if (Object.is(serviceName, 'DocLibService') && Object.is(interfaceName, 'FetchDefault')) {
-            return this.doItems(this.doclibService.FetchDefault(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'doclib');
+        if (Object.is(serviceName, 'DocLibService') && Object.is(interfaceName, 'FetchCurDocLib')) {
+            return this.doItems(this.doclibService.FetchCurDocLib(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'doclib');
         }
-        if (Object.is(serviceName, 'ModuleService') && Object.is(interfaceName, 'FetchDefault')) {
-            return this.doItems(this.moduleService.FetchDefault(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'module');
+        if (Object.is(serviceName, 'ModuleService') && Object.is(interfaceName, 'FetchDocModule')) {
+            return this.doItems(this.moduleService.FetchDocModule(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'module');
         }
 
         return Promise.reject([])

@@ -93,6 +93,9 @@ export default class KeywordsModel {
       {
         name: 'url',
       },
+      {
+        name: 'docqtype',
+      },
     ]
   }
 

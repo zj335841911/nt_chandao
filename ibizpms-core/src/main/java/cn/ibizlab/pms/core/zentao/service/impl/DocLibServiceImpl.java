@@ -214,6 +214,15 @@ public class DocLibServiceImpl extends ServiceImpl<DocLibMapper, DocLib> impleme
     }
 
     /**
+     * 查询集合 所属文档库
+     */
+    @Override
+    public Page<DocLib> searchCurDocLib(DocLibSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<DocLib> pages=baseMapper.searchCurDocLib(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<DocLib>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
      * 查询集合 DEFAULT
      */
     @Override

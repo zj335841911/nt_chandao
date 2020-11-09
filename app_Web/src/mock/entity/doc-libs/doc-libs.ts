@@ -403,6 +403,50 @@ mock.onGet(new RegExp(/^\/doclibs\/fetchbyproject(\?[\w-./?%&=,]*)*$/)).reply((c
     return [status, records ?  records : []];
 });
     
+// FetchCurDocLib
+mock.onGet(new RegExp(/^\/doclibs\/fetchcurdoclib$/)).reply((config: any) => {
+    console.groupCollapsed("实体:doclib 方法: FetchCurDocLib");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(mockDatas);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, mockDatas ? mockDatas : []];
+});
+
+// FetchCurDocLib
+mock.onGet(new RegExp(/^\/doclibs\/fetchcurdoclib(\?[\w-./?%&=,]*)*$/)).reply((config: any) => {
+    console.groupCollapsed("实体:doclib 方法: FetchCurDocLib");
+    console.table({url:config.url, method: config.method, data:config.data});
+    if(config.url.includes('page')){
+        let url = config.url.split('?')[1];
+        let params  =  qs.parse(url);
+        Object.assign(config, params);
+    }
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    let total = mockDatas.length;
+    let records: Array<any> = [];
+    if(!config.page || !config.size){
+        records = mockDatas;
+    }else{
+        if((config.page-1)*config.size < total){
+          records = mockDatas.slice(config.page,config.size);
+        }
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(records ?  records : []);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, records ?  records : []];
+});
+    
 // FetchDefault
 mock.onGet(new RegExp(/^\/doclibs\/fetchdefault$/)).reply((config: any) => {
     console.groupCollapsed("实体:doclib 方法: FetchDefault");

@@ -1074,7 +1074,23 @@ FROM
 #### SQL
 - MYSQL5
 ```SQL
-
+SELECT
+t1.`ACL`,
+t1.`DELETED`,
+'doc' AS `DOCLIBTYPE`,
+t1.`GROUPS`,
+t1.`ID`,
+t1.`MAIN`,
+ CONCAT_WS('',case when t1.type = 'product' then '/[产品]/' when t1.type = 'project' then '/[项目]/' else '/' end,case when t1.type = 'product' then t21.`name` when t1.type = 'project' then t11.`name` else '' end,case when t1.type = 'product' then '/' when t1.type = 'project' then '/' else '' end,t1.`name`)  as `NAME`,
+t1.`ORDER`,
+t1.`PRODUCT`,
+t21.`NAME` AS `PRODUCTNAME`,
+t1.`PROJECT`,
+t11.`NAME` AS `PROJECTNAME`,
+t1.`TYPE`
+FROM `zt_doclib` t1 
+LEFT JOIN zt_project t11 ON t1.PROJECT = t11.ID 
+LEFT JOIN zt_product t21 ON t1.PRODUCT = t21.ID
 ```
 ### 数据查询-DEFAULT（Default）
 #### 说明
@@ -1149,7 +1165,8 @@ LEFT JOIN zt_product t21 ON t1.PRODUCT = t21.ID
 | 1 | [自定义文档库](#数据集合-自定义文档库（ByCustom）) | ByCustom | 否 |
 | 2 | [产品文档库](#数据集合-产品文档库（ByProduct）) | ByProduct | 否 |
 | 3 | [项目文件库](#数据集合-项目文件库（ByProject）) | ByProject | 否 |
-| 4 | [DEFAULT](#数据集合-DEFAULT（Default）) | Default | 是 |
+| 4 | [所属文档库](#数据集合-所属文档库（CurDocLib）) | CurDocLib | 否 |
+| 5 | [DEFAULT](#数据集合-DEFAULT（Default）) | Default | 是 |
 
 ### 数据集合-自定义文档库（ByCustom）
 #### 说明
@@ -1193,6 +1210,20 @@ LEFT JOIN zt_product t21 ON t1.PRODUCT = t21.ID
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [项目文件库（ByProject）](#数据查询-项目文件库（ByProject）) |
+### 数据集合-所属文档库（CurDocLib）
+#### 说明
+所属文档库
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [所属文档库（CurDocLib）](#数据查询-所属文档库（CurDocLib）) |
 ### 数据集合-DEFAULT（Default）
 #### 说明
 DEFAULT

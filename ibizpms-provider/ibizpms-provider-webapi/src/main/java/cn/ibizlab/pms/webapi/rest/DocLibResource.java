@@ -201,6 +201,28 @@ public class DocLibResource {
                 .body(new PageImpl(doclibMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-DocLib-searchCurDocLib-all')")
+	@ApiOperation(value = "获取所属文档库", tags = {"文档库" } ,notes = "获取所属文档库")
+    @RequestMapping(method= RequestMethod.GET , value="/doclibs/fetchcurdoclib")
+	public ResponseEntity<List<DocLibDTO>> fetchCurDocLib(DocLibSearchContext context) {
+        Page<DocLib> domains = doclibService.searchCurDocLib(context) ;
+        List<DocLibDTO> list = doclibMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-DocLib-searchCurDocLib-all')")
+	@ApiOperation(value = "查询所属文档库", tags = {"文档库" } ,notes = "查询所属文档库")
+    @RequestMapping(method= RequestMethod.POST , value="/doclibs/searchcurdoclib")
+	public ResponseEntity<Page<DocLibDTO>> searchCurDocLib(@RequestBody DocLibSearchContext context) {
+        Page<DocLib> domains = doclibService.searchCurDocLib(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(doclibMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-DocLib-searchDefault-all')")
 	@ApiOperation(value = "获取DEFAULT", tags = {"文档库" } ,notes = "获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/doclibs/fetchdefault")

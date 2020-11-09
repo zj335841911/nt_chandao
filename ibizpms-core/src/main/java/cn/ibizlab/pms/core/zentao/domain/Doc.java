@@ -237,6 +237,13 @@ public class Doc extends EntityMP implements Serializable {
     @JSONField(name = "url")
     @JsonProperty("url")
     private String url;
+    /**
+     * 文档查询类型
+     */
+    @TableField(exist = false)
+    @JSONField(name = "docqtype")
+    @JsonProperty("docqtype")
+    private String docqtype;
 
     /**
      * 

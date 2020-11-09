@@ -100,6 +100,7 @@ hide members
 |ByCustom|自定义文档库|ByCustom|否|&nbsp;|
 |ByProduct|产品文档库|ByProduct|否|&nbsp;|
 |ByProject|项目文件库|ByProject|否|&nbsp;|
+|CurDocLib|所属文档库|CurDocLib|否|&nbsp;|
 |DEFAULT|DEFAULT|DEFAULT|是|&nbsp;|
 
 ## 查询模式

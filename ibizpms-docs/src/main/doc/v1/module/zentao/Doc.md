@@ -49,6 +49,7 @@
 | 24 | [文档正文](#属性-文档正文（CONTENT）) | CONTENT | HTML文本，没有长度限制 | 否 | 是 | 是 |
 | 25 | [附件](#属性-附件（FILES）) | FILES | 文本，可指定长度 | 否 | 是 | 是 |
 | 26 | [文档链接](#属性-文档链接（URL）) | URL | 文本，可指定长度 | 否 | 是 | 是 |
+| 27 | [文档查询类型](#属性-文档查询类型（DOCQTYPE）) | DOCQTYPE | 文本，可指定长度 | 否 | 是 | 是 |
 
 ### 属性-分组（GROUPS）
 #### 属性说明
@@ -1156,6 +1157,49 @@ String
 | 关系属性 | [模块名称（NAME）](../zentao/Module/#属性-模块名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
+### 属性-文档查询类型（DOCQTYPE）
+#### 属性说明
+文档查询类型
+
+- 是否是主键
+否
+
+- 属性类型
+逻辑字段[来自计算式]
+
+- 数据类型
+文本，可指定长度
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+```SQL
+'doc'
+```
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [模块（ZT_MODULE）](../zentao/Module) |
+| 关系属性 | [模块名称（NAME）](../zentao/Module/#属性-模块名称（NAME）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
 
 ## 业务状态
 无
@@ -1334,6 +1378,7 @@ t1.`ACL`,
 t1.`ADDEDBY`,
 t1.`ADDEDDATE`,
 t1.`DELETED`,
+'doc' AS `DOCQTYPE`,
 t1.`EDITEDBY`,
 t1.`EDITEDDATE`,
 t1.`GROUPS`,
@@ -1377,6 +1422,7 @@ t1.`ADDEDBY`,
 t1.`ADDEDDATE`,
 t1.`COLLECTOR`,
 t1.`DELETED`,
+'doc' AS `DOCQTYPE`,
 t1.`EDITEDBY`,
 t1.`EDITEDDATE`,
 t1.`GROUPS`,

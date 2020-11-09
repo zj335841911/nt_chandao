@@ -466,6 +466,27 @@ public class StaticDict {
     }
 
 
+    /**
+     * 代码表[插件_消息类型]
+     */
+    @Getter
+    public enum Message__type {
+        TODO("todo","待办"),
+        TOREAD("toread","待阅");
+
+        private String value;
+        private String text;
+        private String valueSeparator="";
+        private String textSeparator="";
+        private String emptyText="";
+
+        Message__type(String value , String text) {
+            this.value=value;
+            this.text = text;
+        }
+    }
+
+
 
     /**
      * 代码表[测试用例工具/框架]

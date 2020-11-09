@@ -13854,6 +13854,7 @@ CREATE TABLE `zt_casestep`(
 | EDITEDDATE        | 更新时间  | DATETIME      |   -1   | &nbsp; |
 | VIEWS        | views  | INTEGER      |   -1   | &nbsp; |
 | ID        | 文档编号  |       |   8   | 主键&nbsp; |
+| DOCQTYPE        | 文档查询类型  | VARCHAR      |   200   | &nbsp; |
 | KEYWORDS        | 关键字  | VARCHAR      |   255   | &nbsp; |
 | TITLE        | 文档标题  | VARCHAR      |   255   | &nbsp; |
 | USERS        | 用户  | CLOB      |   65,535   | &nbsp; |
@@ -26549,6 +26550,7 @@ CREATE TABLE `zt_history`(
 | --------   |------------| :-----:   | :----: | :--------- | 
 | FROM        | 发送方  | CLOB      |   1,048,576   | &nbsp; |
 | ISLINK        | 是否是链接消息  | INTEGER      |   -1   | &nbsp; |
+| ISDONE        | 是否已完成  | INTEGER      |   -1   | &nbsp; |
 | RETRYINTERVALTIME        | 重发间隔时间  | INTEGER      |   -1   | &nbsp; |
 | IBIZPRO_MESSAGENAME        | 消息名称  | VARCHAR      |   100   | &nbsp; |
 | IBIZPRO_MESSAGEID        | 消息标识  | VARCHAR      |   100   | 主键&nbsp; |

@@ -16,7 +16,7 @@
   deMajorField='name'
   deKeyField='doclib'
   :service="service"
-  :acParams="{ serviceName: 'DocLibService', interfaceName: 'FetchDefault'}"
+  :acParams="{ serviceName: 'DocLibService', interfaceName: 'FetchCurDocLib'}"
   valueitem='lib'
   :value="data.libname"
   editortype="dropdown"
@@ -34,14 +34,14 @@
   :data="data"
   :context="context"
   :viewparams="viewparams"
-  :localContext ='{ }' 
-  :localParam ='{ }' 
+  :localContext ='{ DOCLIB:"%lib%" }' 
+  :localParam ='{ doclib:"%lib%" }' 
   :disabled="detailsModel.modulename.disabled"
   name='modulename'
   deMajorField='name'
   deKeyField='module'
   :service="service"
-  :acParams="{ serviceName: 'ModuleService', interfaceName: 'FetchDefault'}"
+  :acParams="{ serviceName: 'ModuleService', interfaceName: 'FetchDocModule'}"
   valueitem='module'
   :value="data.modulename"
   editortype="dropdown"

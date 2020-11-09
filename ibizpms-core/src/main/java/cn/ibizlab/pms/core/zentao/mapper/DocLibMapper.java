@@ -22,6 +22,7 @@ public interface DocLibMapper extends BaseMapper<DocLib>{
     Page<DocLib> searchByCustom(IPage page, @Param("srf") DocLibSearchContext context, @Param("ew") Wrapper<DocLib> wrapper) ;
     Page<DocLib> searchByProduct(IPage page, @Param("srf") DocLibSearchContext context, @Param("ew") Wrapper<DocLib> wrapper) ;
     Page<DocLib> searchByProject(IPage page, @Param("srf") DocLibSearchContext context, @Param("ew") Wrapper<DocLib> wrapper) ;
+    Page<DocLib> searchCurDocLib(IPage page, @Param("srf") DocLibSearchContext context, @Param("ew") Wrapper<DocLib> wrapper) ;
     Page<DocLib> searchDefault(IPage page, @Param("srf") DocLibSearchContext context, @Param("ew") Wrapper<DocLib> wrapper) ;
     @Override
     DocLib selectById(Serializable id);

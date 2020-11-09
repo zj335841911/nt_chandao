@@ -39,6 +39,7 @@ public interface IDocLibService extends IService<DocLib>{
     Page<DocLib> searchByCustom(DocLibSearchContext context) ;
     Page<DocLib> searchByProduct(DocLibSearchContext context) ;
     Page<DocLib> searchByProject(DocLibSearchContext context) ;
+    Page<DocLib> searchCurDocLib(DocLibSearchContext context) ;
     Page<DocLib> searchDefault(DocLibSearchContext context) ;
     List<DocLib> selectByProduct(Long id);
     void removeByProduct(Long id) ;

@@ -93,6 +93,9 @@ export default class BasicModel {
       {
         name: 'url',
       },
+      {
+        name: 'docqtype',
+      },
     ]
   }
 

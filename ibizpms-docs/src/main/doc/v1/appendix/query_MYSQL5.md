@@ -4767,6 +4767,7 @@ t1.`ACL`,
 t1.`ADDEDBY`,
 t1.`ADDEDDATE`,
 t1.`DELETED`,
+'doc' AS `DOCQTYPE`,
 t1.`EDITEDBY`,
 t1.`EDITEDDATE`,
 t1.`GROUPS`,
@@ -4801,6 +4802,7 @@ t1.`ADDEDBY`,
 t1.`ADDEDDATE`,
 t1.`COLLECTOR`,
 t1.`DELETED`,
+'doc' AS `DOCQTYPE`,
 t1.`EDITEDBY`,
 t1.`EDITEDDATE`,
 t1.`GROUPS`,
@@ -4970,7 +4972,23 @@ t1.project = #{srf.datacontext.project}
 ```
 ### 所属文档库(CurDocLib)<div id="DocLib_CurDocLib"></div>
 ```sql
-
+SELECT
+t1.`ACL`,
+t1.`DELETED`,
+'doc' AS `DOCLIBTYPE`,
+t1.`GROUPS`,
+t1.`ID`,
+t1.`MAIN`,
+ CONCAT_WS('',case when t1.type = 'product' then '/[产品]/' when t1.type = 'project' then '/[项目]/' else '/' end,case when t1.type = 'product' then t21.`name` when t1.type = 'project' then t11.`name` else '' end,case when t1.type = 'product' then '/' when t1.type = 'project' then '/' else '' end,t1.`name`)  as `NAME`,
+t1.`ORDER`,
+t1.`PRODUCT`,
+t21.`NAME` AS `PRODUCTNAME`,
+t1.`PROJECT`,
+t11.`NAME` AS `PROJECTNAME`,
+t1.`TYPE`
+FROM `zt_doclib` t1 
+LEFT JOIN zt_project t11 ON t1.PROJECT = t11.ID 
+LEFT JOIN zt_product t21 ON t1.PRODUCT = t21.ID
 ```
 ### DEFAULT(DEFAULT)<div id="DocLib_Default"></div>
 ```sql
@@ -5496,6 +5514,7 @@ FROM `zt_history` t1
 SELECT
 t1.`IBIZPRO_MESSAGEID`,
 t1.`IBIZPRO_MESSAGENAME`,
+t1.`ISDONE`,
 t1.`ISLINK`,
 t1.`ISRETRY`,
 t1.`ISSYNC`,
@@ -5515,6 +5534,7 @@ t1.`CONTENT`,
 t1.`FROM`,
 t1.`IBIZPRO_MESSAGEID`,
 t1.`IBIZPRO_MESSAGENAME`,
+t1.`ISDONE`,
 t1.`ISLINK`,
 t1.`ISRETRY`,
 t1.`ISSYNC`,

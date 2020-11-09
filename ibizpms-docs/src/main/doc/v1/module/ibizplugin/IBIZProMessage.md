@@ -31,6 +31,7 @@
 | 13 | [是否重发](#属性-是否重发（ISRETRY）) | ISRETRY | 单项选择(数值) | 否 | 否 | 是 |
 | 14 | [是否是链接消息](#属性-是否是链接消息（ISLINK）) | ISLINK | 单项选择(数值) | 否 | 否 | 是 |
 | 15 | [消息标识](#属性-消息标识（IBIZPRO_MESSAGEID）) | IBIZPRO_MESSAGEID | 文本，可指定长度 | 是 | 否 | 是 |
+| 16 | [是否已完成](#属性-是否已完成（ISDONE）) | ISDONE | 单项选择(数值) | 否 | 否 | 是 |
 
 ### 属性-重发次数（RETRYTIMES）
 #### 属性说明
@@ -427,7 +428,7 @@ String
 无
 
 - 取值范围/公式
-无
+参照数据字典【[插件_消息类型（Message__type）](../../codelist/Message__type)】
 
 - 数据格式
 无
@@ -597,6 +598,45 @@ String
 #### 关系属性
 无
 
+### 属性-是否已完成（ISDONE）
+#### 属性说明
+是否已完成
+
+- 是否是主键
+否
+
+- 属性类型
+物理字段[来自当前实体物理表字段]
+
+- 数据类型
+单项选择(数值)
+
+- Java类型
+Integer
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+参照数据字典【[是否（数值）（YesNo2）](../../codelist/YesNo2)】
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+| 序号 | 组合方式 |
+| ---- | ---- |
+| 1 | `=` |
+
+#### 关系属性
+无
+
 
 ## 业务状态
 无
@@ -714,6 +754,7 @@ Save
 | 3 | [是否同步（ISSYNC）](#属性-是否同步（ISSYNC）) | `=` |
 | 4 | [是否重发（ISRETRY）](#属性-是否重发（ISRETRY）) | `=` |
 | 5 | [是否是链接消息（ISLINK）](#属性-是否是链接消息（ISLINK）) | `=` |
+| 6 | [是否已完成（ISDONE）](#属性-是否已完成（ISDONE）) | `=` |
 
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |
@@ -737,6 +778,7 @@ Save
 SELECT
 t1.`IBIZPRO_MESSAGEID`,
 t1.`IBIZPRO_MESSAGENAME`,
+t1.`ISDONE`,
 t1.`ISLINK`,
 t1.`ISRETRY`,
 t1.`ISSYNC`,
@@ -767,6 +809,7 @@ t1.`CONTENT`,
 t1.`FROM`,
 t1.`IBIZPRO_MESSAGEID`,
 t1.`IBIZPRO_MESSAGENAME`,
+t1.`ISDONE`,
 t1.`ISLINK`,
 t1.`ISRETRY`,
 t1.`ISSYNC`,

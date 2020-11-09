@@ -5163,6 +5163,21 @@
     "key_field":0,
     "show_order":1000,
     "major_field":0
+    },
+    {
+    "fieldname":"DOCQTYPE" ,
+    "codename":"Docqtype",
+    "field_logic_name":"文档查询类型",
+    "entity_name":"Doc",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":200,
+    "expression":"'doc'",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
     }
     ],
     "subEntitys":[
@@ -7520,6 +7535,7 @@
     "field_logic_name":"消息类型",
     "entity_name":"IBIZProMessage",
     "field_type":"SSCODELIST",
+    "dict":"Message__type",
     "nullable":1,
     "physical_field":1,
     "data_type":"VARCHAR",
@@ -7581,6 +7597,20 @@
     "data_type":"VARCHAR",
     "data_length":100,
     "key_field":1,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"ISDONE" ,
+    "codename":"Isdone",
+    "field_logic_name":"是否已完成",
+    "entity_name":"IBIZProMessage",
+    "field_type":"NSCODELIST",
+    "dict":"YesNo2",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"INT",
+    "key_field":0,
     "show_order":1000,
     "major_field":0
     }

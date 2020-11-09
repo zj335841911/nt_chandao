@@ -93,6 +93,9 @@ export default class DocActionModel {
       {
         name: 'url',
       },
+      {
+        name: 'docqtype',
+      },
     ]
   }
 
