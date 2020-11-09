@@ -722,6 +722,7 @@ export default {
 			button3: "解决", 
 			button4: "关闭", 
 			button5: "激活", 
+			button6: "编辑", 
 			grouppanel3: "分组面板", 
 			grouppanel4: "重现步骤", 
 			druipart1: "", 
@@ -752,6 +753,7 @@ export default {
 			bug_resolvebugdash: "解决",
 			bug_closebugdash: "关闭",
 			bug_activation: "激活",
+			bug_maineditdash: "编辑",
 		},
 	},
 	storyaffectbug_grid: {

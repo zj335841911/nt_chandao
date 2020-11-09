@@ -675,6 +675,7 @@ export default {
 			button5: "取消", 
 			button6: "关闭", 
 			button9: "子任务", 
+			button10: "编辑", 
 			grouppanel5: "分组面板", 
 			grouppanel4: "操作", 
 			grouppanel3: "任务描述", 
@@ -719,6 +720,7 @@ export default {
         task_canceltaskdash: "取消",
         task_closetaskdash: "关闭",
         task_newsubtaskdash: "子任务",
+        task_maineditdash: "编辑",
 		},
 	},
 	main2_grid: {

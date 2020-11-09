@@ -118,6 +118,14 @@ tag='Bug__pri' codelistType='STATIC' :data="data" :context="context" :viewparams
     </i-button>
 
 </i-col>
+<i-col class="form-layout-container" v-show="detailsModel.button6.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 2, offset: 0 }">
+        <i-button type="primary" @click="button6_click($event)"
+         style="">
+              <menu-icon :item="{iconcls: 'fa fa-edit'}" />
+        
+    </i-button>
+
+</i-col>
     
     </row>
 </app-form-group>

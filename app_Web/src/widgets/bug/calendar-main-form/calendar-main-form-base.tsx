@@ -208,6 +208,34 @@ export class CalendarMainEditFormBase extends EditFormControlBase {
         curUIService.Bug_Activation(datas,contextJO, paramJO,  $event, xData,this,"Bug");
     }
 
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public form_button6_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:BugUIService  = new BugUIService();
+        curUIService.Bug_MainEditDash(datas,contextJO, paramJO,  $event, xData,this,"Bug");
+    }
+
 
     /**
      * 关系界面数量
@@ -305,6 +333,9 @@ export class CalendarMainEditFormBase extends EditFormControlBase {
         button5: new FormButtonModel({ caption: '激活', detailType: 'BUTTON', name: 'button5', visible: true, isShowCaption: false, form: this, showMoreMode: 0,disabled: false, uiaction: { type: 'DEUIACTION', 
  tag: 'Activation',actiontarget: 'SINGLEKEY',noprivdisplaymode:2,dataaccaction:'SRFUR__BUG_ACTIVATE_BUT',visabled: true,disabled: false} }),
 
+        button6: new FormButtonModel({ caption: '编辑', detailType: 'BUTTON', name: 'button6', visible: true, isShowCaption: false, form: this, showMoreMode: 0,disabled: false, uiaction: { type: 'DEUIACTION', 
+ tag: 'MainEditDash',actiontarget: 'SINGLEKEY',noprivdisplaymode:2,dataaccaction:'SRFUR__BUG_EDIT_BUT',visabled: true,disabled: false} }),
+
         grouppanel3: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel3', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.bug.calendarmain_form', extractMode: 'ITEM', details: [] } }),
 
         grouppanel4: new FormGroupPanelModel({ caption: '重现步骤', detailType: 'GROUPPANEL', name: 'grouppanel4', visible: true, isShowCaption: true, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.bug.calendarmain_form', extractMode: 'ITEM', details: [] } }),
@@ -400,6 +431,16 @@ export class CalendarMainEditFormBase extends EditFormControlBase {
 	 */
     public button5_click($event: any): void {
         this.form_button5_click(null, null, $event);
+
+    }
+
+	/**
+	 * 表单 编辑 事件
+	 *
+	 * @memberof @memberof CalendarMainEditFormBase
+	 */
+    public button6_click($event: any): void {
+        this.form_button6_click(null, null, $event);
 
     }
 }

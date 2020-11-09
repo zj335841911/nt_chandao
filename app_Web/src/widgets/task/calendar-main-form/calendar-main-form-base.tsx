@@ -320,6 +320,34 @@ export class CalendarMainEditFormBase extends EditFormControlBase {
         curUIService.Task_NewSubTaskDash(datas,contextJO, paramJO,  $event, xData,this,"Task");
     }
 
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public form_button10_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:TaskUIService  = new TaskUIService();
+        curUIService.Task_MainEditDash(datas,contextJO, paramJO,  $event, xData,this,"Task");
+    }
+
 
     /**
      * 关系界面数量
@@ -449,6 +477,9 @@ export class CalendarMainEditFormBase extends EditFormControlBase {
         button9: new FormButtonModel({ caption: '子任务', detailType: 'BUTTON', name: 'button9', visible: true, isShowCaption: false, form: this, showMoreMode: 0,disabled: false, uiaction: { type: 'DEUIACTION', 
  tag: 'NewSubTaskDash',actiontarget: 'SINGLEKEY',noprivdisplaymode:2,dataaccaction:'SRFUR__TASK_SUBTASKS_BUT',visabled: true,disabled: false} }),
 
+        button10: new FormButtonModel({ caption: '编辑', detailType: 'BUTTON', name: 'button10', visible: true, isShowCaption: false, form: this, showMoreMode: 0,disabled: false, uiaction: { type: 'DEUIACTION', 
+ tag: 'MainEditDash',actiontarget: 'SINGLEKEY',noprivdisplaymode:2,dataaccaction:'SRFUR__TASK_EDIT_BUT',visabled: true,disabled: false} }),
+
         grouppanel5: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel5', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.task.calendarmain_form', extractMode: 'ITEM', details: [] } }),
 
         grouppanel4: new FormGroupPanelModel({ caption: '操作', detailType: 'GROUPPANEL', name: 'grouppanel4', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.task.calendarmain_form', extractMode: 'ITEM', details: [] } }),
@@ -518,6 +549,7 @@ export class CalendarMainEditFormBase extends EditFormControlBase {
      */
     public async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): Promise<void> {
                 
+
 
 
 
@@ -654,6 +686,16 @@ export class CalendarMainEditFormBase extends EditFormControlBase {
 	 */
     public button9_click($event: any): void {
         this.form_button9_click(null, null, $event);
+
+    }
+
+	/**
+	 * 表单 编辑 事件
+	 *
+	 * @memberof @memberof CalendarMainEditFormBase
+	 */
+    public button10_click($event: any): void {
+        this.form_button10_click(null, null, $event);
 
     }
 }
