@@ -50,6 +50,9 @@ public class DocLibServiceImpl extends ServiceImpl<DocLibMapper, DocLib> impleme
 
     @Autowired
     @Lazy
+    protected cn.ibizlab.pms.core.ibiz.service.IDocLibModuleService doclibmoduleService;
+    @Autowired
+    @Lazy
     protected cn.ibizlab.pms.core.zentao.service.IDocService docService;
     @Autowired
     @Lazy

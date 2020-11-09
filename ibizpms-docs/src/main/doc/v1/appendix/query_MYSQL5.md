@@ -2101,6 +2101,8 @@ LEFT JOIN zt_case t71 ON t1.CASE = t71.ID
 
 WHERE t1.DELETED = '0' 
 t1.plan <> ${srfwebcontext('plan','{"defname":"id","dename":"ZT_PRODUCTPLAN"}')} 
+t1.product = ${srfwebcontext('product','{"defname":"id","dename":"ZT_PRODUCT"}')} 
+t1.status = 'active' order by t1.id desc 
 
 ```
 ### 发布关联Bug（已解决）(ReleaseBugs)<div id="Bug_ReleaseBugs"></div>
@@ -5023,6 +5025,7 @@ t1.`NAME`,
 t1.`ORDER`,
 t1.`OWNER`,
 t1.`PATH`,
+t1.`ROOT`,
 t1.`SHORT`,
 t1.`TYPE`
 FROM `zt_module` t1 
@@ -5043,6 +5046,7 @@ t1.`NAME`,
 t1.`ORDER`,
 t1.`OWNER`,
 t1.`PATH`,
+t1.`ROOT`,
 t1.`SHORT`,
 t1.`TYPE`
 FROM `zt_module` t1 

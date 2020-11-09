@@ -5565,6 +5565,12 @@
     }
     ],
     "subEntitys":[
+    {"name":"DER1N_IBZ_DOCLIBMODULE_ZT_DOCLIB_ROOT",
+     "relation_type":"DER1N",
+     "code_name":"DocLib",
+     "entity_name":"IBZ_DOCLIBMODULE",
+     "ref_entity_name":"ZT_DOCLIB"
+    },
     {"name":"DER1N_ZT_DOC_ZT_DOCLIB_LIB",
      "relation_type":"DER1N",
      "code_name":"Zt_doclib",
@@ -5763,11 +5769,35 @@
     "key_field":0,
     "show_order":1000,
     "major_field":0
+    },
+    {
+    "fieldname":"ROOT" ,
+    "codename":"Root",
+    "field_logic_name":"编号",
+    "entity_name":"DocLibModule",
+    "ref_de":"ZT_DOCLIB",
+    "ref_field_name":"ID",
+    "relation_name":"DER1N_IBZ_DOCLIBMODULE_ZT_DOCLIB_ROOT",
+    "relation_codename":"DocLib",
+    "field_type":"PICKUP",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"BIGINT",
+    "data_length":8,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
     }
     ],
     "subEntitys":[
     ],
     "parentEntitys":[
+    {"name":"DER1N_IBZ_DOCLIBMODULE_ZT_DOCLIB_ROOT",
+     "relation_type":"DER1N",
+     "code_name":"DocLib",
+     "entity_name":"IBZ_DOCLIBMODULE",
+     "ref_entity_name":"ZT_DOCLIB"
+    }
     ]
  }
     ,

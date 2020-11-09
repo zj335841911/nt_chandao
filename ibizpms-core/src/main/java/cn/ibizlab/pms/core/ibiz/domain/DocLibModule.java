@@ -138,6 +138,21 @@ public class DocLibModule extends EntityMP implements Serializable {
     @JSONField(name = "type")
     @JsonProperty("type")
     private String type;
+    /**
+     * 编号
+     */
+    @TableField(value = "`root`")
+    @JSONField(name = "root")
+    @JsonProperty("root")
+    private Long root;
+
+    /**
+     * 文档分类
+     */
+    @JsonIgnore
+    @JSONField(serialize = false)
+    @TableField(exist = false)
+    private cn.ibizlab.pms.core.zentao.domain.DocLib doclib;
 
 
 
@@ -211,6 +226,14 @@ public class DocLibModule extends EntityMP implements Serializable {
     public void setType(String type){
         this.type = type ;
         this.modify("type",type);
+    }
+
+    /**
+     * 设置 [编号]
+     */
+    public void setRoot(Long root){
+        this.root = root ;
+        this.modify("root",root);
     }
 
 
