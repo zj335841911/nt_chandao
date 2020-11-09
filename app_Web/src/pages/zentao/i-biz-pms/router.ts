@@ -9244,6 +9244,74 @@ const router = new Router({
                     component: () => import('@pages/zentao/story-main-my-grid-view/story-main-my-grid-view.vue'),
                 },
                 {
+                    path: 'products/:product?/stories/:story?/tasks/:task?/taskgroupgridview/:taskgroupgridview?',
+                    meta: {
+                        caption: 'entities.task.views.taskgroupgridview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'taskgroupgridview', parameterName: 'taskgroupgridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/task-task-group-grid-view/task-task-group-grid-view.vue'),
+                },
+                {
+                    path: 'projects/:project?/tasks/:task?/taskgroupgridview/:taskgroupgridview?',
+                    meta: {
+                        caption: 'entities.task.views.taskgroupgridview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'taskgroupgridview', parameterName: 'taskgroupgridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/task-task-group-grid-view/task-task-group-grid-view.vue'),
+                },
+                {
+                    path: 'stories/:story?/tasks/:task?/taskgroupgridview/:taskgroupgridview?',
+                    meta: {
+                        caption: 'entities.task.views.taskgroupgridview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'taskgroupgridview', parameterName: 'taskgroupgridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/task-task-group-grid-view/task-task-group-grid-view.vue'),
+                },
+                {
+                    path: 'tasks/:task?/taskgroupgridview/:taskgroupgridview?',
+                    meta: {
+                        caption: 'entities.task.views.taskgroupgridview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'taskgroupgridview', parameterName: 'taskgroupgridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/task-task-group-grid-view/task-task-group-grid-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/buildsubgridview_new/:buildsubgridview_new?',
                     meta: {
                         caption: 'entities.bug.views.buildsubgridview_new.caption',

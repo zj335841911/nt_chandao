@@ -225,6 +225,7 @@ export const PageComponents = {
         Vue.component('ibz-project-member-edit-view9', () => import('@pages/ibiz/ibz-project-member-edit-view9/ibz-project-member-edit-view9.vue'));
         Vue.component('action-edit-view', () => import('@pages/zentao/action-edit-view/action-edit-view.vue'));
         Vue.component('story-main-my-grid-view', () => import('@pages/zentao/story-main-my-grid-view/story-main-my-grid-view.vue'));
+        Vue.component('task-task-group-grid-view', () => import('@pages/zentao/task-task-group-grid-view/task-task-group-grid-view.vue'));
         Vue.component('bug-build-sub-grid-view-new', () => import('@pages/zentao/bug-build-sub-grid-view-new/bug-build-sub-grid-view-new.vue'));
         Vue.component('story-cur-project-grid-view', () => import('@pages/zentao/story-cur-project-grid-view/story-cur-project-grid-view.vue'));
         Vue.component('story-main-view9-story-spec', () => import('@pages/zentao/story-main-view9-story-spec/story-main-view9-story-spec.vue'));
