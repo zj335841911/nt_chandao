@@ -62,9 +62,6 @@ export default class MainModel {
           dataType: 'PICKUP',
         },
         {
-          name: 'srfmstag',
-        },
-        {
           name: 'srfmajortext',
           prop: 'title',
           dataType: 'TEXT',
@@ -94,6 +91,11 @@ export default class MainModel {
           name: 'lib',
           prop: 'lib',
           dataType: 'PICKUP',
+        },
+        {
+          name: 'docqtype',
+          prop: 'docqtype',
+          dataType: 'TEXT',
         },
         {
           name: 'doc',

@@ -25,7 +25,7 @@ export default class DocUIServiceBase extends UIService {
      * 
      * @memberof  DocUIServiceBase
      */
-    public isEnableDEMainState:boolean = true;
+    public isEnableDEMainState:boolean = false;
 
     /**
      * 当前UI服务对应的数据服务对象
@@ -60,7 +60,7 @@ export default class DocUIServiceBase extends UIService {
      * 
      * @memberof  DocUIServiceBase
      */  
-    public mainStateFields:Array<any> = ['docqtype'];
+    public mainStateFields:Array<any> = [];
 
     /**
      * 主状态集合Map
@@ -260,6 +260,46 @@ export default class DocUIServiceBase extends UIService {
             return null;
         }
         openIndexViewTab(data);
+    }
+
+    /**
+     * 查看
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async Doc_Look(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(context, { doc: '%doc%' });
+        Object.assign(params, { id: '%doc%' });
+        Object.assign(params, { title: '%title%' });
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+            // 自定义实体界面行为
+            actionContext.$Notice.warning({ title: '错误', desc: '查看 未实现' });
+
     }
 
 
