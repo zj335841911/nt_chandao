@@ -6,6 +6,7 @@ import { MyWorkPCCalendarBase } from './my-work-pc-calendar-base';
 import layout_todolayoutpanel from '@widgets/todo/mob-panel/mob-panel.vue';
 import layout_tasklayoutpanel from '@widgets/task/mob-panel/mob-panel.vue';
 import layout_buglayoutpanel from '@widgets/bug/mob-panel/mob-panel.vue';
+import FullCalendar from '@fullcalendar/vue'
  
 
 /**
@@ -20,7 +21,8 @@ import layout_buglayoutpanel from '@widgets/bug/mob-panel/mob-panel.vue';
         layout_todolayoutpanel,
         layout_tasklayoutpanel,
         layout_buglayoutpanel,
-         
+            FullCalendar,
+ 
     }
 })
 @VueLifeCycleProcessing()

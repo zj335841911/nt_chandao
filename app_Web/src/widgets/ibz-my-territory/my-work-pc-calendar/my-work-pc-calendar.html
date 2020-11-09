@@ -1,6 +1,6 @@
-<div :class='calendarClass'>
+    <div :class='calendarClass'>
       <context-menu-container>
-      <template v-if="events.length > 0">
+        <template>
         <div class="event-legends">
           <div :class="{'event-lengend':true, 'Bug':true, 'event-disabled':!isShowlegend.Bug}" @click="legendTrigger('Bug')">
             <div class="lengend-icon" style="background:rgba(254, 228, 90, 1);"></div>
@@ -25,21 +25,18 @@
           :buttonText="buttonText" 
           :header="header"
           :plugins="calendarPlugins"
-          :events="searchEvents"
-          :customButtons="customButtons"
+          :events="searchEvents.bind(_self)"
+          :customButtons="{gotoDate: {text: $t('app.calendar.gotoDate'),click: this.openDateSelect.bind(_self)}}"
           :validRange="validRange"
           :defaultDate="defaultDate"
-          :eventRender="eventRender"
-          @dateClick="onDateClick.apply(_self, arguments)"
-          @eventClick="onEventClick.apply(_self, arguments)"
-          @eventDrop="onEventDrop.apply(_self, arguments)"
+          :eventRender="eventRender.bind(_self)"
+          @dateClick="onDateClick.bind(_self)"
+          @eventClick="onEventClick.bind(_self)"
+          @eventDrop="onEventDrop.bind(_self)"
           defaultView="dayGridMonth"/>
-          <modal v-model="modalVisible" width="250px" :title="$t('app.calendar.dateSelectModalTitle')" class-name='date-select-modal' @on-ok="gotoDate.apply(_self, arguments)">
+          <modal v-model="modalVisible" width="250px" :title="$t('app.calendar.dateSelectModalTitle')" class-name='date-select-modal' @on-ok="gotoDate()">
             <el-date-picker style="width: 200px;" v-model="selectedGotoDate" type="date"></el-date-picker>
           </modal>
-      </template>
-      <template v-else>
-        <span class="app-data-empty">{{ $t('entities.ibzmyterritory.myworkpc_calendar.nodata') }}</span>
-      </template>
+        </template>
       </context-menu-container>
-</div>
+    </div>

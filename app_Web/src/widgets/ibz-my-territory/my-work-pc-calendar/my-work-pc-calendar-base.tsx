@@ -14,6 +14,8 @@ import timeGridPlugin from '@fullcalendar/timegrid';
 import listPlugin from '@fullcalendar/list';
 import interactionPlugin from '@fullcalendar/interaction'
 import ContextMenu from '@components/context-menu/context-menu'
+import UIService from '@/uiservice/ui-service';
+import AppCenterService from "@service/app/app-center-service";
 
 
 /**
@@ -81,7 +83,7 @@ export class MyWorkPCCalendarBase extends MainControlBase {
      * 是否默认选中第一条数据
      *
      * @type {boolean}
-     * @memberof MyWorkPC
+     * @memberof MyWorkPCBase
      */
     @Prop({ default: false }) public isSelectFirstDefault!: boolean;
 
@@ -89,7 +91,7 @@ export class MyWorkPCCalendarBase extends MainControlBase {
      * 显示处理提示
      *
      * @type {boolean}
-     * @memberof MyWorkPC
+     * @memberof MyWorkPCBase
      */
     @Prop({ default: true }) public showBusyIndicator?: boolean;
 
@@ -97,7 +99,7 @@ export class MyWorkPCCalendarBase extends MainControlBase {
      * 部件行为--load
      *
      * @type {string}
-     * @memberof MyWorkPC
+     * @memberof MyWorkPCBase
      */
     @Prop() public loadAction!: string;
 
@@ -105,14 +107,14 @@ export class MyWorkPCCalendarBase extends MainControlBase {
      * 打开新建数据视图
      *
      * @type {any}
-     * @memberof MyWorkPC
+     * @memberof MyWorkPCBase
      */
     @Prop() public newdata: any;
     /**
      * 打开编辑数据视图
      *
      * @type {any}
-     * @memberof MyWorkPC
+     * @memberof MyWorkPCBase
      */
     @Prop() public opendata: any;
 
@@ -121,16 +123,24 @@ export class MyWorkPCCalendarBase extends MainControlBase {
      *
      * @public
      * @type {any[]}
-     * @memberof MyWorkPC
+     * @memberof MyWorkPCBase
      */
     public calendarClass: string = "calendar";
+
+    /**
+     * this引用
+     *
+     * @type {any}
+     * @memberof MyWorkPCBase
+     */
+    public thisRef: any = this;
 
     /**
      * 选中事件element元素
      *
      * @public
      * @type {any[]}
-     * @memberof MyWorkPC
+     * @memberof MyWorkPCBase
      */
     public selectedEventElement:any;
 
@@ -139,7 +149,7 @@ export class MyWorkPCCalendarBase extends MainControlBase {
      *
      * @public
      * @type {any[]}
-     * @memberof MyWorkPC
+     * @memberof MyWorkPCBase
      */
     public calendarPlugins: any[] = [
         dayGridPlugin, 
@@ -153,7 +163,7 @@ export class MyWorkPCCalendarBase extends MainControlBase {
      *
      * @public
      * @type {}
-     * @memberof MyWorkPC
+     * @memberof MyWorkPCBase
      */
     public header: any = {
         left: 'prev,next today gotoDate',
@@ -166,7 +176,7 @@ export class MyWorkPCCalendarBase extends MainControlBase {
      *
      * @public
      * @type {}
-     * @memberof MyWorkPC
+     * @memberof MyWorkPCBase
      */
     public buttonText: any = {
         today: '今天',
@@ -177,25 +187,11 @@ export class MyWorkPCCalendarBase extends MainControlBase {
     };
 
     /**
-     * 自定义按钮集合
-     *
-     * @public
-     * @type {}
-     * @memberof MyWorkPC
-     */
-    public customButtons: any = {
-        gotoDate: {
-          text: "跳转",
-          click: this.openDateSelect
-        }
-    };
-
-    /**
      * 模态显示控制变量
      *
      * @public
      * @type boolean
-     * @memberof MyWorkPC
+     * @memberof MyWorkPCBase
      */
     public modalVisible: boolean = false;
 
@@ -204,7 +200,7 @@ export class MyWorkPCCalendarBase extends MainControlBase {
      *
      * @public
      * @type Date
-     * @memberof MyWorkPC
+     * @memberof MyWorkPCBase
      */
     public selectedGotoDate: Date = new Date();
 
@@ -212,7 +208,7 @@ export class MyWorkPCCalendarBase extends MainControlBase {
      * 打开时间选择模态
      *
      * @public
-     * @memberof MyWorkPC
+     * @memberof MyWorkPCBase
      */
     public openDateSelect(){
         this.modalVisible = true;
@@ -222,7 +218,7 @@ export class MyWorkPCCalendarBase extends MainControlBase {
      * 跳转到指定时间
      *
      * @public
-     * @memberof MyWorkPC
+     * @memberof MyWorkPCBase
      */
     public gotoDate(){
         let appCalendar: any = this.$refs.calendar;
@@ -235,7 +231,7 @@ export class MyWorkPCCalendarBase extends MainControlBase {
      *
      * @public
      * @type {}
-     * @memberof MyWorkPC
+     * @memberof MyWorkPCBase
      */
     public validRange: any = {
         start:"0000-01-01",
@@ -247,7 +243,7 @@ export class MyWorkPCCalendarBase extends MainControlBase {
      *
      * @public
      * @type {}
-     * @memberof MyWorkPC
+     * @memberof MyWorkPCBase
      */
     public defaultDate: any = this.$util.dateFormat(new Date());
 
@@ -255,7 +251,7 @@ export class MyWorkPCCalendarBase extends MainControlBase {
      * 设置按钮文本
      *
      * @public
-     * @memberof MyWorkPC
+     * @memberof MyWorkPCBase
      */
     public setButtonText(){
         this.buttonText.today = this.$t('app.calendar.today'),
@@ -263,14 +259,13 @@ export class MyWorkPCCalendarBase extends MainControlBase {
         this.buttonText.week = this.$t('app.calendar.week'),
         this.buttonText.day = this.$t('app.calendar.day'),
         this.buttonText.list = this.$t('app.calendar.list')
-        this.customButtons.gotoDate.text = this.$t('app.calendar.gotoDate')
     }
 
     /**
      * 监听语言变化
      *
      * @public
-     * @memberof MyWorkPC
+     * @memberof MyWorkPCBase
      */
     @Watch('$i18n.locale')
     public onLocaleChange(newval: any, val: any) {
@@ -282,16 +277,33 @@ export class MyWorkPCCalendarBase extends MainControlBase {
      *
      * @public
      * @type {any[]}
-     * @memberof MyWorkPC
+     * @memberof MyWorkPCBase
      */
     public events: any[] = [];
+
+    /**
+     * 日历项上下文菜单集合
+     *
+     * @type {string[]}
+     * @memberof MyWorkPCBase
+     */
+     public actionModel: any = {
+    }
+
+    /**
+     * 备份日历项上下文菜单
+     *
+     * @type {string[]}
+     * @memberof MyWorkPCBase
+     */
+     public copyActionModel: any;
 
     /**
      * 日历样式类型
      *
      * @public
      * @type {string}
-     * @memberof MyWorkPC
+     * @memberof MyWorkPCBase
      */
     public calendarType: string = "MONTH";
 
@@ -300,7 +312,7 @@ export class MyWorkPCCalendarBase extends MainControlBase {
      *
      * @public
      * @type {any}
-     * @memberof MyWorkPC
+     * @memberof MyWorkPCBase
      */
     public isShowlegend: any = {
         Bug:true,
@@ -312,7 +324,7 @@ export class MyWorkPCCalendarBase extends MainControlBase {
      * 图例点击事件
      *
      * @public
-     * @memberof MyWorkPC
+     * @memberof MyWorkPCBase
      */
     legendTrigger(itemType:string){
         this.isShowlegend[itemType] = !this.isShowlegend[itemType];
@@ -324,15 +336,26 @@ export class MyWorkPCCalendarBase extends MainControlBase {
      *
      * @public
      * @type {any}
-     * @memberof MyWorkPC
+     * @memberof MyWorkPCBase
      */
     public searchArgCache: any = {};
+
+    /**
+     * 面板数据变化处理事件
+     * @param {any} item 当前数据
+     * @param {any} $event 面板事件数据
+     *
+     * @memberof MyWorkPCBase
+     */
+    public onPanelDataChange(item:any,$event:any) {
+        Object.assign(item, $event, {rowDataState:'update'});
+    }
 
     /**
      * 搜索获取日程事件
      *
      * @param {*} $event 日期信息
-     * @memberof MyWorkPC
+     * @memberof MyWorkPCBase
      */
     public searchEvents(fetchInfo?:any, successCallback?:any, failureCallback?:any ) {
         // 处理请求参数
@@ -351,9 +374,11 @@ export class MyWorkPCCalendarBase extends MainControlBase {
         let handleEvents = ()=>{
             if(_this.isSelectFirstDefault){
                 // 模拟$event数据
-                let tempEvent = JSON.parse(JSON.stringify(_this.events[0]));
+                let tempEvent = JSON.parse(JSON.stringify(_this.events.length > 0?_this.events[0]:{}));
                 _this.onEventClick(tempEvent,true);
-                _this.events[0].className = "select-first-event";
+                if(_this.events.length > 0){
+                    _this.events[0].className = "select-first-event";
+                }
                 _this.calendarClass = "calendar select-first-calendar";
             }
             let filterEvents = this.events.filter((event:any)=>{
@@ -362,12 +387,6 @@ export class MyWorkPCCalendarBase extends MainControlBase {
 
             if(successCallback){
                 successCallback(filterEvents);
-            }
-            // 刷新日历的大小（仅fullcalendar组件使用）
-            if(!Object.is(_this.calendarType,"TIMELINE")){
-                let appCalendar: any = _this.$refs.calendar;
-                let api = appCalendar.getApi();
-                api.updateSize();
             }
         }
         if(JSON.stringify(arg) === JSON.stringify(this.searchArgCache)){
@@ -399,7 +418,7 @@ export class MyWorkPCCalendarBase extends MainControlBase {
      * 日期点击事件
      *
      * @param {*} $event 日期信息
-     * @memberof MyWorkPC
+     * @memberof MyWorkPCBase
      */
     public onDateClick($event: any) {
         let date = $event.date;
@@ -410,7 +429,7 @@ export class MyWorkPCCalendarBase extends MainControlBase {
      * 获取编辑视图信息
      *
      * @param {*} $event 事件信息
-     * @memberof MyWorkPC
+     * @memberof MyWorkPCBase
      */
     public getEditView(deName: string) {
         let view: any = {};
@@ -425,7 +444,7 @@ export class MyWorkPCCalendarBase extends MainControlBase {
      * @param {*} $event calendar事件对象或event数据
      * @param {*} isOriginData true：$event是原始event数据，false：是组件
      * @param {*} $event timeline事件对象
-     * @memberof MyWorkPC
+     * @memberof MyWorkPCBase
      */
     public onEventClick($event: any, isOriginData:boolean = false, $event2?: any) {
         // 处理event数据
@@ -481,7 +500,7 @@ export class MyWorkPCCalendarBase extends MainControlBase {
             const routePath = this.$viewTool.buildUpRoutePath(this.$route, this.context, view.deResParameters, view.parameters, [JSON.parse(JSON.stringify(_context))] , JSON.parse(JSON.stringify(this.viewparams)));
             this.$router.push(routePath);
         } else {
-            let container: any = new Subject();
+            let container: any;
             if (Object.is(view.placement, 'POPOVER')) {
                 container = this.$apppopover.openPop(isOriginData ? $event2 : $event.jsEvent, view,JSON.parse(JSON.stringify(_context)),  JSON.parse(JSON.stringify(this.viewparams)));
             } else if (Object.is(view.placement, 'POPUPMODAL')) {
@@ -502,9 +521,9 @@ export class MyWorkPCCalendarBase extends MainControlBase {
     /**
      * 日历刷新
      *
-     * @memberof MyWorkPC
+     * @memberof MyWorkPCBase
      */
-    public refresh() {
+    public refresh(args?:any) {
         if(Object.is(this.calendarType,"TIMELINE")){
             this.searchEvents();
         } else {
@@ -517,7 +536,7 @@ export class MyWorkPCCalendarBase extends MainControlBase {
      * 日程拖动事件
      *
      * @param {*} $event 事件信息
-     * @memberof MyWorkPC
+     * @memberof MyWorkPCBase
      */
     public onEventDrop($event: any) {
         if(this.isSelectFirstDefault){
@@ -563,15 +582,24 @@ export class MyWorkPCCalendarBase extends MainControlBase {
      * 选中的数据
      *
      * @returns {any[]}
-     * @memberof MyWorkPC
+     * @memberof MyWorkPCBase
      */
     public selections: any[] = [];
+
+    /**
+     * 应用状态事件
+     *
+     * @public
+     * @type {(Subscription | undefined)}
+     * @memberof MyWorkPCBase
+     */
+    public appStateEvent: Subscription | undefined;
 
     /**
      * 获取多项数据
      *
      * @returns {any[]}
-     * @memberof MyWorkPC
+     * @memberof MyWorkPCBase
      */
     public getDatas(): any[] {
         return this.selections;
@@ -581,7 +609,7 @@ export class MyWorkPCCalendarBase extends MainControlBase {
      * 获取单项数据
      *
      * @returns {*}
-     * @memberof MyWorkPC
+     * @memberof MyWorkPCBase
      */
     public getData(): any {
         return null;
@@ -591,7 +619,7 @@ export class MyWorkPCCalendarBase extends MainControlBase {
      * vue 生命周期
      *
      * @returns
-     * @memberof MyWorkPC
+     * @memberof MyWorkPCBase
      */
     public created() {
         this.setButtonText();
@@ -601,7 +629,7 @@ export class MyWorkPCCalendarBase extends MainControlBase {
     /**
      * 执行created后的逻辑
      *
-     *  @memberof MyWorkPC
+     *  @memberof MyWorkPCBase
      */    
     public afterCreated(){
         if (this.viewState) {
@@ -611,7 +639,18 @@ export class MyWorkPCCalendarBase extends MainControlBase {
                 }
             });
         }
+        if(AppCenterService && AppCenterService.getMessageCenter()){
+            this.appStateEvent = AppCenterService.getMessageCenter().subscribe(({ name, action, data }) =>{
+                if(!Object.is(name,"IbzMyTerritory")){
+                    return;
+                }
+                if(Object.is(action,'appRefresh')){
+                    this.refresh();
+                }
+            })
+        }
     }
+
 
     /**
      * vue 生命周期
@@ -638,7 +677,7 @@ export class MyWorkPCCalendarBase extends MainControlBase {
     /**
      * vue 生命周期
      *
-     * @memberof MyWorkPC
+     * @memberof MyWorkPCBase
      */
     public destroyed() {
         this.afterDestroy();
@@ -647,36 +686,84 @@ export class MyWorkPCCalendarBase extends MainControlBase {
     /**
      * 执行destroyed后的逻辑
      *
-     * @memberof MyWorkPC
+     * @memberof MyWorkPCBase
      */
     public afterDestroy() {
         if (this.viewStateEvent) {
             this.viewStateEvent.unsubscribe();
         }
+        if(this.appStateEvent){
+            this.appStateEvent.unsubscribe();
+        }
     }
 
 
-    
+
+    /**
+     * 计算节点右键权限
+     *
+     * @param {*} data 日历项数据
+     * @param {*} appEntityName 应用实体名称  
+     * @returns
+     * @memberof MyWorkPCBase
+     */
+    public async computeNodeState(data:any,appEntityName:string) {
+        let service:any = await this.appEntityService.getService(appEntityName);
+        if(this.copyActionModel && Object.keys(this.copyActionModel).length > 0) {
+            if(service['Get'] && service['Get'] instanceof Function){
+                let tempContext:any = Util.deepCopy(this.context);
+                tempContext[appEntityName] = data[appEntityName];
+                let targetData = await service.Get(tempContext,{}, false);
+                let uiservice:any = await new UIService().getService(appEntityName);
+                let result: any[] = ViewTool.calcActionItemAuthState(targetData.data,this.copyActionModel,uiservice);
+                return this.copyActionModel;
+            }else{
+                console.warn("获取数据异常");
+                return this.copyActionModel;
+            }
+        }
+    }
+
     /**
      * 事件绘制回调
      *
      * @param {*} info 信息
-     * @memberof MyWorkPC
+     * @memberof MyWorkPCBase
      */
     public eventRender(info?:any,) {
+        let that:any = this;
         let data = Object.assign({title: info.event.title, start: info.event.start, end: info.event.end}, info.event.extendedProps);
         info.el.addEventListener('contextmenu', (event: MouseEvent) => {
-            event.preventDefault();
-            let props = { data: data, renderContent: this.renderContextMenu };
-            let component = ContextMenu;
-            const vm:any = new Vue({
-                render(h) {
-                    return h(component, { props });
+            that.copyActionModel = {};
+            Object.values(that.actionModel).forEach((item:any) =>{
+                if(Object.is(item.nodeOwner,data.itemType)){
+                    that.copyActionModel[item.name] = item;
                 }
-            }).$mount();
-            document.body.appendChild(vm.$el);
-            const comp: any = vm.$children[0];
-            comp.showContextMenu(event.clientX, event.clientY);
+            })
+            if(Object.keys(that.copyActionModel).length === 0){
+                return;
+            }
+            let dataMapping:any ={'Bug':'bug','task':'task','todo':'todo'};
+            that.computeNodeState(data,dataMapping[data.itemType]).then((result:any) => {
+                let flag:boolean = false;
+                if(Object.values(result).length>0){
+                    flag =Object.values(result).some((item:any) =>{
+                        return item.visabled === true;
+                    })
+                }
+                if(flag){
+                    let props = { data: data, renderContent: that.renderContextMenu };
+                    let component = ContextMenu;
+                    const vm:any = new Vue({
+                        render(h) {
+                            return h(component, { props });
+                        }
+                    }).$mount();
+                    document.body.appendChild(vm.$el);
+                    const comp: any = vm.$children[0];
+                    comp.showContextMenu(event.clientX, event.clientY);
+                }
+            });
         });
     }
 
@@ -685,7 +772,7 @@ export class MyWorkPCCalendarBase extends MainControlBase {
      *
      * @param {*} event
      * @returns
-     * @memberof MyWorkPC
+     * @memberof MyWorkPCBase
      */
     public renderContextMenu(event: any) {
         let content;
@@ -696,16 +783,5 @@ export class MyWorkPCCalendarBase extends MainControlBase {
             }
         }
         return content;
-    }
-
-    /**
-     * 面板数据变化处理事件
-     * @param {any} item 当前数据
-     * @param {any} $event 面板事件数据
-     *
-     * @memberof MyWorkPCBase
-     */
-    public onPanelDataChange(item:any,$event:any) {
-        Object.assign(item, $event, {rowDataState:'update'});
     }
 }

@@ -78,6 +78,7 @@ export class TabExpViewtabexppanelTabexppanelBase extends TabExpPanelControlBase
      */
     protected isInit: any = {
         tabviewpanel:  true ,
+        tabviewpanel10:  false ,
         tabviewpanel3:  false ,
         tabviewpanel4:  false ,
         tabviewpanel5:  false ,
@@ -113,7 +114,7 @@ export class TabExpViewtabexppanelTabexppanelBase extends TabExpPanelControlBase
      * @type {*}
      * @memberof TabExpViewtabexppanelBase
      */
-    protected authResourceObject:any = {'tabviewpanel':{resourcetag:null,visabled: true,disabled: false},'tabviewpanel3':{resourcetag:null,visabled: true,disabled: false},'tabviewpanel4':{resourcetag:null,visabled: true,disabled: false},'tabviewpanel5':{resourcetag:null,visabled: true,disabled: false},'tabviewpanel6':{resourcetag:null,visabled: true,disabled: false},'tabviewpanel2':{resourcetag:null,visabled: true,disabled: false},'tabviewpanel7':{resourcetag:null,visabled: true,disabled: false},'tabviewpanel9':{resourcetag:null,visabled: true,disabled: false},'tabviewpanel8':{resourcetag:null,visabled: true,disabled: false}};
+    protected authResourceObject:any = {'tabviewpanel':{resourcetag:null,visabled: true,disabled: false},'tabviewpanel10':{resourcetag:null,visabled: true,disabled: false},'tabviewpanel3':{resourcetag:null,visabled: true,disabled: false},'tabviewpanel4':{resourcetag:null,visabled: true,disabled: false},'tabviewpanel5':{resourcetag:null,visabled: true,disabled: false},'tabviewpanel6':{resourcetag:null,visabled: true,disabled: false},'tabviewpanel2':{resourcetag:null,visabled: true,disabled: false},'tabviewpanel7':{resourcetag:null,visabled: true,disabled: false},'tabviewpanel9':{resourcetag:null,visabled: true,disabled: false},'tabviewpanel8':{resourcetag:null,visabled: true,disabled: false}};
 
     /**
      * 组件创建完毕

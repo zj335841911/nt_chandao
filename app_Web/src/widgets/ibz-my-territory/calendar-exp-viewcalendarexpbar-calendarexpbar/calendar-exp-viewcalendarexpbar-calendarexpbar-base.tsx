@@ -1,20 +1,22 @@
+
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
 import { UIActionTool,Util,ViewTool } from '@/utils';
-import { Watch, MainControlBase } from '@/studio-core';
+import { Watch, CalendarViewExpBarControlBase } from '@/studio-core';
 import IbzMyTerritoryService from '@/service/ibz-my-territory/ibz-my-territory-service';
 import CalendarExpViewcalendarexpbarService from './calendar-exp-viewcalendarexpbar-calendarexpbar-service';
 import IbzMyTerritoryUIService from '@/uiservice/ibz-my-territory/ibz-my-territory-ui-service';
+import CodeListService from "@service/app/codelist-service";
 
 
 /**
  * calendarexpbar部件基类
  *
  * @export
- * @class MainControlBase
+ * @class CalendarViewExpBarControlBase
  * @extends {CalendarExpViewcalendarexpbarCalendarexpbarBase}
  */
-export class CalendarExpViewcalendarexpbarCalendarexpbarBase extends MainControlBase {
+export class CalendarExpViewcalendarexpbarCalendarexpbarBase extends CalendarViewExpBarControlBase {
 
     /**
      * 获取部件类型
@@ -90,80 +92,6 @@ export class CalendarExpViewcalendarexpbarCalendarexpbarBase extends MainControl
     }
 
 
-    /**
-     * 视图唯一标识
-     *
-     * @type {boolean}
-     * @memberof CalendarExpViewcalendarexpbarBase
-     */
-    @Prop() public viewUID!:string;
-
-    /**
-     * 打开新建数据视图
-     *
-     * @type {any}
-     * @memberof CalendarExpViewcalendarexpbar
-     */
-    @Prop() public newdata: any;
-    /**
-     * 打开编辑数据视图
-     *
-     * @type {any}
-     * @memberof CalendarExpViewcalendarexpbar
-     */
-    @Prop() public opendata: any;
-
-    /**
-     * 是否单选
-     * 
-     * @public
-     * @type {(boolean)}
-     * @memberof CalendarExpViewcalendarexpbarBase
-     */
-    public isSingleSelect:boolean = true;
-
-    /**
-     * 呈现模式，可选值：horizontal或者vertical
-     * 
-     * @public
-     * @type {(string)}
-     * @memberof CalendarExpViewcalendarexpbarBase
-     */
-    public showMode:string ="horizontal";
-
-    /**
-     * 控件宽度
-     *
-     * @type {number}
-     * @memberof CalendarExpViewcalendarexpbarBase
-     */
-    public ctrlWidth:number = 0;
-
-    /**
-     * 控件高度
-     *
-     * @type {number}
-     * @memberof CalendarExpViewcalendarexpbarBase
-     */
-    public ctrlHeight: number = 0;
-
-    /**
-     * 搜素值
-     * 
-     * @public
-     * @type {(string)}
-     * @memberof CalendarExpViewcalendarexpbarBase
-     */
-    public searchText:string = "";
-
-    /**
-     * 分割宽度
-     *
-     * @type {number}
-     * @memberof CalendarExpViewcalendarexpbarBase
-     */
-    public split: number = 0.5;
-
 
     /**
      * 导航视图名称
@@ -222,139 +150,33 @@ export class CalendarExpViewcalendarexpbarCalendarexpbarBase extends MainControl
         todo: ""
     };
 
+
+
+
     /**
-     * 显示处理提示
-     *
-     * @type {boolean}
+     * 搜索字段名称
+     * 
+     * @type {(string)}
      * @memberof CalendarExpViewcalendarexpbarBase
      */
-    @Prop({ default: true }) public showBusyIndicator!: boolean;
-
+    public placeholder="真实姓名";
 
     /**
-     * 获取多项数据
-     *
-     * @returns {any[]}
+     * 呈现模式，可选值：horizontal或者vertical
+     * 
+     * @public
+     * @type {(string)}
      * @memberof CalendarExpViewcalendarexpbarBase
      */
-    public getDatas(): any[] {
-        return [];
-    }
+    public showMode:string ="horizontal";
 
     /**
-     * 获取单项树
+     * 控件高度
      *
-     * @returns {*}
+     * @type {number}
      * @memberof CalendarExpViewcalendarexpbarBase
      */
-    public getData(): any {
-        return null;
-    }
-
-    /**
-     * 选中数据
-     *
-     * @type {*}
-     * @memberof CalendarExpViewcalendarexpbarBase
-     */
-    public selection: any = {};
-
-    /**
-     * split值变化事件
-     *
-     * @memberof CalendarExpViewcalendarexpbarBase
-     */
-    public onSplitChange() {
-        if(this.$refs.calendarexpbar_calendar){
-            const calendarContainer:any = this.$refs.calendarexpbar_calendar;
-            if(calendarContainer.$refs.calendar){
-                const appCalendar: any = calendarContainer.$refs.calendar;
-                const api = appCalendar.getApi();
-                api.updateSize();
-            }
-        }
-        if(this.split){
-          this.$store.commit("setViewSplit",{viewUID:this.viewUID,viewSplit:this.split});
-        }
-    }
-
-    /**
-    * Vue声明周期(组件初始化完毕)
-    *
-    * @memberof CalendarExpViewcalendarexpbarBase
-    */
-    public created() {
-         this.afterCreated();     
-    }
-
-    /**
-    * 执行created后的逻辑
-    *
-    * @memberof CalendarExpViewcalendarexpbarBase
-    */
-    public afterCreated(){
-        if (this.viewState) {
-            this.viewStateEvent = this.viewState.subscribe(({ tag, action, data }) => {
-                if (!Object.is(tag, this.name)) {
-                    return;
-                }
-                this.viewState.next({ tag: 'calendarexpbar_calendar', action: action, data: data });
-            });
-        }  
-    }
-    
-    /**
-    * Vue声明周期(组件渲染完毕)
-    *
-    * @memberof CalendarExpViewcalendarexpbarBase
-    */
-    public mounted() {
-        this.afterMounted();     
-    }
-
-    /**
-    * 执行mounted后的逻辑
-    *
-    * @memberof CalendarExpViewcalendarexpbarBase
-    */
-    public afterMounted(){ 
-        if(this.$store.getters.getViewSplit(this.viewUID)){
-            this.split = this.$store.getters.getViewSplit(this.viewUID);
-        }else{
-            let containerWidth:number = (document.getElementById("calendarexpviewcalendarexpbar") as any).offsetWidth;
-            let containerHeight:number = (document.getElementById("calendarexpviewcalendarexpbar") as any).offsetHeight;
-            if(Object.is(this.showMode,'horizontal')){
-                if(this.ctrlWidth){
-                    this.split = this.ctrlWidth/containerWidth;
-                }
-            }else{
-                if(this.ctrlHeight){
-                    this.split = this.ctrlHeight/containerHeight;
-                }
-            }
-            this.$store.commit("setViewSplit",{viewUID:this.viewUID,viewSplit:this.split}); 
-        }  
-    }
- 
-    /**
-     * vue 生命周期
-     *
-     * @memberof CalendarExpViewcalendarexpbarBase
-     */
-    public destroyed() {
-        this.afterDestroy();
-    }
-
-    /**
-     * 执行destroyed后的逻辑
-     *
-     * @memberof CalendarExpViewcalendarexpbarBase
-     */
-    public afterDestroy() {
-        if (this.viewStateEvent) {
-            this.viewStateEvent.unsubscribe();
-        }
-    }
+    public ctrlHeight: number = 0;
     
     /**
      * calendarexpbar的选中数据事件
@@ -365,7 +187,7 @@ export class CalendarExpViewcalendarexpbarCalendarexpbarBase extends MainControl
         let tempContext:any = {};
         let tempViewParam:any = {};
         if (args.length === 0) {
-            this.selection = {};
+            this.calcToolbarItemState(true);
             return ;
         }
         const arg:any = args[0];
@@ -430,6 +252,8 @@ export class CalendarExpViewcalendarexpbarCalendarexpbarBase extends MainControl
         }
         this.selection = {};
         Object.assign(this.selection, { view: { viewname: this.navViewName[arg.itemType] }, context:tempContext,viewparam:tempViewParam });
+        this.calcToolbarItemState(false);
+        this.$emit('selectionchange',args);
         this.$forceUpdate();
     }
 
@@ -439,7 +263,50 @@ export class CalendarExpViewcalendarexpbarCalendarexpbarBase extends MainControl
      * @memberof CalendarExpViewcalendarexpbarBase
      */
     public calendarexpbar_load(args:any, tag?: string, $event2?: any){
+        this.calcToolbarItemState(true);
         this.$emit('load',args);
+    }
+
+    /**
+     * 设置导航区工具栏禁用状态
+     *
+     * @param {boolean} state
+     * @return {*} 
+     * @memberof CalendarExpViewcalendarexpbarBase
+     */
+    public calcToolbarItemState(state: boolean) {
+        let _this: any = this;
+        const models:any = _this.calendarexpviewcalendarexpbar_toolbarModels;
+        if (models) {
+            for (const key in models) {
+                if (!models.hasOwnProperty(key)) {
+                    return;
+                }
+                const _item = models[key];
+                if (_item.uiaction && (Object.is(_item.uiaction.target, 'SINGLEKEY') || Object.is(_item.uiaction.target, 'MULTIKEY'))) {
+                    _item.disabled = state;
+                }
+                _item.visabled = true;
+                if (_item.noprivdisplaymode && _item.noprivdisplaymode === 6) {
+                    _item.visabled = false;
+                }
+            }
+            this.calcNavigationToolbarState();
+        }
+    }
+
+    /**
+     * 计算导航工具栏权限状态
+     * 
+     * @memberof CalendarExpViewcalendarexpbarBase
+     */
+    public calcNavigationToolbarState(){
+        let _this: any = this;
+        // 界面行为
+        if(_this.calendarexpviewcalendarexpbar_toolbarModels){
+            const curUIService:IbzMyTerritoryUIService  = new IbzMyTerritoryUIService();
+            ViewTool.calcActionItemAuthState({},_this.calendarexpviewcalendarexpbar_toolbarModels,curUIService);
+        }
     }
 
     /**
@@ -451,4 +318,5 @@ export class CalendarExpViewcalendarexpbarCalendarexpbarBase extends MainControl
         let calendar:any = this.$refs.calendarexpbar_calendar;
         calendar.searchEvents({ query: this.searchText });
     }
+
 }
