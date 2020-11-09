@@ -95,7 +95,7 @@ export default {
 			lib: "所属文档库", 
 			libname: "所属文档库", 
 			module: "所属分类", 
-			modulename: "模块分类", 
+			modulename: "所属分类", 
 			title: "文档标题", 
 			keywords: "关键字", 
 			type: "文档类型", 
