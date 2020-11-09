@@ -15,7 +15,7 @@
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.status.visible" :style="{}"  :lg="{ span: 4, offset: 0 }" :xl="{ span: 4, offset: 0 }">
+<i-col class="form-layout-container" v-show="detailsModel.status.visible" :style="{}"  :lg="{ span: 3, offset: 0 }" :xl="{ span: 3, offset: 0 }">
     <app-form-item name='status' :itemRules="this.rules().status" class='panelitem-borad' :caption="$t('entities.task.calendarmain_form.details.status')" uiStyle="DEFAULT" :labelWidth="5" :isShowCaption="true" :error="detailsModel.status.error" :isEmptyCaption="true" labelPos="LEFT">
     
 <app-span name='status' :value="data.status" dataType="SSCODELIST"     :precision="0"
@@ -25,7 +25,7 @@ tag='Task__status' codelistType='STATIC' :data="data" :context="context" :viewpa
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.name.visible" :style="{}"  :lg="{ span: 18, offset: 0 }" :xl="{ span: 18, offset: 0 }">
+<i-col class="form-layout-container" v-show="detailsModel.name.visible" :style="{}"  :lg="{ span: 19, offset: 0 }" :xl="{ span: 19, offset: 0 }">
     <app-form-item name='name' :itemRules="this.rules().name" class='panelitem-20px' :caption="$t('entities.task.calendarmain_form.details.name')" uiStyle="DEFAULT" :labelWidth="1" :isShowCaption="true" :error="detailsModel.name.error" :isEmptyCaption="true" labelPos="LEFT">
     
 <app-span name='name' :value="data.name" dataType="TEXT"     :precision="0"
@@ -69,7 +69,7 @@ tag='Task__status' codelistType='STATIC' :data="data" :context="context" :viewpa
     <app-form-group :model="detailsModel.grouppanel4" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel4.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.task.calendarmain_form.details.grouppanel4')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
     <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel4" :data="data" :context="context" :viewparams="viewparams"/>
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.button7.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 3, offset: 0 }">
+        <i-col class="form-layout-container" v-show="detailsModel.button7.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 2, offset: 0 }">
         <i-button type="primary" @click="button7_click($event)"
          style="">
               <menu-icon :item="{iconcls: 'fa fa-hand-o-right'}" />
@@ -77,7 +77,7 @@ tag='Task__status' codelistType='STATIC' :data="data" :context="context" :viewpa
     </i-button>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.button8.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 3, offset: 0 }">
+<i-col class="form-layout-container" v-show="detailsModel.button8.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 2, offset: 0 }">
         <i-button type="primary" @click="button8_click($event)"
          style="">
               <menu-icon :item="{iconcls: 'fa fa-mail-forward'}" />
@@ -85,7 +85,7 @@ tag='Task__status' codelistType='STATIC' :data="data" :context="context" :viewpa
     </i-button>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.button1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 3, offset: 0 }">
+<i-col class="form-layout-container" v-show="detailsModel.button1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 2, offset: 0 }">
         <i-button type="primary" @click="button1_click($event)"
          style="">
               <menu-icon :item="{iconcls: 'fa fa-play-circle-o'}" />
@@ -93,7 +93,7 @@ tag='Task__status' codelistType='STATIC' :data="data" :context="context" :viewpa
     </i-button>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.button2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 3, offset: 0 }">
+<i-col class="form-layout-container" v-show="detailsModel.button2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 2, offset: 0 }">
         <i-button type="primary" @click="button2_click($event)"
          style="">
               <menu-icon :item="{iconcls: 'fa fa-check-square-o'}" />
@@ -101,7 +101,7 @@ tag='Task__status' codelistType='STATIC' :data="data" :context="context" :viewpa
     </i-button>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.button3.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 3, offset: 0 }">
+<i-col class="form-layout-container" v-show="detailsModel.button3.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 2, offset: 0 }">
         <i-button type="primary" @click="button3_click($event)"
          style="">
               <menu-icon :item="{iconcls: 'fa fa-magic'}" />
@@ -109,7 +109,7 @@ tag='Task__status' codelistType='STATIC' :data="data" :context="context" :viewpa
     </i-button>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.button4.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 3, offset: 0 }">
+<i-col class="form-layout-container" v-show="detailsModel.button4.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 2, offset: 0 }">
         <i-button type="primary" @click="button4_click($event)"
          style="">
               <menu-icon :item="{iconcls: 'fa fa-circle-o'}" />
@@ -117,7 +117,7 @@ tag='Task__status' codelistType='STATIC' :data="data" :context="context" :viewpa
     </i-button>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.button5.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 3, offset: 0 }">
+<i-col class="form-layout-container" v-show="detailsModel.button5.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 2, offset: 0 }">
         <i-button type="primary" @click="button5_click($event)"
          style="">
               <menu-icon :item="{iconcls: 'fa fa-ban'}" />
@@ -125,7 +125,7 @@ tag='Task__status' codelistType='STATIC' :data="data" :context="context" :viewpa
     </i-button>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.button6.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 3, offset: 0 }">
+<i-col class="form-layout-container" v-show="detailsModel.button6.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 2, offset: 0 }">
         <i-button type="primary" @click="button6_click($event)"
          style="">
               <menu-icon :item="{iconcls: 'fa fa-power-off'}" />
@@ -133,7 +133,7 @@ tag='Task__status' codelistType='STATIC' :data="data" :context="context" :viewpa
     </i-button>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.button9.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 3, offset: 0 }">
+<i-col class="form-layout-container" v-show="detailsModel.button9.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 2, offset: 0 }">
         <i-button type="primary" @click="button9_click($event)"
          style="">
               <menu-icon :item="{iconcls: 'iconfont studio-icon-subnets'}" />
