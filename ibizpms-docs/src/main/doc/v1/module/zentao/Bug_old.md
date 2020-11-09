@@ -381,6 +381,7 @@ hide footbox
 |DEFAULT|DEFAULT([MYSQL5](../../appendix/query_MYSQL5.md#Bug_Default))|否|&nbsp;|
 |MyCurOpenedBug|累计创建的Bug数([MYSQL5](../../appendix/query_MYSQL5.md#Bug_MyCurOpenedBug))|否|&nbsp;|
 |MyFavorites|我的收藏([MYSQL5](../../appendix/query_MYSQL5.md#Bug_MyFavorites))|否|&nbsp;|
+|NotCurPlanLinkBug|计划关联bug(去除已关联)([MYSQL5](../../appendix/query_MYSQL5.md#Bug_NotCurPlanLinkBug))|否|&nbsp;|
 |ReleaseBugs|发布关联Bug（已解决）([MYSQL5](../../appendix/query_MYSQL5.md#Bug_ReleaseBugs))|否|&nbsp;|
 |ReleaseLeftBugs|发布关联Bug（未解决）([MYSQL5](../../appendix/query_MYSQL5.md#Bug_ReleaseLeftBugs))|否|&nbsp;|
 |ReleaseLinkableLeftBug|发布可关联的bug（遗留）([MYSQL5](../../appendix/query_MYSQL5.md#Bug_ReleaseLinkableLeftBug))|否|&nbsp;|
