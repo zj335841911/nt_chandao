@@ -434,6 +434,39 @@ export class MyWorkPCCalendarBase extends MainControlBase {
     public getEditView(deName: string) {
         let view: any = {};
         switch(deName){
+            case "bug": 
+                view = {
+                    viewname: 'bug-main-dashboard-view', 
+                    height: 0, 
+                    width: 0,
+                    title: this.$t('entities.bug.views.maindashboardview.title'),
+                    placement: 'DRAWER_TOP',
+                    deResParameters: [{ pathName: 'products', parameterName: 'product' }, ],
+                    parameters: [{ pathName: 'bugs', parameterName: 'bug' }, { pathName: 'maindashboardview', parameterName: 'maindashboardview' } ],
+                };
+                break;
+            case "task": 
+                view = {
+                    viewname: 'task-main-dashboard-view', 
+                    height: 0, 
+                    width: 1360,
+                    title: this.$t('entities.task.views.maindashboardview.title'),
+                    placement: 'DRAWER_TOP',
+                    deResParameters: [{ pathName: 'stories', parameterName: 'story' }, ],
+                    parameters: [{ pathName: 'tasks', parameterName: 'task' }, { pathName: 'maindashboardview', parameterName: 'maindashboardview' } ],
+                };
+                break;
+            case "todo": 
+                view = {
+                    viewname: 'todo-dashboard-view', 
+                    height: 0, 
+                    width: 0,
+                    title: this.$t('entities.todo.views.dashboardview.title'),
+                    placement: 'DRAWER_TOP',
+                    deResParameters: [],
+                    parameters: [{ pathName: 'todos', parameterName: 'todo' }, { pathName: 'dashboardview', parameterName: 'dashboardview' } ],
+                };
+                break;
         }
         return view;
     }
