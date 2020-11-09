@@ -1169,7 +1169,6 @@ export const viewstate: any = {
             refviews: [
                 'b6e02216d1e5c69d79b32342d8b67c7a',
                 '23cc93d7fdddff5077a7952d26802a7b',
-                '7b8d03598e32aa0f535758927a17b98e',
             ],
         },
         {
@@ -2015,16 +2014,6 @@ export const viewstate: any = {
                 '3f2ca3e560d9082bb56fbf7667a57a66',
                 '4863a523ac490ebce771717756f0c6a8',
                 'ea141fddc78fd1af4d06e494baf12cc1',
-            ],
-        },
-        {
-            viewtag: '7b8d03598e32aa0f535758927a17b98e',
-            viewmodule: 'ibiz',
-            viewname: 'DocCreateEditView',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-                'cb6c278fd7205b3de3fc041816d15dd8',
             ],
         },
         {

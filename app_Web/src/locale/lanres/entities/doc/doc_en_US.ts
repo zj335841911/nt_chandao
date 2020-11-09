@@ -207,29 +207,9 @@ export default {
 		},
 	},
 	gridviewtoolbar_toolbar: {
-		items1: {
-			caption: "快速访问",
-			tip: "快速访问",
-		},
-		deuiaction1: {
-			caption: "最近更新",
-			tip: "最近更新",
-		},
-		deuiaction2: {
-			caption: "我的文档",
-			tip: "我的文档",
-		},
-		deuiaction3: {
-			caption: "我的收藏",
-			tip: "我的收藏",
-		},
-		items2: {
-			caption: "创建文档",
-			tip: "创建文档",
-		},
-		deuiaction4: {
-			caption: "富文本",
-			tip: "富文本",
+		deuiaction7: {
+			caption: "Export",
+			tip: "Export {0} Data To Excel",
 		},
 	},
 };
