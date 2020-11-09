@@ -83,7 +83,7 @@ export default class CreateEditFormModel {
       {
         name: 'type',
         prop: 'type',
-        dataType: 'SMCODELIST',
+        dataType: 'SSCODELIST',
       },
       {
         name: 'content',
