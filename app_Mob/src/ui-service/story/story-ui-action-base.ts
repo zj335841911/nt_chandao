@@ -906,7 +906,7 @@ export default class StoryUIActionBase extends EntityUIActionBase {
         }
         // 导航参数
         let panelNavParam= { } ;
-        let panelNavContext= { "productplan": "%productplan% SRFNAVCTX.story=0" } ;
+        let panelNavContext= { } ;
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
         const backend = async () => {
             const curUIService: any = await this.globaluiservice.getAppEntityService('story');
