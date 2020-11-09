@@ -188,6 +188,10 @@ export default {
 			caption: "暂停任务",
       		title: "暂停任务",
 		},
+		calendareditview: {
+			caption: "日历航显示",
+      		title: "任务编辑视图（日历航显示）",
+		},
 		donetaskview: {
 			caption: "完成任务",
       		title: "完成任务",

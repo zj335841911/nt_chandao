@@ -5787,6 +5787,74 @@ const router = new Router({
                     component: () => import('@pages/zentao/build-test-rounds-grid-view/build-test-rounds-grid-view.vue'),
                 },
                 {
+                    path: 'products/:product?/stories/:story?/tasks/:task?/calendareditview/:calendareditview?',
+                    meta: {
+                        caption: 'entities.task.views.calendareditview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'calendareditview', parameterName: 'calendareditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/task-calendar-edit-view/task-calendar-edit-view.vue'),
+                },
+                {
+                    path: 'projects/:project?/tasks/:task?/calendareditview/:calendareditview?',
+                    meta: {
+                        caption: 'entities.task.views.calendareditview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'calendareditview', parameterName: 'calendareditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/task-calendar-edit-view/task-calendar-edit-view.vue'),
+                },
+                {
+                    path: 'stories/:story?/tasks/:task?/calendareditview/:calendareditview?',
+                    meta: {
+                        caption: 'entities.task.views.calendareditview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'calendareditview', parameterName: 'calendareditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/task-calendar-edit-view/task-calendar-edit-view.vue'),
+                },
+                {
+                    path: 'tasks/:task?/calendareditview/:calendareditview?',
+                    meta: {
+                        caption: 'entities.task.views.calendareditview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'calendareditview', parameterName: 'calendareditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/task-calendar-edit-view/task-calendar-edit-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/cases/:case?/testresults/:testresult?/meditview9/:meditview9?',
                     meta: {
                         caption: 'entities.testresult.views.meditview9.caption',

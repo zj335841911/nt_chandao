@@ -187,6 +187,21 @@ export default class DocServiceBase extends EntityService {
     }
 
     /**
+     * FetchChildDocLibDoc接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof DocServiceBase
+     */
+    public async FetchChildDocLibDoc(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/docs/fetchchilddoclibdoc`,tempData,isloading);
+        return res;
+    }
+
+    /**
      * FetchDefault接口方法
      *
      * @param {*} [context={}]

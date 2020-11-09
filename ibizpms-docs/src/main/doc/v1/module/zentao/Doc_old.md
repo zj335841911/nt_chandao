@@ -124,6 +124,7 @@ hide footbox
 
 | 集合编号 | 集合名称   |  包含查询  | 默认集合 |   备注|
 | --------  | --------   | -------- | --------   | ----- |
+|ChildDocLibDoc|文档库文档（子库）|ChildDocLibDoc|否|&nbsp;|
 |DEFAULT|DEFAULT|DEFAULT|是|&nbsp;|
 |DocLibDoc|文档库文档|DocLibDoc|否|&nbsp;|
 
