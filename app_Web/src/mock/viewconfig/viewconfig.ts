@@ -1703,6 +1703,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TodoCloseView",
             "viewtag": "734c2c8a05995eaad9f9a0028e9b9def"
         },
+        "doclibusr2editview": {
+            "title": "文档库编辑视图",
+            "caption": "文档库",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "zentao",
+            "viewname": "DocLibUsr2EditView",
+            "viewtag": "73fbcf0e3685096f63587bcff234f958"
+        },
         "casecursuitgridview": {
             "title": "功能测试",
             "caption": "功能测试",

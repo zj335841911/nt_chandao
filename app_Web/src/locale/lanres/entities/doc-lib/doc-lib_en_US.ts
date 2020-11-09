@@ -42,6 +42,10 @@ export default {
 			caption: "文档库",
       		title: "doclib表格视图",
 		},
+		usr2editview: {
+			caption: "文档库",
+      		title: "文档库编辑视图",
+		},
 		libtabexpview: {
 			caption: "文档库主页",
       		title: "文档库分页导航视图（文档）",
@@ -126,6 +130,8 @@ export default {
 			caption: "创建文档",
 			tip: "创建文档",
 		},
+	},
+	usr2editviewtoolbar_toolbar: {
 	},
 	projectdoclibtree_treeview: {
 		nodes: {

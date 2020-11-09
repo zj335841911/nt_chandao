@@ -5782,22 +5782,12 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         "codelisttype":"static",
         items: [
             {
-                id: "open",
-                label: "公开",
-                text: "公开",
+                id: "default",
+                label: "默认",
+                text: "默认",
                 "data":"",
-                "codename":"Open",
-                value: "open",
-                
-                disabled: false,
-            },
-            {
-                id: "private",
-                label: "私有",
-                text: "私有",
-                "data":"",
-                "codename":"Private",
-                value: "private",
+                "codename":"Default",
+                value: "default",
                 
                 disabled: false,
             },

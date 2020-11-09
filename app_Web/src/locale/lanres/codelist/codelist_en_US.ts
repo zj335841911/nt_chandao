@@ -789,8 +789,7 @@ export default {
         "empty": ""
     },
     Doclib__acl: {
-        "open": "公开",
-        "private": "私有",
+        "default": "默认",
         "custom": "自定义",
         "empty": ""
     },
