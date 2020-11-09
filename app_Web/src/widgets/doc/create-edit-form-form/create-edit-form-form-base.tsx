@@ -189,6 +189,10 @@ export class CreateEditFormEditFormBase extends EditFormControlBase {
      * @memberof CreateEditFormEditFormBase
      */
     public resetFormData({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
+        if (Object.is(name, 'libname')) {
+            this.onFormItemValueChange({ name: 'modulename', value: null });
+            this.onFormItemValueChange({ name: 'module', value: null });
+        }
         if (Object.is(name, 'type')) {
             this.onFormItemValueChange({ name: 'content', value: null });
         }
