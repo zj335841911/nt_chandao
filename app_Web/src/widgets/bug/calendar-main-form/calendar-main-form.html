@@ -1,12 +1,12 @@
-<i-form :model="this.data" class='app-form' ref='form'  id='bug_calendarmain' style="" @on-validate="formItemValidate.apply(_self, arguments)">
+<i-form :model="this.data" class='app-form info-form-mode' ref='form'  id='bug_calendarmain' style="" @on-validate="formItemValidate.apply(_self, arguments)">
     <input style="display:none;" />
     <row >
             <i-col class="form-layout-container" v-show="detailsModel.group1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-group :model="detailsModel.group1" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.bug.calendarmain_form.details.group1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
+    <app-form-group :model="detailsModel.group1" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.bug.calendarmain_form.details.group1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
     <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.group1" :data="data" :context="context" :viewparams="viewparams"/>
     <row>
         <i-col class="form-layout-container" v-show="detailsModel.grouppanel2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 5, offset: 0 }">
-    <app-form-group :model="detailsModel.grouppanel2" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel2.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.bug.calendarmain_form.details.grouppanel2')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
+    <app-form-group :model="detailsModel.grouppanel2" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel2.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.bug.calendarmain_form.details.grouppanel2')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
     <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel2" :data="data" :context="context" :viewparams="viewparams"/>
     <row>
         <i-col class="form-layout-container" v-show="detailsModel.id.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 11, offset: 0 }">
@@ -22,21 +22,10 @@
 <i-col class="form-layout-container" v-show="detailsModel.status.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 13, offset: 0 }">
     <app-form-item name='status' :itemRules="this.rules().status" class='panelitem-borad' :caption="$t('entities.bug.calendarmain_form.details.status')" uiStyle="DEFAULT" :labelWidth="5" :isShowCaption="true" :error="detailsModel.status.error" :isEmptyCaption="true" labelPos="LEFT">
     
-<dropdown-list 
-    v-model="data.status"
-    :data="data"
-    :context="context"
-    :formState="formState"
-    :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
-    :disabled="detailsModel.status.disabled"
-    valueType="string"
-    tag='Bug__status'
-    codelistType='STATIC'
-    placeholder='请选择...'
-    
-/>
+<app-span name='status' :value="data.status" dataType="SSCODELIST"     :precision="0"
+tag='Bug__status' codelistType='STATIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
+</app-span>
+
 </app-form-item>
 
 </i-col>
@@ -58,61 +47,42 @@
 <i-col class="form-layout-container" v-show="detailsModel.severity.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 8, offset: 0 }">
     <app-form-item name='severity' :itemRules="this.rules().severity" class='' :caption="$t('entities.bug.calendarmain_form.details.severity')" uiStyle="DEFAULT" :labelWidth="80" :isShowCaption="true" :error="detailsModel.severity.error" :isEmptyCaption="false" labelPos="LEFT">
     
-<dropdown-list 
-    v-model="data.severity"
-    :data="data"
-    :context="context"
-    :formState="formState"
-    :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
-    :disabled="detailsModel.severity.disabled"
-    valueType="number"
-    tag='Bug__severity'
-    codelistType='STATIC'
-    placeholder='请选择...'
-    
-/>
+<app-span name='severity' :value="data.severity" dataType="NSCODELIST"     :precision="0"
+tag='Bug__severity' codelistType='STATIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
+</app-span>
+
 </app-form-item>
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.pri.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 8, offset: 0 }">
     <app-form-item name='pri' :itemRules="this.rules().pri" class='' :caption="$t('entities.bug.calendarmain_form.details.pri')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.pri.error" :isEmptyCaption="false" labelPos="LEFT">
     
-<dropdown-list 
-    v-model="data.pri"
-    :data="data"
-    :context="context"
-    :formState="formState"
-    :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
-    :disabled="detailsModel.pri.disabled"
-    valueType="number"
-    tag='Bug__pri'
-    codelistType='STATIC'
-    placeholder='请选择...'
-    
-/>
+<app-span name='pri' :value="data.pri" dataType="NSCODELIST"     :precision="0"
+tag='Bug__pri' codelistType='STATIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
+</app-span>
+
 </app-form-item>
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.deadline.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 8, offset: 0 }">
     <app-form-item name='deadline' :itemRules="this.rules().deadline" class='' :caption="$t('entities.bug.calendarmain_form.details.deadline')" uiStyle="DEFAULT" :labelWidth="80" :isShowCaption="true" :error="detailsModel.deadline.error" :isEmptyCaption="false" labelPos="LEFT">
-    <date-picker type="date" :transfer="true" format="yyyy-MM-dd" placeholder="请选择时间..." :value="data.deadline" :disabled="detailsModel.deadline.disabled" style="min-width: 150px; width:100px;" @on-change="(val1, val2) => { this.data.deadline = val1 }"></date-picker>
+    
+<app-span name='deadline' :value="data.deadline" dataType="DATE" valueFormat="%1$tY-%1$tm-%1$td"     :precision="0"
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
+</app-span>
 
 </app-form-item>
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.grouppanel3.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 20, offset: 0 }">
-    <app-form-group :model="detailsModel.grouppanel3" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel3.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.bug.calendarmain_form.details.grouppanel3')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
+    <app-form-group :model="detailsModel.grouppanel3" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel3.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.bug.calendarmain_form.details.grouppanel3')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
     <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel3" :data="data" :context="context" :viewparams="viewparams"/>
     <row>
         <i-col class="form-layout-container" v-show="detailsModel.button1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 2, offset: 0 }">
         <i-button type="primary" @click="button1_click($event)"
          style="">
               <menu-icon :item="{iconcls: 'fa fa-eye'}" />
-        <span >{{$t('entities.bug.calendarmain_form.details.button1')}}</span>
+        
     </i-button>
 
 </i-col>
@@ -120,7 +90,7 @@
         <i-button type="primary" @click="button2_click($event)"
          style="">
               <menu-icon :item="{iconcls: 'fa fa-hand-o-right'}" />
-        <span >{{$t('entities.bug.calendarmain_form.details.button2')}}</span>
+        
     </i-button>
 
 </i-col>
@@ -128,7 +98,7 @@
         <i-button type="primary" @click="button3_click($event)"
          style="">
               <menu-icon :item="{iconcls: 'fa fa-check-square-o'}" />
-        <span >{{$t('entities.bug.calendarmain_form.details.button3')}}</span>
+        
     </i-button>
 
 </i-col>
@@ -136,14 +106,14 @@
         <i-button type="primary" @click="button4_click($event)"
          style="">
               <menu-icon :item="{iconcls: 'fa fa-close'}" />
-        <span >{{$t('entities.bug.calendarmain_form.details.button4')}}</span>
+        
     </i-button>
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.button5.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 2, offset: 0 }">
         <i-button type="primary" @click="button5_click($event)"
          style="">
-        <span >{{$t('entities.bug.calendarmain_form.details.button5')}}</span>
+        
     </i-button>
 
 </i-col>
@@ -153,7 +123,7 @@
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.grouppanel4.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-group :model="detailsModel.grouppanel4" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel4.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.bug.calendarmain_form.details.grouppanel4')" :isShowCaption="true" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
+    <app-form-group :model="detailsModel.grouppanel4" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel4.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.bug.calendarmain_form.details.grouppanel4')" :isShowCaption="true" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
     <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel4" :data="data" :context="context" :viewparams="viewparams"/>
     <row>
         <i-col class="form-layout-container" v-show="detailsModel.steps.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
@@ -168,7 +138,7 @@
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.grouppanel1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-group :model="detailsModel.grouppanel1" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.bug.calendarmain_form.details.grouppanel1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
+    <app-form-group :model="detailsModel.grouppanel1" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.bug.calendarmain_form.details.grouppanel1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
     <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel1" :data="data" :context="context" :viewparams="viewparams"/>
     <row>
         <i-col class="form-layout-container" v-show="detailsModel.druipart1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
