@@ -101,7 +101,7 @@ export class DocLibLibTabExpViewBase extends TabExpViewBase {
 
         deuiaction4: { name: 'deuiaction4', caption: '创建文档库', 'isShowCaption': true, 'isShowIcon': true, tooltip: '创建文档库', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Create', target: 'NONE', class: '' } },
 
-        deuiaction6: { name: 'deuiaction6', caption: '创建文档', 'isShowCaption': true, 'isShowIcon': true, tooltip: '创建文档', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'CreateFile', target: 'NONE', class: '' } },
+        deuiaction6: { name: 'deuiaction6', caption: '创建文档', 'isShowCaption': true, 'isShowIcon': true, tooltip: '创建文档', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'DOC', uiaction: { tag: 'CreateFile', target: 'NONE', class: '' } },
 
     };
 

@@ -317,7 +317,6 @@ export default class DocLibUIServiceBase extends UIService {
             if (xData && xData.refresh && xData.refresh instanceof Function) {
                 xData.refresh(args);
             }
-            actionContext.closeView(null);
             return null;
         }
         openIndexViewTab(data);
