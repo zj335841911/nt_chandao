@@ -24,6 +24,7 @@ export default {
     libname: "所属文档库",
     modulename: "模块分类",
     content: "文档正文",
+    files: "附件",
   },
 	views: {
 		basiceditview9: {

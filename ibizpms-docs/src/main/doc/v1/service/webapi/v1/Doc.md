@@ -268,7 +268,8 @@ POST
 | 22 | libname | String | 允许 | 所属文档库 |
 | 23 | modulename | String | 允许 | 模块分类 |
 | 24 | content | String | 允许 | 文档正文 |
-| 25 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 25 | files | String | 允许 | 附件 |
+| 26 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### DocSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

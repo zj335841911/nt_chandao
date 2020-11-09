@@ -87,6 +87,9 @@ export default class DocSumModel {
       {
         name: 'content',
       },
+      {
+        name: 'files',
+      },
     ]
   }
 

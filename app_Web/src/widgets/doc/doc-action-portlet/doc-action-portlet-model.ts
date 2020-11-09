@@ -87,6 +87,9 @@ export default class DocActionModel {
       {
         name: 'content',
       },
+      {
+        name: 'files',
+      },
     ]
   }
 

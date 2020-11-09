@@ -220,6 +220,13 @@ public class Doc extends EntityMP implements Serializable {
     @JSONField(name = "content")
     @JsonProperty("content")
     private String content;
+    /**
+     * 附件
+     */
+    @TableField(exist = false)
+    @JSONField(name = "files")
+    @JsonProperty("files")
+    private String files;
 
     /**
      * 

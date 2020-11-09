@@ -87,6 +87,9 @@ export default class MainBodyModel {
       {
         name: 'content',
       },
+      {
+        name: 'files',
+      },
     ]
   }
 

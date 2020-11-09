@@ -46,6 +46,7 @@ import doclib_en_US from '@locale/lanres/entities/doc-lib/doc-lib_en_US';
 import productmodule_en_US from '@locale/lanres/entities/product-module/product-module_en_US';
 import module_en_US from '@locale/lanres/entities/module/module_en_US';
 import testmodule_en_US from '@locale/lanres/entities/test-module/test-module_en_US';
+import doclibmodule_en_US from '@locale/lanres/entities/doc-lib-module/doc-lib-module_en_US';
 import productlife_en_US from '@locale/lanres/entities/product-life/product-life_en_US';
 import usercontact_en_US from '@locale/lanres/entities/user-contact/user-contact_en_US';
 import task_en_US from '@locale/lanres/entities/task/task_en_US';
@@ -380,6 +381,7 @@ const data: any = {
         productmodule: productmodule_en_US,
         module: module_en_US,
         testmodule: testmodule_en_US,
+        doclibmodule: doclibmodule_en_US,
         productlife: productlife_en_US,
         usercontact: usercontact_en_US,
         task: task_en_US,

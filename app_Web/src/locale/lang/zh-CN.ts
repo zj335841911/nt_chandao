@@ -46,6 +46,7 @@ import doclib_zh_CN from '@locale/lanres/entities/doc-lib/doc-lib_zh_CN';
 import productmodule_zh_CN from '@locale/lanres/entities/product-module/product-module_zh_CN';
 import module_zh_CN from '@locale/lanres/entities/module/module_zh_CN';
 import testmodule_zh_CN from '@locale/lanres/entities/test-module/test-module_zh_CN';
+import doclibmodule_zh_CN from '@locale/lanres/entities/doc-lib-module/doc-lib-module_zh_CN';
 import productlife_zh_CN from '@locale/lanres/entities/product-life/product-life_zh_CN';
 import usercontact_zh_CN from '@locale/lanres/entities/user-contact/user-contact_zh_CN';
 import task_zh_CN from '@locale/lanres/entities/task/task_zh_CN';
@@ -379,6 +380,7 @@ const data: any = {
         productmodule: productmodule_zh_CN,
         module: module_zh_CN,
         testmodule: testmodule_zh_CN,
+        doclibmodule: doclibmodule_zh_CN,
         productlife: productlife_zh_CN,
         usercontact: usercontact_zh_CN,
         task: task_zh_CN,

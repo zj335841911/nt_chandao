@@ -244,6 +244,15 @@ public class DocDTO extends DTOBase implements Serializable {
     @Size(min = 0, max = 1048576, message = "内容长度必须小于等于[1048576]")
     private String content;
 
+    /**
+     * 属性 [FILES]
+     *
+     */
+    @JSONField(name = "files")
+    @JsonProperty("files")
+    @Size(min = 0, max = 1000, message = "内容长度必须小于等于[1000]")
+    private String files;
+
 
     /**
      * 设置 [GROUPS]

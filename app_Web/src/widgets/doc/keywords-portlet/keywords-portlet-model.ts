@@ -87,6 +87,9 @@ export default class KeywordsModel {
       {
         name: 'content',
       },
+      {
+        name: 'files',
+      },
     ]
   }
 

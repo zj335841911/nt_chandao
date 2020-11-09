@@ -197,4 +197,12 @@ export interface Doc {
      * @memberof Doc
      */
     content?: any;
+
+    /**
+     * 附件
+     *
+     * @returns {*}
+     * @memberof Doc
+     */
+    files?: any;
 }

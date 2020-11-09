@@ -87,6 +87,9 @@ export default class BasicModel {
       {
         name: 'content',
       },
+      {
+        name: 'files',
+      },
     ]
   }
 

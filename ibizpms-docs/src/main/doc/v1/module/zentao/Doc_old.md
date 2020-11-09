@@ -40,6 +40,7 @@ hide members
 |所属文档库|LIBNAME|PICKUPTEXT|&nbsp;|
 |模块分类|MODULENAME|PICKUPTEXT|&nbsp;|
 |文档正文|CONTENT|HTMLTEXT|&nbsp;|
+|附件|FILES|TEXT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -68,6 +69,7 @@ hide members
 |所属文档库|默认规则|内容长度必须小于等于[60]|
 |模块分类|默认规则|内容长度必须小于等于[60]|
 |文档正文|默认规则|内容长度必须小于等于[1048576]|
+|附件|默认规则|内容长度必须小于等于[1000]|
 
 ## 状态控制
 
