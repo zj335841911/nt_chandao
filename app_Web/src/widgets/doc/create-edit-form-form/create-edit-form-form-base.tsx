@@ -113,6 +113,10 @@ export class CreateEditFormEditFormBase extends EditFormControlBase {
      */
     public rules():any{
         return {
+        libname: [
+            { required: this.detailsModel.libname.required, type: 'string', message: '所属文档库 值不能为空', trigger: 'change' },
+            { required: this.detailsModel.libname.required, type: 'string', message: '所属文档库 值不能为空', trigger: 'blur' },
+        ],
         title: [
             { required: this.detailsModel.title.required, type: 'string', message: '文档标题 值不能为空', trigger: 'change' },
             { required: this.detailsModel.title.required, type: 'string', message: '文档标题 值不能为空', trigger: 'blur' },
@@ -154,7 +158,7 @@ export class CreateEditFormEditFormBase extends EditFormControlBase {
 
         lib: new FormItemModel({ caption: '所属文档库', detailType: 'FORMITEM', name: 'lib', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 
-        libname: new FormItemModel({ caption: '所属文档库', detailType: 'FORMITEM', name: 'libname', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+        libname: new FormItemModel({ caption: '所属文档库', detailType: 'FORMITEM', name: 'libname', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:true, disabled: false, enableCond: 3 }),
 
         module: new FormItemModel({ caption: '所属分类', detailType: 'FORMITEM', name: 'module', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 
