@@ -376,7 +376,7 @@ POST
 | 5 | groups | String | 允许 | 分组 |
 | 6 | id | Long | 不可 | 编号 |
 | 7 | users | String | 允许 | 用户 |
-| 8 | main | Integer | 允许 | 是否是主库 |
+| 8 | main | String | 允许 | 是否是主库 |
 | 9 | name | String | 不可 | 文档库名称 |
 | 10 | order | Integer | 允许 | 排序 |
 | 11 | project | Long | 允许 | 项目库 |
@@ -392,7 +392,7 @@ POST
 | ---- | ---- | ---- | ---- | ---- |
 | 1 | n_type_eq | String | 允许 | 条件字段：type<br>条件组合方式：`=` |
 | 2 | n_acl_eq | String | 允许 | 条件字段：acl<br>条件组合方式：`=` |
-| 3 | n_main_eq | Integer | 允许 | 条件字段：main<br>条件组合方式：`=` |
+| 3 | n_main_eq | String | 允许 | 条件字段：main<br>条件组合方式：`=` |
 | 4 | n_name_like | String | 允许 | 条件字段：name<br>条件组合方式：`%like%` |
 | 5 | n_project_eq | Long | 允许 | 条件字段：project<br>条件组合方式：`=` |
 | 6 | n_product_eq | Long | 允许 | 条件字段：product<br>条件组合方式：`=` |

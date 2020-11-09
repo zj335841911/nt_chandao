@@ -98,7 +98,8 @@ public class DocLibDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "main")
     @JsonProperty("main")
-    private Integer main;
+    @Size(min = 0, max = 1, message = "内容长度必须小于等于[1]")
+    private String main;
 
     /**
      * 属性 [NAME]
@@ -215,7 +216,7 @@ public class DocLibDTO extends DTOBase implements Serializable {
     /**
      * 设置 [MAIN]
      */
-    public void setMain(Integer  main){
+    public void setMain(String  main){
         this.main = main ;
         this.modify("main",main);
     }

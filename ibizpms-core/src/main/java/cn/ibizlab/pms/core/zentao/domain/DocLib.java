@@ -106,7 +106,7 @@ public class DocLib extends EntityMP implements Serializable {
     @TableField(value = "`main`")
     @JSONField(name = "main")
     @JsonProperty("main")
-    private Integer main;
+    private String main;
     /**
      * 文档库名称
      */
@@ -228,7 +228,7 @@ public class DocLib extends EntityMP implements Serializable {
     /**
      * 设置 [是否是主库]
      */
-    public void setMain(Integer main){
+    public void setMain(String main){
         this.main = main ;
         this.modify("main",main);
     }

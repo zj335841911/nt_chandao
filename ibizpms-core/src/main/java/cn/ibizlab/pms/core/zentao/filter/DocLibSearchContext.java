@@ -41,8 +41,8 @@ public class DocLibSearchContext extends QueryWrapperContext<DocLib> {
             this.getSearchCond().eq("acl", n_acl_eq);
         }
     }
-	private Integer n_main_eq;//[是否是主库]
-	public void setN_main_eq(Integer n_main_eq) {
+	private String n_main_eq;//[是否是主库]
+	public void setN_main_eq(String n_main_eq) {
         this.n_main_eq = n_main_eq;
         if(!ObjectUtils.isEmpty(this.n_main_eq)){
             this.getSearchCond().eq("main", n_main_eq);

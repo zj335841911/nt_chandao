@@ -22,7 +22,7 @@ hide members
 |分组|GROUPS|TEXT|&nbsp;选择权限为自定义生效|
 |编号|ID|ACID|&nbsp;|
 |用户|USERS|LONGTEXT|&nbsp;选择权限为自定义生效|
-|是否是主库|MAIN|YESNO|&nbsp;|
+|是否是主库|MAIN|TEXT|&nbsp;|
 |文档库名称|NAME|TEXT|&nbsp;|
 |排序|ORDER|INT|&nbsp;|
 |项目库|PROJECT|PICKUP|&nbsp;|
@@ -42,7 +42,7 @@ hide members
 |分组|默认规则|内容长度必须小于等于[255]|
 |编号|默认规则|默认规则|
 |用户|默认规则|内容长度必须小于等于[65535]|
-|是否是主库|默认规则|默认规则|
+|是否是主库|默认规则|内容长度必须小于等于[1]|
 |文档库名称|默认规则|内容长度必须小于等于[60]|
 |排序|默认规则|默认规则|
 |项目库|默认规则|默认规则|

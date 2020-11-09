@@ -15835,7 +15835,7 @@ CREATE TABLE `zt_doccontent`(
 | USERS        | 用户  | CLOB      |   65,535   | &nbsp; |
 | PRODUCT        | 产品库  |       |   8   | &nbsp; |
 | PROJECT        | 项目库  |       |   8   | &nbsp; |
-| MAIN        | 是否是主库  | INTEGER      |   1   | &nbsp; |
+| MAIN        | 是否是主库  | VARCHAR      |   1   | &nbsp; |
 | PRODUCTNAME        | 所属产品  | VARCHAR      |   90   | &nbsp; |
 | COLLECTOR        | 收藏者  | CLOB      |   65,535   | &nbsp; |
 | TYPE        | 文档类型  | VARCHAR      |   30   | &nbsp; |
@@ -16173,7 +16173,7 @@ CREATE TABLE `zt_doclib`(
 ,`GROUPS`  VARCHAR(255) COMMENT '分组' 
 ,`ID`  BIGINT(8)  UNSIGNED  NOT NULL AUTO_INCREMENT PRIMARY KEY COMMENT '编号' 
 ,`USERS`  MEDIUMTEXT COMMENT '用户' 
-,`MAIN`  INTEGER COMMENT '是否是主库' 
+,`MAIN`  VARCHAR(1) COMMENT '是否是主库' 
 ,`NAME`  VARCHAR(60) COMMENT '文档库名称' 
 ,`ORDER`  INTEGER COMMENT '排序' 
 ,`PROJECT`  BIGINT(8)  UNSIGNED COMMENT '项目库' 
