@@ -85,8 +85,8 @@ public class ProjectHelper extends ZTBaseHelper<ProjectMapper, Project> {
         docLib.setType(StaticDict.Action__object_type.PROJECT.getValue());
         docLib.setProduct(et.getId());
         docLib.setName("项目主库");
-        docLib.setMain(1);
-        docLib.setAcl("default");
+        docLib.setMain(StaticDict.YesNo.ITEM_1.getValue());
+        docLib.setAcl(StaticDict.Doclib__acl.DEFAULT.getValue());
         docLibHelper.create(docLib);
 
         //Team

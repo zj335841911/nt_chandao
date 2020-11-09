@@ -65,8 +65,8 @@ public class ProductHelper extends ZTBaseHelper<ProductMapper, Product> {
         docLib.setType(StaticDict.Doclib__type.PRODUCT.getValue());
         docLib.setProduct(et.getId());
         docLib.setName("产品主库");
-        docLib.setMain(1);
-        docLib.setAcl("default");
+        docLib.setMain(StaticDict.YesNo.ITEM_1.getValue());
+        docLib.setAcl(StaticDict.Doclib__acl.DEFAULT.getValue());
         docLibHelper.create(docLib);
 
         //Action
