@@ -1137,7 +1137,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'bad9ebb60029d8c0854e22a02600cbc7',
-                '1540523a668e920d831510cfbec2c5e2',
+                'e527490443d54f3791d9497938aaf332',
                 'ebf37bf3881bb27c09db9bbe5d0b0f77',
             ],
         },
@@ -3866,6 +3866,21 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+            ],
+        },
+        {
+            viewtag: 'e527490443d54f3791d9497938aaf332',
+            viewmodule: 'zentao',
+            viewname: 'BugCalendarEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'e67fe0ec86d17b74944c16e187da482d',
+                '7c6956b0c4bcc773697adb506d3ce5e9',
+                'c1e9611b6972b1877b75fa5d2c67aad6',
+                '37166f95166299e28f1a366b0b375d06',
+                'e897cf80a700c92025004c4696d9ae10',
+                'aeee411b8bffcf0c30d65557a8deeeee',
             ],
         },
         {

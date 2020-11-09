@@ -38,6 +38,7 @@ export const PageComponents = {
         Vue.component('product-plan-sub-plan-grid-view', () => import('@pages/zentao/product-plan-sub-plan-grid-view/product-plan-sub-plan-grid-view.vue'));
         Vue.component('bug-stats-assignto-grid-view', () => import('@pages/ibiz/bug-stats-assignto-grid-view/bug-stats-assignto-grid-view.vue'));
         Vue.component('task-assign-task-view', () => import('@pages/zentao/task-assign-task-view/task-assign-task-view.vue'));
+        Vue.component('bug-calendar-edit-view', () => import('@pages/zentao/bug-calendar-edit-view/bug-calendar-edit-view.vue'));
         Vue.component('story-grid-view9-child', () => import('@pages/zentao/story-grid-view9-child/story-grid-view9-child.vue'));
         Vue.component('test-task-project-grid-view', () => import('@pages/zentao/test-task-project-grid-view/test-task-project-grid-view.vue'));
         Vue.component('task-team-grid-view9', () => import('@pages/ibiz/task-team-grid-view9/task-team-grid-view9.vue'));

@@ -100,7 +100,7 @@ export class CalendarExpViewcalendarexpbarCalendarexpbarBase extends CalendarVie
      * @memberof CalendarExpViewcalendarexpbarBase
      */
     public navViewName: any = {
-        Bug: "bug-main-dashboard-view",
+        Bug: "bug-calendar-edit-view",
         task: "task-calendar-edit-view",
         todo: "todo-dashboard-view"
     };

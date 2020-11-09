@@ -1247,6 +1247,91 @@ const router = new Router({
                     component: () => import('@pages/zentao/task-assign-task-view/task-assign-task-view.vue'),
                 },
                 {
+                    path: 'products/:product?/stories/:story?/bugs/:bug?/calendareditview/:calendareditview?',
+                    meta: {
+                        caption: 'entities.bug.views.calendareditview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'calendareditview', parameterName: 'calendareditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-calendar-edit-view/bug-calendar-edit-view.vue'),
+                },
+                {
+                    path: 'projects/:project?/bugs/:bug?/calendareditview/:calendareditview?',
+                    meta: {
+                        caption: 'entities.bug.views.calendareditview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'calendareditview', parameterName: 'calendareditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-calendar-edit-view/bug-calendar-edit-view.vue'),
+                },
+                {
+                    path: 'stories/:story?/bugs/:bug?/calendareditview/:calendareditview?',
+                    meta: {
+                        caption: 'entities.bug.views.calendareditview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'calendareditview', parameterName: 'calendareditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-calendar-edit-view/bug-calendar-edit-view.vue'),
+                },
+                {
+                    path: 'products/:product?/bugs/:bug?/calendareditview/:calendareditview?',
+                    meta: {
+                        caption: 'entities.bug.views.calendareditview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'calendareditview', parameterName: 'calendareditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-calendar-edit-view/bug-calendar-edit-view.vue'),
+                },
+                {
+                    path: 'bugs/:bug?/calendareditview/:calendareditview?',
+                    meta: {
+                        caption: 'entities.bug.views.calendareditview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'calendareditview', parameterName: 'calendareditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-calendar-edit-view/bug-calendar-edit-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/gridview9_child/:gridview9_child?',
                     meta: {
                         caption: 'entities.story.views.gridview9_child.caption',

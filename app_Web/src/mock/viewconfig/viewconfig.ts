@@ -3471,6 +3471,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProjectStatsEditView9",
             "viewtag": "e444135470a806822b9b950e15c42a3e"
         },
+        "bugcalendareditview": {
+            "title": "Bug编辑视图（日历导航）",
+            "caption": "日历导航",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "zentao",
+            "viewname": "BugCalendarEditView",
+            "viewtag": "e527490443d54f3791d9497938aaf332"
+        },
         "casesuitelinkcasegridview": {
             "title": "测试用例表格视图（关联用例）",
             "caption": "关联用例",

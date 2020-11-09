@@ -453,13 +453,13 @@ export class MyWorkPCCalendarBase extends MainControlBase {
                 break;
             case "bug": 
                 view = {
-                    viewname: 'bug-main-dashboard-view', 
+                    viewname: 'bug-calendar-edit-view', 
                     height: 0, 
                     width: 0,
-                    title: this.$t('entities.bug.views.maindashboardview.title'),
-                    placement: 'DRAWER_TOP',
+                    title: this.$t('entities.bug.views.calendareditview.title'),
+                    placement: '',
                     deResParameters: [{ pathName: 'products', parameterName: 'product' }, ],
-                    parameters: [{ pathName: 'bugs', parameterName: 'bug' }, { pathName: 'maindashboardview', parameterName: 'maindashboardview' } ],
+                    parameters: [{ pathName: 'bugs', parameterName: 'bug' }, { pathName: 'calendareditview', parameterName: 'calendareditview' } ],
                 };
                 break;
             case "todo": 
