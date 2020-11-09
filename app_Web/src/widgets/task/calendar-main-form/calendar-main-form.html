@@ -5,7 +5,7 @@
     <app-form-group :model="detailsModel.group1" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.task.calendarmain_form.details.group1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
     <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.group1" :data="data" :context="context" :viewparams="viewparams"/>
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.grouppanel6.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 4, offset: 0 }">
+        <i-col class="form-layout-container" v-show="detailsModel.grouppanel6.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 5, offset: 0 }">
     <app-form-group :model="detailsModel.grouppanel6" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel6.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.task.calendarmain_form.details.grouppanel6')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
     <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel6" :data="data" :context="context" :viewparams="viewparams"/>
     <row>
@@ -34,7 +34,7 @@ tag='Task__status' codelistType='STATIC' :data="data" :context="context" :viewpa
 </app-form-group>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.name.visible" :style="{}"  :lg="{ span: 20, offset: 0 }" :xl="{ span: 20, offset: 0 }">
+<i-col class="form-layout-container" v-show="detailsModel.name.visible" :style="{}"  :lg="{ span: 19, offset: 0 }" :xl="{ span: 19, offset: 0 }">
     <app-form-item name='name' :itemRules="this.rules().name" class='panelitem-20px' :caption="$t('entities.task.calendarmain_form.details.name')" uiStyle="DEFAULT" :labelWidth="1" :isShowCaption="true" :error="detailsModel.name.error" :isEmptyCaption="true" labelPos="LEFT">
     
 <app-span name='name' :value="data.name" dataType="TEXT"     :precision="0"
