@@ -580,6 +580,15 @@ public class SubTaskDTO extends DTOBase implements Serializable {
     @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
     private String progressrate;
 
+    /**
+     * 属性 [DELAY]
+     *
+     */
+    @JSONField(name = "delay")
+    @JsonProperty("delay")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String delay;
+
 
     /**
      * 设置 [CANCELEDBY]

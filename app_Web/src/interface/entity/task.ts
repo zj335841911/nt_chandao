@@ -517,4 +517,12 @@ export interface Task {
      * @memberof Task
      */
     progressrate?: any;
+
+    /**
+     * 延期
+     *
+     * @returns {*}
+     * @memberof Task
+     */
+    delay?: any;
 }

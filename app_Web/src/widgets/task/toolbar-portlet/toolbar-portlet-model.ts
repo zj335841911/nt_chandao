@@ -207,6 +207,9 @@ export default class ToolbarModel {
       {
         name: 'progressrate',
       },
+      {
+        name: 'delay',
+      },
     ]
   }
 

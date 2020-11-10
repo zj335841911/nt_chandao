@@ -207,6 +207,9 @@ export default class AssignToMeModel {
       {
         name: 'progressrate',
       },
+      {
+        name: 'delay',
+      },
     ]
   }
 

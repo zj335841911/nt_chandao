@@ -64,6 +64,7 @@ export default {
     updatedate: "最后的更新日期",
     noticeusers: "消息通知用户",
     progressrate: "进度",
+    delay: "延期",
   },
 	views: {
 		subtasknewview: {

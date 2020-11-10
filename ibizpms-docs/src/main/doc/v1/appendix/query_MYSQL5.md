@@ -5253,6 +5253,7 @@ LEFT JOIN zt_module t21 ON t1.PARENT = t21.ID
 
 WHERE t1.DELETED = '0' 
 (t1.parent = 0 or t1.parent is null ) and t1.type = 'doc' 
+t1.root = #{srf.webcontext.product} 
 
 ```
 ### 默认（全部数据）(VIEW)<div id="DocLibModule_View"></div>
@@ -13843,7 +13844,7 @@ t1.`STORYVERSION`,
 t1.`SUBSTATUS`,
 t1.`TYPE`,
 ( CASE WHEN ( SELECT CASE	 WHEN count( t.`id` ) > 0 THEN 1 ELSE 0  END  FROM `zt_team` t  WHERE t.`type` = 'task'  AND t.`root` = t1.`id`  ) = 1 THEN '10'  WHEN t1.parent = - 1 THEN'20'   WHEN t1.parent = 0 THEN '30' ELSE '40' END) AS `TASKTYPE`,
-CONCAT_WS('',case when t1.consumed = 0 or t1.consumed is null then '0' when t1.`left` = 0 or t1.`left` is null then '100' else ROUND((ROUND(t1.`left`/(t1.`left` + t1.consumed),2)) * 100) end ,'%') as progressrate,
+CONCAT_WS('',case when t1.consumed = 0 or t1.consumed is null then '0' when t1.`left` = 0 or t1.`left` is null then '100' else ROUND((ROUND(t1.`consumed`/(t1.`left` + t1.consumed),2)) * 100) end ,'%') as progressrate,
 (case when t1.storyVersion < t21.version and t21.`status` <> 'changed' then 'storychange'  else t1.`status` end ) as `STATUS1`
 FROM `zt_task` t1 
 LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID 
@@ -13870,6 +13871,7 @@ t1.`CLOSEDREASON`,
 t1.`COLOR`,
 t1.`CONSUMED`,
 t1.`DEADLINE`,
+(case when t1.deadline is null or t1.deadline = '0000-00-00' or t1.deadline = '1970-01-01' then '' when t1.`status` in ('wait','doing') and t1.deadline <DATE_FORMAT(now(),'%y-%m-%d')  then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t1.deadline, now()),'天') else '' end) AS `DELAY`,
 t1.`DELETED`,
 (To_Days(t1.`DEADLINE`)-To_Days(t1.`ESTSTARTED`)) AS `DURATION`,
 t1.`ESTIMATE`,
@@ -13896,7 +13898,7 @@ t11.`PATH`,
 t1.`PRI`,
 t21.`PRODUCT`,
 t41.`NAME` AS `PRODUCTNAME`,
-CONCAT_WS('',case when t1.consumed = 0 or t1.consumed is null then '0' when t1.`left` = 0 or t1.`left` is null then '100' else ROUND((ROUND(t1.`left`/(t1.`left` + t1.consumed),2)) * 100) end ,'%') AS `PROGRESSRATE`,
+CONCAT_WS('',case when t1.consumed = 0 or t1.consumed is null then '0' when t1.`left` = 0 or t1.`left` is null then '100' else ROUND((ROUND(t1.`consumed`/(t1.`left` + t1.consumed),2)) * 100) end ,'%') AS `PROGRESSRATE`,
 t1.`PROJECT`,
 t31.`NAME` AS `PROJECTNAME`,
 t1.`REALSTARTED`,
@@ -13988,6 +13990,7 @@ t1.`CLOSEDREASON`,
 t1.`COLOR`,
 t1.`CONSUMED`,
 t1.`DEADLINE`,
+(case when t1.deadline is null or t1.deadline = '0000-00-00' or t1.deadline = '1970-01-01' then '' when t1.`status` in ('wait','doing') and t1.deadline <DATE_FORMAT(now(),'%y-%m-%d')  then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t1.deadline, now()),'天') else '' end) AS `DELAY`,
 t1.`DELETED`,
 (To_Days(t1.`DEADLINE`)-To_Days(t1.`ESTSTARTED`)) AS `DURATION`,
 t1.`ESTIMATE`,
@@ -14014,7 +14017,7 @@ t11.`PATH`,
 t1.`PRI`,
 t21.`PRODUCT`,
 t41.`NAME` AS `PRODUCTNAME`,
-CONCAT_WS('',case when t1.consumed = 0 or t1.consumed is null then '0' when t1.`left` = 0 or t1.`left` is null then '100' else ROUND((ROUND(t1.`left`/(t1.`left` + t1.consumed),2)) * 100) end ,'%') AS `PROGRESSRATE`,
+CONCAT_WS('',case when t1.consumed = 0 or t1.consumed is null then '0' when t1.`left` = 0 or t1.`left` is null then '100' else ROUND((ROUND(t1.`consumed`/(t1.`left` + t1.consumed),2)) * 100) end ,'%') AS `PROGRESSRATE`,
 t1.`PROJECT`,
 t31.`NAME` AS `PROJECTNAME`,
 t1.`REALSTARTED`,
@@ -14087,7 +14090,7 @@ t1.`STORYVERSION`,
 t1.`SUBSTATUS`,
 t1.`TYPE`,
 	( CASE WHEN ( SELECT CASE	 WHEN count( t.`id` ) > 0 THEN 1 ELSE 0  END  FROM `zt_team` t  WHERE t.`type` = 'task'  AND t.`root` = t1.`id`  ) = 1 THEN '10'  WHEN t1.parent = - 1 THEN'20'   WHEN t1.parent = 0 THEN '30' ELSE '40' END) AS `TASKTYPE`,
-CONCAT_WS('',case when t1.consumed = 0 or t1.consumed is null then '0' when t1.`left` = 0 or t1.`left` is null then '100' else ROUND((ROUND(t1.`left`/(t1.`left` + t1.consumed),2)) * 100) end ,'%') as progressrate,
+CONCAT_WS('',case when t1.consumed = 0 or t1.consumed is null then '0' when t1.`left` = 0 or t1.`left` is null then '100' else ROUND((ROUND(t1.`consumed`/(t1.`left` + t1.consumed),2)) * 100) end ,'%') as progressrate,
 (case when t1.storyVersion < t21.version and t21.`status` <> 'changed' then 'storychange'  else t1.`status` end ) as `STATUS1`
 FROM `zt_task` t1 
 LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID 
@@ -14207,7 +14210,7 @@ t1.`STORYVERSION`,
 t1.`SUBSTATUS`,
 t1.`TYPE`,
 ( CASE WHEN ( SELECT CASE	 WHEN count( t.`id` ) > 0 THEN 1 ELSE 0  END  FROM `zt_team` t  WHERE t.`type` = 'task'  AND t.`root` = t1.`id`  ) = 1 THEN '10'  WHEN t1.parent = - 1 THEN'20'   WHEN t1.parent = 0 THEN '30' ELSE '40' END) AS `TASKTYPE`,
-CONCAT_WS('',case when t1.consumed = 0 or t1.consumed is null then '0' when t1.`left` = 0 or t1.`left` is null then '100' else ROUND((ROUND(t1.`left`/(t1.`left` + t1.consumed),2)) * 100) end ,'%') as progressrate,
+CONCAT_WS('',case when t1.consumed = 0 or t1.consumed is null then '0' when t1.`left` = 0 or t1.`left` is null then '100' else ROUND((ROUND(t1.`consumed`/(t1.`left` + t1.consumed),2)) * 100) end ,'%') as progressrate,
 (case when t1.storyVersion < t21.version and t21.`status` <> 'changed' then 'storychange'  else t1.`status` end ) as `STATUS1`
 FROM `zt_task` t1 
 LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID 
@@ -14268,7 +14271,7 @@ t1.`STORYVERSION`,
 t1.`SUBSTATUS`,
 t1.`TYPE`,
 ( CASE WHEN ( SELECT CASE	 WHEN count( t.`id` ) > 0 THEN 1 ELSE 0  END  FROM `zt_team` t  WHERE t.`type` = 'task'  AND t.`root` = t1.`id`  ) = 1 THEN '10'  WHEN t1.parent = - 1 THEN'20'   WHEN t1.parent = 0 THEN '30' ELSE '40' END) AS `TASKTYPE`,
-CONCAT_WS('',case when t1.consumed = 0 or t1.consumed is null then '0' when t1.`left` = 0 or t1.`left` is null then '100' else ROUND((ROUND(t1.`left`/(t1.`left` + t1.consumed),2)) * 100) end ,'%') as progressrate,
+CONCAT_WS('',case when t1.consumed = 0 or t1.consumed is null then '0' when t1.`left` = 0 or t1.`left` is null then '100' else ROUND((ROUND(t1.`consumed`/(t1.`left` + t1.consumed),2)) * 100) end ,'%') as progressrate,
 (case when t1.storyVersion < t21.version and t21.`status` <> 'changed' then 'storychange'  else t1.`status` end ) as `STATUS1`
 FROM `zt_task` t1 
 LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID 
@@ -14456,6 +14459,7 @@ t1.`CLOSEDREASON`,
 t1.`COLOR`,
 t1.`CONSUMED`,
 t1.`DEADLINE`,
+(case when t1.deadline is null or t1.deadline = '0000-00-00' or t1.deadline = '1970-01-01' then '' when t1.`status` in ('wait','doing') and t1.deadline <DATE_FORMAT(now(),'%y-%m-%d')  then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t1.deadline, now()),'天') else '' end) AS `DELAY`,
 t1.`DELETED`,
 t1.`DESC`,
 (To_Days(t1.`DEADLINE`)-To_Days(t1.`ESTSTARTED`)) AS `DURATION`,
@@ -14485,7 +14489,7 @@ t11.`PATH`,
 t1.`PRI`,
 t21.`PRODUCT`,
 t41.`NAME` AS `PRODUCTNAME`,
-CONCAT_WS('',case when t1.consumed = 0 or t1.consumed is null then '0' when t1.`left` = 0 or t1.`left` is null then '100' else ROUND((ROUND(t1.`left`/(t1.`left` + t1.consumed),2)) * 100) end ,'%') AS `PROGRESSRATE`,
+CONCAT_WS('',case when t1.consumed = 0 or t1.consumed is null then '0' when t1.`left` = 0 or t1.`left` is null then '100' else ROUND((ROUND(t1.`consumed`/(t1.`left` + t1.consumed),2)) * 100) end ,'%') AS `PROGRESSRATE`,
 t1.`PROJECT`,
 t31.`NAME` AS `PROJECTNAME`,
 t1.`REALSTARTED`,

@@ -207,6 +207,9 @@ export default class TaskTreeModel {
       {
         name: 'progressrate',
       },
+      {
+        name: 'delay',
+      },
     ]
   }
 

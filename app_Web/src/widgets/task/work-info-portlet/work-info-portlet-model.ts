@@ -207,6 +207,9 @@ export default class WorkInfoModel {
       {
         name: 'progressrate',
       },
+      {
+        name: 'delay',
+      },
     ]
   }
 

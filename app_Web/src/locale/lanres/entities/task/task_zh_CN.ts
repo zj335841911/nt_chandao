@@ -64,6 +64,7 @@ export default {
     updatedate: "最后的更新日期",
     noticeusers: "消息通知用户",
     progressrate: "进度",
+    delay: "延期",
   },
 	views: {
 		assigntaskview: {
@@ -627,6 +628,7 @@ export default {
 			eststarted: "预计开始", 
 			realstarted: "实际开始", 
 			deadline: "截止日期", 
+			delay: "", 
 			id: "编号", 
 		},
 		uiactions: {
@@ -782,6 +784,7 @@ export default {
 			estimate: "预计",
 			consumed: "消耗",
 			left: "剩余",
+			progressrate: "%",
 			deadline: "截止日期",
 			uagridcolumn1: "操作",
 		},
@@ -890,6 +893,7 @@ export default {
 			estimate: "预计",
 			consumed: "消耗",
 			left: "剩余",
+			progressrate: "%",
 			deadline: "截止日期",
 			uagridcolumn1: "操作",
 		},
@@ -967,6 +971,7 @@ export default {
 			estimate: "预计",
 			consumed: "消耗",
 			left: "剩余",
+			progressrate: "%",
 			deadline: "截止日期",
 			uagridcolumn1: "操作",
 		},

@@ -207,6 +207,9 @@ export default class MainInfoModel {
       {
         name: 'progressrate',
       },
+      {
+        name: 'delay',
+      },
     ]
   }
 

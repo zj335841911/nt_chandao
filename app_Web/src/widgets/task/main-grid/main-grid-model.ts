@@ -206,6 +206,11 @@ export default class MainModel {
           dataType: 'TEXT',
         },
         {
+          name: 'progressrate',
+          prop: 'progressrate',
+          dataType: 'TEXT',
+        },
+        {
           name: 'deadline',
           prop: 'deadline',
           dataType: 'DATE',
