@@ -44,7 +44,7 @@ tag='Task__status' codelistType='STATIC' :data="data" :context="context" :viewpa
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.estimate.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 8, offset: 0 }">
+<i-col class="form-layout-container" v-show="detailsModel.estimate.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 6, offset: 0 }">
     <app-form-item name='estimate' :itemRules="this.rules().estimate" class='' :caption="$t('entities.task.calendarmain_form.details.estimate')" uiStyle="DEFAULT" :labelWidth="80" :isShowCaption="true" :error="detailsModel.estimate.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <app-span name='estimate' :value="data.estimate" dataType="FLOAT" unitName="小时"     :precision="2"
@@ -54,7 +54,7 @@ tag='Task__status' codelistType='STATIC' :data="data" :context="context" :viewpa
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.consumed.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 8, offset: 0 }">
+<i-col class="form-layout-container" v-show="detailsModel.consumed.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 6, offset: 0 }">
     <app-form-item name='consumed' :itemRules="this.rules().consumed" class='' :caption="$t('entities.task.calendarmain_form.details.consumed')" uiStyle="DEFAULT" :labelWidth="50" :isShowCaption="true" :error="detailsModel.consumed.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <app-span name='consumed' :value="data.consumed" dataType="FLOAT" unitName="小时"     :precision="2"
@@ -64,10 +64,20 @@ tag='Task__status' codelistType='STATIC' :data="data" :context="context" :viewpa
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.left.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 8, offset: 0 }">
+<i-col class="form-layout-container" v-show="detailsModel.left.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 6, offset: 0 }">
     <app-form-item name='left' :itemRules="this.rules().left" class='' :caption="$t('entities.task.calendarmain_form.details.left')" uiStyle="DEFAULT" :labelWidth="50" :isShowCaption="true" :error="detailsModel.left.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <app-span name='left' :value="data.left" dataType="FLOAT" unitName="小时"     :precision="2"
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
+</app-span>
+
+</app-form-item>
+
+</i-col>
+<i-col class="form-layout-container" v-show="detailsModel.progressrate.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 6, offset: 0 }">
+    <app-form-item name='progressrate' :itemRules="this.rules().progressrate" class='' :caption="$t('entities.task.calendarmain_form.details.progressrate')" uiStyle="DEFAULT" :labelWidth="50" :isShowCaption="true" :error="detailsModel.progressrate.error" :isEmptyCaption="false" labelPos="LEFT">
+    
+<app-span name='progressrate' :value="data.progressrate" dataType="TEXT"     :precision="0"
 :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
 </app-span>
 

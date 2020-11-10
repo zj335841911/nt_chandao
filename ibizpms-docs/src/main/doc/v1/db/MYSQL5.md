@@ -100200,6 +100200,7 @@ CREATE TABLE `T_SYS_UPDATE_LOG`(
 | FINISHEDBY        | 由谁完成  | VARCHAR      |   30   | &nbsp; |
 | OPENEDBY        | 由谁创建  | VARCHAR      |   30   | &nbsp; |
 | STORY        | 相关需求  |       |   8   | &nbsp; |
+| PROGRESSRATE        | 进度  | VARCHAR      |   200   | &nbsp; |
 | MAILTO        | 抄送给  | CLOB      |   65,535   | &nbsp; |
 | PARENTNAME        | 父任务  | VARCHAR      |   255   | &nbsp; |
 | MODULE        | id  |       |   8   | &nbsp; |

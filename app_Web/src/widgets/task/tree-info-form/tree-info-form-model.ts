@@ -111,6 +111,11 @@ export default class TreeInfoModel {
         dataType: 'FLOAT',
       },
       {
+        name: 'progressrate',
+        prop: 'progressrate',
+        dataType: 'TEXT',
+      },
+      {
         name: 'desc',
         prop: 'desc',
         dataType: 'LONGTEXT',

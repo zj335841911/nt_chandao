@@ -98,6 +98,7 @@ export class MainInfoEditFormBase extends EditFormControlBase {
         assignedto: null,
         type: null,
         status: null,
+        progressrate: null,
         pri: null,
         mailto: null,
         openedby: null,
@@ -201,6 +202,8 @@ export class MainInfoEditFormBase extends EditFormControlBase {
 
         status: new FormItemModel({ caption: '任务状态', detailType: 'FORMITEM', name: 'status', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 
+        progressrate: new FormItemModel({ caption: '进度', detailType: 'FORMITEM', name: 'progressrate', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+
         pri: new FormItemModel({ caption: '优先级', detailType: 'FORMITEM', name: 'pri', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 
         mailto: new FormItemModel({ caption: '抄送给', detailType: 'FORMITEM', name: 'mailto', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 0 }),
@@ -263,6 +266,7 @@ export class MainInfoEditFormBase extends EditFormControlBase {
             }
             this.detailsModel.druipart1.setVisible(ret);
         }
+
 
 
 

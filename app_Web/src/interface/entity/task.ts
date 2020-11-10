@@ -509,4 +509,12 @@ export interface Task {
      * @memberof Task
      */
     noticeusers?: any;
+
+    /**
+     * 进度
+     *
+     * @returns {*}
+     * @memberof Task
+     */
+    progressrate?: any;
 }

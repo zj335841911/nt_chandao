@@ -509,4 +509,12 @@ export interface SubTask {
      * @memberof SubTask
      */
     noticeusers?: any;
+
+    /**
+     * 进度
+     *
+     * @returns {*}
+     * @memberof SubTask
+     */
+    progressrate?: any;
 }

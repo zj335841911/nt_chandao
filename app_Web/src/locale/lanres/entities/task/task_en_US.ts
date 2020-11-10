@@ -63,6 +63,7 @@ export default {
     hasdetail: "是否填写描述",
     updatedate: "最后的更新日期",
     noticeusers: "消息通知用户",
+    progressrate: "进度",
   },
 	views: {
 		assigntaskview: {
@@ -541,6 +542,7 @@ export default {
 			estimate: "最初预计", 
 			consumed: "消耗", 
 			left: "剩余", 
+			progressrate: "进度", 
 			desc: "任务描述", 
 		},
 		uiactions: {
@@ -585,6 +587,7 @@ export default {
 			assignedto: "指派给", 
 			type: "任务类型", 
 			status: "任务状态", 
+			progressrate: "进度", 
 			pri: "优先级", 
 			mailto: "抄送给", 
 			openedby: "由谁创建", 
@@ -707,6 +710,7 @@ export default {
 			estimate: "最初预计", 
 			consumed: "消耗", 
 			left: "剩余", 
+			progressrate: "进度", 
 			desc: "任务描述", 
 		},
 		uiactions: {

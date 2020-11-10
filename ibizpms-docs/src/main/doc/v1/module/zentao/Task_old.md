@@ -85,6 +85,7 @@ hide members
 |是否填写描述|HASDETAIL|TEXT|&nbsp;|
 |最后的更新日期|UPDATEDATE|DATE|&nbsp;|
 |消息通知用户|NOTICEUSERS|TEXT|&nbsp;|
+|进度|PROGRESSRATE|TEXT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -160,6 +161,7 @@ hide members
 |是否填写描述|默认规则|内容长度必须小于等于[100]|
 |最后的更新日期|默认规则|默认规则|
 |消息通知用户|默认规则|内容长度必须小于等于[100]|
+|进度|默认规则|内容长度必须小于等于[200]|
 
 ## 状态控制
 

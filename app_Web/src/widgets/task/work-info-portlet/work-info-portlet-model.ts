@@ -204,6 +204,9 @@ export default class WorkInfoModel {
       {
         name: 'noticeusers',
       },
+      {
+        name: 'progressrate',
+      },
     ]
   }
 
