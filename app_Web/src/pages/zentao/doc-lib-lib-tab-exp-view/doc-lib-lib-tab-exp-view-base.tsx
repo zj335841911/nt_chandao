@@ -97,7 +97,7 @@ export class DocLibLibTabExpViewBase extends TabExpViewBase {
      * @memberof DocLibLibTabExpView
      */
     public toolBarModels: any = {
-        deuiaction7: { name: 'deuiaction7', caption: '快速访问', 'isShowCaption': true, 'isShowIcon': true, tooltip: '快速访问', iconcls: 'fa fa-file-word-o', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'DOC', uiaction: { tag: 'LookDoc', target: 'SINGLEKEY', class: '' } },
+        deuiaction7: { name: 'deuiaction7', caption: '快速访问', 'isShowCaption': true, 'isShowIcon': true, tooltip: '快速访问', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'QuickAccess_RecentUpdate', target: 'NONE', class: '' } },
 
         deuiaction4: { name: 'deuiaction4', caption: '创建文档库', 'isShowCaption': true, 'isShowIcon': true, tooltip: '创建文档库', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Create', target: 'NONE', class: '' } },
 
@@ -203,7 +203,7 @@ export class DocLibLibTabExpViewBase extends TabExpViewBase {
         }
         // 界面行为
         const curUIService:DocLibUIService  = new DocLibUIService();
-        curUIService.DocLib_LookDoc(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
+        curUIService.DocLib_QuickAccess_RecentUpdate(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
     }
 
     /**
