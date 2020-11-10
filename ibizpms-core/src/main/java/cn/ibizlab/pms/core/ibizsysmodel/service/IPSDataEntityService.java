@@ -24,6 +24,16 @@ import cn.ibizlab.pms.core.ibizsysmodel.filter.PSDataEntitySearchContext;
  */
 public interface IPSDataEntityService{
 
+    /**
+     * 业务实体显示文本名称
+     */
+    final protected static String OBJECT_TEXT_NAME = "实体";
+
+    /**
+     * 业务实体资源路径名
+     */
+    final protected static String OBJECT_SOURCE_PATH = "psdataentities";
+
     boolean create(PSDataEntity et) ;
     void createBatch(List<PSDataEntity> list) ;
     boolean update(PSDataEntity et) ;

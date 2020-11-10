@@ -24,6 +24,16 @@ import cn.ibizlab.pms.core.ibizsysmodel.filter.PSSysAppSearchContext;
  */
 public interface IPSSysAppService{
 
+    /**
+     * 业务实体显示文本名称
+     */
+    final protected static String OBJECT_TEXT_NAME = "系统应用";
+
+    /**
+     * 业务实体资源路径名
+     */
+    final protected static String OBJECT_SOURCE_PATH = "pssysapps";
+
     boolean create(PSSysApp et) ;
     void createBatch(List<PSSysApp> list) ;
     boolean update(PSSysApp et) ;

@@ -25,6 +25,16 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface ITestTaskService extends IService<TestTask>{
 
+    /**
+     * 业务实体显示文本名称
+     */
+    final protected static String OBJECT_TEXT_NAME = "测试版本";
+
+    /**
+     * 业务实体资源路径名
+     */
+    final protected static String OBJECT_SOURCE_PATH = "testtasks";
+
     boolean create(TestTask et) ;
     void createBatch(List<TestTask> list) ;
     boolean update(TestTask et) ;

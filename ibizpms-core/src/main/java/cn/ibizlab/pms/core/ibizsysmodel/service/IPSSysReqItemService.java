@@ -24,6 +24,16 @@ import cn.ibizlab.pms.core.ibizsysmodel.filter.PSSysReqItemSearchContext;
  */
 public interface IPSSysReqItemService{
 
+    /**
+     * 业务实体显示文本名称
+     */
+    final protected static String OBJECT_TEXT_NAME = "系统需求项";
+
+    /**
+     * 业务实体资源路径名
+     */
+    final protected static String OBJECT_SOURCE_PATH = "pssysreqitems";
+
     boolean create(PSSysReqItem et) ;
     void createBatch(List<PSSysReqItem> list) ;
     boolean update(PSSysReqItem et) ;

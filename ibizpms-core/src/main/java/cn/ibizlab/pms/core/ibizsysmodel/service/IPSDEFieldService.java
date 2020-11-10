@@ -24,6 +24,16 @@ import cn.ibizlab.pms.core.ibizsysmodel.filter.PSDEFieldSearchContext;
  */
 public interface IPSDEFieldService{
 
+    /**
+     * 业务实体显示文本名称
+     */
+    final protected static String OBJECT_TEXT_NAME = "实体属性";
+
+    /**
+     * 业务实体资源路径名
+     */
+    final protected static String OBJECT_SOURCE_PATH = "psdefields";
+
     boolean create(PSDEField et) ;
     void createBatch(List<PSDEField> list) ;
     boolean update(PSDEField et) ;

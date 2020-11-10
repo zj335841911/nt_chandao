@@ -25,6 +25,16 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IIBZ_LOGINService extends IService<IBZ_LOGIN>{
 
+    /**
+     * 业务实体显示文本名称
+     */
+    final protected static String OBJECT_TEXT_NAME = "实体";
+
+    /**
+     * 业务实体资源路径名
+     */
+    final protected static String OBJECT_SOURCE_PATH = "ibz_logins";
+
     IBZ_LOGIN getUser(IBZ_LOGIN et) ;
     IBZ_LOGIN ztlogin(IBZ_LOGIN et) ;
     Page<IBZ_LOGIN> searchDefault(IBZ_LOGINSearchContext context) ;

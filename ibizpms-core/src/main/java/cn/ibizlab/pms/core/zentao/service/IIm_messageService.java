@@ -25,6 +25,16 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IIm_messageService extends IService<Im_message>{
 
+    /**
+     * 业务实体显示文本名称
+     */
+    final protected static String OBJECT_TEXT_NAME = "im_message";
+
+    /**
+     * 业务实体资源路径名
+     */
+    final protected static String OBJECT_SOURCE_PATH = "im_messages";
+
     boolean create(Im_message et) ;
     void createBatch(List<Im_message> list) ;
     boolean update(Im_message et) ;

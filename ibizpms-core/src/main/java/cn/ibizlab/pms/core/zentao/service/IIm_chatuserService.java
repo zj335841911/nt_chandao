@@ -25,6 +25,16 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IIm_chatuserService extends IService<Im_chatuser>{
 
+    /**
+     * 业务实体显示文本名称
+     */
+    final protected static String OBJECT_TEXT_NAME = "im_chatuser";
+
+    /**
+     * 业务实体资源路径名
+     */
+    final protected static String OBJECT_SOURCE_PATH = "im_chatusers";
+
     boolean create(Im_chatuser et) ;
     void createBatch(List<Im_chatuser> list) ;
     boolean update(Im_chatuser et) ;

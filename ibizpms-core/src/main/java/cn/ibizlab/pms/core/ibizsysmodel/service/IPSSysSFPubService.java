@@ -24,6 +24,16 @@ import cn.ibizlab.pms.core.ibizsysmodel.filter.PSSysSFPubSearchContext;
  */
 public interface IPSSysSFPubService{
 
+    /**
+     * 业务实体显示文本名称
+     */
+    final protected static String OBJECT_TEXT_NAME = "后台服务架构";
+
+    /**
+     * 业务实体资源路径名
+     */
+    final protected static String OBJECT_SOURCE_PATH = "pssyssfpubs";
+
     boolean create(PSSysSFPub et) ;
     void createBatch(List<PSSysSFPub> list) ;
     boolean update(PSSysSFPub et) ;

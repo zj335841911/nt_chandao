@@ -24,6 +24,16 @@ import cn.ibizlab.pms.core.ou.filter.SysPostSearchContext;
  */
 public interface ISysPostService{
 
+    /**
+     * 业务实体显示文本名称
+     */
+    final protected static String OBJECT_TEXT_NAME = "岗位";
+
+    /**
+     * 业务实体资源路径名
+     */
+    final protected static String OBJECT_SOURCE_PATH = "sysposts";
+
     boolean create(SysPost et) ;
     void createBatch(List<SysPost> list) ;
     boolean update(SysPost et) ;

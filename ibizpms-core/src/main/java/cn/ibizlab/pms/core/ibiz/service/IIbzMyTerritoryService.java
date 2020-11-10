@@ -25,6 +25,16 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IIbzMyTerritoryService extends IService<IbzMyTerritory>{
 
+    /**
+     * 业务实体显示文本名称
+     */
+    final protected static String OBJECT_TEXT_NAME = "我的地盘";
+
+    /**
+     * 业务实体资源路径名
+     */
+    final protected static String OBJECT_SOURCE_PATH = "ibzmyterritories";
+
     boolean create(IbzMyTerritory et) ;
     void createBatch(List<IbzMyTerritory> list) ;
     boolean update(IbzMyTerritory et) ;

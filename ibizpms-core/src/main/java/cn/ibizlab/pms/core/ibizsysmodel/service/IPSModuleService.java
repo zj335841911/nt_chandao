@@ -24,6 +24,16 @@ import cn.ibizlab.pms.core.ibizsysmodel.filter.PSModuleSearchContext;
  */
 public interface IPSModuleService{
 
+    /**
+     * 业务实体显示文本名称
+     */
+    final protected static String OBJECT_TEXT_NAME = "系统模块";
+
+    /**
+     * 业务实体资源路径名
+     */
+    final protected static String OBJECT_SOURCE_PATH = "psmodules";
+
     boolean create(PSModule et) ;
     void createBatch(List<PSModule> list) ;
     boolean update(PSModule et) ;
