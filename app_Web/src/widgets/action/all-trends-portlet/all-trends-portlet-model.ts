@@ -81,6 +81,9 @@ export default class AllTrendsModel {
       {
         name: 'srfkey',
       },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

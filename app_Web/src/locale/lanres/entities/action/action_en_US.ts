@@ -22,6 +22,7 @@ export default {
     thismonth: "本月",
     lastmonth: "上月",
     srfkey: "前端键值",
+    noticeusers: "消息通知用户",
   },
 	views: {
 		myalltrendslistview: {

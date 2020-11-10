@@ -84,6 +84,7 @@ hide members
 |回复数量|REPLYCOUNT|INT|&nbsp;|
 |是否填写描述|HASDETAIL|TEXT|&nbsp;|
 |最后的更新日期|UPDATEDATE|DATE|&nbsp;|
+|消息通知用户|NOTICEUSERS|TEXT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -158,6 +159,7 @@ hide members
 |回复数量|默认规则|默认规则|
 |是否填写描述|默认规则|内容长度必须小于等于[100]|
 |最后的更新日期|默认规则|默认规则|
+|消息通知用户|默认规则|内容长度必须小于等于[100]|
 
 ## 状态控制
 
@@ -1286,6 +1288,7 @@ hide footbox
 |关闭原因(CLOSEDREASON)|EQ|
 |指派日期(ASSIGNEDDATE)|GTANDEQ|
 |优先级(PRI)|EQ|
+|优先级(PRI)|IN|
 |最后修改(LASTEDITEDBY)|EQ|
 |任务状态(STATUS)|EQ|
 |任务状态(STATUS)|IN|
@@ -1294,6 +1297,7 @@ hide footbox
 |关闭时间(CLOSEDDATE)|LTANDEQ|
 |任务类型(TYPE)|EQ|
 |指派给(ASSIGNEDTO)|EQ|
+|指派给(ASSIGNEDTO)|IN|
 |预计开始(ESTSTARTED)|GTANDEQ|
 |预计开始(ESTSTARTED)|LTANDEQ|
 |由谁创建(OPENEDBY)|EQ|

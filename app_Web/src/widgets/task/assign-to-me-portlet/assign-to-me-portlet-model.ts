@@ -201,6 +201,9 @@ export default class AssignToMeModel {
       {
         name: 'updatedate',
       },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

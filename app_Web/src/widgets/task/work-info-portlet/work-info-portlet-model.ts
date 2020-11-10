@@ -201,6 +201,9 @@ export default class WorkInfoModel {
       {
         name: 'updatedate',
       },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

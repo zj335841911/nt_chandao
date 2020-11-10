@@ -81,6 +81,10 @@ public class IBIZPRO_MESSAGEFallback implements IBIZPRO_MESSAGEFeignClient{
             return false;
      }
 
+    public IBIZProMessage send( String ibizpro_messageid, IBIZProMessage ibizpromessage){
+            return null;
+     }
+
     public Page<IBIZProMessage> searchDefault(IBIZProMessageSearchContext context){
             return null;
      }

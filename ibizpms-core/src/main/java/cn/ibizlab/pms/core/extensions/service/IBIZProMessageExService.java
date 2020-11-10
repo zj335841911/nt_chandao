@@ -37,5 +37,15 @@ public class IBIZProMessageExService extends IBIZProMessageServiceImpl {
     public IBIZProMessage markRead(IBIZProMessage et) {
         return super.markRead(et);
     }
+    /**
+     * 自定义行为[Send]用户扩展
+     * @param et
+     * @return
+     */
+    @Override
+    @Transactional
+    public IBIZProMessage send(IBIZProMessage et) {
+        return super.send(et);
+    }
 }
 

@@ -81,6 +81,9 @@ export default class ProjectTrendsTimelineModel {
       {
         name: 'srfkey',
       },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

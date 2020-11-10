@@ -181,4 +181,12 @@ export interface Action {
      * @memberof Action
      */
     srfkey?: any;
+
+    /**
+     * 消息通知用户
+     *
+     * @returns {*}
+     * @memberof Action
+     */
+    noticeusers?: any;
 }

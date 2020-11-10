@@ -501,7 +501,8 @@ POST
 | 20 | thismonth | String | 允许 | 本月 |
 | 21 | lastmonth | String | 允许 | 上月 |
 | 22 | srfkey | Long | 允许 | 前端键值 |
-| 23 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 23 | noticeusers | String | 允许 | 消息通知用户 |
+| 24 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### ActionSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

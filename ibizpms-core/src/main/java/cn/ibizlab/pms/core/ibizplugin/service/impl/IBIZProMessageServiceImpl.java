@@ -151,6 +151,14 @@ public class IBIZProMessageServiceImpl implements IIBIZProMessageService {
     }
 
 
+    @Override
+    @Transactional
+    public IBIZProMessage send(IBIZProMessage et) {
+        //自定义代码
+        return et;
+    }
+
+
 
 
 

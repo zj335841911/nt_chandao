@@ -91,6 +91,7 @@
 | 60 | [回复数量](#属性-回复数量（REPLYCOUNT）) | REPLYCOUNT | 整型 | 否 | 是 | 是 |
 | 61 | [是否填写描述](#属性-是否填写描述（HASDETAIL）) | HASDETAIL | 文本，可指定长度 | 否 | 是 | 是 |
 | 62 | [最后的更新日期](#属性-最后的更新日期（UPDATEDATE）) | UPDATEDATE | 日期型 | 否 | 是 | 是 |
+| 63 | [消息通知用户](#属性-消息通知用户（NOTICEUSERS）) | NOTICEUSERS | 文本，可指定长度 | 否 | 是 | 是 |
 
 ### 属性-由谁取消（CANCELEDBY）
 #### 属性说明
@@ -701,6 +702,7 @@ Integer
 | 序号 | 组合方式 |
 | ---- | ---- |
 | 1 | `=` |
+| 2 | `in(...)` |
 
 #### 关系属性
 | 项目 | 说明 |
@@ -970,6 +972,7 @@ String
 | 序号 | 组合方式 |
 | ---- | ---- |
 | 1 | `=` |
+| 2 | `in(...)` |
 
 #### 关系属性
 | 项目 | 说明 |
@@ -2777,6 +2780,47 @@ DATE_FORMAT(t1.lastediteddate,'%Y-%m-%d')
 
 - 数据格式
 yyyy-MM-dd
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) |
+| 关系属性 | [path（PATH）](../ibiz/ProjectModule/#属性-path（PATH）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
+### 属性-消息通知用户（NOTICEUSERS）
+#### 属性说明
+消息通知用户
+
+- 是否是主键
+否
+
+- 属性类型
+应用界面字段[无存储]
+
+- 数据类型
+文本，可指定长度
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
 
 - 是否支持快速搜索
 否
@@ -6094,36 +6138,38 @@ FAVORITES
 | 6 | [关闭原因（CLOSEDREASON）](#属性-关闭原因（CLOSEDREASON）) | `=` |
 | 7 | [指派日期（ASSIGNEDDATE）](#属性-指派日期（ASSIGNEDDATE）) | `>=` |
 | 8 | [优先级（PRI）](#属性-优先级（PRI）) | `=` |
-| 9 | [最后修改（LASTEDITEDBY）](#属性-最后修改（LASTEDITEDBY）) | `=` |
-| 10 | [任务状态（STATUS）](#属性-任务状态（STATUS）) | `=` |
-| 11 | [任务状态（STATUS）](#属性-任务状态（STATUS）) | `in(...)` |
-| 12 | [任务状态（STATUS）](#属性-任务状态（STATUS）) | `!=`或者`<>` |
-| 13 | [任务名称（NAME）](#属性-任务名称（NAME）) | `%like%` |
-| 14 | [关闭时间（CLOSEDDATE）](#属性-关闭时间（CLOSEDDATE）) | `<=` |
-| 15 | [任务类型（TYPE）](#属性-任务类型（TYPE）) | `=` |
-| 16 | [指派给（ASSIGNEDTO）](#属性-指派给（ASSIGNEDTO）) | `=` |
-| 17 | [预计开始（ESTSTARTED）](#属性-预计开始（ESTSTARTED）) | `>=` |
-| 18 | [预计开始（ESTSTARTED）](#属性-预计开始（ESTSTARTED）) | `<=` |
-| 19 | [由谁创建（OPENEDBY）](#属性-由谁创建（OPENEDBY）) | `=` |
-| 20 | [实际完成（FINISHEDDATE）](#属性-实际完成（FINISHEDDATE）) | `<=` |
-| 21 | [所属模块（MODULENAME）](#属性-所属模块（MODULENAME）) | `=` |
-| 22 | [所属模块（MODULENAME）](#属性-所属模块（MODULENAME）) | `%like%` |
-| 23 | [相关需求（STORYNAME）](#属性-相关需求（STORYNAME）) | `=` |
-| 24 | [相关需求（STORYNAME）](#属性-相关需求（STORYNAME）) | `%like%` |
-| 25 | [所属项目（PROJECTNAME）](#属性-所属项目（PROJECTNAME）) | `=` |
-| 26 | [所属项目（PROJECTNAME）](#属性-所属项目（PROJECTNAME）) | `%like%` |
-| 27 | [产品（PRODUCT）](#属性-产品（PRODUCT）) | `=` |
-| 28 | [父任务（PARENTNAME）](#属性-父任务（PARENTNAME）) | `=` |
-| 29 | [父任务（PARENTNAME）](#属性-父任务（PARENTNAME）) | `%like%` |
-| 30 | [所属项目（PROJECT）](#属性-所属项目（PROJECT）) | `=` |
-| 31 | [相关需求（STORY）](#属性-相关需求（STORY）) | `=` |
-| 32 | [父任务（PARENT）](#属性-父任务（PARENT）) | `=` |
-| 33 | [父任务（PARENT）](#属性-父任务（PARENT）) | `>=` |
-| 34 | [来源Bug（FROMBUG）](#属性-来源Bug（FROMBUG）) | `=` |
-| 35 | [id（MODULE）](#属性-id（MODULE）) | `=` |
-| 36 | [模块路径（PATH）](#属性-模块路径（PATH）) | `%like%` |
-| 37 | [任务状态（STATUS1）](#属性-任务状态（STATUS1）) | `=` |
-| 38 | [任务类型（TASKTYPE）](#属性-任务类型（TASKTYPE）) | `=` |
+| 9 | [优先级（PRI）](#属性-优先级（PRI）) | `in(...)` |
+| 10 | [最后修改（LASTEDITEDBY）](#属性-最后修改（LASTEDITEDBY）) | `=` |
+| 11 | [任务状态（STATUS）](#属性-任务状态（STATUS）) | `=` |
+| 12 | [任务状态（STATUS）](#属性-任务状态（STATUS）) | `in(...)` |
+| 13 | [任务状态（STATUS）](#属性-任务状态（STATUS）) | `!=`或者`<>` |
+| 14 | [任务名称（NAME）](#属性-任务名称（NAME）) | `%like%` |
+| 15 | [关闭时间（CLOSEDDATE）](#属性-关闭时间（CLOSEDDATE）) | `<=` |
+| 16 | [任务类型（TYPE）](#属性-任务类型（TYPE）) | `=` |
+| 17 | [指派给（ASSIGNEDTO）](#属性-指派给（ASSIGNEDTO）) | `=` |
+| 18 | [指派给（ASSIGNEDTO）](#属性-指派给（ASSIGNEDTO）) | `in(...)` |
+| 19 | [预计开始（ESTSTARTED）](#属性-预计开始（ESTSTARTED）) | `>=` |
+| 20 | [预计开始（ESTSTARTED）](#属性-预计开始（ESTSTARTED）) | `<=` |
+| 21 | [由谁创建（OPENEDBY）](#属性-由谁创建（OPENEDBY）) | `=` |
+| 22 | [实际完成（FINISHEDDATE）](#属性-实际完成（FINISHEDDATE）) | `<=` |
+| 23 | [所属模块（MODULENAME）](#属性-所属模块（MODULENAME）) | `=` |
+| 24 | [所属模块（MODULENAME）](#属性-所属模块（MODULENAME）) | `%like%` |
+| 25 | [相关需求（STORYNAME）](#属性-相关需求（STORYNAME）) | `=` |
+| 26 | [相关需求（STORYNAME）](#属性-相关需求（STORYNAME）) | `%like%` |
+| 27 | [所属项目（PROJECTNAME）](#属性-所属项目（PROJECTNAME）) | `=` |
+| 28 | [所属项目（PROJECTNAME）](#属性-所属项目（PROJECTNAME）) | `%like%` |
+| 29 | [产品（PRODUCT）](#属性-产品（PRODUCT）) | `=` |
+| 30 | [父任务（PARENTNAME）](#属性-父任务（PARENTNAME）) | `=` |
+| 31 | [父任务（PARENTNAME）](#属性-父任务（PARENTNAME）) | `%like%` |
+| 32 | [所属项目（PROJECT）](#属性-所属项目（PROJECT）) | `=` |
+| 33 | [相关需求（STORY）](#属性-相关需求（STORY）) | `=` |
+| 34 | [父任务（PARENT）](#属性-父任务（PARENT）) | `=` |
+| 35 | [父任务（PARENT）](#属性-父任务（PARENT）) | `>=` |
+| 36 | [来源Bug（FROMBUG）](#属性-来源Bug（FROMBUG）) | `=` |
+| 37 | [id（MODULE）](#属性-id（MODULE）) | `=` |
+| 38 | [模块路径（PATH）](#属性-模块路径（PATH）) | `%like%` |
+| 39 | [任务状态（STATUS1）](#属性-任务状态（STATUS1）) | `=` |
+| 40 | [任务类型（TASKTYPE）](#属性-任务类型（TASKTYPE）) | `=` |
 
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |

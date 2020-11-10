@@ -201,6 +201,9 @@ export default class ToolbarModel {
       {
         name: 'updatedate',
       },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

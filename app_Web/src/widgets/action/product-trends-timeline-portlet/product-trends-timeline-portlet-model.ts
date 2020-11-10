@@ -81,6 +81,9 @@ export default class ProductTrendsTimelineModel {
       {
         name: 'srfkey',
       },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 
