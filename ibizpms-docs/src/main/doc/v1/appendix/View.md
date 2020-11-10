@@ -627,7 +627,6 @@ SRFNAVPARAM.project=%project%|
 |-|用户年度工作内容统计编辑视图|DEEDITVIEW|&nbsp;|
 |-|Bug表格视图(遗留的bug)|DEGRIDVIEW|&nbsp;|
 |-|story表格视图|DEGRIDVIEW|&nbsp;|
-|-|文档库树视图|DETREEVIEW|&nbsp;|
 |-|系统日志列表视图|DELISTVIEW|&nbsp;|
 |-|需求评审|DEOPTVIEW|&nbsp;|
 |-|编辑待办|DEEDITVIEW|&nbsp;|

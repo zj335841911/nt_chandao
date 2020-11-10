@@ -50,10 +50,6 @@ export default {
 			caption: "文档库主页",
       		title: "文档库分页导航视图（文档）",
 		},
-		treeview: {
-			caption: "文档库",
-      		title: "文档库树视图",
-		},
 	},
 	main_form: {
 		details: {
@@ -101,8 +97,8 @@ export default {
 		uiactions: {
 			doclib_productlookdoc: "查看",
 			doclib_productlookfile: "查看",
-			doclib_weihufenlei: "维护分类",
 			doclib_editdoclib: "编辑",
+			doclib_weihufenlei: "维护分类",
 		},
 	},
 	default_searchform: {
@@ -164,12 +160,6 @@ export default {
 		nodes: {
 			root: "默认根节点",
 			all: "所有文档库",
-		},
-		uiactions: {
-		},
-	},
-	tree_treeview: {
-		nodes: {
 		},
 		uiactions: {
 		},
