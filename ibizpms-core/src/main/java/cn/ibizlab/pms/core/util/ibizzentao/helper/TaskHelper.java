@@ -169,6 +169,11 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         else if(DataObject.getBooleanValue(et.get("descdirtyflag"), false)) {
             newTask.setDesc("");
         }
+        if(et.getMailto() != null) {
+            newTask.setMailto(et.getMailto());
+        }else if(DataObject.getBooleanValue(et.get("mailtodirtyflag"), false)) {
+            newTask.setMailto("");
+        }
         Timestamp now = ZTDateUtil.now();
         newTask.setLastediteddate(now);
         newTask.setLasteditedby(AuthenticationUser.getAuthenticationUser().getUsername());
