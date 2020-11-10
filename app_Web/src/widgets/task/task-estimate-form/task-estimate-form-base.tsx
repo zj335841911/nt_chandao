@@ -76,7 +76,7 @@ export class TaskEstimateEditFormBase extends EditFormControlBase {
      * @type {number}
      * @memberof TaskEstimateEditFormBase
      */
-    protected drCount: number = 2;
+    protected drCount: number = 3;
 
     /**
      * 主键表单项名称
@@ -142,7 +142,9 @@ export class TaskEstimateEditFormBase extends EditFormControlBase {
      * @memberof TaskEstimateEditFormBase
      */
     public detailsModel: any = {
-        druipart2: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart2', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
+        druipart3: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart3', visible: false, isShowCaption: true, form: this, showMoreMode: 0 }),
+
+        druipart2: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart2', visible: false, isShowCaption: true, form: this, showMoreMode: 0 }),
 
         druipart1: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart1', visible: false, isShowCaption: true, form: this, showMoreMode: 0 }),
 
@@ -181,11 +183,28 @@ export class TaskEstimateEditFormBase extends EditFormControlBase {
      */
     public async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): Promise<void> {
                 
+        if (Object.is(name, '') || Object.is(name, 'status')) {
+            let ret = false;
+            const _status = this.data.status;
+            if (this.$verify.testCond(_status, 'EQ', 'done') || this.$verify.testCond(_status, 'EQ', 'cancel') || this.$verify.testCond(_status, 'EQ', 'closed')) {
+                ret = true;
+            }
+            this.detailsModel.druipart3.setVisible(ret);
+        }
 
         if (Object.is(name, '') || Object.is(name, 'status')) {
             let ret = false;
             const _status = this.data.status;
-            if (this.$verify.testCond(_status, 'EQ', 'wait') || this.$verify.testCond(_status, 'EQ', 'doing')) {
+            if (this.$verify.testCond(_status, 'EQ', 'wait') || this.$verify.testCond(_status, 'EQ', 'doing') || this.$verify.testCond(_status, 'EQ', 'pause')) {
+                ret = true;
+            }
+            this.detailsModel.druipart2.setVisible(ret);
+        }
+
+        if (Object.is(name, '') || Object.is(name, 'status')) {
+            let ret = false;
+            const _status = this.data.status;
+            if (this.$verify.testCond(_status, 'EQ', 'wait') || this.$verify.testCond(_status, 'EQ', 'doing') || this.$verify.testCond(_status, 'EQ', 'pause')) {
                 ret = true;
             }
             this.detailsModel.druipart1.setVisible(ret);

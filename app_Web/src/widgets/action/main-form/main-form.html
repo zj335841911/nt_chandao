@@ -17,28 +17,22 @@
     <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel1" :data="data" :context="context" :viewparams="viewparams"/>
     <div style="height: 100%;display: flex;justify-content: flex-end;">
         <div class="form-layout-container" v-show="detailsModel.button1.visible" :style="{'width': '64px',}">
-!!!!模版产生代码错误:----
-Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
-----
+    <i-button type="primary" @click="button1_click($event)"
+         style=""
+         :title="$t('entities.action.main_form.uiactions.exit')">
+            <i class="fa fa-sign-out" style="margin-right: 2px;"></i>
+        <span >{{$t('entities.action.main_form.details.button1')}}</span>
+    </i-button>
 
-----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: #if itme.getPSUIAction?? && itme.getP...  [in template "TEMPLCODE_en_US" at line 109, column 60]
-	~ Reached through: #nested  [in template "TEMPLCODE_en_US" in macro "badge" at line 9, column 1]
-	~ Reached through: @badge item  [in template "TEMPLCODE_en_US" at line 106, column 3]
-----
 </div>
 <div class="form-layout-container" v-show="detailsModel.button2.visible" :style="{'width': '58px',}">
-!!!!模版产生代码错误:----
-Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
-----
+    <i-button type="primary" @click="button2_click($event)"
+         style=""
+         :title="$t('entities.action.main_form.uiactions.saveandexit')">
+            <i class="fa fa-save" style="margin-right: 2px;"></i>
+        <span >{{$t('entities.action.main_form.details.button2')}}</span>
+    </i-button>
 
-----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: #if itme.getPSUIAction?? && itme.getP...  [in template "TEMPLCODE_en_US" at line 109, column 60]
-	~ Reached through: #nested  [in template "TEMPLCODE_en_US" in macro "badge" at line 9, column 1]
-	~ Reached through: @badge item  [in template "TEMPLCODE_en_US" at line 106, column 3]
-----
 </div>
 
     </div>

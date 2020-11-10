@@ -3535,6 +3535,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "IbzLibGridView",
             "viewtag": "e698418f007d36b627d6af23c1042f31"
         },
+        "taskestimatelookgridview9": {
+            "title": "任务预计表格视图",
+            "caption": "工时",
+            "viewtype": "DEGRIDVIEW9",
+            "viewmodule": "zentao",
+            "viewname": "TaskEstimateLookGridView9",
+            "viewtag": "e6ab4e1e69f78d8a87d57c7d99420245"
+        },
         "sysupdateloginfoeditview": {
             "title": "系统更新日志编辑视图",
             "caption": "更新日志",

@@ -19,6 +19,7 @@ import com.alibaba.fastjson.JSONObject;
 
 public interface DocLibModuleMapper extends BaseMapper<DocLibModule>{
 
+    Page<DocLibModule> searchAllDoclibModule(IPage page, @Param("srf") DocLibModuleSearchContext context, @Param("ew") Wrapper<DocLibModule> wrapper) ;
     Page<DocLibModule> searchDefault(IPage page, @Param("srf") DocLibModuleSearchContext context, @Param("ew") Wrapper<DocLibModule> wrapper) ;
     Page<DocLibModule> searchParentModule(IPage page, @Param("srf") DocLibModuleSearchContext context, @Param("ew") Wrapper<DocLibModule> wrapper) ;
     Page<DocLibModule> searchRootModuleMuLu(IPage page, @Param("srf") DocLibModuleSearchContext context, @Param("ew") Wrapper<DocLibModule> wrapper) ;

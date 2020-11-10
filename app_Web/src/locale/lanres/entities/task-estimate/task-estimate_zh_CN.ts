@@ -18,6 +18,10 @@ export default {
 			caption: "工时",
       		title: "任务预计表格视图",
 		},
+		lookgridview9: {
+			caption: "工时",
+      		title: "任务预计表格视图",
+		},
 	},
 	main_form: {
 		details: {
@@ -35,6 +39,18 @@ export default {
 			left: "剩余", 
 			work: "备注", 
 			id: "编号", 
+		},
+		uiactions: {
+		},
+	},
+	mainlook_grid: {
+		nodata: "",
+		columns: {
+			id: "ID",
+			dates: "日期",
+			consumed: "总计消耗",
+			left: "预计剩余",
+			work: "备注",
 		},
 		uiactions: {
 		},

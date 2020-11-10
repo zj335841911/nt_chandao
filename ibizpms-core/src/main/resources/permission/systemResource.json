@@ -1172,7 +1172,7 @@
     "dename":"DocLibModule",
     "delogicname":"文档库分类",
     "sysmoudle":{"id":"IBIZ","name":"iBiz增强模块"},
-    "dedataset":[{"id":"Default" , "name":"数据集"},{"id":"ParentModule" , "name":"父集合"},{"id":"RootModuleMuLu" , "name":"根模块目录"}],
+    "dedataset":[{"id":"AllDoclibModule" , "name":"所有文档库模块"},{"id":"Default" , "name":"数据集"},{"id":"ParentModule" , "name":"父集合"},{"id":"RootModuleMuLu" , "name":"根模块目录"}],
     "deaction":[{"id":"Create" , "name":"Create" , "type":"BUILTIN" },{"id":"Update" , "name":"Update" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" },{"id":"Get" , "name":"Get" , "type":"BUILTIN" },{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" },{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" }],
     "datascope":[{"id":"all","name":"全部数据"}]
      }

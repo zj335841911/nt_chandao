@@ -51,28 +51,21 @@
     <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel6" :data="data" :context="context" :viewparams="viewparams"/>
     <row>
         <i-col class="form-layout-container" v-show="detailsModel.button4.visible" :style="{}"  :lg="{ span: 8, offset: 8 }" :xl="{ span: 8, offset: 9 }">
-    !!!!模版产生代码错误:----
-Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
-----
+        <i-button type="primary" @click="button4_click($event)"
+         style=""
+         :title="$t('entities.productstats.main2_form.uiactions.productstats_openproductstoryview')">
+              <menu-icon :item="{iconcls: 'fa fa-search'}" />
+        <span >{{$t('entities.productstats.main2_form.details.button4')}}</span>
+    </i-button>
 
-----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: #if itme.getPSUIAction?? && itme.getP...  [in template "TEMPLCODE_en_US" at line 109, column 60]
-	~ Reached through: #nested  [in template "TEMPLCODE_en_US" in macro "badge" at line 9, column 1]
-	~ Reached through: @badge item  [in template "TEMPLCODE_en_US" at line 106, column 3]
-----
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.button5.visible" :style="{}"  :lg="{ span: 8, offset: 8 }" :xl="{ span: 8, offset: 9 }">
-    !!!!模版产生代码错误:----
-Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
-----
+        <i-button type="primary" @click="button5_click($event)"
+         style=""
+         :title="$t('entities.productstats.main2_form.uiactions.productstats_openstorycreateview')">
+        <span >{{$t('entities.productstats.main2_form.details.button5')}}</span>
+    </i-button>
 
-----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: #if itme.getPSUIAction?? && itme.getP...  [in template "TEMPLCODE_en_US" at line 109, column 60]
-	~ Reached through: #nested  [in template "TEMPLCODE_en_US" in macro "badge" at line 9, column 1]
-	~ Reached through: @badge item  [in template "TEMPLCODE_en_US" at line 106, column 3]
-----
 </i-col>
     
     </row>
@@ -185,16 +178,13 @@ FTL stack trace ("~" means nesting-related):
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.button1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    !!!!模版产生代码错误:----
-Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
-----
+        <i-button type="primary" @click="button1_click($event)"
+         style=""
+         :title="$t('entities.productstats.main2_form.uiactions.productstats_openproductplancreateview')">
+            <i class="fa fa-plus" style="margin-right: 2px;"></i>
+        <span >{{$t('entities.productstats.main2_form.details.button1')}}</span>
+    </i-button>
 
-----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: #if itme.getPSUIAction?? && itme.getP...  [in template "TEMPLCODE_en_US" at line 109, column 60]
-	~ Reached through: #nested  [in template "TEMPLCODE_en_US" in macro "badge" at line 9, column 1]
-	~ Reached through: @badge item  [in template "TEMPLCODE_en_US" at line 106, column 3]
-----
 </i-col>
     
     </row>
@@ -254,16 +244,13 @@ FTL stack trace ("~" means nesting-related):
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.button2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    !!!!模版产生代码错误:----
-Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
-----
+        <i-button type="primary" @click="button2_click($event)"
+         style=""
+         :title="$t('entities.productstats.main2_form.uiactions.productstats_openprojectcreateview')">
+            <i class="fa fa-plus" style="margin-right: 2px;"></i>
+        <span >{{$t('entities.productstats.main2_form.details.button2')}}</span>
+    </i-button>
 
-----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: #if itme.getPSUIAction?? && itme.getP...  [in template "TEMPLCODE_en_US" at line 109, column 60]
-	~ Reached through: #nested  [in template "TEMPLCODE_en_US" in macro "badge" at line 9, column 1]
-	~ Reached through: @badge item  [in template "TEMPLCODE_en_US" at line 106, column 3]
-----
 </i-col>
     
     </row>
@@ -310,16 +297,13 @@ FTL stack trace ("~" means nesting-related):
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.button3.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    !!!!模版产生代码错误:----
-Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
-----
+        <i-button type="primary" @click="button3_click($event)"
+         style=""
+         :title="$t('entities.productstats.main2_form.uiactions.productstats_openreleasedcreateview')">
+            <i class="fa fa-plus" style="margin-right: 2px;"></i>
+        <span >{{$t('entities.productstats.main2_form.details.button3')}}</span>
+    </i-button>
 
-----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: #if itme.getPSUIAction?? && itme.getP...  [in template "TEMPLCODE_en_US" at line 109, column 60]
-	~ Reached through: #nested  [in template "TEMPLCODE_en_US" in macro "badge" at line 9, column 1]
-	~ Reached through: @badge item  [in template "TEMPLCODE_en_US" at line 106, column 3]
-----
 </i-col>
     
     </row>
