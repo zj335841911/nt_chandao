@@ -140,7 +140,7 @@ export class RecentUpdateGridBase extends GridControlBase {
             label: '文档标题',
             langtag: 'entities.doc.recentupdate_grid.columns.title',
             show: true,
-            unit: 'PX',
+            unit: 'STAR',
             isEnableRowEdit: false,
             enableCond: 3 ,
         },
