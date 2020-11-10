@@ -5830,7 +5830,7 @@
     {
     "fieldname":"TYPE" ,
     "codename":"Type",
-    "field_logic_name":"类型（story）",
+    "field_logic_name":"类型",
     "entity_name":"DocLibModule",
     "field_type":"TEXT",
     "nullable":1,

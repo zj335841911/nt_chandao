@@ -11,7 +11,7 @@ export default {
     deleted: "逻辑删除标志",
     path: "path",
     owner: "owner",
-    type: "类型（story）",
+    type: "类型",
     root: "编号",
     parent: "id",
     doclibname: "所属文档库",

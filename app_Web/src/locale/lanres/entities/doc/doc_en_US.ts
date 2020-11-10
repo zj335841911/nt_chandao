@@ -242,12 +242,6 @@ export default {
 			tip: "Export {0} Data To Excel",
 		},
 	},
-	gridview_recentmoretoolbar_toolbar: {
-		deuiaction7: {
-			caption: "Export",
-			tip: "Export {0} Data To Excel",
-		},
-	},
 	createeditviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "Save And Close",

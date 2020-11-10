@@ -95,7 +95,7 @@ export interface DocLibModule {
     owner?: any;
 
     /**
-     * 类型（story）
+     * 类型
      *
      * @returns {*}
      * @memberof DocLibModule

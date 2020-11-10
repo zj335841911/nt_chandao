@@ -344,7 +344,7 @@ POST
 | 9 | deleted | String | 允许 | 逻辑删除标志 |
 | 10 | path | String | 允许 | path |
 | 11 | owner | String | 允许 | owner |
-| 12 | type | String | 允许 | 类型（story） |
+| 12 | type | String | 允许 | 类型 |
 | 13 | root | Long | 允许 | 编号 |
 | 14 | parent | Long | 允许 | id |
 | 15 | doclibname | String | 允许 | 所属文档库 |

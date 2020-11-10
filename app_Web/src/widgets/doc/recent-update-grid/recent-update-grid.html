@@ -59,7 +59,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('editeddate')">
-                <el-table-column show-overflow-tooltip :prop="'editeddate'" :label="$t('entities.doc.recentupdate_grid.columns.editeddate')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'editeddate'" :label="$t('entities.doc.recentupdate_grid.columns.editeddate')" :width="200"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.doc.recentupdate_grid.columns.editeddate')}}

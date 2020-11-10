@@ -25,7 +25,7 @@ hide members
 |逻辑删除标志|DELETED|TEXT|&nbsp;|
 |path|PATH|TEXT|&nbsp;|
 |owner|OWNER|TEXT|&nbsp;|
-|类型（story）|TYPE|TEXT|&nbsp;|
+|类型|TYPE|TEXT|&nbsp;|
 |编号|ROOT|PICKUP|&nbsp;|
 |id|PARENT|PICKUP|&nbsp;|
 |所属文档库|DOCLIBNAME|PICKUPTEXT|&nbsp;|
@@ -45,7 +45,7 @@ hide members
 |逻辑删除标志|默认规则|内容长度必须小于等于[1]|
 |path|默认规则|内容长度必须小于等于[255]|
 |owner|默认规则|内容长度必须小于等于[30]|
-|类型（story）|默认规则|内容长度必须小于等于[30]|
+|类型|默认规则|内容长度必须小于等于[30]|
 |编号|默认规则|默认规则|
 |id|默认规则|默认规则|
 |所属文档库|默认规则|内容长度必须小于等于[60]|

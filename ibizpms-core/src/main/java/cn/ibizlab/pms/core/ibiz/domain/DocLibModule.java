@@ -131,9 +131,9 @@ public class DocLibModule extends EntityMP implements Serializable {
     @JsonProperty("owner")
     private String owner;
     /**
-     * 类型（story）
+     * 类型
      */
-    @DEField(defaultValue = "story")
+    @DEField(defaultValue = "doc")
     @TableField(value = "`type`")
     @JSONField(name = "type")
     @JsonProperty("type")
@@ -250,7 +250,7 @@ public class DocLibModule extends EntityMP implements Serializable {
     }
 
     /**
-     * 设置 [类型（story）]
+     * 设置 [类型]
      */
     public void setType(String type){
         this.type = type ;

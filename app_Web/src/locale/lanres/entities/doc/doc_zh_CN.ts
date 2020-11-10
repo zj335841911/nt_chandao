@@ -242,12 +242,6 @@ export default {
 			tip: "导出",
 		},
 	},
-	gridview_recentmoretoolbar_toolbar: {
-		deuiaction7: {
-			caption: "导出",
-			tip: "导出",
-		},
-	},
 	createeditviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "保存并关闭",

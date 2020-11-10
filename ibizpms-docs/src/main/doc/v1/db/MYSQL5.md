@@ -16830,7 +16830,7 @@ CREATE TABLE `zt_doclib`(
 | ORDER        | 排序值  | INTEGER      |   -1   | &nbsp; |
 | ID        | id  |       |   20   | 主键&nbsp; |
 | ISLEAF        | 叶子模块  | VARCHAR      |   200   | &nbsp; |
-| TYPE        | 类型（story）  | VARCHAR      |   30   | &nbsp; |
+| TYPE        | 类型  | VARCHAR      |   30   | &nbsp; |
 | PATH        | path  | VARCHAR      |   255   | &nbsp; |
 | OWNER        | owner  | VARCHAR      |   30   | &nbsp; |
 | ROOT        | 编号  |       |   8   | &nbsp; |
@@ -17203,7 +17203,7 @@ CREATE TABLE `zt_module`(
 ,`DELETED`  VARCHAR(1) COMMENT '逻辑删除标志' 
 ,`PATH`  VARCHAR(255) COMMENT 'path' 
 ,`OWNER`  VARCHAR(30) COMMENT 'owner' 
-,`TYPE`  VARCHAR(30) COMMENT '类型（story）' 
+,`TYPE`  VARCHAR(30) COMMENT '类型' 
 ,`ROOT`  BIGINT(8)  UNSIGNED COMMENT '编号' 
 ,`PARENT`  BIGINT(20)  UNSIGNED COMMENT 'id' 
 )COMMENT='文档库分类';
