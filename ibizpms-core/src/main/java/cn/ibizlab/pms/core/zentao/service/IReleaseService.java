@@ -28,12 +28,12 @@ public interface IReleaseService extends IService<Release>{
     /**
      * 业务实体显示文本名称
      */
-    final protected static String OBJECT_TEXT_NAME = "发布";
+    final static String OBJECT_TEXT_NAME = "发布";
 
     /**
      * 业务实体资源路径名
      */
-    final protected static String OBJECT_SOURCE_PATH = "releases";
+    final static String OBJECT_SOURCE_PATH = "releases";
 
     boolean create(Release et) ;
     void createBatch(List<Release> list) ;

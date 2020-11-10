@@ -28,12 +28,12 @@ public interface IIm_queueService extends IService<Im_queue>{
     /**
      * 业务实体显示文本名称
      */
-    final protected static String OBJECT_TEXT_NAME = "im_queue";
+    final static String OBJECT_TEXT_NAME = "im_queue";
 
     /**
      * 业务实体资源路径名
      */
-    final protected static String OBJECT_SOURCE_PATH = "im_queues";
+    final static String OBJECT_SOURCE_PATH = "im_queues";
 
     boolean create(Im_queue et) ;
     void createBatch(List<Im_queue> list) ;

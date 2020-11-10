@@ -28,12 +28,12 @@ public interface ISuiteCaseService extends IService<SuiteCase>{
     /**
      * 业务实体显示文本名称
      */
-    final protected static String OBJECT_TEXT_NAME = "套件用例";
+    final static String OBJECT_TEXT_NAME = "套件用例";
 
     /**
      * 业务实体资源路径名
      */
-    final protected static String OBJECT_SOURCE_PATH = "suitecases";
+    final static String OBJECT_SOURCE_PATH = "suitecases";
 
     boolean create(SuiteCase et) ;
     void createBatch(List<SuiteCase> list) ;

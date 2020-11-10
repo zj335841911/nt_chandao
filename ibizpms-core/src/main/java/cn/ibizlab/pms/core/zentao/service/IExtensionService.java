@@ -28,12 +28,12 @@ public interface IExtensionService extends IService<Extension>{
     /**
      * 业务实体显示文本名称
      */
-    final protected static String OBJECT_TEXT_NAME = "extension";
+    final static String OBJECT_TEXT_NAME = "extension";
 
     /**
      * 业务实体资源路径名
      */
-    final protected static String OBJECT_SOURCE_PATH = "extensions";
+    final static String OBJECT_SOURCE_PATH = "extensions";
 
     boolean create(Extension et) ;
     void createBatch(List<Extension> list) ;

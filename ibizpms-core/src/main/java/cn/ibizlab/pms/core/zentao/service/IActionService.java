@@ -28,12 +28,12 @@ public interface IActionService extends IService<Action>{
     /**
      * 业务实体显示文本名称
      */
-    final protected static String OBJECT_TEXT_NAME = "系统日志";
+    final static String OBJECT_TEXT_NAME = "系统日志";
 
     /**
      * 业务实体资源路径名
      */
-    final protected static String OBJECT_SOURCE_PATH = "actions";
+    final static String OBJECT_SOURCE_PATH = "actions";
 
     boolean create(Action et) ;
     void createBatch(List<Action> list) ;

@@ -28,12 +28,12 @@ public interface IIm_chatService extends IService<Im_chat>{
     /**
      * 业务实体显示文本名称
      */
-    final protected static String OBJECT_TEXT_NAME = "im_chat";
+    final static String OBJECT_TEXT_NAME = "im_chat";
 
     /**
      * 业务实体资源路径名
      */
-    final protected static String OBJECT_SOURCE_PATH = "im_chats";
+    final static String OBJECT_SOURCE_PATH = "im_chats";
 
     boolean create(Im_chat et) ;
     void createBatch(List<Im_chat> list) ;

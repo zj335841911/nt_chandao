@@ -28,12 +28,12 @@ public interface IProductModuleService extends IService<ProductModule>{
     /**
      * 业务实体显示文本名称
      */
-    final protected static String OBJECT_TEXT_NAME = "需求模块";
+    final static String OBJECT_TEXT_NAME = "需求模块";
 
     /**
      * 业务实体资源路径名
      */
-    final protected static String OBJECT_SOURCE_PATH = "productmodules";
+    final static String OBJECT_SOURCE_PATH = "productmodules";
 
     boolean create(ProductModule et) ;
     void createBatch(List<ProductModule> list) ;

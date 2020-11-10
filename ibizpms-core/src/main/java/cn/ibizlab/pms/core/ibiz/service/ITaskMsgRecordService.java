@@ -28,12 +28,12 @@ public interface ITaskMsgRecordService extends IService<TaskMsgRecord>{
     /**
      * 业务实体显示文本名称
      */
-    final protected static String OBJECT_TEXT_NAME = "待办消息记录";
+    final static String OBJECT_TEXT_NAME = "待办消息记录";
 
     /**
      * 业务实体资源路径名
      */
-    final protected static String OBJECT_SOURCE_PATH = "taskmsgrecords";
+    final static String OBJECT_SOURCE_PATH = "taskmsgrecords";
 
     boolean create(TaskMsgRecord et) ;
     void createBatch(List<TaskMsgRecord> list) ;

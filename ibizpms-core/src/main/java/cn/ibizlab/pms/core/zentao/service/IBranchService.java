@@ -28,12 +28,12 @@ public interface IBranchService extends IService<Branch>{
     /**
      * 业务实体显示文本名称
      */
-    final protected static String OBJECT_TEXT_NAME = "产品的分支和平台信息";
+    final static String OBJECT_TEXT_NAME = "产品的分支和平台信息";
 
     /**
      * 业务实体资源路径名
      */
-    final protected static String OBJECT_SOURCE_PATH = "branches";
+    final static String OBJECT_SOURCE_PATH = "branches";
 
     boolean create(Branch et) ;
     void createBatch(List<Branch> list) ;

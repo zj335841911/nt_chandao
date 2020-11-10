@@ -28,12 +28,12 @@ public interface IDocService extends IService<Doc>{
     /**
      * 业务实体显示文本名称
      */
-    final protected static String OBJECT_TEXT_NAME = "文档";
+    final static String OBJECT_TEXT_NAME = "文档";
 
     /**
      * 业务实体资源路径名
      */
-    final protected static String OBJECT_SOURCE_PATH = "docs";
+    final static String OBJECT_SOURCE_PATH = "docs";
 
     boolean create(Doc et) ;
     void createBatch(List<Doc> list) ;

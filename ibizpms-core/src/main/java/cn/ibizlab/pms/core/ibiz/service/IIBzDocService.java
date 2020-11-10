@@ -27,12 +27,12 @@ public interface IIBzDocService{
     /**
      * 业务实体显示文本名称
      */
-    final protected static String OBJECT_TEXT_NAME = "文档";
+    final static String OBJECT_TEXT_NAME = "文档";
 
     /**
      * 业务实体资源路径名
      */
-    final protected static String OBJECT_SOURCE_PATH = "ibzdocs";
+    final static String OBJECT_SOURCE_PATH = "ibzdocs";
 
     boolean create(IBzDoc et) ;
     void createBatch(List<IBzDoc> list) ;

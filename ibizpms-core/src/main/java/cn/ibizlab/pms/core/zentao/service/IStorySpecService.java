@@ -28,12 +28,12 @@ public interface IStorySpecService extends IService<StorySpec>{
     /**
      * 业务实体显示文本名称
      */
-    final protected static String OBJECT_TEXT_NAME = "需求描述";
+    final static String OBJECT_TEXT_NAME = "需求描述";
 
     /**
      * 业务实体资源路径名
      */
-    final protected static String OBJECT_SOURCE_PATH = "storyspecs";
+    final static String OBJECT_SOURCE_PATH = "storyspecs";
 
     boolean create(StorySpec et) ;
     void createBatch(List<StorySpec> list) ;

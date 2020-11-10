@@ -27,12 +27,12 @@ public interface IPSSubSysSADEService{
     /**
      * 业务实体显示文本名称
      */
-    final protected static String OBJECT_TEXT_NAME = "外部接口实体";
+    final static String OBJECT_TEXT_NAME = "外部接口实体";
 
     /**
      * 业务实体资源路径名
      */
-    final protected static String OBJECT_SOURCE_PATH = "pssubsyssades";
+    final static String OBJECT_SOURCE_PATH = "pssubsyssades";
 
     boolean create(PSSubSysSADE et) ;
     void createBatch(List<PSSubSysSADE> list) ;

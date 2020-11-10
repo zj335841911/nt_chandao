@@ -28,12 +28,12 @@ public interface IUserGroupService extends IService<UserGroup>{
     /**
      * 业务实体显示文本名称
      */
-    final protected static String OBJECT_TEXT_NAME = "用户组";
+    final static String OBJECT_TEXT_NAME = "用户组";
 
     /**
      * 业务实体资源路径名
      */
-    final protected static String OBJECT_SOURCE_PATH = "usergroups";
+    final static String OBJECT_SOURCE_PATH = "usergroups";
 
     boolean create(UserGroup et) ;
     void createBatch(List<UserGroup> list) ;

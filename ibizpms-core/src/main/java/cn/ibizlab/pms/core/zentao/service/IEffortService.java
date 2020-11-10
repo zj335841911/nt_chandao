@@ -28,12 +28,12 @@ public interface IEffortService extends IService<Effort>{
     /**
      * 业务实体显示文本名称
      */
-    final protected static String OBJECT_TEXT_NAME = "effort";
+    final static String OBJECT_TEXT_NAME = "effort";
 
     /**
      * 业务实体资源路径名
      */
-    final protected static String OBJECT_SOURCE_PATH = "efforts";
+    final static String OBJECT_SOURCE_PATH = "efforts";
 
     boolean create(Effort et) ;
     void createBatch(List<Effort> list) ;

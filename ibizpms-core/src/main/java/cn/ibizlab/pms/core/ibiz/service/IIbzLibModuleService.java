@@ -28,12 +28,12 @@ public interface IIbzLibModuleService extends IService<IbzLibModule>{
     /**
      * 业务实体显示文本名称
      */
-    final protected static String OBJECT_TEXT_NAME = "用例库模块";
+    final static String OBJECT_TEXT_NAME = "用例库模块";
 
     /**
      * 业务实体资源路径名
      */
-    final protected static String OBJECT_SOURCE_PATH = "ibzlibmodules";
+    final static String OBJECT_SOURCE_PATH = "ibzlibmodules";
 
     boolean create(IbzLibModule et) ;
     void createBatch(List<IbzLibModule> list) ;

@@ -28,12 +28,12 @@ public interface ILangService extends IService<Lang>{
     /**
      * 业务实体显示文本名称
      */
-    final protected static String OBJECT_TEXT_NAME = "lang";
+    final static String OBJECT_TEXT_NAME = "lang";
 
     /**
      * 业务实体资源路径名
      */
-    final protected static String OBJECT_SOURCE_PATH = "langs";
+    final static String OBJECT_SOURCE_PATH = "langs";
 
     boolean create(Lang et) ;
     void createBatch(List<Lang> list) ;

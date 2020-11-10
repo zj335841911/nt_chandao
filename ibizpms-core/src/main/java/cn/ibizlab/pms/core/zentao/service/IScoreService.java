@@ -28,12 +28,12 @@ public interface IScoreService extends IService<Score>{
     /**
      * 业务实体显示文本名称
      */
-    final protected static String OBJECT_TEXT_NAME = "score";
+    final static String OBJECT_TEXT_NAME = "score";
 
     /**
      * 业务实体资源路径名
      */
-    final protected static String OBJECT_SOURCE_PATH = "scores";
+    final static String OBJECT_SOURCE_PATH = "scores";
 
     boolean create(Score et) ;
     void createBatch(List<Score> list) ;

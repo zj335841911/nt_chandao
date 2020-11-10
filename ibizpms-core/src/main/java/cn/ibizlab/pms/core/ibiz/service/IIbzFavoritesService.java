@@ -28,12 +28,12 @@ public interface IIbzFavoritesService extends IService<IbzFavorites>{
     /**
      * 业务实体显示文本名称
      */
-    final protected static String OBJECT_TEXT_NAME = "收藏";
+    final static String OBJECT_TEXT_NAME = "收藏";
 
     /**
      * 业务实体资源路径名
      */
-    final protected static String OBJECT_SOURCE_PATH = "ibzfavorites";
+    final static String OBJECT_SOURCE_PATH = "ibzfavorites";
 
     boolean create(IbzFavorites et) ;
     void createBatch(List<IbzFavorites> list) ;

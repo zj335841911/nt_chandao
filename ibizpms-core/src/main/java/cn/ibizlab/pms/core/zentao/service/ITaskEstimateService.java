@@ -28,12 +28,12 @@ public interface ITaskEstimateService extends IService<TaskEstimate>{
     /**
      * 业务实体显示文本名称
      */
-    final protected static String OBJECT_TEXT_NAME = "任务预计";
+    final static String OBJECT_TEXT_NAME = "任务预计";
 
     /**
      * 业务实体资源路径名
      */
-    final protected static String OBJECT_SOURCE_PATH = "taskestimates";
+    final static String OBJECT_SOURCE_PATH = "taskestimates";
 
     boolean create(TaskEstimate et) ;
     void createBatch(List<TaskEstimate> list) ;

@@ -28,12 +28,12 @@ public interface ITestSuiteService extends IService<TestSuite>{
     /**
      * 业务实体显示文本名称
      */
-    final protected static String OBJECT_TEXT_NAME = "测试套件";
+    final static String OBJECT_TEXT_NAME = "测试套件";
 
     /**
      * 业务实体资源路径名
      */
-    final protected static String OBJECT_SOURCE_PATH = "testsuites";
+    final static String OBJECT_SOURCE_PATH = "testsuites";
 
     boolean create(TestSuite et) ;
     void createBatch(List<TestSuite> list) ;

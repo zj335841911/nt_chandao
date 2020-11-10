@@ -28,12 +28,12 @@ public interface IUserService extends IService<User>{
     /**
      * 业务实体显示文本名称
      */
-    final protected static String OBJECT_TEXT_NAME = "用户";
+    final static String OBJECT_TEXT_NAME = "用户";
 
     /**
      * 业务实体资源路径名
      */
-    final protected static String OBJECT_SOURCE_PATH = "users";
+    final static String OBJECT_SOURCE_PATH = "users";
 
     boolean create(User et) ;
     void createBatch(List<User> list) ;

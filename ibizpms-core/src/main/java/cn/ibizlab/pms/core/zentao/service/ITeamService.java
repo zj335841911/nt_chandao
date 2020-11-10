@@ -28,12 +28,12 @@ public interface ITeamService extends IService<Team>{
     /**
      * 业务实体显示文本名称
      */
-    final protected static String OBJECT_TEXT_NAME = "群组";
+    final static String OBJECT_TEXT_NAME = "群组";
 
     /**
      * 业务实体资源路径名
      */
-    final protected static String OBJECT_SOURCE_PATH = "teams";
+    final static String OBJECT_SOURCE_PATH = "teams";
 
     boolean create(Team et) ;
     void createBatch(List<Team> list) ;

@@ -28,12 +28,12 @@ public interface IIm_conferenceactionService extends IService<Im_conferenceactio
     /**
      * 业务实体显示文本名称
      */
-    final protected static String OBJECT_TEXT_NAME = "im_conferenceaction";
+    final static String OBJECT_TEXT_NAME = "im_conferenceaction";
 
     /**
      * 业务实体资源路径名
      */
-    final protected static String OBJECT_SOURCE_PATH = "im_conferenceactions";
+    final static String OBJECT_SOURCE_PATH = "im_conferenceactions";
 
     boolean create(Im_conferenceaction et) ;
     void createBatch(List<Im_conferenceaction> list) ;

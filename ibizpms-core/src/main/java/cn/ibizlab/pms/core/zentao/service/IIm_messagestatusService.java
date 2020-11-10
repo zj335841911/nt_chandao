@@ -28,12 +28,12 @@ public interface IIm_messagestatusService extends IService<Im_messagestatus>{
     /**
      * 业务实体显示文本名称
      */
-    final protected static String OBJECT_TEXT_NAME = "im_messagestatus";
+    final static String OBJECT_TEXT_NAME = "im_messagestatus";
 
     /**
      * 业务实体资源路径名
      */
-    final protected static String OBJECT_SOURCE_PATH = "im_messagestatuses";
+    final static String OBJECT_SOURCE_PATH = "im_messagestatuses";
 
     boolean create(Im_messagestatus et) ;
     void createBatch(List<Im_messagestatus> list) ;

@@ -27,12 +27,12 @@ public interface IPSSystemDBCfgService{
     /**
      * 业务实体显示文本名称
      */
-    final protected static String OBJECT_TEXT_NAME = "系统数据库";
+    final static String OBJECT_TEXT_NAME = "系统数据库";
 
     /**
      * 业务实体资源路径名
      */
-    final protected static String OBJECT_SOURCE_PATH = "pssystemdbcfgs";
+    final static String OBJECT_SOURCE_PATH = "pssystemdbcfgs";
 
     boolean create(PSSystemDBCfg et) ;
     void createBatch(List<PSSystemDBCfg> list) ;

@@ -28,12 +28,12 @@ public interface ITestResultService extends IService<TestResult>{
     /**
      * 业务实体显示文本名称
      */
-    final protected static String OBJECT_TEXT_NAME = "测试结果";
+    final static String OBJECT_TEXT_NAME = "测试结果";
 
     /**
      * 业务实体资源路径名
      */
-    final protected static String OBJECT_SOURCE_PATH = "testresults";
+    final static String OBJECT_SOURCE_PATH = "testresults";
 
     boolean create(TestResult et) ;
     void createBatch(List<TestResult> list) ;

@@ -28,12 +28,12 @@ public interface ICaseService extends IService<Case>{
     /**
      * 业务实体显示文本名称
      */
-    final protected static String OBJECT_TEXT_NAME = "测试用例";
+    final static String OBJECT_TEXT_NAME = "测试用例";
 
     /**
      * 业务实体资源路径名
      */
-    final protected static String OBJECT_SOURCE_PATH = "cases";
+    final static String OBJECT_SOURCE_PATH = "cases";
 
     boolean create(Case et) ;
     void createBatch(List<Case> list) ;

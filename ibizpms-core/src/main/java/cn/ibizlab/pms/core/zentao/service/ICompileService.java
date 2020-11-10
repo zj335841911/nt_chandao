@@ -28,12 +28,12 @@ public interface ICompileService extends IService<Compile>{
     /**
      * 业务实体显示文本名称
      */
-    final protected static String OBJECT_TEXT_NAME = "compile";
+    final static String OBJECT_TEXT_NAME = "compile";
 
     /**
      * 业务实体资源路径名
      */
-    final protected static String OBJECT_SOURCE_PATH = "compiles";
+    final static String OBJECT_SOURCE_PATH = "compiles";
 
     boolean create(Compile et) ;
     void createBatch(List<Compile> list) ;

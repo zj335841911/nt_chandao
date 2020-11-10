@@ -28,12 +28,12 @@ public interface IRepoBranchService extends IService<RepoBranch>{
     /**
      * 业务实体显示文本名称
      */
-    final protected static String OBJECT_TEXT_NAME = "repobranch";
+    final static String OBJECT_TEXT_NAME = "repobranch";
 
     /**
      * 业务实体资源路径名
      */
-    final protected static String OBJECT_SOURCE_PATH = "repobranches";
+    final static String OBJECT_SOURCE_PATH = "repobranches";
 
     boolean create(RepoBranch et) ;
     void createBatch(List<RepoBranch> list) ;

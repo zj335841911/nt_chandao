@@ -28,12 +28,12 @@ public interface IUserViewService extends IService<UserView>{
     /**
      * 业务实体显示文本名称
      */
-    final protected static String OBJECT_TEXT_NAME = "用户视图";
+    final static String OBJECT_TEXT_NAME = "用户视图";
 
     /**
      * 业务实体资源路径名
      */
-    final protected static String OBJECT_SOURCE_PATH = "userviews";
+    final static String OBJECT_SOURCE_PATH = "userviews";
 
     boolean create(UserView et) ;
     void createBatch(List<UserView> list) ;

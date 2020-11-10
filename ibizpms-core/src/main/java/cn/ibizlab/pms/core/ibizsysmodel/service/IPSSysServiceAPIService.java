@@ -27,12 +27,12 @@ public interface IPSSysServiceAPIService{
     /**
      * 业务实体显示文本名称
      */
-    final protected static String OBJECT_TEXT_NAME = "系统服务接口";
+    final static String OBJECT_TEXT_NAME = "系统服务接口";
 
     /**
      * 业务实体资源路径名
      */
-    final protected static String OBJECT_SOURCE_PATH = "pssysserviceapis";
+    final static String OBJECT_SOURCE_PATH = "pssysserviceapis";
 
     boolean create(PSSysServiceAPI et) ;
     void createBatch(List<PSSysServiceAPI> list) ;

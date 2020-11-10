@@ -28,12 +28,12 @@ public interface IBugService extends IService<Bug>{
     /**
      * 业务实体显示文本名称
      */
-    final protected static String OBJECT_TEXT_NAME = "Bug";
+    final static String OBJECT_TEXT_NAME = "Bug";
 
     /**
      * 业务实体资源路径名
      */
-    final protected static String OBJECT_SOURCE_PATH = "bugs";
+    final static String OBJECT_SOURCE_PATH = "bugs";
 
     boolean create(Bug et) ;
     void createBatch(List<Bug> list) ;

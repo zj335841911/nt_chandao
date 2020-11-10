@@ -28,12 +28,12 @@ public interface ICronService extends IService<Cron>{
     /**
      * 业务实体显示文本名称
      */
-    final protected static String OBJECT_TEXT_NAME = "cron";
+    final static String OBJECT_TEXT_NAME = "cron";
 
     /**
      * 业务实体资源路径名
      */
-    final protected static String OBJECT_SOURCE_PATH = "crons";
+    final static String OBJECT_SOURCE_PATH = "crons";
 
     boolean create(Cron et) ;
     void createBatch(List<Cron> list) ;

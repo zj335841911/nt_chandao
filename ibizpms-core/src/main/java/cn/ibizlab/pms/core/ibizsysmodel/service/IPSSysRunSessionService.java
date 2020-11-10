@@ -27,12 +27,12 @@ public interface IPSSysRunSessionService{
     /**
      * 业务实体显示文本名称
      */
-    final protected static String OBJECT_TEXT_NAME = "系统运行会话";
+    final static String OBJECT_TEXT_NAME = "系统运行会话";
 
     /**
      * 业务实体资源路径名
      */
-    final protected static String OBJECT_SOURCE_PATH = "pssysrunsessions";
+    final static String OBJECT_SOURCE_PATH = "pssysrunsessions";
 
     boolean create(PSSysRunSession et) ;
     void createBatch(List<PSSysRunSession> list) ;

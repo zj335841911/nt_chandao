@@ -28,12 +28,12 @@ public interface IIBZProSysTplService extends IService<IBZProSysTpl>{
     /**
      * 业务实体显示文本名称
      */
-    final protected static String OBJECT_TEXT_NAME = "系统模板";
+    final static String OBJECT_TEXT_NAME = "系统模板";
 
     /**
      * 业务实体资源路径名
      */
-    final protected static String OBJECT_SOURCE_PATH = "ibzprosystpls";
+    final static String OBJECT_SOURCE_PATH = "ibzprosystpls";
 
     boolean create(IBZProSysTpl et) ;
     void createBatch(List<IBZProSysTpl> list) ;

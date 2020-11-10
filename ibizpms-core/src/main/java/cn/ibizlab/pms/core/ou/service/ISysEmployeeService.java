@@ -27,12 +27,12 @@ public interface ISysEmployeeService{
     /**
      * 业务实体显示文本名称
      */
-    final protected static String OBJECT_TEXT_NAME = "人员";
+    final static String OBJECT_TEXT_NAME = "人员";
 
     /**
      * 业务实体资源路径名
      */
-    final protected static String OBJECT_SOURCE_PATH = "sysemployees";
+    final static String OBJECT_SOURCE_PATH = "sysemployees";
 
     boolean create(SysEmployee et) ;
     void createBatch(List<SysEmployee> list) ;

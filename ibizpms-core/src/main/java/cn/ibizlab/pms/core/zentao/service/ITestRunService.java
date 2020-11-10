@@ -28,12 +28,12 @@ public interface ITestRunService extends IService<TestRun>{
     /**
      * 业务实体显示文本名称
      */
-    final protected static String OBJECT_TEXT_NAME = "测试运行";
+    final static String OBJECT_TEXT_NAME = "测试运行";
 
     /**
      * 业务实体资源路径名
      */
-    final protected static String OBJECT_SOURCE_PATH = "testruns";
+    final static String OBJECT_SOURCE_PATH = "testruns";
 
     boolean create(TestRun et) ;
     void createBatch(List<TestRun> list) ;

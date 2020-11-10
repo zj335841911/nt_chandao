@@ -28,12 +28,12 @@ public interface IIBZProStoryService extends IService<IBZProStory>{
     /**
      * 业务实体显示文本名称
      */
-    final protected static String OBJECT_TEXT_NAME = "需求";
+    final static String OBJECT_TEXT_NAME = "需求";
 
     /**
      * 业务实体资源路径名
      */
-    final protected static String OBJECT_SOURCE_PATH = "ibzprostories";
+    final static String OBJECT_SOURCE_PATH = "ibzprostories";
 
     boolean create(IBZProStory et) ;
     void createBatch(List<IBZProStory> list) ;

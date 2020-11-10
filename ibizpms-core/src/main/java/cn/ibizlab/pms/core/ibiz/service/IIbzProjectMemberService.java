@@ -28,12 +28,12 @@ public interface IIbzProjectMemberService extends IService<IbzProjectMember>{
     /**
      * 业务实体显示文本名称
      */
-    final protected static String OBJECT_TEXT_NAME = "项目相关成员";
+    final static String OBJECT_TEXT_NAME = "项目相关成员";
 
     /**
      * 业务实体资源路径名
      */
-    final protected static String OBJECT_SOURCE_PATH = "ibzprojectmembers";
+    final static String OBJECT_SOURCE_PATH = "ibzprojectmembers";
 
     boolean create(IbzProjectMember et) ;
     void createBatch(List<IbzProjectMember> list) ;

@@ -28,12 +28,12 @@ public interface IProjectService extends IService<Project>{
     /**
      * 业务实体显示文本名称
      */
-    final protected static String OBJECT_TEXT_NAME = "项目";
+    final static String OBJECT_TEXT_NAME = "项目";
 
     /**
      * 业务实体资源路径名
      */
-    final protected static String OBJECT_SOURCE_PATH = "projects";
+    final static String OBJECT_SOURCE_PATH = "projects";
 
     boolean create(Project et) ;
     void createBatch(List<Project> list) ;

@@ -28,12 +28,12 @@ public interface IUserYearWorkStatsService extends IService<UserYearWorkStats>{
     /**
      * 业务实体显示文本名称
      */
-    final protected static String OBJECT_TEXT_NAME = "用户年度工作内容统计";
+    final static String OBJECT_TEXT_NAME = "用户年度工作内容统计";
 
     /**
      * 业务实体资源路径名
      */
-    final protected static String OBJECT_SOURCE_PATH = "useryearworkstats";
+    final static String OBJECT_SOURCE_PATH = "useryearworkstats";
 
     boolean create(UserYearWorkStats et) ;
     void createBatch(List<UserYearWorkStats> list) ;

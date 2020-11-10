@@ -27,12 +27,12 @@ public interface ISysOrganizationService{
     /**
      * 业务实体显示文本名称
      */
-    final protected static String OBJECT_TEXT_NAME = "单位";
+    final static String OBJECT_TEXT_NAME = "单位";
 
     /**
      * 业务实体资源路径名
      */
-    final protected static String OBJECT_SOURCE_PATH = "sysorganizations";
+    final static String OBJECT_SOURCE_PATH = "sysorganizations";
 
     boolean create(SysOrganization et) ;
     void createBatch(List<SysOrganization> list) ;

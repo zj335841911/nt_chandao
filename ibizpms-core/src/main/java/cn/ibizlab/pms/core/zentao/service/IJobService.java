@@ -28,12 +28,12 @@ public interface IJobService extends IService<Job>{
     /**
      * 业务实体显示文本名称
      */
-    final protected static String OBJECT_TEXT_NAME = "job";
+    final static String OBJECT_TEXT_NAME = "job";
 
     /**
      * 业务实体资源路径名
      */
-    final protected static String OBJECT_SOURCE_PATH = "jobs";
+    final static String OBJECT_SOURCE_PATH = "jobs";
 
     boolean create(Job et) ;
     void createBatch(List<Job> list) ;

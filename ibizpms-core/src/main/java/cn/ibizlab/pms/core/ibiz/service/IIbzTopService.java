@@ -28,12 +28,12 @@ public interface IIbzTopService extends IService<IbzTop>{
     /**
      * 业务实体显示文本名称
      */
-    final protected static String OBJECT_TEXT_NAME = "置顶";
+    final static String OBJECT_TEXT_NAME = "置顶";
 
     /**
      * 业务实体资源路径名
      */
-    final protected static String OBJECT_SOURCE_PATH = "ibztops";
+    final static String OBJECT_SOURCE_PATH = "ibztops";
 
     boolean create(IbzTop et) ;
     void createBatch(List<IbzTop> list) ;
