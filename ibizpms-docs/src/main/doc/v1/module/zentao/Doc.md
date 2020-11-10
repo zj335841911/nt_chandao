@@ -672,7 +672,9 @@ String
 否
 
 - 搜索条件
-无
+| 序号 | 组合方式 |
+| ---- | ---- |
+| 1 | `=` |
 
 #### 关系属性
 | 项目 | 说明 |
@@ -1347,18 +1349,19 @@ Save
 | 1 | [文档标题（TITLE）](#属性-文档标题（TITLE）) | `%like%` |
 | 2 | [文档类型（TYPE）](#属性-文档类型（TYPE）) | `=` |
 | 3 | [权限（ACL）](#属性-权限（ACL）) | `=` |
-| 4 | [所属文档库（LIB）](#属性-所属文档库（LIB）) | `=` |
-| 5 | [所属项目（PROJECT）](#属性-所属项目（PROJECT）) | `=` |
-| 6 | [所属产品（PRODUCT）](#属性-所属产品（PRODUCT）) | `=` |
-| 7 | [所属分类（MODULE）](#属性-所属分类（MODULE）) | `=` |
-| 8 | [所属项目（PROJECTNAME）](#属性-所属项目（PROJECTNAME）) | `=` |
-| 9 | [所属项目（PROJECTNAME）](#属性-所属项目（PROJECTNAME）) | `%like%` |
-| 10 | [所属产品（PRODUCTNAME）](#属性-所属产品（PRODUCTNAME）) | `=` |
-| 11 | [所属产品（PRODUCTNAME）](#属性-所属产品（PRODUCTNAME）) | `%like%` |
-| 12 | [所属文档库（LIBNAME）](#属性-所属文档库（LIBNAME）) | `=` |
-| 13 | [所属文档库（LIBNAME）](#属性-所属文档库（LIBNAME）) | `%like%` |
-| 14 | [模块分类（MODULENAME）](#属性-模块分类（MODULENAME）) | `=` |
-| 15 | [模块分类（MODULENAME）](#属性-模块分类（MODULENAME）) | `%like%` |
+| 4 | [由谁添加（ADDEDBY）](#属性-由谁添加（ADDEDBY）) | `=` |
+| 5 | [所属文档库（LIB）](#属性-所属文档库（LIB）) | `=` |
+| 6 | [所属项目（PROJECT）](#属性-所属项目（PROJECT）) | `=` |
+| 7 | [所属产品（PRODUCT）](#属性-所属产品（PRODUCT）) | `=` |
+| 8 | [所属分类（MODULE）](#属性-所属分类（MODULE）) | `=` |
+| 9 | [所属项目（PROJECTNAME）](#属性-所属项目（PROJECTNAME）) | `=` |
+| 10 | [所属项目（PROJECTNAME）](#属性-所属项目（PROJECTNAME）) | `%like%` |
+| 11 | [所属产品（PRODUCTNAME）](#属性-所属产品（PRODUCTNAME）) | `=` |
+| 12 | [所属产品（PRODUCTNAME）](#属性-所属产品（PRODUCTNAME）) | `%like%` |
+| 13 | [所属文档库（LIBNAME）](#属性-所属文档库（LIBNAME）) | `=` |
+| 14 | [所属文档库（LIBNAME）](#属性-所属文档库（LIBNAME）) | `%like%` |
+| 15 | [模块分类（MODULENAME）](#属性-模块分类（MODULENAME）) | `=` |
+| 16 | [模块分类（MODULENAME）](#属性-模块分类（MODULENAME）) | `%like%` |
 
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |
