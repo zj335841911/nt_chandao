@@ -191,7 +191,7 @@ export class ProductMainGridBase extends GridControlBase {
         ProductLookDoc: { name: 'ProductLookDoc',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'DOC', actiontarget: 'SINGLEKEY'},
         ProductLookFile: { name: 'ProductLookFile',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'FILE', actiontarget: 'SINGLEKEY'},
         EditDocLib: { name: 'EditDocLib',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: 'SINGLEKEY'},
-        WeiHuFenLei: { name: 'WeiHuFenLei',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: 'SINGLEKEY'}
+        WeiHuFenLei: { name: 'WeiHuFenLei',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'DOC', actiontarget: 'SINGLEKEY'}
     };
 
     /**
