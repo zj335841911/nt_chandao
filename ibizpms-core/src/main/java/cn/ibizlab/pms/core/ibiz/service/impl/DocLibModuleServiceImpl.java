@@ -180,6 +180,15 @@ public class DocLibModuleServiceImpl extends ServiceImpl<DocLibModuleMapper, Doc
 
 
     /**
+     * 查询集合 所有文档库模块
+     */
+    @Override
+    public Page<DocLibModule> searchAllDoclibModule(DocLibModuleSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<DocLibModule> pages=baseMapper.searchAllDoclibModule(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<DocLibModule>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
      * 查询集合 数据集
      */
     @Override

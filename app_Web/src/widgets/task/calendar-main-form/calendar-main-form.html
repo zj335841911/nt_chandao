@@ -84,7 +84,8 @@ tag='Task__status' codelistType='STATIC' :data="data" :context="context" :viewpa
     <row>
         <i-col class="form-layout-container" v-show="detailsModel.button7.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 2, offset: 0 }">
         <i-button type="primary" @click="button7_click($event)"
-         style="">
+         style=""
+         :title="$t('entities.task.calendarmain_form.uiactions.task_assigntaskdash')">
               <menu-icon :item="{iconcls: 'fa fa-hand-o-right'}" />
         
     </i-button>
@@ -92,7 +93,8 @@ tag='Task__status' codelistType='STATIC' :data="data" :context="context" :viewpa
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.button8.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 2, offset: 0 }">
         <i-button type="primary" @click="button8_click($event)"
-         style="">
+         style=""
+         :title="$t('entities.task.calendarmain_form.uiactions.task_checkforwarddash')">
               <menu-icon :item="{iconcls: 'fa fa-mail-forward'}" />
         
     </i-button>
@@ -100,7 +102,8 @@ tag='Task__status' codelistType='STATIC' :data="data" :context="context" :viewpa
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.button1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 2, offset: 0 }">
         <i-button type="primary" @click="button1_click($event)"
-         style="">
+         style=""
+         :title="$t('entities.task.calendarmain_form.uiactions.task_mstarttaskdash')">
               <menu-icon :item="{iconcls: 'fa fa-play-circle-o'}" />
         
     </i-button>
@@ -108,7 +111,8 @@ tag='Task__status' codelistType='STATIC' :data="data" :context="context" :viewpa
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.button2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 2, offset: 0 }">
         <i-button type="primary" @click="button2_click($event)"
-         style="">
+         style=""
+         :title="$t('entities.task.calendarmain_form.uiactions.task_mdonetask')">
               <menu-icon :item="{iconcls: 'fa fa-check-square-o'}" />
         
     </i-button>
@@ -116,7 +120,8 @@ tag='Task__status' codelistType='STATIC' :data="data" :context="context" :viewpa
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.button3.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 2, offset: 0 }">
         <i-button type="primary" @click="button3_click($event)"
-         style="">
+         style=""
+         :title="$t('entities.task.calendarmain_form.uiactions.task_activationdash')">
               <menu-icon :item="{iconcls: 'fa fa-magic'}" />
         
     </i-button>
@@ -124,7 +129,8 @@ tag='Task__status' codelistType='STATIC' :data="data" :context="context" :viewpa
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.button4.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 2, offset: 0 }">
         <i-button type="primary" @click="button4_click($event)"
-         style="">
+         style=""
+         :title="$t('entities.task.calendarmain_form.uiactions.task_mpausetask')">
               <menu-icon :item="{iconcls: 'fa fa-circle-o'}" />
         
     </i-button>
@@ -132,7 +138,8 @@ tag='Task__status' codelistType='STATIC' :data="data" :context="context" :viewpa
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.button5.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 2, offset: 0 }">
         <i-button type="primary" @click="button5_click($event)"
-         style="">
+         style=""
+         :title="$t('entities.task.calendarmain_form.uiactions.task_canceltaskdash')">
               <menu-icon :item="{iconcls: 'fa fa-ban'}" />
         
     </i-button>
@@ -140,7 +147,8 @@ tag='Task__status' codelistType='STATIC' :data="data" :context="context" :viewpa
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.button6.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 2, offset: 0 }">
         <i-button type="primary" @click="button6_click($event)"
-         style="">
+         style=""
+         :title="$t('entities.task.calendarmain_form.uiactions.task_closetaskdash')">
               <menu-icon :item="{iconcls: 'fa fa-power-off'}" />
         
     </i-button>
@@ -148,7 +156,8 @@ tag='Task__status' codelistType='STATIC' :data="data" :context="context" :viewpa
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.button9.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 2, offset: 0 }">
         <i-button type="primary" @click="button9_click($event)"
-         style="">
+         style=""
+         :title="$t('entities.task.calendarmain_form.uiactions.task_newsubtaskdash')">
               <menu-icon :item="{iconcls: 'iconfont studio-icon-subnets'}" />
         
     </i-button>
@@ -156,7 +165,8 @@ tag='Task__status' codelistType='STATIC' :data="data" :context="context" :viewpa
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.button10.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 2, offset: 0 }">
         <i-button type="primary" @click="button10_click($event)"
-         style="">
+         style=""
+         :title="$t('entities.task.calendarmain_form.uiactions.task_maineditdash')">
               <menu-icon :item="{iconcls: 'fa fa-edit'}" />
         
     </i-button>

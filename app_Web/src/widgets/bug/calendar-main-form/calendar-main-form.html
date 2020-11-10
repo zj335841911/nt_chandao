@@ -80,7 +80,8 @@ tag='Bug__pri' codelistType='STATIC' :data="data" :context="context" :viewparams
     <row>
         <i-col class="form-layout-container" v-show="detailsModel.button1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 2, offset: 0 }">
         <i-button type="primary" @click="button1_click($event)"
-         style="">
+         style=""
+         :title="$t('entities.bug.calendarmain_form.uiactions.bug_confirmbugdash')">
               <menu-icon :item="{iconcls: 'fa fa-eye'}" />
         
     </i-button>
@@ -88,7 +89,8 @@ tag='Bug__pri' codelistType='STATIC' :data="data" :context="context" :viewparams
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.button2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 2, offset: 0 }">
         <i-button type="primary" @click="button2_click($event)"
-         style="">
+         style=""
+         :title="$t('entities.bug.calendarmain_form.uiactions.bug_assingtobugcz')">
               <menu-icon :item="{iconcls: 'fa fa-hand-o-right'}" />
         
     </i-button>
@@ -96,7 +98,8 @@ tag='Bug__pri' codelistType='STATIC' :data="data" :context="context" :viewparams
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.button3.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 2, offset: 0 }">
         <i-button type="primary" @click="button3_click($event)"
-         style="">
+         style=""
+         :title="$t('entities.bug.calendarmain_form.uiactions.bug_resolvebugdash')">
               <menu-icon :item="{iconcls: 'fa fa-check-square-o'}" />
         
     </i-button>
@@ -104,7 +107,8 @@ tag='Bug__pri' codelistType='STATIC' :data="data" :context="context" :viewparams
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.button4.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 2, offset: 0 }">
         <i-button type="primary" @click="button4_click($event)"
-         style="">
+         style=""
+         :title="$t('entities.bug.calendarmain_form.uiactions.bug_closebugdash')">
               <menu-icon :item="{iconcls: 'fa fa-close'}" />
         
     </i-button>
@@ -112,7 +116,8 @@ tag='Bug__pri' codelistType='STATIC' :data="data" :context="context" :viewparams
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.button5.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 2, offset: 0 }">
         <i-button type="primary" @click="button5_click($event)"
-         style="">
+         style=""
+         :title="$t('entities.bug.calendarmain_form.uiactions.bug_activation')">
               <menu-icon :item="{iconcls: 'fa fa-magic'}" />
         
     </i-button>
@@ -120,7 +125,8 @@ tag='Bug__pri' codelistType='STATIC' :data="data" :context="context" :viewparams
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.button6.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 2, offset: 0 }">
         <i-button type="primary" @click="button6_click($event)"
-         style="">
+         style=""
+         :title="$t('entities.bug.calendarmain_form.uiactions.bug_maineditdash')">
               <menu-icon :item="{iconcls: 'fa fa-edit'}" />
         
     </i-button>

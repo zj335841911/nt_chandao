@@ -283,6 +283,7 @@ export default {
 	},
 	taskestimate_form: {
 		details: {
+			druipart3: "", 
 			druipart2: "", 
 			druipart1: "", 
 			formpage1: "基本信息", 

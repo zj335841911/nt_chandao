@@ -523,7 +523,7 @@ export class Util {
             return '';
         }
     }
-    
+
     /**
      * 深层合并两个多层嵌套对象，对象中数组不进行深度合并
      *
@@ -552,5 +552,23 @@ export class Util {
             }
         }
         return obj;
+    }
+
+    /**
+     * 获取query值
+     *
+     * @static
+     * @param {string} variable
+     * @return {*}  {*}
+     * @memberof Util
+     */
+    public static getQueryVariable(variable: string): any {
+        const query = location.search.substring(1);
+        var vars = query.split("&");
+        for (var i = 0; i < vars.length; i++) {
+            var pair = vars[i].split("=");
+            if (pair[0] == variable) { return pair[1]; }
+        }
+        return (false);
     }
 }

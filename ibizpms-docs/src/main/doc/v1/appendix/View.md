@@ -649,6 +649,7 @@ SRFNAVPARAM.project=%project%|
 |-|需求激活|DEOPTVIEW|&nbsp;|
 |-|关闭Bug|DEOPTVIEW|&nbsp;|
 |-|用例库|DEGRIDVIEW|&nbsp;|
+|-|任务预计表格视图|DEGRIDVIEW9|&nbsp;|
 |-|系统更新日志编辑视图|DEEDITVIEW|&nbsp;|
 |-|产品汇总表图表视图|DECHARTVIEW9|&nbsp;|
 |-|测试单编辑视图|DEEDITVIEW|&nbsp;|

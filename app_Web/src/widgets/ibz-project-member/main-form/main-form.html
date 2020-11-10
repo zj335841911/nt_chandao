@@ -107,7 +107,8 @@ tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," te
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.button1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 11, offset: 1 }">
         <i-button type="primary" @click="button1_click($event)"
-         style="">
+         style=""
+         :title="$t('entities.ibzprojectmember.main_form.uiactions.ibzprojectmember_teammanagement')">
             <i class="fa fa-plus" style="margin-right: 2px;"></i>
         <span >{{$t('entities.ibzprojectmember.main_form.details.button1')}}</span>
     </i-button>
