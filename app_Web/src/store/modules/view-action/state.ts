@@ -2049,6 +2049,17 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '7c188c576f1fd59114ac2940d8e92c15',
+            viewmodule: 'ibiz',
+            viewname: 'DocGridView_RecentMore',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'b6e02216d1e5c69d79b32342d8b67c7a',
+                '23cc93d7fdddff5077a7952d26802a7b',
+            ],
+        },
+        {
             viewtag: '7c6956b0c4bcc773697adb506d3ce5e9',
             viewmodule: 'zentao',
             viewname: 'BugConfirmView',
@@ -4143,7 +4154,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'b79b6d8cb0dcb2ac867f3ea1aa6d4cb2',
-                '4503911318e1f1f26599b68a6c6e681d',
+                '7c188c576f1fd59114ac2940d8e92c15',
             ],
         },
         {

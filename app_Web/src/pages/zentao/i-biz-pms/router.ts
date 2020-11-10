@@ -617,6 +617,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/product-plan-project-grid-view9/product-plan-project-grid-view9.vue'),
                 },
                 {
+                    path: 'docs/:doc?/gridview_recentmore/:gridview_recentmore?',
+                    meta: {
+                        caption: 'entities.doc.views.gridview_recentmore.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'docs', parameterName: 'doc' },
+                            { pathName: 'gridview_recentmore', parameterName: 'gridview_recentmore' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/doc-grid-view-recent-more/doc-grid-view-recent-more.vue'),
+                },
+                {
                     path: 'projects/:project?/pickupgridview/:pickupgridview?',
                     meta: {
                         caption: 'entities.project.views.pickupgridview.caption',

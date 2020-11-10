@@ -49,6 +49,10 @@ export default {
 			caption: "文档",
       		title: "创建文档",
 		},
+		gridview_recentmore: {
+			caption: "文档",
+      		title: "doc表格视图",
+		},
 		docsumeditview9: {
 			caption: "文档摘要",
       		title: "文档编辑视图（文档摘要）",
@@ -202,6 +206,23 @@ export default {
 		uiactions: {
 		},
 	},
+	morerecentupdate_grid: {
+		nodata: "",
+		columns: {
+			id: "文档编号",
+			title: "文档标题",
+			addedby: "由谁添加",
+			addeddate: "添加时间",
+			editedby: "由谁更新",
+			editeddate: "更新时间",
+			uagridcolumn1: "操作",
+		},
+		uiactions: {
+        doc_look: "查看",
+        doc_edit: "编辑",
+        doc_delete: "删除",
+		},
+	},
 	default_searchform: {
 		details: {
 			formpage1: "常规条件", 
@@ -216,6 +237,12 @@ export default {
 		},
 	},
 	gridviewtoolbar_toolbar: {
+		deuiaction7: {
+			caption: "Export",
+			tip: "Export {0} Data To Excel",
+		},
+	},
+	gridview_recentmoretoolbar_toolbar: {
 		deuiaction7: {
 			caption: "Export",
 			tip: "Export {0} Data To Excel",

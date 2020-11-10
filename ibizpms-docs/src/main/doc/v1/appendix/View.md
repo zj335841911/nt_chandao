@@ -435,6 +435,7 @@ SRFNAVPARAM.project=%project%|
 |-|story表格视图|DEGRIDVIEW|&nbsp;|
 |-|创建文档|DEEDITVIEW|&nbsp;|
 |-|模块|DEGRIDVIEW|&nbsp;|
+|-|doc表格视图|DEGRIDVIEW|&nbsp;|
 |-|确认Bug|DEOPTVIEW|&nbsp;|
 |-|所有项目|DELISTVIEW|&nbsp;|
 |-|待办事宜表编辑视图|DEEDITVIEW9|&nbsp;|

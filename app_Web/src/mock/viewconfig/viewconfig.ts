@@ -1823,6 +1823,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ModuleGridView",
             "viewtag": "7bbf35767e7763b69ad6acd4b06c06d1"
         },
+        "docgridview_recentmore": {
+            "title": "doc表格视图",
+            "caption": "文档",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "DocGridView_RecentMore",
+            "viewtag": "7c188c576f1fd59114ac2940d8e92c15"
+        },
         "bugconfirmview": {
             "title": "确认Bug",
             "caption": "确认Bug",
