@@ -71,6 +71,7 @@ export default {
     createbuild: "创建版本",
     overduebugs: "过期天数",
     casename: "相关用例",
+    delay: "延期",
   },
 	views: {
 		colsemobeditview: {

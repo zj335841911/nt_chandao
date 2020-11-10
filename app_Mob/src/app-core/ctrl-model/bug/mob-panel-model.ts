@@ -228,6 +228,9 @@ export class MobModel {
       {
         name: 'casename',
       },
+      {
+        name: 'delay',
+      },
     ]
   }
 

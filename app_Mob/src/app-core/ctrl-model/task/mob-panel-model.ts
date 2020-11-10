@@ -201,6 +201,15 @@ export class MobModel {
       {
         name: 'updatedate',
       },
+      {
+        name: 'noticeusers',
+      },
+      {
+        name: 'progressrate',
+      },
+      {
+        name: 'delay',
+      },
     ]
   }
 

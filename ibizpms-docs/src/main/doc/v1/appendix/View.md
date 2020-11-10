@@ -553,6 +553,7 @@ SRFNAVPARAM.project=%project%|
 |-|用例库用例编辑视图（主信息）|DEEDITVIEW9|&nbsp;|
 |-|doc编辑视图|DEEDITVIEW|&nbsp;|
 |-|Bug统计表格视图|DEGRIDVIEW|&nbsp;|
+|-|文档表格视图|DEGRIDVIEW9|&nbsp;|
 |-|story表格视图|DEGRIDVIEW|&nbsp;|
 |-|系统更新功能表格视图|DEGRIDVIEW|&nbsp;|
 |-|Bug统计表格视图（Bug指派表）|DEGRIDVIEW|&nbsp;|

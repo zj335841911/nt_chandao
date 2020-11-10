@@ -62,6 +62,9 @@ export default {
     replycount: "回复数量",
     hasdetail: "是否填写描述",
     updatedate: "最后的更新日期",
+    noticeusers: "消息通知用户",
+    progressrate: "进度",
+    delay: "延期",
   },
 	views: {
 		mobmdview: {

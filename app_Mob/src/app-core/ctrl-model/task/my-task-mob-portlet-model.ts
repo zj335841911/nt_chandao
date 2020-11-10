@@ -201,6 +201,15 @@ export class MyTaskMobModel {
       {
         name: 'updatedate',
       },
+      {
+        name: 'noticeusers',
+      },
+      {
+        name: 'progressrate',
+      },
+      {
+        name: 'delay',
+      },
     ]
   }
 
