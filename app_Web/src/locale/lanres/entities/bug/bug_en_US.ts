@@ -602,6 +602,8 @@ export default {
 	},
 	dashboardmain_form: {
 		details: {
+			grouppanel2: "分组面板", 
+			grouppanel3: "分组面板", 
 			maingroup1: "Bug基本信息", 
 			formpage1: "基本信息", 
 			grouppanel1: "分组面板", 
@@ -648,6 +650,9 @@ export default {
 	},
 	dashboardbuglife_form: {
 		details: {
+			grouppanel2: "分组面板", 
+			grouppanel3: "分组面板", 
+			grouppanel4: "分组面板", 
 			buggroup1: "Bug基本信息", 
 			formpage1: "Bug的一生", 
 			grouppanel1: "分组面板", 
