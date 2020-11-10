@@ -60,6 +60,8 @@ export default {
 			remove: "删除",
 		},
 	},
+	usr2gridviewtoolbar_toolbar: {
+	},
 	editviewtoolbar_toolbar: {
 		tbitem3: {
 			caption: "保存",
@@ -77,8 +79,6 @@ export default {
 			caption: "删除",
 			tip: "删除",
 		},
-	},
-	usr2gridviewtoolbar_toolbar: {
 	},
 	treedoclib_treeview: {
 		nodes: {

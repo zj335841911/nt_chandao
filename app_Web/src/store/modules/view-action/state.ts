@@ -1747,6 +1747,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '6921cf59868031699419de5fb8e79ced',
+            viewmodule: 'zentao',
+            viewname: 'DocLibModuleEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '6991c25388155df89dc9c44eeb11ad90',
             viewmodule: 'zentao',
             viewname: 'TaskEstimateEditGridView9',
@@ -4218,6 +4227,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'f3b0810b31f6ce2c9e2eac61e3ba941d',
+            viewmodule: 'ibiz',
+            viewname: 'DocLibModuleUsr2GridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '6921cf59868031699419de5fb8e79ced',
+            ],
+        },
+        {
             viewtag: 'f592519df78de708bd8199a52e5f584d',
             viewmodule: 'zentao',
             viewname: 'CaseStepMainGridView9',
@@ -4263,6 +4282,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                'f3b0810b31f6ce2c9e2eac61e3ba941d',
             ],
         },
         {
