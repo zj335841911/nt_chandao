@@ -77,7 +77,6 @@ export class DocGridView9Base extends GridView9Base {
 	 * @memberof DocGridView9Base
 	 */
     protected customViewParams: any = {
-        'n_addedby_eq': { isRawValue: false, value: 'srfloginname' },
         'size': { isRawValue: true, value: '5' }
     };
 
@@ -283,28 +282,14 @@ export class DocGridView9Base extends GridView9Base {
         const deResParameters: any[] = [];
         const parameters: any[] = [
             { pathName: 'docs', parameterName: 'doc' },
+            { pathName: 'editview', parameterName: 'editview' },
         ];
         const _this: any = this;
-        const openDrawer = (view: any, data: any) => {
-            let container: Subject<any> = this.$appdrawer.openDrawer(view, tempContext, data);
-            container.subscribe((result: any) => {
-                if (!result || !Object.is(result.ret, 'OK')) {
-                    return;
-                }
-                if (!xData || !(xData.refresh instanceof Function)) {
-                    return;
-                }
-                xData.refresh(result.datas);
-            });
+        const openIndexViewTab = (data: any) => {
+            const routePath = this.$viewTool.buildUpRoutePath(this.$route, tempContext, deResParameters, parameters, args, data);
+            this.$router.push(routePath);
         }
-        const view: any = {
-            viewname: 'doc-dashboard-view', 
-            height: 0, 
-            width: 0,  
-            title: this.$t('entities.doc.views.dashboardview.title'),
-            placement: 'DRAWER_TOP',
-        };
-        openDrawer(view, data);
+        openIndexViewTab(data);
     }
 
 

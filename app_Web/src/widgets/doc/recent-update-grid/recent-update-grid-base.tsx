@@ -118,7 +118,7 @@ export class RecentUpdateGridBase extends GridControlBase {
      * @type {string}
      * @memberof RecentUpdateGridBase
      */
-    public minorSortPSDEF: string = 'editedby';
+    public minorSortPSDEF: string = 'editeddate';
 
     /**
      * 分页条数
