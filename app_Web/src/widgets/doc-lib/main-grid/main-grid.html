@@ -67,6 +67,11 @@
                             <i class='fa fa-file-word-o'></i>
                             
                           </a>
+                          <divider v-show="scope.row.EditProjectDoclib.visabled" type='vertical'></divider>
+                          <a v-show="scope.row.EditProjectDoclib.visabled" :disabled="scope.row.EditProjectDoclib.disabled" @click="uiAction(scope.row, 'EditProjectDoclib', $event)" :title="$t('entities.doclib.main_grid.uiactions.doclib_editprojectdoclib')">
+                            <i class='fa fa-edit'></i>
+                            
+                          </a>
                           <divider v-show="scope.row.WeiHuFenLei.visabled" type='vertical'></divider>
                           <a v-show="scope.row.WeiHuFenLei.visabled" :disabled="scope.row.WeiHuFenLei.disabled" @click="uiAction(scope.row, 'WeiHuFenLei', $event)" :title="$t('entities.doclib.main_grid.uiactions.doclib_weihufenlei')">
                             <i class='fa fa-lock'></i>

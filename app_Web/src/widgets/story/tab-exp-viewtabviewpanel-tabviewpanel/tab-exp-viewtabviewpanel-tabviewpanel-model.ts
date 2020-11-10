@@ -189,6 +189,9 @@ export default class TabExpViewtabviewpanelModel {
       {
         name: 'assignedtopk',
       },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

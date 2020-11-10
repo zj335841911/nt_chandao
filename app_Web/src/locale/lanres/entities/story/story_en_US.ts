@@ -58,6 +58,7 @@ export default {
     mailtoconact: "联系人",
     mailtopk: "抄送给",
     assignedtopk: "指派给（选择）",
+    noticeusers: "消息通知用户",
   },
 	views: {
 		pickupgridview4: {

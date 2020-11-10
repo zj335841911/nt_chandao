@@ -469,4 +469,12 @@ export interface SubStory {
      * @memberof SubStory
      */
     assignedtopk?: any;
+
+    /**
+     * 消息通知用户
+     *
+     * @returns {*}
+     * @memberof SubStory
+     */
+    noticeusers?: any;
 }

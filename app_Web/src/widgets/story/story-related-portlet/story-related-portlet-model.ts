@@ -189,6 +189,9 @@ export default class StoryRelatedModel {
       {
         name: 'assignedtopk',
       },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

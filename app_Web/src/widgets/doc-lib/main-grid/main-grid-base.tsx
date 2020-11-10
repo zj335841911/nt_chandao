@@ -132,6 +132,34 @@ export class MainGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
+    public grid_uagridcolumn1_ucbf9df2_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:DocLibUIService  = new DocLibUIService();
+        curUIService.DocLib_EditProjectDoclib(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
     public grid_uagridcolumn1_udf069e6_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
@@ -162,6 +190,7 @@ export class MainGridBase extends GridControlBase {
     public ActionModel: any = {
         LookFile: { name: 'LookFile',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'FILE', actiontarget: 'SINGLEKEY'},
         LookDoc: { name: 'LookDoc',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'DOC', actiontarget: 'SINGLEKEY'},
+        EditProjectDoclib: { name: 'EditProjectDoclib',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'DOC', actiontarget: 'SINGLEKEY'},
         WeiHuFenLei: { name: 'WeiHuFenLei',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'DOC', actiontarget: 'SINGLEKEY'}
     };
 
@@ -309,6 +338,9 @@ export class MainGridBase extends GridControlBase {
         }
         if(Object.is('LookDoc', tag)) {
             this.grid_uagridcolumn1_u7b44b31_click(row, tag, $event);
+        }
+        if(Object.is('EditProjectDoclib', tag)) {
+            this.grid_uagridcolumn1_ucbf9df2_click(row, tag, $event);
         }
         if(Object.is('WeiHuFenLei', tag)) {
             this.grid_uagridcolumn1_udf069e6_click(row, tag, $event);

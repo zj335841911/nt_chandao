@@ -189,6 +189,9 @@ export default class StoryspecModel {
       {
         name: 'assignedtopk',
       },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

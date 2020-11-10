@@ -189,6 +189,9 @@ export default class MainToolbarModel {
       {
         name: 'assignedtopk',
       },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

@@ -89,6 +89,7 @@ export default {
 		uiactions: {
         doclib_lookfile: "查看",
         doclib_lookdoc: "查看",
+        doclib_editprojectdoclib: "编辑",
         doclib_weihufenlei: "维护分类",
 		},
 	},

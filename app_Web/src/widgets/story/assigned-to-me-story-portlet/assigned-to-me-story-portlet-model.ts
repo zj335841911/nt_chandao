@@ -189,6 +189,9 @@ export default class AssignedToMeStoryModel {
       {
         name: 'assignedtopk',
       },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

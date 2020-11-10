@@ -469,4 +469,12 @@ export interface Story {
      * @memberof Story
      */
     assignedtopk?: any;
+
+    /**
+     * 消息通知用户
+     *
+     * @returns {*}
+     * @memberof Story
+     */
+    noticeusers?: any;
 }

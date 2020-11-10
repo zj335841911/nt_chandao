@@ -72,6 +72,7 @@ export default {
     overduebugs: "过期天数",
     casename: "相关用例",
     delay: "延期",
+    noticeusers: "消息通知用户",
   },
 	views: {
 		plansubgridview: {

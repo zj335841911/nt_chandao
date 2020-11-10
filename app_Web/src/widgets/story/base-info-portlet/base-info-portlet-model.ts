@@ -189,6 +189,9 @@ export default class BaseInfoModel {
       {
         name: 'assignedtopk',
       },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

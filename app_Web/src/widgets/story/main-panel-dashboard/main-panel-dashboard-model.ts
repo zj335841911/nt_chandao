@@ -189,6 +189,9 @@ export default class MainPanelModel {
       {
         name: 'assignedtopk',
       },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

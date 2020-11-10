@@ -189,6 +189,9 @@ export default class TotalCurOpenedStoryStageModel {
       {
         name: 'assignedtopk',
       },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

@@ -85,6 +85,7 @@ hide members
 |联系人|MAILTOCONACT|TEXT|&nbsp;|
 |抄送给|MAILTOPK|SMCODELIST|&nbsp;|
 |指派给（选择）|ASSIGNEDTOPK|TEXT|&nbsp;|
+|消息通知用户|NOTICEUSERS|TEXT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -147,6 +148,7 @@ hide members
 |联系人|默认规则|内容长度必须小于等于[100]|
 |抄送给|默认规则|内容长度必须小于等于[65535]|
 |指派给（选择）|默认规则|内容长度必须小于等于[200]|
+|消息通知用户|默认规则|内容长度必须小于等于[100]|
 
 ## 状态控制
 

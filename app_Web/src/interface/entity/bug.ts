@@ -581,4 +581,12 @@ export interface Bug {
      * @memberof Bug
      */
     delay?: any;
+
+    /**
+     * 消息通知用户
+     *
+     * @returns {*}
+     * @memberof Bug
+     */
+    noticeusers?: any;
 }

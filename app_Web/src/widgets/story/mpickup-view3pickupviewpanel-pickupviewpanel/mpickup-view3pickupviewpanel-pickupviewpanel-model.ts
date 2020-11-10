@@ -189,6 +189,9 @@ export default class MPickupView3pickupviewpanelModel {
       {
         name: 'assignedtopk',
       },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

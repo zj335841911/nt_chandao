@@ -189,6 +189,9 @@ export default class TotalCurOpenedStoryPriModel {
       {
         name: 'assignedtopk',
       },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 
