@@ -50,6 +50,10 @@ export default {
 			caption: "文档库主页",
       		title: "文档库分页导航视图（文档）",
 		},
+		dashboardview: {
+			caption: "文档主页",
+      		title: "文档库数据看板视图",
+		},
 	},
 	main_form: {
 		details: {

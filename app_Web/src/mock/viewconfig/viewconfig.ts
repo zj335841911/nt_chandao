@@ -3671,6 +3671,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "IbzLibTabExpView",
             "viewtag": "ebf8f4c62f92ff24ff740558f12f7303"
         },
+        "doclibdashboardview": {
+            "title": "文档库数据看板视图",
+            "caption": "文档主页",
+            "viewtype": "DEPORTALVIEW",
+            "viewmodule": "zentao",
+            "viewname": "DocLibDashboardView",
+            "viewtag": "ec35bfd0c7d043d531053eac7775a40b"
+        },
         "bugdashboardmaineditview9": {
             "title": "主信息",
             "caption": "Bug",

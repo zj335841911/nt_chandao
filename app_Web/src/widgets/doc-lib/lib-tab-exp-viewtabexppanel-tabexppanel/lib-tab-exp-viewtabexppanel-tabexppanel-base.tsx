@@ -77,7 +77,8 @@ export class LibTabExpViewtabexppanelTabexppanelBase extends TabExpPanelControlB
      * @memberof LibTabExpViewtabexppanelBase
      */
     protected isInit: any = {
-        tabviewpanel:  true ,
+        tabviewpanel4:  true ,
+        tabviewpanel:  false ,
         tabviewpanel2:  false ,
         tabviewpanel3:  false ,
     }
@@ -89,7 +90,7 @@ export class LibTabExpViewtabexppanelTabexppanelBase extends TabExpPanelControlB
      * @type {string}
      * @memberof LibTabExpViewtabexppanelBase
      */
-    protected activatedTabViewPanel: string = 'tabviewpanel';
+    protected activatedTabViewPanel: string = 'tabviewpanel4';
 
     /**
      * 实体权限服务对象
@@ -107,7 +108,7 @@ export class LibTabExpViewtabexppanelTabexppanelBase extends TabExpPanelControlB
      * @type {*}
      * @memberof LibTabExpViewtabexppanelBase
      */
-    protected authResourceObject:any = {'tabviewpanel':{resourcetag:null,visabled: true,disabled: false},'tabviewpanel2':{resourcetag:null,visabled: true,disabled: false},'tabviewpanel3':{resourcetag:null,visabled: true,disabled: false}};
+    protected authResourceObject:any = {'tabviewpanel4':{resourcetag:null,visabled: true,disabled: false},'tabviewpanel':{resourcetag:null,visabled: true,disabled: false},'tabviewpanel2':{resourcetag:null,visabled: true,disabled: false},'tabviewpanel3':{resourcetag:null,visabled: true,disabled: false}};
 
     /**
      * 组件创建完毕

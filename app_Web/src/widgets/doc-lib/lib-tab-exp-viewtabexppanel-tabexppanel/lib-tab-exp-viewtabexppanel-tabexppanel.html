@@ -1,6 +1,30 @@
 <div class='tabviewpanel'>
     <tabs :value="activatedTabViewPanel" :animated="false" class='tabexppanel' name='libtabexpviewtabexppanel' @on-click="tabPanelClick($event)">
-        <tab-pane :index="0" name='tabviewpanel' tab='libtabexpviewtabexppanel' class=''  v-if="authResourceObject['tabviewpanel'].visabled"
+        <tab-pane :index="0" name='tabviewpanel4' tab='libtabexpviewtabexppanel' class=''  v-if="authResourceObject['tabviewpanel4'].visabled"
+            :label="(h) =>{
+                return h('div', [
+                    h('span', '文档看板'),
+                    h('Badge', {
+                        props: {
+                            count: undefined,
+                            type: 'primary'
+                        }
+                    })
+                ])
+            }" >
+            <view_tabviewpanel4 
+    :viewState="viewState"  
+    :viewparams="JSON.parse(JSON.stringify(viewparams))" 
+    :context="JSON.parse(JSON.stringify(context))" 
+    v-if="isInit.tabviewpanel4"
+    name="tabviewpanel4"  
+    ref='tabviewpanel4'
+    :expActive="activatedTabViewPanel === 'tabviewpanel4'"
+    @viewpanelDatasChange = "tabViewPanelDatasChange"
+    @closeview="closeView($event)">
+</view_tabviewpanel4>
+        </tab-pane>
+        <tab-pane :index="1" name='tabviewpanel' tab='libtabexpviewtabexppanel' class=''  v-if="authResourceObject['tabviewpanel'].visabled"
             :label="(h) =>{
                 return h('div', [
                     h('span', '产品'),
@@ -24,7 +48,7 @@
     @closeview="closeView($event)">
 </view_tabviewpanel>
         </tab-pane>
-        <tab-pane :index="1" name='tabviewpanel2' tab='libtabexpviewtabexppanel' class=''  v-if="authResourceObject['tabviewpanel2'].visabled"
+        <tab-pane :index="2" name='tabviewpanel2' tab='libtabexpviewtabexppanel' class=''  v-if="authResourceObject['tabviewpanel2'].visabled"
             :label="(h) =>{
                 return h('div', [
                     h('span', '项目'),
@@ -48,7 +72,7 @@
     @closeview="closeView($event)">
 </view_tabviewpanel2>
         </tab-pane>
-        <tab-pane :index="2" name='tabviewpanel3' tab='libtabexpviewtabexppanel' class=''  v-if="authResourceObject['tabviewpanel3'].visabled"
+        <tab-pane :index="3" name='tabviewpanel3' tab='libtabexpviewtabexppanel' class=''  v-if="authResourceObject['tabviewpanel3'].visabled"
             :label="(h) =>{
                 return h('div', [
                     h('span', '自定义'),

@@ -1,0 +1,16 @@
+<div class='portlet recent-update ' :style="{'height': isAdaptiveSize ? '100%' : getHeight,}">
+        <p class='portlet-title'>
+            <span>
+            
+            最近更新
+            </span>
+            <span class="portlet-action">
+                <a @click="uiAction('u6ab12f4', $event)" v-show="uiactionModel['more'].visabled" :disabled="uiactionModel['more'].disabled">
+                  <span>MORE</span>
+                </a>
+            </span>
+        </p>
+        <div class="portlet-with-title">
+        <doc-grid-view9 :portletState="viewState" :viewUsage="4" :viewdata="JSON.stringify(context)" :viewDefaultUsage="false" ></doc-grid-view9>
+        </div>
+</div>

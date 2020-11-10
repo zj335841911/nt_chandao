@@ -1,0 +1,30 @@
+<template src="./main-dashboard.html"/>
+<script lang='tsx'>
+import { Component } from 'vue-property-decorator';
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { MainDashboardBase } from './main-dashboard-base';
+import view_dashboard_sysportlet4 from '@widgets/doc-lib/dashboard-viewdashboard-sysportlet4-portlet/dashboard-viewdashboard-sysportlet4-portlet.vue';
+import view_dashboard_sysportlet2 from '@widgets/doc-lib/dashboard-viewdashboard-sysportlet2-portlet/dashboard-viewdashboard-sysportlet2-portlet.vue';
+import view_dashboard_sysportlet3 from '@widgets/doc-lib/dashboard-viewdashboard-sysportlet3-portlet/dashboard-viewdashboard-sysportlet3-portlet.vue';
+import view_dashboard_sysportlet1 from '@widgets/doc/recent-update-portlet/recent-update-portlet.vue';
+ 
+
+/**
+ * dashboard部件
+ *
+ * @export
+ * @class MainDashboard
+ * @extends {MainDashboardBase}
+ */
+@Component({
+    components: {
+        view_dashboard_sysportlet4, 
+        view_dashboard_sysportlet2, 
+        view_dashboard_sysportlet3, 
+        view_dashboard_sysportlet1, 
+         
+    }
+})
+@VueLifeCycleProcessing()
+export default class MainDashboard extends MainDashboardBase { }
+</script>

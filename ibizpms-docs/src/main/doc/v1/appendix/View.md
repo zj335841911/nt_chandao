@@ -666,6 +666,7 @@ SRFNAVPARAM.project=%project%|
 |-|待办编辑视图（日历导航）|DEEDITVIEW|&nbsp;|
 |-|待办事宜表数据看板视图|DEPORTALVIEW|&nbsp;|
 |-|用例库|DETABEXPVIEW|&nbsp;|
+|-|文档库数据看板视图|DEPORTALVIEW|&nbsp;|
 |-|主信息|DEEDITVIEW9|&nbsp;|
 |-|发布编辑视图|DEEDITVIEW|&nbsp;|
 |-|项目|DEEDITVIEW|&nbsp;|

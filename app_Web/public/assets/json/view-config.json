@@ -4579,6 +4579,16 @@
         "viewtag": "ebf8f4c62f92ff24ff740558f12f7303",
         "memo": ""
     },
+    "doclibdashboardview": {
+        "title": "文档库数据看板视图",
+        "caption": "文档主页",
+        "viewtype": "DEPORTALVIEW",
+        "viewmodule": "zentao",
+        "viewname": "DocLibDashboardView",
+        "viewfilename": "doc-lib-dashboard-view",
+        "viewtag": "ec35bfd0c7d043d531053eac7775a40b",
+        "memo": ""
+    },
     "bugdashboardmaineditview9": {
         "title": "主信息",
         "caption": "Bug",
