@@ -227,8 +227,6 @@ export default {
 			tip: "保存并关闭",
 		},
 	},
-	gridview9toolbar_toolbar: {
-	},
 	modulegridviewtoolbar_toolbar: {
 		deuiaction7: {
 			caption: "导出",

@@ -33,7 +33,22 @@
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <template >
+                        <template v-if="actualIsOpenEdit">
+                            <app-form-item :error="gridItemsModel[$index][column.property].error">
+                                <input-box 
+              
+              :disabled="getColumnDisabled(row,column.property)" 
+              v-model="row[column.property]" 
+              style=""
+              type="text"
+              
+              
+              @change="($event)=>{gridEditItemChange(row, column.property, $event, $index)}">
+            </input-box>
+            
+                            </app-form-item>
+                        </template>
+                        <template v-if="!actualIsOpenEdit">
             <app-span name='name' editorType="TEXTBOX" :value="row.name" dataType="TEXT" precision="0" ></app-span>
                         </template>
                     </template>
@@ -47,7 +62,22 @@
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <template >
+                        <template v-if="actualIsOpenEdit">
+                            <app-form-item :error="gridItemsModel[$index][column.property].error">
+                                <input-box 
+              
+              :disabled="getColumnDisabled(row,column.property)" 
+              v-model="row[column.property]" 
+              style=""
+              type="text"
+              
+              placeholder="简称"
+              @change="($event)=>{gridEditItemChange(row, column.property, $event, $index)}">
+            </input-box>
+            
+                            </app-form-item>
+                        </template>
+                        <template v-if="!actualIsOpenEdit">
             <app-span name='short' editorType="TEXTBOX" :value="row.short" dataType="TEXT" precision="0" ></app-span>
                         </template>
                     </template>

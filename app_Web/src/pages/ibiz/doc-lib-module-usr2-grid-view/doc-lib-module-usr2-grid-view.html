@@ -2,7 +2,6 @@
     <template slot='title'>
     <span class='caption-info'>{{viewCaption}}</span>
     </template>
-    <i-input slot='quickSearch' clearable  v-model="query" placeholder="名称" search @on-search="onSearch($event)"/>
     <template slot="toolbar">
                 <view-toolbar :model="toolBarModels" @item-click="toolbar_click.apply(_self, arguments)"/>
     </template>
@@ -12,17 +11,15 @@
         :context="context" 
         :isSingleSelect="isGridSingleSelect"
         :showBusyIndicator="true"
-        :isOpenEdit="false"
+        :isOpenEdit="true"
         :gridRowActiveMode="gridRowActiveMode"
         @save="onSave.apply(_self, arguments)"
-        updateAction=""
+        updateAction="Update"
         removeAction="Remove"
-        loaddraftAction=""
-        loadAction=""
-        createAction=""
+        loaddraftAction="GetDraft"
+        loadAction="Get"
+        createAction="Create"
         fetchAction="FetchAllDoclibModule"
-        :newdata="newdata.bind(_self)"
-        :opendata="opendata.bind(_self)"
         name="grid"  
         ref='grid' 
         @selectionchange="grid_selectionchange($event)"  

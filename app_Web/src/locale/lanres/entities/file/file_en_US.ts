@@ -64,6 +64,7 @@ export default {
 			uagridcolumn1: "操作",
 		},
 		uiactions: {
+        file_look: "查看",
         file_ibzdownload: "下载",
         file_delete: "删除",
 		},

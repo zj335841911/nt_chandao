@@ -157,7 +157,7 @@ export class MainGridBase extends GridControlBase {
             langtag: 'entities.doclibmodule.main_grid.columns.name',
             show: true,
             unit: 'PX',
-            isEnableRowEdit: false,
+            isEnableRowEdit: true,
             enableCond: 3 ,
         },
         {
@@ -166,7 +166,7 @@ export class MainGridBase extends GridControlBase {
             langtag: 'entities.doclibmodule.main_grid.columns.short',
             show: true,
             unit: 'PX',
-            isEnableRowEdit: false,
+            isEnableRowEdit: true,
             enableCond: 3 ,
         },
         {
@@ -243,8 +243,8 @@ export class MainGridBase extends GridControlBase {
      * @memberof MainBase
      */
     public hasRowEdit: any = {
-        'name':false,
-        'short':false,
+        'name':true,
+        'short':true,
         'uagridcolumn1':false,
     };
 

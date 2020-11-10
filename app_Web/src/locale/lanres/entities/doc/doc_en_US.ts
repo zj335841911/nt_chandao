@@ -227,8 +227,6 @@ export default {
 			tip: "Save And Close Window",
 		},
 	},
-	gridview9toolbar_toolbar: {
-	},
 	modulegridviewtoolbar_toolbar: {
 		deuiaction7: {
 			caption: "Export",
