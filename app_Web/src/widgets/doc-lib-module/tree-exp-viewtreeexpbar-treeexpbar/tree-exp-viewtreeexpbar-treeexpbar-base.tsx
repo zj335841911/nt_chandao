@@ -110,14 +110,14 @@ export class TreeExpViewtreeexpbarTreeExpBarBase extends TreeExpBarControlBase {
         if (!expmode) {
             expmode = '';
         }
-        if (Object.is(expmode, 'AA')) {
+        if (Object.is(expmode, 'CHILDMODULE')) {
             return {  
                 viewname: 'doc-lib-module-usr2-grid-view', 
                 parentdata: {"srfparentdefname":"n_parent_eq"},
                 deKeyField:'doclibmodule'
 			};
         }
-        if (Object.is(expmode, 'BB')) {
+        if (Object.is(expmode, 'ROOTMODULE')) {
             return {  
                 viewname: 'doc-lib-module-usr2-grid-view', 
                 parentdata: {"srfparentdefname":"n_parent_eq"},

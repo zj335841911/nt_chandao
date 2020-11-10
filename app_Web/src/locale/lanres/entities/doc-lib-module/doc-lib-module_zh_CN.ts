@@ -90,6 +90,7 @@ export default {
 	},
 	treedoclib_treeview: {
 		nodes: {
+			allmodule: "所有分类",
 			root: "默认根节点",
 		},
 		uiactions: {
