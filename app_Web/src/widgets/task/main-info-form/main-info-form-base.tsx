@@ -96,6 +96,7 @@ export class MainInfoEditFormBase extends EditFormControlBase {
         modulename1: null,
         storyname: null,
         assignedto: null,
+        assigneddate: null,
         type: null,
         status: null,
         progressrate: null,
@@ -154,6 +155,8 @@ export class MainInfoEditFormBase extends EditFormControlBase {
      * @memberof MainInfoEditFormBase
      */
     public detailsModel: any = {
+        grouppanel6: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel6', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.task.maininfo_form', extractMode: 'ITEM', details: [] } }),
+
         group1: new FormGroupPanelModel({ caption: 'task基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.task.maininfo_form', extractMode: 'ITEM', details: [] } }),
 
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
@@ -197,6 +200,8 @@ export class MainInfoEditFormBase extends EditFormControlBase {
         storyname: new FormItemModel({ caption: '相关需求', detailType: 'FORMITEM', name: 'storyname', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 
         assignedto: new FormItemModel({ caption: '指派给', detailType: 'FORMITEM', name: 'assignedto', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+
+        assigneddate: new FormItemModel({ caption: '于', detailType: 'FORMITEM', name: 'assigneddate', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 
         type: new FormItemModel({ caption: '任务类型', detailType: 'FORMITEM', name: 'type', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 
@@ -258,6 +263,7 @@ export class MainInfoEditFormBase extends EditFormControlBase {
 
 
 
+
         if (Object.is(name, '') || Object.is(name, 'multiple')) {
             let ret = false;
             const _multiple = this.data.multiple;
@@ -266,6 +272,7 @@ export class MainInfoEditFormBase extends EditFormControlBase {
             }
             this.detailsModel.druipart1.setVisible(ret);
         }
+
 
 
 

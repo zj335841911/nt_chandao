@@ -76,6 +76,11 @@ export default class MainInfoModel {
         dataType: 'TEXT',
       },
       {
+        name: 'assigneddate',
+        prop: 'assigneddate',
+        dataType: 'DATETIME',
+      },
+      {
         name: 'type',
         prop: 'type',
         dataType: 'SSCODELIST',

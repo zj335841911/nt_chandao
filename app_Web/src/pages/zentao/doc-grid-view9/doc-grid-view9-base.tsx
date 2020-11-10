@@ -77,7 +77,7 @@ export class DocGridView9Base extends GridView9Base {
 	 * @memberof DocGridView9Base
 	 */
     protected customViewParams: any = {
-        'n_editedby_eq': { isRawValue: false, value: 'srfloginname' },
+        'n_addedby_eq': { isRawValue: false, value: 'srfloginname' },
         'size': { isRawValue: true, value: '5' }
     };
 
@@ -308,4 +308,13 @@ export class DocGridView9Base extends GridView9Base {
     }
 
 
+
+    /**
+     * 是否单选
+     *
+     * @protected
+     * @type {boolean}
+     * @memberof DocGridView9Base
+     */
+    protected isGridSingleSelect: boolean = true;
 }
