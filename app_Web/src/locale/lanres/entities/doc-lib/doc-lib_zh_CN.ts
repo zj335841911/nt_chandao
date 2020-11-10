@@ -109,13 +109,15 @@ export default {
 	},
 	gridviewtoolbar_toolbar: {
 	},
+	usr2editviewtoolbar_toolbar: {
+	},
+	productgridviewtoolbar_toolbar: {
+	},
 	editviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "保存并关闭",
 			tip: "保存并关闭",
 		},
-	},
-	productgridviewtoolbar_toolbar: {
 	},
 	libtabexpviewtoolbar_toolbar: {
 		deuiaction7: {
@@ -130,8 +132,6 @@ export default {
 			caption: "创建文档",
 			tip: "创建文档",
 		},
-	},
-	usr2editviewtoolbar_toolbar: {
 	},
 	projectdoclibtree_treeview: {
 		nodes: {
