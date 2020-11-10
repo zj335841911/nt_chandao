@@ -55,7 +55,7 @@ tag='Pri' codelistType='STATIC' :data="data" :context="context" :viewparams="vie
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.begin.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 6, offset: 0 }">
+<i-col class="form-layout-container" v-show="detailsModel.begin.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 4, offset: 0 }">
     <app-form-item name='begin' :itemRules="this.rules().begin" class='' :caption="$t('entities.todo.calendarmain_form.details.begin')" uiStyle="DEFAULT" :labelWidth="50" :isShowCaption="true" :error="detailsModel.begin.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <app-span name='begin' :value="data.begin" dataType="NSCODELIST"     :precision="0"
