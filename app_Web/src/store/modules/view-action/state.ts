@@ -2135,7 +2135,7 @@ export const viewstate: any = {
                 '2d63c9fa825c7d4f7816cab45ad34bb6',
                 '092028347755c225e484250308db2d51',
                 '22dcf6656e1b870d0427a450cdbd7d20',
-                'b79b6d8cb0dcb2ac867f3ea1aa6d4cb2',
+                'ec35bfd0c7d043d531053eac7775a40b',
                 '41693a4d3b2bd3a7195d31ceae6cdcf3',
                 '7b8d03598e32aa0f535758927a17b98e',
             ],
@@ -4134,6 +4134,16 @@ export const viewstate: any = {
                 '4a9b92e583e055d7081125b3e19079a6',
                 '1be20d21085195e17a87ad447b4cddb2',
                 '99b83386d61eab84cd7d65a445def4ed',
+            ],
+        },
+        {
+            viewtag: 'ec35bfd0c7d043d531053eac7775a40b',
+            viewmodule: 'zentao',
+            viewname: 'DocLibDashboardView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'b79b6d8cb0dcb2ac867f3ea1aa6d4cb2',
             ],
         },
         {

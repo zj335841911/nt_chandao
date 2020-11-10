@@ -212,8 +212,8 @@ export default class DocLibUIServiceBase extends UIService {
         Object.assign(context,parentObj);
         let deResParameters: any[] = [];
         const parameters: any[] = [
-            { pathName: 'docs', parameterName: 'doc' },
-            { pathName: 'gridview9', parameterName: 'gridview9' },
+            { pathName: 'doclibs', parameterName: 'doclib' },
+            { pathName: 'dashboardview', parameterName: 'dashboardview' },
         ];
         const openIndexViewTab = (data: any) => {
             const routePath = actionContext.$viewTool.buildUpRoutePath(actionContext.$route, context, deResParameters, parameters, _args, data);
