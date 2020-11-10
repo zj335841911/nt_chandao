@@ -215,14 +215,24 @@ export default class DocLibUIServiceBase extends UIService {
         let deResParameters: any[] = [];
         const parameters: any[] = [
             { pathName: 'doclibs', parameterName: 'doclib' },
-            { pathName: 'usr2editview', parameterName: 'usr2editview' },
         ];
-        const openIndexViewTab = (data: any) => {
-            const routePath = actionContext.$viewTool.buildUpRoutePath(actionContext.$route, context, deResParameters, parameters, _args, data);
-            actionContext.$router.push(routePath);
-            return null;
-        }
-        openIndexViewTab(data);
+            const openPopupModal = (view: any, data: any) => {
+                let container: Subject<any> = actionContext.$appmodal.openModal(view, context, data);
+                container.subscribe((result: any) => {
+                    if (!result || !Object.is(result.ret, 'OK')) {
+                        return;
+                    }
+                    const _this: any = actionContext;
+                    return result.datas;
+                });
+            }
+            const view: any = {
+                viewname: 'doc-lib-usr2-edit-view', 
+                height: 400, 
+                width: 600,  
+                title: actionContext.$t('entities.doclib.views.usr2editview.title'),
+            };
+            openPopupModal(view, data);
     }
 
     /**

@@ -110,6 +110,10 @@ export default {
 	gridviewtoolbar_toolbar: {
 	},
 	usr2editviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "Save And Close",
+			tip: "Save And Close Window",
+		},
 	},
 	productgridviewtoolbar_toolbar: {
 	},
