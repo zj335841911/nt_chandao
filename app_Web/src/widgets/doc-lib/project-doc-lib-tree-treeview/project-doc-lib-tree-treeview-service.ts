@@ -91,6 +91,15 @@ export default class ProjectDocLibTreeService extends ControlService {
 	public TREENODE_ROOT: string = 'ROOT';
 
     /**
+     * 所有项目节点分隔符号
+     *
+     * @public
+     * @type {string}
+     * @memberof ProjectDocLibTreeService
+     */
+	public TREENODE_ALLPROJECT: string = 'ALLProject';
+
+    /**
      * 附件库节点分隔符号
      *
      * @public
@@ -188,6 +197,10 @@ export default class ProjectDocLibTreeService extends ControlService {
         }
         if (Object.is(strNodeType, this.TREENODE_ROOT)) {
             await this.fillRootNodeChilds(context,filter, list);
+            return Promise.resolve({ status: 200, data: list });
+        }
+        if (Object.is(strNodeType, this.TREENODE_ALLPROJECT)) {
+            await this.fillAllprojectNodeChilds(context,filter, list);
             return Promise.resolve({ status: 200, data: list });
         }
         if (Object.is(strNodeType, this.TREENODE_FILES)) {
@@ -409,6 +422,75 @@ export default class ProjectDocLibTreeService extends ControlService {
      */
     @Errorlog
     public async fillRootNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
+		if (filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")) {
+			// 填充所有项目
+            let AllprojectRsNavContext:any = {};
+            let AllprojectRsNavParams:any = {};
+            let AllprojectRsParams:any = {};
+			await this.fillAllprojectNodes(context, filter, list ,AllprojectRsNavContext,AllprojectRsNavParams,AllprojectRsParams);
+		} else {
+			// 填充所有项目
+            let AllprojectRsNavContext:any = {};
+            let AllprojectRsNavParams:any = {};
+            let AllprojectRsParams:any = {};
+			await this.fillAllprojectNodes(context, filter, list ,AllprojectRsNavContext,AllprojectRsNavParams,AllprojectRsParams);
+		}
+	}
+
+    /**
+     * 填充 树视图节点[所有项目]
+     *
+     * @public
+     * @param {any{}} context     
+     * @param {*} filter
+     * @param {any[]} list
+     * @param {*} rsNavContext   
+     * @param {*} rsNavParams
+     * @param {*} rsParams
+     * @returns {Promise<any>}
+     * @memberof ProjectDocLibTreeService
+     */
+    @Errorlog
+    public fillAllprojectNodes(context:any={},filter: any, list: any[],rsNavContext?:any,rsNavParams?:any,rsParams?:any): Promise<any> {
+        context = this.handleResNavContext(context,filter,rsNavContext);
+        filter = this.handleResNavParams(context,filter,rsNavParams,rsParams);
+        return new Promise((resolve:any,reject:any) =>{
+            let treeNode: any = {};
+            Object.assign(treeNode, { text: i18n.t('entities.doclib.projectdoclibtree_treeview.nodes.allproject') });
+            Object.assign(treeNode, { isUseLangRes: true });
+            Object.assign(treeNode,{srfappctx:context});
+            Object.assign(treeNode, { srfmajortext: treeNode.text });
+            let strNodeId: string = 'ALLProject';
+
+            // 没有指定节点值，直接使用父节点值
+            Object.assign(treeNode, { srfkey: filter.strRealNodeId });
+            strNodeId += this.TREENODE_SEPARATOR;
+            strNodeId += filter.strRealNodeId;
+
+            Object.assign(treeNode, { id: strNodeId });
+
+            Object.assign(treeNode, { expanded: true });
+            Object.assign(treeNode, { leaf: false });
+            Object.assign(treeNode, { nodeid: treeNode.srfkey });
+            Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
+            Object.assign(treeNode, { nodeType: "STATIC" });
+            list.push(treeNode);
+            resolve(list);
+        });
+	}
+
+    /**
+     * 填充 树视图节点[所有项目]子节点
+     *
+     * @public
+     * @param {any{}} context         
+     * @param {*} filter
+     * @param {any[]} list
+     * @returns {Promise<any>}
+     * @memberof ProjectDocLibTreeService
+     */
+    @Errorlog
+    public async fillAllprojectNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
 		if (filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")) {
 			// 填充项目
             let ProjectRsNavContext:any = {};

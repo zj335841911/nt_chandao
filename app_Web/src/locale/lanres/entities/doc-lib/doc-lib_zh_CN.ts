@@ -140,6 +140,7 @@ export default {
 	projectdoclibtree_treeview: {
 		nodes: {
 			root: "默认根节点",
+			allproject: "所有项目",
 			files: "附件库",
 		},
 		uiactions: {
@@ -148,6 +149,7 @@ export default {
 	productdoclibtree_treeview: {
 		nodes: {
 			files: "附件库",
+			allproduct: "所有产品",
 			root: "默认根节点",
 		},
 		uiactions: {
@@ -156,6 +158,7 @@ export default {
 	customdoclibtree_treeview: {
 		nodes: {
 			root: "默认根节点",
+			all: "所有文档库",
 		},
 		uiactions: {
 		},

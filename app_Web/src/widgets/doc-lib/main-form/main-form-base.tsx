@@ -249,7 +249,7 @@ export class MainEditFormBase extends EditFormControlBase {
             this.data['type'] = 'custom';
         }
         if (this.data.hasOwnProperty('acl')) {
-            this.data['acl'] = 'open';
+            this.data['acl'] = 'default';
         }
     }
 }
