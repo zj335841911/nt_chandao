@@ -126,6 +126,11 @@ export default class DashboardMainModel {
         dataType: 'TEXT',
       },
       {
+        name: 'assigneddate',
+        prop: 'assigneddate',
+        dataType: 'DATETIME',
+      },
+      {
         name: 'deadline',
         prop: 'deadline',
         dataType: 'DATE',

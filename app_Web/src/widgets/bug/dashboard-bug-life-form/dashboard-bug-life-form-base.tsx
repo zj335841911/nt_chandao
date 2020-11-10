@@ -84,12 +84,16 @@ export class DashboardBugLifeEditFormBase extends EditFormControlBase {
         srfdeid: null,
         srfsourcekey: null,
         openedby: null,
+        openeddate: null,
         openedbuild: null,
         resolvedby: null,
+        resolveddate: null,
         resolvedbuild: null,
         resolution: null,
         closedby: null,
+        closeddate: null,
         lasteditedby: null,
+        lastediteddate: null,
         linkbug: null,
         case: null,
         casename: null,
@@ -158,9 +162,13 @@ export class DashboardBugLifeEditFormBase extends EditFormControlBase {
 
         openedby: new FormItemModel({ caption: '由谁创建', detailType: 'FORMITEM', name: 'openedby', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 
+        openeddate: new FormItemModel({ caption: '于', detailType: 'FORMITEM', name: 'openeddate', visible: false, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+
         openedbuild: new FormItemModel({ caption: '影响版本', detailType: 'FORMITEM', name: 'openedbuild', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 0 }),
 
         resolvedby: new FormItemModel({ caption: '由谁解决', detailType: 'FORMITEM', name: 'resolvedby', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+
+        resolveddate: new FormItemModel({ caption: '于', detailType: 'FORMITEM', name: 'resolveddate', visible: false, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 
         resolvedbuild: new FormItemModel({ caption: '解决版本', detailType: 'FORMITEM', name: 'resolvedbuild', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 
@@ -168,7 +176,11 @@ export class DashboardBugLifeEditFormBase extends EditFormControlBase {
 
         closedby: new FormItemModel({ caption: '由谁关闭', detailType: 'FORMITEM', name: 'closedby', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 
+        closeddate: new FormItemModel({ caption: '于', detailType: 'FORMITEM', name: 'closeddate', visible: false, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+
         lasteditedby: new FormItemModel({ caption: '最后修改者', detailType: 'FORMITEM', name: 'lasteditedby', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 0 }),
+
+        lastediteddate: new FormItemModel({ caption: '于', detailType: 'FORMITEM', name: 'lastediteddate', visible: false, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 0 }),
 
         linkbug: new FormItemModel({ caption: '相关Bug', detailType: 'FORMITEM', name: 'linkbug', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 
@@ -180,4 +192,74 @@ export class DashboardBugLifeEditFormBase extends EditFormControlBase {
 
         form: new FormTabPanelModel({ caption: 'form', detailType: 'TABPANEL', name: 'form', visible: true, isShowCaption: true, form: this, tabPages: [{ name: 'formpage1', index: 0, visible: true }, { name: 'formpage2', index: 1, visible: true }] }),
     };
+
+    /**
+     * 表单项逻辑
+     *
+     * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
+     * @returns {Promise<void>}
+     * @memberof DashboardBugLifeEditFormBase
+     */
+    public async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): Promise<void> {
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+        if (Object.is(name, '') || Object.is(name, 'openeddate')) {
+            let ret = false;
+            const _openeddate = this.data.openeddate;
+            if (this.$verify.testCond(_openeddate, 'ISNOTNULL', '')) {
+                ret = true;
+            }
+            this.detailsModel.openeddate.setVisible(ret);
+        }
+
+
+
+        if (Object.is(name, '') || Object.is(name, 'resolveddate')) {
+            let ret = false;
+            const _resolveddate = this.data.resolveddate;
+            if (this.$verify.testCond(_resolveddate, 'ISNOTNULL', '')) {
+                ret = true;
+            }
+            this.detailsModel.resolveddate.setVisible(ret);
+        }
+
+
+
+
+        if (Object.is(name, '') || Object.is(name, 'closeddate')) {
+            let ret = false;
+            const _closeddate = this.data.closeddate;
+            if (this.$verify.testCond(_closeddate, 'ISNOTNULL', '')) {
+                ret = true;
+            }
+            this.detailsModel.closeddate.setVisible(ret);
+        }
+
+
+        if (Object.is(name, '') || Object.is(name, 'lastediteddate')) {
+            let ret = false;
+            const _lastediteddate = this.data.lastediteddate;
+            if (this.$verify.testCond(_lastediteddate, 'ISNOTNULL', '')) {
+                ret = true;
+            }
+            this.detailsModel.lastediteddate.setVisible(ret);
+        }
+
+
+
+
+
+    }
 }
