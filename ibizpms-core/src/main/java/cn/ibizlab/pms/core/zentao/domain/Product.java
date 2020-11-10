@@ -361,6 +361,13 @@ public class Product extends EntityMP implements Serializable {
     @JSONField(name = "rdpk")
     @JsonProperty("rdpk")
     private String rdpk;
+    /**
+     * 消息通知用户
+     */
+    @TableField(exist = false)
+    @JSONField(name = "noticeusers")
+    @JsonProperty("noticeusers")
+    private String noticeusers;
 
     /**
      * 产品线

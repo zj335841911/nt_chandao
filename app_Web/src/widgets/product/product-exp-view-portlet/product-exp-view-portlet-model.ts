@@ -144,6 +144,9 @@ export default class ProductExpViewModel {
       {
         name: 'rdpk',
       },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

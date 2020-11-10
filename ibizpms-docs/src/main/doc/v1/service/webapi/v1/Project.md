@@ -868,7 +868,8 @@ POST
 | 68 | closetaskcnt | Integer | 允许 | 关闭任务数 |
 | 69 | canceltaskcnt | Integer | 允许 | 取消任务数 |
 | 70 | storychangecnt | Integer | 允许 | 需求变更数 |
-| 71 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 71 | noticeusers | String | 允许 | 消息通知用户 |
+| 72 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### ProjectSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

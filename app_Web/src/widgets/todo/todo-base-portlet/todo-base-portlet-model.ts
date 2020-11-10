@@ -114,6 +114,9 @@ export default class TodoBaseModel {
       {
         name: 'assignedtopk',
       },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

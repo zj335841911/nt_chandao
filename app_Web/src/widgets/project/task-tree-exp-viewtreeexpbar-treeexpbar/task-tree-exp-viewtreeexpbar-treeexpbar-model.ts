@@ -225,6 +225,9 @@ export default class TaskTreeExpViewtreeexpbarModel {
       {
         name: 'storychangecnt',
       },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

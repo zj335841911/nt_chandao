@@ -144,6 +144,9 @@ export default class ProductInfoModel {
       {
         name: 'rdpk',
       },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

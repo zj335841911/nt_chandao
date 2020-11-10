@@ -38,6 +38,7 @@ hide members
 |运行模式|RELEASETYPE|SSCODELIST|&nbsp;|
 |构建者|BUILDER|PICKUPDATA|&nbsp;|
 |打包日期|BUILDDATE|PICKUPDATA|&nbsp;|
+|消息通知用户|NOTICEUSERS|TEXT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -67,6 +68,7 @@ hide members
 |运行模式|默认规则|内容长度必须小于等于[200]|
 |构建者|默认规则|内容长度必须小于等于[30]|
 |打包日期|默认规则|默认规则|
+|消息通知用户|默认规则|内容长度必须小于等于[100]|
 
 ## 状态控制
 

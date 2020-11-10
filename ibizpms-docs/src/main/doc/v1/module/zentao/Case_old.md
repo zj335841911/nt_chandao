@@ -82,6 +82,7 @@ hide members
 |是否收藏|ISFAVORITES|TEXT|&nbsp;|
 |模块名称|MODULENAME1|TEXT|&nbsp;|
 |附件|FILES|TEXT|&nbsp;|
+|消息通知用户|NOTICEUSERS|TEXT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -144,6 +145,7 @@ hide members
 |是否收藏|默认规则|内容长度必须小于等于[200]|
 |模块名称|默认规则|内容长度必须小于等于[200]|
 |附件|默认规则|内容长度必须小于等于[1000]|
+|消息通知用户|默认规则|内容长度必须小于等于[100]|
 
 ## 状态控制
 

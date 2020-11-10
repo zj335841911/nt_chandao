@@ -225,6 +225,9 @@ export default class ProjectExpViewModel {
       {
         name: 'storychangecnt',
       },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

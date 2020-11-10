@@ -144,6 +144,9 @@ export default class BugTreeExpViewtreeexpbarModel {
       {
         name: 'rdpk',
       },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

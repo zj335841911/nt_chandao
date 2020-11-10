@@ -144,6 +144,9 @@ export default class PickupViewpickupviewpanelModel {
       {
         name: 'rdpk',
       },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

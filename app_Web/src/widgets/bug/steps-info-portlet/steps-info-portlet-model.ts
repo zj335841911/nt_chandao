@@ -231,6 +231,9 @@ export default class StepsInfoModel {
       {
         name: 'delay',
       },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

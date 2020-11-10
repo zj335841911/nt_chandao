@@ -231,6 +231,9 @@ export default class ActionHistoryListModel {
       {
         name: 'delay',
       },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

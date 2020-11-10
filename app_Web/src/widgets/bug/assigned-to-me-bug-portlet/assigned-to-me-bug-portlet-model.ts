@@ -231,6 +231,9 @@ export default class AssignedToMeBugModel {
       {
         name: 'delay',
       },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

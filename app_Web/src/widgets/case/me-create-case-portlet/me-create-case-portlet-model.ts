@@ -189,6 +189,9 @@ export default class MeCreateCaseModel {
       {
         name: 'files',
       },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

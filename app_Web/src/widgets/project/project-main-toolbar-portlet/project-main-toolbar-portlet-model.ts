@@ -225,6 +225,9 @@ export default class ProjectMainToolbarModel {
       {
         name: 'storychangecnt',
       },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

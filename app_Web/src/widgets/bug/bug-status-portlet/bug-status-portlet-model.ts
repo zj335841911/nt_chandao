@@ -231,6 +231,9 @@ export default class BugStatusModel {
       {
         name: 'delay',
       },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

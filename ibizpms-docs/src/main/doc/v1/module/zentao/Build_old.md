@@ -39,6 +39,7 @@ hide members
 |运行数据库|SQLID|SSCODELIST|&nbsp;|
 |产生的bug|CREATEBUGCNT|LONGTEXT|&nbsp;|
 |构建者（选择）|BUILDERPK|TEXT|&nbsp;|
+|消息通知用户|NOTICEUSERS|TEXT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -66,6 +67,7 @@ hide members
 |运行数据库|默认规则|内容长度必须小于等于[200]|
 |产生的bug|默认规则|内容长度必须小于等于[1048576]|
 |构建者（选择）|默认规则|内容长度必须小于等于[200]|
+|消息通知用户|默认规则|内容长度必须小于等于[100]|
 
 ## 状态控制
 

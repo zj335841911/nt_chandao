@@ -231,6 +231,9 @@ export default class BugModuleModel {
       {
         name: 'delay',
       },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

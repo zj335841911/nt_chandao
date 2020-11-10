@@ -231,6 +231,9 @@ export default class BugOpenedByModel {
       {
         name: 'delay',
       },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

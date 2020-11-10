@@ -189,4 +189,12 @@ export interface Build {
      * @memberof Build
      */
     builderpk?: any;
+
+    /**
+     * 消息通知用户
+     *
+     * @returns {*}
+     * @memberof Build
+     */
+    noticeusers?: any;
 }

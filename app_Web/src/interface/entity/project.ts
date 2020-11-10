@@ -565,4 +565,12 @@ export interface Project {
      * @memberof Project
      */
     storychangecnt?: any;
+
+    /**
+     * 消息通知用户
+     *
+     * @returns {*}
+     * @memberof Project
+     */
+    noticeusers?: any;
 }

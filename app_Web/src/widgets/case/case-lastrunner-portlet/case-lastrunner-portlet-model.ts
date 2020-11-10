@@ -189,6 +189,9 @@ export default class CaseLastrunnerModel {
       {
         name: 'files',
       },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

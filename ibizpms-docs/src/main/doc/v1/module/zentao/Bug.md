@@ -109,6 +109,7 @@ Bug
 | 70 | [过期天数](#属性-过期天数（OVERDUEBUGS）) | OVERDUEBUGS | 整型 | 否 | 是 | 是 |
 | 71 | [相关用例](#属性-相关用例（CASENAME）) | CASENAME | 外键值文本 | 否 | 是 | 是 |
 | 72 | [延期](#属性-延期（DELAY）) | DELAY | 文本，可指定长度 | 否 | 是 | 是 |
+| 73 | [消息通知用户](#属性-消息通知用户（NOTICEUSERS）) | NOTICEUSERS | 文本，可指定长度 | 否 | 是 | 是 |
 
 ### 属性-严重程度（SEVERITY）
 #### 属性说明
@@ -3275,6 +3276,47 @@ String
 ```SQL
 (case when t1.deadline is null or t1.deadline = '0000-00-00' or t1.deadline = '1970-01-01' then '' when t1.`status` ='active' and t1.deadline <DATE_FORMAT(now(),'%y-%m-%d')  then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t1.deadline, now()),'天') else '' end)
 ```
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [测试用例（ZT_CASE）](../zentao/Case) |
+| 关系属性 | [用例标题（TITLE）](../zentao/Case/#属性-用例标题（TITLE）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
+### 属性-消息通知用户（NOTICEUSERS）
+#### 属性说明
+消息通知用户
+
+- 是否是主键
+否
+
+- 属性类型
+应用界面字段[无存储]
+
+- 数据类型
+文本，可指定长度
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
 
 - 数据格式
 无

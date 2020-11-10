@@ -225,6 +225,9 @@ export default class PickupViewpickupviewpanelModel {
       {
         name: 'storychangecnt',
       },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

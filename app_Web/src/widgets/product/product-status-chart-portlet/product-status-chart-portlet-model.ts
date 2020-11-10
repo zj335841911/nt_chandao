@@ -144,6 +144,9 @@ export default class ProductStatusChartModel {
       {
         name: 'rdpk',
       },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

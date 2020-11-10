@@ -114,6 +114,9 @@ export default class TodoDescModel {
       {
         name: 'assignedtopk',
       },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

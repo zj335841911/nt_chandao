@@ -144,6 +144,9 @@ export default class MyTestTabExpViewtabviewpanel4Model {
       {
         name: 'rdpk',
       },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

@@ -293,6 +293,13 @@ public class Todo extends EntityMP implements Serializable {
     @JSONField(name = "assignedtopk")
     @JsonProperty("assignedtopk")
     private String assignedtopk;
+    /**
+     * 消息通知用户
+     */
+    @TableField(exist = false)
+    @JSONField(name = "noticeusers")
+    @JsonProperty("noticeusers")
+    private String noticeusers;
 
 
 

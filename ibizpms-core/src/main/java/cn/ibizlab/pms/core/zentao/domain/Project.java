@@ -567,6 +567,13 @@ public class Project extends EntityMP implements Serializable {
     @JSONField(name = "storychangecnt")
     @JsonProperty("storychangecnt")
     private Integer storychangecnt;
+    /**
+     * 消息通知用户
+     */
+    @TableField(exist = false)
+    @JSONField(name = "noticeusers")
+    @JsonProperty("noticeusers")
+    private String noticeusers;
 
     /**
      * 

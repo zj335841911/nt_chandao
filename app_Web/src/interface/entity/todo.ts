@@ -269,4 +269,12 @@ export interface Todo {
      * @memberof Todo
      */
     assignedtopk?: any;
+
+    /**
+     * 消息通知用户
+     *
+     * @returns {*}
+     * @memberof Todo
+     */
+    noticeusers?: any;
 }

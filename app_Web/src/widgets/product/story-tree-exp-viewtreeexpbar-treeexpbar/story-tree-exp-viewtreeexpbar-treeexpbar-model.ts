@@ -144,6 +144,9 @@ export default class StoryTreeExpViewtreeexpbarModel {
       {
         name: 'rdpk',
       },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

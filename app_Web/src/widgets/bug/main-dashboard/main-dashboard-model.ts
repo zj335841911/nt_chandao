@@ -231,6 +231,9 @@ export default class MainModel {
       {
         name: 'delay',
       },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

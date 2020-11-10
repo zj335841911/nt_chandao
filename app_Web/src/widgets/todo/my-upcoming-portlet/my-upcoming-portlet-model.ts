@@ -114,6 +114,9 @@ export default class MyUpcomingModel {
       {
         name: 'assignedtopk',
       },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

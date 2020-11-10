@@ -225,6 +225,9 @@ export default class UnClosedProjectModel {
       {
         name: 'storychangecnt',
       },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

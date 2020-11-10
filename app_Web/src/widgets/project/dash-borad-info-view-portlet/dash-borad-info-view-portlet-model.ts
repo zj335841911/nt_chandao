@@ -225,6 +225,9 @@ export default class DashBoradInfoViewModel {
       {
         name: 'storychangecnt',
       },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

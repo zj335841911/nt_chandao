@@ -189,6 +189,9 @@ export default class MainDashboardTestModel {
       {
         name: 'files',
       },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

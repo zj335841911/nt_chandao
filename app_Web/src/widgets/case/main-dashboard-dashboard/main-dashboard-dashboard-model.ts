@@ -189,6 +189,9 @@ export default class MainDashboardModel {
       {
         name: 'files',
       },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

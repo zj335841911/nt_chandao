@@ -197,4 +197,12 @@ export interface Release {
      * @memberof Release
      */
     builddate?: any;
+
+    /**
+     * 消息通知用户
+     *
+     * @returns {*}
+     * @memberof Release
+     */
+    noticeusers?: any;
 }

@@ -231,6 +231,9 @@ export default class TotalCurOpenedBugModel {
       {
         name: 'delay',
       },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

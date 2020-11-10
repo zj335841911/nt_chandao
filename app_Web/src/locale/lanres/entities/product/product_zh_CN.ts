@@ -43,6 +43,7 @@ export default {
     popk: "产品负责人（选择）",
     qdpk: "测试负责人（选择）",
     rdpk: "发布负责人（选择）",
+    noticeusers: "消息通知用户",
   },
 	views: {
 		testtabexpview: {

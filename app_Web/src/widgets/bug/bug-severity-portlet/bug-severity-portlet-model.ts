@@ -231,6 +231,9 @@ export default class BugSeverityModel {
       {
         name: 'delay',
       },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

@@ -189,6 +189,9 @@ export default class TestMainDetailModel {
       {
         name: 'files',
       },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

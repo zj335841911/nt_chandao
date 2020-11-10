@@ -189,6 +189,9 @@ export default class DashboardQuickActionModel {
       {
         name: 'files',
       },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

@@ -189,6 +189,9 @@ export default class CaseTypeModel {
       {
         name: 'files',
       },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

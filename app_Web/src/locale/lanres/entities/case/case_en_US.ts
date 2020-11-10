@@ -58,6 +58,7 @@ export default {
     isfavorites: "是否收藏",
     modulename1: "模块名称",
     files: "附件",
+    noticeusers: "消息通知用户",
   },
 	views: {
 		editview: {

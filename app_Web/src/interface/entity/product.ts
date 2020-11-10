@@ -349,4 +349,12 @@ export interface Product {
      * @memberof Product
      */
     rdpk?: any;
+
+    /**
+     * 消息通知用户
+     *
+     * @returns {*}
+     * @memberof Product
+     */
+    noticeusers?: any;
 }

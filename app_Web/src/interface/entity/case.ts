@@ -469,4 +469,12 @@ export interface Case {
      * @memberof Case
      */
     files?: any;
+
+    /**
+     * 消息通知用户
+     *
+     * @returns {*}
+     * @memberof Case
+     */
+    noticeusers?: any;
 }

@@ -231,6 +231,9 @@ export default class DashboardBugMainModel {
       {
         name: 'delay',
       },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

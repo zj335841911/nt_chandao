@@ -144,6 +144,9 @@ export default class CaseTreeExpViewtreeexpbarModel {
       {
         name: 'rdpk',
       },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

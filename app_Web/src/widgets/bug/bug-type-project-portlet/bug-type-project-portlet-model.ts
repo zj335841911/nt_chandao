@@ -231,6 +231,9 @@ export default class BugType_ProjectModel {
       {
         name: 'delay',
       },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

@@ -87,6 +87,9 @@ export default class MainTabExpViewtabexppanelModel {
       {
         name: 'builddate',
       },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

@@ -225,6 +225,9 @@ export default class ProjectStatusBarModel {
       {
         name: 'storychangecnt',
       },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

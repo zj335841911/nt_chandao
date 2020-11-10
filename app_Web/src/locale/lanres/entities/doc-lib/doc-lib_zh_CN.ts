@@ -114,13 +114,13 @@ export default {
 		uiactions: {
 		},
 	},
-	gridviewtoolbar_toolbar: {
-	},
 	usr2editviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "保存并关闭",
 			tip: "保存并关闭",
 		},
+	},
+	gridviewtoolbar_toolbar: {
 	},
 	productgridviewtoolbar_toolbar: {
 	},

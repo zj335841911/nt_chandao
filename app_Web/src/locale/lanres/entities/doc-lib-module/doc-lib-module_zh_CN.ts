@@ -60,6 +60,16 @@ export default {
 			remove: "删除",
 		},
 	},
+	usr2gridviewtoolbar_toolbar: {
+		deuiaction2: {
+			caption: "新建行",
+			tip: "新建行",
+		},
+		deuiaction3: {
+			caption: "保存行",
+			tip: "保存行",
+		},
+	},
 	editviewtoolbar_toolbar: {
 		tbitem3: {
 			caption: "保存",
@@ -76,16 +86,6 @@ export default {
 		tbitem7: {
 			caption: "删除",
 			tip: "删除",
-		},
-	},
-	usr2gridviewtoolbar_toolbar: {
-		deuiaction2: {
-			caption: "新建行",
-			tip: "新建行",
-		},
-		deuiaction3: {
-			caption: "保存行",
-			tip: "保存行",
 		},
 	},
 	treedoclib_treeview: {

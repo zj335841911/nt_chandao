@@ -499,7 +499,8 @@ POST
 | 31 | date1 | String | 允许 | 日期 |
 | 32 | date_disable | String | 允许 | 待定 |
 | 33 | assignedtopk | String | 允许 | 指派给（选择） |
-| 34 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 34 | noticeusers | String | 允许 | 消息通知用户 |
+| 35 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### TodoSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

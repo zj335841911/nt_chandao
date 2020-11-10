@@ -189,6 +189,9 @@ export default class CaseTypeProjectModel {
       {
         name: 'files',
       },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

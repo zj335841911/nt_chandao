@@ -1814,6 +1814,20 @@
     "key_field":0,
     "show_order":1000,
     "major_field":0
+    },
+    {
+    "fieldname":"NOTICEUSERS" ,
+    "codename":"Noticeusers",
+    "field_logic_name":"消息通知用户",
+    "entity_name":"Bug",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
     }
     ],
     "subEntitys":[
@@ -2567,6 +2581,20 @@
     "data_type":"VARCHAR",
     "data_length":200,
     "expression":"t1.BUILDER",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"NOTICEUSERS" ,
+    "codename":"Noticeusers",
+    "field_logic_name":"消息通知用户",
+    "entity_name":"Build",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":100,
     "key_field":0,
     "show_order":1000,
     "major_field":0
@@ -3649,6 +3677,20 @@
     "physical_field":0,
     "data_type":"VARCHAR",
     "data_length":1000,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"NOTICEUSERS" ,
+    "codename":"Noticeusers",
+    "field_logic_name":"消息通知用户",
+    "entity_name":"Case",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":100,
     "key_field":0,
     "show_order":1000,
     "major_field":0
@@ -22279,6 +22321,20 @@
     "key_field":0,
     "show_order":1000,
     "major_field":0
+    },
+    {
+    "fieldname":"NOTICEUSERS" ,
+    "codename":"Noticeusers",
+    "field_logic_name":"消息通知用户",
+    "entity_name":"Product",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
     }
     ],
     "subEntitys":[
@@ -25000,6 +25056,20 @@
     "key_field":0,
     "show_order":1000,
     "major_field":0
+    },
+    {
+    "fieldname":"NOTICEUSERS" ,
+    "codename":"Noticeusers",
+    "field_logic_name":"消息通知用户",
+    "entity_name":"Project",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
     }
     ],
     "subEntitys":[
@@ -26875,6 +26945,20 @@
     "nullable":1,
     "physical_field":0,
     "data_type":"DATETIME",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"NOTICEUSERS" ,
+    "codename":"Noticeusers",
+    "field_logic_name":"消息通知用户",
+    "entity_name":"Release",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":100,
     "key_field":0,
     "show_order":1000,
     "major_field":0
@@ -34743,6 +34827,20 @@
     "data_type":"VARCHAR",
     "data_length":200,
     "expression":"t1.ASSIGNEDTO",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"NOTICEUSERS" ,
+    "codename":"Noticeusers",
+    "field_logic_name":"消息通知用户",
+    "entity_name":"Todo",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":100,
     "key_field":0,
     "show_order":1000,
     "major_field":0

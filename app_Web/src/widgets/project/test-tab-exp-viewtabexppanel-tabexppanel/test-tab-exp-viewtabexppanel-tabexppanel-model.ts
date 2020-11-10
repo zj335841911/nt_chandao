@@ -225,6 +225,9 @@ export default class TestTabExpViewtabexppanelModel {
       {
         name: 'storychangecnt',
       },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

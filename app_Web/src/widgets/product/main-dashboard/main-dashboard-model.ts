@@ -144,6 +144,9 @@ export default class MainModel {
       {
         name: 'rdpk',
       },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

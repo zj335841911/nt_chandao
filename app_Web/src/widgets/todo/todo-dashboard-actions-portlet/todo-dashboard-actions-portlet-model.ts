@@ -114,6 +114,9 @@ export default class TodoDashboardActionsModel {
       {
         name: 'assignedtopk',
       },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

@@ -189,6 +189,9 @@ export default class MainInfoModel {
       {
         name: 'files',
       },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

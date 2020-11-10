@@ -114,6 +114,9 @@ export default class MainModel {
       {
         name: 'assignedtopk',
       },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

@@ -231,6 +231,9 @@ export default class MPickupView5pickupviewpanelModel {
       {
         name: 'delay',
       },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

@@ -8655,7 +8655,8 @@ POST
 | 70 | overduebugs | Integer | 允许 | 过期天数 |
 | 71 | casename | String | 允许 | 相关用例 |
 | 72 | delay | String | 允许 | 延期 |
-| 73 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 73 | noticeusers | String | 允许 | 消息通知用户 |
+| 74 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### BugSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

@@ -144,6 +144,9 @@ export default class TextExpViewModel {
       {
         name: 'rdpk',
       },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

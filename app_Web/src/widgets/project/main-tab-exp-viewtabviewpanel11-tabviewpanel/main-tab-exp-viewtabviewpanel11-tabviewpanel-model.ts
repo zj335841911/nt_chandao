@@ -225,6 +225,9 @@ export default class MainTabExpViewtabviewpanel11Model {
       {
         name: 'storychangecnt',
       },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

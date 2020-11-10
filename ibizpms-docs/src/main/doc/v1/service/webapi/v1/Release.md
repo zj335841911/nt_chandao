@@ -981,7 +981,8 @@ POST
 | 22 | releasetype | String | 允许 | 运行模式 |
 | 23 | builder | String | 允许 | 构建者 |
 | 24 | builddate | Timestamp | 允许 | 打包日期<br>时间格式：yyyy-MM-dd |
-| 25 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 25 | noticeusers | String | 允许 | 消息通知用户 |
+| 26 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### ReleaseSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

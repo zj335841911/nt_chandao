@@ -144,6 +144,9 @@ export default class ProductMainToolbarModel {
       {
         name: 'rdpk',
       },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

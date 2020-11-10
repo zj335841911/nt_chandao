@@ -114,6 +114,9 @@ export default class TodoactionModel {
       {
         name: 'assignedtopk',
       },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 
