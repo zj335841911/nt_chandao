@@ -1833,7 +1833,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
         },
         "docgridview_recentmore": {
             "title": "doc表格视图",
-            "caption": "文档",
+            "caption": "最近更新",
             "viewtype": "DEGRIDVIEW",
             "viewmodule": "ibiz",
             "viewname": "DocGridView_RecentMore",
@@ -2753,7 +2753,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
         },
         "docgridview_mymore": {
             "title": "doc表格视图",
-            "caption": "文档",
+            "caption": "我的文档",
             "viewtype": "DEGRIDVIEW",
             "viewmodule": "ibiz",
             "viewname": "DocGridView_MyMore",

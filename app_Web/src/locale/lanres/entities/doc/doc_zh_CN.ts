@@ -54,7 +54,7 @@ export default {
       		title: "创建文档",
 		},
 		gridview_recentmore: {
-			caption: "文档",
+			caption: "最近更新",
       		title: "doc表格视图",
 		},
 		docsumeditview9: {
@@ -62,7 +62,7 @@ export default {
       		title: "文档编辑视图（文档摘要）",
 		},
 		gridview_mymore: {
-			caption: "文档",
+			caption: "我的文档",
       		title: "doc表格视图",
 		},
 		editview: {

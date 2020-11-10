@@ -2281,7 +2281,7 @@
     },
     "docgridview_recentmore": {
         "title": "doc表格视图",
-        "caption": "文档",
+        "caption": "最近更新",
         "viewtype": "DEGRIDVIEW",
         "viewmodule": "ibiz",
         "viewname": "DocGridView_RecentMore",
@@ -3431,7 +3431,7 @@
     },
     "docgridview_mymore": {
         "title": "doc表格视图",
-        "caption": "文档",
+        "caption": "我的文档",
         "viewtype": "DEGRIDVIEW",
         "viewmodule": "ibiz",
         "viewname": "DocGridView_MyMore",
