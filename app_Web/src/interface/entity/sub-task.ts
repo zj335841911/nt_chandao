@@ -517,4 +517,12 @@ export interface SubTask {
      * @memberof SubTask
      */
     progressrate?: any;
+
+    /**
+     * 延期
+     *
+     * @returns {*}
+     * @memberof SubTask
+     */
+    delay?: any;
 }

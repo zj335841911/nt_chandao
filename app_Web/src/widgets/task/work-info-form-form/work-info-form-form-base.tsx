@@ -89,6 +89,7 @@ export class WorkInfoFormEditFormBase extends EditFormControlBase {
         eststarted: null,
         realstarted: null,
         deadline: null,
+        delay: null,
         id: null,
         task:null,
     };
@@ -160,7 +161,46 @@ export class WorkInfoFormEditFormBase extends EditFormControlBase {
 
         deadline: new FormItemModel({ caption: '截止日期', detailType: 'FORMITEM', name: 'deadline', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 
+        delay: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'delay', visible: false, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+
         id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 0 }),
 
     };
+
+    /**
+     * 表单项逻辑
+     *
+     * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
+     * @returns {Promise<void>}
+     * @memberof WorkInfoFormEditFormBase
+     */
+    public async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): Promise<void> {
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        if (Object.is(name, '') || Object.is(name, 'delay')) {
+            let ret = false;
+            const _delay = this.data.delay;
+            if (this.$verify.testCond(_delay, 'ISNOTNULL', '')) {
+                ret = true;
+            }
+            this.detailsModel.delay.setVisible(ret);
+        }
+
+
+    }
 }

@@ -20,3 +20,6 @@ import { WorkInfoFormEditFormBase } from './work-info-form-form-base';
 @VueLifeCycleProcessing()
 export default class WorkInfoFormEditForm extends WorkInfoFormEditFormBase { }
 </script>
+<style lang='less'>
+@import './work-info-form-form.less';
+</style>

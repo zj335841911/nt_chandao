@@ -207,6 +207,9 @@ export default class MainDetailModel {
       {
         name: 'progressrate',
       },
+      {
+        name: 'delay',
+      },
     ]
   }
 

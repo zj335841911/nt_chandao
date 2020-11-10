@@ -207,6 +207,9 @@ export default class TreeExpViewtreeexpbarModel {
       {
         name: 'progressrate',
       },
+      {
+        name: 'delay',
+      },
     ]
   }
 

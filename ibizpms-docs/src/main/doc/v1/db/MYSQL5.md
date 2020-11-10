@@ -100210,6 +100210,7 @@ CREATE TABLE `T_SYS_UPDATE_LOG`(
 | ISLEAF        | 是否子任务  | VARCHAR      |   200   | &nbsp; |
 | FINISHEDLIST        | 完成者列表  | CLOB      |   65,535   | &nbsp; |
 | CONSUMED        | 总计消耗  | DOUBLE      |   -1   | &nbsp; |
+| DELAY        | 延期  | VARCHAR      |   200   | &nbsp; |
 | PATH        | 模块路径  | VARCHAR      |   255   | &nbsp; |
 | STATUS        | 任务状态  | VARCHAR      |   6   | &nbsp; |
 | PRODUCT        | 产品  |       |   8   | &nbsp; |
