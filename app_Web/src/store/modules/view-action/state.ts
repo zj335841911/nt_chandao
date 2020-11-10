@@ -1766,6 +1766,7 @@ export const viewstate: any = {
                 'bfdd5a8d625f1be3f009084fbc16c909',
                 '4503911318e1f1f26599b68a6c6e681d',
                 '73fbcf0e3685096f63587bcff234f958',
+                'f7e64f3828c862a4bce56437e1e51069',
             ],
         },
         {
@@ -3949,6 +3950,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'e6ab4e1e69f78d8a87d57c7d99420245',
+            viewmodule: 'zentao',
+            viewname: 'TaskEstimateLookGridView9',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: 'e77b0ab085994e29f1906ab1b90a2f53',
             viewmodule: 'ibiz',
             viewname: 'SysUpdateLogInfoEditView',
@@ -4244,6 +4254,15 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'f8b69912b3ca27b5d083c8fb1971c84a',
+            ],
+        },
+        {
+            viewtag: 'f7e64f3828c862a4bce56437e1e51069',
+            viewmodule: 'ibiz',
+            viewname: 'DocLibModuleTreeExpView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
             ],
         },
         {

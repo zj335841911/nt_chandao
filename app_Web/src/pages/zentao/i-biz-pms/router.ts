@@ -9631,6 +9631,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/bug-mpickup-view4/bug-mpickup-view4.vue'),
                 },
                 {
+                    path: 'doclibmodules/:doclibmodule?/treeexpview/:treeexpview?',
+                    meta: {
+                        caption: 'entities.doclibmodule.views.treeexpview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'doclibmodules', parameterName: 'doclibmodule' },
+                            { pathName: 'treeexpview', parameterName: 'treeexpview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/doc-lib-module-tree-exp-view/doc-lib-module-tree-exp-view.vue'),
+                },
+                {
                     path: 'docs/:doc?/docsumeditview9/:docsumeditview9?',
                     meta: {
                         caption: 'entities.doc.views.docsumeditview9.caption',

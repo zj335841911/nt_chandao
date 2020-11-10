@@ -101,6 +101,7 @@ export default {
 		uiactions: {
 			doclib_productlookdoc: "查看",
 			doclib_productlookfile: "查看",
+			doclib_weihufenlei: "维护分类",
 			doclib_editdoclib: "编辑",
 		},
 	},

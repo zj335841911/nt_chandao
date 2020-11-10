@@ -4729,6 +4729,16 @@
         "viewtag": "f7a278d765ff0f85a2c59cbb2485fa30",
         "memo": ""
     },
+    "doclibmoduletreeexpview": {
+        "title": "文档库分类树导航视图",
+        "caption": "文档库分类",
+        "viewtype": "DETREEEXPVIEW",
+        "viewmodule": "ibiz",
+        "viewname": "DocLibModuleTreeExpView",
+        "viewfilename": "doc-lib-module-tree-exp-view",
+        "viewtag": "f7e64f3828c862a4bce56437e1e51069",
+        "memo": ""
+    },
     "testreporteditview_testrange": {
         "title": "测试报告编辑视图",
         "caption": "测试报告",

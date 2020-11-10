@@ -681,6 +681,7 @@ SRFNAVPARAM.project=%project%|
 |-|产品汇总表表格视图|DEGRIDVIEW|&nbsp;|
 |-|产品需求导航视图|DETREEEXPVIEW|&nbsp;|
 |-|系统日志列表视图|DELISTVIEW|&nbsp;|
+|-|文档库分类树导航视图|DETREEEXPVIEW|&nbsp;|
 |-|测试报告编辑视图|DEEDITVIEW|&nbsp;|
 |-|项目|DEEDITVIEW|&nbsp;|
 |-|备注|DEEDITVIEW|&nbsp;|
