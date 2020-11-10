@@ -94,7 +94,7 @@ export class RecentUpdatePortletBase extends MainControlBase {
         }
         // 界面行为
         const curUIService:DocUIService  = new DocUIService();
-        curUIService.Doc_More(datas,contextJO, paramJO,  $event, xData,this,"Doc");
+        curUIService.Doc_MoreRecentUpdate(datas,contextJO, paramJO,  $event, xData,this,"Doc");
     }
 
 
@@ -128,7 +128,7 @@ export class RecentUpdatePortletBase extends MainControlBase {
      * @memberof RecentUpdateBase
      */
     public uiactionModel: any = {
-        more: {name: 'more', actiontarget: 'NONE', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: '', uiaction: { tag: 'More', target: 'NONE' } },
+        morerecentupdate: {name: 'morerecentupdate', actiontarget: 'NONE', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: '', uiaction: { tag: 'MoreRecentUpdate', target: 'NONE' } },
     }
 
 

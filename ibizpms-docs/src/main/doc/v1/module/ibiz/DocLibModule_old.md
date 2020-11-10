@@ -65,10 +65,27 @@ hide members
 |Get|内置方法|&nbsp;|
 |GetDraft|内置方法|&nbsp;|
 |CheckKey|内置方法|&nbsp;|
+|重建模块路径|实体处理逻辑|&nbsp;|
 |Save|内置方法|&nbsp;|
 
 ## 处理逻辑
-无
+* 重建模块路径 (FixPath)
+  
+   
+
+{% plantuml %}
+hide footbox
+
+文档库分类 -> 模块: 执行重建模型路径
+文档库分类 -> 文档库分类: 准备参数
+{% endplantuml %}
+
+| 步骤       | 操作        |
+| --------   | --------   |
+|1|执行重建模型路径 |
+|1|开始 | 
+|2|准备参数 |
+<center>重建模块路径</center>
 
 ## 查询集合
 

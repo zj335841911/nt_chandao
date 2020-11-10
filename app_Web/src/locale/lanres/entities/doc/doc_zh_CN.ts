@@ -37,6 +37,10 @@ export default {
 			caption: "正文",
       		title: "文档编辑视图（正文）",
 		},
+		gridview10: {
+			caption: "最近更新",
+      		title: "文档表格视图",
+		},
 		dashboardview: {
 			caption: "文档",
       		title: "文档数据看板视图",
@@ -194,6 +198,16 @@ export default {
 			doc_look: "查看",
 			doc_edit: "编辑",
 			doc_delete: "删除",
+		},
+	},
+	mydoc_grid: {
+		nodata: "",
+		columns: {
+			title: "文档标题",
+			addedby: "由谁添加",
+			editeddate: "更新时间",
+		},
+		uiactions: {
 		},
 	},
 	recentupdate_grid: {

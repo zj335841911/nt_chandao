@@ -248,6 +248,7 @@
 |-|指派任务|DEOPTVIEW|&nbsp;|
 |-|测试结果多表单编辑视图|DEMEDITVIEW9|&nbsp;|
 |-|所有产品|DEGRIDVIEW|&nbsp;|
+|-|文档表格视图|DEGRIDVIEW9|&nbsp;|
 |-|任务树导航视图|DETREEEXPVIEW|&nbsp;|
 |-|测试用例表格视图（关联用例）|DEGRIDVIEW|&nbsp;|
 |-|bug表格视图|DEGRIDVIEW|&nbsp;|

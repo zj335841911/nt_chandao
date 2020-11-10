@@ -148,6 +148,25 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | true：处理成功。false：处理失败。 |
 
+### 重建模块路径
+#### 访问路径
+/doclibmodules/{doclibmodule_id}/fix
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | doclibmodule_id | Long | 文档库分类主键ID |
+| 2 | doclibmoduledto | [DocLibModuleDTO](#DocLibModuleDTO) | 文档库分类实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [DocLibModuleDTO](#DocLibModuleDTO)：文档库分类实体传输对象 |
+
 ### 保存文档库分类
 #### 访问路径
 /doclibmodules/save

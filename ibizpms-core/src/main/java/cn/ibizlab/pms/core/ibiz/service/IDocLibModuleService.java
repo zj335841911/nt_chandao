@@ -34,6 +34,7 @@ public interface IDocLibModuleService extends IService<DocLibModule>{
     DocLibModule get(Long key) ;
     DocLibModule getDraft(DocLibModule et) ;
     boolean checkKey(DocLibModule et) ;
+    DocLibModule fix(DocLibModule et) ;
     boolean save(DocLibModule et) ;
     void saveBatch(List<DocLibModule> list) ;
     Page<DocLibModule> searchAllDoclibModule(DocLibModuleSearchContext context) ;

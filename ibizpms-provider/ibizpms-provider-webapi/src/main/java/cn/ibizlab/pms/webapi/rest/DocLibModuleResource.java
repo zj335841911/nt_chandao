@@ -120,6 +120,17 @@ public class DocLibModuleResource {
         return  ResponseEntity.status(HttpStatus.OK).body(doclibmoduleService.checkKey(doclibmoduleMapping.toDomain(doclibmoduledto)));
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-DocLibModule-Fix-all')")
+    @ApiOperation(value = "重建模块路径", tags = {"文档库分类" },  notes = "重建模块路径")
+	@RequestMapping(method = RequestMethod.POST, value = "/doclibmodules/{doclibmodule_id}/fix")
+    public ResponseEntity<DocLibModuleDTO> fix(@PathVariable("doclibmodule_id") Long doclibmodule_id, @RequestBody DocLibModuleDTO doclibmoduledto) {
+        DocLibModule domain = doclibmoduleMapping.toDomain(doclibmoduledto);
+        domain.setId(doclibmodule_id);
+        domain = doclibmoduleService.fix(domain);
+        doclibmoduledto = doclibmoduleMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(doclibmoduledto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-DocLibModule-Save-all')")
     @ApiOperation(value = "保存文档库分类", tags = {"文档库分类" },  notes = "保存文档库分类")
 	@RequestMapping(method = RequestMethod.POST, value = "/doclibmodules/save")

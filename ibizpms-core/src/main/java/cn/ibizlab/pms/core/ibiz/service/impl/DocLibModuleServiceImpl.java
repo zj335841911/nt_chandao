@@ -54,6 +54,10 @@ public class DocLibModuleServiceImpl extends ServiceImpl<DocLibModuleMapper, Doc
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.IDocLibService doclibService;
 
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.ibiz.service.logic.IDocLibModuleFixPathLogic fixpathLogic;
+
     protected int batchSize = 500;
 
     @Override
@@ -63,6 +67,7 @@ public class DocLibModuleServiceImpl extends ServiceImpl<DocLibModuleMapper, Doc
         if(!this.retBool(this.baseMapper.insert(et)))
             return false;
         CachedBeanCopier.copy(get(et.getId()),et);
+        fixpathLogic.execute(et);
         return true;
     }
 
@@ -80,6 +85,7 @@ public class DocLibModuleServiceImpl extends ServiceImpl<DocLibModuleMapper, Doc
          if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
             return false;
         CachedBeanCopier.copy(get(et.getId()),et);
+        fixpathLogic.execute(et);
         return true;
     }
 
@@ -126,6 +132,13 @@ public class DocLibModuleServiceImpl extends ServiceImpl<DocLibModuleMapper, Doc
     public boolean checkKey(DocLibModule et) {
         return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
     }
+    @Override
+    @Transactional
+    public DocLibModule fix(DocLibModule et) {
+        fixpathLogic.execute(et);
+         return et ;
+    }
+
     @Override
     @Transactional
     public boolean save(DocLibModule et) {

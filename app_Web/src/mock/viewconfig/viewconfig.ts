@@ -343,6 +343,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProductStatsALLGridView",
             "viewtag": "1381e29846ae321ca2d06d71bbe3082d"
         },
+        "docgridview10": {
+            "title": "文档表格视图",
+            "caption": "最近更新",
+            "viewtype": "DEGRIDVIEW9",
+            "viewmodule": "ibiz",
+            "viewname": "DocGridView10",
+            "viewtag": "13f17793cbc4fc2b36473a74d1bad4b2"
+        },
         "tasktreeexpview": {
             "title": "任务树导航视图",
             "caption": "任务",
