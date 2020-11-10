@@ -33,6 +33,8 @@ public interface IIBIZProMessageService{
     IBIZProMessage get(String key) ;
     IBIZProMessage getDraft(IBIZProMessage et) ;
     boolean checkKey(IBIZProMessage et) ;
+    IBIZProMessage markDone(IBIZProMessage et) ;
+    IBIZProMessage markRead(IBIZProMessage et) ;
     boolean save(IBIZProMessage et) ;
     void saveBatch(List<IBIZProMessage> list) ;
     Page<IBIZProMessage> searchDefault(IBIZProMessageSearchContext context) ;

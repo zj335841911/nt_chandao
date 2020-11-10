@@ -6740,6 +6740,20 @@ const router = new Router({
                     component: () => import('@pages/ibiz/sys-update-features-edit-view/sys-update-features-edit-view.vue'),
                 },
                 {
+                    path: 'todos/:todo?/calendareditview/:calendareditview?',
+                    meta: {
+                        caption: 'entities.todo.views.calendareditview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'todos', parameterName: 'todo' },
+                            { pathName: 'calendareditview', parameterName: 'calendareditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/todo-calendar-edit-view/todo-calendar-edit-view.vue'),
+                },
+                {
                     path: 'ibzlibs/:ibzlib?/openlibview/:openlibview?',
                     meta: {
                         caption: 'entities.ibzlib.views.openlibview.caption',

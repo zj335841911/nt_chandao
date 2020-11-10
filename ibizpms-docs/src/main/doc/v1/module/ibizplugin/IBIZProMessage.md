@@ -726,7 +726,9 @@ String
 | 4 | [Get](#实体行为-Get（Get）) | Get | 内置方法 | 后台及前台 |
 | 5 | [GetDraft](#实体行为-GetDraft（GetDraft）) | GetDraft | 内置方法 | 后台及前台 |
 | 6 | [CheckKey](#实体行为-CheckKey（CheckKey）) | CheckKey | 内置方法 | 后台及前台 |
-| 7 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
+| 7 | [标记已完成](#实体行为-标记已完成（MarkDone）) | MarkDone | 用户自定义 | 后台及前台 |
+| 8 | [标记已读](#实体行为-标记已读（MarkRead）) | MarkRead | 用户自定义 | 后台及前台 |
+| 9 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
 
 ### 实体行为-Create（Create）
 #### 说明
@@ -800,6 +802,30 @@ CheckKey
 
 #### 逻辑附加
 无
+### 实体行为-标记已完成（MarkDone）
+#### 说明
+标记已完成
+
+- 行为类型
+用户自定义
+
+- 行为持有者
+后台及前台
+
+#### 逻辑附加
+无
+### 实体行为-标记已读（MarkRead）
+#### 说明
+标记已读
+
+- 行为类型
+用户自定义
+
+- 行为持有者
+后台及前台
+
+#### 逻辑附加
+无
 ### 实体行为-Save（Save）
 #### 说明
 Save
@@ -836,7 +862,9 @@ Save
 | 序号 | 查询 | 查询名 | 默认 |
 | ---- | ---- | ---- | ---- |
 | 1 | [数据查询](#数据查询-数据查询（Default）) | Default | 否 |
-| 2 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 2 | [用户全部消息](#数据查询-用户全部消息（UserAllMessages）) | UserAllMessages | 否 |
+| 3 | [用户未读信息](#数据查询-用户未读信息（UserUnreadMessages）) | UserUnreadMessages | 否 |
+| 4 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
 ### 数据查询-数据查询（Default）
 #### 说明
@@ -865,6 +893,36 @@ t1.`SENDPROXYID`,
 t1.`SUBJECT`,
 t1.`TYPE`
 FROM `T_IBIZPRO_MESSAGE` t1 
+
+```
+### 数据查询-用户全部消息（UserAllMessages）
+#### 说明
+用户全部消息
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+
+```
+### 数据查询-用户未读信息（UserUnreadMessages）
+#### 说明
+用户未读信息
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
 
 ```
 ### 数据查询-默认（全部数据）（View）

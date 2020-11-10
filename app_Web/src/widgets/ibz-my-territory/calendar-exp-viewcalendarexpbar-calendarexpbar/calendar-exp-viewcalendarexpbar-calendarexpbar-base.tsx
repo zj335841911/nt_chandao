@@ -102,7 +102,7 @@ export class CalendarExpViewcalendarexpbarCalendarexpbarBase extends CalendarVie
     public navViewName: any = {
         Bug: "bug-calendar-edit-view",
         task: "task-calendar-edit-view",
-        todo: "todo-dashboard-view"
+        todo: "todo-calendar-edit-view"
     };
 
     /**

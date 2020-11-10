@@ -3623,6 +3623,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "DocKEditView9",
             "viewtag": "eb67eecdc733d1716683188c485f52ab"
         },
+        "todocalendareditview": {
+            "title": "待办编辑视图（日历导航）",
+            "caption": "待办",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "zentao",
+            "viewname": "TodoCalendarEditView",
+            "viewtag": "eb90b28adca9e482854d0d6bf05e1303"
+        },
         "tododashboardview": {
             "title": "待办事宜表数据看板视图",
             "caption": "待办",

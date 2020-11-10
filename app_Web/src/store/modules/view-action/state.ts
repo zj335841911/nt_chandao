@@ -1136,9 +1136,9 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                'eb90b28adca9e482854d0d6bf05e1303',
                 'bad9ebb60029d8c0854e22a02600cbc7',
                 'e527490443d54f3791d9497938aaf332',
-                'ebf37bf3881bb27c09db9bbe5d0b0f77',
             ],
         },
         {
@@ -4044,6 +4044,21 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+            ],
+        },
+        {
+            viewtag: 'eb90b28adca9e482854d0d6bf05e1303',
+            viewmodule: 'zentao',
+            viewname: 'TodoCalendarEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'e00040c0d616f2f1c0ad4b36c9e920b5',
+                'fbfc7f8548a02caba7db4438e675641b',
+                '807a419a917fbfdfa3378d2fac6a2785',
+                'aeee411b8bffcf0c30d65557a8deeeee',
+                '734c2c8a05995eaad9f9a0028e9b9def',
+                '43582fa5b922cb77d0b1e704a7b6e5c3',
             ],
         },
         {

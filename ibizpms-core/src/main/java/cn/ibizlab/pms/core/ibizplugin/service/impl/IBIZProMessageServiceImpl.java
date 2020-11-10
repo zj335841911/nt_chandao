@@ -121,6 +121,22 @@ public class IBIZProMessageServiceImpl implements IIBIZProMessageService {
 
     @Override
     @Transactional
+    public IBIZProMessage markDone(IBIZProMessage et) {
+        //自定义代码
+        return et;
+    }
+
+
+    @Override
+    @Transactional
+    public IBIZProMessage markRead(IBIZProMessage et) {
+        //自定义代码
+        return et;
+    }
+
+
+    @Override
+    @Transactional
     public boolean save(IBIZProMessage et) {
         if(et.getIbizproMessageid()==null) et.setIbizproMessageid((String)et.getDefaultKey(true));
         if(!iBIZPRO_MESSAGEFeignClient.save(et))

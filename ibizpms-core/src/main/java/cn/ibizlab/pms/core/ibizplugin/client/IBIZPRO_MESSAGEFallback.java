@@ -66,6 +66,14 @@ public class IBIZPRO_MESSAGEFallback implements IBIZPRO_MESSAGEFeignClient{
      }
 
 
+    public IBIZProMessage markDone( String ibizpro_messageid, IBIZProMessage ibizpromessage){
+            return null;
+     }
+
+    public IBIZProMessage markRead( String ibizpro_messageid, IBIZProMessage ibizpromessage){
+            return null;
+     }
+
     public Boolean save(IBIZProMessage ibizpromessage){
             return false;
      }

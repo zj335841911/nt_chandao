@@ -5637,6 +5637,14 @@ t1.`TYPE`
 FROM `T_IBIZPRO_MESSAGE` t1 
 
 ```
+### 用户全部消息(UserAllMessages)<div id="IBIZProMessage_UserAllMessages"></div>
+```sql
+
+```
+### 用户未读信息(UserUnreadMessages)<div id="IBIZProMessage_UserUnreadMessages"></div>
+```sql
+
+```
 ### 默认（全部数据）(VIEW)<div id="IBIZProMessage_View"></div>
 ```sql
 SELECT

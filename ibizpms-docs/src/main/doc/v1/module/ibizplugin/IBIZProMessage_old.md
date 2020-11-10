@@ -64,6 +64,8 @@
 |Get|内置方法|&nbsp;|
 |GetDraft|内置方法|&nbsp;|
 |CheckKey|内置方法|&nbsp;|
+|标记已完成|用户自定义|&nbsp;|
+|标记已读|用户自定义|&nbsp;|
 |Save|内置方法|&nbsp;|
 
 ## 处理逻辑
@@ -76,6 +78,8 @@
 | 查询编号 | 查询名称       | 默认查询 |   备注|
 | --------  | --------   | --------   | ----- |
 |DEFAULT|数据查询([MYSQL5](../../appendix/query_MYSQL5.md#IBIZProMessage_Default))|否|&nbsp;|
+|UserAllMessages|用户全部消息([MYSQL5](../../appendix/query_MYSQL5.md#IBIZProMessage_UserAllMessages))|否|&nbsp;|
+|UserUnreadMessages|用户未读信息([MYSQL5](../../appendix/query_MYSQL5.md#IBIZProMessage_UserUnreadMessages))|否|&nbsp;|
 |VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#IBIZProMessage_View))|否|&nbsp;|
 
 * **数据集合**

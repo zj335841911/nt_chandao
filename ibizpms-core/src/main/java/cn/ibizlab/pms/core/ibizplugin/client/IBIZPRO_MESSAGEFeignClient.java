@@ -59,6 +59,14 @@ public interface IBIZPRO_MESSAGEFeignClient {
     Boolean checkKey(@RequestBody IBIZProMessage ibizpromessage);
 
 
+    @RequestMapping(method = RequestMethod.POST, value = "/ibizpro_messages/{ibizpro_messageid}/markdone")
+    IBIZProMessage markDone(@PathVariable("ibizpro_messageid") String ibizpro_messageid,@RequestBody IBIZProMessage ibizpromessage);
+
+
+    @RequestMapping(method = RequestMethod.POST, value = "/ibizpro_messages/{ibizpro_messageid}/markread")
+    IBIZProMessage markRead(@PathVariable("ibizpro_messageid") String ibizpro_messageid,@RequestBody IBIZProMessage ibizpromessage);
+
+
     @RequestMapping(method = RequestMethod.POST, value = "/ibizpro_messages/save")
     Boolean save(@RequestBody IBIZProMessage ibizpromessage);
 

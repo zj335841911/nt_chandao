@@ -153,6 +153,7 @@ export const PageComponents = {
         Vue.component('branch-pmedit-view', () => import('@pages/zentao/branch-pmedit-view/branch-pmedit-view.vue'));
         Vue.component('task-todo-edit-view', () => import('@pages/zentao/task-todo-edit-view/task-todo-edit-view.vue'));
         Vue.component('sys-update-features-edit-view', () => import('@pages/ibiz/sys-update-features-edit-view/sys-update-features-edit-view.vue'));
+        Vue.component('todo-calendar-edit-view', () => import('@pages/zentao/todo-calendar-edit-view/todo-calendar-edit-view.vue'));
         Vue.component('ibz-lib-open-lib-view', () => import('@pages/ibiz/ibz-lib-open-lib-view/ibz-lib-open-lib-view.vue'));
         Vue.component('test-task-edit-view-edit', () => import('@pages/zentao/test-task-edit-view-edit/test-task-edit-view-edit.vue'));
         Vue.component('action-option-view', () => import('@pages/zentao/action-option-view/action-option-view.vue'));

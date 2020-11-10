@@ -660,6 +660,7 @@ SRFNAVPARAM.project=%project%|
 |-|测试报告分页导航视图|DETABEXPVIEW|&nbsp;|
 |-|测试报告数据看板视图|DEPORTALVIEW|&nbsp;|
 |-|文档编辑视图（关键字）|DEEDITVIEW9|&nbsp;|
+|-|待办编辑视图（日历导航）|DEEDITVIEW|&nbsp;|
 |-|待办事宜表数据看板视图|DEPORTALVIEW|&nbsp;|
 |-|用例库|DETABEXPVIEW|&nbsp;|
 |-|主信息|DEEDITVIEW9|&nbsp;|

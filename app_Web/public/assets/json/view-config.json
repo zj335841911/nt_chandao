@@ -4519,6 +4519,16 @@
         "viewtag": "eb67eecdc733d1716683188c485f52ab",
         "memo": ""
     },
+    "todocalendareditview": {
+        "title": "待办编辑视图（日历导航）",
+        "caption": "待办",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "zentao",
+        "viewname": "TodoCalendarEditView",
+        "viewfilename": "todo-calendar-edit-view",
+        "viewtag": "eb90b28adca9e482854d0d6bf05e1303",
+        "memo": ""
+    },
     "tododashboardview": {
         "title": "待办事宜表数据看板视图",
         "caption": "待办",
