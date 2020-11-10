@@ -38,7 +38,7 @@ public class FileHelper extends ZTBaseHelper<FileMapper, File> {
         log.info("processImgURL：未实现");
     }
 
-    public void updateObjectID(Long objectId, String objectType, String files) {
+    public void updateObjectID(Long objectId, String objectType, String files, String extra) {
         if(files != null) {
             JSONArray jsonArray = JSONArray.parseArray(files);
             List<File> list = new ArrayList<>();
@@ -48,6 +48,7 @@ public class FileHelper extends ZTBaseHelper<FileMapper, File> {
                 file.setId(jsonObject.getLongValue("id"));
                 file.setObjectid(objectId);
                 file.setObjecttype(objectType);
+                file.setExtra(extra);
                 list.add(file);
             }
             fileService.updateBatch(list);

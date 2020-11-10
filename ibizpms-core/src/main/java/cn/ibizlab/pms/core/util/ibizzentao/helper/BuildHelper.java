@@ -37,7 +37,7 @@ public class BuildHelper extends ZTBaseHelper<BuildMapper, Build> {
 
         String files = et.getFiles();
         bOk = super.create(et);
-        fileHelper.updateObjectID(et.getId(), StaticDict.File__object_type.BUILD.getValue(), files);
+        fileHelper.updateObjectID(et.getId(), StaticDict.File__object_type.BUILD.getValue(), files, "");
 
         actionHelper.create(StaticDict.Action__object_type.BUILD.getValue(), et.getId(), StaticDict.Action__type.OPENED.getValue(), "", "", null, true);
 
@@ -51,7 +51,7 @@ public class BuildHelper extends ZTBaseHelper<BuildMapper, Build> {
         fileHelper.processImgURL(et, null, null);
         String files = et.getFiles();
         internalUpdate(et);
-        fileHelper.updateObjectID(et.getId(), StaticDict.File__object_type.BUILD.getValue(), files);
+        fileHelper.updateObjectID(et.getId(), StaticDict.File__object_type.BUILD.getValue(), files, "");
 
         List<History> changes = ChangeUtil.diff(old, et);
         if (changes.size() > 0) {

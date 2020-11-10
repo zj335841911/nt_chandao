@@ -31,7 +31,7 @@ public class TestReportHelper extends ZTBaseHelper<TestReportMapper, TestReport>
         if (!bOk) {
             return bOk;
         }
-        fileHelper.updateObjectID(et.getId(),StaticDict.File__object_type.TESTREPORT.getValue(),files);
+        fileHelper.updateObjectID(et.getId(),StaticDict.File__object_type.TESTREPORT.getValue(),files, "");
         actionHelper.create(StaticDict.Action__object_type.TESTREPORT.getValue(), et.getId(), StaticDict.Action__type.OPENED.getValue(), "", "", null, true);
 
         return true;
@@ -46,7 +46,7 @@ public class TestReportHelper extends ZTBaseHelper<TestReportMapper, TestReport>
         String files = et.getFiles();
         if (!super.edit(et))
             return false;
-        fileHelper.updateObjectID(et.getId(),StaticDict.File__object_type.TESTREPORT.getValue(),files);
+        fileHelper.updateObjectID(et.getId(),StaticDict.File__object_type.TESTREPORT.getValue(),files, "");
         List<History> changes = ChangeUtil.diff(old, et,null,null,new String[]{"report"});
         Action action = actionHelper.create(StaticDict.Action__object_type.TESTREPORT.getValue(), et.getId(), StaticDict.Action__type.EDITED.getValue(), "", "", null, true);
         if (changes.size() > 0) {

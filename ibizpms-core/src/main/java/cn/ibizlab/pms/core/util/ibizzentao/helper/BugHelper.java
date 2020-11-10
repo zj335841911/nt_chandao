@@ -56,7 +56,7 @@ public class BugHelper extends ZTBaseHelper<BugMapper, Bug> {
         if (!bOk) {
             return bOk;
         }
-        fileHelper.updateObjectID(et.getId(), StaticDict.File__object_type.BUG.getValue(), files);
+        fileHelper.updateObjectID(et.getId(), StaticDict.File__object_type.BUG.getValue(), files, "");
         actionHelper.create(StaticDict.Action__object_type.BUG.getValue(), et.getId(), StaticDict.Action__type.OPENED.getValue(), "", "", null, true);
 
         return true;
@@ -76,7 +76,7 @@ public class BugHelper extends ZTBaseHelper<BugMapper, Bug> {
         fileHelper.processImgURL(et, null, null);
         String files = et.getFiles();
         this.internalUpdate(et);
-        fileHelper.updateObjectID(et.getId(), StaticDict.File__object_type.BUG.getValue(), files);
+        fileHelper.updateObjectID(et.getId(), StaticDict.File__object_type.BUG.getValue(), files, "");
         List<History> changes = ChangeUtil.diff(old, et,null,null,diffAttrs);
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
             String strAction = StaticDict.Action__type.EDITED.getValue();
@@ -101,7 +101,7 @@ public class BugHelper extends ZTBaseHelper<BugMapper, Bug> {
             et.setAssignedto(AuthenticationUser.getAuthenticationUser().getUsername());
         String files = et.getFiles();
         this.internalUpdate(et);
-        fileHelper.updateObjectID(et.getId(), StaticDict.File__object_type.BUG.getValue(), files);
+        fileHelper.updateObjectID(et.getId(), StaticDict.File__object_type.BUG.getValue(), files, "");
         List<History> changes = ChangeUtil.diff(old, et);
         Action action = actionHelper.create(StaticDict.Action__object_type.BUG.getValue(), et.getId(), StaticDict.Action__type.ASSIGNED.getValue(),
                 comment, et.getAssignedto(), null, true);
@@ -134,7 +134,7 @@ public class BugHelper extends ZTBaseHelper<BugMapper, Bug> {
 
         String files = et.getFiles();
         internalUpdate(et);
-        fileHelper.updateObjectID(et.getId(), StaticDict.File__object_type.BUG.getValue(), files);
+        fileHelper.updateObjectID(et.getId(), StaticDict.File__object_type.BUG.getValue(), files, "");
 
         List<History> changes = ChangeUtil.diff(old, et);
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
@@ -201,7 +201,7 @@ public class BugHelper extends ZTBaseHelper<BugMapper, Bug> {
 
         String files = et.getFiles();
         internalUpdate(et);
-        fileHelper.updateObjectID(et.getId(), StaticDict.File__object_type.BUG.getValue(), files);
+        fileHelper.updateObjectID(et.getId(), StaticDict.File__object_type.BUG.getValue(), files, "");
 
         //关联
         et.set("builds", et.getResolvedbuild());

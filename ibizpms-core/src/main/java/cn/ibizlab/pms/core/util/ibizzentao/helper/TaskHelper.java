@@ -103,7 +103,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         }
         String files = et.getFiles();
         bOk = super.create(et);
-        fileHelper.updateObjectID(et.getId(), StaticDict.File__object_type.TASK.getValue(), files);
+        fileHelper.updateObjectID(et.getId(), StaticDict.File__object_type.TASK.getValue(), files, "");
 
 
         if (StringUtils.compare(multiple, StaticDict.YesNo.ITEM_1.getValue()) == 0 && taskTeams != null && !taskTeams.isEmpty()) {
@@ -337,7 +337,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
 
         String files = et.getFiles();
         this.internalUpdate(et);
-        fileHelper.updateObjectID(et.getId(),StaticDict.File__object_type.TASK.getValue(),files);
+        fileHelper.updateObjectID(et.getId(),StaticDict.File__object_type.TASK.getValue(),files, "");
         boolean changeParent = false;
         if (!et.getParent().equals(old.getParent()))
             changeParent = true;
@@ -1167,7 +1167,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
 
         String files = newTask.getFiles();
         this.internalUpdate(newTask);
-        fileHelper.updateObjectID(newTask.getId(),StaticDict.File__object_type.TASK.getValue(),files);
+        fileHelper.updateObjectID(newTask.getId(),StaticDict.File__object_type.TASK.getValue(),files, "");
 
         if (old.getParent() > 0)
             updateParentStatus(newTask, old.getParent(), true);
