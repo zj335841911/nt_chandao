@@ -105,6 +105,16 @@ tag='Task__status' codelistType='STATIC' :data="data" :context="context" :viewpa
 </app-form-item>
 
 </i-col>
+<i-col class="form-layout-container" v-show="detailsModel.progressrate.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='progressrate' :itemRules="this.rules().progressrate" class='' :caption="$t('entities.task.maininfo_form.details.progressrate')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.progressrate.error" :isEmptyCaption="false" labelPos="LEFT">
+    
+<app-span name='progressrate' :value="data.progressrate" dataType="TEXT"     :precision="0"
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
+</app-span>
+
+</app-form-item>
+
+</i-col>
 <i-col class="form-layout-container" v-show="detailsModel.pri.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='pri' :itemRules="this.rules().pri" class='' :caption="$t('entities.task.maininfo_form.details.pri')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.pri.error" :isEmptyCaption="false" labelPos="LEFT">
     

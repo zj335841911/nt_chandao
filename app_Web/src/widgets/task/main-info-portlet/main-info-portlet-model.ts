@@ -204,6 +204,9 @@ export default class MainInfoModel {
       {
         name: 'noticeusers',
       },
+      {
+        name: 'progressrate',
+      },
     ]
   }
 

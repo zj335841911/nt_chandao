@@ -364,6 +364,7 @@ export class TreeInfoEditFormBase extends EditFormControlBase {
         estimate: null,
         consumed: null,
         left: null,
+        progressrate: null,
         desc: null,
         task:null,
     };
@@ -501,6 +502,8 @@ export class TreeInfoEditFormBase extends EditFormControlBase {
 
         left: new FormItemModel({ caption: '剩余', detailType: 'FORMITEM', name: 'left', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 
+        progressrate: new FormItemModel({ caption: '进度', detailType: 'FORMITEM', name: 'progressrate', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+
         desc: new FormItemModel({ caption: '任务描述', detailType: 'FORMITEM', name: 'desc', visible: true, isShowCaption: false, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 
     };
@@ -534,6 +537,7 @@ export class TreeInfoEditFormBase extends EditFormControlBase {
             }
             this.detailsModel.grouppanel2.setVisible(ret);
         }
+
 
 
 

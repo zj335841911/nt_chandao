@@ -204,6 +204,9 @@ export default class TreeExpViewtreeexpbarModel {
       {
         name: 'noticeusers',
       },
+      {
+        name: 'progressrate',
+      },
     ]
   }
 

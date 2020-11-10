@@ -627,7 +627,6 @@ SRFNAVPARAM.project=%project%|
 |-|用户年度工作内容统计编辑视图|DEEDITVIEW|&nbsp;|
 |-|Bug表格视图(遗留的bug)|DEGRIDVIEW|&nbsp;|
 |-|story表格视图|DEGRIDVIEW|&nbsp;|
-|-|文档库树视图|DETREEVIEW|&nbsp;|
 |-|系统日志列表视图|DELISTVIEW|&nbsp;|
 |-|需求评审|DEOPTVIEW|&nbsp;|
 |-|编辑待办|DEEDITVIEW|&nbsp;|
@@ -681,6 +680,7 @@ SRFNAVPARAM.project=%project%|
 |-|产品汇总表表格视图|DEGRIDVIEW|&nbsp;|
 |-|产品需求导航视图|DETREEEXPVIEW|&nbsp;|
 |-|系统日志列表视图|DELISTVIEW|&nbsp;|
+|-|文档库分类树导航视图|DETREEEXPVIEW|&nbsp;|
 |-|测试报告编辑视图|DEEDITVIEW|&nbsp;|
 |-|项目|DEEDITVIEW|&nbsp;|
 |-|备注|DEEDITVIEW|&nbsp;|

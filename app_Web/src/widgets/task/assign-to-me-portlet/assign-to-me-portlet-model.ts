@@ -204,6 +204,9 @@ export default class AssignToMeModel {
       {
         name: 'noticeusers',
       },
+      {
+        name: 'progressrate',
+      },
     ]
   }
 

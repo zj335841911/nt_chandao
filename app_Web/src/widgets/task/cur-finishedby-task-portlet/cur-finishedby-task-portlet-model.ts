@@ -204,6 +204,9 @@ export default class CurFinishedbyTaskModel {
       {
         name: 'noticeusers',
       },
+      {
+        name: 'progressrate',
+      },
     ]
   }
 

@@ -204,6 +204,9 @@ export default class TaskTreeModel {
       {
         name: 'noticeusers',
       },
+      {
+        name: 'progressrate',
+      },
     ]
   }
 

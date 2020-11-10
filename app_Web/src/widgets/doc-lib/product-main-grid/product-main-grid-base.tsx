@@ -152,6 +152,34 @@ export class ProductMainGridBase extends GridControlBase {
         curUIService.DocLib_EditDocLib(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
     }
 
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public grid_uagridcolumn1_ucb33f4a_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:DocLibUIService  = new DocLibUIService();
+        curUIService.DocLib_WeiHuFenLei(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
+    }
+
 
     /**
      * 界面行为模型
@@ -162,7 +190,8 @@ export class ProductMainGridBase extends GridControlBase {
     public ActionModel: any = {
         ProductLookDoc: { name: 'ProductLookDoc',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'DOC', actiontarget: 'SINGLEKEY'},
         ProductLookFile: { name: 'ProductLookFile',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'FILE', actiontarget: 'SINGLEKEY'},
-        EditDocLib: { name: 'EditDocLib',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: 'SINGLEKEY'}
+        EditDocLib: { name: 'EditDocLib',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: 'SINGLEKEY'},
+        WeiHuFenLei: { name: 'WeiHuFenLei',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: 'SINGLEKEY'}
     };
 
     /**
@@ -312,6 +341,9 @@ export class ProductMainGridBase extends GridControlBase {
         }
         if(Object.is('EditDocLib', tag)) {
             this.grid_uagridcolumn1_ue97bc0a_click(row, tag, $event);
+        }
+        if(Object.is('WeiHuFenLei', tag)) {
+            this.grid_uagridcolumn1_ucb33f4a_click(row, tag, $event);
         }
     }
 

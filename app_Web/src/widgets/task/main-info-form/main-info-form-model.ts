@@ -86,6 +86,11 @@ export default class MainInfoModel {
         dataType: 'SSCODELIST',
       },
       {
+        name: 'progressrate',
+        prop: 'progressrate',
+        dataType: 'TEXT',
+      },
+      {
         name: 'pri',
         prop: 'pri',
         dataType: 'NSCODELIST',

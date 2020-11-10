@@ -3359,14 +3359,6 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "StoryMain2GridView",
             "viewtag": "dea346284a2fbb66467c4838c1b3f577"
         },
-        "doclibtreeview": {
-            "title": "文档库树视图",
-            "caption": "文档库",
-            "viewtype": "DETREEVIEW",
-            "viewmodule": "zentao",
-            "viewname": "DocLibTreeView",
-            "viewtag": "df388230ecb6349f686200080e00b9fa"
-        },
         "actionalltrendslistview": {
             "title": "系统日志列表视图",
             "caption": "系统日志",
@@ -3790,6 +3782,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "ActionProductTrendsListView",
             "viewtag": "f7a278d765ff0f85a2c59cbb2485fa30"
+        },
+        "doclibmoduletreeexpview": {
+            "title": "文档库分类树导航视图",
+            "caption": "文档库分类",
+            "viewtype": "DETREEEXPVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "DocLibModuleTreeExpView",
+            "viewtag": "f7e64f3828c862a4bce56437e1e51069"
         },
         "testreporteditview_testrange": {
             "title": "测试报告编辑视图",

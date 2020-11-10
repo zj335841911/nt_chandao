@@ -31625,6 +31625,21 @@
     "key_field":0,
     "show_order":1000,
     "major_field":0
+    },
+    {
+    "fieldname":"PROGRESSRATE" ,
+    "codename":"Progressrate",
+    "field_logic_name":"进度",
+    "entity_name":"Task",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":200,
+    "expression":"CONCAT_WS('',case when t1.consumed = 0 or t1.consumed is null then '0' when t1.`left` = 0 or t1.`left` is null then '100' else ROUND((ROUND(t1.`left`/(t1.`left` + t1.consumed),2)) * 100) end ,'%')",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
     }
     ],
     "subEntitys":[

@@ -17,4 +17,17 @@ export default {
     doclibname: "所属文档库",
     modulename: "上级模块",
   },
+	views: {
+		treeexpview: {
+			caption: "文档库分类",
+      		title: "文档库分类树导航视图",
+		},
+	},
+	treedoclib_treeview: {
+		nodes: {
+			root: "默认根节点",
+		},
+		uiactions: {
+		},
+	},
 };

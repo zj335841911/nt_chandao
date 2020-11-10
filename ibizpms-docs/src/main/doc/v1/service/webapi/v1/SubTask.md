@@ -5725,7 +5725,8 @@ POST
 | 59 | hasdetail | String | 允许 | 是否填写描述 |
 | 60 | updatedate | Timestamp | 允许 | 最后的更新日期<br>时间格式：yyyy-MM-dd |
 | 61 | noticeusers | String | 允许 | 消息通知用户 |
-| 62 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 62 | progressrate | String | 允许 | 进度 |
+| 63 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### TaskSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
