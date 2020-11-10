@@ -3429,6 +3429,16 @@
         "viewtag": "b5709ef6b436135e1738304e61b5f200",
         "memo": ""
     },
+    "docgridview_mymore": {
+        "title": "doc表格视图",
+        "caption": "文档",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "ibiz",
+        "viewname": "DocGridView_MyMore",
+        "viewfilename": "doc-grid-view-my-more",
+        "viewtag": "b593c09602d9483d53b1f725395030a6",
+        "memo": ""
+    },
     "productdashboardinfomainview9": {
         "title": "产品信息",
         "caption": "产品",

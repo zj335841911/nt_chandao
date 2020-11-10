@@ -2751,6 +2751,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "BugTodoEditView",
             "viewtag": "b5709ef6b436135e1738304e61b5f200"
         },
+        "docgridview_mymore": {
+            "title": "doc表格视图",
+            "caption": "文档",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "DocGridView_MyMore",
+            "viewtag": "b593c09602d9483d53b1f725395030a6"
+        },
         "productdashboardinfomainview9": {
             "title": "产品信息",
             "caption": "产品",

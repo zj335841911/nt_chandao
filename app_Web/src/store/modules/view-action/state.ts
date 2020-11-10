@@ -341,6 +341,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '13f17793cbc4fc2b36473a74d1bad4b2',
+            viewmodule: 'ibiz',
+            viewname: 'DocGridView10',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'b6e02216d1e5c69d79b32342d8b67c7a',
+            ],
+        },
+        {
             viewtag: '143e97f1ddaf50560e1602118613f0f0',
             viewmodule: 'zentao',
             viewname: 'TaskTreeExpView',
@@ -3069,6 +3079,17 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'b593c09602d9483d53b1f725395030a6',
+            viewmodule: 'ibiz',
+            viewname: 'DocGridView_MyMore',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'b6e02216d1e5c69d79b32342d8b67c7a',
+                '23cc93d7fdddff5077a7952d26802a7b',
+            ],
+        },
+        {
             viewtag: 'b5d2389c0dd12ae614b319090ecc2361',
             viewmodule: 'zentao',
             viewname: 'ProductDashboardInfoMainView9',
@@ -4154,6 +4175,8 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'b79b6d8cb0dcb2ac867f3ea1aa6d4cb2',
+                '13f17793cbc4fc2b36473a74d1bad4b2',
+                'b593c09602d9483d53b1f725395030a6',
                 '7c188c576f1fd59114ac2940d8e92c15',
             ],
         },

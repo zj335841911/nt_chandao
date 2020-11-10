@@ -551,6 +551,7 @@ SRFNAVPARAM.project=%project%|
 |-|bug表格视图|DEGRIDVIEW|&nbsp;|
 |-|测试用例编辑视图|DEEDITVIEW9|&nbsp;|
 |-|待办提交|DEEDITVIEW|&nbsp;|
+|-|doc表格视图|DEGRIDVIEW|&nbsp;|
 |-|产品信息|DEEDITVIEW9|&nbsp;|
 |-|用例库用例编辑视图（主信息）|DEEDITVIEW9|&nbsp;|
 |-|doc编辑视图|DEEDITVIEW|&nbsp;|

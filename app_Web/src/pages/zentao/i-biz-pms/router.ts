@@ -9546,6 +9546,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/test-report-edit-view/test-report-edit-view.vue'),
                 },
                 {
+                    path: 'docs/:doc?/gridview10/:gridview10?',
+                    meta: {
+                        caption: 'entities.doc.views.gridview10.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'docs', parameterName: 'doc' },
+                            { pathName: 'gridview10', parameterName: 'gridview10' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/doc-grid-view10/doc-grid-view10.vue'),
+                },
+                {
                     path: 'useryearworkstats/:useryearworkstats?/qadashboardview/:qadashboardview?',
                     meta: {
                         caption: 'entities.useryearworkstats.views.qadashboardview.caption',
@@ -14853,6 +14867,20 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/ibiz/employeeloadedit-view/employeeloadedit-view.vue'),
+                },
+                {
+                    path: 'docs/:doc?/gridview_mymore/:gridview_mymore?',
+                    meta: {
+                        caption: 'entities.doc.views.gridview_mymore.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'docs', parameterName: 'doc' },
+                            { pathName: 'gridview_mymore', parameterName: 'gridview_mymore' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/doc-grid-view-my-more/doc-grid-view-my-more.vue'),
                 },
                 {
                     path: 'ibzmyterritories/:ibzmyterritory?/employtreeexpview/:employtreeexpview?',

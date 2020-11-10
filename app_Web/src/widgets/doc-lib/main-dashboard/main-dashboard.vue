@@ -3,9 +3,7 @@
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { MainDashboardBase } from './main-dashboard-base';
-import view_dashboard_sysportlet4 from '@widgets/doc-lib/dashboard-viewdashboard-sysportlet4-portlet/dashboard-viewdashboard-sysportlet4-portlet.vue';
-import view_dashboard_sysportlet2 from '@widgets/doc-lib/dashboard-viewdashboard-sysportlet2-portlet/dashboard-viewdashboard-sysportlet2-portlet.vue';
-import view_dashboard_sysportlet3 from '@widgets/doc-lib/dashboard-viewdashboard-sysportlet3-portlet/dashboard-viewdashboard-sysportlet3-portlet.vue';
+import view_dashboard_sysportlet4 from '@widgets/doc/my-doc-portlet/my-doc-portlet.vue';
 import view_dashboard_sysportlet1 from '@widgets/doc/recent-update-portlet/recent-update-portlet.vue';
  
 
@@ -19,8 +17,6 @@ import view_dashboard_sysportlet1 from '@widgets/doc/recent-update-portlet/recen
 @Component({
     components: {
         view_dashboard_sysportlet4, 
-        view_dashboard_sysportlet2, 
-        view_dashboard_sysportlet3, 
         view_dashboard_sysportlet1, 
          
     }

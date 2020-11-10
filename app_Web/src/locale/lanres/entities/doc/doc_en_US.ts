@@ -61,6 +61,10 @@ export default {
 			caption: "文档摘要",
       		title: "文档编辑视图（文档摘要）",
 		},
+		gridview_mymore: {
+			caption: "文档",
+      		title: "doc表格视图",
+		},
 		editview: {
 			caption: "文档",
       		title: "doc编辑视图",
