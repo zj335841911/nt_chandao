@@ -596,6 +596,13 @@ public class Bug extends EntityMP implements Serializable {
     @JSONField(name = "casename")
     @JsonProperty("casename")
     private String casename;
+    /**
+     * 延期
+     */
+    @TableField(exist = false)
+    @JSONField(name = "delay")
+    @JsonProperty("delay")
+    private String delay;
 
     /**
      * 

@@ -228,6 +228,9 @@ export default class DashboardBugMainModel {
       {
         name: 'casename',
       },
+      {
+        name: 'delay',
+      },
     ]
   }
 

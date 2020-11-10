@@ -228,6 +228,9 @@ export default class TotalCurOpenedBugModel {
       {
         name: 'casename',
       },
+      {
+        name: 'delay',
+      },
     ]
   }
 

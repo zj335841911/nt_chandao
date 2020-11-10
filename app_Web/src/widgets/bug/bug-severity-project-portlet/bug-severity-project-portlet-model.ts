@@ -228,6 +228,9 @@ export default class BugSeverity_ProjectModel {
       {
         name: 'casename',
       },
+      {
+        name: 'delay',
+      },
     ]
   }
 

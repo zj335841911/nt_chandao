@@ -71,6 +71,7 @@ export default {
     createbuild: "创建版本",
     overduebugs: "过期天数",
     casename: "相关用例",
+    delay: "延期",
   },
 	views: {
 		plansubgridview: {
@@ -628,6 +629,7 @@ export default {
 			confirmed: "是否确认", 
 			assignedto: "当前指派", 
 			deadline: "截止日期", 
+			delay: "", 
 			os: "操作系统", 
 			browser: "浏览器", 
 			keywords: "关键词", 

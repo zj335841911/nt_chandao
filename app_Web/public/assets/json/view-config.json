@@ -1959,6 +1959,16 @@
         "viewtag": "68f49a558ebf0e2566be65fc74f13fdd",
         "memo": ""
     },
+    "doclibmoduleeditview": {
+        "title": "文档库分类编辑视图",
+        "caption": "文档库分类",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "zentao",
+        "viewname": "DocLibModuleEditView",
+        "viewfilename": "doc-lib-module-edit-view",
+        "viewtag": "6921cf59868031699419de5fb8e79ced",
+        "memo": ""
+    },
     "taskestimateeditgridview9": {
         "title": "任务预计表格视图",
         "caption": "工时",
@@ -4657,6 +4667,16 @@
         "viewname": "TestReportEditView",
         "viewfilename": "test-report-edit-view",
         "viewtag": "f340b16bd1355b1c511d9da4b00476e2",
+        "memo": ""
+    },
+    "doclibmoduleusr2gridview": {
+        "title": "文档库分类表格视图",
+        "caption": "文档库分类",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "ibiz",
+        "viewname": "DocLibModuleUsr2GridView",
+        "viewfilename": "doc-lib-module-usr2-grid-view",
+        "viewtag": "f3b0810b31f6ce2c9e2eac61e3ba941d",
         "memo": ""
     },
     "casestepmaingridview9": {

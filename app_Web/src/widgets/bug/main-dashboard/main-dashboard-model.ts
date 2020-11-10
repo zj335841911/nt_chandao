@@ -228,6 +228,9 @@ export default class MainModel {
       {
         name: 'casename',
       },
+      {
+        name: 'delay',
+      },
     ]
   }
 

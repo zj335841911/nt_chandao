@@ -228,6 +228,9 @@ export default class MPickupView5pickupviewpanelModel {
       {
         name: 'casename',
       },
+      {
+        name: 'delay',
+      },
     ]
   }
 

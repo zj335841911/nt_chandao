@@ -228,6 +228,9 @@ export default class BugOpenedByModel {
       {
         name: 'casename',
       },
+      {
+        name: 'delay',
+      },
     ]
   }
 

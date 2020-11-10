@@ -228,6 +228,9 @@ export default class BugModuleModel {
       {
         name: 'casename',
       },
+      {
+        name: 'delay',
+      },
     ]
   }
 

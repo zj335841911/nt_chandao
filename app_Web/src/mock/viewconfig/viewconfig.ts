@@ -1575,6 +1575,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "BuildEditFormEditView",
             "viewtag": "68f49a558ebf0e2566be65fc74f13fdd"
         },
+        "doclibmoduleeditview": {
+            "title": "文档库分类编辑视图",
+            "caption": "文档库分类",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "zentao",
+            "viewname": "DocLibModuleEditView",
+            "viewtag": "6921cf59868031699419de5fb8e79ced"
+        },
         "taskestimateeditgridview9": {
             "title": "任务预计表格视图",
             "caption": "工时",
@@ -3734,6 +3742,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "TestReportEditView",
             "viewtag": "f340b16bd1355b1c511d9da4b00476e2"
+        },
+        "doclibmoduleusr2gridview": {
+            "title": "文档库分类表格视图",
+            "caption": "文档库分类",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "DocLibModuleUsr2GridView",
+            "viewtag": "f3b0810b31f6ce2c9e2eac61e3ba941d"
         },
         "casestepmaingridview9": {
             "title": "用例步骤",

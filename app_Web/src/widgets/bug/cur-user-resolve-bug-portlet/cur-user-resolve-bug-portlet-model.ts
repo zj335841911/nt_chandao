@@ -228,6 +228,9 @@ export default class CurUserResolveBugModel {
       {
         name: 'casename',
       },
+      {
+        name: 'delay',
+      },
     ]
   }
 

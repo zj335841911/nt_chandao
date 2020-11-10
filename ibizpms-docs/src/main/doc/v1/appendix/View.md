@@ -404,6 +404,7 @@ SRFNAVPARAM.project=%project%|
 |-|Bug编辑视图|DEEDITVIEW|&nbsp;|
 |-|测试用例|DEGRIDVIEW|&nbsp;|
 |-|版本编辑视图|DEEDITVIEW|&nbsp;|
+|-|文档库分类编辑视图|DEEDITVIEW|&nbsp;|
 |-|任务预计表格视图|DEGRIDVIEW9|&nbsp;|
 |-|doclib表格视图|DEGRIDVIEW|&nbsp;|
 |-|执行|DEOPTVIEW|&nbsp;|
@@ -674,6 +675,7 @@ SRFNAVPARAM.project=%project%|
 |-|转交任务|DEOPTVIEW|&nbsp;|
 |-|系统更新日志编辑视图|DEEDITVIEW|&nbsp;|
 |-|测试报告编辑视图|DEEDITVIEW|&nbsp;|
+|-|文档库分类表格视图|DEGRIDVIEW|&nbsp;|
 |-|用例步骤|DEGRIDVIEW9|&nbsp;|
 |-|doc表格视图|DEGRIDVIEW|&nbsp;|
 |-|功能测试表格视图|DEGRIDVIEW|&nbsp;|
