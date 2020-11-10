@@ -228,6 +228,9 @@ export default class AssignedToMeBugModel {
       {
         name: 'casename',
       },
+      {
+        name: 'delay',
+      },
     ]
   }
 

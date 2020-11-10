@@ -228,6 +228,9 @@ export default class ActionHistoryListModel {
       {
         name: 'casename',
       },
+      {
+        name: 'delay',
+      },
     ]
   }
 

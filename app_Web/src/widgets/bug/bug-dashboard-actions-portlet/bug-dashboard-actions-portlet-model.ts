@@ -228,6 +228,9 @@ export default class BugDashboardActionsModel {
       {
         name: 'casename',
       },
+      {
+        name: 'delay',
+      },
     ]
   }
 

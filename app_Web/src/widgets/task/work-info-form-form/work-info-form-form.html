@@ -55,7 +55,7 @@
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.deadline.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 8, offset: 0 }">
+<i-col class="form-layout-container" v-show="detailsModel.deadline.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 7, offset: 0 }">
     <app-form-item name='deadline' :itemRules="this.rules().deadline" class='' :caption="$t('entities.task.workinfoform_form.details.deadline')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.deadline.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <app-span name='deadline' :value="data.deadline" dataType="DATE" valueFormat="%1$tY-%1$tm-%1$td"     :precision="0"

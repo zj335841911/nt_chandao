@@ -573,4 +573,12 @@ export interface Bug {
      * @memberof Bug
      */
     casename?: any;
+
+    /**
+     * 延期
+     *
+     * @returns {*}
+     * @memberof Bug
+     */
+    delay?: any;
 }

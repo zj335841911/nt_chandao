@@ -228,6 +228,9 @@ export default class BugOpenedBy_ProjectModel {
       {
         name: 'casename',
       },
+      {
+        name: 'delay',
+      },
     ]
   }
 

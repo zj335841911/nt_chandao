@@ -228,6 +228,9 @@ export default class StepsInfoModel {
       {
         name: 'casename',
       },
+      {
+        name: 'delay',
+      },
     ]
   }
 

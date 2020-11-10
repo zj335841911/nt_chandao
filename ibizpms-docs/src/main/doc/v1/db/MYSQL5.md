@@ -2986,6 +2986,7 @@ CREATE TABLE `zt_branch`(
 | TITLE        | Bug标题  | VARCHAR      |   255   | &nbsp; |
 | REPO        | 代码  |       |   -1   | &nbsp; |
 | HARDWARE        | hardware  | VARCHAR      |   30   | &nbsp; |
+| DELAY        | 延期  | VARCHAR      |   200   | &nbsp; |
 | OPENEDDATE        | 创建日期  | DATETIME      |   -1   | &nbsp; |
 | ASSIGNEDDATE        | 指派日期  | DATETIME      |   -1   | &nbsp; |
 | RESOLVEDDATE        | 解决日期  | DATETIME      |   -1   | &nbsp; |

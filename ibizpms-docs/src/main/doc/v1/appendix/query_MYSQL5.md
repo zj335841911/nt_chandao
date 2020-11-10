@@ -681,6 +681,7 @@ t1.`CLOSEDDATE`,
 t1.`COLOR`,
 t1.`CONFIRMED`,
 t1.`DEADLINE`,
+(case when t1.deadline is null or t1.deadline = '0000-00-00' or t1.deadline = '1970-01-01' then '' when t1.`status` ='active' and t1.deadline <DATE_FORMAT(now(),'%y-%m-%d')  then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t1.deadline, now()),'天') else '' end) AS `DELAY`,
 t1.`DELETED`,
 t1.`DUPLICATEBUG`,
 t1.`ENTRY`,
@@ -1143,6 +1144,7 @@ t1.`CLOSEDDATE`,
 t1.`COLOR`,
 t1.`CONFIRMED`,
 t1.`DEADLINE`,
+(case when t1.deadline is null or t1.deadline = '0000-00-00' or t1.deadline = '1970-01-01' then '' when t1.`status` ='active' and t1.deadline <DATE_FORMAT(now(),'%y-%m-%d')  then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t1.deadline, now()),'天') else '' end) AS `DELAY`,
 t1.`DELETED`,
 t1.`DUPLICATEBUG`,
 t1.`ENTRY`,
@@ -1727,6 +1729,7 @@ t1.`CLOSEDDATE`,
 t1.`COLOR`,
 t1.`CONFIRMED`,
 t1.`DEADLINE`,
+(case when t1.deadline is null or t1.deadline = '0000-00-00' or t1.deadline = '1970-01-01' then '' when t1.`status` ='active' and t1.deadline <DATE_FORMAT(now(),'%y-%m-%d')  then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t1.deadline, now()),'天') else '' end) AS `DELAY`,
 t1.`DELETED`,
 t1.`DUPLICATEBUG`,
 t1.`ENTRY`,
@@ -1883,6 +1886,7 @@ t1.`CLOSEDDATE`,
 t1.`COLOR`,
 t1.`CONFIRMED`,
 t1.`DEADLINE`,
+(case when t1.deadline is null or t1.deadline = '0000-00-00' or t1.deadline = '1970-01-01' then '' when t1.`status` ='active' and t1.deadline <DATE_FORMAT(now(),'%y-%m-%d')  then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t1.deadline, now()),'天') else '' end) AS `DELAY`,
 t1.`DELETED`,
 t1.`DUPLICATEBUG`,
 t1.`ENTRY`,
@@ -2259,6 +2263,7 @@ t1.`CLOSEDDATE`,
 t1.`COLOR`,
 t1.`CONFIRMED`,
 t1.`DEADLINE`,
+(case when t1.deadline is null or t1.deadline = '0000-00-00' or t1.deadline = '1970-01-01' then '' when t1.`status` ='active' and t1.deadline <DATE_FORMAT(now(),'%y-%m-%d')  then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t1.deadline, now()),'天') else '' end) AS `DELAY`,
 t1.`DELETED`,
 t1.`DUPLICATEBUG`,
 t1.`ENTRY`,
@@ -2319,9 +2324,6 @@ LEFT JOIN zt_case t71 ON t1.CASE = t71.ID
 
 WHERE t1.DELETED = '0' 
 ( t1.`PRODUCT` = ${srfdatacontext('product','{"defname":"PRODUCT","dename":"ZT_BUG"}')} ) 
-not FIND_IN_SET(t1.id,(select bugs from zt_release 
-where id =  ${srfdatacontext('release','{"defname":"id","dename":"ZT_RELEASE"}')} 
-)) 
 
 ```
 ### 发布可关联的bug（已解决）(ReleaseLinkableResolvedBug)<div id="Bug_ReleaseLinkableResolvedBug"></div>
@@ -2342,6 +2344,7 @@ t1.`CLOSEDDATE`,
 t1.`COLOR`,
 t1.`CONFIRMED`,
 t1.`DEADLINE`,
+(case when t1.deadline is null or t1.deadline = '0000-00-00' or t1.deadline = '1970-01-01' then '' when t1.`status` ='active' and t1.deadline <DATE_FORMAT(now(),'%y-%m-%d')  then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t1.deadline, now()),'天') else '' end) AS `DELAY`,
 t1.`DELETED`,
 t1.`DUPLICATEBUG`,
 t1.`ENTRY`,
@@ -2402,9 +2405,6 @@ LEFT JOIN zt_case t71 ON t1.CASE = t71.ID
 
 WHERE t1.DELETED = '0' 
 ( t1.`PRODUCT` = ${srfdatacontext('product','{"defname":"PRODUCT","dename":"ZT_BUG"}')} ) 
-not FIND_IN_SET(t1.id,(select bugs from zt_release 
-where id =  ${srfdatacontext('release','{"defname":"id","dename":"ZT_RELEASE"}')} 
-)) 
 
 ```
 ### 发布关联Bug（未解决）(ReportBugs)<div id="Bug_ReportBugs"></div>
@@ -2493,6 +2493,7 @@ t1.`CLOSEDDATE`,
 t1.`COLOR`,
 t1.`CONFIRMED`,
 t1.`DEADLINE`,
+(case when t1.deadline is null or t1.deadline = '0000-00-00' or t1.deadline = '1970-01-01' then '' when t1.`status` ='active' and t1.deadline <DATE_FORMAT(now(),'%y-%m-%d')  then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t1.deadline, now()),'天') else '' end) AS `DELAY`,
 t1.`DELETED`,
 t1.`DUPLICATEBUG`,
 t1.`ENTRY`,
@@ -2660,6 +2661,7 @@ t1.`CLOSEDDATE`,
 t1.`COLOR`,
 t1.`CONFIRMED`,
 t1.`DEADLINE`,
+(case when t1.deadline is null or t1.deadline = '0000-00-00' or t1.deadline = '1970-01-01' then '' when t1.`status` ='active' and t1.deadline <DATE_FORMAT(now(),'%y-%m-%d')  then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t1.deadline, now()),'天') else '' end) AS `DELAY`,
 t1.`DELETED`,
 t1.`DUPLICATEBUG`,
 t1.`ENTRY`,

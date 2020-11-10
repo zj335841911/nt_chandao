@@ -131,6 +131,11 @@ export default class DashboardMainModel {
         dataType: 'DATE',
       },
       {
+        name: 'delay',
+        prop: 'delay',
+        dataType: 'TEXT',
+      },
+      {
         name: 'os',
         prop: 'os',
         dataType: 'SSCODELIST',

@@ -228,6 +228,9 @@ export default class BugStatus_ProjectModel {
       {
         name: 'casename',
       },
+      {
+        name: 'delay',
+      },
     ]
   }
 
