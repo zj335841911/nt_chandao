@@ -228,6 +228,9 @@ export class Usr2MobMPickupViewpickupviewpanelModel {
       {
         name: 'casename',
       },
+      {
+        name: 'delay',
+      },
     ]
   }
 

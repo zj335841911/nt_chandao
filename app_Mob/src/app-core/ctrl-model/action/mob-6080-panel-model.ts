@@ -81,6 +81,9 @@ export class Mob_6080Model {
       {
         name: 'srfkey',
       },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

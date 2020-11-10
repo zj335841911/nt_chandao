@@ -81,6 +81,9 @@ export class MobModel {
       {
         name: 'srfkey',
       },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

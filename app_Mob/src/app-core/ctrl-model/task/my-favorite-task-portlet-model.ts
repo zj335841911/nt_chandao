@@ -201,6 +201,15 @@ export class MyFavoriteTaskModel {
       {
         name: 'updatedate',
       },
+      {
+        name: 'noticeusers',
+      },
+      {
+        name: 'progressrate',
+      },
+      {
+        name: 'delay',
+      },
     ]
   }
 

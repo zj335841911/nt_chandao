@@ -2767,6 +2767,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "BugStatsGridView",
             "viewtag": "b7427fe34d292009905e126defc9fa22"
         },
+        "docgridview9": {
+            "title": "文档表格视图",
+            "caption": "最近更新",
+            "viewtype": "DEGRIDVIEW9",
+            "viewmodule": "zentao",
+            "viewname": "DocGridView9",
+            "viewtag": "b79b6d8cb0dcb2ac867f3ea1aa6d4cb2"
+        },
         "storymyfavoritesgridview": {
             "title": "story表格视图",
             "caption": "需求",

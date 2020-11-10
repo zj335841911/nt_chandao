@@ -76,6 +76,34 @@ export class DocLibLGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
+    public grid_title_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:FileUIService  = new FileUIService();
+        curUIService.File_Look(datas,contextJO, paramJO,  $event, xData,this,"File");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
     public grid_uagridcolumn1_ue0442cd_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
@@ -132,6 +160,7 @@ export class DocLibLGridBase extends GridControlBase {
      * @memberof DocLibLBase
      */  
     public ActionModel: any = {
+        Look: { name: 'Look',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: 'SINGLEKEY'},
         ibzdownload: { name: 'ibzdownload',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: 'SINGLEKEY'},
         delete: { name: 'delete',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__FILE_DELETE_BUT', actiontarget: 'SINGLEKEY'}
     };
@@ -364,6 +393,9 @@ export class DocLibLGridBase extends GridControlBase {
      */
 	public uiAction(row: any, tag: any, $event: any): void {
         $event.stopPropagation();
+        if(Object.is('Look', tag)) {
+            this.grid_title_click(row, tag, $event);
+        }
         if(Object.is('ibzdownload', tag)) {
             this.grid_uagridcolumn1_ue0442cd_click(row, tag, $event);
         }

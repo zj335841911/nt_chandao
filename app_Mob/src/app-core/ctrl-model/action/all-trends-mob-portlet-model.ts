@@ -81,6 +81,9 @@ export class AllTrendsMobModel {
       {
         name: 'srfkey',
       },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

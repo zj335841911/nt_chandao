@@ -57,6 +57,10 @@ export default {
 			caption: "文档",
       		title: "doc编辑视图",
 		},
+		gridview9: {
+			caption: "最近更新",
+      		title: "文档表格视图",
+		},
 		keditview9: {
 			caption: "关键字",
       		title: "文档编辑视图（关键字）",
@@ -186,6 +190,16 @@ export default {
 			doc_look: "查看",
 			doc_edit: "编辑",
 			doc_delete: "删除",
+		},
+	},
+	recentupdate_grid: {
+		nodata: "",
+		columns: {
+			title: "文档标题",
+			addedby: "由谁添加",
+			editeddate: "更新时间",
+		},
+		uiactions: {
 		},
 	},
 	default_searchform: {

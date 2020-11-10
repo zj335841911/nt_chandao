@@ -201,6 +201,15 @@ export class MobPickupViewpickupviewpanelModel {
       {
         name: 'updatedate',
       },
+      {
+        name: 'noticeusers',
+      },
+      {
+        name: 'progressrate',
+      },
+      {
+        name: 'delay',
+      },
     ]
   }
 

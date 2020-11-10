@@ -228,6 +228,9 @@ export class MyBugMobModel {
       {
         name: 'casename',
       },
+      {
+        name: 'delay',
+      },
     ]
   }
 

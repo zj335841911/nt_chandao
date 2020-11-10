@@ -97,6 +97,7 @@ export class DashboardMainEditFormBase extends EditFormControlBase {
         activateddate: null,
         confirmed: null,
         assignedto: null,
+        assigneddate: null,
         deadline: null,
         delay: null,
         os: null,
@@ -200,6 +201,8 @@ export class DashboardMainEditFormBase extends EditFormControlBase {
 
         assignedto: new FormItemModel({ caption: '当前指派', detailType: 'FORMITEM', name: 'assignedto', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 
+        assigneddate: new FormItemModel({ caption: '于', detailType: 'FORMITEM', name: 'assigneddate', visible: false, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+
         deadline: new FormItemModel({ caption: '截止日期', detailType: 'FORMITEM', name: 'deadline', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 
         delay: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'delay', visible: false, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
@@ -286,6 +289,15 @@ export class DashboardMainEditFormBase extends EditFormControlBase {
 
 
 
+
+        if (Object.is(name, '') || Object.is(name, 'assigneddate')) {
+            let ret = false;
+            const _assigneddate = this.data.assigneddate;
+            if (this.$verify.testCond(_assigneddate, 'ISNOTNULL', '')) {
+                ret = true;
+            }
+            this.detailsModel.assigneddate.setVisible(ret);
+        }
 
 
         if (Object.is(name, '') || Object.is(name, 'delay')) {
