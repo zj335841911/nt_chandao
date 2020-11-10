@@ -11669,6 +11669,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/todo-close-view/todo-close-view.vue'),
                 },
                 {
+                    path: 'docs/:doc?/gridview9/:gridview9?',
+                    meta: {
+                        caption: 'entities.doc.views.gridview9.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'docs', parameterName: 'doc' },
+                            { pathName: 'gridview9', parameterName: 'gridview9' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/doc-grid-view9/doc-grid-view9.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/projectplanview/:projectplanview?',
                     meta: {
                         caption: 'entities.story.views.projectplanview.caption',

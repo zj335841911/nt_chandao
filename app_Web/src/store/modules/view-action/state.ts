@@ -2135,7 +2135,7 @@ export const viewstate: any = {
                 '2d63c9fa825c7d4f7816cab45ad34bb6',
                 '092028347755c225e484250308db2d51',
                 '22dcf6656e1b870d0427a450cdbd7d20',
-                '4503911318e1f1f26599b68a6c6e681d',
+                'b79b6d8cb0dcb2ac867f3ea1aa6d4cb2',
                 '41693a4d3b2bd3a7195d31ceae6cdcf3',
                 '7b8d03598e32aa0f535758927a17b98e',
             ],
@@ -3092,6 +3092,17 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '0174d3383dadc0878991e5c90bd5eaa3',
+            ],
+        },
+        {
+            viewtag: 'b79b6d8cb0dcb2ac867f3ea1aa6d4cb2',
+            viewmodule: 'zentao',
+            viewname: 'DocGridView9',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'b6e02216d1e5c69d79b32342d8b67c7a',
+                '23cc93d7fdddff5077a7952d26802a7b',
             ],
         },
         {

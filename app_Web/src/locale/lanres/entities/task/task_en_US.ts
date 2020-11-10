@@ -564,6 +564,7 @@ export default {
 	},
 	maininfo_form: {
 		details: {
+			grouppanel6: "分组面板", 
 			group1: "task基本信息", 
 			formpage1: "基本信息", 
 			grouppanel1: "分组面板", 
@@ -586,6 +587,7 @@ export default {
 			modulename1: "所属模块", 
 			storyname: "相关需求", 
 			assignedto: "指派给", 
+			assigneddate: "于", 
 			type: "任务类型", 
 			status: "任务状态", 
 			progressrate: "进度", 

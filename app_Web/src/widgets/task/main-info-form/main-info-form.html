@@ -75,7 +75,11 @@
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.assignedto.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col class="form-layout-container" v-show="detailsModel.grouppanel6.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-group :model="detailsModel.grouppanel6" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel6.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.task.maininfo_form.details.grouppanel6')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
+    <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel6" :data="data" :context="context" :viewparams="viewparams"/>
+    <row>
+        <i-col class="form-layout-container" v-show="detailsModel.assignedto.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 6, offset: 0 }">
     <app-form-item name='assignedto' :itemRules="this.rules().assignedto" class='' :caption="$t('entities.task.maininfo_form.details.assignedto')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.assignedto.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <app-span name='assignedto' :value="data.assignedto" dataType="TEXT"     :precision="0"
@@ -83,6 +87,21 @@ tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," te
 </app-span>
 
 </app-form-item>
+
+</i-col>
+<i-col class="form-layout-container" v-show="detailsModel.assigneddate.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 17, offset: 0 }">
+    <app-form-item name='assigneddate' :itemRules="this.rules().assigneddate" class='' :caption="$t('entities.task.maininfo_form.details.assigneddate')" uiStyle="DEFAULT" :labelWidth="30" :isShowCaption="true" :error="detailsModel.assigneddate.error" :isEmptyCaption="false" labelPos="LEFT">
+    
+<app-span name='assigneddate' :value="data.assigneddate" dataType="DATETIME" valueFormat="%1$tY-%1$tm-%1$td %1$tH:%1$tM:%1$tS"     :precision="0"
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
+</app-span>
+
+</app-form-item>
+
+</i-col>
+    
+    </row>
+</app-form-group>
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.type.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
@@ -155,7 +174,7 @@ tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," te
     <app-form-group :model="detailsModel.grouppanel1" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.task.maininfo_form.details.grouppanel1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
     <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel1" :data="data" :context="context" :viewparams="viewparams"/>
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.openedby.visible" :style="{}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
+        <i-col class="form-layout-container" v-show="detailsModel.openedby.visible" :style="{}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 6, offset: 0 }">
     <app-form-item name='openedby' :itemRules="this.rules().openedby" class='' :caption="$t('entities.task.maininfo_form.details.openedby')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.openedby.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <app-span name='openedby' :value="data.openedby" dataType="SSCODELIST"     :precision="0"
@@ -184,7 +203,7 @@ tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," te
     <app-form-group :model="detailsModel.grouppanel5" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel5.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.task.maininfo_form.details.grouppanel5')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
     <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel5" :data="data" :context="context" :viewparams="viewparams"/>
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.finishedby.visible" :style="{}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
+        <i-col class="form-layout-container" v-show="detailsModel.finishedby.visible" :style="{}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 6, offset: 0 }">
     <app-form-item name='finishedby' :itemRules="this.rules().finishedby" class='' :caption="$t('entities.task.maininfo_form.details.finishedby')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.finishedby.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <app-span name='finishedby' :value="data.finishedby" dataType="SSCODELIST"     :precision="0"
@@ -213,7 +232,7 @@ tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," te
     <app-form-group :model="detailsModel.grouppanel4" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel4.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.task.maininfo_form.details.grouppanel4')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
     <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel4" :data="data" :context="context" :viewparams="viewparams"/>
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.canceledby.visible" :style="{}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
+        <i-col class="form-layout-container" v-show="detailsModel.canceledby.visible" :style="{}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 6, offset: 0 }">
     <app-form-item name='canceledby' :itemRules="this.rules().canceledby" class='' :caption="$t('entities.task.maininfo_form.details.canceledby')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.canceledby.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <app-span name='canceledby' :value="data.canceledby" dataType="SSCODELIST"     :precision="0"
@@ -242,7 +261,7 @@ tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," te
     <app-form-group :model="detailsModel.grouppanel2" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel2.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.task.maininfo_form.details.grouppanel2')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
     <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel2" :data="data" :context="context" :viewparams="viewparams"/>
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.closedby.visible" :style="{}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
+        <i-col class="form-layout-container" v-show="detailsModel.closedby.visible" :style="{}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 6, offset: 0 }">
     <app-form-item name='closedby' :itemRules="this.rules().closedby" class='' :caption="$t('entities.task.maininfo_form.details.closedby')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.closedby.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <app-span name='closedby' :value="data.closedby" dataType="SSCODELIST"     :precision="0"
@@ -281,7 +300,7 @@ tag='Task__closed_reason' codelistType='STATIC' :data="data" :context="context" 
     <app-form-group :model="detailsModel.grouppanel3" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel3.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.task.maininfo_form.details.grouppanel3')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
     <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel3" :data="data" :context="context" :viewparams="viewparams"/>
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.lasteditedby.visible" :style="{}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
+        <i-col class="form-layout-container" v-show="detailsModel.lasteditedby.visible" :style="{}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 6, offset: 0 }">
     <app-form-item name='lasteditedby' :itemRules="this.rules().lasteditedby" class='' :caption="$t('entities.task.maininfo_form.details.lasteditedby')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.lasteditedby.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <app-span name='lasteditedby' :value="data.lasteditedby" dataType="SSCODELIST"     :precision="0"
