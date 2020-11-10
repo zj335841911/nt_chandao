@@ -501,4 +501,12 @@ export interface SubTask {
      * @memberof SubTask
      */
     updatedate?: any;
+
+    /**
+     * 消息通知用户
+     *
+     * @returns {*}
+     * @memberof SubTask
+     */
+    noticeusers?: any;
 }

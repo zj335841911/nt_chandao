@@ -501,4 +501,12 @@ export interface Task {
      * @memberof Task
      */
     updatedate?: any;
+
+    /**
+     * 消息通知用户
+     *
+     * @returns {*}
+     * @memberof Task
+     */
+    noticeusers?: any;
 }

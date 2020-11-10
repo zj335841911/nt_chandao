@@ -202,6 +202,13 @@ public class Action extends EntityMP implements Serializable {
     @JSONField(name = "srfkey")
     @JsonProperty("srfkey")
     private Long srfkey;
+    /**
+     * 消息通知用户
+     */
+    @TableField(exist = false)
+    @JSONField(name = "noticeusers")
+    @JsonProperty("noticeusers")
+    private String noticeusers;
 
     /**
      * 项目

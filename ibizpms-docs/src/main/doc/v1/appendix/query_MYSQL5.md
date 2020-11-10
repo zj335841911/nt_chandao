@@ -5176,6 +5176,59 @@ LEFT JOIN zt_module t21 ON t1.PARENT = t21.ID
 WHERE t1.DELETED = '0' 
 
 ```
+### 父模块(ParentModule)<div id="DocLibModule_ParentModule"></div>
+```sql
+SELECT
+t1.`BRANCH`,
+t1.`DELETED`,
+t11.`NAME` AS `DOCLIBNAME`,
+t1.`GRADE`,
+t1.`ID`,
+(CASE WHEN EXISTS (SELECT 1 FROM ZT_MODULE WHERE  PARENT = t1.`ID`) THEN FALSE ELSE TRUE  END ) AS `ISLEAF`,
+t21.`NAME` AS `MODULENAME`,
+t1.`NAME`,
+t1.`ORDER`,
+t1.`OWNER`,
+t1.`PARENT`,
+t1.`PATH`,
+t1.`ROOT`,
+t1.`SHORT`,
+t1.`TYPE`
+FROM `zt_module` t1 
+LEFT JOIN zt_doclib t11 ON t1.ROOT = t11.ID 
+LEFT JOIN zt_module t21 ON t1.PARENT = t21.ID 
+
+WHERE t1.DELETED = '0' 
+t1.type = 'doc' 
+t1.id <> #{srf.webcontext.id} and find_in_set(#{srf.webcontext.id},t1.path) = 0 
+
+```
+### 根模块目录动态(RootModuleMuLu)<div id="DocLibModule_RootModuleMuLu"></div>
+```sql
+SELECT
+t1.`BRANCH`,
+t1.`DELETED`,
+t11.`NAME` AS `DOCLIBNAME`,
+t1.`GRADE`,
+t1.`ID`,
+(CASE WHEN EXISTS (SELECT 1 FROM ZT_MODULE WHERE  PARENT = t1.`ID`) THEN FALSE ELSE TRUE  END ) AS `ISLEAF`,
+t21.`NAME` AS `MODULENAME`,
+t1.`NAME`,
+t1.`ORDER`,
+t1.`OWNER`,
+t1.`PARENT`,
+t1.`PATH`,
+t1.`ROOT`,
+t1.`SHORT`,
+t1.`TYPE`
+FROM `zt_module` t1 
+LEFT JOIN zt_doclib t11 ON t1.ROOT = t11.ID 
+LEFT JOIN zt_module t21 ON t1.PARENT = t21.ID 
+
+WHERE t1.DELETED = '0' 
+(t1.parent = 0 or t1.parent is null ) and t1.type = 'doc' 
+
+```
 ### 默认（全部数据）(VIEW)<div id="DocLibModule_View"></div>
 ```sql
 SELECT

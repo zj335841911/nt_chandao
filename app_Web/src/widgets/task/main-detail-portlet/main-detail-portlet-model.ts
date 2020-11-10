@@ -201,6 +201,9 @@ export default class MainDetailModel {
       {
         name: 'updatedate',
       },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

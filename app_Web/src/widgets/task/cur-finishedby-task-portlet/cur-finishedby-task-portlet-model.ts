@@ -201,6 +201,9 @@ export default class CurFinishedbyTaskModel {
       {
         name: 'updatedate',
       },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

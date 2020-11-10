@@ -201,6 +201,9 @@ export default class MainInfoModel {
       {
         name: 'updatedate',
       },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

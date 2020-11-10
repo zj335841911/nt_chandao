@@ -85,6 +85,13 @@ public class TaskSearchContext extends QueryWrapperContext<Task> {
             this.getSearchCond().eq("pri", n_pri_eq);
         }
     }
+	private String n_pri_in;//[优先级]
+	public void setN_pri_in(String n_pri_in) {
+        this.n_pri_in = n_pri_in;
+        if(!ObjectUtils.isEmpty(this.n_pri_in)){
+			this.getSearchCond().in("pri",this.n_pri_in.split(";"));
+        }
+    }
 	private String n_lasteditedby_eq;//[最后修改]
 	public void setN_lasteditedby_eq(String n_lasteditedby_eq) {
         this.n_lasteditedby_eq = n_lasteditedby_eq;
@@ -141,6 +148,13 @@ public class TaskSearchContext extends QueryWrapperContext<Task> {
         this.n_assignedto_eq = n_assignedto_eq;
         if(!ObjectUtils.isEmpty(this.n_assignedto_eq)){
             this.getSearchCond().eq("assignedto", n_assignedto_eq);
+        }
+    }
+	private String n_assignedto_in;//[指派给]
+	public void setN_assignedto_in(String n_assignedto_in) {
+        this.n_assignedto_in = n_assignedto_in;
+        if(!ObjectUtils.isEmpty(this.n_assignedto_in)){
+			this.getSearchCond().in("assignedto",this.n_assignedto_in.split(";"));
         }
     }
     @JsonFormat(pattern="yyyy-MM-dd", timezone="GMT+8")

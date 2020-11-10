@@ -81,6 +81,9 @@ export default class ActionHistoryModel {
       {
         name: 'srfkey',
       },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

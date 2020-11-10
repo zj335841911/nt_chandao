@@ -37,6 +37,7 @@ public interface IIBIZProMessageService{
     IBIZProMessage markRead(IBIZProMessage et) ;
     boolean save(IBIZProMessage et) ;
     void saveBatch(List<IBIZProMessage> list) ;
+    IBIZProMessage send(IBIZProMessage et) ;
     Page<IBIZProMessage> searchDefault(IBIZProMessageSearchContext context) ;
 
 

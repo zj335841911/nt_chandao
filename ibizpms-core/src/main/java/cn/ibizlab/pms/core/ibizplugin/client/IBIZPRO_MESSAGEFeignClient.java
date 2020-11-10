@@ -74,6 +74,10 @@ public interface IBIZPRO_MESSAGEFeignClient {
     Boolean saveBatch(@RequestBody List<IBIZProMessage> ibizpromessages);
 
 
+    @RequestMapping(method = RequestMethod.POST, value = "/ibizpro_messages/{ibizpro_messageid}/send")
+    IBIZProMessage send(@PathVariable("ibizpro_messageid") String ibizpro_messageid,@RequestBody IBIZProMessage ibizpromessage);
+
+
 
     @RequestMapping(method = RequestMethod.POST, value = "/ibizpro_messages/searchdefault")
     Page<IBIZProMessage> searchDefault(@RequestBody IBIZProMessageSearchContext context);

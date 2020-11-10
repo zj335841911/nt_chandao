@@ -201,6 +201,9 @@ export default class TaskTreeModel {
       {
         name: 'updatedate',
       },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

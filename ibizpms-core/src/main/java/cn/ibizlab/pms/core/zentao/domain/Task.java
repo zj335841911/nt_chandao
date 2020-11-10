@@ -502,6 +502,13 @@ public class Task extends EntityMP implements Serializable {
     @JSONField(name = "updatedate" , format="yyyy-MM-dd")
     @JsonProperty("updatedate")
     private Timestamp updatedate;
+    /**
+     * 消息通知用户
+     */
+    @TableField(exist = false)
+    @JSONField(name = "noticeusers")
+    @JsonProperty("noticeusers")
+    private String noticeusers;
 
     /**
      * 
