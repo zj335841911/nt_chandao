@@ -132,10 +132,19 @@ tag='BeginendDropList' codelistType='STATIC' :data="data" :context="context" :vi
 </app-form-group>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.desc.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='desc' :itemRules="this.rules().desc" class='' :caption="$t('entities.todo.calendarmain_form.details.desc')" uiStyle="DEFAULT" :labelWidth="50" :isShowCaption="true" :error="detailsModel.desc.error" :isEmptyCaption="false" labelPos="LEFT">
+<i-col class="form-layout-container" v-show="detailsModel.grouppanel4.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-group :model="detailsModel.grouppanel4" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel4.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.todo.calendarmain_form.details.grouppanel4')" :isShowCaption="true" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
+    <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel4" :data="data" :context="context" :viewparams="viewparams"/>
+    <row>
+        <i-col class="form-layout-container" v-show="detailsModel.desc.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='desc' :itemRules="this.rules().desc" class='' :caption="$t('entities.todo.calendarmain_form.details.desc')" uiStyle="DEFAULT" :labelWidth="5" :isShowCaption="true" :error="detailsModel.desc.error" :isEmptyCaption="true" labelPos="LEFT">
     <html-container :content="data.desc"></html-container>
 </app-form-item>
+
+</i-col>
+    
+    </row>
+</app-form-group>
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.grouppanel2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">

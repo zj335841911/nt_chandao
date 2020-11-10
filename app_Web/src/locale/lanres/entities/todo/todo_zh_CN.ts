@@ -297,6 +297,7 @@ export default {
 			button5: "编辑", 
 			button6: "删除", 
 			grouppanel3: "分组面板", 
+			grouppanel4: "描述", 
 			druipart1: "", 
 			grouppanel2: "历史记录", 
 			grouppanel1: "分组面板", 
@@ -315,7 +316,7 @@ export default {
 			date: "日期", 
 			begin: "开始", 
 			end: "~", 
-			desc: "描述", 
+			desc: "", 
 		},
 		uiactions: {
 			todo_assigntocz: "指派",
