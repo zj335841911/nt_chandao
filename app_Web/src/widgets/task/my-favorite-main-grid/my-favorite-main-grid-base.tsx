@@ -489,6 +489,15 @@ export class MyFavoriteMainGridBase extends GridControlBase {
             enableCond: 3 ,
         },
         {
+            name: 'progressrate',
+            label: '%',
+            langtag: 'entities.task.myfavoritemain_grid.columns.progressrate',
+            show: true,
+            unit: 'PX',
+            isEnableRowEdit: false,
+            enableCond: 3 ,
+        },
+        {
             name: 'deadline',
             label: '截止日期',
             langtag: 'entities.task.myfavoritemain_grid.columns.deadline',
@@ -562,6 +571,7 @@ export class MyFavoriteMainGridBase extends GridControlBase {
         'estimate':false,
         'consumed':false,
         'left':false,
+        'progressrate':false,
         'deadline':false,
         'uagridcolumn1':false,
     };

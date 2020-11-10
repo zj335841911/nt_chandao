@@ -153,6 +153,18 @@
                     </template>
                 </el-table-column>
             </template>
+            <template v-if="getColumnState('progressrate')">
+                <el-table-column show-overflow-tooltip :prop="'progressrate'" :label="$t('entities.task.main_grid.columns.progressrate')" :width="80"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.task.main_grid.columns.progressrate')}}
+                      </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                        <span>{{row.progressrate}}</span>
+                    </template>
+                </el-table-column>
+            </template>
             <template v-if="getColumnState('deadline')">
                 <el-table-column show-overflow-tooltip :prop="'deadline'" :label="$t('entities.task.main_grid.columns.deadline')" :width="120"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
