@@ -4189,6 +4189,16 @@
         "viewtag": "dea346284a2fbb66467c4838c1b3f577",
         "memo": ""
     },
+    "doclibtreeview": {
+        "title": "文档库树视图",
+        "caption": "文档库",
+        "viewtype": "DETREEVIEW",
+        "viewmodule": "zentao",
+        "viewname": "DocLibTreeView",
+        "viewfilename": "doc-lib-tree-view",
+        "viewtag": "df388230ecb6349f686200080e00b9fa",
+        "memo": ""
+    },
     "actionalltrendslistview": {
         "title": "系统日志列表视图",
         "caption": "系统日志",
