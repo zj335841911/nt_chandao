@@ -90,12 +90,16 @@ tag='Testresult__result' codelistType='STATIC' :data="data" :context="context" :
     <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel2" :data="data" :context="context" :viewparams="viewparams"/>
     <row>
         <i-col class="form-layout-container" v-show="detailsModel.button1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 2, offset: 22 }">
-        <i-button type="primary" @click="button1_click($event)"
-         style="">
-              <menu-icon :item="{iconcls: 'fa fa-bug'}" />
-        <span >{{$t('entities.testresult.main_form.details.button1')}}</span>
-    </i-button>
+    !!!!模版产生代码错误:----
+Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
+----
 
+----
+FTL stack trace ("~" means nesting-related):
+	- Failed at: #if itme.getPSUIAction?? && itme.getP...  [in template "TEMPLCODE_en_US" at line 109, column 60]
+	~ Reached through: #nested  [in template "TEMPLCODE_en_US" in macro "badge" at line 9, column 1]
+	~ Reached through: @badge item  [in template "TEMPLCODE_en_US" at line 106, column 3]
+----
 </i-col>
     
     </row>
