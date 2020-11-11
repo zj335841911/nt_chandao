@@ -486,6 +486,7 @@ export default {
 		nodata: "",
 		columns: {
 			name: "项目名称",
+			doclibcnt: "文档数量",
 			openedby: "由谁创建",
 			openeddate: "创建日期",
 		},

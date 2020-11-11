@@ -145,6 +145,15 @@ export class UndoneProjectGridBase extends GridControlBase {
             enableCond: 3 ,
         },
         {
+            name: 'doclibcnt',
+            label: '文档数量',
+            langtag: 'entities.project.undoneproject_grid.columns.doclibcnt',
+            show: true,
+            unit: 'PX',
+            isEnableRowEdit: false,
+            enableCond: 3 ,
+        },
+        {
             name: 'openedby',
             label: '由谁创建',
             langtag: 'entities.project.undoneproject_grid.columns.openedby',
@@ -208,6 +217,7 @@ export class UndoneProjectGridBase extends GridControlBase {
      */
     public hasRowEdit: any = {
         'name':false,
+        'doclibcnt':false,
         'openedby':false,
         'openeddate':false,
     };

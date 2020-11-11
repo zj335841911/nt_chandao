@@ -32,6 +32,11 @@ export default class UndoneProjectModel {
           dataType: 'TEXT',
         },
         {
+          name: 'doclibcnt',
+          prop: 'doclibcnt',
+          dataType: 'INT',
+        },
+        {
           name: 'openedby',
           prop: 'openedby',
           dataType: 'TEXT',

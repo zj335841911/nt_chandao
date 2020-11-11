@@ -37,6 +37,18 @@
                     </template>
                 </el-table-column>
             </template>
+            <template v-if="getColumnState('doclibcnt')">
+                <el-table-column show-overflow-tooltip :prop="'doclibcnt'" :label="$t('entities.project.undoneproject_grid.columns.doclibcnt')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.project.undoneproject_grid.columns.doclibcnt')}}
+                      </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                        <span>{{row.doclibcnt}}</span>
+                    </template>
+                </el-table-column>
+            </template>
             <template v-if="getColumnState('openedby')">
                 <el-table-column show-overflow-tooltip :prop="'openedby'" :label="$t('entities.project.undoneproject_grid.columns.openedby')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
