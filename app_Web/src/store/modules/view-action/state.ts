@@ -2495,6 +2495,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '8fac98670d76162935cc17f326f35f05',
+            viewmodule: 'zentao',
+            viewname: 'ProjectUsr2GridView9',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'f83dac873b9215483c4bb91673284b41',
+            ],
+        },
+        {
             viewtag: '901398a79547094cd0e9791cbe6e90ef',
             viewmodule: 'zentao',
             viewname: 'StoryPlanEditView',
@@ -4179,6 +4189,7 @@ export const viewstate: any = {
                 'b79b6d8cb0dcb2ac867f3ea1aa6d4cb2',
                 '13f17793cbc4fc2b36473a74d1bad4b2',
                 'b593c09602d9483d53b1f725395030a6',
+                '8fac98670d76162935cc17f326f35f05',
                 '7c188c576f1fd59114ac2940d8e92c15',
             ],
         },

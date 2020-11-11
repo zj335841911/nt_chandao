@@ -22,6 +22,22 @@
       <i-col :md="{ span: 12, offset: 0 }" :lg="{ span: 12, offset: 0 }">
         <card class="portlet-card" :bordered="false" dis-hover :padding="0">
           <span>
+                      <view_dashboard_sysportlet2 
+              :viewState="viewState"  
+              :viewparams="viewparams" 
+              :context="context" 
+              :height="300"
+              :width="0"
+              name="dashboard_sysportlet2"  
+              ref='dashboard_sysportlet2' 
+              @closeview="closeView($event)">
+          </view_dashboard_sysportlet2>
+          </span>
+        </card>
+      </i-col>
+      <i-col :md="{ span: 12, offset: 0 }" :lg="{ span: 12, offset: 0 }">
+        <card class="portlet-card" :bordered="false" dis-hover :padding="0">
+          <span>
                       <view_dashboard_sysportlet4 
               :viewState="viewState"  
               :viewparams="viewparams" 
