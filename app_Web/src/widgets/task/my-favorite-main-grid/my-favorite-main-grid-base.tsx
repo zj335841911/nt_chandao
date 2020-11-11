@@ -891,7 +891,7 @@ export class MyFavoriteMainGridBase extends GridControlBase {
                 status1:'',
                 AssignTask:{
                     visabled: false
-                }
+                },
                 assignedto:'',
                 finishedby:'',
                 estimate:'',
@@ -947,7 +947,7 @@ export class MyFavoriteMainGridBase extends GridControlBase {
             status1:'',
             AssignTask:{
                 visabled: false
-            }
+            },
             assignedto:'',
             finishedby:'',
             estimate:'',
@@ -1033,7 +1033,7 @@ export class MyFavoriteMainGridBase extends GridControlBase {
                 status1:'',
                 AssignTask:{
                     visabled: false
-                }
+                },
                 assignedto:'',
                 finishedby:'',
                 estimate:'',

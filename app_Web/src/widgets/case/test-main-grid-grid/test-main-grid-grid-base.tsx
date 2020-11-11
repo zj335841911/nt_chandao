@@ -813,7 +813,7 @@ export class TestMainGridGridBase extends GridControlBase {
                 pri:'',
                 Edits:{
                     visabled: false
-                }
+                },
                 title:'',
                 type:'',
                 openedby:'',
@@ -860,7 +860,7 @@ export class TestMainGridGridBase extends GridControlBase {
             pri:'',
             Edits:{
                 visabled: false
-            }
+            },
             title:'',
             type:'',
             openedby:'',
@@ -937,7 +937,7 @@ export class TestMainGridGridBase extends GridControlBase {
                 pri:'',
                 Edits:{
                     visabled: false
-                }
+                },
                 title:'',
                 type:'',
                 openedby:'',

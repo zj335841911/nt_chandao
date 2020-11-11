@@ -500,7 +500,7 @@ export class DocLibLGridBase extends GridControlBase {
                 id:'',
                 Look:{
                     visabled: false
-                }
+                },
                 title:'',
                 pathname:'',
                 objecttype:'',
@@ -532,7 +532,7 @@ export class DocLibLGridBase extends GridControlBase {
             id:'',
             Look:{
                 visabled: false
-            }
+            },
             title:'',
             pathname:'',
             objecttype:'',
@@ -594,7 +594,7 @@ export class DocLibLGridBase extends GridControlBase {
                 id:'',
                 Look:{
                     visabled: false
-                }
+                },
                 title:'',
                 pathname:'',
                 objecttype:'',

@@ -516,7 +516,7 @@ export class ProjectMainGridBase extends GridControlBase {
                 id:'',
                 Edit:{
                     visabled: false
-                }
+                },
                 title:'',
                 createdby:'',
                 createddate:'',
@@ -547,7 +547,7 @@ export class ProjectMainGridBase extends GridControlBase {
             id:'',
             Edit:{
                 visabled: false
-            }
+            },
             title:'',
             createdby:'',
             createddate:'',
@@ -608,7 +608,7 @@ export class ProjectMainGridBase extends GridControlBase {
                 id:'',
                 Edit:{
                     visabled: false
-                }
+                },
                 title:'',
                 createdby:'',
                 createddate:'',

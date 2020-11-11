@@ -490,7 +490,7 @@ export class MoreRecentUpdateGridBase extends GridControlBase {
                 id:'',
                 Look:{
                     visabled: false
-                }
+                },
                 title:'',
                 addedby:'',
                 addeddate:'',
@@ -521,7 +521,7 @@ export class MoreRecentUpdateGridBase extends GridControlBase {
             id:'',
             Look:{
                 visabled: false
-            }
+            },
             title:'',
             addedby:'',
             addeddate:'',
@@ -582,7 +582,7 @@ export class MoreRecentUpdateGridBase extends GridControlBase {
                 id:'',
                 Look:{
                     visabled: false
-                }
+                },
                 title:'',
                 addedby:'',
                 addeddate:'',

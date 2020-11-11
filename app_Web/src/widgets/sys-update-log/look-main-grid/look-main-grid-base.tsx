@@ -368,7 +368,7 @@ export class LookMainGridBase extends GridControlBase {
                 group: group.label,
                 LookDetail:{
                     visabled: false
-                }
+                },
                 sys_update_logname:'',
                 update:'',
                 children: children
@@ -389,7 +389,7 @@ export class LookMainGridBase extends GridControlBase {
             group: this.$t('app.gridpage.other'),
             LookDetail:{
                 visabled: false
-            }
+            },
             sys_update_logname:'',
             update:'',
             children: child
@@ -440,7 +440,7 @@ export class LookMainGridBase extends GridControlBase {
                 group: group,
                 LookDetail:{
                     visabled: false
-                }
+                },
                 sys_update_logname:'',
                 update:'',
                 children: children,

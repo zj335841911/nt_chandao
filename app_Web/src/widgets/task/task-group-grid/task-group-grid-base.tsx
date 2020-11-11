@@ -743,7 +743,7 @@ export class TaskGroupGridBase extends GridControlBase {
                 name:'',
                 AssignTask:{
                     visabled: false
-                }
+                },
                 assignedto:'',
                 finishedby:'',
                 estimate:'',
@@ -796,7 +796,7 @@ export class TaskGroupGridBase extends GridControlBase {
             name:'',
             AssignTask:{
                 visabled: false
-            }
+            },
             assignedto:'',
             finishedby:'',
             estimate:'',
@@ -879,7 +879,7 @@ export class TaskGroupGridBase extends GridControlBase {
                 name:'',
                 AssignTask:{
                     visabled: false
-                }
+                },
                 assignedto:'',
                 finishedby:'',
                 estimate:'',

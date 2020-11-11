@@ -570,7 +570,7 @@ export class MainGridBase extends GridControlBase {
                 id:'',
                 Edit:{
                     visabled: false
-                }
+                },
                 title:'',
                 createdby:'',
                 createddate:'',
@@ -601,7 +601,7 @@ export class MainGridBase extends GridControlBase {
             id:'',
             Edit:{
                 visabled: false
-            }
+            },
             title:'',
             createdby:'',
             createddate:'',
@@ -662,7 +662,7 @@ export class MainGridBase extends GridControlBase {
                 id:'',
                 Edit:{
                     visabled: false
-                }
+                },
                 title:'',
                 createdby:'',
                 createddate:'',
