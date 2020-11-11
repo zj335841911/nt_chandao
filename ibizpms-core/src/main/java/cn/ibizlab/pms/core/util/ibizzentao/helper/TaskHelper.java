@@ -1,6 +1,11 @@
 package cn.ibizlab.pms.core.util.ibizzentao.helper;
 
 import cn.ibizlab.pms.core.ibiz.domain.TaskTeam;
+import cn.ibizlab.pms.core.ibizplugin.domain.IBIZProMessage;
+import cn.ibizlab.pms.core.ibizplugin.service.IIBIZProMessageService;
+import cn.ibizlab.pms.core.ou.domain.SysEmployee;
+import cn.ibizlab.pms.core.ou.filter.SysEmployeeSearchContext;
+import cn.ibizlab.pms.core.ou.service.ISysEmployeeService;
 import cn.ibizlab.pms.core.util.ibizzentao.common.ChangeUtil;
 import cn.ibizlab.pms.core.util.ibizzentao.common.ZTDateUtil;
 import cn.ibizlab.pms.core.zentao.domain.*;
@@ -16,6 +21,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -43,6 +49,9 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
     FileHelper fileHelper;
 
     @Autowired
+    UserHelper userHelper;
+
+    @Autowired
     TeamHelper teamHelper;
 
     @Autowired
@@ -59,6 +68,12 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
 
     @Autowired
     TaskTeamHelper taskTeamHelper;
+
+    @Autowired
+    IIBIZProMessageService iibizProMessageService;
+
+    @Autowired
+    ISysEmployeeService sysEmployeeService;
 
     String[] diffAttrs = {"desc"};
     List<String> ignore = Arrays.asList("totalwh","totalleft","totalconsumed","totalestimate");
@@ -102,6 +117,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
             et.setAssigneddate(new Timestamp(-28800000l));
         }
         String files = et.getFiles();
+        String noticeusers = et.getNoticeusers();
         bOk = super.create(et);
         fileHelper.updateObjectID(et.getId(), StaticDict.File__object_type.TASK.getValue(), files, "");
 
@@ -125,7 +141,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
             this.internalUpdate(et);
 
         }
-
+        actionHelper.send(et.getId(),et.getName(),noticeusers,et.getAssignedto(),et.getMailto(),ITaskService.OBJECT_TEXT_NAME,StaticDict.Action__object_type.TASK.getValue(),ITaskService.OBJECT_SOURCE_PATH);
         actionHelper.create(StaticDict.Action__object_type.TASK.getValue(), et.getId(), StaticDict.Action__type.OPENED.getValue(), "", "", null, true);
         if(et.getStory() != null && et.getStory() != 0l) {
             storyHelper.setStage(et.getZtstory());
@@ -177,7 +193,9 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         Timestamp now = ZTDateUtil.now();
         newTask.setLastediteddate(now);
         newTask.setLasteditedby(AuthenticationUser.getAuthenticationUser().getUsername());
+        String noticeusers = et.getNoticeusers();
         this.internalUpdate(newTask);
+
         Task old = new Task();
         CachedBeanCopier.copy(this.get(et.getId()), old);
         old.setLastediteddate(now);
@@ -190,6 +208,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
             if (changes.size() == 0) {
                 strAction = StaticDict.Action__type.COMMENTED.getValue();
             }
+            actionHelper.send(newTask.getId(),newTask.getName(),noticeusers,newTask.getAssignedto(),newTask.getMailto(),ITaskService.OBJECT_TEXT_NAME,StaticDict.Action__object_type.TASK.getValue(),ITaskService.OBJECT_SOURCE_PATH);
             Action action = actionHelper.create(StaticDict.Action__object_type.TASK.getValue(), et.getId(), strAction,
                     "", "", null, true);
             if (changes.size() > 0)
@@ -341,6 +360,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         }
 
         String files = et.getFiles();
+        String noticeusers = et.getNoticeusers();
         this.internalUpdate(et);
         fileHelper.updateObjectID(et.getId(),StaticDict.File__object_type.TASK.getValue(),files, "");
         boolean changeParent = false;
@@ -412,6 +432,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
             if (changes.size() == 0) {
                 strAction = StaticDict.Action__type.COMMENTED.getValue();
             }
+            actionHelper.send(et.getId(),et.getName(),noticeusers,et.getAssignedto(),et.getMailto(),ITaskService.OBJECT_TEXT_NAME,StaticDict.Action__object_type.TASK.getValue(),ITaskService.OBJECT_SOURCE_PATH);
             Action action = actionHelper.create(StaticDict.Action__object_type.TASK.getValue(), et.getId(), strAction,
                     comment, "", null, true);
             if (changes.size() > 0)
@@ -816,13 +837,16 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
 
         Task newTask = new Task();
         newTask.setId(et.getId());
+        String noticeusers = et.getNoticeusers();
         starts(et,old,newTask);
+
         List<History> changes = ChangeUtil.diff(old, newTask);
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
             String strAction = StaticDict.Action__type.STARTED.getValue();
             if (et.getLeft() == 0) {
                 strAction = StaticDict.Action__type.FINISHED.getValue();
             }
+            actionHelper.send(newTask.getId(),newTask.getName(),noticeusers,newTask.getAssignedto(),newTask.getMailto(),ITaskService.OBJECT_TEXT_NAME,StaticDict.Action__object_type.TASK.getValue(),ITaskService.OBJECT_SOURCE_PATH);
             Action action = actionHelper.create(StaticDict.Action__object_type.TASK.getValue(), newTask.getId(), strAction,
                     comment, "", null, true);
             if (changes.size() > 0)
@@ -887,7 +911,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         if (newTask.getConsumed() < old.getConsumed()){
             throw new RuntimeException("总计消耗必须大于原先消耗");
         }
-
+        String noticeusers = et.getNoticeusers();
         starts(et,old,newTask);
 
         List<History> changes = ChangeUtil.diff(old, newTask);
@@ -896,6 +920,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
             if (et.getLeft() == 0) {
                 strAction = StaticDict.Action__type.FINISHED.getValue();
             }
+            actionHelper.send(newTask.getId(),newTask.getName(),noticeusers,newTask.getAssignedto(),newTask.getMailto(),ITaskService.OBJECT_TEXT_NAME,StaticDict.Action__object_type.TASK.getValue(),ITaskService.OBJECT_SOURCE_PATH);
             Action action = actionHelper.create(StaticDict.Action__object_type.TASK.getValue(), newTask.getId(), strAction,
                     comment, "", null, true);
             if (changes.size() > 0)
@@ -917,10 +942,13 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         newTask.setStatus(StaticDict.Task__status.PAUSE.getValue());
         newTask.setLastediteddate(ZTDateUtil.now());
         newTask.setLasteditedby(AuthenticationUser.getAuthenticationUser().getUsername());
+        String noticeusers = et.getNoticeusers();
         this.internalUpdate(newTask);
+
         if (old.getParent() > 0) this.updateParentStatus(newTask,newTask.getParent(),true);
         List<History> changes = ChangeUtil.diff(old, newTask);
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
+            actionHelper.send(newTask.getId(),newTask.getName(),noticeusers,newTask.getAssignedto(),newTask.getMailto(),ITaskService.OBJECT_TEXT_NAME,StaticDict.Action__object_type.TASK.getValue(),ITaskService.OBJECT_SOURCE_PATH);
             Action action = actionHelper.create(StaticDict.Action__object_type.TASK.getValue(), newTask.getId(), StaticDict.Action__type.PAUSED.getValue(),
                     comment, "", null, true);
             if (changes.size() > 0)
@@ -971,12 +999,14 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
 
         if (old.getParent() > 0)
             updateParentStatus(newTask, old.getParent(), true);
-
+        String noticeusers = et.getNoticeusers();
         this.internalUpdate(newTask);
+
 
         List<History> changes = ChangeUtil.diff(old, newTask);
         this.removeIgonreChanges(changes);
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
+            actionHelper.send(newTask.getId(),newTask.getName(),noticeusers,newTask.getAssignedto(),newTask.getMailto(),ITaskService.OBJECT_TEXT_NAME,StaticDict.Action__object_type.TASK.getValue(),ITaskService.OBJECT_SOURCE_PATH);
             Action action = actionHelper.create(StaticDict.Action__object_type.TASK.getValue(), newTask.getId(), StaticDict.Action__type.ASSIGNED.getValue(),
                     comment, newTask.getAssignedto(), null, true);
             if (changes.size() > 0)
@@ -1009,8 +1039,8 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
             computeHours4Multiple(old, newTask, null, false);
         }
 
+        String noticeusers = et.getNoticeusers();
         this.internalUpdate(newTask);
-
 
         if (old.getParent() > 0)
             updateParentStatus(newTask, old.getParent(), true);
@@ -1027,6 +1057,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         List<History> changes = ChangeUtil.diff(old, newTask);
         this.removeIgonreChanges(changes);
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
+            actionHelper.send(newTask.getId(),newTask.getName(),noticeusers,newTask.getAssignedto(),newTask.getMailto(),ITaskService.OBJECT_TEXT_NAME,StaticDict.Action__object_type.TASK.getValue(),ITaskService.OBJECT_SOURCE_PATH);
             Action action = actionHelper.create(StaticDict.Action__object_type.TASK.getValue(), newTask.getId(), StaticDict.Action__type.ACTIVATED.getValue(),
                     comment, newTask.getAssignedto(), null, true);
             if (changes.size() > 0)
@@ -1070,8 +1101,9 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         Task newTask = new Task();
         this.setCancelNewTask(old,newTask);
         newTask.setId(et.getId());
-
+        String noticeusers = et.getNoticeusers();
         this.internalUpdate(newTask);
+
         if (old.getParent() > 0)
             updateParentStatus(newTask, old.getParent(), true);
 
@@ -1083,6 +1115,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
 
         List<History> changes = ChangeUtil.diff(old, newTask);
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
+            actionHelper.send(newTask.getId(),newTask.getName(),noticeusers,newTask.getAssignedto(),newTask.getMailto(),ITaskService.OBJECT_TEXT_NAME,StaticDict.Action__object_type.TASK.getValue(),ITaskService.OBJECT_SOURCE_PATH);
             Action action = actionHelper.create(StaticDict.Action__object_type.TASK.getValue(), newTask.getId(), StaticDict.Action__type.CANCELED.getValue(),
                     comment, newTask.getAssignedto(), null, true);
             if (changes.size() > 0)
@@ -1171,6 +1204,8 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         }
 
         String files = newTask.getFiles();
+
+        String noticeusers = et.getNoticeusers();
         this.internalUpdate(newTask);
         fileHelper.updateObjectID(newTask.getId(),StaticDict.File__object_type.TASK.getValue(),files, "");
 
@@ -1179,6 +1214,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
 
         List<History> changes = ChangeUtil.diff(old, newTask);
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
+            actionHelper.send(newTask.getId(),newTask.getName(),noticeusers,newTask.getAssignedto(),newTask.getMailto(),ITaskService.OBJECT_TEXT_NAME,StaticDict.Action__object_type.TASK.getValue(),ITaskService.OBJECT_SOURCE_PATH);
             Action action = actionHelper.create(StaticDict.Action__object_type.TASK.getValue(), newTask.getId(), StaticDict.Action__type.FINISHED.getValue(),
                     comment, newTask.getAssignedto(), null, true);
             if (changes.size() > 0)
@@ -1214,6 +1250,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
             newTask.setClosedreason(StaticDict.Task__closed_reason.CANCEL.getValue());
         }
 
+        String noticeusers = et.getNoticeusers();
         this.internalUpdate(newTask);
         if (old.getParent() > 0)
             updateParentStatus(newTask, old.getParent(), true);
@@ -1222,6 +1259,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         String[] ignores = {"assigneddate","closeddate"};
         List<History> changes = ChangeUtil.diff(old, newTask,ignores,null,null);
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
+            actionHelper.send(newTask.getId(),newTask.getName(),noticeusers,newTask.getAssignedto(),newTask.getMailto(),ITaskService.OBJECT_TEXT_NAME,StaticDict.Action__object_type.TASK.getValue(),ITaskService.OBJECT_SOURCE_PATH);
             Action action = actionHelper.create(StaticDict.Action__object_type.TASK.getValue(), newTask.getId(), StaticDict.Action__type.CLOSED.getValue(),
                     comment, newTask.getAssignedto(), null, true);
             if (changes.size() > 0)

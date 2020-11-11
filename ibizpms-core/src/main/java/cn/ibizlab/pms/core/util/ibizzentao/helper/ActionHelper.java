@@ -1,14 +1,19 @@
 package cn.ibizlab.pms.core.util.ibizzentao.helper;
 
+import cn.ibizlab.pms.core.ibizplugin.domain.IBIZProMessage;
+import cn.ibizlab.pms.core.ibizplugin.service.IIBIZProMessageService;
 import cn.ibizlab.pms.core.util.ibizzentao.common.Fixer;
 import cn.ibizlab.pms.core.util.ibizzentao.common.ZTDateUtil;
 import cn.ibizlab.pms.core.zentao.domain.Action;
 import cn.ibizlab.pms.core.zentao.domain.History;
 import cn.ibizlab.pms.core.zentao.domain.ProjectProduct;
+import cn.ibizlab.pms.core.zentao.domain.Task;
 import cn.ibizlab.pms.core.zentao.filter.ProjectProductSearchContext;
 import cn.ibizlab.pms.core.zentao.mapper.ActionMapper;
 import cn.ibizlab.pms.core.zentao.service.IProjectProductService;
+import cn.ibizlab.pms.core.zentao.service.ITaskService;
 import cn.ibizlab.pms.util.dict.StaticDict;
+import cn.ibizlab.pms.util.domain.EntityMP;
 import cn.ibizlab.pms.util.security.AuthenticationUser;
 import com.alibaba.fastjson.JSONObject;
 import lombok.extern.slf4j.Slf4j;
@@ -36,16 +41,99 @@ public class ActionHelper extends ZTBaseHelper<ActionMapper, Action> {
     HistoryHelper historyHelper;
 
     @Autowired
+    UserHelper userHelper;
+
+    @Autowired
+    IIBIZProMessageService iibizProMessageService;
+
+    @Autowired
     IProjectProductService projectProductService;
+
+    @Autowired
+            TaskHelper taskHelper;
+
+    String[] sendAction = {StaticDict.Action__type.OPENED.getValue(),
+            StaticDict.Action__type.EDITED.getValue(),
+            StaticDict.Action__type.CLOSED.getValue(),
+            StaticDict.Action__type.ACTIVATED.getValue(),
+            StaticDict.Action__type.COMMENTED.getValue(),
+            StaticDict.Action__type.FINISHED.getValue(),
+            StaticDict.Action__type.ASSIGNED.getValue(),
+            StaticDict.Action__type.STARTED.getValue(),
+            StaticDict.Action__type.CANCELED.getValue(),
+            StaticDict.Action__type.PAUSED.getValue(),
+            StaticDict.Action__type.RESTARTED.getValue(),
+            StaticDict.Action__type.CHANGED.getValue(),
+            StaticDict.Action__type.RESOLVED.getValue(),
+            StaticDict.Action__type.REVIEWED.getValue()};
 
     @Transactional
     public boolean create(Action et) {
         et.setComment(et.getComment() == null ? "" : et.getComment());
+        String noticeusers = et.getNoticeusers();
         super.create(et);
-
-        messageHelper.send(et.getObjecttype(), et.getObjectid(), et.getAction(), et.getId(), et.getActor());
-
+        if(StaticDict.Action__object_type.TASK.getValue().equals(et.getObjecttype())) {
+            Task task = taskHelper.get(et.getObjectid());
+            send(task.getId(),task.getName(),noticeusers,task.getAssignedto(),task.getMailto(), ITaskService.OBJECT_TEXT_NAME,StaticDict.Action__object_type.TASK.getValue(),ITaskService.OBJECT_SOURCE_PATH);
+        }
+//        if(Arrays.deepToString(sendAction).contains(et.getObjecttype())) {
+//            String sql = String.format("select * from zt_%1$s where id = '%2$s'", et.getObjecttype(), et.getObjectid());
+//            List<JSONObject> list = projectProductService.select(sql, null);
+//            if (list.size() > 0) {
+//                send(list.get(0), noticeusers, et.getObjecttype());
+//            }
+//        }
         return true;
+    }
+
+    /**
+     *
+     * @param id 主键
+     * @param name 标题
+     * @param noticeusers 消息通知用户
+     * @param touser 指派用户
+     * @param ccuser 抄送用户
+     * @param logicname
+     * @param type
+     * @param path
+     */
+    public void send(Long id, String name,String noticeusers,String touser,String ccuser,String logicname, String type, String path) {
+        String noticeuserss = "";
+        JSONObject param = new JSONObject();
+        if(noticeusers != null & !"".equals(noticeusers))
+            noticeuserss += noticeusers.replaceAll(",",";");
+        if(ccuser != null && !"".equals(ccuser) && "".equals(noticeuserss))
+            noticeuserss += ccuser.replaceAll(",",";");
+        else if(ccuser != null && !"".equals(ccuser) && !"".equals(noticeuserss))
+            noticeuserss += ";" + ccuser.replaceAll(",",";");
+        if("".equals(touser) && "".equals(noticeuserss))
+            return;
+
+        IBIZProMessage ibizProMessage = new IBIZProMessage();
+        if("".equals(noticeuserss)) {
+            ibizProMessage.setCc("");
+        }else {
+            ibizProMessage.setCc(userHelper.ccUsers(noticeuserss));
+        }
+        if("".equals(touser)) {
+            ibizProMessage.setTo("");
+        }else {
+            ibizProMessage.setTo(userHelper.toUser(touser));
+        }
+
+        ibizProMessage.setFrom(AuthenticationUser.getAuthenticationUser().getUserid());
+
+        if("".equals(ibizProMessage.getCc()) && "".equals(ibizProMessage.getTo())) {
+            return;
+        }
+        ibizProMessage.setType(StaticDict.Message__type.TODO.getValue());
+        ibizProMessage.setIbizproMessagename(name);
+        param.put("objectid", id);
+        param.put("objecttype", type);
+        param.put("objectsourcepath", path);
+        param.put("objecttextname", logicname);
+        ibizProMessage.setParam(param.toJSONString());
+        iibizProMessageService.send(ibizProMessage);
     }
 
 
@@ -56,9 +144,17 @@ public class ActionHelper extends ZTBaseHelper<ActionMapper, Action> {
      */
     @Transactional
     public boolean edit(Action et) {
-        return internalUpdate(et);
+//        String noticeusers = et.getNoticeusers();
+        this.internalUpdate(et);
+//        if(Arrays.deepToString(sendAction).contains(et.getObjecttype())) {
+//            String sql = String.format("select * from zt_%1$s where id = '%2$s'", et.getObjecttype(), et.getObjectid());
+//            List<JSONObject> list = projectProductService.select(sql, null);
+//            if (list.size() > 0) {
+//                send(list.get(0), noticeusers, et.getObjecttype());
+//            }
+//        }
+        return true;
     }
-
 
     /**
      *
@@ -114,13 +210,10 @@ public class ActionHelper extends ZTBaseHelper<ActionMapper, Action> {
             et.setProject(jsonObject.getLongValue("project"));
             log.info(processType + "product、project设置未实现");
         }
-
-        this.create(et);
-
-        messageHelper.send(objectType, objectID, actionType, et.getId(), actor);
-
+        super.create(et);
         return et;
     }
+
 
     /**
      *
@@ -196,7 +289,7 @@ public class ActionHelper extends ZTBaseHelper<ActionMapper, Action> {
     @Transactional
     public Action editComment(Action et) {
         et.setDate(ZTDateUtil.now());
-        this.internalUpdate(et);
+        this.edit(et);
         return et;
     }
 
