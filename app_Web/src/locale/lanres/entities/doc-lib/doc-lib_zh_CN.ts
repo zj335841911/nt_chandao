@@ -137,18 +137,6 @@ export default {
 		},
 	},
 	libtabexpviewtoolbar_toolbar: {
-		deuiaction7: {
-			caption: "快速访问",
-			tip: "快速访问",
-		},
-		deuiaction4: {
-			caption: "创建文档库",
-			tip: "创建文档库",
-		},
-		deuiaction6: {
-			caption: "创建文档",
-			tip: "创建文档",
-		},
 		items1: {
 			caption: "快速访问",
 			tip: "快速访问",
@@ -160,6 +148,14 @@ export default {
 		deuiaction2: {
 			caption: "我的文档",
 			tip: "我的文档",
+		},
+		deuiaction4: {
+			caption: "创建文档库",
+			tip: "创建文档库",
+		},
+		deuiaction6: {
+			caption: "创建文档",
+			tip: "创建文档",
 		},
 	},
 	projectdoclibtree_treeview: {
