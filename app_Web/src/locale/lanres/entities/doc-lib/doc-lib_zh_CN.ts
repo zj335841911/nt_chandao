@@ -50,10 +50,6 @@ export default {
 			caption: "文档库主页",
       		title: "文档库分页导航视图（文档）",
 		},
-		gridview9: {
-			caption: "未完成项目",
-      		title: "文档库表格视图",
-		},
 		dashboardview: {
 			caption: "文档主页",
       		title: "文档库数据看板视图",
@@ -111,16 +107,6 @@ export default {
 			doclib_weihufenlei: "维护分类",
 		},
 	},
-	undoneproject_grid: {
-		nodata: "",
-		columns: {
-			projectname: "所属项目",
-			name: "文档库名称",
-			doccnt: "文档数量",
-		},
-		uiactions: {
-		},
-	},
 	default_searchform: {
 		details: {
 			formpage1: "常规条件", 
@@ -157,8 +143,6 @@ export default {
 			caption: "创建文档",
 			tip: "创建文档",
 		},
-	},
-	gridview9toolbar_toolbar: {
 	},
 	projectdoclibtree_treeview: {
 		nodes: {
