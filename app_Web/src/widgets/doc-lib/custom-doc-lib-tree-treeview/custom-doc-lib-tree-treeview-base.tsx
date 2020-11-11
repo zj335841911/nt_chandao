@@ -81,6 +81,9 @@ export class CustomDocLibTreeTreeBase extends MainControlBase {
         if (Object.is($event.tag, 'deuiaction2')) {
             this.doclib_cm_deuiaction2_click(null, 'doclib_cm', $event2);
         }
+        if (Object.is($event.tag, 'deuiaction3')) {
+            this.doclib_cm_deuiaction3_click(null, 'doclib_cm', $event2);
+        }
     }
 
     /**
@@ -151,6 +154,35 @@ export class CustomDocLibTreeTreeBase extends MainControlBase {
         }
         // 界面行为
         this.RefreshAll(datas, contextJO,paramJO,  $event, xData,this,"DocLib");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public doclib_cm_deuiaction3_click(params: any = {}, tag?: any, $event?: any) {
+        // 参数
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:DocLibUIService  = new DocLibUIService();
+        curUIService.DocLib_WeiHuFenLei(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
     }
 
     /**
@@ -406,6 +438,7 @@ export class CustomDocLibTreeTreeBase extends MainControlBase {
      public actionModel: any = {
         Doclib_deuiaction1: {name:'deuiaction1',nodeOwner:'Doclib',type: 'DEUIACTION', tag: 'EditCustomDocLib', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, visabled: true, disabled: false},
         Doclib_deuiaction2: {name:'deuiaction2',nodeOwner:'Doclib',type: 'DEUIACTION', tag: 'RefreshAll', noprivdisplaymode:2, visabled: true, disabled: false},
+        Doclib_deuiaction3: {name:'deuiaction3',nodeOwner:'Doclib',type: 'DEUIACTION', tag: 'WeiHuFenLei', actiontarget: 'SINGLEKEY', noprivdisplaymode:1, dataaccaction:'DOC', visabled: true, disabled: false},
         ALL_deuiaction1: {name:'deuiaction1',nodeOwner:'ALL',type: 'DEUIACTION', tag: 'RefreshAll', noprivdisplaymode:2, visabled: true, disabled: false},
     }
 
@@ -827,6 +860,10 @@ export class CustomDocLibTreeTreeBase extends MainControlBase {
                             <dropdown-item name='deuiaction2' v-show={this.copyActionModel['deuiaction2']?.visabled} disabled={this.copyActionModel['deuiaction2']?.disabled}>
                         <i class='fa fa-refresh'></i>
                         刷新
+                    </dropdown-item>
+                            <dropdown-item name='deuiaction3' v-show={this.copyActionModel['deuiaction3']?.visabled} disabled={this.copyActionModel['deuiaction3']?.disabled}>
+                        <i class='fa fa-lock'></i>
+                        维护分类
                     </dropdown-item>
                 </dropdown-menu>
             </dropdown>

@@ -176,6 +176,7 @@ export default {
 		uiactions: {
         doclib_editcustomdoclib: "编辑",
         refreshall: "刷新",
+        doclib_weihufenlei: "维护分类",
 		},
 	},
 };

@@ -7363,6 +7363,20 @@ const router = new Router({
                     component: () => import('@pages/ibiz/sys-update-features-info-edit-view/sys-update-features-info-edit-view.vue'),
                 },
                 {
+                    path: 'doclibmodules/:doclibmodule?/usr2gridview/:usr2gridview?',
+                    meta: {
+                        caption: 'entities.doclibmodule.views.usr2gridview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'doclibmodules', parameterName: 'doclibmodule' },
+                            { pathName: 'usr2gridview', parameterName: 'usr2gridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/doc-lib-module-usr2-grid-view/doc-lib-module-usr2-grid-view.vue'),
+                },
+                {
                     path: 'projects/:project?/testtasks/:testtask?/editview9_detail/:editview9_detail?',
                     meta: {
                         caption: 'entities.testtask.views.editview9_detail.caption',
@@ -7411,20 +7425,6 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/test-task-edit-view9-detail/test-task-edit-view9-detail.vue'),
-                },
-                {
-                    path: 'doclibmodules/:doclibmodule?/usr2gridview/:usr2gridview?',
-                    meta: {
-                        caption: 'entities.doclibmodule.views.usr2gridview.caption',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'doclibmodules', parameterName: 'doclibmodule' },
-                            { pathName: 'usr2gridview', parameterName: 'usr2gridview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/doc-lib-module-usr2-grid-view/doc-lib-module-usr2-grid-view.vue'),
                 },
                 {
                     path: 'docs/:doc?/createeditview/:createeditview?',
