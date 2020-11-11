@@ -2078,7 +2078,7 @@ export const viewstate: any = {
         {
             viewtag: '7c188c576f1fd59114ac2940d8e92c15',
             viewmodule: 'ibiz',
-            viewname: 'DocGridView_RecentMore',
+            viewname: 'DocRecentMoreGridView',
             viewaction: '',
             viewdatachange: false,
             refviews: [
@@ -3100,7 +3100,7 @@ export const viewstate: any = {
         {
             viewtag: 'b593c09602d9483d53b1f725395030a6',
             viewmodule: 'ibiz',
-            viewname: 'DocGridView_MyMore',
+            viewname: 'DocMyMoreGridView',
             viewaction: '',
             viewdatachange: false,
             refviews: [

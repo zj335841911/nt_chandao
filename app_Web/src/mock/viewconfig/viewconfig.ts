@@ -1847,12 +1847,12 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ModuleGridView",
             "viewtag": "7bbf35767e7763b69ad6acd4b06c06d1"
         },
-        "docgridview_recentmore": {
+        "docrecentmoregridview": {
             "title": "doc表格视图",
             "caption": "最近更新",
             "viewtype": "DEGRIDVIEW",
             "viewmodule": "ibiz",
-            "viewname": "DocGridView_RecentMore",
+            "viewname": "DocRecentMoreGridView",
             "viewtag": "7c188c576f1fd59114ac2940d8e92c15"
         },
         "bugconfirmview": {
@@ -2351,6 +2351,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "StoryPickupGridView2",
             "viewtag": "971a6faeda9b1b090521472c06eba003"
         },
+        "docmystargridview": {
+            "title": "文档表格视图",
+            "caption": "文档",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "DocMyStarGridView",
+            "viewtag": "97a0858ebdce8c45b29cd313e041bd48"
+        },
         "actionproducttrendslistview9": {
             "title": "产品动态",
             "caption": "系统日志",
@@ -2767,12 +2775,12 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "BugTodoEditView",
             "viewtag": "b5709ef6b436135e1738304e61b5f200"
         },
-        "docgridview_mymore": {
+        "docmymoregridview": {
             "title": "doc表格视图",
             "caption": "我的文档",
             "viewtype": "DEGRIDVIEW",
             "viewmodule": "ibiz",
-            "viewname": "DocGridView_MyMore",
+            "viewname": "DocMyMoreGridView",
             "viewtag": "b593c09602d9483d53b1f725395030a6"
         },
         "productdashboardinfomainview9": {

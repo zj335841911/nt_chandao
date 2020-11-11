@@ -13,16 +13,16 @@ import CodeListService from "@service/app/codelist-service";
  * doc表格视图视图基类
  *
  * @export
- * @class DocGridViewBase
+ * @class DocMyMoreGridViewBase
  * @extends {GridViewBase}
  */
-export class DocGridViewBase extends GridViewBase {
+export class DocMyMoreGridViewBase extends GridViewBase {
     /**
      * 视图对应应用实体名称
      *
      * @protected
      * @type {string}
-     * @memberof DocGridViewBase
+     * @memberof DocMyMoreGridViewBase
      */
     protected appDeName: string = 'doc';
 
@@ -31,7 +31,7 @@ export class DocGridViewBase extends GridViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof DocGridViewBase
+     * @memberof DocMyMoreGridViewBase
      */
     protected appDeKey: string = 'id';
 
@@ -40,7 +40,7 @@ export class DocGridViewBase extends GridViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof DocGridViewBase
+     * @memberof DocMyMoreGridViewBase
      */
     protected appDeMajor: string = 'title';
 
@@ -49,7 +49,7 @@ export class DocGridViewBase extends GridViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof DocGridViewBase
+     * @memberof DocMyMoreGridViewBase
      */ 
     protected dataControl:string = "grid";
 
@@ -57,7 +57,7 @@ export class DocGridViewBase extends GridViewBase {
      * 实体服务对象
      *
      * @type {DocService}
-     * @memberof DocGridViewBase
+     * @memberof DocMyMoreGridViewBase
      */
     protected appEntityService: DocService = new DocService;
 
@@ -65,34 +65,22 @@ export class DocGridViewBase extends GridViewBase {
      * 实体权限服务对象
      *
      * @type DocUIService
-     * @memberof DocGridViewBase
+     * @memberof DocMyMoreGridViewBase
      */
     public appUIService: DocUIService = new DocUIService(this.$store);
-
-	/**
-	 * 自定义视图导航上下文集合
-	 *
-     * @protected
-	 * @type {*}
-	 * @memberof DocGridViewBase
-	 */
-    protected customViewNavContexts: any = {
-        'PARENT': { isRawValue: true, value: 'doclibmodule' },
-        'SRFROOT': { isRawValue: false, value: 'doclib' }
-    };
 
 	/**
 	 * 自定义视图导航参数集合
 	 *
      * @protected
 	 * @type {*}
-	 * @memberof DocGridViewBase
+	 * @memberof DocMyMoreGridViewBase
 	 */
     protected customViewParams: any = {
         'n_lib_eq': { isRawValue: false, value: 'srfparentkey' },
         'n_project_eq': { isRawValue: false, value: 'project' },
-        'parent': { isRawValue: true, value: 'doclibmodule' },
-        'srfroot': { isRawValue: false, value: 'doclib' }
+        'n_addedby_eq': { isRawValue: false, value: 'srfloginname' },
+        'parent': { isRawValue: true, value: '0' }
     };
 
     /**
@@ -100,12 +88,12 @@ export class DocGridViewBase extends GridViewBase {
      *
      * @protected
      * @type {*}
-     * @memberof DocGridViewBase
+     * @memberof DocMyMoreGridViewBase
      */
     protected model: any = {
-        srfCaption: 'entities.doc.views.gridview.caption',
-        srfTitle: 'entities.doc.views.gridview.title',
-        srfSubTitle: 'entities.doc.views.gridview.subtitle',
+        srfCaption: 'entities.doc.views.mymoregridview.caption',
+        srfTitle: 'entities.doc.views.mymoregridview.title',
+        srfSubTitle: 'entities.doc.views.mymoregridview.subtitle',
         dataInfo: ''
     }
 
@@ -114,25 +102,12 @@ export class DocGridViewBase extends GridViewBase {
      *
      * @protected
      * @type {*}
-     * @memberof DocGridViewBase
+     * @memberof DocMyMoreGridViewBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
         view_grid: { name: 'grid', type: 'GRID' },
         view_searchform: { name: 'searchform', type: 'SEARCHFORM' },
     };
-
-    /**
-     * 工具栏模型
-     *
-     * @type {*}
-     * @memberof DocGridView
-     */
-    public toolBarModels: any = {
-        deuiaction7: { name: 'deuiaction7', caption: '导出', 'isShowCaption': true, 'isShowIcon': true, tooltip: '导出', iconcls: 'fa fa-file-excel-o', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ExportExcel', target: '' }, MaxRowCount: 1000, class: '' },
-
-    };
-
 
 
 	/**
@@ -140,18 +115,18 @@ export class DocGridViewBase extends GridViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof DocGridViewBase
+     * @memberof DocMyMoreGridViewBase
      */
-	protected viewtag: string = '4503911318e1f1f26599b68a6c6e681d';
+	protected viewtag: string = 'b593c09602d9483d53b1f725395030a6';
 
     /**
      * 视图名称
      *
      * @protected
      * @type {string}
-     * @memberof DocGridViewBase
+     * @memberof DocMyMoreGridViewBase
      */ 
-    protected viewName:string = "DocGridView";
+    protected viewName:string = "DocMyMoreGridView";
 
 
     /**
@@ -159,7 +134,7 @@ export class DocGridViewBase extends GridViewBase {
      *
      * @public
      * @type {Engine}
-     * @memberof DocGridViewBase
+     * @memberof DocMyMoreGridViewBase
      */
     public engine: GridViewEngine = new GridViewEngine();
 
@@ -168,7 +143,7 @@ export class DocGridViewBase extends GridViewBase {
      * 计数器服务对象集合
      *
      * @type {Array<*>}
-     * @memberof DocGridViewBase
+     * @memberof DocMyMoreGridViewBase
      */    
     public counterServiceArray:Array<any> = [];
 
@@ -176,7 +151,7 @@ export class DocGridViewBase extends GridViewBase {
      * 引擎初始化
      *
      * @public
-     * @memberof DocGridViewBase
+     * @memberof DocMyMoreGridViewBase
      */
     public engineInit(): void {
         this.engine.init({
@@ -196,24 +171,11 @@ export class DocGridViewBase extends GridViewBase {
     }
 
     /**
-     * toolbar 部件 click 事件
-     *
-     * @param {*} [args={}]
-     * @param {*} $event
-     * @memberof DocGridViewBase
-     */
-    public toolbar_click($event: any, $event2?: any): void {
-        if (Object.is($event.tag, 'deuiaction7')) {
-            this.toolbar_deuiaction7_click(null, '', $event2);
-        }
-    }
-
-    /**
      * grid 部件 selectionchange 事件
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof DocGridViewBase
+     * @memberof DocMyMoreGridViewBase
      */
     public grid_selectionchange($event: any, $event2?: any): void {
         this.engine.onCtrlEvent('grid', 'selectionchange', $event);
@@ -224,7 +186,7 @@ export class DocGridViewBase extends GridViewBase {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof DocGridViewBase
+     * @memberof DocMyMoreGridViewBase
      */
     public grid_beforeload($event: any, $event2?: any): void {
         this.engine.onCtrlEvent('grid', 'beforeload', $event);
@@ -235,7 +197,7 @@ export class DocGridViewBase extends GridViewBase {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof DocGridViewBase
+     * @memberof DocMyMoreGridViewBase
      */
     public grid_rowdblclick($event: any, $event2?: any): void {
         this.engine.onCtrlEvent('grid', 'rowdblclick', $event);
@@ -246,7 +208,7 @@ export class DocGridViewBase extends GridViewBase {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof DocGridViewBase
+     * @memberof DocMyMoreGridViewBase
      */
     public grid_remove($event: any, $event2?: any): void {
         this.engine.onCtrlEvent('grid', 'remove', $event);
@@ -257,7 +219,7 @@ export class DocGridViewBase extends GridViewBase {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof DocGridViewBase
+     * @memberof DocMyMoreGridViewBase
      */
     public grid_load($event: any, $event2?: any): void {
         this.engine.onCtrlEvent('grid', 'load', $event);
@@ -268,7 +230,7 @@ export class DocGridViewBase extends GridViewBase {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof DocGridViewBase
+     * @memberof DocMyMoreGridViewBase
      */
     public searchform_save($event: any, $event2?: any): void {
         this.engine.onCtrlEvent('searchform', 'save', $event);
@@ -279,7 +241,7 @@ export class DocGridViewBase extends GridViewBase {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof DocGridViewBase
+     * @memberof DocMyMoreGridViewBase
      */
     public searchform_search($event: any, $event2?: any): void {
         this.engine.onCtrlEvent('searchform', 'search', $event);
@@ -290,38 +252,10 @@ export class DocGridViewBase extends GridViewBase {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof DocGridViewBase
+     * @memberof DocMyMoreGridViewBase
      */
     public searchform_load($event: any, $event2?: any): void {
         this.engine.onCtrlEvent('searchform', 'load', $event);
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public toolbar_deuiaction7_click(params: any = {}, tag?: any, $event?: any) {
-        // 参数
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        let contextJO:any = {};
-        xData = this.$refs.grid;
-        if (xData.getDatas && xData.getDatas instanceof Function) {
-            datas = [...xData.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        this.ExportExcel(datas, contextJO,paramJO,  $event, xData,this,"Doc");
     }
 
     /**
@@ -332,7 +266,7 @@ export class DocGridViewBase extends GridViewBase {
      * @param {*} [fullargs]
      * @param {*} [$event]
      * @param {*} [xData]
-     * @memberof DocGridView
+     * @memberof DocMyMoreGridView
      */
     public newdata(args: any[],fullargs?:any[], params?: any, $event?: any, xData?: any) {
         let localContext:any = null;
@@ -373,7 +307,7 @@ export class DocGridViewBase extends GridViewBase {
      * @param {*} [fullargs]
      * @param {*} [$event]
      * @param {*} [xData]
-     * @memberof DocGridView
+     * @memberof DocMyMoreGridView
      */
     public opendata(args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) {
         const localContext: any = null;
@@ -411,22 +345,13 @@ export class DocGridViewBase extends GridViewBase {
     }
 
 
+
     /**
-     * 导出
+     * 是否单选
      *
-     * @param {any[]} args 当前数据
-     * @param {any} contextJO 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @memberof DocGridViewBase
+     * @protected
+     * @type {boolean}
+     * @memberof DocMyMoreGridViewBase
      */
-    public ExportExcel(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-        const _this: any = this;
-        if (!xData || !(xData.exportExcel instanceof Function) || !$event) {
-            return ;
-        }
-        xData.exportExcel($event.exportparms);
-    }
+    protected isGridSingleSelect: boolean = true;
 }

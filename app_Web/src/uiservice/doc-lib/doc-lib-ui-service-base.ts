@@ -213,7 +213,7 @@ export default class DocLibUIServiceBase extends UIService {
         let deResParameters: any[] = [];
         const parameters: any[] = [
             { pathName: 'docs', parameterName: 'doc' },
-            { pathName: 'gridview_recentmore', parameterName: 'gridview_recentmore' },
+            { pathName: 'recentmoregridview', parameterName: 'recentmoregridview' },
         ];
         const openIndexViewTab = (data: any) => {
             const routePath = actionContext.$viewTool.buildUpRoutePath(actionContext.$route, context, deResParameters, parameters, _args, data);
@@ -376,7 +376,7 @@ export default class DocLibUIServiceBase extends UIService {
         let deResParameters: any[] = [];
         const parameters: any[] = [
             { pathName: 'docs', parameterName: 'doc' },
-            { pathName: 'gridview_mymore', parameterName: 'gridview_mymore' },
+            { pathName: 'mymoregridview', parameterName: 'mymoregridview' },
         ];
         const openIndexViewTab = (data: any) => {
             const routePath = actionContext.$viewTool.buildUpRoutePath(actionContext.$route, context, deResParameters, parameters, _args, data);

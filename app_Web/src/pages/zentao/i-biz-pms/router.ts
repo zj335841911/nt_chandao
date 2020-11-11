@@ -617,18 +617,18 @@ const router = new Router({
                     component: () => import('@pages/zentao/product-plan-project-grid-view9/product-plan-project-grid-view9.vue'),
                 },
                 {
-                    path: 'docs/:doc?/gridview_recentmore/:gridview_recentmore?',
+                    path: 'docs/:doc?/recentmoregridview/:recentmoregridview?',
                     meta: {
-                        caption: 'entities.doc.views.gridview_recentmore.caption',
+                        caption: 'entities.doc.views.recentmoregridview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'docs', parameterName: 'doc' },
-                            { pathName: 'gridview_recentmore', parameterName: 'gridview_recentmore' },
+                            { pathName: 'recentmoregridview', parameterName: 'recentmoregridview' },
                         ],
                         requireAuth: true,
                     },
-                    component: () => import('@pages/ibiz/doc-grid-view-recent-more/doc-grid-view-recent-more.vue'),
+                    component: () => import('@pages/ibiz/doc-recent-more-grid-view/doc-recent-more-grid-view.vue'),
                 },
                 {
                     path: 'projects/:project?/pickupgridview/:pickupgridview?',
@@ -14911,18 +14911,18 @@ const router = new Router({
                     component: () => import('@pages/ibiz/employeeloadedit-view/employeeloadedit-view.vue'),
                 },
                 {
-                    path: 'docs/:doc?/gridview_mymore/:gridview_mymore?',
+                    path: 'docs/:doc?/mymoregridview/:mymoregridview?',
                     meta: {
-                        caption: 'entities.doc.views.gridview_mymore.caption',
+                        caption: 'entities.doc.views.mymoregridview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'docs', parameterName: 'doc' },
-                            { pathName: 'gridview_mymore', parameterName: 'gridview_mymore' },
+                            { pathName: 'mymoregridview', parameterName: 'mymoregridview' },
                         ],
                         requireAuth: true,
                     },
-                    component: () => import('@pages/ibiz/doc-grid-view-my-more/doc-grid-view-my-more.vue'),
+                    component: () => import('@pages/ibiz/doc-my-more-grid-view/doc-my-more-grid-view.vue'),
                 },
                 {
                     path: 'ibzmyterritories/:ibzmyterritory?/employtreeexpview/:employtreeexpview?',
