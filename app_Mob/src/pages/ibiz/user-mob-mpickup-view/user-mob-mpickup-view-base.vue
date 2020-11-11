@@ -35,7 +35,7 @@
         </view_pickupviewpanel>
     </ion-content>
     <ion-footer class="view-footer">
-        <div>
+        <div class="mpicker_buttons">
     <div class="demobmpickupview_button">
       <div class="selectedCount">已选择：{{viewSelections.length}}<ion-icon name="chevron-up-outline"></ion-icon></div>
       <ion-button class="pick-btn" @click="onClickOk" :disabled="viewSelections.length === 0">{{$t('app.button.confirm')}}</ion-button>
