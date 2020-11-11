@@ -2759,6 +2759,16 @@
         "viewtag": "8eb13e4fe49406265e2ed5fb1e0a6b53",
         "memo": ""
     },
+    "projectusr2gridview9": {
+        "title": "项目表格视图",
+        "caption": "未完成项目",
+        "viewtype": "DEGRIDVIEW9",
+        "viewmodule": "zentao",
+        "viewname": "ProjectUsr2GridView9",
+        "viewfilename": "project-usr2-grid-view9",
+        "viewtag": "8fac98670d76162935cc17f326f35f05",
+        "memo": ""
+    },
     "storyplaneditview": {
         "title": "需求",
         "caption": "需求",

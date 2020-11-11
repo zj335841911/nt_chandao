@@ -484,6 +484,7 @@ SRFNAVPARAM.project=%project%|
 |-|测试用例表格视图（测试结果条目）|DEGRIDVIEW|&nbsp;|
 |-|测试用例|DEEDITVIEW|&nbsp;|
 |-|产品线|DEGRIDVIEW|&nbsp;|
+|-|项目表格视图|DEGRIDVIEW9|&nbsp;|
 |-|需求|DEEDITVIEW|&nbsp;|
 |-|测试用例图表视图（执行结果）|DECHARTVIEW9|&nbsp;|
 |-|产品计划表格视图（项目）|DEGRIDVIEW9|&nbsp;|
