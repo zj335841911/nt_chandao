@@ -837,7 +837,7 @@ export const viewstate: any = {
         {
             viewtag: '33bc8b8e9d75db2fb1bf2723dbff55b0',
             viewmodule: 'zentao',
-            viewname: 'ProjectUsr3GridView9',
+            viewname: 'ProjectMoreUndoneProjectGridView9',
             viewaction: '',
             viewdatachange: false,
             refviews: [
@@ -1629,7 +1629,7 @@ export const viewstate: any = {
         {
             viewtag: '5b2408d384f5b00f079883a01aeb9d2f',
             viewmodule: 'ibiz',
-            viewname: 'DocLibGridView_3983',
+            viewname: 'DocLibUndoneProjectGridView',
             viewaction: '',
             viewdatachange: false,
             refviews: [
@@ -3726,7 +3726,7 @@ export const viewstate: any = {
         {
             viewtag: 'd290709d6a36e20e79d60e873047ec0d',
             viewmodule: 'zentao',
-            viewname: 'ProjectUsr2GridView9',
+            viewname: 'ProjectUndoneProjectGridView',
             viewaction: '',
             viewdatachange: false,
             refviews: [

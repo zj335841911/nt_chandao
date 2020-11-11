@@ -5674,18 +5674,18 @@ const router = new Router({
                     component: () => import('@pages/zentao/case-cur-suit-grid-view/case-cur-suit-grid-view.vue'),
                 },
                 {
-                    path: 'projects/:project?/usr2gridview9/:usr2gridview9?',
+                    path: 'projects/:project?/undoneprojectgridview/:undoneprojectgridview?',
                     meta: {
-                        caption: 'entities.project.views.usr2gridview9.caption',
+                        caption: 'entities.project.views.undoneprojectgridview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'projects', parameterName: 'project' },
-                            { pathName: 'usr2gridview9', parameterName: 'usr2gridview9' },
+                            { pathName: 'undoneprojectgridview', parameterName: 'undoneprojectgridview' },
                         ],
                         requireAuth: true,
                     },
-                    component: () => import('@pages/zentao/project-usr2-grid-view9/project-usr2-grid-view9.vue'),
+                    component: () => import('@pages/zentao/project-undone-project-grid-view/project-undone-project-grid-view.vue'),
                 },
                 {
                     path: 'modules/:module?/pickupview/:pickupview?',
@@ -6792,18 +6792,18 @@ const router = new Router({
                     component: () => import('@pages/zentao/case-main-dashboard-view/case-main-dashboard-view.vue'),
                 },
                 {
-                    path: 'projects/:project?/usr3gridview9/:usr3gridview9?',
+                    path: 'projects/:project?/moreundoneprojectgridview9/:moreundoneprojectgridview9?',
                     meta: {
-                        caption: 'entities.project.views.usr3gridview9.caption',
+                        caption: 'entities.project.views.moreundoneprojectgridview9.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'projects', parameterName: 'project' },
-                            { pathName: 'usr3gridview9', parameterName: 'usr3gridview9' },
+                            { pathName: 'moreundoneprojectgridview9', parameterName: 'moreundoneprojectgridview9' },
                         ],
                         requireAuth: true,
                     },
-                    component: () => import('@pages/zentao/project-usr3-grid-view9/project-usr3-grid-view9.vue'),
+                    component: () => import('@pages/zentao/project-more-undone-project-grid-view9/project-more-undone-project-grid-view9.vue'),
                 },
                 {
                     path: 'products/:product?/stories/:story?/reviewview/:reviewview?',
@@ -10006,18 +10006,18 @@ const router = new Router({
                     component: () => import('@pages/zentao/bug-resolve-view/bug-resolve-view.vue'),
                 },
                 {
-                    path: 'doclibs/:doclib?/gridview_3983/:gridview_3983?',
+                    path: 'doclibs/:doclib?/undoneprojectgridview/:undoneprojectgridview?',
                     meta: {
-                        caption: 'entities.doclib.views.gridview_3983.caption',
+                        caption: 'entities.doclib.views.undoneprojectgridview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'doclibs', parameterName: 'doclib' },
-                            { pathName: 'gridview_3983', parameterName: 'gridview_3983' },
+                            { pathName: 'undoneprojectgridview', parameterName: 'undoneprojectgridview' },
                         ],
                         requireAuth: true,
                     },
-                    component: () => import('@pages/ibiz/doc-lib-grid-view-3983/doc-lib-grid-view-3983.vue'),
+                    component: () => import('@pages/ibiz/doc-lib-undone-project-grid-view/doc-lib-undone-project-grid-view.vue'),
                 },
                 {
                     path: 'ibzlibs/:ibzlib?/ibzcases/:ibzcase?/gridview/:gridview?',

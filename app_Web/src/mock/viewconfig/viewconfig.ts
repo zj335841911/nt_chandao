@@ -767,12 +767,12 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "CaseGridView9_My",
             "viewtag": "326af0ddc7ead19a61f479dddf7b1e3a"
         },
-        "projectusr3gridview9": {
+        "projectmoreundoneprojectgridview9": {
             "title": "项目表格视图",
             "caption": "未完成项目",
             "viewtype": "DEGRIDVIEW9",
             "viewmodule": "zentao",
-            "viewname": "ProjectUsr3GridView9",
+            "viewname": "ProjectMoreUndoneProjectGridView9",
             "viewtag": "33bc8b8e9d75db2fb1bf2723dbff55b0"
         },
         "casegridview9_storyaffect": {
@@ -1455,12 +1455,12 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TestTaskEditView",
             "viewtag": "5b139a407fa34f386f3f784f33841184"
         },
-        "doclibgridview_3983": {
+        "doclibundoneprojectgridview": {
             "title": "doclib表格视图",
             "caption": "文档库",
             "viewtype": "DEGRIDVIEW",
             "viewmodule": "ibiz",
-            "viewname": "DocLibGridView_3983",
+            "viewname": "DocLibUndoneProjectGridView",
             "viewtag": "5b2408d384f5b00f079883a01aeb9d2f"
         },
         "projectmainview_edit": {
@@ -3295,12 +3295,12 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProductMyTestTabExpView",
             "viewtag": "d21c783cde14166ba9deb09e746a0f28"
         },
-        "projectusr2gridview9": {
+        "projectundoneprojectgridview": {
             "title": "项目表格视图",
             "caption": "未完成项目",
             "viewtype": "DEGRIDVIEW9",
             "viewmodule": "zentao",
-            "viewname": "ProjectUsr2GridView9",
+            "viewname": "ProjectUndoneProjectGridView",
             "viewtag": "d290709d6a36e20e79d60e873047ec0d"
         },
         "groupeditview": {

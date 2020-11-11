@@ -264,7 +264,7 @@ export class UndoneProjectPortletBase extends MainControlBase {
      * @memberof UndoneProjectBase
      */
     public refresh(args?: any) {
-      this.viewState.next({ tag: 'ProjectUsr2GridView9', action: 'refresh', data: args });
+      this.viewState.next({ tag: 'ProjectUndoneProjectGridView', action: 'refresh', data: args });
     }
 
 }

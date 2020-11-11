@@ -38,7 +38,7 @@ export default {
 			caption: "文档库",
       		title: "doclib表格视图",
 		},
-		gridview_3983: {
+		undoneprojectgridview: {
 			caption: "文档库",
       		title: "doclib表格视图",
 		},
@@ -128,7 +128,7 @@ export default {
 	},
 	productgridviewtoolbar_toolbar: {
 	},
-	gridview_3983toolbar_toolbar: {
+	undoneprojectgridviewtoolbar_toolbar: {
 	},
 	editviewtoolbar_toolbar: {
 		deuiaction1: {

@@ -97,7 +97,7 @@ export default {
 			caption: "项目",
       		title: "项目",
 		},
-		usr3gridview9: {
+		moreundoneprojectgridview9: {
 			caption: "未完成项目",
       		title: "项目表格视图",
 		},
@@ -169,7 +169,7 @@ export default {
 			caption: "未关闭的项目",
       		title: "项目表格视图",
 		},
-		usr2gridview9: {
+		undoneprojectgridview: {
 			caption: "未完成项目",
       		title: "项目表格视图",
 		},
@@ -614,7 +614,7 @@ export default {
 			tip: "取消置顶",
 		},
 	},
-	usr3gridview9toolbar_toolbar: {
+	moreundoneprojectgridview9toolbar_toolbar: {
 	},
 	exp_list: {
 		nodata: "",
