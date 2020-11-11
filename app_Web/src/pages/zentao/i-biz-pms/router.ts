@@ -10727,35 +10727,6 @@ const router = new Router({
                     component: () => import('@pages/zentao/test-result-medit-view9/test-result-medit-view9.vue'),
                 },
                 {
-                    path: 'projects/:project?/projectmodules/:projectmodule?/treeexpview/:treeexpview?',
-                    meta: {
-                        caption: 'entities.projectmodule.views.treeexpview.caption',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'projects', parameterName: 'project' },
-                            { pathName: 'projectmodules', parameterName: 'projectmodule' },
-                            { pathName: 'treeexpview', parameterName: 'treeexpview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/project-module-tree-exp-view/project-module-tree-exp-view.vue'),
-                },
-                {
-                    path: 'projectmodules/:projectmodule?/treeexpview/:treeexpview?',
-                    meta: {
-                        caption: 'entities.projectmodule.views.treeexpview.caption',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'projectmodules', parameterName: 'projectmodule' },
-                            { pathName: 'treeexpview', parameterName: 'treeexpview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/project-module-tree-exp-view/project-module-tree-exp-view.vue'),
-                },
-                {
                     path: 'products/:product?/stories/:story?/mainview9_editmode/:mainview9_editmode?',
                     meta: {
                         caption: 'entities.story.views.mainview9_editmode.caption',
@@ -10787,6 +10758,35 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/story-main-view9-edit-mode/story-main-view9-edit-mode.vue'),
+                },
+                {
+                    path: 'projects/:project?/projectmodules/:projectmodule?/treeexpview/:treeexpview?',
+                    meta: {
+                        caption: 'entities.projectmodule.views.treeexpview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'projectmodules', parameterName: 'projectmodule' },
+                            { pathName: 'treeexpview', parameterName: 'treeexpview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/project-module-tree-exp-view/project-module-tree-exp-view.vue'),
+                },
+                {
+                    path: 'projectmodules/:projectmodule?/treeexpview/:treeexpview?',
+                    meta: {
+                        caption: 'entities.projectmodule.views.treeexpview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'projectmodules', parameterName: 'projectmodule' },
+                            { pathName: 'treeexpview', parameterName: 'treeexpview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/project-module-tree-exp-view/project-module-tree-exp-view.vue'),
                 },
                 {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/gridview9_storyaffect/:gridview9_storyaffect?',
