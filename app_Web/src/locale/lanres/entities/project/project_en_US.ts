@@ -579,6 +579,18 @@ export default {
 			tip: "Save And Close Window",
 		},
 	},
+	listexpviewlistexpbar_list_quicktoolbar_toolbar: {
+		deuiaction1: {
+			caption: "New",
+			tip: "New",
+		},
+	},
+	listexpviewlistexpbar_list_batchtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "Edit",
+			tip: "Edit {0}",
+		},
+	},
 	gridviewtoolbar_toolbar: {
 		deuiaction3_create: {
 			caption: "新建",
@@ -638,6 +650,8 @@ export default {
 	exp_list: {
 		nodata: "",
 		uiactions: {
+        new: "New",
+        edit: "Edit",
 		},
 	},
 	sidebar_list: {

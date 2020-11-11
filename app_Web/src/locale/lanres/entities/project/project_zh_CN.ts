@@ -579,6 +579,18 @@ export default {
 			tip: "保存并关闭",
 		},
 	},
+	listexpviewlistexpbar_list_quicktoolbar_toolbar: {
+		deuiaction1: {
+			caption: "新建",
+			tip: "新建",
+		},
+	},
+	listexpviewlistexpbar_list_batchtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "编辑",
+			tip: "编辑",
+		},
+	},
 	gridviewtoolbar_toolbar: {
 		deuiaction3_create: {
 			caption: "新建",
@@ -638,6 +650,8 @@ export default {
 	exp_list: {
 		nodata: "",
 		uiactions: {
+			new: "新建",
+			edit: "编辑",
 		},
 	},
 	sidebar_list: {
