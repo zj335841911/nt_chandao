@@ -23,6 +23,9 @@
             :context="context" 
             name="map"  
             ref='map' 
+            @beforeload="map_beforeload($event)"  
+            @rowclick="map_rowclick($event)"  
+            @load="map_load($event)"  
             @closeview="closeView($event)">
         </view_map>
     </ion-content>
@@ -35,6 +38,7 @@ import { Subject, Subscription } from 'rxjs';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
 import ActionService from '@/app-core/service/action/action-service';
 
+import MobMapViewEngine from '@engine/view/mob-map-view-engine';
 import ActionUIService from '@/ui-service/action/action-ui-action';
 
 @Component({
@@ -287,6 +291,13 @@ export default class ActionMobMapViewBase extends Vue {
         return true;
     }
 
+    /**
+     * 视图引擎
+     *
+     * @type {Engine}
+     * @memberof ActionMobMapViewBase
+     */
+    protected engine: MobMapViewEngine = new MobMapViewEngine();
 
     /**
      * 引擎初始化
@@ -294,6 +305,13 @@ export default class ActionMobMapViewBase extends Vue {
      * @memberof ActionMobMapViewBase
      */
     protected engineInit(): void {
+        this.engine.init({
+            view: this,
+            map: this.$refs.map,
+            keyPSDEField: 'action',
+            majorPSDEField: 'comment',
+            isLoadDefault: true,
+        });
     }
 
     /**
@@ -401,6 +419,39 @@ export default class ActionMobMapViewBase extends Vue {
             });
         }
 
+    }
+
+    /**
+     * map 部件 beforeload 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof ActionMobMapViewBase
+     */
+    protected map_beforeload($event: any, $event2?: any) {
+        this.engine.onCtrlEvent('map', 'beforeload', $event);
+    }
+
+    /**
+     * map 部件 rowclick 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof ActionMobMapViewBase
+     */
+    protected map_rowclick($event: any, $event2?: any) {
+        this.engine.onCtrlEvent('map', 'rowclick', $event);
+    }
+
+    /**
+     * map 部件 load 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof ActionMobMapViewBase
+     */
+    protected map_load($event: any, $event2?: any) {
+        this.engine.onCtrlEvent('map', 'load', $event);
     }
 
 
