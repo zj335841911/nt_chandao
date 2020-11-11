@@ -491,8 +491,19 @@ export default {
 		columns: {
 			name: "项目名称",
 			doclibcnt: "文档数量",
-			openedby: "由谁创建",
-			openeddate: "创建日期",
+			openedby: "由谁添加",
+			openeddate: "添加时间",
+		},
+		uiactions: {
+		},
+	},
+	moreundoneproject_grid: {
+		nodata: "",
+		columns: {
+			name: "项目名称",
+			doclibcnt: "文档数量",
+			openedby: "由谁添加",
+			openeddate: "添加时间",
 		},
 		uiactions: {
 		},
@@ -620,9 +631,9 @@ export default {
 			tip: "取消置顶",
 		},
 	},
-	moreundoneprojectgridview9toolbar_toolbar: {
-	},
 	moreundoneprogridviewtoolbar_toolbar: {
+	},
+	moreundoneprojectgridview9toolbar_toolbar: {
 	},
 	exp_list: {
 		nodata: "",

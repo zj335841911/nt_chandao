@@ -6792,20 +6792,6 @@ const router = new Router({
                     component: () => import('@pages/zentao/case-main-dashboard-view/case-main-dashboard-view.vue'),
                 },
                 {
-                    path: 'projects/:project?/moreundoneprojectgridview9/:moreundoneprojectgridview9?',
-                    meta: {
-                        caption: 'entities.project.views.moreundoneprojectgridview9.caption',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'projects', parameterName: 'project' },
-                            { pathName: 'moreundoneprojectgridview9', parameterName: 'moreundoneprojectgridview9' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/project-more-undone-project-grid-view9/project-more-undone-project-grid-view9.vue'),
-                },
-                {
                     path: 'products/:product?/stories/:story?/reviewview/:reviewview?',
                     meta: {
                         caption: 'entities.story.views.reviewview.caption',
@@ -9823,6 +9809,20 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/task-main-dashboard-view-link/task-main-dashboard-view-link.vue'),
+                },
+                {
+                    path: 'projects/:project?/moreundoneprogridview/:moreundoneprogridview?',
+                    meta: {
+                        caption: 'entities.project.views.moreundoneprogridview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'moreundoneprogridview', parameterName: 'moreundoneprogridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/project-more-undone-pro-grid-view/project-more-undone-pro-grid-view.vue'),
                 },
                 {
                     path: 'actions/:action?/mytrendslistview/:mytrendslistview?',

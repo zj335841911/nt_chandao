@@ -835,17 +835,6 @@ export const viewstate: any = {
             ],
         },
         {
-            viewtag: '33bc8b8e9d75db2fb1bf2723dbff55b0',
-            viewmodule: 'zentao',
-            viewname: 'ProjectMoreUndoneProjectGridView9',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-                'f83dac873b9215483c4bb91673284b41',
-                '5b2408d384f5b00f079883a01aeb9d2f',
-            ],
-        },
-        {
             viewtag: '3458603afa6fef36eda88e9f794840f5',
             viewmodule: 'zentao',
             viewname: 'CaseGridView9_Storyaffect',
@@ -3762,6 +3751,17 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'd695dac99ccf0ddd077eb13916241bd0',
+            viewmodule: 'zentao',
+            viewname: 'ProjectMoreUndoneProGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'f83dac873b9215483c4bb91673284b41',
+                '5b2408d384f5b00f079883a01aeb9d2f',
+            ],
+        },
+        {
             viewtag: 'd6ef7de701a935bd9023cd0eb1338f58',
             viewmodule: 'zentao',
             viewname: 'StoryGridView9_Child',
@@ -4216,8 +4216,8 @@ export const viewstate: any = {
                 'b79b6d8cb0dcb2ac867f3ea1aa6d4cb2',
                 'd290709d6a36e20e79d60e873047ec0d',
                 '13f17793cbc4fc2b36473a74d1bad4b2',
-                '33bc8b8e9d75db2fb1bf2723dbff55b0',
                 'b593c09602d9483d53b1f725395030a6',
+                'd695dac99ccf0ddd077eb13916241bd0',
                 '7c188c576f1fd59114ac2940d8e92c15',
             ],
         },

@@ -3,7 +3,7 @@ import { Subject, Subscription } from 'rxjs';
 import { UIActionTool,Util,ViewTool } from '@/utils';
 import { Watch, GridControlBase } from '@/studio-core';
 import ProjectService from '@/service/project/project-service';
-import UndoneProjectService from './undone-project-grid-service';
+import MoreUndoneProjectService from './more-undone-project-grid-service';
 import ProjectUIService from '@/uiservice/project/project-ui-service';
 import { FormItemModel } from '@/model/form-detail';
 
@@ -13,32 +13,32 @@ import { FormItemModel } from '@/model/form-detail';
  *
  * @export
  * @class GridControlBase
- * @extends {UndoneProjectGridBase}
+ * @extends {MoreUndoneProjectGridBase}
  */
-export class UndoneProjectGridBase extends GridControlBase {
+export class MoreUndoneProjectGridBase extends GridControlBase {
 
     /**
      * 获取部件类型
      *
      * @protected
      * @type {string}
-     * @memberof UndoneProjectGridBase
+     * @memberof MoreUndoneProjectGridBase
      */
     protected controlType: string = 'GRID';
 
     /**
      * 建构部件服务对象
      *
-     * @type {UndoneProjectService}
-     * @memberof UndoneProjectGridBase
+     * @type {MoreUndoneProjectService}
+     * @memberof MoreUndoneProjectGridBase
      */
-    public service: UndoneProjectService = new UndoneProjectService({ $store: this.$store });
+    public service: MoreUndoneProjectService = new MoreUndoneProjectService({ $store: this.$store });
 
     /**
      * 实体服务对象
      *
      * @type {ProjectService}
-     * @memberof UndoneProjectGridBase
+     * @memberof MoreUndoneProjectGridBase
      */
     public appEntityService: ProjectService = new ProjectService({ $store: this.$store });
 
@@ -47,7 +47,7 @@ export class UndoneProjectGridBase extends GridControlBase {
      *
      * @protected
      * @type {string}
-     * @memberof UndoneProjectGridBase
+     * @memberof MoreUndoneProjectGridBase
      */
     protected appDeName: string = 'project';
 
@@ -56,7 +56,7 @@ export class UndoneProjectGridBase extends GridControlBase {
      *
      * @protected
      * @type {string}
-     * @memberof UndoneProjectGridBase
+     * @memberof MoreUndoneProjectGridBase
      */
     protected appDeLogicName: string = '项目';
 
@@ -64,7 +64,7 @@ export class UndoneProjectGridBase extends GridControlBase {
      * 界面UI服务对象
      *
      * @type {ProjectUIService}
-     * @memberof UndoneProjectBase
+     * @memberof MoreUndoneProjectBase
      */  
     public appUIService:ProjectUIService = new ProjectUIService(this.$store);
 
@@ -73,7 +73,7 @@ export class UndoneProjectGridBase extends GridControlBase {
      * 界面行为模型
      *
      * @type {*}
-     * @memberof UndoneProjectBase
+     * @memberof MoreUndoneProjectBase
      */  
     public ActionModel: any = {
     };
@@ -82,7 +82,7 @@ export class UndoneProjectGridBase extends GridControlBase {
      * 主信息表格列
      *
      * @type {string}
-     * @memberof UndoneProjectBase
+     * @memberof MoreUndoneProjectBase
      */  
     public majorInfoColName:string = "name";
 
@@ -92,23 +92,15 @@ export class UndoneProjectGridBase extends GridControlBase {
      *
      * @protected
      * @type {string}
-     * @memberof UndoneProjectBase
+     * @memberof MoreUndoneProjectBase
      */
-    protected localStorageTag: string = 'zt_project_undoneproject_grid';
-
-    /**
-     * 是否支持分页
-     *
-     * @type {boolean}
-     * @memberof UndoneProjectGridBase
-     */
-    public isEnablePagingBar: boolean = false;
+    protected localStorageTag: string = 'zt_project_moreundoneproject_grid';
 
     /**
      * 排序方向
      *
      * @type {string}
-     * @memberof UndoneProjectGridBase
+     * @memberof MoreUndoneProjectGridBase
      */
     public minorSortDir: string = 'DESC';
 
@@ -116,7 +108,7 @@ export class UndoneProjectGridBase extends GridControlBase {
      * 排序字段
      *
      * @type {string}
-     * @memberof UndoneProjectGridBase
+     * @memberof MoreUndoneProjectGridBase
      */
     public minorSortPSDEF: string = 'openeddate';
 
@@ -124,13 +116,13 @@ export class UndoneProjectGridBase extends GridControlBase {
      * 所有列成员
      *
      * @type {any[]}
-     * @memberof UndoneProjectGridBase
+     * @memberof MoreUndoneProjectGridBase
      */
     public allColumns: any[] = [
         {
             name: 'name',
             label: '项目名称',
-            langtag: 'entities.project.undoneproject_grid.columns.name',
+            langtag: 'entities.project.moreundoneproject_grid.columns.name',
             show: true,
             unit: 'STAR',
             isEnableRowEdit: false,
@@ -139,7 +131,7 @@ export class UndoneProjectGridBase extends GridControlBase {
         {
             name: 'doclibcnt',
             label: '文档数量',
-            langtag: 'entities.project.undoneproject_grid.columns.doclibcnt',
+            langtag: 'entities.project.moreundoneproject_grid.columns.doclibcnt',
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
@@ -148,7 +140,7 @@ export class UndoneProjectGridBase extends GridControlBase {
         {
             name: 'openedby',
             label: '由谁添加',
-            langtag: 'entities.project.undoneproject_grid.columns.openedby',
+            langtag: 'entities.project.moreundoneproject_grid.columns.openedby',
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
@@ -157,7 +149,7 @@ export class UndoneProjectGridBase extends GridControlBase {
         {
             name: 'openeddate',
             label: '添加时间',
-            langtag: 'entities.project.undoneproject_grid.columns.openeddate',
+            langtag: 'entities.project.moreundoneproject_grid.columns.openeddate',
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
@@ -169,7 +161,7 @@ export class UndoneProjectGridBase extends GridControlBase {
      * 获取表格行模型
      *
      * @type {*}
-     * @memberof UndoneProjectGridBase
+     * @memberof MoreUndoneProjectGridBase
      */
     public getGridRowModel(){
         return {
@@ -181,7 +173,7 @@ export class UndoneProjectGridBase extends GridControlBase {
      * 是否启用分组
      *
      * @type {boolean}
-     * @memberof UndoneProjectBase
+     * @memberof MoreUndoneProjectBase
      */
     public isEnableGroup:boolean = false;
 
@@ -189,7 +181,7 @@ export class UndoneProjectGridBase extends GridControlBase {
      * 分组属性
      *
      * @type {string}
-     * @memberof UndoneProjectBase
+     * @memberof MoreUndoneProjectBase
      */
     public groupAppField:string ="";
 
@@ -197,7 +189,7 @@ export class UndoneProjectGridBase extends GridControlBase {
      * 分组模式
      *
      * @type {string}
-     * @memberof UndoneProjectBase
+     * @memberof MoreUndoneProjectBase
      */
     public groupMode:string ="NONE";
 
@@ -205,7 +197,7 @@ export class UndoneProjectGridBase extends GridControlBase {
      * 分组代码表标识
      * 
      * @type {string}
-     * @memberof UndoneProjectBase
+     * @memberof MoreUndoneProjectBase
      */
     public codelistTag: string = "";
 
@@ -213,7 +205,7 @@ export class UndoneProjectGridBase extends GridControlBase {
      * 分组代码表类型
      * 
      * @type {string}
-     * @memberof UndoneProjectBase
+     * @memberof MoreUndoneProjectBase
      */
     public codelistType: string = "";
 
@@ -221,7 +213,7 @@ export class UndoneProjectGridBase extends GridControlBase {
      * 属性值规则
      *
      * @type {*}
-     * @memberof UndoneProjectGridBase
+     * @memberof MoreUndoneProjectGridBase
      */
     public rules() {
         return {
@@ -236,7 +228,7 @@ export class UndoneProjectGridBase extends GridControlBase {
      * 属性值规则
      *
      * @type {*}
-     * @memberof UndoneProjectBase
+     * @memberof MoreUndoneProjectBase
      */
     public deRules:any = {
     };
@@ -245,7 +237,7 @@ export class UndoneProjectGridBase extends GridControlBase {
      * 获取对应列class
      *
      * @type {*}
-     * @memberof UndoneProjectBase
+     * @memberof MoreUndoneProjectBase
      */
     public hasRowEdit: any = {
         'name':false,
@@ -259,7 +251,7 @@ export class UndoneProjectGridBase extends GridControlBase {
      *
      * @param {*} $args row 行数据，column 列数据，rowIndex 行索引，列索引
      * @returns {void}
-     * @memberof UndoneProjectBase
+     * @memberof MoreUndoneProjectBase
      */
     public getCellClassName(args: {row: any, column: any, rowIndex: number, columnIndex: number}): any {
         return ( this.hasRowEdit[args.column.property] && this.actualIsOpenEdit ) ? "edit-cell" : "info-cell";
@@ -273,7 +265,7 @@ export class UndoneProjectGridBase extends GridControlBase {
      * @param {*} jsonData
      * @param {any[]} [codelistColumns=[]]
      * @returns {Promise<any>}
-     * @memberof UndoneProjectGridBase
+     * @memberof MoreUndoneProjectGridBase
      */
     public async formatExcelData(filterVal: any, jsonData: any, codelistColumns?: any[]): Promise<any> {
         return super.formatExcelData(filterVal, jsonData, [
@@ -292,7 +284,7 @@ export class UndoneProjectGridBase extends GridControlBase {
     /**
      * 更新默认值
      * @param {*}  row 行数据
-     * @memberof UndoneProjectBase
+     * @memberof MoreUndoneProjectBase
      */
     public updateDefault(row: any){                    
     }
@@ -300,7 +292,7 @@ export class UndoneProjectGridBase extends GridControlBase {
 	/**
      * 分组方法
      * 
-     * @memberof UndoneProjectBase
+     * @memberof MoreUndoneProjectBase
      */
     public group(){
         if(Object.is(this.groupMode,"AUTO")){
@@ -313,7 +305,7 @@ export class UndoneProjectGridBase extends GridControlBase {
     /**
      * 根据分组代码表绘制分组列表
      * 
-     * @memberof UndoneProjectBase
+     * @memberof MoreUndoneProjectBase
      */
     public async drawCodelistGroup(){
         if(!this.isEnableGroup) return;
@@ -394,7 +386,7 @@ export class UndoneProjectGridBase extends GridControlBase {
     /**
      * 绘制分组
      * 
-     * @memberof UndoneProjectBase
+     * @memberof MoreUndoneProjectBase
      */
     public drawGroup(){
         if(!this.isEnableGroup) return;
@@ -445,7 +437,7 @@ export class UndoneProjectGridBase extends GridControlBase {
      * @param {string}  action 行为
      * @param {string}  param 默认值参数
      * @param {*}  data 当前行数据
-     * @memberof UndoneProjectBase
+     * @memberof MoreUndoneProjectBase
      */
     public computeDefaultValueWithParam(action:string,param:string,data:any){
         if(Object.is(action,"UPDATE")){
