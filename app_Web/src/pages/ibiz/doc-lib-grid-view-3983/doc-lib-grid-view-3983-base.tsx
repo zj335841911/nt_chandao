@@ -77,7 +77,7 @@ export class DocLibGridView_3983Base extends GridViewBase {
 	 * @memberof DocLibGridView_3983Base
 	 */
     protected customViewNavContexts: any = {
-        'PROJECT': { isRawValue: true, value: '1' }
+        'PROJECT': { isRawValue: false, value: 'project' }
     };
 
 	/**
@@ -88,7 +88,7 @@ export class DocLibGridView_3983Base extends GridViewBase {
 	 * @memberof DocLibGridView_3983Base
 	 */
     protected customViewParams: any = {
-        'project': { isRawValue: true, value: '1' }
+        'project': { isRawValue: false, value: 'project' }
     };
 
     /**
