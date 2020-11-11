@@ -13,16 +13,16 @@ import CodeListService from "@service/app/codelist-service";
  * 项目表格视图视图基类
  *
  * @export
- * @class ProjectUsr2GridView9Base
+ * @class ProjectUsr3GridView9Base
  * @extends {GridView9Base}
  */
-export class ProjectUsr2GridView9Base extends GridView9Base {
+export class ProjectUsr3GridView9Base extends GridView9Base {
     /**
      * 视图对应应用实体名称
      *
      * @protected
      * @type {string}
-     * @memberof ProjectUsr2GridView9Base
+     * @memberof ProjectUsr3GridView9Base
      */
     protected appDeName: string = 'project';
 
@@ -31,7 +31,7 @@ export class ProjectUsr2GridView9Base extends GridView9Base {
      *
      * @protected
      * @type {string}
-     * @memberof ProjectUsr2GridView9Base
+     * @memberof ProjectUsr3GridView9Base
      */
     protected appDeKey: string = 'id';
 
@@ -40,7 +40,7 @@ export class ProjectUsr2GridView9Base extends GridView9Base {
      *
      * @protected
      * @type {string}
-     * @memberof ProjectUsr2GridView9Base
+     * @memberof ProjectUsr3GridView9Base
      */
     protected appDeMajor: string = 'name';
 
@@ -49,7 +49,7 @@ export class ProjectUsr2GridView9Base extends GridView9Base {
      *
      * @protected
      * @type {string}
-     * @memberof ProjectUsr2GridView9Base
+     * @memberof ProjectUsr3GridView9Base
      */ 
     protected dataControl:string = "grid";
 
@@ -57,7 +57,7 @@ export class ProjectUsr2GridView9Base extends GridView9Base {
      * 实体服务对象
      *
      * @type {ProjectService}
-     * @memberof ProjectUsr2GridView9Base
+     * @memberof ProjectUsr3GridView9Base
      */
     protected appEntityService: ProjectService = new ProjectService;
 
@@ -65,7 +65,7 @@ export class ProjectUsr2GridView9Base extends GridView9Base {
      * 实体权限服务对象
      *
      * @type ProjectUIService
-     * @memberof ProjectUsr2GridView9Base
+     * @memberof ProjectUsr3GridView9Base
      */
     public appUIService: ProjectUIService = new ProjectUIService(this.$store);
 
@@ -74,11 +74,10 @@ export class ProjectUsr2GridView9Base extends GridView9Base {
 	 *
      * @protected
 	 * @type {*}
-	 * @memberof ProjectUsr2GridView9Base
+	 * @memberof ProjectUsr3GridView9Base
 	 */
     protected customViewParams: any = {
-        'n_status_noteq': { isRawValue: true, value: 'closed' },
-        'size': { isRawValue: true, value: '5' }
+        'n_status_noteq': { isRawValue: true, value: 'closed' }
     };
 
     /**
@@ -86,12 +85,12 @@ export class ProjectUsr2GridView9Base extends GridView9Base {
      *
      * @protected
      * @type {*}
-     * @memberof ProjectUsr2GridView9Base
+     * @memberof ProjectUsr3GridView9Base
      */
     protected model: any = {
-        srfCaption: 'entities.project.views.usr2gridview9.caption',
-        srfTitle: 'entities.project.views.usr2gridview9.title',
-        srfSubTitle: 'entities.project.views.usr2gridview9.subtitle',
+        srfCaption: 'entities.project.views.usr3gridview9.caption',
+        srfTitle: 'entities.project.views.usr3gridview9.title',
+        srfSubTitle: 'entities.project.views.usr3gridview9.subtitle',
         dataInfo: ''
     }
 
@@ -100,11 +99,22 @@ export class ProjectUsr2GridView9Base extends GridView9Base {
      *
      * @protected
      * @type {*}
-     * @memberof ProjectUsr2GridView9Base
+     * @memberof ProjectUsr3GridView9Base
      */
     protected containerModel: any = {
+        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
         view_grid: { name: 'grid', type: 'GRID' },
     };
+
+    /**
+     * 工具栏模型
+     *
+     * @type {*}
+     * @memberof ProjectUsr3GridView9
+     */
+    public toolBarModels: any = {
+    };
+
 
 
 	/**
@@ -112,18 +122,18 @@ export class ProjectUsr2GridView9Base extends GridView9Base {
      *
      * @protected
      * @type {string}
-     * @memberof ProjectUsr2GridView9Base
+     * @memberof ProjectUsr3GridView9Base
      */
-	protected viewtag: string = 'd290709d6a36e20e79d60e873047ec0d';
+	protected viewtag: string = '33bc8b8e9d75db2fb1bf2723dbff55b0';
 
     /**
      * 视图名称
      *
      * @protected
      * @type {string}
-     * @memberof ProjectUsr2GridView9Base
+     * @memberof ProjectUsr3GridView9Base
      */ 
-    protected viewName:string = "ProjectUsr2GridView9";
+    protected viewName:string = "ProjectUsr3GridView9";
 
 
     /**
@@ -131,7 +141,7 @@ export class ProjectUsr2GridView9Base extends GridView9Base {
      *
      * @public
      * @type {Engine}
-     * @memberof ProjectUsr2GridView9Base
+     * @memberof ProjectUsr3GridView9Base
      */
     public engine: GridView9Engine = new GridView9Engine();
 
@@ -140,7 +150,7 @@ export class ProjectUsr2GridView9Base extends GridView9Base {
      * 计数器服务对象集合
      *
      * @type {Array<*>}
-     * @memberof ProjectUsr2GridView9Base
+     * @memberof ProjectUsr3GridView9Base
      */    
     public counterServiceArray:Array<any> = [];
 
@@ -148,7 +158,7 @@ export class ProjectUsr2GridView9Base extends GridView9Base {
      * 引擎初始化
      *
      * @public
-     * @memberof ProjectUsr2GridView9Base
+     * @memberof ProjectUsr3GridView9Base
      */
     public engineInit(): void {
         this.engine.init({
@@ -171,7 +181,7 @@ export class ProjectUsr2GridView9Base extends GridView9Base {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof ProjectUsr2GridView9Base
+     * @memberof ProjectUsr3GridView9Base
      */
     public grid_selectionchange($event: any, $event2?: any): void {
         this.engine.onCtrlEvent('grid', 'selectionchange', $event);
@@ -182,7 +192,7 @@ export class ProjectUsr2GridView9Base extends GridView9Base {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof ProjectUsr2GridView9Base
+     * @memberof ProjectUsr3GridView9Base
      */
     public grid_beforeload($event: any, $event2?: any): void {
         this.engine.onCtrlEvent('grid', 'beforeload', $event);
@@ -193,7 +203,7 @@ export class ProjectUsr2GridView9Base extends GridView9Base {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof ProjectUsr2GridView9Base
+     * @memberof ProjectUsr3GridView9Base
      */
     public grid_rowdblclick($event: any, $event2?: any): void {
         this.engine.onCtrlEvent('grid', 'rowdblclick', $event);
@@ -204,7 +214,7 @@ export class ProjectUsr2GridView9Base extends GridView9Base {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof ProjectUsr2GridView9Base
+     * @memberof ProjectUsr3GridView9Base
      */
     public grid_remove($event: any, $event2?: any): void {
         this.engine.onCtrlEvent('grid', 'remove', $event);
@@ -215,7 +225,7 @@ export class ProjectUsr2GridView9Base extends GridView9Base {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof ProjectUsr2GridView9Base
+     * @memberof ProjectUsr3GridView9Base
      */
     public grid_load($event: any, $event2?: any): void {
         this.engine.onCtrlEvent('grid', 'load', $event);
@@ -229,7 +239,7 @@ export class ProjectUsr2GridView9Base extends GridView9Base {
      * @param {*} [fullargs]
      * @param {*} [$event]
      * @param {*} [xData]
-     * @memberof ProjectUsr2GridView9
+     * @memberof ProjectUsr3GridView9
      */
     public newdata(args: any[],fullargs?:any[], params?: any, $event?: any, xData?: any) {
         let localContext:any = null;
@@ -282,7 +292,7 @@ export class ProjectUsr2GridView9Base extends GridView9Base {
      * @param {*} [fullargs]
      * @param {*} [$event]
      * @param {*} [xData]
-     * @memberof ProjectUsr2GridView9
+     * @memberof ProjectUsr3GridView9
      */
     public opendata(args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) {
         const localContext: any = null;
@@ -320,13 +330,4 @@ export class ProjectUsr2GridView9Base extends GridView9Base {
     }
 
 
-
-    /**
-     * 是否单选
-     *
-     * @protected
-     * @type {boolean}
-     * @memberof ProjectUsr2GridView9Base
-     */
-    protected isGridSingleSelect: boolean = true;
 }

@@ -767,6 +767,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "CaseGridView9_My",
             "viewtag": "326af0ddc7ead19a61f479dddf7b1e3a"
         },
+        "projectusr3gridview9": {
+            "title": "项目表格视图",
+            "caption": "未完成项目",
+            "viewtype": "DEGRIDVIEW9",
+            "viewmodule": "zentao",
+            "viewname": "ProjectUsr3GridView9",
+            "viewtag": "33bc8b8e9d75db2fb1bf2723dbff55b0"
+        },
         "casegridview9_storyaffect": {
             "title": "相关用例",
             "caption": "相关用例",

@@ -239,7 +239,7 @@ export default class StoryUIActionBase extends EntityUIActionBase {
         };
         const result: any = await this.openService.openModal(view, _context, _params);
         if (result && Object.is(result.ret, 'OK')) {
-            Object.assign(params, { srfactionparam: result.datas });
+            Object.assign(_params, { srfactionparam: result.datas });
             return backend();
         }
     }
@@ -905,8 +905,8 @@ export default class StoryUIActionBase extends EntityUIActionBase {
             delete context.srfsessionid;
         }
         // 导航参数
-        let panelNavParam= { } ;
-        let panelNavContext= { } ;
+        let panelNavParam= { "productplan": "%productplan%" } ;
+        let panelNavContext= { "productplan": "%productplan%", "story": "0" } ;
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
         const backend = async () => {
             const curUIService: any = await this.globaluiservice.getAppEntityService('story');
@@ -931,7 +931,7 @@ export default class StoryUIActionBase extends EntityUIActionBase {
         };
         const result: any = await this.openService.openModal(view, _context, _params);
         if (result && Object.is(result.ret, 'OK')) {
-            Object.assign(params, { srfactionparam: result.datas });
+            Object.assign(_params, { srfactionparam: result.datas });
             return backend();
         }
     }
@@ -1048,7 +1048,7 @@ export default class StoryUIActionBase extends EntityUIActionBase {
         };
         const result: any = await this.openService.openModal(view, _context, _params);
         if (result && Object.is(result.ret, 'OK')) {
-            Object.assign(params, { srfactionparam: result.datas });
+            Object.assign(_params, { srfactionparam: result.datas });
             return backend();
         }
     }

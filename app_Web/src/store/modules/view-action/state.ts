@@ -751,6 +751,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '4503911318e1f1f26599b68a6c6e681d',
+                '73fbcf0e3685096f63587bcff234f958',
             ],
         },
         {
@@ -830,6 +831,16 @@ export const viewstate: any = {
                 '97f38c5fa6f63f69e18299306eae9077',
                 '3f2ca3e560d9082bb56fbf7667a57a66',
                 'fd0b8748ff96edcde009d39903a9f211',
+            ],
+        },
+        {
+            viewtag: '33bc8b8e9d75db2fb1bf2723dbff55b0',
+            viewmodule: 'zentao',
+            viewname: 'ProjectUsr3GridView9',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'f83dac873b9215483c4bb91673284b41',
             ],
         },
         {
@@ -4189,6 +4200,7 @@ export const viewstate: any = {
                 'b79b6d8cb0dcb2ac867f3ea1aa6d4cb2',
                 'd290709d6a36e20e79d60e873047ec0d',
                 '13f17793cbc4fc2b36473a74d1bad4b2',
+                '33bc8b8e9d75db2fb1bf2723dbff55b0',
                 'b593c09602d9483d53b1f725395030a6',
                 '7c188c576f1fd59114ac2940d8e92c15',
             ],

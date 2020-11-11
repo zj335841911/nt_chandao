@@ -94,6 +94,7 @@ export default {
 			root: "默认根节点",
 		},
 		uiactions: {
+        refreshall: "刷新",
 		},
 	},
 };
