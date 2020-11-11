@@ -76,13 +76,6 @@ public class ActionHelper extends ZTBaseHelper<ActionMapper, Action> {
             Task task = taskHelper.get(et.getObjectid());
             send(task.getId(),task.getName(),noticeusers,task.getAssignedto(),task.getMailto(), ITaskService.OBJECT_TEXT_NAME,StaticDict.Action__object_type.TASK.getValue(),ITaskService.OBJECT_SOURCE_PATH);
         }
-//        if(Arrays.deepToString(sendAction).contains(et.getObjecttype())) {
-//            String sql = String.format("select * from zt_%1$s where id = '%2$s'", et.getObjecttype(), et.getObjectid());
-//            List<JSONObject> list = projectProductService.select(sql, null);
-//            if (list.size() > 0) {
-//                send(list.get(0), noticeusers, et.getObjecttype());
-//            }
-//        }
         return true;
     }
 
@@ -144,15 +137,12 @@ public class ActionHelper extends ZTBaseHelper<ActionMapper, Action> {
      */
     @Transactional
     public boolean edit(Action et) {
-//        String noticeusers = et.getNoticeusers();
+        String noticeusers = et.getNoticeusers();
         this.internalUpdate(et);
-//        if(Arrays.deepToString(sendAction).contains(et.getObjecttype())) {
-//            String sql = String.format("select * from zt_%1$s where id = '%2$s'", et.getObjecttype(), et.getObjectid());
-//            List<JSONObject> list = projectProductService.select(sql, null);
-//            if (list.size() > 0) {
-//                send(list.get(0), noticeusers, et.getObjecttype());
-//            }
-//        }
+        if(StaticDict.Action__object_type.TASK.getValue().equals(et.getObjecttype())) {
+            Task task = taskHelper.get(et.getObjectid());
+            send(task.getId(),task.getName(),noticeusers,task.getAssignedto(),task.getMailto(), ITaskService.OBJECT_TEXT_NAME,StaticDict.Action__object_type.TASK.getValue(),ITaskService.OBJECT_SOURCE_PATH);
+        }
         return true;
     }
 
