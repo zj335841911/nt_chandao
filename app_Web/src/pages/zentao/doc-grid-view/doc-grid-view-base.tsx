@@ -77,7 +77,8 @@ export class DocGridViewBase extends GridViewBase {
 	 * @memberof DocGridViewBase
 	 */
     protected customViewNavContexts: any = {
-        'SRFROOT': { isRawValue: false, value: 'doclib' }
+        'SRFROOT': { isRawValue: false, value: 'doclib' },
+        'PARENT1': { isRawValue: false, value: 'doclibmodule' }
     };
 
 	/**
@@ -90,6 +91,7 @@ export class DocGridViewBase extends GridViewBase {
     protected customViewParams: any = {
         'n_lib_eq': { isRawValue: false, value: 'srfparentkey' },
         'n_project_eq': { isRawValue: false, value: 'project' },
+        'parent': { isRawValue: true, value: '0' },
         'srfroot': { isRawValue: false, value: 'doclib' }
     };
 
