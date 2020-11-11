@@ -270,7 +270,7 @@ export default class UserLoginPositionBase extends Vue implements ControlInterfa
         this.items = response.data;
         for (let index = 0; index < this.series.length; index++) {
             const element:any = this.series[index];
-            element.data = await this.convertDat(element.name);
+            element.data = await this.convertDat(element.modelType);
         }
         this.setOptions();
         return response;
@@ -322,9 +322,9 @@ export default class UserLoginPositionBase extends Vue implements ControlInterfa
                             bkcolor:'',
                             color:'',
                             content:'',
-                            latitude:'',
-                            longitude:'',
-                            text:'',
+                            latitude:'actionmanner',
+                            longitude:'objectid',
+                            text:'comment',
                             tips:'',
                             code:'0'
                         }
@@ -387,6 +387,7 @@ export default class UserLoginPositionBase extends Vue implements ControlInterfa
         {
             name: 'test',
             type: 'scatter',
+            modelType: 'test',
             symbolSize: 10,//控制点的大小
             coordinateSystem: 'geo',
             encode: {
@@ -445,26 +446,12 @@ export default class UserLoginPositionBase extends Vue implements ControlInterfa
             let latitude = element[mapItemModel.latitude];
             let longitude =  element[mapItemModel.longitude];
             if(longitude && latitude){
-                let cityName = await this.getCityName(`${longitude},${latitude}`);
                 res.push({
-                    name: cityName,
                     value: [longitude,latitude].concat(mapItemData.filter((temp:any)=>{return temp[mapItemModel.latitude] == latitude && temp[mapItemModel.longitude]==longitude }).length,mapItemModel.code)
                 });
             }
         }
         return res;
-    }
-
-    /**
-     * 获取城市坐标
-     */
-    public async  getCityName(location:string) {
-        let cityInfo =   await Http.getInstance().get("map/v3/geocode/regeo",{key:"f24180cec13fe7e72472dcb9fcd26c0e",location:location})
-        if (cityInfo && cityInfo.status === 200 && cityInfo.data) {
-            if(cityInfo.data.infocode == 10000 && cityInfo.data.regeocode && cityInfo.data.regeocode.addressComponent){
-                return cityInfo.data.regeocode.addressComponent.city.length != 0?cityInfo.data.regeocode.addressComponent.city:cityInfo.data.regeocode.addressComponent.province;
-            }                
-        }
     }
 }
 </script>

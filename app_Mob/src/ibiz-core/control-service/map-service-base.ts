@@ -33,6 +33,67 @@ export class MapServiceBase extends ControlServiceBase {
         return response;
     }
 
+
+    /**
+     * 地图项配置集合
+     *
+     * @protected
+     * @type {any[]}
+     * @memberof Mobmaptest
+     */
+    protected mapItemConfig: any = {};
+ 
+
+    /**
+     * 加载实体数据集
+     *
+     * @protected
+     * @param {string} action 
+     * @param {*} context
+     * @param {*} data
+     * @param {string} calendarItem
+     * @param {string} [serviceName]
+     * @returns {Promise<any[]>}
+     * @memberof CalendarServiceBase
+     */
+    protected async loadDEDataSet(action: string, context: any, data: any, calendarItem: string, serviceName?: string): Promise<any[]> {
+        if (serviceName) {
+            const service: any = await this.getService(serviceName);
+            const response: HttpResponse = await service[action](context, data);
+            if (response.isError && response.isError()) {
+                return Promise.reject(response);
+            }
+            return this.formatItem(response, calendarItem);
+        }
+        const response: HttpResponse = await this.service[action](context, data);
+        if (response.isError && response.isError()) {
+            return Promise.reject(response);
+        }
+        return this.formatItem(response, calendarItem);
+    }
+
+    /**
+     * 格式化数据项
+     *
+     * @protected
+     * @param {*} response
+     * @param {string} type
+     * @returns {any[]}
+     * @memberof CalendarServiceBase
+     */
+    protected formatItem(response: any, type: string): any[] {
+        if (response.data) {
+            response.data.forEach((item: any) => {
+                item.color = this.mapItemConfig[type].color;
+                item.textColor = this.mapItemConfig[type].textColor;
+                item.itemType = this.mapItemConfig[type].itemType;
+            });
+        }
+        this.model.itemType = this.mapItemConfig[type].itemType;
+        response = this.handleResponse(type, response);
+        return response.data.records;
+    }
+    
     /**
      * 加载草稿
      *
