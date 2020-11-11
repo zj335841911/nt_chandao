@@ -228,6 +228,9 @@ export default class UndoneProjectModel {
       {
         name: 'noticeusers',
       },
+      {
+        name: 'doclincnt',
+      },
     ]
   }
 

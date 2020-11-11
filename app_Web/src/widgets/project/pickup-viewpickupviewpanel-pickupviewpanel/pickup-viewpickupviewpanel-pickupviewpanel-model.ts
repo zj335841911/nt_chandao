@@ -228,6 +228,9 @@ export default class PickupViewpickupviewpanelModel {
       {
         name: 'noticeusers',
       },
+      {
+        name: 'doclincnt',
+      },
     ]
   }
 

@@ -228,6 +228,9 @@ export default class ProjectStatusBarModel {
       {
         name: 'noticeusers',
       },
+      {
+        name: 'doclincnt',
+      },
     ]
   }
 

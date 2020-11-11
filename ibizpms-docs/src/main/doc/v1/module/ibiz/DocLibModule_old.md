@@ -93,6 +93,7 @@ hide footbox
 
 | 查询编号 | 查询名称       | 默认查询 |   备注|
 | --------  | --------   | --------   | ----- |
+|AllDoclibModule_Custom|数据查询([MYSQL5](../../appendix/query_MYSQL5.md#DocLibModule_AllDoclibModule_Custom))|否|&nbsp;|
 |DEFAULT|数据查询([MYSQL5](../../appendix/query_MYSQL5.md#DocLibModule_Default))|否|&nbsp;|
 |AllDoclibModule|数据查询([MYSQL5](../../appendix/query_MYSQL5.md#DocLibModule_DefaultDoclib))|否|&nbsp;|
 |ParentModule|父模块([MYSQL5](../../appendix/query_MYSQL5.md#DocLibModule_ParentModule))|否|&nbsp;|

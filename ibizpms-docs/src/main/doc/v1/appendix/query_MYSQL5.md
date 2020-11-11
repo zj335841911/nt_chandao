@@ -5153,6 +5153,32 @@ WHERE t1.DELETED = '0'
 
 # **文档库分类**(IBZ_DOCLIBMODULE)
 
+### 数据查询(AllDoclibModule_Custom)<div id="DocLibModule_AllDoclibModule_Custom"></div>
+```sql
+SELECT
+t1.`BRANCH`,
+t1.`DELETED`,
+t11.`NAME` AS `DOCLIBNAME`,
+t1.`GRADE`,
+t1.`ID`,
+(CASE WHEN EXISTS (SELECT 1 FROM ZT_MODULE WHERE  PARENT = t1.`ID`) THEN FALSE ELSE TRUE  END ) AS `ISLEAF`,
+t21.`NAME` AS `MODULENAME`,
+t1.`NAME`,
+t1.`ORDER`,
+t1.`OWNER`,
+t1.`PARENT`,
+t1.`PATH`,
+t1.`ROOT`,
+t1.`SHORT`,
+t1.`TYPE`
+FROM `zt_module` t1 
+LEFT JOIN zt_doclib t11 ON t1.ROOT = t11.ID 
+LEFT JOIN zt_module t21 ON t1.PARENT = t21.ID 
+
+WHERE t1.DELETED = '0' 
+t1.type = 'doc' 
+
+```
 ### 数据查询(DEFAULT)<div id="DocLibModule_Default"></div>
 ```sql
 SELECT
@@ -10114,6 +10140,7 @@ t1.`ACL`,
 t1.`BEGIN`,
 (SELECT COUNT(1) FROM ZT_BUG WHERE PROJECT = t1.`ID` AND DELETED = '0') AS `BUGCNT`,
 t1.`CANCELEDBY`,
+(select count(1) + 1 from zt_doclib where type = 'project' and project = 1） as DOCLIBCNT,
 t1.`CANCELEDDATE`,
 t1.`CATID`,
 t1.`CLOSEDBY`,

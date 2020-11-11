@@ -228,6 +228,9 @@ export default class UnClosedProjectModel {
       {
         name: 'noticeusers',
       },
+      {
+        name: 'doclincnt',
+      },
     ]
   }
 

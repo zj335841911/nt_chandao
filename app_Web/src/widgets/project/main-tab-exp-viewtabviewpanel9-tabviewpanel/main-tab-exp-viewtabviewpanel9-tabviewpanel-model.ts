@@ -228,6 +228,9 @@ export default class MainTabExpViewtabviewpanel9Model {
       {
         name: 'noticeusers',
       },
+      {
+        name: 'doclincnt',
+      },
     ]
   }
 

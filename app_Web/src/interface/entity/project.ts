@@ -573,4 +573,12 @@ export interface Project {
      * @memberof Project
      */
     noticeusers?: any;
+
+    /**
+     * 文档数量
+     *
+     * @returns {*}
+     * @memberof Project
+     */
+    doclincnt?: any;
 }

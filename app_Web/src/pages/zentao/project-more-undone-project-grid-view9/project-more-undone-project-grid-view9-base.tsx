@@ -296,16 +296,20 @@ export class ProjectMoreUndoneProjectGridView9Base extends GridView9Base {
      */
     public opendata(args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) {
         const localContext: any = null;
-        const localViewParam: any =null;
+        const localViewParam: any ={project:"%project%"};
         const data: any = {};
         let tempContext = JSON.parse(JSON.stringify(this.context));
         if(args.length >0){
             Object.assign(tempContext,args[0]);
         }
+        if(localViewParam && Object.keys(localViewParam).length >0){
+            let _param:any = this.$util.computedNavData(args[0],this.context,this.viewparams,localViewParam);
+            Object.assign(data,_param);
+        }
         const deResParameters: any[] = [];
         const parameters: any[] = [
             { pathName: 'doclibs', parameterName: 'doclib' },
-            { pathName: 'gridview', parameterName: 'gridview' },
+            { pathName: 'undoneprojectgridview', parameterName: 'undoneprojectgridview' },
         ];
         const _this: any = this;
         const openIndexViewTab = (data: any) => {

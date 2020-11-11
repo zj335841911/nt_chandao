@@ -71,6 +71,7 @@ export default {
     canceltaskcnt: "取消任务数",
     storychangecnt: "需求变更数",
     noticeusers: "消息通知用户",
+    doclincnt: "文档数量",
   },
 	views: {
 		storymeditview9: {
@@ -486,6 +487,7 @@ export default {
 		columns: {
 			name: "项目名称",
 			openedby: "由谁创建",
+			doclincnt: "文档数量",
 			openeddate: "创建日期",
 		},
 		uiactions: {
