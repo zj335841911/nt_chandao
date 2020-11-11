@@ -659,7 +659,7 @@ public class TestTaskResource {
             return ResponseEntity.status(HttpStatus.NO_CONTENT).body(rs);
         }
         else{
-            if(config.equals("DataImport")){
+            if("DataImport".equals(config)){
                 rs=testtaskService.importData(dataimportImpMapping.toDomain(dtos),1000,false);
             }
             return ResponseEntity.status(HttpStatus.OK).body(rs);

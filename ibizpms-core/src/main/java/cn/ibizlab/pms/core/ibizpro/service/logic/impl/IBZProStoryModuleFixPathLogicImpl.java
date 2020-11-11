@@ -41,6 +41,7 @@ public class IBZProStoryModuleFixPathLogicImpl implements IIBZProStoryModuleFixP
         return this.iBzSysDefaultService;
     }
 
+    @Override
     public void execute(IBZProStoryModule et){
 
           KieSession kieSession = null;
@@ -59,8 +60,9 @@ public class IBZProStoryModuleFixPathLogicImpl implements IIBZProStoryModuleFixP
         }catch(Exception e){
             throw new RuntimeException("执行[重建模块路径]处理逻辑发生异常"+e);
         }finally {
-            if(kieSession!=null)
-            kieSession.destroy();
+            if(kieSession!=null) {
+                kieSession.destroy();
+            }
         }
     }
 

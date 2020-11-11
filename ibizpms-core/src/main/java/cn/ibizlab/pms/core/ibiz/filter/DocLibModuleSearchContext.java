@@ -80,6 +80,7 @@ public class DocLibModuleSearchContext extends QueryWrapperContext<DocLibModule>
     /**
 	 * 启用快速搜索
 	 */
+    @Override
 	public void setQuery(String query)
 	{
 		 this.query=query;

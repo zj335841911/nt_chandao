@@ -34,6 +34,7 @@ public class StoryStoryNFavoritesLogicImpl implements IStoryStoryNFavoritesLogic
         return this.iBzSysDefaultService;
     }
 
+    @Override
     public void execute(Story et){
 
           KieSession kieSession = null;
@@ -48,8 +49,9 @@ public class StoryStoryNFavoritesLogicImpl implements IStoryStoryNFavoritesLogic
         }catch(Exception e){
             throw new RuntimeException("执行[需求取消收藏]处理逻辑发生异常"+e);
         }finally {
-            if(kieSession!=null)
-            kieSession.destroy();
+            if(kieSession!=null) {
+                kieSession.destroy();
+            }
         }
     }
 

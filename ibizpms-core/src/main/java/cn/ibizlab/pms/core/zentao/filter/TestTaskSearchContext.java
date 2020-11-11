@@ -129,6 +129,7 @@ public class TestTaskSearchContext extends QueryWrapperContext<TestTask> {
     /**
 	 * 启用快速搜索
 	 */
+    @Override
 	public void setQuery(String query)
 	{
 		 this.query=query;

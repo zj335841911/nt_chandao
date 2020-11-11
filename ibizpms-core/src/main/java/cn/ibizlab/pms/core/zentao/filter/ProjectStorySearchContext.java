@@ -52,6 +52,7 @@ public class ProjectStorySearchContext extends QueryWrapperContext<ProjectStory>
     /**
 	 * 启用快速搜索
 	 */
+    @Override
 	public void setQuery(String query)
 	{
 		 this.query=query;

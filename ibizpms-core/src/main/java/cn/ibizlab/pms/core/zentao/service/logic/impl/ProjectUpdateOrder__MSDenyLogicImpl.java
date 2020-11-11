@@ -41,6 +41,7 @@ public class ProjectUpdateOrder__MSDenyLogicImpl implements IProjectUpdateOrder_
         return this.iBzSysDefaultService;
     }
 
+    @Override
     public void execute(Project et){
 
           KieSession kieSession = null;
@@ -59,8 +60,9 @@ public class ProjectUpdateOrder__MSDenyLogicImpl implements IProjectUpdateOrder_
         }catch(Exception e){
             throw new RuntimeException("执行[行为[UpdateOrder]主状态拒绝逻辑]处理逻辑发生异常"+e);
         }finally {
-            if(kieSession!=null)
-            kieSession.destroy();
+            if(kieSession!=null) {
+                kieSession.destroy();
+            }
         }
     }
 

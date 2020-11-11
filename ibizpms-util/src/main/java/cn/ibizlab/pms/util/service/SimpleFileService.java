@@ -33,8 +33,9 @@ public class SimpleFileService implements FileService {
             String fileFullPath = this.fileRoot+"ibizutil"+File.separator+fileid+File.separator+fileName;
             File file = new File(fileFullPath);
             File parent = new File(file.getParent());
-            if(!parent.exists())
+            if(!parent.exists()){
                 parent.mkdirs();
+            }
             FileCopyUtils.copy(multipartFile.getInputStream(),Files.newOutputStream(file.toPath()));
             item=new FileItem(fileid,fileName,fileid,fileName,(int)multipartFile.getSize(),extname);
         } catch (IOException e) {

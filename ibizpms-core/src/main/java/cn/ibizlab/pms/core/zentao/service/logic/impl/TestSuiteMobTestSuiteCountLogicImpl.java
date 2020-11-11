@@ -34,6 +34,7 @@ public class TestSuiteMobTestSuiteCountLogicImpl implements ITestSuiteMobTestSui
         return this.iBzSysDefaultService;
     }
 
+    @Override
     public void execute(TestSuite et){
 
           KieSession kieSession = null;
@@ -48,8 +49,9 @@ public class TestSuiteMobTestSuiteCountLogicImpl implements ITestSuiteMobTestSui
         }catch(Exception e){
             throw new RuntimeException("执行[移动端测试套件计数器]处理逻辑发生异常"+e);
         }finally {
-            if(kieSession!=null)
-            kieSession.destroy();
+            if(kieSession!=null) {
+                kieSession.destroy();
+            }
         }
     }
 

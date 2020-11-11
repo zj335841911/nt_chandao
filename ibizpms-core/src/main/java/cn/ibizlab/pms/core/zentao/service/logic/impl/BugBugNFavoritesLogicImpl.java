@@ -34,6 +34,7 @@ public class BugBugNFavoritesLogicImpl implements IBugBugNFavoritesLogic{
         return this.iBzSysDefaultService;
     }
 
+    @Override
     public void execute(Bug et){
 
           KieSession kieSession = null;
@@ -48,8 +49,9 @@ public class BugBugNFavoritesLogicImpl implements IBugBugNFavoritesLogic{
         }catch(Exception e){
             throw new RuntimeException("执行[Bug取消收藏]处理逻辑发生异常"+e);
         }finally {
-            if(kieSession!=null)
-            kieSession.destroy();
+            if(kieSession!=null) {
+                kieSession.destroy();
+            }
         }
     }
 

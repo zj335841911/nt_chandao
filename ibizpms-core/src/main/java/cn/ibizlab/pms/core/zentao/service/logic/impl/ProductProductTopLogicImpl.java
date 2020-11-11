@@ -41,6 +41,7 @@ public class ProductProductTopLogicImpl implements IProductProductTopLogic{
         return this.iBzSysDefaultService;
     }
 
+    @Override
     public void execute(Product et){
 
           KieSession kieSession = null;
@@ -59,8 +60,9 @@ public class ProductProductTopLogicImpl implements IProductProductTopLogic{
         }catch(Exception e){
             throw new RuntimeException("执行[置顶]处理逻辑发生异常"+e);
         }finally {
-            if(kieSession!=null)
-            kieSession.destroy();
+            if(kieSession!=null) {
+                kieSession.destroy();
+            }
         }
     }
 

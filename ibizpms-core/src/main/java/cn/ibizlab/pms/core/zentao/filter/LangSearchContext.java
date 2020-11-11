@@ -38,6 +38,7 @@ public class LangSearchContext extends QueryWrapperContext<Lang> {
     /**
 	 * 启用快速搜索
 	 */
+    @Override
 	public void setQuery(String query)
 	{
 		 this.query=query;

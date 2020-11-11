@@ -34,6 +34,7 @@ public class ProductPlanGetBedinANDEndLogicImpl implements IProductPlanGetBedinA
         return this.iBzSysDefaultService;
     }
 
+    @Override
     public void execute(ProductPlan et){
 
           KieSession kieSession = null;
@@ -48,8 +49,9 @@ public class ProductPlanGetBedinANDEndLogicImpl implements IProductPlanGetBedinA
         }catch(Exception e){
             throw new RuntimeException("执行[获取开始日期和结束日期]处理逻辑发生异常"+e);
         }finally {
-            if(kieSession!=null)
-            kieSession.destroy();
+            if(kieSession!=null) {
+                kieSession.destroy();
+            }
         }
     }
 

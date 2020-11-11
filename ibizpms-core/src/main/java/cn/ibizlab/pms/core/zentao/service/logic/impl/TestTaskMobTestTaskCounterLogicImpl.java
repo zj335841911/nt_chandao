@@ -34,6 +34,7 @@ public class TestTaskMobTestTaskCounterLogicImpl implements ITestTaskMobTestTask
         return this.iBzSysDefaultService;
     }
 
+    @Override
     public void execute(TestTask et){
 
           KieSession kieSession = null;
@@ -48,8 +49,9 @@ public class TestTaskMobTestTaskCounterLogicImpl implements ITestTaskMobTestTask
         }catch(Exception e){
             throw new RuntimeException("执行[移动端测试版本计数器]处理逻辑发生异常"+e);
         }finally {
-            if(kieSession!=null)
-            kieSession.destroy();
+            if(kieSession!=null) {
+                kieSession.destroy();
+            }
         }
     }
 

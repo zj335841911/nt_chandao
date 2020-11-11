@@ -41,6 +41,7 @@ public class StorybuildUnlinkStorysLogicImpl implements IStorybuildUnlinkStorysL
         return this.iBzSysDefaultService;
     }
 
+    @Override
     public void execute(Story et){
 
           KieSession kieSession = null;
@@ -56,8 +57,9 @@ public class StorybuildUnlinkStorysLogicImpl implements IStorybuildUnlinkStorysL
         }catch(Exception e){
             throw new RuntimeException("执行[buildUnlinkStorys]处理逻辑发生异常"+e);
         }finally {
-            if(kieSession!=null)
-            kieSession.destroy();
+            if(kieSession!=null) {
+                kieSession.destroy();
+            }
         }
     }
 

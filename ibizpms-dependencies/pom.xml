@@ -262,7 +262,6 @@
                 <version>${baomidou-jobs.version}</version>
             </dependency>
 
-
         </dependencies>
     </dependencyManagement>
 

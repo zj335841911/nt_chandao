@@ -41,6 +41,7 @@ public class IbzMyTerritoryMobMenuCountLogicImpl implements IIbzMyTerritoryMobMe
         return this.iBzSysDefaultService;
     }
 
+    @Override
     public void execute(IbzMyTerritory et){
 
           KieSession kieSession = null;
@@ -56,8 +57,9 @@ public class IbzMyTerritoryMobMenuCountLogicImpl implements IIbzMyTerritoryMobMe
         }catch(Exception e){
             throw new RuntimeException("执行[移动端菜单计数器]处理逻辑发生异常"+e);
         }finally {
-            if(kieSession!=null)
-            kieSession.destroy();
+            if(kieSession!=null) {
+                kieSession.destroy();
+            }
         }
     }
 

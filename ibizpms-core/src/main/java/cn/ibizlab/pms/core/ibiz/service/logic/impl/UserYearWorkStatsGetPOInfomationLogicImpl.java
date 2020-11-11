@@ -34,6 +34,7 @@ public class UserYearWorkStatsGetPOInfomationLogicImpl implements IUserYearWorkS
         return this.iBzSysDefaultService;
     }
 
+    @Override
     public void execute(UserYearWorkStats et){
 
           KieSession kieSession = null;
@@ -48,8 +49,9 @@ public class UserYearWorkStatsGetPOInfomationLogicImpl implements IUserYearWorkS
         }catch(Exception e){
             throw new RuntimeException("执行[获取产品经理相关数据]处理逻辑发生异常"+e);
         }finally {
-            if(kieSession!=null)
-            kieSession.destroy();
+            if(kieSession!=null) {
+                kieSession.destroy();
+            }
         }
     }
 

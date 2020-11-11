@@ -101,6 +101,7 @@ public class ProjectProductSearchContext extends QueryWrapperContext<ProjectProd
     /**
 	 * 启用快速搜索
 	 */
+    @Override
 	public void setQuery(String query)
 	{
 		 this.query=query;

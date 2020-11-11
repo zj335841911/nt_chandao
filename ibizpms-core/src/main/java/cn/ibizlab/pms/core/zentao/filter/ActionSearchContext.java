@@ -122,6 +122,7 @@ public class ActionSearchContext extends QueryWrapperContext<Action> {
     /**
 	 * 启用快速搜索
 	 */
+    @Override
 	public void setQuery(String query)
 	{
 		 this.query=query;

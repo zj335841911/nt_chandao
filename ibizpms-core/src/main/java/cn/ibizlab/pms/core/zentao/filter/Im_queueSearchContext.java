@@ -31,6 +31,7 @@ public class Im_queueSearchContext extends QueryWrapperContext<Im_queue> {
     /**
 	 * 启用快速搜索
 	 */
+    @Override
 	public void setQuery(String query)
 	{
 		 this.query=query;

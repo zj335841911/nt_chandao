@@ -34,6 +34,7 @@ public class BugUpdateStoryVersionLogicImpl implements IBugUpdateStoryVersionLog
         return this.iBzSysDefaultService;
     }
 
+    @Override
     public void execute(Bug et){
 
           KieSession kieSession = null;
@@ -48,8 +49,9 @@ public class BugUpdateStoryVersionLogicImpl implements IBugUpdateStoryVersionLog
         }catch(Exception e){
             throw new RuntimeException("执行[更新需求版本]处理逻辑发生异常"+e);
         }finally {
-            if(kieSession!=null)
-            kieSession.destroy();
+            if(kieSession!=null) {
+                kieSession.destroy();
+            }
         }
     }
 

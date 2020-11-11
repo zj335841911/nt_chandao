@@ -34,6 +34,7 @@ public class ProductPlanMobProductPlanCounterLogicImpl implements IProductPlanMo
         return this.iBzSysDefaultService;
     }
 
+    @Override
     public void execute(ProductPlan et){
 
           KieSession kieSession = null;
@@ -48,8 +49,9 @@ public class ProductPlanMobProductPlanCounterLogicImpl implements IProductPlanMo
         }catch(Exception e){
             throw new RuntimeException("执行[移动端产品计划计数器]处理逻辑发生异常"+e);
         }finally {
-            if(kieSession!=null)
-            kieSession.destroy();
+            if(kieSession!=null) {
+                kieSession.destroy();
+            }
         }
     }
 

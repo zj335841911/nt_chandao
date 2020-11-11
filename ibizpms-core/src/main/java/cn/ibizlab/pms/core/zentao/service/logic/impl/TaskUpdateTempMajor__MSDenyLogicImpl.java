@@ -41,6 +41,7 @@ public class TaskUpdateTempMajor__MSDenyLogicImpl implements ITaskUpdateTempMajo
         return this.iBzSysDefaultService;
     }
 
+    @Override
     public void execute(Task et){
 
           KieSession kieSession = null;
@@ -59,8 +60,9 @@ public class TaskUpdateTempMajor__MSDenyLogicImpl implements ITaskUpdateTempMajo
         }catch(Exception e){
             throw new RuntimeException("执行[行为[UpdateTempMajor]主状态拒绝逻辑]处理逻辑发生异常"+e);
         }finally {
-            if(kieSession!=null)
-            kieSession.destroy();
+            if(kieSession!=null) {
+                kieSession.destroy();
+            }
         }
     }
 

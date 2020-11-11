@@ -34,6 +34,7 @@ public class ProjectMobProjectCountLogicImpl implements IProjectMobProjectCountL
         return this.iBzSysDefaultService;
     }
 
+    @Override
     public void execute(Project et){
 
           KieSession kieSession = null;
@@ -48,8 +49,9 @@ public class ProjectMobProjectCountLogicImpl implements IProjectMobProjectCountL
         }catch(Exception e){
             throw new RuntimeException("执行[移动端项目计数器]处理逻辑发生异常"+e);
         }finally {
-            if(kieSession!=null)
-            kieSession.destroy();
+            if(kieSession!=null) {
+                kieSession.destroy();
+            }
         }
     }
 

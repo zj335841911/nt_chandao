@@ -1,4 +1,7 @@
 var BaseUrl = '';
+if (window.Environment && window.Environment.BaseUrl) {
+    BaseUrl = window.Environment.BaseUrl;
+}
 function getQueryVariable(variable) {
     var query = location.search.substring(1);
     var vars = query.split("&");

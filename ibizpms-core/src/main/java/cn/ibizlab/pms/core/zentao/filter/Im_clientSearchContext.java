@@ -38,6 +38,7 @@ public class Im_clientSearchContext extends QueryWrapperContext<Im_client> {
     /**
 	 * 启用快速搜索
 	 */
+    @Override
 	public void setQuery(String query)
 	{
 		 this.query=query;

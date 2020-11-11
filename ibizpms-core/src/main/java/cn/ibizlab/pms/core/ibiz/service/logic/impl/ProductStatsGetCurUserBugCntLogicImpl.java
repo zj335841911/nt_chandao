@@ -34,6 +34,7 @@ public class ProductStatsGetCurUserBugCntLogicImpl implements IProductStatsGetCu
         return this.iBzSysDefaultService;
     }
 
+    @Override
     public void execute(ProductStats et){
 
           KieSession kieSession = null;
@@ -48,8 +49,9 @@ public class ProductStatsGetCurUserBugCntLogicImpl implements IProductStatsGetCu
         }catch(Exception e){
             throw new RuntimeException("执行[获取当前用户的Bug数]处理逻辑发生异常"+e);
         }finally {
-            if(kieSession!=null)
-            kieSession.destroy();
+            if(kieSession!=null) {
+                kieSession.destroy();
+            }
         }
     }
 

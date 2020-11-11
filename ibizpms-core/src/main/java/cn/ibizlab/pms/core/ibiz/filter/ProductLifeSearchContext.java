@@ -45,6 +45,7 @@ public class ProductLifeSearchContext extends QueryWrapperContext<ProductLife> {
     /**
 	 * 启用快速搜索
 	 */
+    @Override
 	public void setQuery(String query)
 	{
 		 this.query=query;

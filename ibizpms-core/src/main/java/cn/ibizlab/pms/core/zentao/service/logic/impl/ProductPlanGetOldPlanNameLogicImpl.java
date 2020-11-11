@@ -34,6 +34,7 @@ public class ProductPlanGetOldPlanNameLogicImpl implements IProductPlanGetOldPla
         return this.iBzSysDefaultService;
     }
 
+    @Override
     public void execute(ProductPlan et){
 
           KieSession kieSession = null;
@@ -48,8 +49,9 @@ public class ProductPlanGetOldPlanNameLogicImpl implements IProductPlanGetOldPla
         }catch(Exception e){
             throw new RuntimeException("执行[获取上一个计划的名称]处理逻辑发生异常"+e);
         }finally {
-            if(kieSession!=null)
-            kieSession.destroy();
+            if(kieSession!=null) {
+                kieSession.destroy();
+            }
         }
     }
 

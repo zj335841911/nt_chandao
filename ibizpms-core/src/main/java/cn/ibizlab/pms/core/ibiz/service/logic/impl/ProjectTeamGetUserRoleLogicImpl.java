@@ -34,6 +34,7 @@ public class ProjectTeamGetUserRoleLogicImpl implements IProjectTeamGetUserRoleL
         return this.iBzSysDefaultService;
     }
 
+    @Override
     public void execute(ProjectTeam et){
 
           KieSession kieSession = null;
@@ -48,8 +49,9 @@ public class ProjectTeamGetUserRoleLogicImpl implements IProjectTeamGetUserRoleL
         }catch(Exception e){
             throw new RuntimeException("执行[获取成员角色]处理逻辑发生异常"+e);
         }finally {
-            if(kieSession!=null)
-            kieSession.destroy();
+            if(kieSession!=null) {
+                kieSession.destroy();
+            }
         }
     }
 

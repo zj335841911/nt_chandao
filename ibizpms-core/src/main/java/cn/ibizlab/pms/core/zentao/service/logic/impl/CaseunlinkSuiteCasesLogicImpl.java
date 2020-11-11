@@ -41,6 +41,7 @@ public class CaseunlinkSuiteCasesLogicImpl implements ICaseunlinkSuiteCasesLogic
         return this.iBzSysDefaultService;
     }
 
+    @Override
     public void execute(Case et){
 
           KieSession kieSession = null;
@@ -56,8 +57,9 @@ public class CaseunlinkSuiteCasesLogicImpl implements ICaseunlinkSuiteCasesLogic
         }catch(Exception e){
             throw new RuntimeException("执行[unlinkSuiteCases]处理逻辑发生异常"+e);
         }finally {
-            if(kieSession!=null)
-            kieSession.destroy();
+            if(kieSession!=null) {
+                kieSession.destroy();
+            }
         }
     }
 

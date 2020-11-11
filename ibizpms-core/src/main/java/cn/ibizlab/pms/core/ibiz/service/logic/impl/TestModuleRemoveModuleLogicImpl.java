@@ -41,6 +41,7 @@ public class TestModuleRemoveModuleLogicImpl implements ITestModuleRemoveModuleL
         return this.iBzSysDefaultService;
     }
 
+    @Override
     public void execute(TestModule et){
 
           KieSession kieSession = null;
@@ -59,8 +60,9 @@ public class TestModuleRemoveModuleLogicImpl implements ITestModuleRemoveModuleL
         }catch(Exception e){
             throw new RuntimeException("执行[删除模块]处理逻辑发生异常"+e);
         }finally {
-            if(kieSession!=null)
-            kieSession.destroy();
+            if(kieSession!=null) {
+                kieSession.destroy();
+            }
         }
     }
 

@@ -34,6 +34,7 @@ public class SysUpdateLogUpdateLastedLogicImpl implements ISysUpdateLogUpdateLas
         return this.iBzSysDefaultService;
     }
 
+    @Override
     public void execute(SysUpdateLog et){
 
           KieSession kieSession = null;
@@ -48,8 +49,9 @@ public class SysUpdateLogUpdateLastedLogicImpl implements ISysUpdateLogUpdateLas
         }catch(Exception e){
             throw new RuntimeException("执行[更新最新更新标识]处理逻辑发生异常"+e);
         }finally {
-            if(kieSession!=null)
-            kieSession.destroy();
+            if(kieSession!=null) {
+                kieSession.destroy();
+            }
         }
     }
 

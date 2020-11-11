@@ -38,6 +38,7 @@ public class Im_messagestatusSearchContext extends QueryWrapperContext<Im_messag
     /**
 	 * 启用快速搜索
 	 */
+    @Override
 	public void setQuery(String query)
 	{
 		 this.query=query;

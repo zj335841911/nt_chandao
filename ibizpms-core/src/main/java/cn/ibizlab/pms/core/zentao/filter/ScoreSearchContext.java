@@ -31,6 +31,7 @@ public class ScoreSearchContext extends QueryWrapperContext<Score> {
     /**
 	 * 启用快速搜索
 	 */
+    @Override
 	public void setQuery(String query)
 	{
 		 this.query=query;

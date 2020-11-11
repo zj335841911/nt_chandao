@@ -34,6 +34,7 @@ public class TaskResetTaskestimateLogicImpl implements ITaskResetTaskestimateLog
         return this.iBzSysDefaultService;
     }
 
+    @Override
     public void execute(Task et){
 
           KieSession kieSession = null;
@@ -48,8 +49,9 @@ public class TaskResetTaskestimateLogicImpl implements ITaskResetTaskestimateLog
         }catch(Exception e){
             throw new RuntimeException("执行[重置工时统计值]处理逻辑发生异常"+e);
         }finally {
-            if(kieSession!=null)
-            kieSession.destroy();
+            if(kieSession!=null) {
+                kieSession.destroy();
+            }
         }
     }
 

@@ -59,6 +59,7 @@ public class Im_chatuserSearchContext extends QueryWrapperContext<Im_chatuser> {
     /**
 	 * 启用快速搜索
 	 */
+    @Override
 	public void setQuery(String query)
 	{
 		 this.query=query;

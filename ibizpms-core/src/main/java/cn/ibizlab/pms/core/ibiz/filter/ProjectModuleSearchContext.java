@@ -87,6 +87,7 @@ public class ProjectModuleSearchContext extends QueryWrapperContext<ProjectModul
     /**
 	 * 启用快速搜索
 	 */
+    @Override
 	public void setQuery(String query)
 	{
 		 this.query=query;

@@ -34,6 +34,7 @@ public class UserYearWorkStatsGetQAInformationLogicImpl implements IUserYearWork
         return this.iBzSysDefaultService;
     }
 
+    @Override
     public void execute(UserYearWorkStats et){
 
           KieSession kieSession = null;
@@ -48,8 +49,9 @@ public class UserYearWorkStatsGetQAInformationLogicImpl implements IUserYearWork
         }catch(Exception e){
             throw new RuntimeException("执行[获取测试人员相关数据]处理逻辑发生异常"+e);
         }finally {
-            if(kieSession!=null)
-            kieSession.destroy();
+            if(kieSession!=null) {
+                kieSession.destroy();
+            }
         }
     }
 

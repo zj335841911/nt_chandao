@@ -52,6 +52,7 @@ public class TestSuiteSearchContext extends QueryWrapperContext<TestSuite> {
     /**
 	 * 启用快速搜索
 	 */
+    @Override
 	public void setQuery(String query)
 	{
 		 this.query=query;

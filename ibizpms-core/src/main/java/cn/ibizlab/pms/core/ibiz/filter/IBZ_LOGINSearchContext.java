@@ -38,6 +38,7 @@ public class IBZ_LOGINSearchContext extends QueryWrapperContext<IBZ_LOGIN> {
     /**
 	 * 启用快速搜索
 	 */
+    @Override
 	public void setQuery(String query)
 	{
 		 this.query=query;

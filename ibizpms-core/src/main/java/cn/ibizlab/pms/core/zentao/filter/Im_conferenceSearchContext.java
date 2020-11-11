@@ -38,6 +38,7 @@ public class Im_conferenceSearchContext extends QueryWrapperContext<Im_conferenc
     /**
 	 * 启用快速搜索
 	 */
+    @Override
 	public void setQuery(String query)
 	{
 		 this.query=query;

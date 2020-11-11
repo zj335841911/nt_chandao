@@ -34,6 +34,7 @@ public class TestReportGetInfoTestTaskOvByTimeLogicImpl implements ITestReportGe
         return this.iBzSysDefaultService;
     }
 
+    @Override
     public void execute(TestReport et){
 
           KieSession kieSession = null;
@@ -48,8 +49,9 @@ public class TestReportGetInfoTestTaskOvByTimeLogicImpl implements ITestReportGe
         }catch(Exception e){
             throw new RuntimeException("执行[根据报告起始时间更新概况信息]处理逻辑发生异常"+e);
         }finally {
-            if(kieSession!=null)
-            kieSession.destroy();
+            if(kieSession!=null) {
+                kieSession.destroy();
+            }
         }
     }
 

@@ -34,6 +34,7 @@ public class BugsendTodoTaskLogicImpl implements IBugsendTodoTaskLogic{
         return this.iBzSysDefaultService;
     }
 
+    @Override
     public void execute(Bug et){
 
           KieSession kieSession = null;
@@ -48,8 +49,9 @@ public class BugsendTodoTaskLogicImpl implements IBugsendTodoTaskLogic{
         }catch(Exception e){
             throw new RuntimeException("执行[发送待办任务]处理逻辑发生异常"+e);
         }finally {
-            if(kieSession!=null)
-            kieSession.destroy();
+            if(kieSession!=null) {
+                kieSession.destroy();
+            }
         }
     }
 

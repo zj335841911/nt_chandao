@@ -41,6 +41,7 @@ public class BugGetModuleBranchLogicImpl implements IBugGetModuleBranchLogic{
         return this.iBzSysDefaultService;
     }
 
+    @Override
     public void execute(Bug et){
 
           KieSession kieSession = null;
@@ -59,8 +60,9 @@ public class BugGetModuleBranchLogicImpl implements IBugGetModuleBranchLogic{
         }catch(Exception e){
             throw new RuntimeException("执行[获取模块的平台]处理逻辑发生异常"+e);
         }finally {
-            if(kieSession!=null)
-            kieSession.destroy();
+            if(kieSession!=null) {
+                kieSession.destroy();
+            }
         }
     }
 

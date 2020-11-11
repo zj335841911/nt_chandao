@@ -41,6 +41,7 @@ public class TestReportGetInfoTestTaskProjectLogicImpl implements ITestReportGet
         return this.iBzSysDefaultService;
     }
 
+    @Override
     public void execute(TestReport et){
 
           KieSession kieSession = null;
@@ -59,8 +60,9 @@ public class TestReportGetInfoTestTaskProjectLogicImpl implements ITestReportGet
         }catch(Exception e){
             throw new RuntimeException("执行[根据测试单获取相应信息（项目报告）]处理逻辑发生异常"+e);
         }finally {
-            if(kieSession!=null)
-            kieSession.destroy();
+            if(kieSession!=null) {
+                kieSession.destroy();
+            }
         }
     }
 

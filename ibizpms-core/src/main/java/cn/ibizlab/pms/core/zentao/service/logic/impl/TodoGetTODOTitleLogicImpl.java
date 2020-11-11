@@ -34,6 +34,7 @@ public class TodoGetTODOTitleLogicImpl implements ITodoGetTODOTitleLogic{
         return this.iBzSysDefaultService;
     }
 
+    @Override
     public void execute(Todo et){
 
           KieSession kieSession = null;
@@ -48,8 +49,9 @@ public class TodoGetTODOTitleLogicImpl implements ITodoGetTODOTitleLogic{
         }catch(Exception e){
             throw new RuntimeException("执行[获取待办名称]处理逻辑发生异常"+e);
         }finally {
-            if(kieSession!=null)
-            kieSession.destroy();
+            if(kieSession!=null) {
+                kieSession.destroy();
+            }
         }
     }
 

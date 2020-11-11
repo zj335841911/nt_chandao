@@ -41,6 +41,7 @@ public class TaskTaskFavoritesLogicImpl implements ITaskTaskFavoritesLogic{
         return this.iBzSysDefaultService;
     }
 
+    @Override
     public void execute(Task et){
 
           KieSession kieSession = null;
@@ -59,8 +60,9 @@ public class TaskTaskFavoritesLogicImpl implements ITaskTaskFavoritesLogic{
         }catch(Exception e){
             throw new RuntimeException("执行[任务收藏]处理逻辑发生异常"+e);
         }finally {
-            if(kieSession!=null)
-            kieSession.destroy();
+            if(kieSession!=null) {
+                kieSession.destroy();
+            }
         }
     }
 
