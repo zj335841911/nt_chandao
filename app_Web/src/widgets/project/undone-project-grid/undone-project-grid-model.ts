@@ -37,11 +37,6 @@ export default class UndoneProjectModel {
           dataType: 'TEXT',
         },
         {
-          name: 'doclincnt',
-          prop: 'doclincnt',
-          dataType: 'INT',
-        },
-        {
           name: 'openeddate',
           prop: 'openeddate',
           dataType: 'DATETIME',

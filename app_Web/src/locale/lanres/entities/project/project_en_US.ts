@@ -487,7 +487,6 @@ export default {
 		columns: {
 			name: "项目名称",
 			openedby: "由谁创建",
-			doclincnt: "文档数量",
 			openeddate: "创建日期",
 		},
 		uiactions: {

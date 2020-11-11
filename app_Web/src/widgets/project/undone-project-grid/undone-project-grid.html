@@ -51,18 +51,6 @@
                     </template>
                 </el-table-column>
             </template>
-            <template v-if="getColumnState('doclincnt')">
-                <el-table-column show-overflow-tooltip :prop="'doclincnt'" :label="$t('entities.project.undoneproject_grid.columns.doclincnt')" :width="100"  :align="'left'" :sortable="'custom'">
-                    <template v-slot:header="{column}">
-                      <span class="column-header ">
-                        {{$t('entities.project.undoneproject_grid.columns.doclincnt')}}
-                      </span>
-                    </template>
-                    <template v-slot="{row,column,$index}">
-                        <span>{{row.doclincnt}}</span>
-                    </template>
-                </el-table-column>
-            </template>
             <template v-if="getColumnState('openeddate')">
                 <el-table-column show-overflow-tooltip :prop="'openeddate'" :label="$t('entities.project.undoneproject_grid.columns.openeddate')" :width="150"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">

@@ -154,15 +154,6 @@ export class UndoneProjectGridBase extends GridControlBase {
             enableCond: 3 ,
         },
         {
-            name: 'doclincnt',
-            label: '文档数量',
-            langtag: 'entities.project.undoneproject_grid.columns.doclincnt',
-            show: true,
-            unit: 'PX',
-            isEnableRowEdit: false,
-            enableCond: 3 ,
-        },
-        {
             name: 'openeddate',
             label: '创建日期',
             langtag: 'entities.project.undoneproject_grid.columns.openeddate',
@@ -218,7 +209,6 @@ export class UndoneProjectGridBase extends GridControlBase {
     public hasRowEdit: any = {
         'name':false,
         'openedby':false,
-        'doclincnt':false,
         'openeddate':false,
     };
 
