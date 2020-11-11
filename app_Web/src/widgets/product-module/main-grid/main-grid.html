@@ -118,6 +118,35 @@
                     </template>
                 </el-table-column>
             </template>
+            <template v-if="getColumnState('order')">
+                <el-table-column show-overflow-tooltip :prop="'order'" :label="$t('entities.productmodule.main_grid.columns.order')" :width="100"  :align="'left'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.productmodule.main_grid.columns.order')}}
+                      </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                        <template v-if="actualIsOpenEdit">
+                            <app-form-item :error="gridItemsModel[$index][column.property].error">
+                                <input-box 
+              
+              :disabled="getColumnDisabled(row,column.property)" 
+              v-model="row[column.property]" 
+              style=""
+              type="text"
+              
+              
+              @change="($event)=>{gridEditItemChange(row, column.property, $event, $index)}">
+            </input-box>
+            
+                            </app-form-item>
+                        </template>
+                        <template v-if="!actualIsOpenEdit">
+            <app-span name='order' editorType="TEXTBOX" :value="row.order" dataType="INT" precision="0" ></app-span>
+                        </template>
+                    </template>
+                </el-table-column>
+            </template>
             <template v-if="getColumnState('uagridcolumn1')">
                 <el-table-column :column-key="'uagridcolumn1'" fixed="right" :label="$t('entities.productmodule.main_grid.columns.uagridcolumn1')" :width="50"  :align="'center'">
                     <template v-slot:header="{column}">

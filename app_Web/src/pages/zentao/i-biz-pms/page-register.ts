@@ -245,6 +245,7 @@ export const PageComponents = {
         Vue.component('ibz-my-territory-calendar-exp-view', () => import('@pages/ibiz/ibz-my-territory-calendar-exp-view/ibz-my-territory-calendar-exp-view.vue'));
         Vue.component('task-main-edit-view', () => import('@pages/zentao/task-main-edit-view/task-main-edit-view.vue'));
         Vue.component('bug-resolve-view', () => import('@pages/zentao/bug-resolve-view/bug-resolve-view.vue'));
+        Vue.component('doc-lib-grid-view-3983', () => import('@pages/ibiz/doc-lib-grid-view-3983/doc-lib-grid-view-3983.vue'));
         Vue.component('ibz-lib-grid-view', () => import('@pages/ibiz/ibz-lib-grid-view/ibz-lib-grid-view.vue'));
         Vue.component('bug-dashboard-main-edit-view9', () => import('@pages/zentao/bug-dashboard-main-edit-view9/bug-dashboard-main-edit-view9.vue'));
         Vue.component('test-task-start-option-view', () => import('@pages/zentao/test-task-start-option-view/test-task-start-option-view.vue'));

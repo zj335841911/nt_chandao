@@ -303,7 +303,7 @@ export class ProjectUsr2GridView9Base extends GridView9Base {
         const deResParameters: any[] = [];
         const parameters: any[] = [
             { pathName: 'doclibs', parameterName: 'doclib' },
-            { pathName: 'gridview', parameterName: 'gridview' },
+            { pathName: 'gridview_3983', parameterName: 'gridview_3983' },
         ];
         const _this: any = this;
         const openIndexViewTab = (data: any) => {

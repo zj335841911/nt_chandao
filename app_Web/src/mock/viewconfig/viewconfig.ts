@@ -1455,6 +1455,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TestTaskEditView",
             "viewtag": "5b139a407fa34f386f3f784f33841184"
         },
+        "doclibgridview_3983": {
+            "title": "doclib表格视图",
+            "caption": "文档库",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "DocLibGridView_3983",
+            "viewtag": "5b2408d384f5b00f079883a01aeb9d2f"
+        },
         "projectmainview_edit": {
             "title": "项目编辑视图",
             "caption": "项目",

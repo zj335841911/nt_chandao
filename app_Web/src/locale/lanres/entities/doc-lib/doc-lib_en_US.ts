@@ -38,6 +38,10 @@ export default {
 			caption: "文档库",
       		title: "doclib表格视图",
 		},
+		gridview_3983: {
+			caption: "文档库",
+      		title: "doclib表格视图",
+		},
 		productgridview: {
 			caption: "文档库",
       		title: "doclib表格视图",
@@ -123,6 +127,8 @@ export default {
 	gridviewtoolbar_toolbar: {
 	},
 	productgridviewtoolbar_toolbar: {
+	},
+	gridview_3983toolbar_toolbar: {
 	},
 	editviewtoolbar_toolbar: {
 		deuiaction1: {

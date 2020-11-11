@@ -10006,6 +10006,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/bug-resolve-view/bug-resolve-view.vue'),
                 },
                 {
+                    path: 'doclibs/:doclib?/gridview_3983/:gridview_3983?',
+                    meta: {
+                        caption: 'entities.doclib.views.gridview_3983.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'doclibs', parameterName: 'doclib' },
+                            { pathName: 'gridview_3983', parameterName: 'gridview_3983' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/doc-lib-grid-view-3983/doc-lib-grid-view-3983.vue'),
+                },
+                {
                     path: 'ibzlibs/:ibzlib?/ibzcases/:ibzcase?/gridview/:gridview?',
                     meta: {
                         caption: 'entities.ibzcase.views.gridview.caption',

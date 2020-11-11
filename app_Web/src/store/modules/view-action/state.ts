@@ -1626,6 +1626,19 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '5b2408d384f5b00f079883a01aeb9d2f',
+            viewmodule: 'ibiz',
+            viewname: 'DocLibGridView_3983',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '007d984e6319843d935a48b30587ab1b',
+                '4503911318e1f1f26599b68a6c6e681d',
+                'f7e64f3828c862a4bce56437e1e51069',
+                '73fbcf0e3685096f63587bcff234f958',
+            ],
+        },
+        {
             viewtag: '5b7c1b586dc5e23998a2765d235eaa7e',
             viewmodule: 'zentao',
             viewname: 'ProjectMainView_Edit',
@@ -3717,7 +3730,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'f83dac873b9215483c4bb91673284b41',
-                '599bad7e939d0de2523f0fcf4444f8c7',
+                '5b2408d384f5b00f079883a01aeb9d2f',
             ],
         },
         {

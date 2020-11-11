@@ -389,6 +389,7 @@ SRFNAVPARAM.project=%project%|
 |-|项目数据选择视图|DEPICKUPVIEW|&nbsp;|
 |-|story表格视图|DEGRIDVIEW|&nbsp;|
 |-|测试单编辑视图|DEEDITVIEW|&nbsp;|
+|-|doclib表格视图|DEGRIDVIEW|&nbsp;|
 |-|项目编辑视图|DEEDITVIEW|&nbsp;|
 |-|项目编辑视图（需求相关）|DEEDITVIEW9|&nbsp;|
 |-|部门|DEGRIDVIEW|&nbsp;|
