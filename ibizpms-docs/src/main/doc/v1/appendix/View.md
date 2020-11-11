@@ -625,6 +625,7 @@ SRFNAVPARAM.project=%project%|
 |-|用户表格视图|DEGRIDVIEW|&nbsp;|
 |-|平台管理|DEEDITVIEW|&nbsp;|
 |-|Bug|DEEDITVIEW|&nbsp;临时充当主信息展示页面|
+|-|项目表格视图|DEGRIDVIEW|&nbsp;|
 |-|细分需求|DEGRIDVIEW9|&nbsp;视图参数中指定了过滤条件|
 |-|公司编辑视图|DEEDITVIEW9|&nbsp;|
 |-|story表格视图|DEGRIDVIEW|&nbsp;|

@@ -174,6 +174,10 @@ export default {
 			caption: "未完成项目",
       		title: "项目表格视图",
 		},
+		moreundoneprogridview: {
+			caption: "未完成项目",
+      		title: "项目表格视图",
+		},
 		editview_suspend: {
 			caption: "项目",
       		title: "项目",
@@ -617,6 +621,8 @@ export default {
 		},
 	},
 	moreundoneprojectgridview9toolbar_toolbar: {
+	},
+	moreundoneprogridviewtoolbar_toolbar: {
 	},
 	exp_list: {
 		nodata: "",

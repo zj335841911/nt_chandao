@@ -3343,6 +3343,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "BugCaseToBugEditView",
             "viewtag": "d5171a52df7b22d69c6a5ca34699233a"
         },
+        "projectmoreundoneprogridview": {
+            "title": "项目表格视图",
+            "caption": "未完成项目",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "ProjectMoreUndoneProGridView",
+            "viewtag": "d695dac99ccf0ddd077eb13916241bd0"
+        },
         "storygridview9_child": {
             "title": "细分需求",
             "caption": "细分需求",
