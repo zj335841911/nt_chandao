@@ -77,7 +77,8 @@ export class ProjectUsr2GridView9Base extends GridView9Base {
 	 * @memberof ProjectUsr2GridView9Base
 	 */
     protected customViewParams: any = {
-        'n_status_noteq': { isRawValue: true, value: 'closed' }
+        'n_status_noteq': { isRawValue: true, value: 'closed' },
+        'size': { isRawValue: true, value: '5' }
     };
 
     /**
