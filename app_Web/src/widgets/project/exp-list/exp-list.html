@@ -7,12 +7,6 @@
     <div v-else>
         {{$t('entities.project.exp_list.nodata')}}
         <span class="quick-toolbar">
-                        <view-toolbar :model="listexpviewlistexpbar_list_quicktoolbarModels" @item-click="listexpbar_list_quicktoolbar_click.apply(_self, arguments)"/>
         </span>
     </div>
-    <row class='list-pagination' v-if="selections.length > 0">
-        <span class="batch-toolbar">
-                    <view-toolbar :model="listexpviewlistexpbar_list_batchtoolbarModels" @item-click="listexpbar_list_batchtoolbar_click.apply(_self, arguments)"/>
-        </span>
-    </row>
 </div>

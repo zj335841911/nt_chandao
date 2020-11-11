@@ -49,6 +49,10 @@ export default {
 			caption: "文档",
       		title: "doc表格视图",
 		},
+		mystorygridview: {
+			caption: "最近更新",
+      		title: "doc表格视图",
+		},
 		createeditview: {
 			caption: "文档",
       		title: "创建文档",

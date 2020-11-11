@@ -424,6 +424,7 @@ SRFNAVPARAM.project=%project%|
 |-|测试单表格视图（项目）|DEGRIDVIEW|&nbsp;|
 |-|用户编辑视图|DEEDITVIEW|&nbsp;|
 |-|关闭|DEOPTVIEW|&nbsp;|
+|-|doc表格视图|DEGRIDVIEW|&nbsp;|
 |-|文档库编辑视图|DEEDITVIEW|&nbsp;|
 |-|功能测试|DEGRIDVIEW|&nbsp;|
 |-|需求编辑视图|DEEDITVIEW|&nbsp;|
