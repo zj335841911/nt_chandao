@@ -65,19 +65,7 @@ export class DocLibModuleTreeExpViewBase extends TreeExpViewBase {
 	 * @memberof DocLibModuleTreeExpViewBase
 	 */
     protected customViewNavContexts: any = {
-        'MODULETYPE': { isRawValue: true, value: 'doc' },
-        'ID': { isRawValue: false, value: 'srfparentkey' }
-    };
-
-	/**
-	 * 自定义视图导航参数集合
-	 *
-     * @protected
-	 * @type {*}
-	 * @memberof DocLibModuleTreeExpViewBase
-	 */
-    protected customViewParams: any = {
-        'id': { isRawValue: false, value: 'srfparentkey' }
+        'MODULETYPE': { isRawValue: true, value: 'doc' }
     };
 
     /**
