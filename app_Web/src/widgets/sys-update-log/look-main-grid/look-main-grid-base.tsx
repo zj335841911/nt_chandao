@@ -387,6 +387,9 @@ export class LookMainGridBase extends GridControlBase {
         const Tree: any = {
             groupById: Number((allGroup.length+1)*100),
             group: this.$t('app.gridpage.other'),
+            LookDetail:{
+                visabled: false
+            }
             sys_update_logname:'',
             update:'',
             children: child
@@ -435,6 +438,9 @@ export class LookMainGridBase extends GridControlBase {
             const tree: any ={
                 groupById: Number((groupIndex+1)*100),
                 group: group,
+                LookDetail:{
+                    visabled: false
+                }
                 sys_update_logname:'',
                 update:'',
                 children: children,

@@ -928,6 +928,9 @@ export class MainGridBase extends GridControlBase {
             status:'',
             openedby:'',
             openeddate:'',
+            AssingToBug:{
+                visabled: false
+            }
             assignedto:'',
             resolution:'',
             ConfirmBug:{
@@ -1007,6 +1010,9 @@ export class MainGridBase extends GridControlBase {
                 status:'',
                 openedby:'',
                 openeddate:'',
+                AssingToBug:{
+                    visabled: false
+                }
                 assignedto:'',
                 resolution:'',
                 ConfirmBug:{

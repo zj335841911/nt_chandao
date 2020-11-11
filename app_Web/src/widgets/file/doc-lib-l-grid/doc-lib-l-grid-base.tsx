@@ -530,6 +530,9 @@ export class DocLibLGridBase extends GridControlBase {
             groupById: Number((allGroup.length+1)*100),
             group: this.$t('app.gridpage.other'),
             id:'',
+            Look:{
+                visabled: false
+            }
             title:'',
             pathname:'',
             objecttype:'',
@@ -589,6 +592,9 @@ export class DocLibLGridBase extends GridControlBase {
                 groupById: Number((groupIndex+1)*100),
                 group: group,
                 id:'',
+                Look:{
+                    visabled: false
+                }
                 title:'',
                 pathname:'',
                 objecttype:'',

@@ -545,6 +545,9 @@ export class ProjectMainGridBase extends GridControlBase {
             groupById: Number((allGroup.length+1)*100),
             group: this.$t('app.gridpage.other'),
             id:'',
+            Edit:{
+                visabled: false
+            }
             title:'',
             createdby:'',
             createddate:'',
@@ -603,6 +606,9 @@ export class ProjectMainGridBase extends GridControlBase {
                 groupById: Number((groupIndex+1)*100),
                 group: group,
                 id:'',
+                Edit:{
+                    visabled: false
+                }
                 title:'',
                 createdby:'',
                 createddate:'',

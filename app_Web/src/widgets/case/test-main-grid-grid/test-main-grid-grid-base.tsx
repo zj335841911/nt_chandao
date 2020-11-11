@@ -858,6 +858,9 @@ export class TestMainGridGridBase extends GridControlBase {
             group: this.$t('app.gridpage.other'),
             id:'',
             pri:'',
+            Edits:{
+                visabled: false
+            }
             title:'',
             type:'',
             openedby:'',
@@ -932,6 +935,9 @@ export class TestMainGridGridBase extends GridControlBase {
                 group: group,
                 id:'',
                 pri:'',
+                Edits:{
+                    visabled: false
+                }
                 title:'',
                 type:'',
                 openedby:'',
