@@ -90,7 +90,7 @@ export class DocGridViewBase extends GridViewBase {
     protected customViewParams: any = {
         'n_lib_eq': { isRawValue: false, value: 'srfparentkey' },
         'n_project_eq': { isRawValue: false, value: 'project' },
-        'srfroot': { isRawValue: false, value: 'dpclin' }
+        'srfroot': { isRawValue: false, value: 'doclib' }
     };
 
     /**
