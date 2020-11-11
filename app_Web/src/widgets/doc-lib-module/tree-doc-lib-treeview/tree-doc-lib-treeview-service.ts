@@ -237,6 +237,7 @@ export default class TreeDocLibService extends ControlService {
                         Object.assign(treeNode, { leaf: false });
                         Object.assign(treeNode, { navfilter: "n_parent_eq" });
                         Object.assign(treeNode, { curData: entity });
+                        Object.assign(treeNode, {navigateContext: {ID:"%id%"} });
                         Object.assign(treeNode, { nodeid: treeNode.srfkey });
                         Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
                         Object.assign(treeNode, { nodeType: "DE",appEntityName:"doclibmodule" });
@@ -371,7 +372,7 @@ export default class TreeDocLibService extends ControlService {
             Object.assign(treeNode, { expanded: true });
             Object.assign(treeNode, { leaf: false });
             Object.assign(treeNode, {navigateContext: {SRFPARENTKEY:"0"} });
-            Object.assign(treeNode, {navigateParams: {n_parent_eq:"0"} });
+            Object.assign(treeNode, {navigateParams: {n_root_eq:"%id%",n_parent_eq:"0"} });
             Object.assign(treeNode, { nodeid: treeNode.srfkey });
             Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
             Object.assign(treeNode, { nodeType: "STATIC" });
