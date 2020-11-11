@@ -149,6 +149,18 @@ export default {
 			caption: "创建文档",
 			tip: "创建文档",
 		},
+		items1: {
+			caption: "快速访问",
+			tip: "快速访问",
+		},
+		deuiaction1: {
+			caption: "最近更新",
+			tip: "最近更新",
+		},
+		deuiaction2: {
+			caption: "我的文档",
+			tip: "我的文档",
+		},
 	},
 	projectdoclibtree_treeview: {
 		nodes: {

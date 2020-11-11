@@ -70,6 +70,17 @@ export class DocGridViewBase extends GridViewBase {
     public appUIService: DocUIService = new DocUIService(this.$store);
 
 	/**
+	 * 自定义视图导航上下文集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof DocGridViewBase
+	 */
+    protected customViewNavContexts: any = {
+        'SRFROOT': { isRawValue: false, value: 'doclib' }
+    };
+
+	/**
 	 * 自定义视图导航参数集合
 	 *
      * @protected
@@ -79,7 +90,8 @@ export class DocGridViewBase extends GridViewBase {
     protected customViewParams: any = {
         'n_lib_eq': { isRawValue: false, value: 'srfparentkey' },
         'n_project_eq': { isRawValue: false, value: 'project' },
-        'parent': { isRawValue: true, value: '0' }
+        'parent': { isRawValue: true, value: '0' },
+        'srfroot': { isRawValue: false, value: 'dpclin' }
     };
 
     /**
