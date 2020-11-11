@@ -4,6 +4,11 @@
             
             未完成项目
             </span>
+            <span class="portlet-action">
+                <a @click="uiAction('u825ff1b', $event)" v-show="uiactionModel['moreundone'].visabled" :disabled="uiactionModel['moreundone'].disabled">
+                  <span>MORE</span>
+                </a>
+            </span>
         </p>
         <div class="portlet-with-title">
         <project-usr2-grid-view9 :portletState="viewState" :viewUsage="4" :viewdata="JSON.stringify(context)" :viewDefaultUsage="false" ></project-usr2-grid-view9>

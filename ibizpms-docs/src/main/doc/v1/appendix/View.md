@@ -302,6 +302,7 @@
 |-|测试单表格视图|DEGRIDVIEW|&nbsp;|
 |-|任务编辑视图|DEEDITVIEW9|&nbsp;|
 |-|测试用例表格视图|DEGRIDVIEW9|&nbsp;|
+|-|项目表格视图|DEGRIDVIEW9|&nbsp;|
 |-|相关用例|DEGRIDVIEW9|&nbsp;|
 |-|测试报告分页导航视图|DETABEXPVIEW|&nbsp;|
 |-|用户年度工作内容统计编辑视图（基础信息）|DEEDITVIEW9|&nbsp;|

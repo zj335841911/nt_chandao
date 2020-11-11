@@ -69,6 +69,34 @@ export class UndoneProjectPortletBase extends MainControlBase {
      */  
     public appUIService:ProjectUIService = new ProjectUIService(this.$store);
 
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public dashboard_sysportlet2_u825ff1b_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:ProjectUIService  = new ProjectUIService();
+        curUIService.Project_MoreUndone(datas,contextJO, paramJO,  $event, xData,this,"Project");
+    }
+
 
     /**
      * 长度
@@ -100,6 +128,7 @@ export class UndoneProjectPortletBase extends MainControlBase {
      * @memberof UndoneProjectBase
      */
     public uiactionModel: any = {
+        moreundone: {name: 'moreundone', actiontarget: 'NONE', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: '', uiaction: { tag: 'MoreUndone', target: 'NONE' } },
     }
 
 
@@ -218,6 +247,16 @@ export class UndoneProjectPortletBase extends MainControlBase {
         }
     }
 
+    /**
+     * 执行界面行为
+     *
+     * @memberof UndoneProjectBase
+     */
+    public uiAction(tag:string,event:any){
+        if(Object.is(tag,'u825ff1b')){
+            this.dashboard_sysportlet2_u825ff1b_click(null,tag,event);
+        }
+    }
 
     /**
      * 刷新

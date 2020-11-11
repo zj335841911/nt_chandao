@@ -97,6 +97,10 @@ export default {
 			caption: "项目",
       		title: "项目",
 		},
+		usr3gridview9: {
+			caption: "未完成项目",
+      		title: "项目表格视图",
+		},
 		mainmygridview: {
 			caption: "项目",
       		title: "项目",
@@ -611,6 +615,8 @@ export default {
 		},
 	},
 	usr2gridview9toolbar_toolbar: {
+	},
+	usr3gridview9toolbar_toolbar: {
 	},
 	exp_list: {
 		nodata: "",
