@@ -4,7 +4,7 @@
                     <app-pms-update-log-info :items="items" ></app-pms-update-log-info>
              <div  v-if="items.length == 0" class="no-data">
             </div>
-            <div v-show="!allLoaded && isNeedLoaddingText" class="loadding" >
+            <div v-show="!allLoaded && isNeedLoaddingText && viewType == 'DEMOBMDVIEW'" class="loadding" >
                     <span >{{$t('app.loadding')?$t('app.loadding'):"加载中"}}</span>
                     <ion-spinner name="dots"></ion-spinner>
             </div>                          

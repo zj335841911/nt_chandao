@@ -87,6 +87,9 @@ export class MobTabExpViewtabviewpanel2Model {
       {
         name: 'builddate',
       },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

@@ -23,6 +23,7 @@ export default {
     sqlid: "运行数据库",
     createbugcnt: "产生的bug",
     builderpk: "构建者（选择）",
+    noticeusers: "消息通知用户",
   },
 	views: {
 		mobpickupmdview: {

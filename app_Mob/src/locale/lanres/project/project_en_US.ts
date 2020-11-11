@@ -70,6 +70,7 @@ export default {
     closetaskcnt: "关闭任务数",
     canceltaskcnt: "取消任务数",
     storychangecnt: "需求变更数",
+    noticeusers: "消息通知用户",
   },
 	views: {
 		mobchartview: {

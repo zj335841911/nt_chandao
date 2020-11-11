@@ -84,6 +84,9 @@ export class Mob_8373Model {
       {
         name: 'builderpk',
       },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

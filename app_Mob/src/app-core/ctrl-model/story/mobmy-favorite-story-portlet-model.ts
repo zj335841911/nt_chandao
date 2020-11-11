@@ -189,6 +189,9 @@ export class MOBMyFavoriteStoryModel {
       {
         name: 'assignedtopk',
       },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

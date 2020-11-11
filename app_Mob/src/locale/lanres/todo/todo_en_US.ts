@@ -33,6 +33,7 @@ export default {
     date1: "日期",
     date_disable: "待定",
     assignedtopk: "指派给（选择）",
+    noticeusers: "消息通知用户",
   },
 	views: {
 		newmobeditview: {

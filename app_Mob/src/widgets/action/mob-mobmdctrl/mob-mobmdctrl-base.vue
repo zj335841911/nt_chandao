@@ -4,7 +4,7 @@
                     <app-history-list :items="items"  :itemNameDetail="{time:{ 'name':'date','isCodeList':false,'tag':'','codeListType':''} ,'method':{ 'name':'actions','isCodeList':false,'tag':'','codeListType':''} ,'info':{ 'name':'actionmanner','isCodeList':true,'tag':'ActionManner','codeListType':'STATIC'} }"></app-history-list>
              <div  v-if="items.length == 0" class="no-data">
             </div>
-            <div v-show="!allLoaded && isNeedLoaddingText" class="loadding" >
+            <div v-show="!allLoaded && isNeedLoaddingText && viewType == 'DEMOBMDVIEW'" class="loadding" >
                     <span >{{$t('app.loadding')?$t('app.loadding'):"加载中"}}</span>
                     <ion-spinner name="dots"></ion-spinner>
             </div>                          

@@ -189,6 +189,9 @@ export class MobModel {
       {
         name: 'files',
       },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

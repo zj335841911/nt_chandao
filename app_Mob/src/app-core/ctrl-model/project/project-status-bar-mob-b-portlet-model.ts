@@ -225,6 +225,9 @@ export class ProjectStatusBarMobBModel {
       {
         name: 'storychangecnt',
       },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

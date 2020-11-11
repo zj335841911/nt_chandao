@@ -189,6 +189,9 @@ export class Usr2MobMPickupViewpickupviewpanelModel {
       {
         name: 'assignedtopk',
       },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

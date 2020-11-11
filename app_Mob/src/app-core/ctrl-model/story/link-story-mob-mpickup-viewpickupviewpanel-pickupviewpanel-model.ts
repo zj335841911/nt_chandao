@@ -189,6 +189,9 @@ export class LinkStoryMobMPickupViewpickupviewpanelModel {
       {
         name: 'assignedtopk',
       },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

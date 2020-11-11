@@ -84,6 +84,9 @@ export class MobTabExpViewtabviewpanel3Model {
       {
         name: 'builderpk',
       },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

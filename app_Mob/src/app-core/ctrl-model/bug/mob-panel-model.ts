@@ -231,6 +231,9 @@ export class MobModel {
       {
         name: 'delay',
       },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

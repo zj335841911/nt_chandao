@@ -84,6 +84,9 @@ export class MobMPickupViewpickupviewpanelModel {
       {
         name: 'builderpk',
       },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

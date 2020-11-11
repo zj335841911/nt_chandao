@@ -189,6 +189,9 @@ export class Usr2MobMPickupViewpickupviewpanelModel {
       {
         name: 'files',
       },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

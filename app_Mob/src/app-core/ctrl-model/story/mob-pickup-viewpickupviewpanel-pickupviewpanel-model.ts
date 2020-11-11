@@ -189,6 +189,9 @@ export class MobPickupViewpickupviewpanelModel {
       {
         name: 'assignedtopk',
       },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

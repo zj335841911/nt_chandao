@@ -87,6 +87,9 @@ export class MobModel {
       {
         name: 'builddate',
       },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

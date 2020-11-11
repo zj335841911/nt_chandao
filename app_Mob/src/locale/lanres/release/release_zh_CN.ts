@@ -24,6 +24,7 @@ export default {
     releasetype: "运行模式",
     builder: "构建者",
     builddate: "打包日期",
+    noticeusers: "消息通知用户",
   },
 	views: {
 		mobtabexpview: {

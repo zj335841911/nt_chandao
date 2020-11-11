@@ -144,6 +144,9 @@ export class MobPickupViewpickupviewpanelModel {
       {
         name: 'rdpk',
       },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

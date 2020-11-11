@@ -225,6 +225,9 @@ export class MobPickupViewpickupviewpanelModel {
       {
         name: 'storychangecnt',
       },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

@@ -225,6 +225,9 @@ export class MobTabExpViewtabviewpanel5Model {
       {
         name: 'storychangecnt',
       },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

@@ -189,14 +189,6 @@ export default class UserLoginPositionBase extends Vue implements ControlInterfa
     public items:Array<any> =[];
 
     /**
-    * map数据
-    *
-    * @param {Array<any>}
-    * @memberof UserLoginPosition
-    */
-    public geoCoordMap:any = [];
-
-    /**
      * 获取单项树
      *
      * @returns {*}
@@ -276,9 +268,10 @@ export default class UserLoginPositionBase extends Vue implements ControlInterfa
         this.$emit('load', (response.data && response.data) ? response.data : []);
         this.items = [];
         this.items = response.data;
-        this.series.forEach((temp:any) => {
-            temp.data = this.convertDat(this,temp.name);
-        });
+        for (let index = 0; index < this.series.length; index++) {
+            const element:any = this.series[index];
+            element.data = await this.convertDat(element.name);
+        }
         this.setOptions();
         return response;
     }
@@ -324,7 +317,7 @@ export default class UserLoginPositionBase extends Vue implements ControlInterfa
      * @type {}
      * @memberof MapBase
      */   
-    public mapItems = {
+    public mapItems:any = {
                             'test':{
                             bkcolor:'',
                             color:'',
@@ -333,14 +326,13 @@ export default class UserLoginPositionBase extends Vue implements ControlInterfa
                             longitude:'',
                             text:'',
                             tips:'',
-                        },
+                            code:'0'
+                        }
                     }
 
     //点击弹出
     public tooltip = {
-        formatter: (params: any, ticket: any, callback: any) => {
-            return params.seriesName + '<br />' + params.name + '：' + (params.value ? params.value : 0)
-        }
+      
     }
     // 旁边的滑动栏
     public visualMap = {
@@ -350,6 +342,9 @@ export default class UserLoginPositionBase extends Vue implements ControlInterfa
                 {
                     label:'test',
                     color:'rgba(58, 211, 155, 1)',
+                    dimension:4,
+                    min:0,
+                    max:0,
                 }
         ],
         show: true
@@ -392,7 +387,8 @@ export default class UserLoginPositionBase extends Vue implements ControlInterfa
         {
             name: 'test',
             type: 'scatter',
-            geoIndex: 0,
+            symbolSize: 10,//控制点的大小
+            coordinateSystem: 'geo',
             encode: {
                 value: 2
             },
@@ -400,6 +396,7 @@ export default class UserLoginPositionBase extends Vue implements ControlInterfa
              
                 show: false
             },
+          
             emphasis: {
                 label: {
                     show: false
@@ -417,6 +414,13 @@ export default class UserLoginPositionBase extends Vue implements ControlInterfa
     * mounted
     */
     public mounted() {
+        this.afterMounted();
+    }
+
+   /**
+    * afterMounted
+    */
+    public afterMounted(){
         Object.assign(this.option, { tooltip: this.tooltip }, { visualMap: this.visualMap }, { geo: this.geo }, { series: this.series })
         let element: any = document.getElementById(this.mapId);
         this.map = echarts.init(element);
@@ -427,57 +431,40 @@ export default class UserLoginPositionBase extends Vue implements ControlInterfa
         if(!this.map){
             return
         }
+        console.log(this.option);
         this.map.setOption(this.option);
+    }
+
+    // 定位数据位置
+    public async convertDat (tag:any) {
+        let res:any = []
+        let mapItemModel = this.mapItems[tag];
+        let mapItemData :any= this.items[tag];
+        for (let index = 0; index < mapItemData.length; index++) {
+            const element = mapItemData[index];
+            let latitude = element[mapItemModel.latitude];
+            let longitude =  element[mapItemModel.longitude];
+            if(longitude && latitude){
+                let cityName = await this.getCityName(`${longitude},${latitude}`);
+                res.push({
+                    name: cityName,
+                    value: [longitude,latitude].concat(mapItemData.filter((temp:any)=>{return temp[mapItemModel.latitude] == latitude && temp[mapItemModel.longitude]==longitude }).length,mapItemModel.code)
+                });
+            }
+        }
+        return res;
     }
 
     /**
      * 获取城市坐标
-     *
-     * @memberof AppCustomize
      */
-    public loadCityList(): Promise<any> {
-        return new Promise((resolve: any, reject: any) => {
-        Http.getInstance()
-            .get("./assets/json/city.json")
-            .then((response: any) => {
-            if (response && response.status === 200 && response.data) {
-                let result: Array<any> = [];
-                if (typeof response.data == "string") {
-                const index: number = response.data.lastIndexOf(",");
-                result = JSON.parse(response.data);
-                } else {
-                    result = response.data;
-                }
-                resolve(result);
-            }
-            })
-            .catch((response: any) => {
-            });
-        });
-    }
-
-    // 定位数据位置
-    public convertDat (_this:any,tag:any) {
-        if( !this.geoCoordMap){
-            return []
+    public async  getCityName(location:string) {
+        let cityInfo =   await Http.getInstance().get("map/v3/geocode/regeo",{key:"f24180cec13fe7e72472dcb9fcd26c0e",location:location})
+        if (cityInfo && cityInfo.status === 200 && cityInfo.data) {
+            if(cityInfo.data.infocode == 10000 && cityInfo.data.regeocode && cityInfo.data.regeocode.addressComponent){
+                return cityInfo.data.regeocode.addressComponent.city.length != 0?cityInfo.data.regeocode.addressComponent.city:cityInfo.data.regeocode.addressComponent.province;
+            }                
         }
-        let aa:any = [120.06,29.32];
-        let bb :any= [120.06,29.32];
-        let res:any = []
-        let mapItemModel = _this.mapItems[tag];
-        let mapItemData :any= _this.items[tag];
-        mapItemData.forEach((item:any) => {
-        let latitude = item[mapItemModel.latitude];
-        let longitude =  item[mapItemModel.longitude];
-        let geoCoord:number = _this.geoCoordMap.findIndex((temp:any)=>{return temp.latitude == latitude && temp.longitude == longitude});
-        if (geoCoord > -1) {
-            res.push({
-                name: this.geoCoordMap[geoCoord].name,
-                value: [latitude,longitude].concat(mapItemData.filter((temp:any)=>{return temp[mapItemModel.latitude] == latitude && temp[mapItemModel.longitude]==longitude }).length)
-            });
-        }
-        });
-        return res;
     }
 }
 </script>

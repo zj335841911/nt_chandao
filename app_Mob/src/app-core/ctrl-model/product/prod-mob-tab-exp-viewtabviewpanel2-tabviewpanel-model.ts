@@ -144,6 +144,9 @@ export class ProdMobTabExpViewtabviewpanel2Model {
       {
         name: 'rdpk',
       },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

@@ -144,6 +144,9 @@ export class MobTabExpViewtabviewpanelModel {
       {
         name: 'rdpk',
       },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

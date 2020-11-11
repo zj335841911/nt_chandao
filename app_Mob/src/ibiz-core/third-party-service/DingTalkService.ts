@@ -2,6 +2,7 @@ import axios from "axios";
 import * as dd from "dingtalk-jsapi";
 import { Util } from "@/ibiz-core/utils";
 import store from "@/store";
+import qs from 'qs';
 import { Notice } from "../../utils/notice/notice";
 /**
  * 钉钉服务
@@ -35,7 +36,7 @@ export class DingTalkService {
      * @type {string}
      * @memberof DingTalkService
      */
-    private readonly infoName: string = "UserInfo";
+    private readonly infoName: string = "";
     /**
      * 企业corpId
      *
@@ -43,7 +44,7 @@ export class DingTalkService {
      * @type {string}
      * @memberof WeChatService
      */
-    private corpId: string = "ding0466097cd833d9f9a1320dcb25e91351";
+    private corpId: string = "";
     /**
      * 钉钉sdk
      *
@@ -90,6 +91,10 @@ export class DingTalkService {
         this.init();
     }
 
+    /**
+     * 钉钉初始化  鉴权
+     * @memberof DingTalkService
+     */
     private init() {
         const info: string = window.navigator.userAgent.toUpperCase();
         if (info.indexOf("DINGTALK") !== -1) {
@@ -122,7 +127,7 @@ export class DingTalkService {
     }
 
     /**
-     * 钉钉初始化
+     * 钉钉初始化回调方法
      */
     private dd_ready() {
         this.setNavBack();
@@ -134,38 +139,28 @@ export class DingTalkService {
     public async getAccess_token(): Promise<any> {
         return new Promise((resolve, reject) => {
             let access_token = localStorage.getItem("access_token");
-            if (access_token) {
-                let reAccess_token: any = JSON.parse(access_token);
+            if (access_token && JSON.parse(access_token).time && !(new Date().getTime() - JSON.parse(access_token).time > 5400000)) {
                 // 鉴权信息2小时过期 设置一小时五十分钟
-                if (
-                    reAccess_token.time &&
-                    !(new Date().getTime() - reAccess_token.tiem > 5400000)
-                ) {
-                    resolve(reAccess_token);
-                }
-            }
-            const promise: Promise<any> = this.get(`/uaa/dingtalk/jsapi/sign`);
-            promise
-                .then((response: any) => {
+                resolve(JSON.parse(access_token));
+            } else {
+                let openAccessId = document.referrer ? document.referrer : "dingtalk";
+                let url = window.location.href.replace(window.location.hash, '')
+                const promise: Promise<any> = this.get(`/uaa/dingtalk/jsapi/sign` + qs.stringify({ openAccessId: openAccessId, url: url }));
+                promise.then((response: any) => {
                     if (response && response.status === 200) {
-                        localStorage.setItem(
-                            "access_token",
-                            JSON.stringify(
-                                Object.assign(response.data, { time: new Date().getTime() })
-                            )
-                        );
+                        localStorage.setItem("access_token", JSON.stringify(Object.assign(response.data, { time: new Date().getTime() })));
                         resolve(response.data);
                     } else {
-                        resolve(response);
+                        resolve(null);
                     }
-                })
-                .catch((response: any) => {
+                }).catch((response: any) => {
                     console.error(response);
-                    // alert("sign"+JSON.stringify(response));
-                    reject(response);
+                    resolve(null);
                 });
+            }
         });
     }
+
     /**
      * 钉钉登录
      *
@@ -173,28 +168,13 @@ export class DingTalkService {
      */
     public async login(): Promise<any> {
         const access_token: any = await this.get(`/uaa/open/dingtalk/access_token`);
-        if (
-            access_token.status == 200 &&
-            access_token.data &&
-            access_token.data.corp_id
-        ) {
-            localStorage.setItem(
-                "access_token",
-                JSON.stringify(Object.assign(access_token, new Date().getTime))
-            );
+        if (access_token.status == 200 && access_token.data && access_token.data.corp_id) {
+            localStorage.setItem("access_token", JSON.stringify(Object.assign(access_token, new Date().getTime)));
             this.corpId = access_token.data.corp_id;
-            const res: any = await dd.runtime.permission.requestAuthCode({
-                corpId: this.corpId,
-            });
+            const res: any = await dd.runtime.permission.requestAuthCode({ corpId: this.corpId, });
             if (res && res.code) {
-                const userInfo: any = await this.get(
-                    `/uaa/open/dingtalk/auth/${res.code}`
-                );
-                if (
-                    userInfo.status == 200 &&
-                    userInfo.data.token &&
-                    userInfo.data.user
-                ) {
+                const userInfo: any = await this.get(`/uaa/open/dingtalk/auth/${res.code}`);
+                if (userInfo.status == 200 && userInfo.data.token && userInfo.data.user) {
                     localStorage.setItem("token", userInfo.data.token);
                     localStorage.setItem("user", JSON.stringify(userInfo.data.user));
                     return { issuccess: true, message: "" };
@@ -207,6 +187,26 @@ export class DingTalkService {
                 return { issuccess: false, message: "钉钉用户信息获取失败" };
             }
         }
+    }
+
+    /**
+     * 请求(需要替换为项目)
+     *
+     * @private
+     * @param {string} url
+     * @returns {Promise<any>}
+     * @memberof DingTalkService
+     */
+    private async get(url: string): Promise<any> {
+        return new Promise((resolve) => {
+            axios.get(url)
+                .then((response: any) => {
+                    resolve(response);
+                }).catch((error: any) => {
+                    resolve(error);
+                    console.log("请求异常");
+                });
+        });
     }
 
     /**
@@ -290,28 +290,6 @@ export class DingTalkService {
     }
 
     /**
-     * 请求(需要替换为项目)
-     *
-     * @private
-     * @param {string} url
-     * @returns {Promise<any>}
-     * @memberof DingTalkService
-     */
-    private async get(url: string): Promise<any> {
-        return new Promise((resolve) => {
-            axios
-                .get(url)
-                .then((response: any) => {
-                    resolve(response);
-                })
-                .catch((error: any) => {
-                    resolve(error);
-                    console.log("请求异常");
-                });
-        });
-    }
-
-    /**
      * 获取实例
      *
      * @memberof DingTalkService
@@ -347,14 +325,10 @@ export class DingTalkService {
      */
     private setNavBack() {
         if (Util.isAndroid()) {
-            document.addEventListener(
-                "backbutton",
-                (e: any) => {
-                    e.preventDefault();
-                    this.controlBackEvent();
-                },
-                false
-            );
+            document.addEventListener("backbutton", (e: any) => {
+                e.preventDefault();
+                this.controlBackEvent();
+            }, false);
         } else {
             dd.biz.navigation.setLeft({
                 control: true, //是否控制点击事件，true 控制，false 不控制， 默认false

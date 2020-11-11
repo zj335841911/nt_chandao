@@ -231,6 +231,9 @@ export class Usr3MobMPickupViewpickupviewpanelModel {
       {
         name: 'delay',
       },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

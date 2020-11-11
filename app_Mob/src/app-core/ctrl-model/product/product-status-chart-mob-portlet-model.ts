@@ -144,6 +144,9 @@ export class ProductStatusChartMobModel {
       {
         name: 'rdpk',
       },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

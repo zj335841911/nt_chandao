@@ -15,7 +15,20 @@ module.exports = {
         port: 8111,
         compress: true,
         disableHostCheck: true,
-        // proxy: "http://127.0.0.1:8080/Mob",
+        proxy: {
+            "/map":{
+                //配置跨域
+                target: "http://restapi.amap.com",
+                changOrigin:true,
+                pathRewrite:{
+                    '^/map':'/'
+                }
+            },
+            '': {
+                target: "http://127.0.0.1:8080/Mob",
+            }
+
+        },
         historyApiFallback: {
             rewrites: [
             ]

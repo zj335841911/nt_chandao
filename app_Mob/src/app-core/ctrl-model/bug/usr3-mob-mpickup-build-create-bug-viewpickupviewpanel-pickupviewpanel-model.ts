@@ -231,6 +231,9 @@ export class Usr3MobMPickupBuildCreateBugViewpickupviewpanelModel {
       {
         name: 'delay',
       },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

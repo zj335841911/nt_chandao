@@ -231,6 +231,9 @@ export class MyBugMobModel {
       {
         name: 'delay',
       },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 

@@ -189,6 +189,9 @@ export class MyStoryModel {
       {
         name: 'assignedtopk',
       },
+      {
+        name: 'noticeusers',
+      },
     ]
   }
 
