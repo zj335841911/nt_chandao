@@ -65,7 +65,8 @@ export class DocLibModuleTreeExpViewBase extends TreeExpViewBase {
 	 * @memberof DocLibModuleTreeExpViewBase
 	 */
     protected customViewNavContexts: any = {
-        'MODULETYPE': { isRawValue: true, value: 'doc' }
+        'MODULETYPE': { isRawValue: true, value: 'doc' },
+        'SRFROOT': { isRawValue: false, value: 'srfroot' }
     };
 
     /**
