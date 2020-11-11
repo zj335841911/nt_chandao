@@ -203,8 +203,8 @@ export class DocActionPortletBase extends MainControlBase {
      */
     public uiactionModel: any = {
         exit: {name: 'exit', actiontarget: '',  disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: '', uiaction: { tag: 'Exit', target: '' } },
-        edit: {name: 'edit', actiontarget: 'SINGLEKEY',  disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'DOC', uiaction: { tag: 'Edit', target: 'SINGLEKEY' } },
-        delete: {name: 'delete', actiontarget: 'SINGLEKEY',  disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'DOC', uiaction: { tag: 'Delete', target: 'SINGLEKEY' } },
+        edit: {name: 'edit', actiontarget: 'SINGLEKEY',  disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'MODULE', uiaction: { tag: 'Edit', target: 'SINGLEKEY' } },
+        delete: {name: 'delete', actiontarget: 'SINGLEKEY',  disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'MODULE', uiaction: { tag: 'Delete', target: 'SINGLEKEY' } },
     }
 
     /**
@@ -228,7 +228,7 @@ export class DocActionPortletBase extends MainControlBase {
         iconcls: "fa fa-edit",
         icon: "",
         noprivdisplaymode: 2,
-        dataaccaction:'DOC',
+        dataaccaction:'MODULE',
         actiontarget:'SINGLEKEY',
         visabled:true,
         disabled:false
@@ -238,7 +238,7 @@ export class DocActionPortletBase extends MainControlBase {
         iconcls: "fa fa-remove",
         icon: "",
         noprivdisplaymode: 2,
-        dataaccaction:'DOC',
+        dataaccaction:'MODULE',
         actiontarget:'SINGLEKEY',
         visabled:true,
         disabled:false

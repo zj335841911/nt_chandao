@@ -62,11 +62,6 @@ export default class MainModel {
           dataType: 'PICKUP',
         },
         {
-          name: 'type',
-          prop: 'type',
-          dataType: 'SSCODELIST',
-        },
-        {
           name: 'srfmstag',
         },
         {

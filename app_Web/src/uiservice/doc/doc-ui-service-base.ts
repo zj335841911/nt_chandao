@@ -60,7 +60,7 @@ export default class DocUIServiceBase extends UIService {
      * 
      * @memberof  DocUIServiceBase
      */  
-    public mainStateFields:Array<any> = ['type'];
+    public mainStateFields:Array<any> = ['docqtype'];
 
     /**
      * 主状态集合Map
@@ -123,7 +123,7 @@ export default class DocUIServiceBase extends UIService {
      */  
     public initDeMainStateMap(){
         this.allDeMainStateMap.set('doc','doc');
-        this.allDeMainStateMap.set('file','file');
+        this.allDeMainStateMap.set('module','module');
     }
 
     /**
@@ -132,8 +132,8 @@ export default class DocUIServiceBase extends UIService {
      * @memberof  DocUIServiceBase
      */  
     public initDeMainStateOPPrivsMap(){
-        this.allDeMainStateOPPrivsMap.set('doc',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'FILE':0,}));
-        this.allDeMainStateOPPrivsMap.set('file',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'DOC':0,}));
+        this.allDeMainStateOPPrivsMap.set('doc',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{}));
+        this.allDeMainStateOPPrivsMap.set('module',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{}));
     }
 
     /**
