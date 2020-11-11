@@ -168,6 +168,8 @@ export default {
 			all: "所有文档库",
 		},
 		uiactions: {
+        doclib_editcustomdoclib: "编辑",
+        refreshall: "刷新",
 		},
 	},
 };

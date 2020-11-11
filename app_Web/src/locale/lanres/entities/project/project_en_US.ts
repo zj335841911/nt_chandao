@@ -614,8 +614,6 @@ export default {
 			tip: "取消置顶",
 		},
 	},
-	usr2gridview9toolbar_toolbar: {
-	},
 	usr3gridview9toolbar_toolbar: {
 	},
 	exp_list: {

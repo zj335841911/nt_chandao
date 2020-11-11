@@ -67,6 +67,146 @@ export class CustomDocLibTreeTreeBase extends MainControlBase {
      */  
     public appUIService:DocLibUIService = new DocLibUIService(this.$store);
 
+    /**
+     * doclib_cm 部件 click 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof CustomDocLibTreeTreeBase
+     */
+    public doclib_cm_click($event: any, $event2?: any) {
+        if (Object.is($event.tag, 'deuiaction1')) {
+            this.doclib_cm_deuiaction1_click(null, 'doclib_cm', $event2);
+        }
+        if (Object.is($event.tag, 'deuiaction2')) {
+            this.doclib_cm_deuiaction2_click(null, 'doclib_cm', $event2);
+        }
+    }
+
+    /**
+     * all_cm 部件 click 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof CustomDocLibTreeTreeBase
+     */
+    public all_cm_click($event: any, $event2?: any) {
+        if (Object.is($event.tag, 'deuiaction1')) {
+            this.all_cm_deuiaction1_click(null, 'all_cm', $event2);
+        }
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public doclib_cm_deuiaction1_click(params: any = {}, tag?: any, $event?: any) {
+        // 参数
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:DocLibUIService  = new DocLibUIService();
+        curUIService.DocLib_EditCustomDocLib(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public doclib_cm_deuiaction2_click(params: any = {}, tag?: any, $event?: any) {
+        // 参数
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        this.RefreshAll(datas, contextJO,paramJO,  $event, xData,this,"DocLib");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public all_cm_deuiaction1_click(params: any = {}, tag?: any, $event?: any) {
+        // 参数
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        this.RefreshAll(datas, contextJO,paramJO,  $event, xData,this,"DocLib");
+    }
+
+    /**
+     * 刷新
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} contextJO 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @memberof DocLibCustomTreeExpViewBase
+     */
+    public RefreshAll(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+        if (xData && xData.refresh_all && xData.refresh_all instanceof Function) {
+            xData.refresh_all();
+            return;
+        }
+        const _this: any = this;
+        if (_this.refresh_all && _this.refresh_all instanceof Function) {
+            _this.refresh_all();
+            return;
+        }
+        if (_this.engine) {
+            _this.engine.load();
+        }
+    }
+
 
     /**
      * 获取多项数据
@@ -264,6 +404,9 @@ export class CustomDocLibTreeTreeBase extends MainControlBase {
      * @memberof CustomDocLibTreeBase
      */
      public actionModel: any = {
+        Doclib_deuiaction1: {name:'deuiaction1',nodeOwner:'Doclib',type: 'DEUIACTION', tag: 'EditCustomDocLib', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, visabled: true, disabled: false},
+        Doclib_deuiaction2: {name:'deuiaction2',nodeOwner:'Doclib',type: 'DEUIACTION', tag: 'RefreshAll', noprivdisplaymode:2, visabled: true, disabled: false},
+        ALL_deuiaction1: {name:'deuiaction1',nodeOwner:'ALL',type: 'DEUIACTION', tag: 'RefreshAll', noprivdisplaymode:2, visabled: true, disabled: false},
     }
 
     /**
@@ -656,8 +799,58 @@ export class CustomDocLibTreeTreeBase extends MainControlBase {
             const data: any = JSON.parse(JSON.stringify(node.data));
             this.currentselectedNode = { ...data };
             const tags: string[] = data.id.split(';');
+            if (tags[0] === "Doclib") {
+                content = this.renderContextMenuDoclib();
+            }
+            if (tags[0] === "ALL") {
+                content = this.renderContextMenuAll();
+            }
         }
         return content;
+    }
+
+    /**
+     * 绘制Doclib类型右键菜单
+     *
+     * @param {*} node
+     * @returns
+     * @memberof CustomDocLibTreeBase
+     */
+    public renderContextMenuDoclib() {
+        return (
+            <dropdown class="tree-right-menu" trigger="custom" visible={true} on-on-click={($event: any) => this.doclib_cm_click({tag: $event})}>
+                <dropdown-menu slot="list">
+                            <dropdown-item name='deuiaction1' v-show={this.copyActionModel['deuiaction1']?.visabled} disabled={this.copyActionModel['deuiaction1']?.disabled}>
+                        
+                        编辑
+                    </dropdown-item>
+                            <dropdown-item name='deuiaction2' v-show={this.copyActionModel['deuiaction2']?.visabled} disabled={this.copyActionModel['deuiaction2']?.disabled}>
+                        <i class='fa fa-refresh'></i>
+                        刷新
+                    </dropdown-item>
+                </dropdown-menu>
+            </dropdown>
+        );
+    }
+
+    /**
+     * 绘制ALL类型右键菜单
+     *
+     * @param {*} node
+     * @returns
+     * @memberof CustomDocLibTreeBase
+     */
+    public renderContextMenuAll() {
+        return (
+            <dropdown class="tree-right-menu" trigger="custom" visible={true} on-on-click={($event: any) => this.all_cm_click({tag: $event})}>
+                <dropdown-menu slot="list">
+                            <dropdown-item name='deuiaction1' v-show={this.copyActionModel['deuiaction1']?.visabled} disabled={this.copyActionModel['deuiaction1']?.disabled}>
+                        <i class='fa fa-refresh'></i>
+                        刷新
+                    </dropdown-item>
+                </dropdown-menu>
+            </dropdown>
+        );
     }
 
     /**
