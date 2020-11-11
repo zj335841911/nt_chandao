@@ -533,7 +533,7 @@ export default class BugUIActionBase extends EntityUIActionBase {
         };
         const result: any = await this.openService.openModal(view, _context, _params);
         if (result && Object.is(result.ret, 'OK')) {
-            Object.assign(params, { srfactionparam: result.datas });
+            Object.assign(_params, { srfactionparam: result.datas });
             return backend();
         }
     }
@@ -661,7 +661,7 @@ export default class BugUIActionBase extends EntityUIActionBase {
         };
         const result: any = await this.openService.openModal(view, _context, _params);
         if (result && Object.is(result.ret, 'OK')) {
-            Object.assign(params, { srfactionparam: result.datas });
+            Object.assign(_params, { srfactionparam: result.datas });
             return backend();
         }
     }
@@ -1091,7 +1091,7 @@ export default class BugUIActionBase extends EntityUIActionBase {
         };
         const result: any = await this.openService.openModal(view, _context, _params);
         if (result && Object.is(result.ret, 'OK')) {
-            Object.assign(params, { srfactionparam: result.datas });
+            Object.assign(_params, { srfactionparam: result.datas });
             return backend();
         }
     }
@@ -1219,7 +1219,7 @@ export default class BugUIActionBase extends EntityUIActionBase {
         };
         const result: any = await this.openService.openModal(view, _context, _params);
         if (result && Object.is(result.ret, 'OK')) {
-            Object.assign(params, { srfactionparam: result.datas });
+            Object.assign(_params, { srfactionparam: result.datas });
             return backend();
         }
     }
