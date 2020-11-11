@@ -110,6 +110,20 @@ export class CustomTreeExpViewtreeexpbarTreeExpBarBase extends TreeExpBarControl
         if (!expmode) {
             expmode = '';
         }
+        if (Object.is(expmode, 'DOCROOT')) {
+            return {  
+                viewname: 'doc-grid-view', 
+                parentdata: {},
+                deKeyField:'doc'
+			};
+        }
+        if (Object.is(expmode, 'DOCLIBMODULE')) {
+            return {  
+                viewname: 'doc-grid-view', 
+                parentdata: {},
+                deKeyField:'doc'
+			};
+        }
         if (Object.is(expmode, 'DOCLIB')) {
             return {  
                 viewname: 'doc-grid-view', 
