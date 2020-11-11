@@ -787,7 +787,7 @@ export class MyWorkPCCalendarBase extends MainControlBase {
                 let flag:boolean = false;
                 if(Object.values(result).length>0){
                     flag =Object.values(result).some((item:any) =>{
-                        return item.visabled === true;
+                        return item.visible === true;
                     })
                 }
                 if(flag){

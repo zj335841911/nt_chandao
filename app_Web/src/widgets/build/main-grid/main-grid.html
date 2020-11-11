@@ -132,27 +132,27 @@
                     </template>
                     <template slot-scope="scope">
                         <div style="text-align: center;">
-                          <a v-show="scope.row.linkStories.visabled" :disabled="scope.row.linkStories.disabled" @click="uiAction(scope.row, 'linkStories', $event)" :title="$t('entities.build.main_grid.uiactions.build_linkstories')">
+                          <a v-show="scope.row.linkStories.visible" :disabled="scope.row.linkStories.disabled" @click="uiAction(scope.row, 'linkStories', $event)" :title="$t('entities.build.main_grid.uiactions.build_linkstories')">
                             <i class='fa fa-link'></i>
                             
                           </a>
-                          <divider v-show="scope.row.submitToTesting.visabled" type='vertical'></divider>
-                          <a v-show="scope.row.submitToTesting.visabled" :disabled="scope.row.submitToTesting.disabled" @click="uiAction(scope.row, 'submitToTesting', $event)" :title="$t('entities.build.main_grid.uiactions.build_submittotesting')">
+                          <divider v-show="scope.row.submitToTesting.visible" type='vertical'></divider>
+                          <a v-show="scope.row.submitToTesting.visible" :disabled="scope.row.submitToTesting.disabled" @click="uiAction(scope.row, 'submitToTesting', $event)" :title="$t('entities.build.main_grid.uiactions.build_submittotesting')">
                             <i class='fa fa-paper-plane'></i>
                             
                           </a>
-                          <divider v-show="scope.row.viewBugs.visabled" type='vertical'></divider>
-                          <a v-show="scope.row.viewBugs.visabled" :disabled="scope.row.viewBugs.disabled" @click="uiAction(scope.row, 'viewBugs', $event)" :title="$t('entities.build.main_grid.uiactions.build_viewbugs')">
+                          <divider v-show="scope.row.viewBugs.visible" type='vertical'></divider>
+                          <a v-show="scope.row.viewBugs.visible" :disabled="scope.row.viewBugs.disabled" @click="uiAction(scope.row, 'viewBugs', $event)" :title="$t('entities.build.main_grid.uiactions.build_viewbugs')">
                             <i class='fa fa-bug'></i>
                             
                           </a>
-                          <divider v-show="scope.row.editBuild.visabled" type='vertical'></divider>
-                          <a v-show="scope.row.editBuild.visabled" :disabled="scope.row.editBuild.disabled" @click="uiAction(scope.row, 'editBuild', $event)" :title="$t('entities.build.main_grid.uiactions.build_editbuild')">
+                          <divider v-show="scope.row.editBuild.visible" type='vertical'></divider>
+                          <a v-show="scope.row.editBuild.visible" :disabled="scope.row.editBuild.disabled" @click="uiAction(scope.row, 'editBuild', $event)" :title="$t('entities.build.main_grid.uiactions.build_editbuild')">
                             <i class='fa fa-edit'></i>
                             
                           </a>
-                          <divider v-show="scope.row.Delete.visabled" type='vertical'></divider>
-                          <a v-show="scope.row.Delete.visabled" :disabled="scope.row.Delete.disabled" @click="uiAction(scope.row, 'Delete', $event)" :title="$t('entities.build.main_grid.uiactions.build_delete')">
+                          <divider v-show="scope.row.Delete.visible" type='vertical'></divider>
+                          <a v-show="scope.row.Delete.visible" :disabled="scope.row.Delete.disabled" @click="uiAction(scope.row, 'Delete', $event)" :title="$t('entities.build.main_grid.uiactions.build_delete')">
                             <i class='fa fa-remove'></i>
                             
                           </a>

@@ -123,7 +123,7 @@ export class MainGridBase extends GridControlBase {
      * @memberof MainBase
      */  
     public ActionModel: any = {
-        Remove: { name: 'Remove',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALDELETE', actiontarget: 'MULTIKEY'}
+        Remove: { name: 'Remove',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALDELETE', actiontarget: 'MULTIKEY'}
     };
 
     /**
@@ -433,7 +433,7 @@ export class MainGridBase extends GridControlBase {
                 short:'',
                 order:'',
                 Remove:{
-                    visabled: false
+                    visible: false
                 },
                 children: children
             }
@@ -455,7 +455,7 @@ export class MainGridBase extends GridControlBase {
             short:'',
             order:'',
             Remove:{
-                visabled: false
+                visible: false
             },
             children: child
         }
@@ -507,7 +507,7 @@ export class MainGridBase extends GridControlBase {
                 short:'',
                 order:'',
                 Remove:{
-                    visabled: false
+                    visible: false
                 },
                 children: children,
             }

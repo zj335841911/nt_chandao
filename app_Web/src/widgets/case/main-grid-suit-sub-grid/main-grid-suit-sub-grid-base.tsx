@@ -160,9 +160,9 @@ export class MainGrid_SuitSubGridBase extends GridControlBase {
      * @memberof MainGrid_SuitSubBase
      */  
     public ActionModel: any = {
-        unlinkSuiteCase: { name: 'unlinkSuiteCase',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__CASE_UNLINK_BUT', actiontarget: 'SINGLEKEY'},
-        OpenTestRunResultView: { name: 'OpenTestRunResultView',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__CASE_RESULT_BUT', actiontarget: 'SINGLEKEY'},
-        Execute: { name: 'Execute',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__CASE_CASERUN_BUT', actiontarget: 'SINGLEKEY'}
+        unlinkSuiteCase: { name: 'unlinkSuiteCase',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__CASE_UNLINK_BUT', actiontarget: 'SINGLEKEY'},
+        OpenTestRunResultView: { name: 'OpenTestRunResultView',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__CASE_RESULT_BUT', actiontarget: 'SINGLEKEY'},
+        Execute: { name: 'Execute',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__CASE_CASERUN_BUT', actiontarget: 'SINGLEKEY'}
     };
 
     /**
@@ -683,13 +683,13 @@ export class MainGrid_SuitSubGridBase extends GridControlBase {
                 resultcnt:'',
                 casesteps:'',
                 unlinkSuiteCase:{
-                    visabled: false
+                    visible: false
                 },
                 OpenTestRunResultView:{
-                    visabled: false
+                    visible: false
                 },
                 Execute:{
-                    visabled: false
+                    visible: false
                 },
                 children: children
             }
@@ -717,13 +717,13 @@ export class MainGrid_SuitSubGridBase extends GridControlBase {
             resultcnt:'',
             casesteps:'',
             unlinkSuiteCase:{
-                visabled: false
+                visible: false
             },
             OpenTestRunResultView:{
-                visabled: false
+                visible: false
             },
             Execute:{
-                visabled: false
+                visible: false
             },
             children: child
         }
@@ -781,13 +781,13 @@ export class MainGrid_SuitSubGridBase extends GridControlBase {
                 resultcnt:'',
                 casesteps:'',
                 unlinkSuiteCase:{
-                    visabled: false
+                    visible: false
                 },
                 OpenTestRunResultView:{
-                    visabled: false
+                    visible: false
                 },
                 Execute:{
-                    visabled: false
+                    visible: false
                 },
                 children: children,
             }

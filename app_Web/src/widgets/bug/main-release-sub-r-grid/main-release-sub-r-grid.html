@@ -134,7 +134,7 @@
                     </template>
                     <template slot-scope="scope">
                         <div style="text-align: center;">
-                          <a v-show="scope.row.releaseUnlinkBug.visabled" :disabled="scope.row.releaseUnlinkBug.disabled" @click="uiAction(scope.row, 'releaseUnlinkBug', $event)" :title="$t('entities.bug.main_releasesubr_grid.uiactions.bug_releaseunlinkbug')">
+                          <a v-show="scope.row.releaseUnlinkBug.visible" :disabled="scope.row.releaseUnlinkBug.disabled" @click="uiAction(scope.row, 'releaseUnlinkBug', $event)" :title="$t('entities.bug.main_releasesubr_grid.uiactions.bug_releaseunlinkbug')">
                             <i class='fa fa-unlink'></i>
                             
                           </a>

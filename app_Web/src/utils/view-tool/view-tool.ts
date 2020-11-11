@@ -274,13 +274,13 @@ export class ViewTool {
                         _item.disabled = true;
                     }
                     if ((_item.noprivdisplaymode === 2) || (_item.noprivdisplaymode === 6)) {
-                        _item.visabled = false;
+                        _item.visible = false;
                     } else {
-                        _item.visabled = true;
+                        _item.visible = true;
                     }
                 }
                 if (dataActionResult === 1) {
-                    _item.visabled = true;
+                    _item.visible = true;
                     _item.disabled = false;
                 }
                 result.push(dataActionResult);

@@ -244,11 +244,11 @@ export class Main_BuildSubGridBase extends GridControlBase {
      * @memberof Main_BuildSubBase
      */  
     public ActionModel: any = {
-        ConfirmBug: { name: 'ConfirmBug',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__BUG_CONFIRM_BUT', actiontarget: 'SINGLEKEY'},
-        ResolveBug: { name: 'ResolveBug',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__BUG_RESOLVE_BUT', actiontarget: 'SINGLEKEY'},
-        CloseBug: { name: 'CloseBug',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__BUG_CLOSE_BUT', actiontarget: 'SINGLEKEY'},
-        Copy: { name: 'Copy',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALCREATE', actiontarget: 'SINGLEKEY'},
-        MainEdit: { name: 'MainEdit',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__BUG_EDIT_BUT', actiontarget: 'SINGLEKEY'}
+        ConfirmBug: { name: 'ConfirmBug',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__BUG_CONFIRM_BUT', actiontarget: 'SINGLEKEY'},
+        ResolveBug: { name: 'ResolveBug',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__BUG_RESOLVE_BUT', actiontarget: 'SINGLEKEY'},
+        CloseBug: { name: 'CloseBug',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__BUG_CLOSE_BUT', actiontarget: 'SINGLEKEY'},
+        Copy: { name: 'Copy',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALCREATE', actiontarget: 'SINGLEKEY'},
+        MainEdit: { name: 'MainEdit',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__BUG_EDIT_BUT', actiontarget: 'SINGLEKEY'}
     };
 
     /**
@@ -661,19 +661,19 @@ export class Main_BuildSubGridBase extends GridControlBase {
                 resolvedby:'',
                 resolution:'',
                 ConfirmBug:{
-                    visabled: false
+                    visible: false
                 },
                 ResolveBug:{
-                    visabled: false
+                    visible: false
                 },
                 CloseBug:{
-                    visabled: false
+                    visible: false
                 },
                 Copy:{
-                    visabled: false
+                    visible: false
                 },
                 MainEdit:{
-                    visabled: false
+                    visible: false
                 },
                 isfavorites:'',
                 children: children
@@ -702,19 +702,19 @@ export class Main_BuildSubGridBase extends GridControlBase {
             resolvedby:'',
             resolution:'',
             ConfirmBug:{
-                visabled: false
+                visible: false
             },
             ResolveBug:{
-                visabled: false
+                visible: false
             },
             CloseBug:{
-                visabled: false
+                visible: false
             },
             Copy:{
-                visabled: false
+                visible: false
             },
             MainEdit:{
-                visabled: false
+                visible: false
             },
             isfavorites:'',
             children: child
@@ -773,19 +773,19 @@ export class Main_BuildSubGridBase extends GridControlBase {
                 resolvedby:'',
                 resolution:'',
                 ConfirmBug:{
-                    visabled: false
+                    visible: false
                 },
                 ResolveBug:{
-                    visabled: false
+                    visible: false
                 },
                 CloseBug:{
-                    visabled: false
+                    visible: false
                 },
                 Copy:{
-                    visabled: false
+                    visible: false
                 },
                 MainEdit:{
-                    visabled: false
+                    visible: false
                 },
                 isfavorites:'',
                 children: children,

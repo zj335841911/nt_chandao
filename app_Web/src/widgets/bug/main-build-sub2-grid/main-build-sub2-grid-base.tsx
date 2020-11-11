@@ -104,7 +104,7 @@ export class Main_BuildSub2GridBase extends GridControlBase {
      * @memberof Main_BuildSub2Base
      */  
     public ActionModel: any = {
-        unlinkBug_build: { name: 'unlinkBug_build',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__BUG_UNLINK_BUT', actiontarget: 'SINGLEKEY'}
+        unlinkBug_build: { name: 'unlinkBug_build',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__BUG_UNLINK_BUT', actiontarget: 'SINGLEKEY'}
     };
 
     /**
@@ -585,7 +585,7 @@ export class Main_BuildSub2GridBase extends GridControlBase {
                 openeddate:'',
                 resolvedby:'',
                 unlinkBug_build:{
-                    visabled: false
+                    visible: false
                 },
                 isfavorites:'',
                 children: children
@@ -612,7 +612,7 @@ export class Main_BuildSub2GridBase extends GridControlBase {
             openeddate:'',
             resolvedby:'',
             unlinkBug_build:{
-                visabled: false
+                visible: false
             },
             isfavorites:'',
             children: child
@@ -669,7 +669,7 @@ export class Main_BuildSub2GridBase extends GridControlBase {
                 openeddate:'',
                 resolvedby:'',
                 unlinkBug_build:{
-                    visabled: false
+                    visible: false
                 },
                 isfavorites:'',
                 children: children,

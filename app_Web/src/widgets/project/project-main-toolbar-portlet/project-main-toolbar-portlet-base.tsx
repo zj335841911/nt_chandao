@@ -268,12 +268,12 @@ export class ProjectMainToolbarPortletBase extends MainControlBase {
      * @memberof ProjectMainToolbarBase
      */
     public uiactionModel: any = {
-        projectputoff: {name: 'projectputoff', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__PROJ_DELAY_BUT', uiaction: { tag: 'ProjectPutoff', target: 'SINGLEKEY' } },
-        projectsuspend: {name: 'projectsuspend', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__PROJ_SUSPEND_BUT', uiaction: { tag: 'ProjectSuspend', target: 'SINGLEKEY' } },
-        projectactivate: {name: 'projectactivate', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__PROJ_ACTIVATION_BUT', uiaction: { tag: 'ProjectActivate', target: 'SINGLEKEY' } },
-        projectclose: {name: 'projectclose', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__PROJ_CLOSED_BUT', uiaction: { tag: 'ProjectClose', target: 'SINGLEKEY' } },
-        projectedit: {name: 'projectedit', actiontarget: 'SINGLEKEY',  disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__PROJ_EDIT_BUT', uiaction: { tag: 'ProjectEdit', target: 'SINGLEKEY' } },
-        delete: {name: 'delete', actiontarget: 'SINGLEKEY',  disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__PROJ_DELETE_BUT', uiaction: { tag: 'delete', target: 'SINGLEKEY' } },
+        projectputoff: {name: 'projectputoff', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__PROJ_DELAY_BUT', uiaction: { tag: 'ProjectPutoff', target: 'SINGLEKEY' } },
+        projectsuspend: {name: 'projectsuspend', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__PROJ_SUSPEND_BUT', uiaction: { tag: 'ProjectSuspend', target: 'SINGLEKEY' } },
+        projectactivate: {name: 'projectactivate', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__PROJ_ACTIVATION_BUT', uiaction: { tag: 'ProjectActivate', target: 'SINGLEKEY' } },
+        projectclose: {name: 'projectclose', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__PROJ_CLOSED_BUT', uiaction: { tag: 'ProjectClose', target: 'SINGLEKEY' } },
+        projectedit: {name: 'projectedit', actiontarget: 'SINGLEKEY',  disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__PROJ_EDIT_BUT', uiaction: { tag: 'ProjectEdit', target: 'SINGLEKEY' } },
+        delete: {name: 'delete', actiontarget: 'SINGLEKEY',  disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__PROJ_DELETE_BUT', uiaction: { tag: 'delete', target: 'SINGLEKEY' } },
     }
 
     /**
@@ -290,7 +290,7 @@ export class ProjectMainToolbarPortletBase extends MainControlBase {
         noprivdisplaymode: 2,
         dataaccaction:'SRFUR__PROJ_DELAY_BUT',
         actiontarget:'SINGLEKEY',
-        visabled:true,
+        visible:true,
         disabled:false
         },
         { viewlogicname:"dashboard_sysportlet5_u6e94857_click",
@@ -300,7 +300,7 @@ export class ProjectMainToolbarPortletBase extends MainControlBase {
         noprivdisplaymode: 2,
         dataaccaction:'SRFUR__PROJ_SUSPEND_BUT',
         actiontarget:'SINGLEKEY',
-        visabled:true,
+        visible:true,
         disabled:false
         },
         { viewlogicname:"dashboard_sysportlet5_u2db4a08_click",
@@ -310,7 +310,7 @@ export class ProjectMainToolbarPortletBase extends MainControlBase {
         noprivdisplaymode: 2,
         dataaccaction:'SRFUR__PROJ_ACTIVATION_BUT',
         actiontarget:'SINGLEKEY',
-        visabled:true,
+        visible:true,
         disabled:false
         },
         { viewlogicname:"dashboard_sysportlet5_u698efc2_click",
@@ -320,7 +320,7 @@ export class ProjectMainToolbarPortletBase extends MainControlBase {
         noprivdisplaymode: 2,
         dataaccaction:'SRFUR__PROJ_CLOSED_BUT',
         actiontarget:'SINGLEKEY',
-        visabled:true,
+        visible:true,
         disabled:false
         },
         { viewlogicname:"dashboard_sysportlet5_u209627c_click",
@@ -330,7 +330,7 @@ export class ProjectMainToolbarPortletBase extends MainControlBase {
         noprivdisplaymode: 2,
         dataaccaction:'SRFUR__PROJ_EDIT_BUT',
         actiontarget:'SINGLEKEY',
-        visabled:true,
+        visible:true,
         disabled:false
         },
         { viewlogicname:"dashboard_sysportlet5_ufb9f459_click",
@@ -340,7 +340,7 @@ export class ProjectMainToolbarPortletBase extends MainControlBase {
         noprivdisplaymode: 2,
         dataaccaction:'SRFUR__PROJ_DELETE_BUT',
         actiontarget:'SINGLEKEY',
-        visabled:true,
+        visible:true,
         disabled:false
         }
     ];

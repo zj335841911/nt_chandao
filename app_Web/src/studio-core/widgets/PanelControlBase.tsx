@@ -346,7 +346,7 @@ export class PanelControlBase extends ControlBase {
                         model.isPower = true;
                         const tempUIAction: any = JSON.parse(JSON.stringify(model.uiaction));
                         const result: any[] = ViewTool.calcActionItemAuthState(targetData, [tempUIAction], this.appUIService ? this.appUIService : null);
-                        model.visible = tempUIAction.visabled;
+                        model.visible = tempUIAction.visible;
                         model.disabled = tempUIAction.disabled;
                         model.isPower = result[0] === 1 ? true : false;
                     }

@@ -97,17 +97,17 @@ export class DocLibLibTabExpViewBase extends TabExpViewBase {
      * @memberof DocLibLibTabExpView
      */
     public toolBarModels: any = {
-        items1: { name: 'items1', caption: '快速访问', disabled: false, type: 'ITEMS', visabled: true, dataaccaction: '',
+        items1: { name: 'items1', caption: '快速访问', disabled: false, type: 'ITEMS', visible: true, dataaccaction: '',
     model: {
-        deuiaction1: { name: 'deuiaction1', caption: '最近更新', 'isShowCaption': true, 'isShowIcon': true, tooltip: '最近更新', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'RecentUpdateQuickAccess', target: 'NONE', class: '' } },
+        deuiaction1: { name: 'deuiaction1', caption: '最近更新', 'isShowCaption': true, 'isShowIcon': true, tooltip: '最近更新', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'RecentUpdateQuickAccess', target: 'NONE', class: '' } },
 
-        deuiaction2: { name: 'deuiaction2', caption: '我的文档', 'isShowCaption': true, 'isShowIcon': true, tooltip: '我的文档', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'MyDocQuickAccess', target: 'NONE', class: '' } },
+        deuiaction2: { name: 'deuiaction2', caption: '我的文档', 'isShowCaption': true, 'isShowIcon': true, tooltip: '我的文档', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'MyDocQuickAccess', target: 'NONE', class: '' } },
 
     }
 }, 
-        deuiaction4: { name: 'deuiaction4', caption: '创建文档库', 'isShowCaption': true, 'isShowIcon': true, tooltip: '创建文档库', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Create', target: 'NONE', class: '' } },
+        deuiaction4: { name: 'deuiaction4', caption: '创建文档库', 'isShowCaption': true, 'isShowIcon': true, tooltip: '创建文档库', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Create', target: 'NONE', class: '' } },
 
-        deuiaction6: { name: 'deuiaction6', caption: '创建文档', 'isShowCaption': true, 'isShowIcon': true, tooltip: '创建文档', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'CreateFile', target: 'NONE', class: '' } },
+        deuiaction6: { name: 'deuiaction6', caption: '创建文档', 'isShowCaption': true, 'isShowIcon': true, tooltip: '创建文档', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'CreateFile', target: 'NONE', class: '' } },
 
     };
 

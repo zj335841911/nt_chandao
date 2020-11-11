@@ -128,7 +128,7 @@ export class AssignedToMeStoryPortletBase extends MainControlBase {
      * @memberof AssignedToMeStoryBase
      */
     public uiactionModel: any = {
-        more: {name: 'more', actiontarget: 'NONE', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: '', uiaction: { tag: 'More', target: 'NONE' } },
+        more: {name: 'more', actiontarget: 'NONE', caption: '', disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: '', uiaction: { tag: 'More', target: 'NONE' } },
     }
 
 

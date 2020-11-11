@@ -154,14 +154,14 @@ export class TabExpPanelControlBase extends ExpControlBase {
                 if (this.authResourceObject[key] && this.authResourceObject[key]['dataaccaction']) {
                     let tempUIAction: any = this.$util.deepCopy(this.authResourceObject[key]);
                     let result: any[] = this.$viewTool.calcActionItemAuthState(data, [tempUIAction], this.appUIService);
-                    this.authResourceObject[key].visabled = this.computedPanelWithResource(key, tempUIAction.visabled);
+                    this.authResourceObject[key].visible = this.computedPanelWithResource(key, tempUIAction.visible);
                     this.authResourceObject[key].disabled = this.computedPanelWithResource(key, tempUIAction.disabled);
                 }
             })
             const keys: any = Object.keys(this.authResourceObject);
-            if (!this.authResourceObject[this.activatedTabViewPanel].visabled) {
+            if (!this.authResourceObject[this.activatedTabViewPanel].visible) {
                 for (let i = 0; i < keys.length; i++) {
-                    if (this.authResourceObject[keys[i]].visabled) {
+                    if (this.authResourceObject[keys[i]].visible) {
                         this.tabPanelClick(keys[i]);
                         return;
                     }

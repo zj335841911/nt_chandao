@@ -132,8 +132,8 @@ export class PlatformManagementGridBase extends GridControlBase {
      * @memberof PlatformManagementBase
      */  
     public ActionModel: any = {
-        Edit: { name: 'Edit',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__UNIVERSALDELETE', actiontarget: 'SINGLEKEY'},
-        Delete: { name: 'Delete',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__UNIVERSALDELETE', actiontarget: 'SINGLEKEY'}
+        Edit: { name: 'Edit',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__UNIVERSALDELETE', actiontarget: 'SINGLEKEY'},
+        Delete: { name: 'Delete',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__UNIVERSALDELETE', actiontarget: 'SINGLEKEY'}
     };
 
     /**
@@ -449,10 +449,10 @@ export class PlatformManagementGridBase extends GridControlBase {
                 name:'',
                 order:'',
                 Edit:{
-                    visabled: false
+                    visible: false
                 },
                 Delete:{
-                    visabled: false
+                    visible: false
                 },
                 children: children
             }
@@ -474,10 +474,10 @@ export class PlatformManagementGridBase extends GridControlBase {
             name:'',
             order:'',
             Edit:{
-                visabled: false
+                visible: false
             },
             Delete:{
-                visabled: false
+                visible: false
             },
             children: child
         }
@@ -529,10 +529,10 @@ export class PlatformManagementGridBase extends GridControlBase {
                 name:'',
                 order:'',
                 Edit:{
-                    visabled: false
+                    visible: false
                 },
                 Delete:{
-                    visabled: false
+                    visible: false
                 },
                 children: children,
             }

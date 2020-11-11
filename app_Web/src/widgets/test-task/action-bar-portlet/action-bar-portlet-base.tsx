@@ -258,11 +258,11 @@ export class ActionBarPortletBase extends MainControlBase {
      * @memberof ActionBarBase
      */
     public uiactionModel: any = {
-        exit: {name: 'exit', actiontarget: '', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: '', uiaction: { tag: 'Exit', target: '' } },
-        activitedash: {name: 'activitedash', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__TESTT_ACTIVITE_BUT', uiaction: { tag: 'ActiviteDash', target: 'SINGLEKEY' } },
-        startdash: {name: 'startdash', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__TESTT_START_BUT', uiaction: { tag: 'StartDash', target: 'SINGLEKEY' } },
-        closedash: {name: 'closedash', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__TESTT_CLOSED_BUT', uiaction: { tag: 'CloseDash', target: 'SINGLEKEY' } },
-        blockdash: {name: 'blockdash', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__TESTT_BLOCK_BUT', uiaction: { tag: 'BlockDash', target: 'SINGLEKEY' } },
+        exit: {name: 'exit', actiontarget: '', caption: '', disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: '', uiaction: { tag: 'Exit', target: '' } },
+        activitedash: {name: 'activitedash', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__TESTT_ACTIVITE_BUT', uiaction: { tag: 'ActiviteDash', target: 'SINGLEKEY' } },
+        startdash: {name: 'startdash', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__TESTT_START_BUT', uiaction: { tag: 'StartDash', target: 'SINGLEKEY' } },
+        closedash: {name: 'closedash', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__TESTT_CLOSED_BUT', uiaction: { tag: 'CloseDash', target: 'SINGLEKEY' } },
+        blockdash: {name: 'blockdash', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__TESTT_BLOCK_BUT', uiaction: { tag: 'BlockDash', target: 'SINGLEKEY' } },
     }
 
     /**
@@ -278,7 +278,7 @@ export class ActionBarPortletBase extends MainControlBase {
         icon: "",
         noprivdisplaymode: 2,
         actiontarget:'',
-        visabled:true,
+        visible:true,
         disabled:false
         },
         { viewlogicname:"dashboard_sysportlet4_uc98202b_click",
@@ -288,7 +288,7 @@ export class ActionBarPortletBase extends MainControlBase {
         noprivdisplaymode: 2,
         dataaccaction:'SRFUR__TESTT_ACTIVITE_BUT',
         actiontarget:'SINGLEKEY',
-        visabled:true,
+        visible:true,
         disabled:false
         },
         { viewlogicname:"dashboard_sysportlet4_u2824624_click",
@@ -298,7 +298,7 @@ export class ActionBarPortletBase extends MainControlBase {
         noprivdisplaymode: 2,
         dataaccaction:'SRFUR__TESTT_START_BUT',
         actiontarget:'SINGLEKEY',
-        visabled:true,
+        visible:true,
         disabled:false
         },
         { viewlogicname:"dashboard_sysportlet4_u71470a2_click",
@@ -308,7 +308,7 @@ export class ActionBarPortletBase extends MainControlBase {
         noprivdisplaymode: 2,
         dataaccaction:'SRFUR__TESTT_CLOSED_BUT',
         actiontarget:'SINGLEKEY',
-        visabled:true,
+        visible:true,
         disabled:false
         },
         { viewlogicname:"dashboard_sysportlet4_u134abc0_click",
@@ -318,7 +318,7 @@ export class ActionBarPortletBase extends MainControlBase {
         noprivdisplaymode: 2,
         dataaccaction:'SRFUR__TESTT_BLOCK_BUT',
         actiontarget:'SINGLEKEY',
-        visabled:true,
+        visible:true,
         disabled:false
         }
     ];

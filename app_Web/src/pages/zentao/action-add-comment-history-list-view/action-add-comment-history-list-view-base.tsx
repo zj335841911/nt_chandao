@@ -126,7 +126,7 @@ export class ActionAddCommentHistoryListViewBase extends ListViewBase {
      * @memberof ActionAddCommentHistoryListView
      */
     public toolBarModels: any = {
-        deuiaction1: { name: 'deuiaction1', caption: '添加备注', 'isShowCaption': true, 'isShowIcon': true, tooltip: '添加备注', iconcls: 'fa fa-twitch', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALCREATE', uiaction: { tag: 'AddComment', target: 'NONE', class: '' } },
+        deuiaction1: { name: 'deuiaction1', caption: '添加备注', 'isShowCaption': true, 'isShowIcon': true, tooltip: '添加备注', iconcls: 'fa fa-twitch', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALCREATE', uiaction: { tag: 'AddComment', target: 'NONE', class: '' } },
 
     };
 

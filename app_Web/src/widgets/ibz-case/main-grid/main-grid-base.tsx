@@ -132,8 +132,8 @@ export class MainGridBase extends GridControlBase {
      * @memberof MainBase
      */  
     public ActionModel: any = {
-        Editcase: { name: 'Editcase',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__ADMIN', actiontarget: 'SINGLEKEY'},
-        Delete: { name: 'Delete',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__ADMIN', actiontarget: 'SINGLEKEY'}
+        Editcase: { name: 'Editcase',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__ADMIN', actiontarget: 'SINGLEKEY'},
+        Delete: { name: 'Delete',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__ADMIN', actiontarget: 'SINGLEKEY'}
     };
 
     /**
@@ -455,10 +455,10 @@ export class MainGridBase extends GridControlBase {
                 openedby:'',
                 status:'',
                 Editcase:{
-                    visabled: false
+                    visible: false
                 },
                 Delete:{
-                    visabled: false
+                    visible: false
                 },
                 children: children
             }
@@ -483,10 +483,10 @@ export class MainGridBase extends GridControlBase {
             openedby:'',
             status:'',
             Editcase:{
-                visabled: false
+                visible: false
             },
             Delete:{
-                visabled: false
+                visible: false
             },
             children: child
         }
@@ -541,10 +541,10 @@ export class MainGridBase extends GridControlBase {
                 openedby:'',
                 status:'',
                 Editcase:{
-                    visabled: false
+                    visible: false
                 },
                 Delete:{
-                    visabled: false
+                    visible: false
                 },
                 children: children,
             }

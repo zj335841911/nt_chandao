@@ -31,7 +31,7 @@
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <a v-show="row.LookDetail.visabled" :disabled="row.LookDetail.disabled" :style="{'display': 'block'}" @click="uiAction(row, 'LookDetail', $event)">
+                        <a v-show="row.LookDetail.visible" :disabled="row.LookDetail.disabled" :style="{'display': 'block'}" @click="uiAction(row, 'LookDetail', $event)">
                         <span>{{row.sys_update_logname}}</span>
                         </a>
                     </template>

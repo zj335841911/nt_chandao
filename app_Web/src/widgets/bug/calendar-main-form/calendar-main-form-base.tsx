@@ -319,22 +319,22 @@ export class CalendarMainEditFormBase extends EditFormControlBase {
         grouppanel2: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel2', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.bug.calendarmain_form', extractMode: 'ITEM', details: [] } }),
 
         button1: new FormButtonModel({ caption: '确认', detailType: 'BUTTON', name: 'button1', visible: true, isShowCaption: false, form: this, showMoreMode: 0,disabled: false, uiaction: { type: 'DEUIACTION', 
- tag: 'ConfirmBugDash',actiontarget: 'SINGLEKEY',noprivdisplaymode:2,dataaccaction:'SRFUR__BUG_CONFIRM_BUT',visabled: true,disabled: false} }),
+ tag: 'ConfirmBugDash',actiontarget: 'SINGLEKEY',noprivdisplaymode:2,dataaccaction:'SRFUR__BUG_CONFIRM_BUT',visible: true,disabled: false} }),
 
         button2: new FormButtonModel({ caption: '指派', detailType: 'BUTTON', name: 'button2', visible: true, isShowCaption: false, form: this, showMoreMode: 0,disabled: false, uiaction: { type: 'DEUIACTION', 
- tag: 'AssingToBugCz',actiontarget: 'SINGLEKEY',noprivdisplaymode:2,dataaccaction:'SRFUR__BUG_ASSIGNTO_BUT',visabled: true,disabled: false} }),
+ tag: 'AssingToBugCz',actiontarget: 'SINGLEKEY',noprivdisplaymode:2,dataaccaction:'SRFUR__BUG_ASSIGNTO_BUT',visible: true,disabled: false} }),
 
         button3: new FormButtonModel({ caption: '解决', detailType: 'BUTTON', name: 'button3', visible: true, isShowCaption: false, form: this, showMoreMode: 0,disabled: false, uiaction: { type: 'DEUIACTION', 
- tag: 'ResolveBugDash',actiontarget: 'SINGLEKEY',noprivdisplaymode:2,dataaccaction:'SRFUR__BUG_RESOLVE_BUT',visabled: true,disabled: false} }),
+ tag: 'ResolveBugDash',actiontarget: 'SINGLEKEY',noprivdisplaymode:2,dataaccaction:'SRFUR__BUG_RESOLVE_BUT',visible: true,disabled: false} }),
 
         button4: new FormButtonModel({ caption: '关闭', detailType: 'BUTTON', name: 'button4', visible: true, isShowCaption: false, form: this, showMoreMode: 0,disabled: false, uiaction: { type: 'DEUIACTION', 
- tag: 'CloseBugDash',actiontarget: 'SINGLEKEY',noprivdisplaymode:2,dataaccaction:'SRFUR__BUG_CLOSE_BUT',visabled: true,disabled: false} }),
+ tag: 'CloseBugDash',actiontarget: 'SINGLEKEY',noprivdisplaymode:2,dataaccaction:'SRFUR__BUG_CLOSE_BUT',visible: true,disabled: false} }),
 
         button5: new FormButtonModel({ caption: '激活', detailType: 'BUTTON', name: 'button5', visible: true, isShowCaption: false, form: this, showMoreMode: 0,disabled: false, uiaction: { type: 'DEUIACTION', 
- tag: 'Activation',actiontarget: 'SINGLEKEY',noprivdisplaymode:2,dataaccaction:'SRFUR__BUG_ACTIVATE_BUT',visabled: true,disabled: false} }),
+ tag: 'Activation',actiontarget: 'SINGLEKEY',noprivdisplaymode:2,dataaccaction:'SRFUR__BUG_ACTIVATE_BUT',visible: true,disabled: false} }),
 
         button6: new FormButtonModel({ caption: '编辑', detailType: 'BUTTON', name: 'button6', visible: true, isShowCaption: false, form: this, showMoreMode: 0,disabled: false, uiaction: { type: 'DEUIACTION', 
- tag: 'MainEditDash',actiontarget: 'SINGLEKEY',noprivdisplaymode:2,dataaccaction:'SRFUR__BUG_EDIT_BUT',visabled: true,disabled: false} }),
+ tag: 'MainEditDash',actiontarget: 'SINGLEKEY',noprivdisplaymode:2,dataaccaction:'SRFUR__BUG_EDIT_BUT',visible: true,disabled: false} }),
 
         grouppanel3: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel3', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.bug.calendarmain_form', extractMode: 'ITEM', details: [] } }),
 

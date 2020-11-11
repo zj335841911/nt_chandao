@@ -1,6 +1,6 @@
 <div class='tabviewpanel'>
     <tabs :value="activatedTabViewPanel" :animated="false" class='tabexppanel' name='tabexpviewtabexppanel' @on-click="tabPanelClick($event)">
-        <tab-pane :index="0" name='tabviewpanel' tab='tabexpviewtabexppanel' class=''  v-if="authResourceObject['tabviewpanel'].visabled"
+        <tab-pane :index="0" name='tabviewpanel' tab='tabexpviewtabexppanel' class=''  v-if="authResourceObject['tabviewpanel'].visible"
             :label="(h) =>{
                 return h('div', [
                     h('span', '首页'),
@@ -24,7 +24,7 @@
     @closeview="closeView($event)">
 </view_tabviewpanel>
         </tab-pane>
-        <tab-pane :index="1" name='tabviewpanel10' tab='tabexpviewtabexppanel' class=''  v-if="authResourceObject['tabviewpanel10'].visabled"
+        <tab-pane :index="1" name='tabviewpanel10' tab='tabexpviewtabexppanel' class=''  v-if="authResourceObject['tabviewpanel10'].visible"
             :label="(h) =>{
                 return h('div', [
                     h('span', '日历'),
@@ -48,7 +48,7 @@
     @closeview="closeView($event)">
 </view_tabviewpanel10>
         </tab-pane>
-        <tab-pane :index="2" name='tabviewpanel3' tab='tabexpviewtabexppanel' class=''  v-if="authResourceObject['tabviewpanel3'].visabled"
+        <tab-pane :index="2" name='tabviewpanel3' tab='tabexpviewtabexppanel' class=''  v-if="authResourceObject['tabviewpanel3'].visible"
             :label="(h) =>{
                 return h('div', [
                     h('span', '日程'),
@@ -72,7 +72,7 @@
     @closeview="closeView($event)">
 </view_tabviewpanel3>
         </tab-pane>
-        <tab-pane :index="3" name='tabviewpanel4' tab='tabexpviewtabexppanel' class=''  v-if="authResourceObject['tabviewpanel4'].visabled"
+        <tab-pane :index="3" name='tabviewpanel4' tab='tabexpviewtabexppanel' class=''  v-if="authResourceObject['tabviewpanel4'].visible"
             :label="(h) =>{
                 return h('div', [
                     h('span', '任务'),
@@ -96,7 +96,7 @@
     @closeview="closeView($event)">
 </view_tabviewpanel4>
         </tab-pane>
-        <tab-pane :index="4" name='tabviewpanel5' tab='tabexpviewtabexppanel' class=''  v-if="authResourceObject['tabviewpanel5'].visabled"
+        <tab-pane :index="4" name='tabviewpanel5' tab='tabexpviewtabexppanel' class=''  v-if="authResourceObject['tabviewpanel5'].visible"
             :label="(h) =>{
                 return h('div', [
                     h('span', 'BUG'),
@@ -120,7 +120,7 @@
     @closeview="closeView($event)">
 </view_tabviewpanel5>
         </tab-pane>
-        <tab-pane :index="5" name='tabviewpanel6' tab='tabexpviewtabexppanel' class=''  v-if="authResourceObject['tabviewpanel6'].visabled"
+        <tab-pane :index="5" name='tabviewpanel6' tab='tabexpviewtabexppanel' class=''  v-if="authResourceObject['tabviewpanel6'].visible"
             :label="(h) =>{
                 return h('div', [
                     h('span', '测试'),
@@ -144,7 +144,7 @@
     @closeview="closeView($event)">
 </view_tabviewpanel6>
         </tab-pane>
-        <tab-pane :index="6" name='tabviewpanel2' tab='tabexpviewtabexppanel' class=''  v-if="authResourceObject['tabviewpanel2'].visabled"
+        <tab-pane :index="6" name='tabviewpanel2' tab='tabexpviewtabexppanel' class=''  v-if="authResourceObject['tabviewpanel2'].visible"
             :label="(h) =>{
                 return h('div', [
                     h('span', '需求'),
@@ -168,7 +168,7 @@
     @closeview="closeView($event)">
 </view_tabviewpanel2>
         </tab-pane>
-        <tab-pane :index="7" name='tabviewpanel7' tab='tabexpviewtabexppanel' class=''  v-if="authResourceObject['tabviewpanel7'].visabled"
+        <tab-pane :index="7" name='tabviewpanel7' tab='tabexpviewtabexppanel' class=''  v-if="authResourceObject['tabviewpanel7'].visible"
             :label="(h) =>{
                 return h('div', [
                     h('span', '项目'),
@@ -192,7 +192,7 @@
     @closeview="closeView($event)">
 </view_tabviewpanel7>
         </tab-pane>
-        <tab-pane :index="8" name='tabviewpanel9' tab='tabexpviewtabexppanel' class=''  v-if="authResourceObject['tabviewpanel9'].visabled"
+        <tab-pane :index="8" name='tabviewpanel9' tab='tabexpviewtabexppanel' class=''  v-if="authResourceObject['tabviewpanel9'].visible"
             :label="(h) =>{
                 return h('div', [
                     h('span', '动态'),
@@ -216,7 +216,7 @@
     @closeview="closeView($event)">
 </view_tabviewpanel9>
         </tab-pane>
-        <tab-pane :index="9" name='tabviewpanel8' tab='tabexpviewtabexppanel' class=''  v-if="authResourceObject['tabviewpanel8'].visabled"
+        <tab-pane :index="9" name='tabviewpanel8' tab='tabexpviewtabexppanel' class=''  v-if="authResourceObject['tabviewpanel8'].visible"
             :label="(h) =>{
                 return h('div', [
                     h('span', '联系人'),

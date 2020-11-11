@@ -188,10 +188,10 @@ export class MainGridBase extends GridControlBase {
      * @memberof MainBase
      */  
     public ActionModel: any = {
-        LookFile: { name: 'LookFile',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'FILE', actiontarget: 'SINGLEKEY'},
-        LookDoc: { name: 'LookDoc',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'DOC', actiontarget: 'SINGLEKEY'},
-        EditProjectDoclib: { name: 'EditProjectDoclib',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'DOC', actiontarget: 'SINGLEKEY'},
-        WeiHuFenLei: { name: 'WeiHuFenLei',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'DOC', actiontarget: 'SINGLEKEY'}
+        LookFile: { name: 'LookFile',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'FILE', actiontarget: 'SINGLEKEY'},
+        LookDoc: { name: 'LookDoc',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'DOC', actiontarget: 'SINGLEKEY'},
+        EditProjectDoclib: { name: 'EditProjectDoclib',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'DOC', actiontarget: 'SINGLEKEY'},
+        WeiHuFenLei: { name: 'WeiHuFenLei',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'DOC', actiontarget: 'SINGLEKEY'}
     };
 
     /**
@@ -443,16 +443,16 @@ export class MainGridBase extends GridControlBase {
                 name:'',
                 doccnt:'',
                 LookFile:{
-                    visabled: false
+                    visible: false
                 },
                 LookDoc:{
-                    visabled: false
+                    visible: false
                 },
                 EditProjectDoclib:{
-                    visabled: false
+                    visible: false
                 },
                 WeiHuFenLei:{
-                    visabled: false
+                    visible: false
                 },
                 children: children
             }
@@ -473,16 +473,16 @@ export class MainGridBase extends GridControlBase {
             name:'',
             doccnt:'',
             LookFile:{
-                visabled: false
+                visible: false
             },
             LookDoc:{
-                visabled: false
+                visible: false
             },
             EditProjectDoclib:{
-                visabled: false
+                visible: false
             },
             WeiHuFenLei:{
-                visabled: false
+                visible: false
             },
             children: child
         }
@@ -533,16 +533,16 @@ export class MainGridBase extends GridControlBase {
                 name:'',
                 doccnt:'',
                 LookFile:{
-                    visabled: false
+                    visible: false
                 },
                 LookDoc:{
-                    visabled: false
+                    visible: false
                 },
                 EditProjectDoclib:{
-                    visabled: false
+                    visible: false
                 },
                 WeiHuFenLei:{
-                    visabled: false
+                    visible: false
                 },
                 children: children,
             }

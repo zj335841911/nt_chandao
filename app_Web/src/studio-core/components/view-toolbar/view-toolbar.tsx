@@ -160,7 +160,7 @@ export class ViewToolbar extends Vue {
      */
     protected renderStyle2(): any {
         return this.items.map((item: ToolbarItem) => {
-            if (!item.visabled) {
+            if (!item.visible) {
                 return;
             }
             let content: any;
@@ -168,7 +168,7 @@ export class ViewToolbar extends Vue {
                 content = this.renderSeperator();
             } else if (!item.items) {
                 content = <i-button
-                    v-show={item.visabled}
+                    v-show={item.visible}
                     disabled={item.disabled}
                     title={item.tooltip}
                     class={item.class}
@@ -180,9 +180,9 @@ export class ViewToolbar extends Vue {
                     {item.isShowCaption ? item.caption : ''}
                 </i-button>;
             } else {
-                content = <dropdown v-show={item.visabled} class="studio-dropdown toolbar-dropdown" placement="bottom-start" stop-propagation>
+                content = <dropdown v-show={item.visible} class="studio-dropdown toolbar-dropdown" placement="bottom-start" stop-propagation>
                     {<i-button
-                        v-show={item.visabled}
+                        v-show={item.visible}
                         disabled={item.disabled}
                         title={item.tooltip}
                         class={item.class}
@@ -217,7 +217,7 @@ export class ViewToolbar extends Vue {
             if (item.uiaction && Object.is(item.uiaction.tag, 'ExportExcel')) {
                 return <app-export-excel item={item} caption={item.caption} on-exportexcel={($event: any) => this.itemClick({ tag: item.name }, $event)}></app-export-excel>
             } 
-            return <i-button title={item.tooltip} v-show={item.visabled} disabled={item.disabled} class={item.class} on-click={(e: any) => this.itemClick({ tag: item.name }, e)}>
+            return <i-button title={item.tooltip} v-show={item.visible} disabled={item.disabled} class={item.class} on-click={(e: any) => this.itemClick({ tag: item.name }, e)}>
                 <menu-icon item={item} />
                 <span class='caption' v-show={item.isShowCaption}>{item.caption}</span>
             </i-button>;

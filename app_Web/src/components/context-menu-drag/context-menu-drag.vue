@@ -232,7 +232,7 @@ export default class ContextMenuDrag extends Vue {
    * @memberof ContextMenuDrag
    */
   public onStar(item: any) {
-    item.visabled = 1;
+    item.visible = 1;
     this.selectlist.push(item);
   }
 
@@ -243,7 +243,7 @@ export default class ContextMenuDrag extends Vue {
    * @memberof ContextMenuDrag
    */
   public outStar(item: any) {
-    item.visabled = 0;
+    item.visible = 0;
     let index: number = 0;
     let that: any = this;
     this.selectlist.forEach((select: any, index: number) => {
@@ -279,7 +279,7 @@ export default class ContextMenuDrag extends Vue {
     let that: any = this;
     that.selectlist = [];
     this.list.forEach((item: any) => {
-      if (item.visabled === 1) {
+      if (item.visible === 1) {
         that.selectlist.push(item);
       }
     });

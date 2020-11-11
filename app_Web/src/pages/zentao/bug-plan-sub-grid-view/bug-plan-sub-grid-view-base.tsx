@@ -124,11 +124,11 @@ export class BugPlanSubGridViewBase extends GridViewBase {
      * @memberof BugPlanSubGridView
      */
     public toolBarModels: any = {
-        deuiaction3_planrelationbug: { name: 'deuiaction3_planrelationbug', caption: '关联Bug', 'isShowCaption': true, 'isShowIcon': true, tooltip: '关联Bug', iconcls: 'fa fa-chain', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__BUILD_LINK_BUT', uiaction: { tag: 'PlanRelationBug', target: 'NONE', class: '' } },
+        deuiaction3_planrelationbug: { name: 'deuiaction3_planrelationbug', caption: '关联Bug', 'isShowCaption': true, 'isShowIcon': true, tooltip: '关联Bug', iconcls: 'fa fa-chain', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__BUILD_LINK_BUT', uiaction: { tag: 'PlanRelationBug', target: 'NONE', class: '' } },
 
-        deuiaction2: { name: 'deuiaction2', caption: '刷新', 'isShowCaption': true, 'isShowIcon': true, tooltip: '刷新', iconcls: 'fa fa-refresh', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Refresh', target: '', class: '' } },
+        deuiaction2: { name: 'deuiaction2', caption: '刷新', 'isShowCaption': true, 'isShowIcon': true, tooltip: '刷新', iconcls: 'fa fa-refresh', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Refresh', target: '', class: '' } },
 
-        deuiaction1: { name: 'deuiaction1', caption: '导出', 'isShowCaption': true, 'isShowIcon': true, tooltip: '导出', iconcls: 'fa fa-file-excel-o', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ExportExcel', target: '' }, MaxRowCount: 1000, class: '' },
+        deuiaction1: { name: 'deuiaction1', caption: '导出', 'isShowCaption': true, 'isShowIcon': true, tooltip: '导出', iconcls: 'fa fa-file-excel-o', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ExportExcel', target: '' }, MaxRowCount: 1000, class: '' },
 
     };
 

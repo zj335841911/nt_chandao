@@ -128,7 +128,7 @@ export class UndoneProjectPortletBase extends MainControlBase {
      * @memberof UndoneProjectBase
      */
     public uiactionModel: any = {
-        moreundone: {name: 'moreundone', actiontarget: 'NONE', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: '', uiaction: { tag: 'MoreUndone', target: 'NONE' } },
+        moreundone: {name: 'moreundone', actiontarget: 'NONE', caption: '', disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: '', uiaction: { tag: 'MoreUndone', target: 'NONE' } },
     }
 
 

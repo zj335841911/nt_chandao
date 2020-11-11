@@ -94,12 +94,12 @@
                     </template>
                     <template slot-scope="scope">
                         <div style="text-align: center;">
-                          <a v-show="scope.row.Edit.visabled" :disabled="scope.row.Edit.disabled" @click="uiAction(scope.row, 'Edit', $event)" :title="$t('entities.taskestimate.mainedit_grid.uiactions.taskestimate_edit')">
+                          <a v-show="scope.row.Edit.visible" :disabled="scope.row.Edit.disabled" @click="uiAction(scope.row, 'Edit', $event)" :title="$t('entities.taskestimate.mainedit_grid.uiactions.taskestimate_edit')">
                             <i class='fa fa-edit'></i>
                             
                           </a>
-                          <divider v-show="scope.row.Remove.visabled" type='vertical'></divider>
-                          <a v-show="scope.row.Remove.visabled" :disabled="scope.row.Remove.disabled" @click="uiAction(scope.row, 'Remove', $event)" :title="$t('entities.taskestimate.mainedit_grid.uiactions.remove')">
+                          <divider v-show="scope.row.Remove.visible" type='vertical'></divider>
+                          <a v-show="scope.row.Remove.visible" :disabled="scope.row.Remove.disabled" @click="uiAction(scope.row, 'Remove', $event)" :title="$t('entities.taskestimate.mainedit_grid.uiactions.remove')">
                             <i class='fa fa-remove'></i>
                             
                           </a>

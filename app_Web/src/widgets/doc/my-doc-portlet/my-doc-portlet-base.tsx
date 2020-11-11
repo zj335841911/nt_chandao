@@ -128,7 +128,7 @@ export class MyDocPortletBase extends MainControlBase {
      * @memberof MyDocBase
      */
     public uiactionModel: any = {
-        moremydoc: {name: 'moremydoc', actiontarget: 'NONE', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: '', uiaction: { tag: 'MoreMyDoc', target: 'NONE' } },
+        moremydoc: {name: 'moremydoc', actiontarget: 'NONE', caption: '', disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: '', uiaction: { tag: 'MoreMyDoc', target: 'NONE' } },
     }
 
 

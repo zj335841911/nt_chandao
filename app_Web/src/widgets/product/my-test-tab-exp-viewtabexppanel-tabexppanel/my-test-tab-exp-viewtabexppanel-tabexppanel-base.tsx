@@ -108,7 +108,7 @@ export class MyTestTabExpViewtabexppanelTabexppanelBase extends TabExpPanelContr
      * @type {*}
      * @memberof MyTestTabExpViewtabexppanelBase
      */
-    protected authResourceObject:any = {'tabviewpanel3':{resourcetag:null,visabled: true,disabled: false},'tabviewpanel4':{resourcetag:null,visabled: true,disabled: false},'tabviewpanel5':{resourcetag:null,visabled: true,disabled: false},'tabviewpanel6':{resourcetag:null,visabled: true,disabled: false}};
+    protected authResourceObject:any = {'tabviewpanel3':{resourcetag:null,visible: true,disabled: false},'tabviewpanel4':{resourcetag:null,visible: true,disabled: false},'tabviewpanel5':{resourcetag:null,visible: true,disabled: false},'tabviewpanel6':{resourcetag:null,visible: true,disabled: false}};
 
     /**
      * 组件创建完毕

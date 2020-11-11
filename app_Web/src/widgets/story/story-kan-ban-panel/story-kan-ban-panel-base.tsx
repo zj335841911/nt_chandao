@@ -118,7 +118,7 @@ export class StoryKanBanPanelBase extends PanelControlBase {
 ,
         rawitem2: new PanelRawitemModel({ caption: '', itemType: 'RAWITEM',visible: true, disabled: false, name: 'rawitem2', panel: this })
 ,
-        button1: new PanelButtonModel({ caption: '移除', itemType: 'BUTTON',visible: true, disabled: false, name: 'button1', panel: this, uiaction: { type: 'DEUIACTION', tag: 'ProjectUnlinkStory',actiontarget: 'SINGLEKEY',noprivdisplaymode:1,dataaccaction:'SRFUR__STORY_UNLP_BUT',visabled: true,disabled: false} })
+        button1: new PanelButtonModel({ caption: '移除', itemType: 'BUTTON',visible: true, disabled: false, name: 'button1', panel: this, uiaction: { type: 'DEUIACTION', tag: 'ProjectUnlinkStory',actiontarget: 'SINGLEKEY',noprivdisplaymode:1,dataaccaction:'SRFUR__STORY_UNLP_BUT',visible: true,disabled: false} })
 ,
         container2: new PanelContainerModel({ caption: '', itemType: 'CONTAINER',visible: true, disabled: false, name: 'container2', panel: this })
 ,

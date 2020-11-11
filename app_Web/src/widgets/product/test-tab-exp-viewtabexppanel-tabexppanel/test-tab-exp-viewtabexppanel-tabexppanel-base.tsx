@@ -110,7 +110,7 @@ export class TestTabExpViewtabexppanelTabexppanelBase extends TabExpPanelControl
      * @type {*}
      * @memberof TestTabExpViewtabexppanelBase
      */
-    protected authResourceObject:any = {'tabviewpanel2':{resourcetag:null,visabled: true,disabled: false},'tabviewpanel3':{resourcetag:null,visabled: true,disabled: false},'tabviewpanel4':{resourcetag:'TEST_TESTTASK',visabled: true,disabled: false},'tabviewpanel5':{resourcetag:'TEST_TESTREPORT',visabled: true,disabled: false},'tabviewpanel6':{resourcetag:null,visabled: true,disabled: false},'tabviewpanel7':{resourcetag:null,visabled: true,disabled: false}};
+    protected authResourceObject:any = {'tabviewpanel2':{resourcetag:null,visible: true,disabled: false},'tabviewpanel3':{resourcetag:null,visible: true,disabled: false},'tabviewpanel4':{resourcetag:'TEST_TESTTASK',visible: true,disabled: false},'tabviewpanel5':{resourcetag:'TEST_TESTREPORT',visible: true,disabled: false},'tabviewpanel6':{resourcetag:null,visible: true,disabled: false},'tabviewpanel7':{resourcetag:null,visible: true,disabled: false}};
 
     /**
      * 组件创建完毕

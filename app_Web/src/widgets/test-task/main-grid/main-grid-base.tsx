@@ -216,11 +216,11 @@ export class MainGridBase extends GridControlBase {
      * @memberof MainBase
      */  
     public ActionModel: any = {
-        LinkCase: { name: 'LinkCase',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TESTT_LCASE_BUT', actiontarget: 'SINGLEKEY'},
-        TestReportR: { name: 'TestReportR',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__REPORT_CREATE_BUT', actiontarget: 'MULTIKEY'},
-        OpenInfoView: { name: 'OpenInfoView',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TESTT_OPEN_BUT', actiontarget: 'SINGLEKEY'},
-        EditEdit: { name: 'EditEdit',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TESTT_EDIT_BUT', actiontarget: 'SINGLEKEY'},
-        Delete: { name: 'Delete',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TESTT_DELETE_BUT', actiontarget: 'SINGLEKEY'}
+        LinkCase: { name: 'LinkCase',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TESTT_LCASE_BUT', actiontarget: 'SINGLEKEY'},
+        TestReportR: { name: 'TestReportR',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__REPORT_CREATE_BUT', actiontarget: 'MULTIKEY'},
+        OpenInfoView: { name: 'OpenInfoView',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TESTT_OPEN_BUT', actiontarget: 'SINGLEKEY'},
+        EditEdit: { name: 'EditEdit',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TESTT_EDIT_BUT', actiontarget: 'SINGLEKEY'},
+        Delete: { name: 'Delete',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TESTT_DELETE_BUT', actiontarget: 'SINGLEKEY'}
     };
 
     /**
@@ -681,19 +681,19 @@ export class MainGridBase extends GridControlBase {
                 end:'',
                 status:'',
                 LinkCase:{
-                    visabled: false
+                    visible: false
                 },
                 TestReportR:{
-                    visabled: false
+                    visible: false
                 },
                 OpenInfoView:{
-                    visabled: false
+                    visible: false
                 },
                 EditEdit:{
-                    visabled: false
+                    visible: false
                 },
                 Delete:{
-                    visabled: false
+                    visible: false
                 },
                 children: children
             }
@@ -721,19 +721,19 @@ export class MainGridBase extends GridControlBase {
             end:'',
             status:'',
             LinkCase:{
-                visabled: false
+                visible: false
             },
             TestReportR:{
-                visabled: false
+                visible: false
             },
             OpenInfoView:{
-                visabled: false
+                visible: false
             },
             EditEdit:{
-                visabled: false
+                visible: false
             },
             Delete:{
-                visabled: false
+                visible: false
             },
             children: child
         }
@@ -791,19 +791,19 @@ export class MainGridBase extends GridControlBase {
                 end:'',
                 status:'',
                 LinkCase:{
-                    visabled: false
+                    visible: false
                 },
                 TestReportR:{
-                    visabled: false
+                    visible: false
                 },
                 OpenInfoView:{
-                    visabled: false
+                    visible: false
                 },
                 EditEdit:{
-                    visabled: false
+                    visible: false
                 },
                 Delete:{
-                    visabled: false
+                    visible: false
                 },
                 children: children,
             }

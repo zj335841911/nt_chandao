@@ -370,15 +370,15 @@ export class TodoDashboardActionsPortletBase extends MainControlBase {
      * @memberof TodoDashboardActionsBase
      */
     public uiactionModel: any = {
-        exit: {name: 'exit', actiontarget: '', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: '', uiaction: { tag: 'Exit', target: '' } },
-        edit1cz: {name: 'edit1cz', actiontarget: 'SINGLEKEY',  disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'UPDATE', uiaction: { tag: 'edit1Cz', target: 'SINGLEKEY' } },
-        deletecz: {name: 'deletecz', actiontarget: 'SINGLEKEY',  disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'DELETE', uiaction: { tag: 'deleteCz', target: 'SINGLEKEY' } },
-        assigntocz: {name: 'assigntocz', actiontarget: 'SINGLEKEY',  disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'ASSIGNTO', uiaction: { tag: 'assignToCz', target: 'SINGLEKEY' } },
-        finishcz: {name: 'finishcz', actiontarget: 'SINGLEKEY',  disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'FINISH', uiaction: { tag: 'finishCz', target: 'SINGLEKEY' } },
-        activatecz: {name: 'activatecz', actiontarget: 'SINGLEKEY',  disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'ACTIVATE', uiaction: { tag: 'activateCz', target: 'SINGLEKEY' } },
-        closecz: {name: 'closecz', actiontarget: 'SINGLEKEY',  disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'CLOSE', uiaction: { tag: 'closeCz', target: 'SINGLEKEY' } },
-        tobug: {name: 'tobug', actiontarget: 'SINGLEKEY',  disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'TOBUG', uiaction: { tag: 'toBug', target: 'SINGLEKEY' } },
-        totask: {name: 'totask', actiontarget: 'SINGLEKEY',  disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'TOTASK', uiaction: { tag: 'toTask', target: 'SINGLEKEY' } },
+        exit: {name: 'exit', actiontarget: '', caption: '', disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: '', uiaction: { tag: 'Exit', target: '' } },
+        edit1cz: {name: 'edit1cz', actiontarget: 'SINGLEKEY',  disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: 'UPDATE', uiaction: { tag: 'edit1Cz', target: 'SINGLEKEY' } },
+        deletecz: {name: 'deletecz', actiontarget: 'SINGLEKEY',  disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: 'DELETE', uiaction: { tag: 'deleteCz', target: 'SINGLEKEY' } },
+        assigntocz: {name: 'assigntocz', actiontarget: 'SINGLEKEY',  disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: 'ASSIGNTO', uiaction: { tag: 'assignToCz', target: 'SINGLEKEY' } },
+        finishcz: {name: 'finishcz', actiontarget: 'SINGLEKEY',  disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: 'FINISH', uiaction: { tag: 'finishCz', target: 'SINGLEKEY' } },
+        activatecz: {name: 'activatecz', actiontarget: 'SINGLEKEY',  disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: 'ACTIVATE', uiaction: { tag: 'activateCz', target: 'SINGLEKEY' } },
+        closecz: {name: 'closecz', actiontarget: 'SINGLEKEY',  disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: 'CLOSE', uiaction: { tag: 'closeCz', target: 'SINGLEKEY' } },
+        tobug: {name: 'tobug', actiontarget: 'SINGLEKEY',  disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: 'TOBUG', uiaction: { tag: 'toBug', target: 'SINGLEKEY' } },
+        totask: {name: 'totask', actiontarget: 'SINGLEKEY',  disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: 'TOTASK', uiaction: { tag: 'toTask', target: 'SINGLEKEY' } },
     }
 
     /**
@@ -394,7 +394,7 @@ export class TodoDashboardActionsPortletBase extends MainControlBase {
         icon: "",
         noprivdisplaymode: 2,
         actiontarget:'',
-        visabled:true,
+        visible:true,
         disabled:false
         },
         { viewlogicname:"dashboard_sysportlet2_ua4b1799_click",
@@ -404,7 +404,7 @@ export class TodoDashboardActionsPortletBase extends MainControlBase {
         noprivdisplaymode: 2,
         dataaccaction:'UPDATE',
         actiontarget:'SINGLEKEY',
-        visabled:true,
+        visible:true,
         disabled:false
         },
         { viewlogicname:"dashboard_sysportlet2_ucdbdc4c_click",
@@ -414,7 +414,7 @@ export class TodoDashboardActionsPortletBase extends MainControlBase {
         noprivdisplaymode: 2,
         dataaccaction:'DELETE',
         actiontarget:'SINGLEKEY',
-        visabled:true,
+        visible:true,
         disabled:false
         },
         { viewlogicname:"dashboard_sysportlet2_u1453337_click",
@@ -424,7 +424,7 @@ export class TodoDashboardActionsPortletBase extends MainControlBase {
         noprivdisplaymode: 2,
         dataaccaction:'ASSIGNTO',
         actiontarget:'SINGLEKEY',
-        visabled:true,
+        visible:true,
         disabled:false
         },
         { viewlogicname:"dashboard_sysportlet2_ud54a71d_click",
@@ -434,7 +434,7 @@ export class TodoDashboardActionsPortletBase extends MainControlBase {
         noprivdisplaymode: 2,
         dataaccaction:'FINISH',
         actiontarget:'SINGLEKEY',
-        visabled:true,
+        visible:true,
         disabled:false
         },
         { viewlogicname:"dashboard_sysportlet2_u04ff79f_click",
@@ -444,7 +444,7 @@ export class TodoDashboardActionsPortletBase extends MainControlBase {
         noprivdisplaymode: 2,
         dataaccaction:'ACTIVATE',
         actiontarget:'SINGLEKEY',
-        visabled:true,
+        visible:true,
         disabled:false
         },
         { viewlogicname:"dashboard_sysportlet2_ud97be75_click",
@@ -454,7 +454,7 @@ export class TodoDashboardActionsPortletBase extends MainControlBase {
         noprivdisplaymode: 2,
         dataaccaction:'CLOSE',
         actiontarget:'SINGLEKEY',
-        visabled:true,
+        visible:true,
         disabled:false
         },
         { viewlogicname:"dashboard_sysportlet2_u1e6202a_click",
@@ -464,7 +464,7 @@ export class TodoDashboardActionsPortletBase extends MainControlBase {
         noprivdisplaymode: 2,
         dataaccaction:'TOBUG',
         actiontarget:'SINGLEKEY',
-        visabled:true,
+        visible:true,
         disabled:false
         },
         { viewlogicname:"dashboard_sysportlet2_u5b0a56a_click",
@@ -474,7 +474,7 @@ export class TodoDashboardActionsPortletBase extends MainControlBase {
         noprivdisplaymode: 2,
         dataaccaction:'TOTASK',
         actiontarget:'SINGLEKEY',
-        visabled:true,
+        visible:true,
         disabled:false
         }
     ];

@@ -328,14 +328,14 @@ export class Main_CopyGridBase extends GridControlBase {
      * @memberof Main_CopyBase
      */  
     public ActionModel: any = {
-        AssingToBug: { name: 'AssingToBug',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__BUG_ASSIGNTO_BUT', actiontarget: 'SINGLEKEY'},
-        ConfirmBug: { name: 'ConfirmBug',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__BUG_CONFIRM_BUT', actiontarget: 'SINGLEKEY'},
-        ResolveBug: { name: 'ResolveBug',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__BUG_RESOLVE_BUT', actiontarget: 'SINGLEKEY'},
-        CloseBug: { name: 'CloseBug',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__BUG_CLOSE_BUT', actiontarget: 'SINGLEKEY'},
-        MainEdit: { name: 'MainEdit',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__BUG_EDIT_BUT', actiontarget: 'SINGLEKEY'},
-        Copy: { name: 'Copy',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALCREATE', actiontarget: 'SINGLEKEY'},
-        BugFavorites: { name: 'BugFavorites',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__BUG_NFAVOR_BUT', actiontarget: 'SINGLEKEY'},
-        BugNFavorites: { name: 'BugNFavorites',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__BUG_FAVOR_BUT', actiontarget: 'SINGLEKEY'}
+        AssingToBug: { name: 'AssingToBug',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__BUG_ASSIGNTO_BUT', actiontarget: 'SINGLEKEY'},
+        ConfirmBug: { name: 'ConfirmBug',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__BUG_CONFIRM_BUT', actiontarget: 'SINGLEKEY'},
+        ResolveBug: { name: 'ResolveBug',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__BUG_RESOLVE_BUT', actiontarget: 'SINGLEKEY'},
+        CloseBug: { name: 'CloseBug',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__BUG_CLOSE_BUT', actiontarget: 'SINGLEKEY'},
+        MainEdit: { name: 'MainEdit',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__BUG_EDIT_BUT', actiontarget: 'SINGLEKEY'},
+        Copy: { name: 'Copy',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALCREATE', actiontarget: 'SINGLEKEY'},
+        BugFavorites: { name: 'BugFavorites',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__BUG_NFAVOR_BUT', actiontarget: 'SINGLEKEY'},
+        BugNFavorites: { name: 'BugNFavorites',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__BUG_FAVOR_BUT', actiontarget: 'SINGLEKEY'}
     };
 
     /**
@@ -877,30 +877,30 @@ export class Main_CopyGridBase extends GridControlBase {
                 openedby:'',
                 openeddate:'',
                 AssingToBug:{
-                    visabled: false
+                    visible: false
                 },
                 assignedto:'',
                 resolution:'',
                 ConfirmBug:{
-                    visabled: false
+                    visible: false
                 },
                 ResolveBug:{
-                    visabled: false
+                    visible: false
                 },
                 CloseBug:{
-                    visabled: false
+                    visible: false
                 },
                 MainEdit:{
-                    visabled: false
+                    visible: false
                 },
                 Copy:{
-                    visabled: false
+                    visible: false
                 },
                 BugFavorites:{
-                    visabled: false
+                    visible: false
                 },
                 BugNFavorites:{
-                    visabled: false
+                    visible: false
                 },
                 lastediteddate:'',
                 activateddate:'',
@@ -929,30 +929,30 @@ export class Main_CopyGridBase extends GridControlBase {
             openedby:'',
             openeddate:'',
             AssingToBug:{
-                visabled: false
+                visible: false
             },
             assignedto:'',
             resolution:'',
             ConfirmBug:{
-                visabled: false
+                visible: false
             },
             ResolveBug:{
-                visabled: false
+                visible: false
             },
             CloseBug:{
-                visabled: false
+                visible: false
             },
             MainEdit:{
-                visabled: false
+                visible: false
             },
             Copy:{
-                visabled: false
+                visible: false
             },
             BugFavorites:{
-                visabled: false
+                visible: false
             },
             BugNFavorites:{
-                visabled: false
+                visible: false
             },
             lastediteddate:'',
             activateddate:'',
@@ -1011,30 +1011,30 @@ export class Main_CopyGridBase extends GridControlBase {
                 openedby:'',
                 openeddate:'',
                 AssingToBug:{
-                    visabled: false
+                    visible: false
                 },
                 assignedto:'',
                 resolution:'',
                 ConfirmBug:{
-                    visabled: false
+                    visible: false
                 },
                 ResolveBug:{
-                    visabled: false
+                    visible: false
                 },
                 CloseBug:{
-                    visabled: false
+                    visible: false
                 },
                 MainEdit:{
-                    visabled: false
+                    visible: false
                 },
                 Copy:{
-                    visabled: false
+                    visible: false
                 },
                 BugFavorites:{
-                    visabled: false
+                    visible: false
                 },
                 BugNFavorites:{
-                    visabled: false
+                    visible: false
                 },
                 lastediteddate:'',
                 activateddate:'',

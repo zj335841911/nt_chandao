@@ -147,32 +147,32 @@
                     </template>
                     <template slot-scope="scope">
                         <div style="text-align: center;">
-                          <a v-show="scope.row.assignTo.visabled" :disabled="scope.row.assignTo.disabled" @click="uiAction(scope.row, 'assignTo', $event)" :title="$t('entities.todo.main_grid.uiactions.todo_assignto')">
+                          <a v-show="scope.row.assignTo.visible" :disabled="scope.row.assignTo.disabled" @click="uiAction(scope.row, 'assignTo', $event)" :title="$t('entities.todo.main_grid.uiactions.todo_assignto')">
                             <i class='fa fa-hand-o-right'></i>
                             
                           </a>
-                          <divider v-show="scope.row.finish.visabled" type='vertical'></divider>
-                          <a v-show="scope.row.finish.visabled" :disabled="scope.row.finish.disabled" @click="uiAction(scope.row, 'finish', $event)" :title="$t('entities.todo.main_grid.uiactions.todo_finish')">
+                          <divider v-show="scope.row.finish.visible" type='vertical'></divider>
+                          <a v-show="scope.row.finish.visible" :disabled="scope.row.finish.disabled" @click="uiAction(scope.row, 'finish', $event)" :title="$t('entities.todo.main_grid.uiactions.todo_finish')">
                             <i class='fa fa-check-square-o'></i>
                             
                           </a>
-                          <divider v-show="scope.row.activate.visabled" type='vertical'></divider>
-                          <a v-show="scope.row.activate.visabled" :disabled="scope.row.activate.disabled" @click="uiAction(scope.row, 'activate', $event)" :title="$t('entities.todo.main_grid.uiactions.todo_activate')">
+                          <divider v-show="scope.row.activate.visible" type='vertical'></divider>
+                          <a v-show="scope.row.activate.visible" :disabled="scope.row.activate.disabled" @click="uiAction(scope.row, 'activate', $event)" :title="$t('entities.todo.main_grid.uiactions.todo_activate')">
                             <i class='fa fa-magic'></i>
                             
                           </a>
-                          <divider v-show="scope.row.close.visabled" type='vertical'></divider>
-                          <a v-show="scope.row.close.visabled" :disabled="scope.row.close.disabled" @click="uiAction(scope.row, 'close', $event)" :title="$t('entities.todo.main_grid.uiactions.todo_close')">
+                          <divider v-show="scope.row.close.visible" type='vertical'></divider>
+                          <a v-show="scope.row.close.visible" :disabled="scope.row.close.disabled" @click="uiAction(scope.row, 'close', $event)" :title="$t('entities.todo.main_grid.uiactions.todo_close')">
                             <i class='fa fa-close'></i>
                             
                           </a>
-                          <divider v-show="scope.row.edit1.visabled" type='vertical'></divider>
-                          <a v-show="scope.row.edit1.visabled" :disabled="scope.row.edit1.disabled" @click="uiAction(scope.row, 'edit1', $event)" :title="$t('entities.todo.main_grid.uiactions.todo_edit1')">
+                          <divider v-show="scope.row.edit1.visible" type='vertical'></divider>
+                          <a v-show="scope.row.edit1.visible" :disabled="scope.row.edit1.disabled" @click="uiAction(scope.row, 'edit1', $event)" :title="$t('entities.todo.main_grid.uiactions.todo_edit1')">
                             <i class='fa fa-edit'></i>
                             
                           </a>
-                          <divider v-show="scope.row.delete.visabled" type='vertical'></divider>
-                          <a v-show="scope.row.delete.visabled" :disabled="scope.row.delete.disabled" @click="uiAction(scope.row, 'delete', $event)" :title="$t('entities.todo.main_grid.uiactions.todo_delete')">
+                          <divider v-show="scope.row.delete.visible" type='vertical'></divider>
+                          <a v-show="scope.row.delete.visible" :disabled="scope.row.delete.disabled" @click="uiAction(scope.row, 'delete', $event)" :title="$t('entities.todo.main_grid.uiactions.todo_delete')">
                             <i class='fa fa-trash'></i>
                             
                           </a>

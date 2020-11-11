@@ -45,7 +45,7 @@
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <a v-show="row.Look.visabled" :disabled="row.Look.disabled" :style="{'display': 'block'}" @click="uiAction(row, 'Look', $event)">
+                        <a v-show="row.Look.visible" :disabled="row.Look.disabled" :style="{'display': 'block'}" @click="uiAction(row, 'Look', $event)">
                         <span>{{row.title}}</span>
                         </a>
                     </template>
@@ -124,12 +124,12 @@
                     </template>
                     <template slot-scope="scope">
                         <div style="text-align: center;">
-                          <a v-show="scope.row.ibzdownload.visabled" :disabled="scope.row.ibzdownload.disabled" @click="uiAction(scope.row, 'ibzdownload', $event)" :title="$t('entities.file.doclibl_grid.uiactions.file_ibzdownload')">
+                          <a v-show="scope.row.ibzdownload.visible" :disabled="scope.row.ibzdownload.disabled" @click="uiAction(scope.row, 'ibzdownload', $event)" :title="$t('entities.file.doclibl_grid.uiactions.file_ibzdownload')">
                             <i class='fa fa-download'></i>
                             
                           </a>
-                          <divider v-show="scope.row.delete.visabled" type='vertical'></divider>
-                          <a v-show="scope.row.delete.visabled" :disabled="scope.row.delete.disabled" @click="uiAction(scope.row, 'delete', $event)" :title="$t('entities.file.doclibl_grid.uiactions.file_delete')">
+                          <divider v-show="scope.row.delete.visible" type='vertical'></divider>
+                          <a v-show="scope.row.delete.visible" :disabled="scope.row.delete.disabled" @click="uiAction(scope.row, 'delete', $event)" :title="$t('entities.file.doclibl_grid.uiactions.file_delete')">
                             <i class='fa fa-remove'></i>
                             
                           </a>

@@ -670,7 +670,7 @@ export class FormControlBase extends MainControlBase {
                     this.detailsModel[name].isPower = true;
                     let tempUIAction: any = JSON.parse(JSON.stringify(this.detailsModel[name].uiaction));
                     let result: any[] = ViewTool.calcActionItemAuthState(targetData, [tempUIAction], this.appUIService);
-                    this.detailsModel[name].visible = tempUIAction.visabled;
+                    this.detailsModel[name].visible = tempUIAction.visible;
                     this.detailsModel[name].disabled = tempUIAction.disabled;
                     this.detailsModel[name].isPower = result[0] === 1 ? true : false;
                 }

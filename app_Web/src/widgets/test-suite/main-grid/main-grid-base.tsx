@@ -160,9 +160,9 @@ export class MainGridBase extends GridControlBase {
      * @memberof MainBase
      */  
     public ActionModel: any = {
-        linkCaseDash: { name: 'linkCaseDash',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TESTSU_LINKCASE_BUT', actiontarget: 'SINGLEKEY'},
-        EditsuiteDash: { name: 'EditsuiteDash',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TESTSU_EDITSUITE_BUT', actiontarget: 'SINGLEKEY'},
-        DeleteDash: { name: 'DeleteDash',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TESTSU_DELETE_BUT', actiontarget: 'SINGLEKEY'}
+        linkCaseDash: { name: 'linkCaseDash',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TESTSU_LINKCASE_BUT', actiontarget: 'SINGLEKEY'},
+        EditsuiteDash: { name: 'EditsuiteDash',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TESTSU_EDITSUITE_BUT', actiontarget: 'SINGLEKEY'},
+        DeleteDash: { name: 'DeleteDash',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TESTSU_DELETE_BUT', actiontarget: 'SINGLEKEY'}
     };
 
     /**
@@ -523,13 +523,13 @@ export class MainGridBase extends GridControlBase {
                 addedby:'',
                 addeddate:'',
                 linkCaseDash:{
-                    visabled: false
+                    visible: false
                 },
                 EditsuiteDash:{
-                    visabled: false
+                    visible: false
                 },
                 DeleteDash:{
-                    visabled: false
+                    visible: false
                 },
                 children: children
             }
@@ -553,13 +553,13 @@ export class MainGridBase extends GridControlBase {
             addedby:'',
             addeddate:'',
             linkCaseDash:{
-                visabled: false
+                visible: false
             },
             EditsuiteDash:{
-                visabled: false
+                visible: false
             },
             DeleteDash:{
-                visabled: false
+                visible: false
             },
             children: child
         }
@@ -613,13 +613,13 @@ export class MainGridBase extends GridControlBase {
                 addedby:'',
                 addeddate:'',
                 linkCaseDash:{
-                    visabled: false
+                    visible: false
                 },
                 EditsuiteDash:{
-                    visabled: false
+                    visible: false
                 },
                 DeleteDash:{
-                    visabled: false
+                    visible: false
                 },
                 children: children,
             }

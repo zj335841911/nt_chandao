@@ -151,8 +151,8 @@ export class MainEditGridBase extends GridControlBase {
      * @memberof MainEditBase
      */  
     public ActionModel: any = {
-        Edit: { name: 'Edit',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: 'SINGLEKEY'},
-        Remove: { name: 'Remove',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALDELETE', actiontarget: 'MULTIKEY'}
+        Edit: { name: 'Edit',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: 'SINGLEKEY'},
+        Remove: { name: 'Remove',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALDELETE', actiontarget: 'MULTIKEY'}
     };
 
     /**
@@ -467,10 +467,10 @@ export class MainEditGridBase extends GridControlBase {
                 left:'',
                 work:'',
                 Edit:{
-                    visabled: false
+                    visible: false
                 },
                 Remove:{
-                    visabled: false
+                    visible: false
                 },
                 children: children
             }
@@ -494,10 +494,10 @@ export class MainEditGridBase extends GridControlBase {
             left:'',
             work:'',
             Edit:{
-                visabled: false
+                visible: false
             },
             Remove:{
-                visabled: false
+                visible: false
             },
             children: child
         }
@@ -551,10 +551,10 @@ export class MainEditGridBase extends GridControlBase {
                 left:'',
                 work:'',
                 Edit:{
-                    visabled: false
+                    visible: false
                 },
                 Remove:{
-                    visabled: false
+                    visible: false
                 },
                 children: children,
             }

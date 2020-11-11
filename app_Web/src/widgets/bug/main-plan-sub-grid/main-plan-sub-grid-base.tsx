@@ -104,7 +104,7 @@ export class Main_PlanSubGridBase extends GridControlBase {
      * @memberof Main_PlanSubBase
      */  
     public ActionModel: any = {
-        UnlinkBug: { name: 'UnlinkBug',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__BUG_UNLINK_BUT', actiontarget: 'SINGLEKEY'}
+        UnlinkBug: { name: 'UnlinkBug',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__BUG_UNLINK_BUT', actiontarget: 'SINGLEKEY'}
     };
 
     /**
@@ -585,7 +585,7 @@ export class Main_PlanSubGridBase extends GridControlBase {
                 openeddate:'',
                 assignedto:'',
                 UnlinkBug:{
-                    visabled: false
+                    visible: false
                 },
                 isfavorites:'',
                 children: children
@@ -612,7 +612,7 @@ export class Main_PlanSubGridBase extends GridControlBase {
             openeddate:'',
             assignedto:'',
             UnlinkBug:{
-                visabled: false
+                visible: false
             },
             isfavorites:'',
             children: child
@@ -669,7 +669,7 @@ export class Main_PlanSubGridBase extends GridControlBase {
                 openeddate:'',
                 assignedto:'',
                 UnlinkBug:{
-                    visabled: false
+                    visible: false
                 },
                 isfavorites:'',
                 children: children,

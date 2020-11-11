@@ -272,13 +272,13 @@ export class Main2GridBase extends GridControlBase {
      * @memberof Main2Base
      */  
     public ActionModel: any = {
-        AssignTask: { name: 'AssignTask',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_ASSIGN_BUT', actiontarget: 'SINGLEKEY'},
-        StartTask: { name: 'StartTask',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_START_BUT', actiontarget: 'SINGLEKEY'},
-        Activation: { name: 'Activation',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_ACTIVATION_BUT', actiontarget: 'SINGLEKEY'},
-        WorkHours1: { name: 'WorkHours1',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_CONSUM_BUT', actiontarget: 'SINGLEKEY'},
-        DoneTask: { name: 'DoneTask',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_COMPLETE_BUT', actiontarget: 'SINGLEKEY'},
-        CloseTask: { name: 'CloseTask',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_CLOSE_BUT', actiontarget: 'SINGLEKEY'},
-        MainEdit: { name: 'MainEdit',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_EDIT_BUT', actiontarget: 'SINGLEKEY'}
+        AssignTask: { name: 'AssignTask',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_ASSIGN_BUT', actiontarget: 'SINGLEKEY'},
+        StartTask: { name: 'StartTask',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_START_BUT', actiontarget: 'SINGLEKEY'},
+        Activation: { name: 'Activation',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_ACTIVATION_BUT', actiontarget: 'SINGLEKEY'},
+        WorkHours1: { name: 'WorkHours1',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_CONSUM_BUT', actiontarget: 'SINGLEKEY'},
+        DoneTask: { name: 'DoneTask',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_COMPLETE_BUT', actiontarget: 'SINGLEKEY'},
+        CloseTask: { name: 'CloseTask',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_CLOSE_BUT', actiontarget: 'SINGLEKEY'},
+        MainEdit: { name: 'MainEdit',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_EDIT_BUT', actiontarget: 'SINGLEKEY'}
     };
 
     /**
@@ -784,25 +784,25 @@ export class Main2GridBase extends GridControlBase {
                 left:'',
                 status1:'',
                 AssignTask:{
-                    visabled: false
+                    visible: false
                 },
                 StartTask:{
-                    visabled: false
+                    visible: false
                 },
                 Activation:{
-                    visabled: false
+                    visible: false
                 },
                 WorkHours1:{
-                    visabled: false
+                    visible: false
                 },
                 DoneTask:{
-                    visabled: false
+                    visible: false
                 },
                 CloseTask:{
-                    visabled: false
+                    visible: false
                 },
                 MainEdit:{
-                    visabled: false
+                    visible: false
                 },
                 children: children
             }
@@ -829,25 +829,25 @@ export class Main2GridBase extends GridControlBase {
             left:'',
             status1:'',
             AssignTask:{
-                visabled: false
+                visible: false
             },
             StartTask:{
-                visabled: false
+                visible: false
             },
             Activation:{
-                visabled: false
+                visible: false
             },
             WorkHours1:{
-                visabled: false
+                visible: false
             },
             DoneTask:{
-                visabled: false
+                visible: false
             },
             CloseTask:{
-                visabled: false
+                visible: false
             },
             MainEdit:{
-                visabled: false
+                visible: false
             },
             children: child
         }
@@ -904,25 +904,25 @@ export class Main2GridBase extends GridControlBase {
                 left:'',
                 status1:'',
                 AssignTask:{
-                    visabled: false
+                    visible: false
                 },
                 StartTask:{
-                    visabled: false
+                    visible: false
                 },
                 Activation:{
-                    visabled: false
+                    visible: false
                 },
                 WorkHours1:{
-                    visabled: false
+                    visible: false
                 },
                 DoneTask:{
-                    visabled: false
+                    visible: false
                 },
                 CloseTask:{
-                    visabled: false
+                    visible: false
                 },
                 MainEdit:{
-                    visabled: false
+                    visible: false
                 },
                 children: children,
             }

@@ -188,10 +188,10 @@ export class ProductMainGridBase extends GridControlBase {
      * @memberof ProductMainBase
      */  
     public ActionModel: any = {
-        ProductLookDoc: { name: 'ProductLookDoc',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'DOC', actiontarget: 'SINGLEKEY'},
-        ProductLookFile: { name: 'ProductLookFile',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'FILE', actiontarget: 'SINGLEKEY'},
-        EditDocLib: { name: 'EditDocLib',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: 'SINGLEKEY'},
-        WeiHuFenLei: { name: 'WeiHuFenLei',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'DOC', actiontarget: 'SINGLEKEY'}
+        ProductLookDoc: { name: 'ProductLookDoc',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'DOC', actiontarget: 'SINGLEKEY'},
+        ProductLookFile: { name: 'ProductLookFile',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'FILE', actiontarget: 'SINGLEKEY'},
+        EditDocLib: { name: 'EditDocLib',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: 'SINGLEKEY'},
+        WeiHuFenLei: { name: 'WeiHuFenLei',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'DOC', actiontarget: 'SINGLEKEY'}
     };
 
     /**
@@ -443,16 +443,16 @@ export class ProductMainGridBase extends GridControlBase {
                 name:'',
                 doccnt:'',
                 ProductLookDoc:{
-                    visabled: false
+                    visible: false
                 },
                 ProductLookFile:{
-                    visabled: false
+                    visible: false
                 },
                 EditDocLib:{
-                    visabled: false
+                    visible: false
                 },
                 WeiHuFenLei:{
-                    visabled: false
+                    visible: false
                 },
                 children: children
             }
@@ -473,16 +473,16 @@ export class ProductMainGridBase extends GridControlBase {
             name:'',
             doccnt:'',
             ProductLookDoc:{
-                visabled: false
+                visible: false
             },
             ProductLookFile:{
-                visabled: false
+                visible: false
             },
             EditDocLib:{
-                visabled: false
+                visible: false
             },
             WeiHuFenLei:{
-                visabled: false
+                visible: false
             },
             children: child
         }
@@ -533,16 +533,16 @@ export class ProductMainGridBase extends GridControlBase {
                 name:'',
                 doccnt:'',
                 ProductLookDoc:{
-                    visabled: false
+                    visible: false
                 },
                 ProductLookFile:{
-                    visabled: false
+                    visible: false
                 },
                 EditDocLib:{
-                    visabled: false
+                    visible: false
                 },
                 WeiHuFenLei:{
-                    visabled: false
+                    visible: false
                 },
                 children: children,
             }

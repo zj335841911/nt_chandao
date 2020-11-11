@@ -176,9 +176,9 @@ export default class ViewEngine {
                     _item.disabled = state;
                 }
             }
-            _item.visabled = true;
+            _item.visible = true;
             if (_item.noprivdisplaymode && _item.noprivdisplaymode === 6) {
-                _item.visabled = false;
+                _item.visible = false;
             }
         }
     }
@@ -215,13 +215,13 @@ export default class ViewEngine {
                         _this.view.toolBarModels[key].disabled = true;
                     }
                     if ((_item.noprivdisplaymode === 2) || (_item.noprivdisplaymode === 6)) {
-                        _this.view.toolBarModels[key].visabled = false;
+                        _this.view.toolBarModels[key].visible = false;
                     } else {
-                        _this.view.toolBarModels[key].visabled = true;
+                        _this.view.toolBarModels[key].visible = true;
                     }
                 }
                 if (dataActionResult === 1) {
-                    _this.view.toolBarModels[key].visabled = true;
+                    _this.view.toolBarModels[key].visible = true;
                     _this.view.toolBarModels[key].disabled = false;
                 }
             }

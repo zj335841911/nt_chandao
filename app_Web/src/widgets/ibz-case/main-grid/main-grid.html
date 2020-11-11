@@ -122,12 +122,12 @@
                     </template>
                     <template slot-scope="scope">
                         <div style="text-align: center;">
-                          <a v-show="scope.row.Editcase.visabled" :disabled="scope.row.Editcase.disabled" @click="uiAction(scope.row, 'Editcase', $event)" :title="$t('entities.ibzcase.main_grid.uiactions.ibzcase_editcase')">
+                          <a v-show="scope.row.Editcase.visible" :disabled="scope.row.Editcase.disabled" @click="uiAction(scope.row, 'Editcase', $event)" :title="$t('entities.ibzcase.main_grid.uiactions.ibzcase_editcase')">
                             <i class=''></i>
                             
                           </a>
-                          <divider v-show="scope.row.Delete.visabled" type='vertical'></divider>
-                          <a v-show="scope.row.Delete.visabled" :disabled="scope.row.Delete.disabled" @click="uiAction(scope.row, 'Delete', $event)" :title="$t('entities.ibzcase.main_grid.uiactions.ibzcase_delete')">
+                          <divider v-show="scope.row.Delete.visible" type='vertical'></divider>
+                          <a v-show="scope.row.Delete.visible" :disabled="scope.row.Delete.disabled" @click="uiAction(scope.row, 'Delete', $event)" :title="$t('entities.ibzcase.main_grid.uiactions.ibzcase_delete')">
                             <i class='fa fa-remove'></i>
                             
                           </a>

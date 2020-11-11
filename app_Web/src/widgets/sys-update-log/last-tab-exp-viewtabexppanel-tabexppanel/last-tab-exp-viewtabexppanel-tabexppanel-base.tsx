@@ -106,7 +106,7 @@ export class LastTabExpViewtabexppanelTabexppanelBase extends TabExpPanelControl
      * @type {*}
      * @memberof LastTabExpViewtabexppanelBase
      */
-    protected authResourceObject:any = {'tabviewpanel2':{resourcetag:null,visabled: true,disabled: false},'tabviewpanel':{resourcetag:null,visabled: true,disabled: false}};
+    protected authResourceObject:any = {'tabviewpanel2':{resourcetag:null,visible: true,disabled: false},'tabviewpanel':{resourcetag:null,visible: true,disabled: false}};
 
     /**
      * 组件创建完毕

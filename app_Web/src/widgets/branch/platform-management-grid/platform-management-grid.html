@@ -70,12 +70,12 @@
                     </template>
                     <template slot-scope="scope">
                         <div style="text-align: center;">
-                          <a v-show="scope.row.Edit.visabled" :disabled="scope.row.Edit.disabled" @click="uiAction(scope.row, 'Edit', $event)" :title="$t('entities.branch.platformmanagement_grid.uiactions.branch_edit')">
+                          <a v-show="scope.row.Edit.visible" :disabled="scope.row.Edit.disabled" @click="uiAction(scope.row, 'Edit', $event)" :title="$t('entities.branch.platformmanagement_grid.uiactions.branch_edit')">
                             <i class='fa fa-edit'></i>
                             
                           </a>
-                          <divider v-show="scope.row.Delete.visabled" type='vertical'></divider>
-                          <a v-show="scope.row.Delete.visabled" :disabled="scope.row.Delete.disabled" @click="uiAction(scope.row, 'Delete', $event)" :title="$t('entities.branch.platformmanagement_grid.uiactions.branch_delete')">
+                          <divider v-show="scope.row.Delete.visible" type='vertical'></divider>
+                          <a v-show="scope.row.Delete.visible" :disabled="scope.row.Delete.disabled" @click="uiAction(scope.row, 'Delete', $event)" :title="$t('entities.branch.platformmanagement_grid.uiactions.branch_delete')">
                             <i class='fa fa-remove'></i>
                             
                           </a>

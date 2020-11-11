@@ -244,12 +244,12 @@ export class TestMainGridGridBase extends GridControlBase {
      * @memberof TestMainGridBase
      */  
     public ActionModel: any = {
-        Edits: { name: 'Edits',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: 'SINGLEKEY'},
-        confirmChange: { name: 'confirmChange',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__CASE_CASECOF_BUT', actiontarget: 'SINGLEKEY'},
-        NewBugByTestCaseResult: { name: 'NewBugByTestCaseResult',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__CASE_TOBUG_BUT', actiontarget: 'SINGLEKEY'},
-        CASEOpenTestRunResultView: { name: 'CASEOpenTestRunResultView',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__CASE_CASERESULT_BUT', actiontarget: 'SINGLEKEY'},
-        CaseExecute: { name: 'CaseExecute',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__CASE_CASERUN_BUT', actiontarget: 'SINGLEKEY'},
-        unlinkCase: { name: 'unlinkCase',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__CASE_UNLINK_BUT', actiontarget: 'SINGLEKEY'}
+        Edits: { name: 'Edits',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: 'SINGLEKEY'},
+        confirmChange: { name: 'confirmChange',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__CASE_CASECOF_BUT', actiontarget: 'SINGLEKEY'},
+        NewBugByTestCaseResult: { name: 'NewBugByTestCaseResult',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__CASE_TOBUG_BUT', actiontarget: 'SINGLEKEY'},
+        CASEOpenTestRunResultView: { name: 'CASEOpenTestRunResultView',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__CASE_CASERESULT_BUT', actiontarget: 'SINGLEKEY'},
+        CaseExecute: { name: 'CaseExecute',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__CASE_CASERUN_BUT', actiontarget: 'SINGLEKEY'},
+        unlinkCase: { name: 'unlinkCase',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__CASE_UNLINK_BUT', actiontarget: 'SINGLEKEY'}
     };
 
     /**
@@ -812,7 +812,7 @@ export class TestMainGridGridBase extends GridControlBase {
                 id:'',
                 pri:'',
                 Edits:{
-                    visabled: false
+                    visible: false
                 },
                 title:'',
                 type:'',
@@ -826,19 +826,19 @@ export class TestMainGridGridBase extends GridControlBase {
                 resultcnt:'',
                 casesteps:'',
                 confirmChange:{
-                    visabled: false
+                    visible: false
                 },
                 NewBugByTestCaseResult:{
-                    visabled: false
+                    visible: false
                 },
                 CASEOpenTestRunResultView:{
-                    visabled: false
+                    visible: false
                 },
                 CaseExecute:{
-                    visabled: false
+                    visible: false
                 },
                 unlinkCase:{
-                    visabled: false
+                    visible: false
                 },
                 children: children
             }
@@ -859,7 +859,7 @@ export class TestMainGridGridBase extends GridControlBase {
             id:'',
             pri:'',
             Edits:{
-                visabled: false
+                visible: false
             },
             title:'',
             type:'',
@@ -873,19 +873,19 @@ export class TestMainGridGridBase extends GridControlBase {
             resultcnt:'',
             casesteps:'',
             confirmChange:{
-                visabled: false
+                visible: false
             },
             NewBugByTestCaseResult:{
-                visabled: false
+                visible: false
             },
             CASEOpenTestRunResultView:{
-                visabled: false
+                visible: false
             },
             CaseExecute:{
-                visabled: false
+                visible: false
             },
             unlinkCase:{
-                visabled: false
+                visible: false
             },
             children: child
         }
@@ -936,7 +936,7 @@ export class TestMainGridGridBase extends GridControlBase {
                 id:'',
                 pri:'',
                 Edits:{
-                    visabled: false
+                    visible: false
                 },
                 title:'',
                 type:'',
@@ -950,19 +950,19 @@ export class TestMainGridGridBase extends GridControlBase {
                 resultcnt:'',
                 casesteps:'',
                 confirmChange:{
-                    visabled: false
+                    visible: false
                 },
                 NewBugByTestCaseResult:{
-                    visabled: false
+                    visible: false
                 },
                 CASEOpenTestRunResultView:{
-                    visabled: false
+                    visible: false
                 },
                 CaseExecute:{
-                    visabled: false
+                    visible: false
                 },
                 unlinkCase:{
-                    visabled: false
+                    visible: false
                 },
                 children: children,
             }

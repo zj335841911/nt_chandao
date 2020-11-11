@@ -334,22 +334,22 @@ export class CalendarMainEditFormBase extends EditFormControlBase {
      */
     public detailsModel: any = {
         button1: new FormButtonModel({ caption: '指派', detailType: 'BUTTON', name: 'button1', visible: true, isShowCaption: false, form: this, showMoreMode: 0,disabled: false, uiaction: { type: 'DEUIACTION', 
- tag: 'assignToCz',actiontarget: 'SINGLEKEY',noprivdisplaymode:2,dataaccaction:'ASSIGNTO',visabled: true,disabled: false} }),
+ tag: 'assignToCz',actiontarget: 'SINGLEKEY',noprivdisplaymode:2,dataaccaction:'ASSIGNTO',visible: true,disabled: false} }),
 
         button2: new FormButtonModel({ caption: '完成', detailType: 'BUTTON', name: 'button2', visible: true, isShowCaption: false, form: this, showMoreMode: 0,disabled: false, uiaction: { type: 'DEUIACTION', 
- tag: 'finishCz',actiontarget: 'SINGLEKEY',noprivdisplaymode:2,dataaccaction:'FINISH',visabled: true,disabled: false} }),
+ tag: 'finishCz',actiontarget: 'SINGLEKEY',noprivdisplaymode:2,dataaccaction:'FINISH',visible: true,disabled: false} }),
 
         button3: new FormButtonModel({ caption: '激活', detailType: 'BUTTON', name: 'button3', visible: true, isShowCaption: false, form: this, showMoreMode: 0,disabled: false, uiaction: { type: 'DEUIACTION', 
- tag: 'activateCz',actiontarget: 'SINGLEKEY',noprivdisplaymode:2,dataaccaction:'ACTIVATE',visabled: true,disabled: false} }),
+ tag: 'activateCz',actiontarget: 'SINGLEKEY',noprivdisplaymode:2,dataaccaction:'ACTIVATE',visible: true,disabled: false} }),
 
         button4: new FormButtonModel({ caption: '关闭', detailType: 'BUTTON', name: 'button4', visible: true, isShowCaption: false, form: this, showMoreMode: 0,disabled: false, uiaction: { type: 'DEUIACTION', 
- tag: 'closeCz',actiontarget: 'SINGLEKEY',noprivdisplaymode:2,dataaccaction:'CLOSE',visabled: true,disabled: false} }),
+ tag: 'closeCz',actiontarget: 'SINGLEKEY',noprivdisplaymode:2,dataaccaction:'CLOSE',visible: true,disabled: false} }),
 
         button5: new FormButtonModel({ caption: '编辑', detailType: 'BUTTON', name: 'button5', visible: true, isShowCaption: false, form: this, showMoreMode: 0,disabled: false, uiaction: { type: 'DEUIACTION', 
- tag: 'edit1Cz',actiontarget: 'SINGLEKEY',noprivdisplaymode:2,dataaccaction:'UPDATE',visabled: true,disabled: false} }),
+ tag: 'edit1Cz',actiontarget: 'SINGLEKEY',noprivdisplaymode:2,dataaccaction:'UPDATE',visible: true,disabled: false} }),
 
         button6: new FormButtonModel({ caption: '删除', detailType: 'BUTTON', name: 'button6', visible: true, isShowCaption: false, form: this, showMoreMode: 0,disabled: false, uiaction: { type: 'DEUIACTION', 
- tag: 'deleteCz',actiontarget: 'SINGLEKEY',noprivdisplaymode:2,dataaccaction:'DELETE',visabled: true,disabled: false} }),
+ tag: 'deleteCz',actiontarget: 'SINGLEKEY',noprivdisplaymode:2,dataaccaction:'DELETE',visible: true,disabled: false} }),
 
         grouppanel3: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel3', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.todo.calendarmain_form', extractMode: 'ITEM', details: [] } }),
 

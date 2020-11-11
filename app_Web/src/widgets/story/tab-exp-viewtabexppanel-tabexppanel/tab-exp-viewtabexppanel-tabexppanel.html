@@ -1,6 +1,6 @@
 <div class='tabviewpanel'>
     <tabs :value="activatedTabViewPanel" :animated="false" class='tabexppanel' name='tabexpviewtabexppanel' @on-click="tabPanelClick($event)">
-        <tab-pane :index="0" name='tabviewpanel' tab='tabexpviewtabexppanel' class=''  v-if="authResourceObject['tabviewpanel'].visabled"
+        <tab-pane :index="0" name='tabviewpanel' tab='tabexpviewtabexppanel' class=''  v-if="authResourceObject['tabviewpanel'].visible"
             :label="(h) =>{
                 return h('div', [
                     h('span', '所有需求'),
@@ -24,7 +24,7 @@
     @closeview="closeView($event)">
 </view_tabviewpanel>
         </tab-pane>
-        <tab-pane :index="1" name='tabviewpanel2' tab='tabexpviewtabexppanel' class=''  v-if="authResourceObject['tabviewpanel2'].visabled"
+        <tab-pane :index="1" name='tabviewpanel2' tab='tabexpviewtabexppanel' class=''  v-if="authResourceObject['tabviewpanel2'].visible"
             :label="(h) =>{
                 return h('div', [
                     h('span', '未关闭'),
@@ -48,7 +48,7 @@
     @closeview="closeView($event)">
 </view_tabviewpanel2>
         </tab-pane>
-        <tab-pane :index="2" name='tabviewpanel3' tab='tabexpviewtabexppanel' class=''  v-if="authResourceObject['tabviewpanel3'].visabled"
+        <tab-pane :index="2" name='tabviewpanel3' tab='tabexpviewtabexppanel' class=''  v-if="authResourceObject['tabviewpanel3'].visible"
             :label="(h) =>{
                 return h('div', [
                     h('span', '看板'),

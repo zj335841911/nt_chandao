@@ -264,13 +264,13 @@ export class MainGridBase extends GridControlBase {
      * @memberof MainBase
      */  
     public ActionModel: any = {
-        linkstory: { name: 'linkstory',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__RELEASE_COMMON', actiontarget: 'SINGLEKEY'},
-        Refresh: { name: 'Refresh',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: ''},
-        linkbug: { name: 'linkbug',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__RELEASE_COMMON', actiontarget: 'SINGLEKEY'},
-        active: { name: 'active',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__RELEASE_ACTIVE', actiontarget: 'SINGLEKEY'},
-        terminal: { name: 'terminal',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__RELEASE_TERMINATE', actiontarget: 'SINGLEKEY'},
-        quickEdit: { name: 'quickEdit',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__RELEASE_COMMON', actiontarget: 'SINGLEKEY'},
-        remove: { name: 'remove',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__RELEASE_COMMON', actiontarget: 'SINGLEKEY'}
+        linkstory: { name: 'linkstory',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__RELEASE_COMMON', actiontarget: 'SINGLEKEY'},
+        Refresh: { name: 'Refresh',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: ''},
+        linkbug: { name: 'linkbug',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__RELEASE_COMMON', actiontarget: 'SINGLEKEY'},
+        active: { name: 'active',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__RELEASE_ACTIVE', actiontarget: 'SINGLEKEY'},
+        terminal: { name: 'terminal',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__RELEASE_TERMINATE', actiontarget: 'SINGLEKEY'},
+        quickEdit: { name: 'quickEdit',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__RELEASE_COMMON', actiontarget: 'SINGLEKEY'},
+        remove: { name: 'remove',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__RELEASE_COMMON', actiontarget: 'SINGLEKEY'}
     };
 
     /**
@@ -646,22 +646,22 @@ export class MainGridBase extends GridControlBase {
                 status:'',
                 date:'',
                 linkstory:{
-                    visabled: false
+                    visible: false
                 },
                 linkbug:{
-                    visabled: false
+                    visible: false
                 },
                 active:{
-                    visabled: false
+                    visible: false
                 },
                 terminal:{
-                    visabled: false
+                    visible: false
                 },
                 quickEdit:{
-                    visabled: false
+                    visible: false
                 },
                 remove:{
-                    visabled: false
+                    visible: false
                 },
                 children: children
             }
@@ -685,22 +685,22 @@ export class MainGridBase extends GridControlBase {
             status:'',
             date:'',
             linkstory:{
-                visabled: false
+                visible: false
             },
             linkbug:{
-                visabled: false
+                visible: false
             },
             active:{
-                visabled: false
+                visible: false
             },
             terminal:{
-                visabled: false
+                visible: false
             },
             quickEdit:{
-                visabled: false
+                visible: false
             },
             remove:{
-                visabled: false
+                visible: false
             },
             children: child
         }
@@ -754,22 +754,22 @@ export class MainGridBase extends GridControlBase {
                 status:'',
                 date:'',
                 linkstory:{
-                    visabled: false
+                    visible: false
                 },
                 linkbug:{
-                    visabled: false
+                    visible: false
                 },
                 active:{
-                    visabled: false
+                    visible: false
                 },
                 terminal:{
-                    visabled: false
+                    visible: false
                 },
                 quickEdit:{
-                    visabled: false
+                    visible: false
                 },
                 remove:{
-                    visabled: false
+                    visible: false
                 },
                 children: children,
             }

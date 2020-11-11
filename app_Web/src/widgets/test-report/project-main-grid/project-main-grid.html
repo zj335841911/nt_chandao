@@ -45,7 +45,7 @@
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <a v-show="row.Edit.visabled" :disabled="row.Edit.disabled" :style="{'display': 'block'}" @click="uiAction(row, 'Edit', $event)">
+                        <a v-show="row.Edit.visible" :disabled="row.Edit.disabled" :style="{'display': 'block'}" @click="uiAction(row, 'Edit', $event)">
                         <span>{{row.title}}</span>
                         </a>
                     </template>
@@ -119,12 +119,12 @@
                     </template>
                     <template slot-scope="scope">
                         <div style="text-align: center;">
-                          <a v-show="scope.row.ProjectEdits.visabled" :disabled="scope.row.ProjectEdits.disabled" @click="uiAction(scope.row, 'ProjectEdits', $event)" :title="$t('entities.testreport.projectmain_grid.uiactions.testreport_projectedits')">
+                          <a v-show="scope.row.ProjectEdits.visible" :disabled="scope.row.ProjectEdits.disabled" @click="uiAction(scope.row, 'ProjectEdits', $event)" :title="$t('entities.testreport.projectmain_grid.uiactions.testreport_projectedits')">
                             <i class='fa fa-edit'></i>
                             
                           </a>
-                          <divider v-show="scope.row.Delete.visabled" type='vertical'></divider>
-                          <a v-show="scope.row.Delete.visabled" :disabled="scope.row.Delete.disabled" @click="uiAction(scope.row, 'Delete', $event)" :title="$t('entities.testreport.projectmain_grid.uiactions.testreport_delete')">
+                          <divider v-show="scope.row.Delete.visible" type='vertical'></divider>
+                          <a v-show="scope.row.Delete.visible" :disabled="scope.row.Delete.disabled" @click="uiAction(scope.row, 'Delete', $event)" :title="$t('entities.testreport.projectmain_grid.uiactions.testreport_delete')">
                             <i class='fa fa-remove'></i>
                             
                           </a>

@@ -158,17 +158,17 @@
                     </template>
                     <template slot-scope="scope">
                         <div style="text-align: center;">
-                          <a v-show="scope.row.unlinkSuiteCase.visabled" :disabled="scope.row.unlinkSuiteCase.disabled" @click="uiAction(scope.row, 'unlinkSuiteCase', $event)" :title="$t('entities.case.maingrid_suitsub_grid.uiactions.case_unlinksuitecase')">
+                          <a v-show="scope.row.unlinkSuiteCase.visible" :disabled="scope.row.unlinkSuiteCase.disabled" @click="uiAction(scope.row, 'unlinkSuiteCase', $event)" :title="$t('entities.case.maingrid_suitsub_grid.uiactions.case_unlinksuitecase')">
                             <i class='fa fa-unlink'></i>
                             
                           </a>
-                          <divider v-show="scope.row.OpenTestRunResultView.visabled" type='vertical'></divider>
-                          <a v-show="scope.row.OpenTestRunResultView.visabled" :disabled="scope.row.OpenTestRunResultView.disabled" @click="uiAction(scope.row, 'OpenTestRunResultView', $event)" :title="$t('entities.case.maingrid_suitsub_grid.uiactions.case_opentestrunresultview')">
+                          <divider v-show="scope.row.OpenTestRunResultView.visible" type='vertical'></divider>
+                          <a v-show="scope.row.OpenTestRunResultView.visible" :disabled="scope.row.OpenTestRunResultView.disabled" @click="uiAction(scope.row, 'OpenTestRunResultView', $event)" :title="$t('entities.case.maingrid_suitsub_grid.uiactions.case_opentestrunresultview')">
                             <i class='fa fa-stack-overflow'></i>
                             
                           </a>
-                          <divider v-show="scope.row.Execute.visabled" type='vertical'></divider>
-                          <a v-show="scope.row.Execute.visabled" :disabled="scope.row.Execute.disabled" @click="uiAction(scope.row, 'Execute', $event)" :title="$t('entities.case.maingrid_suitsub_grid.uiactions.case_execute')">
+                          <divider v-show="scope.row.Execute.visible" type='vertical'></divider>
+                          <a v-show="scope.row.Execute.visible" :disabled="scope.row.Execute.disabled" @click="uiAction(scope.row, 'Execute', $event)" :title="$t('entities.case.maingrid_suitsub_grid.uiactions.case_execute')">
                             <i class='fa fa-play-circle-o'></i>
                             
                           </a>

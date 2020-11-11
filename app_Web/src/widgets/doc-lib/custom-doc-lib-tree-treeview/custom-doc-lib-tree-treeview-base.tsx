@@ -436,10 +436,10 @@ export class CustomDocLibTreeTreeBase extends MainControlBase {
      * @memberof CustomDocLibTreeBase
      */
      public actionModel: any = {
-        Doclib_deuiaction1: {name:'deuiaction1',nodeOwner:'Doclib',type: 'DEUIACTION', tag: 'EditCustomDocLib', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, visabled: true, disabled: false},
-        Doclib_deuiaction2: {name:'deuiaction2',nodeOwner:'Doclib',type: 'DEUIACTION', tag: 'RefreshAll', noprivdisplaymode:2, visabled: true, disabled: false},
-        Doclib_deuiaction3: {name:'deuiaction3',nodeOwner:'Doclib',type: 'DEUIACTION', tag: 'WeiHuFenLei', actiontarget: 'SINGLEKEY', noprivdisplaymode:1, dataaccaction:'DOC', visabled: true, disabled: false},
-        ALL_deuiaction1: {name:'deuiaction1',nodeOwner:'ALL',type: 'DEUIACTION', tag: 'RefreshAll', noprivdisplaymode:2, visabled: true, disabled: false},
+        Doclib_deuiaction1: {name:'deuiaction1',nodeOwner:'Doclib',type: 'DEUIACTION', tag: 'EditCustomDocLib', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, visible: true, disabled: false},
+        Doclib_deuiaction2: {name:'deuiaction2',nodeOwner:'Doclib',type: 'DEUIACTION', tag: 'RefreshAll', noprivdisplaymode:2, visible: true, disabled: false},
+        Doclib_deuiaction3: {name:'deuiaction3',nodeOwner:'Doclib',type: 'DEUIACTION', tag: 'WeiHuFenLei', actiontarget: 'SINGLEKEY', noprivdisplaymode:1, dataaccaction:'DOC', visible: true, disabled: false},
+        ALL_deuiaction1: {name:'deuiaction1',nodeOwner:'ALL',type: 'DEUIACTION', tag: 'RefreshAll', noprivdisplaymode:2, visible: true, disabled: false},
     }
 
     /**
@@ -853,15 +853,15 @@ export class CustomDocLibTreeTreeBase extends MainControlBase {
         return (
             <dropdown class="tree-right-menu" trigger="custom" visible={true} on-on-click={($event: any) => this.doclib_cm_click({tag: $event})}>
                 <dropdown-menu slot="list">
-                            <dropdown-item name='deuiaction1' v-show={this.copyActionModel['deuiaction1']?.visabled} disabled={this.copyActionModel['deuiaction1']?.disabled}>
+                            <dropdown-item name='deuiaction1' v-show={this.copyActionModel['deuiaction1']?.visible} disabled={this.copyActionModel['deuiaction1']?.disabled}>
                         
                         编辑
                     </dropdown-item>
-                            <dropdown-item name='deuiaction2' v-show={this.copyActionModel['deuiaction2']?.visabled} disabled={this.copyActionModel['deuiaction2']?.disabled}>
+                            <dropdown-item name='deuiaction2' v-show={this.copyActionModel['deuiaction2']?.visible} disabled={this.copyActionModel['deuiaction2']?.disabled}>
                         <i class='fa fa-refresh'></i>
                         刷新
                     </dropdown-item>
-                            <dropdown-item name='deuiaction3' v-show={this.copyActionModel['deuiaction3']?.visabled} disabled={this.copyActionModel['deuiaction3']?.disabled}>
+                            <dropdown-item name='deuiaction3' v-show={this.copyActionModel['deuiaction3']?.visible} disabled={this.copyActionModel['deuiaction3']?.disabled}>
                         <i class='fa fa-lock'></i>
                         维护分类
                     </dropdown-item>
@@ -881,7 +881,7 @@ export class CustomDocLibTreeTreeBase extends MainControlBase {
         return (
             <dropdown class="tree-right-menu" trigger="custom" visible={true} on-on-click={($event: any) => this.all_cm_click({tag: $event})}>
                 <dropdown-menu slot="list">
-                            <dropdown-item name='deuiaction1' v-show={this.copyActionModel['deuiaction1']?.visabled} disabled={this.copyActionModel['deuiaction1']?.disabled}>
+                            <dropdown-item name='deuiaction1' v-show={this.copyActionModel['deuiaction1']?.visible} disabled={this.copyActionModel['deuiaction1']?.disabled}>
                         <i class='fa fa-refresh'></i>
                         刷新
                     </dropdown-item>
@@ -938,7 +938,7 @@ export class CustomDocLibTreeTreeBase extends MainControlBase {
             let flag:boolean = false;
             if(Object.values(result).length>0){
                 flag =Object.values(result).some((item:any) =>{
-                    return item.visabled === true;
+                    return item.visible === true;
                 })
             }
             if(flag){

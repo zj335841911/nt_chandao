@@ -104,7 +104,7 @@ export class Main_BuildSubGridBase extends GridControlBase {
      * @memberof Main_BuildSubBase
      */  
     public ActionModel: any = {
-        buildUnlinkStory: { name: 'buildUnlinkStory',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_UNLP_BUT', actiontarget: 'SINGLEKEY'}
+        buildUnlinkStory: { name: 'buildUnlinkStory',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_UNLP_BUT', actiontarget: 'SINGLEKEY'}
     };
 
     /**
@@ -580,7 +580,7 @@ export class Main_BuildSubGridBase extends GridControlBase {
                 status:'',
                 stage:'',
                 buildUnlinkStory:{
-                    visabled: false
+                    visible: false
                 },
                 children: children
             }
@@ -607,7 +607,7 @@ export class Main_BuildSubGridBase extends GridControlBase {
             status:'',
             stage:'',
             buildUnlinkStory:{
-                visabled: false
+                visible: false
             },
             children: child
         }
@@ -664,7 +664,7 @@ export class Main_BuildSubGridBase extends GridControlBase {
                 status:'',
                 stage:'',
                 buildUnlinkStory:{
-                    visabled: false
+                    visible: false
                 },
                 children: children,
             }

@@ -286,9 +286,9 @@ export class CalendarExpViewcalendarexpbarCalendarexpbarBase extends CalendarVie
                 if (_item.uiaction && (Object.is(_item.uiaction.target, 'SINGLEKEY') || Object.is(_item.uiaction.target, 'MULTIKEY'))) {
                     _item.disabled = state;
                 }
-                _item.visabled = true;
+                _item.visible = true;
                 if (_item.noprivdisplaymode && _item.noprivdisplaymode === 6) {
-                    _item.visabled = false;
+                    _item.visible = false;
                 }
             }
             this.calcNavigationToolbarState();

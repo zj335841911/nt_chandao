@@ -244,12 +244,12 @@ export class MainInfoGridBase extends GridControlBase {
      * @memberof MainInfoBase
      */  
     public ActionModel: any = {
-        AddProject: { name: 'AddProject',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__PROJ_CREATE_BUT', target: 'SINGLEKEY'},
-        RelationStory: { name: 'RelationStory',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__PROP_LSTORY_BUT', target: 'SINGLEKEY'},
-        RelationBug: { name: 'RelationBug',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__PROP_LBUG_BUT', target: 'SINGLEKEY'},
-        MainEdit: { name: 'MainEdit',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__PROP_EDIT_BUT', target: 'SINGLEKEY'},
-        NewSubPlan: { name: 'NewSubPlan',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__PROP_CHILD_BUT', target: 'SINGLEKEY'},
-        Delete: { name: 'Delete',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__PROP_DELETE_BUT', target: 'SINGLEKEY'}
+        AddProject: { name: 'AddProject',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__PROJ_CREATE_BUT', target: 'SINGLEKEY'},
+        RelationStory: { name: 'RelationStory',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__PROP_LSTORY_BUT', target: 'SINGLEKEY'},
+        RelationBug: { name: 'RelationBug',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__PROP_LBUG_BUT', target: 'SINGLEKEY'},
+        MainEdit: { name: 'MainEdit',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__PROP_EDIT_BUT', target: 'SINGLEKEY'},
+        NewSubPlan: { name: 'NewSubPlan',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__PROP_CHILD_BUT', target: 'SINGLEKEY'},
+        Delete: { name: 'Delete',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__PROP_DELETE_BUT', target: 'SINGLEKEY'}
     };
 
     /**

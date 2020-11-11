@@ -115,32 +115,32 @@
                     </template>
                     <template slot-scope="scope">
                         <div style="text-align: center;">
-                          <a v-show="scope.row.AddProject.visabled" :disabled="scope.row.AddProject.disabled" @click="uiAction(scope.row, 'AddProject', $event)" :title="$t('entities.productplan.maininfo_grid.uiactions.productplan_addproject')">
+                          <a v-show="scope.row.AddProject.visible" :disabled="scope.row.AddProject.disabled" @click="uiAction(scope.row, 'AddProject', $event)" :title="$t('entities.productplan.maininfo_grid.uiactions.productplan_addproject')">
                             <i class='fa fa-plus'></i>
                             
                           </a>
-                          <divider v-show="scope.row.RelationStory.visabled" type='vertical'></divider>
-                          <a v-show="scope.row.RelationStory.visabled" :disabled="scope.row.RelationStory.disabled" @click="uiAction(scope.row, 'RelationStory', $event)" :title="$t('entities.productplan.maininfo_grid.uiactions.productplan_relationstory')">
+                          <divider v-show="scope.row.RelationStory.visible" type='vertical'></divider>
+                          <a v-show="scope.row.RelationStory.visible" :disabled="scope.row.RelationStory.disabled" @click="uiAction(scope.row, 'RelationStory', $event)" :title="$t('entities.productplan.maininfo_grid.uiactions.productplan_relationstory')">
                             <i class='fa fa-link'></i>
                             
                           </a>
-                          <divider v-show="scope.row.RelationBug.visabled" type='vertical'></divider>
-                          <a v-show="scope.row.RelationBug.visabled" :disabled="scope.row.RelationBug.disabled" @click="uiAction(scope.row, 'RelationBug', $event)" :title="$t('entities.productplan.maininfo_grid.uiactions.productplan_relationbug')">
+                          <divider v-show="scope.row.RelationBug.visible" type='vertical'></divider>
+                          <a v-show="scope.row.RelationBug.visible" :disabled="scope.row.RelationBug.disabled" @click="uiAction(scope.row, 'RelationBug', $event)" :title="$t('entities.productplan.maininfo_grid.uiactions.productplan_relationbug')">
                             <i class='fa fa-bug'></i>
                             
                           </a>
-                          <divider v-show="scope.row.MainEdit.visabled" type='vertical'></divider>
-                          <a v-show="scope.row.MainEdit.visabled" :disabled="scope.row.MainEdit.disabled" @click="uiAction(scope.row, 'MainEdit', $event)" :title="$t('entities.productplan.maininfo_grid.uiactions.productplan_mainedit')">
+                          <divider v-show="scope.row.MainEdit.visible" type='vertical'></divider>
+                          <a v-show="scope.row.MainEdit.visible" :disabled="scope.row.MainEdit.disabled" @click="uiAction(scope.row, 'MainEdit', $event)" :title="$t('entities.productplan.maininfo_grid.uiactions.productplan_mainedit')">
                             <i class='fa fa-edit'></i>
                             
                           </a>
-                          <divider v-show="scope.row.NewSubPlan.visabled" type='vertical'></divider>
-                          <a v-show="scope.row.NewSubPlan.visabled" :disabled="scope.row.NewSubPlan.disabled" @click="uiAction(scope.row, 'NewSubPlan', $event)" :title="$t('entities.productplan.maininfo_grid.uiactions.productplan_newsubplan')">
+                          <divider v-show="scope.row.NewSubPlan.visible" type='vertical'></divider>
+                          <a v-show="scope.row.NewSubPlan.visible" :disabled="scope.row.NewSubPlan.disabled" @click="uiAction(scope.row, 'NewSubPlan', $event)" :title="$t('entities.productplan.maininfo_grid.uiactions.productplan_newsubplan')">
                             <i class='fa fa-sitemap'></i>
                             
                           </a>
-                          <divider v-show="scope.row.Delete.visabled" type='vertical'></divider>
-                          <a v-show="scope.row.Delete.visabled" :disabled="scope.row.Delete.disabled" @click="uiAction(scope.row, 'Delete', $event)" :title="$t('entities.productplan.maininfo_grid.uiactions.productplan_delete')">
+                          <divider v-show="scope.row.Delete.visible" type='vertical'></divider>
+                          <a v-show="scope.row.Delete.visible" :disabled="scope.row.Delete.disabled" @click="uiAction(scope.row, 'Delete', $event)" :title="$t('entities.productplan.maininfo_grid.uiactions.productplan_delete')">
                             <i class='fa fa-remove'></i>
                             
                           </a>

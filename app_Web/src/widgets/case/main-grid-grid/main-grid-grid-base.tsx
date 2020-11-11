@@ -292,14 +292,14 @@ export class MainGridGridBase extends GridControlBase {
      * @memberof MainGridBase
      */  
     public ActionModel: any = {
-        confirmstorychange: { name: 'confirmstorychange',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__CASE_CONFIRM_BUT', actiontarget: 'SINGLEKEY'},
-        OpenTestRunResultView: { name: 'OpenTestRunResultView',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__CASE_RESULT_BUT', actiontarget: 'SINGLEKEY'},
-        Execute: { name: 'Execute',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__CASE_CASERUN_BUT', actiontarget: 'SINGLEKEY'},
-        MainEdit: { name: 'MainEdit',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__CASE_EDIT_BUT', actiontarget: 'SINGLEKEY'},
-        Refresh: { name: 'Refresh',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: ''},
-        NewBugByCaseResult: { name: 'NewBugByCaseResult',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__CASE_TOBUG_BUT', actiontarget: 'SINGLEKEY'},
-        caseFavorite: { name: 'caseFavorite',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__CASE_NFAVOR_BUT', actiontarget: 'SINGLEKEY'},
-        CaseNFavorite: { name: 'CaseNFavorite',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__CASE_FAVOR_BUT', actiontarget: 'SINGLEKEY'}
+        confirmstorychange: { name: 'confirmstorychange',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__CASE_CONFIRM_BUT', actiontarget: 'SINGLEKEY'},
+        OpenTestRunResultView: { name: 'OpenTestRunResultView',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__CASE_RESULT_BUT', actiontarget: 'SINGLEKEY'},
+        Execute: { name: 'Execute',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__CASE_CASERUN_BUT', actiontarget: 'SINGLEKEY'},
+        MainEdit: { name: 'MainEdit',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__CASE_EDIT_BUT', actiontarget: 'SINGLEKEY'},
+        Refresh: { name: 'Refresh',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: ''},
+        NewBugByCaseResult: { name: 'NewBugByCaseResult',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__CASE_TOBUG_BUT', actiontarget: 'SINGLEKEY'},
+        caseFavorite: { name: 'caseFavorite',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__CASE_NFAVOR_BUT', actiontarget: 'SINGLEKEY'},
+        CaseNFavorite: { name: 'CaseNFavorite',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__CASE_FAVOR_BUT', actiontarget: 'SINGLEKEY'}
     };
 
     /**
@@ -865,25 +865,25 @@ export class MainGridGridBase extends GridControlBase {
                 resultcnt:'',
                 casesteps:'',
                 confirmstorychange:{
-                    visabled: false
+                    visible: false
                 },
                 OpenTestRunResultView:{
-                    visabled: false
+                    visible: false
                 },
                 Execute:{
-                    visabled: false
+                    visible: false
                 },
                 MainEdit:{
-                    visabled: false
+                    visible: false
                 },
                 NewBugByCaseResult:{
-                    visabled: false
+                    visible: false
                 },
                 caseFavorite:{
-                    visabled: false
+                    visible: false
                 },
                 CaseNFavorite:{
-                    visabled: false
+                    visible: false
                 },
                 children: children
             }
@@ -914,25 +914,25 @@ export class MainGridGridBase extends GridControlBase {
             resultcnt:'',
             casesteps:'',
             confirmstorychange:{
-                visabled: false
+                visible: false
             },
             OpenTestRunResultView:{
-                visabled: false
+                visible: false
             },
             Execute:{
-                visabled: false
+                visible: false
             },
             MainEdit:{
-                visabled: false
+                visible: false
             },
             NewBugByCaseResult:{
-                visabled: false
+                visible: false
             },
             caseFavorite:{
-                visabled: false
+                visible: false
             },
             CaseNFavorite:{
-                visabled: false
+                visible: false
             },
             children: child
         }
@@ -993,25 +993,25 @@ export class MainGridGridBase extends GridControlBase {
                 resultcnt:'',
                 casesteps:'',
                 confirmstorychange:{
-                    visabled: false
+                    visible: false
                 },
                 OpenTestRunResultView:{
-                    visabled: false
+                    visible: false
                 },
                 Execute:{
-                    visabled: false
+                    visible: false
                 },
                 MainEdit:{
-                    visabled: false
+                    visible: false
                 },
                 NewBugByCaseResult:{
-                    visabled: false
+                    visible: false
                 },
                 caseFavorite:{
-                    visabled: false
+                    visible: false
                 },
                 CaseNFavorite:{
-                    visabled: false
+                    visible: false
                 },
                 children: children,
             }

@@ -328,17 +328,17 @@ export class TaskGroupGridBase extends GridControlBase {
      * @memberof TaskGroupBase
      */  
     public ActionModel: any = {
-        AssignTask: { name: 'AssignTask',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_ASSIGN_BUT', actiontarget: 'SINGLEKEY'},
-        confirmStoryChange: { name: 'confirmStoryChange',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_XQCHANGE_BUT', actiontarget: 'SINGLEKEY'},
-        MStartTaskDash1: { name: 'MStartTaskDash1',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_START_BUT', actiontarget: 'SINGLEKEY'},
-        StartTask: { name: 'StartTask',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_START_BUT', actiontarget: 'SINGLEKEY'},
-        CloseTask: { name: 'CloseTask',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_CLOSE_BUT', actiontarget: 'SINGLEKEY'},
-        done: { name: 'done',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_COMPLETE_BUT', actiontarget: 'SINGLEKEY'},
-        DoneTask: { name: 'DoneTask',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_COMPLETE_BUT', actiontarget: 'SINGLEKEY'},
-        MainEdit: { name: 'MainEdit',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_EDIT_BUT', actiontarget: 'SINGLEKEY'},
-        NewSubTask: { name: 'NewSubTask',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_SUBTASKS_BUT', actiontarget: 'SINGLEKEY'},
-        TaskFavorites: { name: 'TaskFavorites',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_NFAVOR_BUT', actiontarget: 'SINGLEKEY'},
-        TaskNFavorites: { name: 'TaskNFavorites',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_FAVOR_BUT', actiontarget: 'SINGLEKEY'}
+        AssignTask: { name: 'AssignTask',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_ASSIGN_BUT', actiontarget: 'SINGLEKEY'},
+        confirmStoryChange: { name: 'confirmStoryChange',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_XQCHANGE_BUT', actiontarget: 'SINGLEKEY'},
+        MStartTaskDash1: { name: 'MStartTaskDash1',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_START_BUT', actiontarget: 'SINGLEKEY'},
+        StartTask: { name: 'StartTask',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_START_BUT', actiontarget: 'SINGLEKEY'},
+        CloseTask: { name: 'CloseTask',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_CLOSE_BUT', actiontarget: 'SINGLEKEY'},
+        done: { name: 'done',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_COMPLETE_BUT', actiontarget: 'SINGLEKEY'},
+        DoneTask: { name: 'DoneTask',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_COMPLETE_BUT', actiontarget: 'SINGLEKEY'},
+        MainEdit: { name: 'MainEdit',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_EDIT_BUT', actiontarget: 'SINGLEKEY'},
+        NewSubTask: { name: 'NewSubTask',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_SUBTASKS_BUT', actiontarget: 'SINGLEKEY'},
+        TaskFavorites: { name: 'TaskFavorites',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_NFAVOR_BUT', actiontarget: 'SINGLEKEY'},
+        TaskNFavorites: { name: 'TaskNFavorites',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_FAVOR_BUT', actiontarget: 'SINGLEKEY'}
     };
 
     /**
@@ -742,7 +742,7 @@ export class TaskGroupGridBase extends GridControlBase {
                 pri:'',
                 name:'',
                 AssignTask:{
-                    visabled: false
+                    visible: false
                 },
                 assignedto:'',
                 finishedby:'',
@@ -751,28 +751,28 @@ export class TaskGroupGridBase extends GridControlBase {
                 left:'',
                 deadline:'',
                 confirmStoryChange:{
-                    visabled: false
+                    visible: false
                 },
                 MStartTaskDash1:{
-                    visabled: false
+                    visible: false
                 },
                 CloseTask:{
-                    visabled: false
+                    visible: false
                 },
                 done:{
-                    visabled: false
+                    visible: false
                 },
                 MainEdit:{
-                    visabled: false
+                    visible: false
                 },
                 NewSubTask:{
-                    visabled: false
+                    visible: false
                 },
                 TaskFavorites:{
-                    visabled: false
+                    visible: false
                 },
                 TaskNFavorites:{
-                    visabled: false
+                    visible: false
                 },
                 children: children
             }
@@ -795,7 +795,7 @@ export class TaskGroupGridBase extends GridControlBase {
             pri:'',
             name:'',
             AssignTask:{
-                visabled: false
+                visible: false
             },
             assignedto:'',
             finishedby:'',
@@ -804,28 +804,28 @@ export class TaskGroupGridBase extends GridControlBase {
             left:'',
             deadline:'',
             confirmStoryChange:{
-                visabled: false
+                visible: false
             },
             MStartTaskDash1:{
-                visabled: false
+                visible: false
             },
             CloseTask:{
-                visabled: false
+                visible: false
             },
             done:{
-                visabled: false
+                visible: false
             },
             MainEdit:{
-                visabled: false
+                visible: false
             },
             NewSubTask:{
-                visabled: false
+                visible: false
             },
             TaskFavorites:{
-                visabled: false
+                visible: false
             },
             TaskNFavorites:{
-                visabled: false
+                visible: false
             },
             children: child
         }
@@ -878,7 +878,7 @@ export class TaskGroupGridBase extends GridControlBase {
                 pri:'',
                 name:'',
                 AssignTask:{
-                    visabled: false
+                    visible: false
                 },
                 assignedto:'',
                 finishedby:'',
@@ -887,28 +887,28 @@ export class TaskGroupGridBase extends GridControlBase {
                 left:'',
                 deadline:'',
                 confirmStoryChange:{
-                    visabled: false
+                    visible: false
                 },
                 MStartTaskDash1:{
-                    visabled: false
+                    visible: false
                 },
                 CloseTask:{
-                    visabled: false
+                    visible: false
                 },
                 done:{
-                    visabled: false
+                    visible: false
                 },
                 MainEdit:{
-                    visabled: false
+                    visible: false
                 },
                 NewSubTask:{
-                    visabled: false
+                    visible: false
                 },
                 TaskFavorites:{
-                    visabled: false
+                    visible: false
                 },
                 TaskNFavorites:{
-                    visabled: false
+                    visible: false
                 },
                 children: children,
             }

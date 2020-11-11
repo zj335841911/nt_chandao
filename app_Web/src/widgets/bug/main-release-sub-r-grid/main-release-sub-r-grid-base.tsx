@@ -104,7 +104,7 @@ export class Main_ReleaseSubRGridBase extends GridControlBase {
      * @memberof Main_ReleaseSubRBase
      */  
     public ActionModel: any = {
-        releaseUnlinkBug: { name: 'releaseUnlinkBug',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__BUG_UNLINK_BUT', actiontarget: 'SINGLEKEY'}
+        releaseUnlinkBug: { name: 'releaseUnlinkBug',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__BUG_UNLINK_BUT', actiontarget: 'SINGLEKEY'}
     };
 
     /**
@@ -575,7 +575,7 @@ export class Main_ReleaseSubRGridBase extends GridControlBase {
                 openeddate:'',
                 assignedto:'',
                 releaseUnlinkBug:{
-                    visabled: false
+                    visible: false
                 },
                 children: children
             }
@@ -601,7 +601,7 @@ export class Main_ReleaseSubRGridBase extends GridControlBase {
             openeddate:'',
             assignedto:'',
             releaseUnlinkBug:{
-                visabled: false
+                visible: false
             },
             children: child
         }
@@ -657,7 +657,7 @@ export class Main_ReleaseSubRGridBase extends GridControlBase {
                 openeddate:'',
                 assignedto:'',
                 releaseUnlinkBug:{
-                    visabled: false
+                    visible: false
                 },
                 children: children,
             }

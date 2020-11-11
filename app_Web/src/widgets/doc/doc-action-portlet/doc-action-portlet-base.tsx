@@ -202,9 +202,9 @@ export class DocActionPortletBase extends MainControlBase {
      * @memberof DocActionBase
      */
     public uiactionModel: any = {
-        exit: {name: 'exit', actiontarget: '',  disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: '', uiaction: { tag: 'Exit', target: '' } },
-        edit: {name: 'edit', actiontarget: 'SINGLEKEY',  disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'MODULE', uiaction: { tag: 'Edit', target: 'SINGLEKEY' } },
-        delete: {name: 'delete', actiontarget: 'SINGLEKEY',  disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'MODULE', uiaction: { tag: 'Delete', target: 'SINGLEKEY' } },
+        exit: {name: 'exit', actiontarget: '',  disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: '', uiaction: { tag: 'Exit', target: '' } },
+        edit: {name: 'edit', actiontarget: 'SINGLEKEY',  disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: 'MODULE', uiaction: { tag: 'Edit', target: 'SINGLEKEY' } },
+        delete: {name: 'delete', actiontarget: 'SINGLEKEY',  disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: 'MODULE', uiaction: { tag: 'Delete', target: 'SINGLEKEY' } },
     }
 
     /**
@@ -220,7 +220,7 @@ export class DocActionPortletBase extends MainControlBase {
         icon: "",
         noprivdisplaymode: 2,
         actiontarget:'',
-        visabled:true,
+        visible:true,
         disabled:false
         },
         { viewlogicname:"dashboard_sysportlet1_ubdbeb9f_click",
@@ -230,7 +230,7 @@ export class DocActionPortletBase extends MainControlBase {
         noprivdisplaymode: 2,
         dataaccaction:'MODULE',
         actiontarget:'SINGLEKEY',
-        visabled:true,
+        visible:true,
         disabled:false
         },
         { viewlogicname:"dashboard_sysportlet1_u7f5ce3e_click",
@@ -240,7 +240,7 @@ export class DocActionPortletBase extends MainControlBase {
         noprivdisplaymode: 2,
         dataaccaction:'MODULE',
         actiontarget:'SINGLEKEY',
-        visabled:true,
+        visible:true,
         disabled:false
         }
     ];

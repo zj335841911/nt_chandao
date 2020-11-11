@@ -123,7 +123,7 @@ export class MainBranchGridBase extends GridControlBase {
      * @memberof MainBranchBase
      */  
     public ActionModel: any = {
-        Remove: { name: 'Remove',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALDELETE', actiontarget: 'MULTIKEY'}
+        Remove: { name: 'Remove',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALDELETE', actiontarget: 'MULTIKEY'}
     };
 
     /**
@@ -444,7 +444,7 @@ export class MainBranchGridBase extends GridControlBase {
                 branch:'',
                 short:'',
                 Remove:{
-                    visabled: false
+                    visible: false
                 },
                 children: children
             }
@@ -466,7 +466,7 @@ export class MainBranchGridBase extends GridControlBase {
             branch:'',
             short:'',
             Remove:{
-                visabled: false
+                visible: false
             },
             children: child
         }
@@ -518,7 +518,7 @@ export class MainBranchGridBase extends GridControlBase {
                 branch:'',
                 short:'',
                 Remove:{
-                    visabled: false
+                    visible: false
                 },
                 children: children,
             }

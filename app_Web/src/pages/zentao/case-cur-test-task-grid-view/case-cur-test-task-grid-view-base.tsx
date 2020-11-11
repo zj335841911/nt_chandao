@@ -124,9 +124,9 @@ export class CaseCurTestTaskGridViewBase extends GridViewBase {
      * @memberof CaseCurTestTaskGridView
      */
     public toolBarModels: any = {
-        deuiaction1_linkcasec: { name: 'deuiaction1_linkcasec', caption: '关联用例', 'isShowCaption': true, 'isShowIcon': true, tooltip: '关联用例', iconcls: 'fa fa-link', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__CASE_UNLINK_BUT', uiaction: { tag: 'LinkCaseC', target: 'NONE', class: '' } },
+        deuiaction1_linkcasec: { name: 'deuiaction1_linkcasec', caption: '关联用例', 'isShowCaption': true, 'isShowIcon': true, tooltip: '关联用例', iconcls: 'fa fa-link', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__CASE_UNLINK_BUT', uiaction: { tag: 'LinkCaseC', target: 'NONE', class: '' } },
 
-        deuiaction7: { name: 'deuiaction7', caption: '导出', 'isShowCaption': true, 'isShowIcon': true, tooltip: '导出', iconcls: 'fa fa-file-excel-o', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ExportExcel', target: '' }, MaxRowCount: 1000, class: '' },
+        deuiaction7: { name: 'deuiaction7', caption: '导出', 'isShowCaption': true, 'isShowIcon': true, tooltip: '导出', iconcls: 'fa fa-file-excel-o', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ExportExcel', target: '' }, MaxRowCount: 1000, class: '' },
 
     };
 

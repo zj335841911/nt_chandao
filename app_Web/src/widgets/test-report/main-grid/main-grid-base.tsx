@@ -186,9 +186,9 @@ export class MainGridBase extends GridControlBase {
      * @memberof MainBase
      */  
     public ActionModel: any = {
-        Edit: { name: 'Edit',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: 'SINGLEKEY'},
-        Edits: { name: 'Edits',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__REPORT_EDIT_BUT', actiontarget: 'SINGLEKEY'},
-        Delete: { name: 'Delete',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__REPORT_DELETE_BUT', actiontarget: 'SINGLEKEY'}
+        Edit: { name: 'Edit',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: 'SINGLEKEY'},
+        Edits: { name: 'Edits',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__REPORT_EDIT_BUT', actiontarget: 'SINGLEKEY'},
+        Delete: { name: 'Delete',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__REPORT_DELETE_BUT', actiontarget: 'SINGLEKEY'}
     };
 
     /**
@@ -569,7 +569,7 @@ export class MainGridBase extends GridControlBase {
                 group: group.label,
                 id:'',
                 Edit:{
-                    visabled: false
+                    visible: false
                 },
                 title:'',
                 createdby:'',
@@ -577,10 +577,10 @@ export class MainGridBase extends GridControlBase {
                 projectname:'',
                 tasks:'',
                 Edits:{
-                    visabled: false
+                    visible: false
                 },
                 Delete:{
-                    visabled: false
+                    visible: false
                 },
                 children: children
             }
@@ -600,7 +600,7 @@ export class MainGridBase extends GridControlBase {
             group: this.$t('app.gridpage.other'),
             id:'',
             Edit:{
-                visabled: false
+                visible: false
             },
             title:'',
             createdby:'',
@@ -608,10 +608,10 @@ export class MainGridBase extends GridControlBase {
             projectname:'',
             tasks:'',
             Edits:{
-                visabled: false
+                visible: false
             },
             Delete:{
-                visabled: false
+                visible: false
             },
             children: child
         }
@@ -661,7 +661,7 @@ export class MainGridBase extends GridControlBase {
                 group: group,
                 id:'',
                 Edit:{
-                    visabled: false
+                    visible: false
                 },
                 title:'',
                 createdby:'',
@@ -669,10 +669,10 @@ export class MainGridBase extends GridControlBase {
                 projectname:'',
                 tasks:'',
                 Edits:{
-                    visabled: false
+                    visible: false
                 },
                 Delete:{
-                    visabled: false
+                    visible: false
                 },
                 children: children,
             }

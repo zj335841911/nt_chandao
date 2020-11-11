@@ -236,9 +236,9 @@ export class ExpControlBase extends ControlBase {
                 if (_item.uiaction && (Object.is(_item.uiaction.target, 'SINGLEKEY') || Object.is(_item.uiaction.target, 'MULTIKEY'))) {
                     _item.disabled = state;
                 }
-                _item.visabled = true;
+                _item.visible = true;
                 if (_item.noprivdisplaymode && _item.noprivdisplaymode === 6) {
-                    _item.visabled = false;
+                    _item.visible = false;
                 }
             }
             this.calcToolbarItemAuthState({}, models, uiService);
@@ -279,13 +279,13 @@ export class ExpControlBase extends ControlBase {
                             _item.disabled = true;
                         }
                         if ((_item.noprivdisplaymode === 2) || (_item.noprivdisplaymode === 6)) {
-                            _item.visabled = false;
+                            _item.visible = false;
                         } else {
-                            _item.visabled = true;
+                            _item.visible = true;
                         }
                     }
                     if (dataActionResult === 1) {
-                        _item.visabled = true;
+                        _item.visible = true;
                         _item.disabled = false;
                     }
                     result.push(dataActionResult);

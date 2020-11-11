@@ -45,7 +45,7 @@
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <a v-show="row.Look.visabled" :disabled="row.Look.disabled" :style="{'display': 'block'}" @click="uiAction(row, 'Look', $event)">
+                        <a v-show="row.Look.visible" :disabled="row.Look.disabled" :style="{'display': 'block'}" @click="uiAction(row, 'Look', $event)">
                         <span>{{row.title}}</span>
                         </a>
                     </template>
@@ -112,12 +112,12 @@
                     </template>
                     <template slot-scope="scope">
                         <div style="text-align: center;">
-                          <a v-show="scope.row.Edit.visabled" :disabled="scope.row.Edit.disabled" @click="uiAction(scope.row, 'Edit', $event)" :title="$t('entities.doc.morerecentupdate_grid.uiactions.doc_edit')">
+                          <a v-show="scope.row.Edit.visible" :disabled="scope.row.Edit.disabled" @click="uiAction(scope.row, 'Edit', $event)" :title="$t('entities.doc.morerecentupdate_grid.uiactions.doc_edit')">
                             <i class='fa fa-edit'></i>
                             
                           </a>
-                          <divider v-show="scope.row.Delete.visabled" type='vertical'></divider>
-                          <a v-show="scope.row.Delete.visabled" :disabled="scope.row.Delete.disabled" @click="uiAction(scope.row, 'Delete', $event)" :title="$t('entities.doc.morerecentupdate_grid.uiactions.doc_delete')">
+                          <divider v-show="scope.row.Delete.visible" type='vertical'></divider>
+                          <a v-show="scope.row.Delete.visible" :disabled="scope.row.Delete.disabled" @click="uiAction(scope.row, 'Delete', $event)" :title="$t('entities.doc.morerecentupdate_grid.uiactions.doc_delete')">
                             <i class='fa fa-remove'></i>
                             
                           </a>

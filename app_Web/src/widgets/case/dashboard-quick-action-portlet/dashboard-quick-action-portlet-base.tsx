@@ -306,12 +306,12 @@ export class DashboardQuickActionPortletBase extends MainControlBase {
      * @memberof DashboardQuickActionBase
      */
     public uiactionModel: any = {
-        exit: {name: 'exit', actiontarget: '', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: '', uiaction: { tag: 'Exit', target: '' } },
-        executecz: {name: 'executecz', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__CASE_CASERUN_BUT', uiaction: { tag: 'ExecuteCz', target: 'SINGLEKEY' } },
-        opentestrunresultviewcz: {name: 'opentestrunresultviewcz', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__CASE_RESULT_BUT', uiaction: { tag: 'OpenTestRunResultViewCz', target: 'SINGLEKEY' } },
-        newbugbycaseresultcz: {name: 'newbugbycaseresultcz', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__CASE_TOBUG_BUT', uiaction: { tag: 'NewBugByCaseResultCz', target: 'SINGLEKEY' } },
-        maineditcz: {name: 'maineditcz', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__CASE_EDIT_BUT', uiaction: { tag: 'MainEditCz', target: 'SINGLEKEY' } },
-        deletecz: {name: 'deletecz', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__CASE_DELETE_BUT', uiaction: { tag: 'deleteCz', target: 'SINGLEKEY' } },
+        exit: {name: 'exit', actiontarget: '', caption: '', disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: '', uiaction: { tag: 'Exit', target: '' } },
+        executecz: {name: 'executecz', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__CASE_CASERUN_BUT', uiaction: { tag: 'ExecuteCz', target: 'SINGLEKEY' } },
+        opentestrunresultviewcz: {name: 'opentestrunresultviewcz', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__CASE_RESULT_BUT', uiaction: { tag: 'OpenTestRunResultViewCz', target: 'SINGLEKEY' } },
+        newbugbycaseresultcz: {name: 'newbugbycaseresultcz', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__CASE_TOBUG_BUT', uiaction: { tag: 'NewBugByCaseResultCz', target: 'SINGLEKEY' } },
+        maineditcz: {name: 'maineditcz', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__CASE_EDIT_BUT', uiaction: { tag: 'MainEditCz', target: 'SINGLEKEY' } },
+        deletecz: {name: 'deletecz', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__CASE_DELETE_BUT', uiaction: { tag: 'deleteCz', target: 'SINGLEKEY' } },
     }
 
     /**
@@ -327,7 +327,7 @@ export class DashboardQuickActionPortletBase extends MainControlBase {
         icon: "",
         noprivdisplaymode: 2,
         actiontarget:'',
-        visabled:true,
+        visible:true,
         disabled:false
         },
         { viewlogicname:"dashboard_sysportlet4_u48229d2_click",
@@ -337,7 +337,7 @@ export class DashboardQuickActionPortletBase extends MainControlBase {
         noprivdisplaymode: 2,
         dataaccaction:'SRFUR__CASE_CASERUN_BUT',
         actiontarget:'SINGLEKEY',
-        visabled:true,
+        visible:true,
         disabled:false
         },
         { viewlogicname:"dashboard_sysportlet4_u9ccf27c_click",
@@ -347,7 +347,7 @@ export class DashboardQuickActionPortletBase extends MainControlBase {
         noprivdisplaymode: 2,
         dataaccaction:'SRFUR__CASE_RESULT_BUT',
         actiontarget:'SINGLEKEY',
-        visabled:true,
+        visible:true,
         disabled:false
         },
         { viewlogicname:"dashboard_sysportlet4_u195de43_click",
@@ -357,7 +357,7 @@ export class DashboardQuickActionPortletBase extends MainControlBase {
         noprivdisplaymode: 2,
         dataaccaction:'SRFUR__CASE_TOBUG_BUT',
         actiontarget:'SINGLEKEY',
-        visabled:true,
+        visible:true,
         disabled:false
         },
         { viewlogicname:"dashboard_sysportlet4_ue9d4654_click",
@@ -367,7 +367,7 @@ export class DashboardQuickActionPortletBase extends MainControlBase {
         noprivdisplaymode: 2,
         dataaccaction:'SRFUR__CASE_EDIT_BUT',
         actiontarget:'SINGLEKEY',
-        visabled:true,
+        visible:true,
         disabled:false
         },
         { viewlogicname:"dashboard_sysportlet4_ua71b4c9_click",
@@ -377,7 +377,7 @@ export class DashboardQuickActionPortletBase extends MainControlBase {
         noprivdisplaymode: 2,
         dataaccaction:'SRFUR__CASE_DELETE_BUT',
         actiontarget:'SINGLEKEY',
-        visabled:true,
+        visible:true,
         disabled:false
         }
     ];

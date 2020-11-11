@@ -300,14 +300,14 @@ export class Main3GridBase extends GridControlBase {
      * @memberof Main3Base
      */  
     public ActionModel: any = {
-        ChangeStoryDetail: { name: 'ChangeStoryDetail',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_CHANGED_BUT', actiontarget: 'SINGLEKEY'},
-        ReviewStory: { name: 'ReviewStory',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_REVIEW_BUT', actiontarget: 'SINGLEKEY'},
-        CloseStory: { name: 'CloseStory',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_CLOSED_BUT', actiontarget: 'SINGLEKEY'},
-        OpenBaseInfoEditView: { name: 'OpenBaseInfoEditView',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_EDIT_BUT', actiontarget: 'SINGLEKEY'},
-        OpenCaseCreateView: { name: 'OpenCaseCreateView',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_CCASE_BUT', actiontarget: 'SINGLEKEY'},
-        SubStory: { name: 'SubStory',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_XQXF_BUT', actiontarget: 'SINGLEKEY'},
-        StoryFavorites: { name: 'StoryFavorites',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_NFAVOR_BUT', actiontarget: 'SINGLEKEY'},
-        StoryNFavorites: { name: 'StoryNFavorites',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_FAVOR_BUT', actiontarget: 'SINGLEKEY'}
+        ChangeStoryDetail: { name: 'ChangeStoryDetail',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_CHANGED_BUT', actiontarget: 'SINGLEKEY'},
+        ReviewStory: { name: 'ReviewStory',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_REVIEW_BUT', actiontarget: 'SINGLEKEY'},
+        CloseStory: { name: 'CloseStory',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_CLOSED_BUT', actiontarget: 'SINGLEKEY'},
+        OpenBaseInfoEditView: { name: 'OpenBaseInfoEditView',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_EDIT_BUT', actiontarget: 'SINGLEKEY'},
+        OpenCaseCreateView: { name: 'OpenCaseCreateView',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_CCASE_BUT', actiontarget: 'SINGLEKEY'},
+        SubStory: { name: 'SubStory',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_XQXF_BUT', actiontarget: 'SINGLEKEY'},
+        StoryFavorites: { name: 'StoryFavorites',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_NFAVOR_BUT', actiontarget: 'SINGLEKEY'},
+        StoryNFavorites: { name: 'StoryNFavorites',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_FAVOR_BUT', actiontarget: 'SINGLEKEY'}
     };
 
     /**
@@ -806,28 +806,28 @@ export class Main3GridBase extends GridControlBase {
                 estimate:'',
                 status:'',
                 ChangeStoryDetail:{
-                    visabled: false
+                    visible: false
                 },
                 ReviewStory:{
-                    visabled: false
+                    visible: false
                 },
                 CloseStory:{
-                    visabled: false
+                    visible: false
                 },
                 OpenBaseInfoEditView:{
-                    visabled: false
+                    visible: false
                 },
                 OpenCaseCreateView:{
-                    visabled: false
+                    visible: false
                 },
                 SubStory:{
-                    visabled: false
+                    visible: false
                 },
                 StoryFavorites:{
-                    visabled: false
+                    visible: false
                 },
                 StoryNFavorites:{
-                    visabled: false
+                    visible: false
                 },
                 children: children
             }
@@ -852,28 +852,28 @@ export class Main3GridBase extends GridControlBase {
             estimate:'',
             status:'',
             ChangeStoryDetail:{
-                visabled: false
+                visible: false
             },
             ReviewStory:{
-                visabled: false
+                visible: false
             },
             CloseStory:{
-                visabled: false
+                visible: false
             },
             OpenBaseInfoEditView:{
-                visabled: false
+                visible: false
             },
             OpenCaseCreateView:{
-                visabled: false
+                visible: false
             },
             SubStory:{
-                visabled: false
+                visible: false
             },
             StoryFavorites:{
-                visabled: false
+                visible: false
             },
             StoryNFavorites:{
-                visabled: false
+                visible: false
             },
             children: child
         }
@@ -928,28 +928,28 @@ export class Main3GridBase extends GridControlBase {
                 estimate:'',
                 status:'',
                 ChangeStoryDetail:{
-                    visabled: false
+                    visible: false
                 },
                 ReviewStory:{
-                    visabled: false
+                    visible: false
                 },
                 CloseStory:{
-                    visabled: false
+                    visible: false
                 },
                 OpenBaseInfoEditView:{
-                    visabled: false
+                    visible: false
                 },
                 OpenCaseCreateView:{
-                    visabled: false
+                    visible: false
                 },
                 SubStory:{
-                    visabled: false
+                    visible: false
                 },
                 StoryFavorites:{
-                    visabled: false
+                    visible: false
                 },
                 StoryNFavorites:{
-                    visabled: false
+                    visible: false
                 },
                 children: children,
             }

@@ -160,9 +160,9 @@ export class DocLibLGridBase extends GridControlBase {
      * @memberof DocLibLBase
      */  
     public ActionModel: any = {
-        Look: { name: 'Look',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: 'SINGLEKEY'},
-        ibzdownload: { name: 'ibzdownload',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: 'SINGLEKEY'},
-        delete: { name: 'delete',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__FILE_DELETE_BUT', actiontarget: 'SINGLEKEY'}
+        Look: { name: 'Look',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: 'SINGLEKEY'},
+        ibzdownload: { name: 'ibzdownload',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: 'SINGLEKEY'},
+        delete: { name: 'delete',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__FILE_DELETE_BUT', actiontarget: 'SINGLEKEY'}
     };
 
     /**
@@ -499,7 +499,7 @@ export class DocLibLGridBase extends GridControlBase {
                 group: group.label,
                 id:'',
                 Look:{
-                    visabled: false
+                    visible: false
                 },
                 title:'',
                 pathname:'',
@@ -508,10 +508,10 @@ export class DocLibLGridBase extends GridControlBase {
                 addedby:'',
                 addeddate:'',
                 ibzdownload:{
-                    visabled: false
+                    visible: false
                 },
                 delete:{
-                    visabled: false
+                    visible: false
                 },
                 children: children
             }
@@ -531,7 +531,7 @@ export class DocLibLGridBase extends GridControlBase {
             group: this.$t('app.gridpage.other'),
             id:'',
             Look:{
-                visabled: false
+                visible: false
             },
             title:'',
             pathname:'',
@@ -540,10 +540,10 @@ export class DocLibLGridBase extends GridControlBase {
             addedby:'',
             addeddate:'',
             ibzdownload:{
-                visabled: false
+                visible: false
             },
             delete:{
-                visabled: false
+                visible: false
             },
             children: child
         }
@@ -593,7 +593,7 @@ export class DocLibLGridBase extends GridControlBase {
                 group: group,
                 id:'',
                 Look:{
-                    visabled: false
+                    visible: false
                 },
                 title:'',
                 pathname:'',
@@ -602,10 +602,10 @@ export class DocLibLGridBase extends GridControlBase {
                 addedby:'',
                 addeddate:'',
                 ibzdownload:{
-                    visabled: false
+                    visible: false
                 },
                 delete:{
-                    visabled: false
+                    visible: false
                 },
                 children: children,
             }

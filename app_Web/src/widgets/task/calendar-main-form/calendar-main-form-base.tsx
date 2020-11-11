@@ -452,34 +452,34 @@ export class CalendarMainEditFormBase extends EditFormControlBase {
         grouppanel6: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel6', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.task.calendarmain_form', extractMode: 'ITEM', details: [] } }),
 
         button7: new FormButtonModel({ caption: '指派', detailType: 'BUTTON', name: 'button7', visible: true, isShowCaption: false, form: this, showMoreMode: 0,disabled: false, uiaction: { type: 'DEUIACTION', 
- tag: 'AssignTaskDash',actiontarget: 'SINGLEKEY',noprivdisplaymode:2,dataaccaction:'SRFUR__TASK_ASSIGN_BUT',visabled: true,disabled: false} }),
+ tag: 'AssignTaskDash',actiontarget: 'SINGLEKEY',noprivdisplaymode:2,dataaccaction:'SRFUR__TASK_ASSIGN_BUT',visible: true,disabled: false} }),
 
         button8: new FormButtonModel({ caption: '转交', detailType: 'BUTTON', name: 'button8', visible: true, isShowCaption: false, form: this, showMoreMode: 0,disabled: false, uiaction: { type: 'DEUIACTION', 
- tag: 'checkForwardDash',actiontarget: 'SINGLEKEY',noprivdisplaymode:2,dataaccaction:'SRFUR__TASK_FORWARD_BUT',visabled: true,disabled: false} }),
+ tag: 'checkForwardDash',actiontarget: 'SINGLEKEY',noprivdisplaymode:2,dataaccaction:'SRFUR__TASK_FORWARD_BUT',visible: true,disabled: false} }),
 
         button1: new FormButtonModel({ caption: '开始', detailType: 'BUTTON', name: 'button1', visible: true, isShowCaption: false, form: this, showMoreMode: 0,disabled: false, uiaction: { type: 'DEUIACTION', 
- tag: 'MStartTaskDash',actiontarget: 'SINGLEKEY',noprivdisplaymode:2,dataaccaction:'SRFUR__TASK_START_BUT',visabled: true,disabled: false} }),
+ tag: 'MStartTaskDash',actiontarget: 'SINGLEKEY',noprivdisplaymode:2,dataaccaction:'SRFUR__TASK_START_BUT',visible: true,disabled: false} }),
 
         button2: new FormButtonModel({ caption: '完成', detailType: 'BUTTON', name: 'button2', visible: true, isShowCaption: false, form: this, showMoreMode: 0,disabled: false, uiaction: { type: 'DEUIACTION', 
- tag: 'MDoneTask',actiontarget: 'SINGLEKEY',noprivdisplaymode:2,dataaccaction:'SRFUR__TASK_COMPLETE_BUT',visabled: true,disabled: false} }),
+ tag: 'MDoneTask',actiontarget: 'SINGLEKEY',noprivdisplaymode:2,dataaccaction:'SRFUR__TASK_COMPLETE_BUT',visible: true,disabled: false} }),
 
         button3: new FormButtonModel({ caption: '激活', detailType: 'BUTTON', name: 'button3', visible: true, isShowCaption: false, form: this, showMoreMode: 0,disabled: false, uiaction: { type: 'DEUIACTION', 
- tag: 'ActivationDash',actiontarget: 'SINGLEKEY',noprivdisplaymode:2,dataaccaction:'SRFUR__TASK_ACTIVATION_BUT',visabled: true,disabled: false} }),
+ tag: 'ActivationDash',actiontarget: 'SINGLEKEY',noprivdisplaymode:2,dataaccaction:'SRFUR__TASK_ACTIVATION_BUT',visible: true,disabled: false} }),
 
         button4: new FormButtonModel({ caption: '暂停', detailType: 'BUTTON', name: 'button4', visible: true, isShowCaption: false, form: this, showMoreMode: 0,disabled: false, uiaction: { type: 'DEUIACTION', 
- tag: 'MPauseTask',actiontarget: 'SINGLEKEY',noprivdisplaymode:2,dataaccaction:'SRFUR__TASK_PAUSE_BUT',visabled: true,disabled: false} }),
+ tag: 'MPauseTask',actiontarget: 'SINGLEKEY',noprivdisplaymode:2,dataaccaction:'SRFUR__TASK_PAUSE_BUT',visible: true,disabled: false} }),
 
         button5: new FormButtonModel({ caption: '取消', detailType: 'BUTTON', name: 'button5', visible: true, isShowCaption: false, form: this, showMoreMode: 0,disabled: false, uiaction: { type: 'DEUIACTION', 
- tag: 'CancelTaskDash',actiontarget: 'SINGLEKEY',noprivdisplaymode:2,dataaccaction:'SRFUR__TASK_CANCEL_BUT',visabled: true,disabled: false} }),
+ tag: 'CancelTaskDash',actiontarget: 'SINGLEKEY',noprivdisplaymode:2,dataaccaction:'SRFUR__TASK_CANCEL_BUT',visible: true,disabled: false} }),
 
         button6: new FormButtonModel({ caption: '关闭', detailType: 'BUTTON', name: 'button6', visible: true, isShowCaption: false, form: this, showMoreMode: 0,disabled: false, uiaction: { type: 'DEUIACTION', 
- tag: 'CloseTaskDash',actiontarget: 'SINGLEKEY',noprivdisplaymode:2,dataaccaction:'SRFUR__TASK_CLOSE_BUT',visabled: true,disabled: false} }),
+ tag: 'CloseTaskDash',actiontarget: 'SINGLEKEY',noprivdisplaymode:2,dataaccaction:'SRFUR__TASK_CLOSE_BUT',visible: true,disabled: false} }),
 
         button9: new FormButtonModel({ caption: '子任务', detailType: 'BUTTON', name: 'button9', visible: true, isShowCaption: false, form: this, showMoreMode: 0,disabled: false, uiaction: { type: 'DEUIACTION', 
- tag: 'NewSubTaskDash',actiontarget: 'SINGLEKEY',noprivdisplaymode:2,dataaccaction:'SRFUR__TASK_SUBTASKS_BUT',visabled: true,disabled: false} }),
+ tag: 'NewSubTaskDash',actiontarget: 'SINGLEKEY',noprivdisplaymode:2,dataaccaction:'SRFUR__TASK_SUBTASKS_BUT',visible: true,disabled: false} }),
 
         button10: new FormButtonModel({ caption: '编辑', detailType: 'BUTTON', name: 'button10', visible: true, isShowCaption: false, form: this, showMoreMode: 0,disabled: false, uiaction: { type: 'DEUIACTION', 
- tag: 'MainEditDash',actiontarget: 'SINGLEKEY',noprivdisplaymode:2,dataaccaction:'SRFUR__TASK_EDIT_BUT',visabled: true,disabled: false} }),
+ tag: 'MainEditDash',actiontarget: 'SINGLEKEY',noprivdisplaymode:2,dataaccaction:'SRFUR__TASK_EDIT_BUT',visible: true,disabled: false} }),
 
         grouppanel5: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel5', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.task.calendarmain_form', extractMode: 'ITEM', details: [] } }),
 

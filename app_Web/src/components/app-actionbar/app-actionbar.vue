@@ -2,7 +2,7 @@
   <div class="app-actionbar">
     <div class="app-actionbar-item" v-for="(item,index) in items" :key="index">
       <Badge
-        v-if="item.counterService && item.counterService.counterData" v-show="item.visabled"
+        v-if="item.counterService && item.counterService.counterData" v-show="item.visible"
         :count="item.counterService.counterData[item.counterId]"
         type="info"
       >
@@ -11,7 +11,7 @@
           {{item.text}}
         </i-button>
       </Badge>
-      <i-button v-else v-show="item.visabled" :disabled="item.disabled" type="text" ghost @click="handleClick(item.viewlogicname)">
+      <i-button v-else v-show="item.visible" :disabled="item.disabled" type="text" ghost @click="handleClick(item.viewlogicname)">
         <i v-if="item.iconcls != ''" :class="item.iconcls" />
         {{item.text}}
       </i-button>
@@ -132,13 +132,13 @@ export default class AppActionBar extends Vue {
                   _item.disabled = true;
               }
               if((_item.noprivdisplaymode === 2) || (_item.noprivdisplaymode === 6)){
-                  _item.visabled = false;
+                  _item.visible = false;
               }else{
-                  _item.visabled = true;
+                  _item.visible = true;
               }
           }
           if(dataActionResult === 1){
-              _item.visabled = true;
+              _item.visible = true;
               _item.disabled = false;
           }
       }

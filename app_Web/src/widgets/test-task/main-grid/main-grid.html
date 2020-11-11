@@ -162,27 +162,27 @@
                     </template>
                     <template slot-scope="scope">
                         <div style="text-align: center;">
-                          <a v-show="scope.row.LinkCase.visabled" :disabled="scope.row.LinkCase.disabled" @click="uiAction(scope.row, 'LinkCase', $event)" :title="$t('entities.testtask.main_grid.uiactions.testtask_linkcase')">
+                          <a v-show="scope.row.LinkCase.visible" :disabled="scope.row.LinkCase.disabled" @click="uiAction(scope.row, 'LinkCase', $event)" :title="$t('entities.testtask.main_grid.uiactions.testtask_linkcase')">
                             <i class='fa fa-link'></i>
                             
                           </a>
-                          <divider v-show="scope.row.TestReportR.visabled" type='vertical'></divider>
-                          <a v-show="scope.row.TestReportR.visabled" :disabled="scope.row.TestReportR.disabled" @click="uiAction(scope.row, 'TestReportR', $event)" :title="$t('entities.testtask.main_grid.uiactions.testtask_testreportr')">
+                          <divider v-show="scope.row.TestReportR.visible" type='vertical'></divider>
+                          <a v-show="scope.row.TestReportR.visible" :disabled="scope.row.TestReportR.disabled" @click="uiAction(scope.row, 'TestReportR', $event)" :title="$t('entities.testtask.main_grid.uiactions.testtask_testreportr')">
                             <i class='fa fa-flag'></i>
                             
                           </a>
-                          <divider v-show="scope.row.OpenInfoView.visabled" type='vertical'></divider>
-                          <a v-show="scope.row.OpenInfoView.visabled" :disabled="scope.row.OpenInfoView.disabled" @click="uiAction(scope.row, 'OpenInfoView', $event)" :title="$t('entities.testtask.main_grid.uiactions.testtask_openinfoview')">
+                          <divider v-show="scope.row.OpenInfoView.visible" type='vertical'></divider>
+                          <a v-show="scope.row.OpenInfoView.visible" :disabled="scope.row.OpenInfoView.disabled" @click="uiAction(scope.row, 'OpenInfoView', $event)" :title="$t('entities.testtask.main_grid.uiactions.testtask_openinfoview')">
                             <i class='fa fa-stack-exchange'></i>
                             
                           </a>
-                          <divider v-show="scope.row.EditEdit.visabled" type='vertical'></divider>
-                          <a v-show="scope.row.EditEdit.visabled" :disabled="scope.row.EditEdit.disabled" @click="uiAction(scope.row, 'EditEdit', $event)" :title="$t('entities.testtask.main_grid.uiactions.testtask_editedit')">
+                          <divider v-show="scope.row.EditEdit.visible" type='vertical'></divider>
+                          <a v-show="scope.row.EditEdit.visible" :disabled="scope.row.EditEdit.disabled" @click="uiAction(scope.row, 'EditEdit', $event)" :title="$t('entities.testtask.main_grid.uiactions.testtask_editedit')">
                             <i class='fa fa-edit'></i>
                             
                           </a>
-                          <divider v-show="scope.row.Delete.visabled" type='vertical'></divider>
-                          <a v-show="scope.row.Delete.visabled" :disabled="scope.row.Delete.disabled" @click="uiAction(scope.row, 'Delete', $event)" :title="$t('entities.testtask.main_grid.uiactions.testtask_delete')">
+                          <divider v-show="scope.row.Delete.visible" type='vertical'></divider>
+                          <a v-show="scope.row.Delete.visible" :disabled="scope.row.Delete.disabled" @click="uiAction(scope.row, 'Delete', $event)" :title="$t('entities.testtask.main_grid.uiactions.testtask_delete')">
                             <i class='fa fa-remove'></i>
                             
                           </a>

@@ -68,7 +68,7 @@ export class IndexViewBase extends ViewBase {
                 this.topMenus.forEach((item: any) => {
                     item.caption = item.text;
                     item.disabled = false;
-                    item.visabled = true;
+                    item.visible = true;
                 });
             }
         }

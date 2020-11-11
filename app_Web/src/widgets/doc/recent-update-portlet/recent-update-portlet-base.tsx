@@ -128,7 +128,7 @@ export class RecentUpdatePortletBase extends MainControlBase {
      * @memberof RecentUpdateBase
      */
     public uiactionModel: any = {
-        morerecentupdate: {name: 'morerecentupdate', actiontarget: 'NONE', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: '', uiaction: { tag: 'MoreRecentUpdate', target: 'NONE' } },
+        morerecentupdate: {name: 'morerecentupdate', actiontarget: 'NONE', caption: '', disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: '', uiaction: { tag: 'MoreRecentUpdate', target: 'NONE' } },
     }
 
 

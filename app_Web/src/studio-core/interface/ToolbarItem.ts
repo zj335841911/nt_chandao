@@ -68,7 +68,7 @@ export interface ToolbarItem {
      * @type {boolean}
      * @memberof ToolbarItem
      */
-    visabled?: boolean;
+    visible?: boolean;
     /**
      * 统一资源控制
      *

@@ -212,27 +212,27 @@
                     </template>
                     <template slot-scope="scope">
                         <div style="text-align: center;">
-                          <a v-show="scope.row.confirmChange.visabled" :disabled="scope.row.confirmChange.disabled" @click="uiAction(scope.row, 'confirmChange', $event)" :title="$t('entities.case.testmaingrid_grid.uiactions.case_confirmchange')">
+                          <a v-show="scope.row.confirmChange.visible" :disabled="scope.row.confirmChange.disabled" @click="uiAction(scope.row, 'confirmChange', $event)" :title="$t('entities.case.testmaingrid_grid.uiactions.case_confirmchange')">
                             <i class='fa fa-check-square-o'></i>
                             
                           </a>
-                          <divider v-show="scope.row.NewBugByTestCaseResult.visabled" type='vertical'></divider>
-                          <a v-show="scope.row.NewBugByTestCaseResult.visabled" :disabled="scope.row.NewBugByTestCaseResult.disabled" @click="uiAction(scope.row, 'NewBugByTestCaseResult', $event)" :title="$t('entities.case.testmaingrid_grid.uiactions.case_newbugbytestcaseresult')">
+                          <divider v-show="scope.row.NewBugByTestCaseResult.visible" type='vertical'></divider>
+                          <a v-show="scope.row.NewBugByTestCaseResult.visible" :disabled="scope.row.NewBugByTestCaseResult.disabled" @click="uiAction(scope.row, 'NewBugByTestCaseResult', $event)" :title="$t('entities.case.testmaingrid_grid.uiactions.case_newbugbytestcaseresult')">
                             <i class='fa fa-bug'></i>
                             
                           </a>
-                          <divider v-show="scope.row.CASEOpenTestRunResultView.visabled" type='vertical'></divider>
-                          <a v-show="scope.row.CASEOpenTestRunResultView.visabled" :disabled="scope.row.CASEOpenTestRunResultView.disabled" @click="uiAction(scope.row, 'CASEOpenTestRunResultView', $event)" :title="$t('entities.case.testmaingrid_grid.uiactions.case_caseopentestrunresultview')">
+                          <divider v-show="scope.row.CASEOpenTestRunResultView.visible" type='vertical'></divider>
+                          <a v-show="scope.row.CASEOpenTestRunResultView.visible" :disabled="scope.row.CASEOpenTestRunResultView.disabled" @click="uiAction(scope.row, 'CASEOpenTestRunResultView', $event)" :title="$t('entities.case.testmaingrid_grid.uiactions.case_caseopentestrunresultview')">
                             <i class='fa fa-stack-overflow'></i>
                             
                           </a>
-                          <divider v-show="scope.row.CaseExecute.visabled" type='vertical'></divider>
-                          <a v-show="scope.row.CaseExecute.visabled" :disabled="scope.row.CaseExecute.disabled" @click="uiAction(scope.row, 'CaseExecute', $event)" :title="$t('entities.case.testmaingrid_grid.uiactions.case_caseexecute')">
+                          <divider v-show="scope.row.CaseExecute.visible" type='vertical'></divider>
+                          <a v-show="scope.row.CaseExecute.visible" :disabled="scope.row.CaseExecute.disabled" @click="uiAction(scope.row, 'CaseExecute', $event)" :title="$t('entities.case.testmaingrid_grid.uiactions.case_caseexecute')">
                             <i class='fa fa-play-circle-o'></i>
                             
                           </a>
-                          <divider v-show="scope.row.unlinkCase.visabled" type='vertical'></divider>
-                          <a v-show="scope.row.unlinkCase.visabled" :disabled="scope.row.unlinkCase.disabled" @click="uiAction(scope.row, 'unlinkCase', $event)" :title="$t('entities.case.testmaingrid_grid.uiactions.case_unlinkcase')">
+                          <divider v-show="scope.row.unlinkCase.visible" type='vertical'></divider>
+                          <a v-show="scope.row.unlinkCase.visible" :disabled="scope.row.unlinkCase.disabled" @click="uiAction(scope.row, 'unlinkCase', $event)" :title="$t('entities.case.testmaingrid_grid.uiactions.case_unlinkcase')">
                             <i class='fa fa-unlink'></i>
                             
                           </a>

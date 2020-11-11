@@ -173,8 +173,8 @@ export class Main_EditRowGridBase extends GridControlBase {
      * @memberof Main_EditRowBase
      */  
     public ActionModel: any = {
-        NewRow: { name: 'NewRow',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALCREATE', actiontarget: ''},
-        Remove: { name: 'Remove',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALDELETE', actiontarget: 'MULTIKEY'}
+        NewRow: { name: 'NewRow',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALCREATE', actiontarget: ''},
+        Remove: { name: 'Remove',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALDELETE', actiontarget: 'MULTIKEY'}
     };
 
     /**
@@ -549,10 +549,10 @@ export class Main_EditRowGridBase extends GridControlBase {
                 hours:'',
                 limited:'',
                 NewRow:{
-                    visabled: false
+                    visible: false
                 },
                 Remove:{
-                    visabled: false
+                    visible: false
                 },
                 children: children
             }
@@ -576,10 +576,10 @@ export class Main_EditRowGridBase extends GridControlBase {
             hours:'',
             limited:'',
             NewRow:{
-                visabled: false
+                visible: false
             },
             Remove:{
-                visabled: false
+                visible: false
             },
             children: child
         }
@@ -633,10 +633,10 @@ export class Main_EditRowGridBase extends GridControlBase {
                 hours:'',
                 limited:'',
                 NewRow:{
-                    visabled: false
+                    visible: false
                 },
                 Remove:{
-                    visabled: false
+                    visible: false
                 },
                 children: children,
             }

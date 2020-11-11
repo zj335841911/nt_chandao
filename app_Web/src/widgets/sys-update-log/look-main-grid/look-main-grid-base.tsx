@@ -104,7 +104,7 @@ export class LookMainGridBase extends GridControlBase {
      * @memberof LookMainBase
      */  
     public ActionModel: any = {
-        LookDetail: { name: 'LookDetail',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: 'SINGLEKEY'}
+        LookDetail: { name: 'LookDetail',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: 'SINGLEKEY'}
     };
 
     /**
@@ -367,7 +367,7 @@ export class LookMainGridBase extends GridControlBase {
                 groupById: Number((i+1)*100),
                 group: group.label,
                 LookDetail:{
-                    visabled: false
+                    visible: false
                 },
                 sys_update_logname:'',
                 update:'',
@@ -388,7 +388,7 @@ export class LookMainGridBase extends GridControlBase {
             groupById: Number((allGroup.length+1)*100),
             group: this.$t('app.gridpage.other'),
             LookDetail:{
-                visabled: false
+                visible: false
             },
             sys_update_logname:'',
             update:'',
@@ -439,7 +439,7 @@ export class LookMainGridBase extends GridControlBase {
                 groupById: Number((groupIndex+1)*100),
                 group: group,
                 LookDetail:{
-                    visabled: false
+                    visible: false
                 },
                 sys_update_logname:'',
                 update:'',

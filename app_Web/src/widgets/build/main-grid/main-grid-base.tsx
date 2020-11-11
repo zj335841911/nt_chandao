@@ -216,11 +216,11 @@ export class MainGridBase extends GridControlBase {
      * @memberof MainBase
      */  
     public ActionModel: any = {
-        linkStories: { name: 'linkStories',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__BUILD_LINK_BUT', actiontarget: 'SINGLEKEY'},
-        submitToTesting: { name: 'submitToTesting',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__BUILD_SUBT_BUT', actiontarget: 'SINGLEKEY'},
-        viewBugs: { name: 'viewBugs',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: 'SINGLEKEY'},
-        editBuild: { name: 'editBuild',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__BUILD_EDIT_BUT', actiontarget: 'SINGLEKEY'},
-        Delete: { name: 'Delete',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__BUILD_DELETE_BUT', actiontarget: 'SINGLEKEY'}
+        linkStories: { name: 'linkStories',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__BUILD_LINK_BUT', actiontarget: 'SINGLEKEY'},
+        submitToTesting: { name: 'submitToTesting',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__BUILD_SUBT_BUT', actiontarget: 'SINGLEKEY'},
+        viewBugs: { name: 'viewBugs',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: 'SINGLEKEY'},
+        editBuild: { name: 'editBuild',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__BUILD_EDIT_BUT', actiontarget: 'SINGLEKEY'},
+        Delete: { name: 'Delete',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__BUILD_DELETE_BUT', actiontarget: 'SINGLEKEY'}
     };
 
     /**
@@ -633,19 +633,19 @@ export class MainGridBase extends GridControlBase {
                 date:'',
                 builder:'',
                 linkStories:{
-                    visabled: false
+                    visible: false
                 },
                 submitToTesting:{
-                    visabled: false
+                    visible: false
                 },
                 viewBugs:{
-                    visabled: false
+                    visible: false
                 },
                 editBuild:{
-                    visabled: false
+                    visible: false
                 },
                 Delete:{
-                    visabled: false
+                    visible: false
                 },
                 children: children
             }
@@ -671,19 +671,19 @@ export class MainGridBase extends GridControlBase {
             date:'',
             builder:'',
             linkStories:{
-                visabled: false
+                visible: false
             },
             submitToTesting:{
-                visabled: false
+                visible: false
             },
             viewBugs:{
-                visabled: false
+                visible: false
             },
             editBuild:{
-                visabled: false
+                visible: false
             },
             Delete:{
-                visabled: false
+                visible: false
             },
             children: child
         }
@@ -739,19 +739,19 @@ export class MainGridBase extends GridControlBase {
                 date:'',
                 builder:'',
                 linkStories:{
-                    visabled: false
+                    visible: false
                 },
                 submitToTesting:{
-                    visabled: false
+                    visible: false
                 },
                 viewBugs:{
-                    visabled: false
+                    visible: false
                 },
                 editBuild:{
-                    visabled: false
+                    visible: false
                 },
                 Delete:{
-                    visabled: false
+                    visible: false
                 },
                 children: children,
             }

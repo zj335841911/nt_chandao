@@ -58,22 +58,22 @@
                     </template>
                     <template slot-scope="scope">
                         <div style="text-align: center;">
-                          <a v-show="scope.row.LookFile.visabled" :disabled="scope.row.LookFile.disabled" @click="uiAction(scope.row, 'LookFile', $event)" :title="$t('entities.doclib.main_grid.uiactions.doclib_lookfile')">
+                          <a v-show="scope.row.LookFile.visible" :disabled="scope.row.LookFile.disabled" @click="uiAction(scope.row, 'LookFile', $event)" :title="$t('entities.doclib.main_grid.uiactions.doclib_lookfile')">
                             <i class='fa fa-file-zip-o'></i>
                             
                           </a>
-                          <divider v-show="scope.row.LookDoc.visabled" type='vertical'></divider>
-                          <a v-show="scope.row.LookDoc.visabled" :disabled="scope.row.LookDoc.disabled" @click="uiAction(scope.row, 'LookDoc', $event)" :title="$t('entities.doclib.main_grid.uiactions.doclib_lookdoc')">
+                          <divider v-show="scope.row.LookDoc.visible" type='vertical'></divider>
+                          <a v-show="scope.row.LookDoc.visible" :disabled="scope.row.LookDoc.disabled" @click="uiAction(scope.row, 'LookDoc', $event)" :title="$t('entities.doclib.main_grid.uiactions.doclib_lookdoc')">
                             <i class='fa fa-file-word-o'></i>
                             
                           </a>
-                          <divider v-show="scope.row.EditProjectDoclib.visabled" type='vertical'></divider>
-                          <a v-show="scope.row.EditProjectDoclib.visabled" :disabled="scope.row.EditProjectDoclib.disabled" @click="uiAction(scope.row, 'EditProjectDoclib', $event)" :title="$t('entities.doclib.main_grid.uiactions.doclib_editprojectdoclib')">
+                          <divider v-show="scope.row.EditProjectDoclib.visible" type='vertical'></divider>
+                          <a v-show="scope.row.EditProjectDoclib.visible" :disabled="scope.row.EditProjectDoclib.disabled" @click="uiAction(scope.row, 'EditProjectDoclib', $event)" :title="$t('entities.doclib.main_grid.uiactions.doclib_editprojectdoclib')">
                             <i class='fa fa-edit'></i>
                             
                           </a>
-                          <divider v-show="scope.row.WeiHuFenLei.visabled" type='vertical'></divider>
-                          <a v-show="scope.row.WeiHuFenLei.visabled" :disabled="scope.row.WeiHuFenLei.disabled" @click="uiAction(scope.row, 'WeiHuFenLei', $event)" :title="$t('entities.doclib.main_grid.uiactions.doclib_weihufenlei')">
+                          <divider v-show="scope.row.WeiHuFenLei.visible" type='vertical'></divider>
+                          <a v-show="scope.row.WeiHuFenLei.visible" :disabled="scope.row.WeiHuFenLei.disabled" @click="uiAction(scope.row, 'WeiHuFenLei', $event)" :title="$t('entities.doclib.main_grid.uiactions.doclib_weihufenlei')">
                             <i class='fa fa-lock'></i>
                             
                           </a>

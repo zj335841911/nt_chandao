@@ -160,9 +160,9 @@ export class MoreRecentUpdateGridBase extends GridControlBase {
      * @memberof MoreRecentUpdateBase
      */  
     public ActionModel: any = {
-        Look: { name: 'Look',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: 'SINGLEKEY'},
-        Edit: { name: 'Edit',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'MODULE', actiontarget: 'SINGLEKEY'},
-        Delete: { name: 'Delete',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'MODULE', actiontarget: 'SINGLEKEY'}
+        Look: { name: 'Look',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: 'SINGLEKEY'},
+        Edit: { name: 'Edit',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'MODULE', actiontarget: 'SINGLEKEY'},
+        Delete: { name: 'Delete',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'MODULE', actiontarget: 'SINGLEKEY'}
     };
 
     /**
@@ -489,7 +489,7 @@ export class MoreRecentUpdateGridBase extends GridControlBase {
                 group: group.label,
                 id:'',
                 Look:{
-                    visabled: false
+                    visible: false
                 },
                 title:'',
                 addedby:'',
@@ -497,10 +497,10 @@ export class MoreRecentUpdateGridBase extends GridControlBase {
                 editedby:'',
                 editeddate:'',
                 Edit:{
-                    visabled: false
+                    visible: false
                 },
                 Delete:{
-                    visabled: false
+                    visible: false
                 },
                 children: children
             }
@@ -520,7 +520,7 @@ export class MoreRecentUpdateGridBase extends GridControlBase {
             group: this.$t('app.gridpage.other'),
             id:'',
             Look:{
-                visabled: false
+                visible: false
             },
             title:'',
             addedby:'',
@@ -528,10 +528,10 @@ export class MoreRecentUpdateGridBase extends GridControlBase {
             editedby:'',
             editeddate:'',
             Edit:{
-                visabled: false
+                visible: false
             },
             Delete:{
-                visabled: false
+                visible: false
             },
             children: child
         }
@@ -581,7 +581,7 @@ export class MoreRecentUpdateGridBase extends GridControlBase {
                 group: group,
                 id:'',
                 Look:{
-                    visabled: false
+                    visible: false
                 },
                 title:'',
                 addedby:'',
@@ -589,10 +589,10 @@ export class MoreRecentUpdateGridBase extends GridControlBase {
                 editedby:'',
                 editeddate:'',
                 Edit:{
-                    visabled: false
+                    visible: false
                 },
                 Delete:{
-                    visabled: false
+                    visible: false
                 },
                 children: children,
             }

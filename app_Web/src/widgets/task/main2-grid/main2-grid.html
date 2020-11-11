@@ -144,37 +144,37 @@
                     </template>
                     <template slot-scope="scope">
                         <div style="text-align: center;">
-                          <a v-show="scope.row.AssignTask.visabled" :disabled="scope.row.AssignTask.disabled" @click="uiAction(scope.row, 'AssignTask', $event)" :title="$t('entities.task.main2_grid.uiactions.task_assigntask')">
+                          <a v-show="scope.row.AssignTask.visible" :disabled="scope.row.AssignTask.disabled" @click="uiAction(scope.row, 'AssignTask', $event)" :title="$t('entities.task.main2_grid.uiactions.task_assigntask')">
                             <i class='fa fa-hand-o-right'></i>
                             
                           </a>
-                          <divider v-show="scope.row.StartTask.visabled" type='vertical'></divider>
-                          <a v-show="scope.row.StartTask.visabled" :disabled="scope.row.StartTask.disabled" @click="uiAction(scope.row, 'StartTask', $event)" :title="$t('entities.task.main2_grid.uiactions.task_starttask')">
+                          <divider v-show="scope.row.StartTask.visible" type='vertical'></divider>
+                          <a v-show="scope.row.StartTask.visible" :disabled="scope.row.StartTask.disabled" @click="uiAction(scope.row, 'StartTask', $event)" :title="$t('entities.task.main2_grid.uiactions.task_starttask')">
                             <i class='fa fa-play-circle-o'></i>
                             
                           </a>
-                          <divider v-show="scope.row.Activation.visabled" type='vertical'></divider>
-                          <a v-show="scope.row.Activation.visabled" :disabled="scope.row.Activation.disabled" @click="uiAction(scope.row, 'Activation', $event)" :title="$t('entities.task.main2_grid.uiactions.task_activation')">
+                          <divider v-show="scope.row.Activation.visible" type='vertical'></divider>
+                          <a v-show="scope.row.Activation.visible" :disabled="scope.row.Activation.disabled" @click="uiAction(scope.row, 'Activation', $event)" :title="$t('entities.task.main2_grid.uiactions.task_activation')">
                             <i class='fa fa-magic'></i>
                             
                           </a>
-                          <divider v-show="scope.row.WorkHours1.visabled" type='vertical'></divider>
-                          <a v-show="scope.row.WorkHours1.visabled" :disabled="scope.row.WorkHours1.disabled" @click="uiAction(scope.row, 'WorkHours1', $event)" :title="$t('entities.task.main2_grid.uiactions.task_workhours1')">
+                          <divider v-show="scope.row.WorkHours1.visible" type='vertical'></divider>
+                          <a v-show="scope.row.WorkHours1.visible" :disabled="scope.row.WorkHours1.disabled" @click="uiAction(scope.row, 'WorkHours1', $event)" :title="$t('entities.task.main2_grid.uiactions.task_workhours1')">
                             <i class='fa fa-wordpress'></i>
                             
                           </a>
-                          <divider v-show="scope.row.DoneTask.visabled" type='vertical'></divider>
-                          <a v-show="scope.row.DoneTask.visabled" :disabled="scope.row.DoneTask.disabled" @click="uiAction(scope.row, 'DoneTask', $event)" :title="$t('entities.task.main2_grid.uiactions.task_donetask')">
+                          <divider v-show="scope.row.DoneTask.visible" type='vertical'></divider>
+                          <a v-show="scope.row.DoneTask.visible" :disabled="scope.row.DoneTask.disabled" @click="uiAction(scope.row, 'DoneTask', $event)" :title="$t('entities.task.main2_grid.uiactions.task_donetask')">
                             <i class='fa fa-check-square-o'></i>
                             
                           </a>
-                          <divider v-show="scope.row.CloseTask.visabled" type='vertical'></divider>
-                          <a v-show="scope.row.CloseTask.visabled" :disabled="scope.row.CloseTask.disabled" @click="uiAction(scope.row, 'CloseTask', $event)" :title="$t('entities.task.main2_grid.uiactions.task_closetask')">
+                          <divider v-show="scope.row.CloseTask.visible" type='vertical'></divider>
+                          <a v-show="scope.row.CloseTask.visible" :disabled="scope.row.CloseTask.disabled" @click="uiAction(scope.row, 'CloseTask', $event)" :title="$t('entities.task.main2_grid.uiactions.task_closetask')">
                             <i class='fa fa-power-off'></i>
                             
                           </a>
-                          <divider v-show="scope.row.MainEdit.visabled" type='vertical'></divider>
-                          <a v-show="scope.row.MainEdit.visabled" :disabled="scope.row.MainEdit.disabled" @click="uiAction(scope.row, 'MainEdit', $event)" :title="$t('entities.task.main2_grid.uiactions.task_mainedit')">
+                          <divider v-show="scope.row.MainEdit.visible" type='vertical'></divider>
+                          <a v-show="scope.row.MainEdit.visible" :disabled="scope.row.MainEdit.disabled" @click="uiAction(scope.row, 'MainEdit', $event)" :title="$t('entities.task.main2_grid.uiactions.task_mainedit')">
                             <i class='fa fa-edit'></i>
                             
                           </a>
