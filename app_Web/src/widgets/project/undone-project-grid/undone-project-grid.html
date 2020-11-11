@@ -52,9 +52,7 @@
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <template >
-            <codelist :value="row.openedby" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
-                        </template>
+                        <span>{{row.openedby}}</span>
                     </template>
                 </el-table-column>
             </template>
@@ -66,7 +64,7 @@
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <app-format-data format="%1$tY-%1$tm-%1$td" :data="row.openeddate"></app-format-data>
+                        <app-format-data format="YYYY-MM-DD HH:mm:ss" :data="row.openeddate"></app-format-data>
                     </template>
                 </el-table-column>
             </template>

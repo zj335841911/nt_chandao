@@ -103,8 +103,19 @@ export class ProjectUsr2GridView9Base extends GridView9Base {
      * @memberof ProjectUsr2GridView9Base
      */
     protected containerModel: any = {
+        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
         view_grid: { name: 'grid', type: 'GRID' },
     };
+
+    /**
+     * 工具栏模型
+     *
+     * @type {*}
+     * @memberof ProjectUsr2GridView9
+     */
+    public toolBarModels: any = {
+    };
+
 
 
 	/**
@@ -114,7 +125,7 @@ export class ProjectUsr2GridView9Base extends GridView9Base {
      * @type {string}
      * @memberof ProjectUsr2GridView9Base
      */
-	protected viewtag: string = '8fac98670d76162935cc17f326f35f05';
+	protected viewtag: string = 'd290709d6a36e20e79d60e873047ec0d';
 
     /**
      * 视图名称

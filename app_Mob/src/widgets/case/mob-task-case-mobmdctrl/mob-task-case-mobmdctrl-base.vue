@@ -782,7 +782,7 @@ export default class Mob_Task_CaseBase extends Vue implements ControlInterface {
             if (item.value) {
                 this.selectednumber++;
             }
-            if (Object.is(item.caseid, value)) {
+            if (Object.is(item.id, value)) {
                 if (detail.checked) {
                     this.selectdata.push(this.items[index]);
                 } else {
