@@ -61,10 +61,6 @@ export default {
 			caption: "文档摘要",
       		title: "文档编辑视图（文档摘要）",
 		},
-		mystargridview: {
-			caption: "文档",
-      		title: "文档表格视图",
-		},
 		mymoregridview: {
 			caption: "我的文档",
       		title: "doc表格视图",
@@ -269,8 +265,6 @@ export default {
 			caption: "保存并关闭",
 			tip: "保存并关闭",
 		},
-	},
-	mystargridviewtoolbar_toolbar: {
 	},
 	modulegridviewtoolbar_toolbar: {
 		deuiaction7: {

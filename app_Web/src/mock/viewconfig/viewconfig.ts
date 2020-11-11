@@ -2351,14 +2351,6 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "StoryPickupGridView2",
             "viewtag": "971a6faeda9b1b090521472c06eba003"
         },
-        "docmystargridview": {
-            "title": "文档表格视图",
-            "caption": "文档",
-            "viewtype": "DEGRIDVIEW",
-            "viewmodule": "zentao",
-            "viewname": "DocMyStarGridView",
-            "viewtag": "97a0858ebdce8c45b29cd313e041bd48"
-        },
         "actionproducttrendslistview9": {
             "title": "产品动态",
             "caption": "系统日志",
