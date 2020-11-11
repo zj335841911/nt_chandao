@@ -229,7 +229,7 @@ export class MobPickupViewpickupviewpanelModel {
         name: 'noticeusers',
       },
       {
-        name: 'doclincnt',
+        name: 'doclibcnt',
       },
     ]
   }

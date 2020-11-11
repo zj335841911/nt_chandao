@@ -229,7 +229,7 @@ export class MobTabExpViewtabviewpanel2Model {
         name: 'noticeusers',
       },
       {
-        name: 'doclincnt',
+        name: 'doclibcnt',
       },
     ]
   }

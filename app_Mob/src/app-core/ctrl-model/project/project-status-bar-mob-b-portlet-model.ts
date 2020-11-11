@@ -229,7 +229,7 @@ export class ProjectStatusBarMobBModel {
         name: 'noticeusers',
       },
       {
-        name: 'doclincnt',
+        name: 'doclibcnt',
       },
     ]
   }
