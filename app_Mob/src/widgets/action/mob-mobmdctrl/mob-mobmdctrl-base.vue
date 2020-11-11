@@ -712,7 +712,7 @@ export default class MobBase extends Vue implements ControlInterface {
             if (item.value) {
                 this.selectednumber++;
             }
-            if (Object.is(item.actionid, value)) {
+            if (Object.is(item.id, value)) {
                 if (detail.checked) {
                     this.selectdata.push(this.items[index]);
                 } else {

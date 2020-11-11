@@ -891,7 +891,7 @@ export default class MOB_Release_YiLiuBugBase extends Vue implements ControlInte
             if (item.value) {
                 this.selectednumber++;
             }
-            if (Object.is(item.bugid, value)) {
+            if (Object.is(item.id, value)) {
                 if (detail.checked) {
                     this.selectdata.push(this.items[index]);
                 } else {
