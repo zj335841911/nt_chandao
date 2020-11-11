@@ -214,7 +214,7 @@ export class StoryRelatedGridBase extends GridControlBase {
      * @memberof StoryRelatedBase
      */
     public codelistType: string = "";
-    
+
     /**
      * 属性值规则
      *
@@ -293,6 +293,141 @@ export class StoryRelatedGridBase extends GridControlBase {
     public updateDefault(row: any){                    
     }
 
+	/**
+     * 分组方法
+     * 
+     * @memberof StoryRelatedBase
+     */
+    public group(){
+        if(Object.is(this.groupMode,"AUTO")){
+            this.drawGroup();
+        }else if(Object.is(this.groupMode,"CODELIST")){
+            this.drawCodelistGroup();
+        }
+    }
+
+    /**
+     * 根据分组代码表绘制分组列表
+     * 
+     * @memberof StoryRelatedBase
+     */
+    public async drawCodelistGroup(){
+        if(!this.isEnableGroup) return;
+        // 分组
+        let allGroup: Array<any> = [];
+        let groupTree:Array<any> = [];
+        // 动态代码表
+        if (Object.is(this.codelistType, "DYNAMIC")) {
+            allGroup = await this.codeListService.getItems(this.codelistTag);
+        // 静态代码表
+        } else if(Object.is(this.codelistType, "STATIC")){
+            allGroup = this.$store.getters.getCodeListItems(this.codelistTag);
+        }
+        if(allGroup.length == 0){
+            console.warn("分组数据无效");
+        }
+        allGroup.forEach((group: any,i: number)=>{
+            let children:Array<any> = [];
+            this.items.forEach((item: any,j: number)=>{
+                if(Object.is(group.label,item[this.groupAppField])){
+                    item.groupById = Number((i+1) * 100 + (i+1) * 1);
+                    item.group = '';
+                    children.push(item);
+                }
+            });
+            if(children && children.length === 0){
+                children = [
+                    {
+                        groupById: Number((i+1)*100+(i+1) * 1),
+                        group: '',
+                        pri:'',
+                        title:'',
+                    }
+                ]
+            }
+            const tree: any ={
+                groupById: Number((i+1)*100),
+                group: group.label,
+                pri:'',
+                title:'',
+                children: children
+            }
+            groupTree.push(tree);
+        });
+        let child:Array<any> = [];
+        this.items.forEach((item: any,index: number)=>{
+            let i = allGroup.findIndex((group: any)=>Object.is(group.label,item[this.groupAppField]));
+            if(i < 0){
+                item.groupById = Number((allGroup.length+1) * 100 + (index+1) * 1);
+                item.group = '';
+                child.push(item);
+            }
+        })
+        const Tree: any = {
+            groupById: Number((allGroup.length+1)*100),
+            group: this.$t('app.gridpage.other'),
+            pri:'',
+            title:'',
+            children: child
+        }
+        if(child && child.length > 0){
+            groupTree.push(Tree);
+        }
+        this.items = groupTree;
+        if(this.actualIsOpenEdit) {
+            for(let i = 0; i < this.items.length; i++) {
+                this.gridItemsModel.push(this.getGridRowModel());
+            }
+        }
+    }
+
+    /**
+     * 绘制分组
+     * 
+     * @memberof StoryRelatedBase
+     */
+    public drawGroup(){
+        if(!this.isEnableGroup) return;
+        // 分组
+        let allGroup: Array<any> = [];
+        this.items.forEach((item: any)=>{
+            if(item.hasOwnProperty(this.groupAppField)){
+                allGroup.push(item[this.groupAppField]);
+            }
+        });
+        let groupTree:Array<any> = [];
+        allGroup = [...new Set(allGroup)];
+        if(allGroup.length == 0){
+            console.warn("分组数据无效");
+        }
+        // 组装数据
+        allGroup.forEach((group: any, groupIndex: number)=>{
+            let children:Array<any> = [];
+            this.items.forEach((item: any,itemIndex: number)=>{
+                if(Object.is(group,item[this.groupAppField])){
+                    item.groupById = Number((groupIndex+1) * 100 + (itemIndex+1) * 1);
+                    item.group = '';
+                    children.push(item);
+                }
+            });
+            group = group ? group : this.$t('app.gridpage.other');
+            const tree: any ={
+                groupById: Number((groupIndex+1)*100),
+                group: group,
+                pri:'',
+                title:'',
+                children: children,
+            }
+            groupTree.push(tree);
+        });
+        this.items = groupTree;
+        if(this.actualIsOpenEdit) {
+            for(let i = 0; i < this.items.length; i++) {
+                this.gridItemsModel.push(this.getGridRowModel());
+            }
+        }
+    }
+    
     /**
      * 计算数据对象类型的默认值
      * @param {string}  action 行为
