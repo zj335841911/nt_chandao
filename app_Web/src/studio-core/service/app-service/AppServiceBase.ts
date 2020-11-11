@@ -86,11 +86,11 @@ export class AppServiceBase {
             location.href = loginUrl;
         } else {
             // 后期此处应调用后天退出，明确可以退出后才退出
-            if (Environment.LoginMode === 'UAA') {
+            if (Environment.LoginMode.toUpperCase() === 'UAA') {
                 location.href = `${Environment.LoginUrl}?redirect=${encodeURIComponent(redirect)}`;
-            } else if (Environment.LoginMode === 'CAS') {
-                location.href = `${Environment.CasUrl}/logout?service=${encodeURIComponent(`${Environment.CasUrl}/login?service=${encodeURIComponent(`${window.location.origin}${Environment.BaseUrl}/appdata?RU=${encodeURIComponent(redirect)}`)}`)}`;
-            } else {
+            } else if (Environment.LoginMode.toUpperCase() === 'CAS') {
+                location.href = `${Environment.CasUrl}/logout?service=${encodeURIComponent(`${Environment.CasUrl}/login?service=${encodeURIComponent(`${window.location.origin}/cas-login.html?RU=${encodeURIComponent(location.href)}`)}`)}`;
+            }  else {
                 location.href = `${location.origin}${location.pathname}#/login?redirect=${encodeURIComponent(redirect)}`;
                 setTimeout(() => {
                     location.reload();

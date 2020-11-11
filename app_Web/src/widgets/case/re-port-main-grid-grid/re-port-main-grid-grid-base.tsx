@@ -258,6 +258,46 @@ export class RePortMainGridGridBase extends GridControlBase {
     }
 
     /**
+     * 是否启用分组
+     *
+     * @type {boolean}
+     * @memberof RePortMainGridBase
+     */
+    public isEnableGroup:boolean = false;
+
+    /**
+     * 分组属性
+     *
+     * @type {string}
+     * @memberof RePortMainGridBase
+     */
+    public groupAppField:string ="";
+
+    /**
+     * 分组模式
+     *
+     * @type {string}
+     * @memberof RePortMainGridBase
+     */
+    public groupMode:string ="NONE";
+
+    /**
+     * 分组代码表标识
+     * 
+     * @type {string}
+     * @memberof RePortMainGridBase
+     */
+    public codelistTag: string = "";
+
+    /**
+     * 分组代码表类型
+     * 
+     * @type {string}
+     * @memberof RePortMainGridBase
+     */
+    public codelistType: string = "";
+    
+    /**
      * 属性值规则
      *
      * @type {*}

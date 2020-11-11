@@ -179,6 +179,46 @@ export class TestGridBase extends GridControlBase {
     }
 
     /**
+     * 是否启用分组
+     *
+     * @type {boolean}
+     * @memberof TestBase
+     */
+    public isEnableGroup:boolean = false;
+
+    /**
+     * 分组属性
+     *
+     * @type {string}
+     * @memberof TestBase
+     */
+    public groupAppField:string ="";
+
+    /**
+     * 分组模式
+     *
+     * @type {string}
+     * @memberof TestBase
+     */
+    public groupMode:string ="NONE";
+
+    /**
+     * 分组代码表标识
+     * 
+     * @type {string}
+     * @memberof TestBase
+     */
+    public codelistTag: string = "";
+
+    /**
+     * 分组代码表类型
+     * 
+     * @type {string}
+     * @memberof TestBase
+     */
+    public codelistType: string = "";
+    
+    /**
      * 属性值规则
      *
      * @type {*}

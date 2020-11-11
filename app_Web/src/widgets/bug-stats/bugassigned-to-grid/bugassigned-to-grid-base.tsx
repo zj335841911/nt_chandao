@@ -178,6 +178,46 @@ export class BugassignedToGridBase extends GridControlBase {
     }
 
     /**
+     * 是否启用分组
+     *
+     * @type {boolean}
+     * @memberof BugassignedToBase
+     */
+    public isEnableGroup:boolean = true;
+
+    /**
+     * 分组属性
+     *
+     * @type {string}
+     * @memberof BugassignedToBase
+     */
+    public groupAppField:string ="assignedto";
+
+    /**
+     * 分组模式
+     *
+     * @type {string}
+     * @memberof BugassignedToBase
+     */
+    public groupMode:string ="AUTO";
+
+    /**
+     * 分组代码表标识
+     * 
+     * @type {string}
+     * @memberof BugassignedToBase
+     */
+    public codelistTag: string = "UserRealName";
+
+    /**
+     * 分组代码表类型
+     * 
+     * @type {string}
+     * @memberof BugassignedToBase
+     */
+    public codelistType: string = "DYNAMIC";
+    
+    /**
      * 属性值规则
      *
      * @type {*}

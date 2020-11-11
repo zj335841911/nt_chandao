@@ -379,7 +379,7 @@ export class MyWorkPCCalendarBase extends MainControlBase {
                 if(_this.events.length > 0){
                     _this.events[0].className = "select-first-event";
                 }
-                _this.calendarClass = "calendar select-first-calendar";
+                // _this.calendarClass = "calendar select-first-calendar";
             }
             let filterEvents = this.events.filter((event:any)=>{
                 return _this.isShowlegend[event.itemType];

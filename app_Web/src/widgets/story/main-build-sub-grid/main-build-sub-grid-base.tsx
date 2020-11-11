@@ -251,6 +251,46 @@ export class Main_BuildSubGridBase extends GridControlBase {
     }
 
     /**
+     * 是否启用分组
+     *
+     * @type {boolean}
+     * @memberof Main_BuildSubBase
+     */
+    public isEnableGroup:boolean = false;
+
+    /**
+     * 分组属性
+     *
+     * @type {string}
+     * @memberof Main_BuildSubBase
+     */
+    public groupAppField:string ="";
+
+    /**
+     * 分组模式
+     *
+     * @type {string}
+     * @memberof Main_BuildSubBase
+     */
+    public groupMode:string ="NONE";
+
+    /**
+     * 分组代码表标识
+     * 
+     * @type {string}
+     * @memberof Main_BuildSubBase
+     */
+    public codelistTag: string = "";
+
+    /**
+     * 分组代码表类型
+     * 
+     * @type {string}
+     * @memberof Main_BuildSubBase
+     */
+    public codelistType: string = "";
+    
+    /**
      * 属性值规则
      *
      * @type {*}

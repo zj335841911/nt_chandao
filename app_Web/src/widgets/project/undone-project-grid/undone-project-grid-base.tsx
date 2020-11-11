@@ -97,14 +97,6 @@ export class UndoneProjectGridBase extends GridControlBase {
     protected localStorageTag: string = 'zt_project_undoneproject_grid';
 
     /**
-     * 是否支持分页
-     *
-     * @type {boolean}
-     * @memberof UndoneProjectGridBase
-     */
-    public isEnablePagingBar: boolean = false;
-
-    /**
      * 排序方向
      *
      * @type {string}
@@ -119,14 +111,6 @@ export class UndoneProjectGridBase extends GridControlBase {
      * @memberof UndoneProjectGridBase
      */
     public minorSortPSDEF: string = 'openeddate';
-
-    /**
-     * 分页条数
-     *
-     * @type {number}
-     * @memberof UndoneProjectGridBase
-     */
-    public limit: number = 10;
 
     /**
      * 所有列成员
@@ -185,6 +169,46 @@ export class UndoneProjectGridBase extends GridControlBase {
         }
     }
 
+    /**
+     * 是否启用分组
+     *
+     * @type {boolean}
+     * @memberof UndoneProjectBase
+     */
+    public isEnableGroup:boolean = false;
+
+    /**
+     * 分组属性
+     *
+     * @type {string}
+     * @memberof UndoneProjectBase
+     */
+    public groupAppField:string ="";
+
+    /**
+     * 分组模式
+     *
+     * @type {string}
+     * @memberof UndoneProjectBase
+     */
+    public groupMode:string ="NONE";
+
+    /**
+     * 分组代码表标识
+     * 
+     * @type {string}
+     * @memberof UndoneProjectBase
+     */
+    public codelistTag: string = "";
+
+    /**
+     * 分组代码表类型
+     * 
+     * @type {string}
+     * @memberof UndoneProjectBase
+     */
+    public codelistType: string = "";
+    
     /**
      * 属性值规则
      *

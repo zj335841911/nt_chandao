@@ -257,6 +257,46 @@ export class SubTaskNewGridBase extends GridControlBase {
     }
 
     /**
+     * 是否启用分组
+     *
+     * @type {boolean}
+     * @memberof SubTaskNewBase
+     */
+    public isEnableGroup:boolean = false;
+
+    /**
+     * 分组属性
+     *
+     * @type {string}
+     * @memberof SubTaskNewBase
+     */
+    public groupAppField:string ="";
+
+    /**
+     * 分组模式
+     *
+     * @type {string}
+     * @memberof SubTaskNewBase
+     */
+    public groupMode:string ="NONE";
+
+    /**
+     * 分组代码表标识
+     * 
+     * @type {string}
+     * @memberof SubTaskNewBase
+     */
+    public codelistTag: string = "";
+
+    /**
+     * 分组代码表类型
+     * 
+     * @type {string}
+     * @memberof SubTaskNewBase
+     */
+    public codelistType: string = "";
+    
+    /**
      * 属性值规则
      *
      * @type {*}

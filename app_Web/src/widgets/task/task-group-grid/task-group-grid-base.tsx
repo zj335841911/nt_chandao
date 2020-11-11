@@ -503,6 +503,46 @@ export class TaskGroupGridBase extends GridControlBase {
     }
 
     /**
+     * 是否启用分组
+     *
+     * @type {boolean}
+     * @memberof TaskGroupBase
+     */
+    public isEnableGroup:boolean = true;
+
+    /**
+     * 分组属性
+     *
+     * @type {string}
+     * @memberof TaskGroupBase
+     */
+    public groupAppField:string ="status1";
+
+    /**
+     * 分组模式
+     *
+     * @type {string}
+     * @memberof TaskGroupBase
+     */
+    public groupMode:string ="CODELIST";
+
+    /**
+     * 分组代码表标识
+     * 
+     * @type {string}
+     * @memberof TaskGroupBase
+     */
+    public codelistTag: string = "TaskStatusCK";
+
+    /**
+     * 分组代码表类型
+     * 
+     * @type {string}
+     * @memberof TaskGroupBase
+     */
+    public codelistType: string = "STATIC";
+    
+    /**
      * 属性值规则
      *
      * @type {*}

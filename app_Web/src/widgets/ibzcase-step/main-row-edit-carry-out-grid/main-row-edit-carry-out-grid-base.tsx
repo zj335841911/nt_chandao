@@ -193,6 +193,46 @@ export class Main_RowEdit_CarryOutGridBase extends GridControlBase {
     }
 
     /**
+     * 是否启用分组
+     *
+     * @type {boolean}
+     * @memberof Main_RowEdit_CarryOutBase
+     */
+    public isEnableGroup:boolean = false;
+
+    /**
+     * 分组属性
+     *
+     * @type {string}
+     * @memberof Main_RowEdit_CarryOutBase
+     */
+    public groupAppField:string ="";
+
+    /**
+     * 分组模式
+     *
+     * @type {string}
+     * @memberof Main_RowEdit_CarryOutBase
+     */
+    public groupMode:string ="NONE";
+
+    /**
+     * 分组代码表标识
+     * 
+     * @type {string}
+     * @memberof Main_RowEdit_CarryOutBase
+     */
+    public codelistTag: string = "";
+
+    /**
+     * 分组代码表类型
+     * 
+     * @type {string}
+     * @memberof Main_RowEdit_CarryOutBase
+     */
+    public codelistType: string = "";
+    
+    /**
      * 属性值规则
      *
      * @type {*}
