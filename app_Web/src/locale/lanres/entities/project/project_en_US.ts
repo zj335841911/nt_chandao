@@ -165,6 +165,10 @@ export default {
 			caption: "未关闭的项目",
       		title: "项目表格视图",
 		},
+		usr2gridview9: {
+			caption: "未完成项目",
+      		title: "项目表格视图",
+		},
 		editview_suspend: {
 			caption: "项目",
       		title: "项目",
@@ -485,6 +489,16 @@ export default {
 		uiactions: {
 		},
 	},
+	undoneproject_grid: {
+		nodata: "",
+		columns: {
+			name: "项目名称",
+			openedby: "由谁创建",
+			openeddate: "创建日期",
+		},
+		uiactions: {
+		},
+	},
 	default_searchform: {
 		details: {
 			formpage1: "常规条件", 
@@ -595,6 +609,8 @@ export default {
 			caption: "取消置顶",
 			tip: "取消置顶",
 		},
+	},
+	usr2gridview9toolbar_toolbar: {
 	},
 	exp_list: {
 		nodata: "",

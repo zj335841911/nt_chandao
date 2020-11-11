@@ -617,6 +617,7 @@ SRFNAVPARAM.project=%project%|
 |-|测试主页|APPPORTALVIEW|&nbsp;|
 |-|用例库用例数据看板视图|DEPORTALVIEW|&nbsp;|
 |-|测试|DETABEXPVIEW|&nbsp;|
+|-|项目表格视图|DEGRIDVIEW9|&nbsp;|
 |-|群组编辑视图|DEEDITVIEW|&nbsp;|
 |-|需求模块|DEOPTVIEW|&nbsp;|
 |-|用户表格视图|DEGRIDVIEW|&nbsp;|

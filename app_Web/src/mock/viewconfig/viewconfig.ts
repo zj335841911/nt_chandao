@@ -3279,6 +3279,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProductMyTestTabExpView",
             "viewtag": "d21c783cde14166ba9deb09e746a0f28"
         },
+        "projectusr2gridview9": {
+            "title": "项目表格视图",
+            "caption": "未完成项目",
+            "viewtype": "DEGRIDVIEW9",
+            "viewmodule": "zentao",
+            "viewname": "ProjectUsr2GridView9",
+            "viewtag": "d290709d6a36e20e79d60e873047ec0d"
+        },
         "groupeditview": {
             "title": "群组编辑视图",
             "caption": "分组信息",
