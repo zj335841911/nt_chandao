@@ -834,47 +834,6 @@ export class FavoriteMainGridBase extends GridControlBase {
                     children.push(item);
                 }
             });
-            if(children && children.length === 0){
-                children = [
-                    {
-                        groupById: Number((i+1)*100+(i+1) * 1),
-                        group: '',
-                        id:'',
-                        pri:'',
-                        confirmed:'',
-                        productname:'',
-                        projectname:'',
-                        title:'',
-                        status:'',
-                        openedby:'',
-                        openeddate:'',
-                        assignedto:'',
-                        resolution:'',
-                        ConfirmBug:{
-                            visabled: false
-                        },
-                        ResolveBug:{
-                            visabled: false
-                        },
-                        CloseBug:{
-                            visabled: false
-                        },
-                        MainEdit:{
-                            visabled: false
-                        },
-                        Copy:{
-                            visabled: false
-                        },
-                        BugFavorites:{
-                            visabled: false
-                        },
-                        BugNFavorites:{
-                            visabled: false
-                        },
-                        isfavorites:'',
-                    }
-                ]
-            }
             const tree: any ={
                 groupById: Number((i+1)*100),
                 group: group.label,
@@ -1050,7 +1009,7 @@ export class FavoriteMainGridBase extends GridControlBase {
             }
         }
     }
-    
+
     /**
      * 计算数据对象类型的默认值
      * @param {string}  action 行为

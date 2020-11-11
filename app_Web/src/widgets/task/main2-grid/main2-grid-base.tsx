@@ -772,43 +772,6 @@ export class Main2GridBase extends GridControlBase {
                     children.push(item);
                 }
             });
-            if(children && children.length === 0){
-                children = [
-                    {
-                        groupById: Number((i+1)*100+(i+1) * 1),
-                        group: '',
-                        id:'',
-                        pri:'',
-                        name:'',
-                        deadline:'',
-                        assignedto:'',
-                        consumed:'',
-                        left:'',
-                        status1:'',
-                        AssignTask:{
-                            visabled: false
-                        },
-                        StartTask:{
-                            visabled: false
-                        },
-                        Activation:{
-                            visabled: false
-                        },
-                        WorkHours1:{
-                            visabled: false
-                        },
-                        DoneTask:{
-                            visabled: false
-                        },
-                        CloseTask:{
-                            visabled: false
-                        },
-                        MainEdit:{
-                            visabled: false
-                        },
-                    }
-                ]
-            }
             const tree: any ={
                 groupById: Number((i+1)*100),
                 group: group.label,
@@ -972,7 +935,7 @@ export class Main2GridBase extends GridControlBase {
             }
         }
     }
-    
+
     /**
      * 计算数据对象类型的默认值
      * @param {string}  action 行为

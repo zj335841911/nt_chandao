@@ -734,48 +734,6 @@ export class TaskGroupGridBase extends GridControlBase {
                     children.push(item);
                 }
             });
-            if(children && children.length === 0){
-                children = [
-                    {
-                        groupById: Number((i+1)*100+(i+1) * 1),
-                        group: '',
-                        status1:'',
-                        id:'',
-                        pri:'',
-                        name:'',
-                        assignedto:'',
-                        finishedby:'',
-                        estimate:'',
-                        consumed:'',
-                        left:'',
-                        deadline:'',
-                        confirmStoryChange:{
-                            visabled: false
-                        },
-                        MStartTaskDash1:{
-                            visabled: false
-                        },
-                        CloseTask:{
-                            visabled: false
-                        },
-                        done:{
-                            visabled: false
-                        },
-                        MainEdit:{
-                            visabled: false
-                        },
-                        NewSubTask:{
-                            visabled: false
-                        },
-                        TaskFavorites:{
-                            visabled: false
-                        },
-                        TaskNFavorites:{
-                            visabled: false
-                        },
-                    }
-                ]
-            }
             const tree: any ={
                 groupById: Number((i+1)*100),
                 group: group.label,
@@ -954,7 +912,7 @@ export class TaskGroupGridBase extends GridControlBase {
             }
         }
     }
-    
+
     /**
      * 计算数据对象类型的默认值
      * @param {string}  action 行为

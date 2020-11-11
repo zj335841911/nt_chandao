@@ -371,18 +371,6 @@ export class MyUpcomingGridBase extends GridControlBase {
                     children.push(item);
                 }
             });
-            if(children && children.length === 0){
-                children = [
-                    {
-                        groupById: Number((i+1)*100+(i+1) * 1),
-                        group: '',
-                        date1:'',
-                        begin:'',
-                        pri:'',
-                        name:'',
-                    }
-                ]
-            }
             const tree: any ={
                 groupById: Number((i+1)*100),
                 group: group.label,
@@ -471,7 +459,7 @@ export class MyUpcomingGridBase extends GridControlBase {
             }
         }
     }
-    
+
     /**
      * 计算数据对象类型的默认值
      * @param {string}  action 行为
