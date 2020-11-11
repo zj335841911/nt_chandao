@@ -497,6 +497,12 @@ export default {
 			tip: "取消置顶",
 		},
 	},
+	leftsidebarlistviewlist_batchtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "Edit",
+			tip: "Edit {0}",
+		},
+	},
 	gridviewtoolbar_toolbar: {
 		deuiaction2: {
 			caption: "刷新",
@@ -531,6 +537,7 @@ export default {
 		uiactions: {
         product_producttop: "置顶",
         product_cancelproducttop: "取消置顶",
+        edit: "Edit",
 		},
 	},
 	productstatus_chart: {

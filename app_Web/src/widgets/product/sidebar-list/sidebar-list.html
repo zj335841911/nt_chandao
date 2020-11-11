@@ -4,5 +4,13 @@
     </div>
     <div v-else>
         {{$t('entities.product.sidebar_list.nodata')}}
+        <span class="quick-toolbar">
+                        <view-toolbar :model="leftsidebarlistviewlist_quicktoolbarModels" @item-click="list_quicktoolbar_click.apply(_self, arguments)"/>
+        </span>
     </div>
+    <row class='list-pagination' v-if="selections.length > 0">
+        <span class="batch-toolbar">
+                    <view-toolbar :model="leftsidebarlistviewlist_batchtoolbarModels" @item-click="list_batchtoolbar_click.apply(_self, arguments)"/>
+        </span>
+    </row>
 </div>

@@ -40,7 +40,7 @@ part [shape=none, margin=0, label=<
 >];
 
 
-QuickAccess_RecentUpdate [shape=none, margin=0, label=<
+RecentUpdateQuickAccess [shape=none, margin=0, label=<
 <TABLE WIDTH="150" BORDER="1" CELLBORDER="1" >
 <TR>
 <TD WIDTH="115" BORDER="0" COLSPAN="3"></TD><TD WIDTH="35" BORDER="0">V</TD>
@@ -83,9 +83,9 @@ start -> own ;
 own -> part [style=dashed,arrowhead=diamond,label="<包含>"] ;
 
 
-part -> QuickAccess_RecentUpdate [style=dashed,label=<最近更新<BR/>(迁移/popup)>];
+part -> RecentUpdateQuickAccess [style=dashed,label=<最近更新<BR/>(迁移/popup)>];
 
-QuickAccess_RecentUpdate -> end ;
+RecentUpdateQuickAccess -> end ;
 
 
 

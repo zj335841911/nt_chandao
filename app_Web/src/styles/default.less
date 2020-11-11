@@ -1039,6 +1039,16 @@ div::-webkit-scrollbar-thumb {
     .app-list-item.isSelect {
         background: rgba(var(--view-background-color-active-rgb), 0.5);
     }
+
+    .list-pagination {
+        position: fixed;
+        bottom: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        z-index: 5;
+    }
 }
 
 // 列表: 暂无数据
@@ -1382,9 +1392,12 @@ div::-webkit-scrollbar-thumb {
     }
 
     .app-data-empty {
-        height: 100%;
+        height: calc(100% - 50px);
         text-align: center;
         padding-top: 50px;
+        .quick-toolbar >.toolbar-container >.toolbar-item {
+            height: 50px;
+        }
     }
 
     .dataview-pagination {

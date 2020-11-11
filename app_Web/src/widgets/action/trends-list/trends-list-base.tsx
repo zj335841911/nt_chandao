@@ -94,4 +94,6 @@ export class TrendsListBase extends ListControlBase {
     public minorSortPSDEF: string = 'date';
 
 
+
+
 }

@@ -4,5 +4,8 @@
     </div>
     <div v-else>
         {{$t('entities.product.testsidebar_list.nodata')}}
+        <span class="quick-toolbar">
+                        <view-toolbar :model="testleftsidebarlistviewlist_quicktoolbarModels" @item-click="list_quicktoolbar_click.apply(_self, arguments)"/>
+        </span>
     </div>
 </div>

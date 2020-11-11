@@ -6,5 +6,8 @@
     </div>
     <div v-else>
         {{$t('entities.product.testexp_list.nodata')}}
+        <span class="quick-toolbar">
+                        <view-toolbar :model="testlistexpviewlistexpbar_list_quicktoolbarModels" @item-click="listexpbar_list_quicktoolbar_click.apply(_self, arguments)"/>
+        </span>
     </div>
 </div>
