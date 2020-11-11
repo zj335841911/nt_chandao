@@ -63,12 +63,12 @@
         </view_pickupviewpanel>
     </ion-content>
     <ion-footer class="view-footer">
-        <ion-toolbar style="text-align: center;">
-    <div class="mobpickupview_button">
-      <ion-button class="pick-btn" @click="onClickCancel" color="medium">{{$t('app.button.cancel')}}</ion-button>
+        <div>
+    <div class="demobmpickupview_button">
+      <div class="selectedCount">已选择：{{viewSelections.length}}<ion-icon name="chevron-up-outline"></ion-icon></div>
       <ion-button class="pick-btn" @click="onClickOk" :disabled="viewSelections.length === 0">{{$t('app.button.confirm')}}</ion-button>
     </div>
-</ion-toolbar>
+</div>
 
     </ion-footer>
 </ion-page>

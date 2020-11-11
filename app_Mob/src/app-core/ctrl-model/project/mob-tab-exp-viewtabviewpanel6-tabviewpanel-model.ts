@@ -228,6 +228,9 @@ export class MobTabExpViewtabviewpanel6Model {
       {
         name: 'noticeusers',
       },
+      {
+        name: 'doclincnt',
+      },
     ]
   }
 

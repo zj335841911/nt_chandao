@@ -643,6 +643,14 @@ public class ProjectDTO extends DTOBase implements Serializable {
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
     private String noticeusers;
 
+    /**
+     * 属性 [DOCLINCNT]
+     *
+     */
+    @JSONField(name = "doclincnt")
+    @JsonProperty("doclincnt")
+    private Integer doclincnt;
+
 
     /**
      * 设置 [OPENEDVERSION]

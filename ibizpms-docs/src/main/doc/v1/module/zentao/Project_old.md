@@ -98,6 +98,7 @@ hide members
 |取消任务数|CANCELTASKCNT|INT|&nbsp;|
 |需求变更数|STORYCHANGECNT|INT|&nbsp;|
 |消息通知用户|NOTICEUSERS|TEXT|&nbsp;|
+|文档数量|DOCLINCNT|INT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -175,6 +176,7 @@ hide members
 |取消任务数|默认规则|默认规则|
 |需求变更数|默认规则|默认规则|
 |消息通知用户|默认规则|内容长度必须小于等于[100]|
+|文档数量|默认规则|默认规则|
 
 ## 状态控制
 
