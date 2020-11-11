@@ -46,7 +46,7 @@ public class IBZProProduct extends EntityMP implements Serializable {
     /**
      * 编号
      */
-    @DEField(isKeyField=true)
+    @DEField(isKeyField = true)
     @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
@@ -79,7 +79,7 @@ public class IBZProProduct extends EntityMP implements Serializable {
     /**
      * 设置 [产品名称]
      */
-    public void setName(String name){
+    public void setName(String name) {
         this.name = name ;
         this.modify("name",name);
     }
@@ -87,7 +87,7 @@ public class IBZProProduct extends EntityMP implements Serializable {
     /**
      * 设置 [IBIZ标识]
      */
-    public void setIbizid(String ibizid){
+    public void setIbizid(String ibizid) {
         this.ibizid = ibizid ;
         this.modify("ibiz_id",ibizid);
     }
@@ -95,7 +95,7 @@ public class IBZProProduct extends EntityMP implements Serializable {
     /**
      * 设置 [产品代号]
      */
-    public void setCode(String code){
+    public void setCode(String code) {
         this.code = code ;
         this.modify("code",code);
     }

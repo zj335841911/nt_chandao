@@ -34,7 +34,7 @@ import cn.ibizlab.pms.util.domain.EntityClient;
 public class PSModule extends EntityClient implements Serializable {
     @Override
     public void modify(String field, Object val) {
-        getExtensionparams().put("dirtyflagenable",true);
+        getExtensionparams().put("dirtyflagenable", true);
         super.modify(field, val);
     }
 
@@ -48,7 +48,7 @@ public class PSModule extends EntityClient implements Serializable {
     /**
      * 系统模块标识
      */
-    @DEField(isKeyField=true)
+    @DEField(isKeyField = true)
     @JSONField(name = "psmoduleid")
     @JsonProperty("psmoduleid")
     private String psmoduleid;
@@ -65,8 +65,8 @@ public class PSModule extends EntityClient implements Serializable {
      * 建立时间
      */
     @DEField(preType = DEPredefinedFieldType.CREATEDATE)
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "createdate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "createdate" , format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("createdate")
     private Timestamp createdate;
 
@@ -74,8 +74,8 @@ public class PSModule extends EntityClient implements Serializable {
      * 更新时间
      */
     @DEField(preType = DEPredefinedFieldType.UPDATEDATE)
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "updatedate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "updatedate" , format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("updatedate")
     private Timestamp updatedate;
 
@@ -271,7 +271,7 @@ public class PSModule extends EntityClient implements Serializable {
     /**
      * 设置 [系统模块名称]
      */
-    public void setPsmodulename(String psmodulename){
+    public void setPsmodulename(String psmodulename) {
         this.psmodulename = psmodulename ;
         this.modify("psmodulename",psmodulename);
     }
@@ -279,7 +279,7 @@ public class PSModule extends EntityClient implements Serializable {
     /**
      * 设置 [类包参数]
      */
-    public void setClspkgparams(String clspkgparams){
+    public void setClspkgparams(String clspkgparams) {
         this.clspkgparams = clspkgparams ;
         this.modify("clspkgparams",clspkgparams);
     }
@@ -287,7 +287,7 @@ public class PSModule extends EntityClient implements Serializable {
     /**
      * 设置 [显示颜色]
      */
-    public void setColor(String color){
+    public void setColor(String color) {
         this.color = color ;
         this.modify("color",color);
     }
@@ -295,7 +295,7 @@ public class PSModule extends EntityClient implements Serializable {
     /**
      * 设置 [默认模块]
      */
-    public void setDefaultflag(Integer defaultflag){
+    public void setDefaultflag(Integer defaultflag) {
         this.defaultflag = defaultflag ;
         this.modify("defaultflag",defaultflag);
     }
@@ -303,7 +303,7 @@ public class PSModule extends EntityClient implements Serializable {
     /**
      * 设置 [代码名称]
      */
-    public void setCodename(String codename){
+    public void setCodename(String codename) {
         this.codename = codename ;
         this.modify("codename",codename);
     }
@@ -311,7 +311,7 @@ public class PSModule extends EntityClient implements Serializable {
     /**
      * 设置 [模型锁模式]
      */
-    public void setLockflag(Integer lockflag){
+    public void setLockflag(Integer lockflag) {
         this.lockflag = lockflag ;
         this.modify("lockflag",lockflag);
     }
@@ -319,7 +319,7 @@ public class PSModule extends EntityClient implements Serializable {
     /**
      * 设置 [备注]
      */
-    public void setMemo(String memo){
+    public void setMemo(String memo) {
         this.memo = memo ;
         this.modify("memo",memo);
     }
@@ -327,7 +327,7 @@ public class PSModule extends EntityClient implements Serializable {
     /**
      * 设置 [模块标记2]
      */
-    public void setModtag2(String modtag2){
+    public void setModtag2(String modtag2) {
         this.modtag2 = modtag2 ;
         this.modify("modtag2",modtag2);
     }
@@ -335,7 +335,7 @@ public class PSModule extends EntityClient implements Serializable {
     /**
      * 设置 [模块标记]
      */
-    public void setModtag(String modtag){
+    public void setModtag(String modtag) {
         this.modtag = modtag ;
         this.modify("modtag",modtag);
     }
@@ -343,7 +343,7 @@ public class PSModule extends EntityClient implements Serializable {
     /**
      * 设置 [模块标记4]
      */
-    public void setModtag4(String modtag4){
+    public void setModtag4(String modtag4) {
         this.modtag4 = modtag4 ;
         this.modify("modtag4",modtag4);
     }
@@ -351,7 +351,7 @@ public class PSModule extends EntityClient implements Serializable {
     /**
      * 设置 [模块标记3]
      */
-    public void setModtag3(String modtag3){
+    public void setModtag3(String modtag3) {
         this.modtag3 = modtag3 ;
         this.modify("modtag3",modtag3);
     }
@@ -359,7 +359,7 @@ public class PSModule extends EntityClient implements Serializable {
     /**
      * 设置 [模块编号]
      */
-    public void setModulesn(String modulesn){
+    public void setModulesn(String modulesn) {
         this.modulesn = modulesn ;
         this.modify("modulesn",modulesn);
     }
@@ -367,7 +367,7 @@ public class PSModule extends EntityClient implements Serializable {
     /**
      * 设置 [无视图模式]
      */
-    public void setNoviewmode(Integer noviewmode){
+    public void setNoviewmode(Integer noviewmode) {
         this.noviewmode = noviewmode ;
         this.modify("noviewmode",noviewmode);
     }
@@ -375,7 +375,7 @@ public class PSModule extends EntityClient implements Serializable {
     /**
      * 设置 [代码包名]
      */
-    public void setPkgcodename(String pkgcodename){
+    public void setPkgcodename(String pkgcodename) {
         this.pkgcodename = pkgcodename ;
         this.modify("pkgcodename",pkgcodename);
     }
@@ -383,7 +383,7 @@ public class PSModule extends EntityClient implements Serializable {
     /**
      * 设置 [子系统模块]
      */
-    public void setSubsysmodule(Integer subsysmodule){
+    public void setSubsysmodule(Integer subsysmodule) {
         this.subsysmodule = subsysmodule ;
         this.modify("subsysmodule",subsysmodule);
     }
@@ -391,7 +391,7 @@ public class PSModule extends EntityClient implements Serializable {
     /**
      * 设置 [服务API模式]
      */
-    public void setServiceapiflag(Integer serviceapiflag){
+    public void setServiceapiflag(Integer serviceapiflag) {
         this.serviceapiflag = serviceapiflag ;
         this.modify("serviceapiflag",serviceapiflag);
     }
@@ -399,7 +399,7 @@ public class PSModule extends EntityClient implements Serializable {
     /**
      * 设置 [用户分类]
      */
-    public void setUsercat(String usercat){
+    public void setUsercat(String usercat) {
         this.usercat = usercat ;
         this.modify("usercat",usercat);
     }
@@ -407,7 +407,7 @@ public class PSModule extends EntityClient implements Serializable {
     /**
      * 设置 [子系统类型]
      */
-    public void setSysreftype(String sysreftype){
+    public void setSysreftype(String sysreftype) {
         this.sysreftype = sysreftype ;
         this.modify("sysreftype",sysreftype);
     }
@@ -415,7 +415,7 @@ public class PSModule extends EntityClient implements Serializable {
     /**
      * 设置 [用户标记2]
      */
-    public void setUsertag2(String usertag2){
+    public void setUsertag2(String usertag2) {
         this.usertag2 = usertag2 ;
         this.modify("usertag2",usertag2);
     }
@@ -423,7 +423,7 @@ public class PSModule extends EntityClient implements Serializable {
     /**
      * 设置 [用户标记]
      */
-    public void setUsertag(String usertag){
+    public void setUsertag(String usertag) {
         this.usertag = usertag ;
         this.modify("usertag",usertag);
     }
@@ -431,7 +431,7 @@ public class PSModule extends EntityClient implements Serializable {
     /**
      * 设置 [自定义参数]
      */
-    public void setUserparams(String userparams){
+    public void setUserparams(String userparams) {
         this.userparams = userparams ;
         this.modify("userparams",userparams);
     }
@@ -439,7 +439,7 @@ public class PSModule extends EntityClient implements Serializable {
     /**
      * 设置 [用户标记3]
      */
-    public void setUsertag3(String usertag3){
+    public void setUsertag3(String usertag3) {
         this.usertag3 = usertag3 ;
         this.modify("usertag3",usertag3);
     }
@@ -447,7 +447,7 @@ public class PSModule extends EntityClient implements Serializable {
     /**
      * 设置 [用户标记4]
      */
-    public void setUsertag4(String usertag4){
+    public void setUsertag4(String usertag4) {
         this.usertag4 = usertag4 ;
         this.modify("usertag4",usertag4);
     }
@@ -455,7 +455,7 @@ public class PSModule extends EntityClient implements Serializable {
     /**
      * 设置 [系统]
      */
-    public void setPssystemid(String pssystemid){
+    public void setPssystemid(String pssystemid) {
         this.pssystemid = pssystemid ;
         this.modify("pssystemid",pssystemid);
     }
@@ -463,7 +463,7 @@ public class PSModule extends EntityClient implements Serializable {
     /**
      * 设置 [系统]
      */
-    public void setPssystemname(String pssystemname){
+    public void setPssystemname(String pssystemname) {
         this.pssystemname = pssystemname ;
         this.modify("pssystemname",pssystemname);
     }

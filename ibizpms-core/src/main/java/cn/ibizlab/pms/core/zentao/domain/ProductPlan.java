@@ -53,7 +53,7 @@ public class ProductPlan extends EntityMP implements Serializable {
     /**
      * 编号
      */
-    @DEField(isKeyField=true)
+    @DEField(isKeyField = true)
     @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
@@ -62,8 +62,8 @@ public class ProductPlan extends EntityMP implements Serializable {
      * 开始日期
      */
     @TableField(value = "`begin`")
-    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "begin" , format="yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "begin", format = "yyyy-MM-dd")
     @JsonProperty("begin")
     private Timestamp begin;
     /**
@@ -78,15 +78,15 @@ public class ProductPlan extends EntityMP implements Serializable {
      * 结束日期
      */
     @TableField(value = "`end`")
-    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "end" , format="yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "end", format = "yyyy-MM-dd")
     @JsonProperty("end")
     private Timestamp end;
     /**
      * 已删除
      */
-    @DEField(defaultValue = "0" , preType = DEPredefinedFieldType.LOGICVALID, logicval = "0" , logicdelval="1")
-    @TableLogic(value= "0",delval="1")
+    @DEField(defaultValue = "0", preType = DEPredefinedFieldType.LOGICVALID, logicval = "0", logicdelval = "1")
+    @TableLogic(value= "0", delval = "1")
     @TableField(value = "`deleted`")
     @JSONField(name = "deleted")
     @JsonProperty("deleted")
@@ -230,7 +230,7 @@ public class ProductPlan extends EntityMP implements Serializable {
     /**
      * 设置 [名称]
      */
-    public void setTitle(String title){
+    public void setTitle(String title) {
         this.title = title ;
         this.modify("title",title);
     }
@@ -238,7 +238,7 @@ public class ProductPlan extends EntityMP implements Serializable {
     /**
      * 设置 [开始日期]
      */
-    public void setBegin(Timestamp begin){
+    public void setBegin(Timestamp begin) {
         this.begin = begin ;
         this.modify("begin",begin);
     }
@@ -246,7 +246,7 @@ public class ProductPlan extends EntityMP implements Serializable {
     /**
      * 格式化日期 [开始日期]
      */
-    public String formatBegin(){
+    public String formatBegin() {
         if (this.begin == null) {
             return null;
         }
@@ -256,7 +256,7 @@ public class ProductPlan extends EntityMP implements Serializable {
     /**
      * 设置 [描述]
      */
-    public void setDesc(String desc){
+    public void setDesc(String desc) {
         this.desc = desc ;
         this.modify("desc",desc);
     }
@@ -264,7 +264,7 @@ public class ProductPlan extends EntityMP implements Serializable {
     /**
      * 设置 [结束日期]
      */
-    public void setEnd(Timestamp end){
+    public void setEnd(Timestamp end) {
         this.end = end ;
         this.modify("end",end);
     }
@@ -272,7 +272,7 @@ public class ProductPlan extends EntityMP implements Serializable {
     /**
      * 格式化日期 [结束日期]
      */
-    public String formatEnd(){
+    public String formatEnd() {
         if (this.end == null) {
             return null;
         }
@@ -282,7 +282,7 @@ public class ProductPlan extends EntityMP implements Serializable {
     /**
      * 设置 [排序]
      */
-    public void setOrder(String order){
+    public void setOrder(String order) {
         this.order = order ;
         this.modify("order",order);
     }
@@ -290,7 +290,7 @@ public class ProductPlan extends EntityMP implements Serializable {
     /**
      * 设置 [平台/分支]
      */
-    public void setBranch(Long branch){
+    public void setBranch(Long branch) {
         this.branch = branch ;
         this.modify("branch",branch);
     }
@@ -298,7 +298,7 @@ public class ProductPlan extends EntityMP implements Serializable {
     /**
      * 设置 [父计划]
      */
-    public void setParent(Long parent){
+    public void setParent(Long parent) {
         this.parent = parent ;
         this.modify("parent",parent);
     }
@@ -306,7 +306,7 @@ public class ProductPlan extends EntityMP implements Serializable {
     /**
      * 设置 [产品]
      */
-    public void setProduct(Long product){
+    public void setProduct(Long product) {
         this.product = product ;
         this.modify("product",product);
     }

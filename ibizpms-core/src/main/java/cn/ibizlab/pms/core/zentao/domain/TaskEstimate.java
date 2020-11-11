@@ -70,7 +70,7 @@ public class TaskEstimate extends EntityMP implements Serializable {
     /**
      * 编号
      */
-    @DEField(isKeyField=true)
+    @DEField(isKeyField = true)
     @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
@@ -79,8 +79,8 @@ public class TaskEstimate extends EntityMP implements Serializable {
      * 日期
      */
     @TableField(value = "`date`")
-    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "date" , format="yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "date", format = "yyyy-MM-dd")
     @JsonProperty("date")
     private Timestamp date;
     /**
@@ -103,8 +103,8 @@ public class TaskEstimate extends EntityMP implements Serializable {
      * 日期
      */
     @TableField(exist = false)
-    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "dates" , format="yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "dates", format = "yyyy-MM-dd")
     @JsonProperty("dates")
     private Timestamp dates;
 
@@ -121,7 +121,7 @@ public class TaskEstimate extends EntityMP implements Serializable {
     /**
      * 设置 [用户]
      */
-    public void setAccount(String account){
+    public void setAccount(String account) {
         this.account = account ;
         this.modify("account",account);
     }
@@ -129,7 +129,7 @@ public class TaskEstimate extends EntityMP implements Serializable {
     /**
      * 设置 [预计剩余]
      */
-    public void setLeft(Double left){
+    public void setLeft(Double left) {
         this.left = left ;
         this.modify("left",left);
     }
@@ -137,7 +137,7 @@ public class TaskEstimate extends EntityMP implements Serializable {
     /**
      * 设置 [总计消耗]
      */
-    public void setConsumed(Double consumed){
+    public void setConsumed(Double consumed) {
         this.consumed = consumed ;
         this.modify("consumed",consumed);
     }
@@ -145,7 +145,7 @@ public class TaskEstimate extends EntityMP implements Serializable {
     /**
      * 设置 [日期]
      */
-    public void setDate(Timestamp date){
+    public void setDate(Timestamp date) {
         this.date = date ;
         this.modify("date",date);
     }
@@ -153,7 +153,7 @@ public class TaskEstimate extends EntityMP implements Serializable {
     /**
      * 格式化日期 [日期]
      */
-    public String formatDate(){
+    public String formatDate() {
         if (this.date == null) {
             return null;
         }
@@ -163,7 +163,7 @@ public class TaskEstimate extends EntityMP implements Serializable {
     /**
      * 设置 [work]
      */
-    public void setWork(String work){
+    public void setWork(String work) {
         this.work = work ;
         this.modify("work",work);
     }
@@ -171,7 +171,7 @@ public class TaskEstimate extends EntityMP implements Serializable {
     /**
      * 设置 [任务]
      */
-    public void setTask(Long task){
+    public void setTask(Long task) {
         this.task = task ;
         this.modify("task",task);
     }

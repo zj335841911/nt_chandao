@@ -60,7 +60,7 @@ public class UserContact extends EntityMP implements Serializable {
     /**
      * id
      */
-    @DEField(isKeyField=true)
+    @DEField(isKeyField = true)
     @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
@@ -79,7 +79,7 @@ public class UserContact extends EntityMP implements Serializable {
     /**
      * 设置 [userList]
      */
-    public void setUserlist(String userlist){
+    public void setUserlist(String userlist) {
         this.userlist = userlist ;
         this.modify("userlist",userlist);
     }
@@ -87,7 +87,7 @@ public class UserContact extends EntityMP implements Serializable {
     /**
      * 设置 [标题]
      */
-    public void setListname(String listname){
+    public void setListname(String listname) {
         this.listname = listname ;
         this.modify("listname",listname);
     }

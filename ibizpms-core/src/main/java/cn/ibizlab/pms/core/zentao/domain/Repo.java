@@ -67,7 +67,7 @@ public class Repo extends EntityMP implements Serializable {
     /**
      * id
      */
-    @DEField(isKeyField=true)
+    @DEField(isKeyField = true)
     @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
@@ -98,8 +98,8 @@ public class Repo extends EntityMP implements Serializable {
      * lastSync
      */
     @TableField(value = "`lastsync`")
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "lastsync" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "lastsync", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("lastsync")
     private Timestamp lastsync;
     /**
@@ -148,8 +148,8 @@ public class Repo extends EntityMP implements Serializable {
     /**
      * 逻辑删除标志
      */
-    @DEField(defaultValue = "0" , preType = DEPredefinedFieldType.LOGICVALID, logicval = "0" , logicdelval="1")
-    @TableLogic(value= "0",delval="1")
+    @DEField(defaultValue = "0", preType = DEPredefinedFieldType.LOGICVALID, logicval = "0", logicdelval = "1")
+    @TableLogic(value= "0", delval = "1")
     @TableField(value = "`deleted`")
     @JSONField(name = "deleted")
     @JsonProperty("deleted")
@@ -167,7 +167,7 @@ public class Repo extends EntityMP implements Serializable {
     /**
      * 设置 [SCM]
      */
-    public void setScm(String scm){
+    public void setScm(String scm) {
         this.scm = scm ;
         this.modify("scm",scm);
     }
@@ -175,7 +175,7 @@ public class Repo extends EntityMP implements Serializable {
     /**
      * 设置 [prefix]
      */
-    public void setPrefix(String prefix){
+    public void setPrefix(String prefix) {
         this.prefix = prefix ;
         this.modify("prefix",prefix);
     }
@@ -183,7 +183,7 @@ public class Repo extends EntityMP implements Serializable {
     /**
      * 设置 [password]
      */
-    public void setPassword(String password){
+    public void setPassword(String password) {
         this.password = password ;
         this.modify("password",password);
     }
@@ -191,7 +191,7 @@ public class Repo extends EntityMP implements Serializable {
     /**
      * 设置 [encoding]
      */
-    public void setEncoding(String encoding){
+    public void setEncoding(String encoding) {
         this.encoding = encoding ;
         this.modify("encoding",encoding);
     }
@@ -199,7 +199,7 @@ public class Repo extends EntityMP implements Serializable {
     /**
      * 设置 [commits]
      */
-    public void setCommits(Integer commits){
+    public void setCommits(Integer commits) {
         this.commits = commits ;
         this.modify("commits",commits);
     }
@@ -207,7 +207,7 @@ public class Repo extends EntityMP implements Serializable {
     /**
      * 设置 [synced]
      */
-    public void setSynced(Integer synced){
+    public void setSynced(Integer synced) {
         this.synced = synced ;
         this.modify("synced",synced);
     }
@@ -215,7 +215,7 @@ public class Repo extends EntityMP implements Serializable {
     /**
      * 设置 [lastSync]
      */
-    public void setLastsync(Timestamp lastsync){
+    public void setLastsync(Timestamp lastsync) {
         this.lastsync = lastsync ;
         this.modify("lastsync",lastsync);
     }
@@ -223,7 +223,7 @@ public class Repo extends EntityMP implements Serializable {
     /**
      * 格式化日期 [lastSync]
      */
-    public String formatLastsync(){
+    public String formatLastsync() {
         if (this.lastsync == null) {
             return null;
         }
@@ -233,7 +233,7 @@ public class Repo extends EntityMP implements Serializable {
     /**
      * 设置 [client]
      */
-    public void setClient(String client){
+    public void setClient(String client) {
         this.client = client ;
         this.modify("client",client);
     }
@@ -241,7 +241,7 @@ public class Repo extends EntityMP implements Serializable {
     /**
      * 设置 [acl]
      */
-    public void setAcl(String acl){
+    public void setAcl(String acl) {
         this.acl = acl ;
         this.modify("acl",acl);
     }
@@ -249,7 +249,7 @@ public class Repo extends EntityMP implements Serializable {
     /**
      * 设置 [encrypt]
      */
-    public void setEncrypt(String encrypt){
+    public void setEncrypt(String encrypt) {
         this.encrypt = encrypt ;
         this.modify("encrypt",encrypt);
     }
@@ -257,7 +257,7 @@ public class Repo extends EntityMP implements Serializable {
     /**
      * 设置 [account]
      */
-    public void setAccount(String account){
+    public void setAccount(String account) {
         this.account = account ;
         this.modify("account",account);
     }
@@ -265,7 +265,7 @@ public class Repo extends EntityMP implements Serializable {
     /**
      * 设置 [desc]
      */
-    public void setDesc(String desc){
+    public void setDesc(String desc) {
         this.desc = desc ;
         this.modify("desc",desc);
     }
@@ -273,7 +273,7 @@ public class Repo extends EntityMP implements Serializable {
     /**
      * 设置 [name]
      */
-    public void setName(String name){
+    public void setName(String name) {
         this.name = name ;
         this.modify("name",name);
     }
@@ -281,7 +281,7 @@ public class Repo extends EntityMP implements Serializable {
     /**
      * 设置 [path]
      */
-    public void setPath(String path){
+    public void setPath(String path) {
         this.path = path ;
         this.modify("path",path);
     }

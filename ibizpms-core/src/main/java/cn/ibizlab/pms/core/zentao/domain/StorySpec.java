@@ -62,7 +62,7 @@ public class StorySpec extends EntityMP implements Serializable {
     /**
      * 虚拟主键
      */
-    @DEField(isKeyField=true)
+    @DEField(isKeyField = true)
     @TableField(exist = false)
     @JSONField(name = "id")
     @JsonProperty("id")
@@ -102,7 +102,7 @@ public class StorySpec extends EntityMP implements Serializable {
     /**
      * 设置 [需求描述	]
      */
-    public void setSpec(String spec){
+    public void setSpec(String spec) {
         this.spec = spec ;
         this.modify("spec",spec);
     }
@@ -110,7 +110,7 @@ public class StorySpec extends EntityMP implements Serializable {
     /**
      * 设置 [验收标准]
      */
-    public void setVerify(String verify){
+    public void setVerify(String verify) {
         this.verify = verify ;
         this.modify("verify",verify);
     }
@@ -118,7 +118,7 @@ public class StorySpec extends EntityMP implements Serializable {
     /**
      * 设置 [需求名称]
      */
-    public void setTitle(String title){
+    public void setTitle(String title) {
         this.title = title ;
         this.modify("title",title);
     }
@@ -126,7 +126,7 @@ public class StorySpec extends EntityMP implements Serializable {
     /**
      * 设置 [版本号]
      */
-    public void setVersion(Integer version){
+    public void setVersion(Integer version) {
         this.version = version ;
         this.modify("version",version);
     }
@@ -134,7 +134,7 @@ public class StorySpec extends EntityMP implements Serializable {
     /**
      * 设置 [需求]
      */
-    public void setStory(Long story){
+    public void setStory(Long story) {
         this.story = story ;
         this.modify("story",story);
     }

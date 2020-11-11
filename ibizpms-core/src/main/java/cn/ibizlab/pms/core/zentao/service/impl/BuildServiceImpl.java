@@ -150,8 +150,9 @@ public class BuildServiceImpl extends ServiceImpl<BuildMapper, Build> implements
     @Override
     @Transactional
     public boolean save(Build et) {
-        if(!saveOrUpdate(et))
+        if(!saveOrUpdate(et)) {
             return false;
+        }
         return true;
     }
 

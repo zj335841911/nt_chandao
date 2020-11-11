@@ -46,7 +46,7 @@ public class Cron extends EntityMP implements Serializable {
     /**
      * id
      */
-    @DEField(isKeyField=true)
+    @DEField(isKeyField = true)
     @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
@@ -77,8 +77,8 @@ public class Cron extends EntityMP implements Serializable {
      * lastTime
      */
     @TableField(value = "`lasttime`")
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "lasttime" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "lasttime", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("lasttime")
     private Timestamp lasttime;
     /**
@@ -136,7 +136,7 @@ public class Cron extends EntityMP implements Serializable {
     /**
      * 设置 [status]
      */
-    public void setStatus(String status){
+    public void setStatus(String status) {
         this.status = status ;
         this.modify("status",status);
     }
@@ -144,7 +144,7 @@ public class Cron extends EntityMP implements Serializable {
     /**
      * 设置 [buildin]
      */
-    public void setBuildin(Integer buildin){
+    public void setBuildin(Integer buildin) {
         this.buildin = buildin ;
         this.modify("buildin",buildin);
     }
@@ -152,7 +152,7 @@ public class Cron extends EntityMP implements Serializable {
     /**
      * 设置 [m]
      */
-    public void setM(String m){
+    public void setM(String m) {
         this.m = m ;
         this.modify("m",m);
     }
@@ -160,7 +160,7 @@ public class Cron extends EntityMP implements Serializable {
     /**
      * 设置 [lastTime]
      */
-    public void setLasttime(Timestamp lasttime){
+    public void setLasttime(Timestamp lasttime) {
         this.lasttime = lasttime ;
         this.modify("lasttime",lasttime);
     }
@@ -168,7 +168,7 @@ public class Cron extends EntityMP implements Serializable {
     /**
      * 格式化日期 [lastTime]
      */
-    public String formatLasttime(){
+    public String formatLasttime() {
         if (this.lasttime == null) {
             return null;
         }
@@ -178,7 +178,7 @@ public class Cron extends EntityMP implements Serializable {
     /**
      * 设置 [command]
      */
-    public void setCommand(String command){
+    public void setCommand(String command) {
         this.command = command ;
         this.modify("command",command);
     }
@@ -186,7 +186,7 @@ public class Cron extends EntityMP implements Serializable {
     /**
      * 设置 [dom]
      */
-    public void setDom(String dom){
+    public void setDom(String dom) {
         this.dom = dom ;
         this.modify("dom",dom);
     }
@@ -194,7 +194,7 @@ public class Cron extends EntityMP implements Serializable {
     /**
      * 设置 [mon]
      */
-    public void setMon(String mon){
+    public void setMon(String mon) {
         this.mon = mon ;
         this.modify("mon",mon);
     }
@@ -202,7 +202,7 @@ public class Cron extends EntityMP implements Serializable {
     /**
      * 设置 [remark]
      */
-    public void setRemark(String remark){
+    public void setRemark(String remark) {
         this.remark = remark ;
         this.modify("remark",remark);
     }
@@ -210,7 +210,7 @@ public class Cron extends EntityMP implements Serializable {
     /**
      * 设置 [h]
      */
-    public void setH(String h){
+    public void setH(String h) {
         this.h = h ;
         this.modify("h",h);
     }
@@ -218,7 +218,7 @@ public class Cron extends EntityMP implements Serializable {
     /**
      * 设置 [type]
      */
-    public void setType(String type){
+    public void setType(String type) {
         this.type = type ;
         this.modify("type",type);
     }
@@ -226,7 +226,7 @@ public class Cron extends EntityMP implements Serializable {
     /**
      * 设置 [dow]
      */
-    public void setDow(String dow){
+    public void setDow(String dow) {
         this.dow = dow ;
         this.modify("dow",dow);
     }

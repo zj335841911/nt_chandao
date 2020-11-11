@@ -54,8 +54,9 @@ public class RepoHistoryServiceImpl extends ServiceImpl<RepoHistoryMapper, RepoH
     @Override
     @Transactional
     public boolean create(RepoHistory et) {
-        if(!this.retBool(this.baseMapper.insert(et)))
+        if(!this.retBool(this.baseMapper.insert(et))) {
             return false;
+        }
         CachedBeanCopier.copy(get(et.getId()),et);
         return true;
     }
@@ -69,8 +70,9 @@ public class RepoHistoryServiceImpl extends ServiceImpl<RepoHistoryMapper, RepoH
     @Override
     @Transactional
     public boolean update(RepoHistory et) {
-         if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
+        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId()))) {
             return false;
+        }
         CachedBeanCopier.copy(get(et.getId()),et);
         return true;
     }
@@ -119,8 +121,9 @@ public class RepoHistoryServiceImpl extends ServiceImpl<RepoHistoryMapper, RepoH
     @Override
     @Transactional
     public boolean save(RepoHistory et) {
-        if(!saveOrUpdate(et))
+        if(!saveOrUpdate(et)) {
             return false;
+        }
         return true;
     }
 

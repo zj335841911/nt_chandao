@@ -46,7 +46,7 @@ public class IBZProSystem extends EntityMP implements Serializable {
     /**
      * 运行生产系统标识
      */
-    @DEField(name = "ibzpro_systemid" , isKeyField=true)
+    @DEField(name = "ibzpro_systemid" , isKeyField = true)
     @TableId(value= "ibzpro_systemid",type=IdType.ASSIGN_UUID)
     @JSONField(name = "ibzprosystemid")
     @JsonProperty("ibzprosystemid")
@@ -63,7 +63,7 @@ public class IBZProSystem extends EntityMP implements Serializable {
      * 建立人
      */
     @DEField(preType = DEPredefinedFieldType.CREATEMAN)
-    @TableField(value = "`createman`" , fill = FieldFill.INSERT)
+    @TableField(value = "`createman`", fill = FieldFill.INSERT)
     @JSONField(name = "createman")
     @JsonProperty("createman")
     private String createman;
@@ -79,9 +79,9 @@ public class IBZProSystem extends EntityMP implements Serializable {
      * 建立时间
      */
     @DEField(preType = DEPredefinedFieldType.CREATEDATE)
-    @TableField(value = "`createdate`" , fill = FieldFill.INSERT)
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "createdate" , format="yyyy-MM-dd HH:mm:ss")
+    @TableField(value = "`createdate`", fill = FieldFill.INSERT)
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "createdate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("createdate")
     private Timestamp createdate;
     /**
@@ -89,8 +89,8 @@ public class IBZProSystem extends EntityMP implements Serializable {
      */
     @DEField(preType = DEPredefinedFieldType.UPDATEDATE)
     @TableField(value = "`updatedate`")
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "updatedate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "updatedate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("updatedate")
     private Timestamp updatedate;
 
@@ -99,7 +99,7 @@ public class IBZProSystem extends EntityMP implements Serializable {
     /**
      * 设置 [运行生产系统名称]
      */
-    public void setIbzprosystemname(String ibzprosystemname){
+    public void setIbzprosystemname(String ibzprosystemname) {
         this.ibzprosystemname = ibzprosystemname ;
         this.modify("ibzpro_systemname",ibzprosystemname);
     }

@@ -61,8 +61,9 @@ public class SysUpdateLogServiceImpl extends ServiceImpl<SysUpdateLogMapper, Sys
     @Override
     @Transactional
     public boolean create(SysUpdateLog et) {
-        if(!this.retBool(this.baseMapper.insert(et)))
+        if(!this.retBool(this.baseMapper.insert(et))) {
             return false;
+        }
         CachedBeanCopier.copy(get(et.getSysupdatelogid()),et);
         updatelastedLogic.execute(et);
         return true;
@@ -77,8 +78,9 @@ public class SysUpdateLogServiceImpl extends ServiceImpl<SysUpdateLogMapper, Sys
     @Override
     @Transactional
     public boolean update(SysUpdateLog et) {
-         if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("sys_update_logid",et.getSysupdatelogid())))
+        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("sys_update_logid",et.getSysupdatelogid()))) {
             return false;
+        }
         CachedBeanCopier.copy(get(et.getSysupdatelogid()),et);
         return true;
     }
@@ -136,8 +138,9 @@ public class SysUpdateLogServiceImpl extends ServiceImpl<SysUpdateLogMapper, Sys
     @Override
     @Transactional
     public boolean save(SysUpdateLog et) {
-        if(!saveOrUpdate(et))
+        if(!saveOrUpdate(et)) {
             return false;
+        }
         return true;
     }
 
@@ -219,10 +222,12 @@ public class SysUpdateLogServiceImpl extends ServiceImpl<SysUpdateLogMapper, Sys
                 ids.add(id);
             }
         }
-        if(ids.size()>0)
-           return this.listByIds(ids);
-        else
-           return entities;
+        if(ids.size()>0) {
+            return this.listByIds(ids);
+        }
+        else {
+            return entities;
+        }
     }
 
 

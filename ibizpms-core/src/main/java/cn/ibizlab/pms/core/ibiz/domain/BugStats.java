@@ -46,7 +46,7 @@ public class BugStats extends EntityMP implements Serializable {
     /**
      * 标识
      */
-    @DEField(isKeyField=true)
+    @DEField(isKeyField = true)
     @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
@@ -184,7 +184,7 @@ public class BugStats extends EntityMP implements Serializable {
     /**
      * 设置 [名称]
      */
-    public void setTitle(String title){
+    public void setTitle(String title) {
         this.title = title ;
         this.modify("title",title);
     }
@@ -192,7 +192,7 @@ public class BugStats extends EntityMP implements Serializable {
     /**
      * 设置 [由谁创建]
      */
-    public void setOpenedby(String openedby){
+    public void setOpenedby(String openedby) {
         this.openedby = openedby ;
         this.modify("openedby",openedby);
     }
@@ -200,7 +200,7 @@ public class BugStats extends EntityMP implements Serializable {
     /**
      * 设置 [编号]
      */
-    public void setProduct(Long product){
+    public void setProduct(Long product) {
         this.product = product ;
         this.modify("product",product);
     }
@@ -208,7 +208,7 @@ public class BugStats extends EntityMP implements Serializable {
     /**
      * 设置 [指派给]
      */
-    public void setAssignedto(String assignedto){
+    public void setAssignedto(String assignedto) {
         this.assignedto = assignedto ;
         this.modify("assignedto",assignedto);
     }

@@ -46,7 +46,7 @@ public class SysUpdateLog extends EntityMP implements Serializable {
     /**
      * 系统更新日志标识
      */
-    @DEField(name = "sys_update_logid" , isKeyField=true)
+    @DEField(name = "sys_update_logid" , isKeyField = true)
     @TableId(value= "sys_update_logid",type=IdType.ASSIGN_UUID)
     @JSONField(name = "sysupdatelogid")
     @JsonProperty("sysupdatelogid")
@@ -71,7 +71,7 @@ public class SysUpdateLog extends EntityMP implements Serializable {
      * 建立人
      */
     @DEField(preType = DEPredefinedFieldType.CREATEMAN)
-    @TableField(value = "`createman`" , fill = FieldFill.INSERT)
+    @TableField(value = "`createman`", fill = FieldFill.INSERT)
     @JSONField(name = "createman")
     @JsonProperty("createman")
     private String createman;
@@ -79,9 +79,9 @@ public class SysUpdateLog extends EntityMP implements Serializable {
      * 建立时间
      */
     @DEField(preType = DEPredefinedFieldType.CREATEDATE)
-    @TableField(value = "`createdate`" , fill = FieldFill.INSERT)
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "createdate" , format="yyyy-MM-dd HH:mm:ss")
+    @TableField(value = "`createdate`", fill = FieldFill.INSERT)
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "createdate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("createdate")
     private Timestamp createdate;
     /**
@@ -89,16 +89,16 @@ public class SysUpdateLog extends EntityMP implements Serializable {
      */
     @DEField(preType = DEPredefinedFieldType.UPDATEDATE)
     @TableField(value = "`updatedate`")
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "updatedate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "updatedate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("updatedate")
     private Timestamp updatedate;
     /**
      * 更新日期
      */
     @TableField(value = "`update`")
-    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "update" , format="yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "update", format = "yyyy-MM-dd")
     @JsonProperty("update")
     private Timestamp update;
     /**
@@ -130,7 +130,7 @@ public class SysUpdateLog extends EntityMP implements Serializable {
     /**
      * 设置 [更新名称]
      */
-    public void setSysupdatelogname(String sysupdatelogname){
+    public void setSysupdatelogname(String sysupdatelogname) {
         this.sysupdatelogname = sysupdatelogname ;
         this.modify("sys_update_logname",sysupdatelogname);
     }
@@ -138,7 +138,7 @@ public class SysUpdateLog extends EntityMP implements Serializable {
     /**
      * 设置 [更新日期]
      */
-    public void setUpdate(Timestamp update){
+    public void setUpdate(Timestamp update) {
         this.update = update ;
         this.modify("update",update);
     }
@@ -146,7 +146,7 @@ public class SysUpdateLog extends EntityMP implements Serializable {
     /**
      * 格式化日期 [更新日期]
      */
-    public String formatUpdate(){
+    public String formatUpdate() {
         if (this.update == null) {
             return null;
         }
@@ -156,7 +156,7 @@ public class SysUpdateLog extends EntityMP implements Serializable {
     /**
      * 设置 [更新说明]
      */
-    public void setUpdesc(String updesc){
+    public void setUpdesc(String updesc) {
         this.updesc = updesc ;
         this.modify("updesc",updesc);
     }
@@ -164,7 +164,7 @@ public class SysUpdateLog extends EntityMP implements Serializable {
     /**
      * 设置 [最新更新]
      */
-    public void setLatestupdate(Integer latestupdate){
+    public void setLatestupdate(Integer latestupdate) {
         this.latestupdate = latestupdate ;
         this.modify("latestupdate",latestupdate);
     }
@@ -172,7 +172,7 @@ public class SysUpdateLog extends EntityMP implements Serializable {
     /**
      * 设置 [更新平台]
      */
-    public void setUpdatebranch(String updatebranch){
+    public void setUpdatebranch(String updatebranch) {
         this.updatebranch = updatebranch ;
         this.modify("updatebranch",updatebranch);
     }

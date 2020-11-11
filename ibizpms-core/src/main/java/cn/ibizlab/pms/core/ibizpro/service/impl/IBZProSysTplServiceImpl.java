@@ -57,8 +57,9 @@ public class IBZProSysTplServiceImpl extends ServiceImpl<IBZProSysTplMapper, IBZ
     @Override
     @Transactional
     public boolean create(IBZProSysTpl et) {
-        if(!this.retBool(this.baseMapper.insert(et)))
+        if(!this.retBool(this.baseMapper.insert(et))) {
             return false;
+        }
         CachedBeanCopier.copy(get(et.getIbzprosystplid()),et);
         return true;
     }
@@ -72,8 +73,9 @@ public class IBZProSysTplServiceImpl extends ServiceImpl<IBZProSysTplMapper, IBZ
     @Override
     @Transactional
     public boolean update(IBZProSysTpl et) {
-         if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("ibzpro_systplid",et.getIbzprosystplid())))
+        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("ibzpro_systplid",et.getIbzprosystplid()))) {
             return false;
+        }
         CachedBeanCopier.copy(get(et.getIbzprosystplid()),et);
         return true;
     }
@@ -122,8 +124,9 @@ public class IBZProSysTplServiceImpl extends ServiceImpl<IBZProSysTplMapper, IBZ
     @Override
     @Transactional
     public boolean save(IBZProSysTpl et) {
-        if(!saveOrUpdate(et))
+        if(!saveOrUpdate(et)) {
             return false;
+        }
         return true;
     }
 
@@ -214,10 +217,12 @@ public class IBZProSysTplServiceImpl extends ServiceImpl<IBZProSysTplMapper, IBZ
                 ids.add(id);
             }
         }
-        if(ids.size()>0)
-           return this.listByIds(ids);
-        else
-           return entities;
+        if(ids.size()>0) {
+            return this.listByIds(ids);
+        }
+        else {
+            return entities;
+        }
     }
 
 

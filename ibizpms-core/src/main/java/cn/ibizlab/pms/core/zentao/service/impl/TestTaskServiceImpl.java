@@ -166,8 +166,9 @@ public class TestTaskServiceImpl extends ServiceImpl<TestTaskMapper, TestTask> i
     @Override
     @Transactional
     public boolean save(TestTask et) {
-        if(!saveOrUpdate(et))
+        if(!saveOrUpdate(et)) {
             return false;
+        }
         return true;
     }
 
@@ -462,6 +463,7 @@ public class TestTaskServiceImpl extends ServiceImpl<TestTaskMapper, TestTask> i
         }
     }
 
+    @Override
     @Transactional
     public void asyncImportData(List<TestTask> entities, int batchSize ,boolean isIgnoreError){
         executeImportData(entities,batchSize,isIgnoreError);
@@ -475,8 +477,9 @@ public class TestTaskServiceImpl extends ServiceImpl<TestTaskMapper, TestTask> i
     @Transactional
     public JSONObject executeImportData(List<TestTask> entities, int batchSize ,boolean isIgnoreError) {
         JSONObject rs=testImportData(entities,isIgnoreError);
-        if(rs.getInteger("rst")==1 && !isIgnoreError)
+        if(rs.getInteger("rst")==1 && !isIgnoreError) {
             return rs;
+        }
         List<TestTask> tempDEList=new ArrayList<>();
         Set tempIds=new HashSet<>();
 
@@ -484,8 +487,9 @@ public class TestTaskServiceImpl extends ServiceImpl<TestTaskMapper, TestTask> i
             TestTask entity = entities.get(i);
             tempDEList.add(entity);
             Object id=entity.getId();
-            if(!ObjectUtils.isEmpty(id))
+            if(!ObjectUtils.isEmpty(id)) {
                 tempIds.add(id);
+            }
             if(tempDEList.size()>=batchSize || (tempDEList.size()<batchSize && i==entities.size()-1)){
                 commit(tempDEList,tempIds);
                 tempDEList.clear();
@@ -515,15 +519,19 @@ public class TestTaskServiceImpl extends ServiceImpl<TestTaskMapper, TestTask> i
         }
         for(TestTask entity:entities){
             Object id=entity.getId();
-            if(oldIds.contains(id))
+            if(oldIds.contains(id)) {
                 _update.add(entity);
-            else
+            }
+            else {
                 _create.add(entity);
+            }
         }
-        if(_update.size()>0)
+        if(_update.size()>0) {
             proxyService.updateBatch(_update);
-        if(_create.size()>0)
+        }
+        if(_create.size()>0) {
             proxyService.createBatch(_create);
+        }
     }
 
 

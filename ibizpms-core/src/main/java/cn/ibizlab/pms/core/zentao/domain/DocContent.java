@@ -53,7 +53,7 @@ public class DocContent extends EntityMP implements Serializable {
     /**
      * 编号
      */
-    @DEField(isKeyField=true)
+    @DEField(isKeyField = true)
     @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
@@ -115,7 +115,7 @@ public class DocContent extends EntityMP implements Serializable {
     /**
      * 设置 [附件]
      */
-    public void setFiles(String files){
+    public void setFiles(String files) {
         this.files = files ;
         this.modify("files",files);
     }
@@ -123,7 +123,7 @@ public class DocContent extends EntityMP implements Serializable {
     /**
      * 设置 [文档正文]
      */
-    public void setContent(String content){
+    public void setContent(String content) {
         this.content = content ;
         this.modify("content",content);
     }
@@ -131,7 +131,7 @@ public class DocContent extends EntityMP implements Serializable {
     /**
      * 设置 [文档类型]
      */
-    public void setType(String type){
+    public void setType(String type) {
         this.type = type ;
         this.modify("type",type);
     }
@@ -139,7 +139,7 @@ public class DocContent extends EntityMP implements Serializable {
     /**
      * 设置 [文档标题]
      */
-    public void setTitle(String title){
+    public void setTitle(String title) {
         this.title = title ;
         this.modify("title",title);
     }
@@ -147,7 +147,7 @@ public class DocContent extends EntityMP implements Serializable {
     /**
      * 设置 [版本号]
      */
-    public void setVersion(Integer version){
+    public void setVersion(Integer version) {
         this.version = version ;
         this.modify("version",version);
     }
@@ -155,7 +155,7 @@ public class DocContent extends EntityMP implements Serializable {
     /**
      * 设置 [文档摘要]
      */
-    public void setDigest(String digest){
+    public void setDigest(String digest) {
         this.digest = digest ;
         this.modify("digest",digest);
     }
@@ -163,7 +163,7 @@ public class DocContent extends EntityMP implements Serializable {
     /**
      * 设置 [文档]
      */
-    public void setDoc(Long doc){
+    public void setDoc(Long doc) {
         this.doc = doc ;
         this.modify("doc",doc);
     }

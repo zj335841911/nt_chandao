@@ -57,8 +57,9 @@ public class FileServiceImpl extends ServiceImpl<FileMapper, File> implements IF
     @Override
     @Transactional
     public boolean create(File et) {
-        if(!this.retBool(this.baseMapper.insert(et)))
+        if(!this.retBool(this.baseMapper.insert(et))) {
             return false;
+        }
         CachedBeanCopier.copy(get(et.getId()),et);
         return true;
     }
@@ -72,8 +73,9 @@ public class FileServiceImpl extends ServiceImpl<FileMapper, File> implements IF
     @Override
     @Transactional
     public boolean update(File et) {
-         if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
+        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId()))) {
             return false;
+        }
         CachedBeanCopier.copy(get(et.getId()),et);
         return true;
     }
@@ -123,8 +125,9 @@ public class FileServiceImpl extends ServiceImpl<FileMapper, File> implements IF
     @Override
     @Transactional
     public boolean save(File et) {
-        if(!saveOrUpdate(et))
+        if(!saveOrUpdate(et)) {
             return false;
+        }
         return true;
     }
 

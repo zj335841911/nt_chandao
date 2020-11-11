@@ -54,8 +54,9 @@ public class ProductLifeServiceImpl extends ServiceImpl<ProductLifeMapper, Produ
     @Override
     @Transactional
     public boolean create(ProductLife et) {
-        if(!this.retBool(this.baseMapper.insert(et)))
+        if(!this.retBool(this.baseMapper.insert(et))) {
             return false;
+        }
         CachedBeanCopier.copy(get(et.getProductlifeid()),et);
         return true;
     }
@@ -69,8 +70,9 @@ public class ProductLifeServiceImpl extends ServiceImpl<ProductLifeMapper, Produ
     @Override
     @Transactional
     public boolean update(ProductLife et) {
-         if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("ibz_productlifeid",et.getProductlifeid())))
+        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("ibz_productlifeid",et.getProductlifeid()))) {
             return false;
+        }
         CachedBeanCopier.copy(get(et.getProductlifeid()),et);
         return true;
     }
@@ -119,8 +121,9 @@ public class ProductLifeServiceImpl extends ServiceImpl<ProductLifeMapper, Produ
     @Override
     @Transactional
     public boolean save(ProductLife et) {
-        if(!saveOrUpdate(et))
+        if(!saveOrUpdate(et)) {
             return false;
+        }
         return true;
     }
 
@@ -229,10 +232,12 @@ public class ProductLifeServiceImpl extends ServiceImpl<ProductLifeMapper, Produ
                 ids.add(id);
             }
         }
-        if(ids.size()>0)
-           return this.listByIds(ids);
-        else
-           return entities;
+        if(ids.size()>0) {
+            return this.listByIds(ids);
+        }
+        else {
+            return entities;
+        }
     }
 
 

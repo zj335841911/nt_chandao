@@ -47,8 +47,8 @@ public class Notify extends EntityMP implements Serializable {
      * createdDate
      */
     @TableField(value = "`createddate`")
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "createddate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "createddate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("createddate")
     private Timestamp createddate;
     /**
@@ -75,7 +75,7 @@ public class Notify extends EntityMP implements Serializable {
     /**
      * id
      */
-    @DEField(isKeyField=true)
+    @DEField(isKeyField = true)
     @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
@@ -127,8 +127,8 @@ public class Notify extends EntityMP implements Serializable {
      * sendTime
      */
     @TableField(value = "`sendtime`")
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "sendtime" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "sendtime", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("sendtime")
     private Timestamp sendtime;
     /**
@@ -144,7 +144,7 @@ public class Notify extends EntityMP implements Serializable {
     /**
      * 设置 [createdDate]
      */
-    public void setCreateddate(Timestamp createddate){
+    public void setCreateddate(Timestamp createddate) {
         this.createddate = createddate ;
         this.modify("createddate",createddate);
     }
@@ -152,7 +152,7 @@ public class Notify extends EntityMP implements Serializable {
     /**
      * 格式化日期 [createdDate]
      */
-    public String formatCreateddate(){
+    public String formatCreateddate() {
         if (this.createddate == null) {
             return null;
         }
@@ -162,7 +162,7 @@ public class Notify extends EntityMP implements Serializable {
     /**
      * 设置 [ccList]
      */
-    public void setCclist(String cclist){
+    public void setCclist(String cclist) {
         this.cclist = cclist ;
         this.modify("cclist",cclist);
     }
@@ -170,7 +170,7 @@ public class Notify extends EntityMP implements Serializable {
     /**
      * 设置 [failReason]
      */
-    public void setFailreason(String failreason){
+    public void setFailreason(String failreason) {
         this.failreason = failreason ;
         this.modify("failreason",failreason);
     }
@@ -178,7 +178,7 @@ public class Notify extends EntityMP implements Serializable {
     /**
      * 设置 [action]
      */
-    public void setAction(Integer action){
+    public void setAction(Integer action) {
         this.action = action ;
         this.modify("action",action);
     }
@@ -186,7 +186,7 @@ public class Notify extends EntityMP implements Serializable {
     /**
      * 设置 [createdBy]
      */
-    public void setCreatedby(String createdby){
+    public void setCreatedby(String createdby) {
         this.createdby = createdby ;
         this.modify("createdby",createdby);
     }
@@ -194,7 +194,7 @@ public class Notify extends EntityMP implements Serializable {
     /**
      * 设置 [status]
      */
-    public void setStatus(String status){
+    public void setStatus(String status) {
         this.status = status ;
         this.modify("status",status);
     }
@@ -202,7 +202,7 @@ public class Notify extends EntityMP implements Serializable {
     /**
      * 设置 [subject]
      */
-    public void setSubject(String subject){
+    public void setSubject(String subject) {
         this.subject = subject ;
         this.modify("subject",subject);
     }
@@ -210,7 +210,7 @@ public class Notify extends EntityMP implements Serializable {
     /**
      * 设置 [objectID]
      */
-    public void setObjectid(Integer objectid){
+    public void setObjectid(Integer objectid) {
         this.objectid = objectid ;
         this.modify("objectid",objectid);
     }
@@ -218,7 +218,7 @@ public class Notify extends EntityMP implements Serializable {
     /**
      * 设置 [data]
      */
-    public void setData(String data){
+    public void setData(String data) {
         this.data = data ;
         this.modify("data",data);
     }
@@ -226,7 +226,7 @@ public class Notify extends EntityMP implements Serializable {
     /**
      * 设置 [toList]
      */
-    public void setTolist(String tolist){
+    public void setTolist(String tolist) {
         this.tolist = tolist ;
         this.modify("tolist",tolist);
     }
@@ -234,7 +234,7 @@ public class Notify extends EntityMP implements Serializable {
     /**
      * 设置 [sendTime]
      */
-    public void setSendtime(Timestamp sendtime){
+    public void setSendtime(Timestamp sendtime) {
         this.sendtime = sendtime ;
         this.modify("sendtime",sendtime);
     }
@@ -242,7 +242,7 @@ public class Notify extends EntityMP implements Serializable {
     /**
      * 格式化日期 [sendTime]
      */
-    public String formatSendtime(){
+    public String formatSendtime() {
         if (this.sendtime == null) {
             return null;
         }
@@ -252,7 +252,7 @@ public class Notify extends EntityMP implements Serializable {
     /**
      * 设置 [objectType]
      */
-    public void setObjecttype(String objecttype){
+    public void setObjecttype(String objecttype) {
         this.objecttype = objecttype ;
         this.modify("objecttype",objecttype);
     }

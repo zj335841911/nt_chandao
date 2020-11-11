@@ -46,7 +46,7 @@ public class UserView extends EntityMP implements Serializable {
     /**
      * 虚拟主键
      */
-    @DEField(isKeyField=true)
+    @DEField(isKeyField = true)
     @TableField(exist = false)
     @JSONField(name = "id")
     @JsonProperty("id")
@@ -78,7 +78,7 @@ public class UserView extends EntityMP implements Serializable {
     /**
      * 设置 [products]
      */
-    public void setProducts(String products){
+    public void setProducts(String products) {
         this.products = products ;
         this.modify("products",products);
     }
@@ -86,7 +86,7 @@ public class UserView extends EntityMP implements Serializable {
     /**
      * 设置 [account]
      */
-    public void setAccount(String account){
+    public void setAccount(String account) {
         this.account = account ;
         this.modify("account",account);
     }
@@ -94,7 +94,7 @@ public class UserView extends EntityMP implements Serializable {
     /**
      * 设置 [projects]
      */
-    public void setProjects(String projects){
+    public void setProjects(String projects) {
         this.projects = projects ;
         this.modify("projects",projects);
     }

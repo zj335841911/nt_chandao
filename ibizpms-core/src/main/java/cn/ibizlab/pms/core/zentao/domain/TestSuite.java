@@ -54,15 +54,15 @@ public class TestSuite extends EntityMP implements Serializable {
      * 创建时间
      */
     @DEField(preType = DEPredefinedFieldType.CREATEDATE)
-    @TableField(value = "`addeddate`" , fill = FieldFill.INSERT)
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "addeddate" , format="yyyy-MM-dd HH:mm:ss")
+    @TableField(value = "`addeddate`", fill = FieldFill.INSERT)
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "addeddate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("addeddate")
     private Timestamp addeddate;
     /**
      * 编号
      */
-    @DEField(isKeyField=true)
+    @DEField(isKeyField = true)
     @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
@@ -70,8 +70,8 @@ public class TestSuite extends EntityMP implements Serializable {
     /**
      * 已删除
      */
-    @DEField(defaultValue = "0" , preType = DEPredefinedFieldType.LOGICVALID, logicval = "0" , logicdelval="1")
-    @TableLogic(value= "0",delval="1")
+    @DEField(defaultValue = "0", preType = DEPredefinedFieldType.LOGICVALID, logicval = "0", logicdelval = "1")
+    @TableLogic(value= "0", delval = "1")
     @TableField(value = "`deleted`")
     @JSONField(name = "deleted")
     @JsonProperty("deleted")
@@ -97,8 +97,8 @@ public class TestSuite extends EntityMP implements Serializable {
      */
     @DEField(preType = DEPredefinedFieldType.UPDATEDATE)
     @TableField(value = "`lastediteddate`")
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "lastediteddate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "lastediteddate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("lastediteddate")
     private Timestamp lastediteddate;
     /**
@@ -146,7 +146,7 @@ public class TestSuite extends EntityMP implements Serializable {
     /**
      * 设置 [名称]
      */
-    public void setName(String name){
+    public void setName(String name) {
         this.name = name ;
         this.modify("name",name);
     }
@@ -154,7 +154,7 @@ public class TestSuite extends EntityMP implements Serializable {
     /**
      * 设置 [类型]
      */
-    public void setType(String type){
+    public void setType(String type) {
         this.type = type ;
         this.modify("type",type);
     }
@@ -162,7 +162,7 @@ public class TestSuite extends EntityMP implements Serializable {
     /**
      * 设置 [描述]
      */
-    public void setDesc(String desc){
+    public void setDesc(String desc) {
         this.desc = desc ;
         this.modify("desc",desc);
     }
@@ -170,7 +170,7 @@ public class TestSuite extends EntityMP implements Serializable {
     /**
      * 设置 [所属产品]
      */
-    public void setProduct(Long product){
+    public void setProduct(Long product) {
         this.product = product ;
         this.modify("product",product);
     }

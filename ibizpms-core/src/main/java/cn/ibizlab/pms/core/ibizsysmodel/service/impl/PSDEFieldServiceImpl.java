@@ -61,11 +61,11 @@ public class PSDEFieldServiceImpl implements IPSDEFieldService {
     private String password;
 
     public PSDEFieldFeignClient getPSDEFieldFeignClient(String devSlnSysId) {
-        if(StringUtils.isNotBlank(serviceName)){
-            return OutsideAccessorUtils.buildAccessor(SpringContextHolder.getApplicationContext(), PSDEFieldFeignClient.class, serviceName, false, serviceName, false, loginname, password,devSlnSysId);
-        }else if(StringUtils.isNotBlank(serviceUrl)){
-            return OutsideAccessorUtils.buildAccessorByUrl(SpringContextHolder.getApplicationContext(), PSDEFieldFeignClient.class, serviceUrl, false, serviceUrl, false, loginname, password,devSlnSysId);
-        }else{
+        if(StringUtils.isNotBlank(serviceName)) {
+            return OutsideAccessorUtils.buildAccessor(SpringContextHolder.getApplicationContext(), PSDEFieldFeignClient.class, serviceName, false, serviceName, false, loginname, password, devSlnSysId);
+        } else if(StringUtils.isNotBlank(serviceUrl)) {
+            return OutsideAccessorUtils.buildAccessorByUrl(SpringContextHolder.getApplicationContext(), PSDEFieldFeignClient.class, serviceUrl, false, serviceUrl, false, loginname, password, devSlnSysId);
+        } else {
             throw new RuntimeException("缺少平台服务配置信息。");
         }
     }
@@ -83,9 +83,10 @@ public class PSDEFieldServiceImpl implements IPSDEFieldService {
     @Override
     public boolean create(String devSlnSysId,PSDEField et) {
         PSDEField rt = getPSDEFieldFeignClient(devSlnSysId).create(et);
-        if(rt==null)
+        if(rt==null) {
             return false;
-        CachedBeanCopier.copy(rt,et);
+	}
+        CachedBeanCopier.copy(rt, et);
         return true;
     }
 
@@ -94,7 +95,7 @@ public class PSDEFieldServiceImpl implements IPSDEFieldService {
     }
 
     public void createBatch(String devSlnSysId,List<PSDEField> list){
-        getPSDEFieldFeignClient(devSlnSysId).createBatch(list) ;
+        getPSDEFieldFeignClient(devSlnSysId).createBatch(list);
     }
 
     @Override
@@ -108,13 +109,13 @@ public class PSDEFieldServiceImpl implements IPSDEFieldService {
     }
 
     @Override
-    public boolean update(String devSlnSysId,PSDEField et) {
-        PSDEField rt = getPSDEFieldFeignClient(devSlnSysId).update(et.getPsdefieldid(),et);
-        if(rt==null)
+    public boolean update(String devSlnSysId, PSDEField et) {
+        PSDEField rt = getPSDEFieldFeignClient(devSlnSysId).update(et.getPsdefieldid(), et);
+        if(rt==null) {
             return false;
-        CachedBeanCopier.copy(rt,et);
+	}
+        CachedBeanCopier.copy(rt, et);
         return true;
-
     }
 
     public void updateBatch(List<PSDEField> list){
@@ -122,7 +123,7 @@ public class PSDEFieldServiceImpl implements IPSDEFieldService {
     }
 
     public void updateBatch(String devSlnSysId,List<PSDEField> list){
-        getPSDEFieldFeignClient(devSlnSysId).updateBatch(list) ;
+        getPSDEFieldFeignClient(devSlnSysId).updateBatch(list);
     }
 
     @Override
@@ -133,7 +134,7 @@ public class PSDEFieldServiceImpl implements IPSDEFieldService {
 
     @Override
     public boolean remove(String devSlnSysId,String psdefieldid) {
-        boolean result=getPSDEFieldFeignClient(devSlnSysId).remove(psdefieldid) ;
+        boolean result = getPSDEFieldFeignClient(devSlnSysId).remove(psdefieldid);
         return result;
     }
 
@@ -159,14 +160,14 @@ public class PSDEFieldServiceImpl implements IPSDEFieldService {
 
     @Override
     public PSDEField get(String devSlnSysId,String psdefieldid) {
-		PSDEField et=getPSDEFieldFeignClient(devSlnSysId).get(psdefieldid);
-        if(et==null){
-            et=new PSDEField();
+		PSDEField et = getPSDEFieldFeignClient(devSlnSysId).get(psdefieldid);
+        if(et == null) {
+            et = new PSDEField();
             et.setPsdefieldid(psdefieldid);
         }
         else{
         }
-        return  et;
+        return et;
     }
 
     @Override
@@ -182,7 +183,7 @@ public class PSDEFieldServiceImpl implements IPSDEFieldService {
 
     @Override
     public PSDEField getDraft(String devSlnSysId,PSDEField et) {
-        et=getPSDEFieldFeignClient(devSlnSysId).getDraft();
+        et = getPSDEFieldFeignClient(devSlnSysId).getDraft();
         return et;
     }
 
@@ -208,9 +209,12 @@ public class PSDEFieldServiceImpl implements IPSDEFieldService {
     @Override
     @Transactional
     public boolean save(String devSlnSysId,PSDEField et) {
-        if(et.getPsdefieldid()==null) et.setPsdefieldid((String)et.getDefaultKey(true));
-        if(!getPSDEFieldFeignClient(devSlnSysId).save(et))
+        if(et.getPsdefieldid() == null) {
+	    et.setPsdefieldid((String)et.getDefaultKey(true));
+	}
+        if(!getPSDEFieldFeignClient(devSlnSysId).save(et)) {
             return false;
+	}
         return true;
     }
 
@@ -221,7 +225,7 @@ public class PSDEFieldServiceImpl implements IPSDEFieldService {
 
     @Override
     public void saveBatch(String devSlnSysId,List<PSDEField> list) {
-        getPSDEFieldFeignClient(devSlnSysId).saveBatch(list) ;
+        getPSDEFieldFeignClient(devSlnSysId).saveBatch(list);
     }
 
 
@@ -235,8 +239,8 @@ public class PSDEFieldServiceImpl implements IPSDEFieldService {
     }
 
     @Override
-    public List<PSDEField> selectByPsdeid(String devSlnSysId,String psdataentityid) {
-        PSDEFieldSearchContext context=new PSDEFieldSearchContext();
+    public List<PSDEField> selectByPsdeid(String devSlnSysId, String psdataentityid) {
+        PSDEFieldSearchContext context = new PSDEFieldSearchContext();
         context.setSize(Integer.MAX_VALUE);
         context.setN_psdeid_eq(psdataentityid);
         return getPSDEFieldFeignClient(devSlnSysId).searchDefault(context).getContent();
@@ -258,13 +262,14 @@ public class PSDEFieldServiceImpl implements IPSDEFieldService {
     }
 
     @Override
-    public void removeByPsdeid(String devSlnSysId,String psdataentityid) {
-        Set<String> delIds=new HashSet<String>();
-        for(PSDEField before:selectByPsdeid(devSlnSysId,psdataentityid)){
+    public void removeByPsdeid(String devSlnSysId, String psdataentityid) {
+        Set<String> delIds = new HashSet<String>();
+        for(PSDEField before:selectByPsdeid(devSlnSysId, psdataentityid)){
             delIds.add(before.getPsdefieldid());
         }
-        if(delIds.size()>0)
+        if(delIds.size() > 0) {
             this.removeBatch(delIds);
+	}
     }
 
 	@Override
@@ -276,8 +281,8 @@ public class PSDEFieldServiceImpl implements IPSDEFieldService {
     }
 
     @Override
-    public List<PSDEField> selectByDerpsdefid(String devSlnSysId,String psdefieldid) {
-        PSDEFieldSearchContext context=new PSDEFieldSearchContext();
+    public List<PSDEField> selectByDerpsdefid(String devSlnSysId, String psdefieldid) {
+        PSDEFieldSearchContext context = new PSDEFieldSearchContext();
         context.setSize(Integer.MAX_VALUE);
         context.setN_derpsdefid_eq(psdefieldid);
         return getPSDEFieldFeignClient(devSlnSysId).searchDefault(context).getContent();
@@ -301,13 +306,14 @@ public class PSDEFieldServiceImpl implements IPSDEFieldService {
     }
 
     @Override
-    public void removeByDerpsdefid(String devSlnSysId,String psdefieldid) {
-        Set<String> delIds=new HashSet<String>();
-        for(PSDEField before:selectByDerpsdefid(devSlnSysId,psdefieldid)){
+    public void removeByDerpsdefid(String devSlnSysId, String psdefieldid) {
+        Set<String> delIds = new HashSet<String>();
+        for(PSDEField before:selectByDerpsdefid(devSlnSysId, psdefieldid)){
             delIds.add(before.getPsdefieldid());
         }
-        if(delIds.size()>0)
+        if(delIds.size() > 0) {
             this.removeBatch(delIds);
+	}
     }
 
 	@Override
@@ -319,8 +325,8 @@ public class PSDEFieldServiceImpl implements IPSDEFieldService {
     }
 
     @Override
-    public List<PSDEField> selectByDupcheckpsdefid(String devSlnSysId,String psdefieldid) {
-        PSDEFieldSearchContext context=new PSDEFieldSearchContext();
+    public List<PSDEField> selectByDupcheckpsdefid(String devSlnSysId, String psdefieldid) {
+        PSDEFieldSearchContext context = new PSDEFieldSearchContext();
         context.setSize(Integer.MAX_VALUE);
         context.setN_dupchkpsdefid_eq(psdefieldid);
         return getPSDEFieldFeignClient(devSlnSysId).searchDefault(context).getContent();
@@ -344,13 +350,14 @@ public class PSDEFieldServiceImpl implements IPSDEFieldService {
     }
 
     @Override
-    public void removeByDupcheckpsdefid(String devSlnSysId,String psdefieldid) {
-        Set<String> delIds=new HashSet<String>();
-        for(PSDEField before:selectByDupcheckpsdefid(devSlnSysId,psdefieldid)){
+    public void removeByDupcheckpsdefid(String devSlnSysId, String psdefieldid) {
+        Set<String> delIds = new HashSet<String>();
+        for(PSDEField before:selectByDupcheckpsdefid(devSlnSysId, psdefieldid)){
             delIds.add(before.getPsdefieldid());
         }
-        if(delIds.size()>0)
+        if(delIds.size() > 0) {
             this.removeBatch(delIds);
+	}
     }
 
 	@Override
@@ -362,8 +369,8 @@ public class PSDEFieldServiceImpl implements IPSDEFieldService {
     }
 
     @Override
-    public List<PSDEField> selectByNo2dupchkpsdefid(String devSlnSysId,String psdefieldid) {
-        PSDEFieldSearchContext context=new PSDEFieldSearchContext();
+    public List<PSDEField> selectByNo2dupchkpsdefid(String devSlnSysId, String psdefieldid) {
+        PSDEFieldSearchContext context = new PSDEFieldSearchContext();
         context.setSize(Integer.MAX_VALUE);
         context.setN_no2dupchkpsdefid_eq(psdefieldid);
         return getPSDEFieldFeignClient(devSlnSysId).searchDefault(context).getContent();
@@ -387,13 +394,14 @@ public class PSDEFieldServiceImpl implements IPSDEFieldService {
     }
 
     @Override
-    public void removeByNo2dupchkpsdefid(String devSlnSysId,String psdefieldid) {
-        Set<String> delIds=new HashSet<String>();
-        for(PSDEField before:selectByNo2dupchkpsdefid(devSlnSysId,psdefieldid)){
+    public void removeByNo2dupchkpsdefid(String devSlnSysId, String psdefieldid) {
+        Set<String> delIds = new HashSet<String>();
+        for(PSDEField before:selectByNo2dupchkpsdefid(devSlnSysId, psdefieldid)){
             delIds.add(before.getPsdefieldid());
         }
-        if(delIds.size()>0)
+        if(delIds.size() > 0) {
             this.removeBatch(delIds);
+	}
     }
 
 	@Override
@@ -405,8 +413,8 @@ public class PSDEFieldServiceImpl implements IPSDEFieldService {
     }
 
     @Override
-    public List<PSDEField> selectByNo3dupchkpsdefid(String devSlnSysId,String psdefieldid) {
-        PSDEFieldSearchContext context=new PSDEFieldSearchContext();
+    public List<PSDEField> selectByNo3dupchkpsdefid(String devSlnSysId, String psdefieldid) {
+        PSDEFieldSearchContext context = new PSDEFieldSearchContext();
         context.setSize(Integer.MAX_VALUE);
         context.setN_no3dupchkpsdefid_eq(psdefieldid);
         return getPSDEFieldFeignClient(devSlnSysId).searchDefault(context).getContent();
@@ -430,13 +438,14 @@ public class PSDEFieldServiceImpl implements IPSDEFieldService {
     }
 
     @Override
-    public void removeByNo3dupchkpsdefid(String devSlnSysId,String psdefieldid) {
-        Set<String> delIds=new HashSet<String>();
-        for(PSDEField before:selectByNo3dupchkpsdefid(devSlnSysId,psdefieldid)){
+    public void removeByNo3dupchkpsdefid(String devSlnSysId, String psdefieldid) {
+        Set<String> delIds = new HashSet<String>();
+        for(PSDEField before:selectByNo3dupchkpsdefid(devSlnSysId, psdefieldid)){
             delIds.add(before.getPsdefieldid());
         }
-        if(delIds.size()>0)
+        if(delIds.size() > 0) {
             this.removeBatch(delIds);
+	}
     }
 
 	@Override
@@ -448,8 +457,8 @@ public class PSDEFieldServiceImpl implements IPSDEFieldService {
     }
 
     @Override
-    public List<PSDEField> selectByValuepsdefid(String devSlnSysId,String psdefieldid) {
-        PSDEFieldSearchContext context=new PSDEFieldSearchContext();
+    public List<PSDEField> selectByValuepsdefid(String devSlnSysId, String psdefieldid) {
+        PSDEFieldSearchContext context = new PSDEFieldSearchContext();
         context.setSize(Integer.MAX_VALUE);
         context.setN_valuepsdefid_eq(psdefieldid);
         return getPSDEFieldFeignClient(devSlnSysId).searchDefault(context).getContent();
@@ -473,13 +482,14 @@ public class PSDEFieldServiceImpl implements IPSDEFieldService {
     }
 
     @Override
-    public void removeByValuepsdefid(String devSlnSysId,String psdefieldid) {
-        Set<String> delIds=new HashSet<String>();
-        for(PSDEField before:selectByValuepsdefid(devSlnSysId,psdefieldid)){
+    public void removeByValuepsdefid(String devSlnSysId, String psdefieldid) {
+        Set<String> delIds = new HashSet<String>();
+        for(PSDEField before:selectByValuepsdefid(devSlnSysId, psdefieldid)){
             delIds.add(before.getPsdefieldid());
         }
-        if(delIds.size()>0)
+        if(delIds.size() > 0) {
             this.removeBatch(delIds);
+	}
     }
 
 

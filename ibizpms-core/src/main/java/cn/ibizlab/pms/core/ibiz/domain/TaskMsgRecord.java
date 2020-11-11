@@ -46,7 +46,7 @@ public class TaskMsgRecord extends EntityMP implements Serializable {
     /**
      * 待办消息记录标识
      */
-    @DEField(isKeyField=true)
+    @DEField(isKeyField = true)
     @TableId(value= "taskmsgrecordid",type=IdType.ASSIGN_UUID)
     @JSONField(name = "taskmsgrecordid")
     @JsonProperty("taskmsgrecordid")
@@ -55,7 +55,7 @@ public class TaskMsgRecord extends EntityMP implements Serializable {
      * 建立人
      */
     @DEField(preType = DEPredefinedFieldType.CREATEMAN)
-    @TableField(value = "`createman`" , fill = FieldFill.INSERT)
+    @TableField(value = "`createman`", fill = FieldFill.INSERT)
     @JSONField(name = "createman")
     @JsonProperty("createman")
     private String createman;
@@ -69,8 +69,8 @@ public class TaskMsgRecord extends EntityMP implements Serializable {
     /**
      * 逻辑有效标志
      */
-    @DEField(preType = DEPredefinedFieldType.LOGICVALID, logicval = "1" , logicdelval="0")
-    @TableLogic(value= "1",delval="0")
+    @DEField(preType = DEPredefinedFieldType.LOGICVALID, logicval = "1", logicdelval = "0")
+    @TableLogic(value= "1", delval = "0")
     @TableField(value = "`enable`")
     @JSONField(name = "enable")
     @JsonProperty("enable")
@@ -80,8 +80,8 @@ public class TaskMsgRecord extends EntityMP implements Serializable {
      */
     @DEField(preType = DEPredefinedFieldType.UPDATEDATE)
     @TableField(value = "`updatedate`")
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "updatedate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "updatedate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("updatedate")
     private Timestamp updatedate;
     /**
@@ -96,9 +96,9 @@ public class TaskMsgRecord extends EntityMP implements Serializable {
      * 建立时间
      */
     @DEField(preType = DEPredefinedFieldType.CREATEDATE)
-    @TableField(value = "`createdate`" , fill = FieldFill.INSERT)
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "createdate" , format="yyyy-MM-dd HH:mm:ss")
+    @TableField(value = "`createdate`", fill = FieldFill.INSERT)
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "createdate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("createdate")
     private Timestamp createdate;
     /**
@@ -149,7 +149,7 @@ public class TaskMsgRecord extends EntityMP implements Serializable {
     /**
      * 设置 [待办消息记录名称]
      */
-    public void setTaskmsgrecordname(String taskmsgrecordname){
+    public void setTaskmsgrecordname(String taskmsgrecordname) {
         this.taskmsgrecordname = taskmsgrecordname ;
         this.modify("taskmsgrecordname",taskmsgrecordname);
     }
@@ -157,7 +157,7 @@ public class TaskMsgRecord extends EntityMP implements Serializable {
     /**
      * 设置 [待办人标识]
      */
-    public void setTaskuserid(String taskuserid){
+    public void setTaskuserid(String taskuserid) {
         this.taskuserid = taskuserid ;
         this.modify("taskuserid",taskuserid);
     }
@@ -165,7 +165,7 @@ public class TaskMsgRecord extends EntityMP implements Serializable {
     /**
      * 设置 [第三方应用待办标识]
      */
-    public void setApptaskid(String apptaskid){
+    public void setApptaskid(String apptaskid) {
         this.apptaskid = apptaskid ;
         this.modify("apptaskid",apptaskid);
     }
@@ -173,7 +173,7 @@ public class TaskMsgRecord extends EntityMP implements Serializable {
     /**
      * 设置 [待办类型]
      */
-    public void setTasktype(String tasktype){
+    public void setTasktype(String tasktype) {
         this.tasktype = tasktype ;
         this.modify("tasktype",tasktype);
     }
@@ -181,7 +181,7 @@ public class TaskMsgRecord extends EntityMP implements Serializable {
     /**
      * 设置 [备注]
      */
-    public void setMemo(String memo){
+    public void setMemo(String memo) {
         this.memo = memo ;
         this.modify("memo",memo);
     }
@@ -189,7 +189,7 @@ public class TaskMsgRecord extends EntityMP implements Serializable {
     /**
      * 设置 [标题]
      */
-    public void setTitle(String title){
+    public void setTitle(String title) {
         this.title = title ;
         this.modify("title",title);
     }
@@ -197,7 +197,7 @@ public class TaskMsgRecord extends EntityMP implements Serializable {
     /**
      * 设置 [数据标识]
      */
-    public void setDataid(String dataid){
+    public void setDataid(String dataid) {
         this.dataid = dataid ;
         this.modify("dataid",dataid);
     }

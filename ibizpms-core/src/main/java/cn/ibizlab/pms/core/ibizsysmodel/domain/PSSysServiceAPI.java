@@ -34,14 +34,14 @@ import cn.ibizlab.pms.util.domain.EntityClient;
 public class PSSysServiceAPI extends EntityClient implements Serializable {
     @Override
     public void modify(String field, Object val) {
-        getExtensionparams().put("dirtyflagenable",true);
+        getExtensionparams().put("dirtyflagenable", true);
         super.modify(field, val);
     }
 
     /**
      * 系统服务接口标识
      */
-    @DEField(isKeyField=true)
+    @DEField(isKeyField = true)
     @JSONField(name = "pssysserviceapiid")
     @JsonProperty("pssysserviceapiid")
     private String pssysserviceapiid;
@@ -58,8 +58,8 @@ public class PSSysServiceAPI extends EntityClient implements Serializable {
      * 建立时间
      */
     @DEField(preType = DEPredefinedFieldType.CREATEDATE)
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "createdate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "createdate" , format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("createdate")
     private Timestamp createdate;
 
@@ -74,8 +74,8 @@ public class PSSysServiceAPI extends EntityClient implements Serializable {
      * 更新时间
      */
     @DEField(preType = DEPredefinedFieldType.UPDATEDATE)
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "updatedate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "updatedate" , format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("updatedate")
     private Timestamp updatedate;
 
@@ -377,7 +377,7 @@ public class PSSysServiceAPI extends EntityClient implements Serializable {
     /**
      * 设置 [系统服务接口名称]
      */
-    public void setPssysserviceapiname(String pssysserviceapiname){
+    public void setPssysserviceapiname(String pssysserviceapiname) {
         this.pssysserviceapiname = pssysserviceapiname ;
         this.modify("pssysserviceapiname",pssysserviceapiname);
     }
@@ -385,7 +385,7 @@ public class PSSysServiceAPI extends EntityClient implements Serializable {
     /**
      * 设置 [接口模式]
      */
-    public void setApimode(Integer apimode){
+    public void setApimode(Integer apimode) {
         this.apimode = apimode ;
         this.modify("apimode",apimode);
     }
@@ -393,7 +393,7 @@ public class PSSysServiceAPI extends EntityClient implements Serializable {
     /**
      * 设置 [接口标记]
      */
-    public void setApitag(String apitag){
+    public void setApitag(String apitag) {
         this.apitag = apitag ;
         this.modify("apitag",apitag);
     }
@@ -401,7 +401,7 @@ public class PSSysServiceAPI extends EntityClient implements Serializable {
     /**
      * 设置 [接口类型]
      */
-    public void setApitype(String apitype){
+    public void setApitype(String apitype) {
         this.apitype = apitype ;
         this.modify("apitype",apitype);
     }
@@ -409,7 +409,7 @@ public class PSSysServiceAPI extends EntityClient implements Serializable {
     /**
      * 设置 [接口标记2]
      */
-    public void setApitag2(String apitag2){
+    public void setApitag2(String apitag2) {
         this.apitag2 = apitag2 ;
         this.modify("apitag2",apitag2);
     }
@@ -417,7 +417,7 @@ public class PSSysServiceAPI extends EntityClient implements Serializable {
     /**
      * 设置 [认证客户端标识]
      */
-    public void setAuthclientid(String authclientid){
+    public void setAuthclientid(String authclientid) {
         this.authclientid = authclientid ;
         this.modify("authclientid",authclientid);
     }
@@ -425,7 +425,7 @@ public class PSSysServiceAPI extends EntityClient implements Serializable {
     /**
      * 设置 [认证token路径]
      */
-    public void setAuthchecktokenuri(String authchecktokenuri){
+    public void setAuthchecktokenuri(String authchecktokenuri) {
         this.authchecktokenuri = authchecktokenuri ;
         this.modify("authchecktokenuri",authchecktokenuri);
     }
@@ -433,7 +433,7 @@ public class PSSysServiceAPI extends EntityClient implements Serializable {
     /**
      * 设置 [认证客户端密钥]
      */
-    public void setAuthclientsecret(String authclientsecret){
+    public void setAuthclientsecret(String authclientsecret) {
         this.authclientsecret = authclientsecret ;
         this.modify("authclientsecret",authclientsecret);
     }
@@ -441,7 +441,7 @@ public class PSSysServiceAPI extends EntityClient implements Serializable {
     /**
      * 设置 [认证模式]
      */
-    public void setAuthmode(String authmode){
+    public void setAuthmode(String authmode) {
         this.authmode = authmode ;
         this.modify("authmode",authmode);
     }
@@ -449,7 +449,7 @@ public class PSSysServiceAPI extends EntityClient implements Serializable {
     /**
      * 设置 [认证参数]
      */
-    public void setAuthparam(String authparam){
+    public void setAuthparam(String authparam) {
         this.authparam = authparam ;
         this.modify("authparam",authparam);
     }
@@ -457,7 +457,7 @@ public class PSSysServiceAPI extends EntityClient implements Serializable {
     /**
      * 设置 [认证参数4]
      */
-    public void setAuthparam4(String authparam4){
+    public void setAuthparam4(String authparam4) {
         this.authparam4 = authparam4 ;
         this.modify("authparam4",authparam4);
     }
@@ -465,7 +465,7 @@ public class PSSysServiceAPI extends EntityClient implements Serializable {
     /**
      * 设置 [认证参数2]
      */
-    public void setAuthparam2(String authparam2){
+    public void setAuthparam2(String authparam2) {
         this.authparam2 = authparam2 ;
         this.modify("authparam2",authparam2);
     }
@@ -473,7 +473,7 @@ public class PSSysServiceAPI extends EntityClient implements Serializable {
     /**
      * 设置 [认证参数3]
      */
-    public void setAuthparam3(String authparam3){
+    public void setAuthparam3(String authparam3) {
         this.authparam3 = authparam3 ;
         this.modify("authparam3",authparam3);
     }
@@ -481,7 +481,7 @@ public class PSSysServiceAPI extends EntityClient implements Serializable {
     /**
      * 设置 [配置标记]
      */
-    public void setCfgtag(String cfgtag){
+    public void setCfgtag(String cfgtag) {
         this.cfgtag = cfgtag ;
         this.modify("cfgtag",cfgtag);
     }
@@ -489,7 +489,7 @@ public class PSSysServiceAPI extends EntityClient implements Serializable {
     /**
      * 设置 [配置模型存储标识]
      */
-    public void setCfgpsmodelstorageid(String cfgpsmodelstorageid){
+    public void setCfgpsmodelstorageid(String cfgpsmodelstorageid) {
         this.cfgpsmodelstorageid = cfgpsmodelstorageid ;
         this.modify("cfgpsmodelstorageid",cfgpsmodelstorageid);
     }
@@ -497,7 +497,7 @@ public class PSSysServiceAPI extends EntityClient implements Serializable {
     /**
      * 设置 [代码名称]
      */
-    public void setCodename(String codename){
+    public void setCodename(String codename) {
         this.codename = codename ;
         this.modify("codename",codename);
     }
@@ -505,7 +505,7 @@ public class PSSysServiceAPI extends EntityClient implements Serializable {
     /**
      * 设置 [默认实体行为请求方式]
      */
-    public void setDefdeactionreqmethod(String defdeactionreqmethod){
+    public void setDefdeactionreqmethod(String defdeactionreqmethod) {
         this.defdeactionreqmethod = defdeactionreqmethod ;
         this.modify("defdeactionreqmethod",defdeactionreqmethod);
     }
@@ -513,7 +513,7 @@ public class PSSysServiceAPI extends EntityClient implements Serializable {
     /**
      * 设置 [模型锁标志]
      */
-    public void setLockflag(Integer lockflag){
+    public void setLockflag(Integer lockflag) {
         this.lockflag = lockflag ;
         this.modify("lockflag",lockflag);
     }
@@ -521,7 +521,7 @@ public class PSSysServiceAPI extends EntityClient implements Serializable {
     /**
      * 设置 [默认查询请求方式]
      */
-    public void setDefselectreqmethod(String defselectreqmethod){
+    public void setDefselectreqmethod(String defselectreqmethod) {
         this.defselectreqmethod = defselectreqmethod ;
         this.modify("defselectreqmethod",defselectreqmethod);
     }
@@ -529,7 +529,7 @@ public class PSSysServiceAPI extends EntityClient implements Serializable {
     /**
      * 设置 [默认结果集请求方式]
      */
-    public void setDefdedatasetreqmethod(String defdedatasetreqmethod){
+    public void setDefdedatasetreqmethod(String defdedatasetreqmethod) {
         this.defdedatasetreqmethod = defdedatasetreqmethod ;
         this.modify("defdedatasetreqmethod",defdedatasetreqmethod);
     }
@@ -537,7 +537,7 @@ public class PSSysServiceAPI extends EntityClient implements Serializable {
     /**
      * 设置 [平台预定义类型]
      */
-    public void setPredefinedtype(String predefinedtype){
+    public void setPredefinedtype(String predefinedtype) {
         this.predefinedtype = predefinedtype ;
         this.modify("predefinedtype",predefinedtype);
     }
@@ -545,7 +545,7 @@ public class PSSysServiceAPI extends EntityClient implements Serializable {
     /**
      * 设置 [备注]
      */
-    public void setMemo(String memo){
+    public void setMemo(String memo) {
         this.memo = memo ;
         this.modify("memo",memo);
     }
@@ -553,7 +553,7 @@ public class PSSysServiceAPI extends EntityClient implements Serializable {
     /**
      * 设置 [服务参数]
      */
-    public void setServiceparam(String serviceparam){
+    public void setServiceparam(String serviceparam) {
         this.serviceparam = serviceparam ;
         this.modify("serviceparam",serviceparam);
     }
@@ -561,7 +561,7 @@ public class PSSysServiceAPI extends EntityClient implements Serializable {
     /**
      * 设置 [服务代码名称]
      */
-    public void setServicecodename(String servicecodename){
+    public void setServicecodename(String servicecodename) {
         this.servicecodename = servicecodename ;
         this.modify("servicecodename",servicecodename);
     }
@@ -569,7 +569,7 @@ public class PSSysServiceAPI extends EntityClient implements Serializable {
     /**
      * 设置 [服务参数4]
      */
-    public void setServiceparam4(String serviceparam4){
+    public void setServiceparam4(String serviceparam4) {
         this.serviceparam4 = serviceparam4 ;
         this.modify("serviceparam4",serviceparam4);
     }
@@ -577,7 +577,7 @@ public class PSSysServiceAPI extends EntityClient implements Serializable {
     /**
      * 设置 [服务参数2]
      */
-    public void setServiceparam2(String serviceparam2){
+    public void setServiceparam2(String serviceparam2) {
         this.serviceparam2 = serviceparam2 ;
         this.modify("serviceparam2",serviceparam2);
     }
@@ -585,7 +585,7 @@ public class PSSysServiceAPI extends EntityClient implements Serializable {
     /**
      * 设置 [服务参数3]
      */
-    public void setServiceparam3(String serviceparam3){
+    public void setServiceparam3(String serviceparam3) {
         this.serviceparam3 = serviceparam3 ;
         this.modify("serviceparam3",serviceparam3);
     }
@@ -593,7 +593,7 @@ public class PSSysServiceAPI extends EntityClient implements Serializable {
     /**
      * 设置 [唯一标识]
      */
-    public void setUniquetag(String uniquetag){
+    public void setUniquetag(String uniquetag) {
         this.uniquetag = uniquetag ;
         this.modify("uniquetag",uniquetag);
     }
@@ -601,7 +601,7 @@ public class PSSysServiceAPI extends EntityClient implements Serializable {
     /**
      * 设置 [服务类型]
      */
-    public void setServicetype(String servicetype){
+    public void setServicetype(String servicetype) {
         this.servicetype = servicetype ;
         this.modify("servicetype",servicetype);
     }
@@ -609,7 +609,7 @@ public class PSSysServiceAPI extends EntityClient implements Serializable {
     /**
      * 设置 [用户分类]
      */
-    public void setUsercat(String usercat){
+    public void setUsercat(String usercat) {
         this.usercat = usercat ;
         this.modify("usercat",usercat);
     }
@@ -617,7 +617,7 @@ public class PSSysServiceAPI extends EntityClient implements Serializable {
     /**
      * 设置 [用户标记]
      */
-    public void setUsertag(String usertag){
+    public void setUsertag(String usertag) {
         this.usertag = usertag ;
         this.modify("usertag",usertag);
     }
@@ -625,7 +625,7 @@ public class PSSysServiceAPI extends EntityClient implements Serializable {
     /**
      * 设置 [用户标记2]
      */
-    public void setUsertag2(String usertag2){
+    public void setUsertag2(String usertag2) {
         this.usertag2 = usertag2 ;
         this.modify("usertag2",usertag2);
     }
@@ -633,7 +633,7 @@ public class PSSysServiceAPI extends EntityClient implements Serializable {
     /**
      * 设置 [用户标记4]
      */
-    public void setUsertag4(String usertag4){
+    public void setUsertag4(String usertag4) {
         this.usertag4 = usertag4 ;
         this.modify("usertag4",usertag4);
     }
@@ -641,7 +641,7 @@ public class PSSysServiceAPI extends EntityClient implements Serializable {
     /**
      * 设置 [用户标记3]
      */
-    public void setUsertag3(String usertag3){
+    public void setUsertag3(String usertag3) {
         this.usertag3 = usertag3 ;
         this.modify("usertag3",usertag3);
     }
@@ -649,7 +649,7 @@ public class PSSysServiceAPI extends EntityClient implements Serializable {
     /**
      * 设置 [是否启用]
      */
-    public void setValidflag(Integer validflag){
+    public void setValidflag(Integer validflag) {
         this.validflag = validflag ;
         this.modify("validflag",validflag);
     }
@@ -657,7 +657,7 @@ public class PSSysServiceAPI extends EntityClient implements Serializable {
     /**
      * 设置 [版本]
      */
-    public void setVer(Integer ver){
+    public void setVer(Integer ver) {
         this.ver = ver ;
         this.modify("ver",ver);
     }
@@ -665,7 +665,7 @@ public class PSSysServiceAPI extends EntityClient implements Serializable {
     /**
      * 设置 [系统模块]
      */
-    public void setPsmoduleid(String psmoduleid){
+    public void setPsmoduleid(String psmoduleid) {
         this.psmoduleid = psmoduleid ;
         this.modify("psmoduleid",psmoduleid);
     }
@@ -673,7 +673,7 @@ public class PSSysServiceAPI extends EntityClient implements Serializable {
     /**
      * 设置 [系统]
      */
-    public void setPssystemid(String pssystemid){
+    public void setPssystemid(String pssystemid) {
         this.pssystemid = pssystemid ;
         this.modify("pssystemid",pssystemid);
     }
@@ -681,7 +681,7 @@ public class PSSysServiceAPI extends EntityClient implements Serializable {
     /**
      * 设置 [系统]
      */
-    public void setPssystemname(String pssystemname){
+    public void setPssystemname(String pssystemname) {
         this.pssystemname = pssystemname ;
         this.modify("pssystemname",pssystemname);
     }

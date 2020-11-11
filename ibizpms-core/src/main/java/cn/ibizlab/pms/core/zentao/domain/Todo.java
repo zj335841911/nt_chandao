@@ -46,7 +46,7 @@ public class Todo extends EntityMP implements Serializable {
     /**
      * 编号
      */
-    @DEField(isKeyField=true)
+    @DEField(isKeyField = true)
     @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
@@ -63,8 +63,8 @@ public class Todo extends EntityMP implements Serializable {
      * 关闭时间
      */
     @TableField(value = "`closeddate`")
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "closeddate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "closeddate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("closeddate")
     private Timestamp closeddate;
     /**
@@ -133,8 +133,8 @@ public class Todo extends EntityMP implements Serializable {
      * 完成时间
      */
     @TableField(value = "`finisheddate`")
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "finisheddate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "finisheddate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("finisheddate")
     private Timestamp finisheddate;
     /**
@@ -172,8 +172,8 @@ public class Todo extends EntityMP implements Serializable {
      * 指派日期
      */
     @TableField(value = "`assigneddate`")
-    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "assigneddate" , format="yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "assigneddate", format = "yyyy-MM-dd")
     @JsonProperty("assigneddate")
     private Timestamp assigneddate;
     /**
@@ -188,8 +188,8 @@ public class Todo extends EntityMP implements Serializable {
      * 日期
      */
     @TableField(value = "`date`")
-    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "date" , format="yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "date", format = "yyyy-MM-dd")
     @JsonProperty("date")
     private Timestamp date;
     /**
@@ -247,8 +247,8 @@ public class Todo extends EntityMP implements Serializable {
      * 过期时间
      */
     @TableField(exist = false)
-    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "config_end" , format="yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "config_end", format = "yyyy-MM-dd")
     @JsonProperty("config_end")
     private Timestamp configEnd;
     /**
@@ -306,7 +306,7 @@ public class Todo extends EntityMP implements Serializable {
     /**
      * 设置 [关闭时间]
      */
-    public void setCloseddate(Timestamp closeddate){
+    public void setCloseddate(Timestamp closeddate) {
         this.closeddate = closeddate ;
         this.modify("closeddate",closeddate);
     }
@@ -314,7 +314,7 @@ public class Todo extends EntityMP implements Serializable {
     /**
      * 格式化日期 [关闭时间]
      */
-    public String formatCloseddate(){
+    public String formatCloseddate() {
         if (this.closeddate == null) {
             return null;
         }
@@ -324,7 +324,7 @@ public class Todo extends EntityMP implements Serializable {
     /**
      * 设置 [由谁关闭]
      */
-    public void setClosedby(String closedby){
+    public void setClosedby(String closedby) {
         this.closedby = closedby ;
         this.modify("closedby",closedby);
     }
@@ -332,7 +332,7 @@ public class Todo extends EntityMP implements Serializable {
     /**
      * 设置 [类型]
      */
-    public void setType(String type){
+    public void setType(String type) {
         this.type = type ;
         this.modify("type",type);
     }
@@ -340,7 +340,7 @@ public class Todo extends EntityMP implements Serializable {
     /**
      * 设置 [结束]
      */
-    public void setEnd(Integer end){
+    public void setEnd(Integer end) {
         this.end = end ;
         this.modify("end",end);
     }
@@ -348,7 +348,7 @@ public class Todo extends EntityMP implements Serializable {
     /**
      * 设置 [描述]
      */
-    public void setDesc(String desc){
+    public void setDesc(String desc) {
         this.desc = desc ;
         this.modify("desc",desc);
     }
@@ -356,7 +356,7 @@ public class Todo extends EntityMP implements Serializable {
     /**
      * 设置 [由谁完成]
      */
-    public void setFinishedby(String finishedby){
+    public void setFinishedby(String finishedby) {
         this.finishedby = finishedby ;
         this.modify("finishedby",finishedby);
     }
@@ -364,7 +364,7 @@ public class Todo extends EntityMP implements Serializable {
     /**
      * 设置 [开始]
      */
-    public void setBegin(Integer begin){
+    public void setBegin(Integer begin) {
         this.begin = begin ;
         this.modify("begin",begin);
     }
@@ -372,7 +372,7 @@ public class Todo extends EntityMP implements Serializable {
     /**
      * 设置 [关联编号]
      */
-    public void setIdvalue(Long idvalue){
+    public void setIdvalue(Long idvalue) {
         this.idvalue = idvalue ;
         this.modify("idvalue",idvalue);
     }
@@ -380,7 +380,7 @@ public class Todo extends EntityMP implements Serializable {
     /**
      * 设置 [由谁指派]
      */
-    public void setAssignedby(String assignedby){
+    public void setAssignedby(String assignedby) {
         this.assignedby = assignedby ;
         this.modify("assignedby",assignedby);
     }
@@ -388,7 +388,7 @@ public class Todo extends EntityMP implements Serializable {
     /**
      * 设置 [完成时间]
      */
-    public void setFinisheddate(Timestamp finisheddate){
+    public void setFinisheddate(Timestamp finisheddate) {
         this.finisheddate = finisheddate ;
         this.modify("finisheddate",finisheddate);
     }
@@ -396,7 +396,7 @@ public class Todo extends EntityMP implements Serializable {
     /**
      * 格式化日期 [完成时间]
      */
-    public String formatFinisheddate(){
+    public String formatFinisheddate() {
         if (this.finisheddate == null) {
             return null;
         }
@@ -406,7 +406,7 @@ public class Todo extends EntityMP implements Serializable {
     /**
      * 设置 [周期]
      */
-    public void setCycle(Integer cycle){
+    public void setCycle(Integer cycle) {
         this.cycle = cycle ;
         this.modify("cycle",cycle);
     }
@@ -414,7 +414,7 @@ public class Todo extends EntityMP implements Serializable {
     /**
      * 设置 [指派给]
      */
-    public void setAssignedto(String assignedto){
+    public void setAssignedto(String assignedto) {
         this.assignedto = assignedto ;
         this.modify("assignedto",assignedto);
     }
@@ -422,7 +422,7 @@ public class Todo extends EntityMP implements Serializable {
     /**
      * 设置 [状态]
      */
-    public void setStatus(String status){
+    public void setStatus(String status) {
         this.status = status ;
         this.modify("status",status);
     }
@@ -430,7 +430,7 @@ public class Todo extends EntityMP implements Serializable {
     /**
      * 设置 [待办名称]
      */
-    public void setName(String name){
+    public void setName(String name) {
         this.name = name ;
         this.modify("name",name);
     }
@@ -438,7 +438,7 @@ public class Todo extends EntityMP implements Serializable {
     /**
      * 设置 [指派日期]
      */
-    public void setAssigneddate(Timestamp assigneddate){
+    public void setAssigneddate(Timestamp assigneddate) {
         this.assigneddate = assigneddate ;
         this.modify("assigneddate",assigneddate);
     }
@@ -446,7 +446,7 @@ public class Todo extends EntityMP implements Serializable {
     /**
      * 格式化日期 [指派日期]
      */
-    public String formatAssigneddate(){
+    public String formatAssigneddate() {
         if (this.assigneddate == null) {
             return null;
         }
@@ -456,7 +456,7 @@ public class Todo extends EntityMP implements Serializable {
     /**
      * 设置 [优先级]
      */
-    public void setPri(Integer pri){
+    public void setPri(Integer pri) {
         this.pri = pri ;
         this.modify("pri",pri);
     }
@@ -464,7 +464,7 @@ public class Todo extends EntityMP implements Serializable {
     /**
      * 设置 [日期]
      */
-    public void setDate(Timestamp date){
+    public void setDate(Timestamp date) {
         this.date = date ;
         this.modify("date",date);
     }
@@ -472,7 +472,7 @@ public class Todo extends EntityMP implements Serializable {
     /**
      * 格式化日期 [日期]
      */
-    public String formatDate(){
+    public String formatDate() {
         if (this.date == null) {
             return null;
         }
@@ -482,7 +482,7 @@ public class Todo extends EntityMP implements Serializable {
     /**
      * 设置 [私人事务]
      */
-    public void setIbizprivate(Integer ibizprivate){
+    public void setIbizprivate(Integer ibizprivate) {
         this.ibizprivate = ibizprivate ;
         this.modify("private",ibizprivate);
     }
@@ -490,7 +490,7 @@ public class Todo extends EntityMP implements Serializable {
     /**
      * 设置 [config]
      */
-    public void setConfig(String config){
+    public void setConfig(String config) {
         this.config = config ;
         this.modify("config",config);
     }

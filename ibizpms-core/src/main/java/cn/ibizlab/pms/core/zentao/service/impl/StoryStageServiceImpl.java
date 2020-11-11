@@ -61,8 +61,9 @@ public class StoryStageServiceImpl extends ServiceImpl<StoryStageMapper, StorySt
     @Transactional
     public boolean create(StoryStage et) {
         fillParentData(et);
-        if(!this.retBool(this.baseMapper.insert(et)))
+        if(!this.retBool(this.baseMapper.insert(et))) {
             return false;
+        }
         CachedBeanCopier.copy(get(et.getId()),et);
         return true;
     }
@@ -78,8 +79,9 @@ public class StoryStageServiceImpl extends ServiceImpl<StoryStageMapper, StorySt
     @Transactional
     public boolean update(StoryStage et) {
         fillParentData(et);
-         if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
+        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId()))) {
             return false;
+        }
         CachedBeanCopier.copy(get(et.getId()),et);
         return true;
     }
@@ -130,8 +132,9 @@ public class StoryStageServiceImpl extends ServiceImpl<StoryStageMapper, StorySt
     @Override
     @Transactional
     public boolean save(StoryStage et) {
-        if(!saveOrUpdate(et))
+        if(!saveOrUpdate(et)) {
             return false;
+        }
         return true;
     }
 

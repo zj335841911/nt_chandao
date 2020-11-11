@@ -46,7 +46,7 @@ public class ProductStats extends EntityMP implements Serializable {
     /**
      * 产品编号
      */
-    @DEField(isKeyField=true)
+    @DEField(isKeyField = true)
     @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
@@ -54,8 +54,8 @@ public class ProductStats extends EntityMP implements Serializable {
     /**
      * 已删除
      */
-    @DEField(defaultValue = "0" , preType = DEPredefinedFieldType.LOGICVALID, logicval = "0" , logicdelval="1")
-    @TableLogic(value= "0",delval="1")
+    @DEField(defaultValue = "0", preType = DEPredefinedFieldType.LOGICVALID, logicval = "0", logicdelval = "1")
+    @TableLogic(value= "0", delval = "1")
     @TableField(value = "`deleted`")
     @JSONField(name = "deleted")
     @JsonProperty("deleted")
@@ -269,7 +269,7 @@ public class ProductStats extends EntityMP implements Serializable {
     /**
      * 设置 [产品名称]
      */
-    public void setName(String name){
+    public void setName(String name) {
         this.name = name ;
         this.modify("name",name);
     }
@@ -277,7 +277,7 @@ public class ProductStats extends EntityMP implements Serializable {
     /**
      * 设置 [状态]
      */
-    public void setStatus(String status){
+    public void setStatus(String status) {
         this.status = status ;
         this.modify("status",status);
     }
@@ -285,7 +285,7 @@ public class ProductStats extends EntityMP implements Serializable {
     /**
      * 设置 [产品代号]
      */
-    public void setCode(String code){
+    public void setCode(String code) {
         this.code = code ;
         this.modify("code",code);
     }
@@ -293,7 +293,7 @@ public class ProductStats extends EntityMP implements Serializable {
     /**
      * 设置 [产品类型]
      */
-    public void setType(String type){
+    public void setType(String type) {
         this.type = type ;
         this.modify("type",type);
     }

@@ -46,7 +46,7 @@ public class StoryStage extends EntityMP implements Serializable {
     /**
      * 虚拟主键
      */
-    @DEField(isKeyField=true)
+    @DEField(isKeyField = true)
     @TableField(exist = false)
     @JSONField(name = "id")
     @JsonProperty("id")
@@ -101,7 +101,7 @@ public class StoryStage extends EntityMP implements Serializable {
     /**
      * 设置 [设置阶段者]
      */
-    public void setStagedby(String stagedby){
+    public void setStagedby(String stagedby) {
         this.stagedby = stagedby ;
         this.modify("stagedby",stagedby);
     }
@@ -109,7 +109,7 @@ public class StoryStage extends EntityMP implements Serializable {
     /**
      * 设置 [所处阶段]
      */
-    public void setStage(String stage){
+    public void setStage(String stage) {
         this.stage = stage ;
         this.modify("stage",stage);
     }
@@ -117,7 +117,7 @@ public class StoryStage extends EntityMP implements Serializable {
     /**
      * 设置 [需求]
      */
-    public void setStory(Long story){
+    public void setStory(Long story) {
         this.story = story ;
         this.modify("story",story);
     }
@@ -125,7 +125,7 @@ public class StoryStage extends EntityMP implements Serializable {
     /**
      * 设置 [平台/分支]
      */
-    public void setBranch(Long branch){
+    public void setBranch(Long branch) {
         this.branch = branch ;
         this.modify("branch",branch);
     }

@@ -78,7 +78,7 @@ public class History extends EntityMP implements Serializable {
     /**
      * id
      */
-    @DEField(isKeyField=true)
+    @DEField(isKeyField = true)
     @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
@@ -105,7 +105,7 @@ public class History extends EntityMP implements Serializable {
     /**
      * 设置 [不同]
      */
-    public void setDiff(String diff){
+    public void setDiff(String diff) {
         this.diff = diff ;
         this.modify("diff",diff);
     }
@@ -113,7 +113,7 @@ public class History extends EntityMP implements Serializable {
     /**
      * 设置 [字段]
      */
-    public void setField(String field){
+    public void setField(String field) {
         this.field = field ;
         this.modify("field",field);
     }
@@ -121,7 +121,7 @@ public class History extends EntityMP implements Serializable {
     /**
      * 设置 [新值]
      */
-    public void setIbiznew(String ibiznew){
+    public void setIbiznew(String ibiznew) {
         this.ibiznew = ibiznew ;
         this.modify("new",ibiznew);
     }
@@ -129,7 +129,7 @@ public class History extends EntityMP implements Serializable {
     /**
      * 设置 [旧值]
      */
-    public void setOld(String old){
+    public void setOld(String old) {
         this.old = old ;
         this.modify("old",old);
     }
@@ -137,7 +137,7 @@ public class History extends EntityMP implements Serializable {
     /**
      * 设置 [关联日志]
      */
-    public void setAction(Long action){
+    public void setAction(Long action) {
         this.action = action ;
         this.modify("action",action);
     }

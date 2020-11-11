@@ -64,8 +64,9 @@ public class UserTplServiceImpl extends ServiceImpl<UserTplMapper, UserTpl> impl
     @Override
     @Transactional
     public boolean update(UserTpl et) {
-         if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
+        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId()))) {
             return false;
+        }
         CachedBeanCopier.copy(get(et.getId()),et);
         return true;
     }
@@ -115,8 +116,9 @@ public class UserTplServiceImpl extends ServiceImpl<UserTplMapper, UserTpl> impl
     @Override
     @Transactional
     public boolean save(UserTpl et) {
-        if(!saveOrUpdate(et))
+        if(!saveOrUpdate(et)) {
             return false;
+        }
         return true;
     }
 

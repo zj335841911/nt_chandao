@@ -60,8 +60,9 @@ public class IbzLibCaseStepsServiceImpl extends ServiceImpl<IbzLibCaseStepsMappe
     @Transactional
     public boolean create(IbzLibCaseSteps et) {
         fillParentData(et);
-        if(!this.retBool(this.baseMapper.insert(et)))
+        if(!this.retBool(this.baseMapper.insert(et))) {
             return false;
+        }
         ibzlibcasestepsService.saveByParent(et.getId(),et.getIbzlibcasesteps());
         CachedBeanCopier.copy(get(et.getId()),et);
         return true;
@@ -78,8 +79,9 @@ public class IbzLibCaseStepsServiceImpl extends ServiceImpl<IbzLibCaseStepsMappe
     @Transactional
     public boolean update(IbzLibCaseSteps et) {
         fillParentData(et);
-         if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
+        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId()))) {
             return false;
+        }
         ibzlibcasestepsService.saveByParent(et.getId(),et.getIbzlibcasesteps());
         CachedBeanCopier.copy(get(et.getId()),et);
         return true;
@@ -132,8 +134,9 @@ public class IbzLibCaseStepsServiceImpl extends ServiceImpl<IbzLibCaseStepsMappe
     @Override
     @Transactional
     public boolean save(IbzLibCaseSteps et) {
-        if(!saveOrUpdate(et))
+        if(!saveOrUpdate(et)) {
             return false;
+        }
         return true;
     }
 

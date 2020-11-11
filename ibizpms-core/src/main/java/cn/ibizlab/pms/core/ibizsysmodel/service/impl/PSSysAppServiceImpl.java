@@ -61,11 +61,11 @@ public class PSSysAppServiceImpl implements IPSSysAppService {
     private String password;
 
     public PSSysAppFeignClient getPSSysAppFeignClient(String devSlnSysId) {
-        if(StringUtils.isNotBlank(serviceName)){
-            return OutsideAccessorUtils.buildAccessor(SpringContextHolder.getApplicationContext(), PSSysAppFeignClient.class, serviceName, false, serviceName, false, loginname, password,devSlnSysId);
-        }else if(StringUtils.isNotBlank(serviceUrl)){
-            return OutsideAccessorUtils.buildAccessorByUrl(SpringContextHolder.getApplicationContext(), PSSysAppFeignClient.class, serviceUrl, false, serviceUrl, false, loginname, password,devSlnSysId);
-        }else{
+        if(StringUtils.isNotBlank(serviceName)) {
+            return OutsideAccessorUtils.buildAccessor(SpringContextHolder.getApplicationContext(), PSSysAppFeignClient.class, serviceName, false, serviceName, false, loginname, password, devSlnSysId);
+        } else if(StringUtils.isNotBlank(serviceUrl)) {
+            return OutsideAccessorUtils.buildAccessorByUrl(SpringContextHolder.getApplicationContext(), PSSysAppFeignClient.class, serviceUrl, false, serviceUrl, false, loginname, password, devSlnSysId);
+        } else {
             throw new RuntimeException("缺少平台服务配置信息。");
         }
     }
@@ -83,9 +83,10 @@ public class PSSysAppServiceImpl implements IPSSysAppService {
     @Override
     public boolean create(String devSlnSysId,PSSysApp et) {
         PSSysApp rt = getPSSysAppFeignClient(devSlnSysId).create(et);
-        if(rt==null)
+        if(rt==null) {
             return false;
-        CachedBeanCopier.copy(rt,et);
+	}
+        CachedBeanCopier.copy(rt, et);
         return true;
     }
 
@@ -94,7 +95,7 @@ public class PSSysAppServiceImpl implements IPSSysAppService {
     }
 
     public void createBatch(String devSlnSysId,List<PSSysApp> list){
-        getPSSysAppFeignClient(devSlnSysId).createBatch(list) ;
+        getPSSysAppFeignClient(devSlnSysId).createBatch(list);
     }
 
     @Override
@@ -108,13 +109,13 @@ public class PSSysAppServiceImpl implements IPSSysAppService {
     }
 
     @Override
-    public boolean update(String devSlnSysId,PSSysApp et) {
-        PSSysApp rt = getPSSysAppFeignClient(devSlnSysId).update(et.getPssysappid(),et);
-        if(rt==null)
+    public boolean update(String devSlnSysId, PSSysApp et) {
+        PSSysApp rt = getPSSysAppFeignClient(devSlnSysId).update(et.getPssysappid(), et);
+        if(rt==null) {
             return false;
-        CachedBeanCopier.copy(rt,et);
+	}
+        CachedBeanCopier.copy(rt, et);
         return true;
-
     }
 
     public void updateBatch(List<PSSysApp> list){
@@ -122,7 +123,7 @@ public class PSSysAppServiceImpl implements IPSSysAppService {
     }
 
     public void updateBatch(String devSlnSysId,List<PSSysApp> list){
-        getPSSysAppFeignClient(devSlnSysId).updateBatch(list) ;
+        getPSSysAppFeignClient(devSlnSysId).updateBatch(list);
     }
 
     @Override
@@ -133,7 +134,7 @@ public class PSSysAppServiceImpl implements IPSSysAppService {
 
     @Override
     public boolean remove(String devSlnSysId,String pssysappid) {
-        boolean result=getPSSysAppFeignClient(devSlnSysId).remove(pssysappid) ;
+        boolean result = getPSSysAppFeignClient(devSlnSysId).remove(pssysappid);
         return result;
     }
 
@@ -159,14 +160,14 @@ public class PSSysAppServiceImpl implements IPSSysAppService {
 
     @Override
     public PSSysApp get(String devSlnSysId,String pssysappid) {
-		PSSysApp et=getPSSysAppFeignClient(devSlnSysId).get(pssysappid);
-        if(et==null){
-            et=new PSSysApp();
+		PSSysApp et = getPSSysAppFeignClient(devSlnSysId).get(pssysappid);
+        if(et == null) {
+            et = new PSSysApp();
             et.setPssysappid(pssysappid);
         }
         else{
         }
-        return  et;
+        return et;
     }
 
     @Override
@@ -182,7 +183,7 @@ public class PSSysAppServiceImpl implements IPSSysAppService {
 
     @Override
     public PSSysApp getDraft(String devSlnSysId,PSSysApp et) {
-        et=getPSSysAppFeignClient(devSlnSysId).getDraft();
+        et = getPSSysAppFeignClient(devSlnSysId).getDraft();
         return et;
     }
 
@@ -208,9 +209,12 @@ public class PSSysAppServiceImpl implements IPSSysAppService {
     @Override
     @Transactional
     public boolean save(String devSlnSysId,PSSysApp et) {
-        if(et.getPssysappid()==null) et.setPssysappid((String)et.getDefaultKey(true));
-        if(!getPSSysAppFeignClient(devSlnSysId).save(et))
+        if(et.getPssysappid() == null) {
+	    et.setPssysappid((String)et.getDefaultKey(true));
+	}
+        if(!getPSSysAppFeignClient(devSlnSysId).save(et)) {
             return false;
+	}
         return true;
     }
 
@@ -221,7 +225,7 @@ public class PSSysAppServiceImpl implements IPSSysAppService {
 
     @Override
     public void saveBatch(String devSlnSysId,List<PSSysApp> list) {
-        getPSSysAppFeignClient(devSlnSysId).saveBatch(list) ;
+        getPSSysAppFeignClient(devSlnSysId).saveBatch(list);
     }
 
 
@@ -235,8 +239,8 @@ public class PSSysAppServiceImpl implements IPSSysAppService {
     }
 
     @Override
-    public List<PSSysApp> selectByPssysserviceapiid(String devSlnSysId,String pssysserviceapiid) {
-        PSSysAppSearchContext context=new PSSysAppSearchContext();
+    public List<PSSysApp> selectByPssysserviceapiid(String devSlnSysId, String pssysserviceapiid) {
+        PSSysAppSearchContext context = new PSSysAppSearchContext();
         context.setSize(Integer.MAX_VALUE);
         context.setN_pssysserviceapiid_eq(pssysserviceapiid);
         return getPSSysAppFeignClient(devSlnSysId).searchDefault(context).getContent();
@@ -260,13 +264,14 @@ public class PSSysAppServiceImpl implements IPSSysAppService {
     }
 
     @Override
-    public void removeByPssysserviceapiid(String devSlnSysId,String pssysserviceapiid) {
-        Set<String> delIds=new HashSet<String>();
-        for(PSSysApp before:selectByPssysserviceapiid(devSlnSysId,pssysserviceapiid)){
+    public void removeByPssysserviceapiid(String devSlnSysId, String pssysserviceapiid) {
+        Set<String> delIds = new HashSet<String>();
+        for(PSSysApp before:selectByPssysserviceapiid(devSlnSysId, pssysserviceapiid)){
             delIds.add(before.getPssysappid());
         }
-        if(delIds.size()>0)
+        if(delIds.size() > 0) {
             this.removeBatch(delIds);
+	}
     }
 
 

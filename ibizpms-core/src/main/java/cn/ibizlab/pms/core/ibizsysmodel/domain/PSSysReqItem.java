@@ -34,14 +34,14 @@ import cn.ibizlab.pms.util.domain.EntityClient;
 public class PSSysReqItem extends EntityClient implements Serializable {
     @Override
     public void modify(String field, Object val) {
-        getExtensionparams().put("dirtyflagenable",true);
+        getExtensionparams().put("dirtyflagenable", true);
         super.modify(field, val);
     }
 
     /**
      * 系统需求项标识
      */
-    @DEField(isKeyField=true)
+    @DEField(isKeyField = true)
     @JSONField(name = "pssysreqitemid")
     @JsonProperty("pssysreqitemid")
     private String pssysreqitemid;
@@ -65,8 +65,8 @@ public class PSSysReqItem extends EntityClient implements Serializable {
      * 建立时间
      */
     @DEField(preType = DEPredefinedFieldType.CREATEDATE)
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "createdate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "createdate" , format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("createdate")
     private Timestamp createdate;
 
@@ -74,8 +74,8 @@ public class PSSysReqItem extends EntityClient implements Serializable {
      * 更新时间
      */
     @DEField(preType = DEPredefinedFieldType.UPDATEDATE)
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "updatedate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "updatedate" , format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("updatedate")
     private Timestamp updatedate;
 
@@ -272,7 +272,7 @@ public class PSSysReqItem extends EntityClient implements Serializable {
     /**
      * 设置 [系统需求项名称]
      */
-    public void setPssysreqitemname(String pssysreqitemname){
+    public void setPssysreqitemname(String pssysreqitemname) {
         this.pssysreqitemname = pssysreqitemname ;
         this.modify("pssysreqitemname",pssysreqitemname);
     }
@@ -280,7 +280,7 @@ public class PSSysReqItem extends EntityClient implements Serializable {
     /**
      * 设置 [代码标识]
      */
-    public void setCodename(String codename){
+    public void setCodename(String codename) {
         this.codename = codename ;
         this.modify("codename",codename);
     }
@@ -288,7 +288,7 @@ public class PSSysReqItem extends EntityClient implements Serializable {
     /**
      * 设置 [项编号]
      */
-    public void setItemsn(String itemsn){
+    public void setItemsn(String itemsn) {
         this.itemsn = itemsn ;
         this.modify("itemsn",itemsn);
     }
@@ -296,7 +296,7 @@ public class PSSysReqItem extends EntityClient implements Serializable {
     /**
      * 设置 [项标记]
      */
-    public void setItemtag(String itemtag){
+    public void setItemtag(String itemtag) {
         this.itemtag = itemtag ;
         this.modify("itemtag",itemtag);
     }
@@ -304,7 +304,7 @@ public class PSSysReqItem extends EntityClient implements Serializable {
     /**
      * 设置 [项标记2]
      */
-    public void setItemtag2(String itemtag2){
+    public void setItemtag2(String itemtag2) {
         this.itemtag2 = itemtag2 ;
         this.modify("itemtag2",itemtag2);
     }
@@ -312,7 +312,7 @@ public class PSSysReqItem extends EntityClient implements Serializable {
     /**
      * 设置 [项类型]
      */
-    public void setItemtype(String itemtype){
+    public void setItemtype(String itemtype) {
         this.itemtype = itemtype ;
         this.modify("itemtype",itemtype);
     }
@@ -320,7 +320,7 @@ public class PSSysReqItem extends EntityClient implements Serializable {
     /**
      * 设置 [备注]
      */
-    public void setMemo(String memo){
+    public void setMemo(String memo) {
         this.memo = memo ;
         this.modify("memo",memo);
     }
@@ -328,7 +328,7 @@ public class PSSysReqItem extends EntityClient implements Serializable {
     /**
      * 设置 [内容]
      */
-    public void setReqcontent(String reqcontent){
+    public void setReqcontent(String reqcontent) {
         this.reqcontent = reqcontent ;
         this.modify("reqcontent",reqcontent);
     }
@@ -336,7 +336,7 @@ public class PSSysReqItem extends EntityClient implements Serializable {
     /**
      * 设置 [用户标记2]
      */
-    public void setUsertag2(String usertag2){
+    public void setUsertag2(String usertag2) {
         this.usertag2 = usertag2 ;
         this.modify("usertag2",usertag2);
     }
@@ -344,7 +344,7 @@ public class PSSysReqItem extends EntityClient implements Serializable {
     /**
      * 设置 [用户标记]
      */
-    public void setUsertag(String usertag){
+    public void setUsertag(String usertag) {
         this.usertag = usertag ;
         this.modify("usertag",usertag);
     }
@@ -352,7 +352,7 @@ public class PSSysReqItem extends EntityClient implements Serializable {
     /**
      * 设置 [用户分类]
      */
-    public void setUsercat(String usercat){
+    public void setUsercat(String usercat) {
         this.usercat = usercat ;
         this.modify("usercat",usercat);
     }
@@ -360,7 +360,7 @@ public class PSSysReqItem extends EntityClient implements Serializable {
     /**
      * 设置 [用户标记3]
      */
-    public void setUsertag3(String usertag3){
+    public void setUsertag3(String usertag3) {
         this.usertag3 = usertag3 ;
         this.modify("usertag3",usertag3);
     }
@@ -368,7 +368,7 @@ public class PSSysReqItem extends EntityClient implements Serializable {
     /**
      * 设置 [用户标记4]
      */
-    public void setUsertag4(String usertag4){
+    public void setUsertag4(String usertag4) {
         this.usertag4 = usertag4 ;
         this.modify("usertag4",usertag4);
     }
@@ -376,7 +376,7 @@ public class PSSysReqItem extends EntityClient implements Serializable {
     /**
      * 设置 [版本]
      */
-    public void setVer(Integer ver){
+    public void setVer(Integer ver) {
         this.ver = ver ;
         this.modify("ver",ver);
     }
@@ -384,7 +384,7 @@ public class PSSysReqItem extends EntityClient implements Serializable {
     /**
      * 设置 [是否有效]
      */
-    public void setValidflag(Integer validflag){
+    public void setValidflag(Integer validflag) {
         this.validflag = validflag ;
         this.modify("validflag",validflag);
     }
@@ -392,7 +392,7 @@ public class PSSysReqItem extends EntityClient implements Serializable {
     /**
      * 设置 [父需求项]
      */
-    public void setPpssysreqitemid(String ppssysreqitemid){
+    public void setPpssysreqitemid(String ppssysreqitemid) {
         this.ppssysreqitemid = ppssysreqitemid ;
         this.modify("ppssysreqitemid",ppssysreqitemid);
     }
@@ -400,7 +400,7 @@ public class PSSysReqItem extends EntityClient implements Serializable {
     /**
      * 设置 [需求模块]
      */
-    public void setPssysreqmoduleid(String pssysreqmoduleid){
+    public void setPssysreqmoduleid(String pssysreqmoduleid) {
         this.pssysreqmoduleid = pssysreqmoduleid ;
         this.modify("pssysreqmoduleid",pssysreqmoduleid);
     }
@@ -408,7 +408,7 @@ public class PSSysReqItem extends EntityClient implements Serializable {
     /**
      * 设置 [系统]
      */
-    public void setPssystemid(String pssystemid){
+    public void setPssystemid(String pssystemid) {
         this.pssystemid = pssystemid ;
         this.modify("pssystemid",pssystemid);
     }
@@ -416,7 +416,7 @@ public class PSSysReqItem extends EntityClient implements Serializable {
     /**
      * 设置 [系统]
      */
-    public void setPssystemname(String pssystemname){
+    public void setPssystemname(String pssystemname) {
         this.pssystemname = pssystemname ;
         this.modify("pssystemname",pssystemname);
     }
@@ -424,7 +424,7 @@ public class PSSysReqItem extends EntityClient implements Serializable {
     /**
      * 设置 [系统用例]
      */
-    public void setPssysusercaseid(String pssysusercaseid){
+    public void setPssysusercaseid(String pssysusercaseid) {
         this.pssysusercaseid = pssysusercaseid ;
         this.modify("pssysusercaseid",pssysusercaseid);
     }
@@ -432,7 +432,7 @@ public class PSSysReqItem extends EntityClient implements Serializable {
     /**
      * 设置 [系统用例]
      */
-    public void setPssysusercasename(String pssysusercasename){
+    public void setPssysusercasename(String pssysusercasename) {
         this.pssysusercasename = pssysusercasename ;
         this.modify("pssysusercasename",pssysusercasename);
     }

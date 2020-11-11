@@ -47,16 +47,16 @@ public class Im_queue extends EntityMP implements Serializable {
      * processDate
      */
     @TableField(value = "`processdate`")
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "processdate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "processdate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("processdate")
     private Timestamp processdate;
     /**
      * addDate
      */
     @TableField(value = "`adddate`")
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "adddate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "adddate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("adddate")
     private Timestamp adddate;
     /**
@@ -76,7 +76,7 @@ public class Im_queue extends EntityMP implements Serializable {
     /**
      * id
      */
-    @DEField(isKeyField=true)
+    @DEField(isKeyField = true)
     @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
@@ -101,7 +101,7 @@ public class Im_queue extends EntityMP implements Serializable {
     /**
      * 设置 [processDate]
      */
-    public void setProcessdate(Timestamp processdate){
+    public void setProcessdate(Timestamp processdate) {
         this.processdate = processdate ;
         this.modify("processdate",processdate);
     }
@@ -109,7 +109,7 @@ public class Im_queue extends EntityMP implements Serializable {
     /**
      * 格式化日期 [processDate]
      */
-    public String formatProcessdate(){
+    public String formatProcessdate() {
         if (this.processdate == null) {
             return null;
         }
@@ -119,7 +119,7 @@ public class Im_queue extends EntityMP implements Serializable {
     /**
      * 设置 [addDate]
      */
-    public void setAdddate(Timestamp adddate){
+    public void setAdddate(Timestamp adddate) {
         this.adddate = adddate ;
         this.modify("adddate",adddate);
     }
@@ -127,7 +127,7 @@ public class Im_queue extends EntityMP implements Serializable {
     /**
      * 格式化日期 [addDate]
      */
-    public String formatAdddate(){
+    public String formatAdddate() {
         if (this.adddate == null) {
             return null;
         }
@@ -137,7 +137,7 @@ public class Im_queue extends EntityMP implements Serializable {
     /**
      * 设置 [content]
      */
-    public void setContent(String content){
+    public void setContent(String content) {
         this.content = content ;
         this.modify("content",content);
     }
@@ -145,7 +145,7 @@ public class Im_queue extends EntityMP implements Serializable {
     /**
      * 设置 [type]
      */
-    public void setType(String type){
+    public void setType(String type) {
         this.type = type ;
         this.modify("type",type);
     }
@@ -153,7 +153,7 @@ public class Im_queue extends EntityMP implements Serializable {
     /**
      * 设置 [status]
      */
-    public void setStatus(String status){
+    public void setStatus(String status) {
         this.status = status ;
         this.modify("status",status);
     }
@@ -161,7 +161,7 @@ public class Im_queue extends EntityMP implements Serializable {
     /**
      * 设置 [result]
      */
-    public void setResult(String result){
+    public void setResult(String result) {
         this.result = result ;
         this.modify("result",result);
     }

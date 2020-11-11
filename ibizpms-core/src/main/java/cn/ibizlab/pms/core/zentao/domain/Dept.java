@@ -90,7 +90,7 @@ public class Dept extends EntityMP implements Serializable {
     /**
      * id
      */
-    @DEField(isKeyField=true)
+    @DEField(isKeyField = true)
     @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
@@ -137,7 +137,7 @@ public class Dept extends EntityMP implements Serializable {
     /**
      * 设置 [负责人]
      */
-    public void setManager(String manager){
+    public void setManager(String manager) {
         this.manager = manager ;
         this.modify("manager",manager);
     }
@@ -145,7 +145,7 @@ public class Dept extends EntityMP implements Serializable {
     /**
      * 设置 [grade]
      */
-    public void setGrade(Integer grade){
+    public void setGrade(Integer grade) {
         this.grade = grade ;
         this.modify("grade",grade);
     }
@@ -153,7 +153,7 @@ public class Dept extends EntityMP implements Serializable {
     /**
      * 设置 [function]
      */
-    public void setFunction(String function){
+    public void setFunction(String function) {
         this.function = function ;
         this.modify("function",function);
     }
@@ -161,7 +161,7 @@ public class Dept extends EntityMP implements Serializable {
     /**
      * 设置 [order]
      */
-    public void setOrder(Integer order){
+    public void setOrder(Integer order) {
         this.order = order ;
         this.modify("order",order);
     }
@@ -169,7 +169,7 @@ public class Dept extends EntityMP implements Serializable {
     /**
      * 设置 [path]
      */
-    public void setPath(String path){
+    public void setPath(String path) {
         this.path = path ;
         this.modify("path",path);
     }
@@ -177,7 +177,7 @@ public class Dept extends EntityMP implements Serializable {
     /**
      * 设置 [position]
      */
-    public void setPosition(String position){
+    public void setPosition(String position) {
         this.position = position ;
         this.modify("position",position);
     }
@@ -185,7 +185,7 @@ public class Dept extends EntityMP implements Serializable {
     /**
      * 设置 [部门名称]
      */
-    public void setName(String name){
+    public void setName(String name) {
         this.name = name ;
         this.modify("name",name);
     }
@@ -193,7 +193,7 @@ public class Dept extends EntityMP implements Serializable {
     /**
      * 设置 [parent]
      */
-    public void setParent(Long parent){
+    public void setParent(Long parent) {
         this.parent = parent ;
         this.modify("parent",parent);
     }

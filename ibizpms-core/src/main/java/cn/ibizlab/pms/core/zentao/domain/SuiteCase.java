@@ -46,7 +46,7 @@ public class SuiteCase extends EntityMP implements Serializable {
     /**
      * 虚拟主键
      */
-    @DEField(isKeyField=true)
+    @DEField(isKeyField = true)
     @TableField(exist = false)
     @JSONField(name = "id")
     @JsonProperty("id")
@@ -112,7 +112,7 @@ public class SuiteCase extends EntityMP implements Serializable {
     /**
      * 设置 [用例版本]
      */
-    public void setVersion(Integer version){
+    public void setVersion(Integer version) {
         this.version = version ;
         this.modify("version",version);
     }
@@ -120,7 +120,7 @@ public class SuiteCase extends EntityMP implements Serializable {
     /**
      * 设置 [测试套件]
      */
-    public void setSuite(Long suite){
+    public void setSuite(Long suite) {
         this.suite = suite ;
         this.modify("suite",suite);
     }
@@ -128,7 +128,7 @@ public class SuiteCase extends EntityMP implements Serializable {
     /**
      * 设置 [用例]
      */
-    public void setIbizcase(Long ibizcase){
+    public void setIbizcase(Long ibizcase) {
         this.ibizcase = ibizcase ;
         this.modify("case",ibizcase);
     }
@@ -136,7 +136,7 @@ public class SuiteCase extends EntityMP implements Serializable {
     /**
      * 设置 [所属产品]
      */
-    public void setProduct(Long product){
+    public void setProduct(Long product) {
         this.product = product ;
         this.modify("product",product);
     }

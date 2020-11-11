@@ -46,8 +46,8 @@ public class Entry extends EntityMP implements Serializable {
     /**
      * 逻辑删除标志
      */
-    @DEField(defaultValue = "0" , preType = DEPredefinedFieldType.LOGICVALID, logicval = "0" , logicdelval="1")
-    @TableLogic(value= "0",delval="1")
+    @DEField(defaultValue = "0", preType = DEPredefinedFieldType.LOGICVALID, logicval = "0", logicdelval = "1")
+    @TableLogic(value= "0", delval = "1")
     @TableField(value = "`deleted`")
     @JSONField(name = "deleted")
     @JsonProperty("deleted")
@@ -62,7 +62,7 @@ public class Entry extends EntityMP implements Serializable {
     /**
      * id
      */
-    @DEField(isKeyField=true)
+    @DEField(isKeyField = true)
     @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
@@ -71,16 +71,16 @@ public class Entry extends EntityMP implements Serializable {
      * editedDate
      */
     @TableField(value = "`editeddate`")
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "editeddate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "editeddate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("editeddate")
     private Timestamp editeddate;
     /**
      * createdDate
      */
     @TableField(value = "`createddate`")
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "createddate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "createddate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("createddate")
     private Timestamp createddate;
     /**
@@ -153,7 +153,7 @@ public class Entry extends EntityMP implements Serializable {
     /**
      * 设置 [code]
      */
-    public void setCode(String code){
+    public void setCode(String code) {
         this.code = code ;
         this.modify("code",code);
     }
@@ -161,7 +161,7 @@ public class Entry extends EntityMP implements Serializable {
     /**
      * 设置 [editedDate]
      */
-    public void setEditeddate(Timestamp editeddate){
+    public void setEditeddate(Timestamp editeddate) {
         this.editeddate = editeddate ;
         this.modify("editeddate",editeddate);
     }
@@ -169,7 +169,7 @@ public class Entry extends EntityMP implements Serializable {
     /**
      * 格式化日期 [editedDate]
      */
-    public String formatEditeddate(){
+    public String formatEditeddate() {
         if (this.editeddate == null) {
             return null;
         }
@@ -179,7 +179,7 @@ public class Entry extends EntityMP implements Serializable {
     /**
      * 设置 [createdDate]
      */
-    public void setCreateddate(Timestamp createddate){
+    public void setCreateddate(Timestamp createddate) {
         this.createddate = createddate ;
         this.modify("createddate",createddate);
     }
@@ -187,7 +187,7 @@ public class Entry extends EntityMP implements Serializable {
     /**
      * 格式化日期 [createdDate]
      */
-    public String formatCreateddate(){
+    public String formatCreateddate() {
         if (this.createddate == null) {
             return null;
         }
@@ -197,7 +197,7 @@ public class Entry extends EntityMP implements Serializable {
     /**
      * 设置 [freePasswd]
      */
-    public void setFreepasswd(String freepasswd){
+    public void setFreepasswd(String freepasswd) {
         this.freepasswd = freepasswd ;
         this.modify("freepasswd",freepasswd);
     }
@@ -205,7 +205,7 @@ public class Entry extends EntityMP implements Serializable {
     /**
      * 设置 [createdBy]
      */
-    public void setCreatedby(String createdby){
+    public void setCreatedby(String createdby) {
         this.createdby = createdby ;
         this.modify("createdby",createdby);
     }
@@ -213,7 +213,7 @@ public class Entry extends EntityMP implements Serializable {
     /**
      * 设置 [account]
      */
-    public void setAccount(String account){
+    public void setAccount(String account) {
         this.account = account ;
         this.modify("account",account);
     }
@@ -221,7 +221,7 @@ public class Entry extends EntityMP implements Serializable {
     /**
      * 设置 [calledTime]
      */
-    public void setCalledtime(Integer calledtime){
+    public void setCalledtime(Integer calledtime) {
         this.calledtime = calledtime ;
         this.modify("calledtime",calledtime);
     }
@@ -229,7 +229,7 @@ public class Entry extends EntityMP implements Serializable {
     /**
      * 设置 [key]
      */
-    public void setKey(String key){
+    public void setKey(String key) {
         this.key = key ;
         this.modify("key",key);
     }
@@ -237,7 +237,7 @@ public class Entry extends EntityMP implements Serializable {
     /**
      * 设置 [editedBy]
      */
-    public void setEditedby(String editedby){
+    public void setEditedby(String editedby) {
         this.editedby = editedby ;
         this.modify("editedby",editedby);
     }
@@ -245,7 +245,7 @@ public class Entry extends EntityMP implements Serializable {
     /**
      * 设置 [ip]
      */
-    public void setIp(String ip){
+    public void setIp(String ip) {
         this.ip = ip ;
         this.modify("ip",ip);
     }
@@ -253,7 +253,7 @@ public class Entry extends EntityMP implements Serializable {
     /**
      * 设置 [desc]
      */
-    public void setDesc(String desc){
+    public void setDesc(String desc) {
         this.desc = desc ;
         this.modify("desc",desc);
     }
@@ -261,7 +261,7 @@ public class Entry extends EntityMP implements Serializable {
     /**
      * 设置 [name]
      */
-    public void setName(String name){
+    public void setName(String name) {
         this.name = name ;
         this.modify("name",name);
     }

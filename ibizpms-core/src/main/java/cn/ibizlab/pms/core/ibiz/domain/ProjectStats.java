@@ -46,7 +46,7 @@ public class ProjectStats extends EntityMP implements Serializable {
     /**
      * 项目编号
      */
-    @DEField(isKeyField=true)
+    @DEField(isKeyField = true)
     @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
@@ -138,8 +138,8 @@ public class ProjectStats extends EntityMP implements Serializable {
     /**
      * 已删除
      */
-    @DEField(defaultValue = "0" , preType = DEPredefinedFieldType.LOGICVALID, logicval = "0" , logicdelval="1")
-    @TableLogic(value= "0",delval="1")
+    @DEField(defaultValue = "0", preType = DEPredefinedFieldType.LOGICVALID, logicval = "0", logicdelval = "1")
+    @TableLogic(value= "0", delval = "1")
     @TableField(value = "`deleted`")
     @JSONField(name = "deleted")
     @JsonProperty("deleted")
@@ -211,8 +211,8 @@ public class ProjectStats extends EntityMP implements Serializable {
      * 截止日期
      */
     @TableField(value = "`end`")
-    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "end" , format="yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "end", format = "yyyy-MM-dd")
     @JsonProperty("end")
     private Timestamp end;
     /**
@@ -242,7 +242,7 @@ public class ProjectStats extends EntityMP implements Serializable {
     /**
      * 设置 [项目名称]
      */
-    public void setName(String name){
+    public void setName(String name) {
         this.name = name ;
         this.modify("name",name);
     }
@@ -250,7 +250,7 @@ public class ProjectStats extends EntityMP implements Serializable {
     /**
      * 设置 [截止日期]
      */
-    public void setEnd(Timestamp end){
+    public void setEnd(Timestamp end) {
         this.end = end ;
         this.modify("end",end);
     }
@@ -258,7 +258,7 @@ public class ProjectStats extends EntityMP implements Serializable {
     /**
      * 格式化日期 [截止日期]
      */
-    public String formatEnd(){
+    public String formatEnd() {
         if (this.end == null) {
             return null;
         }
@@ -268,7 +268,7 @@ public class ProjectStats extends EntityMP implements Serializable {
     /**
      * 设置 [状态]
      */
-    public void setStatus(String status){
+    public void setStatus(String status) {
         this.status = status ;
         this.modify("status",status);
     }

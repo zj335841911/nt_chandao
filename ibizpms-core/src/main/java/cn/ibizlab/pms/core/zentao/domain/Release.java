@@ -62,7 +62,7 @@ public class Release extends EntityMP implements Serializable {
     /**
      * ID
      */
-    @DEField(isKeyField=true)
+    @DEField(isKeyField = true)
     @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
@@ -86,8 +86,8 @@ public class Release extends EntityMP implements Serializable {
     /**
      * 已删除
      */
-    @DEField(defaultValue = "0" , preType = DEPredefinedFieldType.LOGICVALID, logicval = "0" , logicdelval="1")
-    @TableLogic(value= "0",delval="1")
+    @DEField(defaultValue = "0", preType = DEPredefinedFieldType.LOGICVALID, logicval = "0", logicdelval = "1")
+    @TableLogic(value= "0", delval = "1")
     @TableField(value = "`deleted`")
     @JSONField(name = "deleted")
     @JsonProperty("deleted")
@@ -103,8 +103,8 @@ public class Release extends EntityMP implements Serializable {
      * 发布日期
      */
     @TableField(value = "`date`")
-    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "date" , format="yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "date", format = "yyyy-MM-dd")
     @JsonProperty("date")
     private Timestamp date;
     /**
@@ -222,8 +222,8 @@ public class Release extends EntityMP implements Serializable {
      * 打包日期
      */
     @TableField(exist = false)
-    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "builddate" , format="yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "builddate", format = "yyyy-MM-dd")
     @JsonProperty("builddate")
     private Timestamp builddate;
     /**
@@ -263,7 +263,7 @@ public class Release extends EntityMP implements Serializable {
     /**
      * 设置 [完成的需求]
      */
-    public void setStories(String stories){
+    public void setStories(String stories) {
         this.stories = stories ;
         this.modify("stories",stories);
     }
@@ -271,7 +271,7 @@ public class Release extends EntityMP implements Serializable {
     /**
      * 设置 [里程碑]
      */
-    public void setMarker(String marker){
+    public void setMarker(String marker) {
         this.marker = marker ;
         this.modify("marker",marker);
     }
@@ -279,7 +279,7 @@ public class Release extends EntityMP implements Serializable {
     /**
      * 设置 [遗留的Bug]
      */
-    public void setLeftbugs(String leftbugs){
+    public void setLeftbugs(String leftbugs) {
         this.leftbugs = leftbugs ;
         this.modify("leftbugs",leftbugs);
     }
@@ -287,7 +287,7 @@ public class Release extends EntityMP implements Serializable {
     /**
      * 设置 [解决的Bug]
      */
-    public void setBugs(String bugs){
+    public void setBugs(String bugs) {
         this.bugs = bugs ;
         this.modify("bugs",bugs);
     }
@@ -295,7 +295,7 @@ public class Release extends EntityMP implements Serializable {
     /**
      * 设置 [发布名称]
      */
-    public void setName(String name){
+    public void setName(String name) {
         this.name = name ;
         this.modify("name",name);
     }
@@ -303,7 +303,7 @@ public class Release extends EntityMP implements Serializable {
     /**
      * 设置 [发布日期]
      */
-    public void setDate(Timestamp date){
+    public void setDate(Timestamp date) {
         this.date = date ;
         this.modify("date",date);
     }
@@ -311,7 +311,7 @@ public class Release extends EntityMP implements Serializable {
     /**
      * 格式化日期 [发布日期]
      */
-    public String formatDate(){
+    public String formatDate() {
         if (this.date == null) {
             return null;
         }
@@ -321,7 +321,7 @@ public class Release extends EntityMP implements Serializable {
     /**
      * 设置 [状态]
      */
-    public void setStatus(String status){
+    public void setStatus(String status) {
         this.status = status ;
         this.modify("status",status);
     }
@@ -329,7 +329,7 @@ public class Release extends EntityMP implements Serializable {
     /**
      * 设置 [子状态]
      */
-    public void setSubstatus(String substatus){
+    public void setSubstatus(String substatus) {
         this.substatus = substatus ;
         this.modify("substatus",substatus);
     }
@@ -337,7 +337,7 @@ public class Release extends EntityMP implements Serializable {
     /**
      * 设置 [描述]
      */
-    public void setDesc(String desc){
+    public void setDesc(String desc) {
         this.desc = desc ;
         this.modify("desc",desc);
     }
@@ -345,7 +345,7 @@ public class Release extends EntityMP implements Serializable {
     /**
      * 设置 [产品]
      */
-    public void setProduct(Long product){
+    public void setProduct(Long product) {
         this.product = product ;
         this.modify("product",product);
     }
@@ -353,7 +353,7 @@ public class Release extends EntityMP implements Serializable {
     /**
      * 设置 [版本]
      */
-    public void setBuild(Long build){
+    public void setBuild(Long build) {
         this.build = build ;
         this.modify("build",build);
     }
@@ -361,7 +361,7 @@ public class Release extends EntityMP implements Serializable {
     /**
      * 设置 [平台/分支]
      */
-    public void setBranch(Long branch){
+    public void setBranch(Long branch) {
         this.branch = branch ;
         this.modify("branch",branch);
     }

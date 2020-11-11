@@ -69,7 +69,7 @@ public class Product extends EntityMP implements Serializable {
     /**
      * 编号
      */
-    @DEField(isKeyField=true)
+    @DEField(isKeyField = true)
     @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
@@ -77,8 +77,8 @@ public class Product extends EntityMP implements Serializable {
     /**
      * 已删除
      */
-    @DEField(defaultValue = "0" , preType = DEPredefinedFieldType.LOGICVALID, logicval = "0" , logicdelval="1")
-    @TableLogic(value= "0",delval="1")
+    @DEField(defaultValue = "0", preType = DEPredefinedFieldType.LOGICVALID, logicval = "0", logicdelval = "1")
+    @TableLogic(value= "0", delval = "1")
     @TableField(value = "`deleted`")
     @JSONField(name = "deleted")
     @JsonProperty("deleted")
@@ -173,9 +173,9 @@ public class Product extends EntityMP implements Serializable {
      * 创建日期
      */
     @DEField(preType = DEPredefinedFieldType.CREATEDATE)
-    @TableField(value = "`createddate`" , fill = FieldFill.INSERT)
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "createddate" , format="yyyy-MM-dd HH:mm:ss")
+    @TableField(value = "`createddate`", fill = FieldFill.INSERT)
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "createddate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("createddate")
     private Timestamp createddate;
     /**
@@ -382,7 +382,7 @@ public class Product extends EntityMP implements Serializable {
     /**
      * 设置 [测试负责人]
      */
-    public void setQd(String qd){
+    public void setQd(String qd) {
         this.qd = qd ;
         this.modify("qd",qd);
     }
@@ -390,7 +390,7 @@ public class Product extends EntityMP implements Serializable {
     /**
      * 设置 [访问控制]
      */
-    public void setAcl(String acl){
+    public void setAcl(String acl) {
         this.acl = acl ;
         this.modify("acl",acl);
     }
@@ -398,7 +398,7 @@ public class Product extends EntityMP implements Serializable {
     /**
      * 设置 [产品名称]
      */
-    public void setName(String name){
+    public void setName(String name) {
         this.name = name ;
         this.modify("name",name);
     }
@@ -406,7 +406,7 @@ public class Product extends EntityMP implements Serializable {
     /**
      * 设置 [分组白名单]
      */
-    public void setWhitelist(String whitelist){
+    public void setWhitelist(String whitelist) {
         this.whitelist = whitelist ;
         this.modify("whitelist",whitelist);
     }
@@ -414,7 +414,7 @@ public class Product extends EntityMP implements Serializable {
     /**
      * 设置 [发布负责人]
      */
-    public void setRd(String rd){
+    public void setRd(String rd) {
         this.rd = rd ;
         this.modify("rd",rd);
     }
@@ -422,7 +422,7 @@ public class Product extends EntityMP implements Serializable {
     /**
      * 设置 [排序]
      */
-    public void setOrder(Integer order){
+    public void setOrder(Integer order) {
         this.order = order ;
         this.modify("order",order);
     }
@@ -430,7 +430,7 @@ public class Product extends EntityMP implements Serializable {
     /**
      * 设置 [产品类型]
      */
-    public void setType(String type){
+    public void setType(String type) {
         this.type = type ;
         this.modify("type",type);
     }
@@ -438,7 +438,7 @@ public class Product extends EntityMP implements Serializable {
     /**
      * 设置 [产品负责人]
      */
-    public void setPo(String po){
+    public void setPo(String po) {
         this.po = po ;
         this.modify("po",po);
     }
@@ -446,7 +446,7 @@ public class Product extends EntityMP implements Serializable {
     /**
      * 设置 [产品描述	]
      */
-    public void setDesc(String desc){
+    public void setDesc(String desc) {
         this.desc = desc ;
         this.modify("desc",desc);
     }
@@ -454,7 +454,7 @@ public class Product extends EntityMP implements Serializable {
     /**
      * 设置 [状态]
      */
-    public void setStatus(String status){
+    public void setStatus(String status) {
         this.status = status ;
         this.modify("status",status);
     }
@@ -462,7 +462,7 @@ public class Product extends EntityMP implements Serializable {
     /**
      * 设置 [当前系统版本]
      */
-    public void setCreatedversion(String createdversion){
+    public void setCreatedversion(String createdversion) {
         this.createdversion = createdversion ;
         this.modify("createdversion",createdversion);
     }
@@ -470,7 +470,7 @@ public class Product extends EntityMP implements Serializable {
     /**
      * 设置 [子状态]
      */
-    public void setSubstatus(String substatus){
+    public void setSubstatus(String substatus) {
         this.substatus = substatus ;
         this.modify("substatus",substatus);
     }
@@ -478,7 +478,7 @@ public class Product extends EntityMP implements Serializable {
     /**
      * 设置 [产品代号]
      */
-    public void setCode(String code){
+    public void setCode(String code) {
         this.code = code ;
         this.modify("code",code);
     }
@@ -486,7 +486,7 @@ public class Product extends EntityMP implements Serializable {
     /**
      * 设置 [产品线]
      */
-    public void setLine(Long line){
+    public void setLine(Long line) {
         this.line = line ;
         this.modify("line",line);
     }

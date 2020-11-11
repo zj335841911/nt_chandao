@@ -120,7 +120,7 @@ public class Block extends EntityMP implements Serializable {
     /**
      * id
      */
-    @DEField(isKeyField=true)
+    @DEField(isKeyField = true)
     @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
@@ -131,7 +131,7 @@ public class Block extends EntityMP implements Serializable {
     /**
      * 设置 [高度]
      */
-    public void setHeight(Integer height){
+    public void setHeight(Integer height) {
         this.height = height ;
         this.modify("height",height);
     }
@@ -139,7 +139,7 @@ public class Block extends EntityMP implements Serializable {
     /**
      * 设置 [params]
      */
-    public void setParams(String params){
+    public void setParams(String params) {
         this.params = params ;
         this.modify("params",params);
     }
@@ -147,7 +147,7 @@ public class Block extends EntityMP implements Serializable {
     /**
      * 设置 [区块名称]
      */
-    public void setTitle(String title){
+    public void setTitle(String title) {
         this.title = title ;
         this.modify("title",title);
     }
@@ -155,7 +155,7 @@ public class Block extends EntityMP implements Serializable {
     /**
      * 设置 [排序]
      */
-    public void setOrder(Integer order){
+    public void setOrder(Integer order) {
         this.order = order ;
         this.modify("order",order);
     }
@@ -163,7 +163,7 @@ public class Block extends EntityMP implements Serializable {
     /**
      * 设置 [来源区块]
      */
-    public void setBlock(String block){
+    public void setBlock(String block) {
         this.block = block ;
         this.modify("block",block);
     }
@@ -171,7 +171,7 @@ public class Block extends EntityMP implements Serializable {
     /**
      * 设置 [所属用户]
      */
-    public void setAccount(String account){
+    public void setAccount(String account) {
         this.account = account ;
         this.modify("account",account);
     }
@@ -179,7 +179,7 @@ public class Block extends EntityMP implements Serializable {
     /**
      * 设置 [位置]
      */
-    public void setGrid(Integer grid){
+    public void setGrid(Integer grid) {
         this.grid = grid ;
         this.modify("grid",grid);
     }
@@ -187,7 +187,7 @@ public class Block extends EntityMP implements Serializable {
     /**
      * 设置 [所属模块]
      */
-    public void setModule(String module){
+    public void setModule(String module) {
         this.module = module ;
         this.modify("module",module);
     }
@@ -195,7 +195,7 @@ public class Block extends EntityMP implements Serializable {
     /**
      * 设置 [隐藏]
      */
-    public void setHidden(Integer hidden){
+    public void setHidden(Integer hidden) {
         this.hidden = hidden ;
         this.modify("hidden",hidden);
     }
@@ -203,7 +203,7 @@ public class Block extends EntityMP implements Serializable {
     /**
      * 设置 [来源模块]
      */
-    public void setSource(String source){
+    public void setSource(String source) {
         this.source = source ;
         this.modify("source",source);
     }

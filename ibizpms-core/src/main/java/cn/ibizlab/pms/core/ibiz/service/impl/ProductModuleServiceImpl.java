@@ -71,8 +71,9 @@ public class ProductModuleServiceImpl extends ServiceImpl<ProductModuleMapper, P
     @Transactional
     public boolean create(ProductModule et) {
         fillParentData(et);
-        if(!this.retBool(this.baseMapper.insert(et)))
+        if(!this.retBool(this.baseMapper.insert(et))) {
             return false;
+        }
         CachedBeanCopier.copy(get(et.getId()),et);
         fixpathLogic.execute(et);
         return true;
@@ -89,8 +90,9 @@ public class ProductModuleServiceImpl extends ServiceImpl<ProductModuleMapper, P
     @Transactional
     public boolean update(ProductModule et) {
         fillParentData(et);
-         if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
+        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId()))) {
             return false;
+        }
         CachedBeanCopier.copy(get(et.getId()),et);
         fixpathLogic.execute(et);
         return true;
@@ -156,8 +158,9 @@ public class ProductModuleServiceImpl extends ServiceImpl<ProductModuleMapper, P
     @Override
     @Transactional
     public boolean save(ProductModule et) {
-        if(!saveOrUpdate(et))
+        if(!saveOrUpdate(et)) {
             return false;
+        }
         return true;
     }
 

@@ -54,8 +54,8 @@ public class Doc extends EntityMP implements Serializable {
      * 更新时间
      */
     @TableField(value = "`editeddate`")
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "editeddate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "editeddate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("editeddate")
     private Timestamp editeddate;
     /**
@@ -83,7 +83,7 @@ public class Doc extends EntityMP implements Serializable {
     /**
      * 文档编号
      */
-    @DEField(isKeyField=true)
+    @DEField(isKeyField = true)
     @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
@@ -98,8 +98,8 @@ public class Doc extends EntityMP implements Serializable {
     /**
      * 已删除
      */
-    @DEField(defaultValue = "0" , preType = DEPredefinedFieldType.LOGICVALID, logicval = "0" , logicdelval="1")
-    @TableLogic(value= "0",delval="1")
+    @DEField(defaultValue = "0", preType = DEPredefinedFieldType.LOGICVALID, logicval = "0", logicdelval = "1")
+    @TableLogic(value= "0", delval = "1")
     @TableField(value = "`deleted`")
     @JSONField(name = "deleted")
     @JsonProperty("deleted")
@@ -115,9 +115,9 @@ public class Doc extends EntityMP implements Serializable {
      * 添加时间
      */
     @DEField(preType = DEPredefinedFieldType.CREATEDATE)
-    @TableField(value = "`addeddate`" , fill = FieldFill.INSERT)
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "addeddate" , format="yyyy-MM-dd HH:mm:ss")
+    @TableField(value = "`addeddate`", fill = FieldFill.INSERT)
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "addeddate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("addeddate")
     private Timestamp addeddate;
     /**
@@ -282,7 +282,7 @@ public class Doc extends EntityMP implements Serializable {
     /**
      * 设置 [分组]
      */
-    public void setGroups(String groups){
+    public void setGroups(String groups) {
         this.groups = groups ;
         this.modify("groups",groups);
     }
@@ -290,7 +290,7 @@ public class Doc extends EntityMP implements Serializable {
     /**
      * 设置 [更新时间]
      */
-    public void setEditeddate(Timestamp editeddate){
+    public void setEditeddate(Timestamp editeddate) {
         this.editeddate = editeddate ;
         this.modify("editeddate",editeddate);
     }
@@ -298,7 +298,7 @@ public class Doc extends EntityMP implements Serializable {
     /**
      * 格式化日期 [更新时间]
      */
-    public String formatEditeddate(){
+    public String formatEditeddate() {
         if (this.editeddate == null) {
             return null;
         }
@@ -308,7 +308,7 @@ public class Doc extends EntityMP implements Serializable {
     /**
      * 设置 [views]
      */
-    public void setViews(Integer views){
+    public void setViews(Integer views) {
         this.views = views ;
         this.modify("views",views);
     }
@@ -316,7 +316,7 @@ public class Doc extends EntityMP implements Serializable {
     /**
      * 设置 [版本号]
      */
-    public void setVersion(Integer version){
+    public void setVersion(Integer version) {
         this.version = version ;
         this.modify("version",version);
     }
@@ -324,7 +324,7 @@ public class Doc extends EntityMP implements Serializable {
     /**
      * 设置 [由谁更新]
      */
-    public void setEditedby(String editedby){
+    public void setEditedby(String editedby) {
         this.editedby = editedby ;
         this.modify("editedby",editedby);
     }
@@ -332,7 +332,7 @@ public class Doc extends EntityMP implements Serializable {
     /**
      * 设置 [文档标题]
      */
-    public void setTitle(String title){
+    public void setTitle(String title) {
         this.title = title ;
         this.modify("title",title);
     }
@@ -340,7 +340,7 @@ public class Doc extends EntityMP implements Serializable {
     /**
      * 设置 [文档类型]
      */
-    public void setType(String type){
+    public void setType(String type) {
         this.type = type ;
         this.modify("type",type);
     }
@@ -348,7 +348,7 @@ public class Doc extends EntityMP implements Serializable {
     /**
      * 设置 [权限]
      */
-    public void setAcl(String acl){
+    public void setAcl(String acl) {
         this.acl = acl ;
         this.modify("acl",acl);
     }
@@ -356,7 +356,7 @@ public class Doc extends EntityMP implements Serializable {
     /**
      * 设置 [用户]
      */
-    public void setUsers(String users){
+    public void setUsers(String users) {
         this.users = users ;
         this.modify("users",users);
     }
@@ -364,7 +364,7 @@ public class Doc extends EntityMP implements Serializable {
     /**
      * 设置 [关键字]
      */
-    public void setKeywords(String keywords){
+    public void setKeywords(String keywords) {
         this.keywords = keywords ;
         this.modify("keywords",keywords);
     }
@@ -372,7 +372,7 @@ public class Doc extends EntityMP implements Serializable {
     /**
      * 设置 [收藏者]
      */
-    public void setCollector(String collector){
+    public void setCollector(String collector) {
         this.collector = collector ;
         this.modify("collector",collector);
     }
@@ -380,7 +380,7 @@ public class Doc extends EntityMP implements Serializable {
     /**
      * 设置 [所属文档库]
      */
-    public void setLib(Long lib){
+    public void setLib(Long lib) {
         this.lib = lib ;
         this.modify("lib",lib);
     }
@@ -388,7 +388,7 @@ public class Doc extends EntityMP implements Serializable {
     /**
      * 设置 [所属项目]
      */
-    public void setProject(Long project){
+    public void setProject(Long project) {
         this.project = project ;
         this.modify("project",project);
     }
@@ -396,7 +396,7 @@ public class Doc extends EntityMP implements Serializable {
     /**
      * 设置 [所属产品]
      */
-    public void setProduct(Long product){
+    public void setProduct(Long product) {
         this.product = product ;
         this.modify("product",product);
     }
@@ -404,7 +404,7 @@ public class Doc extends EntityMP implements Serializable {
     /**
      * 设置 [所属分类]
      */
-    public void setModule(Long module){
+    public void setModule(Long module) {
         this.module = module ;
         this.modify("module",module);
     }

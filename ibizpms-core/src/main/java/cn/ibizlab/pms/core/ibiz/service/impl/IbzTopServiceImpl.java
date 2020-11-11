@@ -54,8 +54,9 @@ public class IbzTopServiceImpl extends ServiceImpl<IbzTopMapper, IbzTop> impleme
     @Override
     @Transactional
     public boolean create(IbzTop et) {
-        if(!this.retBool(this.baseMapper.insert(et)))
+        if(!this.retBool(this.baseMapper.insert(et))) {
             return false;
+        }
         CachedBeanCopier.copy(get(et.getIbztopid()),et);
         return true;
     }
@@ -69,8 +70,9 @@ public class IbzTopServiceImpl extends ServiceImpl<IbzTopMapper, IbzTop> impleme
     @Override
     @Transactional
     public boolean update(IbzTop et) {
-         if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("ibz_topid",et.getIbztopid())))
+        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("ibz_topid",et.getIbztopid()))) {
             return false;
+        }
         CachedBeanCopier.copy(get(et.getIbztopid()),et);
         return true;
     }
@@ -119,8 +121,9 @@ public class IbzTopServiceImpl extends ServiceImpl<IbzTopMapper, IbzTop> impleme
     @Override
     @Transactional
     public boolean save(IbzTop et) {
-        if(!saveOrUpdate(et))
+        if(!saveOrUpdate(et)) {
             return false;
+        }
         return true;
     }
 
@@ -202,10 +205,12 @@ public class IbzTopServiceImpl extends ServiceImpl<IbzTopMapper, IbzTop> impleme
                 ids.add(id);
             }
         }
-        if(ids.size()>0)
-           return this.listByIds(ids);
-        else
-           return entities;
+        if(ids.size()>0) {
+            return this.listByIds(ids);
+        }
+        else {
+            return entities;
+        }
     }
 
 

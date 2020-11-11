@@ -54,8 +54,9 @@ public class TaskMsgRecordServiceImpl extends ServiceImpl<TaskMsgRecordMapper, T
     @Override
     @Transactional
     public boolean create(TaskMsgRecord et) {
-        if(!this.retBool(this.baseMapper.insert(et)))
+        if(!this.retBool(this.baseMapper.insert(et))) {
             return false;
+        }
         CachedBeanCopier.copy(get(et.getTaskmsgrecordid()),et);
         return true;
     }
@@ -69,8 +70,9 @@ public class TaskMsgRecordServiceImpl extends ServiceImpl<TaskMsgRecordMapper, T
     @Override
     @Transactional
     public boolean update(TaskMsgRecord et) {
-         if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("taskmsgrecordid",et.getTaskmsgrecordid())))
+        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("taskmsgrecordid",et.getTaskmsgrecordid()))) {
             return false;
+        }
         CachedBeanCopier.copy(get(et.getTaskmsgrecordid()),et);
         return true;
     }
@@ -119,8 +121,9 @@ public class TaskMsgRecordServiceImpl extends ServiceImpl<TaskMsgRecordMapper, T
     @Override
     @Transactional
     public boolean save(TaskMsgRecord et) {
-        if(!saveOrUpdate(et))
+        if(!saveOrUpdate(et)) {
             return false;
+        }
         return true;
     }
 
@@ -202,10 +205,12 @@ public class TaskMsgRecordServiceImpl extends ServiceImpl<TaskMsgRecordMapper, T
                 ids.add(id);
             }
         }
-        if(ids.size()>0)
-           return this.listByIds(ids);
-        else
-           return entities;
+        if(ids.size()>0) {
+            return this.listByIds(ids);
+        }
+        else {
+            return entities;
+        }
     }
 
 

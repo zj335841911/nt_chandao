@@ -55,8 +55,8 @@ public class TestRun extends EntityMP implements Serializable {
      * 最后执行时间
      */
     @TableField(value = "`lastrundate`")
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "lastrundate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "lastrundate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("lastrundate")
     private Timestamp lastrundate;
     /**
@@ -86,7 +86,7 @@ public class TestRun extends EntityMP implements Serializable {
     /**
      * 编号
      */
-    @DEField(isKeyField=true)
+    @DEField(isKeyField = true)
     @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
@@ -137,7 +137,7 @@ public class TestRun extends EntityMP implements Serializable {
     /**
      * 设置 [结果]
      */
-    public void setLastrunresult(String lastrunresult){
+    public void setLastrunresult(String lastrunresult) {
         this.lastrunresult = lastrunresult ;
         this.modify("lastrunresult",lastrunresult);
     }
@@ -145,7 +145,7 @@ public class TestRun extends EntityMP implements Serializable {
     /**
      * 设置 [最后执行时间]
      */
-    public void setLastrundate(Timestamp lastrundate){
+    public void setLastrundate(Timestamp lastrundate) {
         this.lastrundate = lastrundate ;
         this.modify("lastrundate",lastrundate);
     }
@@ -153,7 +153,7 @@ public class TestRun extends EntityMP implements Serializable {
     /**
      * 格式化日期 [最后执行时间]
      */
-    public String formatLastrundate(){
+    public String formatLastrundate() {
         if (this.lastrundate == null) {
             return null;
         }
@@ -163,7 +163,7 @@ public class TestRun extends EntityMP implements Serializable {
     /**
      * 设置 [指派给]
      */
-    public void setAssignedto(String assignedto){
+    public void setAssignedto(String assignedto) {
         this.assignedto = assignedto ;
         this.modify("assignedto",assignedto);
     }
@@ -171,7 +171,7 @@ public class TestRun extends EntityMP implements Serializable {
     /**
      * 设置 [最后执行人]
      */
-    public void setLastrunner(String lastrunner){
+    public void setLastrunner(String lastrunner) {
         this.lastrunner = lastrunner ;
         this.modify("lastrunner",lastrunner);
     }
@@ -179,7 +179,7 @@ public class TestRun extends EntityMP implements Serializable {
     /**
      * 设置 [当前状态]
      */
-    public void setStatus(String status){
+    public void setStatus(String status) {
         this.status = status ;
         this.modify("status",status);
     }
@@ -187,7 +187,7 @@ public class TestRun extends EntityMP implements Serializable {
     /**
      * 设置 [用例版本]
      */
-    public void setVersion(Integer version){
+    public void setVersion(Integer version) {
         this.version = version ;
         this.modify("version",version);
     }
@@ -195,7 +195,7 @@ public class TestRun extends EntityMP implements Serializable {
     /**
      * 设置 [测试用例]
      */
-    public void setIbizcase(Long ibizcase){
+    public void setIbizcase(Long ibizcase) {
         this.ibizcase = ibizcase ;
         this.modify("case",ibizcase);
     }
@@ -203,7 +203,7 @@ public class TestRun extends EntityMP implements Serializable {
     /**
      * 设置 [测试单]
      */
-    public void setTask(Long task){
+    public void setTask(Long task) {
         this.task = task ;
         this.modify("task",task);
     }

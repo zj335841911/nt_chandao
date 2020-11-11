@@ -46,7 +46,7 @@ public class IBZProStoryModule extends EntityMP implements Serializable {
     /**
      * id
      */
-    @DEField(isKeyField=true)
+    @DEField(isKeyField = true)
     @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
@@ -138,7 +138,7 @@ public class IBZProStoryModule extends EntityMP implements Serializable {
     /**
      * 已删除
      */
-    @DEField(defaultValue = "0" , preType = DEPredefinedFieldType.LOGICVALID)
+    @DEField(defaultValue = "0", preType = DEPredefinedFieldType.LOGICVALID)
     @TableField(value = "`deleted`")
     @JSONField(name = "deleted")
     @JsonProperty("deleted")
@@ -173,7 +173,7 @@ public class IBZProStoryModule extends EntityMP implements Serializable {
     /**
      * 设置 [名称]
      */
-    public void setName(String name){
+    public void setName(String name) {
         this.name = name ;
         this.modify("name",name);
     }
@@ -181,7 +181,7 @@ public class IBZProStoryModule extends EntityMP implements Serializable {
     /**
      * 设置 [编号]
      */
-    public void setRoot(Long root){
+    public void setRoot(Long root) {
         this.root = root ;
         this.modify("root",root);
     }
@@ -189,7 +189,7 @@ public class IBZProStoryModule extends EntityMP implements Serializable {
     /**
      * 设置 [IBIZ标识]
      */
-    public void setIbizid(String ibizid){
+    public void setIbizid(String ibizid) {
         this.ibizid = ibizid ;
         this.modify("ibiz_id",ibizid);
     }
@@ -197,7 +197,7 @@ public class IBZProStoryModule extends EntityMP implements Serializable {
     /**
      * 设置 [类型]
      */
-    public void setType(String type){
+    public void setType(String type) {
         this.type = type ;
         this.modify("type",type);
     }
@@ -205,7 +205,7 @@ public class IBZProStoryModule extends EntityMP implements Serializable {
     /**
      * 设置 [级别]
      */
-    public void setGrade(Integer grade){
+    public void setGrade(Integer grade) {
         this.grade = grade ;
         this.modify("grade",grade);
     }
@@ -213,7 +213,7 @@ public class IBZProStoryModule extends EntityMP implements Serializable {
     /**
      * 设置 [路径]
      */
-    public void setPath(String path){
+    public void setPath(String path) {
         this.path = path ;
         this.modify("path",path);
     }
@@ -221,7 +221,7 @@ public class IBZProStoryModule extends EntityMP implements Serializable {
     /**
      * 设置 [简称]
      */
-    public void setIbizshort(String ibizshort){
+    public void setIbizshort(String ibizshort) {
         this.ibizshort = ibizshort ;
         this.modify("short",ibizshort);
     }
@@ -229,7 +229,7 @@ public class IBZProStoryModule extends EntityMP implements Serializable {
     /**
      * 设置 [id]
      */
-    public void setParent(Long parent){
+    public void setParent(Long parent) {
         this.parent = parent ;
         this.modify("parent",parent);
     }
@@ -237,7 +237,7 @@ public class IBZProStoryModule extends EntityMP implements Serializable {
     /**
      * 设置 [owner]
      */
-    public void setOwner(String owner){
+    public void setOwner(String owner) {
         this.owner = owner ;
         this.modify("owner",owner);
     }
@@ -245,7 +245,7 @@ public class IBZProStoryModule extends EntityMP implements Serializable {
     /**
      * 设置 [collector]
      */
-    public void setCollector(String collector){
+    public void setCollector(String collector) {
         this.collector = collector ;
         this.modify("collector",collector);
     }
@@ -253,7 +253,7 @@ public class IBZProStoryModule extends EntityMP implements Serializable {
     /**
      * 设置 [需求模块类型]
      */
-    public void setIbizStorytype(String ibizStorytype){
+    public void setIbizStorytype(String ibizStorytype) {
         this.ibizStorytype = ibizStorytype ;
         this.modify("ibiz_storytype",ibizStorytype);
     }

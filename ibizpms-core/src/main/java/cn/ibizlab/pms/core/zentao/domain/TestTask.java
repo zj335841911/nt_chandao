@@ -47,16 +47,16 @@ public class TestTask extends EntityMP implements Serializable {
      * 结束日期
      */
     @TableField(value = "`end`")
-    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "end" , format="yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "end", format = "yyyy-MM-dd")
     @JsonProperty("end")
     private Timestamp end;
     /**
      * 开始日期
      */
     @TableField(value = "`begin`")
-    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "begin" , format="yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "begin", format = "yyyy-MM-dd")
     @JsonProperty("begin")
     private Timestamp begin;
     /**
@@ -102,7 +102,7 @@ public class TestTask extends EntityMP implements Serializable {
     /**
      * 编号
      */
-    @DEField(isKeyField=true)
+    @DEField(isKeyField = true)
     @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
@@ -126,8 +126,8 @@ public class TestTask extends EntityMP implements Serializable {
     /**
      * 已删除
      */
-    @DEField(defaultValue = "0" , preType = DEPredefinedFieldType.LOGICVALID, logicval = "0" , logicdelval="1")
-    @TableLogic(value= "0",delval="1")
+    @DEField(defaultValue = "0", preType = DEPredefinedFieldType.LOGICVALID, logicval = "0", logicdelval = "1")
+    @TableLogic(value= "0", delval = "1")
     @TableField(value = "`deleted`")
     @JSONField(name = "deleted")
     @JsonProperty("deleted")
@@ -243,7 +243,7 @@ public class TestTask extends EntityMP implements Serializable {
     /**
      * 设置 [结束日期]
      */
-    public void setEnd(Timestamp end){
+    public void setEnd(Timestamp end) {
         this.end = end ;
         this.modify("end",end);
     }
@@ -251,7 +251,7 @@ public class TestTask extends EntityMP implements Serializable {
     /**
      * 格式化日期 [结束日期]
      */
-    public String formatEnd(){
+    public String formatEnd() {
         if (this.end == null) {
             return null;
         }
@@ -261,7 +261,7 @@ public class TestTask extends EntityMP implements Serializable {
     /**
      * 设置 [开始日期]
      */
-    public void setBegin(Timestamp begin){
+    public void setBegin(Timestamp begin) {
         this.begin = begin ;
         this.modify("begin",begin);
     }
@@ -269,7 +269,7 @@ public class TestTask extends EntityMP implements Serializable {
     /**
      * 格式化日期 [开始日期]
      */
-    public String formatBegin(){
+    public String formatBegin() {
         if (this.begin == null) {
             return null;
         }
@@ -279,7 +279,7 @@ public class TestTask extends EntityMP implements Serializable {
     /**
      * 设置 [抄送给]
      */
-    public void setMailto(String mailto){
+    public void setMailto(String mailto) {
         this.mailto = mailto ;
         this.modify("mailto",mailto);
     }
@@ -287,7 +287,7 @@ public class TestTask extends EntityMP implements Serializable {
     /**
      * 设置 [优先级]
      */
-    public void setPri(Integer pri){
+    public void setPri(Integer pri) {
         this.pri = pri ;
         this.modify("pri",pri);
     }
@@ -295,7 +295,7 @@ public class TestTask extends EntityMP implements Serializable {
     /**
      * 设置 [子状态]
      */
-    public void setSubstatus(String substatus){
+    public void setSubstatus(String substatus) {
         this.substatus = substatus ;
         this.modify("substatus",substatus);
     }
@@ -303,7 +303,7 @@ public class TestTask extends EntityMP implements Serializable {
     /**
      * 设置 [report]
      */
-    public void setReport(String report){
+    public void setReport(String report) {
         this.report = report ;
         this.modify("report",report);
     }
@@ -311,7 +311,7 @@ public class TestTask extends EntityMP implements Serializable {
     /**
      * 设置 [描述]
      */
-    public void setDesc(String desc){
+    public void setDesc(String desc) {
         this.desc = desc ;
         this.modify("desc",desc);
     }
@@ -319,7 +319,7 @@ public class TestTask extends EntityMP implements Serializable {
     /**
      * 设置 [当前状态]
      */
-    public void setStatus(String status){
+    public void setStatus(String status) {
         this.status = status ;
         this.modify("status",status);
     }
@@ -327,7 +327,7 @@ public class TestTask extends EntityMP implements Serializable {
     /**
      * 设置 [负责人]
      */
-    public void setOwner(String owner){
+    public void setOwner(String owner) {
         this.owner = owner ;
         this.modify("owner",owner);
     }
@@ -335,7 +335,7 @@ public class TestTask extends EntityMP implements Serializable {
     /**
      * 设置 [auto]
      */
-    public void setAuto(String auto){
+    public void setAuto(String auto) {
         this.auto = auto ;
         this.modify("auto",auto);
     }
@@ -343,7 +343,7 @@ public class TestTask extends EntityMP implements Serializable {
     /**
      * 设置 [名称]
      */
-    public void setName(String name){
+    public void setName(String name) {
         this.name = name ;
         this.modify("name",name);
     }
@@ -351,7 +351,7 @@ public class TestTask extends EntityMP implements Serializable {
     /**
      * 设置 [所属产品]
      */
-    public void setProduct(Long product){
+    public void setProduct(Long product) {
         this.product = product ;
         this.modify("product",product);
     }
@@ -359,7 +359,7 @@ public class TestTask extends EntityMP implements Serializable {
     /**
      * 设置 [版本]
      */
-    public void setBuild(Long build){
+    public void setBuild(Long build) {
         this.build = build ;
         this.modify("build",build);
     }
@@ -367,7 +367,7 @@ public class TestTask extends EntityMP implements Serializable {
     /**
      * 设置 [所属项目]
      */
-    public void setProject(Long project){
+    public void setProject(Long project) {
         this.project = project ;
         this.modify("project",project);
     }

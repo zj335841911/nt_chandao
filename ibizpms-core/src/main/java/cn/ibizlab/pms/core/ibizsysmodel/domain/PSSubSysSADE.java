@@ -34,14 +34,14 @@ import cn.ibizlab.pms.util.domain.EntityClient;
 public class PSSubSysSADE extends EntityClient implements Serializable {
     @Override
     public void modify(String field, Object val) {
-        getExtensionparams().put("dirtyflagenable",true);
+        getExtensionparams().put("dirtyflagenable", true);
         super.modify(field, val);
     }
 
     /**
      * 外部接口实体标识
      */
-    @DEField(isKeyField=true)
+    @DEField(isKeyField = true)
     @JSONField(name = "pssubsyssadeid")
     @JsonProperty("pssubsyssadeid")
     private String pssubsyssadeid;
@@ -65,8 +65,8 @@ public class PSSubSysSADE extends EntityClient implements Serializable {
      * 建立时间
      */
     @DEField(preType = DEPredefinedFieldType.CREATEDATE)
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "createdate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "createdate" , format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("createdate")
     private Timestamp createdate;
 
@@ -82,8 +82,8 @@ public class PSSubSysSADE extends EntityClient implements Serializable {
      * 更新时间
      */
     @DEField(preType = DEPredefinedFieldType.UPDATEDATE)
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "updatedate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "updatedate" , format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("updatedate")
     private Timestamp updatedate;
 
@@ -216,7 +216,7 @@ public class PSSubSysSADE extends EntityClient implements Serializable {
     /**
      * 设置 [外部接口实体名称]
      */
-    public void setPssubsyssadename(String pssubsyssadename){
+    public void setPssubsyssadename(String pssubsyssadename) {
         this.pssubsyssadename = pssubsyssadename ;
         this.modify("pssubsyssadename",pssubsyssadename);
     }
@@ -224,7 +224,7 @@ public class PSSubSysSADE extends EntityClient implements Serializable {
     /**
      * 设置 [代码名称2]
      */
-    public void setCodename2(String codename2){
+    public void setCodename2(String codename2) {
         this.codename2 = codename2 ;
         this.modify("codename2",codename2);
     }
@@ -232,7 +232,7 @@ public class PSSubSysSADE extends EntityClient implements Serializable {
     /**
      * 设置 [代码名称]
      */
-    public void setCodename(String codename){
+    public void setCodename(String codename) {
         this.codename = codename ;
         this.modify("codename",codename);
     }
@@ -240,7 +240,7 @@ public class PSSubSysSADE extends EntityClient implements Serializable {
     /**
      * 设置 [实体标记]
      */
-    public void setDetag(String detag){
+    public void setDetag(String detag) {
         this.detag = detag ;
         this.modify("detag",detag);
     }
@@ -248,7 +248,7 @@ public class PSSubSysSADE extends EntityClient implements Serializable {
     /**
      * 设置 [实体标记2]
      */
-    public void setDetag2(String detag2){
+    public void setDetag2(String detag2) {
         this.detag2 = detag2 ;
         this.modify("detag2",detag2);
     }
@@ -256,7 +256,7 @@ public class PSSubSysSADE extends EntityClient implements Serializable {
     /**
      * 设置 [备注]
      */
-    public void setMemo(String memo){
+    public void setMemo(String memo) {
         this.memo = memo ;
         this.modify("memo",memo);
     }
@@ -264,7 +264,7 @@ public class PSSubSysSADE extends EntityClient implements Serializable {
     /**
      * 设置 [接口模式]
      */
-    public void setMajorflag(Integer majorflag){
+    public void setMajorflag(Integer majorflag) {
         this.majorflag = majorflag ;
         this.modify("majorflag",majorflag);
     }
@@ -272,7 +272,7 @@ public class PSSubSysSADE extends EntityClient implements Serializable {
     /**
      * 设置 [逻辑名称]
      */
-    public void setLogicname(String logicname){
+    public void setLogicname(String logicname) {
         this.logicname = logicname ;
         this.modify("logicname",logicname);
     }
@@ -280,7 +280,7 @@ public class PSSubSysSADE extends EntityClient implements Serializable {
     /**
      * 设置 [同步模型模式]
      */
-    public void setSyncmodelmode(String syncmodelmode){
+    public void setSyncmodelmode(String syncmodelmode) {
         this.syncmodelmode = syncmodelmode ;
         this.modify("syncmodelmode",syncmodelmode);
     }
@@ -288,7 +288,7 @@ public class PSSubSysSADE extends EntityClient implements Serializable {
     /**
      * 设置 [用户分类]
      */
-    public void setUsercat(String usercat){
+    public void setUsercat(String usercat) {
         this.usercat = usercat ;
         this.modify("usercat",usercat);
     }
@@ -296,7 +296,7 @@ public class PSSubSysSADE extends EntityClient implements Serializable {
     /**
      * 设置 [用户标记]
      */
-    public void setUsertag(String usertag){
+    public void setUsertag(String usertag) {
         this.usertag = usertag ;
         this.modify("usertag",usertag);
     }
@@ -304,7 +304,7 @@ public class PSSubSysSADE extends EntityClient implements Serializable {
     /**
      * 设置 [用户标记2]
      */
-    public void setUsertag2(String usertag2){
+    public void setUsertag2(String usertag2) {
         this.usertag2 = usertag2 ;
         this.modify("usertag2",usertag2);
     }
@@ -312,7 +312,7 @@ public class PSSubSysSADE extends EntityClient implements Serializable {
     /**
      * 设置 [用户标记3]
      */
-    public void setUsertag3(String usertag3){
+    public void setUsertag3(String usertag3) {
         this.usertag3 = usertag3 ;
         this.modify("usertag3",usertag3);
     }
@@ -320,7 +320,7 @@ public class PSSubSysSADE extends EntityClient implements Serializable {
     /**
      * 设置 [用户标记4]
      */
-    public void setUsertag4(String usertag4){
+    public void setUsertag4(String usertag4) {
         this.usertag4 = usertag4 ;
         this.modify("usertag4",usertag4);
     }
@@ -328,7 +328,7 @@ public class PSSubSysSADE extends EntityClient implements Serializable {
     /**
      * 设置 [是否启用]
      */
-    public void setValidflag(Integer validflag){
+    public void setValidflag(Integer validflag) {
         this.validflag = validflag ;
         this.modify("validflag",validflag);
     }
@@ -336,7 +336,7 @@ public class PSSubSysSADE extends EntityClient implements Serializable {
     /**
      * 设置 [子系统接口]
      */
-    public void setPssubsysserviceapiid(String pssubsysserviceapiid){
+    public void setPssubsysserviceapiid(String pssubsysserviceapiid) {
         this.pssubsysserviceapiid = pssubsysserviceapiid ;
         this.modify("pssubsysserviceapiid",pssubsysserviceapiid);
     }

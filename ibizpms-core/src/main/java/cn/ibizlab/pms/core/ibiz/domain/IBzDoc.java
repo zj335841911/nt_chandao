@@ -83,8 +83,8 @@ public class IBzDoc extends EntityBase implements Serializable {
      * 建立时间
      */
     @DEField(preType = DEPredefinedFieldType.CREATEDATE)
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "createDate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "createDate" , format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("createDate")
     private Timestamp createdate;
 
@@ -122,8 +122,8 @@ public class IBzDoc extends EntityBase implements Serializable {
      * 更新时间
      */
     @DEField(preType = DEPredefinedFieldType.UPDATEDATE)
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "updateDate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "updateDate" , format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("updateDate")
     private Timestamp updatedate;
 

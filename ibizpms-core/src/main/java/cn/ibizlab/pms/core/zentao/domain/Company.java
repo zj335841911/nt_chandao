@@ -60,8 +60,8 @@ public class Company extends EntityMP implements Serializable {
     /**
      * 逻辑删除标志
      */
-    @DEField(defaultValue = "0" , preType = DEPredefinedFieldType.LOGICVALID, logicval = "0" , logicdelval="1")
-    @TableLogic(value= "0",delval="1")
+    @DEField(defaultValue = "0", preType = DEPredefinedFieldType.LOGICVALID, logicval = "0", logicdelval = "1")
+    @TableLogic(value= "0", delval = "1")
     @TableField(value = "`deleted`")
     @JSONField(name = "deleted")
     @JsonProperty("deleted")
@@ -76,7 +76,7 @@ public class Company extends EntityMP implements Serializable {
     /**
      * id
      */
-    @DEField(isKeyField=true)
+    @DEField(isKeyField = true)
     @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
@@ -129,7 +129,7 @@ public class Company extends EntityMP implements Serializable {
     /**
      * 设置 [admins]
      */
-    public void setAdmins(String admins){
+    public void setAdmins(String admins) {
         this.admins = admins ;
         this.modify("admins",admins);
     }
@@ -137,7 +137,7 @@ public class Company extends EntityMP implements Serializable {
     /**
      * 设置 [传真]
      */
-    public void setFax(String fax){
+    public void setFax(String fax) {
         this.fax = fax ;
         this.modify("fax",fax);
     }
@@ -145,7 +145,7 @@ public class Company extends EntityMP implements Serializable {
     /**
      * 设置 [官网]
      */
-    public void setWebsite(String website){
+    public void setWebsite(String website) {
         this.website = website ;
         this.modify("website",website);
     }
@@ -153,7 +153,7 @@ public class Company extends EntityMP implements Serializable {
     /**
      * 设置 [邮政编码]
      */
-    public void setZipcode(String zipcode){
+    public void setZipcode(String zipcode) {
         this.zipcode = zipcode ;
         this.modify("zipcode",zipcode);
     }
@@ -161,7 +161,7 @@ public class Company extends EntityMP implements Serializable {
     /**
      * 设置 [通讯地址]
      */
-    public void setAddress(String address){
+    public void setAddress(String address) {
         this.address = address ;
         this.modify("address",address);
     }
@@ -169,7 +169,7 @@ public class Company extends EntityMP implements Serializable {
     /**
      * 设置 [内网]
      */
-    public void setBackyard(String backyard){
+    public void setBackyard(String backyard) {
         this.backyard = backyard ;
         this.modify("backyard",backyard);
     }
@@ -177,7 +177,7 @@ public class Company extends EntityMP implements Serializable {
     /**
      * 设置 [公司名称]
      */
-    public void setName(String name){
+    public void setName(String name) {
         this.name = name ;
         this.modify("name",name);
     }
@@ -185,7 +185,7 @@ public class Company extends EntityMP implements Serializable {
     /**
      * 设置 [匿名登陆]
      */
-    public void setGuest(String guest){
+    public void setGuest(String guest) {
         this.guest = guest ;
         this.modify("guest",guest);
     }
@@ -193,7 +193,7 @@ public class Company extends EntityMP implements Serializable {
     /**
      * 设置 [联系电话]
      */
-    public void setPhone(String phone){
+    public void setPhone(String phone) {
         this.phone = phone ;
         this.modify("phone",phone);
     }

@@ -46,7 +46,7 @@ public class IbzProjectMember extends EntityMP implements Serializable {
     /**
      * 编号
      */
-    @DEField(isKeyField=true)
+    @DEField(isKeyField = true)
     @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
@@ -134,7 +134,7 @@ public class IbzProjectMember extends EntityMP implements Serializable {
     /**
      * 设置 [项目名称]
      */
-    public void setName(String name){
+    public void setName(String name) {
         this.name = name ;
         this.modify("name",name);
     }

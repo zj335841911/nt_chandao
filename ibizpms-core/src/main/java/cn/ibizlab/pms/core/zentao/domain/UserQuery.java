@@ -46,7 +46,7 @@ public class UserQuery extends EntityMP implements Serializable {
     /**
      * id
      */
-    @DEField(isKeyField=true)
+    @DEField(isKeyField = true)
     @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
@@ -99,7 +99,7 @@ public class UserQuery extends EntityMP implements Serializable {
     /**
      * 设置 [shortcut]
      */
-    public void setShortcut(String shortcut){
+    public void setShortcut(String shortcut) {
         this.shortcut = shortcut ;
         this.modify("shortcut",shortcut);
     }
@@ -107,7 +107,7 @@ public class UserQuery extends EntityMP implements Serializable {
     /**
      * 设置 [sql]
      */
-    public void setSql(String sql){
+    public void setSql(String sql) {
         this.sql = sql ;
         this.modify("sql",sql);
     }
@@ -115,7 +115,7 @@ public class UserQuery extends EntityMP implements Serializable {
     /**
      * 设置 [title]
      */
-    public void setTitle(String title){
+    public void setTitle(String title) {
         this.title = title ;
         this.modify("title",title);
     }
@@ -123,7 +123,7 @@ public class UserQuery extends EntityMP implements Serializable {
     /**
      * 设置 [module]
      */
-    public void setModule(String module){
+    public void setModule(String module) {
         this.module = module ;
         this.modify("module",module);
     }
@@ -131,7 +131,7 @@ public class UserQuery extends EntityMP implements Serializable {
     /**
      * 设置 [form]
      */
-    public void setForm(String form){
+    public void setForm(String form) {
         this.form = form ;
         this.modify("form",form);
     }
@@ -139,7 +139,7 @@ public class UserQuery extends EntityMP implements Serializable {
     /**
      * 设置 [account]
      */
-    public void setAccount(String account){
+    public void setAccount(String account) {
         this.account = account ;
         this.modify("account",account);
     }

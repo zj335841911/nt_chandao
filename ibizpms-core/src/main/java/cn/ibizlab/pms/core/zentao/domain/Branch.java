@@ -53,8 +53,8 @@ public class Branch extends EntityMP implements Serializable {
     /**
      * 已删除
      */
-    @DEField(defaultValue = "0" , preType = DEPredefinedFieldType.LOGICVALID, logicval = "0" , logicdelval="1")
-    @TableLogic(value= "0",delval="1")
+    @DEField(defaultValue = "0", preType = DEPredefinedFieldType.LOGICVALID, logicval = "0", logicdelval = "1")
+    @TableLogic(value= "0", delval = "1")
     @TableField(value = "`deleted`")
     @JSONField(name = "deleted")
     @JsonProperty("deleted")
@@ -62,7 +62,7 @@ public class Branch extends EntityMP implements Serializable {
     /**
      * 编号
      */
-    @DEField(isKeyField=true)
+    @DEField(isKeyField = true)
     @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
@@ -97,7 +97,7 @@ public class Branch extends EntityMP implements Serializable {
     /**
      * 设置 [名称]
      */
-    public void setName(String name){
+    public void setName(String name) {
         this.name = name ;
         this.modify("name",name);
     }
@@ -105,7 +105,7 @@ public class Branch extends EntityMP implements Serializable {
     /**
      * 设置 [排序]
      */
-    public void setOrder(Integer order){
+    public void setOrder(Integer order) {
         this.order = order ;
         this.modify("order",order);
     }
@@ -113,7 +113,7 @@ public class Branch extends EntityMP implements Serializable {
     /**
      * 设置 [所属产品]
      */
-    public void setProduct(Long product){
+    public void setProduct(Long product) {
         this.product = product ;
         this.modify("product",product);
     }

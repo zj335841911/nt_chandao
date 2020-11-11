@@ -129,7 +129,7 @@ public class TaskTeam extends EntityMP implements Serializable {
     /**
      * 编号
      */
-    @DEField(isKeyField=true)
+    @DEField(isKeyField = true)
     @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
@@ -139,8 +139,8 @@ public class TaskTeam extends EntityMP implements Serializable {
      */
     @DEField(defaultValue = "0000-00-00")
     @TableField(value = "`join`")
-    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "join" , format="yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "join", format = "yyyy-MM-dd")
     @JsonProperty("join")
     private Timestamp join;
     /**
@@ -173,7 +173,7 @@ public class TaskTeam extends EntityMP implements Serializable {
     /**
      * 设置 [角色]
      */
-    public void setRole(String role){
+    public void setRole(String role) {
         this.role = role ;
         this.modify("role",role);
     }
@@ -181,7 +181,7 @@ public class TaskTeam extends EntityMP implements Serializable {
     /**
      * 设置 [编号]
      */
-    public void setRoot(Long root){
+    public void setRoot(Long root) {
         this.root = root ;
         this.modify("root",root);
     }
@@ -189,7 +189,7 @@ public class TaskTeam extends EntityMP implements Serializable {
     /**
      * 设置 [受限用户]
      */
-    public void setLimited(String limited){
+    public void setLimited(String limited) {
         this.limited = limited ;
         this.modify("limited",limited);
     }
@@ -197,7 +197,7 @@ public class TaskTeam extends EntityMP implements Serializable {
     /**
      * 设置 [排序]
      */
-    public void setOrder(Integer order){
+    public void setOrder(Integer order) {
         this.order = order ;
         this.modify("order",order);
     }
@@ -205,7 +205,7 @@ public class TaskTeam extends EntityMP implements Serializable {
     /**
      * 设置 [可用工日]
      */
-    public void setDays(Integer days){
+    public void setDays(Integer days) {
         this.days = days ;
         this.modify("days",days);
     }
@@ -213,7 +213,7 @@ public class TaskTeam extends EntityMP implements Serializable {
     /**
      * 设置 [团队类型]
      */
-    public void setType(String type){
+    public void setType(String type) {
         this.type = type ;
         this.modify("type",type);
     }
@@ -221,7 +221,7 @@ public class TaskTeam extends EntityMP implements Serializable {
     /**
      * 设置 [最初预计]
      */
-    public void setEstimate(Double estimate){
+    public void setEstimate(Double estimate) {
         this.estimate = estimate ;
         this.modify("estimate",estimate);
     }
@@ -229,7 +229,7 @@ public class TaskTeam extends EntityMP implements Serializable {
     /**
      * 设置 [用户]
      */
-    public void setAccount(String account){
+    public void setAccount(String account) {
         this.account = account ;
         this.modify("account",account);
     }
@@ -237,7 +237,7 @@ public class TaskTeam extends EntityMP implements Serializable {
     /**
      * 设置 [总计消耗]
      */
-    public void setConsumed(Double consumed){
+    public void setConsumed(Double consumed) {
         this.consumed = consumed ;
         this.modify("consumed",consumed);
     }
@@ -245,7 +245,7 @@ public class TaskTeam extends EntityMP implements Serializable {
     /**
      * 设置 [加盟日]
      */
-    public void setJoin(Timestamp join){
+    public void setJoin(Timestamp join) {
         this.join = join ;
         this.modify("join",join);
     }
@@ -253,7 +253,7 @@ public class TaskTeam extends EntityMP implements Serializable {
     /**
      * 格式化日期 [加盟日]
      */
-    public String formatJoin(){
+    public String formatJoin() {
         if (this.join == null) {
             return null;
         }
@@ -263,7 +263,7 @@ public class TaskTeam extends EntityMP implements Serializable {
     /**
      * 设置 [可用工时/天]
      */
-    public void setHours(Double hours){
+    public void setHours(Double hours) {
         this.hours = hours ;
         this.modify("hours",hours);
     }
@@ -271,7 +271,7 @@ public class TaskTeam extends EntityMP implements Serializable {
     /**
      * 设置 [预计剩余]
      */
-    public void setLeft(Double left){
+    public void setLeft(Double left) {
         this.left = left ;
         this.modify("left",left);
     }

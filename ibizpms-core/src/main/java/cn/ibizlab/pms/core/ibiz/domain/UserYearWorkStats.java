@@ -46,7 +46,7 @@ public class UserYearWorkStats extends EntityMP implements Serializable {
     /**
      * 用户编号
      */
-    @DEField(isKeyField=true)
+    @DEField(isKeyField = true)
     @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
@@ -231,8 +231,8 @@ public class UserYearWorkStats extends EntityMP implements Serializable {
      * 入职日期
      */
     @TableField(value = "`join`")
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "join" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "join", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("join")
     private Timestamp join;
     /**
@@ -309,16 +309,16 @@ public class UserYearWorkStats extends EntityMP implements Serializable {
      * birthday
      */
     @TableField(value = "`birthday`")
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "birthday" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "birthday", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("birthday")
     private Timestamp birthday;
     /**
      * locked
      */
     @TableField(value = "`locked`")
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "locked" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "locked", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("locked")
     private Timestamp locked;
     /**
@@ -404,7 +404,7 @@ public class UserYearWorkStats extends EntityMP implements Serializable {
     /**
      * 设置 [真实用户名]
      */
-    public void setRealname(String realname){
+    public void setRealname(String realname) {
         this.realname = realname ;
         this.modify("realname",realname);
     }
@@ -412,7 +412,7 @@ public class UserYearWorkStats extends EntityMP implements Serializable {
     /**
      * 设置 [账号]
      */
-    public void setAccount(String account){
+    public void setAccount(String account) {
         this.account = account ;
         this.modify("account",account);
     }
@@ -420,7 +420,7 @@ public class UserYearWorkStats extends EntityMP implements Serializable {
     /**
      * 设置 [角色]
      */
-    public void setRole(String role){
+    public void setRole(String role) {
         this.role = role ;
         this.modify("role",role);
     }
@@ -428,7 +428,7 @@ public class UserYearWorkStats extends EntityMP implements Serializable {
     /**
      * 设置 [部门编号]
      */
-    public void setDept(String dept){
+    public void setDept(String dept) {
         this.dept = dept ;
         this.modify("dept",dept);
     }
@@ -436,7 +436,7 @@ public class UserYearWorkStats extends EntityMP implements Serializable {
     /**
      * 设置 [累计登录次数]
      */
-    public void setVisits(Integer visits){
+    public void setVisits(Integer visits) {
         this.visits = visits ;
         this.modify("visits",visits);
     }
@@ -444,7 +444,7 @@ public class UserYearWorkStats extends EntityMP implements Serializable {
     /**
      * 设置 [slack]
      */
-    public void setSlack(String slack){
+    public void setSlack(String slack) {
         this.slack = slack ;
         this.modify("slack",slack);
     }
@@ -452,7 +452,7 @@ public class UserYearWorkStats extends EntityMP implements Serializable {
     /**
      * 设置 [skype]
      */
-    public void setSkype(String skype){
+    public void setSkype(String skype) {
         this.skype = skype ;
         this.modify("skype",skype);
     }
@@ -460,7 +460,7 @@ public class UserYearWorkStats extends EntityMP implements Serializable {
     /**
      * 设置 [score]
      */
-    public void setScore(Integer score){
+    public void setScore(Integer score) {
         this.score = score ;
         this.modify("score",score);
     }
@@ -468,7 +468,7 @@ public class UserYearWorkStats extends EntityMP implements Serializable {
     /**
      * 设置 [微信]
      */
-    public void setWeixin(String weixin){
+    public void setWeixin(String weixin) {
         this.weixin = weixin ;
         this.modify("weixin",weixin);
     }
@@ -476,7 +476,7 @@ public class UserYearWorkStats extends EntityMP implements Serializable {
     /**
      * 设置 [入职日期]
      */
-    public void setJoin(Timestamp join){
+    public void setJoin(Timestamp join) {
         this.join = join ;
         this.modify("join",join);
     }
@@ -484,7 +484,7 @@ public class UserYearWorkStats extends EntityMP implements Serializable {
     /**
      * 格式化日期 [入职日期]
      */
-    public String formatJoin(){
+    public String formatJoin() {
         if (this.join == null) {
             return null;
         }
@@ -494,7 +494,7 @@ public class UserYearWorkStats extends EntityMP implements Serializable {
     /**
      * 设置 [电话]
      */
-    public void setPhone(String phone){
+    public void setPhone(String phone) {
         this.phone = phone ;
         this.modify("phone",phone);
     }
@@ -502,7 +502,7 @@ public class UserYearWorkStats extends EntityMP implements Serializable {
     /**
      * 设置 [fails]
      */
-    public void setFails(Integer fails){
+    public void setFails(Integer fails) {
         this.fails = fails ;
         this.modify("fails",fails);
     }
@@ -510,7 +510,7 @@ public class UserYearWorkStats extends EntityMP implements Serializable {
     /**
      * 设置 [邮箱]
      */
-    public void setEmail(String email){
+    public void setEmail(String email) {
         this.email = email ;
         this.modify("email",email);
     }
@@ -518,7 +518,7 @@ public class UserYearWorkStats extends EntityMP implements Serializable {
     /**
      * 设置 [clientLang]
      */
-    public void setClientlang(String clientlang){
+    public void setClientlang(String clientlang) {
         this.clientlang = clientlang ;
         this.modify("clientlang",clientlang);
     }
@@ -526,7 +526,7 @@ public class UserYearWorkStats extends EntityMP implements Serializable {
     /**
      * 设置 [逻辑删除标志]
      */
-    public void setDeleted(String deleted){
+    public void setDeleted(String deleted) {
         this.deleted = deleted ;
         this.modify("deleted",deleted);
     }
@@ -534,7 +534,7 @@ public class UserYearWorkStats extends EntityMP implements Serializable {
     /**
      * 设置 [ranzhi]
      */
-    public void setRanzhi(String ranzhi){
+    public void setRanzhi(String ranzhi) {
         this.ranzhi = ranzhi ;
         this.modify("ranzhi",ranzhi);
     }
@@ -542,7 +542,7 @@ public class UserYearWorkStats extends EntityMP implements Serializable {
     /**
      * 设置 [avatar]
      */
-    public void setAvatar(String avatar){
+    public void setAvatar(String avatar) {
         this.avatar = avatar ;
         this.modify("avatar",avatar);
     }
@@ -550,7 +550,7 @@ public class UserYearWorkStats extends EntityMP implements Serializable {
     /**
      * 设置 [源代码账户]
      */
-    public void setCommiter(String commiter){
+    public void setCommiter(String commiter) {
         this.commiter = commiter ;
         this.modify("commiter",commiter);
     }
@@ -558,7 +558,7 @@ public class UserYearWorkStats extends EntityMP implements Serializable {
     /**
      * 设置 [性别]
      */
-    public void setGender(String gender){
+    public void setGender(String gender) {
         this.gender = gender ;
         this.modify("gender",gender);
     }
@@ -566,7 +566,7 @@ public class UserYearWorkStats extends EntityMP implements Serializable {
     /**
      * 设置 [QQ]
      */
-    public void setQq(String qq){
+    public void setQq(String qq) {
         this.qq = qq ;
         this.modify("qq",qq);
     }
@@ -574,7 +574,7 @@ public class UserYearWorkStats extends EntityMP implements Serializable {
     /**
      * 设置 [birthday]
      */
-    public void setBirthday(Timestamp birthday){
+    public void setBirthday(Timestamp birthday) {
         this.birthday = birthday ;
         this.modify("birthday",birthday);
     }
@@ -582,7 +582,7 @@ public class UserYearWorkStats extends EntityMP implements Serializable {
     /**
      * 格式化日期 [birthday]
      */
-    public String formatBirthday(){
+    public String formatBirthday() {
         if (this.birthday == null) {
             return null;
         }
@@ -592,7 +592,7 @@ public class UserYearWorkStats extends EntityMP implements Serializable {
     /**
      * 设置 [locked]
      */
-    public void setLocked(Timestamp locked){
+    public void setLocked(Timestamp locked) {
         this.locked = locked ;
         this.modify("locked",locked);
     }
@@ -600,7 +600,7 @@ public class UserYearWorkStats extends EntityMP implements Serializable {
     /**
      * 格式化日期 [locked]
      */
-    public String formatLocked(){
+    public String formatLocked() {
         if (this.locked == null) {
             return null;
         }
@@ -610,7 +610,7 @@ public class UserYearWorkStats extends EntityMP implements Serializable {
     /**
      * 设置 [钉钉]
      */
-    public void setDingding(String dingding){
+    public void setDingding(String dingding) {
         this.dingding = dingding ;
         this.modify("dingding",dingding);
     }
@@ -618,7 +618,7 @@ public class UserYearWorkStats extends EntityMP implements Serializable {
     /**
      * 设置 [ip]
      */
-    public void setIp(String ip){
+    public void setIp(String ip) {
         this.ip = ip ;
         this.modify("ip",ip);
     }
@@ -626,7 +626,7 @@ public class UserYearWorkStats extends EntityMP implements Serializable {
     /**
      * 设置 [whatsapp]
      */
-    public void setWhatsapp(String whatsapp){
+    public void setWhatsapp(String whatsapp) {
         this.whatsapp = whatsapp ;
         this.modify("whatsapp",whatsapp);
     }
@@ -634,7 +634,7 @@ public class UserYearWorkStats extends EntityMP implements Serializable {
     /**
      * 设置 [zipcode]
      */
-    public void setZipcode(String zipcode){
+    public void setZipcode(String zipcode) {
         this.zipcode = zipcode ;
         this.modify("zipcode",zipcode);
     }
@@ -642,7 +642,7 @@ public class UserYearWorkStats extends EntityMP implements Serializable {
     /**
      * 设置 [密码]
      */
-    public void setPassword(String password){
+    public void setPassword(String password) {
         this.password = password ;
         this.modify("password",password);
     }
@@ -650,7 +650,7 @@ public class UserYearWorkStats extends EntityMP implements Serializable {
     /**
      * 设置 [nickname]
      */
-    public void setNickname(String nickname){
+    public void setNickname(String nickname) {
         this.nickname = nickname ;
         this.modify("nickname",nickname);
     }
@@ -658,7 +658,7 @@ public class UserYearWorkStats extends EntityMP implements Serializable {
     /**
      * 设置 [clientStatus]
      */
-    public void setClientstatus(String clientstatus){
+    public void setClientstatus(String clientstatus) {
         this.clientstatus = clientstatus ;
         this.modify("clientstatus",clientstatus);
     }
@@ -666,7 +666,7 @@ public class UserYearWorkStats extends EntityMP implements Serializable {
     /**
      * 设置 [scoreLevel]
      */
-    public void setScorelevel(Integer scorelevel){
+    public void setScorelevel(Integer scorelevel) {
         this.scorelevel = scorelevel ;
         this.modify("scorelevel",scorelevel);
     }
@@ -674,7 +674,7 @@ public class UserYearWorkStats extends EntityMP implements Serializable {
     /**
      * 设置 [手机]
      */
-    public void setMobile(String mobile){
+    public void setMobile(String mobile) {
         this.mobile = mobile ;
         this.modify("mobile",mobile);
     }
@@ -682,7 +682,7 @@ public class UserYearWorkStats extends EntityMP implements Serializable {
     /**
      * 设置 [最后登录]
      */
-    public void setLast(Integer last){
+    public void setLast(Integer last) {
         this.last = last ;
         this.modify("last",last);
     }
@@ -690,7 +690,7 @@ public class UserYearWorkStats extends EntityMP implements Serializable {
     /**
      * 设置 [通讯地址]
      */
-    public void setAddress(String address){
+    public void setAddress(String address) {
         this.address = address ;
         this.modify("address",address);
     }

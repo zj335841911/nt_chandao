@@ -54,8 +54,8 @@ public class Compile extends EntityMP implements Serializable {
      * createdDate
      */
     @TableField(value = "`createddate`")
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "createddate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "createddate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("createddate")
     private Timestamp createddate;
     /**
@@ -70,14 +70,14 @@ public class Compile extends EntityMP implements Serializable {
      */
     @DEField(preType = DEPredefinedFieldType.UPDATEDATE)
     @TableField(value = "`updatedate`")
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "updatedate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "updatedate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("updatedate")
     private Timestamp updatedate;
     /**
      * id
      */
-    @DEField(isKeyField=true)
+    @DEField(isKeyField = true)
     @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
@@ -127,8 +127,8 @@ public class Compile extends EntityMP implements Serializable {
     /**
      * 逻辑删除标志
      */
-    @DEField(defaultValue = "0" , preType = DEPredefinedFieldType.LOGICVALID, logicval = "0" , logicdelval="1")
-    @TableLogic(value= "0",delval="1")
+    @DEField(defaultValue = "0", preType = DEPredefinedFieldType.LOGICVALID, logicval = "0", logicdelval = "1")
+    @TableLogic(value= "0", delval = "1")
     @TableField(value = "`deleted`")
     @JSONField(name = "deleted")
     @JsonProperty("deleted")
@@ -146,7 +146,7 @@ public class Compile extends EntityMP implements Serializable {
     /**
      * 设置 [queue]
      */
-    public void setQueue(Integer queue){
+    public void setQueue(Integer queue) {
         this.queue = queue ;
         this.modify("queue",queue);
     }
@@ -154,7 +154,7 @@ public class Compile extends EntityMP implements Serializable {
     /**
      * 设置 [createdDate]
      */
-    public void setCreateddate(Timestamp createddate){
+    public void setCreateddate(Timestamp createddate) {
         this.createddate = createddate ;
         this.modify("createddate",createddate);
     }
@@ -162,7 +162,7 @@ public class Compile extends EntityMP implements Serializable {
     /**
      * 格式化日期 [createdDate]
      */
-    public String formatCreateddate(){
+    public String formatCreateddate() {
         if (this.createddate == null) {
             return null;
         }
@@ -172,7 +172,7 @@ public class Compile extends EntityMP implements Serializable {
     /**
      * 设置 [atTime]
      */
-    public void setAttime(String attime){
+    public void setAttime(String attime) {
         this.attime = attime ;
         this.modify("attime",attime);
     }
@@ -180,7 +180,7 @@ public class Compile extends EntityMP implements Serializable {
     /**
      * 设置 [tag]
      */
-    public void setTag(String tag){
+    public void setTag(String tag) {
         this.tag = tag ;
         this.modify("tag",tag);
     }
@@ -188,7 +188,7 @@ public class Compile extends EntityMP implements Serializable {
     /**
      * 设置 [testtask]
      */
-    public void setTesttask(Integer testtask){
+    public void setTesttask(Integer testtask) {
         this.testtask = testtask ;
         this.modify("testtask",testtask);
     }
@@ -196,7 +196,7 @@ public class Compile extends EntityMP implements Serializable {
     /**
      * 设置 [job]
      */
-    public void setJob(Integer job){
+    public void setJob(Integer job) {
         this.job = job ;
         this.modify("job",job);
     }
@@ -204,7 +204,7 @@ public class Compile extends EntityMP implements Serializable {
     /**
      * 设置 [name]
      */
-    public void setName(String name){
+    public void setName(String name) {
         this.name = name ;
         this.modify("name",name);
     }
@@ -212,7 +212,7 @@ public class Compile extends EntityMP implements Serializable {
     /**
      * 设置 [logs]
      */
-    public void setLogs(String logs){
+    public void setLogs(String logs) {
         this.logs = logs ;
         this.modify("logs",logs);
     }
@@ -220,7 +220,7 @@ public class Compile extends EntityMP implements Serializable {
     /**
      * 设置 [status]
      */
-    public void setStatus(String status){
+    public void setStatus(String status) {
         this.status = status ;
         this.modify("status",status);
     }
@@ -228,7 +228,7 @@ public class Compile extends EntityMP implements Serializable {
     /**
      * 设置 [createdBy]
      */
-    public void setCreatedby(String createdby){
+    public void setCreatedby(String createdby) {
         this.createdby = createdby ;
         this.modify("createdby",createdby);
     }

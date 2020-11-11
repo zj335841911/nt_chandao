@@ -36,7 +36,7 @@ public class SysEmployee extends EntityClient implements Serializable {
     /**
      * 用户标识
      */
-    @DEField(isKeyField=true)
+    @DEField(isKeyField = true)
     @JSONField(name = "userid")
     @JsonProperty("userid")
     private String userid;
@@ -216,8 +216,8 @@ public class SysEmployee extends EntityClient implements Serializable {
      * 创建时间
      */
     @DEField(preType = DEPredefinedFieldType.CREATEDATE)
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "createdate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "createdate" , format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("createdate")
     private Timestamp createdate;
 
@@ -241,8 +241,8 @@ public class SysEmployee extends EntityClient implements Serializable {
      * 更新时间
      */
     @DEField(preType = DEPredefinedFieldType.UPDATEDATE)
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "updatedate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "updatedate" , format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("updatedate")
     private Timestamp updatedate;
 
@@ -267,7 +267,7 @@ public class SysEmployee extends EntityClient implements Serializable {
     /**
      * 设置 [用户全局名]
      */
-    public void setUsername(String username){
+    public void setUsername(String username) {
         this.username = username ;
         this.modify("username",username);
     }
@@ -275,7 +275,7 @@ public class SysEmployee extends EntityClient implements Serializable {
     /**
      * 设置 [姓名]
      */
-    public void setPersonname(String personname){
+    public void setPersonname(String personname) {
         this.personname = personname ;
         this.modify("personname",personname);
     }
@@ -283,7 +283,7 @@ public class SysEmployee extends EntityClient implements Serializable {
     /**
      * 设置 [用户工号]
      */
-    public void setUsercode(String usercode){
+    public void setUsercode(String usercode) {
         this.usercode = usercode ;
         this.modify("usercode",usercode);
     }
@@ -291,7 +291,7 @@ public class SysEmployee extends EntityClient implements Serializable {
     /**
      * 设置 [区属]
      */
-    public void setDomains(String domains){
+    public void setDomains(String domains) {
         this.domains = domains ;
         this.modify("domains",domains);
     }
@@ -299,7 +299,7 @@ public class SysEmployee extends EntityClient implements Serializable {
     /**
      * 设置 [主部门]
      */
-    public void setMdeptid(String mdeptid){
+    public void setMdeptid(String mdeptid) {
         this.mdeptid = mdeptid ;
         this.modify("mdeptid",mdeptid);
     }
@@ -307,7 +307,7 @@ public class SysEmployee extends EntityClient implements Serializable {
     /**
      * 设置 [主部门代码]
      */
-    public void setMdeptcode(String mdeptcode){
+    public void setMdeptcode(String mdeptcode) {
         this.mdeptcode = mdeptcode ;
         this.modify("mdeptcode",mdeptcode);
     }
@@ -315,7 +315,7 @@ public class SysEmployee extends EntityClient implements Serializable {
     /**
      * 设置 [主部门名称]
      */
-    public void setMdeptname(String mdeptname){
+    public void setMdeptname(String mdeptname) {
         this.mdeptname = mdeptname ;
         this.modify("mdeptname",mdeptname);
     }
@@ -323,7 +323,7 @@ public class SysEmployee extends EntityClient implements Serializable {
     /**
      * 设置 [业务编码]
      */
-    public void setBcode(String bcode){
+    public void setBcode(String bcode) {
         this.bcode = bcode ;
         this.modify("bcode",bcode);
     }
@@ -331,7 +331,7 @@ public class SysEmployee extends EntityClient implements Serializable {
     /**
      * 设置 [单位代码]
      */
-    public void setOrgcode(String orgcode){
+    public void setOrgcode(String orgcode) {
         this.orgcode = orgcode ;
         this.modify("orgcode",orgcode);
     }
@@ -339,7 +339,7 @@ public class SysEmployee extends EntityClient implements Serializable {
     /**
      * 设置 [昵称别名]
      */
-    public void setNickname(String nickname){
+    public void setNickname(String nickname) {
         this.nickname = nickname ;
         this.modify("nickname",nickname);
     }
@@ -347,7 +347,7 @@ public class SysEmployee extends EntityClient implements Serializable {
     /**
      * 设置 [性别]
      */
-    public void setSex(String sex){
+    public void setSex(String sex) {
         this.sex = sex ;
         this.modify("sex",sex);
     }
@@ -355,7 +355,7 @@ public class SysEmployee extends EntityClient implements Serializable {
     /**
      * 设置 [联系方式]
      */
-    public void setPhone(String phone){
+    public void setPhone(String phone) {
         this.phone = phone ;
         this.modify("phone",phone);
     }
@@ -363,7 +363,7 @@ public class SysEmployee extends EntityClient implements Serializable {
     /**
      * 设置 [邮件]
      */
-    public void setEmail(String email){
+    public void setEmail(String email) {
         this.email = email ;
         this.modify("email",email);
     }
@@ -371,7 +371,7 @@ public class SysEmployee extends EntityClient implements Serializable {
     /**
      * 设置 [社交账号]
      */
-    public void setAvatar(String avatar){
+    public void setAvatar(String avatar) {
         this.avatar = avatar ;
         this.modify("avatar",avatar);
     }
@@ -379,7 +379,7 @@ public class SysEmployee extends EntityClient implements Serializable {
     /**
      * 设置 [地址]
      */
-    public void setAddr(String addr){
+    public void setAddr(String addr) {
         this.addr = addr ;
         this.modify("addr",addr);
     }
@@ -387,7 +387,7 @@ public class SysEmployee extends EntityClient implements Serializable {
     /**
      * 设置 [照片]
      */
-    public void setUsericon(String usericon){
+    public void setUsericon(String usericon) {
         this.usericon = usericon ;
         this.modify("usericon",usericon);
     }
@@ -395,7 +395,7 @@ public class SysEmployee extends EntityClient implements Serializable {
     /**
      * 设置 [ip地址]
      */
-    public void setIpaddr(String ipaddr){
+    public void setIpaddr(String ipaddr) {
         this.ipaddr = ipaddr ;
         this.modify("ipaddr",ipaddr);
     }
@@ -403,7 +403,7 @@ public class SysEmployee extends EntityClient implements Serializable {
     /**
      * 设置 [语言]
      */
-    public void setLang(String lang){
+    public void setLang(String lang) {
         this.lang = lang ;
         this.modify("lang",lang);
     }
@@ -411,7 +411,7 @@ public class SysEmployee extends EntityClient implements Serializable {
     /**
      * 设置 [备注]
      */
-    public void setMemo(String memo){
+    public void setMemo(String memo) {
         this.memo = memo ;
         this.modify("memo",memo);
     }
@@ -419,7 +419,7 @@ public class SysEmployee extends EntityClient implements Serializable {
     /**
      * 设置 [保留]
      */
-    public void setReserver(String reserver){
+    public void setReserver(String reserver) {
         this.reserver = reserver ;
         this.modify("reserver",reserver);
     }
@@ -427,7 +427,7 @@ public class SysEmployee extends EntityClient implements Serializable {
     /**
      * 设置 [排序]
      */
-    public void setShoworder(Integer showorder){
+    public void setShoworder(Integer showorder) {
         this.showorder = showorder ;
         this.modify("showorder",showorder);
     }

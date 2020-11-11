@@ -46,7 +46,7 @@ public class ProjectStory extends EntityMP implements Serializable {
     /**
      * 虚拟主键
      */
-    @DEField(isKeyField=true)
+    @DEField(isKeyField = true)
     @TableField(exist = false)
     @JSONField(name = "id")
     @JsonProperty("id")
@@ -117,7 +117,7 @@ public class ProjectStory extends EntityMP implements Serializable {
     /**
      * 设置 [排序]
      */
-    public void setOrder(Integer order){
+    public void setOrder(Integer order) {
         this.order = order ;
         this.modify("order",order);
     }
@@ -125,7 +125,7 @@ public class ProjectStory extends EntityMP implements Serializable {
     /**
      * 设置 [需求版本]
      */
-    public void setVersion(Integer version){
+    public void setVersion(Integer version) {
         this.version = version ;
         this.modify("version",version);
     }
@@ -133,7 +133,7 @@ public class ProjectStory extends EntityMP implements Serializable {
     /**
      * 设置 [需求]
      */
-    public void setStory(Long story){
+    public void setStory(Long story) {
         this.story = story ;
         this.modify("story",story);
     }
@@ -141,7 +141,7 @@ public class ProjectStory extends EntityMP implements Serializable {
     /**
      * 设置 [项目]
      */
-    public void setProject(Long project){
+    public void setProject(Long project) {
         this.project = project ;
         this.modify("project",project);
     }
@@ -149,7 +149,7 @@ public class ProjectStory extends EntityMP implements Serializable {
     /**
      * 设置 [所属产品]
      */
-    public void setProduct(Long product){
+    public void setProduct(Long product) {
         this.product = product ;
         this.modify("product",product);
     }

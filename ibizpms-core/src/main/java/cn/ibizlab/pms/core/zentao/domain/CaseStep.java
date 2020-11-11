@@ -54,7 +54,7 @@ public class CaseStep extends EntityMP implements Serializable {
     /**
      * 编号
      */
-    @DEField(isKeyField=true)
+    @DEField(isKeyField = true)
     @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
@@ -164,7 +164,7 @@ public class CaseStep extends EntityMP implements Serializable {
     /**
      * 设置 [用例步骤类型]
      */
-    public void setType(String type){
+    public void setType(String type) {
         this.type = type ;
         this.modify("type",type);
     }
@@ -172,7 +172,7 @@ public class CaseStep extends EntityMP implements Serializable {
     /**
      * 设置 [步骤]
      */
-    public void setDesc(String desc){
+    public void setDesc(String desc) {
         this.desc = desc ;
         this.modify("desc",desc);
     }
@@ -180,7 +180,7 @@ public class CaseStep extends EntityMP implements Serializable {
     /**
      * 设置 [预期]
      */
-    public void setExpect(String expect){
+    public void setExpect(String expect) {
         this.expect = expect ;
         this.modify("expect",expect);
     }
@@ -188,7 +188,7 @@ public class CaseStep extends EntityMP implements Serializable {
     /**
      * 设置 [用例版本]
      */
-    public void setVersion(Integer version){
+    public void setVersion(Integer version) {
         this.version = version ;
         this.modify("version",version);
     }
@@ -196,7 +196,7 @@ public class CaseStep extends EntityMP implements Serializable {
     /**
      * 设置 [用例]
      */
-    public void setIbizcase(Long ibizcase){
+    public void setIbizcase(Long ibizcase) {
         this.ibizcase = ibizcase ;
         this.modify("case",ibizcase);
     }
@@ -204,7 +204,7 @@ public class CaseStep extends EntityMP implements Serializable {
     /**
      * 设置 [分组用例步骤的组编号]
      */
-    public void setParent(Long parent){
+    public void setParent(Long parent) {
         this.parent = parent ;
         this.modify("parent",parent);
     }

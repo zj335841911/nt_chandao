@@ -135,7 +135,7 @@ public class IBIZProMessage extends EntityClient implements Serializable {
     /**
      * 消息标识
      */
-    @DEField(name = "ibizpro_messageid" , isKeyField=true)
+    @DEField(name = "ibizpro_messageid" , isKeyField = true)
     @JSONField(name = "ibizpro_messageid")
     @JsonProperty("ibizpro_messageid")
     private String ibizproMessageid;
@@ -168,7 +168,7 @@ public class IBIZProMessage extends EntityClient implements Serializable {
     /**
      * 设置 [重发次数]
      */
-    public void setRetrytimes(Integer retrytimes){
+    public void setRetrytimes(Integer retrytimes) {
         this.retrytimes = retrytimes ;
         this.modify("retrytimes",retrytimes);
     }
@@ -176,7 +176,7 @@ public class IBIZProMessage extends EntityClient implements Serializable {
     /**
      * 设置 [发送方]
      */
-    public void setFrom(String from){
+    public void setFrom(String from) {
         this.from = from ;
         this.modify("from",from);
     }
@@ -184,7 +184,7 @@ public class IBIZProMessage extends EntityClient implements Serializable {
     /**
      * 设置 [抄送方]
      */
-    public void setCc(String cc){
+    public void setCc(String cc) {
         this.cc = cc ;
         this.modify("cc",cc);
     }
@@ -192,7 +192,7 @@ public class IBIZProMessage extends EntityClient implements Serializable {
     /**
      * 设置 [接收方]
      */
-    public void setTo(String to){
+    public void setTo(String to) {
         this.to = to ;
         this.modify("to",to);
     }
@@ -200,7 +200,7 @@ public class IBIZProMessage extends EntityClient implements Serializable {
     /**
      * 设置 [内容]
      */
-    public void setContent(String content){
+    public void setContent(String content) {
         this.content = content ;
         this.modify("content",content);
     }
@@ -208,7 +208,7 @@ public class IBIZProMessage extends EntityClient implements Serializable {
     /**
      * 设置 [密件抄送方]
      */
-    public void setBcc(String bcc){
+    public void setBcc(String bcc) {
         this.bcc = bcc ;
         this.modify("bcc",bcc);
     }
@@ -216,7 +216,7 @@ public class IBIZProMessage extends EntityClient implements Serializable {
     /**
      * 设置 [消息参数]
      */
-    public void setParam(String param){
+    public void setParam(String param) {
         this.param = param ;
         this.modify("param",param);
     }
@@ -224,7 +224,7 @@ public class IBIZProMessage extends EntityClient implements Serializable {
     /**
      * 设置 [消息名称]
      */
-    public void setIbizproMessagename(String ibizproMessagename){
+    public void setIbizproMessagename(String ibizproMessagename) {
         this.ibizproMessagename = ibizproMessagename ;
         this.modify("ibizpro_messagename",ibizproMessagename);
     }
@@ -232,7 +232,7 @@ public class IBIZProMessage extends EntityClient implements Serializable {
     /**
      * 设置 [标题]
      */
-    public void setSubject(String subject){
+    public void setSubject(String subject) {
         this.subject = subject ;
         this.modify("subject",subject);
     }
@@ -240,7 +240,7 @@ public class IBIZProMessage extends EntityClient implements Serializable {
     /**
      * 设置 [重发间隔时间]
      */
-    public void setRetryintervaltime(Integer retryintervaltime){
+    public void setRetryintervaltime(Integer retryintervaltime) {
         this.retryintervaltime = retryintervaltime ;
         this.modify("retryintervaltime",retryintervaltime);
     }
@@ -248,7 +248,7 @@ public class IBIZProMessage extends EntityClient implements Serializable {
     /**
      * 设置 [消息类型]
      */
-    public void setType(String type){
+    public void setType(String type) {
         this.type = type ;
         this.modify("type",type);
     }
@@ -256,7 +256,7 @@ public class IBIZProMessage extends EntityClient implements Serializable {
     /**
      * 设置 [是否同步]
      */
-    public void setIssync(Integer issync){
+    public void setIssync(Integer issync) {
         this.issync = issync ;
         this.modify("issync",issync);
     }
@@ -264,7 +264,7 @@ public class IBIZProMessage extends EntityClient implements Serializable {
     /**
      * 设置 [是否重发]
      */
-    public void setIsretry(Integer isretry){
+    public void setIsretry(Integer isretry) {
         this.isretry = isretry ;
         this.modify("isretry",isretry);
     }
@@ -272,7 +272,7 @@ public class IBIZProMessage extends EntityClient implements Serializable {
     /**
      * 设置 [是否是链接消息]
      */
-    public void setIslink(Integer islink){
+    public void setIslink(Integer islink) {
         this.islink = islink ;
         this.modify("islink",islink);
     }
@@ -280,7 +280,7 @@ public class IBIZProMessage extends EntityClient implements Serializable {
     /**
      * 设置 [是否已完成]
      */
-    public void setIsdone(Integer isdone){
+    public void setIsdone(Integer isdone) {
         this.isdone = isdone ;
         this.modify("isdone",isdone);
     }
@@ -288,7 +288,7 @@ public class IBIZProMessage extends EntityClient implements Serializable {
     /**
      * 设置 [链接地址]
      */
-    public void setLinkurl(String linkurl){
+    public void setLinkurl(String linkurl) {
         this.linkurl = linkurl ;
         this.modify("linkurl",linkurl);
     }
@@ -296,7 +296,7 @@ public class IBIZProMessage extends EntityClient implements Serializable {
     /**
      * 设置 [发送代理标识]
      */
-    public void setSendproxyid(String sendproxyid){
+    public void setSendproxyid(String sendproxyid) {
         this.sendproxyid = sendproxyid ;
         this.modify("sendproxyid",sendproxyid);
     }

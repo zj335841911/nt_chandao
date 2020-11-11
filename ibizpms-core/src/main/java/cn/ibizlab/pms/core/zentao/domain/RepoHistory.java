@@ -61,8 +61,8 @@ public class RepoHistory extends EntityMP implements Serializable {
      * time
      */
     @TableField(value = "`time`")
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "time" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "time", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("time")
     private Timestamp time;
     /**
@@ -89,7 +89,7 @@ public class RepoHistory extends EntityMP implements Serializable {
     /**
      * id
      */
-    @DEField(isKeyField=true)
+    @DEField(isKeyField = true)
     @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
@@ -100,7 +100,7 @@ public class RepoHistory extends EntityMP implements Serializable {
     /**
      * 设置 [committer]
      */
-    public void setCommitter(String committer){
+    public void setCommitter(String committer) {
         this.committer = committer ;
         this.modify("committer",committer);
     }
@@ -108,7 +108,7 @@ public class RepoHistory extends EntityMP implements Serializable {
     /**
      * 设置 [revision]
      */
-    public void setRevision(String revision){
+    public void setRevision(String revision) {
         this.revision = revision ;
         this.modify("revision",revision);
     }
@@ -116,7 +116,7 @@ public class RepoHistory extends EntityMP implements Serializable {
     /**
      * 设置 [time]
      */
-    public void setTime(Timestamp time){
+    public void setTime(Timestamp time) {
         this.time = time ;
         this.modify("time",time);
     }
@@ -124,7 +124,7 @@ public class RepoHistory extends EntityMP implements Serializable {
     /**
      * 格式化日期 [time]
      */
-    public String formatTime(){
+    public String formatTime() {
         if (this.time == null) {
             return null;
         }
@@ -134,7 +134,7 @@ public class RepoHistory extends EntityMP implements Serializable {
     /**
      * 设置 [repo]
      */
-    public void setRepo(Integer repo){
+    public void setRepo(Integer repo) {
         this.repo = repo ;
         this.modify("repo",repo);
     }
@@ -142,7 +142,7 @@ public class RepoHistory extends EntityMP implements Serializable {
     /**
      * 设置 [comment]
      */
-    public void setComment(String comment){
+    public void setComment(String comment) {
         this.comment = comment ;
         this.modify("comment",comment);
     }
@@ -150,7 +150,7 @@ public class RepoHistory extends EntityMP implements Serializable {
     /**
      * 设置 [commit]
      */
-    public void setCommit(Integer commit){
+    public void setCommit(Integer commit) {
         this.commit = commit ;
         this.modify("commit",commit);
     }

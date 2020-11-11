@@ -54,8 +54,9 @@ public class IbzFavoritesServiceImpl extends ServiceImpl<IbzFavoritesMapper, Ibz
     @Override
     @Transactional
     public boolean create(IbzFavorites et) {
-        if(!this.retBool(this.baseMapper.insert(et)))
+        if(!this.retBool(this.baseMapper.insert(et))) {
             return false;
+        }
         CachedBeanCopier.copy(get(et.getIbzfavoritesid()),et);
         return true;
     }
@@ -69,8 +70,9 @@ public class IbzFavoritesServiceImpl extends ServiceImpl<IbzFavoritesMapper, Ibz
     @Override
     @Transactional
     public boolean update(IbzFavorites et) {
-         if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("ibz_favoritesid",et.getIbzfavoritesid())))
+        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("ibz_favoritesid",et.getIbzfavoritesid()))) {
             return false;
+        }
         CachedBeanCopier.copy(get(et.getIbzfavoritesid()),et);
         return true;
     }
@@ -119,8 +121,9 @@ public class IbzFavoritesServiceImpl extends ServiceImpl<IbzFavoritesMapper, Ibz
     @Override
     @Transactional
     public boolean save(IbzFavorites et) {
-        if(!saveOrUpdate(et))
+        if(!saveOrUpdate(et)) {
             return false;
+        }
         return true;
     }
 
@@ -202,10 +205,12 @@ public class IbzFavoritesServiceImpl extends ServiceImpl<IbzFavoritesMapper, Ibz
                 ids.add(id);
             }
         }
-        if(ids.size()>0)
-           return this.listByIds(ids);
-        else
-           return entities;
+        if(ids.size()>0) {
+            return this.listByIds(ids);
+        }
+        else {
+            return entities;
+        }
     }
 
 

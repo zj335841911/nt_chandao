@@ -53,7 +53,7 @@ public class RepoBranch extends EntityMP implements Serializable {
     /**
      * 虚拟主键
      */
-    @DEField(isKeyField=true)
+    @DEField(isKeyField = true)
     @TableField(exist = false)
     @JSONField(name = "id")
     @JsonProperty("id")
@@ -78,7 +78,7 @@ public class RepoBranch extends EntityMP implements Serializable {
     /**
      * 设置 [revision]
      */
-    public void setRevision(Integer revision){
+    public void setRevision(Integer revision) {
         this.revision = revision ;
         this.modify("revision",revision);
     }
@@ -86,7 +86,7 @@ public class RepoBranch extends EntityMP implements Serializable {
     /**
      * 设置 [repo]
      */
-    public void setRepo(Integer repo){
+    public void setRepo(Integer repo) {
         this.repo = repo ;
         this.modify("repo",repo);
     }
@@ -94,7 +94,7 @@ public class RepoBranch extends EntityMP implements Serializable {
     /**
      * 设置 [branch]
      */
-    public void setBranch(String branch){
+    public void setBranch(String branch) {
         this.branch = branch ;
         this.modify("branch",branch);
     }

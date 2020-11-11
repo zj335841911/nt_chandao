@@ -57,8 +57,9 @@ public class DocContentServiceImpl extends ServiceImpl<DocContentMapper, DocCont
     @Override
     @Transactional
     public boolean create(DocContent et) {
-        if(!this.retBool(this.baseMapper.insert(et)))
+        if(!this.retBool(this.baseMapper.insert(et))) {
             return false;
+        }
         CachedBeanCopier.copy(get(et.getId()),et);
         return true;
     }
@@ -72,8 +73,9 @@ public class DocContentServiceImpl extends ServiceImpl<DocContentMapper, DocCont
     @Override
     @Transactional
     public boolean update(DocContent et) {
-         if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
+        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId()))) {
             return false;
+        }
         CachedBeanCopier.copy(get(et.getId()),et);
         return true;
     }
@@ -122,8 +124,9 @@ public class DocContentServiceImpl extends ServiceImpl<DocContentMapper, DocCont
     @Override
     @Transactional
     public boolean save(DocContent et) {
-        if(!saveOrUpdate(et))
+        if(!saveOrUpdate(et)) {
             return false;
+        }
         return true;
     }
 

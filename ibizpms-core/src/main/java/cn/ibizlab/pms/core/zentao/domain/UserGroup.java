@@ -61,7 +61,7 @@ public class UserGroup extends EntityMP implements Serializable {
     /**
      * 虚拟主键
      */
-    @DEField(isKeyField=true)
+    @DEField(isKeyField = true)
     @TableField(exist = false)
     @JSONField(name = "id")
     @JsonProperty("id")
@@ -72,7 +72,7 @@ public class UserGroup extends EntityMP implements Serializable {
     /**
      * 设置 [account]
      */
-    public void setAccount(String account){
+    public void setAccount(String account) {
         this.account = account ;
         this.modify("account",account);
     }
@@ -80,7 +80,7 @@ public class UserGroup extends EntityMP implements Serializable {
     /**
      * 设置 [group]
      */
-    public void setGroup(Integer group){
+    public void setGroup(Integer group) {
         this.group = group ;
         this.modify("group",group);
     }

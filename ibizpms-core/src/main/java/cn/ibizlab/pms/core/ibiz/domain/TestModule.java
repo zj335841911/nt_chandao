@@ -54,8 +54,8 @@ public class TestModule extends EntityMP implements Serializable {
     /**
      * 逻辑删除标志
      */
-    @DEField(defaultValue = "0" , preType = DEPredefinedFieldType.LOGICVALID, logicval = "0" , logicdelval="1")
-    @TableLogic(value= "0",delval="1")
+    @DEField(defaultValue = "0", preType = DEPredefinedFieldType.LOGICVALID, logicval = "0", logicdelval = "1")
+    @TableLogic(value= "0", delval = "1")
     @TableField(value = "`deleted`")
     @JSONField(name = "deleted")
     @JsonProperty("deleted")
@@ -118,7 +118,7 @@ public class TestModule extends EntityMP implements Serializable {
     /**
      * id
      */
-    @DEField(isKeyField=true)
+    @DEField(isKeyField = true)
     @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
@@ -190,7 +190,7 @@ public class TestModule extends EntityMP implements Serializable {
     /**
      * 设置 [path]
      */
-    public void setPath(String path){
+    public void setPath(String path) {
         this.path = path ;
         this.modify("path",path);
     }
@@ -198,7 +198,7 @@ public class TestModule extends EntityMP implements Serializable {
     /**
      * 设置 [名称]
      */
-    public void setName(String name){
+    public void setName(String name) {
         this.name = name ;
         this.modify("name",name);
     }
@@ -206,7 +206,7 @@ public class TestModule extends EntityMP implements Serializable {
     /**
      * 设置 [排序值]
      */
-    public void setOrder(Integer order){
+    public void setOrder(Integer order) {
         this.order = order ;
         this.modify("order",order);
     }
@@ -214,7 +214,7 @@ public class TestModule extends EntityMP implements Serializable {
     /**
      * 设置 [branch]
      */
-    public void setBranch(Integer branch){
+    public void setBranch(Integer branch) {
         this.branch = branch ;
         this.modify("branch",branch);
     }
@@ -222,7 +222,7 @@ public class TestModule extends EntityMP implements Serializable {
     /**
      * 设置 [简称]
      */
-    public void setIbizshort(String ibizshort){
+    public void setIbizshort(String ibizshort) {
         this.ibizshort = ibizshort ;
         this.modify("short",ibizshort);
     }
@@ -230,7 +230,7 @@ public class TestModule extends EntityMP implements Serializable {
     /**
      * 设置 [grade]
      */
-    public void setGrade(Integer grade){
+    public void setGrade(Integer grade) {
         this.grade = grade ;
         this.modify("grade",grade);
     }
@@ -238,7 +238,7 @@ public class TestModule extends EntityMP implements Serializable {
     /**
      * 设置 [类型（story）]
      */
-    public void setType(String type){
+    public void setType(String type) {
         this.type = type ;
         this.modify("type",type);
     }
@@ -246,7 +246,7 @@ public class TestModule extends EntityMP implements Serializable {
     /**
      * 设置 [owner]
      */
-    public void setOwner(String owner){
+    public void setOwner(String owner) {
         this.owner = owner ;
         this.modify("owner",owner);
     }
@@ -254,7 +254,7 @@ public class TestModule extends EntityMP implements Serializable {
     /**
      * 设置 [collector]
      */
-    public void setCollector(String collector){
+    public void setCollector(String collector) {
         this.collector = collector ;
         this.modify("collector",collector);
     }
@@ -262,7 +262,7 @@ public class TestModule extends EntityMP implements Serializable {
     /**
      * 设置 [id]
      */
-    public void setParent(Long parent){
+    public void setParent(Long parent) {
         this.parent = parent ;
         this.modify("parent",parent);
     }
@@ -270,7 +270,7 @@ public class TestModule extends EntityMP implements Serializable {
     /**
      * 设置 [编号]
      */
-    public void setRoot(Long root){
+    public void setRoot(Long root) {
         this.root = root ;
         this.modify("root",root);
     }

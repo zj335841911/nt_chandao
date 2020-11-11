@@ -48,16 +48,16 @@ public class Case extends EntityMP implements Serializable {
      */
     @DEField(preType = DEPredefinedFieldType.UPDATEDATE)
     @TableField(value = "`lastediteddate`")
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "lastediteddate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "lastediteddate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("lastediteddate")
     private Timestamp lastediteddate;
     /**
      * scriptedDate
      */
     @TableField(value = "`scripteddate`")
-    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "scripteddate" , format="yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "scripteddate", format = "yyyy-MM-dd")
     @JsonProperty("scripteddate")
     private Timestamp scripteddate;
     /**
@@ -80,9 +80,9 @@ public class Case extends EntityMP implements Serializable {
      * 创建日期
      */
     @DEField(preType = DEPredefinedFieldType.CREATEDATE)
-    @TableField(value = "`openeddate`" , fill = FieldFill.INSERT)
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "openeddate" , format="yyyy-MM-dd HH:mm:ss")
+    @TableField(value = "`openeddate`", fill = FieldFill.INSERT)
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "openeddate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("openeddate")
     private Timestamp openeddate;
     /**
@@ -199,8 +199,8 @@ public class Case extends EntityMP implements Serializable {
     /**
      * 已删除
      */
-    @DEField(defaultValue = "0" , preType = DEPredefinedFieldType.LOGICVALID, logicval = "0" , logicdelval="1")
-    @TableLogic(value= "0",delval="1")
+    @DEField(defaultValue = "0", preType = DEPredefinedFieldType.LOGICVALID, logicval = "0", logicdelval = "1")
+    @TableLogic(value= "0", delval = "1")
     @TableField(value = "`deleted`")
     @JSONField(name = "deleted")
     @JsonProperty("deleted")
@@ -209,8 +209,8 @@ public class Case extends EntityMP implements Serializable {
      * 评审时间
      */
     @TableField(value = "`revieweddate`")
-    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "revieweddate" , format="yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "revieweddate", format = "yyyy-MM-dd")
     @JsonProperty("revieweddate")
     private Timestamp revieweddate;
     /**
@@ -241,8 +241,8 @@ public class Case extends EntityMP implements Serializable {
      * 执行时间
      */
     @TableField(value = "`lastrundate`")
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "lastrundate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "lastrundate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("lastrundate")
     private Timestamp lastrundate;
     /**
@@ -280,7 +280,7 @@ public class Case extends EntityMP implements Serializable {
     /**
      * 用例编号
      */
-    @DEField(isKeyField=true)
+    @DEField(isKeyField = true)
     @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
@@ -562,7 +562,7 @@ public class Case extends EntityMP implements Serializable {
     /**
      * 设置 [scriptedDate]
      */
-    public void setScripteddate(Timestamp scripteddate){
+    public void setScripteddate(Timestamp scripteddate) {
         this.scripteddate = scripteddate ;
         this.modify("scripteddate",scripteddate);
     }
@@ -570,7 +570,7 @@ public class Case extends EntityMP implements Serializable {
     /**
      * 格式化日期 [scriptedDate]
      */
-    public String formatScripteddate(){
+    public String formatScripteddate() {
         if (this.scripteddate == null) {
             return null;
         }
@@ -580,7 +580,7 @@ public class Case extends EntityMP implements Serializable {
     /**
      * 设置 [标题颜色]
      */
-    public void setColor(String color){
+    public void setColor(String color) {
         this.color = color ;
         this.modify("color",color);
     }
@@ -588,7 +588,7 @@ public class Case extends EntityMP implements Serializable {
     /**
      * 设置 [path]
      */
-    public void setPath(Integer path){
+    public void setPath(Integer path) {
         this.path = path ;
         this.modify("path",path);
     }
@@ -596,7 +596,7 @@ public class Case extends EntityMP implements Serializable {
     /**
      * 设置 [结果]
      */
-    public void setLastrunresult(String lastrunresult){
+    public void setLastrunresult(String lastrunresult) {
         this.lastrunresult = lastrunresult ;
         this.modify("lastrunresult",lastrunresult);
     }
@@ -604,7 +604,7 @@ public class Case extends EntityMP implements Serializable {
     /**
      * 设置 [相关用例]
      */
-    public void setLinkcase(String linkcase){
+    public void setLinkcase(String linkcase) {
         this.linkcase = linkcase ;
         this.modify("linkcase",linkcase);
     }
@@ -612,7 +612,7 @@ public class Case extends EntityMP implements Serializable {
     /**
      * 设置 [排序]
      */
-    public void setOrder(Integer order){
+    public void setOrder(Integer order) {
         this.order = order ;
         this.modify("order",order);
     }
@@ -620,7 +620,7 @@ public class Case extends EntityMP implements Serializable {
     /**
      * 设置 [howRun]
      */
-    public void setHowrun(String howrun){
+    public void setHowrun(String howrun) {
         this.howrun = howrun ;
         this.modify("howrun",howrun);
     }
@@ -628,7 +628,7 @@ public class Case extends EntityMP implements Serializable {
     /**
      * 设置 [用例版本]
      */
-    public void setVersion(Integer version){
+    public void setVersion(Integer version) {
         this.version = version ;
         this.modify("version",version);
     }
@@ -636,7 +636,7 @@ public class Case extends EntityMP implements Serializable {
     /**
      * 设置 [scriptedBy]
      */
-    public void setScriptedby(String scriptedby){
+    public void setScriptedby(String scriptedby) {
         this.scriptedby = scriptedby ;
         this.modify("scriptedby",scriptedby);
     }
@@ -644,7 +644,7 @@ public class Case extends EntityMP implements Serializable {
     /**
      * 设置 [用例类型]
      */
-    public void setType(String type){
+    public void setType(String type) {
         this.type = type ;
         this.modify("type",type);
     }
@@ -652,7 +652,7 @@ public class Case extends EntityMP implements Serializable {
     /**
      * 设置 [用例状态]
      */
-    public void setStatus(String status){
+    public void setStatus(String status) {
         this.status = status ;
         this.modify("status",status);
     }
@@ -660,7 +660,7 @@ public class Case extends EntityMP implements Serializable {
     /**
      * 设置 [auto]
      */
-    public void setAuto(String auto){
+    public void setAuto(String auto) {
         this.auto = auto ;
         this.modify("auto",auto);
     }
@@ -668,7 +668,7 @@ public class Case extends EntityMP implements Serializable {
     /**
      * 设置 [frequency]
      */
-    public void setFrequency(String frequency){
+    public void setFrequency(String frequency) {
         this.frequency = frequency ;
         this.modify("frequency",frequency);
     }
@@ -676,7 +676,7 @@ public class Case extends EntityMP implements Serializable {
     /**
      * 设置 [用例标题]
      */
-    public void setTitle(String title){
+    public void setTitle(String title) {
         this.title = title ;
         this.modify("title",title);
     }
@@ -684,7 +684,7 @@ public class Case extends EntityMP implements Serializable {
     /**
      * 设置 [由谁评审]
      */
-    public void setReviewedby(String reviewedby){
+    public void setReviewedby(String reviewedby) {
         this.reviewedby = reviewedby ;
         this.modify("reviewedby",reviewedby);
     }
@@ -692,7 +692,7 @@ public class Case extends EntityMP implements Serializable {
     /**
      * 设置 [评审时间]
      */
-    public void setRevieweddate(Timestamp revieweddate){
+    public void setRevieweddate(Timestamp revieweddate) {
         this.revieweddate = revieweddate ;
         this.modify("revieweddate",revieweddate);
     }
@@ -700,7 +700,7 @@ public class Case extends EntityMP implements Serializable {
     /**
      * 格式化日期 [评审时间]
      */
-    public String formatRevieweddate(){
+    public String formatRevieweddate() {
         if (this.revieweddate == null) {
             return null;
         }
@@ -710,7 +710,7 @@ public class Case extends EntityMP implements Serializable {
     /**
      * 设置 [优先级]
      */
-    public void setPri(Integer pri){
+    public void setPri(Integer pri) {
         this.pri = pri ;
         this.modify("pri",pri);
     }
@@ -718,7 +718,7 @@ public class Case extends EntityMP implements Serializable {
     /**
      * 设置 [适用阶段]
      */
-    public void setStage(String stage){
+    public void setStage(String stage) {
         this.stage = stage ;
         this.modify("stage",stage);
     }
@@ -726,7 +726,7 @@ public class Case extends EntityMP implements Serializable {
     /**
      * 设置 [scriptLocation]
      */
-    public void setScriptlocation(String scriptlocation){
+    public void setScriptlocation(String scriptlocation) {
         this.scriptlocation = scriptlocation ;
         this.modify("scriptlocation",scriptlocation);
     }
@@ -734,7 +734,7 @@ public class Case extends EntityMP implements Serializable {
     /**
      * 设置 [执行时间]
      */
-    public void setLastrundate(Timestamp lastrundate){
+    public void setLastrundate(Timestamp lastrundate) {
         this.lastrundate = lastrundate ;
         this.modify("lastrundate",lastrundate);
     }
@@ -742,7 +742,7 @@ public class Case extends EntityMP implements Serializable {
     /**
      * 格式化日期 [执行时间]
      */
-    public String formatLastrundate(){
+    public String formatLastrundate() {
         if (this.lastrundate == null) {
             return null;
         }
@@ -752,7 +752,7 @@ public class Case extends EntityMP implements Serializable {
     /**
      * 设置 [关键词]
      */
-    public void setKeywords(String keywords){
+    public void setKeywords(String keywords) {
         this.keywords = keywords ;
         this.modify("keywords",keywords);
     }
@@ -760,7 +760,7 @@ public class Case extends EntityMP implements Serializable {
     /**
      * 设置 [scriptStatus]
      */
-    public void setScriptstatus(String scriptstatus){
+    public void setScriptstatus(String scriptstatus) {
         this.scriptstatus = scriptstatus ;
         this.modify("scriptstatus",scriptstatus);
     }
@@ -768,7 +768,7 @@ public class Case extends EntityMP implements Serializable {
     /**
      * 设置 [工具/框架]
      */
-    public void setFrame(String frame){
+    public void setFrame(String frame) {
         this.frame = frame ;
         this.modify("frame",frame);
     }
@@ -776,7 +776,7 @@ public class Case extends EntityMP implements Serializable {
     /**
      * 设置 [子状态]
      */
-    public void setSubstatus(String substatus){
+    public void setSubstatus(String substatus) {
         this.substatus = substatus ;
         this.modify("substatus",substatus);
     }
@@ -784,7 +784,7 @@ public class Case extends EntityMP implements Serializable {
     /**
      * 设置 [前置条件]
      */
-    public void setPrecondition(String precondition){
+    public void setPrecondition(String precondition) {
         this.precondition = precondition ;
         this.modify("precondition",precondition);
     }
@@ -792,7 +792,7 @@ public class Case extends EntityMP implements Serializable {
     /**
      * 设置 [执行人]
      */
-    public void setLastrunner(String lastrunner){
+    public void setLastrunner(String lastrunner) {
         this.lastrunner = lastrunner ;
         this.modify("lastrunner",lastrunner);
     }
@@ -800,7 +800,7 @@ public class Case extends EntityMP implements Serializable {
     /**
      * 设置 [来源用例版本]
      */
-    public void setFromcaseversion(Integer fromcaseversion){
+    public void setFromcaseversion(Integer fromcaseversion) {
         this.fromcaseversion = fromcaseversion ;
         this.modify("fromcaseversion",fromcaseversion);
     }
@@ -808,7 +808,7 @@ public class Case extends EntityMP implements Serializable {
     /**
      * 设置 [需求版本]
      */
-    public void setStoryversion(Integer storyversion){
+    public void setStoryversion(Integer storyversion) {
         this.storyversion = storyversion ;
         this.modify("storyversion",storyversion);
     }
@@ -816,7 +816,7 @@ public class Case extends EntityMP implements Serializable {
     /**
      * 设置 [来源用例]
      */
-    public void setFromcaseid(Long fromcaseid){
+    public void setFromcaseid(Long fromcaseid) {
         this.fromcaseid = fromcaseid ;
         this.modify("fromcaseid",fromcaseid);
     }
@@ -824,7 +824,7 @@ public class Case extends EntityMP implements Serializable {
     /**
      * 设置 [平台/分支]
      */
-    public void setBranch(Long branch){
+    public void setBranch(Long branch) {
         this.branch = branch ;
         this.modify("branch",branch);
     }
@@ -832,7 +832,7 @@ public class Case extends EntityMP implements Serializable {
     /**
      * 设置 [来源Bug]
      */
-    public void setFrombug(Long frombug){
+    public void setFrombug(Long frombug) {
         this.frombug = frombug ;
         this.modify("frombug",frombug);
     }
@@ -840,7 +840,7 @@ public class Case extends EntityMP implements Serializable {
     /**
      * 设置 [相关需求]
      */
-    public void setStory(Long story){
+    public void setStory(Long story) {
         this.story = story ;
         this.modify("story",story);
     }
@@ -848,7 +848,7 @@ public class Case extends EntityMP implements Serializable {
     /**
      * 设置 [所属产品]
      */
-    public void setProduct(Long product){
+    public void setProduct(Long product) {
         this.product = product ;
         this.modify("product",product);
     }
@@ -856,7 +856,7 @@ public class Case extends EntityMP implements Serializable {
     /**
      * 设置 [所属库]
      */
-    public void setLib(Long lib){
+    public void setLib(Long lib) {
         this.lib = lib ;
         this.modify("lib",lib);
     }
@@ -864,7 +864,7 @@ public class Case extends EntityMP implements Serializable {
     /**
      * 设置 [所属模块]
      */
-    public void setModule(Long module){
+    public void setModule(Long module) {
         this.module = module ;
         this.modify("module",module);
     }

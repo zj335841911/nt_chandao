@@ -46,7 +46,7 @@ public class IBZProSysTpl extends EntityMP implements Serializable {
     /**
      * 系统模板标识
      */
-    @DEField(name = "ibzpro_systplid" , isKeyField=true)
+    @DEField(name = "ibzpro_systplid" , isKeyField = true)
     @TableId(value= "ibzpro_systplid",type=IdType.ASSIGN_UUID)
     @JSONField(name = "ibzprosystplid")
     @JsonProperty("ibzprosystplid")
@@ -55,7 +55,7 @@ public class IBZProSysTpl extends EntityMP implements Serializable {
      * 建立人
      */
     @DEField(preType = DEPredefinedFieldType.CREATEMAN)
-    @TableField(value = "`createman`" , fill = FieldFill.INSERT)
+    @TableField(value = "`createman`", fill = FieldFill.INSERT)
     @JSONField(name = "createman")
     @JsonProperty("createman")
     private String createman;
@@ -63,9 +63,9 @@ public class IBZProSysTpl extends EntityMP implements Serializable {
      * 建立时间
      */
     @DEField(preType = DEPredefinedFieldType.CREATEDATE)
-    @TableField(value = "`createdate`" , fill = FieldFill.INSERT)
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "createdate" , format="yyyy-MM-dd HH:mm:ss")
+    @TableField(value = "`createdate`", fill = FieldFill.INSERT)
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "createdate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("createdate")
     private Timestamp createdate;
     /**
@@ -89,8 +89,8 @@ public class IBZProSysTpl extends EntityMP implements Serializable {
      */
     @DEField(preType = DEPredefinedFieldType.UPDATEDATE)
     @TableField(value = "`updatedate`")
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "updatedate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "updatedate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("updatedate")
     private Timestamp updatedate;
     /**
@@ -145,7 +145,7 @@ public class IBZProSysTpl extends EntityMP implements Serializable {
     /**
      * 设置 [系统模板名称]
      */
-    public void setIbzprosystplname(String ibzprosystplname){
+    public void setIbzprosystplname(String ibzprosystplname) {
         this.ibzprosystplname = ibzprosystplname ;
         this.modify("ibzpro_systplname",ibzprosystplname);
     }
@@ -153,7 +153,7 @@ public class IBZProSysTpl extends EntityMP implements Serializable {
     /**
      * 设置 [是否公开]
      */
-    public void setIbizpublic(String ibizpublic){
+    public void setIbizpublic(String ibizpublic) {
         this.ibizpublic = ibizpublic ;
         this.modify("public",ibizpublic);
     }
@@ -161,7 +161,7 @@ public class IBZProSysTpl extends EntityMP implements Serializable {
     /**
      * 设置 [来源对象]
      */
-    public void setIbizSourceobject(String ibizSourceobject){
+    public void setIbizSourceobject(String ibizSourceobject) {
         this.ibizSourceobject = ibizSourceobject ;
         this.modify("ibiz_sourceobject",ibizSourceobject);
     }
@@ -169,7 +169,7 @@ public class IBZProSysTpl extends EntityMP implements Serializable {
     /**
      * 设置 [模板内容]
      */
-    public void setContent(String content){
+    public void setContent(String content) {
         this.content = content ;
         this.modify("content",content);
     }
@@ -177,7 +177,7 @@ public class IBZProSysTpl extends EntityMP implements Serializable {
     /**
      * 设置 [IBIZ模板类型]
      */
-    public void setTpltype(String tpltype){
+    public void setTpltype(String tpltype) {
         this.tpltype = tpltype ;
         this.modify("tpltype",tpltype);
     }
@@ -185,7 +185,7 @@ public class IBZProSysTpl extends EntityMP implements Serializable {
     /**
      * 设置 [id]
      */
-    public void setFile(Long file){
+    public void setFile(Long file) {
         this.file = file ;
         this.modify("file",file);
     }

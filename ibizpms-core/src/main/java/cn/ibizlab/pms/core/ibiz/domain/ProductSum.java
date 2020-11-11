@@ -46,7 +46,7 @@ public class ProductSum extends EntityMP implements Serializable {
     /**
      * 主键标识
      */
-    @DEField(isKeyField=true)
+    @DEField(isKeyField = true)
     @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
@@ -134,7 +134,7 @@ public class ProductSum extends EntityMP implements Serializable {
     /**
      * 设置 [产品名称]
      */
-    public void setName(String name){
+    public void setName(String name) {
         this.name = name ;
         this.modify("name",name);
     }
@@ -142,7 +142,7 @@ public class ProductSum extends EntityMP implements Serializable {
     /**
      * 设置 [产品负责人]
      */
-    public void setPo(String po){
+    public void setPo(String po) {
         this.po = po ;
         this.modify("po",po);
     }

@@ -46,7 +46,7 @@ public class DynaDashboard extends EntityMP implements Serializable {
     /**
      * 动态数据看板标识
      */
-    @DEField(isKeyField=true)
+    @DEField(isKeyField = true)
     @TableId(value= "dynadashboardid",type=IdType.ASSIGN_UUID)
     @JSONField(name = "dynadashboardid")
     @JsonProperty("dynadashboardid")
@@ -62,7 +62,7 @@ public class DynaDashboard extends EntityMP implements Serializable {
      * 建立人
      */
     @DEField(preType = DEPredefinedFieldType.CREATEMAN)
-    @TableField(value = "`createman`" , fill = FieldFill.INSERT)
+    @TableField(value = "`createman`", fill = FieldFill.INSERT)
     @JSONField(name = "createman")
     @JsonProperty("createman")
     private String createman;
@@ -79,17 +79,17 @@ public class DynaDashboard extends EntityMP implements Serializable {
      */
     @DEField(preType = DEPredefinedFieldType.UPDATEDATE)
     @TableField(value = "`updatedate`")
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "updatedate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "updatedate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("updatedate")
     private Timestamp updatedate;
     /**
      * 建立时间
      */
     @DEField(preType = DEPredefinedFieldType.CREATEDATE)
-    @TableField(value = "`createdate`" , fill = FieldFill.INSERT)
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "createdate" , format="yyyy-MM-dd HH:mm:ss")
+    @TableField(value = "`createdate`", fill = FieldFill.INSERT)
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "createdate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("createdate")
     private Timestamp createdate;
     /**
@@ -126,7 +126,7 @@ public class DynaDashboard extends EntityMP implements Serializable {
     /**
      * 设置 [动态数据看板名称]
      */
-    public void setDynadashboardname(String dynadashboardname){
+    public void setDynadashboardname(String dynadashboardname) {
         this.dynadashboardname = dynadashboardname ;
         this.modify("dynadashboardname",dynadashboardname);
     }
@@ -134,7 +134,7 @@ public class DynaDashboard extends EntityMP implements Serializable {
     /**
      * 设置 [用户标识]
      */
-    public void setUserid(String userid){
+    public void setUserid(String userid) {
         this.userid = userid ;
         this.modify("userid",userid);
     }
@@ -142,7 +142,7 @@ public class DynaDashboard extends EntityMP implements Serializable {
     /**
      * 设置 [应用标识]
      */
-    public void setAppid(String appid){
+    public void setAppid(String appid) {
         this.appid = appid ;
         this.modify("appid",appid);
     }
@@ -150,7 +150,7 @@ public class DynaDashboard extends EntityMP implements Serializable {
     /**
      * 设置 [模型]
      */
-    public void setModel(String model){
+    public void setModel(String model) {
         this.model = model ;
         this.modify("model",model);
     }
@@ -158,7 +158,7 @@ public class DynaDashboard extends EntityMP implements Serializable {
     /**
      * 设置 [模型标识]
      */
-    public void setModelid(String modelid){
+    public void setModelid(String modelid) {
         this.modelid = modelid ;
         this.modify("modelid",modelid);
     }

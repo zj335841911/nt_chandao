@@ -34,14 +34,14 @@ import cn.ibizlab.pms.util.domain.EntityClient;
 public class PSSysApp extends EntityClient implements Serializable {
     @Override
     public void modify(String field, Object val) {
-        getExtensionparams().put("dirtyflagenable",true);
+        getExtensionparams().put("dirtyflagenable", true);
         super.modify(field, val);
     }
 
     /**
      * 系统应用标识
      */
-    @DEField(isKeyField=true)
+    @DEField(isKeyField = true)
     @JSONField(name = "pssysappid")
     @JsonProperty("pssysappid")
     private String pssysappid;
@@ -50,8 +50,8 @@ public class PSSysApp extends EntityClient implements Serializable {
      * 建立时间
      */
     @DEField(preType = DEPredefinedFieldType.CREATEDATE)
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "createdate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "createdate" , format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("createdate")
     private Timestamp createdate;
 
@@ -82,8 +82,8 @@ public class PSSysApp extends EntityClient implements Serializable {
      * 更新时间
      */
     @DEField(preType = DEPredefinedFieldType.UPDATEDATE)
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "updatedate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "updatedate" , format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("updatedate")
     private Timestamp updatedate;
 
@@ -487,7 +487,7 @@ public class PSSysApp extends EntityClient implements Serializable {
     /**
      * 设置 [系统应用名称]
      */
-    public void setPssysappname(String pssysappname){
+    public void setPssysappname(String pssysappname) {
         this.pssysappname = pssysappname ;
         this.modify("pssysappname",pssysappname);
     }
@@ -495,7 +495,7 @@ public class PSSysApp extends EntityClient implements Serializable {
     /**
      * 设置 [应用目录]
      */
-    public void setAppfolder(String appfolder){
+    public void setAppfolder(String appfolder) {
         this.appfolder = appfolder ;
         this.modify("appfolder",appfolder);
     }
@@ -503,7 +503,7 @@ public class PSSysApp extends EntityClient implements Serializable {
     /**
      * 设置 [代码名称]
      */
-    public void setApppkgname(String apppkgname){
+    public void setApppkgname(String apppkgname) {
         this.apppkgname = apppkgname ;
         this.modify("apppkgname",apppkgname);
     }
@@ -511,7 +511,7 @@ public class PSSysApp extends EntityClient implements Serializable {
     /**
      * 设置 [应用模式]
      */
-    public void setAppmode(String appmode){
+    public void setAppmode(String appmode) {
         this.appmode = appmode ;
         this.modify("appmode",appmode);
     }
@@ -519,7 +519,7 @@ public class PSSysApp extends EntityClient implements Serializable {
     /**
      * 设置 [应用标记]
      */
-    public void setApptag(String apptag){
+    public void setApptag(String apptag) {
         this.apptag = apptag ;
         this.modify("apptag",apptag);
     }
@@ -527,7 +527,7 @@ public class PSSysApp extends EntityClient implements Serializable {
     /**
      * 设置 [应用编号]
      */
-    public void setAppsn(String appsn){
+    public void setAppsn(String appsn) {
         this.appsn = appsn ;
         this.modify("appsn",appsn);
     }
@@ -535,7 +535,7 @@ public class PSSysApp extends EntityClient implements Serializable {
     /**
      * 设置 [应用标记2]
      */
-    public void setApptag2(String apptag2){
+    public void setApptag2(String apptag2) {
         this.apptag2 = apptag2 ;
         this.modify("apptag2",apptag2);
     }
@@ -543,7 +543,7 @@ public class PSSysApp extends EntityClient implements Serializable {
     /**
      * 设置 [应用标记4]
      */
-    public void setApptag4(String apptag4){
+    public void setApptag4(String apptag4) {
         this.apptag4 = apptag4 ;
         this.modify("apptag4",apptag4);
     }
@@ -551,7 +551,7 @@ public class PSSysApp extends EntityClient implements Serializable {
     /**
      * 设置 [应用标记3]
      */
-    public void setApptag3(String apptag3){
+    public void setApptag3(String apptag3) {
         this.apptag3 = apptag3 ;
         this.modify("apptag3",apptag3);
     }
@@ -559,7 +559,7 @@ public class PSSysApp extends EntityClient implements Serializable {
     /**
      * 设置 [自动添加应用视图]
      */
-    public void setAutoaddappview(Integer autoaddappview){
+    public void setAutoaddappview(Integer autoaddappview) {
         this.autoaddappview = autoaddappview ;
         this.modify("autoaddappview",autoaddappview);
     }
@@ -567,7 +567,7 @@ public class PSSysApp extends EntityClient implements Serializable {
     /**
      * 设置 [按钮无权限显示模式]
      */
-    public void setBtnnoprivdm(Integer btnnoprivdm){
+    public void setBtnnoprivdm(Integer btnnoprivdm) {
         this.btnnoprivdm = btnnoprivdm ;
         this.modify("btnnoprivdm",btnnoprivdm);
     }
@@ -575,7 +575,7 @@ public class PSSysApp extends EntityClient implements Serializable {
     /**
      * 设置 [代码目录]
      */
-    public void setCodefolder(String codefolder){
+    public void setCodefolder(String codefolder) {
         this.codefolder = codefolder ;
         this.modify("codefolder",codefolder);
     }
@@ -583,7 +583,7 @@ public class PSSysApp extends EntityClient implements Serializable {
     /**
      * 设置 [默认应用]
      */
-    public void setDefaultpub(Integer defaultpub){
+    public void setDefaultpub(Integer defaultpub) {
         this.defaultpub = defaultpub ;
         this.modify("defaultpub",defaultpub);
     }
@@ -591,7 +591,7 @@ public class PSSysApp extends EntityClient implements Serializable {
     /**
      * 设置 [支持动态系统]
      */
-    public void setEnabledynasys(Integer enabledynasys){
+    public void setEnabledynasys(Integer enabledynasys) {
         this.enabledynasys = enabledynasys ;
         this.modify("enabledynasys",enabledynasys);
     }
@@ -599,7 +599,7 @@ public class PSSysApp extends EntityClient implements Serializable {
     /**
      * 设置 [转换12列至24列布局]
      */
-    public void setEnablec12toc24(Integer enablec12toc24){
+    public void setEnablec12toc24(Integer enablec12toc24) {
         this.enablec12toc24 = enablec12toc24 ;
         this.modify("enablec12toc24",enablec12toc24);
     }
@@ -607,7 +607,7 @@ public class PSSysApp extends EntityClient implements Serializable {
     /**
      * 设置 [启用本地服务]
      */
-    public void setEnalocalservice(Integer enalocalservice){
+    public void setEnalocalservice(Integer enalocalservice) {
         this.enalocalservice = enalocalservice ;
         this.modify("enalocalservice",enalocalservice);
     }
@@ -615,7 +615,7 @@ public class PSSysApp extends EntityClient implements Serializable {
     /**
      * 设置 [表单项无权限显示模式]
      */
-    public void setFinoprivdm(Integer finoprivdm){
+    public void setFinoprivdm(Integer finoprivdm) {
         this.finoprivdm = finoprivdm ;
         this.modify("finoprivdm",finoprivdm);
     }
@@ -623,7 +623,7 @@ public class PSSysApp extends EntityClient implements Serializable {
     /**
      * 设置 [启用故事板]
      */
-    public void setEnablestoryboard(Integer enablestoryboard){
+    public void setEnablestoryboard(Integer enablestoryboard) {
         this.enablestoryboard = enablestoryboard ;
         this.modify("enablestoryboard",enablestoryboard);
     }
@@ -631,7 +631,7 @@ public class PSSysApp extends EntityClient implements Serializable {
     /**
      * 设置 [表格列无权限显示模式]
      */
-    public void setGcnoprivdm(Integer gcnoprivdm){
+    public void setGcnoprivdm(Integer gcnoprivdm) {
         this.gcnoprivdm = gcnoprivdm ;
         this.modify("gcnoprivdm",gcnoprivdm);
     }
@@ -639,7 +639,7 @@ public class PSSysApp extends EntityClient implements Serializable {
     /**
      * 设置 [输出表单项更新权限标记]
      */
-    public void setFiupdateprivtag(Integer fiupdateprivtag){
+    public void setFiupdateprivtag(Integer fiupdateprivtag) {
         this.fiupdateprivtag = fiupdateprivtag ;
         this.modify("fiupdateprivtag",fiupdateprivtag);
     }
@@ -647,7 +647,7 @@ public class PSSysApp extends EntityClient implements Serializable {
     /**
      * 设置 [表格适应屏宽]
      */
-    public void setGridforcefit(Integer gridforcefit){
+    public void setGridforcefit(Integer gridforcefit) {
         this.gridforcefit = gridforcefit ;
         this.modify("gridforcefit",gridforcefit);
     }
@@ -655,7 +655,7 @@ public class PSSysApp extends EntityClient implements Serializable {
     /**
      * 设置 [表格列启用链接]
      */
-    public void setGridcolenablelink(Integer gridcolenablelink){
+    public void setGridcolenablelink(Integer gridcolenablelink) {
         this.gridcolenablelink = gridcolenablelink ;
         this.modify("gridcolenablelink",gridcolenablelink);
     }
@@ -663,7 +663,7 @@ public class PSSysApp extends EntityClient implements Serializable {
     /**
      * 设置 [图标文件]
      */
-    public void setIconfile(String iconfile){
+    public void setIconfile(String iconfile) {
         this.iconfile = iconfile ;
         this.modify("iconfile",iconfile);
     }
@@ -671,7 +671,7 @@ public class PSSysApp extends EntityClient implements Serializable {
     /**
      * 设置 [表格行激活模式]
      */
-    public void setGridrowactivemode(Integer gridrowactivemode){
+    public void setGridrowactivemode(Integer gridrowactivemode) {
         this.gridrowactivemode = gridrowactivemode ;
         this.modify("gridrowactivemode",gridrowactivemode);
     }
@@ -679,7 +679,7 @@ public class PSSysApp extends EntityClient implements Serializable {
     /**
      * 设置 [视图主菜单方向]
      */
-    public void setMainmenuside(String mainmenuside){
+    public void setMainmenuside(String mainmenuside) {
         this.mainmenuside = mainmenuside ;
         this.modify("mainmenuside",mainmenuside);
     }
@@ -687,7 +687,7 @@ public class PSSysApp extends EntityClient implements Serializable {
     /**
      * 设置 [中文名称]
      */
-    public void setLogicname(String logicname){
+    public void setLogicname(String logicname) {
         this.logicname = logicname ;
         this.modify("logicname",logicname);
     }
@@ -695,7 +695,7 @@ public class PSSysApp extends EntityClient implements Serializable {
     /**
      * 设置 [移动端方向设置]
      */
-    public void setOrientationmode(String orientationmode){
+    public void setOrientationmode(String orientationmode) {
         this.orientationmode = orientationmode ;
         this.modify("orientationmode",orientationmode);
     }
@@ -703,7 +703,7 @@ public class PSSysApp extends EntityClient implements Serializable {
     /**
      * 设置 [备注]
      */
-    public void setMemo(String memo){
+    public void setMemo(String memo) {
         this.memo = memo ;
         this.modify("memo",memo);
     }
@@ -711,7 +711,7 @@ public class PSSysApp extends EntityClient implements Serializable {
     /**
      * 设置 [应用样式参数]
      */
-    public void setPfstyleparam(String pfstyleparam){
+    public void setPfstyleparam(String pfstyleparam) {
         this.pfstyleparam = pfstyleparam ;
         this.modify("pfstyleparam",pfstyleparam);
     }
@@ -719,7 +719,7 @@ public class PSSysApp extends EntityClient implements Serializable {
     /**
      * 设置 [防止XSS攻击]
      */
-    public void setPreventxss(Integer preventxss){
+    public void setPreventxss(Integer preventxss) {
         this.preventxss = preventxss ;
         this.modify("preventxss",preventxss);
     }
@@ -727,7 +727,7 @@ public class PSSysApp extends EntityClient implements Serializable {
     /**
      * 设置 [应用类型]
      */
-    public void setPsapptypeid(String psapptypeid){
+    public void setPsapptypeid(String psapptypeid) {
         this.psapptypeid = psapptypeid ;
         this.modify("psapptypeid",psapptypeid);
     }
@@ -735,7 +735,7 @@ public class PSSysApp extends EntityClient implements Serializable {
     /**
      * 设置 [应用类型]
      */
-    public void setPsapptypename(String psapptypename){
+    public void setPsapptypename(String psapptypename) {
         this.psapptypename = psapptypename ;
         this.modify("psapptypename",psapptypename);
     }
@@ -743,7 +743,7 @@ public class PSSysApp extends EntityClient implements Serializable {
     /**
      * 设置 [应用CDN]
      */
-    public void setPspfcdnid(String pspfcdnid){
+    public void setPspfcdnid(String pspfcdnid) {
         this.pspfcdnid = pspfcdnid ;
         this.modify("pspfcdnid",pspfcdnid);
     }
@@ -751,7 +751,7 @@ public class PSSysApp extends EntityClient implements Serializable {
     /**
      * 设置 [应用CDN]
      */
-    public void setPspfcdnname(String pspfcdnname){
+    public void setPspfcdnname(String pspfcdnname) {
         this.pspfcdnname = pspfcdnname ;
         this.modify("pspfcdnname",pspfcdnname);
     }
@@ -759,7 +759,7 @@ public class PSSysApp extends EntityClient implements Serializable {
     /**
      * 设置 [前台技术架构]
      */
-    public void setPspfid(String pspfid){
+    public void setPspfid(String pspfid) {
         this.pspfid = pspfid ;
         this.modify("pspfid",pspfid);
     }
@@ -767,7 +767,7 @@ public class PSSysApp extends EntityClient implements Serializable {
     /**
      * 设置 [应用样式]
      */
-    public void setPspfstyleid(String pspfstyleid){
+    public void setPspfstyleid(String pspfstyleid) {
         this.pspfstyleid = pspfstyleid ;
         this.modify("pspfstyleid",pspfstyleid);
     }
@@ -775,7 +775,7 @@ public class PSSysApp extends EntityClient implements Serializable {
     /**
      * 设置 [应用主题]
      */
-    public void setPsstudiothemename(String psstudiothemename){
+    public void setPsstudiothemename(String psstudiothemename) {
         this.psstudiothemename = psstudiothemename ;
         this.modify("psstudiothemename",psstudiothemename);
     }
@@ -783,7 +783,7 @@ public class PSSysApp extends EntityClient implements Serializable {
     /**
      * 设置 [应用主题]
      */
-    public void setPsstudiothemeid(String psstudiothemeid){
+    public void setPsstudiothemeid(String psstudiothemeid) {
         this.psstudiothemeid = psstudiothemeid ;
         this.modify("psstudiothemeid",psstudiothemeid);
     }
@@ -791,7 +791,7 @@ public class PSSysApp extends EntityClient implements Serializable {
     /**
      * 设置 [只发布引用视图]
      */
-    public void setPubrefviewonly(Integer pubrefviewonly){
+    public void setPubrefviewonly(Integer pubrefviewonly) {
         this.pubrefviewonly = pubrefviewonly ;
         this.modify("pubrefviewonly",pubrefviewonly);
     }
@@ -799,7 +799,7 @@ public class PSSysApp extends EntityClient implements Serializable {
     /**
      * 设置 [只发布系统引用视图（废弃）]
      */
-    public void setPubsysrefviewonly(Integer pubsysrefviewonly){
+    public void setPubsysrefviewonly(Integer pubsysrefviewonly) {
         this.pubsysrefviewonly = pubsysrefviewonly ;
         this.modify("pubsysrefviewonly",pubsysrefviewonly);
     }
@@ -807,7 +807,7 @@ public class PSSysApp extends EntityClient implements Serializable {
     /**
      * 设置 [删除模式]
      */
-    public void setRemoveflag(Integer removeflag){
+    public void setRemoveflag(Integer removeflag) {
         this.removeflag = removeflag ;
         this.modify("removeflag",removeflag);
     }
@@ -815,7 +815,7 @@ public class PSSysApp extends EntityClient implements Serializable {
     /**
      * 设置 [服务代码名称]
      */
-    public void setServicecodename(String servicecodename){
+    public void setServicecodename(String servicecodename) {
         this.servicecodename = servicecodename ;
         this.modify("servicecodename",servicecodename);
     }
@@ -823,7 +823,7 @@ public class PSSysApp extends EntityClient implements Serializable {
     /**
      * 设置 [起始页图片文件]
      */
-    public void setStartpagefile(String startpagefile){
+    public void setStartpagefile(String startpagefile) {
         this.startpagefile = startpagefile ;
         this.modify("startpagefile",startpagefile);
     }
@@ -831,7 +831,7 @@ public class PSSysApp extends EntityClient implements Serializable {
     /**
      * 设置 [启用统一认证]
      */
-    public void setUaclogin(Integer uaclogin){
+    public void setUaclogin(Integer uaclogin) {
         this.uaclogin = uaclogin ;
         this.modify("uaclogin",uaclogin);
     }
@@ -839,7 +839,7 @@ public class PSSysApp extends EntityClient implements Serializable {
     /**
      * 设置 [内建界面式样]
      */
-    public void setUistyle(String uistyle){
+    public void setUistyle(String uistyle) {
         this.uistyle = uistyle ;
         this.modify("uistyle",uistyle);
     }
@@ -847,7 +847,7 @@ public class PSSysApp extends EntityClient implements Serializable {
     /**
      * 设置 [默认服务接口]
      */
-    public void setPssysserviceapiid(String pssysserviceapiid){
+    public void setPssysserviceapiid(String pssysserviceapiid) {
         this.pssysserviceapiid = pssysserviceapiid ;
         this.modify("pssysserviceapiid",pssysserviceapiid);
     }
@@ -855,7 +855,7 @@ public class PSSysApp extends EntityClient implements Serializable {
     /**
      * 设置 [用户分类]
      */
-    public void setUsercat(String usercat){
+    public void setUsercat(String usercat) {
         this.usercat = usercat ;
         this.modify("usercat",usercat);
     }
@@ -863,7 +863,7 @@ public class PSSysApp extends EntityClient implements Serializable {
     /**
      * 设置 [用户标记]
      */
-    public void setUsertag(String usertag){
+    public void setUsertag(String usertag) {
         this.usertag = usertag ;
         this.modify("usertag",usertag);
     }
@@ -871,7 +871,7 @@ public class PSSysApp extends EntityClient implements Serializable {
     /**
      * 设置 [自定义参数]
      */
-    public void setUserparams(String userparams){
+    public void setUserparams(String userparams) {
         this.userparams = userparams ;
         this.modify("userparams",userparams);
     }
@@ -879,7 +879,7 @@ public class PSSysApp extends EntityClient implements Serializable {
     /**
      * 设置 [用户标记2]
      */
-    public void setUsertag2(String usertag2){
+    public void setUsertag2(String usertag2) {
         this.usertag2 = usertag2 ;
         this.modify("usertag2",usertag2);
     }
@@ -887,7 +887,7 @@ public class PSSysApp extends EntityClient implements Serializable {
     /**
      * 设置 [用户标记4]
      */
-    public void setUsertag4(String usertag4){
+    public void setUsertag4(String usertag4) {
         this.usertag4 = usertag4 ;
         this.modify("usertag4",usertag4);
     }
@@ -895,7 +895,7 @@ public class PSSysApp extends EntityClient implements Serializable {
     /**
      * 设置 [用户标记3]
      */
-    public void setUsertag3(String usertag3){
+    public void setUsertag3(String usertag3) {
         this.usertag3 = usertag3 ;
         this.modify("usertag3",usertag3);
     }
@@ -903,7 +903,7 @@ public class PSSysApp extends EntityClient implements Serializable {
     /**
      * 设置 [是否启用]
      */
-    public void setValidflag(Integer validflag){
+    public void setValidflag(Integer validflag) {
         this.validflag = validflag ;
         this.modify("validflag",validflag);
     }
@@ -911,7 +911,7 @@ public class PSSysApp extends EntityClient implements Serializable {
     /**
      * 设置 [系统]
      */
-    public void setPssystemid(String pssystemid){
+    public void setPssystemid(String pssystemid) {
         this.pssystemid = pssystemid ;
         this.modify("pssystemid",pssystemid);
     }
@@ -919,7 +919,7 @@ public class PSSysApp extends EntityClient implements Serializable {
     /**
      * 设置 [系统]
      */
-    public void setPssystemname(String pssystemname){
+    public void setPssystemname(String pssystemname) {
         this.pssystemname = pssystemname ;
         this.modify("pssystemname",pssystemname);
     }

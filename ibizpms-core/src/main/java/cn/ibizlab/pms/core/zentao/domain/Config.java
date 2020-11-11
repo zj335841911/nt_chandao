@@ -46,7 +46,7 @@ public class Config extends EntityMP implements Serializable {
     /**
      * id
      */
-    @DEField(isKeyField=true)
+    @DEField(isKeyField = true)
     @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
@@ -92,7 +92,7 @@ public class Config extends EntityMP implements Serializable {
     /**
      * 设置 [模块]
      */
-    public void setModule(String module){
+    public void setModule(String module) {
         this.module = module ;
         this.modify("module",module);
     }
@@ -100,7 +100,7 @@ public class Config extends EntityMP implements Serializable {
     /**
      * 设置 [附加部分]
      */
-    public void setSection(String section){
+    public void setSection(String section) {
         this.section = section ;
         this.modify("section",section);
     }
@@ -108,7 +108,7 @@ public class Config extends EntityMP implements Serializable {
     /**
      * 设置 [值]
      */
-    public void setValue(String value){
+    public void setValue(String value) {
         this.value = value ;
         this.modify("value",value);
     }
@@ -116,7 +116,7 @@ public class Config extends EntityMP implements Serializable {
     /**
      * 设置 [键]
      */
-    public void setKey(String key){
+    public void setKey(String key) {
         this.key = key ;
         this.modify("key",key);
     }
@@ -124,7 +124,7 @@ public class Config extends EntityMP implements Serializable {
     /**
      * 设置 [所有者]
      */
-    public void setOwner(String owner){
+    public void setOwner(String owner) {
         this.owner = owner ;
         this.modify("owner",owner);
     }

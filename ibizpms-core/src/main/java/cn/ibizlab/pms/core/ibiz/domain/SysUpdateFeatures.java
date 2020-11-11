@@ -54,7 +54,7 @@ public class SysUpdateFeatures extends EntityMP implements Serializable {
     /**
      * 系统更新功能标识
      */
-    @DEField(name = "sys_update_featuresid" , isKeyField=true)
+    @DEField(name = "sys_update_featuresid" , isKeyField = true)
     @TableId(value= "sys_update_featuresid",type=IdType.ASSIGN_UUID)
     @JSONField(name = "sysupdatefeaturesid")
     @JsonProperty("sysupdatefeaturesid")
@@ -63,7 +63,7 @@ public class SysUpdateFeatures extends EntityMP implements Serializable {
      * 建立人
      */
     @DEField(preType = DEPredefinedFieldType.CREATEMAN)
-    @TableField(value = "`createman`" , fill = FieldFill.INSERT)
+    @TableField(value = "`createman`", fill = FieldFill.INSERT)
     @JSONField(name = "createman")
     @JsonProperty("createman")
     private String createman;
@@ -79,9 +79,9 @@ public class SysUpdateFeatures extends EntityMP implements Serializable {
      * 建立时间
      */
     @DEField(preType = DEPredefinedFieldType.CREATEDATE)
-    @TableField(value = "`createdate`" , fill = FieldFill.INSERT)
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "createdate" , format="yyyy-MM-dd HH:mm:ss")
+    @TableField(value = "`createdate`", fill = FieldFill.INSERT)
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "createdate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("createdate")
     private Timestamp createdate;
     /**
@@ -89,8 +89,8 @@ public class SysUpdateFeatures extends EntityMP implements Serializable {
      */
     @DEField(preType = DEPredefinedFieldType.UPDATEDATE)
     @TableField(value = "`updatedate`")
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "updatedate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "updatedate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("updatedate")
     private Timestamp updatedate;
     /**
@@ -150,7 +150,7 @@ public class SysUpdateFeatures extends EntityMP implements Serializable {
     /**
      * 设置 [系统更新功能名称]
      */
-    public void setSysupdatefeaturesname(String sysupdatefeaturesname){
+    public void setSysupdatefeaturesname(String sysupdatefeaturesname) {
         this.sysupdatefeaturesname = sysupdatefeaturesname ;
         this.modify("sys_update_featuresname",sysupdatefeaturesname);
     }
@@ -158,7 +158,7 @@ public class SysUpdateFeatures extends EntityMP implements Serializable {
     /**
      * 设置 [系统更新日志标识]
      */
-    public void setSysupdatelogid(String sysupdatelogid){
+    public void setSysupdatelogid(String sysupdatelogid) {
         this.sysupdatelogid = sysupdatelogid ;
         this.modify("sys_update_logid",sysupdatelogid);
     }
@@ -166,7 +166,7 @@ public class SysUpdateFeatures extends EntityMP implements Serializable {
     /**
      * 设置 [更新功能]
      */
-    public void setUpfeatures(String upfeatures){
+    public void setUpfeatures(String upfeatures) {
         this.upfeatures = upfeatures ;
         this.modify("upfeatures",upfeatures);
     }
@@ -174,7 +174,7 @@ public class SysUpdateFeatures extends EntityMP implements Serializable {
     /**
      * 设置 [功能描述]
      */
-    public void setFeaturesdesc(String featuresdesc){
+    public void setFeaturesdesc(String featuresdesc) {
         this.featuresdesc = featuresdesc ;
         this.modify("featuresdesc",featuresdesc);
     }
@@ -182,7 +182,7 @@ public class SysUpdateFeatures extends EntityMP implements Serializable {
     /**
      * 设置 [更新类型]
      */
-    public void setType(String type){
+    public void setType(String type) {
         this.type = type ;
         this.modify("type",type);
     }
@@ -190,7 +190,7 @@ public class SysUpdateFeatures extends EntityMP implements Serializable {
     /**
      * 设置 [展示顺序]
      */
-    public void setDisplayorder(Integer displayorder){
+    public void setDisplayorder(Integer displayorder) {
         this.displayorder = displayorder ;
         this.modify("displayorder",displayorder);
     }

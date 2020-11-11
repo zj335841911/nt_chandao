@@ -69,7 +69,7 @@ public class Build extends EntityMP implements Serializable {
     /**
      * id
      */
-    @DEField(isKeyField=true)
+    @DEField(isKeyField = true)
     @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
@@ -77,8 +77,8 @@ public class Build extends EntityMP implements Serializable {
     /**
      * 已删除
      */
-    @DEField(defaultValue = "0" , preType = DEPredefinedFieldType.LOGICVALID, logicval = "0" , logicdelval="1")
-    @TableLogic(value= "0",delval="1")
+    @DEField(defaultValue = "0", preType = DEPredefinedFieldType.LOGICVALID, logicval = "0", logicdelval = "1")
+    @TableLogic(value= "0", delval = "1")
     @TableField(value = "`deleted`")
     @JSONField(name = "deleted")
     @JsonProperty("deleted")
@@ -119,8 +119,8 @@ public class Build extends EntityMP implements Serializable {
      * 打包日期
      */
     @TableField(value = "`date`")
-    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "date" , format="yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "date", format = "yyyy-MM-dd")
     @JsonProperty("date")
     private Timestamp date;
     /**
@@ -254,7 +254,7 @@ public class Build extends EntityMP implements Serializable {
     /**
      * 设置 [名称编号]
      */
-    public void setName(String name){
+    public void setName(String name) {
         this.name = name ;
         this.modify("name",name);
     }
@@ -262,7 +262,7 @@ public class Build extends EntityMP implements Serializable {
     /**
      * 设置 [构建者]
      */
-    public void setBuilder(String builder){
+    public void setBuilder(String builder) {
         this.builder = builder ;
         this.modify("builder",builder);
     }
@@ -270,7 +270,7 @@ public class Build extends EntityMP implements Serializable {
     /**
      * 设置 [描述]
      */
-    public void setDesc(String desc){
+    public void setDesc(String desc) {
         this.desc = desc ;
         this.modify("desc",desc);
     }
@@ -278,7 +278,7 @@ public class Build extends EntityMP implements Serializable {
     /**
      * 设置 [源代码地址]
      */
-    public void setScmpath(String scmpath){
+    public void setScmpath(String scmpath) {
         this.scmpath = scmpath ;
         this.modify("scmpath",scmpath);
     }
@@ -286,7 +286,7 @@ public class Build extends EntityMP implements Serializable {
     /**
      * 设置 [下载地址]
      */
-    public void setFilepath(String filepath){
+    public void setFilepath(String filepath) {
         this.filepath = filepath ;
         this.modify("filepath",filepath);
     }
@@ -294,7 +294,7 @@ public class Build extends EntityMP implements Serializable {
     /**
      * 设置 [完成的需求]
      */
-    public void setStories(String stories){
+    public void setStories(String stories) {
         this.stories = stories ;
         this.modify("stories",stories);
     }
@@ -302,7 +302,7 @@ public class Build extends EntityMP implements Serializable {
     /**
      * 设置 [解决的Bug]
      */
-    public void setBugs(String bugs){
+    public void setBugs(String bugs) {
         this.bugs = bugs ;
         this.modify("bugs",bugs);
     }
@@ -310,7 +310,7 @@ public class Build extends EntityMP implements Serializable {
     /**
      * 设置 [打包日期]
      */
-    public void setDate(Timestamp date){
+    public void setDate(Timestamp date) {
         this.date = date ;
         this.modify("date",date);
     }
@@ -318,7 +318,7 @@ public class Build extends EntityMP implements Serializable {
     /**
      * 格式化日期 [打包日期]
      */
-    public String formatDate(){
+    public String formatDate() {
         if (this.date == null) {
             return null;
         }
@@ -328,7 +328,7 @@ public class Build extends EntityMP implements Serializable {
     /**
      * 设置 [产品]
      */
-    public void setProduct(Long product){
+    public void setProduct(Long product) {
         this.product = product ;
         this.modify("product",product);
     }
@@ -336,7 +336,7 @@ public class Build extends EntityMP implements Serializable {
     /**
      * 设置 [平台/分支]
      */
-    public void setBranch(Long branch){
+    public void setBranch(Long branch) {
         this.branch = branch ;
         this.modify("branch",branch);
     }
@@ -344,7 +344,7 @@ public class Build extends EntityMP implements Serializable {
     /**
      * 设置 [所属项目]
      */
-    public void setProject(Long project){
+    public void setProject(Long project) {
         this.project = project ;
         this.modify("project",project);
     }

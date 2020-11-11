@@ -81,7 +81,7 @@ public class RepoFiles extends EntityMP implements Serializable {
     /**
      * id
      */
-    @DEField(isKeyField=true)
+    @DEField(isKeyField = true)
     @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
@@ -107,7 +107,7 @@ public class RepoFiles extends EntityMP implements Serializable {
     /**
      * 设置 [path]
      */
-    public void setPath(String path){
+    public void setPath(String path) {
         this.path = path ;
         this.modify("path",path);
     }
@@ -115,7 +115,7 @@ public class RepoFiles extends EntityMP implements Serializable {
     /**
      * 设置 [type]
      */
-    public void setType(String type){
+    public void setType(String type) {
         this.type = type ;
         this.modify("type",type);
     }
@@ -123,7 +123,7 @@ public class RepoFiles extends EntityMP implements Serializable {
     /**
      * 设置 [revision]
      */
-    public void setRevision(Integer revision){
+    public void setRevision(Integer revision) {
         this.revision = revision ;
         this.modify("revision",revision);
     }
@@ -131,7 +131,7 @@ public class RepoFiles extends EntityMP implements Serializable {
     /**
      * 设置 [action]
      */
-    public void setAction(String action){
+    public void setAction(String action) {
         this.action = action ;
         this.modify("action",action);
     }
@@ -139,7 +139,7 @@ public class RepoFiles extends EntityMP implements Serializable {
     /**
      * 设置 [repo]
      */
-    public void setRepo(Integer repo){
+    public void setRepo(Integer repo) {
         this.repo = repo ;
         this.modify("repo",repo);
     }
@@ -147,7 +147,7 @@ public class RepoFiles extends EntityMP implements Serializable {
     /**
      * 设置 [parent]
      */
-    public void setParent(Long parent){
+    public void setParent(Long parent) {
         this.parent = parent ;
         this.modify("parent",parent);
     }

@@ -86,14 +86,14 @@ public class TestResult extends EntityMP implements Serializable {
      * 测试时间
      */
     @TableField(value = "`date`")
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "date" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "date", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("date")
     private Timestamp date;
     /**
      * 编号
      */
-    @DEField(isKeyField=true)
+    @DEField(isKeyField = true)
     @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
@@ -217,7 +217,7 @@ public class TestResult extends EntityMP implements Serializable {
     /**
      * 设置 [最后执行人]
      */
-    public void setLastrunner(String lastrunner){
+    public void setLastrunner(String lastrunner) {
         this.lastrunner = lastrunner ;
         this.modify("lastrunner",lastrunner);
     }
@@ -225,7 +225,7 @@ public class TestResult extends EntityMP implements Serializable {
     /**
      * 设置 [步骤结果]
      */
-    public void setStepresults(String stepresults){
+    public void setStepresults(String stepresults) {
         this.stepresults = stepresults ;
         this.modify("stepresults",stepresults);
     }
@@ -233,7 +233,7 @@ public class TestResult extends EntityMP implements Serializable {
     /**
      * 设置 [测试结果]
      */
-    public void setCaseresult(String caseresult){
+    public void setCaseresult(String caseresult) {
         this.caseresult = caseresult ;
         this.modify("caseresult",caseresult);
     }
@@ -241,7 +241,7 @@ public class TestResult extends EntityMP implements Serializable {
     /**
      * 设置 [结果文件]
      */
-    public void setXml(String xml){
+    public void setXml(String xml) {
         this.xml = xml ;
         this.modify("xml",xml);
     }
@@ -249,7 +249,7 @@ public class TestResult extends EntityMP implements Serializable {
     /**
      * 设置 [持续时间]
      */
-    public void setDuration(Double duration){
+    public void setDuration(Double duration) {
         this.duration = duration ;
         this.modify("duration",duration);
     }
@@ -257,7 +257,7 @@ public class TestResult extends EntityMP implements Serializable {
     /**
      * 设置 [测试时间]
      */
-    public void setDate(Timestamp date){
+    public void setDate(Timestamp date) {
         this.date = date ;
         this.modify("date",date);
     }
@@ -265,7 +265,7 @@ public class TestResult extends EntityMP implements Serializable {
     /**
      * 格式化日期 [测试时间]
      */
-    public String formatDate(){
+    public String formatDate() {
         if (this.date == null) {
             return null;
         }
@@ -275,7 +275,7 @@ public class TestResult extends EntityMP implements Serializable {
     /**
      * 设置 [用例版本]
      */
-    public void setVersion(Integer version){
+    public void setVersion(Integer version) {
         this.version = version ;
         this.modify("version",version);
     }
@@ -283,7 +283,7 @@ public class TestResult extends EntityMP implements Serializable {
     /**
      * 设置 [构建任务]
      */
-    public void setJob(Long job){
+    public void setJob(Long job) {
         this.job = job ;
         this.modify("job",job);
     }
@@ -291,7 +291,7 @@ public class TestResult extends EntityMP implements Serializable {
     /**
      * 设置 [用例]
      */
-    public void setIbizcase(Long ibizcase){
+    public void setIbizcase(Long ibizcase) {
         this.ibizcase = ibizcase ;
         this.modify("case",ibizcase);
     }
@@ -299,7 +299,7 @@ public class TestResult extends EntityMP implements Serializable {
     /**
      * 设置 [测试执行]
      */
-    public void setRun(Long run){
+    public void setRun(Long run) {
         this.run = run ;
         this.modify("run",run);
     }
@@ -307,7 +307,7 @@ public class TestResult extends EntityMP implements Serializable {
     /**
      * 设置 [代码编译]
      */
-    public void setCompile(Long compile){
+    public void setCompile(Long compile) {
         this.compile = compile ;
         this.modify("compile",compile);
     }

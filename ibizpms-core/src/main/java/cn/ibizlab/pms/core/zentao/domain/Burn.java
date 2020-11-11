@@ -47,14 +47,14 @@ public class Burn extends EntityMP implements Serializable {
      * 日期
      */
     @TableField(value = "`date`")
-    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "date" , format="yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "date", format = "yyyy-MM-dd")
     @JsonProperty("date")
     private Timestamp date;
     /**
      * 虚拟主键
      */
-    @DEField(isKeyField=true)
+    @DEField(isKeyField = true)
     @TableField(exist = false)
     @JSONField(name = "id")
     @JsonProperty("id")
@@ -123,7 +123,7 @@ public class Burn extends EntityMP implements Serializable {
     /**
      * 设置 [日期]
      */
-    public void setDate(Timestamp date){
+    public void setDate(Timestamp date) {
         this.date = date ;
         this.modify("date",date);
     }
@@ -131,7 +131,7 @@ public class Burn extends EntityMP implements Serializable {
     /**
      * 格式化日期 [日期]
      */
-    public String formatDate(){
+    public String formatDate() {
         if (this.date == null) {
             return null;
         }
@@ -141,7 +141,7 @@ public class Burn extends EntityMP implements Serializable {
     /**
      * 设置 [总计消耗]
      */
-    public void setConsumed(Double consumed){
+    public void setConsumed(Double consumed) {
         this.consumed = consumed ;
         this.modify("consumed",consumed);
     }
@@ -149,7 +149,7 @@ public class Burn extends EntityMP implements Serializable {
     /**
      * 设置 [预计剩余]
      */
-    public void setLeft(Double left){
+    public void setLeft(Double left) {
         this.left = left ;
         this.modify("left",left);
     }
@@ -157,7 +157,7 @@ public class Burn extends EntityMP implements Serializable {
     /**
      * 设置 [最初预计]
      */
-    public void setEstimate(Double estimate){
+    public void setEstimate(Double estimate) {
         this.estimate = estimate ;
         this.modify("estimate",estimate);
     }
@@ -165,7 +165,7 @@ public class Burn extends EntityMP implements Serializable {
     /**
      * 设置 [所属项目]
      */
-    public void setProject(Long project){
+    public void setProject(Long project) {
         this.project = project ;
         this.modify("project",project);
     }
@@ -173,7 +173,7 @@ public class Burn extends EntityMP implements Serializable {
     /**
      * 设置 [任务]
      */
-    public void setTask(Long task){
+    public void setTask(Long task) {
         this.task = task ;
         this.modify("task",task);
     }

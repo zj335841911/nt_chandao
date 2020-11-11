@@ -79,25 +79,25 @@ public class IbzCase extends EntityMP implements Serializable {
      * 创建日期
      */
     @DEField(preType = DEPredefinedFieldType.CREATEDATE)
-    @TableField(value = "`openeddate`" , fill = FieldFill.INSERT)
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "openeddate" , format="yyyy-MM-dd HH:mm:ss")
+    @TableField(value = "`openeddate`", fill = FieldFill.INSERT)
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "openeddate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("openeddate")
     private Timestamp openeddate;
     /**
      * 修改日期
      */
     @TableField(value = "`lastediteddate`")
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "lastediteddate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "lastediteddate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("lastediteddate")
     private Timestamp lastediteddate;
     /**
      * scriptedDate
      */
     @TableField(value = "`scripteddate`")
-    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "scripteddate" , format="yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "scripteddate", format = "yyyy-MM-dd")
     @JsonProperty("scripteddate")
     private Timestamp scripteddate;
     /**
@@ -125,7 +125,7 @@ public class IbzCase extends EntityMP implements Serializable {
     /**
      * 已删除
      */
-    @DEField(defaultValue = "0" , preType = DEPredefinedFieldType.LOGICVALID)
+    @DEField(defaultValue = "0", preType = DEPredefinedFieldType.LOGICVALID)
     @TableField(value = "`deleted`")
     @JSONField(name = "deleted")
     @JsonProperty("deleted")
@@ -156,7 +156,7 @@ public class IbzCase extends EntityMP implements Serializable {
     /**
      * 用例编号
      */
-    @DEField(isKeyField=true)
+    @DEField(isKeyField = true)
     @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
@@ -284,7 +284,7 @@ public class IbzCase extends EntityMP implements Serializable {
     /**
      * 设置 [排序]
      */
-    public void setOrder(Integer order){
+    public void setOrder(Integer order) {
         this.order = order ;
         this.modify("order",order);
     }
@@ -292,7 +292,7 @@ public class IbzCase extends EntityMP implements Serializable {
     /**
      * 设置 [howRun]
      */
-    public void setHowrun(String howrun){
+    public void setHowrun(String howrun) {
         this.howrun = howrun ;
         this.modify("howrun",howrun);
     }
@@ -300,7 +300,7 @@ public class IbzCase extends EntityMP implements Serializable {
     /**
      * 设置 [scriptedBy]
      */
-    public void setScriptedby(String scriptedby){
+    public void setScriptedby(String scriptedby) {
         this.scriptedby = scriptedby ;
         this.modify("scriptedby",scriptedby);
     }
@@ -308,7 +308,7 @@ public class IbzCase extends EntityMP implements Serializable {
     /**
      * 设置 [path]
      */
-    public void setPath(Integer path){
+    public void setPath(Integer path) {
         this.path = path ;
         this.modify("path",path);
     }
@@ -316,7 +316,7 @@ public class IbzCase extends EntityMP implements Serializable {
     /**
      * 设置 [修改日期]
      */
-    public void setLastediteddate(Timestamp lastediteddate){
+    public void setLastediteddate(Timestamp lastediteddate) {
         this.lastediteddate = lastediteddate ;
         this.modify("lastediteddate",lastediteddate);
     }
@@ -324,7 +324,7 @@ public class IbzCase extends EntityMP implements Serializable {
     /**
      * 格式化日期 [修改日期]
      */
-    public String formatLastediteddate(){
+    public String formatLastediteddate() {
         if (this.lastediteddate == null) {
             return null;
         }
@@ -334,7 +334,7 @@ public class IbzCase extends EntityMP implements Serializable {
     /**
      * 设置 [scriptedDate]
      */
-    public void setScripteddate(Timestamp scripteddate){
+    public void setScripteddate(Timestamp scripteddate) {
         this.scripteddate = scripteddate ;
         this.modify("scripteddate",scripteddate);
     }
@@ -342,7 +342,7 @@ public class IbzCase extends EntityMP implements Serializable {
     /**
      * 格式化日期 [scriptedDate]
      */
-    public String formatScripteddate(){
+    public String formatScripteddate() {
         if (this.scripteddate == null) {
             return null;
         }
@@ -352,7 +352,7 @@ public class IbzCase extends EntityMP implements Serializable {
     /**
      * 设置 [auto]
      */
-    public void setAuto(String auto){
+    public void setAuto(String auto) {
         this.auto = auto ;
         this.modify("auto",auto);
     }
@@ -360,7 +360,7 @@ public class IbzCase extends EntityMP implements Serializable {
     /**
      * 设置 [用例标题]
      */
-    public void setTitle(String title){
+    public void setTitle(String title) {
         this.title = title ;
         this.modify("title",title);
     }
@@ -368,7 +368,7 @@ public class IbzCase extends EntityMP implements Serializable {
     /**
      * 设置 [scriptLocation]
      */
-    public void setScriptlocation(String scriptlocation){
+    public void setScriptlocation(String scriptlocation) {
         this.scriptlocation = scriptlocation ;
         this.modify("scriptlocation",scriptlocation);
     }
@@ -376,7 +376,7 @@ public class IbzCase extends EntityMP implements Serializable {
     /**
      * 设置 [scriptStatus]
      */
-    public void setScriptstatus(String scriptstatus){
+    public void setScriptstatus(String scriptstatus) {
         this.scriptstatus = scriptstatus ;
         this.modify("scriptstatus",scriptstatus);
     }
@@ -384,7 +384,7 @@ public class IbzCase extends EntityMP implements Serializable {
     /**
      * 设置 [关键词]
      */
-    public void setKeywords(String keywords){
+    public void setKeywords(String keywords) {
         this.keywords = keywords ;
         this.modify("keywords",keywords);
     }
@@ -392,7 +392,7 @@ public class IbzCase extends EntityMP implements Serializable {
     /**
      * 设置 [前置条件]
      */
-    public void setPrecondition(String precondition){
+    public void setPrecondition(String precondition) {
         this.precondition = precondition ;
         this.modify("precondition",precondition);
     }
@@ -400,7 +400,7 @@ public class IbzCase extends EntityMP implements Serializable {
     /**
      * 设置 [优先级]
      */
-    public void setPri(String pri){
+    public void setPri(String pri) {
         this.pri = pri ;
         this.modify("pri",pri);
     }
@@ -408,7 +408,7 @@ public class IbzCase extends EntityMP implements Serializable {
     /**
      * 设置 [用例类型]
      */
-    public void setType(String type){
+    public void setType(String type) {
         this.type = type ;
         this.modify("type",type);
     }
@@ -416,7 +416,7 @@ public class IbzCase extends EntityMP implements Serializable {
     /**
      * 设置 [状态]
      */
-    public void setStatus(String status){
+    public void setStatus(String status) {
         this.status = status ;
         this.modify("status",status);
     }
@@ -424,7 +424,7 @@ public class IbzCase extends EntityMP implements Serializable {
     /**
      * 设置 [适用阶段]
      */
-    public void setStage(String stage){
+    public void setStage(String stage) {
         this.stage = stage ;
         this.modify("stage",stage);
     }
@@ -432,7 +432,7 @@ public class IbzCase extends EntityMP implements Serializable {
     /**
      * 设置 [最后修改者]
      */
-    public void setLasteditedby(String lasteditedby){
+    public void setLasteditedby(String lasteditedby) {
         this.lasteditedby = lasteditedby ;
         this.modify("lasteditedby",lasteditedby);
     }
@@ -440,7 +440,7 @@ public class IbzCase extends EntityMP implements Serializable {
     /**
      * 设置 [编号]
      */
-    public void setLib(Long lib){
+    public void setLib(Long lib) {
         this.lib = lib ;
         this.modify("lib",lib);
     }
@@ -448,7 +448,7 @@ public class IbzCase extends EntityMP implements Serializable {
     /**
      * 设置 [id]
      */
-    public void setModule(Long module){
+    public void setModule(Long module) {
         this.module = module ;
         this.modify("module",module);
     }
@@ -456,7 +456,7 @@ public class IbzCase extends EntityMP implements Serializable {
     /**
      * 设置 [用例版本]
      */
-    public void setVersion(Integer version){
+    public void setVersion(Integer version) {
         this.version = version ;
         this.modify("version",version);
     }

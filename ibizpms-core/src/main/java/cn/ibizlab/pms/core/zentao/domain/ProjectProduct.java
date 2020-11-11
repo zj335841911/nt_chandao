@@ -46,7 +46,7 @@ public class ProjectProduct extends EntityMP implements Serializable {
     /**
      * 虚拟主键
      */
-    @DEField(isKeyField=true)
+    @DEField(isKeyField = true)
     @TableField(exist = false)
     @JSONField(name = "id")
     @JsonProperty("id")
@@ -138,7 +138,7 @@ public class ProjectProduct extends EntityMP implements Serializable {
     /**
      * 设置 [产品]
      */
-    public void setProduct(Long product){
+    public void setProduct(Long product) {
         this.product = product ;
         this.modify("product",product);
     }
@@ -146,7 +146,7 @@ public class ProjectProduct extends EntityMP implements Serializable {
     /**
      * 设置 [产品计划]
      */
-    public void setPlan(Long plan){
+    public void setPlan(Long plan) {
         this.plan = plan ;
         this.modify("plan",plan);
     }
@@ -154,7 +154,7 @@ public class ProjectProduct extends EntityMP implements Serializable {
     /**
      * 设置 [平台/分支]
      */
-    public void setBranch(Long branch){
+    public void setBranch(Long branch) {
         this.branch = branch ;
         this.modify("branch",branch);
     }
@@ -162,7 +162,7 @@ public class ProjectProduct extends EntityMP implements Serializable {
     /**
      * 设置 [项目]
      */
-    public void setProject(Long project){
+    public void setProject(Long project) {
         this.project = project ;
         this.modify("project",project);
     }

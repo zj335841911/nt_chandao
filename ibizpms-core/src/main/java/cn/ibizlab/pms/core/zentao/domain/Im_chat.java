@@ -62,8 +62,8 @@ public class Im_chat extends EntityMP implements Serializable {
      */
     @DEField(defaultValue = "0000-00-00 00:00:00")
     @TableField(value = "`editeddate`")
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "editeddate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "editeddate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("editeddate")
     private Timestamp editeddate;
     /**
@@ -71,8 +71,8 @@ public class Im_chat extends EntityMP implements Serializable {
      */
     @DEField(defaultValue = "0000-00-00 00:00:00")
     @TableField(value = "`dismissdate`")
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "dismissdate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "dismissdate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("dismissdate")
     private Timestamp dismissdate;
     /**
@@ -80,8 +80,8 @@ public class Im_chat extends EntityMP implements Serializable {
      */
     @DEField(defaultValue = "0000-00-00 00:00:00")
     @TableField(value = "`createddate`")
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "createddate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "createddate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("createddate")
     private Timestamp createddate;
     /**
@@ -102,7 +102,7 @@ public class Im_chat extends EntityMP implements Serializable {
     /**
      * id
      */
-    @DEField(isKeyField=true)
+    @DEField(isKeyField = true)
     @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
@@ -142,8 +142,8 @@ public class Im_chat extends EntityMP implements Serializable {
      */
     @DEField(defaultValue = "0000-00-00 00:00:00")
     @TableField(value = "`lastactivetime`")
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "lastactivetime" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "lastactivetime", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("lastactivetime")
     private Timestamp lastactivetime;
     /**
@@ -159,7 +159,7 @@ public class Im_chat extends EntityMP implements Serializable {
     /**
      * 设置 [admins]
      */
-    public void setAdmins(String admins){
+    public void setAdmins(String admins) {
         this.admins = admins ;
         this.modify("admins",admins);
     }
@@ -167,7 +167,7 @@ public class Im_chat extends EntityMP implements Serializable {
     /**
      * 设置 [createdBy]
      */
-    public void setCreatedby(String createdby){
+    public void setCreatedby(String createdby) {
         this.createdby = createdby ;
         this.modify("createdby",createdby);
     }
@@ -175,7 +175,7 @@ public class Im_chat extends EntityMP implements Serializable {
     /**
      * 设置 [editedDate]
      */
-    public void setEditeddate(Timestamp editeddate){
+    public void setEditeddate(Timestamp editeddate) {
         this.editeddate = editeddate ;
         this.modify("editeddate",editeddate);
     }
@@ -183,7 +183,7 @@ public class Im_chat extends EntityMP implements Serializable {
     /**
      * 格式化日期 [editedDate]
      */
-    public String formatEditeddate(){
+    public String formatEditeddate() {
         if (this.editeddate == null) {
             return null;
         }
@@ -193,7 +193,7 @@ public class Im_chat extends EntityMP implements Serializable {
     /**
      * 设置 [dismissDate]
      */
-    public void setDismissdate(Timestamp dismissdate){
+    public void setDismissdate(Timestamp dismissdate) {
         this.dismissdate = dismissdate ;
         this.modify("dismissdate",dismissdate);
     }
@@ -201,7 +201,7 @@ public class Im_chat extends EntityMP implements Serializable {
     /**
      * 格式化日期 [dismissDate]
      */
-    public String formatDismissdate(){
+    public String formatDismissdate() {
         if (this.dismissdate == null) {
             return null;
         }
@@ -211,7 +211,7 @@ public class Im_chat extends EntityMP implements Serializable {
     /**
      * 设置 [createdDate]
      */
-    public void setCreateddate(Timestamp createddate){
+    public void setCreateddate(Timestamp createddate) {
         this.createddate = createddate ;
         this.modify("createddate",createddate);
     }
@@ -219,7 +219,7 @@ public class Im_chat extends EntityMP implements Serializable {
     /**
      * 格式化日期 [createdDate]
      */
-    public String formatCreateddate(){
+    public String formatCreateddate() {
         if (this.createddate == null) {
             return null;
         }
@@ -229,7 +229,7 @@ public class Im_chat extends EntityMP implements Serializable {
     /**
      * 设置 [committers]
      */
-    public void setCommitters(String committers){
+    public void setCommitters(String committers) {
         this.committers = committers ;
         this.modify("committers",committers);
     }
@@ -237,7 +237,7 @@ public class Im_chat extends EntityMP implements Serializable {
     /**
      * 设置 [public]
      */
-    public void setIbizpublic(String ibizpublic){
+    public void setIbizpublic(String ibizpublic) {
         this.ibizpublic = ibizpublic ;
         this.modify("public",ibizpublic);
     }
@@ -245,7 +245,7 @@ public class Im_chat extends EntityMP implements Serializable {
     /**
      * 设置 [name]
      */
-    public void setName(String name){
+    public void setName(String name) {
         this.name = name ;
         this.modify("name",name);
     }
@@ -253,7 +253,7 @@ public class Im_chat extends EntityMP implements Serializable {
     /**
      * 设置 [type]
      */
-    public void setType(String type){
+    public void setType(String type) {
         this.type = type ;
         this.modify("type",type);
     }
@@ -261,7 +261,7 @@ public class Im_chat extends EntityMP implements Serializable {
     /**
      * 设置 [editedBy]
      */
-    public void setEditedby(String editedby){
+    public void setEditedby(String editedby) {
         this.editedby = editedby ;
         this.modify("editedby",editedby);
     }
@@ -269,7 +269,7 @@ public class Im_chat extends EntityMP implements Serializable {
     /**
      * 设置 [subject]
      */
-    public void setSubject(Integer subject){
+    public void setSubject(Integer subject) {
         this.subject = subject ;
         this.modify("subject",subject);
     }
@@ -277,7 +277,7 @@ public class Im_chat extends EntityMP implements Serializable {
     /**
      * 设置 [lastActiveTime]
      */
-    public void setLastactivetime(Timestamp lastactivetime){
+    public void setLastactivetime(Timestamp lastactivetime) {
         this.lastactivetime = lastactivetime ;
         this.modify("lastactivetime",lastactivetime);
     }
@@ -285,7 +285,7 @@ public class Im_chat extends EntityMP implements Serializable {
     /**
      * 格式化日期 [lastActiveTime]
      */
-    public String formatLastactivetime(){
+    public String formatLastactivetime() {
         if (this.lastactivetime == null) {
             return null;
         }
@@ -295,7 +295,7 @@ public class Im_chat extends EntityMP implements Serializable {
     /**
      * 设置 [gid]
      */
-    public void setGid(String gid){
+    public void setGid(String gid) {
         this.gid = gid ;
         this.modify("gid",gid);
     }

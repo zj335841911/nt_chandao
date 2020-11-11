@@ -55,8 +55,8 @@ public class Project extends EntityMP implements Serializable {
      * 开始时间
      */
     @TableField(value = "`begin`")
-    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "begin" , format="yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "begin", format = "yyyy-MM-dd")
     @JsonProperty("begin")
     private Timestamp begin;
     /**
@@ -70,8 +70,8 @@ public class Project extends EntityMP implements Serializable {
     /**
      * 已删除
      */
-    @DEField(defaultValue = "0" , preType = DEPredefinedFieldType.LOGICVALID, logicval = "0" , logicdelval="1")
-    @TableLogic(value= "0",delval="1")
+    @DEField(defaultValue = "0", preType = DEPredefinedFieldType.LOGICVALID, logicval = "0", logicdelval = "1")
+    @TableLogic(value= "0", delval = "1")
     @TableField(value = "`deleted`")
     @JSONField(name = "deleted")
     @JsonProperty("deleted")
@@ -95,7 +95,7 @@ public class Project extends EntityMP implements Serializable {
     /**
      * 项目编号
      */
-    @DEField(isKeyField=true)
+    @DEField(isKeyField = true)
     @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
@@ -152,16 +152,16 @@ public class Project extends EntityMP implements Serializable {
      * 结束日期
      */
     @TableField(value = "`end`")
-    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "end" , format="yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "end", format = "yyyy-MM-dd")
     @JsonProperty("end")
     private Timestamp end;
     /**
      * 取消日期
      */
     @TableField(value = "`canceleddate`")
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "canceleddate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "canceleddate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("canceleddate")
     private Timestamp canceleddate;
     /**
@@ -208,9 +208,9 @@ public class Project extends EntityMP implements Serializable {
      * 创建日期
      */
     @DEField(preType = DEPredefinedFieldType.CREATEDATE)
-    @TableField(value = "`openeddate`" , fill = FieldFill.INSERT)
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "openeddate" , format="yyyy-MM-dd HH:mm:ss")
+    @TableField(value = "`openeddate`", fill = FieldFill.INSERT)
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "openeddate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("openeddate")
     private Timestamp openeddate;
     /**
@@ -265,8 +265,8 @@ public class Project extends EntityMP implements Serializable {
      * 关闭日期
      */
     @TableField(value = "`closeddate`")
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "closeddate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "closeddate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("closeddate")
     private Timestamp closeddate;
     /**
@@ -374,8 +374,8 @@ public class Project extends EntityMP implements Serializable {
      * 加盟日
      */
     @TableField(exist = false)
-    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "join" , format="yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "join", format = "yyyy-MM-dd")
     @JsonProperty("join")
     private Timestamp join;
     /**
@@ -603,7 +603,7 @@ public class Project extends EntityMP implements Serializable {
     /**
      * 设置 [当前系统版本]
      */
-    public void setOpenedversion(String openedversion){
+    public void setOpenedversion(String openedversion) {
         this.openedversion = openedversion ;
         this.modify("openedversion",openedversion);
     }
@@ -611,7 +611,7 @@ public class Project extends EntityMP implements Serializable {
     /**
      * 设置 [开始时间]
      */
-    public void setBegin(Timestamp begin){
+    public void setBegin(Timestamp begin) {
         this.begin = begin ;
         this.modify("begin",begin);
     }
@@ -619,7 +619,7 @@ public class Project extends EntityMP implements Serializable {
     /**
      * 格式化日期 [开始时间]
      */
-    public String formatBegin(){
+    public String formatBegin() {
         if (this.begin == null) {
             return null;
         }
@@ -629,7 +629,7 @@ public class Project extends EntityMP implements Serializable {
     /**
      * 设置 [访问控制]
      */
-    public void setAcl(String acl){
+    public void setAcl(String acl) {
         this.acl = acl ;
         this.modify("acl",acl);
     }
@@ -637,7 +637,7 @@ public class Project extends EntityMP implements Serializable {
     /**
      * 设置 [项目描述]
      */
-    public void setDesc(String desc){
+    public void setDesc(String desc) {
         this.desc = desc ;
         this.modify("desc",desc);
     }
@@ -645,7 +645,7 @@ public class Project extends EntityMP implements Serializable {
     /**
      * 设置 [项目负责人]
      */
-    public void setPm(String pm){
+    public void setPm(String pm) {
         this.pm = pm ;
         this.modify("pm",pm);
     }
@@ -653,7 +653,7 @@ public class Project extends EntityMP implements Serializable {
     /**
      * 设置 [项目名称]
      */
-    public void setName(String name){
+    public void setName(String name) {
         this.name = name ;
         this.modify("name",name);
     }
@@ -661,7 +661,7 @@ public class Project extends EntityMP implements Serializable {
     /**
      * 设置 [子状态]
      */
-    public void setSubstatus(String substatus){
+    public void setSubstatus(String substatus) {
         this.substatus = substatus ;
         this.modify("substatus",substatus);
     }
@@ -669,7 +669,7 @@ public class Project extends EntityMP implements Serializable {
     /**
      * 设置 [项目排序]
      */
-    public void setOrder(Integer order){
+    public void setOrder(Integer order) {
         this.order = order ;
         this.modify("order",order);
     }
@@ -677,7 +677,7 @@ public class Project extends EntityMP implements Serializable {
     /**
      * 设置 [发布负责人]
      */
-    public void setRd(String rd){
+    public void setRd(String rd) {
         this.rd = rd ;
         this.modify("rd",rd);
     }
@@ -685,7 +685,7 @@ public class Project extends EntityMP implements Serializable {
     /**
      * 设置 [分组白名单]
      */
-    public void setWhitelist(String whitelist){
+    public void setWhitelist(String whitelist) {
         this.whitelist = whitelist ;
         this.modify("whitelist",whitelist);
     }
@@ -693,7 +693,7 @@ public class Project extends EntityMP implements Serializable {
     /**
      * 设置 [优先级]
      */
-    public void setPri(String pri){
+    public void setPri(String pri) {
         this.pri = pri ;
         this.modify("pri",pri);
     }
@@ -701,7 +701,7 @@ public class Project extends EntityMP implements Serializable {
     /**
      * 设置 [结束日期]
      */
-    public void setEnd(Timestamp end){
+    public void setEnd(Timestamp end) {
         this.end = end ;
         this.modify("end",end);
     }
@@ -709,7 +709,7 @@ public class Project extends EntityMP implements Serializable {
     /**
      * 格式化日期 [结束日期]
      */
-    public String formatEnd(){
+    public String formatEnd() {
         if (this.end == null) {
             return null;
         }
@@ -719,7 +719,7 @@ public class Project extends EntityMP implements Serializable {
     /**
      * 设置 [取消日期]
      */
-    public void setCanceleddate(Timestamp canceleddate){
+    public void setCanceleddate(Timestamp canceleddate) {
         this.canceleddate = canceleddate ;
         this.modify("canceleddate",canceleddate);
     }
@@ -727,7 +727,7 @@ public class Project extends EntityMP implements Serializable {
     /**
      * 格式化日期 [取消日期]
      */
-    public String formatCanceleddate(){
+    public String formatCanceleddate() {
         if (this.canceleddate == null) {
             return null;
         }
@@ -737,7 +737,7 @@ public class Project extends EntityMP implements Serializable {
     /**
      * 设置 [项目代号]
      */
-    public void setCode(String code){
+    public void setCode(String code) {
         this.code = code ;
         this.modify("code",code);
     }
@@ -745,7 +745,7 @@ public class Project extends EntityMP implements Serializable {
     /**
      * 设置 [catID]
      */
-    public void setCatid(Integer catid){
+    public void setCatid(Integer catid) {
         this.catid = catid ;
         this.modify("catid",catid);
     }
@@ -753,7 +753,7 @@ public class Project extends EntityMP implements Serializable {
     /**
      * 设置 [statge]
      */
-    public void setStatge(String statge){
+    public void setStatge(String statge) {
         this.statge = statge ;
         this.modify("statge",statge);
     }
@@ -761,7 +761,7 @@ public class Project extends EntityMP implements Serializable {
     /**
      * 设置 [由谁取消]
      */
-    public void setCanceledby(String canceledby){
+    public void setCanceledby(String canceledby) {
         this.canceledby = canceledby ;
         this.modify("canceledby",canceledby);
     }
@@ -769,7 +769,7 @@ public class Project extends EntityMP implements Serializable {
     /**
      * 设置 [isCat]
      */
-    public void setIscat(String iscat){
+    public void setIscat(String iscat) {
         this.iscat = iscat ;
         this.modify("iscat",iscat);
     }
@@ -777,7 +777,7 @@ public class Project extends EntityMP implements Serializable {
     /**
      * 设置 [由谁关闭]
      */
-    public void setClosedby(String closedby){
+    public void setClosedby(String closedby) {
         this.closedby = closedby ;
         this.modify("closedby",closedby);
     }
@@ -785,7 +785,7 @@ public class Project extends EntityMP implements Serializable {
     /**
      * 设置 [项目类型]
      */
-    public void setType(String type){
+    public void setType(String type) {
         this.type = type ;
         this.modify("type",type);
     }
@@ -793,7 +793,7 @@ public class Project extends EntityMP implements Serializable {
     /**
      * 设置 [产品负责人]
      */
-    public void setPo(String po){
+    public void setPo(String po) {
         this.po = po ;
         this.modify("po",po);
     }
@@ -801,7 +801,7 @@ public class Project extends EntityMP implements Serializable {
     /**
      * 设置 [项目状态]
      */
-    public void setStatus(String status){
+    public void setStatus(String status) {
         this.status = status ;
         this.modify("status",status);
     }
@@ -809,7 +809,7 @@ public class Project extends EntityMP implements Serializable {
     /**
      * 设置 [可用工作日]
      */
-    public void setDays(Integer days){
+    public void setDays(Integer days) {
         this.days = days ;
         this.modify("days",days);
     }
@@ -817,7 +817,7 @@ public class Project extends EntityMP implements Serializable {
     /**
      * 设置 [团队名称]
      */
-    public void setTeam(String team){
+    public void setTeam(String team) {
         this.team = team ;
         this.modify("team",team);
     }
@@ -825,7 +825,7 @@ public class Project extends EntityMP implements Serializable {
     /**
      * 设置 [关闭日期]
      */
-    public void setCloseddate(Timestamp closeddate){
+    public void setCloseddate(Timestamp closeddate) {
         this.closeddate = closeddate ;
         this.modify("closeddate",closeddate);
     }
@@ -833,7 +833,7 @@ public class Project extends EntityMP implements Serializable {
     /**
      * 格式化日期 [关闭日期]
      */
-    public String formatCloseddate(){
+    public String formatCloseddate() {
         if (this.closeddate == null) {
             return null;
         }
@@ -843,7 +843,7 @@ public class Project extends EntityMP implements Serializable {
     /**
      * 设置 [测试负责人]
      */
-    public void setQd(String qd){
+    public void setQd(String qd) {
         this.qd = qd ;
         this.modify("qd",qd);
     }
@@ -851,7 +851,7 @@ public class Project extends EntityMP implements Serializable {
     /**
      * 设置 [父项目]
      */
-    public void setParent(Long parent){
+    public void setParent(Long parent) {
         this.parent = parent ;
         this.modify("parent",parent);
     }

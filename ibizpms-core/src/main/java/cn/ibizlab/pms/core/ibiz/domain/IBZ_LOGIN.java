@@ -53,7 +53,7 @@ public class IBZ_LOGIN extends EntityMP implements Serializable {
     /**
      * ID
      */
-    @DEField(isKeyField=true)
+    @DEField(isKeyField = true)
     @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
@@ -85,7 +85,7 @@ public class IBZ_LOGIN extends EntityMP implements Serializable {
     /**
      * 设置 [真实姓名]
      */
-    public void setRealname(String realname){
+    public void setRealname(String realname) {
         this.realname = realname ;
         this.modify("realname",realname);
     }
@@ -93,7 +93,7 @@ public class IBZ_LOGIN extends EntityMP implements Serializable {
     /**
      * 设置 [账户]
      */
-    public void setAccount(String account){
+    public void setAccount(String account) {
         this.account = account ;
         this.modify("account",account);
     }
@@ -101,7 +101,7 @@ public class IBZ_LOGIN extends EntityMP implements Serializable {
     /**
      * 设置 [源代码账户]
      */
-    public void setCommiter(String commiter){
+    public void setCommiter(String commiter) {
         this.commiter = commiter ;
         this.modify("commiter",commiter);
     }

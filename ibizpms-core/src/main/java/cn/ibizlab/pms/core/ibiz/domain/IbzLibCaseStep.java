@@ -46,7 +46,7 @@ public class IbzLibCaseStep extends EntityMP implements Serializable {
     /**
      * 编号
      */
-    @DEField(isKeyField=true)
+    @DEField(isKeyField = true)
     @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
@@ -92,7 +92,7 @@ public class IbzLibCaseStep extends EntityMP implements Serializable {
     /**
      * 设置 [预期]
      */
-    public void setExpect(String expect){
+    public void setExpect(String expect) {
         this.expect = expect ;
         this.modify("expect",expect);
     }
@@ -100,7 +100,7 @@ public class IbzLibCaseStep extends EntityMP implements Serializable {
     /**
      * 设置 [步骤]
      */
-    public void setDesc(String desc){
+    public void setDesc(String desc) {
         this.desc = desc ;
         this.modify("desc",desc);
     }
@@ -108,7 +108,7 @@ public class IbzLibCaseStep extends EntityMP implements Serializable {
     /**
      * 设置 [类型]
      */
-    public void setType(String type){
+    public void setType(String type) {
         this.type = type ;
         this.modify("type",type);
     }

@@ -61,7 +61,7 @@ public class GroupPriv extends EntityMP implements Serializable {
     /**
      * 虚拟主键
      */
-    @DEField(isKeyField=true)
+    @DEField(isKeyField = true)
     @TableField(exist = false)
     @JSONField(name = "id")
     @JsonProperty("id")
@@ -79,7 +79,7 @@ public class GroupPriv extends EntityMP implements Serializable {
     /**
      * 设置 [group]
      */
-    public void setGroup(Integer group){
+    public void setGroup(Integer group) {
         this.group = group ;
         this.modify("group",group);
     }
@@ -87,7 +87,7 @@ public class GroupPriv extends EntityMP implements Serializable {
     /**
      * 设置 [method]
      */
-    public void setMethod(String method){
+    public void setMethod(String method) {
         this.method = method ;
         this.modify("method",method);
     }
@@ -95,7 +95,7 @@ public class GroupPriv extends EntityMP implements Serializable {
     /**
      * 设置 [module]
      */
-    public void setModule(String module){
+    public void setModule(String module) {
         this.module = module ;
         this.modify("module",module);
     }

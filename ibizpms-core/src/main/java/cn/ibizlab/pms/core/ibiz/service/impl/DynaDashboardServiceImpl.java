@@ -54,8 +54,9 @@ public class DynaDashboardServiceImpl extends ServiceImpl<DynaDashboardMapper, D
     @Override
     @Transactional
     public boolean create(DynaDashboard et) {
-        if(!this.retBool(this.baseMapper.insert(et)))
+        if(!this.retBool(this.baseMapper.insert(et))) {
             return false;
+        }
         CachedBeanCopier.copy(get(et.getDynadashboardid()),et);
         return true;
     }
@@ -69,8 +70,9 @@ public class DynaDashboardServiceImpl extends ServiceImpl<DynaDashboardMapper, D
     @Override
     @Transactional
     public boolean update(DynaDashboard et) {
-         if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("dynadashboardid",et.getDynadashboardid())))
+        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("dynadashboardid",et.getDynadashboardid()))) {
             return false;
+        }
         CachedBeanCopier.copy(get(et.getDynadashboardid()),et);
         return true;
     }
@@ -119,8 +121,9 @@ public class DynaDashboardServiceImpl extends ServiceImpl<DynaDashboardMapper, D
     @Override
     @Transactional
     public boolean save(DynaDashboard et) {
-        if(!saveOrUpdate(et))
+        if(!saveOrUpdate(et)) {
             return false;
+        }
         return true;
     }
 
@@ -202,10 +205,12 @@ public class DynaDashboardServiceImpl extends ServiceImpl<DynaDashboardMapper, D
                 ids.add(id);
             }
         }
-        if(ids.size()>0)
-           return this.listByIds(ids);
-        else
-           return entities;
+        if(ids.size()>0) {
+            return this.listByIds(ids);
+        }
+        else {
+            return entities;
+        }
     }
 
 

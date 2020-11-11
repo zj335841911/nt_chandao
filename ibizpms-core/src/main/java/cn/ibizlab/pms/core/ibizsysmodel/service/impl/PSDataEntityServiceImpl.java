@@ -61,11 +61,11 @@ public class PSDataEntityServiceImpl implements IPSDataEntityService {
     private String password;
 
     public PSDataEntityFeignClient getPSDataEntityFeignClient(String devSlnSysId) {
-        if(StringUtils.isNotBlank(serviceName)){
-            return OutsideAccessorUtils.buildAccessor(SpringContextHolder.getApplicationContext(), PSDataEntityFeignClient.class, serviceName, false, serviceName, false, loginname, password,devSlnSysId);
-        }else if(StringUtils.isNotBlank(serviceUrl)){
-            return OutsideAccessorUtils.buildAccessorByUrl(SpringContextHolder.getApplicationContext(), PSDataEntityFeignClient.class, serviceUrl, false, serviceUrl, false, loginname, password,devSlnSysId);
-        }else{
+        if(StringUtils.isNotBlank(serviceName)) {
+            return OutsideAccessorUtils.buildAccessor(SpringContextHolder.getApplicationContext(), PSDataEntityFeignClient.class, serviceName, false, serviceName, false, loginname, password, devSlnSysId);
+        } else if(StringUtils.isNotBlank(serviceUrl)) {
+            return OutsideAccessorUtils.buildAccessorByUrl(SpringContextHolder.getApplicationContext(), PSDataEntityFeignClient.class, serviceUrl, false, serviceUrl, false, loginname, password, devSlnSysId);
+        } else {
             throw new RuntimeException("缺少平台服务配置信息。");
         }
     }
@@ -83,9 +83,10 @@ public class PSDataEntityServiceImpl implements IPSDataEntityService {
     @Override
     public boolean create(String devSlnSysId,PSDataEntity et) {
         PSDataEntity rt = getPSDataEntityFeignClient(devSlnSysId).create(et);
-        if(rt==null)
+        if(rt==null) {
             return false;
-        CachedBeanCopier.copy(rt,et);
+	}
+        CachedBeanCopier.copy(rt, et);
         return true;
     }
 
@@ -94,7 +95,7 @@ public class PSDataEntityServiceImpl implements IPSDataEntityService {
     }
 
     public void createBatch(String devSlnSysId,List<PSDataEntity> list){
-        getPSDataEntityFeignClient(devSlnSysId).createBatch(list) ;
+        getPSDataEntityFeignClient(devSlnSysId).createBatch(list);
     }
 
     @Override
@@ -108,13 +109,13 @@ public class PSDataEntityServiceImpl implements IPSDataEntityService {
     }
 
     @Override
-    public boolean update(String devSlnSysId,PSDataEntity et) {
-        PSDataEntity rt = getPSDataEntityFeignClient(devSlnSysId).update(et.getPsdataentityid(),et);
-        if(rt==null)
+    public boolean update(String devSlnSysId, PSDataEntity et) {
+        PSDataEntity rt = getPSDataEntityFeignClient(devSlnSysId).update(et.getPsdataentityid(), et);
+        if(rt==null) {
             return false;
-        CachedBeanCopier.copy(rt,et);
+	}
+        CachedBeanCopier.copy(rt, et);
         return true;
-
     }
 
     public void updateBatch(List<PSDataEntity> list){
@@ -122,7 +123,7 @@ public class PSDataEntityServiceImpl implements IPSDataEntityService {
     }
 
     public void updateBatch(String devSlnSysId,List<PSDataEntity> list){
-        getPSDataEntityFeignClient(devSlnSysId).updateBatch(list) ;
+        getPSDataEntityFeignClient(devSlnSysId).updateBatch(list);
     }
 
     @Override
@@ -133,7 +134,7 @@ public class PSDataEntityServiceImpl implements IPSDataEntityService {
 
     @Override
     public boolean remove(String devSlnSysId,String psdataentityid) {
-        boolean result=getPSDataEntityFeignClient(devSlnSysId).remove(psdataentityid) ;
+        boolean result = getPSDataEntityFeignClient(devSlnSysId).remove(psdataentityid);
         return result;
     }
 
@@ -159,14 +160,14 @@ public class PSDataEntityServiceImpl implements IPSDataEntityService {
 
     @Override
     public PSDataEntity get(String devSlnSysId,String psdataentityid) {
-		PSDataEntity et=getPSDataEntityFeignClient(devSlnSysId).get(psdataentityid);
-        if(et==null){
-            et=new PSDataEntity();
+		PSDataEntity et = getPSDataEntityFeignClient(devSlnSysId).get(psdataentityid);
+        if(et == null) {
+            et = new PSDataEntity();
             et.setPsdataentityid(psdataentityid);
         }
         else{
         }
-        return  et;
+        return et;
     }
 
     @Override
@@ -182,7 +183,7 @@ public class PSDataEntityServiceImpl implements IPSDataEntityService {
 
     @Override
     public PSDataEntity getDraft(String devSlnSysId,PSDataEntity et) {
-        et=getPSDataEntityFeignClient(devSlnSysId).getDraft();
+        et = getPSDataEntityFeignClient(devSlnSysId).getDraft();
         return et;
     }
 
@@ -208,9 +209,12 @@ public class PSDataEntityServiceImpl implements IPSDataEntityService {
     @Override
     @Transactional
     public boolean save(String devSlnSysId,PSDataEntity et) {
-        if(et.getPsdataentityid()==null) et.setPsdataentityid((String)et.getDefaultKey(true));
-        if(!getPSDataEntityFeignClient(devSlnSysId).save(et))
+        if(et.getPsdataentityid() == null) {
+	    et.setPsdataentityid((String)et.getDefaultKey(true));
+	}
+        if(!getPSDataEntityFeignClient(devSlnSysId).save(et)) {
             return false;
+	}
         return true;
     }
 
@@ -221,7 +225,7 @@ public class PSDataEntityServiceImpl implements IPSDataEntityService {
 
     @Override
     public void saveBatch(String devSlnSysId,List<PSDataEntity> list) {
-        getPSDataEntityFeignClient(devSlnSysId).saveBatch(list) ;
+        getPSDataEntityFeignClient(devSlnSysId).saveBatch(list);
     }
 
 
@@ -235,8 +239,8 @@ public class PSDataEntityServiceImpl implements IPSDataEntityService {
     }
 
     @Override
-    public List<PSDataEntity> selectByPsmoduleid(String devSlnSysId,String psmoduleid) {
-        PSDataEntitySearchContext context=new PSDataEntitySearchContext();
+    public List<PSDataEntity> selectByPsmoduleid(String devSlnSysId, String psmoduleid) {
+        PSDataEntitySearchContext context = new PSDataEntitySearchContext();
         context.setSize(Integer.MAX_VALUE);
         context.setN_psmoduleid_eq(psmoduleid);
         return getPSDataEntityFeignClient(devSlnSysId).searchDefault(context).getContent();
@@ -260,13 +264,14 @@ public class PSDataEntityServiceImpl implements IPSDataEntityService {
     }
 
     @Override
-    public void removeByPsmoduleid(String devSlnSysId,String psmoduleid) {
-        Set<String> delIds=new HashSet<String>();
-        for(PSDataEntity before:selectByPsmoduleid(devSlnSysId,psmoduleid)){
+    public void removeByPsmoduleid(String devSlnSysId, String psmoduleid) {
+        Set<String> delIds = new HashSet<String>();
+        for(PSDataEntity before:selectByPsmoduleid(devSlnSysId, psmoduleid)){
             delIds.add(before.getPsdataentityid());
         }
-        if(delIds.size()>0)
+        if(delIds.size() > 0) {
             this.removeBatch(delIds);
+	}
     }
 
 	@Override
@@ -278,8 +283,8 @@ public class PSDataEntityServiceImpl implements IPSDataEntityService {
     }
 
     @Override
-    public List<PSDataEntity> selectByPssubsyssadeid(String devSlnSysId,String pssubsyssadeid) {
-        PSDataEntitySearchContext context=new PSDataEntitySearchContext();
+    public List<PSDataEntity> selectByPssubsyssadeid(String devSlnSysId, String pssubsyssadeid) {
+        PSDataEntitySearchContext context = new PSDataEntitySearchContext();
         context.setSize(Integer.MAX_VALUE);
         context.setN_pssubsyssadeid_eq(pssubsyssadeid);
         return getPSDataEntityFeignClient(devSlnSysId).searchDefault(context).getContent();
@@ -303,13 +308,14 @@ public class PSDataEntityServiceImpl implements IPSDataEntityService {
     }
 
     @Override
-    public void removeByPssubsyssadeid(String devSlnSysId,String pssubsyssadeid) {
-        Set<String> delIds=new HashSet<String>();
-        for(PSDataEntity before:selectByPssubsyssadeid(devSlnSysId,pssubsyssadeid)){
+    public void removeByPssubsyssadeid(String devSlnSysId, String pssubsyssadeid) {
+        Set<String> delIds = new HashSet<String>();
+        for(PSDataEntity before:selectByPssubsyssadeid(devSlnSysId, pssubsyssadeid)){
             delIds.add(before.getPsdataentityid());
         }
-        if(delIds.size()>0)
+        if(delIds.size() > 0) {
             this.removeBatch(delIds);
+	}
     }
 
 	@Override
@@ -321,8 +327,8 @@ public class PSDataEntityServiceImpl implements IPSDataEntityService {
     }
 
     @Override
-    public List<PSDataEntity> selectByPssubsysserviceapiid(String devSlnSysId,String pssubsysserviceapiid) {
-        PSDataEntitySearchContext context=new PSDataEntitySearchContext();
+    public List<PSDataEntity> selectByPssubsysserviceapiid(String devSlnSysId, String pssubsysserviceapiid) {
+        PSDataEntitySearchContext context = new PSDataEntitySearchContext();
         context.setSize(Integer.MAX_VALUE);
         context.setN_pssubsysserviceapiid_eq(pssubsysserviceapiid);
         return getPSDataEntityFeignClient(devSlnSysId).searchDefault(context).getContent();
@@ -346,13 +352,14 @@ public class PSDataEntityServiceImpl implements IPSDataEntityService {
     }
 
     @Override
-    public void removeByPssubsysserviceapiid(String devSlnSysId,String pssubsysserviceapiid) {
-        Set<String> delIds=new HashSet<String>();
-        for(PSDataEntity before:selectByPssubsysserviceapiid(devSlnSysId,pssubsysserviceapiid)){
+    public void removeByPssubsysserviceapiid(String devSlnSysId, String pssubsysserviceapiid) {
+        Set<String> delIds = new HashSet<String>();
+        for(PSDataEntity before:selectByPssubsysserviceapiid(devSlnSysId, pssubsysserviceapiid)){
             delIds.add(before.getPsdataentityid());
         }
-        if(delIds.size()>0)
+        if(delIds.size() > 0) {
             this.removeBatch(delIds);
+	}
     }
 
 	@Override
@@ -364,8 +371,8 @@ public class PSDataEntityServiceImpl implements IPSDataEntityService {
     }
 
     @Override
-    public List<PSDataEntity> selectByPssysreqitemid(String devSlnSysId,String pssysreqitemid) {
-        PSDataEntitySearchContext context=new PSDataEntitySearchContext();
+    public List<PSDataEntity> selectByPssysreqitemid(String devSlnSysId, String pssysreqitemid) {
+        PSDataEntitySearchContext context = new PSDataEntitySearchContext();
         context.setSize(Integer.MAX_VALUE);
         context.setN_pssysreqitemid_eq(pssysreqitemid);
         return getPSDataEntityFeignClient(devSlnSysId).searchDefault(context).getContent();
@@ -389,13 +396,14 @@ public class PSDataEntityServiceImpl implements IPSDataEntityService {
     }
 
     @Override
-    public void removeByPssysreqitemid(String devSlnSysId,String pssysreqitemid) {
-        Set<String> delIds=new HashSet<String>();
-        for(PSDataEntity before:selectByPssysreqitemid(devSlnSysId,pssysreqitemid)){
+    public void removeByPssysreqitemid(String devSlnSysId, String pssysreqitemid) {
+        Set<String> delIds = new HashSet<String>();
+        for(PSDataEntity before:selectByPssysreqitemid(devSlnSysId, pssysreqitemid)){
             delIds.add(before.getPsdataentityid());
         }
-        if(delIds.size()>0)
+        if(delIds.size() > 0) {
             this.removeBatch(delIds);
+	}
     }
 
 

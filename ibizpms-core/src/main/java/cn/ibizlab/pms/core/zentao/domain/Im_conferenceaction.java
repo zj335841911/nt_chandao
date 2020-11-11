@@ -70,14 +70,14 @@ public class Im_conferenceaction extends EntityMP implements Serializable {
      */
     @DEField(defaultValue = "0000-00-00 00:00:00")
     @TableField(value = "`date`")
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "date" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "date", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("date")
     private Timestamp date;
     /**
      * id
      */
-    @DEField(isKeyField=true)
+    @DEField(isKeyField = true)
     @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
@@ -88,7 +88,7 @@ public class Im_conferenceaction extends EntityMP implements Serializable {
     /**
      * 设置 [rid]
      */
-    public void setRid(String rid){
+    public void setRid(String rid) {
         this.rid = rid ;
         this.modify("rid",rid);
     }
@@ -96,7 +96,7 @@ public class Im_conferenceaction extends EntityMP implements Serializable {
     /**
      * 设置 [type]
      */
-    public void setType(String type){
+    public void setType(String type) {
         this.type = type ;
         this.modify("type",type);
     }
@@ -104,7 +104,7 @@ public class Im_conferenceaction extends EntityMP implements Serializable {
     /**
      * 设置 [user]
      */
-    public void setUser(Integer user){
+    public void setUser(Integer user) {
         this.user = user ;
         this.modify("user",user);
     }
@@ -112,7 +112,7 @@ public class Im_conferenceaction extends EntityMP implements Serializable {
     /**
      * 设置 [date]
      */
-    public void setDate(Timestamp date){
+    public void setDate(Timestamp date) {
         this.date = date ;
         this.modify("date",date);
     }
@@ -120,7 +120,7 @@ public class Im_conferenceaction extends EntityMP implements Serializable {
     /**
      * 格式化日期 [date]
      */
-    public String formatDate(){
+    public String formatDate() {
         if (this.date == null) {
             return null;
         }

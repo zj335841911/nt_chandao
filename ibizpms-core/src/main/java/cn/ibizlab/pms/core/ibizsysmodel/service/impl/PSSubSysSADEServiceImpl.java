@@ -61,11 +61,11 @@ public class PSSubSysSADEServiceImpl implements IPSSubSysSADEService {
     private String password;
 
     public PSSubSysSADEFeignClient getPSSubSysSADEFeignClient(String devSlnSysId) {
-        if(StringUtils.isNotBlank(serviceName)){
-            return OutsideAccessorUtils.buildAccessor(SpringContextHolder.getApplicationContext(), PSSubSysSADEFeignClient.class, serviceName, false, serviceName, false, loginname, password,devSlnSysId);
-        }else if(StringUtils.isNotBlank(serviceUrl)){
-            return OutsideAccessorUtils.buildAccessorByUrl(SpringContextHolder.getApplicationContext(), PSSubSysSADEFeignClient.class, serviceUrl, false, serviceUrl, false, loginname, password,devSlnSysId);
-        }else{
+        if(StringUtils.isNotBlank(serviceName)) {
+            return OutsideAccessorUtils.buildAccessor(SpringContextHolder.getApplicationContext(), PSSubSysSADEFeignClient.class, serviceName, false, serviceName, false, loginname, password, devSlnSysId);
+        } else if(StringUtils.isNotBlank(serviceUrl)) {
+            return OutsideAccessorUtils.buildAccessorByUrl(SpringContextHolder.getApplicationContext(), PSSubSysSADEFeignClient.class, serviceUrl, false, serviceUrl, false, loginname, password, devSlnSysId);
+        } else {
             throw new RuntimeException("缺少平台服务配置信息。");
         }
     }
@@ -83,9 +83,10 @@ public class PSSubSysSADEServiceImpl implements IPSSubSysSADEService {
     @Override
     public boolean create(String devSlnSysId,PSSubSysSADE et) {
         PSSubSysSADE rt = getPSSubSysSADEFeignClient(devSlnSysId).create(et);
-        if(rt==null)
+        if(rt==null) {
             return false;
-        CachedBeanCopier.copy(rt,et);
+	}
+        CachedBeanCopier.copy(rt, et);
         return true;
     }
 
@@ -94,7 +95,7 @@ public class PSSubSysSADEServiceImpl implements IPSSubSysSADEService {
     }
 
     public void createBatch(String devSlnSysId,List<PSSubSysSADE> list){
-        getPSSubSysSADEFeignClient(devSlnSysId).createBatch(list) ;
+        getPSSubSysSADEFeignClient(devSlnSysId).createBatch(list);
     }
 
     @Override
@@ -108,13 +109,13 @@ public class PSSubSysSADEServiceImpl implements IPSSubSysSADEService {
     }
 
     @Override
-    public boolean update(String devSlnSysId,PSSubSysSADE et) {
-        PSSubSysSADE rt = getPSSubSysSADEFeignClient(devSlnSysId).update(et.getPssubsyssadeid(),et);
-        if(rt==null)
+    public boolean update(String devSlnSysId, PSSubSysSADE et) {
+        PSSubSysSADE rt = getPSSubSysSADEFeignClient(devSlnSysId).update(et.getPssubsyssadeid(), et);
+        if(rt==null) {
             return false;
-        CachedBeanCopier.copy(rt,et);
+	}
+        CachedBeanCopier.copy(rt, et);
         return true;
-
     }
 
     public void updateBatch(List<PSSubSysSADE> list){
@@ -122,7 +123,7 @@ public class PSSubSysSADEServiceImpl implements IPSSubSysSADEService {
     }
 
     public void updateBatch(String devSlnSysId,List<PSSubSysSADE> list){
-        getPSSubSysSADEFeignClient(devSlnSysId).updateBatch(list) ;
+        getPSSubSysSADEFeignClient(devSlnSysId).updateBatch(list);
     }
 
     @Override
@@ -133,7 +134,7 @@ public class PSSubSysSADEServiceImpl implements IPSSubSysSADEService {
 
     @Override
     public boolean remove(String devSlnSysId,String pssubsyssadeid) {
-        boolean result=getPSSubSysSADEFeignClient(devSlnSysId).remove(pssubsyssadeid) ;
+        boolean result = getPSSubSysSADEFeignClient(devSlnSysId).remove(pssubsyssadeid);
         return result;
     }
 
@@ -159,14 +160,14 @@ public class PSSubSysSADEServiceImpl implements IPSSubSysSADEService {
 
     @Override
     public PSSubSysSADE get(String devSlnSysId,String pssubsyssadeid) {
-		PSSubSysSADE et=getPSSubSysSADEFeignClient(devSlnSysId).get(pssubsyssadeid);
-        if(et==null){
-            et=new PSSubSysSADE();
+		PSSubSysSADE et = getPSSubSysSADEFeignClient(devSlnSysId).get(pssubsyssadeid);
+        if(et == null) {
+            et = new PSSubSysSADE();
             et.setPssubsyssadeid(pssubsyssadeid);
         }
         else{
         }
-        return  et;
+        return et;
     }
 
     @Override
@@ -182,7 +183,7 @@ public class PSSubSysSADEServiceImpl implements IPSSubSysSADEService {
 
     @Override
     public PSSubSysSADE getDraft(String devSlnSysId,PSSubSysSADE et) {
-        et=getPSSubSysSADEFeignClient(devSlnSysId).getDraft();
+        et = getPSSubSysSADEFeignClient(devSlnSysId).getDraft();
         return et;
     }
 
@@ -208,9 +209,12 @@ public class PSSubSysSADEServiceImpl implements IPSSubSysSADEService {
     @Override
     @Transactional
     public boolean save(String devSlnSysId,PSSubSysSADE et) {
-        if(et.getPssubsyssadeid()==null) et.setPssubsyssadeid((String)et.getDefaultKey(true));
-        if(!getPSSubSysSADEFeignClient(devSlnSysId).save(et))
+        if(et.getPssubsyssadeid() == null) {
+	    et.setPssubsyssadeid((String)et.getDefaultKey(true));
+	}
+        if(!getPSSubSysSADEFeignClient(devSlnSysId).save(et)) {
             return false;
+	}
         return true;
     }
 
@@ -221,7 +225,7 @@ public class PSSubSysSADEServiceImpl implements IPSSubSysSADEService {
 
     @Override
     public void saveBatch(String devSlnSysId,List<PSSubSysSADE> list) {
-        getPSSubSysSADEFeignClient(devSlnSysId).saveBatch(list) ;
+        getPSSubSysSADEFeignClient(devSlnSysId).saveBatch(list);
     }
 
 
@@ -235,8 +239,8 @@ public class PSSubSysSADEServiceImpl implements IPSSubSysSADEService {
     }
 
     @Override
-    public List<PSSubSysSADE> selectByPssubsysserviceapiid(String devSlnSysId,String pssubsysserviceapiid) {
-        PSSubSysSADESearchContext context=new PSSubSysSADESearchContext();
+    public List<PSSubSysSADE> selectByPssubsysserviceapiid(String devSlnSysId, String pssubsysserviceapiid) {
+        PSSubSysSADESearchContext context = new PSSubSysSADESearchContext();
         context.setSize(Integer.MAX_VALUE);
         context.setN_pssubsysserviceapiid_eq(pssubsysserviceapiid);
         return getPSSubSysSADEFeignClient(devSlnSysId).searchDefault(context).getContent();
@@ -260,13 +264,14 @@ public class PSSubSysSADEServiceImpl implements IPSSubSysSADEService {
     }
 
     @Override
-    public void removeByPssubsysserviceapiid(String devSlnSysId,String pssubsysserviceapiid) {
-        Set<String> delIds=new HashSet<String>();
-        for(PSSubSysSADE before:selectByPssubsysserviceapiid(devSlnSysId,pssubsysserviceapiid)){
+    public void removeByPssubsysserviceapiid(String devSlnSysId, String pssubsysserviceapiid) {
+        Set<String> delIds = new HashSet<String>();
+        for(PSSubSysSADE before:selectByPssubsysserviceapiid(devSlnSysId, pssubsysserviceapiid)){
             delIds.add(before.getPssubsyssadeid());
         }
-        if(delIds.size()>0)
+        if(delIds.size() > 0) {
             this.removeBatch(delIds);
+	}
     }
 
 

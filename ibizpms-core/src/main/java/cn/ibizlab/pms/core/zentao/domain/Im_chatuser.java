@@ -46,7 +46,7 @@ public class Im_chatuser extends EntityMP implements Serializable {
     /**
      * id
      */
-    @DEField(isKeyField=true)
+    @DEField(isKeyField = true)
     @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
@@ -85,8 +85,8 @@ public class Im_chatuser extends EntityMP implements Serializable {
      */
     @DEField(defaultValue = "0000-00-00 00:00:00")
     @TableField(value = "`join`")
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "join" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "join", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("join")
     private Timestamp join;
     /**
@@ -116,8 +116,8 @@ public class Im_chatuser extends EntityMP implements Serializable {
      */
     @DEField(defaultValue = "0000-00-00 00:00:00")
     @TableField(value = "`quit`")
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "quit" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "quit", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("quit")
     private Timestamp quit;
     /**
@@ -133,7 +133,7 @@ public class Im_chatuser extends EntityMP implements Serializable {
     /**
      * 设置 [order]
      */
-    public void setOrder(Integer order){
+    public void setOrder(Integer order) {
         this.order = order ;
         this.modify("order",order);
     }
@@ -141,7 +141,7 @@ public class Im_chatuser extends EntityMP implements Serializable {
     /**
      * 设置 [freeze]
      */
-    public void setFreeze(String freeze){
+    public void setFreeze(String freeze) {
         this.freeze = freeze ;
         this.modify("freeze",freeze);
     }
@@ -149,7 +149,7 @@ public class Im_chatuser extends EntityMP implements Serializable {
     /**
      * 设置 [star]
      */
-    public void setStar(String star){
+    public void setStar(String star) {
         this.star = star ;
         this.modify("star",star);
     }
@@ -157,7 +157,7 @@ public class Im_chatuser extends EntityMP implements Serializable {
     /**
      * 设置 [hide]
      */
-    public void setHide(String hide){
+    public void setHide(String hide) {
         this.hide = hide ;
         this.modify("hide",hide);
     }
@@ -165,7 +165,7 @@ public class Im_chatuser extends EntityMP implements Serializable {
     /**
      * 设置 [join]
      */
-    public void setJoin(Timestamp join){
+    public void setJoin(Timestamp join) {
         this.join = join ;
         this.modify("join",join);
     }
@@ -173,7 +173,7 @@ public class Im_chatuser extends EntityMP implements Serializable {
     /**
      * 格式化日期 [join]
      */
-    public String formatJoin(){
+    public String formatJoin() {
         if (this.join == null) {
             return null;
         }
@@ -183,7 +183,7 @@ public class Im_chatuser extends EntityMP implements Serializable {
     /**
      * 设置 [user]
      */
-    public void setUser(Integer user){
+    public void setUser(Integer user) {
         this.user = user ;
         this.modify("user",user);
     }
@@ -191,7 +191,7 @@ public class Im_chatuser extends EntityMP implements Serializable {
     /**
      * 设置 [mute]
      */
-    public void setMute(String mute){
+    public void setMute(String mute) {
         this.mute = mute ;
         this.modify("mute",mute);
     }
@@ -199,7 +199,7 @@ public class Im_chatuser extends EntityMP implements Serializable {
     /**
      * 设置 [cgid]
      */
-    public void setCgid(String cgid){
+    public void setCgid(String cgid) {
         this.cgid = cgid ;
         this.modify("cgid",cgid);
     }
@@ -207,7 +207,7 @@ public class Im_chatuser extends EntityMP implements Serializable {
     /**
      * 设置 [quit]
      */
-    public void setQuit(Timestamp quit){
+    public void setQuit(Timestamp quit) {
         this.quit = quit ;
         this.modify("quit",quit);
     }
@@ -215,7 +215,7 @@ public class Im_chatuser extends EntityMP implements Serializable {
     /**
      * 格式化日期 [quit]
      */
-    public String formatQuit(){
+    public String formatQuit() {
         if (this.quit == null) {
             return null;
         }
@@ -225,7 +225,7 @@ public class Im_chatuser extends EntityMP implements Serializable {
     /**
      * 设置 [category]
      */
-    public void setCategory(String category){
+    public void setCategory(String category) {
         this.category = category ;
         this.modify("category",category);
     }

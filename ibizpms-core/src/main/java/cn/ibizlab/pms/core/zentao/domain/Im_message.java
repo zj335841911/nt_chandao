@@ -60,7 +60,7 @@ public class Im_message extends EntityMP implements Serializable {
     /**
      * id
      */
-    @DEField(isKeyField=true)
+    @DEField(isKeyField = true)
     @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
@@ -70,15 +70,15 @@ public class Im_message extends EntityMP implements Serializable {
      */
     @DEField(defaultValue = "0000-00-00 00:00:00")
     @TableField(value = "`date`")
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "date" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "date", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("date")
     private Timestamp date;
     /**
      * 逻辑删除标志
      */
-    @DEField(defaultValue = "0" , preType = DEPredefinedFieldType.LOGICVALID, logicval = "0" , logicdelval="1")
-    @TableLogic(value= "0",delval="1")
+    @DEField(defaultValue = "0", preType = DEPredefinedFieldType.LOGICVALID, logicval = "0", logicdelval = "1")
+    @TableLogic(value= "0", delval = "1")
     @TableField(value = "`deleted`")
     @JSONField(name = "deleted")
     @JsonProperty("deleted")
@@ -131,7 +131,7 @@ public class Im_message extends EntityMP implements Serializable {
     /**
      * 设置 [user]
      */
-    public void setUser(String user){
+    public void setUser(String user) {
         this.user = user ;
         this.modify("user",user);
     }
@@ -139,7 +139,7 @@ public class Im_message extends EntityMP implements Serializable {
     /**
      * 设置 [gid]
      */
-    public void setGid(String gid){
+    public void setGid(String gid) {
         this.gid = gid ;
         this.modify("gid",gid);
     }
@@ -147,7 +147,7 @@ public class Im_message extends EntityMP implements Serializable {
     /**
      * 设置 [date]
      */
-    public void setDate(Timestamp date){
+    public void setDate(Timestamp date) {
         this.date = date ;
         this.modify("date",date);
     }
@@ -155,7 +155,7 @@ public class Im_message extends EntityMP implements Serializable {
     /**
      * 格式化日期 [date]
      */
-    public String formatDate(){
+    public String formatDate() {
         if (this.date == null) {
             return null;
         }
@@ -165,7 +165,7 @@ public class Im_message extends EntityMP implements Serializable {
     /**
      * 设置 [data]
      */
-    public void setData(String data){
+    public void setData(String data) {
         this.data = data ;
         this.modify("data",data);
     }
@@ -173,7 +173,7 @@ public class Im_message extends EntityMP implements Serializable {
     /**
      * 设置 [type]
      */
-    public void setType(String type){
+    public void setType(String type) {
         this.type = type ;
         this.modify("type",type);
     }
@@ -181,7 +181,7 @@ public class Im_message extends EntityMP implements Serializable {
     /**
      * 设置 [content]
      */
-    public void setContent(String content){
+    public void setContent(String content) {
         this.content = content ;
         this.modify("content",content);
     }
@@ -189,7 +189,7 @@ public class Im_message extends EntityMP implements Serializable {
     /**
      * 设置 [cgid]
      */
-    public void setCgid(String cgid){
+    public void setCgid(String cgid) {
         this.cgid = cgid ;
         this.modify("cgid",cgid);
     }
@@ -197,7 +197,7 @@ public class Im_message extends EntityMP implements Serializable {
     /**
      * 设置 [order]
      */
-    public void setOrder(Long order){
+    public void setOrder(Long order) {
         this.order = order ;
         this.modify("order",order);
     }
@@ -205,7 +205,7 @@ public class Im_message extends EntityMP implements Serializable {
     /**
      * 设置 [contentType]
      */
-    public void setContenttype(String contenttype){
+    public void setContenttype(String contenttype) {
         this.contenttype = contenttype ;
         this.modify("contenttype",contenttype);
     }

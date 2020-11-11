@@ -53,7 +53,7 @@ public class Lang extends EntityMP implements Serializable {
     /**
      * id
      */
-    @DEField(isKeyField=true)
+    @DEField(isKeyField = true)
     @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
@@ -99,7 +99,7 @@ public class Lang extends EntityMP implements Serializable {
     /**
      * 设置 [module]
      */
-    public void setModule(String module){
+    public void setModule(String module) {
         this.module = module ;
         this.modify("module",module);
     }
@@ -107,7 +107,7 @@ public class Lang extends EntityMP implements Serializable {
     /**
      * 设置 [key]
      */
-    public void setKey(String key){
+    public void setKey(String key) {
         this.key = key ;
         this.modify("key",key);
     }
@@ -115,7 +115,7 @@ public class Lang extends EntityMP implements Serializable {
     /**
      * 设置 [section]
      */
-    public void setSection(String section){
+    public void setSection(String section) {
         this.section = section ;
         this.modify("section",section);
     }
@@ -123,7 +123,7 @@ public class Lang extends EntityMP implements Serializable {
     /**
      * 设置 [lang]
      */
-    public void setLang(String lang){
+    public void setLang(String lang) {
         this.lang = lang ;
         this.modify("lang",lang);
     }
@@ -131,7 +131,7 @@ public class Lang extends EntityMP implements Serializable {
     /**
      * 设置 [system]
      */
-    public void setSystem(String system){
+    public void setSystem(String system) {
         this.system = system ;
         this.modify("system",system);
     }
@@ -139,7 +139,7 @@ public class Lang extends EntityMP implements Serializable {
     /**
      * 设置 [value]
      */
-    public void setValue(String value){
+    public void setValue(String value) {
         this.value = value ;
         this.modify("value",value);
     }

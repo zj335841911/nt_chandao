@@ -58,8 +58,9 @@ public class EMPLOYEELOADServiceImpl extends ServiceImpl<EMPLOYEELOADMapper, EMP
     @Transactional
     public boolean create(EMPLOYEELOAD et) {
         fillParentData(et);
-        if(!this.retBool(this.baseMapper.insert(et)))
+        if(!this.retBool(this.baseMapper.insert(et))) {
             return false;
+        }
         CachedBeanCopier.copy(get(et.getId()),et);
         return true;
     }
@@ -75,8 +76,9 @@ public class EMPLOYEELOADServiceImpl extends ServiceImpl<EMPLOYEELOADMapper, EMP
     @Transactional
     public boolean update(EMPLOYEELOAD et) {
         fillParentData(et);
-         if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
+        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId()))) {
             return false;
+        }
         CachedBeanCopier.copy(get(et.getId()),et);
         return true;
     }
@@ -127,8 +129,9 @@ public class EMPLOYEELOADServiceImpl extends ServiceImpl<EMPLOYEELOADMapper, EMP
     @Override
     @Transactional
     public boolean save(EMPLOYEELOAD et) {
-        if(!saveOrUpdate(et))
+        if(!saveOrUpdate(et)) {
             return false;
+        }
         return true;
     }
 

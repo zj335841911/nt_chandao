@@ -36,7 +36,7 @@ public class SysTeamMember extends EntityClient implements Serializable {
     /**
      * 组成员标识
      */
-    @DEField(isKeyField=true)
+    @DEField(isKeyField = true)
     @JSONField(name = "teammemberid")
     @JsonProperty("teammemberid")
     private String teammemberid;
@@ -125,7 +125,7 @@ public class SysTeamMember extends EntityClient implements Serializable {
     /**
      * 设置 [区属]
      */
-    public void setDomains(String domains){
+    public void setDomains(String domains) {
         this.domains = domains ;
         this.modify("domains",domains);
     }
@@ -133,7 +133,7 @@ public class SysTeamMember extends EntityClient implements Serializable {
     /**
      * 设置 [用户标识]
      */
-    public void setUserid(String userid){
+    public void setUserid(String userid) {
         this.userid = userid ;
         this.modify("userid",userid);
     }
@@ -141,7 +141,7 @@ public class SysTeamMember extends EntityClient implements Serializable {
     /**
      * 设置 [组标识]
      */
-    public void setTeamid(String teamid){
+    public void setTeamid(String teamid) {
         this.teamid = teamid ;
         this.modify("teamid",teamid);
     }
@@ -149,7 +149,7 @@ public class SysTeamMember extends EntityClient implements Serializable {
     /**
      * 设置 [岗位标识]
      */
-    public void setPostid(String postid){
+    public void setPostid(String postid) {
         this.postid = postid ;
         this.modify("postid",postid);
     }

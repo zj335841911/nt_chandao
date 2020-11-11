@@ -70,16 +70,16 @@ public class Effort extends EntityMP implements Serializable {
      */
     @DEField(defaultValue = "0000-00-00 00:00:00")
     @TableField(value = "`end`")
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "end" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "end", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("end")
     private Timestamp end;
     /**
      * date
      */
     @TableField(value = "`date`")
-    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "date" , format="yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "date", format = "yyyy-MM-dd")
     @JsonProperty("date")
     private Timestamp date;
     /**
@@ -113,7 +113,7 @@ public class Effort extends EntityMP implements Serializable {
     /**
      * id
      */
-    @DEField(isKeyField=true)
+    @DEField(isKeyField = true)
     @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
@@ -123,8 +123,8 @@ public class Effort extends EntityMP implements Serializable {
      */
     @DEField(defaultValue = "0000-00-00 00:00:00")
     @TableField(value = "`begin`")
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "begin" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "begin", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("begin")
     private Timestamp begin;
 
@@ -133,7 +133,7 @@ public class Effort extends EntityMP implements Serializable {
     /**
      * 设置 [user]
      */
-    public void setUser(String user){
+    public void setUser(String user) {
         this.user = user ;
         this.modify("user",user);
     }
@@ -141,7 +141,7 @@ public class Effort extends EntityMP implements Serializable {
     /**
      * 设置 [idvalue]
      */
-    public void setIdvalue(Integer idvalue){
+    public void setIdvalue(Integer idvalue) {
         this.idvalue = idvalue ;
         this.modify("idvalue",idvalue);
     }
@@ -149,7 +149,7 @@ public class Effort extends EntityMP implements Serializable {
     /**
      * 设置 [status]
      */
-    public void setStatus(String status){
+    public void setStatus(String status) {
         this.status = status ;
         this.modify("status",status);
     }
@@ -157,7 +157,7 @@ public class Effort extends EntityMP implements Serializable {
     /**
      * 设置 [end]
      */
-    public void setEnd(Timestamp end){
+    public void setEnd(Timestamp end) {
         this.end = end ;
         this.modify("end",end);
     }
@@ -165,7 +165,7 @@ public class Effort extends EntityMP implements Serializable {
     /**
      * 格式化日期 [end]
      */
-    public String formatEnd(){
+    public String formatEnd() {
         if (this.end == null) {
             return null;
         }
@@ -175,7 +175,7 @@ public class Effort extends EntityMP implements Serializable {
     /**
      * 设置 [date]
      */
-    public void setDate(Timestamp date){
+    public void setDate(Timestamp date) {
         this.date = date ;
         this.modify("date",date);
     }
@@ -183,7 +183,7 @@ public class Effort extends EntityMP implements Serializable {
     /**
      * 格式化日期 [date]
      */
-    public String formatDate(){
+    public String formatDate() {
         if (this.date == null) {
             return null;
         }
@@ -193,7 +193,7 @@ public class Effort extends EntityMP implements Serializable {
     /**
      * 设置 [name]
      */
-    public void setName(String name){
+    public void setName(String name) {
         this.name = name ;
         this.modify("name",name);
     }
@@ -201,7 +201,7 @@ public class Effort extends EntityMP implements Serializable {
     /**
      * 设置 [desc]
      */
-    public void setDesc(String desc){
+    public void setDesc(String desc) {
         this.desc = desc ;
         this.modify("desc",desc);
     }
@@ -209,7 +209,7 @@ public class Effort extends EntityMP implements Serializable {
     /**
      * 设置 [todo]
      */
-    public void setTodo(String todo){
+    public void setTodo(String todo) {
         this.todo = todo ;
         this.modify("todo",todo);
     }
@@ -217,7 +217,7 @@ public class Effort extends EntityMP implements Serializable {
     /**
      * 设置 [type]
      */
-    public void setType(String type){
+    public void setType(String type) {
         this.type = type ;
         this.modify("type",type);
     }
@@ -225,7 +225,7 @@ public class Effort extends EntityMP implements Serializable {
     /**
      * 设置 [begin]
      */
-    public void setBegin(Timestamp begin){
+    public void setBegin(Timestamp begin) {
         this.begin = begin ;
         this.modify("begin",begin);
     }
@@ -233,7 +233,7 @@ public class Effort extends EntityMP implements Serializable {
     /**
      * 格式化日期 [begin]
      */
-    public String formatBegin(){
+    public String formatBegin() {
         if (this.begin == null) {
             return null;
         }

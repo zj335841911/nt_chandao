@@ -34,7 +34,7 @@ import cn.ibizlab.pms.util.domain.EntityClient;
 public class PSSystemDBCfg extends EntityClient implements Serializable {
     @Override
     public void modify(String field, Object val) {
-        getExtensionparams().put("dirtyflagenable",true);
+        getExtensionparams().put("dirtyflagenable", true);
         super.modify(field, val);
     }
 
@@ -48,7 +48,7 @@ public class PSSystemDBCfg extends EntityClient implements Serializable {
     /**
      * 系统数据库标识
      */
-    @DEField(isKeyField=true)
+    @DEField(isKeyField = true)
     @JSONField(name = "pssystemdbcfgid")
     @JsonProperty("pssystemdbcfgid")
     private String pssystemdbcfgid;
@@ -65,8 +65,8 @@ public class PSSystemDBCfg extends EntityClient implements Serializable {
      * 建立时间
      */
     @DEField(preType = DEPredefinedFieldType.CREATEDATE)
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "createdate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "createdate" , format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("createdate")
     private Timestamp createdate;
 
@@ -82,8 +82,8 @@ public class PSSystemDBCfg extends EntityClient implements Serializable {
      * 更新时间
      */
     @DEField(preType = DEPredefinedFieldType.UPDATEDATE)
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "updatedate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "updatedate" , format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("updatedate")
     private Timestamp updatedate;
 
@@ -197,8 +197,8 @@ public class PSSystemDBCfg extends EntityClient implements Serializable {
     /**
      * 资源就绪时间
      */
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "resreadytime" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "resreadytime" , format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("resreadytime")
     private Timestamp resreadytime;
 
@@ -293,7 +293,7 @@ public class PSSystemDBCfg extends EntityClient implements Serializable {
     /**
      * 设置 [系统数据库名称]
      */
-    public void setPssystemdbcfgname(String pssystemdbcfgname){
+    public void setPssystemdbcfgname(String pssystemdbcfgname) {
         this.pssystemdbcfgname = pssystemdbcfgname ;
         this.modify("pssystemdbcfgname",pssystemdbcfgname);
     }
@@ -301,7 +301,7 @@ public class PSSystemDBCfg extends EntityClient implements Serializable {
     /**
      * 设置 [附加模式名称]
      */
-    public void setAppendschema(Integer appendschema){
+    public void setAppendschema(Integer appendschema) {
         this.appendschema = appendschema ;
         this.modify("appendschema",appendschema);
     }
@@ -309,7 +309,7 @@ public class PSSystemDBCfg extends EntityClient implements Serializable {
     /**
      * 设置 [数据库模式名称]
      */
-    public void setDbschemaname(String dbschemaname){
+    public void setDbschemaname(String dbschemaname) {
         this.dbschemaname = dbschemaname ;
         this.modify("dbschemaname",dbschemaname);
     }
@@ -317,7 +317,7 @@ public class PSSystemDBCfg extends EntityClient implements Serializable {
     /**
      * 设置 [默认数据源]
      */
-    public void setDefaultflag(Integer defaultflag){
+    public void setDefaultflag(Integer defaultflag) {
         this.defaultflag = defaultflag ;
         this.modify("defaultflag",defaultflag);
     }
@@ -325,7 +325,7 @@ public class PSSystemDBCfg extends EntityClient implements Serializable {
     /**
      * 设置 [支持Web管理]
      */
-    public void setEnablewebtool(Integer enablewebtool){
+    public void setEnablewebtool(Integer enablewebtool) {
         this.enablewebtool = enablewebtool ;
         this.modify("enablewebtool",enablewebtool);
     }
@@ -333,7 +333,7 @@ public class PSSystemDBCfg extends EntityClient implements Serializable {
     /**
      * 设置 [备注]
      */
-    public void setMemo(String memo){
+    public void setMemo(String memo) {
         this.memo = memo ;
         this.modify("memo",memo);
     }
@@ -341,7 +341,7 @@ public class PSSystemDBCfg extends EntityClient implements Serializable {
     /**
      * 设置 [无数据库模式]
      */
-    public void setNodbinstmode(Integer nodbinstmode){
+    public void setNodbinstmode(Integer nodbinstmode) {
         this.nodbinstmode = nodbinstmode ;
         this.modify("nodbinstmode",nodbinstmode);
     }
@@ -349,7 +349,7 @@ public class PSSystemDBCfg extends EntityClient implements Serializable {
     /**
      * 设置 [空值排序]
      */
-    public void setNullvalorder(String nullvalorder){
+    public void setNullvalorder(String nullvalorder) {
         this.nullvalorder = nullvalorder ;
         this.modify("nullvalorder",nullvalorder);
     }
@@ -357,7 +357,7 @@ public class PSSystemDBCfg extends EntityClient implements Serializable {
     /**
      * 设置 [发布模型注释]
      */
-    public void setPubcommentflag(Integer pubcommentflag){
+    public void setPubcommentflag(Integer pubcommentflag) {
         this.pubcommentflag = pubcommentflag ;
         this.modify("pubcommentflag",pubcommentflag);
     }
@@ -365,7 +365,7 @@ public class PSSystemDBCfg extends EntityClient implements Serializable {
     /**
      * 设置 [对象名称转换]
      */
-    public void setObjnamecase(String objnamecase){
+    public void setObjnamecase(String objnamecase) {
         this.objnamecase = objnamecase ;
         this.modify("objnamecase",objnamecase);
     }
@@ -373,7 +373,7 @@ public class PSSystemDBCfg extends EntityClient implements Serializable {
     /**
      * 设置 [发布外键]
      */
-    public void setPubfkeyflag(Integer pubfkeyflag){
+    public void setPubfkeyflag(Integer pubfkeyflag) {
         this.pubfkeyflag = pubfkeyflag ;
         this.modify("pubfkeyflag",pubfkeyflag);
     }
@@ -381,7 +381,7 @@ public class PSSystemDBCfg extends EntityClient implements Serializable {
     /**
      * 设置 [发布数据库模型]
      */
-    public void setPubdbmodelflag(Integer pubdbmodelflag){
+    public void setPubdbmodelflag(Integer pubdbmodelflag) {
         this.pubdbmodelflag = pubdbmodelflag ;
         this.modify("pubdbmodelflag",pubdbmodelflag);
     }
@@ -389,7 +389,7 @@ public class PSSystemDBCfg extends EntityClient implements Serializable {
     /**
      * 设置 [资源信息]
      */
-    public void setResinfo(String resinfo){
+    public void setResinfo(String resinfo) {
         this.resinfo = resinfo ;
         this.modify("resinfo",resinfo);
     }
@@ -397,7 +397,7 @@ public class PSSystemDBCfg extends EntityClient implements Serializable {
     /**
      * 设置 [发布索引]
      */
-    public void setPubindexflag(Integer pubindexflag){
+    public void setPubindexflag(Integer pubindexflag) {
         this.pubindexflag = pubindexflag ;
         this.modify("pubindexflag",pubindexflag);
     }
@@ -405,7 +405,7 @@ public class PSSystemDBCfg extends EntityClient implements Serializable {
     /**
      * 设置 [发布视图]
      */
-    public void setPubviewflag(Integer pubviewflag){
+    public void setPubviewflag(Integer pubviewflag) {
         this.pubviewflag = pubviewflag ;
         this.modify("pubviewflag",pubviewflag);
     }
@@ -413,7 +413,7 @@ public class PSSystemDBCfg extends EntityClient implements Serializable {
     /**
      * 设置 [资源状态]
      */
-    public void setResstate(Integer resstate){
+    public void setResstate(Integer resstate) {
         this.resstate = resstate ;
         this.modify("resstate",resstate);
     }
@@ -421,7 +421,7 @@ public class PSSystemDBCfg extends EntityClient implements Serializable {
     /**
      * 设置 [资源就绪时间]
      */
-    public void setResreadytime(Timestamp resreadytime){
+    public void setResreadytime(Timestamp resreadytime) {
         this.resreadytime = resreadytime ;
         this.modify("resreadytime",resreadytime);
     }
@@ -429,7 +429,7 @@ public class PSSystemDBCfg extends EntityClient implements Serializable {
     /**
      * 格式化日期 [资源就绪时间]
      */
-    public String formatResreadytime(){
+    public String formatResreadytime() {
         if (this.resreadytime == null) {
             return null;
         }
@@ -439,7 +439,7 @@ public class PSSystemDBCfg extends EntityClient implements Serializable {
     /**
      * 设置 [表空间2名称]
      */
-    public void setTabspace2(String tabspace2){
+    public void setTabspace2(String tabspace2) {
         this.tabspace2 = tabspace2 ;
         this.modify("tabspace2",tabspace2);
     }
@@ -447,7 +447,7 @@ public class PSSystemDBCfg extends EntityClient implements Serializable {
     /**
      * 设置 [默认表空间名称]
      */
-    public void setTabspace(String tabspace){
+    public void setTabspace(String tabspace) {
         this.tabspace = tabspace ;
         this.modify("tabspace",tabspace);
     }
@@ -455,7 +455,7 @@ public class PSSystemDBCfg extends EntityClient implements Serializable {
     /**
      * 设置 [表空间3名称]
      */
-    public void setTabspace3(String tabspace3){
+    public void setTabspace3(String tabspace3) {
         this.tabspace3 = tabspace3 ;
         this.modify("tabspace3",tabspace3);
     }
@@ -463,7 +463,7 @@ public class PSSystemDBCfg extends EntityClient implements Serializable {
     /**
      * 设置 [表空间4名称]
      */
-    public void setTabspace4(String tabspace4){
+    public void setTabspace4(String tabspace4) {
         this.tabspace4 = tabspace4 ;
         this.modify("tabspace4",tabspace4);
     }
@@ -471,7 +471,7 @@ public class PSSystemDBCfg extends EntityClient implements Serializable {
     /**
      * 设置 [用户分类]
      */
-    public void setUsercat(String usercat){
+    public void setUsercat(String usercat) {
         this.usercat = usercat ;
         this.modify("usercat",usercat);
     }
@@ -479,7 +479,7 @@ public class PSSystemDBCfg extends EntityClient implements Serializable {
     /**
      * 设置 [用户标记]
      */
-    public void setUsertag(String usertag){
+    public void setUsertag(String usertag) {
         this.usertag = usertag ;
         this.modify("usertag",usertag);
     }
@@ -487,7 +487,7 @@ public class PSSystemDBCfg extends EntityClient implements Serializable {
     /**
      * 设置 [自定义参数]
      */
-    public void setUserparams(String userparams){
+    public void setUserparams(String userparams) {
         this.userparams = userparams ;
         this.modify("userparams",userparams);
     }
@@ -495,7 +495,7 @@ public class PSSystemDBCfg extends EntityClient implements Serializable {
     /**
      * 设置 [用户标记2]
      */
-    public void setUsertag2(String usertag2){
+    public void setUsertag2(String usertag2) {
         this.usertag2 = usertag2 ;
         this.modify("usertag2",usertag2);
     }
@@ -503,7 +503,7 @@ public class PSSystemDBCfg extends EntityClient implements Serializable {
     /**
      * 设置 [用户标记3]
      */
-    public void setUsertag3(String usertag3){
+    public void setUsertag3(String usertag3) {
         this.usertag3 = usertag3 ;
         this.modify("usertag3",usertag3);
     }
@@ -511,7 +511,7 @@ public class PSSystemDBCfg extends EntityClient implements Serializable {
     /**
      * 设置 [用户标记4]
      */
-    public void setUsertag4(String usertag4){
+    public void setUsertag4(String usertag4) {
         this.usertag4 = usertag4 ;
         this.modify("usertag4",usertag4);
     }
@@ -519,7 +519,7 @@ public class PSSystemDBCfg extends EntityClient implements Serializable {
     /**
      * 设置 [系统]
      */
-    public void setPssystemid(String pssystemid){
+    public void setPssystemid(String pssystemid) {
         this.pssystemid = pssystemid ;
         this.modify("pssystemid",pssystemid);
     }
@@ -527,7 +527,7 @@ public class PSSystemDBCfg extends EntityClient implements Serializable {
     /**
      * 设置 [系统]
      */
-    public void setPssystemname(String pssystemname){
+    public void setPssystemname(String pssystemname) {
         this.pssystemname = pssystemname ;
         this.modify("pssystemname",pssystemname);
     }

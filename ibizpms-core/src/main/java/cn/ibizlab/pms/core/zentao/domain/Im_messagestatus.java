@@ -68,7 +68,7 @@ public class Im_messagestatus extends EntityMP implements Serializable {
     /**
      * 虚拟主键
      */
-    @DEField(isKeyField=true)
+    @DEField(isKeyField = true)
     @TableField(exist = false)
     @JSONField(name = "id")
     @JsonProperty("id")
@@ -79,7 +79,7 @@ public class Im_messagestatus extends EntityMP implements Serializable {
     /**
      * 设置 [message]
      */
-    public void setMessage(Integer message){
+    public void setMessage(Integer message) {
         this.message = message ;
         this.modify("message",message);
     }
@@ -87,7 +87,7 @@ public class Im_messagestatus extends EntityMP implements Serializable {
     /**
      * 设置 [status]
      */
-    public void setStatus(String status){
+    public void setStatus(String status) {
         this.status = status ;
         this.modify("status",status);
     }
@@ -95,7 +95,7 @@ public class Im_messagestatus extends EntityMP implements Serializable {
     /**
      * 设置 [user]
      */
-    public void setUser(Integer user){
+    public void setUser(Integer user) {
         this.user = user ;
         this.modify("user",user);
     }

@@ -60,8 +60,8 @@ public class File extends EntityMP implements Serializable {
     /**
      * 已删除
      */
-    @DEField(defaultValue = "0" , preType = DEPredefinedFieldType.LOGICVALID, logicval = "0" , logicdelval="1")
-    @TableLogic(value= "0",delval="1")
+    @DEField(defaultValue = "0", preType = DEPredefinedFieldType.LOGICVALID, logicval = "0", logicdelval = "1")
+    @TableLogic(value= "0", delval = "1")
     @TableField(value = "`deleted`")
     @JSONField(name = "deleted")
     @JsonProperty("deleted")
@@ -99,9 +99,9 @@ public class File extends EntityMP implements Serializable {
      * 添加时间
      */
     @DEField(preType = DEPredefinedFieldType.CREATEDATE)
-    @TableField(value = "`addeddate`" , fill = FieldFill.INSERT)
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "addeddate" , format="yyyy-MM-dd HH:mm:ss")
+    @TableField(value = "`addeddate`", fill = FieldFill.INSERT)
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "addeddate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("addeddate")
     private Timestamp addeddate;
     /**
@@ -123,7 +123,7 @@ public class File extends EntityMP implements Serializable {
     /**
      * id
      */
-    @DEField(isKeyField=true)
+    @DEField(isKeyField = true)
     @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
@@ -148,7 +148,7 @@ public class File extends EntityMP implements Serializable {
     /**
      * 设置 [路径]
      */
-    public void setPathname(String pathname){
+    public void setPathname(String pathname) {
         this.pathname = pathname ;
         this.modify("pathname",pathname);
     }
@@ -156,7 +156,7 @@ public class File extends EntityMP implements Serializable {
     /**
      * 设置 [对象ID]
      */
-    public void setObjectid(Long objectid){
+    public void setObjectid(Long objectid) {
         this.objectid = objectid ;
         this.modify("objectid",objectid);
     }
@@ -164,7 +164,7 @@ public class File extends EntityMP implements Serializable {
     /**
      * 设置 [文件类型]
      */
-    public void setExtension(String extension){
+    public void setExtension(String extension) {
         this.extension = extension ;
         this.modify("extension",extension);
     }
@@ -172,7 +172,7 @@ public class File extends EntityMP implements Serializable {
     /**
      * 设置 [对象类型]
      */
-    public void setObjecttype(String objecttype){
+    public void setObjecttype(String objecttype) {
         this.objecttype = objecttype ;
         this.modify("objecttype",objecttype);
     }
@@ -180,7 +180,7 @@ public class File extends EntityMP implements Serializable {
     /**
      * 设置 [标题]
      */
-    public void setTitle(String title){
+    public void setTitle(String title) {
         this.title = title ;
         this.modify("title",title);
     }
@@ -188,7 +188,7 @@ public class File extends EntityMP implements Serializable {
     /**
      * 设置 [下载次数]
      */
-    public void setDownloads(Integer downloads){
+    public void setDownloads(Integer downloads) {
         this.downloads = downloads ;
         this.modify("downloads",downloads);
     }
@@ -196,7 +196,7 @@ public class File extends EntityMP implements Serializable {
     /**
      * 设置 [大小]
      */
-    public void setSize(Integer size){
+    public void setSize(Integer size) {
         this.size = size ;
         this.modify("size",size);
     }
@@ -204,7 +204,7 @@ public class File extends EntityMP implements Serializable {
     /**
      * 设置 [备注]
      */
-    public void setExtra(String extra){
+    public void setExtra(String extra) {
         this.extra = extra ;
         this.modify("extra",extra);
     }

@@ -70,14 +70,14 @@ public class Im_conference extends EntityMP implements Serializable {
      */
     @DEField(defaultValue = "0000-00-00 00:00:00")
     @TableField(value = "`openeddate`")
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "openeddate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "openeddate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("openeddate")
     private Timestamp openeddate;
     /**
      * id
      */
-    @DEField(isKeyField=true)
+    @DEField(isKeyField = true)
     @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
@@ -102,7 +102,7 @@ public class Im_conference extends EntityMP implements Serializable {
     /**
      * 设置 [status]
      */
-    public void setStatus(String status){
+    public void setStatus(String status) {
         this.status = status ;
         this.modify("status",status);
     }
@@ -110,7 +110,7 @@ public class Im_conference extends EntityMP implements Serializable {
     /**
      * 设置 [cgid]
      */
-    public void setCgid(String cgid){
+    public void setCgid(String cgid) {
         this.cgid = cgid ;
         this.modify("cgid",cgid);
     }
@@ -118,7 +118,7 @@ public class Im_conference extends EntityMP implements Serializable {
     /**
      * 设置 [openedBy]
      */
-    public void setOpenedby(Integer openedby){
+    public void setOpenedby(Integer openedby) {
         this.openedby = openedby ;
         this.modify("openedby",openedby);
     }
@@ -126,7 +126,7 @@ public class Im_conference extends EntityMP implements Serializable {
     /**
      * 设置 [openedDate]
      */
-    public void setOpeneddate(Timestamp openeddate){
+    public void setOpeneddate(Timestamp openeddate) {
         this.openeddate = openeddate ;
         this.modify("openeddate",openeddate);
     }
@@ -134,7 +134,7 @@ public class Im_conference extends EntityMP implements Serializable {
     /**
      * 格式化日期 [openedDate]
      */
-    public String formatOpeneddate(){
+    public String formatOpeneddate() {
         if (this.openeddate == null) {
             return null;
         }
@@ -144,7 +144,7 @@ public class Im_conference extends EntityMP implements Serializable {
     /**
      * 设置 [rid]
      */
-    public void setRid(String rid){
+    public void setRid(String rid) {
         this.rid = rid ;
         this.modify("rid",rid);
     }
@@ -152,7 +152,7 @@ public class Im_conference extends EntityMP implements Serializable {
     /**
      * 设置 [participants]
      */
-    public void setParticipants(String participants){
+    public void setParticipants(String participants) {
         this.participants = participants ;
         this.modify("participants",participants);
     }

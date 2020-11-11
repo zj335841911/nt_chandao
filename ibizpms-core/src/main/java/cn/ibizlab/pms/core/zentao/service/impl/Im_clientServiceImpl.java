@@ -54,8 +54,9 @@ public class Im_clientServiceImpl extends ServiceImpl<Im_clientMapper, Im_client
     @Override
     @Transactional
     public boolean create(Im_client et) {
-        if(!this.retBool(this.baseMapper.insert(et)))
+        if(!this.retBool(this.baseMapper.insert(et))) {
             return false;
+        }
         CachedBeanCopier.copy(get(et.getId()),et);
         return true;
     }
@@ -69,8 +70,9 @@ public class Im_clientServiceImpl extends ServiceImpl<Im_clientMapper, Im_client
     @Override
     @Transactional
     public boolean update(Im_client et) {
-         if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
+        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId()))) {
             return false;
+        }
         CachedBeanCopier.copy(get(et.getId()),et);
         return true;
     }
@@ -119,8 +121,9 @@ public class Im_clientServiceImpl extends ServiceImpl<Im_clientMapper, Im_client
     @Override
     @Transactional
     public boolean save(Im_client et) {
-        if(!saveOrUpdate(et))
+        if(!saveOrUpdate(et)) {
             return false;
+        }
         return true;
     }
 

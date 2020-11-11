@@ -62,8 +62,8 @@ public class Score extends EntityMP implements Serializable {
      * time
      */
     @TableField(value = "`time`")
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "time" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "time", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("time")
     private Timestamp time;
     /**
@@ -91,7 +91,7 @@ public class Score extends EntityMP implements Serializable {
     /**
      * id
      */
-    @DEField(isKeyField=true)
+    @DEField(isKeyField = true)
     @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
@@ -117,7 +117,7 @@ public class Score extends EntityMP implements Serializable {
     /**
      * 设置 [method]
      */
-    public void setMethod(String method){
+    public void setMethod(String method) {
         this.method = method ;
         this.modify("method",method);
     }
@@ -125,7 +125,7 @@ public class Score extends EntityMP implements Serializable {
     /**
      * 设置 [score]
      */
-    public void setScore(Integer score){
+    public void setScore(Integer score) {
         this.score = score ;
         this.modify("score",score);
     }
@@ -133,7 +133,7 @@ public class Score extends EntityMP implements Serializable {
     /**
      * 设置 [time]
      */
-    public void setTime(Timestamp time){
+    public void setTime(Timestamp time) {
         this.time = time ;
         this.modify("time",time);
     }
@@ -141,7 +141,7 @@ public class Score extends EntityMP implements Serializable {
     /**
      * 格式化日期 [time]
      */
-    public String formatTime(){
+    public String formatTime() {
         if (this.time == null) {
             return null;
         }
@@ -151,7 +151,7 @@ public class Score extends EntityMP implements Serializable {
     /**
      * 设置 [account]
      */
-    public void setAccount(String account){
+    public void setAccount(String account) {
         this.account = account ;
         this.modify("account",account);
     }
@@ -159,7 +159,7 @@ public class Score extends EntityMP implements Serializable {
     /**
      * 设置 [before]
      */
-    public void setBefore(Integer before){
+    public void setBefore(Integer before) {
         this.before = before ;
         this.modify("before",before);
     }
@@ -167,7 +167,7 @@ public class Score extends EntityMP implements Serializable {
     /**
      * 设置 [desc]
      */
-    public void setDesc(String desc){
+    public void setDesc(String desc) {
         this.desc = desc ;
         this.modify("desc",desc);
     }
@@ -175,7 +175,7 @@ public class Score extends EntityMP implements Serializable {
     /**
      * 设置 [after]
      */
-    public void setAfter(Integer after){
+    public void setAfter(Integer after) {
         this.after = after ;
         this.modify("after",after);
     }
@@ -183,7 +183,7 @@ public class Score extends EntityMP implements Serializable {
     /**
      * 设置 [module]
      */
-    public void setModule(String module){
+    public void setModule(String module) {
         this.module = module ;
         this.modify("module",module);
     }

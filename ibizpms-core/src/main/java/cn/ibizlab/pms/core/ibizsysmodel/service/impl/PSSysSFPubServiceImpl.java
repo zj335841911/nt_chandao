@@ -61,11 +61,11 @@ public class PSSysSFPubServiceImpl implements IPSSysSFPubService {
     private String password;
 
     public PSSysSFPubFeignClient getPSSysSFPubFeignClient(String devSlnSysId) {
-        if(StringUtils.isNotBlank(serviceName)){
-            return OutsideAccessorUtils.buildAccessor(SpringContextHolder.getApplicationContext(), PSSysSFPubFeignClient.class, serviceName, false, serviceName, false, loginname, password,devSlnSysId);
-        }else if(StringUtils.isNotBlank(serviceUrl)){
-            return OutsideAccessorUtils.buildAccessorByUrl(SpringContextHolder.getApplicationContext(), PSSysSFPubFeignClient.class, serviceUrl, false, serviceUrl, false, loginname, password,devSlnSysId);
-        }else{
+        if(StringUtils.isNotBlank(serviceName)) {
+            return OutsideAccessorUtils.buildAccessor(SpringContextHolder.getApplicationContext(), PSSysSFPubFeignClient.class, serviceName, false, serviceName, false, loginname, password, devSlnSysId);
+        } else if(StringUtils.isNotBlank(serviceUrl)) {
+            return OutsideAccessorUtils.buildAccessorByUrl(SpringContextHolder.getApplicationContext(), PSSysSFPubFeignClient.class, serviceUrl, false, serviceUrl, false, loginname, password, devSlnSysId);
+        } else {
             throw new RuntimeException("缺少平台服务配置信息。");
         }
     }
@@ -83,9 +83,10 @@ public class PSSysSFPubServiceImpl implements IPSSysSFPubService {
     @Override
     public boolean create(String devSlnSysId,PSSysSFPub et) {
         PSSysSFPub rt = getPSSysSFPubFeignClient(devSlnSysId).create(et);
-        if(rt==null)
+        if(rt==null) {
             return false;
-        CachedBeanCopier.copy(rt,et);
+	}
+        CachedBeanCopier.copy(rt, et);
         return true;
     }
 
@@ -94,7 +95,7 @@ public class PSSysSFPubServiceImpl implements IPSSysSFPubService {
     }
 
     public void createBatch(String devSlnSysId,List<PSSysSFPub> list){
-        getPSSysSFPubFeignClient(devSlnSysId).createBatch(list) ;
+        getPSSysSFPubFeignClient(devSlnSysId).createBatch(list);
     }
 
     @Override
@@ -108,13 +109,13 @@ public class PSSysSFPubServiceImpl implements IPSSysSFPubService {
     }
 
     @Override
-    public boolean update(String devSlnSysId,PSSysSFPub et) {
-        PSSysSFPub rt = getPSSysSFPubFeignClient(devSlnSysId).update(et.getPssyssfpubid(),et);
-        if(rt==null)
+    public boolean update(String devSlnSysId, PSSysSFPub et) {
+        PSSysSFPub rt = getPSSysSFPubFeignClient(devSlnSysId).update(et.getPssyssfpubid(), et);
+        if(rt==null) {
             return false;
-        CachedBeanCopier.copy(rt,et);
+	}
+        CachedBeanCopier.copy(rt, et);
         return true;
-
     }
 
     public void updateBatch(List<PSSysSFPub> list){
@@ -122,7 +123,7 @@ public class PSSysSFPubServiceImpl implements IPSSysSFPubService {
     }
 
     public void updateBatch(String devSlnSysId,List<PSSysSFPub> list){
-        getPSSysSFPubFeignClient(devSlnSysId).updateBatch(list) ;
+        getPSSysSFPubFeignClient(devSlnSysId).updateBatch(list);
     }
 
     @Override
@@ -133,7 +134,7 @@ public class PSSysSFPubServiceImpl implements IPSSysSFPubService {
 
     @Override
     public boolean remove(String devSlnSysId,String pssyssfpubid) {
-        boolean result=getPSSysSFPubFeignClient(devSlnSysId).remove(pssyssfpubid) ;
+        boolean result = getPSSysSFPubFeignClient(devSlnSysId).remove(pssyssfpubid);
         return result;
     }
 
@@ -159,14 +160,14 @@ public class PSSysSFPubServiceImpl implements IPSSysSFPubService {
 
     @Override
     public PSSysSFPub get(String devSlnSysId,String pssyssfpubid) {
-		PSSysSFPub et=getPSSysSFPubFeignClient(devSlnSysId).get(pssyssfpubid);
-        if(et==null){
-            et=new PSSysSFPub();
+		PSSysSFPub et = getPSSysSFPubFeignClient(devSlnSysId).get(pssyssfpubid);
+        if(et == null) {
+            et = new PSSysSFPub();
             et.setPssyssfpubid(pssyssfpubid);
         }
         else{
         }
-        return  et;
+        return et;
     }
 
     @Override
@@ -182,7 +183,7 @@ public class PSSysSFPubServiceImpl implements IPSSysSFPubService {
 
     @Override
     public PSSysSFPub getDraft(String devSlnSysId,PSSysSFPub et) {
-        et=getPSSysSFPubFeignClient(devSlnSysId).getDraft();
+        et = getPSSysSFPubFeignClient(devSlnSysId).getDraft();
         return et;
     }
 
@@ -208,9 +209,12 @@ public class PSSysSFPubServiceImpl implements IPSSysSFPubService {
     @Override
     @Transactional
     public boolean save(String devSlnSysId,PSSysSFPub et) {
-        if(et.getPssyssfpubid()==null) et.setPssyssfpubid((String)et.getDefaultKey(true));
-        if(!getPSSysSFPubFeignClient(devSlnSysId).save(et))
+        if(et.getPssyssfpubid() == null) {
+	    et.setPssyssfpubid((String)et.getDefaultKey(true));
+	}
+        if(!getPSSysSFPubFeignClient(devSlnSysId).save(et)) {
             return false;
+	}
         return true;
     }
 
@@ -221,7 +225,7 @@ public class PSSysSFPubServiceImpl implements IPSSysSFPubService {
 
     @Override
     public void saveBatch(String devSlnSysId,List<PSSysSFPub> list) {
-        getPSSysSFPubFeignClient(devSlnSysId).saveBatch(list) ;
+        getPSSysSFPubFeignClient(devSlnSysId).saveBatch(list);
     }
 
 
@@ -235,8 +239,8 @@ public class PSSysSFPubServiceImpl implements IPSSysSFPubService {
     }
 
     @Override
-    public List<PSSysSFPub> selectByPpssyssfpubid(String devSlnSysId,String pssyssfpubid) {
-        PSSysSFPubSearchContext context=new PSSysSFPubSearchContext();
+    public List<PSSysSFPub> selectByPpssyssfpubid(String devSlnSysId, String pssyssfpubid) {
+        PSSysSFPubSearchContext context = new PSSysSFPubSearchContext();
         context.setSize(Integer.MAX_VALUE);
         context.setN_ppssyssfpubid_eq(pssyssfpubid);
         return getPSSysSFPubFeignClient(devSlnSysId).searchDefault(context).getContent();
@@ -260,13 +264,14 @@ public class PSSysSFPubServiceImpl implements IPSSysSFPubService {
     }
 
     @Override
-    public void removeByPpssyssfpubid(String devSlnSysId,String pssyssfpubid) {
-        Set<String> delIds=new HashSet<String>();
-        for(PSSysSFPub before:selectByPpssyssfpubid(devSlnSysId,pssyssfpubid)){
+    public void removeByPpssyssfpubid(String devSlnSysId, String pssyssfpubid) {
+        Set<String> delIds = new HashSet<String>();
+        for(PSSysSFPub before:selectByPpssyssfpubid(devSlnSysId, pssyssfpubid)){
             delIds.add(before.getPssyssfpubid());
         }
-        if(delIds.size()>0)
+        if(delIds.size() > 0) {
             this.removeBatch(delIds);
+	}
     }
 
 

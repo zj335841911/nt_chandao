@@ -88,7 +88,7 @@ public class Relation extends EntityMP implements Serializable {
     /**
      * id
      */
-    @DEField(isKeyField=true)
+    @DEField(isKeyField = true)
     @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
@@ -134,7 +134,7 @@ public class Relation extends EntityMP implements Serializable {
     /**
      * 设置 [BID]
      */
-    public void setBid(Integer bid){
+    public void setBid(Integer bid) {
         this.bid = bid ;
         this.modify("bid",bid);
     }
@@ -142,7 +142,7 @@ public class Relation extends EntityMP implements Serializable {
     /**
      * 设置 [AVersion]
      */
-    public void setAversion(String aversion){
+    public void setAversion(String aversion) {
         this.aversion = aversion ;
         this.modify("aversion",aversion);
     }
@@ -150,7 +150,7 @@ public class Relation extends EntityMP implements Serializable {
     /**
      * 设置 [BType]
      */
-    public void setBtype(String btype){
+    public void setBtype(String btype) {
         this.btype = btype ;
         this.modify("btype",btype);
     }
@@ -158,7 +158,7 @@ public class Relation extends EntityMP implements Serializable {
     /**
      * 设置 [project]
      */
-    public void setProject(Integer project){
+    public void setProject(Integer project) {
         this.project = project ;
         this.modify("project",project);
     }
@@ -166,7 +166,7 @@ public class Relation extends EntityMP implements Serializable {
     /**
      * 设置 [extra]
      */
-    public void setExtra(String extra){
+    public void setExtra(String extra) {
         this.extra = extra ;
         this.modify("extra",extra);
     }
@@ -174,7 +174,7 @@ public class Relation extends EntityMP implements Serializable {
     /**
      * 设置 [relation]
      */
-    public void setRelation(String relation){
+    public void setRelation(String relation) {
         this.relation = relation ;
         this.modify("relation",relation);
     }
@@ -182,7 +182,7 @@ public class Relation extends EntityMP implements Serializable {
     /**
      * 设置 [program]
      */
-    public void setProgram(Integer program){
+    public void setProgram(Integer program) {
         this.program = program ;
         this.modify("program",program);
     }
@@ -190,7 +190,7 @@ public class Relation extends EntityMP implements Serializable {
     /**
      * 设置 [BVersion]
      */
-    public void setBversion(String bversion){
+    public void setBversion(String bversion) {
         this.bversion = bversion ;
         this.modify("bversion",bversion);
     }
@@ -198,7 +198,7 @@ public class Relation extends EntityMP implements Serializable {
     /**
      * 设置 [AType]
      */
-    public void setAtype(String atype){
+    public void setAtype(String atype) {
         this.atype = atype ;
         this.modify("atype",atype);
     }
@@ -206,7 +206,7 @@ public class Relation extends EntityMP implements Serializable {
     /**
      * 设置 [product]
      */
-    public void setProduct(Integer product){
+    public void setProduct(Integer product) {
         this.product = product ;
         this.modify("product",product);
     }
@@ -214,7 +214,7 @@ public class Relation extends EntityMP implements Serializable {
     /**
      * 设置 [AID]
      */
-    public void setAid(Integer aid){
+    public void setAid(Integer aid) {
         this.aid = aid ;
         this.modify("aid",aid);
     }

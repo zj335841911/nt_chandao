@@ -53,7 +53,7 @@ public class Extension extends EntityMP implements Serializable {
     /**
      * id
      */
-    @DEField(isKeyField=true)
+    @DEField(isKeyField = true)
     @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
@@ -119,8 +119,8 @@ public class Extension extends EntityMP implements Serializable {
      * installedTime
      */
     @TableField(value = "`installedtime`")
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "installedtime" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "installedtime", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("installedtime")
     private Timestamp installedtime;
     /**
@@ -157,7 +157,7 @@ public class Extension extends EntityMP implements Serializable {
     /**
      * 设置 [dirs]
      */
-    public void setDirs(String dirs){
+    public void setDirs(String dirs) {
         this.dirs = dirs ;
         this.modify("dirs",dirs);
     }
@@ -165,7 +165,7 @@ public class Extension extends EntityMP implements Serializable {
     /**
      * 设置 [status]
      */
-    public void setStatus(String status){
+    public void setStatus(String status) {
         this.status = status ;
         this.modify("status",status);
     }
@@ -173,7 +173,7 @@ public class Extension extends EntityMP implements Serializable {
     /**
      * 设置 [code]
      */
-    public void setCode(String code){
+    public void setCode(String code) {
         this.code = code ;
         this.modify("code",code);
     }
@@ -181,7 +181,7 @@ public class Extension extends EntityMP implements Serializable {
     /**
      * 设置 [depends]
      */
-    public void setDepends(String depends){
+    public void setDepends(String depends) {
         this.depends = depends ;
         this.modify("depends",depends);
     }
@@ -189,7 +189,7 @@ public class Extension extends EntityMP implements Serializable {
     /**
      * 设置 [type]
      */
-    public void setType(String type){
+    public void setType(String type) {
         this.type = type ;
         this.modify("type",type);
     }
@@ -197,7 +197,7 @@ public class Extension extends EntityMP implements Serializable {
     /**
      * 设置 [files]
      */
-    public void setFiles(String files){
+    public void setFiles(String files) {
         this.files = files ;
         this.modify("files",files);
     }
@@ -205,7 +205,7 @@ public class Extension extends EntityMP implements Serializable {
     /**
      * 设置 [zentaoCompatible]
      */
-    public void setZentaocompatible(String zentaocompatible){
+    public void setZentaocompatible(String zentaocompatible) {
         this.zentaocompatible = zentaocompatible ;
         this.modify("zentaocompatible",zentaocompatible);
     }
@@ -213,7 +213,7 @@ public class Extension extends EntityMP implements Serializable {
     /**
      * 设置 [license]
      */
-    public void setLicense(String license){
+    public void setLicense(String license) {
         this.license = license ;
         this.modify("license",license);
     }
@@ -221,7 +221,7 @@ public class Extension extends EntityMP implements Serializable {
     /**
      * 设置 [name]
      */
-    public void setName(String name){
+    public void setName(String name) {
         this.name = name ;
         this.modify("name",name);
     }
@@ -229,7 +229,7 @@ public class Extension extends EntityMP implements Serializable {
     /**
      * 设置 [installedTime]
      */
-    public void setInstalledtime(Timestamp installedtime){
+    public void setInstalledtime(Timestamp installedtime) {
         this.installedtime = installedtime ;
         this.modify("installedtime",installedtime);
     }
@@ -237,7 +237,7 @@ public class Extension extends EntityMP implements Serializable {
     /**
      * 格式化日期 [installedTime]
      */
-    public String formatInstalledtime(){
+    public String formatInstalledtime() {
         if (this.installedtime == null) {
             return null;
         }
@@ -247,7 +247,7 @@ public class Extension extends EntityMP implements Serializable {
     /**
      * 设置 [site]
      */
-    public void setSite(String site){
+    public void setSite(String site) {
         this.site = site ;
         this.modify("site",site);
     }
@@ -255,7 +255,7 @@ public class Extension extends EntityMP implements Serializable {
     /**
      * 设置 [author]
      */
-    public void setAuthor(String author){
+    public void setAuthor(String author) {
         this.author = author ;
         this.modify("author",author);
     }
@@ -263,7 +263,7 @@ public class Extension extends EntityMP implements Serializable {
     /**
      * 设置 [desc]
      */
-    public void setDesc(String desc){
+    public void setDesc(String desc) {
         this.desc = desc ;
         this.modify("desc",desc);
     }
@@ -271,7 +271,7 @@ public class Extension extends EntityMP implements Serializable {
     /**
      * 设置 [version]
      */
-    public void setVersion(String version){
+    public void setVersion(String version) {
         this.version = version ;
         this.modify("version",version);
     }

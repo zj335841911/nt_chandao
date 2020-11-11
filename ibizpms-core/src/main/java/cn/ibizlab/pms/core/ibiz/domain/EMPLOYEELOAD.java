@@ -46,7 +46,7 @@ public class EMPLOYEELOAD extends EntityMP implements Serializable {
     /**
      * 主键
      */
-    @DEField(isKeyField=true)
+    @DEField(isKeyField = true)
     @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
@@ -125,16 +125,16 @@ public class EMPLOYEELOAD extends EntityMP implements Serializable {
      * 属性
      */
     @TableField(exist = false)
-    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "begin" , format="yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "begin", format = "yyyy-MM-dd")
     @JsonProperty("begin")
     private Timestamp begin;
     /**
      * 结束
      */
     @TableField(exist = false)
-    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "end" , format="yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "end", format = "yyyy-MM-dd")
     @JsonProperty("end")
     private Timestamp end;
     /**
@@ -165,7 +165,7 @@ public class EMPLOYEELOAD extends EntityMP implements Serializable {
     /**
      * 设置 [任务名]
      */
-    public void setName(String name){
+    public void setName(String name) {
         this.name = name ;
         this.modify("name",name);
     }
@@ -173,7 +173,7 @@ public class EMPLOYEELOAD extends EntityMP implements Serializable {
     /**
      * 设置 [项目编号]
      */
-    public void setProject(Long project){
+    public void setProject(Long project) {
         this.project = project ;
         this.modify("project",project);
     }
@@ -181,7 +181,7 @@ public class EMPLOYEELOAD extends EntityMP implements Serializable {
     /**
      * 设置 [指派给]
      */
-    public void setAssignedto(String assignedto){
+    public void setAssignedto(String assignedto) {
         this.assignedto = assignedto ;
         this.modify("assignedto",assignedto);
     }
@@ -189,7 +189,7 @@ public class EMPLOYEELOAD extends EntityMP implements Serializable {
     /**
      * 设置 [是否指派]
      */
-    public void setAssign(String assign){
+    public void setAssign(String assign) {
         this.assign = assign ;
         this.modify("assign",assign);
     }

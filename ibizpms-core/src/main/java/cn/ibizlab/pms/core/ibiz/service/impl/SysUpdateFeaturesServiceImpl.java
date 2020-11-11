@@ -58,8 +58,9 @@ public class SysUpdateFeaturesServiceImpl extends ServiceImpl<SysUpdateFeaturesM
     @Transactional
     public boolean create(SysUpdateFeatures et) {
         fillParentData(et);
-        if(!this.retBool(this.baseMapper.insert(et)))
+        if(!this.retBool(this.baseMapper.insert(et))) {
             return false;
+        }
         CachedBeanCopier.copy(get(et.getSysupdatefeaturesid()),et);
         return true;
     }
@@ -75,8 +76,9 @@ public class SysUpdateFeaturesServiceImpl extends ServiceImpl<SysUpdateFeaturesM
     @Transactional
     public boolean update(SysUpdateFeatures et) {
         fillParentData(et);
-         if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("sys_update_featuresid",et.getSysupdatefeaturesid())))
+        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("sys_update_featuresid",et.getSysupdatefeaturesid()))) {
             return false;
+        }
         CachedBeanCopier.copy(get(et.getSysupdatefeaturesid()),et);
         return true;
     }
@@ -127,8 +129,9 @@ public class SysUpdateFeaturesServiceImpl extends ServiceImpl<SysUpdateFeaturesM
     @Override
     @Transactional
     public boolean save(SysUpdateFeatures et) {
-        if(!saveOrUpdate(et))
+        if(!saveOrUpdate(et)) {
             return false;
+        }
         return true;
     }
 
@@ -242,10 +245,12 @@ public class SysUpdateFeaturesServiceImpl extends ServiceImpl<SysUpdateFeaturesM
                 ids.add(id);
             }
         }
-        if(ids.size()>0)
-           return this.listByIds(ids);
-        else
-           return entities;
+        if(ids.size()>0) {
+            return this.listByIds(ids);
+        }
+        else {
+            return entities;
+        }
     }
 
 

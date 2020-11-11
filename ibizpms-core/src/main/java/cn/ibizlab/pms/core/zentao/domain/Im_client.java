@@ -47,8 +47,8 @@ public class Im_client extends EntityMP implements Serializable {
      * editedDate
      */
     @TableField(value = "`editeddate`")
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "editeddate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "editeddate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("editeddate")
     private Timestamp editeddate;
     /**
@@ -62,8 +62,8 @@ public class Im_client extends EntityMP implements Serializable {
      * createdDate
      */
     @TableField(value = "`createddate`")
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "createddate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "createddate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("createddate")
     private Timestamp createddate;
     /**
@@ -104,7 +104,7 @@ public class Im_client extends EntityMP implements Serializable {
     /**
      * id
      */
-    @DEField(isKeyField=true)
+    @DEField(isKeyField = true)
     @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
@@ -129,7 +129,7 @@ public class Im_client extends EntityMP implements Serializable {
     /**
      * 设置 [editedDate]
      */
-    public void setEditeddate(Timestamp editeddate){
+    public void setEditeddate(Timestamp editeddate) {
         this.editeddate = editeddate ;
         this.modify("editeddate",editeddate);
     }
@@ -137,7 +137,7 @@ public class Im_client extends EntityMP implements Serializable {
     /**
      * 格式化日期 [editedDate]
      */
-    public String formatEditeddate(){
+    public String formatEditeddate() {
         if (this.editeddate == null) {
             return null;
         }
@@ -147,7 +147,7 @@ public class Im_client extends EntityMP implements Serializable {
     /**
      * 设置 [strategy]
      */
-    public void setStrategy(String strategy){
+    public void setStrategy(String strategy) {
         this.strategy = strategy ;
         this.modify("strategy",strategy);
     }
@@ -155,7 +155,7 @@ public class Im_client extends EntityMP implements Serializable {
     /**
      * 设置 [createdDate]
      */
-    public void setCreateddate(Timestamp createddate){
+    public void setCreateddate(Timestamp createddate) {
         this.createddate = createddate ;
         this.modify("createddate",createddate);
     }
@@ -163,7 +163,7 @@ public class Im_client extends EntityMP implements Serializable {
     /**
      * 格式化日期 [createdDate]
      */
-    public String formatCreateddate(){
+    public String formatCreateddate() {
         if (this.createddate == null) {
             return null;
         }
@@ -173,7 +173,7 @@ public class Im_client extends EntityMP implements Serializable {
     /**
      * 设置 [changeLog]
      */
-    public void setChangelog(String changelog){
+    public void setChangelog(String changelog) {
         this.changelog = changelog ;
         this.modify("changelog",changelog);
     }
@@ -181,7 +181,7 @@ public class Im_client extends EntityMP implements Serializable {
     /**
      * 设置 [version]
      */
-    public void setVersion(String version){
+    public void setVersion(String version) {
         this.version = version ;
         this.modify("version",version);
     }
@@ -189,7 +189,7 @@ public class Im_client extends EntityMP implements Serializable {
     /**
      * 设置 [downloads]
      */
-    public void setDownloads(String downloads){
+    public void setDownloads(String downloads) {
         this.downloads = downloads ;
         this.modify("downloads",downloads);
     }
@@ -197,7 +197,7 @@ public class Im_client extends EntityMP implements Serializable {
     /**
      * 设置 [status]
      */
-    public void setStatus(String status){
+    public void setStatus(String status) {
         this.status = status ;
         this.modify("status",status);
     }
@@ -205,7 +205,7 @@ public class Im_client extends EntityMP implements Serializable {
     /**
      * 设置 [desc]
      */
-    public void setDesc(String desc){
+    public void setDesc(String desc) {
         this.desc = desc ;
         this.modify("desc",desc);
     }
@@ -213,7 +213,7 @@ public class Im_client extends EntityMP implements Serializable {
     /**
      * 设置 [createdBy]
      */
-    public void setCreatedby(String createdby){
+    public void setCreatedby(String createdby) {
         this.createdby = createdby ;
         this.modify("createdby",createdby);
     }
@@ -221,7 +221,7 @@ public class Im_client extends EntityMP implements Serializable {
     /**
      * 设置 [editedBy]
      */
-    public void setEditedby(String editedby){
+    public void setEditedby(String editedby) {
         this.editedby = editedby ;
         this.modify("editedby",editedby);
     }

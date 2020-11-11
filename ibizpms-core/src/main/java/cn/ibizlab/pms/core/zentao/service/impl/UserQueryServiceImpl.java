@@ -54,8 +54,9 @@ public class UserQueryServiceImpl extends ServiceImpl<UserQueryMapper, UserQuery
     @Override
     @Transactional
     public boolean create(UserQuery et) {
-        if(!this.retBool(this.baseMapper.insert(et)))
+        if(!this.retBool(this.baseMapper.insert(et))) {
             return false;
+        }
         CachedBeanCopier.copy(get(et.getId()),et);
         return true;
     }
@@ -69,8 +70,9 @@ public class UserQueryServiceImpl extends ServiceImpl<UserQueryMapper, UserQuery
     @Override
     @Transactional
     public boolean update(UserQuery et) {
-         if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
+        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId()))) {
             return false;
+        }
         CachedBeanCopier.copy(get(et.getId()),et);
         return true;
     }
@@ -119,8 +121,9 @@ public class UserQueryServiceImpl extends ServiceImpl<UserQueryMapper, UserQuery
     @Override
     @Transactional
     public boolean save(UserQuery et) {
-        if(!saveOrUpdate(et))
+        if(!saveOrUpdate(et)) {
             return false;
+        }
         return true;
     }
 

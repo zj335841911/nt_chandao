@@ -54,8 +54,9 @@ public class IBZProSystemServiceImpl extends ServiceImpl<IBZProSystemMapper, IBZ
     @Override
     @Transactional
     public boolean create(IBZProSystem et) {
-        if(!this.retBool(this.baseMapper.insert(et)))
+        if(!this.retBool(this.baseMapper.insert(et))) {
             return false;
+        }
         CachedBeanCopier.copy(get(et.getIbzprosystemid()),et);
         return true;
     }
@@ -69,8 +70,9 @@ public class IBZProSystemServiceImpl extends ServiceImpl<IBZProSystemMapper, IBZ
     @Override
     @Transactional
     public boolean update(IBZProSystem et) {
-         if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("ibzpro_systemid",et.getIbzprosystemid())))
+        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("ibzpro_systemid",et.getIbzprosystemid()))) {
             return false;
+        }
         CachedBeanCopier.copy(get(et.getIbzprosystemid()),et);
         return true;
     }
@@ -119,8 +121,9 @@ public class IBZProSystemServiceImpl extends ServiceImpl<IBZProSystemMapper, IBZ
     @Override
     @Transactional
     public boolean save(IBZProSystem et) {
-        if(!saveOrUpdate(et))
+        if(!saveOrUpdate(et)) {
             return false;
+        }
         return true;
     }
 
@@ -202,10 +205,12 @@ public class IBZProSystemServiceImpl extends ServiceImpl<IBZProSystemMapper, IBZ
                 ids.add(id);
             }
         }
-        if(ids.size()>0)
-           return this.listByIds(ids);
-        else
-           return entities;
+        if(ids.size()>0) {
+            return this.listByIds(ids);
+        }
+        else {
+            return entities;
+        }
     }
 
 

@@ -53,7 +53,7 @@ public class UserTpl extends EntityMP implements Serializable {
     /**
      * id
      */
-    @DEField(isKeyField=true)
+    @DEField(isKeyField = true)
     @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
@@ -93,7 +93,7 @@ public class UserTpl extends EntityMP implements Serializable {
     /**
      * 设置 [title]
      */
-    public void setTitle(String title){
+    public void setTitle(String title) {
         this.title = title ;
         this.modify("title",title);
     }
@@ -101,7 +101,7 @@ public class UserTpl extends EntityMP implements Serializable {
     /**
      * 设置 [content]
      */
-    public void setContent(String content){
+    public void setContent(String content) {
         this.content = content ;
         this.modify("content",content);
     }
@@ -109,7 +109,7 @@ public class UserTpl extends EntityMP implements Serializable {
     /**
      * 设置 [type]
      */
-    public void setType(String type){
+    public void setType(String type) {
         this.type = type ;
         this.modify("type",type);
     }
@@ -117,7 +117,7 @@ public class UserTpl extends EntityMP implements Serializable {
     /**
      * 设置 [account]
      */
-    public void setAccount(String account){
+    public void setAccount(String account) {
         this.account = account ;
         this.modify("account",account);
     }
@@ -125,7 +125,7 @@ public class UserTpl extends EntityMP implements Serializable {
     /**
      * 设置 [public]
      */
-    public void setIbizpublic(String ibizpublic){
+    public void setIbizpublic(String ibizpublic) {
         this.ibizpublic = ibizpublic ;
         this.modify("public",ibizpublic);
     }

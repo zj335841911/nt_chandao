@@ -75,8 +75,8 @@ public class Log extends EntityMP implements Serializable {
      * date
      */
     @TableField(value = "`date`")
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "date" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JSONField(name = "date", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("date")
     private Timestamp date;
     /**
@@ -96,7 +96,7 @@ public class Log extends EntityMP implements Serializable {
     /**
      * id
      */
-    @DEField(isKeyField=true)
+    @DEField(isKeyField = true)
     @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
@@ -114,7 +114,7 @@ public class Log extends EntityMP implements Serializable {
     /**
      * 设置 [url]
      */
-    public void setUrl(String url){
+    public void setUrl(String url) {
         this.url = url ;
         this.modify("url",url);
     }
@@ -122,7 +122,7 @@ public class Log extends EntityMP implements Serializable {
     /**
      * 设置 [action]
      */
-    public void setAction(Integer action){
+    public void setAction(Integer action) {
         this.action = action ;
         this.modify("action",action);
     }
@@ -130,7 +130,7 @@ public class Log extends EntityMP implements Serializable {
     /**
      * 设置 [contentType]
      */
-    public void setContenttype(String contenttype){
+    public void setContenttype(String contenttype) {
         this.contenttype = contenttype ;
         this.modify("contenttype",contenttype);
     }
@@ -138,7 +138,7 @@ public class Log extends EntityMP implements Serializable {
     /**
      * 设置 [objectID]
      */
-    public void setObjectid(Integer objectid){
+    public void setObjectid(Integer objectid) {
         this.objectid = objectid ;
         this.modify("objectid",objectid);
     }
@@ -146,7 +146,7 @@ public class Log extends EntityMP implements Serializable {
     /**
      * 设置 [date]
      */
-    public void setDate(Timestamp date){
+    public void setDate(Timestamp date) {
         this.date = date ;
         this.modify("date",date);
     }
@@ -154,7 +154,7 @@ public class Log extends EntityMP implements Serializable {
     /**
      * 格式化日期 [date]
      */
-    public String formatDate(){
+    public String formatDate() {
         if (this.date == null) {
             return null;
         }
@@ -164,7 +164,7 @@ public class Log extends EntityMP implements Serializable {
     /**
      * 设置 [result]
      */
-    public void setResult(String result){
+    public void setResult(String result) {
         this.result = result ;
         this.modify("result",result);
     }
@@ -172,7 +172,7 @@ public class Log extends EntityMP implements Serializable {
     /**
      * 设置 [objectType]
      */
-    public void setObjecttype(String objecttype){
+    public void setObjecttype(String objecttype) {
         this.objecttype = objecttype ;
         this.modify("objecttype",objecttype);
     }
@@ -180,7 +180,7 @@ public class Log extends EntityMP implements Serializable {
     /**
      * 设置 [data]
      */
-    public void setData(String data){
+    public void setData(String data) {
         this.data = data ;
         this.modify("data",data);
     }
