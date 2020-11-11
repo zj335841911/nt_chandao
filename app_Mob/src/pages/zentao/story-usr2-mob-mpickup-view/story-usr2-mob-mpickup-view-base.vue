@@ -329,6 +329,8 @@ export default class StoryUsr2MobMPickupViewBase extends Vue {
         }, 2000);
     }
 
+
+
     /**
      * 视图引擎
      *
@@ -419,6 +421,9 @@ export default class StoryUsr2MobMPickupViewBase extends Vue {
             _this.loadModel();
         }
         this.thirdPartyInit();
+        if(this.viewparams.selectedData){
+            this.engine.onCtrlEvent('pickupviewpanel', 'selectionchange', this.viewparams.selectedData);
+        }
 
     }
 

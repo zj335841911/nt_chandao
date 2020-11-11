@@ -145,6 +145,11 @@ export default class AppMobMpicker extends Vue {
       const view = { ...this.pickupView };
       let _context = data.context;
       let _param = data.param;
+      let select:any = []
+      this.curValue.forEach((temp:any) => {
+        select.push({srfmajortext:temp.text,srfkey:temp.value})
+      });
+      _param = Object.assign(_param,{ selectedData: [...select]});
       // 判断打开方式
       if (view.placement && !Object.is(view.placement, "")) {
         if (Object.is(view.placement, "POPOVER")) {

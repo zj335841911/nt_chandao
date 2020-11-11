@@ -311,6 +311,8 @@ export default class UserMobMPickupViewBase extends Vue {
         return true;
     }
 
+
+
     /**
      * 视图引擎
      *
@@ -401,6 +403,9 @@ export default class UserMobMPickupViewBase extends Vue {
             _this.loadModel();
         }
         this.thirdPartyInit();
+        if(this.viewparams.selectedData){
+            this.engine.onCtrlEvent('pickupviewpanel', 'selectionchange', this.viewparams.selectedData);
+        }
 
     }
 

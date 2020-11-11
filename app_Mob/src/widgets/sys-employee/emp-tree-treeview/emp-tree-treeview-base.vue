@@ -28,7 +28,7 @@
         <ion-list v-else-if="viewType == 'DEMOBPICKUPTREEVIEW' && !isSingleSelect">
         <template v-for="item in valueNodes">
             <ion-item :key="item.id">
-                <ion-checkbox color="secondary" v-if="viewType == 'DEMOBPICKUPTREEVIEW' && !isSingleSelect"  :checked="item.checked" :value="item.id" slot="end" @ionChange="onChecked"></ion-checkbox>
+                <ion-checkbox color="secondary" v-if="viewType == 'DEMOBPICKUPTREEVIEW' && !isSingleSelect"  :checked="item.selected" :value="item.id" slot="end" @ionChange="onChecked"></ion-checkbox>
                 <ion-label>{{item.text}}</ion-label>
             </ion-item>
         </template>
@@ -38,7 +38,7 @@
             <template v-for="item in valueNodes">
                 <ion-item  :key="item.id"   @click="onSimpleSelChange(item)">
                     <ion-label>{{item.text}}</ion-label>
-                    <ion-radio slot="end" :checked="item.checked" :value="item.id"></ion-radio>
+                    <ion-radio slot="end" :checked="item.selected" :value="item.id"></ion-radio>
                 </ion-item>
             </template>
         </ion-radio-group>
@@ -360,6 +360,9 @@ export default class EmpTreeBase extends Vue implements ControlInterface {
             if(!item.leaf){
                 rootNodes.push(item);
             }else{
+                if(this.selectedNodes.findIndex((temp:any)=>{return temp.srfkey == item.srfkey}) > -1){
+                    item.selected = true;
+                }
                 valueNodes.push(item);
             }
         });
@@ -899,6 +902,17 @@ export default class EmpTreeBase extends Vue implements ControlInterface {
             }
         });
         this.$emit('selectchange', this.selectedNodes);
+    }
+
+    /**
+     * 生命周期
+     *
+     * @memberof EmpTreeBase
+     */
+    public mounted() {
+        if(this.viewparams.selectedData){
+            this.selectedNodes = this.viewparams.selectedData;
+        }
     }
 }
 </script>
