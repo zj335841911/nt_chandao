@@ -195,6 +195,15 @@ export class MainRowGridBase extends GridControlBase {
             enableCond: 3 ,
         },
         {
+            name: 'order',
+            label: '排序值',
+            langtag: 'entities.testmodule.mainrow_grid.columns.order',
+            show: true,
+            unit: 'PX',
+            isEnableRowEdit: true,
+            enableCond: 3 ,
+        },
+        {
             name: 'uagridcolumn1',
             label: '操作',
             langtag: 'entities.testmodule.mainrow_grid.columns.uagridcolumn1',
@@ -214,6 +223,7 @@ export class MainRowGridBase extends GridControlBase {
     public getGridRowModel(){
         return {
           short: new FormItemModel(),
+          order: new FormItemModel(),
           name: new FormItemModel(),
           parent: new FormItemModel(),
           branch: new FormItemModel(),
@@ -233,6 +243,10 @@ export class MainRowGridBase extends GridControlBase {
         short: [
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '简称 值不能为空', trigger: 'change' },
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '简称 值不能为空', trigger: 'blur' },
+        ],
+        order: [
+            { required: true, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '排序值 值不能为空', trigger: 'change' },
+            { required: true, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '排序值 值不能为空', trigger: 'blur' },
         ],
         name: [
             { required: true, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '名称 值不能为空', trigger: 'change' },
@@ -276,6 +290,7 @@ export class MainRowGridBase extends GridControlBase {
         'name':true,
         'branch':true,
         'short':true,
+        'order':true,
         'uagridcolumn1':false,
     };
 

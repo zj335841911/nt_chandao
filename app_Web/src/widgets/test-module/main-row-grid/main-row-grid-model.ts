@@ -45,6 +45,12 @@ export default class MainRowModel {
           isEditable:true
         },
         {
+          name: 'order',
+          prop: 'order',
+          dataType: 'INT',
+          isEditable:true
+        },
+        {
           name: 'root',
           prop: 'root',
           dataType: 'PICKUP',
