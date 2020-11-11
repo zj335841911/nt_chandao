@@ -175,7 +175,7 @@ export class MainGridBase extends GridControlBase {
             langtag: 'entities.doclibmodule.main_grid.columns.order',
             show: true,
             unit: 'PX',
-            isEnableRowEdit: false,
+            isEnableRowEdit: true,
             enableCond: 3 ,
         },
         {
@@ -198,6 +198,7 @@ export class MainGridBase extends GridControlBase {
     public getGridRowModel(){
         return {
           short: new FormItemModel(),
+          order: new FormItemModel(),
           name: new FormItemModel(),
           parent: new FormItemModel(),
           type: new FormItemModel(),
@@ -216,6 +217,10 @@ export class MainGridBase extends GridControlBase {
         short: [
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '简称 值不能为空', trigger: 'change' },
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '简称 值不能为空', trigger: 'blur' },
+        ],
+        order: [
+            { required: true, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '排序值 值不能为空', trigger: 'change' },
+            { required: true, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '排序值 值不能为空', trigger: 'blur' },
         ],
         name: [
             { required: true, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '名称 值不能为空', trigger: 'change' },
@@ -254,7 +259,7 @@ export class MainGridBase extends GridControlBase {
     public hasRowEdit: any = {
         'name':true,
         'short':true,
-        'order':false,
+        'order':true,
         'uagridcolumn1':false,
     };
 

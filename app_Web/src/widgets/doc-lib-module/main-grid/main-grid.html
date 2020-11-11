@@ -91,7 +91,24 @@
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.order}}</span>
+                        <template v-if="actualIsOpenEdit">
+                            <app-form-item :error="gridItemsModel[$index][column.property].error">
+                                <input-box 
+              
+              :disabled="getColumnDisabled(row,column.property)" 
+              v-model="row[column.property]" 
+              style=""
+              type="text"
+              
+              
+              @change="($event)=>{gridEditItemChange(row, column.property, $event, $index)}">
+            </input-box>
+            
+                            </app-form-item>
+                        </template>
+                        <template v-if="!actualIsOpenEdit">
+            <app-span name='order' editorType="TEXTBOX" :value="row.order" dataType="INT" precision="0" ></app-span>
+                        </template>
                     </template>
                 </el-table-column>
             </template>

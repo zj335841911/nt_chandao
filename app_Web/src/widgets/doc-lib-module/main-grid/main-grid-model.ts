@@ -42,6 +42,7 @@ export default class MainModel {
           name: 'order',
           prop: 'order',
           dataType: 'INT',
+          isEditable:true
         },
         {
           name: 'root',
