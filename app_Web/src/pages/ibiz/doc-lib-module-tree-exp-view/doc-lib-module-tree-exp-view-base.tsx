@@ -66,7 +66,7 @@ export class DocLibModuleTreeExpViewBase extends TreeExpViewBase {
 	 */
     protected customViewNavContexts: any = {
         'MODULETYPE': { isRawValue: true, value: 'doc' },
-        'ID': { isRawValue: false, value: 'id' }
+        'ID': { isRawValue: false, value: 'srfparentkey' }
     };
 
 	/**
@@ -77,7 +77,7 @@ export class DocLibModuleTreeExpViewBase extends TreeExpViewBase {
 	 * @memberof DocLibModuleTreeExpViewBase
 	 */
     protected customViewParams: any = {
-        'id': { isRawValue: false, value: 'id' }
+        'id': { isRawValue: false, value: 'srfparentkey' }
     };
 
     /**

@@ -514,6 +514,7 @@ SRFNAVPARAM.project=%project%|
 |-|用例库用例编辑视图（基本信息）|DEEDITVIEW9|&nbsp;|
 |-|相关需求|DEGRIDVIEW9|&nbsp;视图参数中指定了过滤条件|
 |-|任务图表视图|DECHARTVIEW9|&nbsp;|
+|-|文档库表格视图|DEGRIDVIEW9|&nbsp;|
 |-|story表格视图|DEGRIDVIEW|&nbsp;|
 |-|用户年度工作内容统计数据看板视图|DEPORTALVIEW|&nbsp;|
 |-|测试套件表格视图|DEGRIDVIEW|&nbsp;|
