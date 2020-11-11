@@ -237,7 +237,6 @@ export default class TreeDocLibService extends ControlService {
                         Object.assign(treeNode, { leaf: false });
                         Object.assign(treeNode, { navfilter: "n_parent_eq" });
                         Object.assign(treeNode, { curData: entity });
-                        Object.assign(treeNode, {navigateContext: {ID:"%id%"} });
                         Object.assign(treeNode, { nodeid: treeNode.srfkey });
                         Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
                         Object.assign(treeNode, { nodeType: "DE",appEntityName:"doclibmodule" });

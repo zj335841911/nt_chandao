@@ -4,7 +4,7 @@ import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { MainDashboardBase } from './main-dashboard-base';
 import view_dashboard_sysportlet4 from '@widgets/doc/my-doc-portlet/my-doc-portlet.vue';
-import view_dashboard_sysportlet2 from '@widgets/doc-lib/dashboard-viewdashboard-sysportlet2-portlet/dashboard-viewdashboard-sysportlet2-portlet.vue';
+import view_dashboard_sysportlet2 from '@widgets/project/undone-project-portlet/undone-project-portlet.vue';
 import view_dashboard_sysportlet1 from '@widgets/doc/recent-update-portlet/recent-update-portlet.vue';
  
 

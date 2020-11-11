@@ -477,6 +477,16 @@ export default {
 		uiactions: {
 		},
 	},
+	undoneproject_grid: {
+		nodata: "",
+		columns: {
+			name: "项目名称",
+			openedby: "由谁创建",
+			openeddate: "创建日期",
+		},
+		uiactions: {
+		},
+	},
 	main2_grid: {
 		nodata: "",
 		columns: {
@@ -485,16 +495,6 @@ export default {
 			code: "项目代号",
 			status: "项目状态",
 			end: "结束日期",
-		},
-		uiactions: {
-		},
-	},
-	undoneproject_grid: {
-		nodata: "",
-		columns: {
-			name: "项目名称",
-			openedby: "由谁创建",
-			openeddate: "创建日期",
 		},
 		uiactions: {
 		},

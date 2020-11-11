@@ -3698,6 +3698,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'd290709d6a36e20e79d60e873047ec0d',
+            viewmodule: 'zentao',
+            viewname: 'ProjectUsr2GridView9',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'f83dac873b9215483c4bb91673284b41',
+            ],
+        },
+        {
             viewtag: 'd337f5c3c125dc2641321f2d93b65476',
             viewmodule: 'ibiz',
             viewname: 'TestModuleQuickCfgView',
@@ -4177,6 +4187,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'b79b6d8cb0dcb2ac867f3ea1aa6d4cb2',
+                'd290709d6a36e20e79d60e873047ec0d',
                 '13f17793cbc4fc2b36473a74d1bad4b2',
                 'b593c09602d9483d53b1f725395030a6',
                 '7c188c576f1fd59114ac2940d8e92c15',
