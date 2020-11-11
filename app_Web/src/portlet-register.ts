@@ -47,7 +47,6 @@ import UserYearWorkStatsMonthOpenedBugAndCase from '@/widgets/user-year-work-sta
 import UserYearWorkStatsFinishTaskAndBug from '@/widgets/user-year-work-stats/finish-task-and-bug-portlet/finish-task-and-bug-portlet.vue';
 import UserYearWorkStatsMonthOpenedStory from '@/widgets/user-year-work-stats/month-opened-story-portlet/month-opened-story-portlet.vue';
 import ProjectUnClosedProject from '@/widgets/project/un-closed-project-portlet/un-closed-project-portlet.vue';
-import ProjectUndoneProject from '@/widgets/project/undone-project-portlet/undone-project-portlet.vue';
 import ProjectProjectMainToolbar from '@/widgets/project/project-main-toolbar-portlet/project-main-toolbar-portlet.vue';
 import ProjectDashBoradInfoView from '@/widgets/project/dash-borad-info-view-portlet/dash-borad-info-view-portlet.vue';
 import ProjectProjectStatusBar from '@/widgets/project/project-status-bar-portlet/project-status-bar-portlet.vue';
@@ -197,7 +196,6 @@ export const  PortletComponent = {
         v.component('app-bug-bug-module-project-portlet', BugBugModule_Project);
         v.component('app-bug-bug-resolved-by-project-portlet', BugBugResolvedBy_Project);
         v.component('app-doc-recent-update-portlet', DocRecentUpdate);
-        v.component('app-project-undone-project-portlet', ProjectUndoneProject);
         v.component('app-doc-my-doc-portlet', DocMyDoc);
         v.component('case-test-main-detail-portlet', CaseTestMainDetail);
         v.component('case-main-detail-portlet', CaseMainDetail);
@@ -238,7 +236,6 @@ export const  PortletComponent = {
         v.component('user-year-work-stats-finish-task-and-bug-portlet', UserYearWorkStatsFinishTaskAndBug);
         v.component('user-year-work-stats-month-opened-story-portlet', UserYearWorkStatsMonthOpenedStory);
         v.component('project-un-closed-project-portlet', ProjectUnClosedProject);
-        v.component('project-undone-project-portlet', ProjectUndoneProject);
         v.component('project-project-main-toolbar-portlet', ProjectProjectMainToolbar);
         v.component('project-dash-borad-info-view-portlet', ProjectDashBoradInfoView);
         v.component('project-project-status-bar-portlet', ProjectProjectStatusBar);

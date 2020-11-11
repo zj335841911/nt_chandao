@@ -153,10 +153,6 @@ export default {
 			caption: "项目",
       		title: "项目数据看板视图",
 		},
-		usr2gridview9: {
-			caption: "未完成项目",
-      		title: "项目表格视图",
-		},
 		editview_close: {
 			caption: "项目",
       		title: "项目",
@@ -473,16 +469,6 @@ export default {
 			storycnt: "需求总数",
 			ycompletetaskcnt: "已完成任务数",
 			bugcnt: "Bug总数",
-		},
-		uiactions: {
-		},
-	},
-	undoneproject_grid: {
-		nodata: "",
-		columns: {
-			name: "项目名称",
-			openedby: "由谁创建",
-			openeddate: "创建日期",
 		},
 		uiactions: {
 		},
