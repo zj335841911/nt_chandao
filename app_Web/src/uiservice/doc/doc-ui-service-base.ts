@@ -25,7 +25,7 @@ export default class DocUIServiceBase extends UIService {
      * 
      * @memberof  DocUIServiceBase
      */
-    public isEnableDEMainState:boolean = false;
+    public isEnableDEMainState:boolean = true;
 
     /**
      * 当前UI服务对应的数据服务对象
@@ -60,7 +60,7 @@ export default class DocUIServiceBase extends UIService {
      * 
      * @memberof  DocUIServiceBase
      */  
-    public mainStateFields:Array<any> = [];
+    public mainStateFields:Array<any> = ['type'];
 
     /**
      * 主状态集合Map
@@ -122,6 +122,8 @@ export default class DocUIServiceBase extends UIService {
      * @memberof  DocUIServiceBase
      */  
     public initDeMainStateMap(){
+        this.allDeMainStateMap.set('doc','doc');
+        this.allDeMainStateMap.set('file','file');
     }
 
     /**
@@ -130,6 +132,8 @@ export default class DocUIServiceBase extends UIService {
      * @memberof  DocUIServiceBase
      */  
     public initDeMainStateOPPrivsMap(){
+        this.allDeMainStateOPPrivsMap.set('doc',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{}));
+        this.allDeMainStateOPPrivsMap.set('file',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{}));
     }
 
     /**
