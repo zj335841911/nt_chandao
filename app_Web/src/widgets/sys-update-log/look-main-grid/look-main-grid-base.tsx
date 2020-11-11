@@ -366,6 +366,9 @@ export class LookMainGridBase extends GridControlBase {
             const tree: any ={
                 groupById: Number((i+1)*100),
                 group: group.label,
+                LookDetail:{
+                    visabled: false
+                }
                 sys_update_logname:'',
                 update:'',
                 children: children

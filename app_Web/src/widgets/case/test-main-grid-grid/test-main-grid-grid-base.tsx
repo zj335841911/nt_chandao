@@ -811,6 +811,9 @@ export class TestMainGridGridBase extends GridControlBase {
                 group: group.label,
                 id:'',
                 pri:'',
+                Edits:{
+                    visabled: false
+                }
                 title:'',
                 type:'',
                 openedby:'',

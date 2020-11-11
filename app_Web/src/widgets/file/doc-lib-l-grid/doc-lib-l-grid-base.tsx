@@ -498,6 +498,9 @@ export class DocLibLGridBase extends GridControlBase {
                 groupById: Number((i+1)*100),
                 group: group.label,
                 id:'',
+                Look:{
+                    visabled: false
+                }
                 title:'',
                 pathname:'',
                 objecttype:'',

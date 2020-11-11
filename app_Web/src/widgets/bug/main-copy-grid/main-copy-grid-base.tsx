@@ -876,6 +876,9 @@ export class Main_CopyGridBase extends GridControlBase {
                 status:'',
                 openedby:'',
                 openeddate:'',
+                AssingToBug:{
+                    visabled: false
+                }
                 assignedto:'',
                 resolution:'',
                 ConfirmBug:{

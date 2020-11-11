@@ -456,6 +456,9 @@ export class MainGridBase extends GridControlBase {
                 groupById: Number((i+1)*100),
                 group: group.label,
                 id:'',
+                Look:{
+                    visabled: false
+                }
                 title:'',
                 addedby:'',
                 addeddate:'',

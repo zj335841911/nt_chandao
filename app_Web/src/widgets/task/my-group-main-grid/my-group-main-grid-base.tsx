@@ -889,6 +889,9 @@ export class MyGroupMainGridBase extends GridControlBase {
                 projectname:'',
                 name:'',
                 status1:'',
+                AssignTask:{
+                    visabled: false
+                }
                 assignedto:'',
                 finishedby:'',
                 estimate:'',
