@@ -330,4 +330,13 @@ export class ProjectUsr3GridView9Base extends GridView9Base {
     }
 
 
+
+    /**
+     * 是否单选
+     *
+     * @protected
+     * @type {boolean}
+     * @memberof ProjectUsr3GridView9Base
+     */
+    protected isGridSingleSelect: boolean = true;
 }
