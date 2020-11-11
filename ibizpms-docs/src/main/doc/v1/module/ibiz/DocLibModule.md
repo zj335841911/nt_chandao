@@ -1107,11 +1107,26 @@ LEFT JOIN zt_module t21 ON t1.PARENT = t21.ID
 ## 数据集合
 | 序号 | 集合 | 集合名 | 默认 |
 | ---- | ---- | ---- | ---- |
-| 1 | [所有文档库模块](#数据集合-所有文档库模块（AllDoclibModule）) | AllDoclibModule | 否 |
-| 2 | [数据集](#数据集合-数据集（Default）) | Default | 是 |
-| 3 | [父集合](#数据集合-父集合（ParentModule）) | ParentModule | 否 |
-| 4 | [根模块目录](#数据集合-根模块目录（RootModuleMuLu）) | RootModuleMuLu | 否 |
+| 1 | [自定义文档库的模块](#数据集合-自定义文档库的模块（AllDocLibModule_Custom）) | AllDocLibModule_Custom | 否 |
+| 2 | [所有文档库模块](#数据集合-所有文档库模块（AllDoclibModule）) | AllDoclibModule | 否 |
+| 3 | [数据集](#数据集合-数据集（Default）) | Default | 是 |
+| 4 | [父集合](#数据集合-父集合（ParentModule）) | ParentModule | 否 |
+| 5 | [根模块目录](#数据集合-根模块目录（RootModuleMuLu）) | RootModuleMuLu | 否 |
 
+### 数据集合-自定义文档库的模块（AllDocLibModule_Custom）
+#### 说明
+自定义文档库的模块
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [数据查询（AllDoclibModule_Custom）](#数据查询-数据查询（AllDoclibModule_Custom）) |
 ### 数据集合-所有文档库模块（AllDoclibModule）
 #### 说明
 所有文档库模块

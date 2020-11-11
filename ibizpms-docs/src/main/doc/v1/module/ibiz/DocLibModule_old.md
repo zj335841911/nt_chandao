@@ -104,6 +104,7 @@ hide footbox
 
 | 集合编号 | 集合名称   |  包含查询  | 默认集合 |   备注|
 | --------  | --------   | -------- | --------   | ----- |
+|AllDocLibModule_Custom|自定义文档库的模块|AllDoclibModule_Custom|否|&nbsp;|
 |AllDoclibModule|所有文档库模块|AllDoclibModule|否|&nbsp;|
 |DEFAULT|数据集|DEFAULT|是|&nbsp;|
 |ParentModule|父集合|ParentModule|否|&nbsp;|

@@ -37,6 +37,15 @@
 			 where  root=#{id}
      </select>
 
+    <!--数据集合[AllDocLibModule_Custom]-->
+	 <select id="searchAllDocLibModule_Custom"  parameterType="cn.ibizlab.pms.core.ibiz.filter.DocLibModuleSearchContext"  resultMap="DocLibModuleResultMap">
+         select t1.* from (
+                <include refid="AllDoclibModule_Custom" />
+         )t1
+         <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
+         <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
+     </select>
+
     <!--数据集合[AllDoclibModule]-->
 	 <select id="searchAllDoclibModule"  parameterType="cn.ibizlab.pms.core.ibiz.filter.DocLibModuleSearchContext"  resultMap="DocLibModuleResultMap">
          select t1.* from (
@@ -77,7 +86,7 @@
     <sql id="AllDoclibModule_Custom" databaseId="mysql">
 		<![CDATA[ SELECT t1.`BRANCH`, t1.`DELETED`, t11.`NAME` AS `DOCLIBNAME`, t1.`GRADE`, t1.`ID`, (CASE WHEN EXISTS (SELECT 1 FROM ZT_MODULE WHERE  PARENT = t1.`ID`) THEN FALSE ELSE TRUE  END ) AS `ISLEAF`, t21.`NAME` AS `MODULENAME`, t1.`NAME`, t1.`ORDER`, t1.`OWNER`, t1.`PARENT`, t1.`PATH`, t1.`ROOT`, t1.`SHORT`, t1.`TYPE` FROM `zt_module` t1  LEFT JOIN zt_doclib t11 ON t1.ROOT = t11.ID  LEFT JOIN zt_module t21 ON t1.PARENT = t21.ID  
 					 WHERE 	t1.DELETED = '0'
-						 AND t1.type = 'doc'
+						 AND (t1.parent = 0 or t1.parent is null ) and t1.type = 'doc'
 			]]>
     </sql>
     <!--数据查询[Default]-->

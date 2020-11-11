@@ -47,6 +47,7 @@ public interface IDocLibModuleService extends IService<DocLibModule>{
     DocLibModule fix(DocLibModule et) ;
     boolean save(DocLibModule et) ;
     void saveBatch(List<DocLibModule> list) ;
+    Page<DocLibModule> searchAllDocLibModule_Custom(DocLibModuleSearchContext context) ;
     Page<DocLibModule> searchAllDoclibModule(DocLibModuleSearchContext context) ;
     Page<DocLibModule> searchDefault(DocLibModuleSearchContext context) ;
     Page<DocLibModule> searchParentModule(DocLibModuleSearchContext context) ;
