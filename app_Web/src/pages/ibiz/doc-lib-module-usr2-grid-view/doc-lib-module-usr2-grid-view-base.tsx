@@ -69,19 +69,6 @@ export class DocLibModuleUsr2GridViewBase extends GridViewBase {
      */
     public appUIService: DocLibModuleUIService = new DocLibModuleUIService(this.$store);
 
-	/**
-	 * 自定义视图导航参数集合
-	 *
-     * @protected
-	 * @type {*}
-	 * @memberof DocLibModuleUsr2GridViewBase
-	 */
-    protected customViewParams: any = {
-        'product': { isRawValue: false, value: 'product' },
-        'moduletype': { isRawValue: false, value: 'moduletype' },
-        'root': { isRawValue: false, value: 'product' }
-    };
-
     /**
      * 视图模型数据
      *
