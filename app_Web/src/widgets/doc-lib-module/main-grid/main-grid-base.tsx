@@ -170,6 +170,15 @@ export class MainGridBase extends GridControlBase {
             enableCond: 3 ,
         },
         {
+            name: 'order',
+            label: '排序值',
+            langtag: 'entities.doclibmodule.main_grid.columns.order',
+            show: true,
+            unit: 'PX',
+            isEnableRowEdit: false,
+            enableCond: 3 ,
+        },
+        {
             name: 'uagridcolumn1',
             label: '操作',
             langtag: 'entities.doclibmodule.main_grid.columns.uagridcolumn1',
@@ -245,6 +254,7 @@ export class MainGridBase extends GridControlBase {
     public hasRowEdit: any = {
         'name':true,
         'short':true,
+        'order':false,
         'uagridcolumn1':false,
     };
 

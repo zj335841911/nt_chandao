@@ -54,6 +54,7 @@ export default {
 		columns: {
 			name: "名称",
 			short: "简称",
+			order: "排序值",
 			uagridcolumn1: "操作",
 		},
 		uiactions: {

@@ -83,6 +83,18 @@
                     </template>
                 </el-table-column>
             </template>
+            <template v-if="getColumnState('order')">
+                <el-table-column show-overflow-tooltip :prop="'order'" :label="$t('entities.doclibmodule.main_grid.columns.order')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.doclibmodule.main_grid.columns.order')}}
+                      </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                        <span>{{row.order}}</span>
+                    </template>
+                </el-table-column>
+            </template>
             <template v-if="getColumnState('uagridcolumn1')">
                 <el-table-column :column-key="'uagridcolumn1'" fixed="right" :label="$t('entities.doclibmodule.main_grid.columns.uagridcolumn1')" :width="50"  :align="'right'">
                     <template v-slot:header="{column}">
