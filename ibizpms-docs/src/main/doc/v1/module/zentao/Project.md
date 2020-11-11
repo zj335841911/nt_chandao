@@ -105,7 +105,7 @@
 | 69 | [取消任务数](#属性-取消任务数（CANCELTASKCNT）) | CANCELTASKCNT | 整型 | 否 | 是 | 是 |
 | 70 | [需求变更数](#属性-需求变更数（STORYCHANGECNT）) | STORYCHANGECNT | 整型 | 否 | 是 | 是 |
 | 71 | [消息通知用户](#属性-消息通知用户（NOTICEUSERS）) | NOTICEUSERS | 文本，可指定长度 | 否 | 是 | 是 |
-| 72 | [文档数量](#属性-文档数量（DOCLINCNT）) | DOCLINCNT | 整型 | 否 | 是 | 是 |
+| 72 | [文档数量](#属性-文档数量（DOCLIBCNT）) | DOCLIBCNT | 整型 | 否 | 是 | 是 |
 
 ### 属性-当前系统版本（OPENEDVERSION）
 #### 属性说明
@@ -3149,7 +3149,7 @@ String
 | 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
-### 属性-文档数量（DOCLINCNT）
+### 属性-文档数量（DOCLIBCNT）
 #### 属性说明
 文档数量
 

@@ -869,7 +869,7 @@ POST
 | 69 | canceltaskcnt | Integer | 允许 | 取消任务数 |
 | 70 | storychangecnt | Integer | 允许 | 需求变更数 |
 | 71 | noticeusers | String | 允许 | 消息通知用户 |
-| 72 | doclincnt | Integer | 允许 | 文档数量 |
+| 72 | doclibcnt | Integer | 允许 | 文档数量 |
 | 73 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### ProjectSearchContext

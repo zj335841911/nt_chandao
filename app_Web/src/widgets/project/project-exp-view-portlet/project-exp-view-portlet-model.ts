@@ -229,7 +229,7 @@ export default class ProjectExpViewModel {
         name: 'noticeusers',
       },
       {
-        name: 'doclincnt',
+        name: 'doclibcnt',
       },
     ]
   }

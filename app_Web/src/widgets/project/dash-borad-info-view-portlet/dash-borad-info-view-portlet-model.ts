@@ -229,7 +229,7 @@ export default class DashBoradInfoViewModel {
         name: 'noticeusers',
       },
       {
-        name: 'doclincnt',
+        name: 'doclibcnt',
       },
     ]
   }

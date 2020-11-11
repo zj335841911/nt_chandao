@@ -578,9 +578,9 @@ public class Project extends EntityMP implements Serializable {
      * 文档数量
      */
     @TableField(exist = false)
-    @JSONField(name = "doclincnt")
-    @JsonProperty("doclincnt")
-    private Integer doclincnt;
+    @JSONField(name = "doclibcnt")
+    @JsonProperty("doclibcnt")
+    private Integer doclibcnt;
 
     /**
      * 

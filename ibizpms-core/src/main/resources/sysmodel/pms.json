@@ -25072,8 +25072,8 @@
     "major_field":0
     },
     {
-    "fieldname":"DOCLINCNT" ,
-    "codename":"Doclincnt",
+    "fieldname":"DOCLIBCNT" ,
+    "codename":"Doclibcnt",
     "field_logic_name":"文档数量",
     "entity_name":"Project",
     "field_type":"INT",

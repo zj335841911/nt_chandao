@@ -229,7 +229,7 @@ export default class ProjectMainToolbarModel {
         name: 'noticeusers',
       },
       {
-        name: 'doclincnt',
+        name: 'doclibcnt',
       },
     ]
   }

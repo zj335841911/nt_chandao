@@ -98,7 +98,7 @@ hide members
 |取消任务数|CANCELTASKCNT|INT|&nbsp;|
 |需求变更数|STORYCHANGECNT|INT|&nbsp;|
 |消息通知用户|NOTICEUSERS|TEXT|&nbsp;|
-|文档数量|DOCLINCNT|INT|&nbsp;|
+|文档数量|DOCLIBCNT|INT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |

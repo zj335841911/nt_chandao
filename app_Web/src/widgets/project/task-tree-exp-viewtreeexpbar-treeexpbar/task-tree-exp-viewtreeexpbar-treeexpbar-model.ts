@@ -229,7 +229,7 @@ export default class TaskTreeExpViewtreeexpbarModel {
         name: 'noticeusers',
       },
       {
-        name: 'doclincnt',
+        name: 'doclibcnt',
       },
     ]
   }

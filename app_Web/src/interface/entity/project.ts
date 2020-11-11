@@ -580,5 +580,5 @@ export interface Project {
      * @returns {*}
      * @memberof Project
      */
-    doclincnt?: any;
+    doclibcnt?: any;
 }

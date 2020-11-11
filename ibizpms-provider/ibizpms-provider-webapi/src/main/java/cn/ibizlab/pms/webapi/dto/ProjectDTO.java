@@ -644,12 +644,12 @@ public class ProjectDTO extends DTOBase implements Serializable {
     private String noticeusers;
 
     /**
-     * 属性 [DOCLINCNT]
+     * 属性 [DOCLIBCNT]
      *
      */
-    @JSONField(name = "doclincnt")
-    @JsonProperty("doclincnt")
-    private Integer doclincnt;
+    @JSONField(name = "doclibcnt")
+    @JsonProperty("doclibcnt")
+    private Integer doclibcnt;
 
 
     /**

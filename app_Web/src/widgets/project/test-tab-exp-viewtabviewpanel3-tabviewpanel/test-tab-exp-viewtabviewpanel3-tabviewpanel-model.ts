@@ -229,7 +229,7 @@ export default class TestTabExpViewtabviewpanel3Model {
         name: 'noticeusers',
       },
       {
-        name: 'doclincnt',
+        name: 'doclibcnt',
       },
     ]
   }
