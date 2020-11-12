@@ -1563,7 +1563,9 @@ t1.`ID`,
 ''`KEYWORDS`,
 ${srfdatacontext('srfroot','{"defname":"ROOT","dename":"ZT_MODULE"}')} as `LIB`,
 '' AS `LIBNAME`,
-0 as `MODULE`,
+(case when ${srfdatacontext('parent','{"defname":"ROOT","dename":"ZT_MODULE"}')} is null then '0' else 
+${srfdatacontext('parent','{"defname":"ROOT","dename":"ZT_MODULE"}')} end
+)  as `MODULE`,
 '' AS `MODULENAME`,
 0 as `PRODUCT`,
 '' AS `PRODUCTNAME`,

@@ -4864,7 +4864,9 @@ t1.`ID`,
 ''`KEYWORDS`,
 ${srfdatacontext('srfroot','{"defname":"ROOT","dename":"ZT_MODULE"}')} as `LIB`,
 '' AS `LIBNAME`,
-0 as `MODULE`,
+(case when ${srfdatacontext('parent','{"defname":"ROOT","dename":"ZT_MODULE"}')} is null then '0' else 
+${srfdatacontext('parent','{"defname":"ROOT","dename":"ZT_MODULE"}')} end
+)  as `MODULE`,
 '' AS `MODULENAME`,
 0 as `PRODUCT`,
 '' AS `PRODUCTNAME`,
@@ -4906,6 +4908,7 @@ LEFT JOIN zt_product t21 ON t1.PRODUCT = t21.ID
 LEFT JOIN zt_doclib t31 ON t1.LIB = t31.ID 
 LEFT JOIN zt_module t41 ON t1.MODULE = t41.ID ) t1
 WHERE t1.DELETED = '0' 
+t1.module = ${srfdatacontext('parent','{"defname":"ROOT","dename":"ZT_MODULE"}')} 
 
 ```
 ### 文档库分类文档(DocModuleDoc)<div id="Doc_DocModuleDoc"></div>
