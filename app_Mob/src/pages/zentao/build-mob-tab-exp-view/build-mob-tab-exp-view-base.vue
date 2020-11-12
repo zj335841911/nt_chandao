@@ -59,6 +59,7 @@ import BuildService from '@/app-core/service/build/build-service';
 
 import MobTabExpViewEngine from '@engine/view/mob-tab-exp-view-engine';
 import BuildUIService from '@/ui-service/build/build-ui-action';
+import { AnimationService } from '@ibiz-core/service/animation-service'
 
 @Component({
     components: {

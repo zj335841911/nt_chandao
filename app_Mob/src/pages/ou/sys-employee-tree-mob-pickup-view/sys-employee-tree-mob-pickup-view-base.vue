@@ -54,6 +54,7 @@ import SysEmployeeService from '@/app-core/service/sys-employee/sys-employee-ser
 
 import MobPickupViewEngine from '@engine/view/mob-pickup-view-engine';
 import SysEmployeeUIService from '@/ui-service/sys-employee/sys-employee-ui-action';
+import { AnimationService } from '@ibiz-core/service/animation-service'
 
 @Component({
     components: {

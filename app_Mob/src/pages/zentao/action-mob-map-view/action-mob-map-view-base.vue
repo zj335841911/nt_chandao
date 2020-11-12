@@ -40,6 +40,7 @@ import ActionService from '@/app-core/service/action/action-service';
 
 import MobMapViewEngine from '@engine/view/mob-map-view-engine';
 import ActionUIService from '@/ui-service/action/action-ui-action';
+import { AnimationService } from '@ibiz-core/service/animation-service'
 
 @Component({
     components: {

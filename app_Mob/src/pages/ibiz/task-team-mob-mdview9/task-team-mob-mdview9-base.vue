@@ -49,6 +49,7 @@ import TaskTeamService from '@/app-core/service/task-team/task-team-service';
 
 import MobMDView9Engine from '@engine/view/mob-mdview9-engine';
 import TaskTeamUIService from '@/ui-service/task-team/task-team-ui-action';
+import { AnimationService } from '@ibiz-core/service/animation-service'
 
 @Component({
     components: {

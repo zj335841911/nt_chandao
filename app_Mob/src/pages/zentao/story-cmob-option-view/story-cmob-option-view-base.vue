@@ -59,6 +59,7 @@ import StoryService from '@/app-core/service/story/story-service';
 
 import MobOptionViewEngine from '@engine/view/mob-option-view-engine';
 import StoryUIService from '@/ui-service/story/story-ui-action';
+import { AnimationService } from '@ibiz-core/service/animation-service'
 
 @Component({
     components: {

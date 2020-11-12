@@ -29,6 +29,7 @@ import IbzMyTerritoryService from '@/app-core/service/ibz-my-territory/ibz-my-te
 
 import MobPortalViewEngine from '@engine/view/mob-portal-view-engine';
 import IbzMyTerritoryUIService from '@/ui-service/ibz-my-territory/ibz-my-territory-ui-action';
+import { AnimationService } from '@ibiz-core/service/animation-service'
 
 @Component({
     components: {

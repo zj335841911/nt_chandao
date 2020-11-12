@@ -64,6 +64,7 @@ import SysUpdateFeaturesService from '@/app-core/service/sys-update-features/sys
 
 import MobEditViewEngine from '@engine/view/mob-edit-view-engine';
 import SysUpdateFeaturesUIService from '@/ui-service/sys-update-features/sys-update-features-ui-action';
+import { AnimationService } from '@ibiz-core/service/animation-service'
 
 @Component({
     components: {

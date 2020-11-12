@@ -48,6 +48,7 @@ import ProjectTeamService from '@/app-core/service/project-team/project-team-ser
 
 import MobMDViewEngine from '@engine/view/mob-mdview-engine';
 import ProjectTeamUIService from '@/ui-service/project-team/project-team-ui-action';
+import { AnimationService } from '@ibiz-core/service/animation-service'
 
 @Component({
     components: {

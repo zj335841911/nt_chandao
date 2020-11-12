@@ -93,6 +93,7 @@
             <div class="scroll_tool">
                 <div class="scrollToTop" @click="onScrollToTop" v-show="isShouleBackTop" :style="{right:isScrollStop?'-18px':'-70px'}" > <van-icon name="back-top" /></div> 
             </div>
+            <div :id="viewtag" class="bottom_button" :style="button_style">
                 <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1.disabled}" v-show="righttoolbarModels.deuiaction1.visabled">
                 <ion-button :disabled="righttoolbarModels.deuiaction1.disabled" @click="righttoolbar_click({ tag: 'deuiaction1' }, $event)" size="large">
                     <ion-icon name="add"></ion-icon>
@@ -101,6 +102,7 @@
                 
             </div>
         
+            </div>
         </div>
         
     </ion-footer>
@@ -115,6 +117,7 @@ import BuildService from '@/app-core/service/build/build-service';
 
 import MobMDViewEngine from '@engine/view/mob-mdview-engine';
 import BuildUIService from '@/ui-service/build/build-ui-action';
+import { AnimationService } from '@ibiz-core/service/animation-service'
 
 @Component({
     components: {
@@ -531,6 +534,12 @@ export default class BuildMobMDViewBase extends Vue {
         this.afterMounted();
     }
 
+    /**
+     * 底部按钮样式
+     * 
+     * @memberof BuildMobMDViewBase
+     */
+    public button_style = "";
 
     /**
      * 执行mounted后的逻辑
@@ -545,6 +554,8 @@ export default class BuildMobMDViewBase extends Vue {
         }
         this.thirdPartyInit();
 
+        // 拖动样式
+        AnimationService.draggable(document.getElementById(viewtag),(style:any)=>{this.button_style = style});
     }
 
     /**

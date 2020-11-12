@@ -59,6 +59,7 @@ import TaskEstimateService from '@/app-core/service/task-estimate/task-estimate-
 
 import MobMDViewEngine from '@engine/view/mob-mdview-engine';
 import TaskEstimateUIService from '@/ui-service/task-estimate/task-estimate-ui-action';
+import { AnimationService } from '@ibiz-core/service/animation-service'
 
 @Component({
     components: {

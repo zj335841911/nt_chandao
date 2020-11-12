@@ -590,6 +590,7 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
         files: null,
         multiple: null,
         comment: null,
+        noticeusers: null,
         task: null,
     };
 
@@ -781,6 +782,8 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
         multiple: new FormItemModel({ caption: '多人任务', detailType: 'FORMITEM', name: 'multiple', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         comment: new FormItemModel({ caption: '备注', detailType: 'FORMITEM', name: 'comment', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        noticeusers: new FormItemModel({ caption: '消息通知用户', detailType: 'FORMITEM', name: 'noticeusers', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
     };
 
@@ -1000,6 +1003,18 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
         this.formDataChange({ name: 'comment', newVal: newVal, oldVal: oldVal });
     }
 
+    /**
+     * 监控表单属性 noticeusers 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof CompleteFormMob
+     */
+    @Watch('data.noticeusers')
+    onNoticeusersChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'noticeusers', newVal: newVal, oldVal: oldVal });
+    }
+
 
     /**
      * 重置表单项值
@@ -1036,6 +1051,7 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
      */
     private async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }){
                 
+
 
 
 

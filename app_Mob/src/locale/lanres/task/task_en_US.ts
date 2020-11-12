@@ -148,6 +148,7 @@ export default {
 			realstarted: '实际开始', 
 			consumed: '总计消耗', 
 			left: '预计剩余', 
+			noticeusers: '消息通知用户', 
 			comment: '备注', 
 			id: '编号', 
 		},
@@ -173,6 +174,7 @@ export default {
 			multiple: '多人任务', 
 			left: '预计剩余', 
 			comment: '备注', 
+			noticeusers: '消息通知用户', 
 			id: '编号', 
 		},
 		uiactions: {
@@ -202,6 +204,7 @@ export default {
 			files: '附件', 
 			multiple: '多人任务', 
 			comment: '备注', 
+			noticeusers: '消息通知用户', 
 		},
 		uiactions: {
 		},
@@ -221,6 +224,7 @@ export default {
 			srfdeid: '', 
 			srfsourcekey: '', 
 			comment: '备注', 
+			noticeusers: '消息通知用户', 
 			id: '编号', 
 		},
 		uiactions: {
@@ -245,6 +249,7 @@ export default {
 			comment: '备注', 
 			project: '所属项目', 
 			multiple: '多人任务', 
+			noticeusers: '消息通知用户', 
 			id: '编号', 
 		},
 		uiactions: {
@@ -291,6 +296,7 @@ export default {
 			allmodules: '所有模块', 
 			assignedto: '指派给', 
 			multiple: '多人任务', 
+			noticeusers: '消息通知用户', 
 			story: '相关需求', 
 			storyname: '相关需求', 
 			name: '任务名称', 
@@ -403,6 +409,7 @@ export default {
 			closedby: '由谁关闭', 
 			closedreason: '关闭原因', 
 			closeddate: '关闭时间', 
+			noticeusers: '消息通知用户', 
 			desc: '任务描述', 
 			comment: '备注', 
 			files: '附件', 

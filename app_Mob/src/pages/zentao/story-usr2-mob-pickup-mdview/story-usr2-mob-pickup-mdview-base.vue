@@ -38,6 +38,7 @@ import StoryService from '@/app-core/service/story/story-service';
 
 import MobPickupMDViewEngine from '@engine/view/mob-pickup-mdview-engine';
 import StoryUIService from '@/ui-service/story/story-ui-action';
+import { AnimationService } from '@ibiz-core/service/animation-service'
 
 @Component({
     components: {

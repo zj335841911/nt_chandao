@@ -45,6 +45,7 @@ import TaskService from '@/app-core/service/task/task-service';
 
 import MobPickupViewEngine from '@engine/view/mob-pickup-view-engine';
 import TaskUIService from '@/ui-service/task/task-ui-action';
+import { AnimationService } from '@ibiz-core/service/animation-service'
 
 @Component({
     components: {

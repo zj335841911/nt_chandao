@@ -107,6 +107,7 @@ import StoryService from '@/app-core/service/story/story-service';
 
 import MobMDViewEngine from '@engine/view/mob-mdview-engine';
 import StoryUIService from '@/ui-service/story/story-ui-action';
+import { AnimationService } from '@ibiz-core/service/animation-service'
 
 @Component({
     components: {
@@ -521,6 +522,12 @@ export default class StoryMobMDViewCurProjectBase extends Vue {
         this.afterMounted();
     }
 
+    /**
+     * 底部按钮样式
+     * 
+     * @memberof StoryMobMDViewCurProjectBase
+     */
+    public button_style = "";
 
     /**
      * 执行mounted后的逻辑
@@ -535,6 +542,8 @@ export default class StoryMobMDViewCurProjectBase extends Vue {
         }
         this.thirdPartyInit();
 
+        // 拖动样式
+        AnimationService.draggable(document.getElementById(viewtag),(style:any)=>{this.button_style = style});
     }
 
     /**

@@ -101,6 +101,11 @@ export class CompleteFormMobModel {
                 dataType: 'HTMLTEXT',
             },
             {
+                name: 'noticeusers',
+                prop: 'noticeusers',
+                dataType: 'TEXT',
+            },
+            {
                 name: 'task',
                 prop: 'id',
                 dataType: 'FONTKEY',

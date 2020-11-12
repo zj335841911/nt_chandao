@@ -475,6 +475,7 @@ export default class MobActiviteFormBase extends Vue implements ControlInterface
         comment: null,
         project: null,
         multiple: null,
+        noticeusers: null,
         id: null,
         task: null,
     };
@@ -657,6 +658,8 @@ export default class MobActiviteFormBase extends Vue implements ControlInterface
 , 
         multiple: new FormItemModel({ caption: '多人任务', detailType: 'FORMITEM', name: 'multiple', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
+        noticeusers: new FormItemModel({ caption: '消息通知用户', detailType: 'FORMITEM', name: 'noticeusers', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
         id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
 , 
     };
@@ -818,6 +821,18 @@ export default class MobActiviteFormBase extends Vue implements ControlInterface
     }
 
     /**
+     * 监控表单属性 noticeusers 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobActiviteForm
+     */
+    @Watch('data.noticeusers')
+    onNoticeusersChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'noticeusers', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
      * 监控表单属性 id 值
      *
      * @param {*} newVal
@@ -865,6 +880,7 @@ export default class MobActiviteFormBase extends Vue implements ControlInterface
      */
     private async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }){
                 
+
 
 
 

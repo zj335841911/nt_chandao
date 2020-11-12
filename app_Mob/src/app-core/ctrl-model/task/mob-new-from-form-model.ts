@@ -91,6 +91,11 @@ export class MobNewFromModel {
                 dataType: 'TEXT',
             },
             {
+                name: 'noticeusers',
+                prop: 'noticeusers',
+                dataType: 'TEXT',
+            },
+            {
                 name: 'story',
                 prop: 'story',
                 dataType: 'PICKUP',

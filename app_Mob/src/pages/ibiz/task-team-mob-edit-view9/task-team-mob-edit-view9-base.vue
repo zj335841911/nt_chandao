@@ -49,6 +49,7 @@ import IbztaskteamService from '@/app-core/service/ibztaskteam/ibztaskteam-servi
 
 import MobEditView9Engine from '@engine/view/mob-edit-view9-engine';
 import IbztaskteamUIService from '@/ui-service/ibztaskteam/ibztaskteam-ui-action';
+import { AnimationService } from '@ibiz-core/service/animation-service'
 
 @Component({
     components: {

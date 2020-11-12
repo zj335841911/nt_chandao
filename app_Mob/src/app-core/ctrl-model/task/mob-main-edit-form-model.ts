@@ -211,6 +211,11 @@ export class MobMainEditModel {
                 dataType: 'DATETIME',
             },
             {
+                name: 'noticeusers',
+                prop: 'noticeusers',
+                dataType: 'TEXT',
+            },
+            {
                 name: 'desc',
                 prop: 'desc',
                 dataType: 'LONGTEXT',

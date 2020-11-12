@@ -53,6 +53,7 @@ import BuildService from '@/app-core/service/build/build-service';
 
 import MobEditViewEngine from '@engine/view/mob-edit-view-engine';
 import BuildUIService from '@/ui-service/build/build-ui-action';
+import { AnimationService } from '@ibiz-core/service/animation-service'
 
 @Component({
     components: {

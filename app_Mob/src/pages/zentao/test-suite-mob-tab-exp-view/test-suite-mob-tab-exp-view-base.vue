@@ -53,6 +53,7 @@ import TestSuiteService from '@/app-core/service/test-suite/test-suite-service';
 
 import MobTabExpViewEngine from '@engine/view/mob-tab-exp-view-engine';
 import TestSuiteUIService from '@/ui-service/test-suite/test-suite-ui-action';
+import { AnimationService } from '@ibiz-core/service/animation-service'
 
 @Component({
     components: {

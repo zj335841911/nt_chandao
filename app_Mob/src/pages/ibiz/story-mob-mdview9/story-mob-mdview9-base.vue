@@ -49,6 +49,7 @@ import StoryService from '@/app-core/service/story/story-service';
 
 import MobMDView9Engine from '@engine/view/mob-mdview9-engine';
 import StoryUIService from '@/ui-service/story/story-ui-action';
+import { AnimationService } from '@ibiz-core/service/animation-service'
 
 @Component({
     components: {

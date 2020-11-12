@@ -41,6 +41,7 @@ import ProjectService from '@/app-core/service/project/project-service';
 
 import MobChartViewEngine from '@engine/view/mob-chart-view-engine';
 import ProjectUIService from '@/ui-service/project/project-ui-action';
+import { AnimationService } from '@ibiz-core/service/animation-service'
 
 @Component({
     components: {

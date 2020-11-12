@@ -1431,6 +1431,7 @@ export default class MobMainEditBase extends Vue implements ControlInterface {
         closedby: null,
         closedreason: null,
         closeddate: null,
+        noticeusers: null,
         desc: null,
         comment: null,
         files: null,
@@ -1722,6 +1723,8 @@ export default class MobMainEditBase extends Vue implements ControlInterface {
         closedreason: new FormItemModel({ caption: '关闭原因', detailType: 'FORMITEM', name: 'closedreason', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         closeddate: new FormItemModel({ caption: '关闭时间', detailType: 'FORMITEM', name: 'closeddate', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        noticeusers: new FormItemModel({ caption: '消息通知用户', detailType: 'FORMITEM', name: 'noticeusers', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         desc: new FormItemModel({ caption: '任务描述', detailType: 'FORMITEM', name: 'desc', visible: true, isShowCaption: false, form: this, disabled: false, enableCond: 3 })
 , 
@@ -2212,6 +2215,18 @@ export default class MobMainEditBase extends Vue implements ControlInterface {
     }
 
     /**
+     * 监控表单属性 noticeusers 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMainEdit
+     */
+    @Watch('data.noticeusers')
+    onNoticeusersChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'noticeusers', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
      * 监控表单属性 desc 值
      *
      * @param {*} newVal
@@ -2374,6 +2389,7 @@ export default class MobMainEditBase extends Vue implements ControlInterface {
             }
             this.detailsModel.left.setDisabled(!ret);
         }
+
 
 
 

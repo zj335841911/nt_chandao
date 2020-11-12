@@ -82,6 +82,7 @@ import BuildService from '@/app-core/service/build/build-service';
 
 import MobMPickupViewEngine from '@engine/view/mob-mpickup-view-engine';
 import BuildUIService from '@/ui-service/build/build-ui-action';
+import { AnimationService } from '@ibiz-core/service/animation-service'
 
 @Component({
     components: {

@@ -35,7 +35,7 @@
     </ion-content>
     <ion-footer class="view-footer">
                 <div  class = "fab_container">
-            <ion-button v-if="getToolBarLimit" @click="popUpGroup(true)" class="app-view-toolbar-button"><ion-icon name="chevron-up-circle-outline"></ion-icon></ion-button>
+            <ion-button :id="viewtag" v-if="getToolBarLimit" @click="popUpGroup(true)" class="app-view-toolbar-button"><ion-icon name="chevron-up-circle-outline"></ion-icon></ion-button>
             <van-popup v-if="getToolBarLimit" class="popup" v-model="showGrop" round position="bottom">
                 <div class="container">
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_mobeditbuild.disabled}" v-show="righttoolbarModels.deuiaction1_mobeditbuild.visabled">
@@ -69,6 +69,7 @@ import BuildService from '@/app-core/service/build/build-service';
 
 import MobEditViewEngine from '@engine/view/mob-edit-view-engine';
 import BuildUIService from '@/ui-service/build/build-ui-action';
+import { AnimationService } from '@ibiz-core/service/animation-service'
 
 @Component({
     components: {
@@ -465,6 +466,12 @@ export default class BuildMobEditViewBase extends Vue {
         this.afterMounted();
     }
 
+    /**
+     * 底部按钮样式
+     * 
+     * @memberof BuildMobEditViewBase
+     */
+    public button_style = "";
 
     /**
      * 执行mounted后的逻辑
@@ -479,6 +486,8 @@ export default class BuildMobEditViewBase extends Vue {
         }
         this.thirdPartyInit();
 
+        // 拖动样式
+        AnimationService.draggable(document.getElementById(viewtag),(style:any)=>{this.button_style = style});
     }
 
     /**

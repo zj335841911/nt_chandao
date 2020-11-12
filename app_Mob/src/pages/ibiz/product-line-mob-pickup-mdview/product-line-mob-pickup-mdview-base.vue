@@ -38,6 +38,7 @@ import ProductLineService from '@/app-core/service/product-line/product-line-ser
 
 import MobPickupMDViewEngine from '@engine/view/mob-pickup-mdview-engine';
 import ProductLineUIService from '@/ui-service/product-line/product-line-ui-action';
+import { AnimationService } from '@ibiz-core/service/animation-service'
 
 @Component({
     components: {

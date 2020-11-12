@@ -38,6 +38,7 @@ import ReleaseService from '@/app-core/service/release/release-service';
 
 import MobPickupMDViewEngine from '@engine/view/mob-pickup-mdview-engine';
 import ReleaseUIService from '@/ui-service/release/release-ui-action';
+import { AnimationService } from '@ibiz-core/service/animation-service'
 
 @Component({
     components: {

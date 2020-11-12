@@ -59,6 +59,7 @@ import TaskService from '@/app-core/service/task/task-service';
 
 import MobOptionViewEngine from '@engine/view/mob-option-view-engine';
 import TaskUIService from '@/ui-service/task/task-ui-action';
+import { AnimationService } from '@ibiz-core/service/animation-service'
 
 @Component({
     components: {

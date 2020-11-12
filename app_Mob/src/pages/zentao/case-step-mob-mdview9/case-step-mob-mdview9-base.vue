@@ -52,6 +52,7 @@ import CaseStepService from '@/app-core/service/case-step/case-step-service';
 
 import MobMDView9Engine from '@engine/view/mob-mdview9-engine';
 import CaseStepUIService from '@/ui-service/case-step/case-step-ui-action';
+import { AnimationService } from '@ibiz-core/service/animation-service'
 
 @Component({
     components: {

@@ -76,6 +76,11 @@ export class MobActiviteFormModel {
                 dataType: 'TEXT',
             },
             {
+                name: 'noticeusers',
+                prop: 'noticeusers',
+                dataType: 'TEXT',
+            },
+            {
                 name: 'id',
                 prop: 'id',
                 dataType: 'ACID',

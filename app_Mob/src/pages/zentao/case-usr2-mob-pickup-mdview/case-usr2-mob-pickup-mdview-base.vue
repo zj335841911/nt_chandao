@@ -38,6 +38,7 @@ import CaseService from '@/app-core/service/case/case-service';
 
 import MobPickupMDViewEngine from '@engine/view/mob-pickup-mdview-engine';
 import CaseUIService from '@/ui-service/case/case-ui-action';
+import { AnimationService } from '@ibiz-core/service/animation-service'
 
 @Component({
     components: {

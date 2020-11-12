@@ -49,6 +49,7 @@ import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorat
 import { Subject, Subscription } from 'rxjs';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
 
+import { AnimationService } from '@ibiz-core/service/animation-service'
 
 @Component({
     components: {

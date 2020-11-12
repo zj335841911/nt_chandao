@@ -35,6 +35,7 @@ import IbzMyTerritoryService from '@/app-core/service/ibz-my-territory/ibz-my-te
 
 import MobCalendarViewEngine from '@engine/view/mob-calendar-view-engine';
 import IbzMyTerritoryUIService from '@/ui-service/ibz-my-territory/ibz-my-territory-ui-action';
+import { AnimationService } from '@ibiz-core/service/animation-service'
 
 @Component({
     components: {

@@ -44,6 +44,7 @@
     </ion-content>
     <ion-footer class="view-footer">
                 <div  class = "fab_container">
+            <div :id="viewtag" class="bottom_button" :style="button_style">
                 <div :class="{'sub-item':true,'disabled':righttoolbarModels.tbitem1.disabled}" v-show="righttoolbarModels.tbitem1.visabled">
                 <ion-button :disabled="righttoolbarModels.tbitem1.disabled" @click="righttoolbar_click({ tag: 'tbitem1' }, $event)" size="large">
                     <ion-icon name="checkmark-outline"></ion-icon>
@@ -52,6 +53,7 @@
                 
             </div>
         
+            </div>
         </div>
     </ion-footer>
 </ion-page>
@@ -65,6 +67,7 @@ import BuildService from '@/app-core/service/build/build-service';
 
 import MobEditViewEngine from '@engine/view/mob-edit-view-engine';
 import BuildUIService from '@/ui-service/build/build-ui-action';
+import { AnimationService } from '@ibiz-core/service/animation-service'
 
 @Component({
     components: {
@@ -459,6 +462,12 @@ export default class BuildNewMobEditViewBase extends Vue {
         this.afterMounted();
     }
 
+    /**
+     * 底部按钮样式
+     * 
+     * @memberof BuildNewMobEditViewBase
+     */
+    public button_style = "";
 
     /**
      * 执行mounted后的逻辑
@@ -473,6 +482,8 @@ export default class BuildNewMobEditViewBase extends Vue {
         }
         this.thirdPartyInit();
 
+        // 拖动样式
+        AnimationService.draggable(document.getElementById(viewtag),(style:any)=>{this.button_style = style});
     }
 
     /**

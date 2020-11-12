@@ -38,6 +38,7 @@ import ProjectModuleService from '@/app-core/service/project-module/project-modu
 
 import MobPickupMDViewEngine from '@engine/view/mob-pickup-mdview-engine';
 import ProjectModuleUIService from '@/ui-service/project-module/project-module-ui-action';
+import { AnimationService } from '@ibiz-core/service/animation-service'
 
 @Component({
     components: {

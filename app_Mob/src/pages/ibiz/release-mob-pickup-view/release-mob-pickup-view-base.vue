@@ -45,6 +45,7 @@ import ReleaseService from '@/app-core/service/release/release-service';
 
 import MobPickupViewEngine from '@engine/view/mob-pickup-view-engine';
 import ReleaseUIService from '@/ui-service/release/release-ui-action';
+import { AnimationService } from '@ibiz-core/service/animation-service'
 
 @Component({
     components: {

@@ -53,6 +53,7 @@ import SysUpdateLogService from '@/app-core/service/sys-update-log/sys-update-lo
 
 import MobEditViewEngine from '@engine/view/mob-edit-view-engine';
 import SysUpdateLogUIService from '@/ui-service/sys-update-log/sys-update-log-ui-action';
+import { AnimationService } from '@ibiz-core/service/animation-service'
 
 @Component({
     components: {

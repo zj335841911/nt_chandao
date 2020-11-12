@@ -53,6 +53,7 @@ import TestTaskService from '@/app-core/service/test-task/test-task-service';
 
 import MobTabExpViewEngine from '@engine/view/mob-tab-exp-view-engine';
 import TestTaskUIService from '@/ui-service/test-task/test-task-ui-action';
+import { AnimationService } from '@ibiz-core/service/animation-service'
 
 @Component({
     components: {

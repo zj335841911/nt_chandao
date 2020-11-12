@@ -414,6 +414,7 @@ export default class ClosePauseCancelFormMobBase extends Vue implements ControlI
         srfdeid: null,
         srfsourcekey: null,
         comment: null,
+        noticeusers: null,
         id: null,
         task: null,
     };
@@ -572,6 +573,8 @@ export default class ClosePauseCancelFormMobBase extends Vue implements ControlI
 , 
         comment: new FormItemModel({ caption: '备注', detailType: 'FORMITEM', name: 'comment', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
+        noticeusers: new FormItemModel({ caption: '消息通知用户', detailType: 'FORMITEM', name: 'noticeusers', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
         id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
 , 
     };
@@ -685,6 +688,18 @@ export default class ClosePauseCancelFormMobBase extends Vue implements ControlI
     }
 
     /**
+     * 监控表单属性 noticeusers 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof ClosePauseCancelFormMob
+     */
+    @Watch('data.noticeusers')
+    onNoticeusersChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'noticeusers', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
      * 监控表单属性 id 值
      *
      * @param {*} newVal
@@ -732,6 +747,7 @@ export default class ClosePauseCancelFormMobBase extends Vue implements ControlI
      */
     private async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }){
                 
+
 
 
 

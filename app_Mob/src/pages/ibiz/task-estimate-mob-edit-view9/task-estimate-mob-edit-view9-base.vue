@@ -46,6 +46,7 @@ import IbzTaskestimateService from '@/app-core/service/ibz-taskestimate/ibz-task
 
 import MobEditView9Engine from '@engine/view/mob-edit-view9-engine';
 import IbzTaskestimateUIService from '@/ui-service/ibz-taskestimate/ibz-taskestimate-ui-action';
+import { AnimationService } from '@ibiz-core/service/animation-service'
 
 @Component({
     components: {

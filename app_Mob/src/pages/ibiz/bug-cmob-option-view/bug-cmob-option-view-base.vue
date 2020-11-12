@@ -59,6 +59,7 @@ import BugService from '@/app-core/service/bug/bug-service';
 
 import MobOptionViewEngine from '@engine/view/mob-option-view-engine';
 import BugUIService from '@/ui-service/bug/bug-ui-action';
+import { AnimationService } from '@ibiz-core/service/animation-service'
 
 @Component({
     components: {

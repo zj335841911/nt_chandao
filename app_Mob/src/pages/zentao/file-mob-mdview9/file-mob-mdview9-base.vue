@@ -47,6 +47,7 @@ import FileService from '@/app-core/service/file/file-service';
 
 import MobMDView9Engine from '@engine/view/mob-mdview9-engine';
 import FileUIService from '@/ui-service/file/file-ui-action';
+import { AnimationService } from '@ibiz-core/service/animation-service'
 
 @Component({
     components: {

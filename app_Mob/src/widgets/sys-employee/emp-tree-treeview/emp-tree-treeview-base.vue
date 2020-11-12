@@ -290,6 +290,9 @@ export default class EmpTreeBase extends Vue implements ControlInterface {
      * @memberof EmpTreeBase
      */
     public click_node(data:any){
+        if(this.treeNav[this.treeNav.length -1].id == data.id){
+            return
+        }
         this.treeNav.push(data);
         this.load({data:data});
     }

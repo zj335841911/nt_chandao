@@ -799,6 +799,7 @@ export default class MobNewFromBase extends Vue implements ControlInterface {
         allmodules: null,
         assignedto: null,
         multiple: null,
+        noticeusers: null,
         story: null,
         storyname: null,
         name: null,
@@ -1056,6 +1057,8 @@ export default class MobNewFromBase extends Vue implements ControlInterface {
 , 
         multiple: new FormItemModel({ caption: '多人任务', detailType: 'FORMITEM', name: 'multiple', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
+        noticeusers: new FormItemModel({ caption: '消息通知用户', detailType: 'FORMITEM', name: 'noticeusers', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
         story: new FormItemModel({ caption: '相关需求', detailType: 'FORMITEM', name: 'story', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         storyname: new FormItemModel({ caption: '相关需求', detailType: 'FORMITEM', name: 'storyname', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
@@ -1271,6 +1274,18 @@ export default class MobNewFromBase extends Vue implements ControlInterface {
     }
 
     /**
+     * 监控表单属性 noticeusers 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobNewFrom
+     */
+    @Watch('data.noticeusers')
+    onNoticeusersChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'noticeusers', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
      * 监控表单属性 story 值
      *
      * @param {*} newVal
@@ -1483,6 +1498,7 @@ export default class MobNewFromBase extends Vue implements ControlInterface {
             }
             this.detailsModel.assignedto.setDisabled(!ret);
         }
+
 
 
 

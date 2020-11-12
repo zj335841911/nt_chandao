@@ -56,6 +56,7 @@ import ProductPlanService from '@/app-core/service/product-plan/product-plan-ser
 
 import MobTabExpViewEngine from '@engine/view/mob-tab-exp-view-engine';
 import ProductPlanUIService from '@/ui-service/product-plan/product-plan-ui-action';
+import { AnimationService } from '@ibiz-core/service/animation-service'
 
 @Component({
     components: {

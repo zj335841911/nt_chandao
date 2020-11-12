@@ -70,6 +70,7 @@ import ProductStatsService from '@/app-core/service/product-stats/product-stats-
 
 import MobMDViewEngine from '@engine/view/mob-mdview-engine';
 import ProductStatsUIService from '@/ui-service/product-stats/product-stats-ui-action';
+import { AnimationService } from '@ibiz-core/service/animation-service'
 
 @Component({
     components: {

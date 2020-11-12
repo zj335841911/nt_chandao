@@ -45,6 +45,7 @@ import ModuleService from '@/app-core/service/module/module-service';
 
 import MobPickupViewEngine from '@engine/view/mob-pickup-view-engine';
 import ModuleUIService from '@/ui-service/module/module-ui-action';
+import { AnimationService } from '@ibiz-core/service/animation-service'
 
 @Component({
     components: {

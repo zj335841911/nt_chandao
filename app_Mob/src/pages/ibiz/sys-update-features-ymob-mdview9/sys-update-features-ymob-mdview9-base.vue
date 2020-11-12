@@ -49,6 +49,7 @@ import SysUpdateFeaturesService from '@/app-core/service/sys-update-features/sys
 
 import MobMDView9Engine from '@engine/view/mob-mdview9-engine';
 import SysUpdateFeaturesUIService from '@/ui-service/sys-update-features/sys-update-features-ui-action';
+import { AnimationService } from '@ibiz-core/service/animation-service'
 
 @Component({
     components: {

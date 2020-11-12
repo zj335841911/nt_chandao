@@ -44,6 +44,7 @@ import IbzFavoritesService from '@/app-core/service/ibz-favorites/ibz-favorites-
 
 import MobTabExpViewEngine from '@engine/view/mob-tab-exp-view-engine';
 import IbzFavoritesUIService from '@/ui-service/ibz-favorites/ibz-favorites-ui-action';
+import { AnimationService } from '@ibiz-core/service/animation-service'
 
 @Component({
     components: {
