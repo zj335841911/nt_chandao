@@ -2559,6 +2559,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "StoryProjectPickupGridView",
             "viewtag": "a4cd2a6ada3f3e12ffb3315d55da2f0d"
         },
+        "docgridviewlookdoc": {
+            "title": "doc表格视图",
+            "caption": "文档",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "DocGridViewLookDoc",
+            "viewtag": "a501a42f3adfa826e382e4cbc134a4fc"
+        },
         "deptinfoeditview": {
             "title": "部门编辑视图",
             "caption": "部门信息",

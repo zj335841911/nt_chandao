@@ -66,6 +66,10 @@ export default {
 			caption: "文档摘要",
       		title: "文档编辑视图（文档摘要）",
 		},
+		gridviewlookdoc: {
+			caption: "文档",
+      		title: "doc表格视图",
+		},
 		mymoregridview: {
 			caption: "我的文档",
       		title: "doc表格视图",
@@ -302,6 +306,12 @@ export default {
 		deuiaction1: {
 			caption: "Save And Close",
 			tip: "Save And Close Window",
+		},
+	},
+	gridviewlookdoctoolbar_toolbar: {
+		deuiaction7: {
+			caption: "Export",
+			tip: "Export {0} Data To Excel",
 		},
 	},
 	modulegridviewtoolbar_toolbar: {

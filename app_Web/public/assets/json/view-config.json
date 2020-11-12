@@ -3189,6 +3189,16 @@
         "viewtag": "a4cd2a6ada3f3e12ffb3315d55da2f0d",
         "memo": "用于【项目】关联【需求】，显示项目下的所有需求。"
     },
+    "docgridviewlookdoc": {
+        "title": "doc表格视图",
+        "caption": "文档",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "ibiz",
+        "viewname": "DocGridViewLookDoc",
+        "viewfilename": "doc-grid-view-look-doc",
+        "viewtag": "a501a42f3adfa826e382e4cbc134a4fc",
+        "memo": ""
+    },
     "deptinfoeditview": {
         "title": "部门编辑视图",
         "caption": "部门信息",

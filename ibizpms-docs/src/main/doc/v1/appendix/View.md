@@ -527,6 +527,7 @@ SRFNAVPARAM.project=%project%|
 |-|task表格视图|DEGRIDVIEW|&nbsp;|
 |-|测试模块树导航视图|DETREEEXPVIEW|&nbsp;|
 |-|需求|DEPICKUPGRIDVIEW|&nbsp;用于【项目】关联【需求】，显示项目下的所有需求。|
+|-|doc表格视图|DEGRIDVIEW|&nbsp;|
 |-|部门编辑视图|DEEDITVIEW|&nbsp;|
 |-|用例步骤|DEGRIDVIEW9|&nbsp;|
 |-|bug表格视图（项目）|DEGRIDVIEW|&nbsp;|
