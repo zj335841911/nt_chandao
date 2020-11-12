@@ -96,6 +96,11 @@ export default class MoreRecentUpdateModel {
           dataType: 'PICKUP',
         },
         {
+          name: 'isfavourites',
+          prop: 'isfavourites',
+          dataType: 'TEXT',
+        },
+        {
           name: 'docqtype',
           prop: 'docqtype',
           dataType: 'TEXT',

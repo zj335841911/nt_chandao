@@ -81,12 +81,10 @@ hide members
 
 |文档查询类型||是否收藏|行为控制模式| 控制行为 | 操作标识控制模式 | 控制操作 |
 | --------   || --------   | ------------|------------|------------|------------|
-|Value||Value2| 允许|  | 不允许 | MODULE<br> |
-|Value||Value2| 允许|  | 不允许 | SRFUR__DOC_FAVOUR_BUT<br> |
-|Value||Value2| 允许|  | 不允许 | SRFUR__DOC_NFAVOUR_BUT<br> |
-|Value||Value2| 允许|  | 不允许 | DOC<br> |
-|Value||Value2| 允许|  | 不允许 | SRFUR__DOC_FAVOUR_BUT<br> |
-|Value||Value2| 允许|  | 不允许 | SRFUR__DOC_NFAVOUR_BUT<br> |
+|Value||Value2| 允许|  | 不允许 | SRFUR__DOC_FAVOUR_BUT<br>MODULE<br> |
+|Value||Value2| 允许|  | 不允许 | SRFUR__DOC_NFAVOUR_BUT<br>MODULE<br> |
+|Value||Value2| 允许|  | 不允许 | DOC<br>SRFUR__DOC_FAVOUR_BUT<br> |
+|Value||Value2| 允许|  | 不允许 | SRFUR__DOC_NFAVOUR_BUT<br>DOC<br> |
 
 文档查询类型
 
