@@ -191,6 +191,7 @@ export class MainEditFormBase extends EditFormControlBase {
         srfsourcekey: null,
         lastcomment: null,
         objectid: null,
+        noticeusers: null,
         objecttype: null,
         id: null,
         action:null,
@@ -260,6 +261,8 @@ export class MainEditFormBase extends EditFormControlBase {
         lastcomment: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'lastcomment', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 
         objectid: new FormItemModel({ caption: '对象ID', detailType: 'FORMITEM', name: 'objectid', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+
+        noticeusers: new FormItemModel({ caption: '消息通知用户', detailType: 'FORMITEM', name: 'noticeusers', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 
         objecttype: new FormItemModel({ caption: '对象类型', detailType: 'FORMITEM', name: 'objecttype', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 

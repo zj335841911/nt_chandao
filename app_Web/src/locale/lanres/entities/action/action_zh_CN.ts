@@ -84,6 +84,7 @@ export default {
 			objecttype: "对象类型", 
 			objectid: "对象ID", 
 			comment: "备注", 
+			noticeusers: "消息通知用户", 
 			id: "id", 
 		},
 		uiactions: {
@@ -105,6 +106,7 @@ export default {
 			srfsourcekey: "", 
 			lastcomment: "", 
 			objectid: "对象ID", 
+			noticeusers: "消息通知用户", 
 			objecttype: "对象类型", 
 			id: "id", 
 		},

@@ -61,6 +61,11 @@ export default class MainModel {
         dataType: 'BIGINT',
       },
       {
+        name: 'noticeusers',
+        prop: 'noticeusers',
+        dataType: 'TEXT',
+      },
+      {
         name: 'objecttype',
         prop: 'objecttype',
         dataType: 'SSCODELIST',

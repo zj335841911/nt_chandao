@@ -85,6 +85,7 @@ export class AddCommentEditFormBase extends EditFormControlBase {
         objecttype: null,
         objectid: null,
         comment: null,
+        noticeusers: null,
         id: null,
         action:null,
     };
@@ -147,6 +148,8 @@ export class AddCommentEditFormBase extends EditFormControlBase {
         objectid: new FormItemModel({ caption: '对象ID', detailType: 'FORMITEM', name: 'objectid', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 
         comment: new FormItemModel({ caption: '备注', detailType: 'FORMITEM', name: 'comment', visible: true, isShowCaption: false, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+
+        noticeusers: new FormItemModel({ caption: '消息通知用户', detailType: 'FORMITEM', name: 'noticeusers', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 
         id: new FormItemModel({ caption: 'id', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 0 }),
 
