@@ -38,6 +38,7 @@ public class SysEmployeeExService extends SysEmployeeServiceImpl {
     @Override
     public Page<SysEmployee> searchDefault(SysEmployeeSearchContext context) {
         log.info("SysEmployeeExService：searchDefault");
+        context.setN_orgid_eq(AuthenticationUser.getAuthenticationUser().getOrgid());
         return super.searchDefault(context);
     }
 
