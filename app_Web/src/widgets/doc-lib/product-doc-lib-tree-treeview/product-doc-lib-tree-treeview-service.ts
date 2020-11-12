@@ -622,6 +622,7 @@ export default class ProductDocLibTreeService extends ControlService {
         filter = this.handleResNavParams(context,filter,rsNavParams,rsParams);
         return new Promise((resolve:any,reject:any) =>{
             let searchFilter: any = {};
+
             if (Object.is(filter.strNodeType, this.TREENODE_DOCLIB)) {
                 Object.assign(searchFilter, { n_root_eq: filter.nodeid });
             }
@@ -648,6 +649,7 @@ export default class ProductDocLibTreeService extends ControlService {
                         strNodeId += this.TREENODE_SEPARATOR;
                         strNodeId += strId;
                         Object.assign(treeNode, { id: strNodeId });
+                        Object.assign(treeNode, { iconcls: 'fa fa-folder-o' });
                         Object.assign(treeNode, { expanded: filter.isautoexpand });
                         Object.assign(treeNode, { leaf: false });
                         Object.assign(treeNode, { curData: entity });
@@ -795,6 +797,7 @@ export default class ProductDocLibTreeService extends ControlService {
                         strNodeId += this.TREENODE_SEPARATOR;
                         strNodeId += strId;
                         Object.assign(treeNode, { id: strNodeId });
+                        Object.assign(treeNode, { iconcls: 'fa fa-folder-o' });
                         Object.assign(treeNode, { expanded: filter.isautoexpand });
                         Object.assign(treeNode, { leaf: true });
                         Object.assign(treeNode, { curData: entity });
