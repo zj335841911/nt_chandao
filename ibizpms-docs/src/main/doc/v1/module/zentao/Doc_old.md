@@ -135,6 +135,7 @@ hide footbox
 |DEFAULT|DEFAULT|DEFAULT|是|&nbsp;|
 |DocLibDoc|文档库文档|DocLibDoc|否|&nbsp;|
 |DocModuleDoc|文档库分类文档|DocModuleDoc|否|&nbsp;|
+|MYSTAR|数据查询|MYSTAR|否|&nbsp;|
 
 ## 查询模式
 | 属性      |    搜索模式     |

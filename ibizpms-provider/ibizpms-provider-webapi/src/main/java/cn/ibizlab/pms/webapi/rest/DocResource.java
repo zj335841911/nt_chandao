@@ -234,6 +234,28 @@ public class DocResource {
                 .body(new PageImpl(docMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Doc-searchMyStar-all')")
+	@ApiOperation(value = "获取数据查询", tags = {"文档" } ,notes = "获取数据查询")
+    @RequestMapping(method= RequestMethod.GET , value="/docs/fetchmystar")
+	public ResponseEntity<List<DocDTO>> fetchMyStar(DocSearchContext context) {
+        Page<Doc> domains = docService.searchMyStar(context) ;
+        List<DocDTO> list = docMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Doc-searchMyStar-all')")
+	@ApiOperation(value = "查询数据查询", tags = {"文档" } ,notes = "查询数据查询")
+    @RequestMapping(method= RequestMethod.POST , value="/docs/searchmystar")
+	public ResponseEntity<Page<DocDTO>> searchMyStar(@RequestBody DocSearchContext context) {
+        Page<Doc> domains = docService.searchMyStar(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(docMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
 
 }
 

@@ -1687,34 +1687,46 @@ LEFT JOIN zt_module t41 ON t1.MODULE = t41.ID ) t1
 - MYSQL5
 ```SQL
 SELECT
-t1.`ACL`,
-t1.`ADDEDBY`,
-t1.`ADDEDDATE`,
-t1.`DELETED`,
-'doc' AS `DOCQTYPE`,
-t1.`EDITEDBY`,
-t1.`EDITEDDATE`,
-t1.`GROUPS`,
-t1.`ID`,
-t1.`KEYWORDS`,
-t1.`LIB`,
-t31.`NAME` AS `LIBNAME`,
-t1.`MODULE`,
-t41.`NAME` AS `MODULENAME`,
-t1.`PRODUCT`,
-t21.`NAME` AS `PRODUCTNAME`,
-t1.`PROJECT`,
-t11.`NAME` AS `PROJECTNAME`,
-t1.`TITLE`,
-t1.`TYPE`,
-t1.`VERSION`,
-t1.`VIEWS`
-FROM `zt_doc` t1 
-LEFT JOIN zt_project t11 ON t1.PROJECT = t11.ID 
-LEFT JOIN zt_product t21 ON t1.PRODUCT = t21.ID 
-LEFT JOIN zt_doclib t31 ON t1.LIB = t31.ID 
-LEFT JOIN zt_module t41 ON t1.MODULE = t41.ID 
-
+	* 
+FROM
+	(
+	SELECT
+		t1.id,
+		t1.`name` AS `title`,
+		NULL AS `addedBy`,
+		NULL AS `addedDate`,
+		NULL AS `editedBy`,
+		NULL AS `editedDate` 
+	FROM
+		zt_doclib t1 
+	WHERE
+		t1.collector LIKE CONCAT_WS( '', '%,', #{srf.sessioncontext.srfloginname}, '%,' ) 
+		AND t1.deleted = '0' UNION
+	SELECT
+		t2.id,
+		t2.`name` AS `title`,
+		NULL AS `addedBy`,
+		NULL AS `addedDate`,
+		NULL AS `editedBy`,
+		NULL AS `editedDate` 
+	FROM
+		zt_module t2 
+	WHERE
+		t2.collector LIKE CONCAT_WS( '', '%,', #{srf.sessioncontext.srfloginname}, '%,' ) 
+		AND t2.deleted = '0' UNION
+	SELECT
+		t3.id,
+		t3.title AS `title`,
+		t3.addedBy,
+		t3.addedDate,
+		t3.editedBy,
+		t3.editedDate 
+	FROM
+		zt_doc t3 
+	WHERE
+		t3.collector LIKE CONCAT_WS( '', '%,', #{srf.sessioncontext.srfloginname}, '%,' ) 
+	AND t3.deleted = '0' 
+	) t1
 ```
 ### 数据查询-默认（全部数据）（View）
 #### 说明
@@ -1769,6 +1781,7 @@ LEFT JOIN zt_module t41 ON t1.MODULE = t41.ID
 | 2 | [DEFAULT](#数据集合-DEFAULT（Default）) | Default | 是 |
 | 3 | [文档库文档](#数据集合-文档库文档（DocLibDoc）) | DocLibDoc | 否 |
 | 4 | [文档库分类文档](#数据集合-文档库分类文档（DocModuleDoc）) | DocModuleDoc | 否 |
+| 5 | [数据查询](#数据集合-数据查询（MyStar）) | MyStar | 否 |
 
 ### 数据集合-文档库文档（子库）（ChildDocLibDoc）
 #### 说明
@@ -1826,6 +1839,20 @@ DEFAULT
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [文档库分类文档（DocModuleDoc）](#数据查询-文档库分类文档（DocModuleDoc）) |
+### 数据集合-数据查询（MyStar）
+#### 说明
+数据查询
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [数据查询（MyStar）](#数据查询-数据查询（MyStar）) |
 
 ## 数据导入
 无

@@ -4974,34 +4974,46 @@ t1.module = ${srfdatacontext('id','{"defname":"ROOT","dename":"ZT_MODULE"}')}
 ### 数据查询(MYSTAR)<div id="Doc_MyStar"></div>
 ```sql
 SELECT
-t1.`ACL`,
-t1.`ADDEDBY`,
-t1.`ADDEDDATE`,
-t1.`DELETED`,
-'doc' AS `DOCQTYPE`,
-t1.`EDITEDBY`,
-t1.`EDITEDDATE`,
-t1.`GROUPS`,
-t1.`ID`,
-t1.`KEYWORDS`,
-t1.`LIB`,
-t31.`NAME` AS `LIBNAME`,
-t1.`MODULE`,
-t41.`NAME` AS `MODULENAME`,
-t1.`PRODUCT`,
-t21.`NAME` AS `PRODUCTNAME`,
-t1.`PROJECT`,
-t11.`NAME` AS `PROJECTNAME`,
-t1.`TITLE`,
-t1.`TYPE`,
-t1.`VERSION`,
-t1.`VIEWS`
-FROM `zt_doc` t1 
-LEFT JOIN zt_project t11 ON t1.PROJECT = t11.ID 
-LEFT JOIN zt_product t21 ON t1.PRODUCT = t21.ID 
-LEFT JOIN zt_doclib t31 ON t1.LIB = t31.ID 
-LEFT JOIN zt_module t41 ON t1.MODULE = t41.ID 
-
+	* 
+FROM
+	(
+	SELECT
+		t1.id,
+		t1.`name` AS `title`,
+		NULL AS `addedBy`,
+		NULL AS `addedDate`,
+		NULL AS `editedBy`,
+		NULL AS `editedDate` 
+	FROM
+		zt_doclib t1 
+	WHERE
+		t1.collector LIKE CONCAT_WS( '', '%,', #{srf.sessioncontext.srfloginname}, '%,' ) 
+		AND t1.deleted = '0' UNION
+	SELECT
+		t2.id,
+		t2.`name` AS `title`,
+		NULL AS `addedBy`,
+		NULL AS `addedDate`,
+		NULL AS `editedBy`,
+		NULL AS `editedDate` 
+	FROM
+		zt_module t2 
+	WHERE
+		t2.collector LIKE CONCAT_WS( '', '%,', #{srf.sessioncontext.srfloginname}, '%,' ) 
+		AND t2.deleted = '0' UNION
+	SELECT
+		t3.id,
+		t3.title AS `title`,
+		t3.addedBy,
+		t3.addedDate,
+		t3.editedBy,
+		t3.editedDate 
+	FROM
+		zt_doc t3 
+	WHERE
+		t3.collector LIKE CONCAT_WS( '', '%,', #{srf.sessioncontext.srfloginname}, '%,' ) 
+	AND t3.deleted = '0' 
+	) t1
 WHERE t1.DELETED = '0' 
 
 ```
