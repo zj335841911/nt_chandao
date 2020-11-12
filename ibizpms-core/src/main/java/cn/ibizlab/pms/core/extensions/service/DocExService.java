@@ -13,6 +13,7 @@ import org.springframework.context.annotation.Primary;
 import java.util.*;
 
 /**
+ * @author huwei
  * 实体[文档] 自定义服务对象
  */
 @Slf4j
@@ -34,17 +35,19 @@ public class DocExService extends DocServiceImpl {
      * @return
      */
     @Override
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Doc byVersionUpdateContext(Doc et) {
         List<DocContent> list = docContentService.list(new QueryWrapper<DocContent>().eq("doc", et.getId()).eq("version", et.getVersion()));
         if(list.size() > 0) {
-            et.setContent(list.get(0).getContent());
+            DocContent docContent = list.get(0);
+            et.setContent(docContent.getContent());
+            et.setTitle(docContent.getTitle());
         }
         return super.byVersionUpdateContext(et);
     }
 
     @Override
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Doc get(Long key) {
         Doc et = getById(key);
         if(et==null){
