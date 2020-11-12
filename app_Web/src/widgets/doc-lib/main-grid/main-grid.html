@@ -33,7 +33,7 @@
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <a v-show="row.LookDoc.visible" :disabled="row.LookDoc.disabled" :style="{'display': 'block'}" @click="uiAction(row, 'LookDoc', $event)">
+                        <a v-show="row.LookMainProjectDocLib.visible" :disabled="row.LookMainProjectDocLib.disabled" :style="{'display': 'block'}" @click="uiAction(row, 'LookMainProjectDocLib', $event)">
                         <span>{{row.name}}</span>
                         </a>
                     </template>

@@ -147,6 +147,12 @@ export default class BugTreeExpViewtreeexpbarModel {
       {
         name: 'noticeusers',
       },
+      {
+        name: 'orgid',
+      },
+      {
+        name: 'mdeptid',
+      },
     ]
   }
 

@@ -296,6 +296,12 @@ export default {
 			tip: "导出",
 		},
 	},
+	gridviewlookdoctoolbar_toolbar: {
+		deuiaction7: {
+			caption: "导出",
+			tip: "导出",
+		},
+	},
 	gridviewtoolbar_toolbar: {
 		deuiaction7: {
 			caption: "导出",
@@ -306,12 +312,6 @@ export default {
 		deuiaction1: {
 			caption: "保存并关闭",
 			tip: "保存并关闭",
-		},
-	},
-	gridviewlookdoctoolbar_toolbar: {
-		deuiaction7: {
-			caption: "导出",
-			tip: "导出",
 		},
 	},
 	modulegridviewtoolbar_toolbar: {

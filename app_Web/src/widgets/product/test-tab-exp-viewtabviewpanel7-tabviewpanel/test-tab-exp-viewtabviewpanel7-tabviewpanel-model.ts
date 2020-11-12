@@ -147,6 +147,12 @@ export default class TestTabExpViewtabviewpanel7Model {
       {
         name: 'noticeusers',
       },
+      {
+        name: 'orgid',
+      },
+      {
+        name: 'mdeptid',
+      },
     ]
   }
 

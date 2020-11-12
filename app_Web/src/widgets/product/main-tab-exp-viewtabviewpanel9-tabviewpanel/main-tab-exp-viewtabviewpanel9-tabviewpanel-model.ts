@@ -147,6 +147,12 @@ export default class MainTabExpViewtabviewpanel9Model {
       {
         name: 'noticeusers',
       },
+      {
+        name: 'orgid',
+      },
+      {
+        name: 'mdeptid',
+      },
     ]
   }
 

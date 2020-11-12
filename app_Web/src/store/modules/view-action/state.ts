@@ -1579,7 +1579,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                '4503911318e1f1f26599b68a6c6e681d',
+                'a501a42f3adfa826e382e4cbc134a4fc',
                 'f7e64f3828c862a4bce56437e1e51069',
                 '73fbcf0e3685096f63587bcff234f958',
             ],
@@ -1622,7 +1622,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                '4503911318e1f1f26599b68a6c6e681d',
+                'a501a42f3adfa826e382e4cbc134a4fc',
                 'f7e64f3828c862a4bce56437e1e51069',
                 '73fbcf0e3685096f63587bcff234f958',
             ],
@@ -2884,6 +2884,18 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+            ],
+        },
+        {
+            viewtag: 'a501a42f3adfa826e382e4cbc134a4fc',
+            viewmodule: 'ibiz',
+            viewname: 'DocGridViewLookDoc',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'b6e02216d1e5c69d79b32342d8b67c7a',
+                '23cc93d7fdddff5077a7952d26802a7b',
+                'c9be79d1ad2a32e56092cd1ec1e896eb',
             ],
         },
         {

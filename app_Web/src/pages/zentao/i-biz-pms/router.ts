@@ -10817,6 +10817,20 @@ const router = new Router({
                     component: () => import('@pages/ibiz/project-module-tree-exp-view/project-module-tree-exp-view.vue'),
                 },
                 {
+                    path: 'docs/:doc?/gridviewlookdoc/:gridviewlookdoc?',
+                    meta: {
+                        caption: 'entities.doc.views.gridviewlookdoc.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'docs', parameterName: 'doc' },
+                            { pathName: 'gridviewlookdoc', parameterName: 'gridviewlookdoc' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/doc-grid-view-look-doc/doc-grid-view-look-doc.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/gridview9_storyaffect/:gridview9_storyaffect?',
                     meta: {
                         caption: 'entities.bug.views.gridview9_storyaffect.caption',

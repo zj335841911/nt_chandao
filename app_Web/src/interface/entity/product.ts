@@ -357,4 +357,20 @@ export interface Product {
      * @memberof Product
      */
     noticeusers?: any;
+
+    /**
+     * 组织标识
+     *
+     * @returns {*}
+     * @memberof Product
+     */
+    orgid?: any;
+
+    /**
+     * 部门标识
+     *
+     * @returns {*}
+     * @memberof Product
+     */
+    mdeptid?: any;
 }

@@ -580,7 +580,8 @@ POST
 | 42 | qdpk | String | 允许 | 测试负责人（选择） |
 | 43 | rdpk | String | 允许 | 发布负责人（选择） |
 | 44 | noticeusers | String | 允许 | 消息通知用户 |
-| 45 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 45 | orgid | String | 允许 | 组织标识 |
+| 46 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### ProductSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

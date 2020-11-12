@@ -147,6 +147,12 @@ export default class StoryTreeExpViewtreeexpbarModel {
       {
         name: 'noticeusers',
       },
+      {
+        name: 'orgid',
+      },
+      {
+        name: 'mdeptid',
+      },
     ]
   }
 

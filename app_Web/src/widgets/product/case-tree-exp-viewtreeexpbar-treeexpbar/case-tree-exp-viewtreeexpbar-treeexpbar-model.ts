@@ -147,6 +147,12 @@ export default class CaseTreeExpViewtreeexpbarModel {
       {
         name: 'noticeusers',
       },
+      {
+        name: 'orgid',
+      },
+      {
+        name: 'mdeptid',
+      },
     ]
   }
 

@@ -93,7 +93,7 @@ export class MainGridBase extends GridControlBase {
         }
         // 界面行为
         const curUIService:DocLibUIService  = new DocLibUIService();
-        curUIService.DocLib_LookDoc(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
+        curUIService.DocLib_LookMainProjectDocLib(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
     }
 
     /**
@@ -160,7 +160,7 @@ export class MainGridBase extends GridControlBase {
      * @memberof MainBase
      */  
     public ActionModel: any = {
-        LookDoc: { name: 'LookDoc',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'DOC', actiontarget: 'SINGLEKEY'},
+        LookMainProjectDocLib: { name: 'LookMainProjectDocLib',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: 'SINGLEKEY'},
         EditProjectDoclib: { name: 'EditProjectDoclib',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'DOC', actiontarget: 'SINGLEKEY'},
         WeiHuFenLei: { name: 'WeiHuFenLei',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'DOC', actiontarget: 'SINGLEKEY'}
     };
@@ -360,7 +360,7 @@ export class MainGridBase extends GridControlBase {
      */
 	public uiAction(row: any, tag: any, $event: any): void {
         $event.stopPropagation();
-        if(Object.is('LookDoc', tag)) {
+        if(Object.is('LookMainProjectDocLib', tag)) {
             this.grid_name_click(row, tag, $event);
         }
         if(Object.is('EditProjectDoclib', tag)) {
@@ -466,7 +466,7 @@ export class MainGridBase extends GridControlBase {
             const tree: any ={
                 groupById: Number((i+1)*100),
                 group: group.label,
-                LookDoc:{
+                LookMainProjectDocLib:{
                     visible: false
                 },
                 name:'',
@@ -499,7 +499,7 @@ export class MainGridBase extends GridControlBase {
         const Tree: any = {
             groupById: Number((allGroup.length+1)*100),
             group: '其他',
-            LookDoc:{
+            LookMainProjectDocLib:{
                 visible: false
             },
             name:'',
@@ -570,7 +570,7 @@ export class MainGridBase extends GridControlBase {
             const tree: any ={
                 groupById: Number((groupIndex+1)*100),
                 group: group,
-                LookDoc:{
+                LookMainProjectDocLib:{
                     visible: false
                 },
                 name:'',

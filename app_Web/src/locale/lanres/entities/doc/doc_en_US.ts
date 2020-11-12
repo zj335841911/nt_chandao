@@ -296,6 +296,12 @@ export default {
 			tip: "Export {0} Data To Excel",
 		},
 	},
+	gridviewlookdoctoolbar_toolbar: {
+		deuiaction7: {
+			caption: "Export",
+			tip: "Export {0} Data To Excel",
+		},
+	},
 	gridviewtoolbar_toolbar: {
 		deuiaction7: {
 			caption: "Export",
@@ -306,12 +312,6 @@ export default {
 		deuiaction1: {
 			caption: "Save And Close",
 			tip: "Save And Close Window",
-		},
-	},
-	gridviewlookdoctoolbar_toolbar: {
-		deuiaction7: {
-			caption: "Export",
-			tip: "Export {0} Data To Excel",
 		},
 	},
 	modulegridviewtoolbar_toolbar: {

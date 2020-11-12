@@ -147,6 +147,12 @@ export default class MyTestTabExpViewtabviewpanel4Model {
       {
         name: 'noticeusers',
       },
+      {
+        name: 'orgid',
+      },
+      {
+        name: 'mdeptid',
+      },
     ]
   }
 
