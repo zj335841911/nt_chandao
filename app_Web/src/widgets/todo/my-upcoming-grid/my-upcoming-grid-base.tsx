@@ -322,7 +322,33 @@ export class MyUpcomingGridBase extends GridControlBase {
         }
         return className;
     }
-
+    
+    /**
+     * 计算分组行checkbox选中样式
+     *
+     * @param {*} rows 当前分组行下的所有数据
+     * @returns {*} currentRow 当前分组行
+     * @memberof MainBase
+     */
+    public computeGroupRow(rows: any[], currentRow: any) {
+        let count: number = 0;
+        this.selections.forEach((select: any) => {
+            rows.forEach((row: any) => {
+                if(row.groupById === select.groupById) {
+                    count++;
+                }
+            })
+        })
+        if(count === rows.length) {
+            (this.$refs.multipleTable as any).toggleRowSelection(currentRow, true);
+            return 'cell-select-all ';
+        } else if(count !== 0 && count < rows.length) {
+            return 'cell-indeterminate '
+        } else if(count === 0) {
+            (this.$refs.multipleTable as any).toggleRowSelection(currentRow, false);
+            return '';
+        }
+    }
 
     /**
      * 导出数据格式化
