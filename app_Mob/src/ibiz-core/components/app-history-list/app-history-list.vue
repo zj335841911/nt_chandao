@@ -53,7 +53,7 @@
             </div>
       </div>
     </div>
-    <div class="button" v-if="items.length > 3" ref="loadMore">
+    <div class="loadMorebutton" v-if="items.length > 3" ref="loadMore">
       <div @click="loadMore"><span>{{text}}</span></div>
     </div>
     <div class="zero" v-if="items.length == 0">
