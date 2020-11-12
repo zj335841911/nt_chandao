@@ -160,6 +160,15 @@ public class IBIZProMessageDTO extends DTOBase implements Serializable {
     private String ibizproMessageid;
 
     /**
+     * 属性 [LINKURL]
+     *
+     */
+    @JSONField(name = "linkurl")
+    @JsonProperty("linkurl")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String linkurl;
+
+    /**
      * 属性 [ISDONE]
      *
      */
@@ -168,13 +177,12 @@ public class IBIZProMessageDTO extends DTOBase implements Serializable {
     private Integer isdone;
 
     /**
-     * 属性 [LINKURL]
+     * 属性 [ISREAD]
      *
      */
-    @JSONField(name = "linkurl")
-    @JsonProperty("linkurl")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String linkurl;
+    @JSONField(name = "isread")
+    @JsonProperty("isread")
+    private Integer isread;
 
     /**
      * 属性 [SENDPROXYID]
@@ -299,27 +307,11 @@ public class IBIZProMessageDTO extends DTOBase implements Serializable {
     }
 
     /**
-     * 设置 [ISDONE]
-     */
-    public void setIsdone(Integer  isdone){
-        this.isdone = isdone ;
-        this.modify("isdone",isdone);
-    }
-
-    /**
      * 设置 [LINKURL]
      */
     public void setLinkurl(String  linkurl){
         this.linkurl = linkurl ;
         this.modify("linkurl",linkurl);
-    }
-
-    /**
-     * 设置 [SENDPROXYID]
-     */
-    public void setSendproxyid(String  sendproxyid){
-        this.sendproxyid = sendproxyid ;
-        this.modify("sendproxyid",sendproxyid);
     }
 
 

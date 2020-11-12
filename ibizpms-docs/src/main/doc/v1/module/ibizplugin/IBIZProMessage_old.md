@@ -24,8 +24,9 @@
 |是否重发|ISRETRY|NSCODELIST|&nbsp;|
 |是否是链接消息|ISLINK|NSCODELIST|&nbsp;|
 |消息标识|IBIZPRO_MESSAGEID|TEXT|&nbsp;|
-|是否已完成|ISDONE|NSCODELIST|&nbsp;|
 |链接地址|LINKURL|TEXT|&nbsp;|
+|是否完成|ISDONE|YESNO|&nbsp;|
+|是否已读|ISREAD|YESNO|&nbsp;|
 |发送代理标识|SENDPROXYID|TEXT|&nbsp;|
 
 ## 值规则
@@ -46,8 +47,9 @@
 |是否重发|默认规则|默认规则|
 |是否是链接消息|默认规则|默认规则|
 |消息标识|默认规则|内容长度必须小于等于[100]|
-|是否已完成|默认规则|默认规则|
 |链接地址|默认规则|内容长度必须小于等于[100]|
+|是否完成|默认规则|默认规则|
+|是否已读|默认规则|默认规则|
 |发送代理标识|默认规则|内容长度必须小于等于[100]|
 
 ## 状态控制
@@ -97,7 +99,6 @@
 |是否同步(ISSYNC)|EQ|
 |是否重发(ISRETRY)|EQ|
 |是否是链接消息(ISLINK)|EQ|
-|是否已完成(ISDONE)|EQ|
 
 ## 导入模式
 无

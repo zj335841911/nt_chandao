@@ -31,9 +31,10 @@
 | 13 | [是否重发](#属性-是否重发（ISRETRY）) | ISRETRY | 单项选择(数值) | 否 | 否 | 是 |
 | 14 | [是否是链接消息](#属性-是否是链接消息（ISLINK）) | ISLINK | 单项选择(数值) | 否 | 否 | 是 |
 | 15 | [消息标识](#属性-消息标识（IBIZPRO_MESSAGEID）) | IBIZPRO_MESSAGEID | 文本，可指定长度 | 是 | 否 | 是 |
-| 16 | [是否已完成](#属性-是否已完成（ISDONE）) | ISDONE | 单项选择(数值) | 否 | 否 | 是 |
-| 17 | [链接地址](#属性-链接地址（LINKURL）) | LINKURL | 文本，可指定长度 | 否 | 否 | 是 |
-| 18 | [发送代理标识](#属性-发送代理标识（SENDPROXYID）) | SENDPROXYID | 文本，可指定长度 | 否 | 否 | 是 |
+| 16 | [链接地址](#属性-链接地址（LINKURL）) | LINKURL | 文本，可指定长度 | 否 | 否 | 是 |
+| 17 | [是否完成](#属性-是否完成（ISDONE）) | ISDONE | 是否逻辑 | 否 | 否 | 是 |
+| 18 | [是否已读](#属性-是否已读（ISREAD）) | ISREAD | 是否逻辑 | 否 | 否 | 是 |
+| 19 | [发送代理标识](#属性-发送代理标识（SENDPROXYID）) | SENDPROXYID | 文本，可指定长度 | 否 | 否 | 是 |
 
 ### 属性-重发次数（RETRYTIMES）
 #### 属性说明
@@ -600,45 +601,6 @@ String
 #### 关系属性
 无
 
-### 属性-是否已完成（ISDONE）
-#### 属性说明
-是否已完成
-
-- 是否是主键
-否
-
-- 属性类型
-物理字段[来自当前实体物理表字段]
-
-- 数据类型
-单项选择(数值)
-
-- Java类型
-Integer
-
-- 是否允许为空
-是
-
-- 默认值
-无
-
-- 取值范围/公式
-参照数据字典【[是否（数值）（YesNo2）](../../codelist/YesNo2)】
-
-- 数据格式
-无
-
-- 是否支持快速搜索
-否
-
-- 搜索条件
-| 序号 | 组合方式 |
-| ---- | ---- |
-| 1 | `=` |
-
-#### 关系属性
-无
-
 ### 属性-链接地址（LINKURL）
 #### 属性说明
 链接地址
@@ -676,6 +638,80 @@ String
 #### 关系属性
 无
 
+### 属性-是否完成（ISDONE）
+#### 属性说明
+是否完成
+
+- 是否是主键
+否
+
+- 属性类型
+应用界面字段[无存储]
+
+- 数据类型
+是否逻辑
+
+- Java类型
+Integer
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+参照数据字典【[是否（数值）（YesNo2）](../../codelist/YesNo2)】
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
+### 属性-是否已读（ISREAD）
+#### 属性说明
+是否已读
+
+- 是否是主键
+否
+
+- 属性类型
+应用界面字段[无存储]
+
+- 数据类型
+是否逻辑
+
+- Java类型
+Integer
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+参照数据字典【[是否（数值）（YesNo2）](../../codelist/YesNo2)】
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
 ### 属性-发送代理标识（SENDPROXYID）
 #### 属性说明
 发送代理标识
@@ -684,7 +720,7 @@ String
 否
 
 - 属性类型
-物理字段[来自当前实体物理表字段]
+应用界面字段[无存储]
 
 - 数据类型
 文本，可指定长度
@@ -869,7 +905,6 @@ Save
 | 3 | [是否同步（ISSYNC）](#属性-是否同步（ISSYNC）) | `=` |
 | 4 | [是否重发（ISRETRY）](#属性-是否重发（ISRETRY）) | `=` |
 | 5 | [是否是链接消息（ISLINK）](#属性-是否是链接消息（ISLINK）) | `=` |
-| 6 | [是否已完成（ISDONE）](#属性-是否已完成（ISDONE）) | `=` |
 
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |
@@ -895,14 +930,12 @@ Save
 SELECT
 t1.`IBIZPRO_MESSAGEID`,
 t1.`IBIZPRO_MESSAGENAME`,
-t1.`ISDONE`,
 t1.`ISLINK`,
 t1.`ISRETRY`,
 t1.`ISSYNC`,
 t1.`LINKURL`,
 t1.`RETRYINTERVALTIME`,
 t1.`RETRYTIMES`,
-t1.`SENDPROXYID`,
 t1.`SUBJECT`,
 t1.`TYPE`
 FROM `T_IBIZPRO_MESSAGE` t1 
@@ -958,7 +991,6 @@ t1.`CONTENT`,
 t1.`FROM`,
 t1.`IBIZPRO_MESSAGEID`,
 t1.`IBIZPRO_MESSAGENAME`,
-t1.`ISDONE`,
 t1.`ISLINK`,
 t1.`ISRETRY`,
 t1.`ISSYNC`,
@@ -966,7 +998,6 @@ t1.`LINKURL`,
 t1.`PARAM`,
 t1.`RETRYINTERVALTIME`,
 t1.`RETRYTIMES`,
-t1.`SENDPROXYID`,
 t1.`SUBJECT`,
 t1.`TO`,
 t1.`TYPE`

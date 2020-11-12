@@ -35,8 +35,6 @@ public class IBIZProMessageSearchContext extends SearchContextBase {
 
 	private Integer n_islink_eq;//[是否是链接消息]
 
-	private Integer n_isdone_eq;//[是否已完成]
-
 }
 
 
