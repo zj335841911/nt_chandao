@@ -283,6 +283,22 @@ export class Main_DataExportGridBase extends GridControlBase {
     public groupAppField:string ="";
 
     /**
+     * 分组属性代码表标识
+     *
+     * @type {string}
+     * @memberof Main_DataExportBase
+     */
+    public groupAppFieldCodelistTag:string ="";
+
+    /**
+     * 分组属性代码表类型
+     * 
+     * @type {string}
+     * @memberof Main_DataExportBase
+     */
+    public groupAppFieldCodelistType: string = "";
+
+    /**
      * 分组模式
      *
      * @type {string}

@@ -209,6 +209,22 @@ export class Main9GridBase extends GridControlBase {
     public groupAppField:string ="";
 
     /**
+     * 分组属性代码表标识
+     *
+     * @type {string}
+     * @memberof Main9Base
+     */
+    public groupAppFieldCodelistTag:string ="";
+
+    /**
+     * 分组属性代码表类型
+     * 
+     * @type {string}
+     * @memberof Main9Base
+     */
+    public groupAppFieldCodelistType: string = "";
+
+    /**
      * 分组模式
      *
      * @type {string}

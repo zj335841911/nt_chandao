@@ -194,6 +194,22 @@ export class UndoneProjectGridBase extends GridControlBase {
     public groupAppField:string ="";
 
     /**
+     * 分组属性代码表标识
+     *
+     * @type {string}
+     * @memberof UndoneProjectBase
+     */
+    public groupAppFieldCodelistTag:string ="";
+
+    /**
+     * 分组属性代码表类型
+     * 
+     * @type {string}
+     * @memberof UndoneProjectBase
+     */
+    public groupAppFieldCodelistType: string = "";
+
+    /**
      * 分组模式
      *
      * @type {string}
