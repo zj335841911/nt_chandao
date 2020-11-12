@@ -50,7 +50,7 @@
 | 25 | [附件](#属性-附件（FILES）) | FILES | 文本，可指定长度 | 否 | 是 | 是 |
 | 26 | [文档链接](#属性-文档链接（URL）) | URL | 文本，可指定长度 | 否 | 是 | 是 |
 | 27 | [文档查询类型](#属性-文档查询类型（DOCQTYPE）) | DOCQTYPE | 文本，可指定长度 | 否 | 是 | 是 |
-| 28 | [是否收藏](#属性-是否收藏（ISFAVOURITES）) | ISFAVOURITES | 文本，可指定长度 | 否 | 是 | 是 |
+| 28 | [是否收藏](#属性-是否收藏（ISFAVOURITES）) | ISFAVOURITES | 整型 | 否 | 是 | 是 |
 
 ### 属性-分组（GROUPS）
 #### 属性说明
@@ -1220,10 +1220,10 @@ String
 逻辑字段[来自计算式]
 
 - 数据类型
-文本，可指定长度
+整型
 
 - Java类型
-String
+Integer
 
 - 是否允许为空
 是
@@ -1646,11 +1646,11 @@ t1.`ADDEDBY`,
 t1.`ADDEDDATE`,
 t1.`DELETED`,
 'doc' AS `DOCQTYPE`,
-( CASE WHEN FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t1.collector ) > 0 THEN 1 ELSE 0 END ) AS `ISFAVOURITES`,
 t1.`EDITEDBY`,
 t1.`EDITEDDATE`,
 t1.`GROUPS`,
 t1.`ID`,
+0 AS `ISFAVOURITES`,
 t1.`KEYWORDS`,
 t1.`LIB`,
 t31.`NAME` AS `LIBNAME`,

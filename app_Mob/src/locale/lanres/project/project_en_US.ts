@@ -72,6 +72,8 @@ export default {
     storychangecnt: "需求变更数",
     noticeusers: "消息通知用户",
     doclibcnt: "文档数量",
+    orgId: "组织标识",
+    mdeptId: "部门标识",
   },
 	views: {
 		mobchartview: {

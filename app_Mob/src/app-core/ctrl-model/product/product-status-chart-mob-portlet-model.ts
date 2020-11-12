@@ -147,6 +147,12 @@ export class ProductStatusChartMobModel {
       {
         name: 'noticeusers',
       },
+      {
+        name: 'orgid',
+      },
+      {
+        name: 'mdeptid',
+      },
     ]
   }
 

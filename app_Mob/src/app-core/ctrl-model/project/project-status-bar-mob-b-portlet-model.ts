@@ -231,6 +231,12 @@ export class ProjectStatusBarMobBModel {
       {
         name: 'doclibcnt',
       },
+      {
+        name: 'orgid',
+      },
+      {
+        name: 'mdeptid',
+      },
     ]
   }
 

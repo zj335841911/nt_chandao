@@ -147,6 +147,12 @@ export class ProdMobTabExpViewtabviewpanel2Model {
       {
         name: 'noticeusers',
       },
+      {
+        name: 'orgid',
+      },
+      {
+        name: 'mdeptid',
+      },
     ]
   }
 

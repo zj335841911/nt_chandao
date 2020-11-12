@@ -231,6 +231,12 @@ export class MobTabExpViewtabexppanelModel {
       {
         name: 'doclibcnt',
       },
+      {
+        name: 'orgid',
+      },
+      {
+        name: 'mdeptid',
+      },
     ]
   }
 

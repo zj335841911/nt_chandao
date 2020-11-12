@@ -147,6 +147,12 @@ export class MobTabExpViewtabviewpanel4Model {
       {
         name: 'noticeusers',
       },
+      {
+        name: 'orgid',
+      },
+      {
+        name: 'mdeptid',
+      },
     ]
   }
 

@@ -231,6 +231,12 @@ export class MobPickupViewpickupviewpanelModel {
       {
         name: 'doclibcnt',
       },
+      {
+        name: 'orgid',
+      },
+      {
+        name: 'mdeptid',
+      },
     ]
   }
 

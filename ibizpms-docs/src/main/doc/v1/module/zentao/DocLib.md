@@ -38,7 +38,7 @@
 | 14 | [文件库类型](#属性-文件库类型（DOCLIBTYPE）) | DOCLIBTYPE | 单项选择(文本值) | 否 | 是 | 是 |
 | 15 | [所属项目](#属性-所属项目（PROJECTNAME）) | PROJECTNAME | 外键值文本 | 否 | 是 | 是 |
 | 16 | [所属产品](#属性-所属产品（PRODUCTNAME）) | PRODUCTNAME | 外键值文本 | 否 | 是 | 是 |
-| 17 | [属性](#属性-属性（ISFAVOURITES）) | ISFAVOURITES | 整型 | 否 | 是 | 是 |
+| 17 | [是否收藏](#属性-是否收藏（ISFAVOURITES）) | ISFAVOURITES | 整型 | 否 | 是 | 是 |
 
 ### 属性-文档类型（TYPE）
 #### 属性说明
@@ -743,9 +743,9 @@ String
 | 关系属性 | [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
-### 属性-属性（ISFAVOURITES）
+### 属性-是否收藏（ISFAVOURITES）
 #### 属性说明
-属性
+是否收藏
 
 - 是否是主键
 否
@@ -788,11 +788,15 @@ Integer
 
 
 ## 业务状态
-| 序号 | 状态名称 | [文件库类型](#属性-文件库类型（DOCLIBTYPE）)<br>（DOCLIBTYPE） | 默认 |
-| ---- | ---- | ---- | ---- |
+| 序号 | 状态名称 | [文件库类型](#属性-文件库类型（DOCLIBTYPE）)<br>（DOCLIBTYPE） | [是否收藏](#属性-是否收藏（ISFAVOURITES）)<br>（ISFAVOURITES） | 默认 |
+| ---- | ---- | ---- | ---- | ---- |
 | 1 | [文档库维护](#业务状态-文档库维护（Doclib）) | doclib |  |  | 否 |
 | 2 | [文档库](#业务状态-文档库（doc）) | doc |  |  | 否 |
-| 3 | [附件库](#业务状态-附件库（file）) | file |  |  | 否 |
+| 3 | [文档库_未收藏](#业务状态-文档库_未收藏（doc_0）) | doc | 0 |  | 否 |
+| 4 | [文档库_已收藏](#业务状态-文档库_已收藏（doc_1）) | doc | 1 |  | 否 |
+| 5 | [附件库](#业务状态-附件库（file）) | file |  |  | 否 |
+| 6 | [附件库_未收藏](#业务状态-附件库_未收藏（file_0）) | file | 0 |  | 否 |
+| 7 | [附件库_已收藏](#业务状态-附件库_已收藏（file_1）) | file | 1 |  | 否 |
 ### 业务状态-文档库维护（Doclib）
 #### 状态说明
 文档库维护
@@ -804,7 +808,7 @@ Integer
 | 属性名 | 状态值 |
 | ---- | ---- |
 | [文件库类型](#属性-文件库类型（DOCLIBTYPE）)<br>（DOCLIBTYPE） | doclib |
-
+| [是否收藏](#属性-是否收藏（ISFAVOURITES）)<br>（ISFAVOURITES） |  |
 
 
 - 流程相关状态
@@ -828,7 +832,7 @@ Integer
 | 属性名 | 状态值 |
 | ---- | ---- |
 | [文件库类型](#属性-文件库类型（DOCLIBTYPE）)<br>（DOCLIBTYPE） | doc |
-
+| [是否收藏](#属性-是否收藏（ISFAVOURITES）)<br>（ISFAVOURITES） |  |
 
 
 - 流程相关状态
@@ -844,6 +848,62 @@ Integer
 | 序号 | 操作权限 |
 | ---- | ---- |
 | 1 | [附件库](#操作权限-附件库（FILE）)<br>（FILE） |
+### 业务状态-文档库_未收藏（doc_0）
+#### 状态说明
+文档库_未收藏
+
+- 是否是默认状态
+否
+
+- 状态值
+| 属性名 | 状态值 |
+| ---- | ---- |
+| [文件库类型](#属性-文件库类型（DOCLIBTYPE）)<br>（DOCLIBTYPE） | doc |
+| [是否收藏](#属性-是否收藏（ISFAVOURITES）)<br>（ISFAVOURITES） | 0 |
+
+
+- 流程相关状态
+无
+
+#### 实体行为控制
+允许模式：允许
+
+
+#### 操作权限控制
+允许模式：拒绝
+拒绝提示信息：无
+| 序号 | 操作权限 |
+| ---- | ---- |
+| 1 | [取消收藏文档库](#操作权限-取消收藏文档库（SRFUR__DOCLIB_NFAVOUR_BUT）)<br>（SRFUR__DOCLIB_NFAVOUR_BUT） |
+| 2 | [附件库](#操作权限-附件库（FILE）)<br>（FILE） |
+### 业务状态-文档库_已收藏（doc_1）
+#### 状态说明
+文档库_已收藏
+
+- 是否是默认状态
+否
+
+- 状态值
+| 属性名 | 状态值 |
+| ---- | ---- |
+| [文件库类型](#属性-文件库类型（DOCLIBTYPE）)<br>（DOCLIBTYPE） | doc |
+| [是否收藏](#属性-是否收藏（ISFAVOURITES）)<br>（ISFAVOURITES） | 1 |
+
+
+- 流程相关状态
+无
+
+#### 实体行为控制
+允许模式：允许
+
+
+#### 操作权限控制
+允许模式：拒绝
+拒绝提示信息：无
+| 序号 | 操作权限 |
+| ---- | ---- |
+| 1 | [附件库](#操作权限-附件库（FILE）)<br>（FILE） |
+| 2 | [收藏文档库](#操作权限-收藏文档库（SRFUR__DOCLIB_FAVOUR_BUT）)<br>（SRFUR__DOCLIB_FAVOUR_BUT） |
 ### 业务状态-附件库（file）
 #### 状态说明
 附件库
@@ -855,7 +915,7 @@ Integer
 | 属性名 | 状态值 |
 | ---- | ---- |
 | [文件库类型](#属性-文件库类型（DOCLIBTYPE）)<br>（DOCLIBTYPE） | file |
-
+| [是否收藏](#属性-是否收藏（ISFAVOURITES）)<br>（ISFAVOURITES） |  |
 
 
 - 流程相关状态
@@ -871,6 +931,62 @@ Integer
 | 序号 | 操作权限 |
 | ---- | ---- |
 | 1 | [文档库维护](#操作权限-文档库维护（DOC）)<br>（DOC） |
+### 业务状态-附件库_未收藏（file_0）
+#### 状态说明
+附件库_未收藏
+
+- 是否是默认状态
+否
+
+- 状态值
+| 属性名 | 状态值 |
+| ---- | ---- |
+| [文件库类型](#属性-文件库类型（DOCLIBTYPE）)<br>（DOCLIBTYPE） | file |
+| [是否收藏](#属性-是否收藏（ISFAVOURITES）)<br>（ISFAVOURITES） | 0 |
+
+
+- 流程相关状态
+无
+
+#### 实体行为控制
+允许模式：允许
+
+
+#### 操作权限控制
+允许模式：拒绝
+拒绝提示信息：无
+| 序号 | 操作权限 |
+| ---- | ---- |
+| 1 | [文档库维护](#操作权限-文档库维护（DOC）)<br>（DOC） |
+| 2 | [取消收藏文档库](#操作权限-取消收藏文档库（SRFUR__DOCLIB_NFAVOUR_BUT）)<br>（SRFUR__DOCLIB_NFAVOUR_BUT） |
+### 业务状态-附件库_已收藏（file_1）
+#### 状态说明
+附件库_已收藏
+
+- 是否是默认状态
+否
+
+- 状态值
+| 属性名 | 状态值 |
+| ---- | ---- |
+| [文件库类型](#属性-文件库类型（DOCLIBTYPE）)<br>（DOCLIBTYPE） | file |
+| [是否收藏](#属性-是否收藏（ISFAVOURITES）)<br>（ISFAVOURITES） | 1 |
+
+
+- 流程相关状态
+无
+
+#### 实体行为控制
+允许模式：允许
+
+
+#### 操作权限控制
+允许模式：拒绝
+拒绝提示信息：无
+| 序号 | 操作权限 |
+| ---- | ---- |
+| 1 | [收藏文档库](#操作权限-收藏文档库（SRFUR__DOCLIB_FAVOUR_BUT）)<br>（SRFUR__DOCLIB_FAVOUR_BUT） |
+| 2 | [文档库维护](#操作权限-文档库维护（DOC）)<br>（DOC） |
 
 ## 实体行为
 | 序号 | 行为 | 行为名 | 行为类型 | 行为持有者 |
@@ -1075,6 +1191,7 @@ LEFT JOIN zt_product t21 ON t1.PRODUCT = t21.ID
 - MYSQL5
 ```SQL
 select t1.* from (SELECT
+	( CASE WHEN FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t1.collector ) > 0 THEN 1 ELSE 0 END ) AS `ISFAVOURITES`,
 	t1.`ACL`,
 	t1.`DELETED`,
 	t1.`GROUPS`,
@@ -1092,6 +1209,7 @@ FROM
 	
 	UNION
 	SELECT
+	0 AS `ISFAVOURITES`,
 	'default' as `ACL`,
 	'0' as `DELETED`,
 	'' as `GROUPS`,
@@ -1125,6 +1243,7 @@ FROM
 - MYSQL5
 ```SQL
 select t1.* from (SELECT
+	( CASE WHEN FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t1.collector ) > 0 THEN 1 ELSE 0 END ) AS `ISFAVOURITES`,
 	t1.`ACL`,
 	t1.`DELETED`,
 	t1.`GROUPS`,
@@ -1142,6 +1261,7 @@ FROM
 	
 	UNION
 	SELECT
+	0 AS `ISFAVOURITES`,
 	'default' as `ACL`,
 	'0' as `DELETED`,
 	'' as `GROUPS`,

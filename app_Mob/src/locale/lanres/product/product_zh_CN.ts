@@ -44,6 +44,8 @@ export default {
     qdpk: "测试负责人（选择）",
     rdpk: "发布负责人（选择）",
     noticeusers: "消息通知用户",
+    orgid: "组织标识",
+    mdeptid: "部门标识",
   },
 	views: {
 		prodmobtabexpview: {

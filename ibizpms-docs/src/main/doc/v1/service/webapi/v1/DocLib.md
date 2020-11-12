@@ -423,7 +423,7 @@ POST
 | 14 | doclibtype | String | 允许 | 文件库类型 |
 | 15 | projectname | String | 允许 | 所属项目 |
 | 16 | productname | String | 允许 | 所属产品 |
-| 17 | isfavourites | Integer | 允许 | 属性 |
+| 17 | isfavourites | Integer | 允许 | 是否收藏 |
 | 18 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### DocLibSearchContext

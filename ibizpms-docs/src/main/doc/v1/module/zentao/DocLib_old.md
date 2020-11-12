@@ -31,7 +31,7 @@ hide members
 |文件库类型|DOCLIBTYPE|SSCODELIST|&nbsp;|
 |所属项目|PROJECTNAME|PICKUPTEXT|&nbsp;|
 |所属产品|PRODUCTNAME|PICKUPTEXT|&nbsp;|
-|属性|ISFAVOURITES|INT|&nbsp;|
+|是否收藏|ISFAVOURITES|INT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -52,15 +52,19 @@ hide members
 |文件库类型|默认规则|内容长度必须小于等于[200]|
 |所属项目|默认规则|内容长度必须小于等于[90]|
 |所属产品|默认规则|内容长度必须小于等于[90]|
-|属性|默认规则|默认规则|
+|是否收藏|默认规则|默认规则|
 
 ## 状态控制
 
-|文件库类型|行为控制模式| 控制行为 | 操作标识控制模式 | 控制操作 |
-| --------   | ------------|------------|------------|------------|
-|Value| 允许|  | 不允许 |  |
-|Value| 允许|  | 不允许 | FILE<br> |
-|Value| 允许|  | 不允许 | DOC<br> |
+|文件库类型||是否收藏|行为控制模式| 控制行为 | 操作标识控制模式 | 控制操作 |
+| --------   || --------   | ------------|------------|------------|------------|
+|Value||Value2| 允许|  | 不允许 |  |
+|Value||Value2| 允许|  | 不允许 | FILE<br> |
+|Value||Value2| 允许|  | 不允许 | SRFUR__DOCLIB_NFAVOUR_BUT<br>FILE<br> |
+|Value||Value2| 允许|  | 不允许 | FILE<br>SRFUR__DOCLIB_FAVOUR_BUT<br> |
+|Value||Value2| 允许|  | 不允许 | DOC<br> |
+|Value||Value2| 允许|  | 不允许 | DOC<br>SRFUR__DOCLIB_NFAVOUR_BUT<br> |
+|Value||Value2| 允许|  | 不允许 | SRFUR__DOCLIB_FAVOUR_BUT<br>DOC<br> |
 
 文件库类型
 
@@ -68,6 +72,8 @@ hide members
 | --------   |------------|
 |文档|doc|
 |附件|file|
+是否收藏
+
 
 ## 行为
 | 行为    | 类型    |  说明  |

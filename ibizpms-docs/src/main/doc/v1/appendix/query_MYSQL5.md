@@ -4825,11 +4825,11 @@ t1.`ADDEDBY`,
 t1.`ADDEDDATE`,
 t1.`DELETED`,
 'doc' AS `DOCQTYPE`,
-( CASE WHEN FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t1.collector ) > 0 THEN 1 ELSE 0 END ) AS `ISFAVOURITES`,
 t1.`EDITEDBY`,
 t1.`EDITEDDATE`,
 t1.`GROUPS`,
 t1.`ID`,
+0 AS `ISFAVOURITES`,
 t1.`KEYWORDS`,
 t1.`LIB`,
 t31.`NAME` AS `LIBNAME`,
@@ -5117,6 +5117,7 @@ WHERE t1.DELETED = '0'
 ### 产品文档库(ByProduct)<div id="DocLib_ByProduct"></div>
 ```sql
 select t1.* from (SELECT
+	( CASE WHEN FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t1.collector ) > 0 THEN 1 ELSE 0 END ) AS `ISFAVOURITES`,
 	t1.`ACL`,
 	t1.`DELETED`,
 	t1.`GROUPS`,
@@ -5134,6 +5135,7 @@ FROM
 	
 	UNION
 	SELECT
+	0 AS `ISFAVOURITES`,
 	'default' as `ACL`,
 	'0' as `DELETED`,
 	'' as `GROUPS`,
@@ -5159,6 +5161,7 @@ WHERE t1.type = 'product'  AND t1.deleted = '0'
 ### 项目文件库(ByProject)<div id="DocLib_ByProject"></div>
 ```sql
 select t1.* from (SELECT
+	( CASE WHEN FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t1.collector ) > 0 THEN 1 ELSE 0 END ) AS `ISFAVOURITES`,
 	t1.`ACL`,
 	t1.`DELETED`,
 	t1.`GROUPS`,
@@ -5176,6 +5179,7 @@ FROM
 	
 	UNION
 	SELECT
+	0 AS `ISFAVOURITES`,
 	'default' as `ACL`,
 	'0' as `DELETED`,
 	'' as `GROUPS`,

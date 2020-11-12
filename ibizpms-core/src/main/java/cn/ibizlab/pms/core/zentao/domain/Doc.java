@@ -250,7 +250,7 @@ public class Doc extends EntityMP implements Serializable {
     @TableField(exist = false)
     @JSONField(name = "isfavourites")
     @JsonProperty("isfavourites")
-    private String isfavourites;
+    private Integer isfavourites;
 
     /**
      * 

@@ -167,7 +167,7 @@ public class DocLib extends EntityMP implements Serializable {
     @JsonProperty("productname")
     private String productname;
     /**
-     * 属性
+     * 是否收藏
      */
     @TableField(exist = false)
     @JSONField(name = "isfavourites")

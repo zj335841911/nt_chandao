@@ -147,6 +147,12 @@ export class MobPickupViewpickupviewpanelModel {
       {
         name: 'noticeusers',
       },
+      {
+        name: 'orgid',
+      },
+      {
+        name: 'mdeptid',
+      },
     ]
   }
 

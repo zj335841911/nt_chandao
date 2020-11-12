@@ -145,7 +145,7 @@ export class DingTalkService {
             } else {
                 let openAccessId = document.referrer ? document.referrer : "dingtalk";
                 let url = window.location.href.replace(window.location.hash, '')
-                const promise: Promise<any> = this.get(`/uaa/dingtalk/jsapi/sign` + qs.stringify({ openAccessId: openAccessId, url: url }));
+                const promise: Promise<any> = this.get(`/uaa/dingtalk/jsapi/sign?` + qs.stringify({ openAccessId: openAccessId, url: url }));
                 promise.then((response: any) => {
                     if (response && response.status === 200) {
                         localStorage.setItem("access_token", JSON.stringify(Object.assign(response.data, { time: new Date().getTime() })));
