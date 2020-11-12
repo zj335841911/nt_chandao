@@ -49,7 +49,7 @@ export default {
 			caption: "文档",
       		title: "doc表格视图",
 		},
-		mystorygridview: {
+		mystargridview: {
 			caption: "我的收藏",
       		title: "doc表格视图",
 		},

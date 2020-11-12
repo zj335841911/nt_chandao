@@ -1956,7 +1956,7 @@ export const viewstate: any = {
         {
             viewtag: '73647c564ed468885ee3c18bccce5a90',
             viewmodule: 'ibiz',
-            viewname: 'DocMyStoryGridView',
+            viewname: 'DocMyStarGridView',
             viewaction: '',
             viewdatachange: false,
             refviews: [
