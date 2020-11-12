@@ -305,6 +305,8 @@ export class StorySpecCalendarEditFormBase extends EditFormControlBase {
         pri: null,
         stage: null,
         estimate: null,
+        isfavorites: null,
+        ischild: null,
         formitem: null,
         spec: null,
         verify: null,
@@ -415,6 +417,10 @@ export class StorySpecCalendarEditFormBase extends EditFormControlBase {
 
         estimate: new FormItemModel({ caption: '预计工时', detailType: 'FORMITEM', name: 'estimate', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 
+        isfavorites: new FormItemModel({ caption: '是否收藏', detailType: 'FORMITEM', name: 'isfavorites', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+
+        ischild: new FormItemModel({ caption: '是否可以细分', detailType: 'FORMITEM', name: 'ischild', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+
         formitem: new FormItemModel({ caption: '版本号', detailType: 'FORMITEM', name: 'formitem', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 
         spec: new FormItemModel({ caption: '需求描述', detailType: 'FORMITEM', name: 'spec', visible: true, isShowCaption: false, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
@@ -467,6 +473,8 @@ export class StorySpecCalendarEditFormBase extends EditFormControlBase {
             }
             this.detailsModel.version.setVisible(ret);
         }
+
+
 
 
 

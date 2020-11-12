@@ -96,6 +96,16 @@ export default class StorySpecCalendarModel {
         dataType: 'FLOAT',
       },
       {
+        name: 'isfavorites',
+        prop: 'isfavorites',
+        dataType: 'TEXT',
+      },
+      {
+        name: 'ischild',
+        prop: 'ischild',
+        dataType: 'TEXT',
+      },
+      {
         name: 'formitem',
         prop: 'versionc',
         dataType: 'TEXT',

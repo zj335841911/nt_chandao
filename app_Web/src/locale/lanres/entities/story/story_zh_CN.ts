@@ -790,6 +790,8 @@ export default {
 			pri: "优先级", 
 			stage: "所处阶段", 
 			estimate: "预计工时", 
+			isfavorites: "是否收藏", 
+			ischild: "是否可以细分", 
 			formitem: "版本号", 
 			spec: "需求描述", 
 			verify: "验收标准", 

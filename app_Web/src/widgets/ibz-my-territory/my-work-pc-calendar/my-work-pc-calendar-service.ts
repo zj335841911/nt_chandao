@@ -104,7 +104,7 @@ export default class MyWorkPCService extends ControlService {
         {
           itemName : '需求',
           itemType : 'Story',
-          color : 'rgba(255, 208, 0, 0.95)',
+          color : 'rgba(85, 0, 255, 0.95)',
           textColor : '',
         },
     ];
