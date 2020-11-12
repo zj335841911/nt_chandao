@@ -139,6 +139,7 @@ hide footbox
 |文档标题(TITLE)|LIKE|
 |文档类型(TYPE)|EQ|
 |权限(ACL)|EQ|
+|收藏者(COLLECTOR)|LIKE|
 |由谁添加(ADDEDBY)|EQ|
 |所属文档库(LIB)|EQ|
 |所属项目(PROJECT)|EQ|

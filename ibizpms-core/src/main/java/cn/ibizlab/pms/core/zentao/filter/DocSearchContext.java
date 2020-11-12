@@ -48,6 +48,13 @@ public class DocSearchContext extends QueryWrapperContext<Doc> {
             this.getSearchCond().eq("acl", n_acl_eq);
         }
     }
+	private String n_collector_like;//[收藏者]
+	public void setN_collector_like(String n_collector_like) {
+        this.n_collector_like = n_collector_like;
+        if(!ObjectUtils.isEmpty(this.n_collector_like)){
+            this.getSearchCond().like("collector", n_collector_like);
+        }
+    }
 	private String n_addedby_eq;//[由谁添加]
 	public void setN_addedby_eq(String n_addedby_eq) {
         this.n_addedby_eq = n_addedby_eq;
