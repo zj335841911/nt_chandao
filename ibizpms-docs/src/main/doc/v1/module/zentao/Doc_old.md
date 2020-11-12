@@ -97,6 +97,7 @@ hide members
 |CheckKey|内置方法|&nbsp;|
 |收藏|用户自定义|&nbsp;|
 |Save|内置方法|&nbsp;|
+|取消收藏|用户自定义|&nbsp;|
 
 ## 处理逻辑
 * 根据版本更新正文信息 (ByVersionUpdateContext)

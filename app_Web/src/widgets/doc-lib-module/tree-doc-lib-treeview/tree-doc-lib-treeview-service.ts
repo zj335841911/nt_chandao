@@ -233,6 +233,7 @@ export default class TreeDocLibService extends ControlService {
                         strNodeId += this.TREENODE_SEPARATOR;
                         strNodeId += strId;
                         Object.assign(treeNode, { id: strNodeId });
+                        Object.assign(treeNode, { iconcls: 'fa fa-folder-o' });
                         Object.assign(treeNode, { expanded: bFirst });
                         Object.assign(treeNode, { leaf: false });
                         Object.assign(treeNode, { navfilter: "n_parent_eq" });
@@ -367,6 +368,8 @@ export default class TreeDocLibService extends ControlService {
             strNodeId += filter.strRealNodeId;
 
             Object.assign(treeNode, { id: strNodeId });
+
+            Object.assign(treeNode, { iconcls: 'fa fa-folder-o' });
 
             Object.assign(treeNode, { expanded: true });
             Object.assign(treeNode, { leaf: false });
@@ -523,6 +526,7 @@ export default class TreeDocLibService extends ControlService {
                         strNodeId += this.TREENODE_SEPARATOR;
                         strNodeId += strId;
                         Object.assign(treeNode, { id: strNodeId });
+                        Object.assign(treeNode, { iconcls: 'fa fa-folder-o' });
                         Object.assign(treeNode, { expanded: filter.isautoexpand });
                         Object.assign(treeNode, { leaf: false });
                         Object.assign(treeNode, { navfilter: "n_parent_eq" });

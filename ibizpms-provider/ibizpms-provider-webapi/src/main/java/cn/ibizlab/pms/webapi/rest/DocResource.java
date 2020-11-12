@@ -157,6 +157,17 @@ public class DocResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Doc-Uncollect-all')")
+    @ApiOperation(value = "取消收藏", tags = {"文档" },  notes = "取消收藏")
+	@RequestMapping(method = RequestMethod.POST, value = "/docs/{doc_id}/uncollect")
+    public ResponseEntity<DocDTO> uncollect(@PathVariable("doc_id") Long doc_id, @RequestBody DocDTO docdto) {
+        Doc domain = docMapping.toDomain(docdto);
+        domain.setId(doc_id);
+        domain = docService.uncollect(domain);
+        docdto = docMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(docdto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Doc-searchChildDocLibDoc-all')")
 	@ApiOperation(value = "获取文档库文档（子库）", tags = {"文档" } ,notes = "获取文档库文档（子库）")
     @RequestMapping(method= RequestMethod.GET , value="/docs/fetchchilddoclibdoc")

@@ -170,6 +170,13 @@ public class DocServiceImpl extends ServiceImpl<DocMapper, Doc> implements IDocS
         saveOrUpdateBatch(list,batchSize);
     }
 
+    @Override
+    @Transactional
+    public Doc uncollect(Doc et) {
+        //自定义代码
+        return et;
+    }
+
 
 	@Override
     public List<Doc> selectByLib(Long id) {
