@@ -71,6 +71,11 @@ export default class StartFormModel {
         dataType: 'FLOAT',
       },
       {
+        name: 'noticeusers',
+        prop: 'noticeusers',
+        dataType: 'TEXT',
+      },
+      {
         name: 'comment',
         prop: 'comment',
         dataType: 'HTMLTEXT',

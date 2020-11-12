@@ -96,6 +96,11 @@ export default class PendingSubmissionModel {
         dataType: 'PICKUP',
       },
       {
+        name: 'noticeusers',
+        prop: 'noticeusers',
+        dataType: 'TEXT',
+      },
+      {
         name: 'storyname',
         prop: 'storyname',
         dataType: 'PICKUPTEXT',
