@@ -895,8 +895,9 @@ Save
 | 2 | [数据查询](#数据查询-数据查询（Default）) | Default | 否 |
 | 3 | [数据查询](#数据查询-数据查询（DefaultDoclib）) | DefaultDoclib | 否 |
 | 4 | [父模块](#数据查询-父模块（ParentModule）) | ParentModule | 否 |
-| 5 | [根模块目录动态](#数据查询-根模块目录动态（RootModuleMuLu）) | RootModuleMuLu | 否 |
-| 6 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 5 | [所有根模块目录](#数据查询-所有根模块目录（RootModuleMuLu）) | RootModuleMuLu | 否 |
+| 6 | [根模块目录动态](#数据查询-根模块目录动态（RootModuleMuLuByRoot）) | RootModuleMuLuByRoot | 否 |
+| 7 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
 ### 数据查询-数据查询（AllDoclibModule_Custom）
 #### 说明
@@ -1034,7 +1035,41 @@ LEFT JOIN zt_doclib t11 ON t1.ROOT = t11.ID
 LEFT JOIN zt_module t21 ON t1.PARENT = t21.ID 
 
 ```
-### 数据查询-根模块目录动态（RootModuleMuLu）
+### 数据查询-所有根模块目录（RootModuleMuLu）
+#### 说明
+所有根模块目录
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+SELECT
+t1.`BRANCH`,
+t1.`DELETED`,
+t11.`NAME` AS `DOCLIBNAME`,
+t1.`GRADE`,
+t1.`ID`,
+(CASE WHEN EXISTS (SELECT 1 FROM ZT_MODULE WHERE  PARENT = t1.`ID`) THEN FALSE ELSE TRUE  END ) AS `ISLEAF`,
+t21.`NAME` AS `MODULENAME`,
+t1.`NAME`,
+t1.`ORDER`,
+t1.`OWNER`,
+t1.`PARENT`,
+t1.`PATH`,
+t1.`ROOT`,
+t1.`SHORT`,
+t1.`TYPE`
+FROM `zt_module` t1 
+LEFT JOIN zt_doclib t11 ON t1.ROOT = t11.ID 
+LEFT JOIN zt_module t21 ON t1.PARENT = t21.ID 
+
+```
+### 数据查询-根模块目录动态（RootModuleMuLuByRoot）
 #### 说明
 根模块目录动态
 
@@ -1111,7 +1146,8 @@ LEFT JOIN zt_module t21 ON t1.PARENT = t21.ID
 | 2 | [所有文档库模块](#数据集合-所有文档库模块（AllDoclibModule）) | AllDoclibModule | 否 |
 | 3 | [数据集](#数据集合-数据集（Default）) | Default | 是 |
 | 4 | [父集合](#数据集合-父集合（ParentModule）) | ParentModule | 否 |
-| 5 | [根模块目录](#数据集合-根模块目录（RootModuleMuLu）) | RootModuleMuLu | 否 |
+| 5 | [所有根模块目录](#数据集合-所有根模块目录（RootModuleMuLu）) | RootModuleMuLu | 否 |
+| 6 | [根模块目录](#数据集合-根模块目录（RootModuleMuLuByRoot）) | RootModuleMuLuByRoot | 否 |
 
 ### 数据集合-自定义文档库的模块（AllDocLibModule_Custom）
 #### 说明
@@ -1169,7 +1205,21 @@ LEFT JOIN zt_module t21 ON t1.PARENT = t21.ID
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [父模块（ParentModule）](#数据查询-父模块（ParentModule）) |
-### 数据集合-根模块目录（RootModuleMuLu）
+### 数据集合-所有根模块目录（RootModuleMuLu）
+#### 说明
+所有根模块目录
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [所有根模块目录（RootModuleMuLu）](#数据查询-所有根模块目录（RootModuleMuLu）) |
+### 数据集合-根模块目录（RootModuleMuLuByRoot）
 #### 说明
 根模块目录
 
@@ -1182,7 +1232,7 @@ LEFT JOIN zt_module t21 ON t1.PARENT = t21.ID
 #### 关联的数据查询
 | 序号 | 数据查询 |
 | ---- | ---- |
-| 1 | [根模块目录动态（RootModuleMuLu）](#数据查询-根模块目录动态（RootModuleMuLu）) |
+| 1 | [根模块目录动态（RootModuleMuLuByRoot）](#数据查询-根模块目录动态（RootModuleMuLuByRoot）) |
 
 ## 数据导入
 无

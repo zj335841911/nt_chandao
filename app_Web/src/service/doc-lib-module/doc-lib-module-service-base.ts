@@ -259,4 +259,19 @@ export default class DocLibModuleServiceBase extends EntityService {
         let res:any = Http.getInstance().get(`/doclibmodules/fetchrootmodulemulu`,tempData,isloading);
         return res;
     }
+
+    /**
+     * FetchRootModuleMuLuByRoot接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof DocLibModuleServiceBase
+     */
+    public async FetchRootModuleMuLuByRoot(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/doclibmodules/fetchrootmodulemulubyroot`,tempData,isloading);
+        return res;
+    }
 }

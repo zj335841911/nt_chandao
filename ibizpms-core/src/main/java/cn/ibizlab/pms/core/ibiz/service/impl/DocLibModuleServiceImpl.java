@@ -232,11 +232,20 @@ public class DocLibModuleServiceImpl extends ServiceImpl<DocLibModuleMapper, Doc
     }
 
     /**
-     * 查询集合 根模块目录
+     * 查询集合 所有根模块目录
      */
     @Override
     public Page<DocLibModule> searchRootModuleMuLu(DocLibModuleSearchContext context) {
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<DocLibModule> pages=baseMapper.searchRootModuleMuLu(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<DocLibModule>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 根模块目录
+     */
+    @Override
+    public Page<DocLibModule> searchRootModuleMuLuByRoot(DocLibModuleSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<DocLibModule> pages=baseMapper.searchRootModuleMuLuByRoot(context.getPages(),context,context.getSelectCond());
         return new PageImpl<DocLibModule>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 

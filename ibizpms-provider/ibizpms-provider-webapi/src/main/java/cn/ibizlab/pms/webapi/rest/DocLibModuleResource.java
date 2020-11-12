@@ -235,7 +235,7 @@ public class DocLibModuleResource {
 	}
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-DocLibModule-searchRootModuleMuLu-all')")
-	@ApiOperation(value = "获取根模块目录", tags = {"文档库分类" } ,notes = "获取根模块目录")
+	@ApiOperation(value = "获取所有根模块目录", tags = {"文档库分类" } ,notes = "获取所有根模块目录")
     @RequestMapping(method= RequestMethod.GET , value="/doclibmodules/fetchrootmodulemulu")
 	public ResponseEntity<List<DocLibModuleDTO>> fetchRootModuleMuLu(DocLibModuleSearchContext context) {
         Page<DocLibModule> domains = doclibmoduleService.searchRootModuleMuLu(context) ;
@@ -248,10 +248,32 @@ public class DocLibModuleResource {
 	}
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-DocLibModule-searchRootModuleMuLu-all')")
-	@ApiOperation(value = "查询根模块目录", tags = {"文档库分类" } ,notes = "查询根模块目录")
+	@ApiOperation(value = "查询所有根模块目录", tags = {"文档库分类" } ,notes = "查询所有根模块目录")
     @RequestMapping(method= RequestMethod.POST , value="/doclibmodules/searchrootmodulemulu")
 	public ResponseEntity<Page<DocLibModuleDTO>> searchRootModuleMuLu(@RequestBody DocLibModuleSearchContext context) {
         Page<DocLibModule> domains = doclibmoduleService.searchRootModuleMuLu(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(doclibmoduleMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-DocLibModule-searchRootModuleMuLuByRoot-all')")
+	@ApiOperation(value = "获取根模块目录", tags = {"文档库分类" } ,notes = "获取根模块目录")
+    @RequestMapping(method= RequestMethod.GET , value="/doclibmodules/fetchrootmodulemulubyroot")
+	public ResponseEntity<List<DocLibModuleDTO>> fetchRootModuleMuLuByRoot(DocLibModuleSearchContext context) {
+        Page<DocLibModule> domains = doclibmoduleService.searchRootModuleMuLuByRoot(context) ;
+        List<DocLibModuleDTO> list = doclibmoduleMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-DocLibModule-searchRootModuleMuLuByRoot-all')")
+	@ApiOperation(value = "查询根模块目录", tags = {"文档库分类" } ,notes = "查询根模块目录")
+    @RequestMapping(method= RequestMethod.POST , value="/doclibmodules/searchrootmodulemulubyroot")
+	public ResponseEntity<Page<DocLibModuleDTO>> searchRootModuleMuLuByRoot(@RequestBody DocLibModuleSearchContext context) {
+        Page<DocLibModule> domains = doclibmoduleService.searchRootModuleMuLuByRoot(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(doclibmoduleMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
