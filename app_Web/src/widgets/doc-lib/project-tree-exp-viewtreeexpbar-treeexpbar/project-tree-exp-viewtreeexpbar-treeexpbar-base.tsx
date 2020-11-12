@@ -117,6 +117,13 @@ export class ProjectTreeExpViewtreeexpbarTreeExpBarBase extends TreeExpBarContro
                 deKeyField:'file'
 			};
         }
+        if (Object.is(expmode, 'CHILDDOCLIBMODULE')) {
+            return {  
+                viewname: 'doc-grid-view', 
+                parentdata: {},
+                deKeyField:'doc'
+			};
+        }
         if (Object.is(expmode, 'PROJECT')) {
             return {  
                 viewname: 'doc-lib-grid-view', 
@@ -128,6 +135,13 @@ export class ProjectTreeExpViewtreeexpbarTreeExpBarBase extends TreeExpBarContro
             return {  
                 viewname: 'doc-grid-view', 
                 parentdata: {"srfparentdefname":"n_lib_eq"},
+                deKeyField:'doc'
+			};
+        }
+        if (Object.is(expmode, 'ROOTDOCLIBMODULE')) {
+            return {  
+                viewname: 'doc-grid-view', 
+                parentdata: {},
                 deKeyField:'doc'
 			};
         }
