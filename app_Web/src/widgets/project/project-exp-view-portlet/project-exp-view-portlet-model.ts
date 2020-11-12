@@ -231,6 +231,12 @@ export default class ProjectExpViewModel {
       {
         name: 'doclibcnt',
       },
+      {
+        name: 'orgid',
+      },
+      {
+        name: 'mdeptid',
+      },
     ]
   }
 

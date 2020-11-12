@@ -120,6 +120,17 @@ public class DocLibResource {
         return  ResponseEntity.status(HttpStatus.OK).body(doclibService.checkKey(doclibMapping.toDomain(doclibdto)));
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-DocLib-Collect-all')")
+    @ApiOperation(value = "收藏", tags = {"文档库" },  notes = "收藏")
+	@RequestMapping(method = RequestMethod.POST, value = "/doclibs/{doclib_id}/collect")
+    public ResponseEntity<DocLibDTO> collect(@PathVariable("doclib_id") Long doclib_id, @RequestBody DocLibDTO doclibdto) {
+        DocLib domain = doclibMapping.toDomain(doclibdto);
+        domain.setId(doclib_id);
+        domain = doclibService.collect(domain);
+        doclibdto = doclibMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(doclibdto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-DocLib-Save-all')")
     @ApiOperation(value = "保存文档库", tags = {"文档库" },  notes = "保存文档库")
 	@RequestMapping(method = RequestMethod.POST, value = "/doclibs/save")
@@ -133,6 +144,17 @@ public class DocLibResource {
     public ResponseEntity<Boolean> saveBatch(@RequestBody List<DocLibDTO> doclibdtos) {
         doclibService.saveBatch(doclibMapping.toDomain(doclibdtos));
         return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-DocLib-UnCollect-all')")
+    @ApiOperation(value = "取消收藏", tags = {"文档库" },  notes = "取消收藏")
+	@RequestMapping(method = RequestMethod.POST, value = "/doclibs/{doclib_id}/uncollect")
+    public ResponseEntity<DocLibDTO> unCollect(@PathVariable("doclib_id") Long doclib_id, @RequestBody DocLibDTO doclibdto) {
+        DocLib domain = doclibMapping.toDomain(doclibdto);
+        domain.setId(doclib_id);
+        domain = doclibService.unCollect(domain);
+        doclibdto = doclibMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(doclibdto);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-DocLib-searchByCustom-all')")

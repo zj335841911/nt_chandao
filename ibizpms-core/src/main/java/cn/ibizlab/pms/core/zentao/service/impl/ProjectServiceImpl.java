@@ -462,6 +462,27 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectMapper, Project> impl
         return true;
     }
 
+    @Override
+    public List<Project> getProjectByIds(List<Long> ids) {
+         return this.listByIds(ids);
+    }
+
+    @Override
+    public List<Project> getProjectByEntities(List<Project> entities) {
+        List ids =new ArrayList();
+        for(Project entity : entities){
+            Serializable id=entity.getId();
+            if(!ObjectUtils.isEmpty(id)){
+                ids.add(id);
+            }
+        }
+        if(ids.size()>0) {
+            return this.listByIds(ids);
+        }
+        else {
+            return entities;
+        }
+    }
 
 
 

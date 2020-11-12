@@ -581,4 +581,20 @@ export interface Project {
      * @memberof Project
      */
     doclibcnt?: any;
+
+    /**
+     * 组织标识
+     *
+     * @returns {*}
+     * @memberof Project
+     */
+    orgid?: any;
+
+    /**
+     * 部门标识
+     *
+     * @returns {*}
+     * @memberof Project
+     */
+    mdeptid?: any;
 }

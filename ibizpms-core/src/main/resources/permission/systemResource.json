@@ -800,7 +800,7 @@
     "sysmoudle":{"id":"ZENTAO","name":"基础管理模块"},
     "dedataset":[{"id":"AllList" , "name":"全部产品"},{"id":"CheckNameOrCode" , "name":"校验产品名称或产品代号是否已经存在"},{"id":"CurProject" , "name":"当前项目"},{"id":"CurUer" , "name":"当前用户"},{"id":"Default" , "name":"DEFAULT"},{"id":"ProductPM" , "name":"产品总览"},{"id":"StoryCurProject" , "name":"当前项目"}],
     "deaction":[{"id":"Create" , "name":"Create" , "type":"BUILTIN" },{"id":"Update" , "name":"Update" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" },{"id":"Get" , "name":"Get" , "type":"BUILTIN" },{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" },{"id":"CancelProductTop" , "name":"取消置顶" , "type":"DELOGIC" },{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"Close" , "name":"关闭" , "type":"USERCUSTOM" },{"id":"MobProductCounter" , "name":"产品移动端计数器方法" , "type":"DELOGIC" },{"id":"MobProductTestCounter" , "name":"移动端测试计数器" , "type":"DELOGIC" },{"id":"ProductTop" , "name":"置顶" , "type":"DELOGIC" },{"id":"ReturnEdit" , "name":"退出" , "type":"USERCUSTOM" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" },{"id":"WizardCreate" , "name":"向导使用" , "type":"USERCUSTOM" }],
-    "datascope":[{"id":"all","name":"全部数据"}, {"id":"curorg","name":"当前单位"},{"id":"porg","name":"上级单位"},{"id":"sorg","name":"下级单位"} ]
+    "datascope":[{"id":"all","name":"全部数据"}, {"id":"curorg","name":"当前单位"},{"id":"porg","name":"上级单位"},{"id":"sorg","name":"下级单位"} , {"id":"curorgdept","name":"当前部门"},{"id":"porgdept","name":"上级部门"},{"id":"sorgdept","name":"下级部门"} ]
      }
     ,    {
     "dename":"DynaDashboard",
@@ -888,7 +888,7 @@
     "sysmoudle":{"id":"ZENTAO","name":"基础管理模块"},
     "dedataset":[{"id":"BugProject" , "name":"BugProject"},{"id":"CurProduct" , "name":"当前项目"},{"id":"CurUser" , "name":"当前用户项目"},{"id":"Default" , "name":"DEFAULT"},{"id":"InvolvedProject" , "name":"参与项目(年度总结)"},{"id":"InvolvedProject_StoryTaskBug" , "name":"参与项目完成需求任务bug"},{"id":"MyProject" , "name":"我的项目"},{"id":"ProjectTeam" , "name":"项目团队"},{"id":"StoryProject" , "name":"需求影响项目"}],
     "deaction":[{"id":"Create" , "name":"Create" , "type":"BUILTIN" },{"id":"Update" , "name":"Update" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" },{"id":"Get" , "name":"Get" , "type":"BUILTIN" },{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" },{"id":"Activate" , "name":"激活" , "type":"USERCUSTOM" },{"id":"BatchUnlinkStory" , "name":"批量解除关联需求" , "type":"USERCUSTOM" },{"id":"CancelProjectTop" , "name":"取消置顶" , "type":"DELOGIC" },{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"Close" , "name":"关闭" , "type":"USERCUSTOM" },{"id":"LinkStory" , "name":"关联需求" , "type":"USERCUSTOM" },{"id":"ManageMembers" , "name":"团队管理" , "type":"USERCUSTOM" },{"id":"MobProjectCount" , "name":"移动端项目计数器" , "type":"DELOGIC" },{"id":"ProjectTaskQCnt" , "name":"项目任务快速分组计数器" , "type":"DELOGIC" },{"id":"ProjectTop" , "name":"置顶" , "type":"DELOGIC" },{"id":"Putoff" , "name":"延期" , "type":"USERCUSTOM" },{"id":"ReturnEdit" , "name":"退出" , "type":"USERCUSTOM" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" },{"id":"Start" , "name":"开始" , "type":"USERCUSTOM" },{"id":"Suspend" , "name":"挂起" , "type":"USERCUSTOM" },{"id":"UnlinkMember" , "name":"移除成员" , "type":"USERCUSTOM" },{"id":"UnlinkStory" , "name":"解除关联需求" , "type":"USERCUSTOM" },{"id":"UpdateCycle" , "name":"根据结束日期更新可用工作日" , "type":"USERCUSTOM" },{"id":"UpdateOrder" , "name":"排序" , "type":"USERCUSTOM" },{"id":"UpdateProjectCycle" , "name":"更新项目周期及可用工作日" , "type":"USERCUSTOM" }],
-    "datascope":[{"id":"all","name":"全部数据"}]
+    "datascope":[{"id":"all","name":"全部数据"}, {"id":"curorg","name":"当前单位"},{"id":"porg","name":"上级单位"},{"id":"sorg","name":"下级单位"} , {"id":"curorgdept","name":"当前部门"},{"id":"porgdept","name":"上级部门"},{"id":"sorgdept","name":"下级部门"} ]
      }
     ,    {
     "dename":"Todo",
@@ -1175,7 +1175,7 @@
     "delogicname":"文档库",
     "sysmoudle":{"id":"ZENTAO","name":"基础管理模块"},
     "dedataset":[{"id":"ByCustom" , "name":"自定义文档库"},{"id":"ByProduct" , "name":"产品文档库"},{"id":"ByProject" , "name":"项目文件库"},{"id":"CurDocLib" , "name":"所属文档库"},{"id":"Default" , "name":"DEFAULT"}],
-    "deaction":[{"id":"Create" , "name":"Create" , "type":"BUILTIN" },{"id":"Update" , "name":"Update" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" },{"id":"Get" , "name":"Get" , "type":"BUILTIN" },{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" },{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" }],
+    "deaction":[{"id":"Create" , "name":"Create" , "type":"BUILTIN" },{"id":"Update" , "name":"Update" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" },{"id":"Get" , "name":"Get" , "type":"BUILTIN" },{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" },{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"Collect" , "name":"收藏" , "type":"USERCUSTOM" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" },{"id":"UnCollect" , "name":"取消收藏" , "type":"USERCUSTOM" }],
     "datascope":[{"id":"all","name":"全部数据"}]
      }
     ,    {

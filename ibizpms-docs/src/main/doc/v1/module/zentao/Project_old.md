@@ -99,6 +99,8 @@ hide members
 |需求变更数|STORYCHANGECNT|INT|&nbsp;|
 |消息通知用户|NOTICEUSERS|TEXT|&nbsp;|
 |文档数量|DOCLIBCNT|INT|&nbsp;|
+|组织标识|ORGID|TEXT|&nbsp;|
+|部门标识|MDEPTID|TEXT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -177,6 +179,8 @@ hide members
 |需求变更数|默认规则|默认规则|
 |消息通知用户|默认规则|内容长度必须小于等于[100]|
 |文档数量|默认规则|默认规则|
+|组织标识|默认规则|内容长度必须小于等于[100]|
+|部门标识|默认规则|内容长度必须小于等于[100]|
 
 ## 状态控制
 

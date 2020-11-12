@@ -231,6 +231,12 @@ export default class TestTabExpViewtabviewpanel3Model {
       {
         name: 'doclibcnt',
       },
+      {
+        name: 'orgid',
+      },
+      {
+        name: 'mdeptid',
+      },
     ]
   }
 

@@ -870,7 +870,9 @@ POST
 | 70 | storychangecnt | Integer | 允许 | 需求变更数 |
 | 71 | noticeusers | String | 允许 | 消息通知用户 |
 | 72 | doclibcnt | Integer | 允许 | 文档数量 |
-| 73 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 73 | orgid | String | 允许 | 组织标识 |
+| 74 | mdeptid | String | 允许 | 部门标识 |
+| 75 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### ProjectSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

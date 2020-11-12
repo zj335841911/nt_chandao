@@ -72,6 +72,8 @@ export default {
     storychangecnt: "需求变更数",
     noticeusers: "消息通知用户",
     doclibcnt: "文档数量",
+    orgid: "组织标识",
+    mdeptid: "部门标识",
   },
 	views: {
 		storymeditview9: {

@@ -121,6 +121,13 @@ public class DocLibServiceImpl extends ServiceImpl<DocLibMapper, DocLib> impleme
     }
     @Override
     @Transactional
+    public DocLib collect(DocLib et) {
+        //自定义代码
+        return et;
+    }
+
+    @Override
+    @Transactional
     public boolean save(DocLib et) {
         if(!saveOrUpdate(et)) {
             return false;
@@ -151,6 +158,13 @@ public class DocLibServiceImpl extends ServiceImpl<DocLibMapper, DocLib> impleme
     public void saveBatch(List<DocLib> list) {
         list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
+    }
+
+    @Override
+    @Transactional
+    public DocLib unCollect(DocLib et) {
+        //自定义代码
+        return et;
     }
 
 

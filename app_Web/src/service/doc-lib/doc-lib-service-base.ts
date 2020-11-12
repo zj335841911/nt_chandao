@@ -155,6 +155,20 @@ export default class DocLibServiceBase extends EntityService {
     }
 
     /**
+     * Collect接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof DocLibServiceBase
+     */
+    public async Collect(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+            let res:any = Http.getInstance().post(`/doclibs/${context.doclib}/collect`,data,isloading);
+            return res;
+    }
+
+    /**
      * Save接口方法
      *
      * @param {*} [context={}]
@@ -168,6 +182,20 @@ export default class DocLibServiceBase extends EntityService {
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().post(`/doclibs/${context.doclib}/save`,data,isloading);
             
+            return res;
+    }
+
+    /**
+     * UnCollect接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof DocLibServiceBase
+     */
+    public async UnCollect(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+            let res:any = Http.getInstance().post(`/doclibs/${context.doclib}/uncollect`,data,isloading);
             return res;
     }
 

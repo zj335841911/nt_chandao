@@ -82,6 +82,7 @@
 | 43 | [发布负责人（选择）](#属性-发布负责人（选择）（RDPK）) | RDPK | 文本，可指定长度 | 否 | 是 | 是 |
 | 44 | [消息通知用户](#属性-消息通知用户（NOTICEUSERS）) | NOTICEUSERS | 文本，可指定长度 | 否 | 是 | 是 |
 | 45 | [组织标识](#属性-组织标识（ORGID）) | ORGID | 文本，可指定长度 | 否 | 是 | 是 |
+| 46 | [部门标识](#属性-部门标识（MDEPTID）) | MDEPTID | 文本，可指定长度 | 否 | 是 | 是 |
 
 ### 属性-测试负责人（QD）
 #### 属性说明
@@ -2018,6 +2019,47 @@ String
 | 关系属性 | [id（ID）](../zentao/Module/#属性-id（ID）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
+### 属性-部门标识（MDEPTID）
+#### 属性说明
+部门标识
+
+- 是否是主键
+否
+
+- 属性类型
+物理字段[来自当前实体物理表字段]
+
+- 数据类型
+文本，可指定长度
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [模块（ZT_MODULE）](../zentao/Module) |
+| 关系属性 | [id（ID）](../zentao/Module/#属性-id（ID）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
 
 ## 业务状态
 | 序号 | 状态名称 | [状态](#属性-状态（STATUS）)<br>（STATUS） | [是否置顶](#属性-是否置顶（ISTOP）)<br>（ISTOP） | 默认 |
@@ -2503,6 +2545,7 @@ t1.`ID`,
 '0' AS `ISTOP`,
 t1.`LINE`,
 t11.`NAME` AS `LINENAME`,
+t1.`MDEPTID`,
 t1.`NAME`,
 (SELECT COUNT(1) FROM ZT_BUG WHERE PRODUCT = t1.`ID` AND `STATUS` <> 'closed' AND DELETED = '0') AS `NOTCLOSEDBUGCNT`,
 t1.`ORDER`,
@@ -2576,6 +2619,7 @@ t1.`ID`,
 '0' AS `ISTOP`,
 t1.`LINE`,
 t11.`NAME` AS `LINENAME`,
+t1.`MDEPTID`,
 t1.`NAME`,
 (SELECT COUNT(1) FROM ZT_BUG WHERE PRODUCT = t1.`ID` AND `STATUS` <> 'closed' AND DELETED = '0') AS `NOTCLOSEDBUGCNT`,
 t1.`ORDER`,
@@ -2765,6 +2809,7 @@ t1.`ID`,
 '0' AS `ISTOP`,
 t1.`LINE`,
 t11.`NAME` AS `LINENAME`,
+t1.`MDEPTID`,
 t1.`NAME`,
 (SELECT COUNT(1) FROM ZT_BUG WHERE PRODUCT = t1.`ID` AND `STATUS` <> 'closed' AND DELETED = '0') AS `NOTCLOSEDBUGCNT`,
 t1.`ORDER`,
@@ -2835,6 +2880,7 @@ t1.`ID`,
 '0' AS `ISTOP`,
 t1.`LINE`,
 t11.`NAME` AS `LINENAME`,
+t1.`MDEPTID`,
 t1.`NAME`,
 (SELECT COUNT(1) FROM ZT_BUG WHERE PRODUCT = t1.`ID` AND `STATUS` <> 'closed' AND DELETED = '0') AS `NOTCLOSEDBUGCNT`,
 t1.`ORDER`,
@@ -2891,6 +2937,7 @@ t1.`ID`,
 '0' AS `ISTOP`,
 t1.`LINE`,
 t11.`NAME` AS `LINENAME`,
+t1.`MDEPTID`,
 t1.`NAME`,
 (SELECT COUNT(1) FROM ZT_BUG WHERE PRODUCT = t1.`ID` AND `STATUS` <> 'closed' AND DELETED = '0') AS `NOTCLOSEDBUGCNT`,
 t1.`ORDER`,

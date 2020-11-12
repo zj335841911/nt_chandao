@@ -22365,6 +22365,21 @@
     "key_field":0,
     "show_order":1000,
     "major_field":0
+    },
+    {
+    "fieldname":"MDEPTID" ,
+    "codename":"MdeptId",
+    "field_logic_name":"部门标识",
+    "entity_name":"Product",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "predefined":"ORGSECTORID",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
     }
     ],
     "subEntitys":[
@@ -25110,6 +25125,36 @@
     "nullable":1,
     "physical_field":0,
     "data_type":"INT",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"ORGID" ,
+    "codename":"OrgId",
+    "field_logic_name":"组织标识",
+    "entity_name":"Project",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "predefined":"ORGID",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"MDEPTID" ,
+    "codename":"MdeptId",
+    "field_logic_name":"部门标识",
+    "entity_name":"Project",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "predefined":"ORGSECTORID",
     "key_field":0,
     "show_order":1000,
     "major_field":0

@@ -415,6 +415,15 @@ public class ProductDTO extends DTOBase implements Serializable {
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
     private String orgid;
 
+    /**
+     * 属性 [MDEPTID]
+     *
+     */
+    @JSONField(name = "mdeptid")
+    @JsonProperty("mdeptid")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String mdeptid;
+
 
     /**
      * 设置 [QD]

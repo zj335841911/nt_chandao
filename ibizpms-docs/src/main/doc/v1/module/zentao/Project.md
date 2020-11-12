@@ -106,6 +106,8 @@
 | 70 | [需求变更数](#属性-需求变更数（STORYCHANGECNT）) | STORYCHANGECNT | 整型 | 否 | 是 | 是 |
 | 71 | [消息通知用户](#属性-消息通知用户（NOTICEUSERS）) | NOTICEUSERS | 文本，可指定长度 | 否 | 是 | 是 |
 | 72 | [文档数量](#属性-文档数量（DOCLIBCNT）) | DOCLIBCNT | 整型 | 否 | 是 | 是 |
+| 73 | [组织标识](#属性-组织标识（ORGID）) | ORGID | 文本，可指定长度 | 否 | 是 | 是 |
+| 74 | [部门标识](#属性-部门标识（MDEPTID）) | MDEPTID | 文本，可指定长度 | 否 | 是 | 是 |
 
 ### 属性-当前系统版本（OPENEDVERSION）
 #### 属性说明
@@ -3190,6 +3192,88 @@ Integer
 | 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
+### 属性-组织标识（ORGID）
+#### 属性说明
+组织标识
+
+- 是否是主键
+否
+
+- 属性类型
+物理字段[来自当前实体物理表字段]
+
+- 数据类型
+文本，可指定长度
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
+| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
+### 属性-部门标识（MDEPTID）
+#### 属性说明
+部门标识
+
+- 是否是主键
+否
+
+- 属性类型
+物理字段[来自当前实体物理表字段]
+
+- 数据类型
+文本，可指定长度
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
+| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
 
 ## 业务状态
 | 序号 | 状态名称 | [项目状态](#属性-项目状态（STATUS）)<br>（STATUS） | [是否置顶](#属性-是否置顶（ISTOP）)<br>（ISTOP） | 默认 |
@@ -4079,12 +4163,14 @@ t1.`END`,
 t1.`ID`,
 t1.`ISCAT`,
 '0' AS `ISTOP`,
+t1.`MDEPTID`,
 t1.`NAME`,
 t1.`OPENEDBY`,
 t1.`OPENEDDATE`,
 t1.`OPENEDVERSION`,
 t1.`ORDER`,
 t1.`order` AS `ORDER1`,
+t1.`ORGID`,
 t1.`PARENT`,
 t11.`NAME` AS `PARENTNAME`,
 t1.`PM`,
@@ -4138,12 +4224,14 @@ t1.`END`,
 t1.`ID`,
 t1.`ISCAT`,
 '0' AS `ISTOP`,
+t1.`MDEPTID`,
 t1.`NAME`,
 t1.`OPENEDBY`,
 t1.`OPENEDDATE`,
 t1.`OPENEDVERSION`,
 t1.`ORDER`,
 t1.`order` AS `ORDER1`,
+t1.`ORGID`,
 t1.`PARENT`,
 t11.`NAME` AS `PARENTNAME`,
 t1.`PM`,
@@ -4304,12 +4392,14 @@ t1.`END`,
 t1.`ID`,
 t1.`ISCAT`,
 '0' AS `ISTOP`,
+t1.`MDEPTID`,
 t1.`NAME`,
 t1.`OPENEDBY`,
 t1.`OPENEDDATE`,
 t1.`OPENEDVERSION`,
 t1.`ORDER`,
 t1.`order` AS `ORDER1`,
+t1.`ORGID`,
 t1.`PARENT`,
 t11.`NAME` AS `PARENTNAME`,
 t1.`PM`,
@@ -4625,12 +4715,14 @@ t1.`END`,
 t1.`ID`,
 t1.`ISCAT`,
 '0' AS `ISTOP`,
+t1.`MDEPTID`,
 t1.`NAME`,
 t1.`OPENEDBY`,
 t1.`OPENEDDATE`,
 t1.`OPENEDVERSION`,
 t1.`ORDER`,
 t1.`order` AS `ORDER1`,
+t1.`ORGID`,
 t1.`PARENT`,
 t11.`NAME` AS `PARENTNAME`,
 t1.`PM`,

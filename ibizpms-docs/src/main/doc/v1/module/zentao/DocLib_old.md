@@ -76,7 +76,9 @@ hide members
 |Get|内置方法|&nbsp;|
 |GetDraft|内置方法|&nbsp;|
 |CheckKey|内置方法|&nbsp;|
+|收藏|用户自定义|&nbsp;|
 |Save|内置方法|&nbsp;|
+|取消收藏|用户自定义|&nbsp;|
 
 ## 处理逻辑
 无

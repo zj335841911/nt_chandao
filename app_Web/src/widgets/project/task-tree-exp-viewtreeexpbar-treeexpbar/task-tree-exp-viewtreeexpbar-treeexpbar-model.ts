@@ -231,6 +231,12 @@ export default class TaskTreeExpViewtreeexpbarModel {
       {
         name: 'doclibcnt',
       },
+      {
+        name: 'orgid',
+      },
+      {
+        name: 'mdeptid',
+      },
     ]
   }
 

@@ -87,6 +87,8 @@ public interface IProjectService extends IService<Project>{
      */
     boolean execute(String sql, Map param);
 
+    List<Project> getProjectByIds(List<Long> ids) ;
+    List<Project> getProjectByEntities(List<Project> entities) ;
 }
 
 

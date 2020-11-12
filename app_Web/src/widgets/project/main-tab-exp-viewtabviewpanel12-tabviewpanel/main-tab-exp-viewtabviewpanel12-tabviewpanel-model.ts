@@ -231,6 +231,12 @@ export default class MainTabExpViewtabviewpanel12Model {
       {
         name: 'doclibcnt',
       },
+      {
+        name: 'orgid',
+      },
+      {
+        name: 'mdeptid',
+      },
     ]
   }
 
