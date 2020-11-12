@@ -39,6 +39,12 @@ export default class MainModel {
           isEditable:true
         },
         {
+          name: 'order',
+          prop: 'order',
+          dataType: 'INT',
+          isEditable:true
+        },
+        {
           name: 'id',
           prop: 'id',
           dataType: 'ACID',

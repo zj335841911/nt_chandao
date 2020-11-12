@@ -453,7 +453,8 @@ POST
 | 25 | files | String | 允许 | 附件 |
 | 26 | url | String | 允许 | 文档链接 |
 | 27 | docqtype | String | 允许 | 文档查询类型 |
-| 28 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 28 | isfavourites | String | 允许 | 是否收藏 |
+| 29 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### DocSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

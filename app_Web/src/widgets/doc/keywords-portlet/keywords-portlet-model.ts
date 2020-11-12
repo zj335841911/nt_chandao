@@ -96,6 +96,9 @@ export default class KeywordsModel {
       {
         name: 'docqtype',
       },
+      {
+        name: 'isfavourites',
+      },
     ]
   }
 

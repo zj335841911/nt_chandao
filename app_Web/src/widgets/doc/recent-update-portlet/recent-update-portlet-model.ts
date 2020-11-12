@@ -96,6 +96,9 @@ export default class RecentUpdateModel {
       {
         name: 'docqtype',
       },
+      {
+        name: 'isfavourites',
+      },
     ]
   }
 

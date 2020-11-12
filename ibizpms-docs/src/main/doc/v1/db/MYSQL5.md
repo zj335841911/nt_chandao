@@ -13867,6 +13867,7 @@ CREATE TABLE `zt_casestep`(
 | DELETED        | 已删除  | VARCHAR      |   1   | &nbsp; |
 | GROUPS        | 分组  | VARCHAR      |   255   | &nbsp; |
 | COLLECTOR        | 收藏者  | CLOB      |   65,535   | &nbsp; |
+| ISFAVOURITES        | 是否收藏  | VARCHAR      |   200   | &nbsp; |
 | PROJECT        | 所属项目  |       |   8   | &nbsp; |
 | LIB        | 所属文档库  |       |   30   | &nbsp; |
 | ADDEDBY        | 由谁添加  | VARCHAR      |   30   | &nbsp; |

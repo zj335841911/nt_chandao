@@ -221,4 +221,12 @@ export interface Doc {
      * @memberof Doc
      */
     docqtype?: any;
+
+    /**
+     * 是否收藏
+     *
+     * @returns {*}
+     * @memberof Doc
+     */
+    isfavourites?: any;
 }

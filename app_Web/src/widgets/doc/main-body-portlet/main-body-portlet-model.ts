@@ -96,6 +96,9 @@ export default class MainBodyModel {
       {
         name: 'docqtype',
       },
+      {
+        name: 'isfavourites',
+      },
     ]
   }
 

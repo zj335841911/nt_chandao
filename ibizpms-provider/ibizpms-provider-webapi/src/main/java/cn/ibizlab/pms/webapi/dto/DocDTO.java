@@ -271,6 +271,15 @@ public class DocDTO extends DTOBase implements Serializable {
     @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
     private String docqtype;
 
+    /**
+     * 属性 [ISFAVOURITES]
+     *
+     */
+    @JSONField(name = "isfavourites")
+    @JsonProperty("isfavourites")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String isfavourites;
+
 
     /**
      * 设置 [GROUPS]

@@ -96,6 +96,9 @@ export default class DocActionModel {
       {
         name: 'docqtype',
       },
+      {
+        name: 'isfavourites',
+      },
     ]
   }
 
