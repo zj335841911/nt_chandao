@@ -199,7 +199,7 @@ export class MainbodyEditFormBase extends EditFormControlBase {
 
 
         if (Object.is(name, 'version')) {
-            const details: string[] = ['content'];
+            const details: string[] = ['title', 'content'];
             this.updateFormItems('ByVersionUpdateContext', this.data, details, true);
         }
     }
