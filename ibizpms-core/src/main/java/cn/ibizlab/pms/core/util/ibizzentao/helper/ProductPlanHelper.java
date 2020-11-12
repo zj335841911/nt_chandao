@@ -15,7 +15,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Map;
-
+/**
+ * @author chenxiang
+ */
 @Component
 public class ProductPlanHelper extends ZTBaseHelper<ProductPlanMapper, ProductPlan> {
 
@@ -34,20 +36,21 @@ public class ProductPlanHelper extends ZTBaseHelper<ProductPlanMapper, ProductPl
     @Autowired
     IProductPlanService productPlanService;
 
-    @Transactional
+    @Override
+    @Transactional(rollbackFor = Exception.class)
     public boolean create(ProductPlan et) {
         if(et.getParent() != null && et.getParent() > 0) {
             Long parent = et.getParent();
             ProductPlan productPlan = this.get(parent);
             et.setProduct(productPlan.getProduct());
-            productPlan.setParent(-1l);
+            productPlan.setParent(-1L);
             this.edit(productPlan);
         }
         fileHelper.processImgURL(et, null, null);
-        if (!this.retBool(this.baseMapper.insert(et)))
+        if (!this.retBool(this.baseMapper.insert(et))) {
             return false;
+        }
         CachedBeanCopier.copy(get(et.getId()), et);
-//        fileHelper.updateObjectID(null, et.getId(), StaticDict.File__object_type.PROJECT.getValue());
 
         //Action
         actionHelper.create(StaticDict.Action__object_type.PRODUCTPLAN.getValue(), et.getId(), StaticDict.Action__type.OPENED.getValue(), "", "", null, true);
@@ -60,14 +63,15 @@ public class ProductPlanHelper extends ZTBaseHelper<ProductPlanMapper, ProductPl
      *
      * @return
      */
-    @Transactional
+    @Override
+    @Transactional(rollbackFor = Exception.class)
     public boolean edit(ProductPlan et) {
         ProductPlan old = new ProductPlan();
         CachedBeanCopier.copy(this.get(et.getId()), old);
         fileHelper.processImgURL(et, null, null);
-        if (!this.internalUpdate(et))
+        if (!this.internalUpdate(et)) {
             return false;
-//        fileHelper.updateObjectID(null, et.getId(), StaticDict.File__object_type.PRODUCTPLAN.getValue());
+        }
 
         List<History> changes = ChangeUtil.diff(old, et,null,new String[]{"begin","end","desc"},new String[]{"desc"});
         if (changes.size() > 0) {
@@ -79,7 +83,7 @@ public class ProductPlanHelper extends ZTBaseHelper<ProductPlanMapper, ProductPl
 
 
     @Override
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public boolean delete(Long key) {
         boolean bOk = super.delete(key);
 
@@ -90,29 +94,32 @@ public class ProductPlanHelper extends ZTBaseHelper<ProductPlanMapper, ProductPl
     }
     public void changeParentField(Long key) {
         ProductPlan plan = this.get(key);
-        if(plan == null && plan.getParent() <= 0) return;
+        if(plan == null && plan.getParent() <= 0) {
+            return;
+        }
         ProductPlanSearchContext planSearchContext = new ProductPlanSearchContext();
         planSearchContext.setN_parent_eq(plan.getParent());
         planSearchContext.setN_product_eq(plan.getProduct());
-        long parent = productPlanService.searchDefault(planSearchContext).getContent().size() > 0 ? -1l : 0l;
+        long parent = productPlanService.searchDefault(planSearchContext).getContent().size() > 0 ? -1L : 0L;
         ProductPlan parentPlan = this.get(plan.getParent());
         if(parentPlan != null) {
-            if(parentPlan.getDeleted().equals("0")) {
+            if("0".equals(parentPlan.getDeleted())) {
                 parentPlan.setParent(parent);
                 this.internalUpdate(parentPlan);
             }else {
-                parentPlan.setParent(0l);
+                parentPlan.setParent(0L);
                 this.internalUpdate(parentPlan);
             }
         }
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public ProductPlan linkStory(ProductPlan et) {
         Long productPlanId = et.getId();
         if (productPlanId == null) {
-            if (et.get("productplan") == null)
+            if (et.get("productplan") == null) {
                 throw new RuntimeException("缺少计划");
+            }
             productPlanId = Long.parseLong(et.get("productplan").toString());
         }
         String stories = "";
@@ -129,16 +136,18 @@ public class ProductPlanHelper extends ZTBaseHelper<ProductPlanMapper, ProductPl
             }
 
         }
-        if("".equals(stories))
+        if("".equals(stories)) {
             return et;
+        }
         ProductPlan old  = this.get(productPlanId);
 
         Product product = productHelper.get(et.getProduct());
         String curOrder = old.getOrder();
 
         for (String storyId :  stories.split(",")) {
-            if (curOrder.contains(storyId))
+            if (curOrder.contains(storyId)) {
                 continue;
+            }
             curOrder += storyId + ",";
             Story story = new Story();
             story.setId(Long.parseLong(storyId));
@@ -159,20 +168,19 @@ public class ProductPlanHelper extends ZTBaseHelper<ProductPlanMapper, ProductPl
     }
 
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public ProductPlan unlinkStory(ProductPlan et) {
 
         return et;
-//        throw new RuntimeException("未实现");
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public ProductPlan batchUnlinkStory(ProductPlan et) {
 
         throw new RuntimeException("未实现");
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public ProductPlan linkBug(ProductPlan et) {
 
         String bugs = "";
@@ -189,8 +197,9 @@ public class ProductPlanHelper extends ZTBaseHelper<ProductPlanMapper, ProductPl
             }
 
         }
-        if("".equals(bugs))
+        if("".equals(bugs)) {
             return et;
+        }
 
 
         for (String bugId :  bugs.split(",")) {
@@ -203,21 +212,22 @@ public class ProductPlanHelper extends ZTBaseHelper<ProductPlanMapper, ProductPl
         return et ;
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public ProductPlan unlinkBug(ProductPlan et) {
-        if(et.get("bugs")==null)
+        if(et.get("bugs")==null) {
             return et ;
+        }
         for (String bugId :  et.get("bugs").toString().split(",")) {
             Bug bug = new Bug() ;
             bug.setId(Long.parseLong(bugId));
-            bug.setPlan(0l);
+            bug.setPlan(0L);
             SpringContextHolder.getBean(BugHelper.class).internalUpdate(bug);
             actionHelper.create(StaticDict.Action__object_type.BUG.getValue(), bug.getId(), StaticDict.Action__type.UNLINKEDFROMPLAN.getValue(), "", String.valueOf(et.getId()), null, true);
         }
         return et ;
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public ProductPlan batchUnlinkBug(ProductPlan et) {
 
         throw new RuntimeException("未实现");

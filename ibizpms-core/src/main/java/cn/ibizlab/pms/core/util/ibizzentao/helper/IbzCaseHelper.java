@@ -13,7 +13,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ * @author chenxiang
+ */
 @Component
 @Slf4j
 public class IbzCaseHelper extends ZTBaseHelper<IbzCaseMapper, IbzCase> {
@@ -22,7 +24,7 @@ public class IbzCaseHelper extends ZTBaseHelper<IbzCaseMapper, IbzCase> {
     CaseHelper caseHelper;
 
     @Override
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public boolean create(IbzCase et) {
         List<IbzLibCaseSteps> list = et.getIbzlibcasesteps();
         List<CaseStep> caseStepList = new ArrayList<>();
@@ -34,7 +36,7 @@ public class IbzCaseHelper extends ZTBaseHelper<IbzCaseMapper, IbzCase> {
     }
 
     @Override
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public boolean edit(IbzCase et) {
         List<IbzLibCaseSteps> list = et.getIbzlibcasesteps();
         List<CaseStep> caseStepList = new ArrayList<>();

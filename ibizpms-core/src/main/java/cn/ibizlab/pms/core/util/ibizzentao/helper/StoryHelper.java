@@ -24,7 +24,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
+/**
+ * @author chenxiang
+ */
 @Component
 @Slf4j
 public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
@@ -68,7 +70,8 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
     @Autowired
     ProductHelper productHelper;
 
-    @Transactional
+    @Override
+    @Transactional(rollbackFor = Exception.class)
     public boolean create(Story et) {
         String strSpec = et.getSpec();
         String strVerify = et.getVerify();
@@ -80,8 +83,9 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
         if(StaticDict.Story__status.DRAFT.getValue().equals(et.getStatus())) {
             if(et.getAssignedto() == null || "".equals(et.getAssignedto())) {
                 et.setReviewedby(productHelper.get(et.getProduct()).getPo());
-            }else
+            }else {
                 et.setReviewedby(et.getAssignedto());
+            }
 
         }
         et.setStage(et.getProject() != null && et.getProject() > 0 ? StaticDict.Story__stage.PROJECTED.getValue() : et.getPlan() != null && !"".equals(et.getPlan()) && !"0".equals(et.getPlan()) ? StaticDict.Story__stage.PLANNED.getValue() : StaticDict.Story__stage.WAIT.getValue());
@@ -99,7 +103,7 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
         storySpec.setVersion(1);
         storySpecHelper.create(storySpec);
 
-        if (et.getProject() != null && et.getProject() != 0l && StringUtils.compare(et.getStage(), StaticDict.Story__status.DRAFT.getValue()) != 0) {
+        if (et.getProject() != null && et.getProject() != 0L && StringUtils.compare(et.getStage(), StaticDict.Story__status.DRAFT.getValue()) != 0) {
             //projectstroy
             ProjectStory projectStory = new ProjectStory();
             projectStory.setProject(et.getProject());
@@ -143,20 +147,23 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
         return true;
     }
 
+    @Transactional(rollbackFor = Exception.class)
     public boolean batchCreate(List<Story> stories) {
         boolean flag = true;
 
-        Long branch = 0l;
+        Long branch = 0L;
         Long product = stories.get(0).getProduct() == 0 ? this.get(stories.get(0).getParent()).getProduct() : stories.get(0).getProduct();
         Timestamp nowDate = ZTDateUtil.now();
-        Long module = 0l;
+        Long module = 0L;
         String plan = "0";
         int pri = 0;
         String source = "";
         Long storyId = stories.get(0).getParent();
         List<Story> storyList = new ArrayList<>();
         for(Story story : stories) {
-            if(story.getTitle() == null || "".equals(story.getTitle())) continue;
+            if(story.getTitle() == null || "".equals(story.getTitle())) {
+                continue;
+            }
             story.setModule(story.getModule() != null ? story.getModule() : module);
             story.setPlan(story.getPlan() != null ? story.getPlan() : plan);
             story.setType(StaticDict.Story__type.STORY.getValue());
@@ -178,20 +185,25 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
             if(!this.create(story)) {
                 continue;
             }
-            if(!"".equals(storyIds))  storyIds += ",";
+            if(!"".equals(storyIds)) {
+                storyIds += ",";
+            }
 
             storyIds += story.getId();
         }
-        if(!"".equals(storyIds) && storyId != null) subdivide(storyId,storyIds);
+        if(!"".equals(storyIds) && storyId != null) {
+            subdivide(storyId,storyIds);
+        }
         return flag;
     }
 
+    @Transactional(rollbackFor = Exception.class)
     public void subdivide(Long storyId, String stories) {
         Timestamp nowDate = ZTDateUtil.now();
         Story story = this.get(storyId);
         computeEstimate(storyId);
         Story newStory = new Story();
-        newStory.setParent(-1l);
+        newStory.setParent(-1L);
         newStory.setPlan("0");
         newStory.setLastediteddate(nowDate);
         newStory.setLasteditedby(AuthenticationUser.getAuthenticationUser().getLoginname());
@@ -213,17 +225,19 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
      *
      * @return
      */
-    @Transactional
+    @Override
+    @Transactional(rollbackFor = Exception.class)
     public boolean edit(Story et) {
         Story old = new Story();
         CachedBeanCopier.copy(this.get(et.getId()), old);
         //stages 处理
 
-        if (!update(et, (Wrapper) et.getUpdateWrapper(true).eq("id", et.getId())))
+        if (!update(et, (Wrapper) et.getUpdateWrapper(true).eq("id", et.getId()))) {
             return false;
+        }
         CachedBeanCopier.copy(get(et.getId()), et);
 
-        if (et.getProduct() != old.getProduct()) {
+        if (old.getProduct().equals(et.getProduct())) {
             UpdateWrapper<ProjectStory> updateWrapper = new UpdateWrapper<ProjectStory>();
             updateWrapper.set("product", et.getProduct());
             updateWrapper.eq("story", et.getId());
@@ -248,7 +262,7 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
         }
 
         //
-        boolean changed = et.getParent() != old.getParent();
+        boolean changed = old.getParent().equals(et.getParent());
         if (old.getParent() > 0) {
 
             updateParentStatus(et, this.get(old.getParent()), changed);
@@ -259,7 +273,7 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
                 if (oldChildren.size() == 0) {
                     Story update = new Story();
                     update.setId(old.getParent());
-                    update.setParent(0l);
+                    update.setParent(0L);
                     this.internalUpdate(update);
                 }
                 StringBuilder strChildStories = new StringBuilder();
@@ -321,7 +335,7 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
     }
 
     @Override
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public boolean delete(Long key) {
         Story old = this.get(key);
         boolean bOk = super.delete(key);
@@ -332,7 +346,7 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
         return bOk;
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Story activate(Story et) {
         Story old = new Story();
         CachedBeanCopier.copy(this.get(et.getId()), old);
@@ -344,12 +358,14 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
         et.setRevieweddate(ZTDateUtil.nul());
         et.setReviewedby("");
         et.setAssigneddate(ZTDateUtil.now());
-        if (StringUtils.isBlank(et.getAssignedto()))
+        if (StringUtils.isBlank(et.getAssignedto())) {
             et.setAssignedto(AuthenticationUser.getAuthenticationUser().getUsername());
+        }
         this.internalUpdate(et);
         setStage(et);
-        if(et.getParent() > 0)
+        if(et.getParent() > 0) {
             updateParentStatus(et, this.get(et.getParent()), false);
+        }
 
         List<History> changes = ChangeUtil.diff(old, et, null, new String[]{"status", "stage", "assignedto", "closedby", "closedreason", "closeddate"}, null);
         if (changes.size() > 0) {
@@ -359,7 +375,7 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
         return et;
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Story change(Story et) {
         String comment = et.getComment() == null ? "" : et.getComment();
         Story old = new Story();
@@ -403,12 +419,10 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
                     comment, "", AuthenticationUser.getAuthenticationUser().getUsername(), true);
             actionHelper.logHistory(action.getId(), changes);
         }
-
-
         return et;
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Story close(Story et) {
         String comment = et.getComment() == null ? "" : et.getComment();
         Story old = new Story();
@@ -421,26 +435,29 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
         et.setAssigneddate(ZTDateUtil.now());
         et.setAssignedto(StaticDict.Assignedto_closed.CLOSED.getValue());
         internalUpdate(et);
-        if(et.getParent() > 0)
+        if(et.getParent() > 0) {
             updateParentStatus(et, this.get(et.getParent()), false);
+        }
         List<History> changes = ChangeUtil.diff(old, et, null, new String[]{"status", "stage", "assignedto", "closedby", "closedreason", "closeddate"}, null);
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
             Action action = actionHelper.create(StaticDict.Action__object_type.STORY.getValue(), et.getId(), StaticDict.Action__type.CLOSED.getValue(),
                     comment, et.getClosedreason(), null, true);
-            if (changes.size() > 0)
+            if (changes.size() > 0) {
                 actionHelper.logHistory(action.getId(), changes);
+            }
         }
         return et;
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Story assignTo(Story et) {
         String comment = et.getComment() == null ? "" : et.getComment();
         Story old = new Story();
         CachedBeanCopier.copy(this.get(et.getId()), old);
 
-        if (StringUtils.compare(et.getAssignedto(), old.getAssignedto()) == 0)
+        if (StringUtils.compare(et.getAssignedto(), old.getAssignedto()) == 0) {
             return et;
+        }
 
         et.setAssigneddate(ZTDateUtil.now());
         internalUpdate(et);
@@ -449,25 +466,28 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
         if (changes.size() > 0) {
             Action action = actionHelper.create(StaticDict.Action__object_type.STORY.getValue(), et.getId(), StaticDict.Action__type.ASSIGNED.getValue(),
                     comment, et.getAssignedto(), null, true);
-            if (changes.size() > 0)
+            if (changes.size() > 0) {
                 actionHelper.logHistory(action.getId(), changes);
+            }
         }
         return et;
 
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Story review(Story et) {
         String comment = et.getComment() == null ? "" : et.getComment();
         String result = et.getResult();
         Story old = new Story();
         CachedBeanCopier.copy(this.get(et.getId()), old);
 
-        if (et.getRevieweddate() == null)
+        if (et.getRevieweddate() == null) {
             et.setRevieweddate(ZTDateUtil.now());
+        }
         if (StringUtils.compare(result, StaticDict.Story__review_result.PASS.getValue()) == 0) {
-            if (StringUtils.compare(old.getStatus(), StaticDict.Story__status.DRAFT.getValue()) == 0 || StringUtils.compare(old.getStatus(), StaticDict.Story__status.CHANGED.getValue()) == 0)
+            if (StringUtils.compare(old.getStatus(), StaticDict.Story__status.DRAFT.getValue()) == 0 || StringUtils.compare(old.getStatus(), StaticDict.Story__status.CHANGED.getValue()) == 0) {
                 et.setStatus(StaticDict.Story__status.ACTIVE.getValue());
+            }
         } else if (StringUtils.compare(result, StaticDict.Story__review_result.REJECT.getValue()) == 0) {
             et.setCloseddate(ZTDateUtil.nul());
             et.setClosedby(AuthenticationUser.getAuthenticationUser().getUsername());
@@ -491,8 +511,9 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
                 action = actionHelper.create(StaticDict.Action__object_type.STORY.getValue(), et.getId(), StaticDict.Action__type.CLOSED.getValue(),
                         "", et.getClosedreason(), null, true);
             }
-            if (changes.size() > 0)
+            if (changes.size() > 0) {
                 actionHelper.logHistory(action.getId(), changes);
+            }
         }
         if(StaticDict.Story__review_result.REJECT.getValue().equals(result)) {
 
@@ -502,7 +523,7 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
         return et;
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Story linkStory(Story et) {
         ProductPlan productPlan = new ProductPlan();
         productPlan.setProduct(et.getProduct());
@@ -510,8 +531,9 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
         String stories = "";
         ArrayList<Map> list = (ArrayList) et.get("srfactionparam");
         for (Map data : list) {
-            if (stories.length() > 0)
+            if (stories.length() > 0) {
                 stories += ",";
+            }
             stories += data.get("id");
         }
         productPlan.set("stories", stories);
@@ -520,16 +542,18 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
         return et;
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Story batchUnlinkStory(Story et) {
         throw new RuntimeException("未实现");
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Story unlinkStory(Story et) {
         //et = this.get(et.getId());
 
-        if(et.getPlan() == null &&  et.get("productplan") == null) return et;
+        if(et.getPlan() == null &&  et.get("productplan") == null) {
+            return et;
+        }
 
         ProductPlan productPlan = new ProductPlan();
 
@@ -550,7 +574,7 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
         return et;
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Story projectLinkStory(Story et) {
         Project project = new Project();
         project.setId(et.getProject());
@@ -558,8 +582,9 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
         String stories = "";
         ArrayList<Map> list = (ArrayList) et.get("srfactionparam");
         for (Map data : list) {
-            if (stories.length() > 0)
+            if (stories.length() > 0) {
                 stories += ",";
+            }
             stories += data.get("id");
         }
         project.set("stories", stories);
@@ -568,7 +593,7 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
         return et;
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Story projectUnlinkStory(Story et) {
         Project project = new Project();
         project.setId(et.getProject());
@@ -577,27 +602,29 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
         return et;
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Story projectBatchUnlinkStory(Story et) {
         throw new RuntimeException("未实现");
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Story releaseLinkStory(Story et) {
-        if(et.get("release") == null)
+        if(et.get("release") == null) {
             return et;
+        }
         Release release = new Release();
         release.setId(Long.parseLong(et.get("release").toString()));
         release.set("srfactionparam",et.get("srfactionparam"));
         cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.ReleaseHelper.class).linkStory(release);
         return et;
-//        throw new RuntimeException("未实现");
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Story releaseUnlinkStory(Story et) {
         //et = this.get(et.getId());
-        if(et.getId() == null &&  et.get("release") == null) return et;
+        if(et.getId() == null &&  et.get("release") == null) {
+            return et;
+        }
         Release release = releaseHelper.get(Long.parseLong(et.get("release").toString()));
         Release releaseUpdate = new Release();
         releaseUpdate.setId(release.getId());
@@ -614,25 +641,26 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
                 false);
         this.setStage(et);
         return et;
-//        throw new RuntimeException("未实现");
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Story releaseBatchUnlinkStory(Story et) {
         throw new RuntimeException("未实现");
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Story buildLinkStory(Story et) {
-        if (et.get("build") == null || et.get("srfactionparam") == null)
+        if (et.get("build") == null || et.get("srfactionparam") == null) {
             return et;
+        }
         Build build = new Build();
         build.setId(Long.parseLong(et.get("build").toString()));
         String stories = "";
         ArrayList<Map> list = (ArrayList) et.get("srfactionparam");
         for (Map data : list) {
-            if (stories.length() > 0)
+            if (stories.length() > 0) {
                 stories += ",";
+            }
             stories += data.get("id");
         }
         build.set("stories", stories);
@@ -640,10 +668,11 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
         return et;
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Story buildUnlinkStory(Story et) {
-        if (et.get("build") == null)
+        if (et.get("build") == null) {
             return et;
+        }
         Build build = new Build();
         build.setId(Long.parseLong(et.get("build").toString()));
         build.set("stories", et.getId());
@@ -651,12 +680,12 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
         return et;
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Story buildBatchUnlinkStory(Story et) {
         throw new RuntimeException("未实现");
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Story importPlanStories(Story et) {
         Project project = new Project();
         project.setId(et.getProject());
@@ -665,16 +694,14 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
         return et;
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Story setStage(Story et) {
-        log.info("setStage：未实现");
-//        StoryStageSearchContext context = new StoryStageSearchContext();
-//        context.setN_story_eq(et.getId());
-//        List<StoryStage> oldStages = iStoryStageService.searchDefault(context).getContent();
         iStoryStageService.removeByStory(et.getId());
 
         et = this.get(et.getId());
-        if(et.getStagedby() != null && !"".equals(et.getStagedby())) return et;
+        if(et.getStagedby() != null && !"".equals(et.getStagedby())) {
+            return et;
+        }
 
         Product product = et.getZtproduct();
         boolean hasBranch = (!StaticDict.Product__status.NORMAL.getValue().equals(product.getType()) && (et.getBranch() == null));
@@ -791,15 +818,17 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
         return et;
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public void updateParentStatus(Story story, Story parentStory, boolean changed) {
         log.info("updateParentStatus：未实现");
 
-        if (parentStory == null) parentStory = this.get(story.getParent());
+        if (parentStory == null) {
+            parentStory = this.get(story.getParent());
+        }
 
         if(parentStory == null) {
             Story story1 = new Story();
-            story1.setParent(0l);
+            story1.setParent(0L);
             story1.setId(story.getId());
             this.internalUpdate(story1);
             return;
@@ -809,9 +838,9 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
         if(parentStory.getParent() != -1 ) {
             Story parentStory1 = new Story();
             parentStory1.setId(parentStory.getId());
-            parentStory1.setParent(-1l);
+            parentStory1.setParent(-1L);
             this.internalUpdate(parentStory1);
-            parentStory.setParent(-1l);
+            parentStory.setParent(-1L);
         }
         computeEstimate(parentStory.getId());
         String sql = String.format("select DISTINCT `status` from zt_story where parent = %1$s and deleted = '0'", parentStory.getId());
@@ -819,7 +848,7 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
         if(childrenStatus.size() == 0) {
             Story parentStory1 = new Story();
             parentStory1.setId(parentStory.getId());
-            parentStory1.setParent(-1l);
+            parentStory1.setParent(-1L);
             this.internalUpdate(parentStory1);
 
             return ;
@@ -827,8 +856,9 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
         String parentStatus = parentStory.getStatus();
         if(childrenStatus.size() == 1 && !StaticDict.Story__status.CHANGED.getValue().equals(parentStatus)) {
             parentStatus = childrenStatus.get(0).getString("status");
-            if(StaticDict.Story__status.DRAFT.getValue().equals(parentStatus) || StaticDict.Story__status.CHANGED.getValue().equals(parentStatus))
+            if(StaticDict.Story__status.DRAFT.getValue().equals(parentStatus) || StaticDict.Story__status.CHANGED.getValue().equals(parentStatus)) {
                 parentStatus = StaticDict.Story__status.ACTIVE.getValue();
+            }
         }else if(childrenStatus.size() > 1 && StaticDict.Story__status.CLOSED.getValue().equals(parentStatus)) {
             parentStatus = StaticDict.Story__status.ACTIVE.getValue();
         }
@@ -859,8 +889,9 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
             story1.setParent(-1L);
             story1.setId(parentStory.getId());
             if(this.internalUpdate(story1)) {
-                if (changed)
+                if (changed) {
                     return ;
+                }
                 Story newParentStory = new Story();
                 CachedBeanCopier.copy(this.get(parentStory.getId()), newParentStory);
                 List<History> changes = ChangeUtil.diff(old, newParentStory);
@@ -868,20 +899,23 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
                     String actionType = StaticDict.Story__status.ACTIVE.getValue().equals(parentStatus) ? StaticDict.Action__type.ACTIVATED.getValue() : StaticDict.Story__status.CLOSED.getValue().equals(parentStatus) ? StaticDict.Action__type.CLOSED.getValue() : "";
                     Action action = actionHelper.create(StaticDict.Action__object_type.STORY.getValue(), parentStory.getId(), actionType,
                             "", "", null, true);
-                    if (changes.size() > 0)
+                    if (changes.size() > 0) {
                         actionHelper.logHistory(action.getId(), changes);
+                    }
                 }
             }
         }else {
-            if (changed)
+            if (changed) {
                 return ;
+            }
             Story newParentStory = this.get(parentStory.getId());
             List<History> changes = ChangeUtil.diff(parentStory, newParentStory);
             if (changes.size() > 0) {
                 Action action = actionHelper.create(StaticDict.Action__object_type.STORY.getValue(), parentStory.getId(), StaticDict.Action__type.EDITED.getValue(),
                         "", "", null, true);
-                if (changes.size() > 0)
+                if (changes.size() > 0) {
                     actionHelper.logHistory(action.getId(), changes);
+                }
             }
         }
     }
@@ -890,12 +924,14 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
      *
      * @param parentStoryId
      */
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public void computeEstimate(Long parentStoryId) {
         String sql =String.format( "select `id`,`estimate`,`status` from zt_story where deleted = '0' and parent = %1$s ", parentStoryId) ;
 
         List<JSONObject> list = iStoryService.select(sql, null);
-        if(list.size() == 0) return;
+        if(list.size() == 0) {
+            return;
+        }
 
         double estimate = 0d;
         for(JSONObject jsonObject : list) {

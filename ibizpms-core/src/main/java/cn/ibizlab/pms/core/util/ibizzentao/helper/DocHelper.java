@@ -1,5 +1,6 @@
 package cn.ibizlab.pms.core.util.ibizzentao.helper;
 
+import cn.ibizlab.pms.core.util.ibizzentao.common.ZTDateUtil;
 import cn.ibizlab.pms.core.zentao.domain.Doc;
 import cn.ibizlab.pms.core.zentao.domain.DocContent;
 import cn.ibizlab.pms.core.zentao.domain.DocLib;
@@ -16,7 +17,9 @@ import org.springframework.transaction.annotation.Transactional;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.Date;
-
+/**
+ * @author chenxiang
+ */
 @Component
 public class DocHelper extends ZTBaseHelper<DocMapper, Doc> {
 
@@ -33,7 +36,7 @@ public class DocHelper extends ZTBaseHelper<DocMapper, Doc> {
     ActionHelper actionHelper;
 
     @Override
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public boolean create(Doc et) {
         DocLib docLib = et.getZtDoclib();
         if (docLib == null) {
@@ -70,15 +73,14 @@ public class DocHelper extends ZTBaseHelper<DocMapper, Doc> {
         docContent.setDigest("");
 
         String files = et.getFiles();
-        boolean bOk = super.create(et);
-        if (!bOk)
-            return bOk;
+        if (!super.create(et)) {
+            return false;
+        }
         StringBuilder filesId = new StringBuilder();
         if (files != null) {
             JSONArray jsonArray = JSONArray.parseArray(files);
             for (int i = 0; i < jsonArray.size(); i++) {
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
-                cn.ibizlab.pms.core.zentao.domain.File file = new cn.ibizlab.pms.core.zentao.domain.File();
                 if (i != 0) {
                     filesId.append(",");
                 }
@@ -92,11 +94,11 @@ public class DocHelper extends ZTBaseHelper<DocMapper, Doc> {
         fileHelper.updateObjectID(et.getId(), StaticDict.File__object_type.DOC.getValue(), files, String.valueOf(et.getVersion()));
         actionHelper.create(StaticDict.Action__object_type.DOC.getValue(),et.getId(),StaticDict.Action__type.OPENED.getValue(), "","",null,true);
 
-        return bOk;
+        return true;
     }
 
     @Override
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public boolean edit(Doc et) {
         Doc oldDoc = this.get(et.getId());
 
@@ -118,7 +120,7 @@ public class DocHelper extends ZTBaseHelper<DocMapper, Doc> {
         et.setProduct(docLib.getProduct());
         et.setProject(docLib.getProject());
         et.setEditedby(AuthenticationUser.getAuthenticationUser().getUsername());
-        et.setEditeddate(new Timestamp(new Date().getTime()));
+        et.setEditeddate(ZTDateUtil.now());
 
         if (StaticDict.Doc__type.URL.getValue().equals(et.getType())) {
             et.setContent(et.getUrl());
@@ -129,14 +131,10 @@ public class DocHelper extends ZTBaseHelper<DocMapper, Doc> {
         if (files != null) {
             changed = true;
         }
-        if ((oldDoc.getTitle() != null && !oldDoc.getTitle().equals(et.getTitle())) ||
-                (oldDoc.getTitle() == null && et.getTitle() != null)) {
-            changed = true;
-        }
-        if ((oldDoc.getContent() != null && !oldDoc.getContent().equals(et.getContent())) ||
-                (oldDoc.getContent() == null && et.getContent() != null)) {
-            changed = true;
-        }
+        changed = (oldDoc.getTitle() != null && !oldDoc.getTitle().equals(et.getTitle())) || (oldDoc.getTitle() == null && et.getTitle() != null) ? true : changed;
+
+        changed = (oldDoc.getContent() != null && !oldDoc.getContent().equals(et.getContent())) || (oldDoc.getContent() == null && et.getContent() != null) ? true : changed;
+
         if (changed) {
             et.setVersion(oldDoc.getVersion() + 1);
             DocContent docContent = new DocContent();

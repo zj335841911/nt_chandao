@@ -10,9 +10,12 @@ import cn.ibizlab.pms.util.helper.CachedBeanCopier;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-
+/**
+ * @author chenxiang
+ */
 @Component
 @Slf4j
 public class IbzLibHelper  extends ZTBaseHelper<IbzLibMapper, IbzLib>  {
@@ -24,22 +27,24 @@ public class IbzLibHelper  extends ZTBaseHelper<IbzLibMapper, IbzLib>  {
     ActionHelper actionHelper;
 
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public boolean create(IbzLib et) {
-        boolean bOk = super.create(et);
-        if (!bOk) {
-            return bOk;
+        if (!super.create(et)) {
+            return false;
         }
         actionHelper.create(StaticDict.Action__object_type.CASELIB.getValue(), et.getId(), StaticDict.Action__type.OPENED.getValue(), "", "", null, true);
-        return bOk;
+        return true;
     }
 
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public boolean edit(IbzLib et) {
         IbzLib old = new IbzLib();
         CachedBeanCopier.copy(get(et.getId()), old);
 
-        if (!super.edit(et))
+        if (!super.edit(et)) {
             return false;
+        }
 
         List<History> changes = ChangeUtil.diff(old, et);
         if (changes.size() > 0) {
@@ -50,6 +55,7 @@ public class IbzLibHelper  extends ZTBaseHelper<IbzLibMapper, IbzLib>  {
     }
 
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public boolean delete(Long key) {
         return testSuiteHelper.delete(key);
     }

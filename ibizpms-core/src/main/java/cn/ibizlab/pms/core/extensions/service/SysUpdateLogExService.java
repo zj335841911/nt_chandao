@@ -40,11 +40,12 @@ public class SysUpdateLogExService extends SysUpdateLogServiceImpl {
      * @return
      */
     @Override
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public SysUpdateLog getLastUpdateInfo(SysUpdateLog et) {
         List<SysUpdateLog> list = this.list(new QueryWrapper<SysUpdateLog>().eq("LATESTUPDATE", StaticDict.YesNo2.ITEM_1.getValue()).eq("UPDATEBRANCH", StaticDict.SYS_UPDATE_BRANCH.MOB.getValue()).orderByDesc("`update`").last(" LIMIT 0,1 "));
-        if(list.size() == 0)
+        if(list.size() == 0) {
             return et;
+        }
         SysUpdateLog sysUpdateLog = list.get(0);
         List<SysUpdateFeatures> list_10 = iSysUpdateFeaturesService.list(new QueryWrapper<SysUpdateFeatures>().eq("SYS_UPDATE_LOGID", sysUpdateLog.getSysupdatelogid()).eq("type", StaticDict.SYS_UPDATE_LOG_TYPE.ITEM_10.getValue()).orderByAsc("DISPLAYORDER"));
         List<SysUpdateFeatures> list_20 = iSysUpdateFeaturesService.list(new QueryWrapper<SysUpdateFeatures>().eq("SYS_UPDATE_LOGID", sysUpdateLog.getSysupdatelogid()).eq("type", StaticDict.SYS_UPDATE_LOG_TYPE.ITEM_20.getValue()).orderByAsc("DISPLAYORDER"));

@@ -44,7 +44,7 @@ public class CaseExService extends CaseServiceImpl {
      * @return
      */
     @Override
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Case get(Long key) {
         Case et = getById(key);
         if(et==null){
@@ -61,16 +61,16 @@ public class CaseExService extends CaseServiceImpl {
     }
 
     @Override
-    @Transactional
-    public Case getTestTaskCNTRun(Case et) {
+    @Transactional(rollbackFor = Exception.class)
+    public Case getTestTaskCntRun(Case et) {
         String task = et.getTask();
         et = this.get(et.getId());
         Map<String, Object> parm = new HashMap<>();
         parm.put("case", et.getId());
         parm.put("task", task);
         String failSql = "select t.* from zt_testresult t left join zt_testrun t11 on t.run = t11.id where  t.`case` = #{et.case} and t11.task = #{et.task}  and t.caseResult in('fail','blocked') ";
-        String Sql = "select t.* from zt_testresult t left join zt_testrun t11 on t.run = t11.id where  t.`case` = #{et.case} and t11.task = #{et.task}  ";
-        et.setResultcnt(this.select(Sql,parm).size());
+        String sql = "select t.* from zt_testresult t left join zt_testrun t11 on t.run = t11.id where  t.`case` = #{et.case} and t11.task = #{et.task}  ";
+        et.setResultcnt(this.select(sql,parm).size());
         et.setResultfalicnt(this.select(failSql, parm).size());
         //自定义代码
         return et;

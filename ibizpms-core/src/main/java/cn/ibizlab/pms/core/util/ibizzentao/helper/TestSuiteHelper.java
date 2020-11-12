@@ -12,7 +12,9 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-
+/**
+ * @author chenxiang
+ */
 @Component
 @Slf4j
 public class TestSuiteHelper extends ZTBaseHelper<TestSuiteMapper, TestSuite> {
@@ -27,12 +29,11 @@ public class TestSuiteHelper extends ZTBaseHelper<TestSuiteMapper, TestSuite> {
     SuiteCaseHelper suiteCaseHelper;
 
     @Override
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public boolean create(TestSuite et) {
 
-        boolean bOk = super.create(et);
-        if (!bOk) {
-            return bOk;
+        if (!super.create(et)) {
+            return false;
         }
         actionHelper.create(StaticDict.Action__object_type.TESTSUITE.getValue(), et.getId(), StaticDict.Action__type.OPENED.getValue(), "", "", null, true);
 
@@ -40,14 +41,15 @@ public class TestSuiteHelper extends ZTBaseHelper<TestSuiteMapper, TestSuite> {
     }
 
     @Override
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public boolean edit(TestSuite et) {
 
         TestSuite old = new TestSuite();
         CachedBeanCopier.copy(get(et.getId()), old);
 
-        if (!super.edit(et))
+        if (!super.edit(et)) {
             return false;
+        }
 
         List<History> changes = ChangeUtil.diff(old, et,null,null,new String[]{"desc"});
         Action action = actionHelper.create(StaticDict.Action__object_type.TESTSUITE.getValue(), et.getId(), StaticDict.Action__type.EDITED.getValue(), "", "", null, true);
@@ -57,10 +59,11 @@ public class TestSuiteHelper extends ZTBaseHelper<TestSuiteMapper, TestSuite> {
         return true;
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public TestSuite linkCase(TestSuite et) {
-        if (et.get("cases") == null)
+        if (et.get("cases") == null) {
             return et;
+        }
         int i = 0;
         String[] versions = et.get("versions").toString().split(",");
         for (String caseId : et.get("cases").toString().split(",")) {
@@ -82,7 +85,7 @@ public class TestSuiteHelper extends ZTBaseHelper<TestSuiteMapper, TestSuite> {
         return et;
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public TestSuite unlinkCase(TestSuite et) {
         return et;
     }

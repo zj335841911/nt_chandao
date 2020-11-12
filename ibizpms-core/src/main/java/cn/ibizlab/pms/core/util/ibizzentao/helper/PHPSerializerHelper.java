@@ -24,6 +24,10 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+
+/**
+ * @author huwei
+ */
 public class PHPSerializerHelper {
     private static final HashMap clscache = new HashMap();
     private static final HashMap fieldcache = new HashMap();
@@ -763,11 +767,11 @@ public class PHPSerializerHelper {
     private Number readDouble(ByteArrayInputStream stream) {
         stream.skip(1L);
         String d = this.readNumber(stream);
-        if (d.equals("NAN")) {
+        if ("NAN".equals(d)) {
             return new Double(0.0D / 0.0);
-        } else if (d.equals("INF")) {
+        } else if ("INF".equals(d)) {
             return new Double(1.0D / 0.0);
-        } else if (d.equals("-INF")) {
+        } else if ("-INF".equals(d)) {
             return new Double(-1.0D / 0.0);
         } else if (d.indexOf(46) <= 0 && d.indexOf(101) <= 0 && d.indexOf(69) <= 0) {
             int len = d.length();
@@ -941,7 +945,7 @@ public class PHPSerializerHelper {
         stream.skip(2L);
         int n = Integer.parseInt(this.readNumber(stream));
         stream.skip(1L);
-        if (cn.equals("PHPRPC_Date")) {
+        if ("PHPRPC_Date".equals(cn)) {
             return this.readCalendar(stream, objectContainer, n);
         } else {
             Class cls = this.getClass(cn);

@@ -18,7 +18,9 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
+/**
+ * @author chenxiang
+ */
 @Component
 @Slf4j
 public class CaseHelper extends ZTBaseHelper<CaseMapper, Case> {
@@ -51,32 +53,34 @@ public class CaseHelper extends ZTBaseHelper<CaseMapper, Case> {
     TestResultHelper testResultHelper;
 
     @Override
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public boolean create(Case et) {
         List<CaseStep> caseSteps = et.getCasestep();
         if(et.getFromcaseid()!=0){
             Case cas = caseHelper.get(et.getFromcaseid());
             et.setFromcaseversion(cas.getVersion());
         }
-        if(et.getStory() != null && et.getStory() != 0)
+        if(et.getStory() != null && et.getStory() != 0) {
             et.setStoryversion(storyHelper.get(et.getStory()).getVersion());
+        }
         String files = et.getFiles();
-        boolean bOk = super.create(et);
-        if (!bOk)
-            return bOk;
+        if (!super.create(et)) {
+            return false;
+        }
         fileHelper.updateObjectID(et.getId(), StaticDict.File__object_type.CASE.getValue(), files, "");
         createCaseStep(et,caseSteps);
         actionHelper.create(StaticDict.Action__object_type.CASE.getValue(),et.getId(),StaticDict.Action__type.OPENED.getValue(), "","",null,true);
 
-        return bOk;
+        return true;
     }
 
     public void createCaseStep(Case et, List<CaseStep> caseSteps) {
         if (caseSteps != null) {
-            Long parent = 0l;
+            Long parent = 0L;
             for (CaseStep caseStep : caseSteps) {
-                if(StringUtils.isBlank(caseStep.getDesc()))
+                if(StringUtils.isBlank(caseStep.getDesc())) {
                     continue;
+                }
                 caseStep.setType(caseStep.getType() != null && "item".equals(caseStep.getType()) && parent == 0 ? "step" : caseStep.getType());
                 String type = caseStep.getType();
                 if("item".equals(type)) {
@@ -85,14 +89,14 @@ public class CaseHelper extends ZTBaseHelper<CaseMapper, Case> {
                 caseStep.setIbizcase(et.getId());
                 caseStep.setVersion(et.getVersion());
                 caseStepHelper.create(caseStep);
-                if("group".equals(type)) parent = caseStep.getId();
-                if("step".equals(type)) parent = 0l;
+                if("group".equals(type)) {parent = caseStep.getId();}
+                if("step".equals(type)) {parent = 0L;}
             }
         }
     }
 
     @Override
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public boolean edit(Case et) {
         String comment = et.getComment() == null ? "" : et.getComment();
         List<CaseStep> caseSteps = et.getCasestep() ;
@@ -107,10 +111,10 @@ public class CaseHelper extends ZTBaseHelper<CaseMapper, Case> {
             for(CaseStep caseStep : list) {
                 CaseStep oldCaseStep = new CaseStep();
                 CachedBeanCopier.copy(caseStep, oldCaseStep);
-                oldCaseStep.setParent(0l);
+                oldCaseStep.setParent(0L);
                 CaseStep newCaseStep = new CaseStep();
                 CachedBeanCopier.copy(caseSteps.get(i), newCaseStep);
-                newCaseStep.setParent(0l);
+                newCaseStep.setParent(0L);
                 if(newCaseStep.getId() == null || newCaseStep.getId() ==0) {
                     caseStepFlag = true;
                     break;
@@ -127,18 +131,21 @@ public class CaseHelper extends ZTBaseHelper<CaseMapper, Case> {
         }else {
             caseStepFlag = true;
         }
-        if (caseStepFlag)
+        if (caseStepFlag) {
             et.setVersion(old.getVersion() + 1);
+        }
         et.setLastrunresult(old.getLastrunresult());
         et.setLastrundate(old.getLastrundate());
         et.setLastrunner(old.getLastrunner());
         String files = et.getFiles();
         boolean bOk = super.edit(et);
-        if (!bOk)
+        if (!bOk) {
             return bOk;
+        }
         fileHelper.updateObjectID(et.getId(), StaticDict.File__object_type.CASE.getValue(), files, "");
-        if (caseStepFlag)
+        if (caseStepFlag) {
             createCaseStep(et,caseSteps);
+        }
 
         List<History> changes = ChangeUtil.diff(old, et);
         if (changes.size() > 0) {
@@ -150,17 +157,19 @@ public class CaseHelper extends ZTBaseHelper<CaseMapper, Case> {
     }
 
     @Override
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public boolean delete(Long key) {
         return super.delete(key);
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Case linkCase(Case et) {
-        if (et.getTask() == null)
+        if (et.getTask() == null) {
             return et;
-        if (et.get("ids") == null)
+        }
+        if (et.get("ids") == null) {
             return et;
+        }
         TestTask testTask = new TestTask();
         testTask.setId(Long.parseLong(et.getTask().split(",")[0]));
 
@@ -170,16 +179,14 @@ public class CaseHelper extends ZTBaseHelper<CaseMapper, Case> {
         return et ;
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Case unlinkCase(Case et) {
         testRunHelper.delete(et.getId());
         return et ;
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Case runCase(Case et) {
-//        Case old = new Case();
-//        CachedBeanCopier.copy(get(et.getId()),old);
         createResult(et);
 
         return et;
@@ -187,7 +194,9 @@ public class CaseHelper extends ZTBaseHelper<CaseMapper, Case> {
 
     public void createResult(Case et) {
         Long caseId = Long.parseLong(et.get("case").toString());
-        if(caseId == null || caseId == 0l) return;
+        if(caseId == null || caseId == 0L) {
+            return;
+        }
         Long runId = et.getId();
 
         Map<Integer, Object> stepResults = new HashMap<>();
@@ -256,25 +265,26 @@ public class CaseHelper extends ZTBaseHelper<CaseMapper, Case> {
         }
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Case unlinkSuiteCase(Case et) {
         suiteCaseHelper.remove(new QueryWrapper<SuiteCase>().eq("suite",et.get("suite")).eq("`case`",et.get("case"))) ;
         return et ;
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Case testRunCase(Case et) {
-//        throw new RuntimeException("未实现");
         createResult(et);
         return et;
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Case testsuitelinkCase(Case et) {
-        if (et.get("suite") == null)
+        if (et.get("suite") == null) {
             return et;
-        if (et.get("ids") == null)
+        }
+        if (et.get("ids") == null) {
             return et;
+        }
         TestSuite testSuite = new TestSuite();
         testSuite.setId(Long.parseLong(et.get("suite").toString().split(",")[0]));
         testSuite.set("cases",et.get("ids"));
@@ -283,7 +293,7 @@ public class CaseHelper extends ZTBaseHelper<CaseMapper, Case> {
         return et ;
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Case confirmChange(Case et) {
         Case cas = this.getById(et.getId());
         TestRun testRun = new TestRun();
@@ -292,14 +302,13 @@ public class CaseHelper extends ZTBaseHelper<CaseMapper, Case> {
         param.put("`case`",cas.getId());
         param.put("task", et.getTask());
         testRunHelper.update(testRun,(Wrapper) testRun.getUpdateWrapper(true).allEq(param));
-        // throw new RuntimeException("未实现");
         return et;
     }
 
     @Autowired
     StoryHelper storyHelper;
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Case confirmstorychange(Case et) {
         String comment = StringUtils.isNotBlank(et.getComment()) ? et.getComment() : "";
         Case old = new Case();
@@ -310,7 +319,6 @@ public class CaseHelper extends ZTBaseHelper<CaseMapper, Case> {
         }
         caseHelper.internalUpdate(old);
         actionHelper.create(StaticDict.Action__object_type.CASE.getValue(), et.getId(),StaticDict.Action__type.CONFIRMED.getValue(), comment,"",null,true);
-        //throw new RuntimeException("未实现");
         return et;
     }
 

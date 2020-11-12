@@ -17,7 +17,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
+/**
+ * @author chenxiang
+ */
 @Component
 public class ReleaseHelper extends ZTBaseHelper<ReleaseMapper, Release> {
 
@@ -43,7 +45,7 @@ public class ReleaseHelper extends ZTBaseHelper<ReleaseMapper, Release> {
     ProductHelper productHelper;
 
     @Override
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public boolean create(Release et) {
         boolean bOk = false;
 
@@ -76,14 +78,16 @@ public class ReleaseHelper extends ZTBaseHelper<ReleaseMapper, Release> {
 
     }
 
-    @Transactional
+    @Override
+    @Transactional(rollbackFor = Exception.class)
     public boolean edit(Release et) {
         Release old = new Release();
         CachedBeanCopier.copy(get(et.getId()), old);
         fileHelper.processImgURL(et, null, null);
         String files = et.getFiles();
-        if (!internalUpdate(et))
+        if (!internalUpdate(et)) {
             return false;
+        }
         fileHelper.updateObjectID(et.getId(), StaticDict.File__object_type.RELEASE.getValue(),files, "");
 
         List<History> changes = ChangeUtil.diff(old, et,null,null,new String[]{"desc"});
@@ -95,7 +99,7 @@ public class ReleaseHelper extends ZTBaseHelper<ReleaseMapper, Release> {
     }
 
     @Override
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public boolean delete(Long key) {
         boolean bOk = false;
 
@@ -105,7 +109,7 @@ public class ReleaseHelper extends ZTBaseHelper<ReleaseMapper, Release> {
         return bOk;
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Release activate(Release et) {
         et.setStatus(StaticDict.Release__status.NORMAL.getValue());
         this.internalUpdate(et);
@@ -114,7 +118,7 @@ public class ReleaseHelper extends ZTBaseHelper<ReleaseMapper, Release> {
         return et;
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Release terminate(Release et) {
         et.setStatus(StaticDict.Release__status.TERMINATE.getValue());
         this.internalUpdate(et);
@@ -123,15 +127,17 @@ public class ReleaseHelper extends ZTBaseHelper<ReleaseMapper, Release> {
         return et;
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Release linkBug(Release et) {
-        if (et.getId() == null || et.get("srfactionparam") == null)
+        if (et.getId() == null || et.get("srfactionparam") == null) {
             return et;
+        }
         String bugs = "";
         ArrayList<Map> list = (ArrayList) et.get("srfactionparam");
         for (Map data : list) {
-            if (bugs.length() > 0)
+            if (bugs.length() > 0) {
                 bugs += ",";
+            }
             bugs += data.get("id");
         }
         et = this.get(et.getId());
@@ -148,30 +154,32 @@ public class ReleaseHelper extends ZTBaseHelper<ReleaseMapper, Release> {
         return et;
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Release unlinkBug(Release et) {
         throw new RuntimeException("未实现");
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Release batchUnlinkBug(Release et) {
         throw new RuntimeException("未实现");
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Release linkBugbyBug(Release et) {
         throw new RuntimeException("未实现");
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Release linkBugbyLeftBug(Release et) {
-        if (et.getId() == null || et.get("srfactionparam") == null)
+        if (et.getId() == null || et.get("srfactionparam") == null) {
             return et;
+        }
         String bugs = "";
         ArrayList<Map> list = (ArrayList) et.get("srfactionparam");
         for (Map data : list) {
-            if (bugs.length() > 0)
+            if (bugs.length() > 0) {
                 bugs += ",";
+            }
             bugs += data.get("id");
         }
         et = this.get(et.getId());
@@ -188,21 +196,23 @@ public class ReleaseHelper extends ZTBaseHelper<ReleaseMapper, Release> {
         return et;
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Release changeStatus(Release et) {
         throw new RuntimeException("未实现");
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Release linkStory(Release et) {
 
-        if (et.getId() == null || et.get("srfactionparam") == null)
+        if (et.getId() == null || et.get("srfactionparam") == null) {
             return et;
+        }
         String stories = "";
         ArrayList<Map> list = (ArrayList) et.get("srfactionparam");
         for (Map data : list) {
-            if (stories.length() > 0)
+            if (stories.length() > 0) {
                 stories += ",";
+            }
             stories += data.get("id");
         }
         et = this.get(et.getId());
@@ -233,7 +243,6 @@ public class ReleaseHelper extends ZTBaseHelper<ReleaseMapper, Release> {
                     "", String.valueOf(et.getId()), null, true);
         }
         return et;
-        // throw new RuntimeException("未实现");
     }
 
 }

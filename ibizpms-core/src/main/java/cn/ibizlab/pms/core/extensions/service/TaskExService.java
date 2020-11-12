@@ -14,6 +14,7 @@ import cn.ibizlab.pms.core.zentao.domain.TaskEstimate;
 import cn.ibizlab.pms.core.zentao.filter.TaskSearchContext;
 import cn.ibizlab.pms.core.zentao.service.IFileService;
 import cn.ibizlab.pms.core.zentao.service.impl.TaskServiceImpl;
+import cn.ibizlab.pms.util.dict.StaticDict;
 import cn.ibizlab.pms.util.security.AuthenticationUser;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
@@ -59,14 +60,15 @@ public class TaskExService extends TaskServiceImpl {
     public Task taskForward(Task et) {
         Object actioninfo = et.get("actioninfo");
         et = this.get(et.getId());
-        if("1".equals(et.getMultiple())) {
+        if(StaticDict.YesNo.ITEM_1.getValue().equals(et.getMultiple())) {
             if (!AuthenticationUser.getAuthenticationUser().getUsername().equals(et.getAssignedto())) {
                 SysEmployeeSearchContext context = new SysEmployeeSearchContext();
                 context.setN_username_in(et.getAssignedto());
                 Page<SysEmployee> page = sysEmployeeFeignClient.searchDefault(context);
                 List<SysEmployee> list = page.getContent();
-                if (list.size() > 0)
+                if (list.size() > 0) {
                     throw new RuntimeException(String.format(actioninfo.toString(), list.get(0).getPersonname()));
+                }
                 throw new RuntimeException(String.format(actioninfo.toString(), et.getAssignedto()));
             }
         }
@@ -219,8 +221,8 @@ public class TaskExService extends TaskServiceImpl {
      * 查询集合 项目任务
      */
     @Override
-    public Page<Task> searchProjectTASK(TaskSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchProjectTASK(context.getPages(),context,context.getSelectCond());
+    public Page<Task> searchProjectTask(TaskSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchProjectTask(context.getPages(),context,context.getSelectCond());
         for(Task task : pages.getRecords()) {
             if(task.getParent() == 0) {
                 continue;
@@ -249,11 +251,11 @@ public class TaskExService extends TaskServiceImpl {
             // et.setTaskestimate(taskestimateService.selectByTask(key));
         }
         IbzFavoritesSearchContext ibzFavoritesSearchContext = new IbzFavoritesSearchContext();
-        ibzFavoritesSearchContext.setN_type_eq("task");
+        ibzFavoritesSearchContext.setN_type_eq(StaticDict.Action__object_type.TASK.getValue());
         ibzFavoritesSearchContext.setN_objectid_eq(key);
         ibzFavoritesSearchContext.setN_account_eq(cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser().getLoginname());
         if(iIbzFavoritesService.searchDefault(ibzFavoritesSearchContext).getContent().size() > 0) {
-            et.setIsfavorites("1");
+            et.setIsfavorites(StaticDict.YesNo.ITEM_1.getValue());
         }
         return et;
     }

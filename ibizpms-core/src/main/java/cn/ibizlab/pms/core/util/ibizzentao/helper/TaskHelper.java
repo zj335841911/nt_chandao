@@ -30,6 +30,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * @author huwei
+ */
 @Component
 @Slf4j
 public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
@@ -80,7 +83,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
 
 
     @Override
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public boolean create(Task et) {
         boolean bOk = false;
         String multiple = et.getMultiple();
@@ -90,8 +93,9 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
             et.setAssignedto(null);
             double left = 0d;
             for (TaskTeam taskTeam : taskTeams) {
-                if(taskTeam.getAccount() == null || "".equals(taskTeam.getAccount()))
+                if(taskTeam.getAccount() == null || "".equals(taskTeam.getAccount())) {
                     continue;
+                }
                 if (et.getAssignedto() == null && taskTeam.getAccount() != null && !"".equals(taskTeam.getAccount())) {
                     et.setAssignedto(taskTeam.getAccount());
                 }
@@ -108,13 +112,13 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         }
 
         fileHelper.processImgURL(et, null, null);
-        if(et.getStory() != null && et.getStory() != 0l) {
+        if(et.getStory() != null && et.getStory() != 0L) {
             et.setStoryversion(storyHelper.get(et.getStory()).getVersion());
         }
-        if(et.getAssignedto() != null && !"".equals(et.getAssignedto()))
+        if(et.getAssignedto() != null && !"".equals(et.getAssignedto())) {
             et.setAssigneddate(ZTDateUtil.now());
-        else{
-            et.setAssigneddate(new Timestamp(-28800000l));
+        } else{
+            et.setAssigneddate(new Timestamp(-28800000L));
         }
         String files = et.getFiles();
         String noticeusers = et.getNoticeusers();
@@ -124,8 +128,9 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
 
         if (StringUtils.compare(multiple, StaticDict.YesNo.ITEM_1.getValue()) == 0 && taskTeams != null && !taskTeams.isEmpty()) {
             for (TaskTeam taskTeam : taskTeams) {
-                if(taskTeam.getAccount() == null || "".equals(taskTeam.getAccount()))
+                if(taskTeam.getAccount() == null || "".equals(taskTeam.getAccount())) {
                     continue;
+                }
                 Team team = new Team();
                 team.setType(StaticDict.Team__type.TASK.getValue());
                 team.setRoot(et.getId());
@@ -141,15 +146,15 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
             this.internalUpdate(et);
 
         }
-        actionHelper.send(et.getId(),et.getName(),noticeusers,et.getAssignedto(),et.getMailto(),ITaskService.OBJECT_TEXT_NAME,StaticDict.Action__object_type.TASK.getValue(),ITaskService.OBJECT_SOURCE_PATH);
+        actionHelper.sendTodo(et.getId(),et.getName(),noticeusers,et.getAssignedto(),et.getMailto(),ITaskService.OBJECT_TEXT_NAME,StaticDict.Action__object_type.TASK.getValue(),ITaskService.OBJECT_SOURCE_PATH);
         actionHelper.create(StaticDict.Action__object_type.TASK.getValue(), et.getId(), StaticDict.Action__type.OPENED.getValue(), "", "", null, true);
-        if(et.getStory() != null && et.getStory() != 0l) {
+        if(et.getStory() != null && et.getStory() != 0L) {
             storyHelper.setStage(et.getZtstory());
         }
         return bOk;
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Task otherUpdate(Task et) {
 
         Task newTask = new Task();
@@ -159,7 +164,6 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
             newTask.setName(et.getName());
         }
         else if(DataObject.getBooleanValue(et.get("namedirtyflag"), false)) {
-//            newTask.setName("");
             throw new RuntimeException("任务名称不能为空！");
         }
         if(et.getType() != null) {
@@ -174,9 +178,9 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         else if(DataObject.getBooleanValue(et.get("deadlinedirtyflag"), false)) {
             newTask.setDeadline(null);
         }
-        if(et.getPri() != null)
+        if(et.getPri() != null) {
             newTask.setPri(et.getPri());
-        else if(DataObject.getBooleanValue(et.get("pridirtyflag"), false)) {
+        } else if(DataObject.getBooleanValue(et.get("pridirtyflag"), false)) {
             newTask.setPri(0);
         }
         if(et.getDesc() != null) {
@@ -208,17 +212,19 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
             if (changes.size() == 0) {
                 strAction = StaticDict.Action__type.COMMENTED.getValue();
             }
-            actionHelper.send(newTask.getId(),newTask.getName(),noticeusers,newTask.getAssignedto(),newTask.getMailto(),ITaskService.OBJECT_TEXT_NAME,StaticDict.Action__object_type.TASK.getValue(),ITaskService.OBJECT_SOURCE_PATH);
+            actionHelper.sendToread(newTask.getId(),newTask.getName(),noticeusers,newTask.getAssignedto(),newTask.getMailto(),ITaskService.OBJECT_TEXT_NAME,StaticDict.Action__object_type.TASK.getValue(),ITaskService.OBJECT_SOURCE_PATH);
             Action action = actionHelper.create(StaticDict.Action__object_type.TASK.getValue(), et.getId(), strAction,
                     "", "", null, true);
-            if (changes.size() > 0)
+            if (changes.size() > 0) {
                 actionHelper.logHistory(action.getId(), changes);
+            }
         }
 
         return et;
     }
 
-    @Transactional
+    @Override
+    @Transactional(rollbackFor = Exception.class)
     public boolean edit(Task et) {
         String multiple = et.getMultiple();
         List<TaskTeam> teams = et.getTaskteam();
@@ -226,14 +232,18 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         Task old =new Task();
         CachedBeanCopier.copy(this.get(et.getId()), old);
 
-        if (et.getStatus().equals(StaticDict.Task__status.DONE.getValue()) && (et.getConsumed() == null)) throw new RuntimeException("任务完成状态消耗不能为空");
-        if (!et.getStatus().equals(StaticDict.Task__status.CANCEL.getValue()) && (et.getName() == null || et.getType() == null)) throw new RuntimeException("非取消状态，任务名和类型不能为空！");
-        if ((et.getStatus().equals(StaticDict.Task__status.DOING.getValue()) ||et.getStatus().equals(StaticDict.Task__status.PAUSE.getValue()))&& et.getLeft() == 0 && StringUtils.compare(et.getMultiple(),"0") == 0) {
+        if (StaticDict.Task__status.DONE.getValue().equals(et.getStatus()) && (et.getConsumed() == null)) {
+            throw new RuntimeException("任务完成状态消耗不能为空");
+        }
+        if (!StaticDict.Task__status.CANCEL.getValue().equals(et.getStatus()) && (et.getName() == null || et.getType() == null)) {
+            throw new RuntimeException("非取消状态，任务名和类型不能为空！");
+        }
+        if ((StaticDict.Task__status.DOING.getValue().equals(et.getStatus()) || StaticDict.Task__status.PAUSE.getValue().equals(et.getStatus()))&& et.getLeft() == 0 && StringUtils.compare(et.getMultiple(),StaticDict.YesNo.ITEM_0.getValue()) == 0) {
             throw  new RuntimeException("预计剩余不能为0");
         }
 
 
-        if (et.getStory() != 0 && et.getStory() != old.getStory()){
+        if (et.getStory() != 0 && !et.getStory().equals(old.getStory())){
             Story story = storyHelper.getById(et.getStory());
             et.setStoryversion(story.getVersion());
         }
@@ -243,16 +253,20 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
             if (StringUtils.isBlank(et.getFinishedby())) {
                 et.setFinishedby(AuthenticationUser.getAuthenticationUser().getUsername());
             }
-            if (et.getFinisheddate() == null)
+            if (et.getFinisheddate() == null) {
                 et.setFinisheddate(ZTDateUtil.now());
+            }
         } else if (StringUtils.compare(et.getStatus(), StaticDict.Task__status.CANCEL.getValue()) == 0) {
             if (StringUtils.isBlank(et.getClosedby())) {
                 et.setCanceledby(AuthenticationUser.getAuthenticationUser().getUsername());
             }
-            if (et.getCanceleddate() == null)
+            if (et.getCanceleddate() == null) {
                 et.setCanceleddate(ZTDateUtil.now());
+            }
         } else if (StringUtils.compare(et.getStatus(), StaticDict.Task__status.CLOSED.getValue()) == 0) {
-            if (et.getClosedreason() == null || et.getClosedreason().equals(""))  throw new RuntimeException("关闭原因不能为空");
+            if (et.getClosedreason() == null || "".equals(et.getClosedreason())) {
+                throw new RuntimeException("关闭原因不能为空");
+            }
             if (StringUtils.compare(et.getClosedreason(),StaticDict.Task__closed_reason.CANCEL.getValue()) == 0){
                 if (!StringUtils.isEmpty(et.getFinishedby()) || et.getFinisheddate() != null){
                     throw new RuntimeException("由谁完成和完成时间必须为空!");
@@ -270,18 +284,20 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
             et.setAssigneddate(ZTDateUtil.now());
         }
 
-        if (et.getConsumed() > 0 && et.getLeft() > 0 && StringUtils.compare(et.getStatus(), StaticDict.Task__status.WAIT.getValue()) == 0 && StringUtils.compare(multiple,"1") != 0)
+        if (et.getConsumed() > 0 && et.getLeft() > 0 && StringUtils.compare(et.getStatus(), StaticDict.Task__status.WAIT.getValue()) == 0 && StringUtils.compare(multiple, StaticDict.YesNo.ITEM_1.getValue()) != 0) {
             et.setStatus(StaticDict.Task__status.DOING.getValue());
+        }
 
-        if (StringUtils.compare(et.getStatus(), StaticDict.Task__status.WAIT.getValue()) == 0 && et.getLeft() == old.getLeft() && et.getConsumed() == 0 && et.getEstimate() != 0) {
+        if (StringUtils.compare(et.getStatus(), StaticDict.Task__status.WAIT.getValue()) == 0 && old.getLeft().equals(et.getLeft()) && et.getConsumed() == 0 && et.getEstimate() != 0) {
             et.setLeft(et.getEstimate());
         }
 
 
-        if (et.getConsumed() < old.getConsumed())
+        if (et.getConsumed() < old.getConsumed()) {
             throw new RuntimeException("总计消耗必须大于之前消耗");
+        }
 
-        if (et.getProject() != old.getProject()) {
+        if (old.getProject().equals(et.getProject())) {
             Task data = new Task();
             data.setProject(et.getProject());
             data.setModule(et.getModule());
@@ -294,16 +310,19 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
             String statusStr = StaticDict.Task__status.DONE.getValue()+","+StaticDict.Task__status.CLOSED.getValue()+","+StaticDict.Task__status.CANCEL.getValue();
             List<String> accounts = new ArrayList<>();
             for (TaskTeam team : teams) {
-                if(team.getAccount() == null || "".equals(team.getAccount()))
+                if(team.getAccount() == null || "".equals(team.getAccount())) {
                     continue;
+                }
                 accounts.add(team.getAccount());
             }
-            if (!statusStr.contains(et.getStatus()) && !accounts.contains(et.getAssignedto()) && !et.getAssignedto().equals("")) throw new RuntimeException("当前状态的多人任务不能指派给任务团队以外的成员。");
+            if (!statusStr.contains(et.getStatus()) && !accounts.contains(et.getAssignedto()) && !"".equals(et.getAssignedto())) {
+                throw new RuntimeException("当前状态的多人任务不能指派给任务团队以外的成员。");
+            }
             int i = 0;
             for (TaskTeam taskTeam : teams) {
-//                Team team = new Team();
-                if(taskTeam.getAccount() == null || "".equals(taskTeam.getAccount()))
+                if(taskTeam.getAccount() == null || "".equals(taskTeam.getAccount())) {
                     continue;
+                }
                 taskTeam.setType(StaticDict.Team__type.TASK.getValue());
                 taskTeam.setRoot(et.getId());
                 taskTeam.setAccount(taskTeam.getAccount());
@@ -313,9 +332,10 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
                 taskTeam.setConsumed(taskTeam.getConsumed());
                 taskTeam.setLeft(taskTeam.getLeft() != null ? taskTeam.getLeft() : taskTeam.getConsumed());
                 taskTeam.setOrder(i);
-                if (StringUtils.compare(et.getStatus(), StaticDict.Task__status.DONE.getValue()) == 0)
+                if (StringUtils.compare(et.getStatus(), StaticDict.Task__status.DONE.getValue()) == 0) {
                     taskTeam.setLeft(0.0);
-                if (et.getAssignedto() == null || et.getAssignedto().equals("")) {
+                }
+                if (et.getAssignedto() == null || "".equals(et.getAssignedto())) {
                     et.setAssignedto(taskTeam.getAccount());
                     et.setAssigneddate(ZTDateUtil.now());
                 }
@@ -328,10 +348,12 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         if (StringUtils.compare(multiple, StaticDict.YesNo.ITEM_1.getValue()) == 0 && teams != null && !teams.isEmpty()){
             String assignedto = "";
             for (TaskTeam team : teams) {
-                if(team.getAccount() == null || "".equals(team.getAccount()))
+                if(team.getAccount() == null || "".equals(team.getAccount())) {
                     continue;
-                if("".equals(assignedto))
+                }
+                if("".equals(assignedto)) {
                     assignedto = team.getAccount();
+                }
                 taskTeamHelper.create(team);
             }
             this.computeHours4Multiple(old,et,null,false);
@@ -364,8 +386,9 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         this.internalUpdate(et);
         fileHelper.updateObjectID(et.getId(),StaticDict.File__object_type.TASK.getValue(),files, "");
         boolean changeParent = false;
-        if (!et.getParent().equals(old.getParent()))
+        if (!et.getParent().equals(old.getParent())) {
             changeParent = true;
+        }
 
         if (old.getParent() > 0) {
             Task oldParent = this.get(old.getParent());
@@ -418,12 +441,6 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
                 }
             }
         }
-
-       // fileHelper.updateObjectID(et.getId(), null, "task");
-
-
-
-//        String[] ignores = {"totalconsumed"};
         et.setStatus1(old.getStatus1());
         List<History> changes = ChangeUtil.diff(old, et,null,null,diffAttrs);
         this.removeIgonreChanges(changes);
@@ -432,24 +449,27 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
             if (changes.size() == 0) {
                 strAction = StaticDict.Action__type.COMMENTED.getValue();
             }
-            actionHelper.send(et.getId(),et.getName(),noticeusers,et.getAssignedto(),et.getMailto(),ITaskService.OBJECT_TEXT_NAME,StaticDict.Action__object_type.TASK.getValue(),ITaskService.OBJECT_SOURCE_PATH);
+            actionHelper.sendToread(et.getId(),et.getName(),noticeusers,et.getAssignedto(),et.getMailto(),ITaskService.OBJECT_TEXT_NAME,StaticDict.Action__object_type.TASK.getValue(),ITaskService.OBJECT_SOURCE_PATH);
             Action action = actionHelper.create(StaticDict.Action__object_type.TASK.getValue(), et.getId(), strAction,
                     comment, "", null, true);
-            if (changes.size() > 0)
+            if (changes.size() > 0) {
                 actionHelper.logHistory(action.getId(), changes);
+            }
         }
-        if(et.getStory() != null && et.getStory() != 0l) {
+        if(et.getStory() != null && et.getStory() != 0L) {
             storyHelper.setStage(et.getZtstory());
         }
         return true;
     }
 
     @Override
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public boolean delete(Long key) {
         boolean bOk = false;
         Task old = this.get(key);
-        if (old.getParent() < 0) throw  new RuntimeException("不能删除父任务");
+        if (old.getParent() < 0) {
+            throw  new RuntimeException("不能删除父任务");
+        }
         bOk = super.delete(key);
         if (old.getParent() > 0) {
             updateParentStatus(old, old.getParent(), false);
@@ -461,21 +481,25 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
             bug.setTotask(0L);
             bugHelper.internalUpdate(bug);
         }
-        if(old.getStory() != null && old.getStory() != 0l) {
+        if(old.getStory() != null && old.getStory() != 0L) {
             storyHelper.setStage(old.getZtstory());
         }
         return bOk;
     }
 
     public void computeHours4Multiple(Task old, Task task, List<TaskTeam> teams, boolean auto) {
-        if (old == null) return;
+        if (old == null) {
+            return;
+        }
         if (teams == null) {
             teams = taskTeamHelper.list(new QueryWrapper<TaskTeam>().eq("root", old.getId()).eq("type", StaticDict.Team__type.TASK.getValue()).orderByAsc("`order`"));
         }
         if (teams != null && teams.size() != 0) {
             Timestamp now = ZTDateUtil.now();
             Task currentTask = task != null ? task : new Task();
-            if (currentTask.getStatus() == null) currentTask.setStatus(old.getStatus());
+            if (currentTask.getStatus() == null) {
+                currentTask.setStatus(old.getStatus());
+            }
             if (task.getAssignedto() != null) {
                 currentTask.setAssignedto(task.getAssignedto());
             }
@@ -509,16 +533,18 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
             }
             if (task != null) {
                 if (currentTask.getConsumed() == 0) {
-                    if (task.getStatus() == null) currentTask.setStatus(StaticDict.Task__status.WAIT.getValue());
+                    if (task.getStatus() == null) {
+                        currentTask.setStatus(StaticDict.Task__status.WAIT.getValue());
+                    }
                     currentTask.setFinishedby("");
                     currentTask.setFinisheddate(null);
                 }
-                if (currentTask.getConsumed() > 0 && currentTask.getLeft() > 0 && StringUtils.compare(currentTask.getMultiple(),"1") != 0) {
+                if (currentTask.getConsumed() > 0 && currentTask.getLeft() > 0 && StringUtils.compare(currentTask.getMultiple(),StaticDict.YesNo.ITEM_1.getValue()) != 0) {
                     currentTask.setStatus(StaticDict.Task__status.DOING.getValue());
                     currentTask.setFinishedby("");
                     currentTask.setFinisheddate(null);
                 }
-                if (currentTask.getConsumed() > 0 && currentTask.getLeft() == 0 && StringUtils.compare(currentTask.getMultiple(),"1") != 0) {
+                if (currentTask.getConsumed() > 0 && currentTask.getLeft() == 0 && StringUtils.compare(currentTask.getMultiple(),StaticDict.YesNo.ITEM_1.getValue()) != 0) {
                     boolean flag = false;
                     for (TaskTeam team : teams) {
                         if (team.getAccount().equals(currentTask.getAssignedto())) {
@@ -566,7 +592,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
                         currentTask.setFinishedlist(finsihList);
 
                     }
-                    if ((old.getStatus().equals(StaticDict.Task__status.DONE.getValue()) || old.getStatus().equals(StaticDict.Task__status.CLOSED.getValue())) && currentTask.getStatus().equals("doing") && old.getStatus() != null) {
+                    if ((StaticDict.Task__status.DONE.getValue().equals(old.getStatus()) || StaticDict.Task__status.CLOSED.getValue().equals(old.getStatus())) && StaticDict.Task__status.DOING.getValue().equals(currentTask.getStatus()) && old.getStatus() != null) {
                         if (old.getFinishedlist().contains(old.getAssignedto()) && old.getFinishedlist().length() >= old.getFinishedlist().indexOf(old.getAssignedto())){
                             currentTask.setFinishedlist(old.getFinishedlist().substring(0, old.getFinishedlist().indexOf(old.getAssignedto())-1));
                         }
@@ -603,9 +629,6 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         return next;
     }
 
-
-
-    @Transactional
     public Task getNextTeamUser(Task et){
         et = this.getById(et.getId());
         List<Team> teamList = teamHelper.list(new QueryWrapper<Team>().eq("root",et.getId()).eq("type","task"));
@@ -635,14 +658,17 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         return et;
     }
 
-
+    @Transactional(rollbackFor = Exception.class)
     public void computeBeginAndEnd(Task et) {
-        if(et.getId() == null)
+        if(et.getId() == null) {
             return;
+        }
         et = this.get(et.getId());
         String sql = String.format("select estStarted, realStarted, deadline from zt_task where parent = %1$s and `status` <> 'cancel'  and deleted = '0'", et.getId());
         List<JSONObject> list = taskService.select(sql,null);
-        if(list.size() == 0) return;
+        if(list.size() == 0) {
+            return;
+        }
         Timestamp earliestEstStarted = et.getEststarted();
         Timestamp earliestRealStarted = et.getRealstarted();
         Timestamp latestDeadline = et.getDeadline();
@@ -653,9 +679,15 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
             Timestamp estStarted = jsonObject.getTimestamp("estStarted");
             Timestamp realStarted = jsonObject.getTimestamp("realStarted");
             Timestamp deadline = jsonObject.getTimestamp("deadline");
-            if(earliestEstStarted == null || (estStarted != null && earliestEstStarted.getTime() > estStarted.getTime())) earliestEstStarted = estStarted;
-            if(earliestRealStarted == null || (realStarted != null && earliestRealStarted.getTime() > realStarted.getTime())) earliestRealStarted = estStarted;
-            if(latestDeadline == null || (deadline != null && latestDeadline.getTime() < deadline.getTime())) latestDeadline = deadline;
+            if(earliestEstStarted == null || (estStarted != null && earliestEstStarted.getTime() > estStarted.getTime())) {
+                earliestEstStarted = estStarted;
+            }
+            if(earliestRealStarted == null || (realStarted != null && earliestRealStarted.getTime() > realStarted.getTime())) {
+                earliestRealStarted = estStarted;
+            }
+            if(latestDeadline == null || (deadline != null && latestDeadline.getTime() < deadline.getTime())) {
+                latestDeadline = deadline;
+            }
         }
         Task task = new Task();
         task.setEststarted(earliestEstStarted);
@@ -665,14 +697,17 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         this.internalUpdate(task);
     }
 
+    @Transactional(rollbackFor = Exception.class)
     public void computeWorkingHours(Task et) {
-        if(et.getId() == null)
+        if(et.getId() == null) {
             return;
+        }
 
         String sql = String.format("select * from zt_task where parent = %1$s and status <> 'cancel' and deleted = '0'",et.getId());
         List<JSONObject> list = taskService.select(sql,null);
-        //List<Task> list = this.list(new QueryWrapper<Task>().eq("parent",et.getId()).ne("status","cancel").eq("deleted","0"));
-        if(list.size() == 0) return;
+        if(list.size() == 0) {
+            return;
+        }
         double estimate = 0;
         double consumed = 0;
         double left = 0;
@@ -691,27 +726,30 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         this.internalUpdate(task);
     }
 
-    public void updateParentStatus(Task childTask, Long parentID, boolean changed) {
+    @Transactional(rollbackFor = Exception.class)
+    public void updateParentStatus(Task childTask, Long parentId, boolean changed) {
         log.info("updateParentStatus:未实现");
-        if(parentID == null) parentID = childTask.getParent();
-        if(parentID <= 0)
+        if(parentId == null) {
+            parentId = childTask.getParent();
+        }
+        if(parentId <= 0) {
             return;
-        Task oldParentTask = this.get(parentID);
+        }
+        Task oldParentTask = this.get(parentId);
 
         if(oldParentTask.getParent() != -1) {
             Task pTask = new Task();
-            pTask.setId(parentID);
+            pTask.setId(parentId);
             pTask.setParent(-1L);
             this.internalUpdate(pTask);
         }
         computeWorkingHours(oldParentTask);
 
-        String sql = String.format("select * from zt_task where parent = %1$s and deleted = '0'",parentID);
+        String sql = String.format("select * from zt_task where parent = %1$s and deleted = '0'",parentId);
         List<JSONObject> childTasks = taskService.select(sql,null);
-        //List<Task> childTasks = this.list(new QueryWrapper<Task>().eq("parent",parentID).eq("deleted",0));
         if(childTasks.size() == 0) {
             Task pTask = new Task();
-            pTask.setId(parentID);
+            pTask.setId(parentId);
             pTask.setParent(0L);
             this.internalUpdate(pTask);
             return;
@@ -743,7 +781,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
                 status = StaticDict.Task__status.CANCEL.getValue();
             }
         }
-        Task parentTask = this.getOne(new QueryWrapper<Task>().eq("id",parentID).eq("deleted",'0'));
+        Task parentTask = this.getOne(new QueryWrapper<Task>().eq("id",parentId).eq("deleted",'0'));
         if (parentTask == null){
             Task task1 = new Task();
             task1.setId(childTask.getId());
@@ -756,7 +794,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
             Task task = new Task();
             Timestamp nowDate = ZTDateUtil.now();
             task.setStatus(status);
-            task.setId(parentID);
+            task.setId(parentId);
             task.setLastediteddate(nowDate);
             task.setParent(-1L);
             task.setLasteditedby(AuthenticationUser.getAuthenticationUser().getLoginname());
@@ -779,7 +817,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
                 task.setCloseddate(nowDate);
                 task.setClosedreason(StaticDict.Task__status.DONE.getValue());
             }else if(StaticDict.Task__status.DOING.getValue().equals(status) || StaticDict.Task__status.WAIT.getValue().equals(status)) {
-                if("closed".equals(oldParentTask.getAssignedto())) {
+                if(StaticDict.Task__status.CLOSED.getValue().equals(oldParentTask.getAssignedto())) {
                     task.setAssignedto(childTask.getAssignedto());
                     task.setCanceleddate(nowDate);
                 }
@@ -794,7 +832,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
                 return;
             }
 
-            List<History> changes = ChangeUtil.diff(oldParentTask, this.get(parentID));
+            List<History> changes = ChangeUtil.diff(oldParentTask, this.get(parentId));
             this.removeIgonreChanges(changes);
             String action = "";
             if(StaticDict.Task__status.DOING.getValue().equals(status) && !StaticDict.Task__status.WAIT.getValue().equals(oldParentTask.getStatus()) && !StaticDict.Task__status.PAUSE.getValue().equals(oldParentTask.getStatus())) {
@@ -813,23 +851,24 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
                 action = StaticDict.Action__type.FINISHED.getValue();
             }
             if(!"".equals(action)) {
-                Action action1 = actionHelper.create(StaticDict.Action__object_type.TASK.getValue(), parentID, action,
+                Action action1 = actionHelper.create(StaticDict.Action__object_type.TASK.getValue(), parentId, action,
                         "", "", null, false);
-                if (changes.size() > 0)
+                if (changes.size() > 0) {
                     actionHelper.logHistory(action1.getId(), changes);
+                }
             }
         }else {
-            List<History> changes = ChangeUtil.diff(oldParentTask, this.get(parentID));
+            List<History> changes = ChangeUtil.diff(oldParentTask, this.get(parentId));
             this.removeIgonreChanges(changes);
             if(changes.size() > 0) {
-                Action action1 = actionHelper.create(StaticDict.Action__object_type.TASK.getValue(), parentID, StaticDict.Action__type.EDITED.getValue(),
+                Action action1 = actionHelper.create(StaticDict.Action__object_type.TASK.getValue(), parentId, StaticDict.Action__type.EDITED.getValue(),
                         "", "", null, false);
                 actionHelper.logHistory(action1.getId(), changes);
             }
         }
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Task start(Task et) {
         String comment = StringUtils.isNotBlank(et.getComment()) ? et.getComment() : "";
         Task old =new Task();
@@ -846,25 +885,28 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
             if (et.getLeft() == 0) {
                 strAction = StaticDict.Action__type.FINISHED.getValue();
             }
-            actionHelper.send(newTask.getId(),newTask.getName(),noticeusers,newTask.getAssignedto(),newTask.getMailto(),ITaskService.OBJECT_TEXT_NAME,StaticDict.Action__object_type.TASK.getValue(),ITaskService.OBJECT_SOURCE_PATH);
+            actionHelper.sendToread(newTask.getId(),newTask.getName(),noticeusers,newTask.getAssignedto(),newTask.getMailto(),ITaskService.OBJECT_TEXT_NAME,StaticDict.Action__object_type.TASK.getValue(),ITaskService.OBJECT_SOURCE_PATH);
             Action action = actionHelper.create(StaticDict.Action__object_type.TASK.getValue(), newTask.getId(), strAction,
                     comment, "", null, true);
-            if (changes.size() > 0)
+            if (changes.size() > 0) {
                 actionHelper.logHistory(action.getId(), changes);
+            }
         }
-        if(newTask.getStory() != null && newTask.getStory() != 0l) {
+        if(newTask.getStory() != null && newTask.getStory() != 0L) {
             storyHelper.setStage(newTask.getZtstory());
         }
         return et;
     }
 
+    @Transactional(rollbackFor = Exception.class)
     public void starts(Task et, Task old,Task newTask) {
         newTask.setStatus(StaticDict.Task__status.DOING.getValue());
         newTask.setLeft(et.getLeft() != null ? et.getLeft() : 0d);
         newTask.setConsumed(et.getConsumed() != null ? et.getConsumed() : 0d);
         newTask.setRealstarted(get(et.getRealstarted(),ZTDateUtil.now()));
-        if (StringUtils.compare(old.getAssignedto(), AuthenticationUser.getAuthenticationUser().getUsername()) != 0)
+        if (StringUtils.compare(old.getAssignedto(), AuthenticationUser.getAuthenticationUser().getUsername()) != 0) {
             newTask.setAssigneddate(ZTDateUtil.now());
+        }
         if (newTask.getLeft() == 0) {
             newTask.setStatus(StaticDict.Task__status.DONE.getValue());
             newTask.setFinisheddate(ZTDateUtil.now());
@@ -899,7 +941,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         }
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Task restart(Task et) {
         String comment = StringUtils.isNotBlank(et.getComment()) ? et.getComment() : "";
         Task old =new Task();
@@ -920,19 +962,20 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
             if (et.getLeft() == 0) {
                 strAction = StaticDict.Action__type.FINISHED.getValue();
             }
-            actionHelper.send(newTask.getId(),newTask.getName(),noticeusers,newTask.getAssignedto(),newTask.getMailto(),ITaskService.OBJECT_TEXT_NAME,StaticDict.Action__object_type.TASK.getValue(),ITaskService.OBJECT_SOURCE_PATH);
+            actionHelper.sendToread(newTask.getId(),newTask.getName(),noticeusers,newTask.getAssignedto(),newTask.getMailto(),ITaskService.OBJECT_TEXT_NAME,StaticDict.Action__object_type.TASK.getValue(),ITaskService.OBJECT_SOURCE_PATH);
             Action action = actionHelper.create(StaticDict.Action__object_type.TASK.getValue(), newTask.getId(), strAction,
                     comment, "", null, true);
-            if (changes.size() > 0)
+            if (changes.size() > 0) {
                 actionHelper.logHistory(action.getId(), changes);
+            }
         }
-        if(newTask.getStory() != null && newTask.getStory() != 0l) {
+        if(newTask.getStory() != null && newTask.getStory() != 0L) {
             storyHelper.setStage(newTask.getZtstory());
         }
         return et ;
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Task pause(Task et) {
         String comment = StringUtils.isNotBlank(et.getComment()) ? et.getComment() : "";
         Task old =new Task();
@@ -945,22 +988,25 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         String noticeusers = et.getNoticeusers();
         this.internalUpdate(newTask);
 
-        if (old.getParent() > 0) this.updateParentStatus(newTask,newTask.getParent(),true);
+        if (old.getParent() > 0) {
+            this.updateParentStatus(newTask,newTask.getParent(),true);
+        }
         List<History> changes = ChangeUtil.diff(old, newTask);
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
-            actionHelper.send(newTask.getId(),newTask.getName(),noticeusers,newTask.getAssignedto(),newTask.getMailto(),ITaskService.OBJECT_TEXT_NAME,StaticDict.Action__object_type.TASK.getValue(),ITaskService.OBJECT_SOURCE_PATH);
+            actionHelper.sendToread(newTask.getId(),newTask.getName(),noticeusers,newTask.getAssignedto(),newTask.getMailto(),ITaskService.OBJECT_TEXT_NAME,StaticDict.Action__object_type.TASK.getValue(),ITaskService.OBJECT_SOURCE_PATH);
             Action action = actionHelper.create(StaticDict.Action__object_type.TASK.getValue(), newTask.getId(), StaticDict.Action__type.PAUSED.getValue(),
                     comment, "", null, true);
-            if (changes.size() > 0)
+            if (changes.size() > 0) {
                 actionHelper.logHistory(action.getId(), changes);
+            }
         }
-        if(newTask.getStory() != null && newTask.getStory() != 0l) {
+        if(newTask.getStory() != null && newTask.getStory() != 0L) {
             storyHelper.setStage(newTask.getZtstory());
         }
         return newTask ;
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Task assignTo(Task et) {
         String comment = StringUtils.isNotBlank(et.getComment()) ? et.getComment() : "";
         Task old =new Task();
@@ -997,8 +1043,9 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         }
 
 
-        if (old.getParent() > 0)
+        if (old.getParent() > 0) {
             updateParentStatus(newTask, old.getParent(), true);
+        }
         String noticeusers = et.getNoticeusers();
         this.internalUpdate(newTask);
 
@@ -1006,16 +1053,17 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         List<History> changes = ChangeUtil.diff(old, newTask);
         this.removeIgonreChanges(changes);
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
-            actionHelper.send(newTask.getId(),newTask.getName(),noticeusers,newTask.getAssignedto(),newTask.getMailto(),ITaskService.OBJECT_TEXT_NAME,StaticDict.Action__object_type.TASK.getValue(),ITaskService.OBJECT_SOURCE_PATH);
+            actionHelper.sendTodo(newTask.getId(),newTask.getName(),noticeusers,newTask.getAssignedto(),newTask.getMailto(),ITaskService.OBJECT_TEXT_NAME,StaticDict.Action__object_type.TASK.getValue(),ITaskService.OBJECT_SOURCE_PATH);
             Action action = actionHelper.create(StaticDict.Action__object_type.TASK.getValue(), newTask.getId(), StaticDict.Action__type.ASSIGNED.getValue(),
                     comment, newTask.getAssignedto(), null, true);
-            if (changes.size() > 0)
+            if (changes.size() > 0) {
                 actionHelper.logHistory(action.getId(), changes);
+            }
         }
         return et;
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Task activate(Task et) {
         String comment = StringUtils.isNotBlank(et.getComment()) ? et.getComment() : "";
         Task old =new Task();
@@ -1042,8 +1090,9 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         String noticeusers = et.getNoticeusers();
         this.internalUpdate(newTask);
 
-        if (old.getParent() > 0)
+        if (old.getParent() > 0) {
             updateParentStatus(newTask, old.getParent(), true);
+        }
 
         if (old.getParent() == -1L) {
             Task task1 = new Task();
@@ -1057,11 +1106,12 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         List<History> changes = ChangeUtil.diff(old, newTask);
         this.removeIgonreChanges(changes);
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
-            actionHelper.send(newTask.getId(),newTask.getName(),noticeusers,newTask.getAssignedto(),newTask.getMailto(),ITaskService.OBJECT_TEXT_NAME,StaticDict.Action__object_type.TASK.getValue(),ITaskService.OBJECT_SOURCE_PATH);
+            actionHelper.sendTodo(newTask.getId(),newTask.getName(),noticeusers,newTask.getAssignedto(),newTask.getMailto(),ITaskService.OBJECT_TEXT_NAME,StaticDict.Action__object_type.TASK.getValue(),ITaskService.OBJECT_SOURCE_PATH);
             Action action = actionHelper.create(StaticDict.Action__object_type.TASK.getValue(), newTask.getId(), StaticDict.Action__type.ACTIVATED.getValue(),
                     comment, newTask.getAssignedto(), null, true);
-            if (changes.size() > 0)
+            if (changes.size() > 0) {
                 actionHelper.logHistory(action.getId(), changes);
+            }
         }
         return newTask;
     }
@@ -1081,7 +1131,6 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         newTask.setLastediteddate(ZTDateUtil.now());
     }
 
-    @Transactional
     public void removeIgonreChanges(List<History> changes){
         for (int i = 0; i < changes.size(); i++) {
             if (ignore.contains(changes.get(i).getField())){
@@ -1092,7 +1141,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
     }
 
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Task cancel(Task et) {
         String comment = StringUtils.isNotBlank(et.getComment()) ? et.getComment() : "";
         Task old =new Task();
@@ -1104,8 +1153,9 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         String noticeusers = et.getNoticeusers();
         this.internalUpdate(newTask);
 
-        if (old.getParent() > 0)
+        if (old.getParent() > 0) {
             updateParentStatus(newTask, old.getParent(), true);
+        }
 
         if (old.getParent() == -1L) {
             Task childNewTask = new Task();
@@ -1115,16 +1165,17 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
 
         List<History> changes = ChangeUtil.diff(old, newTask);
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
-            actionHelper.send(newTask.getId(),newTask.getName(),noticeusers,newTask.getAssignedto(),newTask.getMailto(),ITaskService.OBJECT_TEXT_NAME,StaticDict.Action__object_type.TASK.getValue(),ITaskService.OBJECT_SOURCE_PATH);
+            actionHelper.sendToread(newTask.getId(),newTask.getName(),noticeusers,newTask.getAssignedto(),newTask.getMailto(),ITaskService.OBJECT_TEXT_NAME,StaticDict.Action__object_type.TASK.getValue(),ITaskService.OBJECT_SOURCE_PATH);
             Action action = actionHelper.create(StaticDict.Action__object_type.TASK.getValue(), newTask.getId(), StaticDict.Action__type.CANCELED.getValue(),
                     comment, newTask.getAssignedto(), null, true);
-            if (changes.size() > 0)
+            if (changes.size() > 0) {
                 actionHelper.logHistory(action.getId(), changes);
+            }
         }
         return newTask;
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public void setCancelNewTask(Task old,Task newTask){
         newTask.setLastediteddate(ZTDateUtil.now());
         newTask.setLasteditedby(AuthenticationUser.getAuthenticationUser().getUsername());
@@ -1137,7 +1188,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         newTask.setCanceleddate(ZTDateUtil.now());
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Task finish(Task et) {
         String comment = StringUtils.isNotBlank(et.getComment()) ? et.getComment() : "";
         Task old =new Task();
@@ -1158,18 +1209,24 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
             newTask.setFinisheddate(ZTDateUtil.now());
             newTask.setFinishedby(AuthenticationUser.getAuthenticationUser().getUsername());
              consumed = et.getConsumed() - old.getConsumed();
-            if (consumed < 0) throw  new RuntimeException("总计消耗必须大于原消耗");
+            if (consumed < 0) {
+                throw  new RuntimeException("总计消耗必须大于原消耗");
+            }
 
-            if (et.getAssignedto() == null || et.getAssignedto().equals("")){
+            if (et.getAssignedto() == null || "".equals(et.getAssignedto())){
                 newTask.setAssignedto(old.getOpenedby());
             }
-            else newTask.setAssignedto(et.getAssignedto());
+            else {
+                newTask.setAssignedto(et.getAssignedto());
+            }
         }
         else {
             for (Team team : teams) {
                 if (team.getAccount().equals(AuthenticationUser.getAuthenticationUser().getUsername())){
                     consumed = et.getConsumed() - team.getConsumed();
-                    if (consumed < 0) throw  new RuntimeException("总计消耗必须大于原消耗");
+                    if (consumed < 0) {
+                        throw  new RuntimeException("总计消耗必须大于原消耗");
+                    }
                     break;
                 }
             }
@@ -1186,8 +1243,9 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
 
         if (teams.size() > 0) {
             for (Team team : teams) {
-                if (StringUtils.compare(team.getAccount(), taskEstimate.getAccount()) != 0)
+                if (StringUtils.compare(team.getAccount(), taskEstimate.getAccount()) != 0) {
                     taskEstimate.setLeft(taskEstimate.getLeft() + team.getLeft());
+                }
             }
         }
         taskEstimateHelper.create(taskEstimate);
@@ -1209,18 +1267,20 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         this.internalUpdate(newTask);
         fileHelper.updateObjectID(newTask.getId(),StaticDict.File__object_type.TASK.getValue(),files, "");
 
-        if (old.getParent() > 0)
+        if (old.getParent() > 0) {
             updateParentStatus(newTask, old.getParent(), true);
+        }
 
         List<History> changes = ChangeUtil.diff(old, newTask);
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
-            actionHelper.send(newTask.getId(),newTask.getName(),noticeusers,newTask.getAssignedto(),newTask.getMailto(),ITaskService.OBJECT_TEXT_NAME,StaticDict.Action__object_type.TASK.getValue(),ITaskService.OBJECT_SOURCE_PATH);
+            actionHelper.sendTodo(newTask.getId(),newTask.getName(),noticeusers,newTask.getAssignedto(),newTask.getMailto(),ITaskService.OBJECT_TEXT_NAME,StaticDict.Action__object_type.TASK.getValue(),ITaskService.OBJECT_SOURCE_PATH);
             Action action = actionHelper.create(StaticDict.Action__object_type.TASK.getValue(), newTask.getId(), StaticDict.Action__type.FINISHED.getValue(),
                     comment, newTask.getAssignedto(), null, true);
-            if (changes.size() > 0)
+            if (changes.size() > 0) {
                 actionHelper.logHistory(action.getId(), changes);
+            }
         }
-        if(newTask.getStory() != null && newTask.getStory() != 0l) {
+        if(newTask.getStory() != null && newTask.getStory() != 0L) {
             storyHelper.setStage(newTask.getZtstory());
         }
 
@@ -1228,7 +1288,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
     }
 
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Task close(Task et) {
         String comment = StringUtils.isNotBlank(et.getComment()) ? et.getComment() : "";
         Task old =new Task();
@@ -1252,27 +1312,29 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
 
         String noticeusers = et.getNoticeusers();
         this.internalUpdate(newTask);
-        if (old.getParent() > 0)
+        if (old.getParent() > 0) {
             updateParentStatus(newTask, old.getParent(), true);
+        }
 
 
         String[] ignores = {"assigneddate","closeddate"};
         List<History> changes = ChangeUtil.diff(old, newTask,ignores,null,null);
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
-            actionHelper.send(newTask.getId(),newTask.getName(),noticeusers,newTask.getAssignedto(),newTask.getMailto(),ITaskService.OBJECT_TEXT_NAME,StaticDict.Action__object_type.TASK.getValue(),ITaskService.OBJECT_SOURCE_PATH);
+            actionHelper.sendToread(newTask.getId(),newTask.getName(),noticeusers,newTask.getAssignedto(),newTask.getMailto(),ITaskService.OBJECT_TEXT_NAME,StaticDict.Action__object_type.TASK.getValue(),ITaskService.OBJECT_SOURCE_PATH);
             Action action = actionHelper.create(StaticDict.Action__object_type.TASK.getValue(), newTask.getId(), StaticDict.Action__type.CLOSED.getValue(),
                     comment, newTask.getAssignedto(), null, true);
-            if (changes.size() > 0)
+            if (changes.size() > 0) {
                 actionHelper.logHistory(action.getId(), changes);
+            }
         }
-        if(newTask.getStory() != null && newTask.getStory() != 0l) {
+        if(newTask.getStory() != null && newTask.getStory() != 0L) {
             storyHelper.setStage(newTask.getZtstory());
         }
         return newTask;
     }
 
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Task recordEstimate(Task et) {
         Task old = new Task();
         CachedBeanCopier.copy(this.get(et.getId()), old);
@@ -1282,8 +1344,9 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
             for (TaskEstimate taskEstimate : et.getTaskestimate()) {
                 taskEstimate.setTask(et.getId());
                 taskEstimate.setDate(ZTDateUtil.now());
-                if (taskEstimate.getDates() != null)
+                if (taskEstimate.getDates() != null) {
                     taskEstimate.setDate(taskEstimate.getDates());
+                }
                 if(earliestTime == null) {
                     earliestTime = taskEstimate.getDate();
                 }
@@ -1297,8 +1360,9 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
                 taskEstimates.add(taskEstimate);
             }
         }
-        if (taskEstimates.size() == 0) return et;
-        //et = this.get(et.getId());
+        if (taskEstimates.size() == 0) {
+            return et;
+        }
         double consumed = 0d;
         double teamLeft = 0d;
         double taskLeft = 0d;
@@ -1306,9 +1370,10 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         String sql = String.format("select * from zt_taskestimate where task = %1$s order by date desc,id desc LIMIT 0,1", old.getId());
         List<JSONObject> list = taskEstimateService.select(sql, null);
         Timestamp lastDate = null;
-        if(list.size() > 0)
+        if(list.size() > 0) {
             lastDate = list.get(0).getTimestamp("date");
-        Long actionid = 0l;
+        }
+        Long actionid = 0L;
         boolean isNew = false;
         for(TaskEstimate taskEstimate : taskEstimates) {
             taskEstimateHelper.create(taskEstimate);
@@ -1336,7 +1401,9 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
                 else {
                     taskLeft += team.getLeft();
                 }
-                if (!isNew) teamLeft += team.getLeft();
+                if (!isNew) {
+                    teamLeft += team.getLeft();
+                }
             }
             Team team = new Team();
             team.setConsumed(myconsumed + consumed);
@@ -1344,7 +1411,9 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
             teamHelper.update(team, new QueryWrapper<Team>().eq("root", old.getId()).eq("type", StaticDict.Team__type.TASK.getValue()).eq("account", AuthenticationUser.getAuthenticationUser().getUsername()));
         }
         else {
-            if (!isNew)  teamLeft = list.get(0).getDoubleValue("left");
+            if (!isNew) {
+                teamLeft = list.get(0).getDoubleValue("left");
+            }
 
         }
 
@@ -1372,12 +1441,15 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
             task.setAssignedto(AuthenticationUser.getAuthenticationUser().getLoginname());
             task.setAssigneddate(nowDate);
         }
-        if (teams.size() > 0) this.computeHours4Multiple(old,task,null,false);
+        if (teams.size() > 0) {
+            this.computeHours4Multiple(old,task,null,false);
+        }
         this.internalUpdate(task);
 
         List<History> changes = ChangeUtil.diff(old, task);
-        if(actionid != null && changes.size() > 0)
+        if(actionid != null && changes.size() > 0) {
             actionHelper.logHistory(actionid, changes);
+        }
         if(old.getParent() > 0) {
             updateParentStatus(task, task.getParent(), true);
         }
@@ -1388,18 +1460,18 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
     }
 
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Task deleteEstimate(Task et) {
         throw new RuntimeException("未实现");
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Task editEstimate(Task et) {
         throw new RuntimeException("未实现");
     }
 
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Task confirmStoryChange(Task et) {
         Task task = new Task();
         task.setId(et.getId());
@@ -1410,23 +1482,22 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
     }
 
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public boolean batchCreate(List<Task> list){
-        List<Long> storyIDs = new ArrayList<>();
+        List<Long> storyIds = new ArrayList<>();
         List<String> taskNames = new ArrayList<>();
         for (int i = 0; i < list.size(); i++) {
             long storyId = list.get(i).getStory();
             boolean inNames = taskNames.contains(list.get(i).getName());
-            if (!inNames || (inNames && !storyIDs.contains(storyId))){
-                storyIDs.add(storyId);
+            if (!inNames || (inNames && !storyIds.contains(storyId))){
+                storyIds.add(storyId);
                 taskNames.add(list.get(i).getName());
             }
             else {
                 throw new RuntimeException("任务名不能相同!");
-                //log.error("任务名不能相同");
             }
         }
-        Timestamp timestamp = new Timestamp(-28800000l);
+        Timestamp timestamp = new Timestamp(-28800000L);
         Project project = projectService.get(list.get(0).getProject());
         boolean isOps = project.getType().equalsIgnoreCase(StaticDict.Project__type.OPS.getValue());
         String childTasks = "";
@@ -1456,7 +1527,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
 
             childTasks += task.getId() + ",";
             actionHelper.create(StaticDict.Action__object_type.TASK.getValue(),task.getId(),StaticDict.Action__type.OPENED.getValue(),"","",null,true);
-            if(task.getStory() != null && task.getStory() != 0l) {
+            if(task.getStory() != null && task.getStory() != 0L) {
                 storyHelper.setStage(task.getZtstory());
             }
         }

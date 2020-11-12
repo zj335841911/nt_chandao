@@ -17,7 +17,9 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-
+/**
+ * @author chenxiang
+ */
 @Component
 public class BuildHelper extends ZTBaseHelper<BuildMapper, Build> {
 
@@ -31,12 +33,10 @@ public class BuildHelper extends ZTBaseHelper<BuildMapper, Build> {
     BugHelper bugHelper;
 
     @Override
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public boolean create(Build et) {
-        boolean bOk = false;
-
         String files = et.getFiles();
-        bOk = super.create(et);
+        boolean bOk = super.create(et);
         fileHelper.updateObjectID(et.getId(), StaticDict.File__object_type.BUILD.getValue(), files, "");
 
         actionHelper.create(StaticDict.Action__object_type.BUILD.getValue(), et.getId(), StaticDict.Action__type.OPENED.getValue(), "", "", null, true);
@@ -44,7 +44,8 @@ public class BuildHelper extends ZTBaseHelper<BuildMapper, Build> {
         return bOk;
     }
 
-    @Transactional
+    @Override
+    @Transactional(rollbackFor = Exception.class)
     public boolean edit(Build et) {
         Build old = this.get(et.getId());
 
@@ -61,25 +62,28 @@ public class BuildHelper extends ZTBaseHelper<BuildMapper, Build> {
         return true;
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Build linkStory(Build et) {
 
-        if (et.getId() == null)
+        if (et.getId() == null) {
             return et;
+        }
         Build build = get(et.getId());
         String stories = "";
-        if(et.getStories() != null && !"".equals(et.getStories()))
+        if(et.getStories() != null && !"".equals(et.getStories())) {
             stories = et.getStories();
-        else if(et.get("srfactionparam") != null) {
+        } else if(et.get("srfactionparam") != null) {
             ArrayList<Map> list = (ArrayList) et.get("srfactionparam");
             for (Map data : list) {
-                if (stories.length() > 0)
+                if (stories.length() > 0) {
                     stories += ",";
+                }
                 stories += data.get("id");
             }
         }
-        if("".equals(stories))
+        if("".equals(stories)) {
             return et;
+        }
         for (String storyId : stories.split(",")) {
             if (StringUtils.isBlank(build.getStories())) {
                 build.setStories(storyId);
@@ -96,16 +100,18 @@ public class BuildHelper extends ZTBaseHelper<BuildMapper, Build> {
         return et;
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Build unlinkStory(Build et) {
         Build build = get(et.getId());
-        if (et.get("stories") == null)
+        if (et.get("stories") == null) {
             return et;
+        }
         for (String storyId : et.get("stories").toString().split(",")) {
             if (("," + build.getStories() ).contains("," + storyId )) {
                 String stories = ("," + build.getStories() ).replace("," + storyId , "");
-                if(stories.indexOf(",")==0)
+                if(stories.indexOf(",")==0) {
                     stories = stories.substring(1,stories.length()) ;
+                }
                 build.setStories(stories);
                 internalUpdate(build);
                 actionHelper.create(StaticDict.Action__object_type.STORY.getValue(), Long.parseLong(storyId), StaticDict.Action__type.UNLINKEDFROMBUILD.getValue(),
@@ -115,11 +121,12 @@ public class BuildHelper extends ZTBaseHelper<BuildMapper, Build> {
         return et;
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Build linkBug(Build et) {
         Build build = get(et.getId());
-        if (et.get("bugs") == null)
+        if (et.get("bugs") == null) {
             return et;
+        }
         String[] resolvedbys = et.get("resolvedby").toString().split(",");
         int i = 0;
         for (String bugId : et.get("bugs").toString().split(",")) {
@@ -129,8 +136,9 @@ public class BuildHelper extends ZTBaseHelper<BuildMapper, Build> {
             } else {
                 if (!("," + build.getBugs() + ",").contains("," + bugId + ",")) {
                     bug = build.getBugs() + "," + bugId;
-                }else
+                }else {
                     bug = build.getBugs();
+                }
             }
             build.setBugs(bug);
             internalUpdate(build);
@@ -164,16 +172,18 @@ public class BuildHelper extends ZTBaseHelper<BuildMapper, Build> {
         return et;
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Build unlinkBug(Build et) {
         Build build = get(et.getId());
-        if (et.get("bugs") == null)
+        if (et.get("bugs") == null) {
             return et;
+        }
         for (String bugId : et.get("bugs").toString().split(",")) {
             if (("," + build.getBugs()).contains("," + bugId )) {
                 String bugs =("," + build.getBugs()).replace("," + bugId, "");
-                if(bugs.indexOf(",")==0)
+                if(bugs.indexOf(",")==0) {
                     bugs = bugs.substring(1,bugs.length()) ;
+                }
                 build.setBugs(bugs);
                 internalUpdate(build);
                 actionHelper.create(StaticDict.Action__object_type.BUG.getValue(), Long.parseLong(bugId), StaticDict.Action__type.UNLINKEDFROMBUILD.getValue(),

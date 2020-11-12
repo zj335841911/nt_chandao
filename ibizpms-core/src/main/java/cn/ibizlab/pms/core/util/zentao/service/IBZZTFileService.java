@@ -55,9 +55,9 @@ public class IBZZTFileService implements IIBZZTFileService {
         if (filePath == null) {
             filePath = "";
         }
-        filePath = filePath.replaceAll("\\\\", "/");
+        filePath = filePath.replaceAll("\\\\", File.separator);
         if (!filePath.isEmpty() && !filePath.endsWith("/")) {
-            filePath += "/";
+            filePath += File.separator;
         }
         try {
             if (params != null && params.get("objecttype") != null) {
@@ -73,7 +73,7 @@ public class IBZZTFileService implements IIBZZTFileService {
                 md5FileName = DigestUtils.md5DigestAsHex(md5FileName.getBytes());
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyyMM");
                 String curDate = sdf.format(new Date(curTime));
-                String fileShortPath = curDate + "/" + md5FileName + extname;
+                String fileShortPath = curDate + File.separator + md5FileName + extname;
                 String fileFullPath = filePath + fileShortPath;
                 File file = new File(fileFullPath);
                 File parent = new File(file.getParent());
@@ -92,7 +92,7 @@ public class IBZZTFileService implements IIBZZTFileService {
                 ztFile.setPathname(fileShortPath);
                 ztFile.setTitle(fileName);
                 ztFile.setExtension(getExtensionName(fileName));
-                ztFile.setSize(new Long(multipartFile.getSize()).intValue());
+                ztFile.setSize(Integer.parseInt(String.valueOf(multipartFile.getSize())));
                 ztFile.setObjecttype(objectType);
                 ztFile.setObjectid(objectId);
                 ztFile.setExtra(version == null ? extra : version);
@@ -104,14 +104,14 @@ public class IBZZTFileService implements IIBZZTFileService {
                 item = new ZTFileItem(fileId, fileName, fileId, fileName, (int)multipartFile.getSize(), extname, objectType, objectId, extra, version);
             } else {
                 String fileid = DigestUtils.md5DigestAsHex(multipartFile.getInputStream());
-                String fileFullPath = filePath + "ibizutil/" + fileid + "/" + fileName;
+                String fileFullPath = filePath + "ibizutil/" + fileid + File.separator + fileName;
                 File file = new File(fileFullPath);
                 File parent = new File(file.getParent());
                 if(!parent.exists()) {
                     parent.mkdirs();
                 }
                 FileCopyUtils.copy(multipartFile.getInputStream(), Files.newOutputStream(file.toPath()));
-                item = new ZTFileItem(fileid, fileName, fileid, fileName, new Long(multipartFile.getSize()).intValue(), extname, null, null, null, null);
+                item = new ZTFileItem(fileid, fileName, fileid, fileName, Integer.parseInt(String.valueOf(multipartFile.getSize())), extname, null, null, null, null);
             }
         } catch (IOException e) {
             throw new InternalServerErrorException(ZenTaoMessage.MSG_ERROR_0005);
@@ -132,9 +132,9 @@ public class IBZZTFileService implements IIBZZTFileService {
         if (filePath == null) {
             filePath = "";
         }
-        filePath = filePath.replaceAll("\\\\", "/");
+        filePath = filePath.replaceAll("\\\\", File.separator);
         if (!filePath.isEmpty() && !filePath.endsWith("/")) {
-            filePath += "/";
+            filePath += File.separator;
         }
         try {
             if (params != null && params.get("objecttype") != null) {
@@ -150,7 +150,7 @@ public class IBZZTFileService implements IIBZZTFileService {
                 md5FileName = DigestUtils.md5DigestAsHex(md5FileName.getBytes());
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyyMM");
                 String curDate = sdf.format(new Date(curTime));
-                String fileShortPath = curDate + "/" + md5FileName + extname;
+                String fileShortPath = curDate + File.separator + md5FileName + extname;
                 String fileFullPath = filePath + fileShortPath;
                 File file = new File(fileFullPath);
                 File parent = new File(file.getParent());
@@ -183,7 +183,7 @@ public class IBZZTFileService implements IIBZZTFileService {
             } else {
                 InputStream inputStream = new FileInputStream(multipartFile);
                 String fileid = DigestUtils.md5DigestAsHex(inputStream);
-                String fileFullPath = filePath + "ibizutil/" + fileid + "/" + fileName;
+                String fileFullPath = filePath + "ibizutil/" + fileid + File.separator + fileName;
                 File file = new File(fileFullPath);
                 File parent = new File(file.getParent());
                 if(!parent.exists()) {
@@ -204,9 +204,9 @@ public class IBZZTFileService implements IIBZZTFileService {
         if (filePath == null) {
             filePath = "";
         }
-        filePath = filePath.replaceAll("\\\\", "/");
+        filePath = filePath.replaceAll("\\\\", File.separator);
         if (!filePath.isEmpty() && !filePath.endsWith("/")) {
-            filePath += "/";
+            filePath += File.separator;
         }
 
         ZTDownloadFile downloadFile = new ZTDownloadFile();
@@ -234,6 +234,8 @@ public class IBZZTFileService implements IIBZZTFileService {
                 throw new InternalServerErrorException("文件不存在");
             }
         }
+        ztFile.setDownloads((ztFile.getDownloads() != null ? ztFile.getDownloads() : 0 ) + 1);
+        fileService.update(ztFile);
         downloadFile.setFile(file);
         downloadFile.setFileName(ztFile.getTitle());
         return downloadFile;

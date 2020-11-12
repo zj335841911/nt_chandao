@@ -23,7 +23,9 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-
+/**
+ * @author chenxiang
+ */
 @Component
 @Slf4j
 public class TodoHelper extends ZTBaseHelper<TodoMapper, Todo> {
@@ -31,20 +33,22 @@ public class TodoHelper extends ZTBaseHelper<TodoMapper, Todo> {
     @Autowired
     ActionHelper actionHelper;
 
+    @Override
     public boolean hasDeleted(){
         return false ;
     }
 
     @Override
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public boolean create(Todo et) {
 
-        if (StringUtils.compare(et.getType(),StaticDict.Type.TASK.getValue()) == 0)
+        if (StringUtils.compare(et.getType(),StaticDict.Type.TASK.getValue()) == 0) {
             et.setName(et.getTask());
-        else if (StringUtils.compare(et.getType(), StaticDict.Type.BUG.getValue()) == 0)
+        } else if (StringUtils.compare(et.getType(), StaticDict.Type.BUG.getValue()) == 0) {
             et.setName(et.getBug());
-        else if (StringUtils.compare(et.getType(), StaticDict.Type.STORY.getValue()) == 0)
+        } else if (StringUtils.compare(et.getType(), StaticDict.Type.STORY.getValue()) == 0) {
             et.setName(et.getStory());
+        }
          et.setDate(et.getDate() == null ? ZTDateUtil.now() : et.getDate());
         if (et.getCycle() != null && et.getCycle() == 1) {
             et.setType(StaticDict.Type.CYCLE.getValue());
@@ -52,8 +56,9 @@ public class TodoHelper extends ZTBaseHelper<TodoMapper, Todo> {
             config.put("begin", et.getDate());
             config.put("type", et.getConfigType());
             config.put("beforeDays", et.getConfigBeforedays());
-            if (et.getConfigEnd() != null)
+            if (et.getConfigEnd() != null) {
                 config.put("end", et.getConfigEnd());
+            }
             if (StringUtils.compare(et.getConfigType(), StaticDict.CycleType.DAY.getValue()) == 0) {
                 config.put(StaticDict.CycleType.DAY.getValue(), et.getConfigDay());
             } else if (StringUtils.compare(et.getConfigType(), StaticDict.CycleType.MONTH.getValue()) == 0) {
@@ -67,9 +72,8 @@ public class TodoHelper extends ZTBaseHelper<TodoMapper, Todo> {
             et.setConfig("");
         }
 
-        boolean bOk = super.create(et);
-        if (!bOk) {
-            return bOk;
+        if (!super.create(et)) {
+            return false;
         }
 
         //周期循环处理
@@ -82,7 +86,7 @@ public class TodoHelper extends ZTBaseHelper<TodoMapper, Todo> {
         return true;
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public void createByCycle(Todo todo) {
         Date now = new Date(System.currentTimeMillis());
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
@@ -185,17 +189,27 @@ public class TodoHelper extends ZTBaseHelper<TodoMapper, Todo> {
                 }
             }
 
-            if (date == null) continue;
+            if (date == null) {
+                continue;
+            }
             Date configBegin = config.getDate("begin");
 
             if (configBegin == null) {
                 configBegin = todo.getDate();
             }
-            if (configBegin == null || date.before(configBegin)) continue;
+            if (configBegin == null || date.before(configBegin)) {
+                continue;
+            }
 
-            if (date.before(today)) continue;
-            if (date.after(finish)) continue;
-            if (end != null && date.after(end)) continue;
+            if (date.before(today)) {
+                continue;
+            }
+            if (date.after(finish)) {
+                continue;
+            }
+            if (end != null && date.after(end)) {
+                continue;
+            }
 
             newTodo.setDate(new Timestamp(date.getTime()));
             newTodo.setId(null);
@@ -206,24 +220,27 @@ public class TodoHelper extends ZTBaseHelper<TodoMapper, Todo> {
         }
     }
 
-    @Transactional
+    @Override
+    @Transactional(rollbackFor = Exception.class)
     public boolean edit(Todo et) {
         Todo old = new Todo();
         CachedBeanCopier.copy(get(et.getId()), old);
 
-        if (StringUtils.compare(et.getType(), StaticDict.Type.TASK.getValue()) == 0)
+        if (StringUtils.compare(et.getType(), StaticDict.Type.TASK.getValue()) == 0) {
             et.setName(et.getTask());
-        else if (StringUtils.compare(et.getType(), StaticDict.Type.BUG.getValue()) == 0)
+        } else if (StringUtils.compare(et.getType(), StaticDict.Type.BUG.getValue()) == 0) {
             et.setName(et.getBug());
-        else if (StringUtils.compare(et.getType(), StaticDict.Type.STORY.getValue()) == 0)
+        } else if (StringUtils.compare(et.getType(), StaticDict.Type.STORY.getValue()) == 0) {
             et.setName(et.getStory());
+        }
         if (et.getCycle() != null && et.getCycle() == 1) {
             JSONObject config = new JSONObject();
             config.put("begin", et.getDate());
             config.put("type", et.getConfigType());
             config.put("beforeDays", et.getConfigBeforedays());
-            if (et.getConfigEnd() != null)
+            if (et.getConfigEnd() != null) {
                 config.put("end", et.getConfigEnd());
+            }
             if (StringUtils.compare(et.getConfigType(), StaticDict.CycleType.DAY.getValue()) == 0) {
                 config.put(StaticDict.CycleType.DAY.getValue(), et.getConfigDay());
             } else if (StringUtils.compare(et.getConfigType(), StaticDict.CycleType.MONTH.getValue()) == 0) {
@@ -237,8 +254,9 @@ public class TodoHelper extends ZTBaseHelper<TodoMapper, Todo> {
             et.setConfig("");
         }
 
-        if (!super.edit(et))
+        if (!super.edit(et)) {
             return false;
+        }
 
         List<History> changes = ChangeUtil.diff(old, et);
         if (changes.size() > 0) {
@@ -248,7 +266,7 @@ public class TodoHelper extends ZTBaseHelper<TodoMapper, Todo> {
         return true;
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Todo assignTo(Todo et) {
 
         if (StringUtils.isBlank(et.getAssignedto())) {
@@ -267,7 +285,7 @@ public class TodoHelper extends ZTBaseHelper<TodoMapper, Todo> {
         return et;
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Todo activate(Todo et) {
         et = this.get(et.getId());
 
@@ -281,7 +299,7 @@ public class TodoHelper extends ZTBaseHelper<TodoMapper, Todo> {
         return et;
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Todo close(Todo et) {
         et = this.get(et.getId());
 
@@ -299,7 +317,7 @@ public class TodoHelper extends ZTBaseHelper<TodoMapper, Todo> {
         return et;
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Todo finish(Todo et) {
         et = this.get(et.getId());
 

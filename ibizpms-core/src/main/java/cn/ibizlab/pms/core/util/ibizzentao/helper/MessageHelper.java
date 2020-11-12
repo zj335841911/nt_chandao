@@ -8,7 +8,9 @@ import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
-
+/**
+ * @author chenxiang
+ */
 @Component
 @Slf4j
 public class MessageHelper extends ZTBaseHelper<Im_messageMapper, Im_message> {
@@ -18,13 +20,14 @@ public class MessageHelper extends ZTBaseHelper<Im_messageMapper, Im_message> {
      *
      * @return
      */
-    @Transactional
+    @Override
+    @Transactional(rollbackFor = Exception.class)
     public boolean edit(Im_message et) {
         return this.internalUpdate(et);
     }
 
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public void send(String objectType, Long objectID, String actionType, Long actionID, String actor) {
         //全局配置
         JSONObject setting = new JSONObject();

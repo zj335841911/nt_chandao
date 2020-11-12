@@ -22,7 +22,9 @@ import java.sql.Timestamp;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
+/**
+ * @author chenxiang
+ */
 @Component
 @Slf4j
 public class ProjectHelper extends ZTBaseHelper<ProjectMapper, Project> {
@@ -57,7 +59,7 @@ public class ProjectHelper extends ZTBaseHelper<ProjectMapper, Project> {
     String[] diffAttrs = {"desc"};
 
     @Override
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public boolean create(Project et) {
         String sql = "select * from zt_project where (`name` = #{et.name} or `code` = #{et.code})";
         Map<String,Object> param = new HashMap<>();
@@ -69,11 +71,12 @@ public class ProjectHelper extends ZTBaseHelper<ProjectMapper, Project> {
         }
         JSONArray projectproducts = JSONArray.parseArray(et.getSrfarray());
         fileHelper.processImgURL(et, null, null);
-        et.setCloseddate(new Timestamp(-28800000l));
-        et.setCanceleddate(new Timestamp(-28800000l));
+        et.setCloseddate(new Timestamp(-28800000L));
+        et.setCanceleddate(new Timestamp(-28800000L));
         et.setOpeneddate(ZTDateUtil.now());
-        if (!this.retBool(this.baseMapper.insert(et)))
+        if (!this.retBool(this.baseMapper.insert(et))) {
             return false;
+        }
         CachedBeanCopier.copy(get(et.getId()), et);
 
         //更新order
@@ -126,7 +129,8 @@ public class ProjectHelper extends ZTBaseHelper<ProjectMapper, Project> {
     }
 
 
-    @Transactional
+    @Override
+    @Transactional(rollbackFor = Exception.class)
     public boolean edit(Project et) {
         String sql = "select * from zt_project where (`name` = #{et.name} or `code` = #{et.code}) and `id` <> #{et.id}";
         Map<String,Object> param = new HashMap<>();
@@ -144,9 +148,9 @@ public class ProjectHelper extends ZTBaseHelper<ProjectMapper, Project> {
         fileHelper.processImgURL(et, null, null);
 
         fileHelper.processImgURL(et, null, null);
-        if (!this.internalUpdate(et))
+        if (!this.internalUpdate(et)) {
             return false;
-//        fileHelper.updateObjectID(null, et.getId(), StaticDict.Action__object_type.PROJECT.getValue());
+        }
 
         //关联产品
         projectProductHelper.remove(new QueryWrapper<ProjectProduct>().eq(StaticDict.Action__object_type.PROJECT.getValue(), et.getId()));
@@ -178,7 +182,7 @@ public class ProjectHelper extends ZTBaseHelper<ProjectMapper, Project> {
     }
 
     @Override
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public boolean delete(Long key) {
 
         boolean result = removeById(key);
@@ -189,7 +193,7 @@ public class ProjectHelper extends ZTBaseHelper<ProjectMapper, Project> {
         return result;
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Project start(Project et) {
         String comment = StringUtils.isNotBlank(et.getComment()) ? et.getComment() : "";
         Project old = new Project();
@@ -200,13 +204,14 @@ public class ProjectHelper extends ZTBaseHelper<ProjectMapper, Project> {
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
             Action action = actionHelper.create(StaticDict.Action__object_type.PROJECT.getValue(), et.getId(), StaticDict.Action__type.STARTED.getValue(),
                     comment, "", null, true);
-            if (changes.size() > 0)
+            if (changes.size() > 0) {
                 actionHelper.logHistory(action.getId(), changes);
+            }
         }
         return et;
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Project activate(Project et) {
         String comment = StringUtils.isNotBlank(et.getComment()) ? et.getComment() : "";
         Project old = new Project();
@@ -214,19 +219,19 @@ public class ProjectHelper extends ZTBaseHelper<ProjectMapper, Project> {
         et.setStatus(StaticDict.Project__status.DOING.getValue());
         this.internalUpdate(et);
         /* Readjust task. */
-        log.info("Readjust task 未实现");
 
         List<History> changes = ChangeUtil.diff(old, et);
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
             Action action = actionHelper.create(StaticDict.Action__object_type.PROJECT.getValue(), et.getId(), StaticDict.Action__type.ACTIVATED.getValue(),
                     comment, "", null, true);
-            if (changes.size() > 0)
+            if (changes.size() > 0) {
                 actionHelper.logHistory(action.getId(), changes);
+            }
         }
         return et;
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Project close(Project et) {
         String comment = StringUtils.isNotBlank(et.getComment()) ? et.getComment() : "";
         Project old = new Project();
@@ -239,13 +244,14 @@ public class ProjectHelper extends ZTBaseHelper<ProjectMapper, Project> {
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
             Action action = actionHelper.create(StaticDict.Action__object_type.PROJECT.getValue(), et.getId(), StaticDict.Action__type.CLOSED.getValue(),
                     comment, "", null, true);
-            if (changes.size() > 0)
+            if (changes.size() > 0) {
                 actionHelper.logHistory(action.getId(), changes);
+            }
         }
         return et;
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Project putoff(Project et) {
         String comment = StringUtils.isNotBlank(et.getComment()) ? et.getComment() : "";
         Project old = new Project();
@@ -255,13 +261,14 @@ public class ProjectHelper extends ZTBaseHelper<ProjectMapper, Project> {
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
             Action action = actionHelper.create(StaticDict.Action__object_type.PROJECT.getValue(), et.getId(), StaticDict.Action__type.DELAYED.getValue(),
                     comment, "", null, true);
-            if (changes.size() > 0)
+            if (changes.size() > 0) {
                 actionHelper.logHistory(action.getId(), changes);
+            }
         }
         return et;
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Project suspend(Project et) {
         String comment = StringUtils.isNotBlank(et.getComment()) ? et.getComment() : "";
         Project old = new Project();
@@ -272,27 +279,31 @@ public class ProjectHelper extends ZTBaseHelper<ProjectMapper, Project> {
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
             Action action = actionHelper.create(StaticDict.Action__object_type.PROJECT.getValue(), et.getId(), StaticDict.Action__type.SUSPENDED.getValue(),
                     comment, "", null, true);
-            if (changes.size() > 0)
+            if (changes.size() > 0) {
                 actionHelper.logHistory(action.getId(), changes);
+            }
         }
         return et;
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Project linkStory(Project et) {
-        if (et.getId() == null || et.get("stories") == null)
+        if (et.getId() == null || et.get("stories") == null) {
             return et;
+        }
 
         int order = -1;
         ProjectStory maxProjectStory = projectStoryHelper.getOne(new QueryWrapper<ProjectStory>().eq("project", et.getId()).orderByDesc("`order`").last("limit 0,1"));
-        if (maxProjectStory != null)
+        if (maxProjectStory != null) {
             order = maxProjectStory.getOrder();
+        }
 
         for (String storyId :  et.get("stories").toString().split(",")) {
             Story story = storyHelper.get(Long.parseLong(storyId));
             ProjectStory exists = projectStoryHelper.getOne(new QueryWrapper<ProjectStory>().eq("project", et.getId()).eq("story", story.getId()));
-            if (exists != null)
+            if (exists != null) {
                 continue;
+            }
             ProjectStory projectStory = new ProjectStory();
             projectStory.setProject(et.getId());
             projectStory.setStory(story.getId());
@@ -309,10 +320,11 @@ public class ProjectHelper extends ZTBaseHelper<ProjectMapper, Project> {
         return et;
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Project unlinkStory(Project et) {
-        if (et.getId() == null || et.get("story") == null)
+        if (et.getId() == null || et.get("story") == null) {
             throw new RuntimeException("解除需求错误");
+        }
 
         projectStoryHelper.remove(new QueryWrapper<ProjectStory>().eq("project", et.getId()).eq("story", et.get("story")));
 
@@ -331,12 +343,12 @@ public class ProjectHelper extends ZTBaseHelper<ProjectMapper, Project> {
         return et;
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Project batchUnlinkStory(Project et) {
         throw new RuntimeException("未实现");
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Project manageMembers(Project et) {
         List<ProjectTeam> list = et.getProjectteam();
         teamHelper.remove(new QueryWrapper<Team>().eq("type","project").eq("root", et.getId()));
@@ -351,23 +363,24 @@ public class ProjectHelper extends ZTBaseHelper<ProjectMapper, Project> {
         return et;
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Project unlinkMember(Project et) {
         throw new RuntimeException("未实现");
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Project updateOrder(Project et) {
         throw new RuntimeException("未实现");
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Project importPlanStories(Project et) {
         List<Story> planStories = storyHelper.list(new QueryWrapper<Story>().eq("plan", et.getPlans()));
         String stories = "" ;
         for (Story story : planStories) {
-            if(stories.length()>0)
+            if(stories.length()>0) {
                 stories += ",";
+            }
             stories += story.getId() ;
         }
         if (StringUtils.isNotBlank(stories)) {

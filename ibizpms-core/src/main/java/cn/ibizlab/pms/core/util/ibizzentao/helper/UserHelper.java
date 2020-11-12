@@ -12,7 +12,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Component;
 
-
+/**
+ * @author chenxiang
+ */
 @Component
 @Slf4j
 public class UserHelper extends ZTBaseHelper<UserMapper, User> {
@@ -23,7 +25,7 @@ public class UserHelper extends ZTBaseHelper<UserMapper, User> {
     ISysEmployeeService sysEmployeeService;
 
     public boolean login(String username) {
-        actionHelper.create(StaticDict.Action__object_type.USER.getValue(), 0l, StaticDict.Action__type.LOGIN.getValue(), "", "", username, true);
+        actionHelper.create(StaticDict.Action__object_type.USER.getValue(), 0L, StaticDict.Action__type.LOGIN.getValue(), "", "", username, true);
         return true;
     }
 

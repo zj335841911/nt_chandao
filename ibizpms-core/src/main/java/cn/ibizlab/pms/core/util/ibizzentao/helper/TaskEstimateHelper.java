@@ -20,7 +20,9 @@ import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
+/**
+ * @author chenxiang
+ */
 @Component
 @Slf4j
 public class TaskEstimateHelper extends ZTBaseHelper<TaskEstimateMapper, TaskEstimate> {
@@ -54,27 +56,19 @@ public class TaskEstimateHelper extends ZTBaseHelper<TaskEstimateMapper, TaskEst
     }
 
     @Override
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public boolean create(TaskEstimate et) {
-        boolean bOk = false;
-        bOk = super.create(et);
-        if (!bOk)
-            return bOk;
-
-        //task 处理
-        log.info("TaskEstimate 更新Task：未处理");
-
-       // actionHelper.create("task", et.getTask(), "RecordEstimate", et.getWork(), String.valueOf(et.getConsumed()), null, true);
-
-        return bOk;
+        if (!super.create(et)) {
+            return false;
+        }
+        return true;
     }
 
 
 
-    @Transactional
+    @Override
+    @Transactional(rollbackFor = Exception.class)
     public boolean edit(TaskEstimate et) {
-        boolean bOk = false;
-
         TaskEstimate oldEstimate = taskEstimateService.getById(et.getId());
         Task task = taskService.getById(oldEstimate.getTask());
 
@@ -101,14 +95,16 @@ public class TaskEstimateHelper extends ZTBaseHelper<TaskEstimateMapper, TaskEst
         if (teamLists.size() != 0){
             double oldConsumed = 0;
             for (Team team : teamLists) {
-                if (team.getAccount().equals(oldEstimate.getAccount())) oldConsumed = team.getConsumed();
+                if (team.getAccount().equals(oldEstimate.getAccount())) {
+                    oldConsumed = team.getConsumed();
+                }
             }
             Team newTeamInfo = new Team();
             newTeamInfo.setConsumed(oldConsumed+et.getConsumed() - oldEstimate.getConsumed());
             newTeamInfo.setLeft(left);
             Map<String,Object> param = new HashMap<>();
             param.put("root",oldEstimate.getTask());
-            param.put("type","task");
+            param.put("type", StaticDict.Team__type.TASK.getValue());
             param.put("account",oldEstimate.getAccount());
             teamHelper.update(newTeamInfo,(Wrapper<Team>) newTeamInfo.getUpdateWrapper(true).allEq(param));
             List<TaskTeam> teams = task.getTaskteam();
@@ -141,24 +137,13 @@ public class TaskEstimateHelper extends ZTBaseHelper<TaskEstimateMapper, TaskEst
         Action action1 = actionHelper.create(StaticDict.Action__object_type.TASK.getValue(),et.getTask(),StaticDict.Action__type.EDITESTIMATE.getValue(),et.getWork(),"",null,true);
         actionHelper.logHistory(action1.getId(),changes);
 
-
-        //bOk = super.create(et);
-        if (!bOk)
-            return bOk;
-
-        //task 处理
-        log.info("TaskEstimate 更新Task：未处理");
-
-        //actionHelper.create("task", et.getTask(), "EditEstimate", et.getWork(), "", null, true);
-
-        return bOk;
+        return true;
     }
 
 
     @Override
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public boolean delete(Long key) {
-        boolean bOk = false;
         TaskEstimate taskEstimate = this.get(key);
         Task task = taskHelper.get(taskEstimate.getTask());
         this.remove(new QueryWrapper<TaskEstimate>().eq("id",key));
@@ -174,7 +159,6 @@ public class TaskEstimateHelper extends ZTBaseHelper<TaskEstimateMapper, TaskEst
         data.setLeft(left);
         data.setStatus((left == 0 && consumed != 0) ? StaticDict.Task__status.DONE.getValue() : task.getStatus());
 
-        //List<JSONObject> teamList = teamService.select(String.format("select t1.* from zt_team t1 LEFT JOIN zt_task t2 on t1.root = t2.id and t1.TYPE = 'task' where  t1.root = %1$s ",task.getId()),null);
         List<Team> teamLists = teamService.list(new QueryWrapper<Team>().eq("root",task.getId()).eq("type","task"));
         if (teamLists.size() != 0){
             double oldConsumed = 0;
@@ -188,23 +172,20 @@ public class TaskEstimateHelper extends ZTBaseHelper<TaskEstimateMapper, TaskEst
             newTeamInfo.setLeft(left);
             Map<String,Object> param = new HashMap<>();
             param.put("root",taskEstimate.getTask());
-            param.put("type","task");
+            param.put("type", StaticDict.Team__type.TASK.getValue());
             param.put("account",taskEstimate.getAccount());
 
             teamHelper.update(newTeamInfo,(Wrapper<Team>) newTeamInfo.getUpdateWrapper(true).allEq(param));
             List<TaskTeam> teams = task.getTaskteam();
-//            for (int i = 0; i < teams.size(); i++) {
-//                if (teams.get(i).getAccount() == null){
-//                    teams.remove(i);
-//                    i--;
-//                }
-//            }
+
             taskHelper.computeHours4Multiple(task,data,teams,false);
         }
         data.setId(taskEstimate.getTask());
         taskHelper.internalUpdate(data);
 
-        if (task.getParent() > 0) taskHelper.updateParentStatus(task, task.getParent(), false);
+        if (task.getParent() > 0) {
+            taskHelper.updateParentStatus(task, task.getParent(), false);
+        }
 
         if (task.getStory() != 0) {
             Story et = storyHelper.getById(task.getStory());
@@ -227,16 +208,6 @@ public class TaskEstimateHelper extends ZTBaseHelper<TaskEstimateMapper, TaskEst
                 actionHelper.logHistory(action.getId(),changes);
             }
         }
-
-
-        // bOk = super.delete(key);
-
-        //task 处理
-        //log.info("TaskEstimate 更新Task：未处理");
-
-        if (!bOk)
-            return bOk;
-
-        return bOk;
+        return true;
     }
 }

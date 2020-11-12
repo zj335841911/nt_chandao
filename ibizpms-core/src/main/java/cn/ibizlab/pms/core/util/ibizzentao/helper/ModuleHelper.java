@@ -12,7 +12,9 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-
+/**
+ * @author chenxiang
+ */
 @Component
 @Slf4j
 public class ModuleHelper extends ZTBaseHelper<ModuleMapper, Module> {
@@ -38,19 +40,20 @@ public class ModuleHelper extends ZTBaseHelper<ModuleMapper, Module> {
     }
 
     @Override
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public boolean create(Module et) {
         return super.create(et);
     }
 
     @Override
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public boolean edit(Module et) {
-        if(et.getParent() == null)
-            et.setParent(0l);
-        boolean bOk = super.edit(et);
-        if (!bOk)
-            return bOk;
+        if(et.getParent() == null) {
+            et.setParent(0L);
+        }
+        if (!super.edit(et)) {
+            return false;
+        }
 
         StringBuffer path = new StringBuffer();
         path.append(String.format(",%s,",et.getId()));
@@ -72,11 +75,11 @@ public class ModuleHelper extends ZTBaseHelper<ModuleMapper, Module> {
             this.internalUpdate(module);
         }
 
-        return bOk;
+        return true;
     }
 
     @Override
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public boolean delete(Long key) {
         Module et = this.get(key);
         Long parent = et.getParent();
@@ -90,7 +93,7 @@ public class ModuleHelper extends ZTBaseHelper<ModuleMapper, Module> {
         }
         if(StaticDict.Module__type.LINE.getValue().equals(et.getType())) {
             Product product = new Product();
-            product.setLine(0l);
+            product.setLine(0L);
             productHelper.update(product,new QueryWrapper<Product>().eq("line", et.getId()));
         }
         else if(StaticDict.Module__type.STORY.getValue().equals(et.getType())) {

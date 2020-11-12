@@ -5,9 +5,7 @@ import cn.ibizlab.pms.core.ibizpro.domain.IBZProProduct;
 import cn.ibizlab.pms.core.ibizpro.domain.IBZProStory;
 import cn.ibizlab.pms.core.ibizpro.filter.IBZProStorySearchContext;
 import cn.ibizlab.pms.core.ibizpro.service.IIBZProProductService;
-import cn.ibizlab.pms.core.ibizpro.service.IIBZProStoryModuleService;
 import cn.ibizlab.pms.core.ibizpro.service.IIBZProStoryService;
-import cn.ibizlab.pms.core.ibizsysmodel.domain.PSDEField;
 import cn.ibizlab.pms.core.ibizsysmodel.domain.PSDataEntity;
 import cn.ibizlab.pms.core.ibizsysmodel.domain.PSSysReqItem;
 import cn.ibizlab.pms.core.ibizsysmodel.domain.PSSysReqModule;
@@ -27,9 +25,7 @@ import cn.ibizlab.pms.core.zentao.service.IFileService;
 import cn.ibizlab.pms.core.zentao.service.impl.StoryServiceImpl;
 import cn.ibizlab.pms.core.zentao.service.impl.StorySpecServiceImpl;
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
-import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import liquibase.pro.packaged.A;
 import lombok.extern.slf4j.Slf4j;
 import cn.ibizlab.pms.core.zentao.domain.Story;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,7 +35,6 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.context.annotation.Primary;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.io.*;
 import java.util.*;
@@ -52,17 +47,11 @@ import java.util.*;
 @Service("StoryExService")
 public class StoryExService extends StoryServiceImpl {
 
-//    @Autowired
-//    IPSModuleService ipsModuleService;
-
     @Autowired
     IIBZProProductService iibzProProductService;
 
     @Value("${ibiz.story.de.dir:/app/file/pms/story/de/}")
     private String targetDirPath;
-
-    @Autowired
-    IIBZProStoryModuleService iIBZProStoryModuleService;
 
     @Autowired
     IPSDataEntityService ipsDataEntityService;
@@ -167,7 +156,7 @@ public class StoryExService extends StoryServiceImpl {
 
     @Override
     @Transactional
-    public Story syncFromIBIZ(Story et) {
+    public Story syncFromIbiz(Story et) {
         et = this.get(et.getId());
         IBZProProduct ibzProProduct = iibzProProductService.get(et.getProduct());
         if (ibzProProduct == null || ibzProProduct.getIbizid() == null) {

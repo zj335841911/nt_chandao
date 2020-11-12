@@ -20,7 +20,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
+/**
+ * @author chenxiang
+ */
 @Component
 public class ProductHelper extends ZTBaseHelper<ProductMapper, Product> {
 
@@ -38,7 +40,8 @@ public class ProductHelper extends ZTBaseHelper<ProductMapper, Product> {
 
     String[] diffAttrs = {"desc"};
 
-    @Transactional
+    @Override
+    @Transactional(rollbackFor = Exception.class)
     public boolean create(Product et) {
 
         // 校验产品名称和产品代号
@@ -51,10 +54,10 @@ public class ProductHelper extends ZTBaseHelper<ProductMapper, Product> {
             throw new RuntimeException(String.format("[产品名称：%1$s]或[产品代号：%2$s]已经存在。如果您确定该记录已删除，请联系管理员恢复。", et.getName(), et.getCode()));
         }
         fileHelper.processImgURL(et, null, null);
-        if (!this.retBool(this.baseMapper.insert(et)))
+        if (!this.retBool(this.baseMapper.insert(et))) {
             return false;
+        }
         CachedBeanCopier.copy(get(et.getId()), et);
-//        fileHelper.updateObjectID(null, et.getId(), StaticDict.File__object_type.PRODUCT.getValue());
 
         //更新order
         et.setOrder(et.getId().intValue() * 5);
@@ -81,7 +84,8 @@ public class ProductHelper extends ZTBaseHelper<ProductMapper, Product> {
      *
      * @return
      */
-    @Transactional
+    @Override
+    @Transactional(rollbackFor = Exception.class)
     public boolean edit(Product et) {
         // 校验产品名称和产品代号
         String sql = "select * from zt_product where (`name` = #{et.name} or `code` = #{et.code}) and `id` <> #{et.id}";
@@ -97,9 +101,9 @@ public class ProductHelper extends ZTBaseHelper<ProductMapper, Product> {
         CachedBeanCopier.copy(this.get(et.getId()), old);
 
         fileHelper.processImgURL(et, null, null);
-        if (!this.internalUpdate(et))
+        if (!this.internalUpdate(et)) {
             return false;
-//        fileHelper.updateObjectID(null, et.getId(), StaticDict.File__object_type.PRODUCT.getValue());
+        }
 
         List<History> changes = ChangeUtil.diff(old, et,null,null,diffAttrs);
         if (changes.size() > 0) {
@@ -115,7 +119,8 @@ public class ProductHelper extends ZTBaseHelper<ProductMapper, Product> {
      * @param key
      * @return
      */
-    @Transactional
+    @Override
+    @Transactional(rollbackFor = Exception.class)
     public boolean delete(Long key) {
         boolean result = removeById(key);
 
@@ -131,7 +136,7 @@ public class ProductHelper extends ZTBaseHelper<ProductMapper, Product> {
      * @param et
      * @return
      */
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Product close(Product et) {
         String comment = et.getComment();
         Product old = this.get(et.getId());
@@ -142,8 +147,9 @@ public class ProductHelper extends ZTBaseHelper<ProductMapper, Product> {
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
             Action action = actionHelper.create(StaticDict.Action__object_type.PRODUCT.getValue(), et.getId(), StaticDict.Action__type.CLOSED.getValue(),
                     comment, "", null, true);
-            if (changes.size() > 0)
+            if (changes.size() > 0) {
                 actionHelper.logHistory(action.getId(), changes);
+            }
         }
 
         return et;

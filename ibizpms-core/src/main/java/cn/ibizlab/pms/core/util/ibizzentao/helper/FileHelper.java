@@ -15,7 +15,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ * @author chenxiang
+ */
 @Component
 @Slf4j
 public class FileHelper extends ZTBaseHelper<FileMapper, File> {
@@ -27,13 +29,14 @@ public class FileHelper extends ZTBaseHelper<FileMapper, File> {
      *
      * @return
      */
-    @Transactional
+    @Override
+    @Transactional(rollbackFor = Exception.class)
     public boolean edit(File et) {
         return this.internalUpdate(et);
     }
 
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public void processImgURL(EntityMP et, String editorList, Long uid) {
         log.info("processImgURL：未实现");
     }
