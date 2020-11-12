@@ -131,6 +131,17 @@ public class DocResource {
         return  ResponseEntity.status(HttpStatus.OK).body(docService.checkKey(docMapping.toDomain(docdto)));
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Doc-Collect-all')")
+    @ApiOperation(value = "收藏", tags = {"文档" },  notes = "收藏")
+	@RequestMapping(method = RequestMethod.POST, value = "/docs/{doc_id}/collect")
+    public ResponseEntity<DocDTO> collect(@PathVariable("doc_id") Long doc_id, @RequestBody DocDTO docdto) {
+        Doc domain = docMapping.toDomain(docdto);
+        domain.setId(doc_id);
+        domain = docService.collect(domain);
+        docdto = docMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(docdto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Doc-Save-all')")
     @ApiOperation(value = "保存文档", tags = {"文档" },  notes = "保存文档")
 	@RequestMapping(method = RequestMethod.POST, value = "/docs/save")
