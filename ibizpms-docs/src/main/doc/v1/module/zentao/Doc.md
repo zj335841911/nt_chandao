@@ -1281,7 +1281,7 @@ String
 | 7 | [CheckKey](#实体行为-CheckKey（CheckKey）) | CheckKey | 内置方法 | 后台及前台 |
 | 8 | [收藏](#实体行为-收藏（Collect）) | Collect | 用户自定义 | 后台 |
 | 9 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
-| 10 | [取消收藏](#实体行为-取消收藏（UnCollect）) | UnCollect | 用户自定义 | 后台及前台 |
+| 10 | [取消收藏](#实体行为-取消收藏（UnCollect）) | UnCollect | 用户自定义 | 后台 |
 
 ### 实体行为-Create（Create）
 #### 说明
@@ -1399,7 +1399,7 @@ Save
 用户自定义
 
 - 行为持有者
-后台及前台
+后台
 
 #### 逻辑附加
 无
