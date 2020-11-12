@@ -7316,7 +7316,7 @@ LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID
 | 8 | [DEFAULT](#数据集合-DEFAULT（Default）) | Default | 是 |
 | 9 | [DefaultRow](#数据集合-DefaultRow（DefaultRow）) | DefaultRow | 否 |
 | 10 | [我的收藏](#数据集合-我的收藏（MyFavorites）) | MyFavorites | 否 |
-| 11 | [项目任务](#数据集合-项目任务（ProjectTASK）) | ProjectTASK | 否 |
+| 11 | [项目任务](#数据集合-项目任务（ProjectTask）) | ProjectTask | 否 |
 | 12 | [根任务](#数据集合-根任务（RootTask）) | RootTask | 否 |
 | 13 | [todo列表查询](#数据集合-todo列表查询（TodoListTask）) | TodoListTask | 否 |
 | 14 | [任务类型分组](#数据集合-任务类型分组（TypeGroup）) | TypeGroup | 否 |
@@ -7461,7 +7461,7 @@ DefaultRow
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [我的收藏（MyFavorites）](#数据查询-我的收藏（MyFavorites）) |
-### 数据集合-项目任务（ProjectTASK）
+### 数据集合-项目任务（ProjectTask）
 #### 说明
 项目任务
 

@@ -1276,7 +1276,7 @@ hide footbox
 |DEFAULT|DEFAULT|DEFAULT|是|&nbsp;|
 |DefaultRow|DefaultRow|DefaultRow|否|&nbsp;|
 |MyFavorites|我的收藏|MyFavorites|否|&nbsp;|
-|ProjectTASK|项目任务|ProjectTask|否|&nbsp;|
+|ProjectTask|项目任务|ProjectTask|否|&nbsp;|
 |RootTask|根任务|RootTask|否|&nbsp;|
 |TodoListTask|todo列表查询|TodoListTask|否|&nbsp;|
 |TypeGroup|任务类型分组|TypeGroup|否|&nbsp;|

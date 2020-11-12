@@ -156,8 +156,8 @@
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
      </select>
 
-    <!--数据集合[ProjectTASK]-->
-	 <select id="searchProjectTASK"  parameterType="cn.ibizlab.pms.core.zentao.filter.TaskSearchContext"  resultMap="TaskResultMap">
+    <!--数据集合[ProjectTask]-->
+	 <select id="searchProjectTask"  parameterType="cn.ibizlab.pms.core.zentao.filter.TaskSearchContext"  resultMap="TaskResultMap">
          select t1.* from (
                 <include refid="ProjectTask" />
          )t1
