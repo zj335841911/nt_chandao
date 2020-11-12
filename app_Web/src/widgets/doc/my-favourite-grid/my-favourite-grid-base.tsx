@@ -189,7 +189,7 @@ export class MyFavouriteGridBase extends GridControlBase {
      */  
     public ActionModel: any = {
         Look: { name: 'Look',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: 'SINGLEKEY'},
-        Collect: { name: 'Collect',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__DOC_FAVOUR_BUT', actiontarget: 'SINGLEKEY'},
+        Collect: { name: 'Collect',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__DOC_FAVOUR_BUT', actiontarget: 'SINGLEKEY'},
         Edit: { name: 'Edit',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'DOC', actiontarget: 'SINGLEKEY'},
         Delete: { name: 'Delete',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'DOC', actiontarget: 'SINGLEKEY'}
     };
