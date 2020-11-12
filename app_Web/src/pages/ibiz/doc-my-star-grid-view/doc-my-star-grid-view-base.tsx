@@ -77,7 +77,7 @@ export class DocMyStarGridViewBase extends GridViewBase {
 	 * @memberof DocMyStarGridViewBase
 	 */
     protected customViewParams: any = {
-        'n_collector_like': { isRawValue: false, value: 'srfloginname' }
+        'n_collector_like': { isRawValue: true, value: ',%srfloginname%,' }
     };
 
     /**
