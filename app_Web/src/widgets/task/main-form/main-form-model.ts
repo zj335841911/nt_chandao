@@ -131,6 +131,11 @@ export default class MainModel {
         dataType: 'LONGTEXT',
       },
       {
+        name: 'noticeusers',
+        prop: 'noticeusers',
+        dataType: 'TEXT',
+      },
+      {
         name: 'files',
         prop: 'files',
         dataType: 'TEXT',

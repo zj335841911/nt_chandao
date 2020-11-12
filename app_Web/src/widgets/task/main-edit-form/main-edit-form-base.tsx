@@ -96,6 +96,7 @@ export class MainEditEditFormBase extends EditFormControlBase {
         name: null,
         multiple: null,
         desc: null,
+        noticeusers: null,
         comment: null,
         files: null,
         projectname: null,
@@ -221,6 +222,8 @@ export class MainEditEditFormBase extends EditFormControlBase {
         multiple: new FormItemModel({ caption: '多人任务', detailType: 'FORMITEM', name: 'multiple', visible: false, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 
         desc: new FormItemModel({ caption: '任务描述', detailType: 'FORMITEM', name: 'desc', visible: true, isShowCaption: false, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+
+        noticeusers: new FormItemModel({ caption: '消息通知用户', detailType: 'FORMITEM', name: 'noticeusers', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 
         comment: new FormItemModel({ caption: '备注', detailType: 'FORMITEM', name: 'comment', visible: true, isShowCaption: false, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 
@@ -348,6 +351,7 @@ export class MainEditEditFormBase extends EditFormControlBase {
             }
             this.detailsModel.multiple.setVisible(ret);
         }
+
 
 
 

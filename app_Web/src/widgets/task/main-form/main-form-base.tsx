@@ -107,6 +107,7 @@ export class MainEditFormBase extends EditFormControlBase {
         pri: null,
         estimate: null,
         desc: null,
+        noticeusers: null,
         files: null,
         estsarted: null,
         deadline: null,
@@ -223,6 +224,8 @@ export class MainEditFormBase extends EditFormControlBase {
 
         desc: new FormItemModel({ caption: '任务描述', detailType: 'FORMITEM', name: 'desc', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 
+        noticeusers: new FormItemModel({ caption: '消息通知用户', detailType: 'FORMITEM', name: 'noticeusers', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+
         files: new FormItemModel({ caption: '附件', detailType: 'FORMITEM', name: 'files', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 
         estsarted: new FormItemModel({ caption: '预计开始', detailType: 'FORMITEM', name: 'estsarted', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
@@ -323,6 +326,7 @@ export class MainEditFormBase extends EditFormControlBase {
             }
             this.detailsModel.estimate.setDisabled(!ret);
         }
+
 
 
 
