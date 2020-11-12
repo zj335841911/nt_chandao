@@ -1254,8 +1254,8 @@ String
 
 
 ## 业务状态
-| 序号 | 状态名称 | [文档查询类型](#属性-文档查询类型（DOCQTYPE）)<br>（DOCQTYPE） | 默认 |
-| ---- | ---- | ---- | ---- |
+| 序号 | 状态名称 | [文档查询类型](#属性-文档查询类型（DOCQTYPE）)<br>（DOCQTYPE） | [是否收藏](#属性-是否收藏（ISFAVOURITES）)<br>（ISFAVOURITES） | 默认 |
+| ---- | ---- | ---- | ---- | ---- |
 | 1 | [文档](#业务状态-文档（doc）) | doc |  |  | 否 |
 | 2 | [文档库分类模块](#业务状态-文档库分类模块（module）) | module |  |  | 否 |
 ### 业务状态-文档（doc）
@@ -1269,7 +1269,7 @@ String
 | 属性名 | 状态值 |
 | ---- | ---- |
 | [文档查询类型](#属性-文档查询类型（DOCQTYPE）)<br>（DOCQTYPE） | doc |
-
+| [是否收藏](#属性-是否收藏（ISFAVOURITES）)<br>（ISFAVOURITES） |  |
 
 
 - 流程相关状态
@@ -1296,7 +1296,7 @@ String
 | 属性名 | 状态值 |
 | ---- | ---- |
 | [文档查询类型](#属性-文档查询类型（DOCQTYPE）)<br>（DOCQTYPE） | module |
-
+| [是否收藏](#属性-是否收藏（ISFAVOURITES）)<br>（ISFAVOURITES） |  |
 
 
 - 流程相关状态
@@ -1586,11 +1586,11 @@ t1.`ADDEDBY`,
 t1.`ADDEDDATE`,
 t1.`DELETED`,
 'doc' AS `DOCQTYPE`,
+( CASE WHEN FIND_IN_SET( 'admin', t1.collector ) > 0 THEN 1 ELSE 0 END ) AS `ISFAVOURITES`,
 t1.`EDITEDBY`,
 t1.`EDITEDDATE`,
 t1.`GROUPS`,
 t1.`ID`,
-0 AS `ISFAVOURITES`,
 t1.`KEYWORDS`,
 t1.`LIB`,
 t31.`NAME` AS `LIBNAME`,

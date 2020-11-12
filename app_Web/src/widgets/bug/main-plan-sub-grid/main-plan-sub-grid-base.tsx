@@ -548,6 +548,22 @@ export class Main_PlanSubGridBase extends GridControlBase {
     public updateDefault(row: any){                    
     }
 
+    /**
+    * 合并分组行
+    * 
+    * @memberof Main_PlanSubBase
+    */
+    public arraySpanMethod({row, column, rowIndex, columnIndex} : any) {
+        let allColumns:Array<any> = ['id','pri','title','status','openedby','openeddate','assignedto','uagridcolumn1','isfavorites'];
+        if(row && row.children) {
+            if(columnIndex == (this.isSingleSelect ? 0:1)) {
+                return [1, allColumns.length+1];
+            } else if(columnIndex > (this.isSingleSelect ? 0:1)) {
+                return [0,0];
+            }
+        }
+    }
+    
 	/**
      * 分组方法
      * 

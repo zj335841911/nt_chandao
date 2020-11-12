@@ -295,6 +295,7 @@ export default class ProjectDocLibTreeService extends ControlService {
                         strNodeId += this.TREENODE_SEPARATOR;
                         strNodeId += strId;
                         Object.assign(treeNode, { id: strNodeId });
+                        Object.assign(treeNode, { iconcls: 'fa fa-folder-o' });
                         Object.assign(treeNode, { expanded: filter.isautoexpand });
                         Object.assign(treeNode, { leaf: true });
                         Object.assign(treeNode, { curData: entity });
@@ -787,6 +788,7 @@ export default class ProjectDocLibTreeService extends ControlService {
                         strNodeId += this.TREENODE_SEPARATOR;
                         strNodeId += strId;
                         Object.assign(treeNode, { id: strNodeId });
+                        Object.assign(treeNode, { iconcls: 'fa fa-folder-o' });
                         Object.assign(treeNode, { expanded: filter.isautoexpand });
                         Object.assign(treeNode, { leaf: false });
                         Object.assign(treeNode, { curData: entity });

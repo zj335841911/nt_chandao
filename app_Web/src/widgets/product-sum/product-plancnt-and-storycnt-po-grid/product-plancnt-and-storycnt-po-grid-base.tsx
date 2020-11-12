@@ -295,6 +295,22 @@ export class ProductPlancntAndStorycnt_POGridBase extends GridControlBase {
     public updateDefault(row: any){                    
     }
 
+    /**
+    * 合并分组行
+    * 
+    * @memberof ProductPlancntAndStorycnt_POBase
+    */
+    public arraySpanMethod({row, column, rowIndex, columnIndex} : any) {
+        let allColumns:Array<any> = ['name','plan','storycnt'];
+        if(row && row.children) {
+            if(columnIndex == (this.isSingleSelect ? 0:1)) {
+                return [1, allColumns.length+1];
+            } else if(columnIndex > (this.isSingleSelect ? 0:1)) {
+                return [0,0];
+            }
+        }
+    }
+    
 	/**
      * 分组方法
      * 

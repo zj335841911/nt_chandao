@@ -840,6 +840,22 @@ export class MainGridBase extends GridControlBase {
     public updateDefault(row: any){                    
     }
 
+    /**
+    * 合并分组行
+    * 
+    * @memberof MainBase
+    */
+    public arraySpanMethod({row, column, rowIndex, columnIndex} : any) {
+        let allColumns:Array<any> = ['id','pri','confirmed','title','status','openedby','openeddate','assignedto','resolution','uagridcolumn1','lastediteddate','activateddate','isfavorites'];
+        if(row && row.children) {
+            if(columnIndex == (this.isSingleSelect ? 0:1)) {
+                return [1, allColumns.length+1];
+            } else if(columnIndex > (this.isSingleSelect ? 0:1)) {
+                return [0,0];
+            }
+        }
+    }
+    
 	/**
      * 分组方法
      * 

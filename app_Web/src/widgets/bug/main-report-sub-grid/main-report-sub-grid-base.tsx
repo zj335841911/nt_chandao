@@ -382,6 +382,22 @@ export class Main_ReportSubGridBase extends GridControlBase {
     public updateDefault(row: any){                    
     }
 
+    /**
+    * 合并分组行
+    * 
+    * @memberof Main_ReportSubBase
+    */
+    public arraySpanMethod({row, column, rowIndex, columnIndex} : any) {
+        let allColumns:Array<any> = ['id','pri','title','openedby','resolvedby','resolveddate','status'];
+        if(row && row.children) {
+            if(columnIndex == (this.isSingleSelect ? 0:1)) {
+                return [1, allColumns.length+1];
+            } else if(columnIndex > (this.isSingleSelect ? 0:1)) {
+                return [0,0];
+            }
+        }
+    }
+    
 	/**
      * 分组方法
      * 

@@ -60,7 +60,7 @@ export default class DocUIServiceBase extends UIService {
      * 
      * @memberof  DocUIServiceBase
      */  
-    public mainStateFields:Array<any> = ['docqtype'];
+    public mainStateFields:Array<any> = ['docqtype','isfavourites'];
 
     /**
      * 主状态集合Map

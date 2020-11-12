@@ -350,6 +350,22 @@ export class Main2GridBase extends GridControlBase {
     public updateDefault(row: any){                    
     }
 
+    /**
+    * 合并分组行
+    * 
+    * @memberof Main2Base
+    */
+    public arraySpanMethod({row, column, rowIndex, columnIndex} : any) {
+        let allColumns:Array<any> = ['id','productname','name','projecttname','build','begin','end'];
+        if(row && row.children) {
+            if(columnIndex == (this.isSingleSelect ? 0:1)) {
+                return [1, allColumns.length+1];
+            } else if(columnIndex > (this.isSingleSelect ? 0:1)) {
+                return [0,0];
+            }
+        }
+    }
+    
 	/**
      * 分组方法
      * 
