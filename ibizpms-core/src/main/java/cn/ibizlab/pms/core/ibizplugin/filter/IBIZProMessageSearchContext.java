@@ -35,6 +35,10 @@ public class IBIZProMessageSearchContext extends SearchContextBase {
 
 	private Integer n_islink_eq;//[是否是链接消息]
 
+	private String n_ibizpro_messageid_eq;//[消息标识]
+
+	private String n_sendproxyid_eq;//[发送代理标识]
+
 }
 
 

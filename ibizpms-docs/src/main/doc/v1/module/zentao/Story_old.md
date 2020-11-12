@@ -361,6 +361,7 @@ hide footbox
 | 查询编号 | 查询名称       | 默认查询 |   备注|
 | --------  | --------   | --------   | ----- |
 |AssignedToMyStory|指派给我的需求([MYSQL5](../../appendix/query_MYSQL5.md#Story_AssignedToMyStory))|否|&nbsp;指派给我的需求（移动端使用）|
+|AssignedToMyStoryCalendar|指派给我的需求（日历）([MYSQL5](../../appendix/query_MYSQL5.md#Story_AssignedToMyStoryCalendar))|否|&nbsp;指派给我的需求（移动端使用）|
 |BugStory|Bug相关需求([MYSQL5](../../appendix/query_MYSQL5.md#Story_BugStory))|否|&nbsp;|
 |buildLinkCompletedStories|版本关联已完成的需求（选择数据源）([MYSQL5](../../appendix/query_MYSQL5.md#Story_BuildLinkCompletedStories))|否|&nbsp;版本主数据导航页面、【完成需求】分页。
 【添加需求】功能中，作为多项数据选择界面的数据源。|
@@ -393,6 +394,7 @@ hide footbox
 | 集合编号 | 集合名称   |  包含查询  | 默认集合 |   备注|
 | --------  | --------   | -------- | --------   | ----- |
 |AssignedToMyStory|指派给我的需求|AssignedToMyStory|否|&nbsp;|
+|AssignedToMyStoryCalendar|指派给我的需求（日历）|AssignedToMyStoryCalendar|否|&nbsp;|
 |BugStory|Bug相关需求|BugStory|否|&nbsp;|
 |buildLinkCompletedStories|版本关联已完成的需求（选择数据源）|buildLinkCompletedStories|否|&nbsp;|
 |BuildLinkableStories|版本可关联的需求（产品内）|BuildLinkableStories|否|&nbsp;|

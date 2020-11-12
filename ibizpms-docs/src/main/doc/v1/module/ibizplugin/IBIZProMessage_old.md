@@ -99,6 +99,8 @@
 |是否同步(ISSYNC)|EQ|
 |是否重发(ISRETRY)|EQ|
 |是否是链接消息(ISLINK)|EQ|
+|消息标识(IBIZPRO_MESSAGEID)|EQ|
+|发送代理标识(SENDPROXYID)|EQ|
 
 ## 导入模式
 无

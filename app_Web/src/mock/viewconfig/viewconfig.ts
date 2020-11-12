@@ -2215,6 +2215,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProductPickupGridView",
             "viewtag": "8d53a973712c13f448efb8e2182ccc0b"
         },
+        "storycalendareditview": {
+            "title": "需求编辑视图（日历）",
+            "caption": "日历",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "zentao",
+            "viewname": "StoryCalendarEditView",
+            "viewtag": "8d57c8c411a365de243247e493c264ff"
+        },
         "caseresultentrygridview": {
             "title": "测试用例表格视图（测试结果条目）",
             "caption": "测试结果条目",

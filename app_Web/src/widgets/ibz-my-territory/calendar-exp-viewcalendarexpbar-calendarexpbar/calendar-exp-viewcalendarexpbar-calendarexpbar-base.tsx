@@ -102,7 +102,8 @@ export class CalendarExpViewcalendarexpbarCalendarexpbarBase extends CalendarVie
     public navViewName: any = {
         Bug: "bug-calendar-edit-view",
         task: "task-calendar-edit-view",
-        todo: "todo-calendar-edit-view"
+        todo: "todo-calendar-edit-view",
+        Story: "story-calendar-edit-view"
     };
 
     /**
@@ -123,6 +124,10 @@ export class CalendarExpViewcalendarexpbarCalendarexpbarBase extends CalendarVie
         todo: {
             navigateContext:null,
             navigateParams:null
+        },
+        Story: {
+            navigateContext:null,
+            navigateParams:null
         }
     };
 
@@ -135,7 +140,8 @@ export class CalendarExpViewcalendarexpbarCalendarexpbarBase extends CalendarVie
     public navFilter: any = {
         Bug: "",
         task: "",
-        todo: ""
+        todo: "",
+        Story: ""
     };
 
     /**
@@ -147,7 +153,8 @@ export class CalendarExpViewcalendarexpbarCalendarexpbarBase extends CalendarVie
     public navPSDer: any = {
         Bug: "",
         task: "",
-        todo: ""
+        todo: "",
+        Story: ""
     };
 
 
@@ -246,6 +253,24 @@ export class CalendarExpViewcalendarexpbarCalendarexpbarBase extends CalendarVie
                 }
                 if(this.navParam && this.navParam['todo'] && this.navParam['todo'].navigateParams && Object.keys(this.navParam['todo'].navigateParams).length >0){
                     let _params:any = this.$util.computedNavData(arg,tempContext,tempViewParam,this.navParam['todo'].navigateParams);
+                    Object.assign(tempViewParam,_params);
+                }
+                break;
+            case "Story":
+                Object.assign(tempContext,{ story : arg.story});
+                Object.assign(tempContext,{srfparentdename:'Story',srfparentkey:arg['story']});
+                if(this.navFilter && this.navFilter['Story'] && !Object.is(this.navFilter['Story'],"")){
+                    Object.assign(tempViewParam,{[this.navFilter['Story']]:arg['story']});
+                }
+                if(this.navPSDer && this.navFilter['Story'] && !Object.is(this.navPSDer['Story'],"")){
+                    Object.assign(tempViewParam,{[this.navPSDer['Story']]:arg['story']});
+                }
+                if(this.navParam && this.navParam['Story'] && this.navParam['Story'].navigateContext && Object.keys(this.navParam['Story'].navigateContext).length >0){
+                    let _context:any = this.$util.computedNavData(arg,tempContext,tempViewParam,this.navParam['Story'].navigateContext);
+                    Object.assign(tempContext,_context);
+                }
+                if(this.navParam && this.navParam['Story'] && this.navParam['Story'].navigateParams && Object.keys(this.navParam['Story'].navigateParams).length >0){
+                    let _params:any = this.$util.computedNavData(arg,tempContext,tempViewParam,this.navParam['Story'].navigateParams);
                     Object.assign(tempViewParam,_params);
                 }
                 break;

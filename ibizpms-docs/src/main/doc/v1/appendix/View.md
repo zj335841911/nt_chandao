@@ -484,6 +484,7 @@ SRFNAVPARAM.project=%project%|
 |-|我的地盘日历视图|DECALENDARVIEW|&nbsp;|
 |-|task表格视图|DEGRIDVIEW|&nbsp;|
 |-|产品选择表格视图|DEPICKUPGRIDVIEW|&nbsp;|
+|-|需求编辑视图（日历）|DEEDITVIEW|&nbsp;|
 |-|测试用例表格视图（测试结果条目）|DEGRIDVIEW|&nbsp;|
 |-|测试用例|DEEDITVIEW|&nbsp;|
 |-|产品线|DEGRIDVIEW|&nbsp;|

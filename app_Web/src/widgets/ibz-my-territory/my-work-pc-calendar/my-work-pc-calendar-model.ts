@@ -103,6 +103,26 @@ export default class MyWorkPCModel {
                   },
               ];
               break;
+          case "Story":
+              dataItems = [...dataItems,
+                  {
+                    name: 'story',
+                    prop: 'id'
+                  },
+                  {
+                    name: 'title',
+                    prop: 'title'
+                  },
+                  {
+                    name:'start',
+                    prop:'assigneddate'
+                  },
+                  {
+                    name:'end',
+                    prop:'assigneddate'
+                  },
+              ];
+              break;
       }
       return dataItems;
 	}

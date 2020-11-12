@@ -1151,6 +1151,7 @@ export const viewstate: any = {
                 'eb90b28adca9e482854d0d6bf05e1303',
                 'bad9ebb60029d8c0854e22a02600cbc7',
                 'e527490443d54f3791d9497938aaf332',
+                '8d57c8c411a365de243247e493c264ff',
             ],
         },
         {
@@ -2501,6 +2502,23 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+            ],
+        },
+        {
+            viewtag: '8d57c8c411a365de243247e493c264ff',
+            viewmodule: 'zentao',
+            viewname: 'StoryCalendarEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'df5a966e312ca9c5f5a41428bc2e2672',
+                '538555af88ea31549a5bc7dbf1e6286a',
+                '90d6a9dc6032a7a7e19fee6ac22fccc0',
+                'aeee411b8bffcf0c30d65557a8deeeee',
+                'e0fbca7627cdd68765e173028b07f687',
+                'e54598b1e6d38d7c6ce8231b531b46bd',
+                '6cf95e90393715815492a7e5e6f2a6f3',
+                'e6797f4a1585954f5bb2f682880fa9d6',
             ],
         },
         {

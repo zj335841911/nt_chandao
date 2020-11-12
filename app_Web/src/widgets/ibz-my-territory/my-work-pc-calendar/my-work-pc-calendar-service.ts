@@ -6,6 +6,7 @@ import MyWorkPCModel from './my-work-pc-calendar-model';
 import BugService from '@/service/bug/bug-service';
 import TaskService from '@/service/task/task-service';
 import TodoService from '@/service/todo/todo-service';
+import StoryService from '@/service/story/story-service';
 
 
 /**
@@ -66,6 +67,13 @@ export default class MyWorkPCService extends ControlService {
      * @memberof MyWorkPCService
      */
     public todoService: TodoService = new TodoService();
+    /**
+     * 需求服务对象
+     *
+     * @type {StoryService}
+     * @memberof MyWorkPCService
+     */
+    public storyService: StoryService = new StoryService();
 
     /**
      * 事件配置集合
@@ -93,6 +101,12 @@ export default class MyWorkPCService extends ControlService {
           color : 'rgba(255, 166, 0, 1)',
           textColor : '',
         },
+        {
+          itemName : '需求',
+          itemType : 'Story',
+          color : 'rgba(255, 208, 0, 0.95)',
+          textColor : '',
+        },
     ];
 
     /**
@@ -117,6 +131,8 @@ export default class MyWorkPCService extends ControlService {
             promises.push(this.taskService.FetchAssignedToMyTaskPc(tempRequest.context, tempRequest.data, isloading));
             tempRequest = this.handleRequestData(action,context,data,true,"todo");
             promises.push(this.todoService.FetchMyTodoPc(tempRequest.context, tempRequest.data, isloading));
+            tempRequest = this.handleRequestData(action,context,data,true,"Story");
+            promises.push(this.storyService.FetchAssignedToMyStoryCalendar(tempRequest.context, tempRequest.data, isloading));
             Promise.all(promises).then((resArray: any) => {
                 let _data:any = [];
                 resArray.forEach((response:any,resIndex:number) => {
@@ -174,6 +190,10 @@ export default class MyWorkPCService extends ControlService {
                 case "todo":
                     tempRequest = this.handleRequestData("",context,data,false,"todo");
                     result = this.todoService.Update(tempRequest.context, tempRequest.data, isloading);
+                    break;
+                case "Story":
+                    tempRequest = this.handleRequestData("",context,data,false,"Story");
+                    result = this.storyService.Update(tempRequest.context, tempRequest.data, isloading);
                     break;
             }
             if(result){

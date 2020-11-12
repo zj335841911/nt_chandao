@@ -318,6 +318,7 @@ export class MyWorkPCCalendarBase extends MainControlBase {
         Bug:true,
         task:true,
         todo:true,
+        Story:true,
     };
 
     /**
@@ -473,6 +474,17 @@ export class MyWorkPCCalendarBase extends MainControlBase {
                     parameters: [{ pathName: 'bugs', parameterName: 'bug' }, { pathName: 'calendareditview', parameterName: 'calendareditview' } ],
                 };
                 break;
+            case "story": 
+                view = {
+                    viewname: 'story-calendar-edit-view', 
+                    height: 0, 
+                    width: 0,
+                    title: this.$t('entities.story.views.calendareditview.title'),
+                    placement: '',
+                    deResParameters: [{ pathName: 'products', parameterName: 'product' }, ],
+                    parameters: [{ pathName: 'stories', parameterName: 'story' }, { pathName: 'calendareditview', parameterName: 'calendareditview' } ],
+                };
+                break;
         }
         return view;
     }
@@ -524,6 +536,10 @@ export class MyWorkPCCalendarBase extends MainControlBase {
             case "todo":
                 _context.todo = event.todo;
                 view = this.getEditView("todo");
+                break;
+            case "Story":
+                _context.story = event.story;
+                view = this.getEditView("story");
                 break;
         }
         this.selections = [event];
@@ -598,6 +614,10 @@ export class MyWorkPCCalendarBase extends MainControlBase {
             case "todo":
                 arg.todo = $event.event._def.extendedProps.todo;
                 _context.todo = $event.event._def.extendedProps.todo;
+                break;
+            case "Story":
+                arg.story = $event.event._def.extendedProps.story;
+                _context.story = $event.event._def.extendedProps.story;
                 break;
         }
         Object.assign(arg,{viewparams:this.viewparams});
@@ -782,7 +802,7 @@ export class MyWorkPCCalendarBase extends MainControlBase {
             if(Object.keys(that.copyActionModel).length === 0){
                 return;
             }
-            let dataMapping:any ={'Bug':'bug','task':'task','todo':'todo'};
+            let dataMapping:any ={'Bug':'bug','task':'task','todo':'todo','Story':'story'};
             that.computeNodeState(data,dataMapping[data.itemType]).then((result:any) => {
                 let flag:boolean = false;
                 if(Object.values(result).length>0){
