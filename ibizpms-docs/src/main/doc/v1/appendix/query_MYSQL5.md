@@ -5014,9 +5014,6 @@ FROM
 		t3.collector LIKE CONCAT_WS( '', '%,', #{srf.sessioncontext.srfloginname}, '%,' ) 
 	AND t3.deleted = '0' 
 	) t1
-WHERE t1.DELETED = '0' 
-t1.collector LIKE CONCAT_WS( '', '%,', #{srf.sessioncontext.srfloginname}, '%,' ) 
-
 ```
 ### 默认（全部数据）(VIEW)<div id="Doc_View"></div>
 ```sql
