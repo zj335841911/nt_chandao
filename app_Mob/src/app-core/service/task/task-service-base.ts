@@ -6707,7 +6707,7 @@ export class TaskServiceBase extends EntityService {
     }
 
     /**
-     * FetchProjectTASK接口方法
+     * FetchProjectTask接口方法
      *
      * @param {*} [context={}]
      * @param {*} [data={}]
@@ -6715,7 +6715,7 @@ export class TaskServiceBase extends EntityService {
      * @returns {Promise<any>}
      * @memberof TaskServiceBase
      */
-    public async FetchProjectTASK(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+    public async FetchProjectTask(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/fetchprojecttask`,tempData,isloading);
@@ -6959,7 +6959,7 @@ export class TaskServiceBase extends EntityService {
     }
 
     /**
-     * FetchTempProjectTASK接口方法
+     * FetchTempProjectTask接口方法
      *
      * @param {*} [context={}]
      * @param {*} [data={}]
@@ -6967,7 +6967,7 @@ export class TaskServiceBase extends EntityService {
      * @returns {Promise<any>}
      * @memberof TaskServiceBase
      */
-    public async FetchTempProjectTASK(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+    public async FetchTempProjectTask(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
     }
 
     /**

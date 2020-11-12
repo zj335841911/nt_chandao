@@ -598,6 +598,7 @@ SRFNAVPARAM.project=%project%|
 |-|Bug图表视图（解决Bug）|DECHARTVIEW|&nbsp;|
 |-|bug表格视图|DEGRIDVIEW|&nbsp;|
 |-|相关Bug|DEGRIDVIEW9|&nbsp;|
+|-|doc表格视图|DEGRIDVIEW|&nbsp;|
 |-|Bug表格视图|DEGRIDVIEW9|&nbsp;|
 |-|完成任务|DEOPTVIEW|&nbsp;|
 |-|关闭|DEOPTVIEW|&nbsp;|

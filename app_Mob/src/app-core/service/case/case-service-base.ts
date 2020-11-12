@@ -872,7 +872,7 @@ export class CaseServiceBase extends EntityService {
     }
 
     /**
-     * GetTestTaskCNTRun接口方法
+     * GetTestTaskCntRun接口方法
      *
      * @param {*} [context={}]
      * @param {*} [data={}]
@@ -880,7 +880,7 @@ export class CaseServiceBase extends EntityService {
      * @returns {Promise<any>}
      * @memberof CaseServiceBase
      */
-    public async GetTestTaskCNTRun(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+    public async GetTestTaskCntRun(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && context.case){
             let masterData:any = {};
         let casestepsData:any = [];

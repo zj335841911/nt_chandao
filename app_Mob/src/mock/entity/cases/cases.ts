@@ -1100,9 +1100,9 @@ mock.onPost(new RegExp(/^\/cases\/?([a-zA-Z0-9\-\;]{0,35})\/confirmstorychange$/
 
 
     
-// GetTestTaskCNTRun
+// GetTestTaskCntRun
 mock.onPut(new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/stories\/([a-zA-Z0-9\-\;]{1,35})\/cases\/([a-zA-Z0-9\-\;]{1,35})\/gettesttaskcntrun$/)).reply((config: any) => {
-    console.groupCollapsed("实体:case 方法: GetTestTaskCNTRun");
+    console.groupCollapsed("实体:case 方法: GetTestTaskCntRun");
     console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
     if (status !== 200) {
@@ -1127,9 +1127,9 @@ mock.onPut(new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/stories\/([a-zA-Z0-
 });
 
     
-// GetTestTaskCNTRun
+// GetTestTaskCntRun
 mock.onPut(new RegExp(/^\/stories\/([a-zA-Z0-9\-\;]{1,35})\/cases\/([a-zA-Z0-9\-\;]{1,35})\/gettesttaskcntrun$/)).reply((config: any) => {
-    console.groupCollapsed("实体:case 方法: GetTestTaskCNTRun");
+    console.groupCollapsed("实体:case 方法: GetTestTaskCntRun");
     console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
     if (status !== 200) {
@@ -1154,9 +1154,9 @@ mock.onPut(new RegExp(/^\/stories\/([a-zA-Z0-9\-\;]{1,35})\/cases\/([a-zA-Z0-9\-
 });
 
     
-// GetTestTaskCNTRun
+// GetTestTaskCntRun
 mock.onPut(new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/cases\/([a-zA-Z0-9\-\;]{1,35})\/gettesttaskcntrun$/)).reply((config: any) => {
-    console.groupCollapsed("实体:case 方法: GetTestTaskCNTRun");
+    console.groupCollapsed("实体:case 方法: GetTestTaskCntRun");
     console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
     if (status !== 200) {
@@ -1180,9 +1180,9 @@ mock.onPut(new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/cases\/([a-zA-Z0-9\
     return [status, {}];
 });
         
-// GetTestTaskCNTRun
+// GetTestTaskCntRun
 mock.onPut(new RegExp(/^\/cases\/?([a-zA-Z0-9\-\;]{0,35})\/gettesttaskcntrun$/)).reply((config: any) => {
-    console.groupCollapsed("实体:case 方法: GetTestTaskCNTRun");
+    console.groupCollapsed("实体:case 方法: GetTestTaskCntRun");
     console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
     if (status !== 200) {
