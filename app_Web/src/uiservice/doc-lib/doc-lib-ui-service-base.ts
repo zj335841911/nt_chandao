@@ -471,14 +471,24 @@ export default class DocLibUIServiceBase extends UIService {
         let deResParameters: any[] = [];
         const parameters: any[] = [
             { pathName: 'doclibmodules', parameterName: 'doclibmodule' },
-            { pathName: 'treeexpview', parameterName: 'treeexpview' },
         ];
-        const openIndexViewTab = (data: any) => {
-            const routePath = actionContext.$viewTool.buildUpRoutePath(actionContext.$route, context, deResParameters, parameters, _args, data);
-            actionContext.$router.push(routePath);
-            return null;
-        }
-        openIndexViewTab(data);
+            const openPopupModal = (view: any, data: any) => {
+                let container: Subject<any> = actionContext.$appmodal.openModal(view, context, data);
+                container.subscribe((result: any) => {
+                    if (!result || !Object.is(result.ret, 'OK')) {
+                        return;
+                    }
+                    const _this: any = actionContext;
+                    return result.datas;
+                });
+            }
+            const view: any = {
+                viewname: 'doc-lib-module-tree-exp-view', 
+                height: 600, 
+                width: 800,  
+                title: actionContext.$t('entities.doclibmodule.views.treeexpview.title'),
+            };
+            openPopupModal(view, data);
     }
 
     /**
