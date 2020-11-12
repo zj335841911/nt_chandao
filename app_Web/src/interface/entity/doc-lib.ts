@@ -133,4 +133,12 @@ export interface DocLib {
      * @memberof DocLib
      */
     productname?: any;
+
+    /**
+     * 属性
+     *
+     * @returns {*}
+     * @memberof DocLib
+     */
+    isfavourites?: any;
 }

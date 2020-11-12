@@ -38,6 +38,7 @@
 | 14 | [文件库类型](#属性-文件库类型（DOCLIBTYPE）) | DOCLIBTYPE | 单项选择(文本值) | 否 | 是 | 是 |
 | 15 | [所属项目](#属性-所属项目（PROJECTNAME）) | PROJECTNAME | 外键值文本 | 否 | 是 | 是 |
 | 16 | [所属产品](#属性-所属产品（PRODUCTNAME）) | PRODUCTNAME | 外键值文本 | 否 | 是 | 是 |
+| 17 | [属性](#属性-属性（ISFAVOURITES）) | ISFAVOURITES | 整型 | 否 | 是 | 是 |
 
 ### 属性-文档类型（TYPE）
 #### 属性说明
@@ -742,6 +743,49 @@ String
 | 关系属性 | [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
+### 属性-属性（ISFAVOURITES）
+#### 属性说明
+属性
+
+- 是否是主键
+否
+
+- 属性类型
+逻辑字段[来自计算式]
+
+- 数据类型
+整型
+
+- Java类型
+Integer
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+```SQL
+0
+```
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
+| 关系属性 | [产品名称（NAME）](../zentao/Product/#属性-产品名称（NAME）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
 
 ## 业务状态
 | 序号 | 状态名称 | [文件库类型](#属性-文件库类型（DOCLIBTYPE）)<br>（DOCLIBTYPE） | 默认 |
@@ -1003,6 +1047,7 @@ t1.`DELETED`,
 'doc' AS `DOCLIBTYPE`,
 t1.`GROUPS`,
 t1.`ID`,
+0 AS `ISFAVOURITES`,
 t1.`MAIN`,
 t1.`NAME`,
 t1.`ORDER`,
@@ -1162,6 +1207,7 @@ t1.`DELETED`,
 'doc' AS `DOCLIBTYPE`,
 t1.`GROUPS`,
 t1.`ID`,
+0 AS `ISFAVOURITES`,
 t1.`MAIN`,
 t1.`NAME`,
 t1.`ORDER`,
@@ -1195,6 +1241,7 @@ t1.`DELETED`,
 'doc' AS `DOCLIBTYPE`,
 t1.`GROUPS`,
 t1.`ID`,
+0 AS `ISFAVOURITES`,
 t1.`MAIN`,
 t1.`NAME`,
 t1.`ORDER`,

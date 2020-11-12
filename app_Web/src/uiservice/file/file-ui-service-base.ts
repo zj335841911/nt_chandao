@@ -97,9 +97,9 @@ export default class FileUIServiceBase extends UIService {
      */  
     public initViewMap(){
         this.allViewMap.set('MDATAVIEW:', {
-            viewname: 'gridview',
+            viewname: 'projectgridviewfile',
             srfappde: 'files',
-            component: 'file-grid-view',
+            component: 'file-project-grid-view-file',
             openmode: '',
             title: '附件',
             width: 0,

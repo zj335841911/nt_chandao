@@ -31,6 +31,7 @@ hide members
 |文件库类型|DOCLIBTYPE|SSCODELIST|&nbsp;|
 |所属项目|PROJECTNAME|PICKUPTEXT|&nbsp;|
 |所属产品|PRODUCTNAME|PICKUPTEXT|&nbsp;|
+|属性|ISFAVOURITES|INT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -51,6 +52,7 @@ hide members
 |文件库类型|默认规则|内容长度必须小于等于[200]|
 |所属项目|默认规则|内容长度必须小于等于[90]|
 |所属产品|默认规则|内容长度必须小于等于[90]|
+|属性|默认规则|默认规则|
 
 ## 状态控制
 

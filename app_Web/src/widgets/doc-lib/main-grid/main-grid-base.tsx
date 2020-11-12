@@ -104,6 +104,62 @@ export class MainGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
+    public grid_uagridcolumn1_u80a864c_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:DocLibUIService  = new DocLibUIService();
+        curUIService.DocLib_Collect(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public grid_uagridcolumn1_ueacb709_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:DocLibUIService  = new DocLibUIService();
+        curUIService.DocLib_UnCollect(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
     public grid_uagridcolumn1_ucbf9df2_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
@@ -161,6 +217,8 @@ export class MainGridBase extends GridControlBase {
      */  
     public ActionModel: any = {
         LookMainProjectDocLib: { name: 'LookMainProjectDocLib',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: 'SINGLEKEY'},
+        Collect: { name: 'Collect',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__DOCLIB_FAVOUR_BUT', actiontarget: 'SINGLEKEY'},
+        UnCollect: { name: 'UnCollect',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__DOCLIB_NFAVOUR_BUT', actiontarget: 'SINGLEKEY'},
         EditProjectDoclib: { name: 'EditProjectDoclib',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'DOC', actiontarget: 'SINGLEKEY'},
         WeiHuFenLei: { name: 'WeiHuFenLei',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'DOC', actiontarget: 'SINGLEKEY'}
     };
@@ -407,6 +465,12 @@ export class MainGridBase extends GridControlBase {
         if(Object.is('LookMainProjectDocLib', tag)) {
             this.grid_name_click(row, tag, $event);
         }
+        if(Object.is('Collect', tag)) {
+            this.grid_uagridcolumn1_u80a864c_click(row, tag, $event);
+        }
+        if(Object.is('UnCollect', tag)) {
+            this.grid_uagridcolumn1_ueacb709_click(row, tag, $event);
+        }
         if(Object.is('EditProjectDoclib', tag)) {
             this.grid_uagridcolumn1_ucbf9df2_click(row, tag, $event);
         }
@@ -515,6 +579,12 @@ export class MainGridBase extends GridControlBase {
                 },
                 name:'',
                 doccnt:'',
+                Collect:{
+                    visible: false
+                },
+                UnCollect:{
+                    visible: false
+                },
                 EditProjectDoclib:{
                     visible: false
                 },
@@ -548,6 +618,12 @@ export class MainGridBase extends GridControlBase {
             },
             name:'',
             doccnt:'',
+            Collect:{
+                visible: false
+            },
+            UnCollect:{
+                visible: false
+            },
             EditProjectDoclib:{
                 visible: false
             },
@@ -619,6 +695,12 @@ export class MainGridBase extends GridControlBase {
                 },
                 name:'',
                 doccnt:'',
+                Collect:{
+                    visible: false
+                },
+                UnCollect:{
+                    visible: false
+                },
                 EditProjectDoclib:{
                     visible: false
                 },

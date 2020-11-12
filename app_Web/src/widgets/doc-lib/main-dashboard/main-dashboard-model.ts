@@ -63,6 +63,9 @@ export default class MainModel {
       {
         name: 'productname',
       },
+      {
+        name: 'isfavourites',
+      },
     ]
   }
 

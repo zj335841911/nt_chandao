@@ -15,12 +15,12 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProductTestTabExpView",
             "viewtag": "005b0ba30f9e9e982e087961bd50c681"
         },
-        "filegridview": {
+        "fileprojectgridviewfile": {
             "title": "file表格视图",
             "caption": "附件",
             "viewtype": "DEGRIDVIEW",
             "viewmodule": "zentao",
-            "viewname": "FileGridView",
+            "viewname": "FileProjectGridViewFile",
             "viewtag": "007d984e6319843d935a48b30587ab1b"
         },
         "productexpeditview": {

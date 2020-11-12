@@ -21,7 +21,7 @@ export const viewstate: any = {
         {
             viewtag: '007d984e6319843d935a48b30587ab1b',
             viewmodule: 'zentao',
-            viewname: 'FileGridView',
+            viewname: 'FileProjectGridViewFile',
             viewaction: '',
             viewdatachange: false,
             refviews: [

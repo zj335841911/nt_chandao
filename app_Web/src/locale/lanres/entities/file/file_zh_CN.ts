@@ -15,7 +15,7 @@ export default {
     strsize: "显示大小",
   },
 	views: {
-		gridview: {
+		projectgridviewfile: {
 			caption: "附件",
       		title: "file表格视图",
 		},
@@ -78,7 +78,7 @@ export default {
 	},
 	productgridviewtoolbar_toolbar: {
 	},
-	gridviewtoolbar_toolbar: {
+	projectgridviewfiletoolbar_toolbar: {
 	},
 	editviewtoolbar_toolbar: {
 		tbitem3: {

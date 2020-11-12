@@ -112,7 +112,7 @@ export class ProjectTreeExpViewtreeexpbarTreeExpBarBase extends TreeExpBarContro
         }
         if (Object.is(expmode, 'FILES')) {
             return {  
-                viewname: 'file-grid-view', 
+                viewname: 'file-project-grid-view-file', 
                 parentdata: {},
                 deKeyField:'file'
 			};

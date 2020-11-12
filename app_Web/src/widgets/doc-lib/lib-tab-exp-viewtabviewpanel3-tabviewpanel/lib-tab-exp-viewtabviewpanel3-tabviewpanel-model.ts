@@ -63,6 +63,9 @@ export default class LibTabExpViewtabviewpanel3Model {
       {
         name: 'productname',
       },
+      {
+        name: 'isfavourites',
+      },
     ]
   }
 

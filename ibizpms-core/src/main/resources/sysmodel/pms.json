@@ -5690,6 +5690,20 @@
     "key_field":0,
     "show_order":1000,
     "major_field":0
+    },
+    {
+    "fieldname":"ISFAVOURITES" ,
+    "codename":"Isfavourites",
+    "field_logic_name":"属性",
+    "entity_name":"DocLib",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "expression":"0",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
     }
     ],
     "subEntitys":[

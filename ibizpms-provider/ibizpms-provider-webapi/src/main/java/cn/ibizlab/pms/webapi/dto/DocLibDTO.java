@@ -172,6 +172,14 @@ public class DocLibDTO extends DTOBase implements Serializable {
     @Size(min = 0, max = 90, message = "内容长度必须小于等于[90]")
     private String productname;
 
+    /**
+     * 属性 [ISFAVOURITES]
+     *
+     */
+    @JSONField(name = "isfavourites")
+    @JsonProperty("isfavourites")
+    private Integer isfavourites;
+
 
     /**
      * 设置 [TYPE]

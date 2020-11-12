@@ -63,6 +63,9 @@ export default class ProjectDocLibTreeModel {
       {
         name: 'productname',
       },
+      {
+        name: 'isfavourites',
+      },
     ]
   }
 

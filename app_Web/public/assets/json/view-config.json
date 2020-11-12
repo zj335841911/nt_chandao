@@ -9,13 +9,13 @@
         "viewtag": "005b0ba30f9e9e982e087961bd50c681",
         "memo": ""
     },
-    "filegridview": {
+    "fileprojectgridviewfile": {
         "title": "file表格视图",
         "caption": "附件",
         "viewtype": "DEGRIDVIEW",
         "viewmodule": "zentao",
-        "viewname": "FileGridView",
-        "viewfilename": "file-grid-view",
+        "viewname": "FileProjectGridViewFile",
+        "viewfilename": "file-project-grid-view-file",
         "viewtag": "007d984e6319843d935a48b30587ab1b",
         "memo": ""
     },

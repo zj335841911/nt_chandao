@@ -14233,18 +14233,18 @@ const router = new Router({
                     component: () => import('@pages/zentao/project-edit-view-activate/project-edit-view-activate.vue'),
                 },
                 {
-                    path: 'files/:file?/gridview/:gridview?',
+                    path: 'files/:file?/projectgridviewfile/:projectgridviewfile?',
                     meta: {
-                        caption: 'entities.file.views.gridview.caption',
+                        caption: 'entities.file.views.projectgridviewfile.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'files', parameterName: 'file' },
-                            { pathName: 'gridview', parameterName: 'gridview' },
+                            { pathName: 'projectgridviewfile', parameterName: 'projectgridviewfile' },
                         ],
                         requireAuth: true,
                     },
-                    component: () => import('@pages/zentao/file-grid-view/file-grid-view.vue'),
+                    component: () => import('@pages/zentao/file-project-grid-view-file/file-project-grid-view-file.vue'),
                 },
                 {
                     path: 'sysupdatelogs/:sysupdatelog?/gridview/:gridview?',

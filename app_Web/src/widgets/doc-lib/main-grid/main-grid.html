@@ -12,7 +12,7 @@
             :height="tableHeight"
             @row-click="rowClick($event)"  
             @select-all="selectAll($event)"  
-            @select="select($event)"  
+            @select="select.apply(_self, arguments)"  
             @row-class-name="onRowClassName($event)"  
             @row-dblclick="rowDBLClick($event)"  
             ref='multipleTable' :data="items" :show-header="!isHideHeader"
@@ -60,6 +60,16 @@
                     </template>
                     <template slot-scope="scope">
                         <div style="text-align: center;">
+                          <a v-show="scope.row.Collect.visible" :disabled="scope.row.Collect.disabled" @click="uiAction(scope.row, 'Collect', $event)" :title="$t('entities.doclib.main_grid.uiactions.doclib_collect')">
+                            <i class='fa fa-star-o'></i>
+                            
+                          </a>
+                          <divider v-show="scope.row.UnCollect.visible" type='vertical'></divider>
+                          <a v-show="scope.row.UnCollect.visible" :disabled="scope.row.UnCollect.disabled" @click="uiAction(scope.row, 'UnCollect', $event)" :title="$t('entities.doclib.main_grid.uiactions.doclib_uncollect')">
+                            <i class='fa fa-star'></i>
+                            
+                          </a>
+                          <divider v-show="scope.row.EditProjectDoclib.visible" type='vertical'></divider>
                           <a v-show="scope.row.EditProjectDoclib.visible" :disabled="scope.row.EditProjectDoclib.disabled" @click="uiAction(scope.row, 'EditProjectDoclib', $event)" :title="$t('entities.doclib.main_grid.uiactions.doclib_editprojectdoclib')">
                             <i class='fa fa-edit'></i>
                             

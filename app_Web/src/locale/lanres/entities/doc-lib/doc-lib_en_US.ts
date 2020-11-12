@@ -16,6 +16,7 @@ export default {
     doclibtype: "文件库类型",
     projectname: "所属项目",
     productname: "所属产品",
+    isfavourites: "属性",
   },
 	views: {
 		projecttreeexpview: {
@@ -92,6 +93,8 @@ export default {
 		},
 		uiactions: {
         doclib_lookmainprojectdoclib: "查看",
+        doclib_collect: "收藏",
+        doclib_uncollect: "取消收藏",
         doclib_editprojectdoclib: "编辑",
         doclib_weihufenlei: "维护分类",
 		},
