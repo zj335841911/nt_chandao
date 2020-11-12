@@ -96,6 +96,11 @@ export default class CompleteFormModel {
         dataType: 'TEXT',
       },
       {
+        name: 'noticeusers',
+        prop: 'noticeusers',
+        dataType: 'TEXT',
+      },
+      {
         name: 'files',
         prop: 'files',
         dataType: 'TEXT',

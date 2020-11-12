@@ -326,6 +326,7 @@ export default {
 			assignedto: "指派给", 
 			finisheddate: "实际完成", 
 			multiple: "多人任务", 
+			noticeusers: "消息通知用户", 
 			files: "附件", 
 			comment: "备注", 
 		},

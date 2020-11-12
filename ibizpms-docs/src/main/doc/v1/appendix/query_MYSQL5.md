@@ -5390,7 +5390,8 @@ LEFT JOIN zt_module t21 ON t1.PARENT = t21.ID
 
 WHERE t1.DELETED = '0' 
 (t1.parent = 0 or t1.parent is null ) and t1.type = 'doc' 
-t1.root = (case when #{srf.webcontext.id}  is null then  #{srf.datacontext.doclib}  else #{srf.webcontext.id}  end) 
+t1.root = (case when #{srf.webcontext.id}  is null then  #{srf.webcontext.doclib}  else 
+#{srf.webcontext.id}  end ) 
 
 ```
 ### 默认（全部数据）(VIEW)<div id="DocLibModule_View"></div>
