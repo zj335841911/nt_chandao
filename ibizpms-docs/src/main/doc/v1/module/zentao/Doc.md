@@ -1286,8 +1286,8 @@ String
 拒绝提示信息：无
 | 序号 | 操作权限 |
 | ---- | ---- |
-| 1 | [收藏文档](#操作权限-收藏文档（SRFUR__DOC_FAVOUR_BUT）)<br>（SRFUR__DOC_FAVOUR_BUT） |
-| 2 | [文档库分类模块](#操作权限-文档库分类模块（MODULE）)<br>（MODULE） |
+| 1 | [文档库分类模块](#操作权限-文档库分类模块（MODULE）)<br>（MODULE） |
+| 2 | [取消收藏文档](#操作权限-取消收藏文档（SRFUR__DOC_NFAVOUR_BUT）)<br>（SRFUR__DOC_NFAVOUR_BUT） |
 ### 业务状态-文档_已收藏（doc_1）
 #### 状态说明
 文档_已收藏
@@ -1314,7 +1314,7 @@ String
 拒绝提示信息：无
 | 序号 | 操作权限 |
 | ---- | ---- |
-| 1 | [取消收藏文档](#操作权限-取消收藏文档（SRFUR__DOC_NFAVOUR_BUT）)<br>（SRFUR__DOC_NFAVOUR_BUT） |
+| 1 | [收藏文档](#操作权限-收藏文档（SRFUR__DOC_FAVOUR_BUT）)<br>（SRFUR__DOC_FAVOUR_BUT） |
 | 2 | [文档库分类模块](#操作权限-文档库分类模块（MODULE）)<br>（MODULE） |
 ### 业务状态-文档库分类模块_未收藏（module_0）
 #### 状态说明
@@ -1342,8 +1342,8 @@ String
 拒绝提示信息：无
 | 序号 | 操作权限 |
 | ---- | ---- |
-| 1 | [文档库维护](#操作权限-文档库维护（DOC）)<br>（DOC） |
-| 2 | [收藏文档](#操作权限-收藏文档（SRFUR__DOC_FAVOUR_BUT）)<br>（SRFUR__DOC_FAVOUR_BUT） |
+| 1 | [取消收藏文档](#操作权限-取消收藏文档（SRFUR__DOC_NFAVOUR_BUT）)<br>（SRFUR__DOC_NFAVOUR_BUT） |
+| 2 | [文档库维护](#操作权限-文档库维护（DOC）)<br>（DOC） |
 ### 业务状态-文档库分类模块_已收藏（module_1）
 #### 状态说明
 文档库分类模块_已收藏
@@ -1370,8 +1370,8 @@ String
 拒绝提示信息：无
 | 序号 | 操作权限 |
 | ---- | ---- |
-| 1 | [取消收藏文档](#操作权限-取消收藏文档（SRFUR__DOC_NFAVOUR_BUT）)<br>（SRFUR__DOC_NFAVOUR_BUT） |
-| 2 | [文档库维护](#操作权限-文档库维护（DOC）)<br>（DOC） |
+| 1 | [文档库维护](#操作权限-文档库维护（DOC）)<br>（DOC） |
+| 2 | [收藏文档](#操作权限-收藏文档（SRFUR__DOC_FAVOUR_BUT）)<br>（SRFUR__DOC_FAVOUR_BUT） |
 
 ## 实体行为
 | 序号 | 行为 | 行为名 | 行为类型 | 行为持有者 |
