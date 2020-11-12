@@ -78,7 +78,7 @@ export class DocMyStoryGridViewBase extends GridViewBase {
 	 */
     protected customViewParams: any = {
         'n_lib_eq': { isRawValue: false, value: 'srfparentkey' },
-        'n_collector_like': { isRawValue: true, value: ',%srfusername%,' },
+        'n_collector_like': { isRawValue: false, value: 'srfusername' },
         'n_project_eq': { isRawValue: false, value: 'project' },
         'parent': { isRawValue: true, value: '0' }
     };

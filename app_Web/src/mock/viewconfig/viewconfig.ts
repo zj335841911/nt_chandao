@@ -1737,7 +1737,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
         },
         "docmystorygridview": {
             "title": "doc表格视图",
-            "caption": "最近更新",
+            "caption": "我的收藏",
             "viewtype": "DEGRIDVIEW",
             "viewmodule": "ibiz",
             "viewname": "DocMyStoryGridView",

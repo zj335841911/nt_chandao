@@ -50,7 +50,7 @@ export default {
       		title: "doc表格视图",
 		},
 		mystorygridview: {
-			caption: "最近更新",
+			caption: "我的收藏",
       		title: "doc表格视图",
 		},
 		createeditview: {
