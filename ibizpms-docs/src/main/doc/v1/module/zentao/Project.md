@@ -4263,7 +4263,7 @@ LEFT JOIN zt_project t11 ON t1.PARENT = t11.ID
 否
 
 - 查询权限使用
-否
+是
 
 #### SQL
 - MYSQL5

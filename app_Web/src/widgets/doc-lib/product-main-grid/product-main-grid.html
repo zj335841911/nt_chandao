@@ -58,6 +58,16 @@
                     </template>
                     <template slot-scope="scope">
                         <div style="text-align: center;">
+                          <a v-show="scope.row.Collect.visible" :disabled="scope.row.Collect.disabled" @click="uiAction(scope.row, 'Collect', $event)" :title="$t('entities.doclib.productmain_grid.uiactions.doclib_collect')">
+                            <i class='fa fa-star-o'></i>
+                            
+                          </a>
+                          <divider v-show="scope.row.UnCollect.visible" type='vertical'></divider>
+                          <a v-show="scope.row.UnCollect.visible" :disabled="scope.row.UnCollect.disabled" @click="uiAction(scope.row, 'UnCollect', $event)" :title="$t('entities.doclib.productmain_grid.uiactions.doclib_uncollect')">
+                            <i class='fa fa-star'></i>
+                            
+                          </a>
+                          <divider v-show="scope.row.ProductLookDoc.visible" type='vertical'></divider>
                           <a v-show="scope.row.ProductLookDoc.visible" :disabled="scope.row.ProductLookDoc.disabled" @click="uiAction(scope.row, 'ProductLookDoc', $event)" :title="$t('entities.doclib.productmain_grid.uiactions.doclib_productlookdoc')">
                             <i class='fa fa-file-word-o'></i>
                             

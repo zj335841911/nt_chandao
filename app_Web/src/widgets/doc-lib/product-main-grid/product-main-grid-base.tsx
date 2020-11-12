@@ -76,6 +76,62 @@ export class ProductMainGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
+    public grid_uagridcolumn1_u52fb8be_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:DocLibUIService  = new DocLibUIService();
+        curUIService.DocLib_Collect(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public grid_uagridcolumn1_u668e37a_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:DocLibUIService  = new DocLibUIService();
+        curUIService.DocLib_UnCollect(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
     public grid_uagridcolumn1_uee97c3f_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
@@ -188,6 +244,8 @@ export class ProductMainGridBase extends GridControlBase {
      * @memberof ProductMainBase
      */  
     public ActionModel: any = {
+        Collect: { name: 'Collect',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__DOCLIB_FAVOUR_BUT', actiontarget: 'SINGLEKEY'},
+        UnCollect: { name: 'UnCollect',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__DOCLIB_NFAVOUR_BUT', actiontarget: 'SINGLEKEY'},
         ProductLookDoc: { name: 'ProductLookDoc',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'DOC', actiontarget: 'SINGLEKEY'},
         ProductLookFile: { name: 'ProductLookFile',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'FILE', actiontarget: 'SINGLEKEY'},
         EditDocLib: { name: 'EditDocLib',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: 'SINGLEKEY'},
@@ -433,6 +491,12 @@ export class ProductMainGridBase extends GridControlBase {
      */
 	public uiAction(row: any, tag: any, $event: any): void {
         $event.stopPropagation();
+        if(Object.is('Collect', tag)) {
+            this.grid_uagridcolumn1_u52fb8be_click(row, tag, $event);
+        }
+        if(Object.is('UnCollect', tag)) {
+            this.grid_uagridcolumn1_u668e37a_click(row, tag, $event);
+        }
         if(Object.is('ProductLookDoc', tag)) {
             this.grid_uagridcolumn1_uee97c3f_click(row, tag, $event);
         }
@@ -544,6 +608,12 @@ export class ProductMainGridBase extends GridControlBase {
                 group: group.label,
                 name:'',
                 doccnt:'',
+                Collect:{
+                    visible: false
+                },
+                UnCollect:{
+                    visible: false
+                },
                 ProductLookDoc:{
                     visible: false
                 },
@@ -580,6 +650,12 @@ export class ProductMainGridBase extends GridControlBase {
             group: '其他',
             name:'',
             doccnt:'',
+            Collect:{
+                visible: false
+            },
+            UnCollect:{
+                visible: false
+            },
             ProductLookDoc:{
                 visible: false
             },
@@ -654,6 +730,12 @@ export class ProductMainGridBase extends GridControlBase {
                 group: group,
                 name:'',
                 doccnt:'',
+                Collect:{
+                    visible: false
+                },
+                UnCollect:{
+                    visible: false
+                },
                 ProductLookDoc:{
                     visible: false
                 },
