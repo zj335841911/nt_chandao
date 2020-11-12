@@ -278,7 +278,25 @@ export class BugassignedToGridBase extends GridControlBase {
      * @memberof BugassignedToBase
      */
     public getCellClassName(args: {row: any, column: any, rowIndex: number, columnIndex: number}): any {
-        return ( this.hasRowEdit[args.column.property] && this.actualIsOpenEdit ) ? "edit-cell" : "info-cell";
+        let className: string = '';
+        if(args.column.property){
+          let col = this.allColumns.find((item:any)=>{
+              return Object.is(args.column.property,item.name);
+          })
+          if(col !== undefined){
+              if(col.isEnableRowEdit && this.actualIsOpenEdit ){
+                className += 'edit-cell ';
+              }
+          } else {
+              className += 'info-cell';
+          }
+        }
+        if(this.groupAppField && args.columnIndex === 0 && !this.isSingleSelect) {
+            if(args.row.children && args.row.children.length > 0) {
+                className += this.computeGroupRow(args.row.children, args.row);
+            }
+        }
+        return className;
     }
 
 
@@ -328,7 +346,7 @@ export class BugassignedToGridBase extends GridControlBase {
             }
         }
     }
-    
+
 	/**
      * 分组方法
      * 
@@ -387,12 +405,12 @@ export class BugassignedToGridBase extends GridControlBase {
                 if(allGroupField && allGroupField.length > 0){
                     const arr:Array<any> = allGroupField.filter((field:any)=>{return field.value == item[this.groupAppField]});
                     if(Object.is(group.label,arr[0].label)){
-                        item.groupById = Number((i+1) * 100 + (i+1) * 1);
+                        item.groupById = Number((i+1) * 100 + (j+1) * 1);
                         item.group = '';
                         children.push(item);
                     }
                 }else if(Object.is(group.label,item[this.groupAppField])){
-                    item.groupById = Number((i+1) * 100 + (i+1) * 1);
+                    item.groupById = Number((i+1) * 100 + (j+1) * 1);
                     item.group = '';
                     children.push(item);
                 }
@@ -476,12 +494,12 @@ export class BugassignedToGridBase extends GridControlBase {
                 if(allGroupField && allGroupField.length > 0){
                     const arr:Array<any> = allGroupField.filter((field:any)=>{return field.value == item[this.groupAppField]});
                     if(Object.is(group,arr[0].label)){
-                        item.groupById = Number((groupIndex+1) * 100 + (groupIndex+1) * 1);
+                        item.groupById = Number((groupIndex+1) * 100 + (itemIndex+1) * 1);
                         item.group = '';
                         children.push(item);
                     }
                 }else if(Object.is(group,item[this.groupAppField])){
-                    item.groupById = Number((groupIndex+1) * 100 + (groupIndex+1) * 1);
+                    item.groupById = Number((groupIndex+1) * 100 + (itemIndex+1) * 1);
                     item.group = '';
                     children.push(item);
                 }

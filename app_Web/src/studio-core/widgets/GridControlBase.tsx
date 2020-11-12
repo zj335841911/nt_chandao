@@ -588,6 +588,10 @@ export class GridControlBase extends MDControlBase {
             // <#if ctrl.getAggMode() == "ALL">
             // this.getAggData();
             // </#if>
+            const _this: any = this;
+            if(_this.isEnableGroup && _this.group && _this.group instanceof Function){
+                _this.group();
+            }
         }).catch((response: any) => {
             if (response && response.status === 401) {
                 return;
@@ -941,6 +945,10 @@ export class GridControlBase extends MDControlBase {
      * @memberof GridControlBase
      */
     public rowDBLClick($event: any): void {
+        // 分组行跳过
+        if($event && $event.children){
+            return;
+        }
         if (!$event || this.actualIsOpenEdit || Object.is(this.gridRowActiveMode, 0)) {
             return;
         }
@@ -958,35 +966,136 @@ export class GridControlBase extends MDControlBase {
     }
 
     /**
-     * 复选框数据选中
+     * 单个复选框选中
      *
-     * @param {*} $event
-     * @returns {void}
-     * @memberof GridControlBase
+     * @param {*} selection 所有选中行数据
+     * @param {*} row 当前选中行数据
+     * @memberof MainBase
      */
-    public select($event: any): void {
-        if (!$event) {
-            return;
+    public select(selection: any, row: any): void {
+        let _this:any = this;
+        if(_this.groupAppField) {
+            let isContain:boolean = selection.some((item:any) =>{
+                return  item == row;
+            }) 
+            // 是否选中当前行，选中为true，否则为false
+            if(isContain) {
+                // 当前行为分组行
+                if(row.children && row.children.length > 0) {
+                    _this.toggleSelection(row.children, true);
+                    row.children.forEach((children: any) => {
+                        _this.selections.push(children);
+                    });
+                } else {
+                    _this.selections.push(row);
+                }
+            } else {
+                if(row.children && row.children.length > 0) {
+                    _this.toggleSelection(row.children, false);
+                    _this.selections = _this.computeCheckedData(this.selections, row.children);
+                } else {
+                    _this.selections = _this.computeCheckedData(this.selections, row);
+                }
+            }
+            _this.selections = [...new Set(this.selections)]
+        } else {
+            if(!selection) {
+                return;
+            }
+            _this.selections = [...JSON.parse(JSON.stringify(selection))];
         }
-        this.selections = [];
-        this.selections = [...JSON.parse(JSON.stringify($event))];
-        this.$emit('selectionchange', this.selections);
+        this.$emit('selectionchange', _this.selections);
+    }
+    
+    /**
+     * 计算当前选中数据
+     *
+     * @param {*} selectionArray 所有选中行数据
+     * @param {*} cancelData 被取消选中行数据，分组行为数组，非分组行为对象
+     * @memberof MainBase
+     */
+    public computeCheckedData(selectionArray: any[], cancelData: Array<any> | any) {
+        let targetArray: Array<any> = [];
+        //  分组行
+        if(Array.isArray(cancelData)) {
+            if(selectionArray && selectionArray.length > 0) {
+                selectionArray.forEach((selection:any) =>{
+                    let tempFlag:boolean = true;
+                    cancelData.forEach((child:any) =>{
+                        if(selection.groupById===child.groupById){
+                            tempFlag = false;
+                        }
+                    })
+                    if(tempFlag) targetArray.push(selection);
+                })
+            }
+        } else {
+        //  非分组行
+            if(selectionArray && selectionArray.length > 0) {
+                selectionArray.forEach((selection:any) =>{
+                    let tempFlag:boolean = true;
+                    if(selection.groupById===cancelData.groupById){
+                        tempFlag = false;
+                    }
+                    if(tempFlag) targetArray.push(selection);
+                })
+            }
+        }
+        return targetArray;
+    }
+  
+    /**
+     * 设置非分组行checkbox选中状态
+     *
+     * @param {*} rows 选中数据数组
+     * @param {boolean} flag 是否选中
+     * @memberof MainBase
+     */
+    public toggleSelection(rows?: any, flag?: boolean) {
+        if(rows) {
+            rows.forEach((row:any) => {
+                (this.$refs.multipleTable as any).toggleRowSelection(row, flag);
+            });
+        } else {
+            (this.$refs.multipleTable as any).clearSelection();
+        }
     }
 
     /**
      * 复选框数据全部选中
      *
      * @param {*} $event
-     * @returns {void}
-     * @memberof GridControlBase
+     * @memberof MainBase
      */
-    public selectAll($event: any): void {
-        if (!$event) {
-            return;
+    public selectAll(selection: any): void {
+        let _this: any = this;
+        _this.selections = []; 
+        if(_this.groupAppField) {
+            let flag: boolean = true;
+            if(selection && selection.length === _this.items.length) {
+                selection.forEach((element: any) => {
+                    if(element.children) {
+                        _this.toggleSelection(element.children, flag);
+                        element.children.forEach((children: any) => {
+                            _this.selections.push(children);
+                        });
+                    } else {
+                        flag = false;
+                    }
+                });
+            } else {
+                flag = false;
+            }
+            if(!flag) {
+                _this.toggleSelection();
+            }
+        } else {
+            if(!selection) {
+                return;
+            }
+            _this.selections = [...JSON.parse(JSON.stringify(selection))];
         }
-        this.selections = [];
-        this.selections = [...JSON.parse(JSON.stringify($event))];
-        this.$emit('selectionchange', this.selections);
+        this.$emit('selectionchange', _this.selections);
     }
 
     /**
@@ -998,6 +1107,10 @@ export class GridControlBase extends MDControlBase {
      * @memberof GridControlBase
      */
     public rowClick($event: any, ifAlways: boolean = false): void {
+        // 分组行跳过
+        if($event && $event.children){
+            return;
+        }
         if (!ifAlways && (!$event || this.actualIsOpenEdit)) {
             return;
         }

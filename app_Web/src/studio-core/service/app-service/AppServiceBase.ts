@@ -12,7 +12,6 @@ import { AppEvent } from '../../events/app-event';
  * @class AppServiceBase
  */
 export class AppServiceBase {
-
     /**
      * 应用导航工具类
      *
@@ -51,7 +50,7 @@ export class AppServiceBase {
      * @memberof AppServiceBase
      */
     public logout(redirect?: string): void {
-        this.doLogin(null, redirect);
+        this.doLogin(null, redirect, false);
     }
 
     /**
@@ -62,7 +61,7 @@ export class AppServiceBase {
      * @return {*}  {void}
      * @memberof AppServiceBase
      */
-    public doLogin(data?: any, redirect: string = location.href): void {
+    public doLogin(data?: any, redirect: string = location.href, isLogin = true): void {
         const win: any = window;
         if (win.isDoLogin) {
             return;
@@ -72,7 +71,13 @@ export class AppServiceBase {
             localStorage.removeItem('user');
         }
         this.clearToken();
-        if (data && data.loginurl && !Object.is(data.loginurl, '') && data.originurl && !Object.is(data.originurl, '')) {
+        if (
+            data &&
+            data.loginurl &&
+            !Object.is(data.loginurl, '') &&
+            data.originurl &&
+            !Object.is(data.originurl, '')
+        ) {
             let _url = encodeURIComponent(encodeURIComponent(location.href));
             let loginUrl: string = data.loginurl;
             const originUrl: string = data.originurl;
@@ -89,9 +94,21 @@ export class AppServiceBase {
             if (Environment.LoginMode.toUpperCase() === 'UAA') {
                 location.href = `${Environment.LoginUrl}?redirect=${encodeURIComponent(redirect)}`;
             } else if (Environment.LoginMode.toUpperCase() === 'CAS') {
-                location.href = `${Environment.CasUrl}/logout?service=${encodeURIComponent(`${Environment.CasUrl}/login?service=${encodeURIComponent(`${window.location.origin}/cas-login.html?RU=${encodeURIComponent(location.href)}`)}`)}`;
-            }  else {
-                location.href = `${location.origin}${location.pathname}#/login?redirect=${encodeURIComponent(redirect)}`;
+                if (isLogin) {
+                    location.href = `${Environment.CasUrl}/login?service=${encodeURIComponent(
+                        `${location.origin}/cas-login.html?RU=${encodeURIComponent(location.href)}`,
+                    )}`;
+                } else {
+                    location.href = `${Environment.CasUrl}/logout?service=${encodeURIComponent(
+                        `${Environment.CasUrl}/login?service=${encodeURIComponent(
+                            `${location.origin}/cas-login.html?RU=${encodeURIComponent(location.href)}`,
+                        )}`,
+                    )}`;
+                }
+            } else {
+                location.href = `${location.origin}${location.pathname}#/login?redirect=${encodeURIComponent(
+                    redirect,
+                )}`;
                 setTimeout(() => {
                     location.reload();
                 }, 100);

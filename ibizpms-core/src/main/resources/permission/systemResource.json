@@ -278,6 +278,11 @@
        }
         ,
        {
+            "unirescode":"DOCLIB_FAVOUR_BUT",
+            "uniresname":"收藏文档库"
+       }
+        ,
+       {
             "unirescode":"TASK_NFAVOR_BUT",
             "uniresname":"任务待收藏"
        }
@@ -360,6 +365,11 @@
        {
             "unirescode":"PROP_CHILD_BUT",
             "uniresname":"计划子计划"
+       }
+        ,
+       {
+            "unirescode":"DOCLIB_NFAVOUR_BUT",
+            "uniresname":"取消收藏文档库"
        }
         ,
        {
