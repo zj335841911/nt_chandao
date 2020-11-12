@@ -175,11 +175,11 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectMapper, Project> impl
         Project tempET=new Project();
         tempET.set("id",key);
         Project et = getById(key);
-        if(et==null){
-            et=new Project();
+        if(et == null){
+            et = new Project();
             et.setId(key);
         }
-        else{
+        else {
             et.setProjectteam(projectteamService.selectByRoot(key));
         }
         getprojectproductplanLogic.execute(et);
@@ -213,7 +213,7 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectMapper, Project> impl
 
     @Override
     public boolean checkKey(Project et) {
-        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
+        return (!ObjectUtils.isEmpty(et.getId())) && (!Objects.isNull(this.getById(et.getId())));
     }
         @Override
     @Transactional
@@ -263,7 +263,7 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectMapper, Project> impl
     @Override
     @Transactional
     public boolean save(Project et) {
-        if(!saveOrUpdate(et)) {
+        if (!saveOrUpdate(et)) {
             return false;
         }
         return true;
@@ -424,12 +424,12 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectMapper, Project> impl
      */
     private void fillParentData(Project et){
         //实体关系[DER1N__ZT_PROJECT__ZT_PROJECT__PARENT]
-        if(!ObjectUtils.isEmpty(et.getParent())){
+        if (!ObjectUtils.isEmpty(et.getParent())) {
             cn.ibizlab.pms.core.zentao.domain.Project ibizparent=et.getIbizparent();
-            if(ObjectUtils.isEmpty(ibizparent)){
+            if (ObjectUtils.isEmpty(ibizparent)) {
                 cn.ibizlab.pms.core.zentao.domain.Project majorEntity=projectService.get(et.getParent());
                 et.setIbizparent(majorEntity);
-                ibizparent=majorEntity;
+                ibizparent = majorEntity;
             }
             et.setParentname(ibizparent.getName());
         }
@@ -472,11 +472,11 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectMapper, Project> impl
         List ids =new ArrayList();
         for(Project entity : entities){
             Serializable id=entity.getId();
-            if(!ObjectUtils.isEmpty(id)){
+            if (!ObjectUtils.isEmpty(id)) {
                 ids.add(id);
             }
         }
-        if(ids.size()>0) {
+        if (ids.size() > 0) {
             return this.listByIds(ids);
         }
         else {

@@ -61,9 +61,9 @@ public class PSSysRunSessionServiceImpl implements IPSSysRunSessionService {
     private String password;
 
     public PSSysRunSessionFeignClient getPSSysRunSessionFeignClient(String devSlnSysId) {
-        if(StringUtils.isNotBlank(serviceName)) {
+        if (StringUtils.isNotBlank(serviceName)) {
             return OutsideAccessorUtils.buildAccessor(SpringContextHolder.getApplicationContext(), PSSysRunSessionFeignClient.class, serviceName, false, serviceName, false, loginname, password, devSlnSysId);
-        } else if(StringUtils.isNotBlank(serviceUrl)) {
+        } else if (StringUtils.isNotBlank(serviceUrl)) {
             return OutsideAccessorUtils.buildAccessorByUrl(SpringContextHolder.getApplicationContext(), PSSysRunSessionFeignClient.class, serviceUrl, false, serviceUrl, false, loginname, password, devSlnSysId);
         } else {
             throw new RuntimeException("缺少平台服务配置信息。");
@@ -74,18 +74,19 @@ public class PSSysRunSessionServiceImpl implements IPSSysRunSessionService {
     @Override
     public boolean create(PSSysRunSession et) {
         PSSysRunSession rt = pSSysRunSessionFeignClient.create(et);
-        if(rt==null)
+        if (rt == null) {
             return false;
-        CachedBeanCopier.copy(rt,et);
+        }
+        CachedBeanCopier.copy(rt, et);
         return true;
     }
 
     @Override
     public boolean create(String devSlnSysId,PSSysRunSession et) {
         PSSysRunSession rt = getPSSysRunSessionFeignClient(devSlnSysId).create(et);
-        if(rt==null) {
+        if (rt == null) {
             return false;
-	}
+	    }
         CachedBeanCopier.copy(rt, et);
         return true;
     }
@@ -101,9 +102,10 @@ public class PSSysRunSessionServiceImpl implements IPSSysRunSessionService {
     @Override
     public boolean update(PSSysRunSession et) {
         PSSysRunSession rt = pSSysRunSessionFeignClient.update(et.getPssysrunsessionid(),et);
-        if(rt==null)
+        if (rt == null) {
             return false;
-        CachedBeanCopier.copy(rt,et);
+        }
+        CachedBeanCopier.copy(rt, et);
         return true;
 
     }
@@ -111,9 +113,9 @@ public class PSSysRunSessionServiceImpl implements IPSSysRunSessionService {
     @Override
     public boolean update(String devSlnSysId, PSSysRunSession et) {
         PSSysRunSession rt = getPSSysRunSessionFeignClient(devSlnSysId).update(et.getPssysrunsessionid(), et);
-        if(rt==null) {
+        if (rt == null) {
             return false;
-	}
+	    }
         CachedBeanCopier.copy(rt, et);
         return true;
     }
@@ -148,9 +150,9 @@ public class PSSysRunSessionServiceImpl implements IPSSysRunSessionService {
 
     @Override
     public PSSysRunSession get(String pssysrunsessionid) {
-		PSSysRunSession et=pSSysRunSessionFeignClient.get(pssysrunsessionid);
-        if(et==null){
-            et=new PSSysRunSession();
+		PSSysRunSession et = pSSysRunSessionFeignClient.get(pssysrunsessionid);
+        if (et == null){
+            et = new PSSysRunSession();
             et.setPssysrunsessionid(pssysrunsessionid);
         }
         else{
@@ -161,7 +163,7 @@ public class PSSysRunSessionServiceImpl implements IPSSysRunSessionService {
     @Override
     public PSSysRunSession get(String devSlnSysId,String pssysrunsessionid) {
 		PSSysRunSession et = getPSSysRunSessionFeignClient(devSlnSysId).get(pssysrunsessionid);
-        if(et == null) {
+        if (et == null) {
             et = new PSSysRunSession();
             et.setPssysrunsessionid(pssysrunsessionid);
         }
@@ -177,7 +179,7 @@ public class PSSysRunSessionServiceImpl implements IPSSysRunSessionService {
 
     @Override
     public PSSysRunSession getDraft(PSSysRunSession et) {
-        et=pSSysRunSessionFeignClient.getDraft();
+        et = pSSysRunSessionFeignClient.getDraft();
         return et;
     }
 
@@ -200,21 +202,24 @@ public class PSSysRunSessionServiceImpl implements IPSSysRunSessionService {
     @Override
     @Transactional
     public boolean save(PSSysRunSession et) {
-        if(et.getPssysrunsessionid()==null) et.setPssysrunsessionid((String)et.getDefaultKey(true));
-        if(!pSSysRunSessionFeignClient.save(et))
+        if (et.getPssysrunsessionid() == null) {
+            et.setPssysrunsessionid((String)et.getDefaultKey(true));
+        }
+        if (!pSSysRunSessionFeignClient.save(et)) {
             return false;
+        }
         return true;
     }
 
     @Override
     @Transactional
     public boolean save(String devSlnSysId,PSSysRunSession et) {
-        if(et.getPssysrunsessionid() == null) {
-	    et.setPssysrunsessionid((String)et.getDefaultKey(true));
-	}
+        if (et.getPssysrunsessionid() == null) {
+	        et.setPssysrunsessionid((String)et.getDefaultKey(true));
+	    }
         if(!getPSSysRunSessionFeignClient(devSlnSysId).save(et)) {
             return false;
-	}
+        }
         return true;
     }
 
@@ -250,11 +255,12 @@ public class PSSysRunSessionServiceImpl implements IPSSysRunSessionService {
     @Override
     public void removeByPssysappid(String pssysappid) {
         Set<String> delIds=new HashSet<String>();
-        for(PSSysRunSession before:selectByPssysappid(pssysappid)){
+        for (PSSysRunSession before:selectByPssysappid(pssysappid)) {
             delIds.add(before.getPssysrunsessionid());
         }
-        if(delIds.size()>0)
+        if (delIds.size() > 0) {
             this.removeBatch(delIds);
+        }
     }
 
     @Override
@@ -263,9 +269,9 @@ public class PSSysRunSessionServiceImpl implements IPSSysRunSessionService {
         for(PSSysRunSession before:selectByPssysappid(devSlnSysId, pssysappid)){
             delIds.add(before.getPssysrunsessionid());
         }
-        if(delIds.size() > 0) {
+        if (delIds.size() > 0) {
             this.removeBatch(delIds);
-	}
+	    }
     }
 
 	@Override
@@ -288,11 +294,12 @@ public class PSSysRunSessionServiceImpl implements IPSSysRunSessionService {
     @Override
     public void removeByPssysappid2(String pssysappid) {
         Set<String> delIds=new HashSet<String>();
-        for(PSSysRunSession before:selectByPssysappid2(pssysappid)){
+        for (PSSysRunSession before:selectByPssysappid2(pssysappid)) {
             delIds.add(before.getPssysrunsessionid());
         }
-        if(delIds.size()>0)
+        if (delIds.size() > 0) {
             this.removeBatch(delIds);
+        }
     }
 
     @Override
@@ -301,9 +308,9 @@ public class PSSysRunSessionServiceImpl implements IPSSysRunSessionService {
         for(PSSysRunSession before:selectByPssysappid2(devSlnSysId, pssysappid)){
             delIds.add(before.getPssysrunsessionid());
         }
-        if(delIds.size() > 0) {
+        if (delIds.size() > 0) {
             this.removeBatch(delIds);
-	}
+	    }
     }
 
 	@Override
@@ -326,11 +333,12 @@ public class PSSysRunSessionServiceImpl implements IPSSysRunSessionService {
     @Override
     public void removeByPssysserviceapiid(String pssysserviceapiid) {
         Set<String> delIds=new HashSet<String>();
-        for(PSSysRunSession before:selectByPssysserviceapiid(pssysserviceapiid)){
+        for (PSSysRunSession before:selectByPssysserviceapiid(pssysserviceapiid)) {
             delIds.add(before.getPssysrunsessionid());
         }
-        if(delIds.size()>0)
+        if (delIds.size() > 0) {
             this.removeBatch(delIds);
+        }
     }
 
     @Override
@@ -339,9 +347,9 @@ public class PSSysRunSessionServiceImpl implements IPSSysRunSessionService {
         for(PSSysRunSession before:selectByPssysserviceapiid(devSlnSysId, pssysserviceapiid)){
             delIds.add(before.getPssysrunsessionid());
         }
-        if(delIds.size() > 0) {
+        if (delIds.size() > 0) {
             this.removeBatch(delIds);
-	}
+	    }
     }
 
 

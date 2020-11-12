@@ -60,14 +60,14 @@ public class TaskEstimateServiceImpl extends ServiceImpl<TaskEstimateMapper, Tas
         if(!this.retBool(this.baseMapper.insert(et))) {
             return false;
         }
-        CachedBeanCopier.copy(get(et.getId()),et);
+        CachedBeanCopier.copy(get(et.getId()), et);
         return true;
     }
 
     @Override
     @Transactional
     public void createBatch(List<TaskEstimate> list) {
-        this.saveBatch(list,batchSize);
+        this.saveBatch(list, batchSize);
     }
 
         @Override
@@ -98,11 +98,11 @@ public class TaskEstimateServiceImpl extends ServiceImpl<TaskEstimateMapper, Tas
     @Transactional
     public TaskEstimate get(Long key) {
         TaskEstimate et = getById(key);
-        if(et==null){
-            et=new TaskEstimate();
+        if(et == null){
+            et = new TaskEstimate();
             et.setId(key);
         }
-        else{
+        else {
         }
         return et;
     }
@@ -114,12 +114,12 @@ public class TaskEstimateServiceImpl extends ServiceImpl<TaskEstimateMapper, Tas
 
     @Override
     public boolean checkKey(TaskEstimate et) {
-        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
+        return (!ObjectUtils.isEmpty(et.getId())) && (!Objects.isNull(this.getById(et.getId())));
     }
     @Override
     @Transactional
     public boolean save(TaskEstimate et) {
-        if(!saveOrUpdate(et)) {
+        if (!saveOrUpdate(et)) {
             return false;
         }
         return true;
@@ -163,8 +163,9 @@ public class TaskEstimateServiceImpl extends ServiceImpl<TaskEstimateMapper, Tas
     ITaskEstimateService proxyService;
 	@Override
     public void saveByTask(Long id,List<TaskEstimate> list) {
-        if(list==null)
+        if (list == null) {
             return;
+        }
         Set<Long> delIds=new HashSet<Long>();
         List<TaskEstimate> _update=new ArrayList<TaskEstimate>();
         List<TaskEstimate> _create=new ArrayList<TaskEstimate>();
@@ -173,21 +174,25 @@ public class TaskEstimateServiceImpl extends ServiceImpl<TaskEstimateMapper, Tas
         }
         for(TaskEstimate sub:list) {
             sub.setTask(id);
-            if(ObjectUtils.isEmpty(sub.getId()))
+            if (ObjectUtils.isEmpty(sub.getId()))
                 sub.setId((Long)sub.getDefaultKey(true));
-            if(delIds.contains(sub.getId())) {
+            if (delIds.contains(sub.getId())) {
                 delIds.remove(sub.getId());
                 _update.add(sub);
             }
-            else
+            else {
                 _create.add(sub);
+            }
         }
-        if(_update.size()>0)
+        if (_update.size() > 0) {
             proxyService.updateBatch(_update);
-        if(_create.size()>0)
+        }
+        if (_create.size() > 0) {
             proxyService.createBatch(_create);
-        if(delIds.size()>0)
+        }
+        if (delIds.size() > 0) {
             proxyService.removeBatch(delIds);
+        }
 	}
 
 

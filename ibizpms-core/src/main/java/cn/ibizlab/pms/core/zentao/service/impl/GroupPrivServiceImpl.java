@@ -57,36 +57,36 @@ public class GroupPrivServiceImpl extends ServiceImpl<GroupPrivMapper, GroupPriv
         if(!this.retBool(this.baseMapper.insert(et))) {
             return false;
         }
-        CachedBeanCopier.copy(get(et.getId()),et);
+        CachedBeanCopier.copy(get(et.getId()), et);
         return true;
     }
 
     @Override
     @Transactional
     public void createBatch(List<GroupPriv> list) {
-        this.saveBatch(list,batchSize);
+        this.saveBatch(list, batchSize);
     }
 
     @Override
     @Transactional
     public boolean update(GroupPriv et) {
-        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId()))) {
+        if(!update(et, (Wrapper) et.getUpdateWrapper(true).eq("id", et.getId()))) {
             return false;
         }
-        CachedBeanCopier.copy(get(et.getId()),et);
+        CachedBeanCopier.copy(get(et.getId()), et);
         return true;
     }
 
     @Override
     @Transactional
     public void updateBatch(List<GroupPriv> list) {
-        updateBatchById(list,batchSize);
+        updateBatchById(list, batchSize);
     }
 
     @Override
     @Transactional
     public boolean remove(String key) {
-        boolean result=removeById(key);
+        boolean result = removeById(key);
         return result ;
     }
 
@@ -100,11 +100,11 @@ public class GroupPrivServiceImpl extends ServiceImpl<GroupPrivMapper, GroupPriv
     @Transactional
     public GroupPriv get(String key) {
         GroupPriv et = getById(key);
-        if(et==null){
-            et=new GroupPriv();
+        if(et == null){
+            et = new GroupPriv();
             et.setId(key);
         }
-        else{
+        else {
         }
         return et;
     }
@@ -116,12 +116,12 @@ public class GroupPrivServiceImpl extends ServiceImpl<GroupPrivMapper, GroupPriv
 
     @Override
     public boolean checkKey(GroupPriv et) {
-        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
+        return (!ObjectUtils.isEmpty(et.getId())) && (!Objects.isNull(this.getById(et.getId())));
     }
     @Override
     @Transactional
     public boolean save(GroupPriv et) {
-        if(!saveOrUpdate(et)) {
+        if (!saveOrUpdate(et)) {
             return false;
         }
         return true;

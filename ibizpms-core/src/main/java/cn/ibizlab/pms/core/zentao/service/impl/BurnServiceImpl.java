@@ -64,7 +64,7 @@ public class BurnServiceImpl extends ServiceImpl<BurnMapper, Burn> implements IB
         if(!this.retBool(this.baseMapper.insert(et))) {
             return false;
         }
-        CachedBeanCopier.copy(get(et.getId()),et);
+        CachedBeanCopier.copy(get(et.getId()), et);
         return true;
     }
 
@@ -72,17 +72,17 @@ public class BurnServiceImpl extends ServiceImpl<BurnMapper, Burn> implements IB
     @Transactional
     public void createBatch(List<Burn> list) {
         list.forEach(item->fillParentData(item));
-        this.saveBatch(list,batchSize);
+        this.saveBatch(list, batchSize);
     }
 
     @Override
     @Transactional
     public boolean update(Burn et) {
         fillParentData(et);
-        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId()))) {
+        if(!update(et, (Wrapper) et.getUpdateWrapper(true).eq("id", et.getId()))) {
             return false;
         }
-        CachedBeanCopier.copy(get(et.getId()),et);
+        CachedBeanCopier.copy(get(et.getId()), et);
         return true;
     }
 
@@ -90,13 +90,13 @@ public class BurnServiceImpl extends ServiceImpl<BurnMapper, Burn> implements IB
     @Transactional
     public void updateBatch(List<Burn> list) {
         list.forEach(item->fillParentData(item));
-        updateBatchById(list,batchSize);
+        updateBatchById(list, batchSize);
     }
 
     @Override
     @Transactional
     public boolean remove(String key) {
-        boolean result=removeById(key);
+        boolean result = removeById(key);
         return result ;
     }
 
@@ -110,11 +110,11 @@ public class BurnServiceImpl extends ServiceImpl<BurnMapper, Burn> implements IB
     @Transactional
     public Burn get(String key) {
         Burn et = getById(key);
-        if(et==null){
-            et=new Burn();
+        if(et == null){
+            et = new Burn();
             et.setId(key);
         }
-        else{
+        else {
         }
         return et;
     }
@@ -127,7 +127,7 @@ public class BurnServiceImpl extends ServiceImpl<BurnMapper, Burn> implements IB
 
     @Override
     public boolean checkKey(Burn et) {
-        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
+        return (!ObjectUtils.isEmpty(et.getId())) && (!Objects.isNull(this.getById(et.getId())));
     }
     @Override
     @Transactional
@@ -139,7 +139,7 @@ public class BurnServiceImpl extends ServiceImpl<BurnMapper, Burn> implements IB
     @Override
     @Transactional
     public boolean save(Burn et) {
-        if(!saveOrUpdate(et)) {
+        if (!saveOrUpdate(et)) {
             return false;
         }
         return true;
@@ -216,12 +216,12 @@ public class BurnServiceImpl extends ServiceImpl<BurnMapper, Burn> implements IB
      */
     private void fillParentData(Burn et){
         //实体关系[DER1N_ZT_BURN_ZT_TASK_TASK]
-        if(!ObjectUtils.isEmpty(et.getTask())){
+        if (!ObjectUtils.isEmpty(et.getTask())) {
             cn.ibizlab.pms.core.zentao.domain.Task zttask=et.getZttask();
-            if(ObjectUtils.isEmpty(zttask)){
+            if (ObjectUtils.isEmpty(zttask)) {
                 cn.ibizlab.pms.core.zentao.domain.Task majorEntity=taskService.get(et.getTask());
                 et.setZttask(majorEntity);
-                zttask=majorEntity;
+                zttask = majorEntity;
             }
             et.setConsumed(zttask.getConsumed());
             et.setLeft(zttask.getLeft());

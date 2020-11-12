@@ -110,11 +110,11 @@ public class ReleaseServiceImpl extends ServiceImpl<ReleaseMapper, Release> impl
     @Transactional
     public Release get(Long key) {
         Release et = getById(key);
-        if(et==null){
-            et=new Release();
+        if(et == null){
+            et = new Release();
             et.setId(key);
         }
-        else{
+        else {
         }
         return et;
     }
@@ -145,7 +145,7 @@ public class ReleaseServiceImpl extends ServiceImpl<ReleaseMapper, Release> impl
 
     @Override
     public boolean checkKey(Release et) {
-        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
+        return (!ObjectUtils.isEmpty(et.getId())) && (!Objects.isNull(this.getById(et.getId())));
     }
         @Override
     @Transactional
@@ -188,7 +188,7 @@ public class ReleaseServiceImpl extends ServiceImpl<ReleaseMapper, Release> impl
     @Override
     @Transactional
     public boolean save(Release et) {
-        if(!saveOrUpdate(et)) {
+        if (!saveOrUpdate(et)) {
             return false;
         }
         return true;
@@ -286,24 +286,24 @@ public class ReleaseServiceImpl extends ServiceImpl<ReleaseMapper, Release> impl
      */
     private void fillParentData(Release et){
         //实体关系[DER1N_ZT_RELEASE_ZT_BUILD_BUILD]
-        if(!ObjectUtils.isEmpty(et.getBuild())){
+        if (!ObjectUtils.isEmpty(et.getBuild())) {
             cn.ibizlab.pms.core.zentao.domain.Build ztbuild=et.getZtbuild();
-            if(ObjectUtils.isEmpty(ztbuild)){
+            if (ObjectUtils.isEmpty(ztbuild)) {
                 cn.ibizlab.pms.core.zentao.domain.Build majorEntity=buildService.get(et.getBuild());
                 et.setZtbuild(majorEntity);
-                ztbuild=majorEntity;
+                ztbuild = majorEntity;
             }
             et.setBuildname(ztbuild.getName());
             et.setBuilder(ztbuild.getBuilder());
             et.setBuilddate(ztbuild.getDate());
         }
         //实体关系[DER1N_ZT_RELEASE_ZT_PRODUCT_PRODUCT]
-        if(!ObjectUtils.isEmpty(et.getProduct())){
+        if (!ObjectUtils.isEmpty(et.getProduct())) {
             cn.ibizlab.pms.core.zentao.domain.Product ztproduct=et.getZtproduct();
-            if(ObjectUtils.isEmpty(ztproduct)){
+            if (ObjectUtils.isEmpty(ztproduct)) {
                 cn.ibizlab.pms.core.zentao.domain.Product majorEntity=productService.get(et.getProduct());
                 et.setZtproduct(majorEntity);
-                ztproduct=majorEntity;
+                ztproduct = majorEntity;
             }
             et.setProductname(ztproduct.getName());
         }

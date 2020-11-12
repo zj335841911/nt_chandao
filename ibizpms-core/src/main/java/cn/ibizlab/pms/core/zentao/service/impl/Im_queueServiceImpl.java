@@ -57,36 +57,36 @@ public class Im_queueServiceImpl extends ServiceImpl<Im_queueMapper, Im_queue> i
         if(!this.retBool(this.baseMapper.insert(et))) {
             return false;
         }
-        CachedBeanCopier.copy(get(et.getId()),et);
+        CachedBeanCopier.copy(get(et.getId()), et);
         return true;
     }
 
     @Override
     @Transactional
     public void createBatch(List<Im_queue> list) {
-        this.saveBatch(list,batchSize);
+        this.saveBatch(list, batchSize);
     }
 
     @Override
     @Transactional
     public boolean update(Im_queue et) {
-        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId()))) {
+        if(!update(et, (Wrapper) et.getUpdateWrapper(true).eq("id", et.getId()))) {
             return false;
         }
-        CachedBeanCopier.copy(get(et.getId()),et);
+        CachedBeanCopier.copy(get(et.getId()), et);
         return true;
     }
 
     @Override
     @Transactional
     public void updateBatch(List<Im_queue> list) {
-        updateBatchById(list,batchSize);
+        updateBatchById(list, batchSize);
     }
 
     @Override
     @Transactional
     public boolean remove(Long key) {
-        boolean result=removeById(key);
+        boolean result = removeById(key);
         return result ;
     }
 
@@ -100,11 +100,11 @@ public class Im_queueServiceImpl extends ServiceImpl<Im_queueMapper, Im_queue> i
     @Transactional
     public Im_queue get(Long key) {
         Im_queue et = getById(key);
-        if(et==null){
-            et=new Im_queue();
+        if(et == null){
+            et = new Im_queue();
             et.setId(key);
         }
-        else{
+        else {
         }
         return et;
     }
@@ -116,12 +116,12 @@ public class Im_queueServiceImpl extends ServiceImpl<Im_queueMapper, Im_queue> i
 
     @Override
     public boolean checkKey(Im_queue et) {
-        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
+        return (!ObjectUtils.isEmpty(et.getId())) && (!Objects.isNull(this.getById(et.getId())));
     }
     @Override
     @Transactional
     public boolean save(Im_queue et) {
-        if(!saveOrUpdate(et)) {
+        if (!saveOrUpdate(et)) {
             return false;
         }
         return true;

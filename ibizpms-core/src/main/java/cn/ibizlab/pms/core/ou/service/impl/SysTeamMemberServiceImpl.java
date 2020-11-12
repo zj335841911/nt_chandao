@@ -53,9 +53,10 @@ public class SysTeamMemberServiceImpl implements ISysTeamMemberService {
     @Override
     public boolean create(SysTeamMember et) {
         SysTeamMember rt = sysTeamMemberFeignClient.create(et);
-        if(rt==null)
+        if (rt == null) {
             return false;
-        CachedBeanCopier.copy(rt,et);
+        }
+        CachedBeanCopier.copy(rt, et);
         return true;
     }
 
@@ -68,9 +69,10 @@ public class SysTeamMemberServiceImpl implements ISysTeamMemberService {
     @Override
     public boolean update(SysTeamMember et) {
         SysTeamMember rt = sysTeamMemberFeignClient.update(et.getTeammemberid(),et);
-        if(rt==null)
+        if (rt == null) {
             return false;
-        CachedBeanCopier.copy(rt,et);
+        }
+        CachedBeanCopier.copy(rt, et);
         return true;
 
     }
@@ -95,9 +97,9 @@ public class SysTeamMemberServiceImpl implements ISysTeamMemberService {
 
     @Override
     public SysTeamMember get(String teammemberid) {
-		SysTeamMember et=sysTeamMemberFeignClient.get(teammemberid);
-        if(et==null){
-            et=new SysTeamMember();
+		SysTeamMember et = sysTeamMemberFeignClient.get(teammemberid);
+        if (et == null){
+            et = new SysTeamMember();
             et.setTeammemberid(teammemberid);
         }
         else{
@@ -108,7 +110,7 @@ public class SysTeamMemberServiceImpl implements ISysTeamMemberService {
 
     @Override
     public SysTeamMember getDraft(SysTeamMember et) {
-        et=sysTeamMemberFeignClient.getDraft();
+        et = sysTeamMemberFeignClient.getDraft();
         return et;
     }
 
@@ -122,9 +124,12 @@ public class SysTeamMemberServiceImpl implements ISysTeamMemberService {
     @Override
     @Transactional
     public boolean save(SysTeamMember et) {
-        if(et.getTeammemberid()==null) et.setTeammemberid((String)et.getDefaultKey(true));
-        if(!sysTeamMemberFeignClient.save(et))
+        if (et.getTeammemberid() == null) {
+            et.setTeammemberid((String)et.getDefaultKey(true));
+        }
+        if (!sysTeamMemberFeignClient.save(et)) {
             return false;
+        }
         return true;
     }
 
@@ -150,11 +155,12 @@ public class SysTeamMemberServiceImpl implements ISysTeamMemberService {
     @Override
     public void removeByUserid(String userid) {
         Set<String> delIds=new HashSet<String>();
-        for(SysTeamMember before:selectByUserid(userid)){
+        for (SysTeamMember before:selectByUserid(userid)) {
             delIds.add(before.getTeammemberid());
         }
-        if(delIds.size()>0)
+        if (delIds.size() > 0) {
             this.removeBatch(delIds);
+        }
     }
 
 
@@ -171,11 +177,12 @@ public class SysTeamMemberServiceImpl implements ISysTeamMemberService {
     @Override
     public void removeByPostid(String postid) {
         Set<String> delIds=new HashSet<String>();
-        for(SysTeamMember before:selectByPostid(postid)){
+        for (SysTeamMember before:selectByPostid(postid)) {
             delIds.add(before.getTeammemberid());
         }
-        if(delIds.size()>0)
+        if (delIds.size() > 0) {
             this.removeBatch(delIds);
+        }
     }
 
 
@@ -192,11 +199,12 @@ public class SysTeamMemberServiceImpl implements ISysTeamMemberService {
     @Override
     public void removeByTeamid(String teamid) {
         Set<String> delIds=new HashSet<String>();
-        for(SysTeamMember before:selectByTeamid(teamid)){
+        for (SysTeamMember before:selectByTeamid(teamid)) {
             delIds.add(before.getTeammemberid());
         }
-        if(delIds.size()>0)
+        if (delIds.size() > 0) {
             this.removeBatch(delIds);
+        }
     }
 
 

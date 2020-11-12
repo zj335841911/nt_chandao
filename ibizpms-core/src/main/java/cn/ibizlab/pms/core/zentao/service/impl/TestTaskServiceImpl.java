@@ -112,11 +112,11 @@ public class TestTaskServiceImpl extends ServiceImpl<TestTaskMapper, TestTask> i
     @Transactional
     public TestTask get(Long key) {
         TestTask et = getById(key);
-        if(et==null){
-            et=new TestTask();
+        if(et == null){
+            et = new TestTask();
             et.setId(key);
         }
-        else{
+        else {
         }
         return et;
     }
@@ -142,7 +142,7 @@ public class TestTaskServiceImpl extends ServiceImpl<TestTaskMapper, TestTask> i
 
     @Override
     public boolean checkKey(TestTask et) {
-        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
+        return (!ObjectUtils.isEmpty(et.getId())) && (!Objects.isNull(this.getById(et.getId())));
     }
         @Override
     @Transactional
@@ -166,7 +166,7 @@ public class TestTaskServiceImpl extends ServiceImpl<TestTaskMapper, TestTask> i
     @Override
     @Transactional
     public boolean save(TestTask et) {
-        if(!saveOrUpdate(et)) {
+        if (!saveOrUpdate(et)) {
             return false;
         }
         return true;
@@ -255,32 +255,32 @@ public class TestTaskServiceImpl extends ServiceImpl<TestTaskMapper, TestTask> i
      */
     private void fillParentData(TestTask et){
         //实体关系[DER1N_ZT_TESTTASK_ZT_BUILD_BUILD]
-        if(!ObjectUtils.isEmpty(et.getBuild())){
+        if (!ObjectUtils.isEmpty(et.getBuild())) {
             cn.ibizlab.pms.core.zentao.domain.Build ztbuild=et.getZtbuild();
-            if(ObjectUtils.isEmpty(ztbuild)){
+            if (ObjectUtils.isEmpty(ztbuild)) {
                 cn.ibizlab.pms.core.zentao.domain.Build majorEntity=buildService.get(et.getBuild());
                 et.setZtbuild(majorEntity);
-                ztbuild=majorEntity;
+                ztbuild = majorEntity;
             }
             et.setBuildname(ztbuild.getName());
         }
         //实体关系[DER1N_ZT_TESTTASK_ZT_PRODUCT_PRODUCT]
-        if(!ObjectUtils.isEmpty(et.getProduct())){
+        if (!ObjectUtils.isEmpty(et.getProduct())) {
             cn.ibizlab.pms.core.zentao.domain.Product ztproduct=et.getZtproduct();
-            if(ObjectUtils.isEmpty(ztproduct)){
+            if (ObjectUtils.isEmpty(ztproduct)) {
                 cn.ibizlab.pms.core.zentao.domain.Product majorEntity=productService.get(et.getProduct());
                 et.setZtproduct(majorEntity);
-                ztproduct=majorEntity;
+                ztproduct = majorEntity;
             }
             et.setProductname(ztproduct.getName());
         }
         //实体关系[DER1N_ZT_TESTTASK_ZT_PROJECT_PROJECT]
-        if(!ObjectUtils.isEmpty(et.getProject())){
+        if (!ObjectUtils.isEmpty(et.getProject())) {
             cn.ibizlab.pms.core.zentao.domain.Project ztproject=et.getZtproject();
-            if(ObjectUtils.isEmpty(ztproject)){
+            if (ObjectUtils.isEmpty(ztproject)) {
                 cn.ibizlab.pms.core.zentao.domain.Project majorEntity=projectService.get(et.getProject());
                 et.setZtproject(majorEntity);
-                ztproject=majorEntity;
+                ztproject = majorEntity;
             }
             et.setProjecttname(ztproject.getName());
         }
@@ -328,14 +328,13 @@ public class TestTaskServiceImpl extends ServiceImpl<TestTaskMapper, TestTask> i
      * @return
      */
     private JSONObject testImportData(List<TestTask> entities,boolean isIgnoreError) {
-
-        JSONObject rs=new JSONObject();
-        Set ids=new HashSet<>();
+        JSONObject rs = new JSONObject();
+        Set ids = new HashSet<>();
         List<String> errorMsgs = new ArrayList<>();
         List<Integer> errorLines = new ArrayList<>();
-        List<TestTask> duplicateKeys=new ArrayList<>();
-        String keyField= DEFieldCacheMap.getDEKeyField(TestTask.class);
-        if(ObjectUtils.isEmpty(keyField)){
+        List<TestTask> duplicateKeys = new ArrayList<>();
+        String keyField = DEFieldCacheMap.getDEKeyField(TestTask.class);
+        if (ObjectUtils.isEmpty(keyField)) {
             errorLines.add(1);
             rs.put("rst", 1);
             rs.put("msg", "数据导入失败，未能获取到实体[TestTask]的主键属性");
@@ -343,90 +342,90 @@ public class TestTaskServiceImpl extends ServiceImpl<TestTaskMapper, TestTask> i
             return rs;
         }
         //主键重复性判断.外键约束判断（上传数据自身的检查/数据库的检查）
-        for(int i=0;i<entities.size();i++) {
+        for (int i = 0; i < entities.size(); i++) {
             TestTask entity = entities.get(i);
             Object id = entity.getId();
-            if(ObjectUtils.isEmpty(id)) {
+            if (ObjectUtils.isEmpty(id)) {
                 id = entity.getDefaultKey(true);
-                if(ObjectUtils.isEmpty(id)){
+                if (ObjectUtils.isEmpty(id)) {
                     Integer lineNum = i + 1;
                     errorLines.add(lineNum);
                     errorMsgs.add("第" + lineNum + "行：无法获取当前数据主键。");
                     continue;
                 }
-                else{
+                else {
                     entity.setId((Long) id);
                 }
             }
-            if(!ids.contains(id)){
+            if (!ids.contains(id)) {
                 ids.add(id);
             }
-            else{
+            else {
                 Integer lineNum = i + 1;
                 errorLines.add(lineNum);
                 errorMsgs.add("第" + lineNum + "行：导入数据之间存在重复数据。");
-                if(isIgnoreError){
+                if (isIgnoreError) {
                     duplicateKeys.add(entity);
                     continue;
                 }
-                else{
+                else {
                     break;
                 }
             }
         //实体关系[DER1N_ZT_TESTTASK_ZT_BUILD_BUILD]
-        if(!ObjectUtils.isEmpty(entity.getBuild())){
-            cn.ibizlab.pms.core.zentao.domain.Build fkEntity=new cn.ibizlab.pms.core.zentao.domain.Build();
+        if (!ObjectUtils.isEmpty(entity.getBuild())) {
+            cn.ibizlab.pms.core.zentao.domain.Build fkEntity = new cn.ibizlab.pms.core.zentao.domain.Build();
             fkEntity.setId(entity.getBuild());
-            if(!buildService.checkKey(fkEntity)){
+            if (!buildService.checkKey(fkEntity)) {
                 Integer lineNum = i + 1;
                 errorLines.add(lineNum);
                 errorMsgs.add(String.format("第" + lineNum + "行：[%s]父数据有误。",entity.getBuild()));
-                if(isIgnoreError){
+                if (isIgnoreError) {
                     entity.setBuild(null);
                     continue;
                 }
-                else{
+                else {
                    break;
                 }
             }
         }
         //实体关系[DER1N_ZT_TESTTASK_ZT_PRODUCT_PRODUCT]
-        if(!ObjectUtils.isEmpty(entity.getProduct())){
-            cn.ibizlab.pms.core.zentao.domain.Product fkEntity=new cn.ibizlab.pms.core.zentao.domain.Product();
+        if (!ObjectUtils.isEmpty(entity.getProduct())) {
+            cn.ibizlab.pms.core.zentao.domain.Product fkEntity = new cn.ibizlab.pms.core.zentao.domain.Product();
             fkEntity.setId(entity.getProduct());
-            if(!productService.checkKey(fkEntity)){
+            if (!productService.checkKey(fkEntity)) {
                 Integer lineNum = i + 1;
                 errorLines.add(lineNum);
                 errorMsgs.add(String.format("第" + lineNum + "行：[%s]父数据有误。",entity.getProduct()));
-                if(isIgnoreError){
+                if (isIgnoreError) {
                     entity.setProduct(null);
                     continue;
                 }
-                else{
+                else {
                    break;
                 }
             }
         }
         //实体关系[DER1N_ZT_TESTTASK_ZT_PROJECT_PROJECT]
-        if(!ObjectUtils.isEmpty(entity.getProject())){
-            cn.ibizlab.pms.core.zentao.domain.Project fkEntity=new cn.ibizlab.pms.core.zentao.domain.Project();
+        if (!ObjectUtils.isEmpty(entity.getProject())) {
+            cn.ibizlab.pms.core.zentao.domain.Project fkEntity = new cn.ibizlab.pms.core.zentao.domain.Project();
             fkEntity.setId(entity.getProject());
-            if(!projectService.checkKey(fkEntity)){
+            if (!projectService.checkKey(fkEntity)) {
                 Integer lineNum = i + 1;
                 errorLines.add(lineNum);
                 errorMsgs.add(String.format("第" + lineNum + "行：[%s]父数据有误。",entity.getProject()));
-                if(isIgnoreError){
+                if (isIgnoreError) {
                     entity.setProject(null);
                     continue;
                 }
-                else{
+                else {
                    break;
                 }
             }
         }
         }
-        if(duplicateKeys.size()>0){
-            for(TestTask duplicateKey:duplicateKeys){
+        if (duplicateKeys.size() > 0) {
+            for (TestTask duplicateKey : duplicateKeys) {
                 entities.remove(duplicateKey);
             }
         }
@@ -450,54 +449,54 @@ public class TestTaskServiceImpl extends ServiceImpl<TestTaskMapper, TestTask> i
     @Override
     @Transactional
     public JSONObject importData(List<TestTask> entities, int batchSize ,boolean isIgnoreError) {
-        if(entities.size()>syncImportLimit){
+        if (entities.size() > syncImportLimit) {
             proxyService.asyncImportData(entities,batchSize,isIgnoreError);
-            JSONObject rs=new JSONObject();
+            JSONObject rs = new JSONObject();
             rs.put("rst", 0);
-            rs.put("msg",String.format("当前导入数据已超过同步导入数量上限[%s]，系统正在进行异步导入，请稍后!",syncImportLimit));
-            rs.put("data",entities);
+            rs.put("msg", String.format("当前导入数据已超过同步导入数量上限[%s]，系统正在进行异步导入，请稍后!", syncImportLimit));
+            rs.put("data", entities);
             return rs;
         }
-        else{
+        else {
             return syncImportData(entities,batchSize,isIgnoreError);
         }
     }
 
     @Override
     @Transactional
-    public void asyncImportData(List<TestTask> entities, int batchSize ,boolean isIgnoreError){
+    public void asyncImportData(List<TestTask> entities, int batchSize, boolean isIgnoreError){
         executeImportData(entities,batchSize,isIgnoreError);
     }
 
     @Transactional
-    public JSONObject syncImportData(List<TestTask> entities, int batchSize ,boolean isIgnoreError){
+    public JSONObject syncImportData(List<TestTask> entities, int batchSize, boolean isIgnoreError){
         return executeImportData(entities,batchSize,isIgnoreError);
     }
 
     @Transactional
-    public JSONObject executeImportData(List<TestTask> entities, int batchSize ,boolean isIgnoreError) {
-        JSONObject rs=testImportData(entities,isIgnoreError);
-        if(rs.getInteger("rst")==1 && !isIgnoreError) {
+    public JSONObject executeImportData(List<TestTask> entities, int batchSize, boolean isIgnoreError) {
+        JSONObject rs = testImportData(entities, isIgnoreError);
+        if (rs.getInteger("rst") == 1 && !isIgnoreError) {
             return rs;
         }
-        List<TestTask> tempDEList=new ArrayList<>();
+        List<TestTask> tempDEList = new ArrayList<>();
         Set tempIds=new HashSet<>();
 
-        for(int i=0;i<entities.size();i++) {
+        for (int i = 0;i < entities.size(); i++) {
             TestTask entity = entities.get(i);
             tempDEList.add(entity);
-            Object id=entity.getId();
-            if(!ObjectUtils.isEmpty(id)) {
+            Object id = entity.getId();
+            if (!ObjectUtils.isEmpty(id)) {
                 tempIds.add(id);
             }
-            if(tempDEList.size()>=batchSize || (tempDEList.size()<batchSize && i==entities.size()-1)){
+            if (tempDEList.size() >= batchSize || (tempDEList.size() < batchSize && i == entities.size() - 1)){
                 commit(tempDEList,tempIds);
                 tempDEList.clear();
                 tempIds.clear();
-                }
             }
+        }
         rs.put("rst", 0);
-        rs.put("data",entities);
+        rs.put("data", entities);
         return rs;
     }
 
@@ -508,28 +507,28 @@ public class TestTaskServiceImpl extends ServiceImpl<TestTaskMapper, TestTask> i
      */
     @Transactional
     public void commit(List<TestTask> entities, Set ids){
-        List<TestTask> _create=new ArrayList<>();
-        List<TestTask> _update=new ArrayList<>();
-        Set oldIds=new HashSet<>();
-        if(ids.size()>0){
-            List<TestTask> oldEntities=this.listByIds(ids);
-            for(TestTask entity:oldEntities){
+        List<TestTask> _create = new ArrayList<>();
+        List<TestTask> _update = new ArrayList<>();
+        Set oldIds = new HashSet<>();
+        if (ids.size() > 0) {
+            List<TestTask> oldEntities = this.listByIds(ids);
+            for(TestTask entity : oldEntities){
                 oldIds.add(entity.getId());
             }
         }
-        for(TestTask entity:entities){
-            Object id=entity.getId();
-            if(oldIds.contains(id)) {
+        for (TestTask entity : entities) {
+            Object id = entity.getId();
+            if (oldIds.contains(id)) {
                 _update.add(entity);
             }
             else {
                 _create.add(entity);
             }
         }
-        if(_update.size()>0) {
+        if (_update.size() > 0) {
             proxyService.updateBatch(_update);
         }
-        if(_create.size()>0) {
+        if (_create.size() > 0) {
             proxyService.createBatch(_create);
         }
     }

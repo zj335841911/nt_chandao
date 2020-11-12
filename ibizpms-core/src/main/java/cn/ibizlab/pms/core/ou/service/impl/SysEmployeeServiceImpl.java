@@ -53,9 +53,10 @@ public class SysEmployeeServiceImpl implements ISysEmployeeService {
     @Override
     public boolean create(SysEmployee et) {
         SysEmployee rt = sysEmployeeFeignClient.create(et);
-        if(rt==null)
+        if (rt == null) {
             return false;
-        CachedBeanCopier.copy(rt,et);
+        }
+        CachedBeanCopier.copy(rt, et);
         return true;
     }
 
@@ -68,9 +69,10 @@ public class SysEmployeeServiceImpl implements ISysEmployeeService {
     @Override
     public boolean update(SysEmployee et) {
         SysEmployee rt = sysEmployeeFeignClient.update(et.getUserid(),et);
-        if(rt==null)
+        if (rt == null) {
             return false;
-        CachedBeanCopier.copy(rt,et);
+        }
+        CachedBeanCopier.copy(rt, et);
         return true;
 
     }
@@ -95,9 +97,9 @@ public class SysEmployeeServiceImpl implements ISysEmployeeService {
 
     @Override
     public SysEmployee get(String userid) {
-		SysEmployee et=sysEmployeeFeignClient.get(userid);
-        if(et==null){
-            et=new SysEmployee();
+		SysEmployee et = sysEmployeeFeignClient.get(userid);
+        if (et == null){
+            et = new SysEmployee();
             et.setUserid(userid);
         }
         else{
@@ -108,7 +110,7 @@ public class SysEmployeeServiceImpl implements ISysEmployeeService {
 
     @Override
     public SysEmployee getDraft(SysEmployee et) {
-        et=sysEmployeeFeignClient.getDraft();
+        et = sysEmployeeFeignClient.getDraft();
         return et;
     }
 
@@ -122,9 +124,12 @@ public class SysEmployeeServiceImpl implements ISysEmployeeService {
     @Override
     @Transactional
     public boolean save(SysEmployee et) {
-        if(et.getUserid()==null) et.setUserid((String)et.getDefaultKey(true));
-        if(!sysEmployeeFeignClient.save(et))
+        if (et.getUserid() == null) {
+            et.setUserid((String)et.getDefaultKey(true));
+        }
+        if (!sysEmployeeFeignClient.save(et)) {
             return false;
+        }
         return true;
     }
 
@@ -158,11 +163,12 @@ public class SysEmployeeServiceImpl implements ISysEmployeeService {
     @Override
     public void removeByMdeptid(String deptid) {
         Set<String> delIds=new HashSet<String>();
-        for(SysEmployee before:selectByMdeptid(deptid)){
+        for (SysEmployee before:selectByMdeptid(deptid)) {
             delIds.add(before.getUserid());
         }
-        if(delIds.size()>0)
+        if (delIds.size() > 0) {
             this.removeBatch(delIds);
+        }
     }
 
 
@@ -187,11 +193,12 @@ public class SysEmployeeServiceImpl implements ISysEmployeeService {
     @Override
     public void removeByOrgid(String orgid) {
         Set<String> delIds=new HashSet<String>();
-        for(SysEmployee before:selectByOrgid(orgid)){
+        for (SysEmployee before:selectByOrgid(orgid)) {
             delIds.add(before.getUserid());
         }
-        if(delIds.size()>0)
+        if (delIds.size() > 0) {
             this.removeBatch(delIds);
+        }
     }
 
 

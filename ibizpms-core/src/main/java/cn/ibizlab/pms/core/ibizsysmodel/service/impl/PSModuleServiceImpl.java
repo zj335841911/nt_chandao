@@ -61,9 +61,9 @@ public class PSModuleServiceImpl implements IPSModuleService {
     private String password;
 
     public PSModuleFeignClient getPSModuleFeignClient(String devSlnSysId) {
-        if(StringUtils.isNotBlank(serviceName)) {
+        if (StringUtils.isNotBlank(serviceName)) {
             return OutsideAccessorUtils.buildAccessor(SpringContextHolder.getApplicationContext(), PSModuleFeignClient.class, serviceName, false, serviceName, false, loginname, password, devSlnSysId);
-        } else if(StringUtils.isNotBlank(serviceUrl)) {
+        } else if (StringUtils.isNotBlank(serviceUrl)) {
             return OutsideAccessorUtils.buildAccessorByUrl(SpringContextHolder.getApplicationContext(), PSModuleFeignClient.class, serviceUrl, false, serviceUrl, false, loginname, password, devSlnSysId);
         } else {
             throw new RuntimeException("缺少平台服务配置信息。");
@@ -74,18 +74,19 @@ public class PSModuleServiceImpl implements IPSModuleService {
     @Override
     public boolean create(PSModule et) {
         PSModule rt = pSModuleFeignClient.create(et);
-        if(rt==null)
+        if (rt == null) {
             return false;
-        CachedBeanCopier.copy(rt,et);
+        }
+        CachedBeanCopier.copy(rt, et);
         return true;
     }
 
     @Override
     public boolean create(String devSlnSysId,PSModule et) {
         PSModule rt = getPSModuleFeignClient(devSlnSysId).create(et);
-        if(rt==null) {
+        if (rt == null) {
             return false;
-	}
+	    }
         CachedBeanCopier.copy(rt, et);
         return true;
     }
@@ -101,9 +102,10 @@ public class PSModuleServiceImpl implements IPSModuleService {
     @Override
     public boolean update(PSModule et) {
         PSModule rt = pSModuleFeignClient.update(et.getPsmoduleid(),et);
-        if(rt==null)
+        if (rt == null) {
             return false;
-        CachedBeanCopier.copy(rt,et);
+        }
+        CachedBeanCopier.copy(rt, et);
         return true;
 
     }
@@ -111,9 +113,9 @@ public class PSModuleServiceImpl implements IPSModuleService {
     @Override
     public boolean update(String devSlnSysId, PSModule et) {
         PSModule rt = getPSModuleFeignClient(devSlnSysId).update(et.getPsmoduleid(), et);
-        if(rt==null) {
+        if (rt == null) {
             return false;
-	}
+	    }
         CachedBeanCopier.copy(rt, et);
         return true;
     }
@@ -148,9 +150,9 @@ public class PSModuleServiceImpl implements IPSModuleService {
 
     @Override
     public PSModule get(String psmoduleid) {
-		PSModule et=pSModuleFeignClient.get(psmoduleid);
-        if(et==null){
-            et=new PSModule();
+		PSModule et = pSModuleFeignClient.get(psmoduleid);
+        if (et == null){
+            et = new PSModule();
             et.setPsmoduleid(psmoduleid);
         }
         else{
@@ -161,7 +163,7 @@ public class PSModuleServiceImpl implements IPSModuleService {
     @Override
     public PSModule get(String devSlnSysId,String psmoduleid) {
 		PSModule et = getPSModuleFeignClient(devSlnSysId).get(psmoduleid);
-        if(et == null) {
+        if (et == null) {
             et = new PSModule();
             et.setPsmoduleid(psmoduleid);
         }
@@ -177,7 +179,7 @@ public class PSModuleServiceImpl implements IPSModuleService {
 
     @Override
     public PSModule getDraft(PSModule et) {
-        et=pSModuleFeignClient.getDraft();
+        et = pSModuleFeignClient.getDraft();
         return et;
     }
 
@@ -200,21 +202,24 @@ public class PSModuleServiceImpl implements IPSModuleService {
     @Override
     @Transactional
     public boolean save(PSModule et) {
-        if(et.getPsmoduleid()==null) et.setPsmoduleid((String)et.getDefaultKey(true));
-        if(!pSModuleFeignClient.save(et))
+        if (et.getPsmoduleid() == null) {
+            et.setPsmoduleid((String)et.getDefaultKey(true));
+        }
+        if (!pSModuleFeignClient.save(et)) {
             return false;
+        }
         return true;
     }
 
     @Override
     @Transactional
     public boolean save(String devSlnSysId,PSModule et) {
-        if(et.getPsmoduleid() == null) {
-	    et.setPsmoduleid((String)et.getDefaultKey(true));
-	}
+        if (et.getPsmoduleid() == null) {
+	        et.setPsmoduleid((String)et.getDefaultKey(true));
+	    }
         if(!getPSModuleFeignClient(devSlnSysId).save(et)) {
             return false;
-	}
+        }
         return true;
     }
 

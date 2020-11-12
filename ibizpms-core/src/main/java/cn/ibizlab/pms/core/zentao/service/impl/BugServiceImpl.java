@@ -148,11 +148,11 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
     @Transactional
     public Bug get(Long key) {
         Bug et = getById(key);
-        if(et==null){
-            et=new Bug();
+        if(et == null){
+            et = new Bug();
             et.setId(key);
         }
-        else{
+        else {
         }
         return et;
     }
@@ -216,7 +216,7 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
 
     @Override
     public boolean checkKey(Bug et) {
-        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
+        return (!ObjectUtils.isEmpty(et.getId())) && (!Objects.isNull(this.getById(et.getId())));
     }
         @Override
     @Transactional
@@ -275,7 +275,7 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
     @Override
     @Transactional
     public boolean save(Bug et) {
-        if(!saveOrUpdate(et)) {
+        if (!saveOrUpdate(et)) {
             return false;
         }
         return true;
@@ -758,83 +758,83 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
      */
     private void fillParentData(Bug et){
         //实体关系[DER1N_ZT_BUG_ZT_BRANCH_BRANCH]
-        if(!ObjectUtils.isEmpty(et.getBranch())){
+        if (!ObjectUtils.isEmpty(et.getBranch())) {
             cn.ibizlab.pms.core.zentao.domain.Branch ztrranch=et.getZtrranch();
-            if(ObjectUtils.isEmpty(ztrranch)){
+            if (ObjectUtils.isEmpty(ztrranch)) {
                 cn.ibizlab.pms.core.zentao.domain.Branch majorEntity=branchService.get(et.getBranch());
                 et.setZtrranch(majorEntity);
-                ztrranch=majorEntity;
+                ztrranch = majorEntity;
             }
             et.setBranchname(ztrranch.getName());
         }
         //实体关系[DER1N_ZT_BUG_ZT_CASE_CASEID]
-        if(!ObjectUtils.isEmpty(et.getIbizcase())){
+        if (!ObjectUtils.isEmpty(et.getIbizcase())) {
             cn.ibizlab.pms.core.zentao.domain.Case ztcase=et.getZtcase();
-            if(ObjectUtils.isEmpty(ztcase)){
+            if (ObjectUtils.isEmpty(ztcase)) {
                 cn.ibizlab.pms.core.zentao.domain.Case majorEntity=caseService.get(et.getIbizcase());
                 et.setZtcase(majorEntity);
-                ztcase=majorEntity;
+                ztcase = majorEntity;
             }
             et.setCaseversion(ztcase.getVersion());
             et.setCasename(ztcase.getTitle());
         }
         //实体关系[DER1N_ZT_BUG_ZT_MODULE_MODULE]
-        if(!ObjectUtils.isEmpty(et.getModule())){
+        if (!ObjectUtils.isEmpty(et.getModule())) {
             cn.ibizlab.pms.core.zentao.domain.Module ztmodule=et.getZtmodule();
-            if(ObjectUtils.isEmpty(ztmodule)){
+            if (ObjectUtils.isEmpty(ztmodule)) {
                 cn.ibizlab.pms.core.zentao.domain.Module majorEntity=moduleService.get(et.getModule());
                 et.setZtmodule(majorEntity);
-                ztmodule=majorEntity;
+                ztmodule = majorEntity;
             }
             et.setModulename(ztmodule.getName());
         }
         //实体关系[DER1N_ZT_BUG_ZT_PRODUCT_PRODUCT]
-        if(!ObjectUtils.isEmpty(et.getProduct())){
+        if (!ObjectUtils.isEmpty(et.getProduct())) {
             cn.ibizlab.pms.core.zentao.domain.Product ztproduct=et.getZtproduct();
-            if(ObjectUtils.isEmpty(ztproduct)){
+            if (ObjectUtils.isEmpty(ztproduct)) {
                 cn.ibizlab.pms.core.zentao.domain.Product majorEntity=productService.get(et.getProduct());
                 et.setZtproduct(majorEntity);
-                ztproduct=majorEntity;
+                ztproduct = majorEntity;
             }
             et.setProductname(ztproduct.getName());
         }
         //实体关系[DER1N_ZT_BUG_ZT_PROJECT_PROJECT]
-        if(!ObjectUtils.isEmpty(et.getProject())){
+        if (!ObjectUtils.isEmpty(et.getProject())) {
             cn.ibizlab.pms.core.zentao.domain.Project ztproject=et.getZtproject();
-            if(ObjectUtils.isEmpty(ztproject)){
+            if (ObjectUtils.isEmpty(ztproject)) {
                 cn.ibizlab.pms.core.zentao.domain.Project majorEntity=projectService.get(et.getProject());
                 et.setZtproject(majorEntity);
-                ztproject=majorEntity;
+                ztproject = majorEntity;
             }
             et.setProjectname(ztproject.getName());
         }
         //实体关系[DER1N_ZT_BUG_ZT_REPO_REPO]
-        if(!ObjectUtils.isEmpty(et.getRepo())){
+        if (!ObjectUtils.isEmpty(et.getRepo())) {
             cn.ibizlab.pms.core.zentao.domain.Repo ztrepo=et.getZtrepo();
-            if(ObjectUtils.isEmpty(ztrepo)){
+            if (ObjectUtils.isEmpty(ztrepo)) {
                 cn.ibizlab.pms.core.zentao.domain.Repo majorEntity=repoService.get(et.getRepo());
                 et.setZtrepo(majorEntity);
-                ztrepo=majorEntity;
+                ztrepo = majorEntity;
             }
             et.setRepotype(ztrepo.getScm());
         }
         //实体关系[DER1N_ZT_BUG_ZT_STORY_STORY]
-        if(!ObjectUtils.isEmpty(et.getStory())){
+        if (!ObjectUtils.isEmpty(et.getStory())) {
             cn.ibizlab.pms.core.zentao.domain.Story ztstory=et.getZtstory();
-            if(ObjectUtils.isEmpty(ztstory)){
+            if (ObjectUtils.isEmpty(ztstory)) {
                 cn.ibizlab.pms.core.zentao.domain.Story majorEntity=storyService.get(et.getStory());
                 et.setZtstory(majorEntity);
-                ztstory=majorEntity;
+                ztstory = majorEntity;
             }
             et.setStoryname(ztstory.getTitle());
         }
         //实体关系[DER1N_ZT_BUG_ZT_TASK_TASK]
-        if(!ObjectUtils.isEmpty(et.getTask())){
+        if (!ObjectUtils.isEmpty(et.getTask())) {
             cn.ibizlab.pms.core.zentao.domain.Task zttask=et.getZttask();
-            if(ObjectUtils.isEmpty(zttask)){
+            if (ObjectUtils.isEmpty(zttask)) {
                 cn.ibizlab.pms.core.zentao.domain.Task majorEntity=taskService.get(et.getTask());
                 et.setZttask(majorEntity);
-                zttask=majorEntity;
+                zttask = majorEntity;
             }
             et.setTaskname(zttask.getName());
         }

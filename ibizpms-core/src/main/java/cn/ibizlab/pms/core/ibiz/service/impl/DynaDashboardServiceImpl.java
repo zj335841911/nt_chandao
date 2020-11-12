@@ -57,36 +57,36 @@ public class DynaDashboardServiceImpl extends ServiceImpl<DynaDashboardMapper, D
         if(!this.retBool(this.baseMapper.insert(et))) {
             return false;
         }
-        CachedBeanCopier.copy(get(et.getDynadashboardid()),et);
+        CachedBeanCopier.copy(get(et.getDynadashboardid()), et);
         return true;
     }
 
     @Override
     @Transactional
     public void createBatch(List<DynaDashboard> list) {
-        this.saveBatch(list,batchSize);
+        this.saveBatch(list, batchSize);
     }
 
     @Override
     @Transactional
     public boolean update(DynaDashboard et) {
-        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("dynadashboardid",et.getDynadashboardid()))) {
+        if(!update(et, (Wrapper) et.getUpdateWrapper(true).eq("dynadashboardid", et.getDynadashboardid()))) {
             return false;
         }
-        CachedBeanCopier.copy(get(et.getDynadashboardid()),et);
+        CachedBeanCopier.copy(get(et.getDynadashboardid()), et);
         return true;
     }
 
     @Override
     @Transactional
     public void updateBatch(List<DynaDashboard> list) {
-        updateBatchById(list,batchSize);
+        updateBatchById(list, batchSize);
     }
 
     @Override
     @Transactional
     public boolean remove(String key) {
-        boolean result=removeById(key);
+        boolean result = removeById(key);
         return result ;
     }
 
@@ -100,11 +100,11 @@ public class DynaDashboardServiceImpl extends ServiceImpl<DynaDashboardMapper, D
     @Transactional
     public DynaDashboard get(String key) {
         DynaDashboard et = getById(key);
-        if(et==null){
-            et=new DynaDashboard();
+        if(et == null){
+            et = new DynaDashboard();
             et.setDynadashboardid(key);
         }
-        else{
+        else {
         }
         return et;
     }
@@ -116,12 +116,12 @@ public class DynaDashboardServiceImpl extends ServiceImpl<DynaDashboardMapper, D
 
     @Override
     public boolean checkKey(DynaDashboard et) {
-        return (!ObjectUtils.isEmpty(et.getDynadashboardid()))&&(!Objects.isNull(this.getById(et.getDynadashboardid())));
+        return (!ObjectUtils.isEmpty(et.getDynadashboardid())) && (!Objects.isNull(this.getById(et.getDynadashboardid())));
     }
     @Override
     @Transactional
     public boolean save(DynaDashboard et) {
-        if(!saveOrUpdate(et)) {
+        if (!saveOrUpdate(et)) {
             return false;
         }
         return true;
@@ -201,11 +201,11 @@ public class DynaDashboardServiceImpl extends ServiceImpl<DynaDashboardMapper, D
         List ids =new ArrayList();
         for(DynaDashboard entity : entities){
             Serializable id=entity.getDynadashboardid();
-            if(!ObjectUtils.isEmpty(id)){
+            if (!ObjectUtils.isEmpty(id)) {
                 ids.add(id);
             }
         }
-        if(ids.size()>0) {
+        if (ids.size() > 0) {
             return this.listByIds(ids);
         }
         else {

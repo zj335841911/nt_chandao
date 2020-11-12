@@ -75,7 +75,7 @@ public class ModuleServiceImpl extends ServiceImpl<ModuleMapper, Module> impleme
         if(!this.retBool(this.baseMapper.insert(et))) {
             return false;
         }
-        CachedBeanCopier.copy(get(et.getId()),et);
+        CachedBeanCopier.copy(get(et.getId()), et);
         return true;
     }
 
@@ -83,7 +83,7 @@ public class ModuleServiceImpl extends ServiceImpl<ModuleMapper, Module> impleme
     @Transactional
     public void createBatch(List<Module> list) {
         list.forEach(item->fillParentData(item));
-        this.saveBatch(list,batchSize);
+        this.saveBatch(list, batchSize);
     }
 
         @Override
@@ -114,11 +114,11 @@ public class ModuleServiceImpl extends ServiceImpl<ModuleMapper, Module> impleme
     @Transactional
     public Module get(Long key) {
         Module et = getById(key);
-        if(et==null){
-            et=new Module();
+        if(et == null){
+            et = new Module();
             et.setId(key);
         }
-        else{
+        else {
         }
         return et;
     }
@@ -131,7 +131,7 @@ public class ModuleServiceImpl extends ServiceImpl<ModuleMapper, Module> impleme
 
     @Override
     public boolean checkKey(Module et) {
-        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
+        return (!ObjectUtils.isEmpty(et.getId())) && (!Objects.isNull(this.getById(et.getId())));
     }
         @Override
     @Transactional
@@ -142,7 +142,7 @@ public class ModuleServiceImpl extends ServiceImpl<ModuleMapper, Module> impleme
     @Override
     @Transactional
     public boolean save(Module et) {
-        if(!saveOrUpdate(et)) {
+        if (!saveOrUpdate(et)) {
             return false;
         }
         return true;
@@ -246,12 +246,12 @@ public class ModuleServiceImpl extends ServiceImpl<ModuleMapper, Module> impleme
      */
     private void fillParentData(Module et){
         //实体关系[DER1N__ZT_MODULE__ZT_MODULE__PARENT]
-        if(!ObjectUtils.isEmpty(et.getParent())){
+        if (!ObjectUtils.isEmpty(et.getParent())) {
             cn.ibizlab.pms.core.zentao.domain.Module ibizparent=et.getIbizparent();
-            if(ObjectUtils.isEmpty(ibizparent)){
+            if (ObjectUtils.isEmpty(ibizparent)) {
                 cn.ibizlab.pms.core.zentao.domain.Module majorEntity=moduleService.get(et.getParent());
                 et.setIbizparent(majorEntity);
-                ibizparent=majorEntity;
+                ibizparent = majorEntity;
             }
             et.setParentname(ibizparent.getName());
         }

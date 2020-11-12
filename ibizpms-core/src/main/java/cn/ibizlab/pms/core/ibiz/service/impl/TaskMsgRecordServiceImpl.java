@@ -57,36 +57,36 @@ public class TaskMsgRecordServiceImpl extends ServiceImpl<TaskMsgRecordMapper, T
         if(!this.retBool(this.baseMapper.insert(et))) {
             return false;
         }
-        CachedBeanCopier.copy(get(et.getTaskmsgrecordid()),et);
+        CachedBeanCopier.copy(get(et.getTaskmsgrecordid()), et);
         return true;
     }
 
     @Override
     @Transactional
     public void createBatch(List<TaskMsgRecord> list) {
-        this.saveBatch(list,batchSize);
+        this.saveBatch(list, batchSize);
     }
 
     @Override
     @Transactional
     public boolean update(TaskMsgRecord et) {
-        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("taskmsgrecordid",et.getTaskmsgrecordid()))) {
+        if(!update(et, (Wrapper) et.getUpdateWrapper(true).eq("taskmsgrecordid", et.getTaskmsgrecordid()))) {
             return false;
         }
-        CachedBeanCopier.copy(get(et.getTaskmsgrecordid()),et);
+        CachedBeanCopier.copy(get(et.getTaskmsgrecordid()), et);
         return true;
     }
 
     @Override
     @Transactional
     public void updateBatch(List<TaskMsgRecord> list) {
-        updateBatchById(list,batchSize);
+        updateBatchById(list, batchSize);
     }
 
     @Override
     @Transactional
     public boolean remove(String key) {
-        boolean result=removeById(key);
+        boolean result = removeById(key);
         return result ;
     }
 
@@ -100,11 +100,11 @@ public class TaskMsgRecordServiceImpl extends ServiceImpl<TaskMsgRecordMapper, T
     @Transactional
     public TaskMsgRecord get(String key) {
         TaskMsgRecord et = getById(key);
-        if(et==null){
-            et=new TaskMsgRecord();
+        if(et == null){
+            et = new TaskMsgRecord();
             et.setTaskmsgrecordid(key);
         }
-        else{
+        else {
         }
         return et;
     }
@@ -116,12 +116,12 @@ public class TaskMsgRecordServiceImpl extends ServiceImpl<TaskMsgRecordMapper, T
 
     @Override
     public boolean checkKey(TaskMsgRecord et) {
-        return (!ObjectUtils.isEmpty(et.getTaskmsgrecordid()))&&(!Objects.isNull(this.getById(et.getTaskmsgrecordid())));
+        return (!ObjectUtils.isEmpty(et.getTaskmsgrecordid())) && (!Objects.isNull(this.getById(et.getTaskmsgrecordid())));
     }
     @Override
     @Transactional
     public boolean save(TaskMsgRecord et) {
-        if(!saveOrUpdate(et)) {
+        if (!saveOrUpdate(et)) {
             return false;
         }
         return true;
@@ -201,11 +201,11 @@ public class TaskMsgRecordServiceImpl extends ServiceImpl<TaskMsgRecordMapper, T
         List ids =new ArrayList();
         for(TaskMsgRecord entity : entities){
             Serializable id=entity.getTaskmsgrecordid();
-            if(!ObjectUtils.isEmpty(id)){
+            if (!ObjectUtils.isEmpty(id)) {
                 ids.add(id);
             }
         }
-        if(ids.size()>0) {
+        if (ids.size() > 0) {
             return this.listByIds(ids);
         }
         else {

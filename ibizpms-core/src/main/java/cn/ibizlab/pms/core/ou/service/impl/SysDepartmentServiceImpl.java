@@ -53,9 +53,10 @@ public class SysDepartmentServiceImpl implements ISysDepartmentService {
     @Override
     public boolean create(SysDepartment et) {
         SysDepartment rt = sysDepartmentFeignClient.create(et);
-        if(rt==null)
+        if (rt == null) {
             return false;
-        CachedBeanCopier.copy(rt,et);
+        }
+        CachedBeanCopier.copy(rt, et);
         return true;
     }
 
@@ -68,9 +69,10 @@ public class SysDepartmentServiceImpl implements ISysDepartmentService {
     @Override
     public boolean update(SysDepartment et) {
         SysDepartment rt = sysDepartmentFeignClient.update(et.getDeptid(),et);
-        if(rt==null)
+        if (rt == null) {
             return false;
-        CachedBeanCopier.copy(rt,et);
+        }
+        CachedBeanCopier.copy(rt, et);
         return true;
 
     }
@@ -95,9 +97,9 @@ public class SysDepartmentServiceImpl implements ISysDepartmentService {
 
     @Override
     public SysDepartment get(String deptid) {
-		SysDepartment et=sysDepartmentFeignClient.get(deptid);
-        if(et==null){
-            et=new SysDepartment();
+		SysDepartment et = sysDepartmentFeignClient.get(deptid);
+        if (et == null){
+            et = new SysDepartment();
             et.setDeptid(deptid);
         }
         else{
@@ -108,7 +110,7 @@ public class SysDepartmentServiceImpl implements ISysDepartmentService {
 
     @Override
     public SysDepartment getDraft(SysDepartment et) {
-        et=sysDepartmentFeignClient.getDraft();
+        et = sysDepartmentFeignClient.getDraft();
         return et;
     }
 
@@ -122,9 +124,12 @@ public class SysDepartmentServiceImpl implements ISysDepartmentService {
     @Override
     @Transactional
     public boolean save(SysDepartment et) {
-        if(et.getDeptid()==null) et.setDeptid((String)et.getDefaultKey(true));
-        if(!sysDepartmentFeignClient.save(et))
+        if (et.getDeptid() == null) {
+            et.setDeptid((String)et.getDefaultKey(true));
+        }
+        if (!sysDepartmentFeignClient.save(et)) {
             return false;
+        }
         return true;
     }
 
@@ -156,11 +161,12 @@ public class SysDepartmentServiceImpl implements ISysDepartmentService {
     @Override
     public void removeByParentdeptid(String deptid) {
         Set<String> delIds=new HashSet<String>();
-        for(SysDepartment before:selectByParentdeptid(deptid)){
+        for (SysDepartment before:selectByParentdeptid(deptid)) {
             delIds.add(before.getDeptid());
         }
-        if(delIds.size()>0)
+        if (delIds.size() > 0) {
             this.removeBatch(delIds);
+        }
     }
 
 
@@ -183,11 +189,12 @@ public class SysDepartmentServiceImpl implements ISysDepartmentService {
     @Override
     public void removeByOrgid(String orgid) {
         Set<String> delIds=new HashSet<String>();
-        for(SysDepartment before:selectByOrgid(orgid)){
+        for (SysDepartment before:selectByOrgid(orgid)) {
             delIds.add(before.getDeptid());
         }
-        if(delIds.size()>0)
+        if (delIds.size() > 0) {
             this.removeBatch(delIds);
+        }
     }
 
 
@@ -196,8 +203,9 @@ public class SysDepartmentServiceImpl implements ISysDepartmentService {
     ISysDepartmentService proxyService;
 	@Override
     public void saveByOrgid(String orgid,List<SysDepartment> list) {
-        if(list==null)
+        if (list == null) {
             return;
+        }
         Set<String> delIds=new HashSet<String>();
         List<SysDepartment> _update=new ArrayList<SysDepartment>();
         List<SysDepartment> _create=new ArrayList<SysDepartment>();
@@ -206,21 +214,25 @@ public class SysDepartmentServiceImpl implements ISysDepartmentService {
         }
         for(SysDepartment sub:list) {
             sub.setOrgid(orgid);
-            if(ObjectUtils.isEmpty(sub.getDeptid()))
+            if (ObjectUtils.isEmpty(sub.getDeptid())) {
                 sub.setDeptid((String)sub.getDefaultKey(true));
-            if(delIds.contains(sub.getDeptid())) {
+            }
+            if (delIds.contains(sub.getDeptid())) {
                 delIds.remove(sub.getDeptid());
                 _update.add(sub);
             }
             else
                 _create.add(sub);
         }
-        if(_update.size()>0)
+        if (_update.size() > 0) {
             proxyService.updateBatch(_update);
-        if(_create.size()>0)
+        }
+        if (_create.size() > 0) {
             proxyService.createBatch(_create);
-        if(delIds.size()>0)
+        }
+        if (delIds.size() > 0) {
             proxyService.removeBatch(delIds);
+        }
 	}
 
 

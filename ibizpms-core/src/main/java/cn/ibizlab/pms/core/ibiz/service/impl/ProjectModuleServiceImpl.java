@@ -74,7 +74,7 @@ public class ProjectModuleServiceImpl extends ServiceImpl<ProjectModuleMapper, P
         if(!this.retBool(this.baseMapper.insert(et))) {
             return false;
         }
-        CachedBeanCopier.copy(get(et.getId()),et);
+        CachedBeanCopier.copy(get(et.getId()), et);
         fixpathLogic.execute(et);
         return true;
     }
@@ -83,17 +83,17 @@ public class ProjectModuleServiceImpl extends ServiceImpl<ProjectModuleMapper, P
     @Transactional
     public void createBatch(List<ProjectModule> list) {
         list.forEach(item->fillParentData(item));
-        this.saveBatch(list,batchSize);
+        this.saveBatch(list, batchSize);
     }
 
     @Override
     @Transactional
     public boolean update(ProjectModule et) {
         fillParentData(et);
-        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId()))) {
+        if(!update(et, (Wrapper) et.getUpdateWrapper(true).eq("id", et.getId()))) {
             return false;
         }
-        CachedBeanCopier.copy(get(et.getId()),et);
+        CachedBeanCopier.copy(get(et.getId()), et);
         fixpathLogic.execute(et);
         return true;
     }
@@ -102,13 +102,13 @@ public class ProjectModuleServiceImpl extends ServiceImpl<ProjectModuleMapper, P
     @Transactional
     public void updateBatch(List<ProjectModule> list) {
         list.forEach(item->fillParentData(item));
-        updateBatchById(list,batchSize);
+        updateBatchById(list, batchSize);
     }
 
     @Override
     @Transactional
     public boolean remove(Long key) {
-        boolean result=removeById(key);
+        boolean result = removeById(key);
         return result ;
     }
 
@@ -122,11 +122,11 @@ public class ProjectModuleServiceImpl extends ServiceImpl<ProjectModuleMapper, P
     @Transactional
     public ProjectModule get(Long key) {
         ProjectModule et = getById(key);
-        if(et==null){
-            et=new ProjectModule();
+        if(et == null){
+            et = new ProjectModule();
             et.setId(key);
         }
-        else{
+        else {
         }
         return et;
     }
@@ -139,7 +139,7 @@ public class ProjectModuleServiceImpl extends ServiceImpl<ProjectModuleMapper, P
 
     @Override
     public boolean checkKey(ProjectModule et) {
-        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
+        return (!ObjectUtils.isEmpty(et.getId())) && (!Objects.isNull(this.getById(et.getId())));
     }
     @Override
     @Transactional
@@ -158,7 +158,7 @@ public class ProjectModuleServiceImpl extends ServiceImpl<ProjectModuleMapper, P
     @Override
     @Transactional
     public boolean save(ProjectModule et) {
-        if(!saveOrUpdate(et)) {
+        if (!saveOrUpdate(et)) {
             return false;
         }
         return true;
@@ -280,22 +280,22 @@ public class ProjectModuleServiceImpl extends ServiceImpl<ProjectModuleMapper, P
      */
     private void fillParentData(ProjectModule et){
         //实体关系[DER1N_IBZ_PROJECTMODULE_IBZ_PROJECTMODULE_PARENT]
-        if(!ObjectUtils.isEmpty(et.getParent())){
+        if (!ObjectUtils.isEmpty(et.getParent())) {
             cn.ibizlab.pms.core.ibiz.domain.ProjectModule parentmodule=et.getParentmodule();
-            if(ObjectUtils.isEmpty(parentmodule)){
+            if (ObjectUtils.isEmpty(parentmodule)) {
                 cn.ibizlab.pms.core.ibiz.domain.ProjectModule majorEntity=projectmoduleService.get(et.getParent());
                 et.setParentmodule(majorEntity);
-                parentmodule=majorEntity;
+                parentmodule = majorEntity;
             }
             et.setParentname(parentmodule.getName());
         }
         //实体关系[DER1N_IBZ_PROJECTMODULE_ZT_PROJECT_ROOT]
-        if(!ObjectUtils.isEmpty(et.getRoot())){
+        if (!ObjectUtils.isEmpty(et.getRoot())) {
             cn.ibizlab.pms.core.zentao.domain.Project ztproject=et.getZtproject();
-            if(ObjectUtils.isEmpty(ztproject)){
+            if (ObjectUtils.isEmpty(ztproject)) {
                 cn.ibizlab.pms.core.zentao.domain.Project majorEntity=projectService.get(et.getRoot());
                 et.setZtproject(majorEntity);
-                ztproject=majorEntity;
+                ztproject = majorEntity;
             }
             et.setRootname(ztproject.getName());
         }

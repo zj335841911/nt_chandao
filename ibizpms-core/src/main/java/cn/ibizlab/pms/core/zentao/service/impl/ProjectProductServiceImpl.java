@@ -70,7 +70,7 @@ public class ProjectProductServiceImpl extends ServiceImpl<ProjectProductMapper,
         if(!this.retBool(this.baseMapper.insert(et))) {
             return false;
         }
-        CachedBeanCopier.copy(get(et.getId()),et);
+        CachedBeanCopier.copy(get(et.getId()), et);
         return true;
     }
 
@@ -78,17 +78,17 @@ public class ProjectProductServiceImpl extends ServiceImpl<ProjectProductMapper,
     @Transactional
     public void createBatch(List<ProjectProduct> list) {
         list.forEach(item->fillParentData(item));
-        this.saveBatch(list,batchSize);
+        this.saveBatch(list, batchSize);
     }
 
     @Override
     @Transactional
     public boolean update(ProjectProduct et) {
         fillParentData(et);
-        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId()))) {
+        if(!update(et, (Wrapper) et.getUpdateWrapper(true).eq("id", et.getId()))) {
             return false;
         }
-        CachedBeanCopier.copy(get(et.getId()),et);
+        CachedBeanCopier.copy(get(et.getId()), et);
         return true;
     }
 
@@ -96,13 +96,13 @@ public class ProjectProductServiceImpl extends ServiceImpl<ProjectProductMapper,
     @Transactional
     public void updateBatch(List<ProjectProduct> list) {
         list.forEach(item->fillParentData(item));
-        updateBatchById(list,batchSize);
+        updateBatchById(list, batchSize);
     }
 
     @Override
     @Transactional
     public boolean remove(String key) {
-        boolean result=removeById(key);
+        boolean result = removeById(key);
         return result ;
     }
 
@@ -116,11 +116,11 @@ public class ProjectProductServiceImpl extends ServiceImpl<ProjectProductMapper,
     @Transactional
     public ProjectProduct get(String key) {
         ProjectProduct et = getById(key);
-        if(et==null){
-            et=new ProjectProduct();
+        if(et == null){
+            et = new ProjectProduct();
             et.setId(key);
         }
-        else{
+        else {
         }
         return et;
     }
@@ -133,12 +133,12 @@ public class ProjectProductServiceImpl extends ServiceImpl<ProjectProductMapper,
 
     @Override
     public boolean checkKey(ProjectProduct et) {
-        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
+        return (!ObjectUtils.isEmpty(et.getId())) && (!Objects.isNull(this.getById(et.getId())));
     }
     @Override
     @Transactional
     public boolean save(ProjectProduct et) {
-        if(!saveOrUpdate(et)) {
+        if (!saveOrUpdate(et)) {
             return false;
         }
         return true;
@@ -233,32 +233,32 @@ public class ProjectProductServiceImpl extends ServiceImpl<ProjectProductMapper,
      */
     private void fillParentData(ProjectProduct et){
         //实体关系[DER1N_ZT_PROJECTPRODUCT_ZT_PRODUCTPLAN_PLAN]
-        if(!ObjectUtils.isEmpty(et.getPlan())){
+        if (!ObjectUtils.isEmpty(et.getPlan())) {
             cn.ibizlab.pms.core.zentao.domain.ProductPlan ztproductplan=et.getZtproductplan();
-            if(ObjectUtils.isEmpty(ztproductplan)){
+            if (ObjectUtils.isEmpty(ztproductplan)) {
                 cn.ibizlab.pms.core.zentao.domain.ProductPlan majorEntity=productplanService.get(et.getPlan());
                 et.setZtproductplan(majorEntity);
-                ztproductplan=majorEntity;
+                ztproductplan = majorEntity;
             }
             et.setPlanname(ztproductplan.getTitle());
         }
         //实体关系[DER1N_ZT_PROJECTPRODUCT_ZT_PRODUCT_PRODUCT]
-        if(!ObjectUtils.isEmpty(et.getProduct())){
+        if (!ObjectUtils.isEmpty(et.getProduct())) {
             cn.ibizlab.pms.core.zentao.domain.Product ztproduct=et.getZtproduct();
-            if(ObjectUtils.isEmpty(ztproduct)){
+            if (ObjectUtils.isEmpty(ztproduct)) {
                 cn.ibizlab.pms.core.zentao.domain.Product majorEntity=productService.get(et.getProduct());
                 et.setZtproduct(majorEntity);
-                ztproduct=majorEntity;
+                ztproduct = majorEntity;
             }
             et.setProductname(ztproduct.getName());
         }
         //实体关系[DER1N_ZT_PROJECTPRODUCT_ZT_PROJECT_PROJECT]
-        if(!ObjectUtils.isEmpty(et.getProject())){
+        if (!ObjectUtils.isEmpty(et.getProject())) {
             cn.ibizlab.pms.core.zentao.domain.Project ztproject=et.getZtproject();
-            if(ObjectUtils.isEmpty(ztproject)){
+            if (ObjectUtils.isEmpty(ztproject)) {
                 cn.ibizlab.pms.core.zentao.domain.Project majorEntity=projectService.get(et.getProject());
                 et.setZtproject(majorEntity);
-                ztproject=majorEntity;
+                ztproject = majorEntity;
             }
             et.setProjectname(ztproject.getName());
         }

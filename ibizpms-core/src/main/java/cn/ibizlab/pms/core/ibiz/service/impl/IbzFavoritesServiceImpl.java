@@ -57,36 +57,36 @@ public class IbzFavoritesServiceImpl extends ServiceImpl<IbzFavoritesMapper, Ibz
         if(!this.retBool(this.baseMapper.insert(et))) {
             return false;
         }
-        CachedBeanCopier.copy(get(et.getIbzfavoritesid()),et);
+        CachedBeanCopier.copy(get(et.getIbzfavoritesid()), et);
         return true;
     }
 
     @Override
     @Transactional
     public void createBatch(List<IbzFavorites> list) {
-        this.saveBatch(list,batchSize);
+        this.saveBatch(list, batchSize);
     }
 
     @Override
     @Transactional
     public boolean update(IbzFavorites et) {
-        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("ibz_favoritesid",et.getIbzfavoritesid()))) {
+        if(!update(et, (Wrapper) et.getUpdateWrapper(true).eq("ibz_favoritesid", et.getIbzfavoritesid()))) {
             return false;
         }
-        CachedBeanCopier.copy(get(et.getIbzfavoritesid()),et);
+        CachedBeanCopier.copy(get(et.getIbzfavoritesid()), et);
         return true;
     }
 
     @Override
     @Transactional
     public void updateBatch(List<IbzFavorites> list) {
-        updateBatchById(list,batchSize);
+        updateBatchById(list, batchSize);
     }
 
     @Override
     @Transactional
     public boolean remove(String key) {
-        boolean result=removeById(key);
+        boolean result = removeById(key);
         return result ;
     }
 
@@ -100,11 +100,11 @@ public class IbzFavoritesServiceImpl extends ServiceImpl<IbzFavoritesMapper, Ibz
     @Transactional
     public IbzFavorites get(String key) {
         IbzFavorites et = getById(key);
-        if(et==null){
-            et=new IbzFavorites();
+        if(et == null){
+            et = new IbzFavorites();
             et.setIbzfavoritesid(key);
         }
-        else{
+        else {
         }
         return et;
     }
@@ -116,12 +116,12 @@ public class IbzFavoritesServiceImpl extends ServiceImpl<IbzFavoritesMapper, Ibz
 
     @Override
     public boolean checkKey(IbzFavorites et) {
-        return (!ObjectUtils.isEmpty(et.getIbzfavoritesid()))&&(!Objects.isNull(this.getById(et.getIbzfavoritesid())));
+        return (!ObjectUtils.isEmpty(et.getIbzfavoritesid())) && (!Objects.isNull(this.getById(et.getIbzfavoritesid())));
     }
     @Override
     @Transactional
     public boolean save(IbzFavorites et) {
-        if(!saveOrUpdate(et)) {
+        if (!saveOrUpdate(et)) {
             return false;
         }
         return true;
@@ -201,11 +201,11 @@ public class IbzFavoritesServiceImpl extends ServiceImpl<IbzFavoritesMapper, Ibz
         List ids =new ArrayList();
         for(IbzFavorites entity : entities){
             Serializable id=entity.getIbzfavoritesid();
-            if(!ObjectUtils.isEmpty(id)){
+            if (!ObjectUtils.isEmpty(id)) {
                 ids.add(id);
             }
         }
-        if(ids.size()>0) {
+        if (ids.size() > 0) {
             return this.listByIds(ids);
         }
         else {

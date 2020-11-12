@@ -60,36 +60,36 @@ public class TaskTeamServiceImpl extends ServiceImpl<TaskTeamMapper, TaskTeam> i
         if(!this.retBool(this.baseMapper.insert(et))) {
             return false;
         }
-        CachedBeanCopier.copy(get(et.getId()),et);
+        CachedBeanCopier.copy(get(et.getId()), et);
         return true;
     }
 
     @Override
     @Transactional
     public void createBatch(List<TaskTeam> list) {
-        this.saveBatch(list,batchSize);
+        this.saveBatch(list, batchSize);
     }
 
     @Override
     @Transactional
     public boolean update(TaskTeam et) {
-        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId()))) {
+        if(!update(et, (Wrapper) et.getUpdateWrapper(true).eq("id", et.getId()))) {
             return false;
         }
-        CachedBeanCopier.copy(get(et.getId()),et);
+        CachedBeanCopier.copy(get(et.getId()), et);
         return true;
     }
 
     @Override
     @Transactional
     public void updateBatch(List<TaskTeam> list) {
-        updateBatchById(list,batchSize);
+        updateBatchById(list, batchSize);
     }
 
     @Override
     @Transactional
     public boolean remove(Long key) {
-        boolean result=removeById(key);
+        boolean result = removeById(key);
         return result ;
     }
 
@@ -103,11 +103,11 @@ public class TaskTeamServiceImpl extends ServiceImpl<TaskTeamMapper, TaskTeam> i
     @Transactional
     public TaskTeam get(Long key) {
         TaskTeam et = getById(key);
-        if(et==null){
-            et=new TaskTeam();
+        if(et == null){
+            et = new TaskTeam();
             et.setId(key);
         }
-        else{
+        else {
         }
         return et;
     }
@@ -119,12 +119,12 @@ public class TaskTeamServiceImpl extends ServiceImpl<TaskTeamMapper, TaskTeam> i
 
     @Override
     public boolean checkKey(TaskTeam et) {
-        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
+        return (!ObjectUtils.isEmpty(et.getId())) && (!Objects.isNull(this.getById(et.getId())));
     }
     @Override
     @Transactional
     public boolean save(TaskTeam et) {
-        if(!saveOrUpdate(et)) {
+        if (!saveOrUpdate(et)) {
             return false;
         }
         return true;
@@ -168,8 +168,9 @@ public class TaskTeamServiceImpl extends ServiceImpl<TaskTeamMapper, TaskTeam> i
     ITaskTeamService proxyService;
 	@Override
     public void saveByRoot(Long id,List<TaskTeam> list) {
-        if(list==null)
+        if (list == null) {
             return;
+        }
         Set<Long> delIds=new HashSet<Long>();
         List<TaskTeam> _update=new ArrayList<TaskTeam>();
         List<TaskTeam> _create=new ArrayList<TaskTeam>();
@@ -178,21 +179,25 @@ public class TaskTeamServiceImpl extends ServiceImpl<TaskTeamMapper, TaskTeam> i
         }
         for(TaskTeam sub:list) {
             sub.setRoot(id);
-            if(ObjectUtils.isEmpty(sub.getId()))
+            if (ObjectUtils.isEmpty(sub.getId()))
                 sub.setId((Long)sub.getDefaultKey(true));
-            if(delIds.contains(sub.getId())) {
+            if (delIds.contains(sub.getId())) {
                 delIds.remove(sub.getId());
                 _update.add(sub);
             }
-            else
+            else {
                 _create.add(sub);
+            }
         }
-        if(_update.size()>0)
+        if (_update.size() > 0) {
             proxyService.updateBatch(_update);
-        if(_create.size()>0)
+        }
+        if (_create.size() > 0) {
             proxyService.createBatch(_create);
-        if(delIds.size()>0)
+        }
+        if (delIds.size() > 0) {
             proxyService.removeBatch(delIds);
+        }
 	}
 
 

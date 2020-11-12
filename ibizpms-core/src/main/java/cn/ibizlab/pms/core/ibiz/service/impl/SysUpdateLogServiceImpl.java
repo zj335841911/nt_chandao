@@ -64,7 +64,7 @@ public class SysUpdateLogServiceImpl extends ServiceImpl<SysUpdateLogMapper, Sys
         if(!this.retBool(this.baseMapper.insert(et))) {
             return false;
         }
-        CachedBeanCopier.copy(get(et.getSysupdatelogid()),et);
+        CachedBeanCopier.copy(get(et.getSysupdatelogid()), et);
         updatelastedLogic.execute(et);
         return true;
     }
@@ -72,30 +72,30 @@ public class SysUpdateLogServiceImpl extends ServiceImpl<SysUpdateLogMapper, Sys
     @Override
     @Transactional
     public void createBatch(List<SysUpdateLog> list) {
-        this.saveBatch(list,batchSize);
+        this.saveBatch(list, batchSize);
     }
 
     @Override
     @Transactional
     public boolean update(SysUpdateLog et) {
-        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("sys_update_logid",et.getSysupdatelogid()))) {
+        if(!update(et, (Wrapper) et.getUpdateWrapper(true).eq("sys_update_logid", et.getSysupdatelogid()))) {
             return false;
         }
-        CachedBeanCopier.copy(get(et.getSysupdatelogid()),et);
+        CachedBeanCopier.copy(get(et.getSysupdatelogid()), et);
         return true;
     }
 
     @Override
     @Transactional
     public void updateBatch(List<SysUpdateLog> list) {
-        updateBatchById(list,batchSize);
+        updateBatchById(list, batchSize);
     }
 
     @Override
     @Transactional
     public boolean remove(String key) {
         sysupdatefeaturesService.removeBySysupdatelogid(key);
-        boolean result=removeById(key);
+        boolean result = removeById(key);
         return result ;
     }
 
@@ -110,11 +110,11 @@ public class SysUpdateLogServiceImpl extends ServiceImpl<SysUpdateLogMapper, Sys
     @Transactional
     public SysUpdateLog get(String key) {
         SysUpdateLog et = getById(key);
-        if(et==null){
-            et=new SysUpdateLog();
+        if(et == null){
+            et = new SysUpdateLog();
             et.setSysupdatelogid(key);
         }
-        else{
+        else {
         }
         return et;
     }
@@ -126,7 +126,7 @@ public class SysUpdateLogServiceImpl extends ServiceImpl<SysUpdateLogMapper, Sys
 
     @Override
     public boolean checkKey(SysUpdateLog et) {
-        return (!ObjectUtils.isEmpty(et.getSysupdatelogid()))&&(!Objects.isNull(this.getById(et.getSysupdatelogid())));
+        return (!ObjectUtils.isEmpty(et.getSysupdatelogid())) && (!Objects.isNull(this.getById(et.getSysupdatelogid())));
     }
     @Override
     @Transactional
@@ -138,7 +138,7 @@ public class SysUpdateLogServiceImpl extends ServiceImpl<SysUpdateLogMapper, Sys
     @Override
     @Transactional
     public boolean save(SysUpdateLog et) {
-        if(!saveOrUpdate(et)) {
+        if (!saveOrUpdate(et)) {
             return false;
         }
         return true;
@@ -218,11 +218,11 @@ public class SysUpdateLogServiceImpl extends ServiceImpl<SysUpdateLogMapper, Sys
         List ids =new ArrayList();
         for(SysUpdateLog entity : entities){
             Serializable id=entity.getSysupdatelogid();
-            if(!ObjectUtils.isEmpty(id)){
+            if (!ObjectUtils.isEmpty(id)) {
                 ids.add(id);
             }
         }
-        if(ids.size()>0) {
+        if (ids.size() > 0) {
             return this.listByIds(ids);
         }
         else {

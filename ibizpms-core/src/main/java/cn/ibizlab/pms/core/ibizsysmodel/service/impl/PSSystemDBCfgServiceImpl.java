@@ -61,9 +61,9 @@ public class PSSystemDBCfgServiceImpl implements IPSSystemDBCfgService {
     private String password;
 
     public PSSystemDBCfgFeignClient getPSSystemDBCfgFeignClient(String devSlnSysId) {
-        if(StringUtils.isNotBlank(serviceName)) {
+        if (StringUtils.isNotBlank(serviceName)) {
             return OutsideAccessorUtils.buildAccessor(SpringContextHolder.getApplicationContext(), PSSystemDBCfgFeignClient.class, serviceName, false, serviceName, false, loginname, password, devSlnSysId);
-        } else if(StringUtils.isNotBlank(serviceUrl)) {
+        } else if (StringUtils.isNotBlank(serviceUrl)) {
             return OutsideAccessorUtils.buildAccessorByUrl(SpringContextHolder.getApplicationContext(), PSSystemDBCfgFeignClient.class, serviceUrl, false, serviceUrl, false, loginname, password, devSlnSysId);
         } else {
             throw new RuntimeException("缺少平台服务配置信息。");
@@ -74,18 +74,19 @@ public class PSSystemDBCfgServiceImpl implements IPSSystemDBCfgService {
     @Override
     public boolean create(PSSystemDBCfg et) {
         PSSystemDBCfg rt = pSSystemDBCfgFeignClient.create(et);
-        if(rt==null)
+        if (rt == null) {
             return false;
-        CachedBeanCopier.copy(rt,et);
+        }
+        CachedBeanCopier.copy(rt, et);
         return true;
     }
 
     @Override
     public boolean create(String devSlnSysId,PSSystemDBCfg et) {
         PSSystemDBCfg rt = getPSSystemDBCfgFeignClient(devSlnSysId).create(et);
-        if(rt==null) {
+        if (rt == null) {
             return false;
-	}
+	    }
         CachedBeanCopier.copy(rt, et);
         return true;
     }
@@ -101,9 +102,10 @@ public class PSSystemDBCfgServiceImpl implements IPSSystemDBCfgService {
     @Override
     public boolean update(PSSystemDBCfg et) {
         PSSystemDBCfg rt = pSSystemDBCfgFeignClient.update(et.getPssystemdbcfgid(),et);
-        if(rt==null)
+        if (rt == null) {
             return false;
-        CachedBeanCopier.copy(rt,et);
+        }
+        CachedBeanCopier.copy(rt, et);
         return true;
 
     }
@@ -111,9 +113,9 @@ public class PSSystemDBCfgServiceImpl implements IPSSystemDBCfgService {
     @Override
     public boolean update(String devSlnSysId, PSSystemDBCfg et) {
         PSSystemDBCfg rt = getPSSystemDBCfgFeignClient(devSlnSysId).update(et.getPssystemdbcfgid(), et);
-        if(rt==null) {
+        if (rt == null) {
             return false;
-	}
+	    }
         CachedBeanCopier.copy(rt, et);
         return true;
     }
@@ -148,9 +150,9 @@ public class PSSystemDBCfgServiceImpl implements IPSSystemDBCfgService {
 
     @Override
     public PSSystemDBCfg get(String pssystemdbcfgid) {
-		PSSystemDBCfg et=pSSystemDBCfgFeignClient.get(pssystemdbcfgid);
-        if(et==null){
-            et=new PSSystemDBCfg();
+		PSSystemDBCfg et = pSSystemDBCfgFeignClient.get(pssystemdbcfgid);
+        if (et == null){
+            et = new PSSystemDBCfg();
             et.setPssystemdbcfgid(pssystemdbcfgid);
         }
         else{
@@ -161,7 +163,7 @@ public class PSSystemDBCfgServiceImpl implements IPSSystemDBCfgService {
     @Override
     public PSSystemDBCfg get(String devSlnSysId,String pssystemdbcfgid) {
 		PSSystemDBCfg et = getPSSystemDBCfgFeignClient(devSlnSysId).get(pssystemdbcfgid);
-        if(et == null) {
+        if (et == null) {
             et = new PSSystemDBCfg();
             et.setPssystemdbcfgid(pssystemdbcfgid);
         }
@@ -177,7 +179,7 @@ public class PSSystemDBCfgServiceImpl implements IPSSystemDBCfgService {
 
     @Override
     public PSSystemDBCfg getDraft(PSSystemDBCfg et) {
-        et=pSSystemDBCfgFeignClient.getDraft();
+        et = pSSystemDBCfgFeignClient.getDraft();
         return et;
     }
 
@@ -200,21 +202,24 @@ public class PSSystemDBCfgServiceImpl implements IPSSystemDBCfgService {
     @Override
     @Transactional
     public boolean save(PSSystemDBCfg et) {
-        if(et.getPssystemdbcfgid()==null) et.setPssystemdbcfgid((String)et.getDefaultKey(true));
-        if(!pSSystemDBCfgFeignClient.save(et))
+        if (et.getPssystemdbcfgid() == null) {
+            et.setPssystemdbcfgid((String)et.getDefaultKey(true));
+        }
+        if (!pSSystemDBCfgFeignClient.save(et)) {
             return false;
+        }
         return true;
     }
 
     @Override
     @Transactional
     public boolean save(String devSlnSysId,PSSystemDBCfg et) {
-        if(et.getPssystemdbcfgid() == null) {
-	    et.setPssystemdbcfgid((String)et.getDefaultKey(true));
-	}
+        if (et.getPssystemdbcfgid() == null) {
+	        et.setPssystemdbcfgid((String)et.getDefaultKey(true));
+	    }
         if(!getPSSystemDBCfgFeignClient(devSlnSysId).save(et)) {
             return false;
-	}
+        }
         return true;
     }
 

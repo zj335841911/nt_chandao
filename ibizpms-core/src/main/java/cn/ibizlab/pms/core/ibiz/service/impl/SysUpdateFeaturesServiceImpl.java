@@ -61,7 +61,7 @@ public class SysUpdateFeaturesServiceImpl extends ServiceImpl<SysUpdateFeaturesM
         if(!this.retBool(this.baseMapper.insert(et))) {
             return false;
         }
-        CachedBeanCopier.copy(get(et.getSysupdatefeaturesid()),et);
+        CachedBeanCopier.copy(get(et.getSysupdatefeaturesid()), et);
         return true;
     }
 
@@ -69,17 +69,17 @@ public class SysUpdateFeaturesServiceImpl extends ServiceImpl<SysUpdateFeaturesM
     @Transactional
     public void createBatch(List<SysUpdateFeatures> list) {
         list.forEach(item->fillParentData(item));
-        this.saveBatch(list,batchSize);
+        this.saveBatch(list, batchSize);
     }
 
     @Override
     @Transactional
     public boolean update(SysUpdateFeatures et) {
         fillParentData(et);
-        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("sys_update_featuresid",et.getSysupdatefeaturesid()))) {
+        if(!update(et, (Wrapper) et.getUpdateWrapper(true).eq("sys_update_featuresid", et.getSysupdatefeaturesid()))) {
             return false;
         }
-        CachedBeanCopier.copy(get(et.getSysupdatefeaturesid()),et);
+        CachedBeanCopier.copy(get(et.getSysupdatefeaturesid()), et);
         return true;
     }
 
@@ -87,13 +87,13 @@ public class SysUpdateFeaturesServiceImpl extends ServiceImpl<SysUpdateFeaturesM
     @Transactional
     public void updateBatch(List<SysUpdateFeatures> list) {
         list.forEach(item->fillParentData(item));
-        updateBatchById(list,batchSize);
+        updateBatchById(list, batchSize);
     }
 
     @Override
     @Transactional
     public boolean remove(String key) {
-        boolean result=removeById(key);
+        boolean result = removeById(key);
         return result ;
     }
 
@@ -107,11 +107,11 @@ public class SysUpdateFeaturesServiceImpl extends ServiceImpl<SysUpdateFeaturesM
     @Transactional
     public SysUpdateFeatures get(String key) {
         SysUpdateFeatures et = getById(key);
-        if(et==null){
-            et=new SysUpdateFeatures();
+        if(et == null){
+            et = new SysUpdateFeatures();
             et.setSysupdatefeaturesid(key);
         }
-        else{
+        else {
         }
         return et;
     }
@@ -124,12 +124,12 @@ public class SysUpdateFeaturesServiceImpl extends ServiceImpl<SysUpdateFeaturesM
 
     @Override
     public boolean checkKey(SysUpdateFeatures et) {
-        return (!ObjectUtils.isEmpty(et.getSysupdatefeaturesid()))&&(!Objects.isNull(this.getById(et.getSysupdatefeaturesid())));
+        return (!ObjectUtils.isEmpty(et.getSysupdatefeaturesid())) && (!Objects.isNull(this.getById(et.getSysupdatefeaturesid())));
     }
     @Override
     @Transactional
     public boolean save(SysUpdateFeatures et) {
-        if(!saveOrUpdate(et)) {
+        if (!saveOrUpdate(et)) {
             return false;
         }
         return true;
@@ -167,7 +167,7 @@ public class SysUpdateFeaturesServiceImpl extends ServiceImpl<SysUpdateFeaturesM
     }
     @Override
     public void removeBySysupdatelogid(Collection<String> ids) {
-        this.remove(new QueryWrapper<SysUpdateFeatures>().in("sys_update_logid",ids));
+        this.remove(new QueryWrapper<SysUpdateFeatures>().in("sys_update_logid", ids));
     }
 
     @Override
@@ -193,12 +193,12 @@ public class SysUpdateFeaturesServiceImpl extends ServiceImpl<SysUpdateFeaturesM
      */
     private void fillParentData(SysUpdateFeatures et){
         //实体关系[DER1N_SYS_UPDATE_FEATURES_SYS_UPDATE_LOG_SYS_UPDATE_LOGID]
-        if(!ObjectUtils.isEmpty(et.getSysupdatelogid())){
+        if (!ObjectUtils.isEmpty(et.getSysupdatelogid())) {
             cn.ibizlab.pms.core.ibiz.domain.SysUpdateLog sysupdatelog=et.getSysupdatelog();
-            if(ObjectUtils.isEmpty(sysupdatelog)){
+            if (ObjectUtils.isEmpty(sysupdatelog)) {
                 cn.ibizlab.pms.core.ibiz.domain.SysUpdateLog majorEntity=sysupdatelogService.get(et.getSysupdatelogid());
                 et.setSysupdatelog(majorEntity);
-                sysupdatelog=majorEntity;
+                sysupdatelog = majorEntity;
             }
             et.setSysupdatelogname(sysupdatelog.getSysupdatelogname());
         }
@@ -241,11 +241,11 @@ public class SysUpdateFeaturesServiceImpl extends ServiceImpl<SysUpdateFeaturesM
         List ids =new ArrayList();
         for(SysUpdateFeatures entity : entities){
             Serializable id=entity.getSysupdatefeaturesid();
-            if(!ObjectUtils.isEmpty(id)){
+            if (!ObjectUtils.isEmpty(id)) {
                 ids.add(id);
             }
         }
-        if(ids.size()>0) {
+        if (ids.size() > 0) {
             return this.listByIds(ids);
         }
         else {

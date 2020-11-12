@@ -86,7 +86,7 @@ public class DocLibServiceImpl extends ServiceImpl<DocLibMapper, DocLib> impleme
     @Override
     @Transactional
     public boolean remove(Long key) {
-        boolean result=removeById(key);
+        boolean result = removeById(key);
         return result ;
     }
 
@@ -100,11 +100,11 @@ public class DocLibServiceImpl extends ServiceImpl<DocLibMapper, DocLib> impleme
     @Transactional
     public DocLib get(Long key) {
         DocLib et = getById(key);
-        if(et==null){
-            et=new DocLib();
+        if(et == null){
+            et = new DocLib();
             et.setId(key);
         }
-        else{
+        else {
         }
         return et;
     }
@@ -117,7 +117,7 @@ public class DocLibServiceImpl extends ServiceImpl<DocLibMapper, DocLib> impleme
 
     @Override
     public boolean checkKey(DocLib et) {
-        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
+        return (!ObjectUtils.isEmpty(et.getId())) && (!Objects.isNull(this.getById(et.getId())));
     }
     @Override
     @Transactional
@@ -129,7 +129,7 @@ public class DocLibServiceImpl extends ServiceImpl<DocLibMapper, DocLib> impleme
     @Override
     @Transactional
     public boolean save(DocLib et) {
-        if(!saveOrUpdate(et)) {
+        if (!saveOrUpdate(et)) {
             return false;
         }
         return true;
@@ -240,22 +240,22 @@ public class DocLibServiceImpl extends ServiceImpl<DocLibMapper, DocLib> impleme
      */
     private void fillParentData(DocLib et){
         //实体关系[DER1N_ZT_DOCLIB_ZT_PRODUCT_PRODUCT]
-        if(!ObjectUtils.isEmpty(et.getProduct())){
+        if (!ObjectUtils.isEmpty(et.getProduct())) {
             cn.ibizlab.pms.core.zentao.domain.Product ztProduct=et.getZtProduct();
-            if(ObjectUtils.isEmpty(ztProduct)){
+            if (ObjectUtils.isEmpty(ztProduct)) {
                 cn.ibizlab.pms.core.zentao.domain.Product majorEntity=productService.get(et.getProduct());
                 et.setZtProduct(majorEntity);
-                ztProduct=majorEntity;
+                ztProduct = majorEntity;
             }
             et.setProductname(ztProduct.getName());
         }
         //实体关系[DER1N_ZT_DOCLIB_ZT_PROJECT_PROJECT]
-        if(!ObjectUtils.isEmpty(et.getProject())){
+        if (!ObjectUtils.isEmpty(et.getProject())) {
             cn.ibizlab.pms.core.zentao.domain.Project ztProject=et.getZtProject();
-            if(ObjectUtils.isEmpty(ztProject)){
+            if (ObjectUtils.isEmpty(ztProject)) {
                 cn.ibizlab.pms.core.zentao.domain.Project majorEntity=projectService.get(et.getProject());
                 et.setZtProject(majorEntity);
-                ztProject=majorEntity;
+                ztProject = majorEntity;
             }
             et.setProjectname(ztProject.getName());
         }
@@ -298,11 +298,11 @@ public class DocLibServiceImpl extends ServiceImpl<DocLibMapper, DocLib> impleme
         List ids =new ArrayList();
         for(DocLib entity : entities){
             Serializable id=entity.getId();
-            if(!ObjectUtils.isEmpty(id)){
+            if (!ObjectUtils.isEmpty(id)) {
                 ids.add(id);
             }
         }
-        if(ids.size()>0) {
+        if (ids.size() > 0) {
             return this.listByIds(ids);
         }
         else {

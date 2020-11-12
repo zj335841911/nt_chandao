@@ -145,11 +145,11 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
     @Transactional
     public Case get(Long key) {
         Case et = getById(key);
-        if(et==null){
-            et=new Case();
+        if(et == null){
+            et = new Case();
             et.setId(key);
         }
-        else{
+        else {
             et.setCasestep(casestepService.selectByIbizcase(key));
         }
         return et;
@@ -177,7 +177,7 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
 
     @Override
     public boolean checkKey(Case et) {
-        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
+        return (!ObjectUtils.isEmpty(et.getId())) && (!Objects.isNull(this.getById(et.getId())));
     }
         @Override
     @Transactional
@@ -227,7 +227,7 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
     @Override
     @Transactional
     public boolean save(Case et) {
-        if(!saveOrUpdate(et)) {
+        if (!saveOrUpdate(et)) {
             return false;
         }
         return true;
@@ -556,53 +556,53 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
      */
     private void fillParentData(Case et){
         //实体关系[DER1N_ZT_CASE_ZT_CASE_FROMCAEID]
-        if(!ObjectUtils.isEmpty(et.getFromcaseid())){
+        if (!ObjectUtils.isEmpty(et.getFromcaseid())) {
             cn.ibizlab.pms.core.zentao.domain.Case ztfromcase=et.getZtfromcase();
-            if(ObjectUtils.isEmpty(ztfromcase)){
+            if (ObjectUtils.isEmpty(ztfromcase)) {
                 cn.ibizlab.pms.core.zentao.domain.Case majorEntity=caseService.get(et.getFromcaseid());
                 et.setZtfromcase(majorEntity);
-                ztfromcase=majorEntity;
+                ztfromcase = majorEntity;
             }
             et.setFromcaseversion(ztfromcase.getVersion());
         }
         //实体关系[DER1N_ZT_CASE_ZT_MODULE_MODULE]
-        if(!ObjectUtils.isEmpty(et.getModule())){
+        if (!ObjectUtils.isEmpty(et.getModule())) {
             cn.ibizlab.pms.core.zentao.domain.Module ztmodule=et.getZtmodule();
-            if(ObjectUtils.isEmpty(ztmodule)){
+            if (ObjectUtils.isEmpty(ztmodule)) {
                 cn.ibizlab.pms.core.zentao.domain.Module majorEntity=moduleService.get(et.getModule());
                 et.setZtmodule(majorEntity);
-                ztmodule=majorEntity;
+                ztmodule = majorEntity;
             }
             et.setModulename(ztmodule.getName());
         }
         //实体关系[DER1N_ZT_CASE_ZT_PRODUCT_PRODUCT]
-        if(!ObjectUtils.isEmpty(et.getProduct())){
+        if (!ObjectUtils.isEmpty(et.getProduct())) {
             cn.ibizlab.pms.core.zentao.domain.Product ztproduct=et.getZtproduct();
-            if(ObjectUtils.isEmpty(ztproduct)){
+            if (ObjectUtils.isEmpty(ztproduct)) {
                 cn.ibizlab.pms.core.zentao.domain.Product majorEntity=productService.get(et.getProduct());
                 et.setZtproduct(majorEntity);
-                ztproduct=majorEntity;
+                ztproduct = majorEntity;
             }
             et.setProductname(ztproduct.getName());
         }
         //实体关系[DER1N_ZT_CASE_ZT_STORY_STORY]
-        if(!ObjectUtils.isEmpty(et.getStory())){
+        if (!ObjectUtils.isEmpty(et.getStory())) {
             cn.ibizlab.pms.core.zentao.domain.Story ztstory=et.getZtstory();
-            if(ObjectUtils.isEmpty(ztstory)){
+            if (ObjectUtils.isEmpty(ztstory)) {
                 cn.ibizlab.pms.core.zentao.domain.Story majorEntity=storyService.get(et.getStory());
                 et.setZtstory(majorEntity);
-                ztstory=majorEntity;
+                ztstory = majorEntity;
             }
             et.setStoryversion(ztstory.getVersion());
             et.setStoryname(ztstory.getTitle());
         }
         //实体关系[DER1N_ZT_CASE_ZT_TESTSUITE_LIB]
-        if(!ObjectUtils.isEmpty(et.getLib())){
+        if (!ObjectUtils.isEmpty(et.getLib())) {
             cn.ibizlab.pms.core.zentao.domain.TestSuite zttestsuite=et.getZttestsuite();
-            if(ObjectUtils.isEmpty(zttestsuite)){
+            if (ObjectUtils.isEmpty(zttestsuite)) {
                 cn.ibizlab.pms.core.zentao.domain.TestSuite majorEntity=testsuiteService.get(et.getLib());
                 et.setZttestsuite(majorEntity);
-                zttestsuite=majorEntity;
+                zttestsuite = majorEntity;
             }
             et.setLibname(zttestsuite.getName());
         }

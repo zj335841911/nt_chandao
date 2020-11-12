@@ -57,36 +57,36 @@ public class ProductLifeServiceImpl extends ServiceImpl<ProductLifeMapper, Produ
         if(!this.retBool(this.baseMapper.insert(et))) {
             return false;
         }
-        CachedBeanCopier.copy(get(et.getProductlifeid()),et);
+        CachedBeanCopier.copy(get(et.getProductlifeid()), et);
         return true;
     }
 
     @Override
     @Transactional
     public void createBatch(List<ProductLife> list) {
-        this.saveBatch(list,batchSize);
+        this.saveBatch(list, batchSize);
     }
 
     @Override
     @Transactional
     public boolean update(ProductLife et) {
-        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("ibz_productlifeid",et.getProductlifeid()))) {
+        if(!update(et, (Wrapper) et.getUpdateWrapper(true).eq("ibz_productlifeid", et.getProductlifeid()))) {
             return false;
         }
-        CachedBeanCopier.copy(get(et.getProductlifeid()),et);
+        CachedBeanCopier.copy(get(et.getProductlifeid()), et);
         return true;
     }
 
     @Override
     @Transactional
     public void updateBatch(List<ProductLife> list) {
-        updateBatchById(list,batchSize);
+        updateBatchById(list, batchSize);
     }
 
     @Override
     @Transactional
     public boolean remove(String key) {
-        boolean result=removeById(key);
+        boolean result = removeById(key);
         return result ;
     }
 
@@ -100,11 +100,11 @@ public class ProductLifeServiceImpl extends ServiceImpl<ProductLifeMapper, Produ
     @Transactional
     public ProductLife get(String key) {
         ProductLife et = getById(key);
-        if(et==null){
-            et=new ProductLife();
+        if(et == null){
+            et = new ProductLife();
             et.setProductlifeid(key);
         }
-        else{
+        else {
         }
         return et;
     }
@@ -116,12 +116,12 @@ public class ProductLifeServiceImpl extends ServiceImpl<ProductLifeMapper, Produ
 
     @Override
     public boolean checkKey(ProductLife et) {
-        return (!ObjectUtils.isEmpty(et.getProductlifeid()))&&(!Objects.isNull(this.getById(et.getProductlifeid())));
+        return (!ObjectUtils.isEmpty(et.getProductlifeid())) && (!Objects.isNull(this.getById(et.getProductlifeid())));
     }
     @Override
     @Transactional
     public boolean save(ProductLife et) {
-        if(!saveOrUpdate(et)) {
+        if (!saveOrUpdate(et)) {
             return false;
         }
         return true;
@@ -228,11 +228,11 @@ public class ProductLifeServiceImpl extends ServiceImpl<ProductLifeMapper, Produ
         List ids =new ArrayList();
         for(ProductLife entity : entities){
             Serializable id=entity.getProductlifeid();
-            if(!ObjectUtils.isEmpty(id)){
+            if (!ObjectUtils.isEmpty(id)) {
                 ids.add(id);
             }
         }
-        if(ids.size()>0) {
+        if (ids.size() > 0) {
             return this.listByIds(ids);
         }
         else {

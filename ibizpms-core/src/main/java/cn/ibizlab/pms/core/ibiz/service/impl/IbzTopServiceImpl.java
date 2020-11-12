@@ -57,36 +57,36 @@ public class IbzTopServiceImpl extends ServiceImpl<IbzTopMapper, IbzTop> impleme
         if(!this.retBool(this.baseMapper.insert(et))) {
             return false;
         }
-        CachedBeanCopier.copy(get(et.getIbztopid()),et);
+        CachedBeanCopier.copy(get(et.getIbztopid()), et);
         return true;
     }
 
     @Override
     @Transactional
     public void createBatch(List<IbzTop> list) {
-        this.saveBatch(list,batchSize);
+        this.saveBatch(list, batchSize);
     }
 
     @Override
     @Transactional
     public boolean update(IbzTop et) {
-        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("ibz_topid",et.getIbztopid()))) {
+        if(!update(et, (Wrapper) et.getUpdateWrapper(true).eq("ibz_topid", et.getIbztopid()))) {
             return false;
         }
-        CachedBeanCopier.copy(get(et.getIbztopid()),et);
+        CachedBeanCopier.copy(get(et.getIbztopid()), et);
         return true;
     }
 
     @Override
     @Transactional
     public void updateBatch(List<IbzTop> list) {
-        updateBatchById(list,batchSize);
+        updateBatchById(list, batchSize);
     }
 
     @Override
     @Transactional
     public boolean remove(String key) {
-        boolean result=removeById(key);
+        boolean result = removeById(key);
         return result ;
     }
 
@@ -100,11 +100,11 @@ public class IbzTopServiceImpl extends ServiceImpl<IbzTopMapper, IbzTop> impleme
     @Transactional
     public IbzTop get(String key) {
         IbzTop et = getById(key);
-        if(et==null){
-            et=new IbzTop();
+        if(et == null){
+            et = new IbzTop();
             et.setIbztopid(key);
         }
-        else{
+        else {
         }
         return et;
     }
@@ -116,12 +116,12 @@ public class IbzTopServiceImpl extends ServiceImpl<IbzTopMapper, IbzTop> impleme
 
     @Override
     public boolean checkKey(IbzTop et) {
-        return (!ObjectUtils.isEmpty(et.getIbztopid()))&&(!Objects.isNull(this.getById(et.getIbztopid())));
+        return (!ObjectUtils.isEmpty(et.getIbztopid())) && (!Objects.isNull(this.getById(et.getIbztopid())));
     }
     @Override
     @Transactional
     public boolean save(IbzTop et) {
-        if(!saveOrUpdate(et)) {
+        if (!saveOrUpdate(et)) {
             return false;
         }
         return true;
@@ -201,11 +201,11 @@ public class IbzTopServiceImpl extends ServiceImpl<IbzTopMapper, IbzTop> impleme
         List ids =new ArrayList();
         for(IbzTop entity : entities){
             Serializable id=entity.getIbztopid();
-            if(!ObjectUtils.isEmpty(id)){
+            if (!ObjectUtils.isEmpty(id)) {
                 ids.add(id);
             }
         }
-        if(ids.size()>0) {
+        if (ids.size() > 0) {
             return this.listByIds(ids);
         }
         else {

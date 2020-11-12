@@ -140,11 +140,11 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
         Story tempET=new Story();
         tempET.set("id",key);
         Story et = getById(key);
-        if(et==null){
-            et=new Story();
+        if(et == null){
+            et = new Story();
             et.setId(key);
         }
-        else{
+        else {
         }
         return et;
     }
@@ -269,7 +269,7 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
 
     @Override
     public boolean checkKey(Story et) {
-        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
+        return (!ObjectUtils.isEmpty(et.getId())) && (!Objects.isNull(this.getById(et.getId())));
     }
         @Override
     @Transactional
@@ -369,7 +369,7 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
     @Override
     @Transactional
     public boolean save(Story et) {
-        if(!saveOrUpdate(et)) {
+        if (!saveOrUpdate(et)) {
             return false;
         }
         return true;
@@ -752,43 +752,43 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
      */
     private void fillParentData(Story et){
         //实体关系[DER1N_ZT_STORY_IBZ_PRODUCTMODULE_MODULE]
-        if(!ObjectUtils.isEmpty(et.getModule())){
+        if (!ObjectUtils.isEmpty(et.getModule())) {
             cn.ibizlab.pms.core.ibiz.domain.ProductModule ibzproductmodule=et.getIbzproductmodule();
-            if(ObjectUtils.isEmpty(ibzproductmodule)){
+            if (ObjectUtils.isEmpty(ibzproductmodule)) {
                 cn.ibizlab.pms.core.ibiz.domain.ProductModule majorEntity=productmoduleService.get(et.getModule());
                 et.setIbzproductmodule(majorEntity);
-                ibzproductmodule=majorEntity;
+                ibzproductmodule = majorEntity;
             }
             et.setPath(ibzproductmodule.getPath());
             et.setModulename(ibzproductmodule.getName());
         }
         //实体关系[DER1N_ZT_STORY_ZT_BRANCH_BRANCH]
-        if(!ObjectUtils.isEmpty(et.getBranch())){
+        if (!ObjectUtils.isEmpty(et.getBranch())) {
             cn.ibizlab.pms.core.zentao.domain.Branch ztbranch=et.getZtbranch();
-            if(ObjectUtils.isEmpty(ztbranch)){
+            if (ObjectUtils.isEmpty(ztbranch)) {
                 cn.ibizlab.pms.core.zentao.domain.Branch majorEntity=branchService.get(et.getBranch());
                 et.setZtbranch(majorEntity);
-                ztbranch=majorEntity;
+                ztbranch = majorEntity;
             }
             et.setBranchname(ztbranch.getName());
         }
         //实体关系[DER1N_ZT_STORY_ZT_PRODUCT_PRODUCT]
-        if(!ObjectUtils.isEmpty(et.getProduct())){
+        if (!ObjectUtils.isEmpty(et.getProduct())) {
             cn.ibizlab.pms.core.zentao.domain.Product ztproduct=et.getZtproduct();
-            if(ObjectUtils.isEmpty(ztproduct)){
+            if (ObjectUtils.isEmpty(ztproduct)) {
                 cn.ibizlab.pms.core.zentao.domain.Product majorEntity=productService.get(et.getProduct());
                 et.setZtproduct(majorEntity);
-                ztproduct=majorEntity;
+                ztproduct = majorEntity;
             }
             et.setProductname(ztproduct.getName());
         }
         //实体关系[DER1N__ZT_STORY__ZT_STORY__PARENT]
-        if(!ObjectUtils.isEmpty(et.getParent())){
+        if (!ObjectUtils.isEmpty(et.getParent())) {
             cn.ibizlab.pms.core.zentao.domain.Story ztparent=et.getZtparent();
-            if(ObjectUtils.isEmpty(ztparent)){
+            if (ObjectUtils.isEmpty(ztparent)) {
                 cn.ibizlab.pms.core.zentao.domain.Story majorEntity=storyService.get(et.getParent());
                 et.setZtparent(majorEntity);
-                ztparent=majorEntity;
+                ztparent = majorEntity;
             }
             et.setParentname(ztparent.getTitle());
         }

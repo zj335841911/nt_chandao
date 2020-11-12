@@ -67,7 +67,7 @@ public class DocLibModuleServiceImpl extends ServiceImpl<DocLibModuleMapper, Doc
         if(!this.retBool(this.baseMapper.insert(et))) {
             return false;
         }
-        CachedBeanCopier.copy(get(et.getId()),et);
+        CachedBeanCopier.copy(get(et.getId()), et);
         fixpathLogic.execute(et);
         return true;
     }
@@ -76,17 +76,17 @@ public class DocLibModuleServiceImpl extends ServiceImpl<DocLibModuleMapper, Doc
     @Transactional
     public void createBatch(List<DocLibModule> list) {
         list.forEach(item->fillParentData(item));
-        this.saveBatch(list,batchSize);
+        this.saveBatch(list, batchSize);
     }
 
     @Override
     @Transactional
     public boolean update(DocLibModule et) {
         fillParentData(et);
-        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId()))) {
+        if(!update(et, (Wrapper) et.getUpdateWrapper(true).eq("id", et.getId()))) {
             return false;
         }
-        CachedBeanCopier.copy(get(et.getId()),et);
+        CachedBeanCopier.copy(get(et.getId()), et);
         fixpathLogic.execute(et);
         return true;
     }
@@ -95,13 +95,13 @@ public class DocLibModuleServiceImpl extends ServiceImpl<DocLibModuleMapper, Doc
     @Transactional
     public void updateBatch(List<DocLibModule> list) {
         list.forEach(item->fillParentData(item));
-        updateBatchById(list,batchSize);
+        updateBatchById(list, batchSize);
     }
 
     @Override
     @Transactional
     public boolean remove(Long key) {
-        boolean result=removeById(key);
+        boolean result = removeById(key);
         return result ;
     }
 
@@ -115,11 +115,11 @@ public class DocLibModuleServiceImpl extends ServiceImpl<DocLibModuleMapper, Doc
     @Transactional
     public DocLibModule get(Long key) {
         DocLibModule et = getById(key);
-        if(et==null){
-            et=new DocLibModule();
+        if(et == null){
+            et = new DocLibModule();
             et.setId(key);
         }
-        else{
+        else {
         }
         return et;
     }
@@ -132,7 +132,7 @@ public class DocLibModuleServiceImpl extends ServiceImpl<DocLibModuleMapper, Doc
 
     @Override
     public boolean checkKey(DocLibModule et) {
-        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
+        return (!ObjectUtils.isEmpty(et.getId())) && (!Objects.isNull(this.getById(et.getId())));
     }
     @Override
     @Transactional
@@ -144,7 +144,7 @@ public class DocLibModuleServiceImpl extends ServiceImpl<DocLibModuleMapper, Doc
     @Override
     @Transactional
     public boolean save(DocLibModule et) {
-        if(!saveOrUpdate(et)) {
+        if (!saveOrUpdate(et)) {
             return false;
         }
         return true;
@@ -257,22 +257,22 @@ public class DocLibModuleServiceImpl extends ServiceImpl<DocLibModuleMapper, Doc
      */
     private void fillParentData(DocLibModule et){
         //实体关系[DER1N_IBZ_DOCLIBMODULE_IBZ_DOCLIBMODULE_PARENT]
-        if(!ObjectUtils.isEmpty(et.getParent())){
+        if (!ObjectUtils.isEmpty(et.getParent())) {
             cn.ibizlab.pms.core.ibiz.domain.DocLibModule pdoclibmodule=et.getPdoclibmodule();
-            if(ObjectUtils.isEmpty(pdoclibmodule)){
+            if (ObjectUtils.isEmpty(pdoclibmodule)) {
                 cn.ibizlab.pms.core.ibiz.domain.DocLibModule majorEntity=doclibmoduleService.get(et.getParent());
                 et.setPdoclibmodule(majorEntity);
-                pdoclibmodule=majorEntity;
+                pdoclibmodule = majorEntity;
             }
             et.setModulename(pdoclibmodule.getName());
         }
         //实体关系[DER1N_IBZ_DOCLIBMODULE_ZT_DOCLIB_ROOT]
-        if(!ObjectUtils.isEmpty(et.getRoot())){
+        if (!ObjectUtils.isEmpty(et.getRoot())) {
             cn.ibizlab.pms.core.zentao.domain.DocLib doclib=et.getDoclib();
-            if(ObjectUtils.isEmpty(doclib)){
+            if (ObjectUtils.isEmpty(doclib)) {
                 cn.ibizlab.pms.core.zentao.domain.DocLib majorEntity=doclibService.get(et.getRoot());
                 et.setDoclib(majorEntity);
-                doclib=majorEntity;
+                doclib = majorEntity;
             }
             et.setDoclibname(doclib.getName());
         }

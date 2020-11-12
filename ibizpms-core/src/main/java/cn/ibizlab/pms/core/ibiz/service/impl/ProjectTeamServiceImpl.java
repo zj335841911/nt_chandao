@@ -64,36 +64,36 @@ public class ProjectTeamServiceImpl extends ServiceImpl<ProjectTeamMapper, Proje
         if(!this.retBool(this.baseMapper.insert(et))) {
             return false;
         }
-        CachedBeanCopier.copy(get(et.getId()),et);
+        CachedBeanCopier.copy(get(et.getId()), et);
         return true;
     }
 
     @Override
     @Transactional
     public void createBatch(List<ProjectTeam> list) {
-        this.saveBatch(list,batchSize);
+        this.saveBatch(list, batchSize);
     }
 
     @Override
     @Transactional
     public boolean update(ProjectTeam et) {
-        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId()))) {
+        if(!update(et, (Wrapper) et.getUpdateWrapper(true).eq("id", et.getId()))) {
             return false;
         }
-        CachedBeanCopier.copy(get(et.getId()),et);
+        CachedBeanCopier.copy(get(et.getId()), et);
         return true;
     }
 
     @Override
     @Transactional
     public void updateBatch(List<ProjectTeam> list) {
-        updateBatchById(list,batchSize);
+        updateBatchById(list, batchSize);
     }
 
     @Override
     @Transactional
     public boolean remove(Long key) {
-        boolean result=removeById(key);
+        boolean result = removeById(key);
         return result ;
     }
 
@@ -107,11 +107,11 @@ public class ProjectTeamServiceImpl extends ServiceImpl<ProjectTeamMapper, Proje
     @Transactional
     public ProjectTeam get(Long key) {
         ProjectTeam et = getById(key);
-        if(et==null){
-            et=new ProjectTeam();
+        if(et == null){
+            et = new ProjectTeam();
             et.setId(key);
         }
-        else{
+        else {
         }
         return et;
     }
@@ -123,7 +123,7 @@ public class ProjectTeamServiceImpl extends ServiceImpl<ProjectTeamMapper, Proje
 
     @Override
     public boolean checkKey(ProjectTeam et) {
-        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
+        return (!ObjectUtils.isEmpty(et.getId())) && (!Objects.isNull(this.getById(et.getId())));
     }
     @Override
     @Transactional
@@ -136,7 +136,7 @@ public class ProjectTeamServiceImpl extends ServiceImpl<ProjectTeamMapper, Proje
     @Override
     @Transactional
     public boolean save(ProjectTeam et) {
-        if(!saveOrUpdate(et)) {
+        if (!saveOrUpdate(et)) {
             return false;
         }
         return true;
@@ -180,8 +180,9 @@ public class ProjectTeamServiceImpl extends ServiceImpl<ProjectTeamMapper, Proje
     IProjectTeamService proxyService;
 	@Override
     public void saveByRoot(Long id,List<ProjectTeam> list) {
-        if(list==null)
+        if (list == null) {
             return;
+        }
         Set<Long> delIds=new HashSet<Long>();
         List<ProjectTeam> _update=new ArrayList<ProjectTeam>();
         List<ProjectTeam> _create=new ArrayList<ProjectTeam>();
@@ -190,21 +191,25 @@ public class ProjectTeamServiceImpl extends ServiceImpl<ProjectTeamMapper, Proje
         }
         for(ProjectTeam sub:list) {
             sub.setRoot(id);
-            if(ObjectUtils.isEmpty(sub.getId()))
+            if (ObjectUtils.isEmpty(sub.getId()))
                 sub.setId((Long)sub.getDefaultKey(true));
-            if(delIds.contains(sub.getId())) {
+            if (delIds.contains(sub.getId())) {
                 delIds.remove(sub.getId());
                 _update.add(sub);
             }
-            else
+            else {
                 _create.add(sub);
+            }
         }
-        if(_update.size()>0)
+        if (_update.size() > 0) {
             proxyService.updateBatch(_update);
-        if(_create.size()>0)
+        }
+        if (_create.size() > 0) {
             proxyService.createBatch(_create);
-        if(delIds.size()>0)
+        }
+        if (delIds.size() > 0) {
             proxyService.removeBatch(delIds);
+        }
 	}
 
 

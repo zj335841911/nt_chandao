@@ -60,36 +60,36 @@ public class CompileServiceImpl extends ServiceImpl<CompileMapper, Compile> impl
         if(!this.retBool(this.baseMapper.insert(et))) {
             return false;
         }
-        CachedBeanCopier.copy(get(et.getId()),et);
+        CachedBeanCopier.copy(get(et.getId()), et);
         return true;
     }
 
     @Override
     @Transactional
     public void createBatch(List<Compile> list) {
-        this.saveBatch(list,batchSize);
+        this.saveBatch(list, batchSize);
     }
 
     @Override
     @Transactional
     public boolean update(Compile et) {
-        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId()))) {
+        if(!update(et, (Wrapper) et.getUpdateWrapper(true).eq("id", et.getId()))) {
             return false;
         }
-        CachedBeanCopier.copy(get(et.getId()),et);
+        CachedBeanCopier.copy(get(et.getId()), et);
         return true;
     }
 
     @Override
     @Transactional
     public void updateBatch(List<Compile> list) {
-        updateBatchById(list,batchSize);
+        updateBatchById(list, batchSize);
     }
 
     @Override
     @Transactional
     public boolean remove(Long key) {
-        boolean result=removeById(key);
+        boolean result = removeById(key);
         return result ;
     }
 
@@ -103,11 +103,11 @@ public class CompileServiceImpl extends ServiceImpl<CompileMapper, Compile> impl
     @Transactional
     public Compile get(Long key) {
         Compile et = getById(key);
-        if(et==null){
-            et=new Compile();
+        if(et == null){
+            et = new Compile();
             et.setId(key);
         }
-        else{
+        else {
         }
         return et;
     }
@@ -119,12 +119,12 @@ public class CompileServiceImpl extends ServiceImpl<CompileMapper, Compile> impl
 
     @Override
     public boolean checkKey(Compile et) {
-        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
+        return (!ObjectUtils.isEmpty(et.getId())) && (!Objects.isNull(this.getById(et.getId())));
     }
     @Override
     @Transactional
     public boolean save(Compile et) {
-        if(!saveOrUpdate(et)) {
+        if (!saveOrUpdate(et)) {
             return false;
         }
         return true;

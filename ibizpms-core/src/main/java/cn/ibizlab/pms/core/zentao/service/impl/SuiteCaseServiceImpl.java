@@ -67,7 +67,7 @@ public class SuiteCaseServiceImpl extends ServiceImpl<SuiteCaseMapper, SuiteCase
         if(!this.retBool(this.baseMapper.insert(et))) {
             return false;
         }
-        CachedBeanCopier.copy(get(et.getId()),et);
+        CachedBeanCopier.copy(get(et.getId()), et);
         return true;
     }
 
@@ -75,17 +75,17 @@ public class SuiteCaseServiceImpl extends ServiceImpl<SuiteCaseMapper, SuiteCase
     @Transactional
     public void createBatch(List<SuiteCase> list) {
         list.forEach(item->fillParentData(item));
-        this.saveBatch(list,batchSize);
+        this.saveBatch(list, batchSize);
     }
 
     @Override
     @Transactional
     public boolean update(SuiteCase et) {
         fillParentData(et);
-        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId()))) {
+        if(!update(et, (Wrapper) et.getUpdateWrapper(true).eq("id", et.getId()))) {
             return false;
         }
-        CachedBeanCopier.copy(get(et.getId()),et);
+        CachedBeanCopier.copy(get(et.getId()), et);
         return true;
     }
 
@@ -93,13 +93,13 @@ public class SuiteCaseServiceImpl extends ServiceImpl<SuiteCaseMapper, SuiteCase
     @Transactional
     public void updateBatch(List<SuiteCase> list) {
         list.forEach(item->fillParentData(item));
-        updateBatchById(list,batchSize);
+        updateBatchById(list, batchSize);
     }
 
     @Override
     @Transactional
     public boolean remove(String key) {
-        boolean result=removeById(key);
+        boolean result = removeById(key);
         return result ;
     }
 
@@ -113,11 +113,11 @@ public class SuiteCaseServiceImpl extends ServiceImpl<SuiteCaseMapper, SuiteCase
     @Transactional
     public SuiteCase get(String key) {
         SuiteCase et = getById(key);
-        if(et==null){
-            et=new SuiteCase();
+        if(et == null){
+            et = new SuiteCase();
             et.setId(key);
         }
-        else{
+        else {
         }
         return et;
     }
@@ -130,12 +130,12 @@ public class SuiteCaseServiceImpl extends ServiceImpl<SuiteCaseMapper, SuiteCase
 
     @Override
     public boolean checkKey(SuiteCase et) {
-        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
+        return (!ObjectUtils.isEmpty(et.getId())) && (!Objects.isNull(this.getById(et.getId())));
     }
     @Override
     @Transactional
     public boolean save(SuiteCase et) {
-        if(!saveOrUpdate(et)) {
+        if (!saveOrUpdate(et)) {
             return false;
         }
         return true;
@@ -212,12 +212,12 @@ public class SuiteCaseServiceImpl extends ServiceImpl<SuiteCaseMapper, SuiteCase
      */
     private void fillParentData(SuiteCase et){
         //实体关系[DER1N_ZT_SUITECASE_ZT_CASE_CASE]
-        if(!ObjectUtils.isEmpty(et.getIbizcase())){
+        if (!ObjectUtils.isEmpty(et.getIbizcase())) {
             cn.ibizlab.pms.core.zentao.domain.Case ztcase=et.getZtcase();
-            if(ObjectUtils.isEmpty(ztcase)){
+            if (ObjectUtils.isEmpty(ztcase)) {
                 cn.ibizlab.pms.core.zentao.domain.Case majorEntity=caseService.get(et.getIbizcase());
                 et.setZtcase(majorEntity);
-                ztcase=majorEntity;
+                ztcase = majorEntity;
             }
             et.setVersion(ztcase.getVersion());
         }

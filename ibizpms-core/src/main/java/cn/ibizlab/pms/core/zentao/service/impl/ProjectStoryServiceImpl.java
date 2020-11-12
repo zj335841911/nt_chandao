@@ -67,7 +67,7 @@ public class ProjectStoryServiceImpl extends ServiceImpl<ProjectStoryMapper, Pro
         if(!this.retBool(this.baseMapper.insert(et))) {
             return false;
         }
-        CachedBeanCopier.copy(get(et.getId()),et);
+        CachedBeanCopier.copy(get(et.getId()), et);
         return true;
     }
 
@@ -75,17 +75,17 @@ public class ProjectStoryServiceImpl extends ServiceImpl<ProjectStoryMapper, Pro
     @Transactional
     public void createBatch(List<ProjectStory> list) {
         list.forEach(item->fillParentData(item));
-        this.saveBatch(list,batchSize);
+        this.saveBatch(list, batchSize);
     }
 
     @Override
     @Transactional
     public boolean update(ProjectStory et) {
         fillParentData(et);
-        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId()))) {
+        if(!update(et, (Wrapper) et.getUpdateWrapper(true).eq("id", et.getId()))) {
             return false;
         }
-        CachedBeanCopier.copy(get(et.getId()),et);
+        CachedBeanCopier.copy(get(et.getId()), et);
         return true;
     }
 
@@ -93,13 +93,13 @@ public class ProjectStoryServiceImpl extends ServiceImpl<ProjectStoryMapper, Pro
     @Transactional
     public void updateBatch(List<ProjectStory> list) {
         list.forEach(item->fillParentData(item));
-        updateBatchById(list,batchSize);
+        updateBatchById(list, batchSize);
     }
 
     @Override
     @Transactional
     public boolean remove(String key) {
-        boolean result=removeById(key);
+        boolean result = removeById(key);
         return result ;
     }
 
@@ -113,11 +113,11 @@ public class ProjectStoryServiceImpl extends ServiceImpl<ProjectStoryMapper, Pro
     @Transactional
     public ProjectStory get(String key) {
         ProjectStory et = getById(key);
-        if(et==null){
-            et=new ProjectStory();
+        if(et == null){
+            et = new ProjectStory();
             et.setId(key);
         }
-        else{
+        else {
         }
         return et;
     }
@@ -130,12 +130,12 @@ public class ProjectStoryServiceImpl extends ServiceImpl<ProjectStoryMapper, Pro
 
     @Override
     public boolean checkKey(ProjectStory et) {
-        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
+        return (!ObjectUtils.isEmpty(et.getId())) && (!Objects.isNull(this.getById(et.getId())));
     }
     @Override
     @Transactional
     public boolean save(ProjectStory et) {
-        if(!saveOrUpdate(et)) {
+        if (!saveOrUpdate(et)) {
             return false;
         }
         return true;
@@ -212,12 +212,12 @@ public class ProjectStoryServiceImpl extends ServiceImpl<ProjectStoryMapper, Pro
      */
     private void fillParentData(ProjectStory et){
         //实体关系[DER1N_ZT_PROJECTSTORY_ZT_STORY_STORY]
-        if(!ObjectUtils.isEmpty(et.getStory())){
+        if (!ObjectUtils.isEmpty(et.getStory())) {
             cn.ibizlab.pms.core.zentao.domain.Story ztstory=et.getZtstory();
-            if(ObjectUtils.isEmpty(ztstory)){
+            if (ObjectUtils.isEmpty(ztstory)) {
                 cn.ibizlab.pms.core.zentao.domain.Story majorEntity=storyService.get(et.getStory());
                 et.setZtstory(majorEntity);
-                ztstory=majorEntity;
+                ztstory = majorEntity;
             }
             et.setVersion(ztstory.getVersion());
         }

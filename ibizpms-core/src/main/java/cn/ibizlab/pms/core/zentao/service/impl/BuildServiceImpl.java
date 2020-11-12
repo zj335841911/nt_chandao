@@ -108,11 +108,11 @@ public class BuildServiceImpl extends ServiceImpl<BuildMapper, Build> implements
     @Transactional
     public Build get(Long key) {
         Build et = getById(key);
-        if(et==null){
-            et=new Build();
+        if(et == null){
+            et = new Build();
             et.setId(key);
         }
-        else{
+        else {
         }
         return et;
     }
@@ -125,7 +125,7 @@ public class BuildServiceImpl extends ServiceImpl<BuildMapper, Build> implements
 
     @Override
     public boolean checkKey(Build et) {
-        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
+        return (!ObjectUtils.isEmpty(et.getId())) && (!Objects.isNull(this.getById(et.getId())));
     }
         @Override
     @Transactional
@@ -150,7 +150,7 @@ public class BuildServiceImpl extends ServiceImpl<BuildMapper, Build> implements
     @Override
     @Transactional
     public boolean save(Build et) {
-        if(!saveOrUpdate(et)) {
+        if (!saveOrUpdate(et)) {
             return false;
         }
         return true;
@@ -272,12 +272,12 @@ public class BuildServiceImpl extends ServiceImpl<BuildMapper, Build> implements
      */
     private void fillParentData(Build et){
         //实体关系[DER1N_ZT_BUILD_ZT_PRODUCT_PRODUCT]
-        if(!ObjectUtils.isEmpty(et.getProduct())){
+        if (!ObjectUtils.isEmpty(et.getProduct())) {
             cn.ibizlab.pms.core.zentao.domain.Product ztproduct=et.getZtproduct();
-            if(ObjectUtils.isEmpty(ztproduct)){
+            if (ObjectUtils.isEmpty(ztproduct)) {
                 cn.ibizlab.pms.core.zentao.domain.Product majorEntity=productService.get(et.getProduct());
                 et.setZtproduct(majorEntity);
-                ztproduct=majorEntity;
+                ztproduct = majorEntity;
             }
             et.setProductname(ztproduct.getName());
         }

@@ -98,11 +98,11 @@ public class IbzCaseServiceImpl extends ServiceImpl<IbzCaseMapper, IbzCase> impl
     @Transactional
     public IbzCase get(Long key) {
         IbzCase et = getById(key);
-        if(et==null){
-            et=new IbzCase();
+        if(et == null){
+            et = new IbzCase();
             et.setId(key);
         }
-        else{
+        else {
             et.setIbzlibcasesteps(ibzlibcasestepsService.selectByIbizcase(key));
         }
         return et;
@@ -116,12 +116,12 @@ public class IbzCaseServiceImpl extends ServiceImpl<IbzCaseMapper, IbzCase> impl
 
     @Override
     public boolean checkKey(IbzCase et) {
-        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
+        return (!ObjectUtils.isEmpty(et.getId())) && (!Objects.isNull(this.getById(et.getId())));
     }
     @Override
     @Transactional
     public boolean save(IbzCase et) {
-        if(!saveOrUpdate(et)) {
+        if (!saveOrUpdate(et)) {
             return false;
         }
         return true;
@@ -189,22 +189,22 @@ public class IbzCaseServiceImpl extends ServiceImpl<IbzCaseMapper, IbzCase> impl
      */
     private void fillParentData(IbzCase et){
         //实体关系[DER1N_IBZ_CASE_IBZ_LIBMODULE_MODULE]
-        if(!ObjectUtils.isEmpty(et.getModule())){
+        if (!ObjectUtils.isEmpty(et.getModule())) {
             cn.ibizlab.pms.core.ibiz.domain.IbzLibModule libmodule=et.getLibmodule();
-            if(ObjectUtils.isEmpty(libmodule)){
+            if (ObjectUtils.isEmpty(libmodule)) {
                 cn.ibizlab.pms.core.ibiz.domain.IbzLibModule majorEntity=ibzlibmoduleService.get(et.getModule());
                 et.setLibmodule(majorEntity);
-                libmodule=majorEntity;
+                libmodule = majorEntity;
             }
             et.setModulename(libmodule.getName());
         }
         //实体关系[DER1N_IBZ_CASE_IBZ_LIB_LIB]
-        if(!ObjectUtils.isEmpty(et.getLib())){
+        if (!ObjectUtils.isEmpty(et.getLib())) {
             cn.ibizlab.pms.core.ibiz.domain.IbzLib caselib=et.getCaselib();
-            if(ObjectUtils.isEmpty(caselib)){
+            if (ObjectUtils.isEmpty(caselib)) {
                 cn.ibizlab.pms.core.ibiz.domain.IbzLib majorEntity=ibzlibService.get(et.getLib());
                 et.setCaselib(majorEntity);
-                caselib=majorEntity;
+                caselib = majorEntity;
             }
             et.setLibname(caselib.getName());
         }

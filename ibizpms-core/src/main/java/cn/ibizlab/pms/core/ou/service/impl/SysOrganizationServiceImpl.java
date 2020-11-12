@@ -53,9 +53,10 @@ public class SysOrganizationServiceImpl implements ISysOrganizationService {
     @Override
     public boolean create(SysOrganization et) {
         SysOrganization rt = sysOrganizationFeignClient.create(et);
-        if(rt==null)
+        if (rt == null) {
             return false;
-        CachedBeanCopier.copy(rt,et);
+        }
+        CachedBeanCopier.copy(rt, et);
         return true;
     }
 
@@ -68,9 +69,10 @@ public class SysOrganizationServiceImpl implements ISysOrganizationService {
     @Override
     public boolean update(SysOrganization et) {
         SysOrganization rt = sysOrganizationFeignClient.update(et.getOrgid(),et);
-        if(rt==null)
+        if (rt == null) {
             return false;
-        CachedBeanCopier.copy(rt,et);
+        }
+        CachedBeanCopier.copy(rt, et);
         return true;
 
     }
@@ -95,9 +97,9 @@ public class SysOrganizationServiceImpl implements ISysOrganizationService {
 
     @Override
     public SysOrganization get(String orgid) {
-		SysOrganization et=sysOrganizationFeignClient.get(orgid);
-        if(et==null){
-            et=new SysOrganization();
+		SysOrganization et = sysOrganizationFeignClient.get(orgid);
+        if (et == null){
+            et = new SysOrganization();
             et.setOrgid(orgid);
         }
         else{
@@ -108,7 +110,7 @@ public class SysOrganizationServiceImpl implements ISysOrganizationService {
 
     @Override
     public SysOrganization getDraft(SysOrganization et) {
-        et=sysOrganizationFeignClient.getDraft();
+        et = sysOrganizationFeignClient.getDraft();
         return et;
     }
 
@@ -122,9 +124,12 @@ public class SysOrganizationServiceImpl implements ISysOrganizationService {
     @Override
     @Transactional
     public boolean save(SysOrganization et) {
-        if(et.getOrgid()==null) et.setOrgid((String)et.getDefaultKey(true));
-        if(!sysOrganizationFeignClient.save(et))
+        if (et.getOrgid() == null) {
+            et.setOrgid((String)et.getDefaultKey(true));
+        }
+        if (!sysOrganizationFeignClient.save(et)) {
             return false;
+        }
         return true;
     }
 
@@ -156,11 +161,12 @@ public class SysOrganizationServiceImpl implements ISysOrganizationService {
     @Override
     public void removeByParentorgid(String orgid) {
         Set<String> delIds=new HashSet<String>();
-        for(SysOrganization before:selectByParentorgid(orgid)){
+        for (SysOrganization before:selectByParentorgid(orgid)) {
             delIds.add(before.getOrgid());
         }
-        if(delIds.size()>0)
+        if (delIds.size() > 0) {
             this.removeBatch(delIds);
+        }
     }
 
 

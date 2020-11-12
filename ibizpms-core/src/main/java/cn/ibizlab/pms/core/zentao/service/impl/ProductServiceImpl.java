@@ -170,11 +170,11 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
     @Transactional
     public Product get(Long key) {
         Product et = getById(key);
-        if(et==null){
-            et=new Product();
+        if(et == null){
+            et = new Product();
             et.setId(key);
         }
-        else{
+        else {
         }
         return et;
     }
@@ -194,7 +194,7 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
 
     @Override
     public boolean checkKey(Product et) {
-        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
+        return (!ObjectUtils.isEmpty(et.getId())) && (!Objects.isNull(this.getById(et.getId())));
     }
         @Override
     @Transactional
@@ -226,7 +226,7 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
     @Override
     @Transactional
     public boolean save(Product et) {
-        if(!saveOrUpdate(et)) {
+        if (!saveOrUpdate(et)) {
             return false;
         }
         return true;
@@ -339,12 +339,12 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
      */
     private void fillParentData(Product et){
         //实体关系[DER1N_ZT_PRODUCT_ZT_MODULE_LINE]
-        if(!ObjectUtils.isEmpty(et.getLine())){
+        if (!ObjectUtils.isEmpty(et.getLine())) {
             cn.ibizlab.pms.core.zentao.domain.Module moduleline=et.getModuleline();
-            if(ObjectUtils.isEmpty(moduleline)){
+            if (ObjectUtils.isEmpty(moduleline)) {
                 cn.ibizlab.pms.core.zentao.domain.Module majorEntity=moduleService.get(et.getLine());
                 et.setModuleline(majorEntity);
-                moduleline=majorEntity;
+                moduleline = majorEntity;
             }
             et.setLinename(moduleline.getName());
         }
@@ -387,11 +387,11 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
         List ids =new ArrayList();
         for(Product entity : entities){
             Serializable id=entity.getId();
-            if(!ObjectUtils.isEmpty(id)){
+            if (!ObjectUtils.isEmpty(id)) {
                 ids.add(id);
             }
         }
-        if(ids.size()>0) {
+        if (ids.size() > 0) {
             return this.listByIds(ids);
         }
         else {

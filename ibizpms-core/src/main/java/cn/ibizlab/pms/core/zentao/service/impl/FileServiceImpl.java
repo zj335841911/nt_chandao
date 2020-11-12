@@ -60,30 +60,30 @@ public class FileServiceImpl extends ServiceImpl<FileMapper, File> implements IF
         if(!this.retBool(this.baseMapper.insert(et))) {
             return false;
         }
-        CachedBeanCopier.copy(get(et.getId()),et);
+        CachedBeanCopier.copy(get(et.getId()), et);
         return true;
     }
 
     @Override
     @Transactional
     public void createBatch(List<File> list) {
-        this.saveBatch(list,batchSize);
+        this.saveBatch(list, batchSize);
     }
 
     @Override
     @Transactional
     public boolean update(File et) {
-        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId()))) {
+        if(!update(et, (Wrapper) et.getUpdateWrapper(true).eq("id", et.getId()))) {
             return false;
         }
-        CachedBeanCopier.copy(get(et.getId()),et);
+        CachedBeanCopier.copy(get(et.getId()), et);
         return true;
     }
 
     @Override
     @Transactional
     public void updateBatch(List<File> list) {
-        updateBatchById(list,batchSize);
+        updateBatchById(list, batchSize);
     }
 
         @Override
@@ -104,11 +104,11 @@ public class FileServiceImpl extends ServiceImpl<FileMapper, File> implements IF
     @Transactional
     public File get(Long key) {
         File et = getById(key);
-        if(et==null){
-            et=new File();
+        if(et == null){
+            et = new File();
             et.setId(key);
         }
-        else{
+        else {
         }
         return et;
     }
@@ -120,12 +120,12 @@ public class FileServiceImpl extends ServiceImpl<FileMapper, File> implements IF
 
     @Override
     public boolean checkKey(File et) {
-        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
+        return (!ObjectUtils.isEmpty(et.getId())) && (!Objects.isNull(this.getById(et.getId())));
     }
     @Override
     @Transactional
     public boolean save(File et) {
-        if(!saveOrUpdate(et)) {
+        if (!saveOrUpdate(et)) {
             return false;
         }
         return true;

@@ -61,7 +61,7 @@ public class StorySpecServiceImpl extends ServiceImpl<StorySpecMapper, StorySpec
         if(!this.retBool(this.baseMapper.insert(et))) {
             return false;
         }
-        CachedBeanCopier.copy(get(et.getId()),et);
+        CachedBeanCopier.copy(get(et.getId()), et);
         return true;
     }
 
@@ -69,17 +69,17 @@ public class StorySpecServiceImpl extends ServiceImpl<StorySpecMapper, StorySpec
     @Transactional
     public void createBatch(List<StorySpec> list) {
         list.forEach(item->fillParentData(item));
-        this.saveBatch(list,batchSize);
+        this.saveBatch(list, batchSize);
     }
 
     @Override
     @Transactional
     public boolean update(StorySpec et) {
         fillParentData(et);
-        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId()))) {
+        if(!update(et, (Wrapper) et.getUpdateWrapper(true).eq("id", et.getId()))) {
             return false;
         }
-        CachedBeanCopier.copy(get(et.getId()),et);
+        CachedBeanCopier.copy(get(et.getId()), et);
         return true;
     }
 
@@ -87,13 +87,13 @@ public class StorySpecServiceImpl extends ServiceImpl<StorySpecMapper, StorySpec
     @Transactional
     public void updateBatch(List<StorySpec> list) {
         list.forEach(item->fillParentData(item));
-        updateBatchById(list,batchSize);
+        updateBatchById(list, batchSize);
     }
 
     @Override
     @Transactional
     public boolean remove(String key) {
-        boolean result=removeById(key);
+        boolean result = removeById(key);
         return result ;
     }
 
@@ -107,11 +107,11 @@ public class StorySpecServiceImpl extends ServiceImpl<StorySpecMapper, StorySpec
     @Transactional
     public StorySpec get(String key) {
         StorySpec et = getById(key);
-        if(et==null){
-            et=new StorySpec();
+        if(et == null){
+            et = new StorySpec();
             et.setId(key);
         }
-        else{
+        else {
         }
         return et;
     }
@@ -124,12 +124,12 @@ public class StorySpecServiceImpl extends ServiceImpl<StorySpecMapper, StorySpec
 
     @Override
     public boolean checkKey(StorySpec et) {
-        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
+        return (!ObjectUtils.isEmpty(et.getId())) && (!Objects.isNull(this.getById(et.getId())));
     }
     @Override
     @Transactional
     public boolean save(StorySpec et) {
-        if(!saveOrUpdate(et)) {
+        if (!saveOrUpdate(et)) {
             return false;
         }
         return true;
@@ -197,12 +197,12 @@ public class StorySpecServiceImpl extends ServiceImpl<StorySpecMapper, StorySpec
      */
     private void fillParentData(StorySpec et){
         //实体关系[DER1N_ZT_STORYSPEC_ZT_STORY_STORY]
-        if(!ObjectUtils.isEmpty(et.getStory())){
+        if (!ObjectUtils.isEmpty(et.getStory())) {
             cn.ibizlab.pms.core.zentao.domain.Story ztstory=et.getZtstory();
-            if(ObjectUtils.isEmpty(ztstory)){
+            if (ObjectUtils.isEmpty(ztstory)) {
                 cn.ibizlab.pms.core.zentao.domain.Story majorEntity=storyService.get(et.getStory());
                 et.setZtstory(majorEntity);
-                ztstory=majorEntity;
+                ztstory = majorEntity;
             }
             et.setTitle(ztstory.getTitle());
             et.setVersion(ztstory.getVersion());

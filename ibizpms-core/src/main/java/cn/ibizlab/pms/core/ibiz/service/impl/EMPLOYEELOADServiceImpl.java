@@ -61,7 +61,7 @@ public class EMPLOYEELOADServiceImpl extends ServiceImpl<EMPLOYEELOADMapper, EMP
         if(!this.retBool(this.baseMapper.insert(et))) {
             return false;
         }
-        CachedBeanCopier.copy(get(et.getId()),et);
+        CachedBeanCopier.copy(get(et.getId()), et);
         return true;
     }
 
@@ -69,17 +69,17 @@ public class EMPLOYEELOADServiceImpl extends ServiceImpl<EMPLOYEELOADMapper, EMP
     @Transactional
     public void createBatch(List<EMPLOYEELOAD> list) {
         list.forEach(item->fillParentData(item));
-        this.saveBatch(list,batchSize);
+        this.saveBatch(list, batchSize);
     }
 
     @Override
     @Transactional
     public boolean update(EMPLOYEELOAD et) {
         fillParentData(et);
-        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId()))) {
+        if(!update(et, (Wrapper) et.getUpdateWrapper(true).eq("id", et.getId()))) {
             return false;
         }
-        CachedBeanCopier.copy(get(et.getId()),et);
+        CachedBeanCopier.copy(get(et.getId()), et);
         return true;
     }
 
@@ -87,13 +87,13 @@ public class EMPLOYEELOADServiceImpl extends ServiceImpl<EMPLOYEELOADMapper, EMP
     @Transactional
     public void updateBatch(List<EMPLOYEELOAD> list) {
         list.forEach(item->fillParentData(item));
-        updateBatchById(list,batchSize);
+        updateBatchById(list, batchSize);
     }
 
     @Override
     @Transactional
     public boolean remove(Long key) {
-        boolean result=removeById(key);
+        boolean result = removeById(key);
         return result ;
     }
 
@@ -107,11 +107,11 @@ public class EMPLOYEELOADServiceImpl extends ServiceImpl<EMPLOYEELOADMapper, EMP
     @Transactional
     public EMPLOYEELOAD get(Long key) {
         EMPLOYEELOAD et = getById(key);
-        if(et==null){
-            et=new EMPLOYEELOAD();
+        if(et == null){
+            et = new EMPLOYEELOAD();
             et.setId(key);
         }
-        else{
+        else {
         }
         return et;
     }
@@ -124,12 +124,12 @@ public class EMPLOYEELOADServiceImpl extends ServiceImpl<EMPLOYEELOADMapper, EMP
 
     @Override
     public boolean checkKey(EMPLOYEELOAD et) {
-        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
+        return (!ObjectUtils.isEmpty(et.getId())) && (!Objects.isNull(this.getById(et.getId())));
     }
     @Override
     @Transactional
     public boolean save(EMPLOYEELOAD et) {
-        if(!saveOrUpdate(et)) {
+        if (!saveOrUpdate(et)) {
             return false;
         }
         return true;
@@ -197,12 +197,12 @@ public class EMPLOYEELOADServiceImpl extends ServiceImpl<EMPLOYEELOADMapper, EMP
      */
     private void fillParentData(EMPLOYEELOAD et){
         //实体关系[DER1N_IBZ_EMPLOYEELOAD_ZT_PROJECT_PROJECT]
-        if(!ObjectUtils.isEmpty(et.getProject())){
+        if (!ObjectUtils.isEmpty(et.getProject())) {
             cn.ibizlab.pms.core.zentao.domain.Project ztproject=et.getZtproject();
-            if(ObjectUtils.isEmpty(ztproject)){
+            if (ObjectUtils.isEmpty(ztproject)) {
                 cn.ibizlab.pms.core.zentao.domain.Project majorEntity=projectService.get(et.getProject());
                 et.setZtproject(majorEntity);
-                ztproject=majorEntity;
+                ztproject = majorEntity;
             }
             et.setProjectname(ztproject.getName());
         }

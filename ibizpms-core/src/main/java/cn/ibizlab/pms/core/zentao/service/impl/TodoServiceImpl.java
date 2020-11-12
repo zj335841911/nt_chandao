@@ -99,11 +99,11 @@ public class TodoServiceImpl extends ServiceImpl<TodoMapper, Todo> implements IT
         Todo tempET=new Todo();
         tempET.set("id",key);
         Todo et = getById(key);
-        if(et==null){
-            et=new Todo();
+        if(et == null){
+            et = new Todo();
             et.setId(key);
         }
-        else{
+        else {
         }
         gettodotitleLogic.execute(et);
         resetbeginendLogic.execute(et);
@@ -129,7 +129,7 @@ public class TodoServiceImpl extends ServiceImpl<TodoMapper, Todo> implements IT
 
     @Override
     public boolean checkKey(Todo et) {
-        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
+        return (!ObjectUtils.isEmpty(et.getId())) && (!Objects.isNull(this.getById(et.getId())));
     }
         @Override
     @Transactional
@@ -153,7 +153,7 @@ public class TodoServiceImpl extends ServiceImpl<TodoMapper, Todo> implements IT
     @Override
     @Transactional
     public boolean save(Todo et) {
-        if(!saveOrUpdate(et)) {
+        if (!saveOrUpdate(et)) {
             return false;
         }
         return true;

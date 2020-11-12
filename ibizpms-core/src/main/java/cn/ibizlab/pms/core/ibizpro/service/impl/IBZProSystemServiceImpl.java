@@ -57,36 +57,36 @@ public class IBZProSystemServiceImpl extends ServiceImpl<IBZProSystemMapper, IBZ
         if(!this.retBool(this.baseMapper.insert(et))) {
             return false;
         }
-        CachedBeanCopier.copy(get(et.getIbzprosystemid()),et);
+        CachedBeanCopier.copy(get(et.getIbzprosystemid()), et);
         return true;
     }
 
     @Override
     @Transactional
     public void createBatch(List<IBZProSystem> list) {
-        this.saveBatch(list,batchSize);
+        this.saveBatch(list, batchSize);
     }
 
     @Override
     @Transactional
     public boolean update(IBZProSystem et) {
-        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("ibzpro_systemid",et.getIbzprosystemid()))) {
+        if(!update(et, (Wrapper) et.getUpdateWrapper(true).eq("ibzpro_systemid", et.getIbzprosystemid()))) {
             return false;
         }
-        CachedBeanCopier.copy(get(et.getIbzprosystemid()),et);
+        CachedBeanCopier.copy(get(et.getIbzprosystemid()), et);
         return true;
     }
 
     @Override
     @Transactional
     public void updateBatch(List<IBZProSystem> list) {
-        updateBatchById(list,batchSize);
+        updateBatchById(list, batchSize);
     }
 
     @Override
     @Transactional
     public boolean remove(String key) {
-        boolean result=removeById(key);
+        boolean result = removeById(key);
         return result ;
     }
 
@@ -100,11 +100,11 @@ public class IBZProSystemServiceImpl extends ServiceImpl<IBZProSystemMapper, IBZ
     @Transactional
     public IBZProSystem get(String key) {
         IBZProSystem et = getById(key);
-        if(et==null){
-            et=new IBZProSystem();
+        if(et == null){
+            et = new IBZProSystem();
             et.setIbzprosystemid(key);
         }
-        else{
+        else {
         }
         return et;
     }
@@ -116,12 +116,12 @@ public class IBZProSystemServiceImpl extends ServiceImpl<IBZProSystemMapper, IBZ
 
     @Override
     public boolean checkKey(IBZProSystem et) {
-        return (!ObjectUtils.isEmpty(et.getIbzprosystemid()))&&(!Objects.isNull(this.getById(et.getIbzprosystemid())));
+        return (!ObjectUtils.isEmpty(et.getIbzprosystemid())) && (!Objects.isNull(this.getById(et.getIbzprosystemid())));
     }
     @Override
     @Transactional
     public boolean save(IBZProSystem et) {
-        if(!saveOrUpdate(et)) {
+        if (!saveOrUpdate(et)) {
             return false;
         }
         return true;
@@ -201,11 +201,11 @@ public class IBZProSystemServiceImpl extends ServiceImpl<IBZProSystemMapper, IBZ
         List ids =new ArrayList();
         for(IBZProSystem entity : entities){
             Serializable id=entity.getIbzprosystemid();
-            if(!ObjectUtils.isEmpty(id)){
+            if (!ObjectUtils.isEmpty(id)) {
                 ids.add(id);
             }
         }
-        if(ids.size()>0) {
+        if (ids.size() > 0) {
             return this.listByIds(ids);
         }
         else {

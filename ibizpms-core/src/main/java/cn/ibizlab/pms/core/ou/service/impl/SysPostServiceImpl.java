@@ -53,9 +53,10 @@ public class SysPostServiceImpl implements ISysPostService {
     @Override
     public boolean create(SysPost et) {
         SysPost rt = sysPostFeignClient.create(et);
-        if(rt==null)
+        if (rt == null) {
             return false;
-        CachedBeanCopier.copy(rt,et);
+        }
+        CachedBeanCopier.copy(rt, et);
         return true;
     }
 
@@ -68,9 +69,10 @@ public class SysPostServiceImpl implements ISysPostService {
     @Override
     public boolean update(SysPost et) {
         SysPost rt = sysPostFeignClient.update(et.getPostid(),et);
-        if(rt==null)
+        if (rt == null) {
             return false;
-        CachedBeanCopier.copy(rt,et);
+        }
+        CachedBeanCopier.copy(rt, et);
         return true;
 
     }
@@ -95,9 +97,9 @@ public class SysPostServiceImpl implements ISysPostService {
 
     @Override
     public SysPost get(String postid) {
-		SysPost et=sysPostFeignClient.get(postid);
-        if(et==null){
-            et=new SysPost();
+		SysPost et = sysPostFeignClient.get(postid);
+        if (et == null){
+            et = new SysPost();
             et.setPostid(postid);
         }
         else{
@@ -108,7 +110,7 @@ public class SysPostServiceImpl implements ISysPostService {
 
     @Override
     public SysPost getDraft(SysPost et) {
-        et=sysPostFeignClient.getDraft();
+        et = sysPostFeignClient.getDraft();
         return et;
     }
 
@@ -122,9 +124,12 @@ public class SysPostServiceImpl implements ISysPostService {
     @Override
     @Transactional
     public boolean save(SysPost et) {
-        if(et.getPostid()==null) et.setPostid((String)et.getDefaultKey(true));
-        if(!sysPostFeignClient.save(et))
+        if (et.getPostid() == null) {
+            et.setPostid((String)et.getDefaultKey(true));
+        }
+        if (!sysPostFeignClient.save(et)) {
             return false;
+        }
         return true;
     }
 

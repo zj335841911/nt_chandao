@@ -63,8 +63,8 @@ public class CaseStepServiceImpl extends ServiceImpl<CaseStepMapper, CaseStep> i
         if(!this.retBool(this.baseMapper.insert(et))) {
             return false;
         }
-        casestepService.saveByParent(et.getId(),et.getCasestep());
-        CachedBeanCopier.copy(get(et.getId()),et);
+        casestepService.saveByParent(et.getId(), et.getCasestep());
+        CachedBeanCopier.copy(get(et.getId()), et);
         return true;
     }
 
@@ -72,18 +72,18 @@ public class CaseStepServiceImpl extends ServiceImpl<CaseStepMapper, CaseStep> i
     @Transactional
     public void createBatch(List<CaseStep> list) {
         list.forEach(item->fillParentData(item));
-        this.saveBatch(list,batchSize);
+        this.saveBatch(list, batchSize);
     }
 
     @Override
     @Transactional
     public boolean update(CaseStep et) {
         fillParentData(et);
-        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId()))) {
+        if(!update(et, (Wrapper) et.getUpdateWrapper(true).eq("id", et.getId()))) {
             return false;
         }
-        casestepService.saveByParent(et.getId(),et.getCasestep());
-        CachedBeanCopier.copy(get(et.getId()),et);
+        casestepService.saveByParent(et.getId(), et.getCasestep());
+        CachedBeanCopier.copy(get(et.getId()), et);
         return true;
     }
 
@@ -91,13 +91,13 @@ public class CaseStepServiceImpl extends ServiceImpl<CaseStepMapper, CaseStep> i
     @Transactional
     public void updateBatch(List<CaseStep> list) {
         list.forEach(item->fillParentData(item));
-        updateBatchById(list,batchSize);
+        updateBatchById(list, batchSize);
     }
 
     @Override
     @Transactional
     public boolean remove(Long key) {
-        boolean result=removeById(key);
+        boolean result = removeById(key);
         return result ;
     }
 
@@ -111,11 +111,11 @@ public class CaseStepServiceImpl extends ServiceImpl<CaseStepMapper, CaseStep> i
     @Transactional
     public CaseStep get(Long key) {
         CaseStep et = getById(key);
-        if(et==null){
-            et=new CaseStep();
+        if(et == null){
+            et = new CaseStep();
             et.setId(key);
         }
-        else{
+        else {
             et.setCasestep(casestepService.selectByParent(key));
         }
         return et;
@@ -129,12 +129,12 @@ public class CaseStepServiceImpl extends ServiceImpl<CaseStepMapper, CaseStep> i
 
     @Override
     public boolean checkKey(CaseStep et) {
-        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
+        return (!ObjectUtils.isEmpty(et.getId())) && (!Objects.isNull(this.getById(et.getId())));
     }
     @Override
     @Transactional
     public boolean save(CaseStep et) {
-        if(!saveOrUpdate(et)) {
+        if (!saveOrUpdate(et)) {
             return false;
         }
         return true;
@@ -180,8 +180,9 @@ public class CaseStepServiceImpl extends ServiceImpl<CaseStepMapper, CaseStep> i
     ICaseStepService proxyService;
 	@Override
     public void saveByIbizcase(Long id,List<CaseStep> list) {
-        if(list==null)
+        if (list == null) {
             return;
+        }
         Set<Long> delIds=new HashSet<Long>();
         List<CaseStep> _update=new ArrayList<CaseStep>();
         List<CaseStep> _create=new ArrayList<CaseStep>();
@@ -190,21 +191,25 @@ public class CaseStepServiceImpl extends ServiceImpl<CaseStepMapper, CaseStep> i
         }
         for(CaseStep sub:list) {
             sub.setIbizcase(id);
-            if(ObjectUtils.isEmpty(sub.getId()))
+            if (ObjectUtils.isEmpty(sub.getId()))
                 sub.setId((Long)sub.getDefaultKey(true));
-            if(delIds.contains(sub.getId())) {
+            if (delIds.contains(sub.getId())) {
                 delIds.remove(sub.getId());
                 _update.add(sub);
             }
-            else
+            else {
                 _create.add(sub);
+            }
         }
-        if(_update.size()>0)
+        if (_update.size() > 0) {
             proxyService.updateBatch(_update);
-        if(_create.size()>0)
+        }
+        if (_create.size() > 0) {
             proxyService.createBatch(_create);
-        if(delIds.size()>0)
+        }
+        if (delIds.size() > 0) {
             proxyService.removeBatch(delIds);
+        }
 	}
 
 	@Override
@@ -218,8 +223,9 @@ public class CaseStepServiceImpl extends ServiceImpl<CaseStepMapper, CaseStep> i
 
 	@Override
     public void saveByParent(Long id,List<CaseStep> list) {
-        if(list==null)
+        if (list == null) {
             return;
+        }
         Set<Long> delIds=new HashSet<Long>();
         List<CaseStep> _update=new ArrayList<CaseStep>();
         List<CaseStep> _create=new ArrayList<CaseStep>();
@@ -228,21 +234,25 @@ public class CaseStepServiceImpl extends ServiceImpl<CaseStepMapper, CaseStep> i
         }
         for(CaseStep sub:list) {
             sub.setParent(id);
-            if(ObjectUtils.isEmpty(sub.getId()))
+            if (ObjectUtils.isEmpty(sub.getId()))
                 sub.setId((Long)sub.getDefaultKey(true));
-            if(delIds.contains(sub.getId())) {
+            if (delIds.contains(sub.getId())) {
                 delIds.remove(sub.getId());
                 _update.add(sub);
             }
-            else
+            else {
                 _create.add(sub);
+            }
         }
-        if(_update.size()>0)
+        if (_update.size() > 0) {
             proxyService.updateBatch(_update);
-        if(_create.size()>0)
+        }
+        if (_create.size() > 0) {
             proxyService.createBatch(_create);
-        if(delIds.size()>0)
+        }
+        if (delIds.size() > 0) {
             proxyService.removeBatch(delIds);
+        }
 	}
 
 
@@ -308,12 +318,12 @@ public class CaseStepServiceImpl extends ServiceImpl<CaseStepMapper, CaseStep> i
      */
     private void fillParentData(CaseStep et){
         //实体关系[DER1N_ZT_CASESTEP_ZT_CASE_CASE]
-        if(!ObjectUtils.isEmpty(et.getIbizcase())){
+        if (!ObjectUtils.isEmpty(et.getIbizcase())) {
             cn.ibizlab.pms.core.zentao.domain.Case ztcase=et.getZtcase();
-            if(ObjectUtils.isEmpty(ztcase)){
+            if (ObjectUtils.isEmpty(ztcase)) {
                 cn.ibizlab.pms.core.zentao.domain.Case majorEntity=caseService.get(et.getIbizcase());
                 et.setZtcase(majorEntity);
-                ztcase=majorEntity;
+                ztcase = majorEntity;
             }
             et.setVersion(ztcase.getVersion());
         }

@@ -162,11 +162,11 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
         Task tempET=new Task();
         tempET.set("id",key);
         Task et = getById(key);
-        if(et==null){
-            et=new Task();
+        if(et == null){
+            et = new Task();
             et.setId(key);
         }
-        else{
+        else {
             et.setTaskteam(taskteamService.selectByRoot(key));
             et.setTaskestimate(taskestimateService.selectByTask(key));
         }
@@ -200,7 +200,7 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
 
     @Override
     public boolean checkKey(Task et) {
-        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
+        return (!ObjectUtils.isEmpty(et.getId())) && (!Objects.isNull(this.getById(et.getId())));
     }
         @Override
     @Transactional
@@ -272,7 +272,7 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
     @Override
     @Transactional
     public boolean save(Task et) {
-        if(!saveOrUpdate(et)) {
+        if (!saveOrUpdate(et)) {
             return false;
         }
         return true;
@@ -554,33 +554,33 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
      */
     private void fillParentData(Task et){
         //实体关系[DER1N_ZT_TASK_IBZ_PROJECTMODULE_MODULE]
-        if(!ObjectUtils.isEmpty(et.getModule())){
+        if (!ObjectUtils.isEmpty(et.getModule())) {
             cn.ibizlab.pms.core.ibiz.domain.ProjectModule projectmodule=et.getProjectmodule();
-            if(ObjectUtils.isEmpty(projectmodule)){
+            if (ObjectUtils.isEmpty(projectmodule)) {
                 cn.ibizlab.pms.core.ibiz.domain.ProjectModule majorEntity=projectmoduleService.get(et.getModule());
                 et.setProjectmodule(majorEntity);
-                projectmodule=majorEntity;
+                projectmodule = majorEntity;
             }
             et.setModulename(projectmodule.getName());
             et.setPath(projectmodule.getPath());
         }
         //实体关系[DER1N_ZT_TASK_ZT_PROJECT_PROJECT]
-        if(!ObjectUtils.isEmpty(et.getProject())){
+        if (!ObjectUtils.isEmpty(et.getProject())) {
             cn.ibizlab.pms.core.zentao.domain.Project ztproject=et.getZtproject();
-            if(ObjectUtils.isEmpty(ztproject)){
+            if (ObjectUtils.isEmpty(ztproject)) {
                 cn.ibizlab.pms.core.zentao.domain.Project majorEntity=projectService.get(et.getProject());
                 et.setZtproject(majorEntity);
-                ztproject=majorEntity;
+                ztproject = majorEntity;
             }
             et.setProjectname(ztproject.getName());
         }
         //实体关系[DER1N_ZT_TASK_ZT_STORY_STORY]
-        if(!ObjectUtils.isEmpty(et.getStory())){
+        if (!ObjectUtils.isEmpty(et.getStory())) {
             cn.ibizlab.pms.core.zentao.domain.Story ztstory=et.getZtstory();
-            if(ObjectUtils.isEmpty(ztstory)){
+            if (ObjectUtils.isEmpty(ztstory)) {
                 cn.ibizlab.pms.core.zentao.domain.Story majorEntity=storyService.get(et.getStory());
                 et.setZtstory(majorEntity);
-                ztstory=majorEntity;
+                ztstory = majorEntity;
             }
             et.setStoryname(ztstory.getTitle());
             et.setProduct(ztstory.getProduct());
@@ -588,12 +588,12 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
             et.setProductname(ztstory.getProductname());
         }
         //实体关系[DER1N__ZT_TASK__ZT_TASK__PARENT]
-        if(!ObjectUtils.isEmpty(et.getParent())){
+        if (!ObjectUtils.isEmpty(et.getParent())) {
             cn.ibizlab.pms.core.zentao.domain.Task ztparent=et.getZtparent();
-            if(ObjectUtils.isEmpty(ztparent)){
+            if (ObjectUtils.isEmpty(ztparent)) {
                 cn.ibizlab.pms.core.zentao.domain.Task majorEntity=taskService.get(et.getParent());
                 et.setZtparent(majorEntity);
-                ztparent=majorEntity;
+                ztparent = majorEntity;
             }
             et.setParentname(ztparent.getName());
         }

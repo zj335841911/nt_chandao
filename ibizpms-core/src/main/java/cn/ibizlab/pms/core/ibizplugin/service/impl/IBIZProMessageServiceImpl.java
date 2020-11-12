@@ -53,9 +53,10 @@ public class IBIZProMessageServiceImpl implements IIBIZProMessageService {
     @Override
     public boolean create(IBIZProMessage et) {
         IBIZProMessage rt = iBIZPRO_MESSAGEFeignClient.create(et);
-        if(rt==null)
+        if (rt == null) {
             return false;
-        CachedBeanCopier.copy(rt,et);
+        }
+        CachedBeanCopier.copy(rt, et);
         return true;
     }
 
@@ -68,9 +69,10 @@ public class IBIZProMessageServiceImpl implements IIBIZProMessageService {
     @Override
     public boolean update(IBIZProMessage et) {
         IBIZProMessage rt = iBIZPRO_MESSAGEFeignClient.update(et.getIbizproMessageid(),et);
-        if(rt==null)
+        if (rt == null) {
             return false;
-        CachedBeanCopier.copy(rt,et);
+        }
+        CachedBeanCopier.copy(rt, et);
         return true;
 
     }
@@ -95,9 +97,9 @@ public class IBIZProMessageServiceImpl implements IIBIZProMessageService {
 
     @Override
     public IBIZProMessage get(String ibizpro_messageid) {
-		IBIZProMessage et=iBIZPRO_MESSAGEFeignClient.get(ibizpro_messageid);
-        if(et==null){
-            et=new IBIZProMessage();
+		IBIZProMessage et = iBIZPRO_MESSAGEFeignClient.get(ibizpro_messageid);
+        if (et == null){
+            et = new IBIZProMessage();
             et.setIbizproMessageid(ibizpro_messageid);
         }
         else{
@@ -108,7 +110,7 @@ public class IBIZProMessageServiceImpl implements IIBIZProMessageService {
 
     @Override
     public IBIZProMessage getDraft(IBIZProMessage et) {
-        et=iBIZPRO_MESSAGEFeignClient.getDraft();
+        et = iBIZPRO_MESSAGEFeignClient.getDraft();
         return et;
     }
 
@@ -138,9 +140,12 @@ public class IBIZProMessageServiceImpl implements IIBIZProMessageService {
     @Override
     @Transactional
     public boolean save(IBIZProMessage et) {
-        if(et.getIbizproMessageid()==null) et.setIbizproMessageid((String)et.getDefaultKey(true));
-        if(!iBIZPRO_MESSAGEFeignClient.save(et))
+        if (et.getIbizproMessageid() == null) {
+            et.setIbizproMessageid((String)et.getDefaultKey(true));
+        }
+        if (!iBIZPRO_MESSAGEFeignClient.save(et)) {
             return false;
+        }
         return true;
     }
 

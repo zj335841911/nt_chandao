@@ -95,11 +95,11 @@ public class IbzLibServiceImpl extends ServiceImpl<IbzLibMapper, IbzLib> impleme
     @Transactional
     public IbzLib get(Long key) {
         IbzLib et = getById(key);
-        if(et==null){
-            et=new IbzLib();
+        if(et == null){
+            et = new IbzLib();
             et.setId(key);
         }
-        else{
+        else {
         }
         return et;
     }
@@ -111,12 +111,12 @@ public class IbzLibServiceImpl extends ServiceImpl<IbzLibMapper, IbzLib> impleme
 
     @Override
     public boolean checkKey(IbzLib et) {
-        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
+        return (!ObjectUtils.isEmpty(et.getId())) && (!Objects.isNull(this.getById(et.getId())));
     }
     @Override
     @Transactional
     public boolean save(IbzLib et) {
-        if(!saveOrUpdate(et)) {
+        if (!saveOrUpdate(et)) {
             return false;
         }
         return true;

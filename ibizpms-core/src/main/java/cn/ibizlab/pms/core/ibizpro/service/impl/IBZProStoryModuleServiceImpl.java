@@ -70,7 +70,7 @@ public class IBZProStoryModuleServiceImpl extends ServiceImpl<IBZProStoryModuleM
         if(!this.retBool(this.baseMapper.insert(et))) {
             return false;
         }
-        CachedBeanCopier.copy(get(et.getId()),et);
+        CachedBeanCopier.copy(get(et.getId()), et);
         fixpathLogic.execute(et);
         return true;
     }
@@ -79,17 +79,17 @@ public class IBZProStoryModuleServiceImpl extends ServiceImpl<IBZProStoryModuleM
     @Transactional
     public void createBatch(List<IBZProStoryModule> list) {
         list.forEach(item->fillParentData(item));
-        this.saveBatch(list,batchSize);
+        this.saveBatch(list, batchSize);
     }
 
     @Override
     @Transactional
     public boolean update(IBZProStoryModule et) {
         fillParentData(et);
-        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId()))) {
+        if(!update(et, (Wrapper) et.getUpdateWrapper(true).eq("id", et.getId()))) {
             return false;
         }
-        CachedBeanCopier.copy(get(et.getId()),et);
+        CachedBeanCopier.copy(get(et.getId()), et);
         fixpathLogic.execute(et);
         return true;
     }
@@ -98,13 +98,13 @@ public class IBZProStoryModuleServiceImpl extends ServiceImpl<IBZProStoryModuleM
     @Transactional
     public void updateBatch(List<IBZProStoryModule> list) {
         list.forEach(item->fillParentData(item));
-        updateBatchById(list,batchSize);
+        updateBatchById(list, batchSize);
     }
 
     @Override
     @Transactional
     public boolean remove(Long key) {
-        boolean result=removeById(key);
+        boolean result = removeById(key);
         return result ;
     }
 
@@ -118,11 +118,11 @@ public class IBZProStoryModuleServiceImpl extends ServiceImpl<IBZProStoryModuleM
     @Transactional
     public IBZProStoryModule get(Long key) {
         IBZProStoryModule et = getById(key);
-        if(et==null){
-            et=new IBZProStoryModule();
+        if(et == null){
+            et = new IBZProStoryModule();
             et.setId(key);
         }
-        else{
+        else {
         }
         return et;
     }
@@ -135,12 +135,12 @@ public class IBZProStoryModuleServiceImpl extends ServiceImpl<IBZProStoryModuleM
 
     @Override
     public boolean checkKey(IBZProStoryModule et) {
-        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
+        return (!ObjectUtils.isEmpty(et.getId())) && (!Objects.isNull(this.getById(et.getId())));
     }
     @Override
     @Transactional
     public boolean save(IBZProStoryModule et) {
-        if(!saveOrUpdate(et)) {
+        if (!saveOrUpdate(et)) {
             return false;
         }
         return true;
@@ -215,12 +215,12 @@ public class IBZProStoryModuleServiceImpl extends ServiceImpl<IBZProStoryModuleM
      */
     private void fillParentData(IBZProStoryModule et){
         //实体关系[DER1N_IBZPRO_STORYMODULE_IBZPRO_PRODUCT_ROOT]
-        if(!ObjectUtils.isEmpty(et.getRoot())){
+        if (!ObjectUtils.isEmpty(et.getRoot())) {
             cn.ibizlab.pms.core.ibizpro.domain.IBZProProduct ibzproproduct=et.getIbzproproduct();
-            if(ObjectUtils.isEmpty(ibzproproduct)){
+            if (ObjectUtils.isEmpty(ibzproproduct)) {
                 cn.ibizlab.pms.core.ibizpro.domain.IBZProProduct majorEntity=ibzproproductService.get(et.getRoot());
                 et.setIbzproproduct(majorEntity);
-                ibzproproduct=majorEntity;
+                ibzproproduct = majorEntity;
             }
             et.setProductname(ibzproproduct.getName());
         }

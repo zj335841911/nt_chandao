@@ -102,11 +102,11 @@ public class TestSuiteServiceImpl extends ServiceImpl<TestSuiteMapper, TestSuite
     @Transactional
     public TestSuite get(Long key) {
         TestSuite et = getById(key);
-        if(et==null){
-            et=new TestSuite();
+        if(et == null){
+            et = new TestSuite();
             et.setId(key);
         }
-        else{
+        else {
         }
         return et;
     }
@@ -118,7 +118,7 @@ public class TestSuiteServiceImpl extends ServiceImpl<TestSuiteMapper, TestSuite
 
     @Override
     public boolean checkKey(TestSuite et) {
-        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
+        return (!ObjectUtils.isEmpty(et.getId())) && (!Objects.isNull(this.getById(et.getId())));
     }
     @Override
     @Transactional
@@ -130,7 +130,7 @@ public class TestSuiteServiceImpl extends ServiceImpl<TestSuiteMapper, TestSuite
     @Override
     @Transactional
     public boolean save(TestSuite et) {
-        if(!saveOrUpdate(et)) {
+        if (!saveOrUpdate(et)) {
             return false;
         }
         return true;

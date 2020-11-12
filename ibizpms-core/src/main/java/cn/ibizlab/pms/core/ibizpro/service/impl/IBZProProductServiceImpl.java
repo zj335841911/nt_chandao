@@ -63,36 +63,36 @@ public class IBZProProductServiceImpl extends ServiceImpl<IBZProProductMapper, I
         if(!this.retBool(this.baseMapper.insert(et))) {
             return false;
         }
-        CachedBeanCopier.copy(get(et.getId()),et);
+        CachedBeanCopier.copy(get(et.getId()), et);
         return true;
     }
 
     @Override
     @Transactional
     public void createBatch(List<IBZProProduct> list) {
-        this.saveBatch(list,batchSize);
+        this.saveBatch(list, batchSize);
     }
 
     @Override
     @Transactional
     public boolean update(IBZProProduct et) {
-        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId()))) {
+        if(!update(et, (Wrapper) et.getUpdateWrapper(true).eq("id", et.getId()))) {
             return false;
         }
-        CachedBeanCopier.copy(get(et.getId()),et);
+        CachedBeanCopier.copy(get(et.getId()), et);
         return true;
     }
 
     @Override
     @Transactional
     public void updateBatch(List<IBZProProduct> list) {
-        updateBatchById(list,batchSize);
+        updateBatchById(list, batchSize);
     }
 
     @Override
     @Transactional
     public boolean remove(Long key) {
-        boolean result=removeById(key);
+        boolean result = removeById(key);
         return result ;
     }
 
@@ -106,11 +106,11 @@ public class IBZProProductServiceImpl extends ServiceImpl<IBZProProductMapper, I
     @Transactional
     public IBZProProduct get(Long key) {
         IBZProProduct et = getById(key);
-        if(et==null){
-            et=new IBZProProduct();
+        if(et == null){
+            et = new IBZProProduct();
             et.setId(key);
         }
-        else{
+        else {
         }
         return et;
     }
@@ -122,12 +122,12 @@ public class IBZProProductServiceImpl extends ServiceImpl<IBZProProductMapper, I
 
     @Override
     public boolean checkKey(IBZProProduct et) {
-        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
+        return (!ObjectUtils.isEmpty(et.getId())) && (!Objects.isNull(this.getById(et.getId())));
     }
     @Override
     @Transactional
     public boolean save(IBZProProduct et) {
-        if(!saveOrUpdate(et)) {
+        if (!saveOrUpdate(et)) {
             return false;
         }
         return true;

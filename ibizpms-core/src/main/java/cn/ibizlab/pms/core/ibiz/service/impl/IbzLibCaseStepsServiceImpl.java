@@ -63,8 +63,8 @@ public class IbzLibCaseStepsServiceImpl extends ServiceImpl<IbzLibCaseStepsMappe
         if(!this.retBool(this.baseMapper.insert(et))) {
             return false;
         }
-        ibzlibcasestepsService.saveByParent(et.getId(),et.getIbzlibcasesteps());
-        CachedBeanCopier.copy(get(et.getId()),et);
+        ibzlibcasestepsService.saveByParent(et.getId(), et.getIbzlibcasesteps());
+        CachedBeanCopier.copy(get(et.getId()), et);
         return true;
     }
 
@@ -72,18 +72,18 @@ public class IbzLibCaseStepsServiceImpl extends ServiceImpl<IbzLibCaseStepsMappe
     @Transactional
     public void createBatch(List<IbzLibCaseSteps> list) {
         list.forEach(item->fillParentData(item));
-        this.saveBatch(list,batchSize);
+        this.saveBatch(list, batchSize);
     }
 
     @Override
     @Transactional
     public boolean update(IbzLibCaseSteps et) {
         fillParentData(et);
-        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId()))) {
+        if(!update(et, (Wrapper) et.getUpdateWrapper(true).eq("id", et.getId()))) {
             return false;
         }
-        ibzlibcasestepsService.saveByParent(et.getId(),et.getIbzlibcasesteps());
-        CachedBeanCopier.copy(get(et.getId()),et);
+        ibzlibcasestepsService.saveByParent(et.getId(), et.getIbzlibcasesteps());
+        CachedBeanCopier.copy(get(et.getId()), et);
         return true;
     }
 
@@ -91,13 +91,13 @@ public class IbzLibCaseStepsServiceImpl extends ServiceImpl<IbzLibCaseStepsMappe
     @Transactional
     public void updateBatch(List<IbzLibCaseSteps> list) {
         list.forEach(item->fillParentData(item));
-        updateBatchById(list,batchSize);
+        updateBatchById(list, batchSize);
     }
 
     @Override
     @Transactional
     public boolean remove(Long key) {
-        boolean result=removeById(key);
+        boolean result = removeById(key);
         return result ;
     }
 
@@ -111,11 +111,11 @@ public class IbzLibCaseStepsServiceImpl extends ServiceImpl<IbzLibCaseStepsMappe
     @Transactional
     public IbzLibCaseSteps get(Long key) {
         IbzLibCaseSteps et = getById(key);
-        if(et==null){
-            et=new IbzLibCaseSteps();
+        if(et == null){
+            et = new IbzLibCaseSteps();
             et.setId(key);
         }
-        else{
+        else {
             et.setIbzlibcasesteps(ibzlibcasestepsService.selectByParent(key));
         }
         return et;
@@ -129,12 +129,12 @@ public class IbzLibCaseStepsServiceImpl extends ServiceImpl<IbzLibCaseStepsMappe
 
     @Override
     public boolean checkKey(IbzLibCaseSteps et) {
-        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
+        return (!ObjectUtils.isEmpty(et.getId())) && (!Objects.isNull(this.getById(et.getId())));
     }
     @Override
     @Transactional
     public boolean save(IbzLibCaseSteps et) {
-        if(!saveOrUpdate(et)) {
+        if (!saveOrUpdate(et)) {
             return false;
         }
         return true;
@@ -180,8 +180,9 @@ public class IbzLibCaseStepsServiceImpl extends ServiceImpl<IbzLibCaseStepsMappe
     IIbzLibCaseStepsService proxyService;
 	@Override
     public void saveByIbizcase(Long id,List<IbzLibCaseSteps> list) {
-        if(list==null)
+        if (list == null) {
             return;
+        }
         Set<Long> delIds=new HashSet<Long>();
         List<IbzLibCaseSteps> _update=new ArrayList<IbzLibCaseSteps>();
         List<IbzLibCaseSteps> _create=new ArrayList<IbzLibCaseSteps>();
@@ -190,21 +191,25 @@ public class IbzLibCaseStepsServiceImpl extends ServiceImpl<IbzLibCaseStepsMappe
         }
         for(IbzLibCaseSteps sub:list) {
             sub.setIbizcase(id);
-            if(ObjectUtils.isEmpty(sub.getId()))
+            if (ObjectUtils.isEmpty(sub.getId()))
                 sub.setId((Long)sub.getDefaultKey(true));
-            if(delIds.contains(sub.getId())) {
+            if (delIds.contains(sub.getId())) {
                 delIds.remove(sub.getId());
                 _update.add(sub);
             }
-            else
+            else {
                 _create.add(sub);
+            }
         }
-        if(_update.size()>0)
+        if (_update.size() > 0) {
             proxyService.updateBatch(_update);
-        if(_create.size()>0)
+        }
+        if (_create.size() > 0) {
             proxyService.createBatch(_create);
-        if(delIds.size()>0)
+        }
+        if (delIds.size() > 0) {
             proxyService.removeBatch(delIds);
+        }
 	}
 
 	@Override
@@ -218,8 +223,9 @@ public class IbzLibCaseStepsServiceImpl extends ServiceImpl<IbzLibCaseStepsMappe
 
 	@Override
     public void saveByParent(Long id,List<IbzLibCaseSteps> list) {
-        if(list==null)
+        if (list == null) {
             return;
+        }
         Set<Long> delIds=new HashSet<Long>();
         List<IbzLibCaseSteps> _update=new ArrayList<IbzLibCaseSteps>();
         List<IbzLibCaseSteps> _create=new ArrayList<IbzLibCaseSteps>();
@@ -228,21 +234,25 @@ public class IbzLibCaseStepsServiceImpl extends ServiceImpl<IbzLibCaseStepsMappe
         }
         for(IbzLibCaseSteps sub:list) {
             sub.setParent(id);
-            if(ObjectUtils.isEmpty(sub.getId()))
+            if (ObjectUtils.isEmpty(sub.getId()))
                 sub.setId((Long)sub.getDefaultKey(true));
-            if(delIds.contains(sub.getId())) {
+            if (delIds.contains(sub.getId())) {
                 delIds.remove(sub.getId());
                 _update.add(sub);
             }
-            else
+            else {
                 _create.add(sub);
+            }
         }
-        if(_update.size()>0)
+        if (_update.size() > 0) {
             proxyService.updateBatch(_update);
-        if(_create.size()>0)
+        }
+        if (_create.size() > 0) {
             proxyService.createBatch(_create);
-        if(delIds.size()>0)
+        }
+        if (delIds.size() > 0) {
             proxyService.removeBatch(delIds);
+        }
 	}
 
 
@@ -263,12 +273,12 @@ public class IbzLibCaseStepsServiceImpl extends ServiceImpl<IbzLibCaseStepsMappe
      */
     private void fillParentData(IbzLibCaseSteps et){
         //实体关系[DER1N_IBZ_LIBCASESTEPS_IBZ_CASE_CASE]
-        if(!ObjectUtils.isEmpty(et.getIbizcase())){
+        if (!ObjectUtils.isEmpty(et.getIbizcase())) {
             cn.ibizlab.pms.core.ibiz.domain.IbzCase ibzcase=et.getIbzcase();
-            if(ObjectUtils.isEmpty(ibzcase)){
+            if (ObjectUtils.isEmpty(ibzcase)) {
                 cn.ibizlab.pms.core.ibiz.domain.IbzCase majorEntity=ibzcaseService.get(et.getIbizcase());
                 et.setIbzcase(majorEntity);
-                ibzcase=majorEntity;
+                ibzcase = majorEntity;
             }
             et.setVersion(ibzcase.getVersion());
         }

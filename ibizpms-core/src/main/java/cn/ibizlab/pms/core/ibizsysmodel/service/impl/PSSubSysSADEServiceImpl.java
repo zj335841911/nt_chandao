@@ -61,9 +61,9 @@ public class PSSubSysSADEServiceImpl implements IPSSubSysSADEService {
     private String password;
 
     public PSSubSysSADEFeignClient getPSSubSysSADEFeignClient(String devSlnSysId) {
-        if(StringUtils.isNotBlank(serviceName)) {
+        if (StringUtils.isNotBlank(serviceName)) {
             return OutsideAccessorUtils.buildAccessor(SpringContextHolder.getApplicationContext(), PSSubSysSADEFeignClient.class, serviceName, false, serviceName, false, loginname, password, devSlnSysId);
-        } else if(StringUtils.isNotBlank(serviceUrl)) {
+        } else if (StringUtils.isNotBlank(serviceUrl)) {
             return OutsideAccessorUtils.buildAccessorByUrl(SpringContextHolder.getApplicationContext(), PSSubSysSADEFeignClient.class, serviceUrl, false, serviceUrl, false, loginname, password, devSlnSysId);
         } else {
             throw new RuntimeException("缺少平台服务配置信息。");
@@ -74,18 +74,19 @@ public class PSSubSysSADEServiceImpl implements IPSSubSysSADEService {
     @Override
     public boolean create(PSSubSysSADE et) {
         PSSubSysSADE rt = pSSubSysSADEFeignClient.create(et);
-        if(rt==null)
+        if (rt == null) {
             return false;
-        CachedBeanCopier.copy(rt,et);
+        }
+        CachedBeanCopier.copy(rt, et);
         return true;
     }
 
     @Override
     public boolean create(String devSlnSysId,PSSubSysSADE et) {
         PSSubSysSADE rt = getPSSubSysSADEFeignClient(devSlnSysId).create(et);
-        if(rt==null) {
+        if (rt == null) {
             return false;
-	}
+	    }
         CachedBeanCopier.copy(rt, et);
         return true;
     }
@@ -101,9 +102,10 @@ public class PSSubSysSADEServiceImpl implements IPSSubSysSADEService {
     @Override
     public boolean update(PSSubSysSADE et) {
         PSSubSysSADE rt = pSSubSysSADEFeignClient.update(et.getPssubsyssadeid(),et);
-        if(rt==null)
+        if (rt == null) {
             return false;
-        CachedBeanCopier.copy(rt,et);
+        }
+        CachedBeanCopier.copy(rt, et);
         return true;
 
     }
@@ -111,9 +113,9 @@ public class PSSubSysSADEServiceImpl implements IPSSubSysSADEService {
     @Override
     public boolean update(String devSlnSysId, PSSubSysSADE et) {
         PSSubSysSADE rt = getPSSubSysSADEFeignClient(devSlnSysId).update(et.getPssubsyssadeid(), et);
-        if(rt==null) {
+        if (rt == null) {
             return false;
-	}
+	    }
         CachedBeanCopier.copy(rt, et);
         return true;
     }
@@ -148,9 +150,9 @@ public class PSSubSysSADEServiceImpl implements IPSSubSysSADEService {
 
     @Override
     public PSSubSysSADE get(String pssubsyssadeid) {
-		PSSubSysSADE et=pSSubSysSADEFeignClient.get(pssubsyssadeid);
-        if(et==null){
-            et=new PSSubSysSADE();
+		PSSubSysSADE et = pSSubSysSADEFeignClient.get(pssubsyssadeid);
+        if (et == null){
+            et = new PSSubSysSADE();
             et.setPssubsyssadeid(pssubsyssadeid);
         }
         else{
@@ -161,7 +163,7 @@ public class PSSubSysSADEServiceImpl implements IPSSubSysSADEService {
     @Override
     public PSSubSysSADE get(String devSlnSysId,String pssubsyssadeid) {
 		PSSubSysSADE et = getPSSubSysSADEFeignClient(devSlnSysId).get(pssubsyssadeid);
-        if(et == null) {
+        if (et == null) {
             et = new PSSubSysSADE();
             et.setPssubsyssadeid(pssubsyssadeid);
         }
@@ -177,7 +179,7 @@ public class PSSubSysSADEServiceImpl implements IPSSubSysSADEService {
 
     @Override
     public PSSubSysSADE getDraft(PSSubSysSADE et) {
-        et=pSSubSysSADEFeignClient.getDraft();
+        et = pSSubSysSADEFeignClient.getDraft();
         return et;
     }
 
@@ -200,21 +202,24 @@ public class PSSubSysSADEServiceImpl implements IPSSubSysSADEService {
     @Override
     @Transactional
     public boolean save(PSSubSysSADE et) {
-        if(et.getPssubsyssadeid()==null) et.setPssubsyssadeid((String)et.getDefaultKey(true));
-        if(!pSSubSysSADEFeignClient.save(et))
+        if (et.getPssubsyssadeid() == null) {
+            et.setPssubsyssadeid((String)et.getDefaultKey(true));
+        }
+        if (!pSSubSysSADEFeignClient.save(et)) {
             return false;
+        }
         return true;
     }
 
     @Override
     @Transactional
     public boolean save(String devSlnSysId,PSSubSysSADE et) {
-        if(et.getPssubsyssadeid() == null) {
-	    et.setPssubsyssadeid((String)et.getDefaultKey(true));
-	}
+        if (et.getPssubsyssadeid() == null) {
+	        et.setPssubsyssadeid((String)et.getDefaultKey(true));
+	    }
         if(!getPSSubSysSADEFeignClient(devSlnSysId).save(et)) {
             return false;
-	}
+        }
         return true;
     }
 
@@ -256,11 +261,12 @@ public class PSSubSysSADEServiceImpl implements IPSSubSysSADEService {
     @Override
     public void removeByPssubsysserviceapiid(String pssubsysserviceapiid) {
         Set<String> delIds=new HashSet<String>();
-        for(PSSubSysSADE before:selectByPssubsysserviceapiid(pssubsysserviceapiid)){
+        for (PSSubSysSADE before:selectByPssubsysserviceapiid(pssubsysserviceapiid)) {
             delIds.add(before.getPssubsyssadeid());
         }
-        if(delIds.size()>0)
+        if (delIds.size() > 0) {
             this.removeBatch(delIds);
+        }
     }
 
     @Override
@@ -269,9 +275,9 @@ public class PSSubSysSADEServiceImpl implements IPSSubSysSADEService {
         for(PSSubSysSADE before:selectByPssubsysserviceapiid(devSlnSysId, pssubsysserviceapiid)){
             delIds.add(before.getPssubsyssadeid());
         }
-        if(delIds.size() > 0) {
+        if (delIds.size() > 0) {
             this.removeBatch(delIds);
-	}
+	    }
     }
 
 

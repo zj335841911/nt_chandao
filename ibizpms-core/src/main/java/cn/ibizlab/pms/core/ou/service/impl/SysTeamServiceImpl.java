@@ -53,9 +53,10 @@ public class SysTeamServiceImpl implements ISysTeamService {
     @Override
     public boolean create(SysTeam et) {
         SysTeam rt = sysTeamFeignClient.create(et);
-        if(rt==null)
+        if (rt == null) {
             return false;
-        CachedBeanCopier.copy(rt,et);
+        }
+        CachedBeanCopier.copy(rt, et);
         return true;
     }
 
@@ -68,9 +69,10 @@ public class SysTeamServiceImpl implements ISysTeamService {
     @Override
     public boolean update(SysTeam et) {
         SysTeam rt = sysTeamFeignClient.update(et.getTeamid(),et);
-        if(rt==null)
+        if (rt == null) {
             return false;
-        CachedBeanCopier.copy(rt,et);
+        }
+        CachedBeanCopier.copy(rt, et);
         return true;
 
     }
@@ -95,9 +97,9 @@ public class SysTeamServiceImpl implements ISysTeamService {
 
     @Override
     public SysTeam get(String teamid) {
-		SysTeam et=sysTeamFeignClient.get(teamid);
-        if(et==null){
-            et=new SysTeam();
+		SysTeam et = sysTeamFeignClient.get(teamid);
+        if (et == null){
+            et = new SysTeam();
             et.setTeamid(teamid);
         }
         else{
@@ -108,7 +110,7 @@ public class SysTeamServiceImpl implements ISysTeamService {
 
     @Override
     public SysTeam getDraft(SysTeam et) {
-        et=sysTeamFeignClient.getDraft();
+        et = sysTeamFeignClient.getDraft();
         return et;
     }
 
@@ -122,9 +124,12 @@ public class SysTeamServiceImpl implements ISysTeamService {
     @Override
     @Transactional
     public boolean save(SysTeam et) {
-        if(et.getTeamid()==null) et.setTeamid((String)et.getDefaultKey(true));
-        if(!sysTeamFeignClient.save(et))
+        if (et.getTeamid() == null) {
+            et.setTeamid((String)et.getDefaultKey(true));
+        }
+        if (!sysTeamFeignClient.save(et)) {
             return false;
+        }
         return true;
     }
 

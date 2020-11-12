@@ -71,7 +71,7 @@ public class TestModuleServiceImpl extends ServiceImpl<TestModuleMapper, TestMod
         if(!this.retBool(this.baseMapper.insert(et))) {
             return false;
         }
-        CachedBeanCopier.copy(get(et.getId()),et);
+        CachedBeanCopier.copy(get(et.getId()), et);
         fixpathLogic.execute(et);
         return true;
     }
@@ -80,17 +80,17 @@ public class TestModuleServiceImpl extends ServiceImpl<TestModuleMapper, TestMod
     @Transactional
     public void createBatch(List<TestModule> list) {
         list.forEach(item->fillParentData(item));
-        this.saveBatch(list,batchSize);
+        this.saveBatch(list, batchSize);
     }
 
     @Override
     @Transactional
     public boolean update(TestModule et) {
         fillParentData(et);
-        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId()))) {
+        if(!update(et, (Wrapper) et.getUpdateWrapper(true).eq("id", et.getId()))) {
             return false;
         }
-        CachedBeanCopier.copy(get(et.getId()),et);
+        CachedBeanCopier.copy(get(et.getId()), et);
         fixpathLogic.execute(et);
         return true;
     }
@@ -99,13 +99,13 @@ public class TestModuleServiceImpl extends ServiceImpl<TestModuleMapper, TestMod
     @Transactional
     public void updateBatch(List<TestModule> list) {
         list.forEach(item->fillParentData(item));
-        updateBatchById(list,batchSize);
+        updateBatchById(list, batchSize);
     }
 
     @Override
     @Transactional
     public boolean remove(Long key) {
-        boolean result=removeById(key);
+        boolean result = removeById(key);
         return result ;
     }
 
@@ -119,11 +119,11 @@ public class TestModuleServiceImpl extends ServiceImpl<TestModuleMapper, TestMod
     @Transactional
     public TestModule get(Long key) {
         TestModule et = getById(key);
-        if(et==null){
-            et=new TestModule();
+        if(et == null){
+            et = new TestModule();
             et.setId(key);
         }
-        else{
+        else {
         }
         return et;
     }
@@ -136,7 +136,7 @@ public class TestModuleServiceImpl extends ServiceImpl<TestModuleMapper, TestMod
 
     @Override
     public boolean checkKey(TestModule et) {
-        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
+        return (!ObjectUtils.isEmpty(et.getId())) && (!Objects.isNull(this.getById(et.getId())));
     }
     @Override
     @Transactional
@@ -155,7 +155,7 @@ public class TestModuleServiceImpl extends ServiceImpl<TestModuleMapper, TestMod
     @Override
     @Transactional
     public boolean save(TestModule et) {
-        if(!saveOrUpdate(et)) {
+        if (!saveOrUpdate(et)) {
             return false;
         }
         return true;
@@ -268,22 +268,22 @@ public class TestModuleServiceImpl extends ServiceImpl<TestModuleMapper, TestMod
      */
     private void fillParentData(TestModule et){
         //实体关系[DER1N_IBZ_TESTMODULE_IBZ_TESTMODULE_PARENT]
-        if(!ObjectUtils.isEmpty(et.getParent())){
+        if (!ObjectUtils.isEmpty(et.getParent())) {
             cn.ibizlab.pms.core.ibiz.domain.TestModule parentmodule=et.getParentmodule();
-            if(ObjectUtils.isEmpty(parentmodule)){
+            if (ObjectUtils.isEmpty(parentmodule)) {
                 cn.ibizlab.pms.core.ibiz.domain.TestModule majorEntity=testmoduleService.get(et.getParent());
                 et.setParentmodule(majorEntity);
-                parentmodule=majorEntity;
+                parentmodule = majorEntity;
             }
             et.setParentname(parentmodule.getName());
         }
         //实体关系[DER1N_IBZ_TESTMODULE_ZT_PRODUCT_ROOT]
-        if(!ObjectUtils.isEmpty(et.getRoot())){
+        if (!ObjectUtils.isEmpty(et.getRoot())) {
             cn.ibizlab.pms.core.zentao.domain.Product roottest=et.getRoottest();
-            if(ObjectUtils.isEmpty(roottest)){
+            if (ObjectUtils.isEmpty(roottest)) {
                 cn.ibizlab.pms.core.zentao.domain.Product majorEntity=productService.get(et.getRoot());
                 et.setRoottest(majorEntity);
-                roottest=majorEntity;
+                roottest = majorEntity;
             }
             et.setRootname(roottest.getName());
         }

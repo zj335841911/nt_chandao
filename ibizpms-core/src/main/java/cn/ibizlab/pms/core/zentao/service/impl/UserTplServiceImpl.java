@@ -64,17 +64,17 @@ public class UserTplServiceImpl extends ServiceImpl<UserTplMapper, UserTpl> impl
     @Override
     @Transactional
     public boolean update(UserTpl et) {
-        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId()))) {
+        if(!update(et, (Wrapper) et.getUpdateWrapper(true).eq("id", et.getId()))) {
             return false;
         }
-        CachedBeanCopier.copy(get(et.getId()),et);
+        CachedBeanCopier.copy(get(et.getId()), et);
         return true;
     }
 
     @Override
     @Transactional
     public void updateBatch(List<UserTpl> list) {
-        updateBatchById(list,batchSize);
+        updateBatchById(list, batchSize);
     }
 
         @Override
@@ -95,11 +95,11 @@ public class UserTplServiceImpl extends ServiceImpl<UserTplMapper, UserTpl> impl
     @Transactional
     public UserTpl get(Long key) {
         UserTpl et = getById(key);
-        if(et==null){
-            et=new UserTpl();
+        if(et == null){
+            et = new UserTpl();
             et.setId(key);
         }
-        else{
+        else {
         }
         return et;
     }
@@ -111,12 +111,12 @@ public class UserTplServiceImpl extends ServiceImpl<UserTplMapper, UserTpl> impl
 
     @Override
     public boolean checkKey(UserTpl et) {
-        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
+        return (!ObjectUtils.isEmpty(et.getId())) && (!Objects.isNull(this.getById(et.getId())));
     }
     @Override
     @Transactional
     public boolean save(UserTpl et) {
-        if(!saveOrUpdate(et)) {
+        if (!saveOrUpdate(et)) {
             return false;
         }
         return true;

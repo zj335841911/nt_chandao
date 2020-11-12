@@ -117,11 +117,11 @@ public class ProductPlanServiceImpl extends ServiceImpl<ProductPlanMapper, Produ
         ProductPlan tempET=new ProductPlan();
         tempET.set("id",key);
         ProductPlan et = getById(key);
-        if(et==null){
-            et=new ProductPlan();
+        if(et == null){
+            et = new ProductPlan();
             et.setId(key);
         }
-        else{
+        else {
         }
         getbedinandendLogic.execute(et);
         return et;
@@ -148,7 +148,7 @@ public class ProductPlanServiceImpl extends ServiceImpl<ProductPlanMapper, Produ
 
     @Override
     public boolean checkKey(ProductPlan et) {
-        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
+        return (!ObjectUtils.isEmpty(et.getId())) && (!Objects.isNull(this.getById(et.getId())));
     }
         @Override
     @Transactional
@@ -172,7 +172,7 @@ public class ProductPlanServiceImpl extends ServiceImpl<ProductPlanMapper, Produ
     @Override
     @Transactional
     public boolean save(ProductPlan et) {
-        if(!saveOrUpdate(et)) {
+        if (!saveOrUpdate(et)) {
             return false;
         }
         return true;
@@ -297,12 +297,12 @@ public class ProductPlanServiceImpl extends ServiceImpl<ProductPlanMapper, Produ
      */
     private void fillParentData(ProductPlan et){
         //实体关系[DER1N__ZT_PRODUCTPLAN__ZT_PRODUCTPLAN__PARENT]
-        if(!ObjectUtils.isEmpty(et.getParent())){
+        if (!ObjectUtils.isEmpty(et.getParent())) {
             cn.ibizlab.pms.core.zentao.domain.ProductPlan ibizparent=et.getIbizparent();
-            if(ObjectUtils.isEmpty(ibizparent)){
+            if (ObjectUtils.isEmpty(ibizparent)) {
                 cn.ibizlab.pms.core.zentao.domain.ProductPlan majorEntity=productplanService.get(et.getParent());
                 et.setIbizparent(majorEntity);
-                ibizparent=majorEntity;
+                ibizparent = majorEntity;
             }
             et.setParentname(ibizparent.getTitle());
         }
