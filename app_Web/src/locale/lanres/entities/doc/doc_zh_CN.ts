@@ -249,23 +249,6 @@ export default {
 			doc_delete: "删除",
 		},
 	},
-	myfavourite_grid: {
-		nodata: "",
-		columns: {
-			id: "文档编号",
-			title: "文档标题",
-			addedby: "由谁添加",
-			addeddate: "添加时间",
-			editedby: "由谁更新",
-			editeddate: "更新时间",
-			uagridcolumn1: "操作",
-		},
-		uiactions: {
-			doc_look: "查看",
-			doc_edit: "编辑",
-			doc_delete: "删除",
-		},
-	},
 	default_searchform: {
 		details: {
 			formpage1: "常规条件", 
