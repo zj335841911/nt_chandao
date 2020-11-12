@@ -6272,7 +6272,7 @@ FAVORITES
 | 8 | [DEFAULT](#数据查询-DEFAULT（Default）) | Default | 否 |
 | 9 | [DefaultRow](#数据查询-DefaultRow（DefaultRow）) | DefaultRow | 否 |
 | 10 | [我的收藏](#数据查询-我的收藏（MyFavorites）) | MyFavorites | 否 |
-| 11 | [项目任务](#数据查询-项目任务（ProjectTASK）) | ProjectTASK | 否 |
+| 11 | [项目任务](#数据查询-项目任务（ProjectTask）) | ProjectTask | 否 |
 | 12 | [根任务](#数据查询-根任务（RootTask）) | RootTask | 否 |
 | 13 | [todo任务列表查询](#数据查询-todo任务列表查询（TodoListTask）) | TodoListTask | 否 |
 | 14 | [任务类型分组](#数据查询-任务类型分组（TypeGroup）) | TypeGroup | 否 |
@@ -6967,7 +6967,7 @@ LEFT JOIN zt_project t31 ON t1.PROJECT = t31.ID
 LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID 
 LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID
 ```
-### 数据查询-项目任务（ProjectTASK）
+### 数据查询-项目任务（ProjectTask）
 #### 说明
 项目任务
 
@@ -7474,7 +7474,7 @@ DefaultRow
 #### 关联的数据查询
 | 序号 | 数据查询 |
 | ---- | ---- |
-| 1 | [项目任务（ProjectTASK）](#数据查询-项目任务（ProjectTASK）) |
+| 1 | [项目任务（ProjectTask）](#数据查询-项目任务（ProjectTask）) |
 ### 数据集合-根任务（RootTask）
 #### 说明
 根任务

@@ -3806,9 +3806,9 @@ mock.onPost(new RegExp(/^\/substories\/?([a-zA-Z0-9\-\;]{0,35})\/storynfavorites
 });
 
     
-// SyncFromIBIZ
+// SyncFromIbiz
 mock.onPost(new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/stories\/([a-zA-Z0-9\-\;]{1,35})\/substories\/([a-zA-Z0-9\-\;]{1,35})\/syncfromibiz$/)).reply((config: any) => {
-    console.groupCollapsed("实体:substory 方法: SyncFromIBIZ");
+    console.groupCollapsed("实体:substory 方法: SyncFromIbiz");
     console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
     if (status !== 200) {
@@ -3833,9 +3833,9 @@ mock.onPost(new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/stories\/([a-zA-Z0
 });
 
     
-// SyncFromIBIZ
+// SyncFromIbiz
 mock.onPost(new RegExp(/^\/stories\/([a-zA-Z0-9\-\;]{1,35})\/substories\/([a-zA-Z0-9\-\;]{1,35})\/syncfromibiz$/)).reply((config: any) => {
-    console.groupCollapsed("实体:substory 方法: SyncFromIBIZ");
+    console.groupCollapsed("实体:substory 方法: SyncFromIbiz");
     console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
     if (status !== 200) {
@@ -3859,9 +3859,9 @@ mock.onPost(new RegExp(/^\/stories\/([a-zA-Z0-9\-\;]{1,35})\/substories\/([a-zA-
     return [status, {}];
 });
         
-// SyncFromIBIZ
+// SyncFromIbiz
 mock.onPost(new RegExp(/^\/substories\/?([a-zA-Z0-9\-\;]{0,35})\/syncfromibiz$/)).reply((config: any) => {
-    console.groupCollapsed("实体:substory 方法: SyncFromIBIZ");
+    console.groupCollapsed("实体:substory 方法: SyncFromIbiz");
     console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
     if (status !== 200) {

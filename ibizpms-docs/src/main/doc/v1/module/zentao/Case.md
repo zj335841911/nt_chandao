@@ -4985,7 +4985,7 @@ String
 | 20 | [确认用例变更](#实体行为-确认用例变更（ConfirmChange）) | confirmChange | 用户自定义 | 后台及前台 |
 | 21 | [确认需求变更](#实体行为-确认需求变更（Confirmstorychange）) | confirmstorychange | 用户自定义 | 后台及前台 |
 | 22 | [根据测试单获取或者状态](#实体行为-根据测试单获取或者状态（GetByTestTask）) | GetByTestTask | 用户自定义 | 后台及前台 |
-| 23 | [获取测试单执行结果](#实体行为-获取测试单执行结果（GetTestTaskCNTRun）) | GetTestTaskCNTRun | 用户自定义 | 后台及前台 |
+| 23 | [获取测试单执行结果](#实体行为-获取测试单执行结果（GetTestTaskCntRun）) | GetTestTaskCntRun | 用户自定义 | 后台及前台 |
 | 24 | [测试单关联测试用例](#实体行为-测试单关联测试用例（LinkCase）) | linkCase | 用户自定义 | 后台及前台 |
 | 25 | [执行测试](#实体行为-执行测试（RunCase）) | RunCase | 用户自定义 | 后台及前台 |
 | 26 | [runCases](#实体行为-runCases（RunCases）) | runCases | 实体处理逻辑 | 后台 |
@@ -5262,7 +5262,7 @@ CheckKey
 
 #### 逻辑附加
 无
-### 实体行为-获取测试单执行结果（GetTestTaskCNTRun）
+### 实体行为-获取测试单执行结果（GetTestTaskCntRun）
 #### 说明
 获取测试单执行结果
 

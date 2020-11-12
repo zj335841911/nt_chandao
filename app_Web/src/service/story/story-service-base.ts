@@ -2428,7 +2428,7 @@ export default class StoryServiceBase extends EntityService {
     }
 
     /**
-     * SyncFromIBIZ接口方法
+     * SyncFromIbiz接口方法
      *
      * @param {*} [context={}]
      * @param {*} [data={}]
@@ -2436,7 +2436,7 @@ export default class StoryServiceBase extends EntityService {
      * @returns {Promise<any>}
      * @memberof StoryServiceBase
      */
-    public async SyncFromIBIZ(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+    public async SyncFromIbiz(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story){
             let masterData:any = {};
         let casesData:any = [];

@@ -200,7 +200,7 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
 
     @Override
     @Transactional
-    public Case getTestTaskCNTRun(Case et) {
+    public Case getTestTaskCntRun(Case et) {
         //自定义代码
         return et;
     }

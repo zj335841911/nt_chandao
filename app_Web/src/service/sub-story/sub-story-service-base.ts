@@ -1287,7 +1287,7 @@ export default class SubStoryServiceBase extends EntityService {
     }
 
     /**
-     * SyncFromIBIZ接口方法
+     * SyncFromIbiz接口方法
      *
      * @param {*} [context={}]
      * @param {*} [data={}]
@@ -1295,7 +1295,7 @@ export default class SubStoryServiceBase extends EntityService {
      * @returns {Promise<any>}
      * @memberof SubStoryServiceBase
      */
-    public async SyncFromIBIZ(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+    public async SyncFromIbiz(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && context.substory){
             let masterData:any = {};
             Object.assign(data,masterData);

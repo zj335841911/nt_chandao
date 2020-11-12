@@ -452,7 +452,7 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
 
     @Override
     @Transactional
-    public Story syncFromIBIZ(Story et) {
+    public Story syncFromIbiz(Story et) {
         //自定义代码
         return et;
     }

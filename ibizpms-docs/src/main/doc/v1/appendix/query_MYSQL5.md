@@ -14254,7 +14254,7 @@ WHERE t1.DELETED = '0'
 t1.id in (select t.OBJECTID from T_IBZ_FAVORITES t where t.type = 'task' and t.account = #{srf.sessioncontext.srfloginname}) 
 
 ```
-### 项目任务(ProjectTASK)<div id="Task_ProjectTASK"></div>
+### 项目任务(ProjectTask)<div id="Task_ProjectTask"></div>
 ```sql
 SELECT
 t1.`ASSIGNEDDATE`,
