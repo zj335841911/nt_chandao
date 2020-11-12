@@ -1346,6 +1346,9 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
                 taskEstimate.setDate(ZTDateUtil.now());
                 if (taskEstimate.getDates() != null) {
                     taskEstimate.setDate(taskEstimate.getDates());
+                    if(taskEstimate.getLeft() == null || taskEstimate.getConsumed() == null) {
+                        throw new RuntimeException("当日期不为空时，消耗和剩余不能为空！");
+                    }
                 }
                 if(earliestTime == null) {
                     earliestTime = taskEstimate.getDate();

@@ -9,6 +9,7 @@ import cn.ibizlab.pms.core.zentao.mapper.ProductMapper;
 import cn.ibizlab.pms.core.zentao.service.IProductService;
 import cn.ibizlab.pms.util.dict.StaticDict;
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
+import cn.ibizlab.pms.util.security.AuthenticationUser;
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import org.apache.commons.lang3.StringUtils;
@@ -66,6 +67,8 @@ public class ProductHelper extends ZTBaseHelper<ProductMapper, Product> {
         //DocLib
         DocLib docLib = new DocLib();
         docLib.setType(StaticDict.Doclib__type.PRODUCT.getValue());
+        docLib.setOrgid(AuthenticationUser.getAuthenticationUser().getOrgid());
+        docLib.setMdeptid(AuthenticationUser.getAuthenticationUser().getMdeptid());
         docLib.setProduct(et.getId());
         docLib.setName("产品主库");
         docLib.setMain(StaticDict.YesNo.ITEM_1.getValue());

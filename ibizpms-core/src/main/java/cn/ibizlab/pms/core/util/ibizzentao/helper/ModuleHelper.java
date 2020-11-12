@@ -1,6 +1,5 @@
 package cn.ibizlab.pms.core.util.ibizzentao.helper;
 
-import cn.ibizlab.pms.core.ibiz.domain.ProductModule;
 import cn.ibizlab.pms.core.zentao.domain.*;
 import cn.ibizlab.pms.core.zentao.domain.Module;
 import cn.ibizlab.pms.core.zentao.mapper.ModuleMapper;
@@ -62,9 +61,9 @@ public class ModuleHelper extends ZTBaseHelper<ModuleMapper, Module> {
         et.setGrade(et.getPath().length()-et.getPath().replace(",","").length()-1);
 
         Module maxModule = this.getOne(new QueryWrapper<Module>().eq("root",et.getRoot()).eq("grade",et.getGrade()).orderByDesc("`order`").last("limit 0,1")) ;
-        if(maxModule==null){
+        if(maxModule==null && et.getOrder() == null){
             et.setOrder(10);
-        }else{
+        }else if(et.getOrder() == null && maxModule != null){
             et.setOrder(maxModule.getOrder()+10);
         }
 
