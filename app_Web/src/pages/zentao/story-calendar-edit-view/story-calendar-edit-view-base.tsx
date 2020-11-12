@@ -66,6 +66,18 @@ export class StoryCalendarEditViewBase extends EditViewBase {
      */
     public appUIService: StoryUIService = new StoryUIService(this.$store);
 
+	/**
+	 * 自定义视图导航上下文集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof StoryCalendarEditViewBase
+	 */
+    protected customViewNavContexts: any = {
+        'OBJECTTYPE': { isRawValue: true, value: 'story' },
+        'SRFPARENTKEY': { isRawValue: false, value: 'story' }
+    };
+
     /**
      * 是否显示信息栏
      *
