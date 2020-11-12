@@ -173,4 +173,34 @@ export class MainbodyEditFormBase extends EditFormControlBase {
         content: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'content', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 
     };
+
+    /**
+     * 表单项逻辑
+     *
+     * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
+     * @returns {Promise<void>}
+     * @memberof MainbodyEditFormBase
+     */
+    public async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): Promise<void> {
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        if (Object.is(name, 'version')) {
+            const details: string[] = ['content'];
+            this.updateFormItems('ByVersionUpdateContext', this.data, details, true);
+        }
+    }
 }
