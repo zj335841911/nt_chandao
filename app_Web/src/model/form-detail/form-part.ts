@@ -1,4 +1,4 @@
-import { FormDetailModel } from './form-detail';
+import { FormDetailModel } from "./form-detail";
 
 /**
  * 表单部件模型
@@ -8,9 +8,7 @@ import { FormDetailModel } from './form-detail';
  * @extends {FormDetailModel}
  */
 export class FormPartModel extends FormDetailModel {
-
-
-    constructor(opts: any = {}) {
-        super(opts);
-    }
+  constructor(opts: any = {}) {
+    super(opts);
+  }
 }

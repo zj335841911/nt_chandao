@@ -1,4 +1,4 @@
-import { ExpViewBase } from './ExpViewBase';
+import { ExpViewBase } from "./ExpViewBase";
 
 /**
  * 列表导航视图基类
@@ -7,6 +7,4 @@ import { ExpViewBase } from './ExpViewBase';
  * @class ListExpViewBase
  * @extends {ExpViewBase}
  */
-export class ListExpViewBase extends ExpViewBase {
-
-}
+export class ListExpViewBase extends ExpViewBase {}

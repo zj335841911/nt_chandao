@@ -1,16 +1,16 @@
-import { resourcestate } from './state';
-import * as actions from './actions';
-import * as mutations from './mutations';
-import * as getters from './getters';
+import { resourcestate } from "./state";
+import * as actions from "./actions";
+import * as mutations from "./mutations";
+import * as getters from "./getters";
 
 const state = {
-    ...resourcestate
-}
+  ...resourcestate
+};
 
 export default {
-    namespaced: true,
-    state,
-    getters,
-    actions,
-    mutations
-}
+  namespaced: true,
+  state,
+  getters,
+  actions,
+  mutations
+};

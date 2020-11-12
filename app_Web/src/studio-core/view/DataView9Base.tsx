@@ -1,4 +1,4 @@
-import { MDViewBase } from './MDViewBase';
+import { MDViewBase } from "./MDViewBase";
 
 /**
  * 数据部件视图基类
@@ -7,6 +7,4 @@ import { MDViewBase } from './MDViewBase';
  * @class DataView9Base
  * @extends {MDViewBase}
  */
-export class DataView9Base extends MDViewBase {
-
-}
+export class DataView9Base extends MDViewBase {}

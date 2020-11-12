@@ -1,21 +1,20 @@
 <template>
   <span class="app-format-data">
-    {{getcurValue()}}
+    {{ getcurValue() }}
   </span>
 </template>
-<script lang = 'ts'>
-import { Component, Vue, Prop } from 'vue-property-decorator';
-import moment from "moment"; 
+<script lang="ts">
+import { Component, Vue, Prop } from "vue-property-decorator";
+import moment from "moment";
 @Component({})
 export default class AppFormatData extends Vue {
-
   /**
    * 格式化正则
    *
    * @type {string}
    * @memberof AppFormatData
    */
-  @Prop({default:'YYYY-MM-DD HH:mm:ss'}) public format?:string;
+  @Prop({ default: "YYYY-MM-DD HH:mm:ss" }) public format?: string;
 
   /**
    * 类型格式
@@ -23,7 +22,7 @@ export default class AppFormatData extends Vue {
    * @type {string}
    * @memberof AppFormatData
    */
-  @Prop() public dataType?:string;
+  @Prop() public dataType?: string;
 
   /**
    * 精度
@@ -31,7 +30,7 @@ export default class AppFormatData extends Vue {
    * @type {string}
    * @memberof AppFormatData
    */
-  @Prop({default:'2'}) public precision?:string;
+  @Prop({ default: "2" }) public precision?: string;
 
   /**
    * 传入数据
@@ -39,58 +38,66 @@ export default class AppFormatData extends Vue {
    * @type {*}
    * @memberof AppFormatData
    */
-  @Prop() public data!:any;
+  @Prop() public data!: any;
 
   /**
    * 显示值
    *
    * @memberof AppFormatData
    */
-  getcurValue(){
-    if(this.data || this.data == 0){
-      if(Object.is(this.dataType,"DECIMAL") || Object.is(this.dataType,"FLOAT") || Object.is(this.dataType,"CURRENCY")){
+  getcurValue() {
+    if (this.data || this.data == 0) {
+      if (
+        Object.is(this.dataType, "DECIMAL") ||
+        Object.is(this.dataType, "FLOAT") ||
+        Object.is(this.dataType, "CURRENCY")
+      ) {
         let number = Number(this.data);
         let precision = Number(this.precision);
-        if(Object.is(number,NaN)){
+        if (Object.is(number, NaN)) {
           return this.data;
-        }else{
+        } else {
           let result = "";
-          if(Object.is(this.dataType,"CURRENCY")){
-              result = Number(number.toFixed((Object.is(precision,NaN) ? 2 : precision))).toLocaleString('en-US');
-          }else{
-              result = number.toFixed((Object.is(precision,NaN) ? 2 : precision));
+          if (Object.is(this.dataType, "CURRENCY")) {
+            result = Number(
+              number.toFixed(Object.is(precision, NaN) ? 2 : precision)
+            ).toLocaleString("en-US");
+          } else {
+            result = number.toFixed(Object.is(precision, NaN) ? 2 : precision);
           }
           let index = result.indexOf(".");
-          let fornum = (Object.is(precision,NaN) ? 2 : precision) - result.length + index + 1;
-          if(Object.is(index,-1) && !Object.is(precision,0)){
+          let fornum =
+            (Object.is(precision, NaN) ? 2 : precision) -
+            result.length +
+            index +
+            1;
+          if (Object.is(index, -1) && !Object.is(precision, 0)) {
             result += ".";
           }
           for (let i = 0; i < fornum; i++) {
-            result += '0';
-            
+            result += "0";
           }
           return result;
-        } 
-      } else if (this.format){
+        }
+      } else if (this.format) {
         let date: any = moment(this.data);
-        if(!date._isValid) {
+        if (!date._isValid) {
           return this.data;
         }
-        if(this.format.indexOf('%1$t') !== -1){
+        if (this.format.indexOf("%1$t") !== -1) {
           return date.format("YYYY-MM-DD HH:mm:ss");
-        }else{
+        } else {
           return date.format(this.format);
         }
-      }else{
+      } else {
         return this.data;
       }
-    }else{
+    } else {
       return "";
     }
   }
-
 }
 </script>
 <style lang="less">
-@import './app-format-data.less';
+@import "./app-format-data.less";
 </style>

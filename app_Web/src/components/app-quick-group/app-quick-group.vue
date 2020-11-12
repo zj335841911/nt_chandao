@@ -1,44 +1,81 @@
 <template>
   <div class="app-quick-group">
-    <div class="app-quick-item" v-for="item in showItems" :key="item.id" @click="handleClick(item)">
+    <div
+      class="app-quick-item"
+      v-for="item in showItems"
+      :key="item.id"
+      @click="handleClick(item)"
+    >
       <span
         v-if="!item.children"
-        :style="{color:item.color}"
-        :class="{'app-seleted-item':isSelectedItem(item)}"
+        :style="{ color: item.color }"
+        :class="{ 'app-seleted-item': isSelectedItem(item) }"
       >
-        <i v-if=" item.iconcls && !Object.is(item.iconcls, '')" :class="item.iconcls"></i>
-        <img v-else-if="item.icon && !Object.is(item.icon, '')" :src="item.icon" />
-        <span class="app-quick-item-label">{{item.label}}</span>
+        <i
+          v-if="item.iconcls && !Object.is(item.iconcls, '')"
+          :class="item.iconcls"
+        ></i>
+        <img
+          v-else-if="item.icon && !Object.is(item.icon, '')"
+          :src="item.icon"
+        />
+        <span class="app-quick-item-label">{{ item.label }}</span>
         <span
-          v-show="isSelectedItem(item) && counterService && counterService.counterData && counterService.counterData[item.codename.toLowerCase()]"
+          v-show="
+            isSelectedItem(item) &&
+              counterService &&
+              counterService.counterData &&
+              counterService.counterData[item.codename.toLowerCase()]
+          "
           class="app-quick-item-counter"
-        >{{itemTag(item)}}</span>
+          >{{ itemTag(item) }}</span
+        >
       </span>
       <el-dropdown
         v-if="item.children"
         class="app-quick-item-dropdown"
         trigger="hover"
-        @command="handleCommand($event,item)"
+        @command="handleCommand($event, item)"
       >
-        <span :style="{color:item.color}" :class="{'app-seleted-item':isSelectedItem(item)}">
-          <i v-if=" item.iconcls && !Object.is(item.iconcls, '')" :class="item.iconcls"></i>
-          <img v-else-if="item.icon && !Object.is(item.icon, '')" :src="item.icon" />
-          <span class="app-quick-item-label">{{item.label}}</span>
+        <span
+          :style="{ color: item.color }"
+          :class="{ 'app-seleted-item': isSelectedItem(item) }"
+        >
+          <i
+            v-if="item.iconcls && !Object.is(item.iconcls, '')"
+            :class="item.iconcls"
+          ></i>
+          <img
+            v-else-if="item.icon && !Object.is(item.icon, '')"
+            :src="item.icon"
+          />
+          <span class="app-quick-item-label">{{ item.label }}</span>
           <span
-            v-show="isSelectedItem(item) && counterService && counterService.counterData && counterService.counterData[item.codename.toLowerCase()]"
+            v-show="
+              isSelectedItem(item) &&
+                counterService &&
+                counterService.counterData &&
+                counterService.counterData[item.codename.toLowerCase()]
+            "
             class="app-quick-item-counter"
-          >{{itemTag(item)}}</span>
+            >{{ itemTag(item) }}</span
+          >
         </span>
         <el-dropdown-menu slot="dropdown">
           <el-dropdown-item
             v-for="childitem in item.children"
             :command="childitem"
             :key="childitem.id"
-            :class="{ 'is-select': Object.is(selectedUiItem.codename, childitem.codename) }"
+            :class="{
+              'is-select': Object.is(
+                selectedUiItem.codename,
+                childitem.codename
+              )
+            }"
           >
-            <span :style="{color:childitem.color}">
+            <span :style="{ color: childitem.color }">
               <i
-                v-if=" childitem.iconcls && !Object.is(childitem.iconcls, '')"
+                v-if="childitem.iconcls && !Object.is(childitem.iconcls, '')"
                 :class="childitem.iconcls"
               ></i>
               <img
@@ -46,8 +83,11 @@
                 :src="childitem.icon"
               />
               <span
-                :style="{color:(childitem.label == item.label)?'#0c64eb':''}"
-              >{{childitem.label}}</span>
+                :style="{
+                  color: childitem.label == item.label ? '#0c64eb' : ''
+                }"
+                >{{ childitem.label }}</span
+              >
             </span>
           </el-dropdown-item>
         </el-dropdown-menu>
@@ -228,6 +268,6 @@ export default class AppQuickGroup extends Vue {
 }
 </script>
 
-<style lang='less'>
+<style lang="less">
 @import "./app-quick-group.less";
 </style>

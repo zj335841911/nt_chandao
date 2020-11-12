@@ -1,4 +1,4 @@
-import { GridViewBase } from './GridViewBase';
+import { GridViewBase } from "./GridViewBase";
 
 /**
  * 表格部件视图基类
@@ -7,6 +7,4 @@ import { GridViewBase } from './GridViewBase';
  * @class GridView9Base
  * @extends {GridViewBase}
  */
-export class GridView9Base extends GridViewBase {
-
-}
+export class GridView9Base extends GridViewBase {}

@@ -1,4 +1,4 @@
-import { PanelDetailModel } from './panel-detail';
+import { PanelDetailModel } from "./panel-detail";
 
 /**
  * 面板容器模型
@@ -8,9 +8,7 @@ import { PanelDetailModel } from './panel-detail';
  * @extends {PanelDetailModel}
  */
 export class PanelContainerModel extends PanelDetailModel {
-
-
-    constructor(opts: any = {}) {
-        super(opts);
-    }
+  constructor(opts: any = {}) {
+    super(opts);
+  }
 }

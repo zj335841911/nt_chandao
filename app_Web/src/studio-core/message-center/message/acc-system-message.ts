@@ -1,4 +1,4 @@
-import { AccMessageBase } from './base/acc-message-base';
+import { AccMessageBase } from "./base/acc-message-base";
 
 /**
  *
@@ -7,6 +7,4 @@ import { AccMessageBase } from './base/acc-message-base';
  * @class AccSystemMessage
  * @extends {AccMessageBase}
  */
-export class AccSystemMessage extends AccMessageBase {
-
-}
+export class AccSystemMessage extends AccMessageBase {}

@@ -1,11 +1,16 @@
 <template>
   <div class="app-range-date">
-    <span class="editor-span">{{$t('components.appRangDate.from')}}</span>
+    <span class="editor-span">{{ $t("components.appRangDate.from") }}</span>
     <template v-for="(item, index) in refFormItem">
-      <span v-if="index > 0" class="editor-space" :key="index">{{$t('components.appRangDate.daystart')}}</span>
+      <span v-if="index > 0" class="editor-space" :key="index">{{
+        $t("components.appRangDate.daystart")
+      }}</span>
       <date-picker
         :key="index + '-onlydate'"
-        v-if="Object.is(editorType, 'DATEPICKEREX') || Object.is(editorType, 'DATEPICKEREX_NOTIME') && index == 0"
+        v-if="
+          Object.is(editorType, 'DATEPICKEREX') ||
+            (Object.is(editorType, 'DATEPICKEREX_NOTIME') && index == 0)
+        "
         type="date"
         :transfer="true"
         :format="valFormat"
@@ -17,7 +22,10 @@
 
       <date-picker
         :key="index + '-onlydate'"
-        v-if="Object.is(editorType, 'DATEPICKEREX') || Object.is(editorType, 'DATEPICKEREX_MINUTE') && index == 0"
+        v-if="
+          Object.is(editorType, 'DATEPICKEREX') ||
+            (Object.is(editorType, 'DATEPICKEREX_MINUTE') && index == 0)
+        "
         type="datetime"
         :transfer="true"
         :format="valFormat"
@@ -29,7 +37,10 @@
 
       <date-picker
         :key="index + '-onlydate'"
-        v-if="Object.is(editorType, 'DATEPICKEREX') || Object.is(editorType, 'DATEPICKEREX_NOTIME') && index == 1"
+        v-if="
+          Object.is(editorType, 'DATEPICKEREX') ||
+            (Object.is(editorType, 'DATEPICKEREX_NOTIME') && index == 1)
+        "
         type="date"
         :transfer="true"
         :format="valFormat"
@@ -41,7 +52,10 @@
 
       <date-picker
         :key="index + '-onlydate'"
-        v-if="Object.is(editorType, 'DATEPICKEREX') || Object.is(editorType, 'DATEPICKEREX_MINUTE') && index == 1"
+        v-if="
+          Object.is(editorType, 'DATEPICKEREX') ||
+            (Object.is(editorType, 'DATEPICKEREX_MINUTE') && index == 1)
+        "
         type="datetime"
         :transfer="true"
         :format="valFormat"
@@ -50,7 +64,9 @@
         :disabled="disabled"
         @on-change="endOnValueChange"
       ></date-picker>
-      <span v-if="index  > 0" :key="index + '-only'" class="editor-space">{{$t('components.appRangDate.dayend')}}</span>
+      <span v-if="index > 0" :key="index + '-only'" class="editor-space">{{
+        $t("components.appRangDate.dayend")
+      }}</span>
     </template>
   </div>
 </template>
@@ -60,8 +76,7 @@ import { Component, Vue, Prop, Model, Watch } from "vue-property-decorator";
 import { Subject } from "rxjs";
 import { debounceTime, distinctUntilChanged } from "rxjs/operators";
 
-@Component({
-})
+@Component({})
 export default class AppRangDate extends Vue {
   /**
    * 编辑项名称
@@ -197,6 +212,6 @@ export default class AppRangDate extends Vue {
 }
 </script>
 
-<style lang='less'>
+<style lang="less">
 @import "./app-range-date.less";
 </style>

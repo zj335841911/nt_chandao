@@ -1,4 +1,4 @@
-import { ViewBase } from './ViewBase';
+import { ViewBase } from "./ViewBase";
 
 /**
  * 实体分页表单（嵌入）视图基类
@@ -7,6 +7,4 @@ import { ViewBase } from './ViewBase';
  * @class TabFormView9Base
  * @extends {ViewBase}
  */
-export class TabFormView9Base extends ViewBase {
-
-}
+export class TabFormView9Base extends ViewBase {}

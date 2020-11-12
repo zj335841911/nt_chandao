@@ -1,5 +1,5 @@
-import { SingletonMode } from '@/studio-core/decorators/SingletonMode';
-import { AppViewStoreBase } from './AppViewStoreBase';
+import { SingletonMode } from "@/studio-core/decorators/SingletonMode";
+import { AppViewStoreBase } from "./AppViewStoreBase";
 
 /**
  * 应用视图仓库
@@ -9,6 +9,4 @@ import { AppViewStoreBase } from './AppViewStoreBase';
  * @extends {AppViewStoreBase}
  */
 @SingletonMode()
-export class AppViewStore extends AppViewStoreBase {
-
-}
+export class AppViewStore extends AppViewStoreBase {}

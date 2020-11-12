@@ -1,4 +1,4 @@
-import { PanelDetailModel } from './panel-detail';
+import { PanelDetailModel } from "./panel-detail";
 
 /**
  * 用户控件模型
@@ -8,9 +8,7 @@ import { PanelDetailModel } from './panel-detail';
  * @extends {PanelDetailModel}
  */
 export class PanelUserControlModel extends PanelDetailModel {
-
-
-    constructor(otps:any = {}) {
-        super(otps);
-    }
+  constructor(otps: any = {}) {
+    super(otps);
+  }
 }

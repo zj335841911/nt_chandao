@@ -1,4 +1,4 @@
-import { FormDetailModel } from './form-detail';
+import { FormDetailModel } from "./form-detail";
 
 /**
  * 嵌入成员模型
@@ -8,8 +8,7 @@ import { FormDetailModel } from './form-detail';
  * @extends {FormDetailModel}
  */
 export class FormIFrameModel extends FormDetailModel {
-
-    constructor(opts: any = {}) {
-        super(opts);
-    }
+  constructor(opts: any = {}) {
+    super(opts);
+  }
 }

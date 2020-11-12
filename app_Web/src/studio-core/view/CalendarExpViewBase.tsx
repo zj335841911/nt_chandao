@@ -1,4 +1,4 @@
-import { CalendarViewBase } from './CalendarViewBase';
+import { CalendarViewBase } from "./CalendarViewBase";
 
 /**
  * 日历导航视图基类
@@ -7,6 +7,4 @@ import { CalendarViewBase } from './CalendarViewBase';
  * @class CalendarExpViewBase
  * @extends {ViewBase}
  */
-export class CalendarExpViewBase extends CalendarViewBase {
-
-}
+export class CalendarExpViewBase extends CalendarViewBase {}

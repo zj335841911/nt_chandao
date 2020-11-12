@@ -1,71 +1,90 @@
 <template>
-    <div :class="classes">
-        <template v-if="this.uiStyle === 'STYLE2'">
-                <app-form-item2
-                :caption="caption"
-                :labelStyle="labelStyle"
-                :error="error"
-                :labelPos="labelPos"
-                :labelWidth="labelWidth"
-                :isShowCaption="isShowCaption"
-                :isEmptyCaption="isEmptyCaption"
-                :name="name"
-                :uiStyle="uiStyle"
-                :itemRules="itemRules">
-                <slot></slot>
-            </app-form-item2>
-        </template>
-        <template v-if="this.uiStyle !== 'STYLE2'">
-            <form-item :ref="name" :prop="name" :error="error" :rules="rules">
-                <div
-                    v-if="Object.is(this.labelPos,'BOTTOM') || Object.is(this.labelPos,'NONE') || !this.labelPos"
-                    class="editor-wrapper"
-                    :style="slotstyle"
-                >
-                    <div class="editor-content">
-                        <slot></slot>
-                    </div>
-                    <div v-if="itemRef && itemRef.validateState === 'error'" class="editor-error-tip">
-                        <Tooltip placement="left">
-                            <Icon type="ios-alert-outline" />
-                            <template slot="content">
-                              <span class="editor-error-tip-content">
-                                {{itemRef.validateMessage}}
-                              </span>
-                            </template>
-                        </Tooltip>
-                    </div>
-                </div>
-                <span
-                    v-if="!Object.is(this.labelPos,'NONE') && this.isShowCaption && this.labelWidth > 0"
-                    :style="labelstyle"
-                    :class="labelclasses"
-                >
-                    <span v-if="required" class="required">*</span>
-                    {{this.isEmptyCaption ? '' : this.caption}}
+  <div :class="classes">
+    <template v-if="this.uiStyle === 'STYLE2'">
+      <app-form-item2
+        :caption="caption"
+        :labelStyle="labelStyle"
+        :error="error"
+        :labelPos="labelPos"
+        :labelWidth="labelWidth"
+        :isShowCaption="isShowCaption"
+        :isEmptyCaption="isEmptyCaption"
+        :name="name"
+        :uiStyle="uiStyle"
+        :itemRules="itemRules"
+      >
+        <slot></slot>
+      </app-form-item2>
+    </template>
+    <template v-if="this.uiStyle !== 'STYLE2'">
+      <form-item :ref="name" :prop="name" :error="error" :rules="rules">
+        <div
+          v-if="
+            Object.is(this.labelPos, 'BOTTOM') ||
+              Object.is(this.labelPos, 'NONE') ||
+              !this.labelPos
+          "
+          class="editor-wrapper"
+          :style="slotstyle"
+        >
+          <div class="editor-content">
+            <slot></slot>
+          </div>
+          <div
+            v-if="itemRef && itemRef.validateState === 'error'"
+            class="editor-error-tip"
+          >
+            <Tooltip placement="left">
+              <Icon type="ios-alert-outline" />
+              <template slot="content">
+                <span class="editor-error-tip-content">
+                  {{ itemRef.validateMessage }}
                 </span>
-                <div
-                    v-if="Object.is(this.labelPos,'TOP') || Object.is(this.labelPos,'LEFT') || Object.is(this.labelPos,'RIGHT')"
-                    class="editor-wrapper"
-                    :style="slotstyle"
-                >
-                    <div class="editor-content">
-                        <slot></slot>
-                    </div>
-                    <div v-if="itemRef && itemRef.validateState === 'error'" class="editor-error-tip">
-                        <Tooltip placement="right">
-                            <Icon type="ios-alert-outline" />
-                            <template slot="content">
-                              <span class="editor-error-tip-content">
-                                {{itemRef.validateMessage}}
-                              </span>
-                            </template>
-                        </Tooltip>
-                    </div>
-                </div>
-            </form-item>
-        </template>
-    </div>
+              </template>
+            </Tooltip>
+          </div>
+        </div>
+        <span
+          v-if="
+            !Object.is(this.labelPos, 'NONE') &&
+              this.isShowCaption &&
+              this.labelWidth > 0
+          "
+          :style="labelstyle"
+          :class="labelclasses"
+        >
+          <span v-if="required" class="required">*</span>
+          {{ this.isEmptyCaption ? "" : this.caption }}
+        </span>
+        <div
+          v-if="
+            Object.is(this.labelPos, 'TOP') ||
+              Object.is(this.labelPos, 'LEFT') ||
+              Object.is(this.labelPos, 'RIGHT')
+          "
+          class="editor-wrapper"
+          :style="slotstyle"
+        >
+          <div class="editor-content">
+            <slot></slot>
+          </div>
+          <div
+            v-if="itemRef && itemRef.validateState === 'error'"
+            class="editor-error-tip"
+          >
+            <Tooltip placement="right">
+              <Icon type="ios-alert-outline" />
+              <template slot="content">
+                <span class="editor-error-tip-content">
+                  {{ itemRef.validateMessage }}
+                </span>
+              </template>
+            </Tooltip>
+          </div>
+        </div>
+      </form-item>
+    </template>
+  </div>
 </template>
 <script lang="ts">
 import { Vue, Component, Prop, Watch } from "vue-property-decorator";
@@ -233,7 +252,7 @@ export default class AppFormItem extends Vue {
         posClass = "label-none";
         break;
     }
-    return [ "app-form-item", posClass ];
+    return ["app-form-item", posClass];
   }
 
   /**
@@ -257,7 +276,7 @@ export default class AppFormItem extends Vue {
    * @memberof AppFormItem
    */
   get labelstyle(): any {
-    if (Object.is(this.labelPos, 'LEFT') || Object.is(this.labelPos, 'RIGHT')) {
+    if (Object.is(this.labelPos, "LEFT") || Object.is(this.labelPos, "RIGHT")) {
       return { width: this.labelWidth + "px" };
     }
   }
@@ -300,6 +319,6 @@ export default class AppFormItem extends Vue {
   }
 }
 </script>
-<style lang='less'>
+<style lang="less">
 @import "./app-form-item.less";
 </style>

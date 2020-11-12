@@ -1,4 +1,4 @@
-import { DashboardViewBase } from './DashboardViewBase';
+import { DashboardViewBase } from "./DashboardViewBase";
 
 /**
  * 看板视图部件视图基类
@@ -7,6 +7,4 @@ import { DashboardViewBase } from './DashboardViewBase';
  * @class DashboardView9Base
  * @extends {DashboardViewBase}
  */
-export class DashboardView9Base extends DashboardViewBase {
-
-}
+export class DashboardView9Base extends DashboardViewBase {}

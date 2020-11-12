@@ -1,28 +1,49 @@
 <template>
   <div class="app-actionbar">
-    <div class="app-actionbar-item" v-for="(item,index) in items" :key="index">
+    <div class="app-actionbar-item" v-for="(item, index) in items" :key="index">
       <Badge
-        v-if="item.counterService && item.counterService.counterData" v-show="item.visible"
+        v-if="item.counterService && item.counterService.counterData"
+        v-show="item.visible"
         :count="item.counterService.counterData[item.counterId]"
         type="info"
       >
-        <i-button type="text" ghost :disabled="item.disabled" @click="handleClick(item.viewlogicname)">
+        <i-button
+          type="text"
+          ghost
+          :disabled="item.disabled"
+          @click="handleClick(item.viewlogicname)"
+        >
           <i v-if="item.iconcls != ''" :class="item.iconcls" />
-          {{item.text}}
+          {{ item.text }}
         </i-button>
       </Badge>
-      <i-button v-else v-show="item.visible" :disabled="item.disabled" type="text" ghost @click="handleClick(item.viewlogicname)">
+      <i-button
+        v-else
+        v-show="item.visible"
+        :disabled="item.disabled"
+        type="text"
+        ghost
+        @click="handleClick(item.viewlogicname)"
+      >
         <i v-if="item.iconcls != ''" :class="item.iconcls" />
-        {{item.text}}
+        {{ item.text }}
       </i-button>
     </div>
   </div>
 </template>
 
 <script lang="tsx">
-import { Vue, Component, Prop, Model, Emit,Inject, Watch } from "vue-property-decorator";
-import { Subject,Subscription } from "rxjs";
-import { Environment } from '@/environments/environment';
+import {
+  Vue,
+  Component,
+  Prop,
+  Model,
+  Emit,
+  Inject,
+  Watch
+} from "vue-property-decorator";
+import { Subject, Subscription } from "rxjs";
+import { Environment } from "@/environments/environment";
 
 @Component({})
 export default class AppActionBar extends Vue {
@@ -72,32 +93,34 @@ export default class AppActionBar extends Vue {
    *
    * @memberof AppActionBar
    */
-  public created(){
+  public created() {
     if (this.viewState) {
-        this.viewStateEvent = this.viewState.subscribe(({ tag, action, data }) => {
-            if (!Object.is(tag, "all-portlet")) {
-                return;
-            }
-            if(Object.is(action,'loadmodel')){
-              this.data = data;
-              this.calcActionItemAuthState(data,this.items,this.uiService);
-            }
-        });
+      this.viewStateEvent = this.viewState.subscribe(
+        ({ tag, action, data }) => {
+          if (!Object.is(tag, "all-portlet")) {
+            return;
+          }
+          if (Object.is(action, "loadmodel")) {
+            this.data = data;
+            this.calcActionItemAuthState(data, this.items, this.uiService);
+          }
+        }
+      );
     }
   }
 
   /**
    * 触发界面行为
-   * 
+   *
    * @memberof AppActionBar
    */
-  public handleClick(item: any, $event:any){
+  public handleClick(item: any, $event: any) {
     // let _data = {
     //   tag : item.viewlogicname,
     //   params : this.data,
     //   event : $event
     // };
-    this.$emit('itemClick', item);
+    this.$emit("itemClick", item);
   }
 
   /**
@@ -108,49 +131,55 @@ export default class AppActionBar extends Vue {
    * @param {*} [UIService] 界面行为服务
    * @memberof AppActionBar
    */
-  public calcActionItemAuthState(data:any,ActionModel:any,UIService:any){
-    if(!UIService.isEnableDEMainState)
-      return;    
+  public calcActionItemAuthState(data: any, ActionModel: any, UIService: any) {
+    if (!UIService.isEnableDEMainState) return;
     for (const key in ActionModel) {
       if (!ActionModel.hasOwnProperty(key)) {
-          return;
+        return;
       }
       const _item = ActionModel[key];
-      if(_item && _item['dataaccaction'] && UIService){
-          let dataActionResult:any;
-          if(Object.is(_item['actiontarget'],"NONE") || Object.is(_item['actiontarget'],"")){
-              dataActionResult = UIService.getResourceOPPrivs(_item['dataaccaction']);
-          }else{
-              if(data && Object.keys(data).length >0){
-                  dataActionResult = UIService.getAllOPPrivs(data)[_item['dataaccaction']];
-              }
+      if (_item && _item["dataaccaction"] && UIService) {
+        let dataActionResult: any;
+        if (
+          Object.is(_item["actiontarget"], "NONE") ||
+          Object.is(_item["actiontarget"], "")
+        ) {
+          dataActionResult = UIService.getResourceOPPrivs(
+            _item["dataaccaction"]
+          );
+        } else {
+          if (data && Object.keys(data).length > 0) {
+            dataActionResult = UIService.getAllOPPrivs(data)[
+              _item["dataaccaction"]
+            ];
           }
-          // 无权限:0;有权限:1
-          if(dataActionResult === 0){
-              // 禁用:1;隐藏:2;隐藏且默认隐藏:6
-              if(_item.noprivdisplaymode === 1){
-                  _item.disabled = true;
-              }
-              if((_item.noprivdisplaymode === 2) || (_item.noprivdisplaymode === 6)){
-                  _item.visible = false;
-              }else{
-                  _item.visible = true;
-              }
+        }
+        // 无权限:0;有权限:1
+        if (dataActionResult === 0) {
+          // 禁用:1;隐藏:2;隐藏且默认隐藏:6
+          if (_item.noprivdisplaymode === 1) {
+            _item.disabled = true;
           }
-          if(dataActionResult === 1){
-              _item.visible = true;
-              _item.disabled = false;
+          if (_item.noprivdisplaymode === 2 || _item.noprivdisplaymode === 6) {
+            _item.visible = false;
+          } else {
+            _item.visible = true;
           }
+        }
+        if (dataActionResult === 1) {
+          _item.visible = true;
+          _item.disabled = false;
+        }
       }
     }
-  } 
+  }
 
   /**
    * 组件销毁
-   * 
+   *
    * @memberof AppActionBar
    */
-  public destory(){
+  public destory() {
     if (this.viewStateEvent) {
       this.viewStateEvent.unsubscribe();
     }
@@ -158,6 +187,6 @@ export default class AppActionBar extends Vue {
 }
 </script>
 
-<style lang='less'>
+<style lang="less">
 @import "./app-actionbar.less";
 </style>

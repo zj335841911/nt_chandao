@@ -4,35 +4,35 @@
 
 <script lang="ts">
 import { Component, Prop, Vue, Watch } from "vue-property-decorator";
-import marked from 'marked';
+import marked from "marked";
 
 @Component({})
 export default class AppMarkdownParser extends Vue {
-    /**
-     * markdown文本
-     *
-     * @type {string}
-     * @memberof AppMarkdownParser
-     */
-    @Prop()
-    private value!: string;
-    @Watch('value', { immediate: true })
-    watchValue(): void {
-      if (this.value && this.value !== '') {
-        try {
-          this.mdHTML = marked(this.value);
-        } catch (err) {
-          this.mdHTML = ''
-        }
+  /**
+   * markdown文本
+   *
+   * @type {string}
+   * @memberof AppMarkdownParser
+   */
+  @Prop()
+  private value!: string;
+  @Watch("value", { immediate: true })
+  watchValue(): void {
+    if (this.value && this.value !== "") {
+      try {
+        this.mdHTML = marked(this.value);
+      } catch (err) {
+        this.mdHTML = "";
       }
     }
-    /**
-     * 展示的Html内容
-     * 
-     * @type {string}
-     * @memberof AppMarkdownParser
-     */
-    mdHTML = '';
+  }
+  /**
+   * 展示的Html内容
+   *
+   * @type {string}
+   * @memberof AppMarkdownParser
+   */
+  mdHTML = "";
 }
 </script>
 

@@ -1,6 +1,7 @@
 <template>
   <div class="input-unit">
-    <InputNumber v-if="type === 'number'"
+    <InputNumber
+      v-if="type === 'number'"
       :id="numberId"
       :placeholder="placeholder"
       :size="size"
@@ -9,7 +10,8 @@
       :disabled="disabled ? true : false"
       :active-change="false"
     ></InputNumber>
-    <i-input v-else
+    <i-input
+      v-else
       :placeholder="placeholder"
       :size="size"
       :type="type"
@@ -18,7 +20,7 @@
       :element-id="textareaId"
       @on-enter="enter"
     ></i-input>
-    <div class="unit-text">{{unit}}</div>
+    <div class="unit-text">{{ unit }}</div>
   </div>
 </template>
 
@@ -29,7 +31,6 @@ import { debounceTime, distinctUntilChanged } from "rxjs/operators";
 
 @Component({})
 export default class InputBox extends Vue {
-  
   /**
    * 双向绑定值
    * @type {any}
@@ -42,12 +43,12 @@ export default class InputBox extends Vue {
    * @type {any}
    * @memberof InputBox
    */
-  public mounted(){
+  public mounted() {
     this.addEvent();
-    if(this.textareaId){
-      let textarea :any= document.getElementById(this.textareaId);
-      if(textarea){
-        textarea.style=this.textareaStyle;
+    if (this.textareaId) {
+      let textarea: any = document.getElementById(this.textareaId);
+      if (textarea) {
+        textarea.style = this.textareaStyle;
       }
     }
   }
@@ -58,7 +59,6 @@ export default class InputBox extends Vue {
    * @memberof InputBoxUnit
    */
   @Prop() public unit?: string;
-
 
   /**
    * 多行文本十行 特殊参数样式（模型高度自带）
@@ -108,7 +108,7 @@ export default class InputBox extends Vue {
    * @type {number}
    * @memberof InputBox
    */
-  @Prop({default: 0}) public precision?: number;
+  @Prop({ default: 0 }) public precision?: number;
 
   /**
    * 多行文本行数
@@ -121,7 +121,7 @@ export default class InputBox extends Vue {
   /**
    * 数值框numberId
    */
-  public numberId :string= this.$util.createUUID();
+  public numberId: string = this.$util.createUUID();
 
   /**
    * 当前值
@@ -129,9 +129,13 @@ export default class InputBox extends Vue {
    * @memberof InputBox
    */
   get CurrentVal() {
-    if(Object.is(this.type, 'number') && this.itemValue && !isNaN(this.itemValue)){
+    if (
+      Object.is(this.type, "number") &&
+      this.itemValue &&
+      !isNaN(this.itemValue)
+    ) {
       return Number(Number(this.itemValue).toFixed(this.precision));
-    }else{
+    } else {
       return this.itemValue;
     }
   }
@@ -170,30 +174,28 @@ export default class InputBox extends Vue {
 
   /**
    * 给数值框中的箭头按钮添加事件
-   * 
+   *
    * @memberof InputBox
    */
-  public addEvent(){
-    if(Object.is(this.type, "number")){
+  public addEvent() {
+    if (Object.is(this.type, "number")) {
       // 整个页面渲染完之后再去执行
       this.$nextTick(() => {
-        let inputNumber :any = document.getElementById(this.numberId);
-        let handlerWrap :any = inputNumber.firstElementChild;
-        handlerWrap.onmouseover=()=>{
-          inputNumber.style.paddingRight="15px";
-          inputNumber.style.transition="all 0.2s linear";
-        }
-        handlerWrap.onmouseout=()=>{
-          inputNumber.style.paddingRight="0px";
-        }
+        let inputNumber: any = document.getElementById(this.numberId);
+        let handlerWrap: any = inputNumber.firstElementChild;
+        handlerWrap.onmouseover = () => {
+          inputNumber.style.paddingRight = "15px";
+          inputNumber.style.transition = "all 0.2s linear";
+        };
+        handlerWrap.onmouseout = () => {
+          inputNumber.style.paddingRight = "0px";
+        };
       });
     }
   }
-
-
 }
 </script>
 
-<style lang='less'>
+<style lang="less">
 @import "./input-box.less";
 </style>

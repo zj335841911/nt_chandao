@@ -1,22 +1,50 @@
 <template>
-  <Drawer class-name="sider-drawer" placement="left" :closable="false" :mask="false" width="200" v-model="leftDrawerVisiable">
+  <Drawer
+    class-name="sider-drawer"
+    placement="left"
+    :closable="false"
+    :mask="false"
+    width="200"
+    v-model="leftDrawerVisiable"
+  >
     <div class="context-menu-drag">
       <div class="menu-list">
-        <div class="menu-header" @click="rightDrawerVisiable=!rightDrawerVisiable">
+        <div
+          class="menu-header"
+          @click="rightDrawerVisiable = !rightDrawerVisiable"
+        >
           <div class="menuicon">
             <Icon type="md-apps" />
           </div>
           <div class="content">
-            <span>{{$t('components.contextMenuDrag.allApp')}}</span>
+            <span>{{ $t("components.contextMenuDrag.allApp") }}</span>
           </div>
           <div class="forward">
             <Icon type="ios-arrow-forward" />
           </div>
         </div>
         <div style="padding:8px 0px;" class="col-6">
-          <draggable class="list-group" tag="ul" v-model="selectlist" v-bind="dragOptionsVal" @start="drag=true" @end="drag=false" :animation="250" handle=".handle" ghost-class="ghost">
-            <transition-group type="transition" :name="!drag ? 'flip-list' : null">
-              <li @click="skipTo(item)" class="list-group-item" v-for="(item,index) in selectlist" :key="item.id">
+          <draggable
+            class="list-group"
+            tag="ul"
+            v-model="selectlist"
+            v-bind="dragOptionsVal"
+            @start="drag = true"
+            @end="drag = false"
+            :animation="250"
+            handle=".handle"
+            ghost-class="ghost"
+          >
+            <transition-group
+              type="transition"
+              :name="!drag ? 'flip-list' : null"
+            >
+              <li
+                @click="skipTo(item)"
+                class="list-group-item"
+                v-for="(item, index) in selectlist"
+                :key="item.id"
+              >
                 <el-row>
                   <el-col class="menuicon" :span="4">
                     <span>
@@ -25,7 +53,9 @@
                     </span>
                   </el-col>
                   <el-col :span="14">
-                    <span>{{ item.fullName ? item.fullName:item.label }}</span>
+                    <span>{{
+                      item.fullName ? item.fullName : item.label
+                    }}</span>
                   </el-col>
                   <el-col :span="6">
                     <div class="bar">
@@ -43,11 +73,29 @@
           </draggable>
         </div>
       </div>
-      <Drawer class-name="menu-drawer" width="60" :closable="true" :mask="false" placement="left" v-model="rightDrawerVisiable">
+      <Drawer
+        class-name="menu-drawer"
+        width="60"
+        :closable="true"
+        :mask="false"
+        placement="left"
+        v-model="rightDrawerVisiable"
+      >
         <div class="menuItems">
-          <div @click="skipTo(item)" class="item" v-for="(item) in list" :key="item.id">
-            <span class="title">{{ item.fullName ? item.fullName:item.label }}</span>
-            <span v-if="isStar(item.id)" class="star" @click.stop="outStar(item)">
+          <div
+            @click="skipTo(item)"
+            class="item"
+            v-for="item in list"
+            :key="item.id"
+          >
+            <span class="title">{{
+              item.fullName ? item.fullName : item.label
+            }}</span>
+            <span
+              v-if="isStar(item.id)"
+              class="star"
+              @click.stop="outStar(item)"
+            >
               <Icon type="ios-star" />
             </span>
             <span v-else class="star" @click.stop="onStar(item)">
@@ -62,8 +110,15 @@
 
 <script lang="ts">
 import draggable from "vuedraggable";
-import EntityService from '@/service/entity-service';
-import { Vue,Component,Provide,Watch,Prop,Model } from "vue-property-decorator";
+import EntityService from "@/service/entity-service";
+import {
+  Vue,
+  Component,
+  Provide,
+  Watch,
+  Prop,
+  Model
+} from "vue-property-decorator";
 
 // tslint:disable-next-line:max-classes-per-file
 @Component({
@@ -72,12 +127,11 @@ import { Vue,Component,Provide,Watch,Prop,Model } from "vue-property-decorator";
   }
 })
 export default class ContextMenuDrag extends Vue {
-
   public panelShow: boolean = true;
 
   /**
    * 抽屉菜单状态
-   * 
+   *
    * @returns
    * @memberof ContextMenuDrag
    */
@@ -85,7 +139,7 @@ export default class ContextMenuDrag extends Vue {
 
   /**
    * 拖拽列表配置对象
-   * 
+   *
    * @returns
    * @memberof ContextMenuDrag
    */
@@ -93,7 +147,7 @@ export default class ContextMenuDrag extends Vue {
 
   /**
    * 右侧飘窗状态
-   * 
+   *
    * @returns
    * @memberof ContextMenuDrag
    */
@@ -101,7 +155,7 @@ export default class ContextMenuDrag extends Vue {
 
   /**
    * 左侧飘窗状态
-   * 
+   *
    * @returns
    * @memberof ContextMenuDrag
    */
@@ -109,7 +163,7 @@ export default class ContextMenuDrag extends Vue {
 
   /**
    * 全部应用数据
-   * 
+   *
    * @returns
    * @memberof ContextMenuDrag
    */
@@ -117,7 +171,7 @@ export default class ContextMenuDrag extends Vue {
 
   /**
    * 已选择的应用数据
-   * 
+   *
    * @returns
    * @memberof ContextMenuDrag
    */
@@ -125,7 +179,7 @@ export default class ContextMenuDrag extends Vue {
 
   /**
    * 拖拽列表
-   * 
+   *
    * @returns
    * @memberof ContextMenuDrag
    */
@@ -133,7 +187,7 @@ export default class ContextMenuDrag extends Vue {
 
   /**
    * 拖拽列表配置项
-   * 
+   *
    * @returns
    * @memberof ContextMenuDrag
    */
@@ -145,7 +199,7 @@ export default class ContextMenuDrag extends Vue {
       ghostClass: "ghost"
     };
   }
-  
+
   /**
    * 实体服务对象
    *
@@ -157,7 +211,7 @@ export default class ContextMenuDrag extends Vue {
 
   /**
    * 监听抽屉菜单状态
-   * 
+   *
    * @returns
    * @memberof ContextMenuDrag
    */
@@ -169,7 +223,10 @@ export default class ContextMenuDrag extends Vue {
       let that: any = this;
       let params: any = {};
       params.model = this.selectlist;
-      const put: Promise<any> = this.entityService.updateChooseApp(null,params);
+      const put: Promise<any> = this.entityService.updateChooseApp(
+        null,
+        params
+      );
       this.rightDrawerVisiable = false;
       setTimeout(() => {
         that.leftDrawerVisiable = false;
@@ -179,13 +236,13 @@ export default class ContextMenuDrag extends Vue {
 
   /**
    * 鼠标移入服务时显示右侧飘窗
-   * 
+   *
    * @returns
    * @memberof ContextMenuDrag
    */
   public showMenuDrawer() {
     let that: any = this;
-    if(this.contextMenuDragVisiable){
+    if (this.contextMenuDragVisiable) {
       setTimeout(() => {
         that.rightDrawerVisiable = true;
       }, 300);
@@ -194,7 +251,7 @@ export default class ContextMenuDrag extends Vue {
 
   /**
    * 判断是否已选择该应用
-   * 
+   *
    * @returns
    * @memberof ContextMenuDrag
    */
@@ -210,24 +267,29 @@ export default class ContextMenuDrag extends Vue {
 
   /**
    * 跳转到应用
-   * 
+   *
    * @returns
    * @memberof ContextMenuDrag
    */
-   public skipTo(item: any){
-     if(item.addr){
+  public skipTo(item: any) {
+    if (item.addr) {
       let params: any = {};
       params.model = this.selectlist;
-      const put: Promise<any> = this.entityService.updateChooseApp(null,params);
+      const put: Promise<any> = this.entityService.updateChooseApp(
+        null,
+        params
+      );
       window.location.href = item.addr;
-     }else{
-       this.$message.info((this.$t('components.contextMenuDrag.noFind') as string));
-     }
-   }
+    } else {
+      this.$message.info(
+        this.$t("components.contextMenuDrag.noFind") as string
+      );
+    }
+  }
 
   /**
    * 加入列表
-   * 
+   *
    * @returns
    * @memberof ContextMenuDrag
    */
@@ -238,7 +300,7 @@ export default class ContextMenuDrag extends Vue {
 
   /**
    * 从列表中删除
-   * 
+   *
    * @returns
    * @memberof ContextMenuDrag
    */
@@ -248,7 +310,7 @@ export default class ContextMenuDrag extends Vue {
     let that: any = this;
     this.selectlist.forEach((select: any, index: number) => {
       if (Object.is(item.id, select.id)) {
-        that.selectlist.splice(index,1);
+        that.selectlist.splice(index, 1);
       }
     });
   }
@@ -271,7 +333,7 @@ export default class ContextMenuDrag extends Vue {
 
   /**
    * 过滤已选择的应用
-   * 
+   *
    * @returns
    * @memberof ContextMenuDrag
    */
@@ -292,18 +354,17 @@ export default class ContextMenuDrag extends Vue {
    */
   mounted() {
     let that: any = this;
-    const get: Promise<any> = this.entityService.getAllApp(null,{});
-    get
-      .then((response: any) => {
-        if (response) {
-          that.list = response.data.model;
-          that.listFilter();
-        }
-      });
+    const get: Promise<any> = this.entityService.getAllApp(null, {});
+    get.then((response: any) => {
+      if (response) {
+        that.list = response.data.model;
+        that.listFilter();
+      }
+    });
   }
 }
 </script>
 
-<style lang='less'>
-@import './context-menu-drag.less';
+<style lang="less">
+@import "./context-menu-drag.less";
 </style>
