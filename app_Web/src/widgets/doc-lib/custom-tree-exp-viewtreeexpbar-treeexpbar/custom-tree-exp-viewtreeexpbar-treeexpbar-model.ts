@@ -66,6 +66,12 @@ export default class CustomTreeExpViewtreeexpbarModel {
       {
         name: 'isfavourites',
       },
+      {
+        name: 'orgid',
+      },
+      {
+        name: 'mdeptid',
+      },
     ]
   }
 

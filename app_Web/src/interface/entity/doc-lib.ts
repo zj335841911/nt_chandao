@@ -141,4 +141,20 @@ export interface DocLib {
      * @memberof DocLib
      */
     isfavourites?: any;
+
+    /**
+     * 组织标识
+     *
+     * @returns {*}
+     * @memberof DocLib
+     */
+    orgid?: any;
+
+    /**
+     * 部门标识
+     *
+     * @returns {*}
+     * @memberof DocLib
+     */
+    mdeptid?: any;
 }

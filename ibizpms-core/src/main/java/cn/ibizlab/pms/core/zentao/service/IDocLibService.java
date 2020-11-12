@@ -72,6 +72,8 @@ public interface IDocLibService extends IService<DocLib>{
      */
     boolean execute(String sql, Map param);
 
+    List<DocLib> getDoclibByIds(List<Long> ids) ;
+    List<DocLib> getDoclibByEntities(List<DocLib> entities) ;
 }
 
 

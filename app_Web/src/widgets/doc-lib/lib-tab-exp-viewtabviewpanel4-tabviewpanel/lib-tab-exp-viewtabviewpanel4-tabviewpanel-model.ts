@@ -66,6 +66,12 @@ export default class LibTabExpViewtabviewpanel4Model {
       {
         name: 'isfavourites',
       },
+      {
+        name: 'orgid',
+      },
+      {
+        name: 'mdeptid',
+      },
     ]
   }
 

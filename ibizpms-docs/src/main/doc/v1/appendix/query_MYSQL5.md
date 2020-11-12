@@ -5099,8 +5099,10 @@ t1.`GROUPS`,
 t1.`ID`,
 0 AS `ISFAVOURITES`,
 t1.`MAIN`,
+t1.`MDEPTID`,
 t1.`NAME`,
 t1.`ORDER`,
+t1.`ORGID`,
 t1.`PRODUCT`,
 t21.`NAME` AS `PRODUCTNAME`,
 t1.`PROJECT`,
@@ -5111,7 +5113,7 @@ LEFT JOIN zt_project t11 ON t1.PROJECT = t11.ID
 LEFT JOIN zt_product t21 ON t1.PRODUCT = t21.ID 
 
 WHERE t1.DELETED = '0' 
-( t1.`TYPE` = 'custom' ) 
+( t1.`TYPE` = 'custom'  AND  t1.`ORGID` =  ${srfsessioncontext('SRFORGID','{"defname":"ORGID","dename":"ZT_DOCLIB"}')} ) 
 
 ```
 ### 产品文档库(ByProduct)<div id="DocLib_ByProduct"></div>
@@ -5213,10 +5215,13 @@ t1.`PRODUCT`,
 t21.`NAME` AS `PRODUCTNAME`,
 t1.`PROJECT`,
 t11.`NAME` AS `PROJECTNAME`,
-t1.`TYPE`
+t1.`TYPE`,
+t1.orgid
 FROM `zt_doclib` t1 
 LEFT JOIN zt_project t11 ON t1.PROJECT = t11.ID 
 LEFT JOIN zt_product t21 ON t1.PRODUCT = t21.ID
+WHERE t1.orgid = #{srf.sessioncontext.srforgid} 
+
 ```
 ### DEFAULT(DEFAULT)<div id="DocLib_Default"></div>
 ```sql
@@ -5228,8 +5233,10 @@ t1.`GROUPS`,
 t1.`ID`,
 0 AS `ISFAVOURITES`,
 t1.`MAIN`,
+t1.`MDEPTID`,
 t1.`NAME`,
 t1.`ORDER`,
+t1.`ORGID`,
 t1.`PRODUCT`,
 t21.`NAME` AS `PRODUCTNAME`,
 t1.`PROJECT`,
@@ -5240,6 +5247,7 @@ LEFT JOIN zt_project t11 ON t1.PROJECT = t11.ID
 LEFT JOIN zt_product t21 ON t1.PRODUCT = t21.ID 
 
 WHERE t1.DELETED = '0' 
+( t1.`ORGID` =  ${srfsessioncontext('SRFORGID','{"defname":"ORGID","dename":"ZT_DOCLIB"}')} ) 
 
 ```
 ### 默认（全部数据）(VIEW)<div id="DocLib_View"></div>
@@ -5253,8 +5261,10 @@ t1.`GROUPS`,
 t1.`ID`,
 0 AS `ISFAVOURITES`,
 t1.`MAIN`,
+t1.`MDEPTID`,
 t1.`NAME`,
 t1.`ORDER`,
+t1.`ORGID`,
 t1.`PRODUCT`,
 t21.`NAME` AS `PRODUCTNAME`,
 t1.`PROJECT`,

@@ -288,6 +288,27 @@ public class DocLibServiceImpl extends ServiceImpl<DocLibMapper, DocLib> impleme
         return true;
     }
 
+    @Override
+    public List<DocLib> getDoclibByIds(List<Long> ids) {
+         return this.listByIds(ids);
+    }
+
+    @Override
+    public List<DocLib> getDoclibByEntities(List<DocLib> entities) {
+        List ids =new ArrayList();
+        for(DocLib entity : entities){
+            Serializable id=entity.getId();
+            if(!ObjectUtils.isEmpty(id)){
+                ids.add(id);
+            }
+        }
+        if(ids.size()>0) {
+            return this.listByIds(ids);
+        }
+        else {
+            return entities;
+        }
+    }
 
 
 

@@ -17,6 +17,8 @@ export default {
     projectname: "所属项目",
     productname: "所属产品",
     isfavourites: "是否收藏",
+    orgid: "组织标识",
+    mdeptid: "部门标识",
   },
 	views: {
 		projecttreeexpview: {

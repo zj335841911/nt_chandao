@@ -66,6 +66,12 @@ export default class ProjectDocLibTreeModel {
       {
         name: 'isfavourites',
       },
+      {
+        name: 'orgid',
+      },
+      {
+        name: 'mdeptid',
+      },
     ]
   }
 

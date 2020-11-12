@@ -2,7 +2,7 @@ import { AppNavHistory } from '../app-nav-history/AppNavHistory';
 import { AppContextStore } from '../app-context-store/AppContextStore';
 import { AppViewStore } from '../app-view-store/AppViewStore';
 import { Environment } from '@/environments/environment';
-import { Util } from '@/utils';
+import { Http, Util } from '@/utils';
 import { AppEvent } from '../../events/app-event';
 
 /**
@@ -61,10 +61,18 @@ export class AppServiceBase {
      * @return {*}  {void}
      * @memberof AppServiceBase
      */
-    public doLogin(data?: any, redirect: string = location.href, isLogin = true): void {
+    async doLogin(data?: any, redirect: string = location.href, isLogin = true): Promise<void> {
         const win: any = window;
         if (win.isDoLogin) {
             return;
+        }
+        // 如果是CAS模式，调用后台登出
+        if (Environment.LoginMode.toUpperCase() === 'CAS') {
+            try {
+                await Http.getInstance().get('/v7/casproxylogout', {}, false);
+            } catch (err) {
+                console.log(err);
+            }
         }
         // 清除user、token和cookie
         if (localStorage.getItem('user')) {

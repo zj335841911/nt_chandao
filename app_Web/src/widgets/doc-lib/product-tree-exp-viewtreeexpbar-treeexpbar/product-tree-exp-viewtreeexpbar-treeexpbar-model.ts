@@ -66,6 +66,12 @@ export default class ProductTreeExpViewtreeexpbarModel {
       {
         name: 'isfavourites',
       },
+      {
+        name: 'orgid',
+      },
+      {
+        name: 'mdeptid',
+      },
     ]
   }
 
