@@ -44,7 +44,7 @@
     </ion-content>
     <ion-footer class="view-footer">
                 <div  class = "fab_container">
-            <div :id="viewtag" class="bottom_button" :style="button_style">
+            <div :id="viewtag+'_bottom_button'" class="bottom_button" :style="button_style">
                 <div :class="{'sub-item':true,'disabled':righttoolbarModels.tbitem1.disabled}" v-show="righttoolbarModels.tbitem1.visabled">
                 <ion-button :disabled="righttoolbarModels.tbitem1.disabled" @click="righttoolbar_click({ tag: 'tbitem1' }, $event)" size="large">
                     <ion-icon name="checkmark-outline"></ion-icon>
@@ -483,7 +483,7 @@ export default class TestSuiteNewMobEditViewBase extends Vue {
         this.thirdPartyInit();
 
         // 拖动样式
-        AnimationService.draggable(document.getElementById(viewtag),(style:any)=>{this.button_style = style});
+        AnimationService.draggable(document.getElementById(this.viewtag+'_bottom_button'),(style:any)=>{this.button_style = style});
     }
 
     /**

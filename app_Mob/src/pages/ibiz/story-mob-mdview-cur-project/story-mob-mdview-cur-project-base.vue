@@ -543,7 +543,7 @@ export default class StoryMobMDViewCurProjectBase extends Vue {
         this.thirdPartyInit();
 
         // 拖动样式
-        AnimationService.draggable(document.getElementById(viewtag),(style:any)=>{this.button_style = style});
+        AnimationService.draggable(document.getElementById(this.viewtag+'_bottom_button'),(style:any)=>{this.button_style = style});
     }
 
     /**
