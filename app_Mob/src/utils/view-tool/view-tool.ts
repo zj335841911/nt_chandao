@@ -424,4 +424,11 @@ export class ViewTool {
     public destroyBackEvent() {
         this.thirdPartyService.destroyBackEvent();
     }
+
+    /**
+     * 第三方事件
+     */
+    public thirdPartyEvent(tag:string,arg:any={}){
+        this.thirdPartyService.thirdPartyEvent(tag,arg);
+    }
 }

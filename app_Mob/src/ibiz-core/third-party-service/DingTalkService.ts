@@ -264,10 +264,22 @@ export class DingTalkService {
                     resolve(res);
                 },
                 onFail: (err: any) => {
-                    // alert(JSON.stringify(err));
                 },
             });
         });
+    }
+
+    /**
+     * 震动
+     */
+    public vibrate(arg:any) : Promise<any> {
+        return new Promise((resolve, reject) => {
+            dd.device.notification.vibrate({
+                duration: arg, //震动时间，android可配置 iOS忽略
+            })
+            resolve({});
+        });
+        
     }
 
     /**
@@ -340,6 +352,8 @@ export class DingTalkService {
         }
     }
 
+
+
     /**
      * 钉钉导航栏返回事件
      *
@@ -393,6 +407,9 @@ export class DingTalkService {
         }
         if (Object.is(tag, "close")) {
             return this.close();
+        }
+        if (Object.is(tag, "vibrate")) {
+            return this.vibrate(arg);
         }
     }
 }
