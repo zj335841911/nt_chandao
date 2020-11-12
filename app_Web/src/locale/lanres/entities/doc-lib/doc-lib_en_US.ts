@@ -149,6 +149,10 @@ export default {
 			caption: "我的文档",
 			tip: "我的文档",
 		},
+		deuiaction3: {
+			caption: "我的收藏",
+			tip: "我的收藏",
+		},
 		deuiaction4: {
 			caption: "创建文档库",
 			tip: "创建文档库",
@@ -156,6 +160,10 @@ export default {
 		deuiaction6: {
 			caption: "创建文档",
 			tip: "创建文档",
+		},
+		deuiaction5: {
+			caption: "我的收藏",
+			tip: "我的收藏",
 		},
 	},
 	projectdoclibtree_treeview: {

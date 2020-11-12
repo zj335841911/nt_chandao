@@ -1954,6 +1954,17 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '73647c564ed468885ee3c18bccce5a90',
+            viewmodule: 'ibiz',
+            viewname: 'DocMyStoryGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'b6e02216d1e5c69d79b32342d8b67c7a',
+                '23cc93d7fdddff5077a7952d26802a7b',
+            ],
+        },
+        {
             viewtag: '73fbcf0e3685096f63587bcff234f958',
             viewmodule: 'zentao',
             viewname: 'DocLibUsr2EditView',
@@ -2176,6 +2187,7 @@ export const viewstate: any = {
                 'b593c09602d9483d53b1f725395030a6',
                 'ec35bfd0c7d043d531053eac7775a40b',
                 '41693a4d3b2bd3a7195d31ceae6cdcf3',
+                '73647c564ed468885ee3c18bccce5a90',
                 '7c188c576f1fd59114ac2940d8e92c15',
                 '7b8d03598e32aa0f535758927a17b98e',
             ],
