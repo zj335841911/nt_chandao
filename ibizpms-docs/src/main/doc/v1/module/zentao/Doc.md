@@ -1563,7 +1563,10 @@ t1.`ID`,
 ''`KEYWORDS`,
 ${srfdatacontext('srfroot','{"defname":"ROOT","dename":"ZT_MODULE"}')} as `LIB`,
 '' AS `LIBNAME`,
-${srfdatacontext('parent','{"defname":"ROOT","dename":"ZT_MODULE"}')} as `MODULE`,
+(case when ${srfdatacontext('parent','{"defname":"ROOT","dename":"ZT_MODULE"}')} is null then '0' else 
+${srfdatacontext('parent','{"defname":"ROOT","dename":"ZT_MODULE"}')} end
+)
+ as `MODULE`,
 '' AS `MODULENAME`,
 0 as `PRODUCT`,
 '' AS `PRODUCTNAME`,
@@ -1572,7 +1575,9 @@ ${srfdatacontext('parent','{"defname":"ROOT","dename":"ZT_MODULE"}')} as `MODULE
 t1.`name` as `TITLE`,
 'text' as `TYPE`,
 1 as `VERSION`,
-'' as `VIEWS`,'module' as DOCQTYPE from zt_module t1 where t1.deleted = '0' and t1.type = 'doc' and t1.root = ${srfdatacontext('srfroot','{"defname":"ROOT","dename":"ZT_MODULE"}')} and t1.parent =  ${srfdatacontext('parent','{"defname":"ROOT","dename":"ZT_MODULE"}')}
+'' as `VIEWS`,'module' as DOCQTYPE from zt_module t1 where t1.deleted = '0' and t1.type = 'doc' and t1.root = ${srfdatacontext('srfroot','{"defname":"ROOT","dename":"ZT_MODULE"}')} and t1.parent =  (case when ${srfdatacontext('parent','{"defname":"ROOT","dename":"ZT_MODULE"}')} is null then '0' else 
+${srfdatacontext('parent','{"defname":"ROOT","dename":"ZT_MODULE"}')} end
+)
 UNION
 SELECT
 t1.`ACL`,
