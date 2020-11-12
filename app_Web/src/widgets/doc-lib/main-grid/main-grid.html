@@ -33,7 +33,9 @@
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
+                        <a v-show="row.LookDoc.visible" :disabled="row.LookDoc.disabled" :style="{'display': 'block'}" @click="uiAction(row, 'LookDoc', $event)">
                         <span>{{row.name}}</span>
+                        </a>
                     </template>
                 </el-table-column>
             </template>
