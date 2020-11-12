@@ -83,6 +83,18 @@
                     </template>
                 </el-table-column>
             </template>
+            <template v-if="getColumnState('isfavourites')">
+                <el-table-column show-overflow-tooltip :prop="'isfavourites'" :label="$t('entities.doclib.main_grid.columns.isfavourites')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.doclib.main_grid.columns.isfavourites')}}
+                      </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                        <span>{{row.isfavourites}}</span>
+                    </template>
+                </el-table-column>
+            </template>
             <template v-if="adaptiveState">
                 <el-table-column></el-table-column>
             </template>

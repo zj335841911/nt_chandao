@@ -2661,6 +2661,7 @@ SELECT
 FROM
 	(
 SELECT
+        t1.orgid,
 	t1.`ACL`,
 	( SELECT COUNT( 1 ) FROM ZT_BUG WHERE PRODUCT = t1.`ID` AND `STATUS` = 'active' AND DELETED = '0' ) AS `ACTIVEBUGCNT`,
 	( SELECT COUNT( 1 ) FROM ZT_STORY WHERE PRODUCT = t1.`ID` AND `STATUS` = 'active' AND DELETED = '0' ) AS `ACTIVESTORYCNT`,
@@ -2711,6 +2712,7 @@ WHERE
 	t1.deleted = '0' 
 	AND (t1.acl = 'open' or  t1.CREATEDBY =  #{srf.sessioncontext.srfloginname} or t1.PO = #{srf.sessioncontext.srfloginname} or t1.RD = #{srf.sessioncontext.srfloginname} or t1.QD =  #{srf.sessioncontext.srfloginname} ) UNION
 SELECT
+        t1.orgid,
 	t1.`ACL`,
 	( SELECT COUNT( 1 ) FROM ZT_BUG WHERE PRODUCT = t1.`ID` AND `STATUS` = 'active' AND DELETED = '0' ) AS `ACTIVEBUGCNT`,
 	( SELECT COUNT( 1 ) FROM ZT_STORY WHERE PRODUCT = t1.`ID` AND `STATUS` = 'active' AND DELETED = '0' ) AS `ACTIVESTORYCNT`,
@@ -2846,7 +2848,7 @@ LEFT JOIN zt_module t11 ON t1.LINE = t11.ID
 #### SQL
 - MYSQL5
 ```SQL
-select t.`status`, count(t.id) as SRFCOUNT from zt_product t where t.`status` <> '' and t.`status` is not null and t.deleted = '0' GROUP BY t.`status`
+select t.`status`, count(t.id) as SRFCOUNT from zt_product t where t.`status` <> '' and t.`status` is not null and t.deleted = '0' and t.orgid = #{srf.sessioncontext.srforgid} GROUP BY t.`status`
 ```
 ### 数据查询-当前项目（StoryCurProject）
 #### 说明

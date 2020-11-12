@@ -98,7 +98,7 @@ export default class MoreRecentUpdateModel {
         {
           name: 'isfavourites',
           prop: 'isfavourites',
-          dataType: 'TEXT',
+          dataType: 'INT',
         },
         {
           name: 'docqtype',

@@ -60,7 +60,7 @@ export default class DocLibUIServiceBase extends UIService {
      * 
      * @memberof  DocLibUIServiceBase
      */  
-    public mainStateFields:Array<any> = ['doclibtype'];
+    public mainStateFields:Array<any> = ['doclibtype','isfavourites'];
 
     /**
      * 主状态集合Map
@@ -115,7 +115,11 @@ export default class DocLibUIServiceBase extends UIService {
     public initDeMainStateMap(){
         this.allDeMainStateMap.set('doclib','doclib');
         this.allDeMainStateMap.set('doc','doc');
+        this.allDeMainStateMap.set('doc__0','doc__0');
+        this.allDeMainStateMap.set('doc__1','doc__1');
         this.allDeMainStateMap.set('file','file');
+        this.allDeMainStateMap.set('file__0','file__0');
+        this.allDeMainStateMap.set('file__1','file__1');
     }
 
     /**
@@ -126,7 +130,11 @@ export default class DocLibUIServiceBase extends UIService {
     public initDeMainStateOPPrivsMap(){
         this.allDeMainStateOPPrivsMap.set('doclib',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{}));
         this.allDeMainStateOPPrivsMap.set('doc',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'FILE':0,}));
+        this.allDeMainStateOPPrivsMap.set('doc__0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__DOCLIB_NFAVOUR_BUT':0,'FILE':0,}));
+        this.allDeMainStateOPPrivsMap.set('doc__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'FILE':0,'SRFUR__DOCLIB_FAVOUR_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('file',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'DOC':0,}));
+        this.allDeMainStateOPPrivsMap.set('file__0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'DOC':0,'SRFUR__DOCLIB_NFAVOUR_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('file__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__DOCLIB_FAVOUR_BUT':0,'DOC':0,}));
     }
 
     /**

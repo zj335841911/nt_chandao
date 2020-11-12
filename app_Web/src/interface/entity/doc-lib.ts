@@ -135,7 +135,7 @@ export interface DocLib {
     productname?: any;
 
     /**
-     * 属性
+     * 是否收藏
      *
      * @returns {*}
      * @memberof DocLib

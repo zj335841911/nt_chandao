@@ -37,6 +37,11 @@ export default class MainModel {
           dataType: 'INT',
         },
         {
+          name: 'isfavourites',
+          prop: 'isfavourites',
+          dataType: 'INT',
+        },
+        {
           name: 'product',
           prop: 'product',
           dataType: 'PICKUP',

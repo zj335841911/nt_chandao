@@ -8847,7 +8847,7 @@ FROM `zt_product` t1
 LEFT JOIN zt_module t11 ON t1.LINE = t11.ID 
 
 WHERE t1.DELETED = '0' 
-( ( t1.`STATUS` <> 'closed'  OR  (#{srf.datacontext.products} is not null and t1.id = #{srf.datacontext.products}) ) ) 
+( ( t1.`STATUS` <> 'closed'  OR  (#{srf.datacontext.products} is not null and t1.id = #{srf.datacontext.products}) )  AND  t1.`ORGID` =  ${srfsessioncontext('SRFORGID','{"defname":"ORGID","dename":"ZT_PRODUCT"}')} ) 
 
 ```
 ### 校验产品名称或产品代号是否已经存在(CheckNameOrCode)<div id="Product_CheckNameOrCode"></div>
@@ -8914,6 +8914,7 @@ SELECT
 FROM
 	(
 SELECT
+        t1.orgid,
 	t1.`ACL`,
 	( SELECT COUNT( 1 ) FROM ZT_BUG WHERE PRODUCT = t1.`ID` AND `STATUS` = 'active' AND DELETED = '0' ) AS `ACTIVEBUGCNT`,
 	( SELECT COUNT( 1 ) FROM ZT_STORY WHERE PRODUCT = t1.`ID` AND `STATUS` = 'active' AND DELETED = '0' ) AS `ACTIVESTORYCNT`,
@@ -8964,6 +8965,7 @@ WHERE
 	t1.deleted = '0' 
 	AND (t1.acl = 'open' or  t1.CREATEDBY =  #{srf.sessioncontext.srfloginname} or t1.PO = #{srf.sessioncontext.srfloginname} or t1.RD = #{srf.sessioncontext.srfloginname} or t1.QD =  #{srf.sessioncontext.srfloginname} ) UNION
 SELECT
+        t1.orgid,
 	t1.`ACL`,
 	( SELECT COUNT( 1 ) FROM ZT_BUG WHERE PRODUCT = t1.`ID` AND `STATUS` = 'active' AND DELETED = '0' ) AS `ACTIVEBUGCNT`,
 	( SELECT COUNT( 1 ) FROM ZT_STORY WHERE PRODUCT = t1.`ID` AND `STATUS` = 'active' AND DELETED = '0' ) AS `ACTIVESTORYCNT`,
@@ -9029,6 +9031,8 @@ WHERE
 	) 
 	) 
 	) t1
+WHERE t1.orgid = #{srf.sessioncontext.srforgid} 
+
 ```
 ### DEFAULT(DEFAULT)<div id="Product_Default"></div>
 ```sql
@@ -9075,11 +9079,12 @@ FROM `zt_product` t1
 LEFT JOIN zt_module t11 ON t1.LINE = t11.ID 
 
 WHERE t1.DELETED = '0' 
+( t1.`ORGID` =  ${srfsessioncontext('srforgid','{"defname":"ORGID","dename":"ZT_PRODUCT"}')} ) 
 
 ```
 ### 产品总览(ProductPM)<div id="Product_ProductPM"></div>
 ```sql
-select t.`status`, count(t.id) as SRFCOUNT from zt_product t where t.`status` <> '' and t.`status` is not null and t.deleted = '0' GROUP BY t.`status`
+select t.`status`, count(t.id) as SRFCOUNT from zt_product t where t.`status` <> '' and t.`status` is not null and t.deleted = '0' and t.orgid = #{srf.sessioncontext.srforgid} GROUP BY t.`status`
 ```
 ### 当前项目(StoryCURPROJECT)<div id="Product_StoryCurProject"></div>
 ```sql
@@ -10294,6 +10299,7 @@ t1.DELETED = '0'
 ### 当前用户项目(CurUser)<div id="Project_CurUser"></div>
 ```sql
 select t1.* from (SELECT
+t1.orgid,
 t1.`ACL`,
 t1.`BEGIN`,
 (SELECT COUNT(1) FROM ZT_BUG WHERE PROJECT = t1.`ID` AND DELETED = '0') AS `BUGCNT`,
@@ -10341,6 +10347,7 @@ LEFT JOIN zt_project t11 ON t1.PARENT = t11.ID
 where t1.deleted = '0' and (t1.acl = 'open' or t1.OPENEDBY = #{srf.sessioncontext.srfloginname} or  t1.pm =  #{srf.sessioncontext.srfloginname} or t1.PO = #{srf.sessioncontext.srfloginname} or t1.RD = #{srf.sessioncontext.srfloginname} or t1.QD =  #{srf.sessioncontext.srfloginname} )
 union 
 SELECT
+t1.orgid,
 t1.`ACL`,
 t1.`BEGIN`,
 (SELECT COUNT(1) FROM ZT_BUG WHERE PROJECT = t1.`ID` AND DELETED = '0') AS `BUGCNT`,
@@ -10387,6 +10394,8 @@ left join t_ibz_top t2 on t1.id = t2.OBJECTID and t2.type = 'project' and t2.ACC
 LEFT JOIN zt_project t11 ON t1.PARENT = t11.ID 
 where t1.deleted = '0' and t1.acl = 'private' and t1.id in (select t3.root from zt_team t3 where t3.account = #{srf.sessioncontext.srfloginname}  
 and t3.type = 'project')) t1
+WHERE t1.orgid = #{srf.sessioncontext.srforgid} 
+
 ```
 ### DEFAULT(DEFAULT)<div id="Project_Default"></div>
 ```sql
@@ -10437,11 +10446,13 @@ FROM `zt_project` t1
 LEFT JOIN zt_project t11 ON t1.PARENT = t11.ID 
 
 WHERE t1.DELETED = '0' 
+( t1.`ORGID` =  ${srfsessioncontext('srforgid','{"defname":"ORGID","dename":"ZT_PROJECT"}')} ) 
 
 ```
 ### 参与项目(年度总结)(InvolvedProject)<div id="Project_InvolvedProject"></div>
 ```sql
- SELECT
+ select t1.* from (SELECT
+t1.orgid,
 t1.`ACL`,
 t1.`BEGIN`,
 (SELECT COUNT(1) FROM ZT_BUG WHERE PROJECT = t1.`ID` AND DELETED = '0') AS `BUGCNT`,
@@ -10503,6 +10514,8 @@ YEAR(t1.`join`) = #{srf.webcontext.curyear}
 ) or t1.id in  (SELECT DISTINCT t1.project from zt_task t1 LEFT JOIN zt_action t2 on t1.id = t2.OBJECTID and t2.objectType = 'task' where t2.actor = #{srf.sessioncontext.srfloginname}
 and t2.action = 'finished' and left(t2.date,4) = #{srf.webcontext.curyear} 
 )
+) t1
+WHERE t1.orgid = #{srf.sessioncontext.srforgid} 
 
 ```
 ### 参与项目完成需求任务bug(InvolvedProject_StoryTaskBug)<div id="Project_InvolvedProject_StoryTaskBug"></div>
@@ -10543,6 +10556,7 @@ GROUP BY t1.project
 ### 我的项目(MyProject)<div id="Project_MyProject"></div>
 ```sql
 select t1.* from (SELECT
+        t1.orgid,
 	t1.`ACL`,
 	t1.`BEGIN`,
 	( SELECT COUNT( 1 ) FROM ZT_BUG WHERE PROJECT = t1.`ID` AND DELETED = '0' ) AS `BUGCNT`,
@@ -10595,11 +10609,13 @@ FROM
 	LEFT JOIN zt_project t11 ON t1.PARENT = t11.ID
 	INNER JOIN zt_team t21 on t1.ID = t21.root and t21.type= 'project' ) t1
 WHERE t1.DELETED = '0' 
+t1.orgid = #{srf.sessioncontext.srforgid} 
 
 ```
 ### 项目团队(ProjectTeam)<div id="Project_ProjectTeam"></div>
 ```sql
 SELECT
+t1.orgid,
 t1.`ACL`,
 t1.`BEGIN`,
 (SELECT COUNT(1) FROM ZT_BUG WHERE PROJECT = t1.`ID` AND DELETED = '0') AS `BUGCNT`,
@@ -10646,6 +10662,7 @@ left join zt_team t21 on t1.id = t21.root
 WHERE t1.DELETED = '0' 
 t21.type = 'project' 
  t21.account = #{srf.sessioncontext.srfloginname} 
+t1.orgid = #{srf.sessioncontext.srforgid} 
 
 ```
 ### 需求影响项目(StoryProject)<div id="Project_StoryProject"></div>

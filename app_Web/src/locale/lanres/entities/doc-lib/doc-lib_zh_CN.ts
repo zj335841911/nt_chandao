@@ -16,7 +16,7 @@ export default {
     doclibtype: "文件库类型",
     projectname: "所属项目",
     productname: "所属产品",
-    isfavourites: "属性",
+    isfavourites: "是否收藏",
   },
 	views: {
 		projecttreeexpview: {
@@ -90,6 +90,7 @@ export default {
 			name: "文档库名称",
 			doccnt: "文档数量",
 			uagridcolumn1: "操作",
+			isfavourites: "是否收藏",
 		},
 		uiactions: {
 			doclib_lookmainprojectdoclib: "查看",

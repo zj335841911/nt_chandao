@@ -52,6 +52,11 @@ export default class ProductMainModel {
           dataType: 'SSCODELIST',
         },
         {
+          name: 'isfavourites',
+          prop: 'isfavourites',
+          dataType: 'INT',
+        },
+        {
           name: 'srfmstag',
         },
         {

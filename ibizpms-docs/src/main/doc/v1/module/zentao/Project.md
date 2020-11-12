@@ -4269,6 +4269,7 @@ LEFT JOIN zt_project t11 ON t1.PARENT = t11.ID
 - MYSQL5
 ```SQL
 select t1.* from (SELECT
+t1.orgid,
 t1.`ACL`,
 t1.`BEGIN`,
 (SELECT COUNT(1) FROM ZT_BUG WHERE PROJECT = t1.`ID` AND DELETED = '0') AS `BUGCNT`,
@@ -4316,6 +4317,7 @@ LEFT JOIN zt_project t11 ON t1.PARENT = t11.ID
 where t1.deleted = '0' and (t1.acl = 'open' or t1.OPENEDBY = #{srf.sessioncontext.srfloginname} or  t1.pm =  #{srf.sessioncontext.srfloginname} or t1.PO = #{srf.sessioncontext.srfloginname} or t1.RD = #{srf.sessioncontext.srfloginname} or t1.QD =  #{srf.sessioncontext.srfloginname} )
 union 
 SELECT
+t1.orgid,
 t1.`ACL`,
 t1.`BEGIN`,
 (SELECT COUNT(1) FROM ZT_BUG WHERE PROJECT = t1.`ID` AND DELETED = '0') AS `BUGCNT`,
@@ -4436,7 +4438,8 @@ LEFT JOIN zt_project t11 ON t1.PARENT = t11.ID
 #### SQL
 - MYSQL5
 ```SQL
- SELECT
+ select t1.* from (SELECT
+t1.orgid,
 t1.`ACL`,
 t1.`BEGIN`,
 (SELECT COUNT(1) FROM ZT_BUG WHERE PROJECT = t1.`ID` AND DELETED = '0') AS `BUGCNT`,
@@ -4498,7 +4501,7 @@ YEAR(t1.`join`) = #{srf.webcontext.curyear}
 ) or t1.id in  (SELECT DISTINCT t1.project from zt_task t1 LEFT JOIN zt_action t2 on t1.id = t2.OBJECTID and t2.objectType = 'task' where t2.actor = #{srf.sessioncontext.srfloginname}
 and t2.action = 'finished' and left(t2.date,4) = #{srf.webcontext.curyear} 
 )
-
+) t1
 ```
 ### 数据查询-参与项目完成需求任务bug（InvolvedProject_StoryTaskBug）
 #### 说明
@@ -4560,6 +4563,7 @@ GROUP BY t1.project
 - MYSQL5
 ```SQL
 select t1.* from (SELECT
+        t1.orgid,
 	t1.`ACL`,
 	t1.`BEGIN`,
 	( SELECT COUNT( 1 ) FROM ZT_BUG WHERE PROJECT = t1.`ID` AND DELETED = '0' ) AS `BUGCNT`,
@@ -4626,6 +4630,7 @@ FROM
 - MYSQL5
 ```SQL
 SELECT
+t1.orgid,
 t1.`ACL`,
 t1.`BEGIN`,
 (SELECT COUNT(1) FROM ZT_BUG WHERE PROJECT = t1.`ID` AND DELETED = '0') AS `BUGCNT`,
