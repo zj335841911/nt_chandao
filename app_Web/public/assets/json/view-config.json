@@ -3899,6 +3899,16 @@
         "viewtag": "c959d7fe98c33b7befcad24e2596633e",
         "memo": ""
     },
+    "docdocmodulegridview": {
+        "title": "doc表格视图",
+        "caption": "文档",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "zentao",
+        "viewname": "DocDocModuleGridView",
+        "viewfilename": "doc-doc-module-grid-view",
+        "viewtag": "c9be79d1ad2a32e56092cd1ec1e896eb",
+        "memo": ""
+    },
     "buggridview9_myassignedtome": {
         "title": "Bug表格视图",
         "caption": "Bug",

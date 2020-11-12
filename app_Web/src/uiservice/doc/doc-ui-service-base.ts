@@ -393,9 +393,17 @@ export default class DocUIServiceBase extends UIService {
         let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
         Object.assign(data,parentObj);
         Object.assign(context,parentObj);
-            // 自定义实体界面行为
-            actionContext.$Notice.warning({ title: '错误', desc: '查看 未实现' });
-
+        let deResParameters: any[] = [];
+        const parameters: any[] = [
+            { pathName: 'docs', parameterName: 'doc' },
+            { pathName: 'docmodulegridview', parameterName: 'docmodulegridview' },
+        ];
+        const openIndexViewTab = (data: any) => {
+            const routePath = actionContext.$viewTool.buildUpRoutePath(actionContext.$route, context, deResParameters, parameters, _args, data);
+            actionContext.$router.push(routePath);
+            return null;
+        }
+        openIndexViewTab(data);
     }
 
 

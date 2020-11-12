@@ -4617,6 +4617,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/bug-grid-view9-assigned-to-me/bug-grid-view9-assigned-to-me.vue'),
                 },
                 {
+                    path: 'docs/:doc?/docmodulegridview/:docmodulegridview?',
+                    meta: {
+                        caption: 'entities.doc.views.docmodulegridview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'docs', parameterName: 'doc' },
+                            { pathName: 'docmodulegridview', parameterName: 'docmodulegridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/doc-doc-module-grid-view/doc-doc-module-grid-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/editview/:editview?',
                     meta: {
                         caption: 'entities.story.views.editview.caption',
@@ -4648,35 +4662,6 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/story-edit-view/story-edit-view.vue'),
-                },
-                {
-                    path: 'projects/:project?/burns/:burn?/chartview/:chartview?',
-                    meta: {
-                        caption: 'entities.burn.views.chartview.caption',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'projects', parameterName: 'project' },
-                            { pathName: 'burns', parameterName: 'burn' },
-                            { pathName: 'chartview', parameterName: 'chartview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/burn-chart-view/burn-chart-view.vue'),
-                },
-                {
-                    path: 'burns/:burn?/chartview/:chartview?',
-                    meta: {
-                        caption: 'entities.burn.views.chartview.caption',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'burns', parameterName: 'burn' },
-                            { pathName: 'chartview', parameterName: 'chartview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/burn-chart-view/burn-chart-view.vue'),
                 },
                 {
                     path: 'products/:product?/stories/:story?/tasks/:task?/maindetailview9/:maindetailview9?',
@@ -4745,6 +4730,35 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/task-main-detail-view9/task-main-detail-view9.vue'),
+                },
+                {
+                    path: 'projects/:project?/burns/:burn?/chartview/:chartview?',
+                    meta: {
+                        caption: 'entities.burn.views.chartview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'burns', parameterName: 'burn' },
+                            { pathName: 'chartview', parameterName: 'chartview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/burn-chart-view/burn-chart-view.vue'),
+                },
+                {
+                    path: 'burns/:burn?/chartview/:chartview?',
+                    meta: {
+                        caption: 'entities.burn.views.chartview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'burns', parameterName: 'burn' },
+                            { pathName: 'chartview', parameterName: 'chartview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/burn-chart-view/burn-chart-view.vue'),
                 },
                 {
                     path: 'products/:product?/stories/:story?/pickupgridview2/:pickupgridview2?',

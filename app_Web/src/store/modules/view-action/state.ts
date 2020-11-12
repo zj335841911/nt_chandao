@@ -1181,6 +1181,7 @@ export const viewstate: any = {
             refviews: [
                 'b6e02216d1e5c69d79b32342d8b67c7a',
                 '23cc93d7fdddff5077a7952d26802a7b',
+                'c9be79d1ad2a32e56092cd1ec1e896eb',
             ],
         },
         {
@@ -1962,6 +1963,7 @@ export const viewstate: any = {
             refviews: [
                 'b6e02216d1e5c69d79b32342d8b67c7a',
                 '23cc93d7fdddff5077a7952d26802a7b',
+                'c9be79d1ad2a32e56092cd1ec1e896eb',
             ],
         },
         {
@@ -2095,6 +2097,7 @@ export const viewstate: any = {
             refviews: [
                 'b6e02216d1e5c69d79b32342d8b67c7a',
                 '23cc93d7fdddff5077a7952d26802a7b',
+                'c9be79d1ad2a32e56092cd1ec1e896eb',
             ],
         },
         {
@@ -3118,6 +3121,7 @@ export const viewstate: any = {
             refviews: [
                 'b6e02216d1e5c69d79b32342d8b67c7a',
                 '23cc93d7fdddff5077a7952d26802a7b',
+                'c9be79d1ad2a32e56092cd1ec1e896eb',
             ],
         },
         {
@@ -3520,6 +3524,17 @@ export const viewstate: any = {
             refviews: [
                 '1540523a668e920d831510cfbec2c5e2',
                 '46517a803b2470cd0bef27aeda0dbcaf',
+            ],
+        },
+        {
+            viewtag: 'c9be79d1ad2a32e56092cd1ec1e896eb',
+            viewmodule: 'zentao',
+            viewname: 'DocDocModuleGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'b6e02216d1e5c69d79b32342d8b67c7a',
+                '23cc93d7fdddff5077a7952d26802a7b',
             ],
         },
         {

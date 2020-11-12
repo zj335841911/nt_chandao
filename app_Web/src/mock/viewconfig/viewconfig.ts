@@ -3127,6 +3127,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "BugGridView9_StoryRelated",
             "viewtag": "c959d7fe98c33b7befcad24e2596633e"
         },
+        "docdocmodulegridview": {
+            "title": "doc表格视图",
+            "caption": "文档",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "DocDocModuleGridView",
+            "viewtag": "c9be79d1ad2a32e56092cd1ec1e896eb"
+        },
         "buggridview9_myassignedtome": {
             "title": "Bug表格视图",
             "caption": "Bug",

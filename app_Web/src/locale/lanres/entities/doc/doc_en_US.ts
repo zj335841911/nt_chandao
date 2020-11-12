@@ -77,6 +77,10 @@ export default {
 			caption: "最近更新",
       		title: "文档表格视图",
 		},
+		docmodulegridview: {
+			caption: "文档",
+      		title: "doc表格视图",
+		},
 		keditview9: {
 			caption: "关键字",
       		title: "文档编辑视图（关键字）",
@@ -256,6 +260,12 @@ export default {
 		deuiaction1: {
 			caption: "Save And Close",
 			tip: "Save And Close Window",
+		},
+	},
+	docmodulegridviewtoolbar_toolbar: {
+		deuiaction7: {
+			caption: "Export",
+			tip: "Export {0} Data To Excel",
 		},
 	},
 	gridviewtoolbar_toolbar: {
