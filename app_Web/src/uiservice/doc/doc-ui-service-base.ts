@@ -132,8 +132,8 @@ export default class DocUIServiceBase extends UIService {
      * @memberof  DocUIServiceBase
      */  
     public initDeMainStateOPPrivsMap(){
-        this.allDeMainStateOPPrivsMap.set('doc',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{}));
-        this.allDeMainStateOPPrivsMap.set('module',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{}));
+        this.allDeMainStateOPPrivsMap.set('doc',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'MODULE':0,}));
+        this.allDeMainStateOPPrivsMap.set('module',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'DOC':0,}));
     }
 
     /**
