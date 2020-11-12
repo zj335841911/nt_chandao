@@ -172,7 +172,7 @@ public class DocServiceImpl extends ServiceImpl<DocMapper, Doc> implements IDocS
 
     @Override
     @Transactional
-    public Doc uncollect(Doc et) {
+    public Doc unCollect(Doc et) {
         //自定义代码
         return et;
     }

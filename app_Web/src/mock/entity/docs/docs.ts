@@ -347,9 +347,9 @@ mock.onPost(new RegExp(/^\/docs\/?([a-zA-Z0-9\-\;]{0,35})\/save$/)).reply((confi
     return [status, data];
 });
         
-// Uncollect
+// UnCollect
 mock.onPost(new RegExp(/^\/docs\/?([a-zA-Z0-9\-\;]{0,35})\/uncollect$/)).reply((config: any) => {
-    console.groupCollapsed("实体:doc 方法: Uncollect");
+    console.groupCollapsed("实体:doc 方法: UnCollect");
     console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
     if (status !== 200) {

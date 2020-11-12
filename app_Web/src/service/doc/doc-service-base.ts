@@ -201,7 +201,7 @@ export default class DocServiceBase extends EntityService {
     }
 
     /**
-     * Uncollect接口方法
+     * UnCollect接口方法
      *
      * @param {*} [context={}]
      * @param {*} [data={}]
@@ -209,7 +209,7 @@ export default class DocServiceBase extends EntityService {
      * @returns {Promise<any>}
      * @memberof DocServiceBase
      */
-    public async Uncollect(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+    public async UnCollect(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
             let res:any = Http.getInstance().post(`/docs/${context.doc}/uncollect`,data,isloading);
             return res;
     }

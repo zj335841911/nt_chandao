@@ -48,7 +48,7 @@ public interface IDocService extends IService<Doc>{
     Doc collect(Doc et) ;
     boolean save(Doc et) ;
     void saveBatch(List<Doc> list) ;
-    Doc uncollect(Doc et) ;
+    Doc unCollect(Doc et) ;
     Page<Doc> searchChildDocLibDoc(DocSearchContext context) ;
     Page<Doc> searchDefault(DocSearchContext context) ;
     Page<Doc> searchDocLibDoc(DocSearchContext context) ;
