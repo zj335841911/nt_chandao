@@ -78,6 +78,7 @@ export class DocMyStarGridViewBase extends GridViewBase {
 	 */
     protected customViewParams: any = {
         'n_lib_eq': { isRawValue: false, value: 'srfparentkey' },
+        'srfloginname': { isRawValue: false, value: 'srfloginname' },
         'n_project_eq': { isRawValue: false, value: 'project' },
         'parent': { isRawValue: true, value: '0' }
     };
