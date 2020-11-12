@@ -116,6 +116,11 @@
                             <i class='fa fa-star-o'></i>
                             
                           </a>
+                          <divider v-show="scope.row.UnCollect.visible" type='vertical'></divider>
+                          <a v-show="scope.row.UnCollect.visible" :disabled="scope.row.UnCollect.disabled" @click="uiAction(scope.row, 'UnCollect', $event)" :title="$t('entities.doc.myfavourite_grid.uiactions.doc_uncollect')">
+                            <i class='fa fa-star'></i>
+                            
+                          </a>
                           <divider v-show="scope.row.Edit.visible" type='vertical'></divider>
                           <a v-show="scope.row.Edit.visible" :disabled="scope.row.Edit.disabled" @click="uiAction(scope.row, 'Edit', $event)" :title="$t('entities.doc.myfavourite_grid.uiactions.doc_edit')">
                             <i class='fa fa-edit'></i>

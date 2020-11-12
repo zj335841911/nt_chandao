@@ -124,6 +124,20 @@ export class ProductTreeExpViewtreeexpbarTreeExpBarBase extends TreeExpBarContro
                 deKeyField:'doclib'
 			};
         }
+        if (Object.is(expmode, 'CHILDDOCLIBMODULE')) {
+            return {  
+                viewname: 'doc-grid-view', 
+                parentdata: {},
+                deKeyField:'doc'
+			};
+        }
+        if (Object.is(expmode, 'DOCLIBMODULE')) {
+            return {  
+                viewname: 'doc-grid-view', 
+                parentdata: {},
+                deKeyField:'doc'
+			};
+        }
         if (Object.is(expmode, 'DOCLIB')) {
             return {  
                 viewname: 'doc-grid-view', 

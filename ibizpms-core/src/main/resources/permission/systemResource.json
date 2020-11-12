@@ -33,6 +33,11 @@
        }
         ,
        {
+            "unirescode":"DOC_NFAVOUR_BUT",
+            "uniresname":"取消收藏文档"
+       }
+        ,
+       {
             "unirescode":"REPORT_DELETE_BUT",
             "uniresname":"测试报告删除"
        }
