@@ -1430,7 +1430,7 @@ Save
 | 2 | [DEFAULT](#数据查询-DEFAULT（Default）) | Default | 否 |
 | 3 | [文档库文档](#数据查询-文档库文档（DocLibDoc）) | DocLibDoc | 否 |
 | 4 | [文档库分类文档](#数据查询-文档库分类文档（DocModuleDoc）) | DocModuleDoc | 否 |
-| 5 | [数据查询](#数据查询-数据查询（MyStar）) | MyStar | 否 |
+| 5 | [我的收藏](#数据查询-我的收藏（MyFavourite）) | MyFavourite | 否 |
 | 6 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
 ### 数据查询-文档库文档（子库）（ChildDocLibDoc）
@@ -1673,9 +1673,9 @@ LEFT JOIN zt_product t21 ON t1.PRODUCT = t21.ID
 LEFT JOIN zt_doclib t31 ON t1.LIB = t31.ID 
 LEFT JOIN zt_module t41 ON t1.MODULE = t41.ID ) t1
 ```
-### 数据查询-数据查询（MyStar）
+### 数据查询-我的收藏（MyFavourite）
 #### 说明
-数据查询
+我的收藏
 
 - 默认查询
 否
@@ -1781,7 +1781,7 @@ LEFT JOIN zt_module t41 ON t1.MODULE = t41.ID
 | 2 | [DEFAULT](#数据集合-DEFAULT（Default）) | Default | 是 |
 | 3 | [文档库文档](#数据集合-文档库文档（DocLibDoc）) | DocLibDoc | 否 |
 | 4 | [文档库分类文档](#数据集合-文档库分类文档（DocModuleDoc）) | DocModuleDoc | 否 |
-| 5 | [数据查询](#数据集合-数据查询（MyStar）) | MyStar | 否 |
+| 5 | [我的收藏](#数据集合-我的收藏（MyFavourite）) | MyFavourite | 否 |
 
 ### 数据集合-文档库文档（子库）（ChildDocLibDoc）
 #### 说明
@@ -1839,9 +1839,9 @@ DEFAULT
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [文档库分类文档（DocModuleDoc）](#数据查询-文档库分类文档（DocModuleDoc）) |
-### 数据集合-数据查询（MyStar）
+### 数据集合-我的收藏（MyFavourite）
 #### 说明
-数据查询
+我的收藏
 
 - 默认集合
 否
@@ -1852,7 +1852,7 @@ DEFAULT
 #### 关联的数据查询
 | 序号 | 数据查询 |
 | ---- | ---- |
-| 1 | [数据查询（MyStar）](#数据查询-数据查询（MyStar）) |
+| 1 | [我的收藏（MyFavourite）](#数据查询-我的收藏（MyFavourite）) |
 
 ## 数据导入
 无

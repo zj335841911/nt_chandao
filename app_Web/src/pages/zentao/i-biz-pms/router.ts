@@ -217,18 +217,18 @@ const router = new Router({
                     component: () => import('@pages/zentao/todo-activite-view/todo-activite-view.vue'),
                 },
                 {
-                    path: 'docs/:doc?/mystargridview/:mystargridview?',
+                    path: 'docs/:doc?/myfavouritegridview/:myfavouritegridview?',
                     meta: {
-                        caption: 'entities.doc.views.mystargridview.caption',
+                        caption: 'entities.doc.views.myfavouritegridview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'docs', parameterName: 'doc' },
-                            { pathName: 'mystargridview', parameterName: 'mystargridview' },
+                            { pathName: 'myfavouritegridview', parameterName: 'myfavouritegridview' },
                         ],
                         requireAuth: true,
                     },
-                    component: () => import('@pages/ibiz/doc-my-star-grid-view/doc-my-star-grid-view.vue'),
+                    component: () => import('@pages/ibiz/doc-my-favourite-grid-view/doc-my-favourite-grid-view.vue'),
                 },
                 {
                     path: 'actions/:action?/projecttrendslistview/:projecttrendslistview?',

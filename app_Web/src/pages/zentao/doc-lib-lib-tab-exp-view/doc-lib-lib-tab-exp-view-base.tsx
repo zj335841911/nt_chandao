@@ -103,7 +103,7 @@ export class DocLibLibTabExpViewBase extends TabExpViewBase {
 
         deuiaction2: { name: 'deuiaction2', caption: '我的文档', 'isShowCaption': true, 'isShowIcon': true, tooltip: '我的文档', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'MyDocQuickAccess', target: 'NONE', class: '' } },
 
-        deuiaction3: { name: 'deuiaction3', caption: '我的收藏', 'isShowCaption': true, 'isShowIcon': true, tooltip: '我的收藏', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'MyStarQuickAccess', target: 'NONE', class: '' } },
+        deuiaction3: { name: 'deuiaction3', caption: '我的收藏', 'isShowCaption': true, 'isShowIcon': true, tooltip: '我的收藏', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'MyFavouriteQuickAccess', target: 'NONE', class: '' } },
 
     }
 }, 
@@ -111,7 +111,7 @@ export class DocLibLibTabExpViewBase extends TabExpViewBase {
 
         deuiaction6: { name: 'deuiaction6', caption: '创建文档', 'isShowCaption': true, 'isShowIcon': true, tooltip: '创建文档', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'CreateFile', target: 'NONE', class: '' } },
 
-        deuiaction5: { name: 'deuiaction5', caption: '我的收藏', 'isShowCaption': true, 'isShowIcon': false, tooltip: '我的收藏', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'MyStarQuickAccess', target: 'NONE', class: '' } },
+        deuiaction5: { name: 'deuiaction5', caption: '我的收藏', 'isShowCaption': true, 'isShowIcon': false, tooltip: '我的收藏', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'MyFavouriteQuickAccess', target: 'NONE', class: '' } },
 
     };
 
@@ -278,7 +278,7 @@ export class DocLibLibTabExpViewBase extends TabExpViewBase {
         }
         // 界面行为
         const curUIService:DocLibUIService  = new DocLibUIService();
-        curUIService.DocLib_MyStarQuickAccess(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
+        curUIService.DocLib_MyFavouriteQuickAccess(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
     }
 
     /**
@@ -362,7 +362,7 @@ export class DocLibLibTabExpViewBase extends TabExpViewBase {
         }
         // 界面行为
         const curUIService:DocLibUIService  = new DocLibUIService();
-        curUIService.DocLib_MyStarQuickAccess(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
+        curUIService.DocLib_MyFavouriteQuickAccess(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
     }
 
 

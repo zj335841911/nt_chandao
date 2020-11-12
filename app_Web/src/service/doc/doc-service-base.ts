@@ -247,7 +247,7 @@ export default class DocServiceBase extends EntityService {
     }
 
     /**
-     * FetchMyStar接口方法
+     * FetchMyFavourite接口方法
      *
      * @param {*} [context={}]
      * @param {*} [data={}]
@@ -255,9 +255,9 @@ export default class DocServiceBase extends EntityService {
      * @returns {Promise<any>}
      * @memberof DocServiceBase
      */
-    public async FetchMyStar(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+    public async FetchMyFavourite(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/docs/fetchmystar`,tempData,isloading);
+        let res:any = Http.getInstance().get(`/docs/fetchmyfavourite`,tempData,isloading);
         return res;
     }
 }

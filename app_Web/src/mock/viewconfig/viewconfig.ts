@@ -1735,12 +1735,12 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TodoCloseView",
             "viewtag": "734c2c8a05995eaad9f9a0028e9b9def"
         },
-        "docmystargridview": {
+        "docmyfavouritegridview": {
             "title": "doc表格视图",
             "caption": "我的收藏",
             "viewtype": "DEGRIDVIEW",
             "viewmodule": "ibiz",
-            "viewname": "DocMyStarGridView",
+            "viewname": "DocMyFavouriteGridView",
             "viewtag": "73647c564ed468885ee3c18bccce5a90"
         },
         "doclibusr2editview": {

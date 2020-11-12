@@ -2159,13 +2159,13 @@
         "viewtag": "734c2c8a05995eaad9f9a0028e9b9def",
         "memo": ""
     },
-    "docmystargridview": {
+    "docmyfavouritegridview": {
         "title": "doc表格视图",
         "caption": "我的收藏",
         "viewtype": "DEGRIDVIEW",
         "viewmodule": "ibiz",
-        "viewname": "DocMyStarGridView",
-        "viewfilename": "doc-my-star-grid-view",
+        "viewname": "DocMyFavouriteGridView",
+        "viewfilename": "doc-my-favourite-grid-view",
         "viewtag": "73647c564ed468885ee3c18bccce5a90",
         "memo": ""
     },

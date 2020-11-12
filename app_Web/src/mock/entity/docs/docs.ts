@@ -485,9 +485,9 @@ mock.onGet(new RegExp(/^\/docs\/fetchdocmoduledoc(\?[\w-./?%&=,]*)*$/)).reply((c
     return [status, records ?  records : []];
 });
     
-// FetchMyStar
-mock.onGet(new RegExp(/^\/docs\/fetchmystar$/)).reply((config: any) => {
-    console.groupCollapsed("实体:doc 方法: FetchMyStar");
+// FetchMyFavourite
+mock.onGet(new RegExp(/^\/docs\/fetchmyfavourite$/)).reply((config: any) => {
+    console.groupCollapsed("实体:doc 方法: FetchMyFavourite");
     console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
     if (status !== 200) {
@@ -500,9 +500,9 @@ mock.onGet(new RegExp(/^\/docs\/fetchmystar$/)).reply((config: any) => {
     return [status, mockDatas ? mockDatas : []];
 });
 
-// FetchMyStar
-mock.onGet(new RegExp(/^\/docs\/fetchmystar(\?[\w-./?%&=,]*)*$/)).reply((config: any) => {
-    console.groupCollapsed("实体:doc 方法: FetchMyStar");
+// FetchMyFavourite
+mock.onGet(new RegExp(/^\/docs\/fetchmyfavourite(\?[\w-./?%&=,]*)*$/)).reply((config: any) => {
+    console.groupCollapsed("实体:doc 方法: FetchMyFavourite");
     console.table({url:config.url, method: config.method, data:config.data});
     if(config.url.includes('page')){
         let url = config.url.split('?')[1];

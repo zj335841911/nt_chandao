@@ -1228,7 +1228,7 @@
     "dename":"Doc",
     "delogicname":"文档",
     "sysmoudle":{"id":"ZENTAO","name":"基础管理模块"},
-    "dedataset":[{"id":"ChildDocLibDoc" , "name":"文档库文档（子库）"},{"id":"Default" , "name":"DEFAULT"},{"id":"DocLibDoc" , "name":"文档库文档"},{"id":"DocModuleDoc" , "name":"文档库分类文档"},{"id":"MyStar" , "name":"数据查询"}],
+    "dedataset":[{"id":"ChildDocLibDoc" , "name":"文档库文档（子库）"},{"id":"Default" , "name":"DEFAULT"},{"id":"DocLibDoc" , "name":"文档库文档"},{"id":"DocModuleDoc" , "name":"文档库分类文档"},{"id":"MyFavourite" , "name":"我的收藏"}],
     "deaction":[{"id":"Create" , "name":"Create" , "type":"BUILTIN" },{"id":"Update" , "name":"Update" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" },{"id":"Get" , "name":"Get" , "type":"BUILTIN" },{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" },{"id":"ByVersionUpdateContext" , "name":"根据版本更新正文信息" , "type":"USERCUSTOM" },{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" }],
     "datascope":[{"id":"all","name":"全部数据"}]
      }

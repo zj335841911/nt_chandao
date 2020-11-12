@@ -69,7 +69,7 @@ MyDocQuickAccess [shape=none, margin=0, label=<
 
 
 
-MyStarQuickAccess [shape=none, margin=0, label=<
+MyFavouriteQuickAccess [shape=none, margin=0, label=<
 <TABLE WIDTH="150" BORDER="1" CELLBORDER="1" >
 <TR>
 <TD WIDTH="115" BORDER="0" COLSPAN="3"></TD><TD WIDTH="35" BORDER="0">V</TD>
@@ -108,7 +108,7 @@ CreateFile [shape=none, margin=0, label=<
 
 
 
-MyStarQuickAccess [shape=none, margin=0, label=<
+MyFavouriteQuickAccess [shape=none, margin=0, label=<
 <TABLE WIDTH="150" BORDER="1" CELLBORDER="1" >
 <TR>
 <TD WIDTH="115" BORDER="0" COLSPAN="3"></TD><TD WIDTH="35" BORDER="0">V</TD>
@@ -137,9 +137,9 @@ MyDocQuickAccess -> end ;
 
 
 
-part -> MyStarQuickAccess [style=dashed,label=<我的收藏<BR/>(迁移/popup)>];
+part -> MyFavouriteQuickAccess [style=dashed,label=<我的收藏<BR/>(迁移/popup)>];
 
-MyStarQuickAccess -> end ;
+MyFavouriteQuickAccess -> end ;
 
 
 
@@ -155,9 +155,9 @@ CreateFile -> end ;
 
 
 
-part -> MyStarQuickAccess [style=dashed,label=<我的收藏<BR/>(迁移/popup)>];
+part -> MyFavouriteQuickAccess [style=dashed,label=<我的收藏<BR/>(迁移/popup)>];
 
-MyStarQuickAccess -> end ;
+MyFavouriteQuickAccess -> end ;
 
 
 

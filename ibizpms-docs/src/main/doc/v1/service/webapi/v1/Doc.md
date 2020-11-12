@@ -347,9 +347,9 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | Page<[DocDTO](#DocDTO)>：文档实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
 
-### 获取数据查询
+### 获取我的收藏
 #### 访问路径
-/docs/fetchmystar
+/docs/fetchmyfavourite
 
 #### 请求方法
 GET
@@ -365,9 +365,9 @@ GET
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | List<[DocDTO](#DocDTO)>：文档实体传输对象列表 |
 
-### 查询数据查询
+### 查询我的收藏
 #### 访问路径
-/docs/searchmystar
+/docs/searchmyfavourite
 
 #### 请求方法
 POST
