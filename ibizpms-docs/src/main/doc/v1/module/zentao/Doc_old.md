@@ -123,6 +123,7 @@ hide footbox
 |ChildDocLibDoc|文档库文档（子库）([MYSQL5](../../appendix/query_MYSQL5.md#Doc_ChildDocLibDoc))|否|&nbsp;|
 |DEFAULT|DEFAULT([MYSQL5](../../appendix/query_MYSQL5.md#Doc_Default))|否|&nbsp;|
 |DocLibDoc|文档库文档([MYSQL5](../../appendix/query_MYSQL5.md#Doc_DocLibDoc))|否|&nbsp;|
+|DocModuleDoc|文档库分类文档([MYSQL5](../../appendix/query_MYSQL5.md#Doc_DocModuleDoc))|否|&nbsp;|
 |VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#Doc_View))|否|&nbsp;|
 
 * **数据集合**
@@ -132,6 +133,7 @@ hide footbox
 |ChildDocLibDoc|文档库文档（子库）|ChildDocLibDoc|否|&nbsp;|
 |DEFAULT|DEFAULT|DEFAULT|是|&nbsp;|
 |DocLibDoc|文档库文档|DocLibDoc|否|&nbsp;|
+|DocModuleDoc|文档库分类文档|DocModuleDoc|否|&nbsp;|
 
 ## 查询模式
 | 属性      |    搜索模式     |

@@ -1423,7 +1423,8 @@ Save
 | 1 | [文档库文档（子库）](#数据查询-文档库文档（子库）（ChildDocLibDoc）) | ChildDocLibDoc | 否 |
 | 2 | [DEFAULT](#数据查询-DEFAULT（Default）) | Default | 否 |
 | 3 | [文档库文档](#数据查询-文档库文档（DocLibDoc）) | DocLibDoc | 否 |
-| 4 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 4 | [文档库分类文档](#数据查询-文档库分类文档（DocModuleDoc）) | DocModuleDoc | 否 |
+| 5 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
 ### 数据查询-文档库文档（子库）（ChildDocLibDoc）
 #### 说明
@@ -1507,7 +1508,6 @@ t1.`ACL`,
 t1.`ADDEDBY`,
 t1.`ADDEDDATE`,
 t1.`DELETED`,
-t1.`COLLECTOR`,
 'doc' AS `DOCQTYPE`,
 t1.`EDITEDBY`,
 t1.`EDITEDDATE`,
@@ -1599,6 +1599,70 @@ LEFT JOIN zt_product t21 ON t1.PRODUCT = t21.ID
 LEFT JOIN zt_doclib t31 ON t1.LIB = t31.ID 
 LEFT JOIN zt_module t41 ON t1.MODULE = t41.ID ) t1
 ```
+### 数据查询-文档库分类文档（DocModuleDoc）
+#### 说明
+文档库分类文档
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+select t1.* from (select null as `ACL`,
+null as `ADDEDBY`,
+null as `ADDEDDATE`,
+'0' as `DELETED`,
+null as `EDITEDBY`,
+null as `EDITEDDATE`,
+null as  `GROUPS`,
+t1.`ID`,
+''`KEYWORDS`,
+${srfdatacontext('lib','{"defname":"ROOT","dename":"ZT_MODULE"}')} as `LIB`,
+'' AS `LIBNAME`,
+${srfdatacontext('id','{"defname":"ROOT","dename":"ZT_MODULE"}')} as `MODULE`,
+'' AS `MODULENAME`,
+0 as `PRODUCT`,
+'' AS `PRODUCTNAME`,
+0 as `PROJECT`,
+'' AS `PROJECTNAME`,
+t1.`name` as `TITLE`,
+'text' as `TYPE`,
+1 as `VERSION`,
+'' as `VIEWS`,'module' as DOCQTYPE from zt_module t1 where t1.deleted = '0' and t1.type = 'doc' and t1.root = ${srfdatacontext('lib','{"defname":"ROOT","dename":"ZT_MODULE"}')} and t1.parent = ${srfdatacontext('id','{"defname":"ROOT","dename":"ZT_MODULE"}')}
+UNION
+SELECT
+t1.`ACL`,
+t1.`ADDEDBY`,
+t1.`ADDEDDATE`,
+t1.`DELETED`,
+t1.`EDITEDBY`,
+t1.`EDITEDDATE`,
+t1.`GROUPS`,
+t1.`ID`,
+t1.`KEYWORDS`,
+t1.`LIB`,
+t31.`NAME` AS `LIBNAME`,
+t1.`MODULE`,
+t41.`NAME` AS `MODULENAME`,
+t1.`PRODUCT`,
+t21.`NAME` AS `PRODUCTNAME`,
+t1.`PROJECT`,
+t11.`NAME` AS `PROJECTNAME`,
+t1.`TITLE`,
+t1.`TYPE`,
+t1.`VERSION`,
+t1.`VIEWS`,
+'doc' as DOCQTYPE
+FROM `zt_doc` t1 
+LEFT JOIN zt_project t11 ON t1.PROJECT = t11.ID 
+LEFT JOIN zt_product t21 ON t1.PRODUCT = t21.ID 
+LEFT JOIN zt_doclib t31 ON t1.LIB = t31.ID 
+LEFT JOIN zt_module t41 ON t1.MODULE = t41.ID ) t1
+```
 ### 数据查询-默认（全部数据）（View）
 #### 说明
 默认（全部数据）
@@ -1651,6 +1715,7 @@ LEFT JOIN zt_module t41 ON t1.MODULE = t41.ID
 | 1 | [文档库文档（子库）](#数据集合-文档库文档（子库）（ChildDocLibDoc）) | ChildDocLibDoc | 否 |
 | 2 | [DEFAULT](#数据集合-DEFAULT（Default）) | Default | 是 |
 | 3 | [文档库文档](#数据集合-文档库文档（DocLibDoc）) | DocLibDoc | 否 |
+| 4 | [文档库分类文档](#数据集合-文档库分类文档（DocModuleDoc）) | DocModuleDoc | 否 |
 
 ### 数据集合-文档库文档（子库）（ChildDocLibDoc）
 #### 说明
@@ -1694,6 +1759,20 @@ DEFAULT
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [文档库文档（DocLibDoc）](#数据查询-文档库文档（DocLibDoc）) |
+### 数据集合-文档库分类文档（DocModuleDoc）
+#### 说明
+文档库分类文档
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [文档库分类文档（DocModuleDoc）](#数据查询-文档库分类文档（DocModuleDoc）) |
 
 ## 数据导入
 无

@@ -230,4 +230,19 @@ export default class DocServiceBase extends EntityService {
         let res:any = Http.getInstance().get(`/docs/fetchdoclibdoc`,tempData,isloading);
         return res;
     }
+
+    /**
+     * FetchDocModuleDoc接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof DocServiceBase
+     */
+    public async FetchDocModuleDoc(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/docs/fetchdocmoduledoc`,tempData,isloading);
+        return res;
+    }
 }

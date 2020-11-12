@@ -228,6 +228,15 @@ public class DocServiceImpl extends ServiceImpl<DocMapper, Doc> implements IDocS
         return new PageImpl<Doc>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
+    /**
+     * 查询集合 文档库分类文档
+     */
+    @Override
+    public Page<Doc> searchDocModuleDoc(DocSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Doc> pages=baseMapper.searchDocModuleDoc(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<Doc>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
 
 
     /**

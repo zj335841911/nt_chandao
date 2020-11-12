@@ -212,6 +212,28 @@ public class DocResource {
                 .body(new PageImpl(docMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Doc-searchDocModuleDoc-all')")
+	@ApiOperation(value = "获取文档库分类文档", tags = {"文档" } ,notes = "获取文档库分类文档")
+    @RequestMapping(method= RequestMethod.GET , value="/docs/fetchdocmoduledoc")
+	public ResponseEntity<List<DocDTO>> fetchDocModuleDoc(DocSearchContext context) {
+        Page<Doc> domains = docService.searchDocModuleDoc(context) ;
+        List<DocDTO> list = docMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Doc-searchDocModuleDoc-all')")
+	@ApiOperation(value = "查询文档库分类文档", tags = {"文档" } ,notes = "查询文档库分类文档")
+    @RequestMapping(method= RequestMethod.POST , value="/docs/searchdocmoduledoc")
+	public ResponseEntity<Page<DocDTO>> searchDocModuleDoc(@RequestBody DocSearchContext context) {
+        Page<Doc> domains = docService.searchDocModuleDoc(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(docMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
 
 }
 
