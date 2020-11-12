@@ -137,10 +137,10 @@ export default class DocUIServiceBase extends UIService {
      */  
     public initDeMainStateOPPrivsMap(){
         this.allDeMainStateOPPrivsMap.set('doc',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'MODULE':0,}));
-        this.allDeMainStateOPPrivsMap.set('doc__0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{}));
-        this.allDeMainStateOPPrivsMap.set('doc__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{}));
+        this.allDeMainStateOPPrivsMap.set('doc__0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__DOC_FAVOUR_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('doc__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__DOC_NFAVOUR_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('module',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'DOC':0,}));
-        this.allDeMainStateOPPrivsMap.set('module__0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{}));
+        this.allDeMainStateOPPrivsMap.set('module__0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__DOC_FAVOUR_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('module__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__DOC_NFAVOUR_BUT':0,}));
     }
 
