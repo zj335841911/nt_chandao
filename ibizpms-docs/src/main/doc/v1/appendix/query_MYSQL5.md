@@ -4820,6 +4820,7 @@ WHERE t1.DELETED = '0'
 ### DEFAULT(DEFAULT)<div id="Doc_Default"></div>
 ```sql
 SELECT
+( CASE WHEN FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t1.collector ) > 0 THEN 1 ELSE 0 END ) AS `ISFAVOURITES`,
 t1.`ACL`,
 t1.`ADDEDBY`,
 t1.`ADDEDDATE`,
