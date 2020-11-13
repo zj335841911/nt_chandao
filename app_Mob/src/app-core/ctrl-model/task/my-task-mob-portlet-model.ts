@@ -210,6 +210,12 @@ export class MyTaskMobModel {
       {
         name: 'delay',
       },
+      {
+        name: 'mailtopk',
+      },
+      {
+        name: 'mailtoconact',
+      },
     ]
   }
 

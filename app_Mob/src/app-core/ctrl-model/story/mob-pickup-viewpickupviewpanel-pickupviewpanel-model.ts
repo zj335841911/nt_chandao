@@ -192,6 +192,27 @@ export class MobPickupViewpickupviewpanelModel {
       {
         name: 'noticeusers',
       },
+      {
+        name: 'ibiz_sourceobject',
+      },
+      {
+        name: 'sourceobject',
+      },
+      {
+        name: 'ibiz_id',
+      },
+      {
+        name: 'sourcename',
+      },
+      {
+        name: 'sourceid',
+      },
+      {
+        name: 'ibiz_sourceid',
+      },
+      {
+        name: 'ibiz_sourcename',
+      },
     ]
   }
 

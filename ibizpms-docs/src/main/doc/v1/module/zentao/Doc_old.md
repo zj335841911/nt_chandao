@@ -159,6 +159,7 @@ hide footbox
 |DEFAULT|DEFAULT|DEFAULT|是|&nbsp;|
 |DocLibDoc|文档库文档|DocLibDoc|否|&nbsp;|
 |DocModuleDoc|文档库分类文档|DocModuleDoc|否|&nbsp;|
+|DocStatus|文档统计|DocStatus|否|&nbsp;|
 |MYFAVOURITE|我的收藏|MYFAVOURITE|否|&nbsp;|
 
 ## 查询模式

@@ -54,6 +54,7 @@ public interface IDocService extends IService<Doc> {
     Page<Doc> searchDefault(DocSearchContext context);
     Page<Doc> searchDocLibDoc(DocSearchContext context);
     Page<Doc> searchDocModuleDoc(DocSearchContext context);
+    Page<Doc> searchDocStatus(DocSearchContext context);
     Page<Doc> searchMyFavourite(DocSearchContext context);
     List<Doc> selectByLib(Long id);
     void removeByLib(Long id);
