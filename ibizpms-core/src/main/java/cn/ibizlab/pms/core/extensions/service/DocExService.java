@@ -155,6 +155,7 @@ public class DocExService extends DocServiceImpl {
     }
 
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public Doc getDocStatus(Doc et) {
         DocSearchContext docSearchContext = new DocSearchContext();
 
