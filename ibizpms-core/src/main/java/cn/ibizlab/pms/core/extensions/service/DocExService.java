@@ -88,7 +88,7 @@ public class DocExService extends DocServiceImpl {
             et.setCollector(collector);
             docHelper.updateById(et);
         }
-        if (StaticDict.DOCQTYPE.MODULE.getValue().equals(et.getDocqtype())) {
+        else if (StaticDict.DOCQTYPE.MODULE.getValue().equals(et.getDocqtype())) {
             String collector = docLibModuleHelper.get(et.getId()).getCollector();
             if ("".equals(collector) || "/".equals(collector)) {
                 collector += ",";
@@ -99,7 +99,7 @@ public class DocExService extends DocServiceImpl {
             docLibModule.setCollector(collector);
             docLibModuleHelper.updateById(docLibModule);
         }
-        if (StaticDict.DOCQTYPE.DOCLIB.getValue().equals(et.getDocqtype())) {
+        else if (StaticDict.DOCQTYPE.DOCLIB.getValue().equals(et.getDocqtype())) {
             String collector = docLibHelper.get(et.getId()).getCollector();
             if ("".equals(collector) || "/".equals(collector)) {
                 collector += ",";
@@ -126,7 +126,7 @@ public class DocExService extends DocServiceImpl {
             et.setCollector(collector);
             docHelper.updateById(et);
         }
-        if (StaticDict.DOCQTYPE.MODULE.getValue().equals(et.getDocqtype())) {
+        else if (StaticDict.DOCQTYPE.MODULE.getValue().equals(et.getDocqtype())) {
             String collector = docLibModuleHelper.get(et.getId()).getCollector();
             collector = collector.replaceFirst(AuthenticationUser.getAuthenticationUser().getUsername() + ",", "");
             if (",".equals(collector)) {
@@ -137,7 +137,7 @@ public class DocExService extends DocServiceImpl {
             docLibModule.setCollector(collector);
             docLibModuleHelper.updateById(docLibModule);
         }
-        if (StaticDict.DOCQTYPE.DOCLIB.getValue().equals(et.getDocqtype())) {
+        else if (StaticDict.DOCQTYPE.DOCLIB.getValue().equals(et.getDocqtype())) {
             String collector = docLibHelper.get(et.getId()).getCollector();
             collector = collector.replaceFirst(AuthenticationUser.getAuthenticationUser().getUsername() + ",", "");
             if (",".equals(collector)) {
