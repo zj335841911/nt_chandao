@@ -10,7 +10,7 @@
 ### 1:N
 | 序号 | 关系实体 | 关系类型 |
 | ---- | ---- | ---- |
-| 1 | [员工负载表（IBZ_EMPLOYEELOAD）](../ibiz/EMPLOYEELOAD) | （默认） |
+| 1 | [员工负载表（IBZ_EMPLOYEELOAD）](../ibiz/EmpLoyeeload) | （默认） |
 | 2 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) | （默认） |
 | 3 | [项目团队（IBZ_PROJECTTEAM）](../ibiz/ProjectTeam) | 嵌套操作 |
 | 4 | [系统日志（ZT_ACTION）](../zentao/Action) | （默认） |

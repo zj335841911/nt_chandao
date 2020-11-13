@@ -194,7 +194,7 @@ GET
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
 | ---- | ---- | ---- | ---- |
-| 1 | context | [EMPLOYEELOADSearchContext](#EMPLOYEELOADSearchContext) | 员工负载表查询条件对象 |
+| 1 | context | [EmpLoyeeloadSearchContext](#EmpLoyeeloadSearchContext) | 员工负载表查询条件对象 |
 
 #### 返回说明
 | 项目 | 说明 |
@@ -212,7 +212,7 @@ POST
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
 | ---- | ---- | ---- | ---- |
-| 1 | context | [EMPLOYEELOADSearchContext](#EMPLOYEELOADSearchContext) | 员工负载表查询条件对象 |
+| 1 | context | [EmpLoyeeloadSearchContext](#EmpLoyeeloadSearchContext) | 员工负载表查询条件对象 |
 
 #### 返回说明
 | 项目 | 说明 |
@@ -230,7 +230,7 @@ GET
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
 | ---- | ---- | ---- | ---- |
-| 1 | context | [EMPLOYEELOADSearchContext](#EMPLOYEELOADSearchContext) | 员工负载表查询条件对象 |
+| 1 | context | [EmpLoyeeloadSearchContext](#EmpLoyeeloadSearchContext) | 员工负载表查询条件对象 |
 
 #### 返回说明
 | 项目 | 说明 |
@@ -248,7 +248,7 @@ POST
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
 | ---- | ---- | ---- | ---- |
-| 1 | context | [EMPLOYEELOADSearchContext](#EMPLOYEELOADSearchContext) | 员工负载表查询条件对象 |
+| 1 | context | [EmpLoyeeloadSearchContext](#EmpLoyeeloadSearchContext) | 员工负载表查询条件对象 |
 
 #### 返回说明
 | 项目 | 说明 |
@@ -278,7 +278,7 @@ POST
 | 15 | assign | String | 允许 | 是否指派 |
 | 16 | <动态属性> | Object | 允许 | 支持动态属性 |
 
-#### EMPLOYEELOADSearchContext
+#### EmpLoyeeloadSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | ---- | ---- | ---- | ---- | ---- |
 | 1 | n_name_like | String | 允许 | 条件字段：name<br>条件组合方式：`%like%` |

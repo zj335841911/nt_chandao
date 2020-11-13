@@ -148,6 +148,11 @@
        }
         ,
        {
+            "unirescode":"DOCLIBMODULE_NFAVOUR_BUT",
+            "uniresname":"取消收藏文档库分类"
+       }
+        ,
+       {
             "unirescode":"LICASE_OPEN_BUT",
             "uniresname":"用例库用例概况"
        }
@@ -545,6 +550,11 @@
        {
             "unirescode":"BUG_NFAVOR_BUT",
             "uniresname":"Bug待收藏"
+       }
+        ,
+       {
+            "unirescode":"DOCLIBMODULE_FAVOUR_BUT",
+            "uniresname":"收藏文档库分类"
        }
         ,
        {
@@ -1085,7 +1095,7 @@
     "datascope":[{"id":"all","name":"全部数据"}]
      }
     ,    {
-    "dename":"EMPLOYEELOAD",
+    "dename":"EmpLoyeeload",
     "delogicname":"员工负载表",
     "sysmoudle":{"id":"IBIZ","name":"iBiz增强模块"},
     "dedataset":[{"id":"Default" , "name":"数据集"},{"id":"GETWOERKLOAD" , "name":"获取员工负载表"}],

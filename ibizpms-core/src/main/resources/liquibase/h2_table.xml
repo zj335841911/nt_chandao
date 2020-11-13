@@ -616,7 +616,7 @@
 
 
     <!--输出实体[IBZ_DOCLIBMODULE]数据结构 -->
-    <changeSet author="zentao" id="tab-ibz_doclibmodule-112-18">
+    <changeSet author="zentao" id="tab-ibz_doclibmodule-115-18">
         <createTable tableName="zt_module">
                 <column name="NAME" remarks="" type="VARCHAR(60)">
                 </column>
@@ -677,26 +677,8 @@
     </changeSet>
 
 
-    <!--输出实体[IBZ_EMPLOYEELOAD]数据结构 -->
-    <changeSet author="zentao" id="tab-ibz_employeeload-81-20">
-        <createTable tableName="ZT_TASK">
-                <column name="ID" remarks="" type="BIGINT">
-                    <constraints primaryKey="true" primaryKeyName="PK_IBZ_EMPLOYEELOAD_ID"/>
-                </column>
-                <column name="NAME" remarks="" type="VARCHAR(100)">
-                </column>
-                <column name="PROJECT" remarks="" type="BIGINT">
-                </column>
-                <column name="ASSIGNEDTO" remarks="" type="VARCHAR(100)">
-                </column>
-                <column name="ASSIGN" remarks="" type="VARCHAR(100)">
-                </column>
-        </createTable>
-    </changeSet>
-
-
     <!--输出实体[ZT_EFFORT]数据结构 -->
-    <changeSet author="zentao" id="tab-zt_effort-12-21">
+    <changeSet author="zentao" id="tab-zt_effort-12-20">
         <createTable tableName="zt_effort">
                 <column name="USER" remarks="" type="VARCHAR(30)">
                 </column>
@@ -720,6 +702,24 @@
                     <constraints primaryKey="true" primaryKeyName="PK_ZT_EFFORT_ID"/>
                 </column>
                 <column name="BEGIN" remarks="" type="DATETIME">
+                </column>
+        </createTable>
+    </changeSet>
+
+
+    <!--输出实体[IBZ_EMPLOYEELOAD]数据结构 -->
+    <changeSet author="zentao" id="tab-ibz_employeeload-83-21">
+        <createTable tableName="ZT_TASK">
+                <column name="ID" remarks="" type="BIGINT">
+                    <constraints primaryKey="true" primaryKeyName="PK_IBZ_EMPLOYEELOAD_ID"/>
+                </column>
+                <column name="NAME" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="PROJECT" remarks="" type="BIGINT">
+                </column>
+                <column name="ASSIGNEDTO" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="ASSIGN" remarks="" type="VARCHAR(100)">
                 </column>
         </createTable>
     </changeSet>
@@ -1180,7 +1180,7 @@
 
 
     <!--输出实体[ZT_IM_CHAT]数据结构 -->
-    <changeSet author="zentao" id="tab-zt_im_chat-15-43">
+    <changeSet author="zentao" id="tab-zt_im_chat-17-43">
         <createTable tableName="zt_im_chat">
                 <column name="ADMINS" remarks="" type="VARCHAR(255)">
                 </column>
@@ -1216,7 +1216,7 @@
 
 
     <!--输出实体[ZT_IM_CHATUSER]数据结构 -->
-    <changeSet author="zentao" id="tab-zt_im_chatuser-12-44">
+    <changeSet author="zentao" id="tab-zt_im_chatuser-14-44">
         <createTable tableName="zt_im_chatuser">
                 <column name="ID" remarks="" type="BIGINT">
                     <constraints primaryKey="true" primaryKeyName="PK_ZT_IM_CHATUSER_ID"/>
@@ -1246,7 +1246,7 @@
 
 
     <!--输出实体[ZT_IM_CLIENT]数据结构 -->
-    <changeSet author="zentao" id="tab-zt_im_client-12-45">
+    <changeSet author="zentao" id="tab-zt_im_client-14-45">
         <createTable tableName="zt_im_client">
                 <column name="EDITEDDATE" remarks="" type="DATETIME">
                 </column>
@@ -1276,7 +1276,7 @@
 
 
     <!--输出实体[ZT_IM_CONFERENCE]数据结构 -->
-    <changeSet author="zentao" id="tab-zt_im_conference-8-46">
+    <changeSet author="zentao" id="tab-zt_im_conference-10-46">
         <createTable tableName="zt_im_conference">
                 <column name="STATUS" remarks="" type="VARCHAR(6)">
                 </column>
@@ -1298,7 +1298,7 @@
 
 
     <!--输出实体[ZT_IM_CONFERENCEACTION]数据结构 -->
-    <changeSet author="zentao" id="tab-zt_im_conferenceaction-6-47">
+    <changeSet author="zentao" id="tab-zt_im_conferenceaction-8-47">
         <createTable tableName="zt_im_conferenceaction">
                 <column name="RID" remarks="" type="VARCHAR(24)">
                 </column>
@@ -1316,7 +1316,7 @@
 
 
     <!--输出实体[ZT_IM_MESSAGE]数据结构 -->
-    <changeSet author="zentao" id="tab-zt_im_message-12-48">
+    <changeSet author="zentao" id="tab-zt_im_message-14-48">
         <createTable tableName="zt_im_message">
                 <column name="USER" remarks="" type="VARCHAR(30)">
                 </column>
@@ -1346,7 +1346,7 @@
 
 
     <!--输出实体[ZT_IM_MESSAGESTATUS]数据结构 -->
-    <changeSet author="zentao" id="tab-zt_im_messagestatus-4-49">
+    <changeSet author="zentao" id="tab-zt_im_messagestatus-6-49">
         <createTable tableName="zt_im_messagestatus">
                 <column name="MESSAGE" remarks="" type="INT">
                 </column>
@@ -1359,7 +1359,7 @@
 
 
     <!--输出实体[ZT_IM_QUEUE]数据结构 -->
-    <changeSet author="zentao" id="tab-zt_im_queue-8-50">
+    <changeSet author="zentao" id="tab-zt_im_queue-10-50">
         <createTable tableName="zt_im_queue">
                 <column name="PROCESSDATE" remarks="" type="DATETIME">
                 </column>
@@ -2556,18 +2556,18 @@
        <addForeignKeyConstraint baseColumnNames="PROJECT" baseTableName="zt_doclib" constraintName="DER1N_ZT_DOCLIB_ZT_PROJECT_PRO" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_project" validate="true"/>
     </changeSet>
         <!--输出实体[IBZ_DOCLIBMODULE]外键关系 -->
-    <changeSet author="zentao" id="fk-ibz_doclibmodule-112-141">
+    <changeSet author="zentao" id="fk-ibz_doclibmodule-115-141">
        <addForeignKeyConstraint baseColumnNames="PARENT" baseTableName="zt_module" constraintName="DER1N_IBZ_DOCLIBMODULE_IBZ_DOC" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_module" validate="true"/>
     </changeSet>
-    <changeSet author="zentao" id="fk-ibz_doclibmodule-112-142">
+    <changeSet author="zentao" id="fk-ibz_doclibmodule-115-142">
        <addForeignKeyConstraint baseColumnNames="ROOT" baseTableName="zt_module" constraintName="DER1N_IBZ_DOCLIBMODULE_ZT_DOCL" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_doclib" validate="true"/>
     </changeSet>
         <!--输出实体[DYNADASHBOARD]外键关系 -->
+        <!--输出实体[ZT_EFFORT]外键关系 -->
         <!--输出实体[IBZ_EMPLOYEELOAD]外键关系 -->
-    <changeSet author="zentao" id="fk-ibz_employeeload-81-143">
+    <changeSet author="zentao" id="fk-ibz_employeeload-83-143">
        <addForeignKeyConstraint baseColumnNames="PROJECT" baseTableName="ZT_TASK" constraintName="DER1N_IBZ_EMPLOYEELOAD_ZT_PROJ" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_project" validate="true"/>
     </changeSet>
-        <!--输出实体[ZT_EFFORT]外键关系 -->
         <!--输出实体[ZT_ENTRY]外键关系 -->
         <!--输出实体[ZT_EXTENSION]外键关系 -->
         <!--输出实体[ZT_FILE]外键关系 -->

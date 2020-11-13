@@ -12,7 +12,7 @@
 
     * [动态数据看板](module/ibiz/DynaDashboard.md) 
 
-    * [员工负载表](module/ibiz/EMPLOYEELOAD.md) 
+    * [员工负载表](module/ibiz/EmpLoyeeload.md) 
 
     * [文档](module/ibiz/IBzDoc.md) 
 
@@ -112,21 +112,21 @@
 
     * [操作历史](module/zentao/History.md) 
 
-    * [im_chat](module/zentao/Im_chat.md) 
+    * [ImChat](module/zentao/ImChat.md) 
 
-    * [im_chatuser](module/zentao/Im_chatuser.md) 
+    * [ImChatuser](module/zentao/ImChatuser.md) 
 
-    * [im_client](module/zentao/Im_client.md) 
+    * [ImClient](module/zentao/ImClient.md) 
 
-    * [im_conference](module/zentao/Im_conference.md) 
+    * [ImConference](module/zentao/ImConference.md) 
 
-    * [im_conferenceaction](module/zentao/Im_conferenceaction.md) 
+    * [ImConferenceaction](module/zentao/ImConferenceaction.md) 
 
-    * [im_message](module/zentao/Im_message.md) 
+    * [ImMessage](module/zentao/ImMessage.md) 
 
-    * [im_messagestatus](module/zentao/Im_messagestatus.md) 
+    * [ImMessagestatus](module/zentao/ImMessagestatus.md) 
 
-    * [im_queue](module/zentao/Im_queue.md) 
+    * [ImQueue](module/zentao/ImQueue.md) 
 
     * [jenkins](module/zentao/Jenkins.md) 
 

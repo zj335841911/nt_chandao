@@ -50,7 +50,7 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectMapper, Project> impl
 
     @Autowired
     @Lazy
-    protected cn.ibizlab.pms.core.ibiz.service.IEMPLOYEELOADService employeeloadService;
+    protected cn.ibizlab.pms.core.ibiz.service.IEmpLoyeeloadService employeeloadService;
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.ibiz.service.IProjectModuleService projectmoduleService;

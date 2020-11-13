@@ -5502,77 +5502,6 @@ FROM `T_DYNADASHBOARD` t1
 
 ```
 
-# **员工负载表**(IBZ_EMPLOYEELOAD)
-
-### 数据查询(DEFAULT)<div id="EMPLOYEELOAD_Default"></div>
-```sql
-SELECT
-t1.`ASSIGN`,
-t1.`ASSIGNEDTO`,
-t1.`ID`,
-０ AS `LEFT`,
-t1.`NAME`,
-t1.`PROJECT`,
-t11.`NAME` AS `PROJECTNAME`,
-０ AS `TASKCNT`,
-０ AS `TOTALLEFT`,
-０ AS `TOTALTASKCNT`,
-０ AS `WORKLOAD`
-FROM `ZT_TASK` t1 
-LEFT JOIN zt_project t11 ON t1.PROJECT = t11.ID 
-
-```
-### 获取员工负载表(GETWOERKLOAD)<div id="EMPLOYEELOAD_GETWOERKLOAD"></div>
-```sql
-select t1.* from(select t1.assignedTo,t1.project,t1.projectname,t1.taskcnt,t1.`left`,t1.totaltaskcnt,t1.totalleft,t1.workload,'assign' as isassigned from (
-select t1.*,t4.taskcnt as totaltaskcnt,t4.`left` as totalleft,CONCAT(ROUND( t4.`left`/ ((case when  #{srf.datacontext.workday} 
-is null then 6 else 
-#{srf.datacontext.workday}  
-end) * (case when 
-#{srf.datacontext.everydaytime}  
-is null then 7 else 
-#{srf.datacontext.everydaytime}  
-end)) * 100, 2),'%')  as WORKLOAD from ( select  t1.assignedTo,t1.project,t1.projectname,COUNT(1) as taskcnt,sum(t1.`left`) as `left` from( select t1.id,t1.`name`,t1.`left`,t1.project ,t2.`name` as projectname,t1.assignedTo from zt_task t1 left join zt_project t2 on t1.project = t2.id 
-where t1.deleted = '0' and t1.`status` in ('wait','doing') and t2.deleted = '0' and t2.`status` in ('wait','doing') and t1.assignedTo <> '' and t1.parent >= 0 and not EXISTS(select  1  from zt_team t where t.type = 'task' and t.root = t1.id) 
-union 
-select t1.id,t1.`name`,t3.`left`,t1.project ,t2.`name` as projectname,t3.account as assignedTo from zt_task t1 left join zt_project t2 on t1.project = t2.id 
-INNER join zt_team t3 on t1.id = t3.root and t3.type = 'task'
-where t1.deleted = '0' and t1.`status` in ('wait','doing') and t2.deleted = '0' and t2.`status` in ('wait','doing')  and t1.`left` > 0 ) t1 GROUP BY t1.assignedTo,t1.project,t1.projectname) t1 left join zt_user tt on tt.account = t1.assignedTo 
-left join  ( select  t1.assignedTo,COUNT(1) as taskcnt,sum(t1.`left`) as `left` from( select t1.id,t1.`name`,t1.`left`,t1.project ,t2.`name` as projectname,t1.assignedTo from zt_task t1 left join zt_project t2 on t1.project = t2.id 
-where t1.deleted = '0' and t1.`status` in ('wait','doing') and t2.deleted = '0' and t2.`status` in ('wait','doing') and t1.assignedTo <> '' and t1.parent >= 0 and not EXISTS(select  1  from zt_team t where t.type = 'task' and t.root = t1.id) 
-union 
-select t1.id,t1.`name`,t3.`left`,t1.project ,t2.`name` as projectname,t3.account as assignedTo from zt_task t1 left join zt_project t2 on t1.project = t2.id 
-INNER join zt_team t3 on t1.id = t3.root and t3.type = 'task'
-where t1.deleted = '0' and t1.`status` in ('wait','doing') and t2.deleted = '0' and t2.`status` in ('wait','doing')  and t1.`left` > 0 ) t1 GROUP BY t1.assignedTo) t4 on t4.assignedTo = t1.assignedTo
-where tt.dept =  #{srf.datacontext.dept} 
-or  #{srf.datacontext.dept} 
-is null) t1 
-union
-select t1.assignedTo,t1.project,t1.projectname,t1.taskcnt,t1.`left`,t1.totaltaskcnt,t1.totalleft,t1.workload, t1.isassigned as isassigned from (select  t1.account as assignedTo,t2.id as project,t2.`name` as projectname, 0 as taskcnt,0 as `left`,0 as totaltaskcnt,0 as totalleft,'0%' as workload,'noassign' as isassigned  from zt_team t1 
-LEFT JOIN zt_project t2 on t2.id = t1.root
-where t2.`status` not in ('cancel','closed','done','suspended')  and t1.type = 'project' 
-and t1.account not in (SELECT assignedTo from zt_task where project = t1.root and `status` not in ('cancel','closed','done','pause') and assignedTo <> '' GROUP BY assignedTo) ORDER BY t1.ACCOUNT,t2.`name`)t1) t1 
-where (t1.isassigned = #{srf.datacontext.assign}) or (#{srf.datacontext.assign} is null and t1.isassigned = 'assign')
-```
-### 默认（全部数据）(VIEW)<div id="EMPLOYEELOAD_View"></div>
-```sql
-SELECT
-t1.`ASSIGN`,
-t1.`ASSIGNEDTO`,
-t1.`ID`,
-０ AS `LEFT`,
-t1.`NAME`,
-t1.`PROJECT`,
-t11.`NAME` AS `PROJECTNAME`,
-０ AS `TASKCNT`,
-０ AS `TOTALLEFT`,
-０ AS `TOTALTASKCNT`,
-０ AS `WORKLOAD`
-FROM `ZT_TASK` t1 
-LEFT JOIN zt_project t11 ON t1.PROJECT = t11.ID 
-
-```
-
 # **effort**(ZT_EFFORT)
 
 ### DEFAULT(DEFAULT)<div id="Effort_Default"></div>
@@ -5607,6 +5536,77 @@ t1.`TODO`,
 t1.`TYPE`,
 t1.`USER`
 FROM `zt_effort` t1 
+
+```
+
+# **员工负载表**(IBZ_EMPLOYEELOAD)
+
+### 数据查询(DEFAULT)<div id="EmpLoyeeload_Default"></div>
+```sql
+SELECT
+t1.`ASSIGN`,
+t1.`ASSIGNEDTO`,
+t1.`ID`,
+０ AS `LEFT`,
+t1.`NAME`,
+t1.`PROJECT`,
+t11.`NAME` AS `PROJECTNAME`,
+０ AS `TASKCNT`,
+０ AS `TOTALLEFT`,
+０ AS `TOTALTASKCNT`,
+０ AS `WORKLOAD`
+FROM `ZT_TASK` t1 
+LEFT JOIN zt_project t11 ON t1.PROJECT = t11.ID 
+
+```
+### 获取员工负载表(GETWOERKLOAD)<div id="EmpLoyeeload_GETWOERKLOAD"></div>
+```sql
+select t1.* from(select t1.assignedTo,t1.project,t1.projectname,t1.taskcnt,t1.`left`,t1.totaltaskcnt,t1.totalleft,t1.workload,'assign' as isassigned from (
+select t1.*,t4.taskcnt as totaltaskcnt,t4.`left` as totalleft,CONCAT(ROUND( t4.`left`/ ((case when  #{srf.datacontext.workday} 
+is null then 6 else 
+#{srf.datacontext.workday}  
+end) * (case when 
+#{srf.datacontext.everydaytime}  
+is null then 7 else 
+#{srf.datacontext.everydaytime}  
+end)) * 100, 2),'%')  as WORKLOAD from ( select  t1.assignedTo,t1.project,t1.projectname,COUNT(1) as taskcnt,sum(t1.`left`) as `left` from( select t1.id,t1.`name`,t1.`left`,t1.project ,t2.`name` as projectname,t1.assignedTo from zt_task t1 left join zt_project t2 on t1.project = t2.id 
+where t1.deleted = '0' and t1.`status` in ('wait','doing') and t2.deleted = '0' and t2.`status` in ('wait','doing') and t1.assignedTo <> '' and t1.parent >= 0 and not EXISTS(select  1  from zt_team t where t.type = 'task' and t.root = t1.id) 
+union 
+select t1.id,t1.`name`,t3.`left`,t1.project ,t2.`name` as projectname,t3.account as assignedTo from zt_task t1 left join zt_project t2 on t1.project = t2.id 
+INNER join zt_team t3 on t1.id = t3.root and t3.type = 'task'
+where t1.deleted = '0' and t1.`status` in ('wait','doing') and t2.deleted = '0' and t2.`status` in ('wait','doing')  and t1.`left` > 0 ) t1 GROUP BY t1.assignedTo,t1.project,t1.projectname) t1 left join zt_user tt on tt.account = t1.assignedTo 
+left join  ( select  t1.assignedTo,COUNT(1) as taskcnt,sum(t1.`left`) as `left` from( select t1.id,t1.`name`,t1.`left`,t1.project ,t2.`name` as projectname,t1.assignedTo from zt_task t1 left join zt_project t2 on t1.project = t2.id 
+where t1.deleted = '0' and t1.`status` in ('wait','doing') and t2.deleted = '0' and t2.`status` in ('wait','doing') and t1.assignedTo <> '' and t1.parent >= 0 and not EXISTS(select  1  from zt_team t where t.type = 'task' and t.root = t1.id) 
+union 
+select t1.id,t1.`name`,t3.`left`,t1.project ,t2.`name` as projectname,t3.account as assignedTo from zt_task t1 left join zt_project t2 on t1.project = t2.id 
+INNER join zt_team t3 on t1.id = t3.root and t3.type = 'task'
+where t1.deleted = '0' and t1.`status` in ('wait','doing') and t2.deleted = '0' and t2.`status` in ('wait','doing')  and t1.`left` > 0 ) t1 GROUP BY t1.assignedTo) t4 on t4.assignedTo = t1.assignedTo
+where tt.dept =  #{srf.datacontext.dept} 
+or  #{srf.datacontext.dept} 
+is null) t1 
+union
+select t1.assignedTo,t1.project,t1.projectname,t1.taskcnt,t1.`left`,t1.totaltaskcnt,t1.totalleft,t1.workload, t1.isassigned as isassigned from (select  t1.account as assignedTo,t2.id as project,t2.`name` as projectname, 0 as taskcnt,0 as `left`,0 as totaltaskcnt,0 as totalleft,'0%' as workload,'noassign' as isassigned  from zt_team t1 
+LEFT JOIN zt_project t2 on t2.id = t1.root
+where t2.`status` not in ('cancel','closed','done','suspended')  and t1.type = 'project' 
+and t1.account not in (SELECT assignedTo from zt_task where project = t1.root and `status` not in ('cancel','closed','done','pause') and assignedTo <> '' GROUP BY assignedTo) ORDER BY t1.ACCOUNT,t2.`name`)t1) t1 
+where (t1.isassigned = #{srf.datacontext.assign}) or (#{srf.datacontext.assign} is null and t1.isassigned = 'assign')
+```
+### 默认（全部数据）(VIEW)<div id="EmpLoyeeload_View"></div>
+```sql
+SELECT
+t1.`ASSIGN`,
+t1.`ASSIGNEDTO`,
+t1.`ID`,
+０ AS `LEFT`,
+t1.`NAME`,
+t1.`PROJECT`,
+t11.`NAME` AS `PROJECTNAME`,
+０ AS `TASKCNT`,
+０ AS `TOTALLEFT`,
+０ AS `TOTALTASKCNT`,
+０ AS `WORKLOAD`
+FROM `ZT_TASK` t1 
+LEFT JOIN zt_project t11 ON t1.PROJECT = t11.ID 
 
 ```
 
@@ -6767,9 +6767,9 @@ FROM `T_IBZ_TOP` t1
 
 ```
 
-# **im_chat**(ZT_IM_CHAT)
+# **ImChat**(ZT_IM_CHAT)
 
-### DEFAULT(DEFAULT)<div id="Im_chat_Default"></div>
+### DEFAULT(DEFAULT)<div id="ImChat_Default"></div>
 ```sql
 SELECT
 t1.`ADMINS`,
@@ -6789,7 +6789,7 @@ t1.`TYPE`
 FROM `zt_im_chat` t1 
 
 ```
-### 默认（全部数据）(VIEW)<div id="Im_chat_View"></div>
+### 默认（全部数据）(VIEW)<div id="ImChat_View"></div>
 ```sql
 SELECT
 t1.`ADMINS`,
@@ -6810,9 +6810,9 @@ FROM `zt_im_chat` t1
 
 ```
 
-# **im_chatuser**(ZT_IM_CHATUSER)
+# **ImChatuser**(ZT_IM_CHATUSER)
 
-### DEFAULT(DEFAULT)<div id="Im_chatuser_Default"></div>
+### DEFAULT(DEFAULT)<div id="ImChatuser_Default"></div>
 ```sql
 SELECT
 t1.`CATEGORY`,
@@ -6829,7 +6829,7 @@ t1.`USER`
 FROM `zt_im_chatuser` t1 
 
 ```
-### 默认（全部数据）(VIEW)<div id="Im_chatuser_View"></div>
+### 默认（全部数据）(VIEW)<div id="ImChatuser_View"></div>
 ```sql
 SELECT
 t1.`CATEGORY`,
@@ -6847,9 +6847,9 @@ FROM `zt_im_chatuser` t1
 
 ```
 
-# **im_client**(ZT_IM_CLIENT)
+# **ImClient**(ZT_IM_CLIENT)
 
-### DEFAULT(DEFAULT)<div id="Im_client_Default"></div>
+### DEFAULT(DEFAULT)<div id="ImClient_Default"></div>
 ```sql
 SELECT
 t1.`CREATEDBY`,
@@ -6864,7 +6864,7 @@ t1.`VERSION`
 FROM `zt_im_client` t1 
 
 ```
-### 默认（全部数据）(VIEW)<div id="Im_client_View"></div>
+### 默认（全部数据）(VIEW)<div id="ImClient_View"></div>
 ```sql
 SELECT
 t1.`CHANGELOG`,
@@ -6882,9 +6882,9 @@ FROM `zt_im_client` t1
 
 ```
 
-# **im_conference**(ZT_IM_CONFERENCE)
+# **ImConference**(ZT_IM_CONFERENCE)
 
-### DEFAULT(DEFAULT)<div id="Im_conference_Default"></div>
+### DEFAULT(DEFAULT)<div id="ImConference_Default"></div>
 ```sql
 SELECT
 t1.`CGID`,
@@ -6896,7 +6896,7 @@ t1.`STATUS`
 FROM `zt_im_conference` t1 
 
 ```
-### 默认（全部数据）(VIEW)<div id="Im_conference_View"></div>
+### 默认（全部数据）(VIEW)<div id="ImConference_View"></div>
 ```sql
 SELECT
 t1.`CGID`,
@@ -6910,9 +6910,9 @@ FROM `zt_im_conference` t1
 
 ```
 
-# **im_conferenceaction**(ZT_IM_CONFERENCEACTION)
+# **ImConferenceaction**(ZT_IM_CONFERENCEACTION)
 
-### DEFAULT(DEFAULT)<div id="Im_conferenceaction_Default"></div>
+### DEFAULT(DEFAULT)<div id="ImConferenceaction_Default"></div>
 ```sql
 SELECT
 t1.`DATE`,
@@ -6923,7 +6923,7 @@ t1.`USER`
 FROM `zt_im_conferenceaction` t1 
 
 ```
-### 默认（全部数据）(VIEW)<div id="Im_conferenceaction_View"></div>
+### 默认（全部数据）(VIEW)<div id="ImConferenceaction_View"></div>
 ```sql
 SELECT
 t1.`DATE`,
@@ -6935,9 +6935,9 @@ FROM `zt_im_conferenceaction` t1
 
 ```
 
-# **im_message**(ZT_IM_MESSAGE)
+# **ImMessage**(ZT_IM_MESSAGE)
 
-### DEFAULT(DEFAULT)<div id="Im_message_Default"></div>
+### DEFAULT(DEFAULT)<div id="ImMessage_Default"></div>
 ```sql
 SELECT
 t1.`CGID`,
@@ -6954,7 +6954,7 @@ FROM `zt_im_message` t1
 WHERE t1.DELETED = '0' 
 
 ```
-### 默认（全部数据）(VIEW)<div id="Im_message_View"></div>
+### 默认（全部数据）(VIEW)<div id="ImMessage_View"></div>
 ```sql
 SELECT
 t1.`CGID`,
@@ -6974,9 +6974,9 @@ WHERE t1.DELETED = '0'
 
 ```
 
-# **im_messagestatus**(ZT_IM_MESSAGESTATUS)
+# **ImMessagestatus**(ZT_IM_MESSAGESTATUS)
 
-### DEFAULT(DEFAULT)<div id="Im_messagestatus_Default"></div>
+### DEFAULT(DEFAULT)<div id="ImMessagestatus_Default"></div>
 ```sql
 SELECT
 concat(t1.`USER`,'__',t1.`MESSAGE`) AS `ID`,
@@ -6986,7 +6986,7 @@ t1.`USER`
 FROM `zt_im_messagestatus` t1 
 
 ```
-### 默认（全部数据）(VIEW)<div id="Im_messagestatus_View"></div>
+### 默认（全部数据）(VIEW)<div id="ImMessagestatus_View"></div>
 ```sql
 SELECT
 concat(t1.`USER`,'__',t1.`MESSAGE`) AS `ID`,
@@ -6997,9 +6997,9 @@ FROM `zt_im_messagestatus` t1
 
 ```
 
-# **im_queue**(ZT_IM_QUEUE)
+# **ImQueue**(ZT_IM_QUEUE)
 
-### DEFAULT(DEFAULT)<div id="Im_queue_Default"></div>
+### DEFAULT(DEFAULT)<div id="ImQueue_Default"></div>
 ```sql
 SELECT
 t1.`ADDDATE`,
@@ -7010,7 +7010,7 @@ t1.`TYPE`
 FROM `zt_im_queue` t1 
 
 ```
-### 默认（全部数据）(VIEW)<div id="Im_queue_View"></div>
+### 默认（全部数据）(VIEW)<div id="ImQueue_View"></div>
 ```sql
 SELECT
 t1.`ADDDATE`,

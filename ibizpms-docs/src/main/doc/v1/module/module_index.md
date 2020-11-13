@@ -217,28 +217,28 @@ class 群组权限 {
 class 操作历史 {
 }
 
-class im_chat {
+class ImChat {
 }
 
-class im_chatuser {
+class ImChatuser {
 }
 
-class im_client {
+class ImClient {
 }
 
-class im_conference {
+class ImConference {
 }
 
-class im_conferenceaction {
+class ImConferenceaction {
 }
 
-class im_message {
+class ImMessage {
 }
 
-class im_messagestatus {
+class ImMessagestatus {
 }
 
-class im_queue {
+class ImQueue {
 }
 
 class jenkins {
