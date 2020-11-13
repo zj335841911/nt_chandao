@@ -275,15 +275,6 @@ export class MainGridBase extends GridControlBase {
             isEnableRowEdit: false,
             enableCond: 3 ,
         },
-        {
-            name: 'isfavourites',
-            label: '是否收藏',
-            langtag: 'entities.doclib.main_grid.columns.isfavourites',
-            show: true,
-            unit: 'PX',
-            isEnableRowEdit: false,
-            enableCond: 3 ,
-        },
     ]
 
     /**
@@ -388,7 +379,6 @@ export class MainGridBase extends GridControlBase {
         'name':false,
         'doccnt':false,
         'uagridcolumn1':false,
-        'isfavourites':false,
     };
 
     /**
@@ -503,7 +493,7 @@ export class MainGridBase extends GridControlBase {
     * @memberof MainBase
     */
     public arraySpanMethod({row, column, rowIndex, columnIndex} : any) {
-        let allColumns:Array<any> = ['name','doccnt','uagridcolumn1','isfavourites'];
+        let allColumns:Array<any> = ['name','doccnt','uagridcolumn1'];
         if(row && row.children) {
             if(columnIndex == (this.isSingleSelect ? 0:1)) {
                 return [1, allColumns.length+1];
@@ -601,7 +591,6 @@ export class MainGridBase extends GridControlBase {
                 WeiHuFenLei:{
                     visible: false
                 },
-                isfavourites:'',
                 children: children
             }
             groupTree.push(tree);
@@ -641,7 +630,6 @@ export class MainGridBase extends GridControlBase {
             WeiHuFenLei:{
                 visible: false
             },
-            isfavourites:'',
             children: child
         }
         if(child && child.length > 0){
@@ -719,7 +707,6 @@ export class MainGridBase extends GridControlBase {
                 WeiHuFenLei:{
                     visible: false
                 },
-                isfavourites:'',
                 children: children,
             }
             groupTree.push(tree);

@@ -37,11 +37,6 @@ export default class MainModel {
           dataType: 'INT',
         },
         {
-          name: 'isfavourites',
-          prop: 'isfavourites',
-          dataType: 'INT',
-        },
-        {
           name: 'product',
           prop: 'product',
           dataType: 'PICKUP',
@@ -55,6 +50,11 @@ export default class MainModel {
           name: 'doclibtype',
           prop: 'doclibtype',
           dataType: 'SSCODELIST',
+        },
+        {
+          name: 'isfavourites',
+          prop: 'isfavourites',
+          dataType: 'INT',
         },
         {
           name: 'srfmstag',

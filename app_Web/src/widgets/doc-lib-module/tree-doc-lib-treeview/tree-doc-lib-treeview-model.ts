@@ -63,9 +63,6 @@ export default class TreeDocLibModel {
       {
         name: 'modulename',
       },
-      {
-        name: 'isfavourites',
-      },
     ]
   }
 

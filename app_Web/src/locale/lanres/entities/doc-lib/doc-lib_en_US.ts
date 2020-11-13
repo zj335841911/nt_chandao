@@ -92,7 +92,6 @@ export default {
 			name: "文档库名称",
 			doccnt: "文档数量",
 			uagridcolumn1: "操作",
-			isfavourites: "是否收藏",
 		},
 		uiactions: {
         doclib_lookmainprojectdoclib: "查看",

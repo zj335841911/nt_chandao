@@ -63,9 +63,6 @@ export default class TreeExpViewtreeexpbarModel {
       {
         name: 'modulename',
       },
-      {
-        name: 'isfavourites',
-      },
     ]
   }
 

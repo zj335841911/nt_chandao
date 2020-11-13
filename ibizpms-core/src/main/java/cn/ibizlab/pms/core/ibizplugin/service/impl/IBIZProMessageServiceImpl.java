@@ -33,7 +33,7 @@ import cn.ibizlab.pms.util.helper.CachedBeanCopier;
 import cn.ibizlab.pms.util.helper.DEFieldCacheMap;
 
 
-import cn.ibizlab.pms.core.ibizplugin.client.IBIZPRO_MESSAGEFeignClient;
+import cn.ibizlab.pms.core.ibizplugin.client.IBIZProMessageFeignClient;
 import cn.ibizlab.pms.util.security.SpringContextHolder;
 import cn.ibizlab.pms.util.helper.OutsideAccessorUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -46,13 +46,13 @@ import org.apache.commons.lang3.StringUtils;
 public class IBIZProMessageServiceImpl implements IIBIZProMessageService {
 
     @Autowired
-    IBIZPRO_MESSAGEFeignClient iBIZPRO_MESSAGEFeignClient;
+    IBIZProMessageFeignClient iBIZProMessageFeignClient;
 
 
 
     @Override
     public boolean create(IBIZProMessage et) {
-        IBIZProMessage rt = iBIZPRO_MESSAGEFeignClient.create(et);
+        IBIZProMessage rt = iBIZProMessageFeignClient.create(et);
         if (rt == null) {
             return false;
         }
@@ -62,13 +62,13 @@ public class IBIZProMessageServiceImpl implements IIBIZProMessageService {
 
 
     public void createBatch(List<IBIZProMessage> list){
-        iBIZPRO_MESSAGEFeignClient.createBatch(list);
+        iBIZProMessageFeignClient.createBatch(list);
     }
 
 
     @Override
     public boolean update(IBIZProMessage et) {
-        IBIZProMessage rt = iBIZPRO_MESSAGEFeignClient.update(et.getIbizproMessageid(), et);
+        IBIZProMessage rt = iBIZProMessageFeignClient.update(et.getIbizproMessageid(), et);
         if (rt == null) {
             return false;
         }
@@ -79,25 +79,25 @@ public class IBIZProMessageServiceImpl implements IIBIZProMessageService {
 
 
     public void updateBatch(List<IBIZProMessage> list) {
-        iBIZPRO_MESSAGEFeignClient.updateBatch(list);
+        iBIZProMessageFeignClient.updateBatch(list);
     }
 
 
     @Override
     public boolean remove(String ibizpro_messageid) {
-        boolean result=iBIZPRO_MESSAGEFeignClient.remove(ibizpro_messageid);
+        boolean result=iBIZProMessageFeignClient.remove(ibizpro_messageid);
         return result;
     }
 
 
     public void removeBatch(Collection<String> idList){
-        iBIZPRO_MESSAGEFeignClient.removeBatch(idList);
+        iBIZProMessageFeignClient.removeBatch(idList);
     }
 
 
     @Override
     public IBIZProMessage get(String ibizpro_messageid) {
-        IBIZProMessage et = iBIZPRO_MESSAGEFeignClient.get(ibizpro_messageid);
+        IBIZProMessage et = iBIZProMessageFeignClient.get(ibizpro_messageid);
         if (et == null) {
             et = new IBIZProMessage();
             et.setIbizproMessageid(ibizpro_messageid);
@@ -110,14 +110,14 @@ public class IBIZProMessageServiceImpl implements IIBIZProMessageService {
 
     @Override
     public IBIZProMessage getDraft(IBIZProMessage et) {
-        et = iBIZPRO_MESSAGEFeignClient.getDraft();
+        et = iBIZProMessageFeignClient.getDraft();
         return et;
     }
 
 
     @Override
     public boolean checkKey(IBIZProMessage et) {
-        return iBIZPRO_MESSAGEFeignClient.checkKey(et);
+        return iBIZProMessageFeignClient.checkKey(et);
     }
 
 
@@ -143,7 +143,7 @@ public class IBIZProMessageServiceImpl implements IIBIZProMessageService {
         if (et.getIbizproMessageid() == null) {
             et.setIbizproMessageid((String)et.getDefaultKey(true));
         }
-        if (!iBIZPRO_MESSAGEFeignClient.save(et)) {
+        if (!iBIZProMessageFeignClient.save(et)) {
             return false;
         }
         return true;
@@ -152,7 +152,7 @@ public class IBIZProMessageServiceImpl implements IIBIZProMessageService {
 
     @Override
     public void saveBatch(List<IBIZProMessage> list) {
-        iBIZPRO_MESSAGEFeignClient.saveBatch(list);
+        iBIZProMessageFeignClient.saveBatch(list);
     }
 
 
@@ -173,7 +173,7 @@ public class IBIZProMessageServiceImpl implements IIBIZProMessageService {
      */
     @Override
     public Page<IBIZProMessage> searchDefault(IBIZProMessageSearchContext context) {
-        Page<IBIZProMessage> iBIZProMessages=iBIZPRO_MESSAGEFeignClient.searchDefault(context);
+        Page<IBIZProMessage> iBIZProMessages=iBIZProMessageFeignClient.searchDefault(context);
         return iBIZProMessages;
     }
 

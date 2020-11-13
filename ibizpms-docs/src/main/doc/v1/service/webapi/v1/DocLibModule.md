@@ -478,8 +478,7 @@ POST
 | 14 | parent | Long | 允许 | id |
 | 15 | doclibname | String | 允许 | 所属文档库 |
 | 16 | modulename | String | 允许 | 上级模块 |
-| 17 | isfavourites | Integer | 允许 | 是否收藏 |
-| 18 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 17 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### DocLibModuleSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
