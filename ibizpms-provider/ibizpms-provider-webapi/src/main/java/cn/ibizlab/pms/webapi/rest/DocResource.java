@@ -267,6 +267,28 @@ public class DocResource {
                 .body(new PageImpl(docMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Doc-searchDocStatus-all')")
+	@ApiOperation(value = "获取文档统计", tags = {"文档" } ,notes = "获取文档统计")
+    @RequestMapping(method= RequestMethod.GET , value="/docs/fetchdocstatus")
+	public ResponseEntity<List<DocDTO>> fetchDocStatus(DocSearchContext context) {
+        Page<Doc> domains = docService.searchDocStatus(context) ;
+        List<DocDTO> list = docMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Doc-searchDocStatus-all')")
+	@ApiOperation(value = "查询文档统计", tags = {"文档" } ,notes = "查询文档统计")
+    @RequestMapping(method= RequestMethod.POST , value="/docs/searchdocstatus")
+	public ResponseEntity<Page<DocDTO>> searchDocStatus(@RequestBody DocSearchContext context) {
+        Page<Doc> domains = docService.searchDocStatus(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(docMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Doc-searchMyFavourite-all')")
 	@ApiOperation(value = "获取我的收藏", tags = {"文档" } ,notes = "获取我的收藏")
     @RequestMapping(method= RequestMethod.GET , value="/docs/fetchmyfavourite")
