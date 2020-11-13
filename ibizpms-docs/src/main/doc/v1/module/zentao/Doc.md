@@ -1577,6 +1577,7 @@ Save
 - MYSQL5
 ```SQL
 select t1.* from (select null as `ACL`,
+( CASE WHEN FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t1.collector ) > 0 THEN 1 ELSE 0 END ) AS `ISFAVOURITES`, 
 null as `ADDEDBY`,
 null as `ADDEDDATE`,
 '0' as `DELETED`,
@@ -1600,6 +1601,7 @@ t1.`name` as `TITLE`,
 UNION
 SELECT
 t1.`ACL`,
+( CASE WHEN FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t1.collector ) > 0 THEN 1 ELSE 0 END ) AS `ISFAVOURITES`, 
 t1.`ADDEDBY`,
 t1.`ADDEDDATE`,
 t1.`DELETED`,
@@ -1756,6 +1758,7 @@ LEFT JOIN zt_module t41 ON t1.MODULE = t41.ID ) t1
 - MYSQL5
 ```SQL
 select t1.* from (select null as `ACL`,
+( CASE WHEN FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t1.collector ) > 0 THEN 1 ELSE 0 END ) AS `ISFAVOURITES`, 
 null as `ADDEDBY`,
 null as `ADDEDDATE`,
 '0' as `DELETED`,
@@ -1779,6 +1782,7 @@ t1.`name` as `TITLE`,
 UNION
 SELECT
 t1.`ACL`,
+( CASE WHEN FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t1.collector ) > 0 THEN 1 ELSE 0 END ) AS `ISFAVOURITES`, 
 t1.`ADDEDBY`,
 t1.`ADDEDDATE`,
 t1.`DELETED`,
@@ -1829,7 +1833,9 @@ FROM
 		NULL AS `addedBy`,
 		NULL AS `addedDate`,
 		NULL AS `editedBy`,
-		NULL AS `editedDate` 
+		NULL AS `editedDate`,
+		( CASE WHEN FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t1.collector ) > 0 THEN 1 ELSE 0 END ) AS `ISFAVOURITES`, 
+		'doclib' as DOCQTYPE
 	FROM
 		zt_doclib t1 
 	WHERE
@@ -1841,7 +1847,9 @@ FROM
 		NULL AS `addedBy`,
 		NULL AS `addedDate`,
 		NULL AS `editedBy`,
-		NULL AS `editedDate` 
+		NULL AS `editedDate`,
+		( CASE WHEN FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t2.collector ) > 0 THEN 1 ELSE 0 END ) AS `ISFAVOURITES`, 
+		'module' as DOCQTYPE 
 	FROM
 		zt_module t2 
 	WHERE
@@ -1853,7 +1861,9 @@ FROM
 		t3.addedBy,
 		t3.addedDate,
 		t3.editedBy,
-		t3.editedDate 
+		t3.editedDate,
+		( CASE WHEN FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t3.collector ) > 0 THEN 1 ELSE 0 END ) AS `ISFAVOURITES`, 
+		'doc' as DOCQTYPE 
 	FROM
 		zt_doc t3 
 	WHERE

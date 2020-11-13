@@ -3986,6 +3986,28 @@ public class StaticDict {
     }
 
 
+    /**
+     * 代码表[文档查询类型]
+     */
+    @Getter
+    public enum DOCQTYPE {
+        DOC("doc","文档"),
+        DOCLIB("doclib","文档库"),
+        MODULE("module","文档库分类");
+
+        private String value;
+        private String text;
+        private String valueSeparator="";
+        private String textSeparator="";
+        private String emptyText="";
+
+        DOCQTYPE(String value , String text) {
+            this.value=value;
+            this.text = text;
+        }
+    }
+
+
 
     /**
      * 代码表[实体存储类型]
