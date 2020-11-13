@@ -186,8 +186,9 @@ public class DingTalkMsgService implements IMsgService {
 
     @Override
     public void completeTask(EntityBase et, String userids) {
-        if (et == null || StringUtils.isEmpty(userids))
+        if (et == null || StringUtils.isEmpty(userids)) {
             return;
+        }
 
         for (String userid : userids.split(",")) {
             TaskMsgRecord taskMsgRecord = taskMsgRecordService.getOne(Wrappers.<TaskMsgRecord>lambdaQuery()
