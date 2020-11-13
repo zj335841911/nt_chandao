@@ -89,7 +89,7 @@ export default class GetCurUserConcatLogicBase {
     let tempDstParam0Context:any = this.paramsMap.get('Default').context?this.paramsMap.get('Default').context:{};
     let tempDstParam0Data:any = this.paramsMap.get('Default').data?this.paramsMap.get('Default').data:{};
     let tempSrcParam0Data:any = this.paramsMap.get('Default').data?this.paramsMap.get('Default').data:{};
-    Object.assign(tempDstParam0Data,{mailto:tempSrcParam0Data['mailtopk']});
+    Object.assign(tempDstParam0Data,{mailto:tempSrcParam0Data['mailtoconact']});
     this.paramsMap.set('Default',{data:tempDstParam0Data,context:tempDstParam0Context});
         return this.paramsMap.get(this.defaultParamName).data;
     }
