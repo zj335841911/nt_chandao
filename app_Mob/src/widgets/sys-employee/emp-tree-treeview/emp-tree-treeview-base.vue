@@ -9,7 +9,7 @@
         <div class="tree-partition" v-if="valueNodes.length > 0" ></div>
         <ion-list>
         <template v-for="item in rootNodes">
-            <ion-item  :key="item.id" @click="click_node(item)">
+            <ion-item  :key="item.srfkey" @click="click_node(item)">
                 <ion-label>{{item.text}}</ion-label>
                 <ion-icon class="tree-icon" slot="end" name="chevron-forward-outline"></ion-icon>
             </ion-item>
@@ -19,7 +19,7 @@
         <!-- 树视图 -->
         <ion-list v-if="viewType == 'DEMOBTREEVIEW'">
         <template v-for="item in valueNodes">
-            <ion-item :key="item.id">
+            <ion-item :key="item.srfkey">
                 <ion-label>{{item.text}}</ion-label>
             </ion-item>
         </template>
@@ -27,8 +27,8 @@
        <!-- 树多选 -->
         <ion-list v-else-if="viewType == 'DEMOBPICKUPTREEVIEW' && !isSingleSelect">
         <template v-for="item in valueNodes">
-            <ion-item :key="item.id">
-                <ion-checkbox color="secondary" v-if="viewType == 'DEMOBPICKUPTREEVIEW' && !isSingleSelect"  :checked="item.selected" :value="item.id" slot="end" @ionChange="onChecked"></ion-checkbox>
+            <ion-item :key="item.srfkey">
+                <ion-checkbox color="secondary" v-if="viewType == 'DEMOBPICKUPTREEVIEW' && !isSingleSelect"  :checked="item.selected" :value="item.srfkey" slot="end" @ionChange="onChecked"></ion-checkbox>
                 <ion-label>{{item.text}}</ion-label>
             </ion-item>
         </template>
@@ -36,9 +36,9 @@
        <!-- 树单选 -->
         <ion-radio-group v-else-if="viewType == 'DEMOBPICKUPTREEVIEW' && isSingleSelect" :value="selectedValue" >
             <template v-for="item in valueNodes">
-                <ion-item  :key="item.id"   @click="onSimpleSelChange(item)">
+                <ion-item  :key="item.srfkey"   @click="onSimpleSelChange(item)">
                     <ion-label>{{item.text}}</ion-label>
-                    <ion-radio slot="end" :checked="item.selected" :value="item.id"></ion-radio>
+                    <ion-radio slot="end" :checked="item.selected" :value="item.srfkey"></ion-radio>
                 </ion-item>
             </template>
         </ion-radio-group>
@@ -896,11 +896,11 @@ export default class EmpTreeBase extends Vue implements ControlInterface {
         }
         let { value } = detail;
         this.valueNodes.forEach((item: any, index: number) => {
-            if (Object.is(item.id, value)) {
+            if (Object.is(item.srfkey, value)) {
                 if (detail.checked) {
                     this.selectedNodes.push(this.valueNodes[index]);
                 } else {
-                    this.selectedNodes.splice(this.selectedNodes.findIndex((i: any) => i.value === item.value), 1)
+                    this.selectedNodes.splice(this.selectedNodes.findIndex((i: any) => i.srfkey === item.srfkey), 1)
                 }
             }
         });

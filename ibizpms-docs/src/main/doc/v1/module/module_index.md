@@ -28,10 +28,10 @@ class 动态数据看板 {
 class 员工负载表 {
 }
 
-class 实体 {
+class 文档 {
 }
 
-class 文档 {
+class 实体 {
 }
 
 class 测试用例 {

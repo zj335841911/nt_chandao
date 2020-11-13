@@ -9058,91 +9058,6 @@
  }
     ,
     {
-    "entity_name":"IBZ_LOGIN",
-    "logic_name":"实体",
-    "code_name":"IBZ_LOGIN",
-    "table_name":"zt_user",
-    "system_id":"pms",
-    "system_name":"pms",
-    "fields":[
-    {
-    "fieldname":"REALNAME" ,
-    "codename":"Realname",
-    "field_logic_name":"真实姓名",
-    "entity_name":"IBZ_LOGIN",
-    "field_type":"TEXT",
-    "nullable":1,
-    "physical_field":1,
-    "data_type":"VARCHAR",
-    "data_length":100,
-    "key_field":0,
-    "show_order":1000,
-    "major_field":1
-    },
-    {
-    "fieldname":"ID" ,
-    "codename":"Id",
-    "field_logic_name":"ID",
-    "entity_name":"IBZ_LOGIN",
-    "field_type":"ACID",
-    "nullable":0,
-    "physical_field":1,
-    "data_type":"BIGINT",
-    "data_length":20,
-    "key_field":1,
-    "show_order":1000,
-    "major_field":0
-    },
-    {
-    "fieldname":"ACCOUNT" ,
-    "codename":"Account",
-    "field_logic_name":"账户",
-    "entity_name":"IBZ_LOGIN",
-    "field_type":"TEXT",
-    "nullable":1,
-    "physical_field":1,
-    "data_type":"VARCHAR",
-    "data_length":30,
-    "key_field":0,
-    "show_order":1000,
-    "major_field":0
-    },
-    {
-    "fieldname":"COMMITER" ,
-    "codename":"Commiter",
-    "field_logic_name":"源代码账户",
-    "entity_name":"IBZ_LOGIN",
-    "field_type":"TEXT",
-    "nullable":1,
-    "physical_field":1,
-    "data_type":"VARCHAR",
-    "data_length":100,
-    "key_field":0,
-    "show_order":1000,
-    "major_field":0
-    },
-    {
-    "fieldname":"TOKEN" ,
-    "codename":"Token",
-    "field_logic_name":"token",
-    "entity_name":"IBZ_LOGIN",
-    "field_type":"TEXT",
-    "nullable":1,
-    "physical_field":0,
-    "data_type":"VARCHAR",
-    "data_length":100,
-    "key_field":0,
-    "show_order":1000,
-    "major_field":0
-    }
-    ],
-    "subEntitys":[
-    ],
-    "parentEntitys":[
-    ]
- }
-    ,
-    {
     "entity_name":"IBZ_DOC",
     "logic_name":"文档",
     "code_name":"IBzDoc",
@@ -9363,6 +9278,91 @@
     "data_type":"VARCHAR",
     "data_length":60,
     "predefined":"UPDATEMAN",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    }
+    ],
+    "subEntitys":[
+    ],
+    "parentEntitys":[
+    ]
+ }
+    ,
+    {
+    "entity_name":"IBZ_LOGIN",
+    "logic_name":"实体",
+    "code_name":"IbiLogin",
+    "table_name":"zt_user",
+    "system_id":"pms",
+    "system_name":"pms",
+    "fields":[
+    {
+    "fieldname":"REALNAME" ,
+    "codename":"Realname",
+    "field_logic_name":"真实姓名",
+    "entity_name":"IbiLogin",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":1
+    },
+    {
+    "fieldname":"ID" ,
+    "codename":"Id",
+    "field_logic_name":"ID",
+    "entity_name":"IbiLogin",
+    "field_type":"ACID",
+    "nullable":0,
+    "physical_field":1,
+    "data_type":"BIGINT",
+    "data_length":20,
+    "key_field":1,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"ACCOUNT" ,
+    "codename":"Account",
+    "field_logic_name":"账户",
+    "entity_name":"IbiLogin",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":30,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"COMMITER" ,
+    "codename":"Commiter",
+    "field_logic_name":"源代码账户",
+    "entity_name":"IbiLogin",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"TOKEN" ,
+    "codename":"Token",
+    "field_logic_name":"token",
+    "entity_name":"IbiLogin",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":100,
     "key_field":0,
     "show_order":1000,
     "major_field":0

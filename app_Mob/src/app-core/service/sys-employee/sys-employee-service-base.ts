@@ -246,7 +246,7 @@ export class SysEmployeeServiceBase extends EntityService {
     }
 
     /**
-     * FetchProjectTeamUser_Task接口方法
+     * FetchProjectTeamUserTask接口方法
      *
      * @param {*} [context={}]
      * @param {*} [data={}]
@@ -254,9 +254,9 @@ export class SysEmployeeServiceBase extends EntityService {
      * @returns {Promise<any>}
      * @memberof SysEmployeeServiceBase
      */
-    public async FetchProjectTeamUser_Task(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+    public async FetchProjectTeamUserTask(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/sysemployees/fetchprojectteamuser_task`,tempData,isloading);
+        let res:any = Http.getInstance().get(`/sysemployees/fetchprojectteamusertask`,tempData,isloading);
         return res;
     }
 

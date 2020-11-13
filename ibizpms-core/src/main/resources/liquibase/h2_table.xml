@@ -1039,8 +1039,10 @@
     </changeSet>
 
 
+
+
     <!--输出实体[IBZ_LOGIN]数据结构 -->
-    <changeSet author="zentao" id="tab-ibz_login-24-33">
+    <changeSet author="zentao" id="tab-ibz_login-26-33">
         <createTable tableName="zt_user">
                 <column name="REALNAME" remarks="" type="VARCHAR(100)">
                 </column>
@@ -1053,8 +1055,6 @@
                 </column>
         </createTable>
     </changeSet>
-
-
 
 
     <!--输出实体[IBZ_CASE]数据结构 -->

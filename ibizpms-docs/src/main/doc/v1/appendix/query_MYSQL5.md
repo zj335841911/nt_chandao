@@ -6151,29 +6151,6 @@ FROM `T_IBZPRO_SYSTEM` t1
 
 ```
 
-# **实体**(IBZ_LOGIN)
-
-### DEFAULT(DEFAULT)<div id="IBZ_LOGIN_Default"></div>
-```sql
-SELECT
-t1.`ACCOUNT`,
-t1.`COMMITER`,
-t1.`ID`,
-t1.`REALNAME`
-FROM `zt_user` t1 
-
-```
-### 默认（全部数据）(VIEW)<div id="IBZ_LOGIN_View"></div>
-```sql
-SELECT
-t1.`ACCOUNT`,
-t1.`COMMITER`,
-t1.`ID`,
-t1.`REALNAME`
-FROM `zt_user` t1 
-
-```
-
 # **文档**(IBZ_DOC)
 
 ### 产品下所有文档（用户）(AllDoc)<div id="IBzDoc_AllDoc"></div>
@@ -6236,6 +6213,29 @@ t1.`SIZE`,
 t1.`UPDATEDATE`,
 t1.`UPDATEMAN`
 FROM `T_IBZ_DOC` t1 
+
+```
+
+# **实体**(IBZ_LOGIN)
+
+### DEFAULT(DEFAULT)<div id="IbiLogin_Default"></div>
+```sql
+SELECT
+t1.`ACCOUNT`,
+t1.`COMMITER`,
+t1.`ID`,
+t1.`REALNAME`
+FROM `zt_user` t1 
+
+```
+### 默认（全部数据）(VIEW)<div id="IbiLogin_View"></div>
+```sql
+SELECT
+t1.`ACCOUNT`,
+t1.`COMMITER`,
+t1.`ID`,
+t1.`REALNAME`
+FROM `zt_user` t1 
 
 ```
 

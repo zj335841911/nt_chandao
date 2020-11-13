@@ -14,9 +14,9 @@
 
     * [员工负载表](module/ibiz/EMPLOYEELOAD.md) 
 
-    * [实体](module/ibiz/IBZ_LOGIN.md) 
-
     * [文档](module/ibiz/IBzDoc.md) 
+
+    * [实体](module/ibiz/IbiLogin.md) 
 
     * [测试用例](module/ibiz/IbzCase.md) 
 
