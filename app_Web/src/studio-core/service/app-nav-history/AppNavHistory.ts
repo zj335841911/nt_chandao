@@ -1,5 +1,5 @@
-import { SingletonMode } from "../../decorators/SingletonMode";
-import { AppNavHistoryBase } from "./AppNavHistoryBase";
+import { SingletonMode } from '../../decorators/SingletonMode';
+import { AppNavHistoryBase } from './AppNavHistoryBase';
 
 /**
  * 应用导航记录
@@ -9,4 +9,6 @@ import { AppNavHistoryBase } from "./AppNavHistoryBase";
  * @extends {AppNavHistoryBase}
  */
 @SingletonMode()
-export class AppNavHistory extends AppNavHistoryBase {}
+export class AppNavHistory extends AppNavHistoryBase {
+
+}

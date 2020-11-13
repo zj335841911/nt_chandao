@@ -16,7 +16,7 @@ export default class AppCheckbox extends Vue {
    * @type {any}
    * @memberof checkbox
    */
-  @Prop() public value?: any;
+  @Prop() public value?:any;
 
   /**
    * 是否禁用
@@ -25,17 +25,18 @@ export default class AppCheckbox extends Vue {
    */
   @Prop() public disabled?: boolean;
 
+
   /**
    * 当前值
    *
    * @memberof checkbox
    */
   get CurrentVal() {
-    if (this.value == 0) {
-      return false;
-    } else if (this.value == 1) {
-      return true;
-    }
+      if(this.value == 0){
+        return false;
+      }else if(this.value ==1){
+        return true;
+      }
   }
 
   /**
@@ -44,11 +45,11 @@ export default class AppCheckbox extends Vue {
    * @memberof checkbox
    */
   set CurrentVal(val: any) {
-    this.$emit("change", val ? 1 : 0);
+      this.$emit("change", val?1:0); 
   }
 }
 </script>
 
-<style lang="less">
+<style lang='less'>
 @import "./app-checkbox.less";
 </style>

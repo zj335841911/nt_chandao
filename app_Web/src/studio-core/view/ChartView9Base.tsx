@@ -1,4 +1,4 @@
-import { ChartViewBase } from "./ChartViewBase";
+import { ChartViewBase } from './ChartViewBase';
 
 /**
  * 图表视图基类
@@ -7,4 +7,6 @@ import { ChartViewBase } from "./ChartViewBase";
  * @class ChartView9Base
  * @extends {ChartViewBase}
  */
-export class ChartView9Base extends ChartViewBase {}
+export class ChartView9Base extends ChartViewBase {
+
+}

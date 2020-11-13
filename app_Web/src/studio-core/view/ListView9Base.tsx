@@ -1,4 +1,4 @@
-import { ListViewBase } from "./ListViewBase";
+import { ListViewBase } from './ListViewBase';
 
 /**
  * 列表部件视图基类
@@ -7,4 +7,6 @@ import { ListViewBase } from "./ListViewBase";
  * @class ListView9Base
  * @extends {ListViewBase}
  */
-export class ListView9Base extends ListViewBase {}
+export class ListView9Base extends ListViewBase {
+
+}

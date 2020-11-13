@@ -1,4 +1,4 @@
-import MDViewEngine from "./md-view-engine";
+import MDViewEngine from './md-view-engine';
 
 /**
  * 视图引擎基础
@@ -8,55 +8,58 @@ import MDViewEngine from "./md-view-engine";
  * @extends {MDViewEngine}
  */
 export default class PickupDataViewEngine extends MDViewEngine {
-  /**
-   * 数据视图部件
-   *
-   * @type {*}
-   * @memberof FormPickupDataViewEngine
-   */
-  protected dataview: any;
 
-  /**
-   * Creates an instance of GridViewEngine.
-   * @memberof GridViewEngine
-   */
-  constructor() {
-    super();
-  }
+    /**
+     * 数据视图部件
+     *
+     * @type {*}
+     * @memberof FormPickupDataViewEngine
+     */
+    protected dataview: any;
 
-  /**
-   * 引擎初始化
-   *
-   * @param {*} [options={}]
-   * @memberof GridViewEngine
-   */
-  public init(options: any = {}): void {
-    this.dataview = options.dataview;
-    super.init(options);
-  }
-
-  /**
-   * 部件事件
-   *
-   * @param {string} ctrlName
-   * @param {string} eventName
-   * @param {*} args
-   * @memberof GridViewEngine
-   */
-  public onCtrlEvent(ctrlName: string, eventName: string, args: any): void {
-    if (Object.is(ctrlName, "dataview")) {
-      this.MDCtrlEvent(eventName, args);
+    /**
+     * Creates an instance of GridViewEngine.
+     * @memberof GridViewEngine
+     */
+    constructor() {
+        super();
     }
-    super.onCtrlEvent(ctrlName, eventName, args);
-  }
 
-  /**
-   * 获取多数据部件
-   *
-   * @returns {*}
-   * @memberof GridViewEngine
-   */
-  public getMDCtrl(): any {
-    return this.dataview;
-  }
+    /**
+     * 引擎初始化
+     *
+     * @param {*} [options={}]
+     * @memberof GridViewEngine
+     */
+    public init(options: any = {}): void {
+        this.dataview = options.dataview;
+        super.init(options);
+    }
+
+    /**
+     * 部件事件
+     *
+     * @param {string} ctrlName
+     * @param {string} eventName
+     * @param {*} args
+     * @memberof GridViewEngine
+     */
+    public onCtrlEvent(ctrlName: string, eventName: string, args: any): void {
+        if (Object.is(ctrlName, 'dataview')) {
+            this.MDCtrlEvent(eventName, args);
+        }
+        super.onCtrlEvent(ctrlName, eventName, args);
+    }
+
+
+    /**
+     * 获取多数据部件
+     *
+     * @returns {*}
+     * @memberof GridViewEngine
+     */
+    public getMDCtrl(): any {
+        return this.dataview;
+    }
+
 }

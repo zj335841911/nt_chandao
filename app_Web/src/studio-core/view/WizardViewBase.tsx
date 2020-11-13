@@ -1,4 +1,4 @@
-import { MDViewBase } from "./MDViewBase";
+import { MDViewBase } from './MDViewBase';
 
 /**
  * 向导视图基类
@@ -7,4 +7,6 @@ import { MDViewBase } from "./MDViewBase";
  * @class WizardViewBase
  * @extends {MDViewBase}
  */
-export class WizardViewBase extends MDViewBase {}
+export class WizardViewBase extends MDViewBase {
+
+}

@@ -1,5 +1,5 @@
-import { SingletonMode } from "../../decorators/SingletonMode";
-import { AppServiceBase } from "./AppServiceBase";
+import { SingletonMode } from '../../decorators/SingletonMode';
+import { AppServiceBase } from './AppServiceBase';
 
 /**
  * 应用级服务
@@ -8,4 +8,6 @@ import { AppServiceBase } from "./AppServiceBase";
  * @class AppService
  */
 @SingletonMode()
-export class AppService extends AppServiceBase {}
+export class AppService extends AppServiceBase {
+
+}

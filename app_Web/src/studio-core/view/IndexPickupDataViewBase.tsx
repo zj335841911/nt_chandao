@@ -1,4 +1,4 @@
-import { MDViewBase } from "./MDViewBase";
+import { MDViewBase } from './MDViewBase';
 
 /**
  * 实体索引关系选择数据视图（部件视图）基类
@@ -8,21 +8,22 @@ import { MDViewBase } from "./MDViewBase";
  * @extends {MDViewBase}
  */
 export class IndexPickupDataViewBase extends MDViewBase {
-  /**
-   * 是否单选
-   *
-   * @type {boolean}
-   * @memberof IndexPickupDataViewBase
-   */
-  public isSingleSelect: boolean = true;
 
-  /**
-   * 数据选中抛值
-   *
-   * @param {*} args
-   * @memberof IndexPickupDataViewBase
-   */
-  public dataviewDataSeletionchange(args: any) {
-    this.$emit("viewdataschange", [...args]);
-  }
+    /**
+     * 是否单选
+     *
+     * @type {boolean}
+     * @memberof IndexPickupDataViewBase
+     */
+    public isSingleSelect: boolean = true;
+
+    /**
+     * 数据选中抛值
+     *
+     * @param {*} args
+     * @memberof IndexPickupDataViewBase
+     */
+    public dataviewDataSeletionchange(args: any) {
+        this.$emit('viewdataschange', [...args]);
+    }
 }

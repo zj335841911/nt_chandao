@@ -1,4 +1,4 @@
-import { MDViewBase } from "./MDViewBase";
+import { MDViewBase } from './MDViewBase';
 
 /**
  * 甘特图视图（部件视图）基类
@@ -7,4 +7,6 @@ import { MDViewBase } from "./MDViewBase";
  * @class GanttView9Base
  * @extends {MDViewBase}
  */
-export class GanttView9Base extends MDViewBase {}
+export class GanttView9Base extends MDViewBase {
+
+}

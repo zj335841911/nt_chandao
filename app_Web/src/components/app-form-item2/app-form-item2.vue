@@ -1,3 +1,4 @@
+
 <template>
   <div>
     <form-item
@@ -6,47 +7,25 @@
       :required="required"
       :rules="rules"
       :class="classes"
-      :label-width="
-        isShowCaption ? (!Object.is(labelPos, 'TOP') ? labelWidth : null) : 0
-      "
+      :label-width="isShowCaption ? !Object.is(labelPos, 'TOP') ?  labelWidth : null : 0"
       :ref="name"
     >
       <span
         v-if="isShowCaption && labelWidth > 0"
-        slot="label"
-        :class="labelclasses"
-        >{{ isEmptyCaption ? "" : caption }}</span
-      >
-      <div class="app-editor-contant">{{ $slots.default }}</div>
+        slot="label" :class="labelclasses"
+      >{{isEmptyCaption ? '' : caption}}</span>
+      <div class="app-editor-contant">{{$slots.default}}</div>
       <div
-        v-if="
-          _formitem &&
-            _formitem.validateState &&
-            Object.is(_formitem.validateState, 'error')
-        "
+        v-if="_formitem && _formitem.validateState && Object.is(_formitem.validateState, 'error')"
         class="app-error-tip"
       >
-        <poptip
-          trigger="hover"
-          placement="left"
-          width="300"
-          word-wrap="true"
-          transfer="true"
-        >
-          <icon
-            type="ios-information-circle-outline"
-            color="#ed4014"
-            size="20"
-          ></icon>
+        <poptip trigger="hover" placement="left" width="300" word-wrap="true" transfer="true">
+          <icon type="ios-information-circle-outline" color="#ed4014" size="20"></icon>
           <div slot="content" class="app-form-item-error-info">
             <div class="icon">
-              <icon
-                type="ios-information-circle-outline"
-                color="#ed4014"
-                size="20"
-              ></icon>
+              <icon type="ios-information-circle-outline" color="#ed4014" size="20"></icon>
             </div>
-            <div class="contant">{{ _formitem.validateMessage }}</div>
+            <div class="contant">{{_formitem.validateMessage}}</div>
           </div>
         </poptip>
       </div>
@@ -75,11 +54,11 @@ export default class AppFormItem2 extends Vue {
   @Prop() public error?: string;
 
   /**
-   * label样式
-   *
-   * @type {string}
-   * @memberof AppFormItem2
-   */
+    * label样式
+    *
+    * @type {string}
+    * @memberof AppFormItem2
+    */
   @Prop() public labelStyle?: string;
 
   /**
@@ -200,14 +179,14 @@ export default class AppFormItem2 extends Vue {
   }
 
   /**
-   * label样式
-   *
-   * @readonly
-   * @type {string}
-   * @memberof AppFormItem2
-   */
-  get labelclasses(): string {
-    return this.labelStyle ? this.labelStyle : "";
+    * label样式
+    *
+    * @readonly
+    * @type {string}
+    * @memberof AppFormItem2
+    */
+  get labelclasses():string{
+      return this.labelStyle?this.labelStyle:'';
   }
 
   /**

@@ -1,4 +1,4 @@
-import { ViewBase } from "./ViewBase";
+import { ViewBase } from './ViewBase';
 
 /**
  * 编辑视图基类
@@ -7,4 +7,6 @@ import { ViewBase } from "./ViewBase";
  * @class EditViewBase
  * @extends {ViewBase}
  */
-export class EditViewBase extends ViewBase {}
+export class EditViewBase extends ViewBase {
+
+}

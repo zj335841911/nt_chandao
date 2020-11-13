@@ -1,4 +1,4 @@
-import { MDViewBase } from "./MDViewBase";
+import { MDViewBase } from './MDViewBase';
 
 /**
  * 看板视图基类
@@ -7,4 +7,6 @@ import { MDViewBase } from "./MDViewBase";
  * @class KanBanViewBase
  * @extends {MDViewBase}
  */
-export class KanBanViewBase extends MDViewBase {}
+export class KanBanViewBase extends MDViewBase {
+
+}

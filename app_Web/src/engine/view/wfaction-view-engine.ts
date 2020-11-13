@@ -1,4 +1,4 @@
-import EditViewEngine from "./edit-view-engine";
+import EditViewEngine from './edit-view-engine';
 
 /**
  * 实体工作流操作视图界面引擎
@@ -7,4 +7,6 @@ import EditViewEngine from "./edit-view-engine";
  * @class WFActionViewEngine
  * @extends {EditViewEngine}
  */
-export default class WFActionViewEngine extends EditViewEngine {}
+export default class WFActionViewEngine extends EditViewEngine {
+
+}

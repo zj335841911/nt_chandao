@@ -1,4 +1,4 @@
-import { FormDetailModel } from "./form-detail";
+import { FormDetailModel } from './form-detail';
 
 /**
  * 用户控件模型
@@ -8,7 +8,9 @@ import { FormDetailModel } from "./form-detail";
  * @extends {FormDetailModel}
  */
 export class FormUserControlModel extends FormDetailModel {
-  constructor(otps: any = {}) {
-    super(otps);
-  }
+
+
+    constructor(otps:any = {}) {
+        super(otps);
+    }
 }

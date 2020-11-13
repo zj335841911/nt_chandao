@@ -1,4 +1,4 @@
-import { DataViewBase } from "./DataViewBase";
+import { DataViewBase } from './DataViewBase';
 
 /**
  * 数据视图基类
@@ -8,16 +8,17 @@ import { DataViewBase } from "./DataViewBase";
  * @extends {MDViewBase}
  */
 export class DataViewExpViewBase extends DataViewBase {
-  /**
-   * 快速搜索
-   *
-   * @protected
-   * @memberof DataViewExpViewBase
-   */
-  protected onSearch(): void {
-    const dataview: any = this.$refs.dataview;
-    if (dataview) {
-      dataview.refresh({});
+
+    /**
+     * 快速搜索
+     *
+     * @protected
+     * @memberof DataViewExpViewBase
+     */
+    protected onSearch(): void {
+        const dataview: any = this.$refs.dataview;
+        if (dataview) {
+            dataview.refresh({});
+        }
     }
-  }
 }

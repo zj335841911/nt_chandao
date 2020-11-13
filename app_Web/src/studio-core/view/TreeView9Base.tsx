@@ -1,4 +1,4 @@
-import { MDViewBase } from "./MDViewBase";
+import { MDViewBase } from './MDViewBase';
 
 /**
  * 树部件视图基类
@@ -7,4 +7,6 @@ import { MDViewBase } from "./MDViewBase";
  * @class TreeView9Base
  * @extends {MDViewBase}
  */
-export class TreeView9Base extends MDViewBase {}
+export class TreeView9Base extends MDViewBase {
+
+}
