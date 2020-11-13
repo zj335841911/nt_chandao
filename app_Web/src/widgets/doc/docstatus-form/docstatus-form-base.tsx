@@ -182,7 +182,7 @@ export class DOCSTATUSEditFormBase extends EditFormControlBase {
 
         recentaddcnt: new FormItemModel({ caption: '最近添加数量', detailType: 'FORMITEM', name: 'recentaddcnt', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 
-        formitemex2: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'formitemex2', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+        formitemex2: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'formitemex2', visible: true, isShowCaption: false, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 
         formitem1: new FormItemModel({ caption: '我的文档', detailType: 'FORMITEM', name: 'formitem1', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 
@@ -190,11 +190,11 @@ export class DOCSTATUSEditFormBase extends EditFormControlBase {
 
         mydoccnt: new FormItemModel({ caption: '我的文档数量', detailType: 'FORMITEM', name: 'mydoccnt', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 
-        formitemex3: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'formitemex3', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+        formitemex3: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'formitemex3', visible: true, isShowCaption: false, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 
         formitem2: new FormItemModel({ caption: '我的收藏', detailType: 'FORMITEM', name: 'formitem2', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 
-        formitemex4: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'formitemex4', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+        formitemex4: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'formitemex4', visible: true, isShowCaption: false, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 
         id: new FormItemModel({ caption: '文档编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 0 }),
 
