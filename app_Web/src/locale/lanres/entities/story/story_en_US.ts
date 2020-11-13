@@ -437,6 +437,7 @@ export default {
 			estimate: "预计工时", 
 			keywords: "关键词", 
 			mailto: "抄送给", 
+			mailtoconact: "联系人", 
 			product: "所属产品", 
 			openedby: "由谁创建", 
 			openeddate: "于", 

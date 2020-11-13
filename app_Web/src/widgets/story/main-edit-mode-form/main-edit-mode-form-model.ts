@@ -146,6 +146,11 @@ export default class Main_EditModeModel {
         dataType: 'SMCODELIST',
       },
       {
+        name: 'mailtoconact',
+        prop: 'mailtoconact',
+        dataType: 'TEXT',
+      },
+      {
         name: 'product',
         prop: 'product',
         dataType: 'PICKUP',

@@ -226,6 +226,7 @@ export class Main_EditModeEditFormBase extends EditFormControlBase {
         estimate: null,
         keywords: null,
         mailto: null,
+        mailtoconact: null,
         product: null,
         openedby: null,
         openeddate: null,
@@ -363,6 +364,8 @@ export class Main_EditModeEditFormBase extends EditFormControlBase {
 
         mailto: new FormItemModel({ caption: '抄送给', detailType: 'FORMITEM', name: 'mailto', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 
+        mailtoconact: new FormItemModel({ caption: '联系人', detailType: 'FORMITEM', name: 'mailtoconact', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+
         product: new FormItemModel({ caption: '所属产品', detailType: 'FORMITEM', name: 'product', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 
         openedby: new FormItemModel({ caption: '由谁创建', detailType: 'FORMITEM', name: 'openedby', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
@@ -461,6 +464,7 @@ export class Main_EditModeEditFormBase extends EditFormControlBase {
             }
             this.detailsModel.parentname.setVisible(ret);
         }
+
 
 
 
