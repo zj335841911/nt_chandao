@@ -4978,6 +4978,10 @@ WHERE t1.DELETED = '0'
 t1.module = ${srfdatacontext('id','{"defname":"ROOT","dename":"ZT_MODULE"}')} 
 
 ```
+### 文档统计(DocStatus)<div id="Doc_DocStatus"></div>
+```sql
+
+```
 ### 我的收藏(MYFAVOURITE)<div id="Doc_MyFavourite"></div>
 ```sql
 SELECT

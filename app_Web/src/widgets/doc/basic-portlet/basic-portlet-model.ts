@@ -114,6 +114,9 @@ export default class BasicModel {
       {
         name: 'mydoccnt',
       },
+      {
+        name: 'myfavouritecnt',
+      },
     ]
   }
 

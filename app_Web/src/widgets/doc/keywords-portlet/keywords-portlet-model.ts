@@ -114,6 +114,9 @@ export default class KeywordsModel {
       {
         name: 'mydoccnt',
       },
+      {
+        name: 'myfavouritecnt',
+      },
     ]
   }
 

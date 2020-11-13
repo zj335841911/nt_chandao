@@ -114,6 +114,9 @@ export default class DocSumModel {
       {
         name: 'mydoccnt',
       },
+      {
+        name: 'myfavouritecnt',
+      },
     ]
   }
 

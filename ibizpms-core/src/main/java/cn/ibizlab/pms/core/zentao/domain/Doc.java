@@ -286,6 +286,13 @@ public class Doc extends EntityMP implements Serializable {
     @JSONField(name = "mydoccnt")
     @JsonProperty("mydoccnt")
     private Integer mydoccnt;
+    /**
+     * 我的收藏数量
+     */
+    @TableField(exist = false)
+    @JSONField(name = "myfavouritecnt")
+    @JsonProperty("myfavouritecnt")
+    private Integer myfavouritecnt;
 
     /**
      * 

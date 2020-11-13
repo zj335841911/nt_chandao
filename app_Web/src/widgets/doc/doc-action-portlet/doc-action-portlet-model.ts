@@ -114,6 +114,9 @@ export default class DocActionModel {
       {
         name: 'mydoccnt',
       },
+      {
+        name: 'myfavouritecnt',
+      },
     ]
   }
 

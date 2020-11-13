@@ -49,6 +49,7 @@ hide members
 |今日更新数量|TODAYUPDATECNT|INT|&nbsp;|
 |最近添加数量|RECENTADDCNT|INT|&nbsp;|
 |我的文档数量|MYDOCCNT|INT|&nbsp;|
+|我的收藏数量|MYFAVOURITECNT|INT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -86,6 +87,7 @@ hide members
 |今日更新数量|默认规则|默认规则|
 |最近添加数量|默认规则|默认规则|
 |我的文档数量|默认规则|默认规则|
+|我的收藏数量|默认规则|默认规则|
 
 ## 状态控制
 
@@ -144,6 +146,7 @@ hide footbox
 |DEFAULT|DEFAULT([MYSQL5](../../appendix/query_MYSQL5.md#Doc_Default))|否|&nbsp;|
 |DocLibDoc|文档库文档([MYSQL5](../../appendix/query_MYSQL5.md#Doc_DocLibDoc))|否|&nbsp;|
 |DocModuleDoc|文档库分类文档([MYSQL5](../../appendix/query_MYSQL5.md#Doc_DocModuleDoc))|否|&nbsp;|
+|DocStatus|文档统计([MYSQL5](../../appendix/query_MYSQL5.md#Doc_DocStatus))|否|&nbsp;|
 |MYFAVOURITE|我的收藏([MYSQL5](../../appendix/query_MYSQL5.md#Doc_MyFavourite))|否|&nbsp;|
 |VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#Doc_View))|否|&nbsp;|
 

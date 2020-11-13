@@ -56,6 +56,7 @@
 | 31 | [今日更新数量](#属性-今日更新数量（TODAYUPDATECNT）) | TODAYUPDATECNT | 整型 | 否 | 是 | 是 |
 | 32 | [最近添加数量](#属性-最近添加数量（RECENTADDCNT）) | RECENTADDCNT | 整型 | 否 | 是 | 是 |
 | 33 | [我的文档数量](#属性-我的文档数量（MYDOCCNT）) | MYDOCCNT | 整型 | 否 | 是 | 是 |
+| 34 | [我的收藏数量](#属性-我的收藏数量（MYFAVOURITECNT）) | MYFAVOURITECNT | 整型 | 否 | 是 | 是 |
 
 ### 属性-分组（GROUPS）
 #### 属性说明
@@ -1462,6 +1463,47 @@ Integer
 | 关系属性 | [模块名称（NAME）](../zentao/Module/#属性-模块名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
+### 属性-我的收藏数量（MYFAVOURITECNT）
+#### 属性说明
+我的收藏数量
+
+- 是否是主键
+否
+
+- 属性类型
+应用界面字段[无存储]
+
+- 数据类型
+整型
+
+- Java类型
+Integer
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [模块（ZT_MODULE）](../zentao/Module) |
+| 关系属性 | [模块名称（NAME）](../zentao/Module/#属性-模块名称（NAME）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
 
 ## 业务状态
 | 序号 | 状态名称 | [文档查询类型](#属性-文档查询类型（DOCQTYPE）)<br>（DOCQTYPE） | [是否收藏](#属性-是否收藏（ISFAVOURITES）)<br>（ISFAVOURITES） | 默认 |
@@ -1834,8 +1876,9 @@ Save
 | 2 | [DEFAULT](#数据查询-DEFAULT（Default）) | Default | 否 |
 | 3 | [文档库文档](#数据查询-文档库文档（DocLibDoc）) | DocLibDoc | 否 |
 | 4 | [文档库分类文档](#数据查询-文档库分类文档（DocModuleDoc）) | DocModuleDoc | 否 |
-| 5 | [我的收藏](#数据查询-我的收藏（MyFavourite）) | MyFavourite | 否 |
-| 6 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 5 | [文档统计](#数据查询-文档统计（DocStatus）) | DocStatus | 否 |
+| 6 | [我的收藏](#数据查询-我的收藏（MyFavourite）) | MyFavourite | 否 |
+| 7 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
 ### 数据查询-文档库文档（子库）（ChildDocLibDoc）
 #### 说明
@@ -2083,6 +2126,21 @@ LEFT JOIN zt_project t11 ON t1.PROJECT = t11.ID
 LEFT JOIN zt_product t21 ON t1.PRODUCT = t21.ID 
 LEFT JOIN zt_doclib t31 ON t1.LIB = t31.ID 
 LEFT JOIN zt_module t41 ON t1.MODULE = t41.ID ) t1
+```
+### 数据查询-文档统计（DocStatus）
+#### 说明
+文档统计
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+
 ```
 ### 数据查询-我的收藏（MyFavourite）
 #### 说明

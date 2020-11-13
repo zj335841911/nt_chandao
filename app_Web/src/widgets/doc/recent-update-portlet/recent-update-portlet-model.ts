@@ -114,6 +114,9 @@ export default class RecentUpdateModel {
       {
         name: 'mydoccnt',
       },
+      {
+        name: 'myfavouritecnt',
+      },
     ]
   }
 
