@@ -234,6 +234,12 @@ export class Usr3MobMPickupBuildCreateBugViewpickupviewpanelModel {
       {
         name: 'noticeusers',
       },
+      {
+        name: 'mailtopk',
+      },
+      {
+        name: 'mailtoconact',
+      },
     ]
   }
 

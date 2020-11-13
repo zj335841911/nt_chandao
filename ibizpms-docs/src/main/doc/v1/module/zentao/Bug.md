@@ -110,6 +110,8 @@ Bug
 | 71 | [相关用例](#属性-相关用例（CASENAME）) | CASENAME | 外键值文本 | 否 | 是 | 是 |
 | 72 | [延期](#属性-延期（DELAY）) | DELAY | 文本，可指定长度 | 否 | 是 | 是 |
 | 73 | [消息通知用户](#属性-消息通知用户（NOTICEUSERS）) | NOTICEUSERS | 文本，可指定长度 | 否 | 是 | 是 |
+| 74 | [抄送给](#属性-抄送给（MAILTOPK）) | MAILTOPK | 多项选择(文本值) | 否 | 是 | 是 |
+| 75 | [联系人](#属性-联系人（MAILTOCONACT）) | MAILTOCONACT | 文本，可指定长度 | 否 | 是 | 是 |
 
 ### 属性-严重程度（SEVERITY）
 #### 属性说明
@@ -3334,6 +3336,88 @@ String
 | 关系属性 | [用例标题（TITLE）](../zentao/Case/#属性-用例标题（TITLE）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
+### 属性-抄送给（MAILTOPK）
+#### 属性说明
+抄送给
+
+- 是否是主键
+否
+
+- 属性类型
+逻辑字段[来自计算式]
+
+- 数据类型
+多项选择(文本值)
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+参照数据字典【[用户真实名称（动态）（UserRealName）](../../codelist/UserRealName)】
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [测试用例（ZT_CASE）](../zentao/Case) |
+| 关系属性 | [用例标题（TITLE）](../zentao/Case/#属性-用例标题（TITLE）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
+### 属性-联系人（MAILTOCONACT）
+#### 属性说明
+联系人
+
+- 是否是主键
+否
+
+- 属性类型
+应用界面字段[无存储]
+
+- 数据类型
+文本，可指定长度
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [测试用例（ZT_CASE）](../zentao/Case) |
+| 关系属性 | [用例标题（TITLE）](../zentao/Case/#属性-用例标题（TITLE）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
 
 ## 业务状态
 | 序号 | 状态名称 | [Bug状态](#属性-Bug状态（STATUS）)<br>（STATUS） | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | [是否确认](#属性-是否确认（CONFIRMED）)<br>（CONFIRMED） | 默认 |
@@ -3798,19 +3882,20 @@ String
 | 14 | [CheckKey](#实体行为-CheckKey（CheckKey）) | CheckKey | 内置方法 | 后台及前台 |
 | 15 | [关闭](#实体行为-关闭（Close）) | Close | 用户自定义 | 后台及前台 |
 | 16 | [确认](#实体行为-确认（Confirm）) | Confirm | 用户自定义 | 后台及前台 |
-| 17 | [关联Bug](#实体行为-关联Bug（LinkBug）) | LinkBug | 用户自定义 | 后台及前台 |
-| 18 | [批量解除关联Bug](#实体行为-批量解除关联Bug（ReleaaseBatchUnlinkBug）) | ReleaaseBatchUnlinkBug | 用户自定义 | 后台及前台 |
-| 19 | [关联Bug（解决Bug）](#实体行为-关联Bug（解决Bug）（ReleaseLinkBugbyBug）) | ReleaseLinkBugbyBug | 用户自定义 | 后台及前台 |
-| 20 | [关联Bug（遗留Bug）](#实体行为-关联Bug（遗留Bug）（ReleaseLinkBugbyLeftBug）) | ReleaseLinkBugbyLeftBug | 用户自定义 | 后台及前台 |
-| 21 | [移除关联Bug（遗留Bug）](#实体行为-移除关联Bug（遗留Bug）（ReleaseUnLinkBugbyLeftBug）) | ReleaseUnLinkBugbyLeftBug | 用户自定义 | 后台及前台 |
-| 22 | [解除关联Bug](#实体行为-解除关联Bug（ReleaseUnlinkBug）) | ReleaseUnlinkBug | 用户自定义 | 后台及前台 |
-| 23 | [解决](#实体行为-解决（Resolve）) | Resolve | 用户自定义 | 后台及前台 |
-| 24 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
-| 25 | [行为](#实体行为-行为（SendMessage）) | sendMessage | 用户自定义 | 后台及前台 |
-| 26 | [发送消息前置处理](#实体行为-发送消息前置处理（SendMsgPreProcess）) | sendMsgPreProcess | 用户自定义 | 后台及前台 |
-| 27 | [转需求](#实体行为-转需求（ToStory）) | toStory | 用户自定义 | 后台及前台 |
-| 28 | [解除关联Bug](#实体行为-解除关联Bug（UnlinkBug）) | UnlinkBug | 用户自定义 | 后台及前台 |
-| 29 | [更新需求版本](#实体行为-更新需求版本（UpdateStoryVersion）) | UpdateStoryVersion | 实体处理逻辑 | 后台 |
+| 17 | [获取联系人](#实体行为-获取联系人（GetUserConcat）) | GetUserConcat | 实体处理逻辑 | 前台 |
+| 18 | [关联Bug](#实体行为-关联Bug（LinkBug）) | LinkBug | 用户自定义 | 后台及前台 |
+| 19 | [批量解除关联Bug](#实体行为-批量解除关联Bug（ReleaaseBatchUnlinkBug）) | ReleaaseBatchUnlinkBug | 用户自定义 | 后台及前台 |
+| 20 | [关联Bug（解决Bug）](#实体行为-关联Bug（解决Bug）（ReleaseLinkBugbyBug）) | ReleaseLinkBugbyBug | 用户自定义 | 后台及前台 |
+| 21 | [关联Bug（遗留Bug）](#实体行为-关联Bug（遗留Bug）（ReleaseLinkBugbyLeftBug）) | ReleaseLinkBugbyLeftBug | 用户自定义 | 后台及前台 |
+| 22 | [移除关联Bug（遗留Bug）](#实体行为-移除关联Bug（遗留Bug）（ReleaseUnLinkBugbyLeftBug）) | ReleaseUnLinkBugbyLeftBug | 用户自定义 | 后台及前台 |
+| 23 | [解除关联Bug](#实体行为-解除关联Bug（ReleaseUnlinkBug）) | ReleaseUnlinkBug | 用户自定义 | 后台及前台 |
+| 24 | [解决](#实体行为-解决（Resolve）) | Resolve | 用户自定义 | 后台及前台 |
+| 25 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
+| 26 | [行为](#实体行为-行为（SendMessage）) | sendMessage | 用户自定义 | 后台及前台 |
+| 27 | [发送消息前置处理](#实体行为-发送消息前置处理（SendMsgPreProcess）) | sendMsgPreProcess | 用户自定义 | 后台及前台 |
+| 28 | [转需求](#实体行为-转需求（ToStory）) | toStory | 用户自定义 | 后台及前台 |
+| 29 | [解除关联Bug](#实体行为-解除关联Bug（UnlinkBug）) | UnlinkBug | 用户自定义 | 后台及前台 |
+| 30 | [更新需求版本](#实体行为-更新需求版本（UpdateStoryVersion）) | UpdateStoryVersion | 实体处理逻辑 | 后台 |
 
 ### 实体行为-Create（Create）
 #### 说明
@@ -4019,6 +4104,18 @@ CheckKey
 | 序号 | 附加逻辑 | 附加模式 | 内部逻辑 | 备注 |
 | ---- | ---- | ---- | ---- | ---- |
 | 1 | [发送通知<br>（sendNotice）](#逻辑处理-发送通知（sendNotice）) | 执行之后 | 是 |  |
+### 实体行为-获取联系人（GetUserConcat）
+#### 说明
+获取联系人
+
+- 行为类型
+实体处理逻辑
+
+- 行为持有者
+前台
+
+#### 逻辑附加
+无
 ### 实体行为-关联Bug（LinkBug）
 #### 说明
 关联Bug
@@ -4185,11 +4282,12 @@ Save
 | ---- | ---- | ---- | ---- |
 | 1 | [Bug收藏](#逻辑处理-Bug收藏（BugFavorites）) | BugFavorites | 后台 |
 | 2 | [Bug取消收藏](#逻辑处理-Bug取消收藏（BugNFavorites）) | BugNFavorites | 后台 |
-| 3 | [获取模块的平台](#逻辑处理-获取模块的平台（GetModuleBranch）) | GetModuleBranch | 后台 |
-| 4 | [获取产品](#逻辑处理-获取产品（GetProducts）) | GetProducts | 后台 |
-| 5 | [更新需求版本](#逻辑处理-更新需求版本（UpdateStoryVersion）) | UpdateStoryVersion | 后台 |
-| 6 | [发送通知](#逻辑处理-发送通知（sendNotice）) | sendNotice | 后台 |
-| 7 | [发送待办任务](#逻辑处理-发送待办任务（sendTodoTask）) | sendTodoTask | 后台 |
+| 3 | [获取联系人](#逻辑处理-获取联系人（GetCurUserConcat）) | GetCurUserConcat | 前台 |
+| 4 | [获取模块的平台](#逻辑处理-获取模块的平台（GetModuleBranch）) | GetModuleBranch | 后台 |
+| 5 | [获取产品](#逻辑处理-获取产品（GetProducts）) | GetProducts | 后台 |
+| 6 | [更新需求版本](#逻辑处理-更新需求版本（UpdateStoryVersion）) | UpdateStoryVersion | 后台 |
+| 7 | [发送通知](#逻辑处理-发送通知（sendNotice）) | sendNotice | 后台 |
+| 8 | [发送待办任务](#逻辑处理-发送待办任务（sendTodoTask）) | sendTodoTask | 后台 |
 
 ### 逻辑处理-Bug收藏（BugFavorites）
 #### 说明
@@ -4216,6 +4314,18 @@ Save
 | ---- | ---- | ---- | ---- |
 | 1 | 取消收藏 | Rawsqlcall1 | 直接SQL调用 |
 | 2 | 开始 | Begin | 开始 |
+### 逻辑处理-获取联系人（GetCurUserConcat）
+#### 说明
+获取联系人
+
+- 逻辑持有者
+前台
+
+#### 逻辑节点
+| 序号 | 节点 | 节点名 | 节点类型 |
+| ---- | ---- | ---- | ---- |
+| 1 | 开始 | Begin | 开始 |
+| 2 | 获取参数 | Prepareparam1 | 准备参数 |
 ### 逻辑处理-获取模块的平台（GetModuleBranch）
 #### 说明
 获取模块的平台
@@ -4816,6 +4926,7 @@ t1.`LASTEDITEDDATE`,
 t1.`LINES`,
 t1.`LINKBUG`,
 t1.`MAILTO`,
+t1.MAILTO AS `MAILTOPK`,
 t1.`MODULE`,
 t51.`NAME` AS `MODULENAME`,
 (case when t1.module = '0' then '/' else (SELECT GROUP_CONCAT( tt.NAME SEPARATOR '>' )  FROM zt_module tt WHERE FIND_IN_SET( tt.id, t51.path ) AND tt.type = 'story'  GROUP BY tt.root limit 0,1) end) AS `MODULENAME1`,
@@ -5303,6 +5414,7 @@ t1.`LASTEDITEDDATE`,
 t1.`LINES`,
 t1.`LINKBUG`,
 t1.`MAILTO`,
+t1.MAILTO AS `MAILTOPK`,
 t1.`MODULE`,
 t51.`NAME` AS `MODULENAME`,
 (case when t1.module = '0' then '/' else (SELECT GROUP_CONCAT( tt.NAME SEPARATOR '>' )  FROM zt_module tt WHERE FIND_IN_SET( tt.id, t51.path ) AND tt.type = 'story'  GROUP BY tt.root limit 0,1) end) AS `MODULENAME1`,
@@ -5920,6 +6032,7 @@ t1.`LASTEDITEDDATE`,
 t1.`LINES`,
 t1.`LINKBUG`,
 t1.`MAILTO`,
+t1.MAILTO AS `MAILTOPK`,
 t1.`MODULE`,
 t51.`NAME` AS `MODULENAME`,
 (case when t1.module = '0' then '/' else (SELECT GROUP_CONCAT( tt.NAME SEPARATOR '>' )  FROM zt_module tt WHERE FIND_IN_SET( tt.id, t51.path ) AND tt.type = 'story'  GROUP BY tt.root limit 0,1) end) AS `MODULENAME1`,
@@ -6094,6 +6207,7 @@ t1.`LASTEDITEDDATE`,
 t1.`LINES`,
 t1.`LINKBUG`,
 t1.`MAILTO`,
+t1.MAILTO AS `MAILTOPK`,
 t1.`MODULE`,
 t51.`NAME` AS `MODULENAME`,
 (case when t1.module = '0' then '/' else (SELECT GROUP_CONCAT( tt.NAME SEPARATOR '>' )  FROM zt_module tt WHERE FIND_IN_SET( tt.id, t51.path ) AND tt.type = 'story'  GROUP BY tt.root limit 0,1) end) AS `MODULENAME1`,
@@ -6515,6 +6629,7 @@ t1.`LASTEDITEDDATE`,
 t1.`LINES`,
 t1.`LINKBUG`,
 t1.`MAILTO`,
+t1.MAILTO AS `MAILTOPK`,
 t1.`MODULE`,
 t51.`NAME` AS `MODULENAME`,
 (case when t1.module = '0' then '/' else (SELECT GROUP_CONCAT( tt.NAME SEPARATOR '>' )  FROM zt_module tt WHERE FIND_IN_SET( tt.id, t51.path ) AND tt.type = 'story'  GROUP BY tt.root limit 0,1) end) AS `MODULENAME1`,
@@ -6604,6 +6719,7 @@ t1.`LASTEDITEDDATE`,
 t1.`LINES`,
 t1.`LINKBUG`,
 t1.`MAILTO`,
+t1.MAILTO AS `MAILTOPK`,
 t1.`MODULE`,
 t51.`NAME` AS `MODULENAME`,
 (case when t1.module = '0' then '/' else (SELECT GROUP_CONCAT( tt.NAME SEPARATOR '>' )  FROM zt_module tt WHERE FIND_IN_SET( tt.id, t51.path ) AND tt.type = 'story'  GROUP BY tt.root limit 0,1) end) AS `MODULENAME1`,
@@ -6772,6 +6888,7 @@ t1.`LASTEDITEDDATE`,
 t1.`LINES`,
 t1.`LINKBUG`,
 t1.`MAILTO`,
+t1.MAILTO AS `MAILTOPK`,
 t1.`MODULE`,
 t51.`NAME` AS `MODULENAME`,
 (case when t1.module = '0' then '/' else (SELECT GROUP_CONCAT( tt.NAME SEPARATOR '>' )  FROM zt_module tt WHERE FIND_IN_SET( tt.id, t51.path ) AND tt.type = 'story'  GROUP BY tt.root limit 0,1) end) AS `MODULENAME1`,
@@ -6948,6 +7065,7 @@ t1.`LASTEDITEDDATE`,
 t1.`LINES`,
 t1.`LINKBUG`,
 t1.`MAILTO`,
+t1.MAILTO AS `MAILTOPK`,
 t1.`MODULE`,
 t51.`NAME` AS `MODULENAME`,
 (case when t1.module = '0' then '/' else (SELECT GROUP_CONCAT( tt.NAME SEPARATOR '>' )  FROM zt_module tt WHERE FIND_IN_SET( tt.id, t51.path ) AND tt.type = 'story'  GROUP BY tt.root limit 0,1) end) AS `MODULENAME1`,

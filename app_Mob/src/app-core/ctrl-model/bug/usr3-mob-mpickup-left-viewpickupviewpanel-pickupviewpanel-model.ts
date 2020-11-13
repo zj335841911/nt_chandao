@@ -234,6 +234,12 @@ export class Usr3MobMPickupLeftViewpickupviewpanelModel {
       {
         name: 'noticeusers',
       },
+      {
+        name: 'mailtopk',
+      },
+      {
+        name: 'mailtoconact',
+      },
     ]
   }
 

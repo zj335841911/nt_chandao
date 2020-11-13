@@ -10666,6 +10666,15 @@ mock.onGet(new RegExp(/^\/bugs\/fetchreportbugs(\?[\w-./?%&=,]*)*$/)).reply((con
 // URI参数传递情况未实现
 // URI参数传递情况未实现
 
+// URI参数传递情况未实现
+
+// URI参数传递情况未实现
+
+// URI参数传递情况未实现
+
+// URI参数传递情况未实现
+// URI参数传递情况未实现
+
 
 // Remove
 mock.onDelete(new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/stories\/([a-zA-Z0-9\-\;]{1,35})\/bugs\/([a-zA-Z0-9\-\;]{1,35})$/)).reply((config: any) => {

@@ -8656,7 +8656,9 @@ POST
 | 71 | casename | String | 允许 | 相关用例 |
 | 72 | delay | String | 允许 | 延期 |
 | 73 | noticeusers | String | 允许 | 消息通知用户 |
-| 74 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 74 | mailtopk | String | 允许 | 抄送给 |
+| 75 | mailtoconact | String | 允许 | 联系人 |
+| 76 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### BugSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

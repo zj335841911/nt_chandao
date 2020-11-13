@@ -610,6 +610,20 @@ public class Bug extends EntityMP implements Serializable {
     @JSONField(name = "noticeusers")
     @JsonProperty("noticeusers")
     private String noticeusers;
+    /**
+     * 抄送给
+     */
+    @TableField(exist = false)
+    @JSONField(name = "mailtopk")
+    @JsonProperty("mailtopk")
+    private String mailtopk;
+    /**
+     * 联系人
+     */
+    @TableField(exist = false)
+    @JSONField(name = "mailtoconact")
+    @JsonProperty("mailtoconact")
+    private String mailtoconact;
 
     /**
      * 

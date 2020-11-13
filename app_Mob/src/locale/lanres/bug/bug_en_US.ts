@@ -73,6 +73,8 @@ export default {
     casename: "相关用例",
     delay: "延期",
     noticeusers: "消息通知用户",
+    mailtopk: "抄送给",
+    mailtoconact: "联系人",
   },
 	views: {
 		colsemobeditview: {

@@ -103,6 +103,8 @@ hide members
 |相关用例|CASENAME|PICKUPTEXT|&nbsp;|
 |延期|DELAY|TEXT|&nbsp;|
 |消息通知用户|NOTICEUSERS|TEXT|&nbsp;|
+|抄送给|MAILTOPK|SMCODELIST|&nbsp;|
+|联系人|MAILTOCONACT|TEXT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -180,6 +182,8 @@ hide members
 |相关用例|默认规则|内容长度必须小于等于[255]|
 |延期|默认规则|内容长度必须小于等于[200]|
 |消息通知用户|默认规则|内容长度必须小于等于[100]|
+|抄送给|默认规则|内容长度必须小于等于[65535]|
+|联系人|默认规则|内容长度必须小于等于[100]|
 
 ## 状态控制
 
@@ -233,6 +237,7 @@ Bug状态
 |CheckKey|内置方法|&nbsp;|
 |关闭|用户自定义|&nbsp;|
 |确认|用户自定义|&nbsp;|
+|获取联系人|实体处理逻辑|&nbsp;|
 |关联Bug|用户自定义|&nbsp;|
 |批量解除关联Bug|用户自定义|&nbsp;|
 |关联Bug（解决Bug）|用户自定义|&nbsp;|
@@ -280,6 +285,21 @@ Bug -> Bug: 取消收藏
 |0|开始 | 
 |1|取消收藏 |
 <center>Bug取消收藏</center>
+* 获取联系人 (GetCurUserConcat)
+  
+   
+
+{% plantuml %}
+hide footbox
+
+Bug -> Bug: 获取参数
+{% endplantuml %}
+
+| 步骤       | 操作        |
+| --------   | --------   |
+|0|开始 | 
+|1|获取参数 |
+<center>获取联系人</center>
 * 获取模块的平台 (GetModuleBranch)
   
    
