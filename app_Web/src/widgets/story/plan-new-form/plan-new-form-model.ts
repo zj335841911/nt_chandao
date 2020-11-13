@@ -146,8 +146,18 @@ export default class PlanNewModel {
         dataType: 'TEXT',
       },
       {
+        name: 'mailtoconact',
+        prop: 'mailtoconact',
+        dataType: 'TEXT',
+      },
+      {
         name: 'mailto',
         prop: 'mailto',
+        dataType: 'SMCODELIST',
+      },
+      {
+        name: 'mailtopk',
+        prop: 'mailtopk',
         dataType: 'SMCODELIST',
       },
       {

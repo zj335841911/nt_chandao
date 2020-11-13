@@ -232,7 +232,7 @@
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.mailto.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col class="form-layout-container" v-show="detailsModel.mailto.visible" :style="{}"  :lg="{ span: 15, offset: 0 }" :xl="{ span: 15, offset: 0 }">
     <app-form-item name='mailto' :itemRules="this.rules().mailto" class='' :caption="$t('entities.story.bugtostory_form.details.mailto')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.mailto.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <dropdown-list-mpicker 
@@ -249,6 +249,31 @@
   placeholder='请选择...' style="">
 </dropdown-list-mpicker>
 
+</app-form-item>
+
+</i-col>
+<i-col class="form-layout-container" v-show="detailsModel.mailtoconact.visible" :style="{}"  :lg="{ span: 9, offset: 0 }" :xl="{ span: 9, offset: 0 }">
+    <app-form-item name='mailtoconact' :itemRules="this.rules().mailtoconact" class='' :caption="$t('entities.story.bugtostory_form.details.mailtoconact')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.mailtoconact.error" :isEmptyCaption="false" labelPos="LEFT">
+    
+<app-picker  
+  :formState="formState"
+  :data="data"
+  :context="context"
+  :viewparams="viewparams"
+  :localContext ='{ }' 
+  :localParam ='{ }' 
+  :disabled="detailsModel.mailtoconact.disabled"
+  name='mailtoconact'
+  deMajorField='listname'
+  deKeyField='userlist'
+  :service="service"
+  :acParams="{ serviceName: 'UserContactService', interfaceName: 'FetchCurUSERCONTACT'}"
+  valueitem='mailto'
+  :value="data.mailtoconact"
+  editortype="dropdown"
+  style=""
+  @formitemvaluechange="onFormItemValueChange($event)">
+</app-picker>
 </app-form-item>
 
 </i-col>

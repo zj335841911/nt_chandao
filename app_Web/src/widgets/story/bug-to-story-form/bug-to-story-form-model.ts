@@ -136,9 +136,19 @@ export default class BugToStoryModel {
         dataType: 'TEXT',
       },
       {
+        name: 'mailtopk',
+        prop: 'mailtopk',
+        dataType: 'SMCODELIST',
+      },
+      {
         name: 'mailto',
         prop: 'mailto',
         dataType: 'SMCODELIST',
+      },
+      {
+        name: 'mailtoconact',
+        prop: 'mailtoconact',
+        dataType: 'TEXT',
       },
       {
         name: 'keywords',
