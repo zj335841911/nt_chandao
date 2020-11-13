@@ -49,7 +49,15 @@ export class AppServiceBase {
      * @param {string} [redirect]
      * @memberof AppServiceBase
      */
-    public logout(redirect?: string): void {
+    async logout(redirect?: string): Promise<void> {
+        // 如果是CAS模式，调用后台登出
+        if (Environment.LoginMode.toUpperCase() === 'CAS') {
+            try {
+                await Http.getInstance().get('/v7/casproxylogout', {}, false);
+            } catch (err) {
+                console.log(err);
+            }
+        }
         this.doLogin(null, redirect, false);
     }
 
@@ -65,14 +73,6 @@ export class AppServiceBase {
         const win: any = window;
         if (win.isDoLogin) {
             return;
-        }
-        // 如果是CAS模式，调用后台登出
-        if (Environment.LoginMode.toUpperCase() === 'CAS') {
-            try {
-                await Http.getInstance().get('/v7/casproxylogout', {}, false);
-            } catch (err) {
-                console.log(err);
-            }
         }
         // 清除user、token和cookie
         if (localStorage.getItem('user')) {

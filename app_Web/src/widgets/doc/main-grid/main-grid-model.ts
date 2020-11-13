@@ -96,6 +96,11 @@ export default class MainModel {
           dataType: 'PICKUP',
         },
         {
+          name: 'isfavourites',
+          prop: 'isfavourites',
+          dataType: 'INT',
+        },
+        {
           name: 'docqtype',
           prop: 'docqtype',
           dataType: 'TEXT',

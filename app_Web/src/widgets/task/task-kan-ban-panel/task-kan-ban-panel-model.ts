@@ -49,7 +49,6 @@ export default class TaskKanBanModel {
       },
       {
         name: 'pri',
-        codelist: {tag: 'Task__pri',codelistType: 'STATIC'},
         prop: 'pri'
       },
       {
@@ -58,7 +57,6 @@ export default class TaskKanBanModel {
       },
       {
         name: 'mailto',
-        codelist: {tag: 'UserRealName',codelistType: 'DYNAMIC'},
         prop: 'mailto'
       },
       {
@@ -75,7 +73,6 @@ export default class TaskKanBanModel {
       },
       {
         name: 'color',
-        codelist: {tag: 'Task__color',codelistType: 'STATIC'},
         prop: 'color'
       }
     ]
