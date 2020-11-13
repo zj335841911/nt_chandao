@@ -30,6 +30,7 @@ hide members
 |id|PARENT|PICKUP|&nbsp;|
 |所属文档库|DOCLIBNAME|PICKUPTEXT|&nbsp;|
 |上级模块|MODULENAME|PICKUPTEXT|&nbsp;|
+|是否收藏|ISFAVOURITES|INT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -50,6 +51,7 @@ hide members
 |id|默认规则|默认规则|
 |所属文档库|默认规则|内容长度必须小于等于[60]|
 |上级模块|默认规则|内容长度必须小于等于[60]|
+|是否收藏|默认规则|默认规则|
 
 ## 状态控制
 
@@ -65,8 +67,10 @@ hide members
 |Get|内置方法|&nbsp;|
 |GetDraft|内置方法|&nbsp;|
 |CheckKey|内置方法|&nbsp;|
+|收藏|用户自定义|&nbsp;|
 |重建模块路径|实体处理逻辑|&nbsp;|
 |Save|内置方法|&nbsp;|
+|取消收藏|用户自定义|&nbsp;|
 
 ## 处理逻辑
 * 重建模块路径 (FixPath)

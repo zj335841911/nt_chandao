@@ -148,6 +148,25 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | true：处理成功。false：处理失败。 |
 
+### 收藏
+#### 访问路径
+/doclibmodules/{doclibmodule_id}/collect
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | doclibmodule_id | Long | 文档库分类主键ID |
+| 2 | doclibmoduledto | [DocLibModuleDTO](#DocLibModuleDTO) | 文档库分类实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [DocLibModuleDTO](#DocLibModuleDTO)：文档库分类实体传输对象 |
+
 ### 重建模块路径
 #### 访问路径
 /doclibmodules/{doclibmodule_id}/fix
@@ -202,6 +221,25 @@ POST
 | ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | true：处理成功。false：处理失败。 |
+
+### 取消收藏
+#### 访问路径
+/doclibmodules/{doclibmodule_id}/uncollect
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | doclibmodule_id | Long | 文档库分类主键ID |
+| 2 | doclibmoduledto | [DocLibModuleDTO](#DocLibModuleDTO) | 文档库分类实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [DocLibModuleDTO](#DocLibModuleDTO)：文档库分类实体传输对象 |
 
 ### 获取自定义文档库的模块
 #### 访问路径
@@ -440,7 +478,8 @@ POST
 | 14 | parent | Long | 允许 | id |
 | 15 | doclibname | String | 允许 | 所属文档库 |
 | 16 | modulename | String | 允许 | 上级模块 |
-| 17 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 17 | isfavourites | Integer | 允许 | 是否收藏 |
+| 18 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### DocLibModuleSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

@@ -136,6 +136,13 @@ public class DocLibModuleServiceImpl extends ServiceImpl<DocLibModuleMapper, Doc
     }
     @Override
     @Transactional
+    public DocLibModule collect(DocLibModule et) {
+        //自定义代码
+        return et;
+    }
+
+    @Override
+    @Transactional
     public DocLibModule fix(DocLibModule et) {
         fixpathLogic.execute(et);
          return et ;
@@ -173,6 +180,13 @@ public class DocLibModuleServiceImpl extends ServiceImpl<DocLibModuleMapper, Doc
     public void saveBatch(List<DocLibModule> list) {
         list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
+    }
+
+    @Override
+    @Transactional
+    public DocLibModule unCollect(DocLibModule et) {
+        //自定义代码
+        return et;
     }
 
 

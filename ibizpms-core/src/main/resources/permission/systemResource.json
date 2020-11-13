@@ -148,6 +148,11 @@
        }
         ,
        {
+            "unirescode":"DOCLIBMODULE_NFAVOUR_BUT",
+            "uniresname":"取消收藏文档库分类"
+       }
+        ,
+       {
             "unirescode":"LICASE_OPEN_BUT",
             "uniresname":"用例库用例概况"
        }
@@ -545,6 +550,11 @@
        {
             "unirescode":"BUG_NFAVOR_BUT",
             "uniresname":"Bug待收藏"
+       }
+        ,
+       {
+            "unirescode":"DOCLIBMODULE_FAVOUR_BUT",
+            "uniresname":"收藏文档库分类"
        }
         ,
        {
@@ -1085,7 +1095,7 @@
     "datascope":[{"id":"all","name":"全部数据"}]
      }
     ,    {
-    "dename":"EMPLOYEELOAD",
+    "dename":"EmpLoyeeload",
     "delogicname":"员工负载表",
     "sysmoudle":{"id":"IBIZ","name":"iBiz增强模块"},
     "dedataset":[{"id":"Default" , "name":"数据集"},{"id":"GETWOERKLOAD" , "name":"获取员工负载表"}],
@@ -1193,7 +1203,7 @@
     "delogicname":"文档库分类",
     "sysmoudle":{"id":"IBIZ","name":"iBiz增强模块"},
     "dedataset":[{"id":"AllDocLibModule_Custom" , "name":"自定义文档库的模块"},{"id":"AllDoclibModule" , "name":"所有文档库模块"},{"id":"Default" , "name":"数据集"},{"id":"ParentModule" , "name":"父集合"},{"id":"RootModuleMuLu" , "name":"所有根模块目录"},{"id":"RootModuleMuLuByRoot" , "name":"根模块目录"}],
-    "deaction":[{"id":"Create" , "name":"Create" , "type":"BUILTIN" },{"id":"Update" , "name":"Update" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" },{"id":"Get" , "name":"Get" , "type":"BUILTIN" },{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" },{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"Fix" , "name":"重建模块路径" , "type":"DELOGIC" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" }],
+    "deaction":[{"id":"Create" , "name":"Create" , "type":"BUILTIN" },{"id":"Update" , "name":"Update" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" },{"id":"Get" , "name":"Get" , "type":"BUILTIN" },{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" },{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"Collect" , "name":"收藏" , "type":"USERCUSTOM" },{"id":"Fix" , "name":"重建模块路径" , "type":"DELOGIC" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" },{"id":"UnCollect" , "name":"取消收藏" , "type":"USERCUSTOM" }],
     "datascope":[{"id":"all","name":"全部数据"}]
      }
     ,    {

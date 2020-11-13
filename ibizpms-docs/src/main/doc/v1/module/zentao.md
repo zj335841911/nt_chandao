@@ -76,28 +76,28 @@ class 群组权限 {
 class 操作历史 {
 }
 
-class im_chat {
+class ImChat {
 }
 
-class im_chatuser {
+class ImChatuser {
 }
 
-class im_client {
+class ImClient {
 }
 
-class im_conference {
+class ImConference {
 }
 
-class im_conferenceaction {
+class ImConferenceaction {
 }
 
-class im_message {
+class ImMessage {
 }
 
-class im_messagestatus {
+class ImMessagestatus {
 }
 
-class im_queue {
+class ImQueue {
 }
 
 class jenkins {
@@ -508,14 +508,14 @@ hide members
 |ZT_GROUP|[群组](zentao/Group.md)|主实体|&nbsp;|
 |ZT_GROUPPRIV|[群组权限](zentao/GroupPriv.md)|主实体|&nbsp;|
 |ZT_HISTORY|[操作历史](zentao/History.md)|主实体|&nbsp;|
-|ZT_IM_CHAT|[im_chat](zentao/Im_chat.md)|主实体|&nbsp;|
-|ZT_IM_CHATUSER|[im_chatuser](zentao/Im_chatuser.md)|主实体|&nbsp;|
-|ZT_IM_CLIENT|[im_client](zentao/Im_client.md)|主实体|&nbsp;|
-|ZT_IM_CONFERENCE|[im_conference](zentao/Im_conference.md)|主实体|&nbsp;|
-|ZT_IM_CONFERENCEACTION|[im_conferenceaction](zentao/Im_conferenceaction.md)|主实体|&nbsp;|
-|ZT_IM_MESSAGE|[im_message](zentao/Im_message.md)|主实体|&nbsp;|
-|ZT_IM_MESSAGESTATUS|[im_messagestatus](zentao/Im_messagestatus.md)|主实体|&nbsp;|
-|ZT_IM_QUEUE|[im_queue](zentao/Im_queue.md)|主实体|&nbsp;|
+|ZT_IM_CHAT|[ImChat](zentao/ImChat.md)|主实体|&nbsp;|
+|ZT_IM_CHATUSER|[ImChatuser](zentao/ImChatuser.md)|主实体|&nbsp;|
+|ZT_IM_CLIENT|[ImClient](zentao/ImClient.md)|主实体|&nbsp;|
+|ZT_IM_CONFERENCE|[ImConference](zentao/ImConference.md)|主实体|&nbsp;|
+|ZT_IM_CONFERENCEACTION|[ImConferenceaction](zentao/ImConferenceaction.md)|主实体|&nbsp;|
+|ZT_IM_MESSAGE|[ImMessage](zentao/ImMessage.md)|主实体|&nbsp;|
+|ZT_IM_MESSAGESTATUS|[ImMessagestatus](zentao/ImMessagestatus.md)|主实体|&nbsp;|
+|ZT_IM_QUEUE|[ImQueue](zentao/ImQueue.md)|主实体|&nbsp;|
 |ZT_JENKINS|[jenkins](zentao/Jenkins.md)|主实体|&nbsp;|
 |ZT_JOB|[job](zentao/Job.md)|主实体|&nbsp;|
 |ZT_LANG|[lang](zentao/Lang.md)|主实体|&nbsp;|

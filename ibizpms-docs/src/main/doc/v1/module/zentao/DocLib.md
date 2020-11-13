@@ -1043,6 +1043,7 @@ String
 | ---- | ---- |
 | 1 | [文档库维护](#操作权限-文档库维护（DOC）)<br>（DOC） |
 | 2 | [取消收藏文档库](#操作权限-取消收藏文档库（SRFUR__DOCLIB_NFAVOUR_BUT）)<br>（SRFUR__DOCLIB_NFAVOUR_BUT） |
+| 3 | [收藏文档库](#操作权限-收藏文档库（SRFUR__DOCLIB_FAVOUR_BUT）)<br>（SRFUR__DOCLIB_FAVOUR_BUT） |
 ### 业务状态-附件库_已收藏（file_1）
 #### 状态说明
 附件库_已收藏
@@ -1071,6 +1072,7 @@ String
 | ---- | ---- |
 | 1 | [收藏文档库](#操作权限-收藏文档库（SRFUR__DOCLIB_FAVOUR_BUT）)<br>（SRFUR__DOCLIB_FAVOUR_BUT） |
 | 2 | [文档库维护](#操作权限-文档库维护（DOC）)<br>（DOC） |
+| 3 | [取消收藏文档库](#操作权限-取消收藏文档库（SRFUR__DOCLIB_NFAVOUR_BUT）)<br>（SRFUR__DOCLIB_NFAVOUR_BUT） |
 
 ## 实体行为
 | 序号 | 行为 | 行为名 | 行为类型 | 行为持有者 |
