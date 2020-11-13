@@ -5757,7 +5757,7 @@ FAVORITES
 ## 逻辑处理
 | 序号 | 逻辑 | 逻辑名 | 逻辑持有者 |
 | ---- | ---- | ---- | ---- |
-| 1 | [获取联系人](#逻辑处理-获取联系人（GetUserConcat）) | GetUserConcat | 前台 |
+| 1 | [获取联系人](#逻辑处理-获取联系人（GetUserConcat）) | GetUserConcat | 后台及前台 |
 | 2 | [重置工时统计值](#逻辑处理-重置工时统计值（ResetTaskestimate）) | ResetTaskestimate | 后台 |
 | 3 | [任务取消收藏](#逻辑处理-任务取消收藏（TaskCancleFavorites）) | TaskCancleFavorites | 后台 |
 | 4 | [任务收藏](#逻辑处理-任务收藏（TaskFavorites）) | TaskFavorites | 后台 |
@@ -5777,7 +5777,7 @@ FAVORITES
 获取联系人
 
 - 逻辑持有者
-前台
+后台及前台
 
 #### 逻辑节点
 | 序号 | 节点 | 节点名 | 节点类型 |
