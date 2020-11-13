@@ -130,7 +130,7 @@ export class ActionHistory extends Vue {
                 {action.actionText}&nbsp;<strong>{fieldText}</strong>，区别为：<span><action-history-diff content={item.diff} /></span>
             </div>
         }
-        return <div class="history-content">修改了&nbsp;<strong>{fieldText}</strong>，旧值为"{item.old}"，新值为"{item.ibiznew}"。</div>;
+        return <div class="history-content">修改了&nbsp;<strong>{fieldText}</strong>，旧值为 {isNaN(item.old) && !isNaN(Date.parse(item.old)) ? item.old: "\""+item.old+"\""}，新值为 {isNaN(item.ibiznew) && !isNaN(Date.parse(item.ibiznew)) ? item.ibiznew: "\""+item.ibiznew+"\""}。</div>;
     }
 
     /**
