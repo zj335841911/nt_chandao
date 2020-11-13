@@ -644,6 +644,9 @@ export default class EmpTreeBase extends Vue implements ControlInterface {
             srfnodefilter: this.srfnodefilter
         };
         let tempViewParams:any = JSON.parse(JSON.stringify(this.viewparams));
+        if(tempViewParams.selectedData){
+            delete tempViewParams.selectedData;
+        }
         let curNode:any = {}; 
         curNode = Util.deepObjectMerge(curNode,node);
         let tempContext:any = this.computecurNodeContext(curNode);
