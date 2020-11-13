@@ -51,7 +51,7 @@ export default class DOCSTATUSModel {
         name: 'srfsourcekey',
       },
       {
-        name: 'alldoccnt',
+        name: 'alldoccnt1',
         prop: 'alldoccnt',
         dataType: 'INT',
       },
@@ -62,6 +62,60 @@ export default class DOCSTATUSModel {
       },
       {
         name: 'formitemex1',
+      },
+      {
+        name: 'formitem3',
+        prop: 'todayupdatecnt',
+        dataType: 'INT',
+      },
+      {
+        name: 'formitem4',
+        prop: 'recentupdatecnt',
+        dataType: 'INT',
+      },
+      {
+        name: 'formitem',
+        prop: 'recentaddcnt',
+        dataType: 'INT',
+      },
+      {
+        name: 'alldoccnt2',
+        prop: 'alldoccnt',
+        dataType: 'INT',
+      },
+      {
+        name: 'recentaddcnt',
+        prop: 'recentaddcnt',
+        dataType: 'INT',
+      },
+      {
+        name: 'formitemex2',
+      },
+      {
+        name: 'formitem1',
+        prop: 'mydoccnt',
+        dataType: 'INT',
+      },
+      {
+        name: 'alldoccnt3',
+        prop: 'alldoccnt',
+        dataType: 'INT',
+      },
+      {
+        name: 'mydoccnt',
+        prop: 'mydoccnt',
+        dataType: 'INT',
+      },
+      {
+        name: 'formitemex3',
+      },
+      {
+        name: 'formitem2',
+        prop: 'myfavouritecnt',
+        dataType: 'INT',
+      },
+      {
+        name: 'formitemex4',
       },
       {
         name: 'id',
