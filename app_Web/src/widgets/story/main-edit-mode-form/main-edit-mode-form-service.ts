@@ -5,6 +5,7 @@ import StoryService from '@/service/story/story-service';
 import Main_EditModeModel from './main-edit-mode-form-model';
 import ProductService from '@/service/product/product-service';
 import ProductModuleService from '@/service/product-module/product-module-service';
+import UserContactService from '@/service/user-contact/user-contact-service';
 
 
 /**
@@ -59,6 +60,14 @@ export default class Main_EditModeService extends ControlService {
      * @memberof Main_EditModeService
      */
     public productmoduleService: ProductModuleService = new ProductModuleService();
+
+    /**
+     * 用户联系方式服务对象
+     *
+     * @type {UserContactService}
+     * @memberof Main_EditModeService
+     */
+    public usercontactService: UserContactService = new UserContactService();
 
     /**
      * 远端数据
@@ -117,6 +126,9 @@ export default class Main_EditModeService extends ControlService {
         }
         if (Object.is(serviceName, 'StoryService') && Object.is(interfaceName, 'FetchParentDefaultQ')) {
             return this.doItems(this.appEntityService.FetchParentDefaultQ(JSON.parse(JSON.stringify(context)), data, isloading), 'id', 'story');
+        }
+        if (Object.is(serviceName, 'UserContactService') && Object.is(interfaceName, 'FetchCurUSERCONTACT')) {
+            return this.doItems(this.usercontactService.FetchCurUSERCONTACT(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'usercontact');
         }
 
         return Promise.reject([])

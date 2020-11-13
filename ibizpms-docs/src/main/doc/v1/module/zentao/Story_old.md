@@ -244,6 +244,18 @@ hide members
 |计划解除关联需求|用户自定义|&nbsp;|
 
 ## 处理逻辑
+* 获取联系人 (GetCurUserConcat)
+  
+   
+
+{% plantuml %}
+hide footbox
+
+{% endplantuml %}
+
+| 步骤       | 操作        |
+| --------   | --------   |
+<center>获取联系人</center>
 * GetStorySpecs (GetStorySpecs)
   
    
