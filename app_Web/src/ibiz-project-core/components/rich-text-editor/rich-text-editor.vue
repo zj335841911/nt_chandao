@@ -521,7 +521,7 @@ export default class RichTextEditor extends Vue {
                 { text: 'C++', value: 'cpp' }
             ],
             paste_data_images: true,
-            extended_valid_elements: 'span[class|id|style|userid]', 
+            extended_valid_elements: 'span[class|id|style|noticeusers]', 
             codesample_content_css: 'assets/tinymce/prism.css',
             skin_url: './assets/tinymce/skins/lightgray/ui/oxide',
             language_url: './assets/tinymce/langs/' + richtexteditor.languMap[richtexteditor.langu] + '.js',
@@ -748,7 +748,7 @@ export default class RichTextEditor extends Vue {
         spanNode1.className = 'at-text';
         spanNode1.innerHTML = '@' + $event.text;
         spanNode1.id = 'at-text'+this.atNumber;
-        spanNode1.setAttribute('userid',$event.value);
+        spanNode1.setAttribute('noticeusers',$event.value);
         spanNode1.style = 'color: #108cee;';
         spanNode2.innerHTML = '&nbsp';
         // 将生成内容打包放在 Fragment 中，并获取生成内容的最后一个节点，也就是空格。
