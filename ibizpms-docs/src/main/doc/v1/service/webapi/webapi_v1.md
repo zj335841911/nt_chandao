@@ -57,7 +57,7 @@ pms-webapi
 | 43 | [测试结果](1/TestResult) | testresult |  |
 | 44 | [系统日志](1/Action) | action |  |
 | 45 | [系统应用](1/PSSysApp) | pssysapp |  |
-| 46 | [实体](1/IbiLogin) | ibilogin |  |
+| 46 | [实体](1/IbzLogin) | ibzlogin |  |
 | 47 | [需求模块](1/ProductModule) | productmodule |  |
 | 48 | [消息](1/IBIZProMessage) | ibizpromessage |  |
 | 49 | [需求](1/SubStory) | substory |  |
