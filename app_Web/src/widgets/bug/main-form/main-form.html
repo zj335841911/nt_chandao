@@ -283,7 +283,8 @@
 <rich-text-editor 
     :formState="formState" 
     :value="data.steps"
-    @change="(val) =>{this.data.steps =val}" 
+    @change="(val) =>{this.data.steps =val}"
+    @formitemvaluechange="onFormItemValueChange($event)" 
     :disabled="detailsModel.steps.disabled" 
     :data="JSON.stringify(this.data)"  
     name="steps" 

@@ -101,7 +101,7 @@
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.content.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='content' :itemRules="this.rules().content" class='' :caption="$t('entities.doc.createeditform_form.details.content')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.content.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-rich-text-editor :formState="formState" :value="data.content" @change="(val) =>{this.data.content =val}" :disabled="detailsModel.content.disabled" :data="JSON.stringify(this.data)"  name="content" :context="context" :viewparams="viewparams" :uploadparams='{}' :exportparams='{}'  style=""></app-rich-text-editor>
+    <app-rich-text-editor :formState="formState" :value="data.content" @change="(val) =>{this.data.content =val}" @formitemvaluechange="onFormItemValueChange($event)" :disabled="detailsModel.content.disabled" :data="JSON.stringify(this.data)"  name="content" :context="context" :viewparams="viewparams" :uploadparams='{}' :exportparams='{}'  style=""></app-rich-text-editor>
 
 </app-form-item>
 

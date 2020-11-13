@@ -206,7 +206,8 @@
 <rich-text-editor 
     :formState="formState" 
     :value="data.desc"
-    @change="(val) =>{this.data.desc =val}" 
+    @change="(val) =>{this.data.desc =val}"
+    @formitemvaluechange="onFormItemValueChange($event)" 
     :disabled="detailsModel.desc.disabled" 
     :data="JSON.stringify(this.data)"  
     name="desc" 

@@ -76,7 +76,8 @@
 <rich-text-editor 
     :formState="formState" 
     :value="data.spec"
-    @change="(val) =>{this.data.spec =val}" 
+    @change="(val) =>{this.data.spec =val}"
+    @formitemvaluechange="onFormItemValueChange($event)" 
     :disabled="detailsModel.spec.disabled" 
     :data="JSON.stringify(this.data)"  
     name="spec" 
@@ -95,7 +96,8 @@
 <rich-text-editor 
     :formState="formState" 
     :value="data.verify"
-    @change="(val) =>{this.data.verify =val}" 
+    @change="(val) =>{this.data.verify =val}"
+    @formitemvaluechange="onFormItemValueChange($event)" 
     :disabled="detailsModel.verify.disabled" 
     :data="JSON.stringify(this.data)"  
     name="verify" 
@@ -110,7 +112,7 @@
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.comment.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='comment' :itemRules="this.rules().comment" class='' :caption="$t('entities.story.storyspec_editmode_form.details.comment')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.comment.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-rich-text-editor :formState="formState" :value="data.comment" @change="(val) =>{this.data.comment =val}" :disabled="detailsModel.comment.disabled" :data="JSON.stringify(this.data)"  name="comment" :context="context" :viewparams="viewparams" :uploadparams='{objecttype:"story",objectid: "%id%",version:"editor"}' :exportparams='{objecttype:"story",objectid: "%id%",version:"editor"}'  style=""></app-rich-text-editor>
+    <app-rich-text-editor :formState="formState" :value="data.comment" @change="(val) =>{this.data.comment =val}" @formitemvaluechange="onFormItemValueChange($event)" :disabled="detailsModel.comment.disabled" :data="JSON.stringify(this.data)"  name="comment" :context="context" :viewparams="viewparams" :uploadparams='{objecttype:"story",objectid: "%id%",version:"editor"}' :exportparams='{objecttype:"story",objectid: "%id%",version:"editor"}'  style=""></app-rich-text-editor>
 
 </app-form-item>
 

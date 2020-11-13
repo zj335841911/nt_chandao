@@ -88,6 +88,10 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
 
     @Autowired
     @Lazy
+    protected cn.ibizlab.pms.core.zentao.service.logic.IStoryGetCurUserConcatLogic getcuruserconcatLogic;
+
+    @Autowired
+    @Lazy
     protected cn.ibizlab.pms.core.zentao.service.logic.IStoryprojectUnlinkStorysLogic projectunlinkstorysLogic;
 
     @Autowired
@@ -288,6 +292,13 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
     @Transactional
     public Story getStorySpecs(Story et) {
         getstoryspecsLogic.execute(et);
+         return et;
+    }
+
+    @Override
+    @Transactional
+    public Story getUserConcat(Story et) {
+        getcuruserconcatLogic.execute(et);
          return et;
     }
 

@@ -40,6 +40,9 @@ public class StoryGetCurUserConcatLogicImpl implements IStoryGetCurUserConcatLog
           KieSession kieSession = null;
         try{
            kieSession = kieContainer.newKieSession();
+           cn.ibizlab.pms.core.zentao.domain.UserContact storygetcuruserconcatuserconcat = new cn.ibizlab.pms.core.zentao.domain.UserContact();
+           kieSession.insert(storygetcuruserconcatuserconcat); 
+           kieSession.setGlobal("storygetcuruserconcatuserconcat", storygetcuruserconcatuserconcat);
            kieSession.insert(et); 
            kieSession.setGlobal("storygetcuruserconcatdefault", et);
            kieSession.setGlobal("iBzSysStoryDefaultService", iBzSysDefaultService);

@@ -222,6 +222,7 @@ hide members
 |获取需求描述|用户自定义|&nbsp;|
 |获取需求描述|实体处理逻辑|&nbsp;|
 |任务相关需求草稿方法|用户自定义|&nbsp;|
+|获取联系人|实体处理逻辑|&nbsp;|
 |项目关联需求-按计划关联|用户自定义|&nbsp;|
 |计划关联需求|用户自定义|&nbsp;|
 |项目批量解除关联需求|用户自定义|&nbsp;|
@@ -251,10 +252,13 @@ hide members
 {% plantuml %}
 hide footbox
 
+需求 -> 需求: 获取联系人
 {% endplantuml %}
 
 | 步骤       | 操作        |
 | --------   | --------   |
+|0|开始 | 
+|1|获取联系人 |
 <center>获取联系人</center>
 * GetStorySpecs (GetStorySpecs)
   
