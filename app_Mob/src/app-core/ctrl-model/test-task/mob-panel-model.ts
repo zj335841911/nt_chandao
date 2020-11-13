@@ -81,6 +81,12 @@ export class MobModel {
       {
         name: 'ownerpk',
       },
+      {
+        name: 'mailtoconact',
+      },
+      {
+        name: 'mailtopk',
+      },
     ]
   }
 

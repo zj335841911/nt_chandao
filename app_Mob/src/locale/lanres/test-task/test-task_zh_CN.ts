@@ -22,6 +22,8 @@ export default {
     comment: "备注",
     casecnt: "用例数",
     ownerpk: "负责人（选择）",
+    mailtoconact: "联系人",
+    mailtopk: "抄送给",
   },
 	views: {
 		moboptionviewclose: {

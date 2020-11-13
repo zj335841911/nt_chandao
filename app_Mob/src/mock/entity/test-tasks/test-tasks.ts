@@ -1396,6 +1396,11 @@ mock.onGet(new RegExp(/^\/testtasks\/fetchdefault(\?[\w-./?%&=,]*)*$/)).reply((c
 // URI参数传递情况未实现
 // URI参数传递情况未实现
 
+// URI参数传递情况未实现
+
+// URI参数传递情况未实现
+// URI参数传递情况未实现
+
 
 // Remove
 mock.onDelete(new RegExp(/^\/projects\/([a-zA-Z0-9\-\;]{1,35})\/testtasks\/([a-zA-Z0-9\-\;]{1,35})$/)).reply((config: any) => {

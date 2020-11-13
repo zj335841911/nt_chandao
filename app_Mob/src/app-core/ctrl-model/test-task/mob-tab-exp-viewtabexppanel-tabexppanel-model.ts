@@ -81,6 +81,12 @@ export class MobTabExpViewtabexppanelModel {
       {
         name: 'ownerpk',
       },
+      {
+        name: 'mailtoconact',
+      },
+      {
+        name: 'mailtopk',
+      },
     ]
   }
 

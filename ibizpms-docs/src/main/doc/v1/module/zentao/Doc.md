@@ -2159,7 +2159,7 @@ count(1) as `ALLDOCCNT`,
 (select count(1) from zt_doc where DATE_FORMAT(NOW(),'%Y-%m-%d') = DATE_FORMAT(editedDate,'%Y-%m-%d') and deleted = '0') as `TODAYUPDATECNT`,
 (select count(1) from zt_doc where TO_DAYS(DATE_FORMAT(NOW(),'%Y-%m-%d')) - TO_DAYS(DATE_FORMAT(addedDate,'%Y-%m-%d')) < 5 and deleted = '0') as `RECENTADDCNT`,
 (select count(1) from zt_doc where addedBy = #{srf.sessioncontext.srfloginname} and deleted = '0') as `MYDOCCNT`,
-(select count(1) from zt_doc where FIND_IN_SET(#{srf.sessioncontext.srfloginname},collector) > 0) as `MYFAVOURRTECNT`
+(select count(1) from zt_doc where FIND_IN_SET(#{srf.sessioncontext.srfloginname},collector) > 0) as `MYFAVOURITECNT`
 from zt_doc
 where deleted = '0'
 ```
