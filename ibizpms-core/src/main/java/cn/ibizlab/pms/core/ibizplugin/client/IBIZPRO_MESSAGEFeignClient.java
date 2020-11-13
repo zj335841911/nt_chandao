@@ -19,6 +19,10 @@ import org.springframework.cloud.openfeign.FeignClient;
 @FeignClient(value = "${ibiz.ref.service.pmspro-pluginserviceapi:pmspro-pluginserviceapi}", contextId = "IBIZPRO-MESSAGE", fallback = IBIZPRO_MESSAGEFallback.class)
 public interface IBIZPRO_MESSAGEFeignClient {
 
+    @RequestMapping(method = RequestMethod.POST, value = "/ibizpro_messages/{ibizpro_messageid}/send")
+    IBIZProMessage send(@PathVariable("ibizpro_messageid") String ibizpro_messageid,@RequestBody IBIZProMessage ibizpromessage);
+
+
     @RequestMapping(method = RequestMethod.GET, value = "/ibizpro_messages/select")
     Page<IBIZProMessage> select();
 
