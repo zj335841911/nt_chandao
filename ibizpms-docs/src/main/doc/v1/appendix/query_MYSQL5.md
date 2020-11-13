@@ -4855,6 +4855,7 @@ WHERE t1.DELETED = '0'
 ### 文档库文档(DocLibDoc)<div id="Doc_DocLibDoc"></div>
 ```sql
 select t1.* from (select null as `ACL`,
+( CASE WHEN FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t1.collector ) > 0 THEN 1 ELSE 0 END ) AS `ISFAVOURITES`,
 null as `ADDEDBY`,
 null as `ADDEDDATE`,
 '0' as `DELETED`,
@@ -4883,6 +4884,7 @@ ${srfdatacontext('parent','{"defname":"ROOT","dename":"ZT_MODULE"}')} end
 UNION
 SELECT
 t1.`ACL`,
+( CASE WHEN FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t1.collector ) > 0 THEN 1 ELSE 0 END ) AS `ISFAVOURITES`,
 t1.`ADDEDBY`,
 t1.`ADDEDDATE`,
 t1.`DELETED`,
