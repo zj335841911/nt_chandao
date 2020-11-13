@@ -458,6 +458,8 @@ export default {
 			deadline: "截止日期", 
 			formitemex1: "日程规划", 
 			mailto: "抄送给", 
+			mailtoconact: "联系人", 
+			mailtopk: "属性", 
 			id: "编号", 
 		},
 		uiactions: {
