@@ -7698,7 +7698,7 @@
     },
     {
     "fieldname":"IBIZPRO_MESSAGENAME" ,
-    "codename":"Ibizpro_messagename",
+    "codename":"IBIZProMessageName",
     "field_logic_name":"消息名称",
     "entity_name":"IBIZProMessage",
     "field_type":"TEXT",

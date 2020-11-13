@@ -86,9 +86,9 @@ public class IBIZProMessage extends EntityClient implements Serializable {
      * 消息名称
      */
     @DEField(name = "ibizpro_messagename")
-    @JSONField(name = "ibizpro_messagename")
-    @JsonProperty("ibizpro_messagename")
-    private String ibizproMessagename;
+    @JSONField(name = "ibizpromessagename")
+    @JsonProperty("ibizpromessagename")
+    private String ibizpromessagename;
 
     /**
      * 标题
@@ -231,9 +231,9 @@ public class IBIZProMessage extends EntityClient implements Serializable {
     /**
      * 设置 [消息名称]
      */
-    public void setIbizproMessagename(String ibizproMessagename) {
-        this.ibizproMessagename = ibizproMessagename ;
-        this.modify("ibizpro_messagename", ibizproMessagename);
+    public void setIbizpromessagename(String ibizpromessagename) {
+        this.ibizpromessagename = ibizpromessagename ;
+        this.modify("ibizpro_messagename", ibizpromessagename);
     }
 
     /**

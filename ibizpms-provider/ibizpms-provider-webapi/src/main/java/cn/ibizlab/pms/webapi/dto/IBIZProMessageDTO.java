@@ -95,10 +95,10 @@ public class IBIZProMessageDTO extends DTOBase implements Serializable {
      * 属性 [IBIZPRO_MESSAGENAME]
      *
      */
-    @JSONField(name = "ibizpro_messagename")
-    @JsonProperty("ibizpro_messagename")
+    @JSONField(name = "ibizpromessagename")
+    @JsonProperty("ibizpromessagename")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String ibizproMessagename;
+    private String ibizpromessagename;
 
     /**
      * 属性 [SUBJECT]
@@ -253,9 +253,9 @@ public class IBIZProMessageDTO extends DTOBase implements Serializable {
     /**
      * 设置 [IBIZPRO_MESSAGENAME]
      */
-    public void setIbizproMessagename(String  ibizproMessagename){
-        this.ibizproMessagename = ibizproMessagename ;
-        this.modify("ibizpro_messagename",ibizproMessagename);
+    public void setIbizpromessagename(String  ibizpromessagename){
+        this.ibizpromessagename = ibizpromessagename ;
+        this.modify("ibizpro_messagename",ibizpromessagename);
     }
 
     /**

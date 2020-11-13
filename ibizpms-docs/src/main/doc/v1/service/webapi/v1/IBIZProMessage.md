@@ -289,7 +289,7 @@ POST
 | 5 | content | String | 允许 | 内容 |
 | 6 | bcc | String | 允许 | 密件抄送方 |
 | 7 | param | String | 允许 | 消息参数 |
-| 8 | ibizpro_messagename | String | 允许 | 消息名称 |
+| 8 | ibizpromessagename | String | 允许 | 消息名称 |
 | 9 | subject | String | 允许 | 标题 |
 | 10 | retryintervaltime | Integer | 允许 | 重发间隔时间 |
 | 11 | type | String | 允许 | 消息类型 |
