@@ -1392,7 +1392,8 @@ t21.`NAME` AS `PRODUCTNAME`,
 t1.`PROJECT`,
 t11.`NAME` AS `PROJECTNAME`,
 t1.`TYPE`,
-t1.orgid
+t1.orgid,
+t1.MDEPTID
 FROM `zt_doclib` t1 
 LEFT JOIN zt_project t11 ON t1.PROJECT = t11.ID 
 LEFT JOIN zt_product t21 ON t1.PRODUCT = t21.ID
