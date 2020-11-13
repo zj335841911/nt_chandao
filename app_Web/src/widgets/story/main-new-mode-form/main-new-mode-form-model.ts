@@ -156,14 +156,14 @@ export default class Main_NewModeModel {
         dataType: 'TEXT',
       },
       {
-        name: 'id',
-        prop: 'id',
-        dataType: 'ACID',
-      },
-      {
         name: 'mailtopk',
         prop: 'mailtopk',
         dataType: 'SMCODELIST',
+      },
+      {
+        name: 'id',
+        prop: 'id',
+        dataType: 'ACID',
       },
       {
         name: 'story',

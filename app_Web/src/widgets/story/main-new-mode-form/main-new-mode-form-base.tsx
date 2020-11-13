@@ -103,8 +103,8 @@ export class Main_NewModeEditFormBase extends EditFormControlBase {
         mailto: null,
         mailtoconact: null,
         keywords: null,
-        id: null,
         mailtopk: null,
+        id: null,
         story:null,
     };
 
@@ -209,9 +209,9 @@ export class Main_NewModeEditFormBase extends EditFormControlBase {
 
         keywords: new FormItemModel({ caption: '关键词', detailType: 'FORMITEM', name: 'keywords', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 
-        id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 0 }),
-
         mailtopk: new FormItemModel({ caption: '抄送给', detailType: 'FORMITEM', name: 'mailtopk', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+
+        id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 0 }),
 
     };
 
@@ -287,6 +287,10 @@ export class Main_NewModeEditFormBase extends EditFormControlBase {
 
 
 
+        if (Object.is(name, 'mailtoconact')) {
+            const details: string[] = ['mailto'];
+            this.updateFormItems('GetUserConcat', this.data, details, true);
+        }
     }
 
     /**

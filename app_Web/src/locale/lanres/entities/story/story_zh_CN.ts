@@ -492,8 +492,8 @@ export default {
 			mailto: "抄送给", 
 			mailtoconact: "", 
 			keywords: "关键词", 
-			id: "编号", 
 			mailtopk: "抄送给", 
+			id: "编号", 
 		},
 		uiactions: {
 		},
