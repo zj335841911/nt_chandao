@@ -210,6 +210,12 @@ export default class MainModel {
       {
         name: 'delay',
       },
+      {
+        name: 'mailtopk',
+      },
+      {
+        name: 'mailtoconact',
+      },
     ]
   }
 

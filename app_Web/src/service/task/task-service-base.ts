@@ -1,6 +1,7 @@
 import { Http } from '@/utils';
 import { Util } from '@/utils';
 import EntityService from '../entity-service';
+import GetUserConcatLogic from '@/service/task/get-user-concat-logic';
 
 
 
@@ -8171,6 +8172,21 @@ export default class TaskServiceBase extends EntityService {
      * @memberof TaskServiceBase
      */
     public async CalcTime(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+    }
+
+    /**
+     * GetUserConcat接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TaskServiceBase
+     */
+    public async GetUserConcat(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let appLogic:GetUserConcatLogic = new GetUserConcatLogic({context:JSON.parse(JSON.stringify(context)),data:JSON.parse(JSON.stringify(data))});
+        const res = await appLogic.onExecute(context,data,isloading?true:false);
+        return {status:200,data:res};
     }
 
     /**

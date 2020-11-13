@@ -525,4 +525,20 @@ export interface Task {
      * @memberof Task
      */
     delay?: any;
+
+    /**
+     * 属性
+     *
+     * @returns {*}
+     * @memberof Task
+     */
+    mailtopk?: any;
+
+    /**
+     * 联系人
+     *
+     * @returns {*}
+     * @memberof Task
+     */
+    mailtoconact?: any;
 }

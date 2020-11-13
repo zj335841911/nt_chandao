@@ -46,7 +46,7 @@ hide members
 |预计开始|ESTSTARTED|DATE|&nbsp;|
 |截止日期|DEADLINE|DATE|&nbsp;|
 |已删除|DELETED|TEXT|&nbsp;|
-|抄送给|MAILTO|LONGTEXT|&nbsp;|
+|抄送给|MAILTO|SMCODELIST|&nbsp;|
 |总计消耗|CONSUMED|FLOAT|&nbsp;|
 |最初预计|ESTIMATE|FLOAT|&nbsp;|
 |由谁创建|OPENEDBY|SSCODELIST|&nbsp;|
@@ -87,6 +87,8 @@ hide members
 |消息通知用户|NOTICEUSERS|TEXT|&nbsp;|
 |进度|PROGRESSRATE|TEXT|&nbsp;|
 |延期|DELAY|TEXT|&nbsp;|
+|属性|MAILTOPK|SMCODELIST|&nbsp;|
+|联系人|MAILTOCONACT|TEXT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -164,6 +166,8 @@ hide members
 |消息通知用户|默认规则|内容长度必须小于等于[100]|
 |进度|默认规则|内容长度必须小于等于[200]|
 |延期|默认规则|内容长度必须小于等于[200]|
+|属性|默认规则|内容长度必须小于等于[200]|
+|联系人|默认规则|内容长度必须小于等于[100]|
 
 ## 状态控制
 
@@ -271,6 +275,7 @@ hide members
 |编辑工时|用户自定义|&nbsp;|
 |完成|用户自定义|&nbsp;|
 |获取下一个团队成员(完成)|用户自定义|&nbsp;|
+|获取联系人|实体处理逻辑|&nbsp;|
 |获取团队成员|实体处理逻辑|&nbsp;|
 |其他更新|用户自定义|&nbsp;|
 |暂停|用户自定义|&nbsp;|
@@ -286,6 +291,21 @@ hide members
 |更新需求版本|实体处理逻辑|&nbsp;|
 
 ## 处理逻辑
+* 获取联系人 (GetUserConcat)
+  
+   
+
+{% plantuml %}
+hide footbox
+
+任务 -> 任务: 准备参数
+{% endplantuml %}
+
+| 步骤       | 操作        |
+| --------   | --------   |
+|0|开始 | 
+|1|准备参数 |
+<center>获取联系人</center>
 * 重置工时统计值 (ResetTaskestimate)
   
    

@@ -210,6 +210,12 @@ export default class CurFinishedbyTaskModel {
       {
         name: 'delay',
       },
+      {
+        name: 'mailtopk',
+      },
+      {
+        name: 'mailtoconact',
+      },
     ]
   }
 

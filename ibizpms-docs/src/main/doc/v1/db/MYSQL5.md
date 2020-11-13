@@ -113814,7 +113814,7 @@ CREATE TABLE `T_SYS_UPDATE_LOG`(
 | OPENEDBY        | 由谁创建  | VARCHAR      |   30   | &nbsp; |
 | STORY        | 相关需求  |       |   8   | &nbsp; |
 | PROGRESSRATE        | 进度  | VARCHAR      |   200   | &nbsp; |
-| MAILTO        | 抄送给  | CLOB      |   65,535   | &nbsp; |
+| MAILTO        | 抄送给  | VARCHAR      |   65,535   | &nbsp; |
 | PARENTNAME        | 父任务  | VARCHAR      |   255   | &nbsp; |
 | MODULE        | id  |       |   8   | &nbsp; |
 | MODULENAME1        | 所属模块  | VARCHAR      |   200   | &nbsp; |
@@ -113833,6 +113833,7 @@ CREATE TABLE `T_SYS_UPDATE_LOG`(
 | ASSIGNEDDATE        | 指派日期  | DATETIME      |   -1   | &nbsp; |
 | ESTSTARTED        | 预计开始  | DATETIME      |   -1   | &nbsp; |
 | REALSTARTED        | 实际开始  | DATETIME      |   -1   | &nbsp; |
+| MAILTOPK        | 属性  | VARCHAR      |   200   | &nbsp; |
 | PARENT        | 父任务  |       |   8   | &nbsp; |
 | STORYVERSION        | 需求版本  | INTEGER      |   6   | &nbsp; |
 | MODULENAME        | 所属模块  | VARCHAR      |   60   | &nbsp; |
@@ -114614,7 +114615,7 @@ CREATE TABLE `zt_task`(
 ,`ESTSTARTED`  DATETIME COMMENT '预计开始' 
 ,`DEADLINE`  DATETIME COMMENT '截止日期' 
 ,`DELETED`  VARCHAR(1) COMMENT '已删除' 
-,`MAILTO`  MEDIUMTEXT COMMENT '抄送给' 
+,`MAILTO`  VARCHAR(4000) COMMENT '抄送给' 
 ,`CONSUMED`  DOUBLE COMMENT '总计消耗' 
 ,`ESTIMATE`  DOUBLE COMMENT '最初预计' 
 ,`OPENEDBY`  VARCHAR(30) COMMENT '由谁创建' 

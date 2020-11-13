@@ -523,6 +523,20 @@ public class Task extends EntityMP implements Serializable {
     @JSONField(name = "delay")
     @JsonProperty("delay")
     private String delay;
+    /**
+     * 属性
+     */
+    @TableField(exist = false)
+    @JSONField(name = "mailtopk")
+    @JsonProperty("mailtopk")
+    private String mailtopk;
+    /**
+     * 联系人
+     */
+    @TableField(exist = false)
+    @JSONField(name = "mailtoconact")
+    @JsonProperty("mailtoconact")
+    private String mailtoconact;
 
     /**
      * 

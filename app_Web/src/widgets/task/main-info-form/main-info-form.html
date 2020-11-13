@@ -147,7 +147,7 @@ tag='Task__pri' codelistType='STATIC' :data="data" :context="context" :viewparam
 <i-col class="form-layout-container" v-show="detailsModel.mailto.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='mailto' :itemRules="this.rules().mailto" class='' :caption="$t('entities.task.maininfo_form.details.mailto')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.mailto.error" :isEmptyCaption="false" labelPos="LEFT">
     
-<app-span name='mailto' :value="data.mailto" dataType="LONGTEXT"     :precision="0"
+<app-span name='mailto' :value="data.mailto" dataType="SMCODELIST"     :precision="0"
 tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
 </app-span>
 

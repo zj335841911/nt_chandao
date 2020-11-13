@@ -184,6 +184,21 @@ export default class DocServiceBase extends EntityService {
     }
 
     /**
+     * GetDocStatus接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof DocServiceBase
+     */
+    public async GetDocStatus(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+            let res:any = await Http.getInstance().get(`/docs/${context.doc}/getdocstatus`,isloading);
+            
+            return res;
+    }
+
+    /**
      * Save接口方法
      *
      * @param {*} [context={}]

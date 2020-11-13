@@ -210,6 +210,12 @@ export default class TreeExpViewtreeexpbarModel {
       {
         name: 'delay',
       },
+      {
+        name: 'mailtopk',
+      },
+      {
+        name: 'mailtoconact',
+      },
     ]
   }
 

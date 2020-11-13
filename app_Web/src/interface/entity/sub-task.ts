@@ -525,4 +525,20 @@ export interface SubTask {
      * @memberof SubTask
      */
     delay?: any;
+
+    /**
+     * 属性
+     *
+     * @returns {*}
+     * @memberof SubTask
+     */
+    mailtopk?: any;
+
+    /**
+     * 联系人
+     *
+     * @returns {*}
+     * @memberof SubTask
+     */
+    mailtoconact?: any;
 }

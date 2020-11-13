@@ -142,6 +142,17 @@ public class DocResource {
         return ResponseEntity.status(HttpStatus.OK).body(docdto);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Doc-GetDocStatus-all')")
+    @ApiOperation(value = "行为", tags = {"文档" },  notes = "行为")
+	@RequestMapping(method = RequestMethod.GET, value = "/docs/{doc_id}/getdocstatus")
+    public ResponseEntity<DocDTO> getDocStatus(@PathVariable("doc_id") Long doc_id, @RequestBody DocDTO docdto) {
+        Doc domain = docMapping.toDomain(docdto);
+        domain.setId(doc_id);
+        domain = docService.getDocStatus(domain);
+        docdto = docMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(docdto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Doc-Save-all')")
     @ApiOperation(value = "保存文档", tags = {"文档" },  notes = "保存文档")
 	@RequestMapping(method = RequestMethod.POST, value = "/docs/save")

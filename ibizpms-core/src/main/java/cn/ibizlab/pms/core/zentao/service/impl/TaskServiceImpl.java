@@ -102,6 +102,10 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
 
     @Autowired
     @Lazy
+    protected cn.ibizlab.pms.core.zentao.service.logic.ITaskGetUserConcatLogic getuserconcatLogic;
+
+    @Autowired
+    @Lazy
     protected cn.ibizlab.pms.core.zentao.service.logic.ITaskgetUsernamesLogic getusernamesLogic;
 
     @Autowired

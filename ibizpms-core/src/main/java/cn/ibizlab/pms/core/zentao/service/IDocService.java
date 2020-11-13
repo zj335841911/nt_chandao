@@ -46,6 +46,7 @@ public interface IDocService extends IService<Doc> {
     Doc byVersionUpdateContext(Doc et);
     boolean checkKey(Doc et);
     Doc collect(Doc et);
+    Doc getDocStatus(Doc et);
     boolean save(Doc et);
     void saveBatch(List<Doc> list);
     Doc unCollect(Doc et);

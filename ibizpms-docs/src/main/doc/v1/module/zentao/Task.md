@@ -53,7 +53,7 @@
 | 22 | [预计开始](#属性-预计开始（ESTSTARTED）) | ESTSTARTED | 日期型 | 否 | 否 | 是 |
 | 23 | [截止日期](#属性-截止日期（DEADLINE）) | DEADLINE | 日期型 | 否 | 否 | 是 |
 | 24 | [已删除](#属性-已删除（DELETED）) | DELETED | 文本，可指定长度 | 否 | 否 | 是 |
-| 25 | [抄送给](#属性-抄送给（MAILTO）) | MAILTO | 长文本，没有长度限制 | 否 | 否 | 是 |
+| 25 | [抄送给](#属性-抄送给（MAILTO）) | MAILTO | 多项选择(文本值) | 否 | 否 | 是 |
 | 26 | [总计消耗](#属性-总计消耗（CONSUMED）) | CONSUMED | 浮点 | 否 | 否 | 是 |
 | 27 | [最初预计](#属性-最初预计（ESTIMATE）) | ESTIMATE | 浮点 | 否 | 否 | 是 |
 | 28 | [由谁创建](#属性-由谁创建（OPENEDBY）) | OPENEDBY | 单项选择(文本值) | 否 | 否 | 是 |
@@ -94,6 +94,8 @@
 | 63 | [消息通知用户](#属性-消息通知用户（NOTICEUSERS）) | NOTICEUSERS | 文本，可指定长度 | 否 | 是 | 是 |
 | 64 | [进度](#属性-进度（PROGRESSRATE）) | PROGRESSRATE | 文本，可指定长度 | 否 | 是 | 是 |
 | 65 | [延期](#属性-延期（DELAY）) | DELAY | 文本，可指定长度 | 否 | 是 | 是 |
+| 66 | [属性](#属性-属性（MAILTOPK）) | MAILTOPK | 多项选择(文本值) | 否 | 是 | 是 |
+| 67 | [联系人](#属性-联系人（MAILTOCONACT）) | MAILTOCONACT | 文本，可指定长度 | 否 | 是 | 是 |
 
 ### 属性-由谁取消（CANCELEDBY）
 #### 属性说明
@@ -1167,7 +1169,7 @@ String
 物理字段[来自当前实体物理表字段]
 
 - 数据类型
-长文本，没有长度限制
+多项选择(文本值)
 
 - Java类型
 String
@@ -2906,6 +2908,88 @@ String
 ```SQL
 (case when t1.deadline is null or t1.deadline = '0000-00-00' or t1.deadline = '1970-01-01' then '' when t1.`status` in ('wait','doing') and t1.deadline <DATE_FORMAT(now(),'%y-%m-%d')  then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t1.deadline, now()),'天') else '' end)
 ```
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) |
+| 关系属性 | [path（PATH）](../ibiz/ProjectModule/#属性-path（PATH）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
+### 属性-属性（MAILTOPK）
+#### 属性说明
+属性
+
+- 是否是主键
+否
+
+- 属性类型
+逻辑字段[来自计算式]
+
+- 数据类型
+多项选择(文本值)
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+参照数据字典【[用户真实名称（动态）（UserRealName）](../../codelist/UserRealName)】
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) |
+| 关系属性 | [path（PATH）](../ibiz/ProjectModule/#属性-path（PATH）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
+### 属性-联系人（MAILTOCONACT）
+#### 属性说明
+联系人
+
+- 是否是主键
+否
+
+- 属性类型
+应用界面字段[无存储]
+
+- 数据类型
+文本，可指定长度
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
 
 - 数据格式
 无
@@ -5158,19 +5242,20 @@ String
 | 24 | [编辑工时](#实体行为-编辑工时（EditEstimate）) | EditEstimate | 用户自定义 | 后台及前台 |
 | 25 | [完成](#实体行为-完成（Finish）) | Finish | 用户自定义 | 后台及前台 |
 | 26 | [获取下一个团队成员(完成)](#实体行为-获取下一个团队成员(完成)（GetNextTeamUser）) | GetNextTeamUserFinish | 用户自定义 | 后台及前台 |
-| 27 | [获取团队成员](#实体行为-获取团队成员（GetUsernames）) | getUsernames | 实体处理逻辑 | 后台 |
-| 28 | [其他更新](#实体行为-其他更新（OtherUpdate）) | OtherUpdate | 用户自定义 | 后台及前台 |
-| 29 | [暂停](#实体行为-暂停（Pause）) | Pause | 用户自定义 | 后台及前台 |
-| 30 | [工时录入](#实体行为-工时录入（RecordEstimate）) | RecordEstimate | 用户自定义 | 后台及前台 |
-| 31 | [继续](#实体行为-继续（Restart）) | Restart | 用户自定义 | 后台及前台 |
-| 32 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
-| 33 | [行为](#实体行为-行为（SendMessage）) | sendMessage | 用户自定义 | 后台及前台 |
-| 34 | [发送消息前置处理](#实体行为-发送消息前置处理（SendMsgPreProcess）) | sendMsgPreProcess | 用户自定义 | 后台及前台 |
-| 35 | [开始](#实体行为-开始（Start）) | Start | 用户自定义 | 后台及前台 |
-| 36 | [任务收藏](#实体行为-任务收藏（TaskFavorites）) | TaskFavorites | 实体处理逻辑 | 后台 |
-| 37 | [检查多人任务操作权限](#实体行为-检查多人任务操作权限（TaskForward）) | taskForward | 用户自定义 | 后台及前台 |
-| 38 | [任务收藏](#实体行为-任务收藏（TaskNFavorites）) | TaskNFavorites | 实体处理逻辑 | 后台 |
-| 39 | [更新需求版本](#实体行为-更新需求版本（UpdateStoryVersion）) | updateStoryVersion | 实体处理逻辑 | 后台 |
+| 27 | [获取联系人](#实体行为-获取联系人（GetUserConcat）) | GetUserConcat | 实体处理逻辑 | 前台 |
+| 28 | [获取团队成员](#实体行为-获取团队成员（GetUsernames）) | getUsernames | 实体处理逻辑 | 后台 |
+| 29 | [其他更新](#实体行为-其他更新（OtherUpdate）) | OtherUpdate | 用户自定义 | 后台及前台 |
+| 30 | [暂停](#实体行为-暂停（Pause）) | Pause | 用户自定义 | 后台及前台 |
+| 31 | [工时录入](#实体行为-工时录入（RecordEstimate）) | RecordEstimate | 用户自定义 | 后台及前台 |
+| 32 | [继续](#实体行为-继续（Restart）) | Restart | 用户自定义 | 后台及前台 |
+| 33 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
+| 34 | [行为](#实体行为-行为（SendMessage）) | sendMessage | 用户自定义 | 后台及前台 |
+| 35 | [发送消息前置处理](#实体行为-发送消息前置处理（SendMsgPreProcess）) | sendMsgPreProcess | 用户自定义 | 后台及前台 |
+| 36 | [开始](#实体行为-开始（Start）) | Start | 用户自定义 | 后台及前台 |
+| 37 | [任务收藏](#实体行为-任务收藏（TaskFavorites）) | TaskFavorites | 实体处理逻辑 | 后台 |
+| 38 | [检查多人任务操作权限](#实体行为-检查多人任务操作权限（TaskForward）) | taskForward | 用户自定义 | 后台及前台 |
+| 39 | [任务收藏](#实体行为-任务收藏（TaskNFavorites）) | TaskNFavorites | 实体处理逻辑 | 后台 |
+| 40 | [更新需求版本](#实体行为-更新需求版本（UpdateStoryVersion）) | updateStoryVersion | 实体处理逻辑 | 后台 |
 
 ### 实体行为-Create（Create）
 #### 说明
@@ -5498,6 +5583,18 @@ CheckKey
 
 #### 逻辑附加
 无
+### 实体行为-获取联系人（GetUserConcat）
+#### 说明
+获取联系人
+
+- 行为类型
+实体处理逻辑
+
+- 行为持有者
+前台
+
+#### 逻辑附加
+无
 ### 实体行为-获取团队成员（GetUsernames）
 #### 说明
 获取团队成员
@@ -5660,20 +5757,33 @@ FAVORITES
 ## 逻辑处理
 | 序号 | 逻辑 | 逻辑名 | 逻辑持有者 |
 | ---- | ---- | ---- | ---- |
-| 1 | [重置工时统计值](#逻辑处理-重置工时统计值（ResetTaskestimate）) | ResetTaskestimate | 后台 |
-| 2 | [任务取消收藏](#逻辑处理-任务取消收藏（TaskCancleFavorites）) | TaskCancleFavorites | 后台 |
-| 3 | [任务收藏](#逻辑处理-任务收藏（TaskFavorites）) | TaskFavorites | 后台 |
-| 4 | [更新需求版本](#逻辑处理-更新需求版本（UpdateStoryVersion）) | UpdateStoryVersion | 后台 |
-| 5 | [获取团队成员](#逻辑处理-获取团队成员（getUsernames）) | getUsernames | 后台 |
-| 6 | [获取团队成员（草稿）](#逻辑处理-获取团队成员（草稿）（getUsernamesDraft）) | getUsernamesDraft | 后台 |
-| 7 | [行为[Update]主状态拒绝逻辑](#逻辑处理-行为[Update]主状态拒绝逻辑（Update__MSDeny）) | Update__MSDeny | 后台 |
-| 8 | [行为[UpdateTemp]主状态拒绝逻辑](#逻辑处理-行为[UpdateTemp]主状态拒绝逻辑（UpdateTemp__MSDeny）) | UpdateTemp__MSDeny | 后台 |
-| 9 | [行为[UpdateTempMajor]主状态拒绝逻辑](#逻辑处理-行为[UpdateTempMajor]主状态拒绝逻辑（UpdateTempMajor__MSDeny）) | UpdateTempMajor__MSDeny | 后台 |
-| 10 | [行为[Remove]主状态拒绝逻辑](#逻辑处理-行为[Remove]主状态拒绝逻辑（Remove__MSDeny）) | Remove__MSDeny | 后台 |
-| 11 | [行为[RemoveTemp]主状态拒绝逻辑](#逻辑处理-行为[RemoveTemp]主状态拒绝逻辑（RemoveTemp__MSDeny）) | RemoveTemp__MSDeny | 后台 |
-| 12 | [行为[RemoveTempMajor]主状态拒绝逻辑](#逻辑处理-行为[RemoveTempMajor]主状态拒绝逻辑（RemoveTempMajor__MSDeny）) | RemoveTempMajor__MSDeny | 后台 |
-| 13 | [行为[updateStoryVersion]主状态拒绝逻辑](#逻辑处理-行为[updateStoryVersion]主状态拒绝逻辑（UpdateStoryVersion__MSDeny）) | UpdateStoryVersion__MSDeny | 后台 |
+| 1 | [获取联系人](#逻辑处理-获取联系人（GetUserConcat）) | GetUserConcat | 前台 |
+| 2 | [重置工时统计值](#逻辑处理-重置工时统计值（ResetTaskestimate）) | ResetTaskestimate | 后台 |
+| 3 | [任务取消收藏](#逻辑处理-任务取消收藏（TaskCancleFavorites）) | TaskCancleFavorites | 后台 |
+| 4 | [任务收藏](#逻辑处理-任务收藏（TaskFavorites）) | TaskFavorites | 后台 |
+| 5 | [更新需求版本](#逻辑处理-更新需求版本（UpdateStoryVersion）) | UpdateStoryVersion | 后台 |
+| 6 | [获取团队成员](#逻辑处理-获取团队成员（getUsernames）) | getUsernames | 后台 |
+| 7 | [获取团队成员（草稿）](#逻辑处理-获取团队成员（草稿）（getUsernamesDraft）) | getUsernamesDraft | 后台 |
+| 8 | [行为[Update]主状态拒绝逻辑](#逻辑处理-行为[Update]主状态拒绝逻辑（Update__MSDeny）) | Update__MSDeny | 后台 |
+| 9 | [行为[UpdateTemp]主状态拒绝逻辑](#逻辑处理-行为[UpdateTemp]主状态拒绝逻辑（UpdateTemp__MSDeny）) | UpdateTemp__MSDeny | 后台 |
+| 10 | [行为[UpdateTempMajor]主状态拒绝逻辑](#逻辑处理-行为[UpdateTempMajor]主状态拒绝逻辑（UpdateTempMajor__MSDeny）) | UpdateTempMajor__MSDeny | 后台 |
+| 11 | [行为[Remove]主状态拒绝逻辑](#逻辑处理-行为[Remove]主状态拒绝逻辑（Remove__MSDeny）) | Remove__MSDeny | 后台 |
+| 12 | [行为[RemoveTemp]主状态拒绝逻辑](#逻辑处理-行为[RemoveTemp]主状态拒绝逻辑（RemoveTemp__MSDeny）) | RemoveTemp__MSDeny | 后台 |
+| 13 | [行为[RemoveTempMajor]主状态拒绝逻辑](#逻辑处理-行为[RemoveTempMajor]主状态拒绝逻辑（RemoveTempMajor__MSDeny）) | RemoveTempMajor__MSDeny | 后台 |
+| 14 | [行为[updateStoryVersion]主状态拒绝逻辑](#逻辑处理-行为[updateStoryVersion]主状态拒绝逻辑（UpdateStoryVersion__MSDeny）) | UpdateStoryVersion__MSDeny | 后台 |
 
+### 逻辑处理-获取联系人（GetUserConcat）
+#### 说明
+获取联系人
+
+- 逻辑持有者
+前台
+
+#### 逻辑节点
+| 序号 | 节点 | 节点名 | 节点类型 |
+| ---- | ---- | ---- | ---- |
+| 1 | 准备参数 | Prepareparam1 | 准备参数 |
+| 2 | 开始 | Begin | 开始 |
 ### 逻辑处理-重置工时统计值（ResetTaskestimate）
 #### 说明
 重置工时统计值
@@ -6588,6 +6698,8 @@ t1.`ID`,
 t1.`LASTEDITEDBY`,
 t1.`LASTEDITEDDATE`,
 t1.`LEFT`,
+t1.`MAILTO`,
+t1.mailto AS `MAILTOPK`,
 t1.`MODULE`,
 t11.`NAME` AS `MODULENAME`,
 (case when t1.module = '0' then '/' else (SELECT case when tt.type = 'task' then GROUP_CONCAT( tt.NAME SEPARATOR '>' ) else CONCAT_WS('',t2.`name`,'>',GROUP_CONCAT( tt.NAME SEPARATOR '>' )) end as `name` FROM zt_module tt left join zt_product t2 on tt.root = t2.id WHERE FIND_IN_SET( tt.id, t11.path ) GROUP BY tt.root limit 0,1) end) AS `MODULENAME1`,
@@ -6726,6 +6838,8 @@ t1.`ID`,
 t1.`LASTEDITEDBY`,
 t1.`LASTEDITEDDATE`,
 t1.`LEFT`,
+t1.`MAILTO`,
+t1.mailto AS `MAILTOPK`,
 t1.`MODULE`,
 t11.`NAME` AS `MODULENAME`,
 (case when t1.module = '0' then '/' else (SELECT case when tt.type = 'task' then GROUP_CONCAT( tt.NAME SEPARATOR '>' ) else CONCAT_WS('',t2.`name`,'>',GROUP_CONCAT( tt.NAME SEPARATOR '>' )) end as `name` FROM zt_module tt left join zt_product t2 on tt.root = t2.id WHERE FIND_IN_SET( tt.id, t11.path ) GROUP BY tt.root limit 0,1) end) AS `MODULENAME1`,
@@ -7268,6 +7382,7 @@ t1.`LASTEDITEDBY`,
 t1.`LASTEDITEDDATE`,
 t1.`LEFT`,
 t1.`MAILTO`,
+t1.mailto AS `MAILTOPK`,
 t1.`MODULE`,
 t11.`NAME` AS `MODULENAME`,
 (case when t1.module = '0' then '/' else (SELECT case when tt.type = 'task' then GROUP_CONCAT( tt.NAME SEPARATOR '>' ) else CONCAT_WS('',t2.`name`,'>',GROUP_CONCAT( tt.NAME SEPARATOR '>' )) end as `name` FROM zt_module tt left join zt_product t2 on tt.root = t2.id WHERE FIND_IN_SET( tt.id, t11.path ) GROUP BY tt.root limit 0,1) end) AS `MODULENAME1`,

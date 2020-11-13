@@ -65,6 +65,8 @@ export default {
     noticeusers: "消息通知用户",
     progressrate: "进度",
     delay: "延期",
+    mailtopk: "属性",
+    mailtoconact: "联系人",
   },
 	views: {
 		subtasknewview: {

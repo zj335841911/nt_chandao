@@ -68,7 +68,7 @@ export default class TaskKanBanModel {
 			{
 				name: 'mailto',
 				prop: 'mailto',
-				dataType: 'LONGTEXT',
+				dataType: 'SMCODELIST',
 			},
 			{
 				name: 'project',
