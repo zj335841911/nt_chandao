@@ -95,7 +95,7 @@ public class ActionHelper extends ZTBaseHelper<ActionMapper, Action> {
             StaticDict.Action__type.REVIEWED.getValue()};
 
     @Override
-    @Transactional(rollbackFor = Exception.class)
+    @Transactional
     public boolean create(Action et) {
         et.setComment(et.getComment() == null ? "" : et.getComment());
         String noticeusers = et.getNoticeusers();
@@ -119,44 +119,50 @@ public class ActionHelper extends ZTBaseHelper<ActionMapper, Action> {
      * @param path
      */
     public void sendToread(Long id, String name,String noticeusers,String touser,String ccuser,String logicname, String type, String path) {
-        String noticeuserss = "";
-        if(touser!= null && !"".equals(touser)) {
-            noticeuserss += touser + ";";
-        }
-        JSONObject param = new JSONObject();
-        if(noticeusers != null & !"".equals(noticeusers)) {
-            noticeuserss += noticeusers.replaceAll(",", ";");
-        }
-        if(ccuser != null && !"".equals(ccuser) && "".equals(noticeuserss)) {
-            noticeuserss += ccuser.replaceAll(",", ";");
-        }
-        else if(ccuser != null && !"".equals(ccuser) && !"".equals(noticeuserss)) {
-            noticeuserss += ";" + ccuser.replaceAll(",", ";");
-        }
-        if("".equals(noticeuserss)) {
-            return;
-        }
+        try {
+            String noticeuserss = "";
+            if(touser!= null && !"".equals(touser)) {
+                noticeuserss += touser + ";";
+            }
+            JSONObject param = new JSONObject();
+            if(noticeusers != null & !"".equals(noticeusers)) {
+                noticeuserss += noticeusers.replaceAll(",", ";");
+            }
+            if(ccuser != null && !"".equals(ccuser) && "".equals(noticeuserss)) {
+                noticeuserss += ccuser.replaceAll(",", ";");
+            }
+            else if(ccuser != null && !"".equals(ccuser) && !"".equals(noticeuserss)) {
+                noticeuserss += ";" + ccuser.replaceAll(",", ";");
+            }
+            if("".equals(noticeuserss)) {
+                return;
+            }
 
-        IBIZProMessage ibizProMessage = new IBIZProMessage();
-        if("".equals(noticeuserss)) {
-            ibizProMessage.setCc("");
-        }else {
-            ibizProMessage.setCc(userHelper.ccUsers(noticeuserss));
-        }
+            IBIZProMessage ibizProMessage = new IBIZProMessage();
+            if("".equals(noticeuserss)) {
+                ibizProMessage.setCc("");
+            }else {
+                ibizProMessage.setCc(userHelper.ccUsers(noticeuserss));
+            }
 
-        ibizProMessage.setFrom(AuthenticationUser.getAuthenticationUser().getUserid());
+            ibizProMessage.setFrom(AuthenticationUser.getAuthenticationUser().getUserid());
 
-        if("".equals(ibizProMessage.getCc())) {
-            return;
+            if("".equals(ibizProMessage.getCc())) {
+                return;
+            }
+            ibizProMessage.setType(StaticDict.Message__type.TOREAD.getValue());
+            ibizProMessage.setIbizpromessagename(name);
+            param.put("objectid", id);
+            param.put("objecttype", type);
+            param.put("objectsourcepath", path);
+            param.put("objecttextname", logicname);
+            ibizProMessage.setParam(param.toJSONString());
+            iibizProMessageService.send(ibizProMessage);
+            log.info("待办消息发送成功！");
+        }catch (RuntimeException e) {
+            log.error(e.getMessage());
+            log.error("待阅消息发送失败！");
         }
-        ibizProMessage.setType(StaticDict.Message__type.TOREAD.getValue());
-        ibizProMessage.setIbizproMessagename(name);
-        param.put("objectid", id);
-        param.put("objecttype", type);
-        param.put("objectsourcepath", path);
-        param.put("objecttextname", logicname);
-        ibizProMessage.setParam(param.toJSONString());
-        iibizProMessageService.send(ibizProMessage);
     }
 
     /**
@@ -171,46 +177,52 @@ public class ActionHelper extends ZTBaseHelper<ActionMapper, Action> {
      * @param path
      */
     public void sendTodo(Long id, String name,String noticeusers,String touser,String ccuser,String logicname, String type, String path) {
-        String noticeuserss = "";
-        JSONObject param = new JSONObject();
-        if(noticeusers != null & !"".equals(noticeusers)) {
-            noticeuserss += noticeusers.replaceAll(MULTIPLE_CHOICE, ";");
-        }
-        if(ccuser != null && !"".equals(ccuser) && "".equals(noticeuserss)) {
-            noticeuserss += ccuser.replaceAll(MULTIPLE_CHOICE, ";");
-        }
-        else if(ccuser != null && !"".equals(ccuser) && !"".equals(noticeuserss)) {
-            noticeuserss += ";" + ccuser.replaceAll(MULTIPLE_CHOICE, ";");
-        }
-        if("".equals(touser) && "".equals(noticeuserss)) {
-            return;
-        }
+        try {
+            String noticeuserss = "";
+            JSONObject param = new JSONObject();
+            if(noticeusers != null & !"".equals(noticeusers)) {
+                noticeuserss += noticeusers.replaceAll(MULTIPLE_CHOICE, ";");
+            }
+            if(ccuser != null && !"".equals(ccuser) && "".equals(noticeuserss)) {
+                noticeuserss += ccuser.replaceAll(MULTIPLE_CHOICE, ";");
+            }
+            else if(ccuser != null && !"".equals(ccuser) && !"".equals(noticeuserss)) {
+                noticeuserss += ";" + ccuser.replaceAll(MULTIPLE_CHOICE, ";");
+            }
+            if("".equals(touser) && "".equals(noticeuserss)) {
+                return;
+            }
 
-        IBIZProMessage ibizProMessage = new IBIZProMessage();
-        if("".equals(noticeuserss)) {
-            ibizProMessage.setCc("");
-        }else {
-            ibizProMessage.setCc(userHelper.ccUsers(noticeuserss));
-        }
-        if("".equals(touser)) {
-            ibizProMessage.setTo("");
-        }else {
-            ibizProMessage.setTo(userHelper.toUser(touser));
-        }
+            IBIZProMessage ibizProMessage = new IBIZProMessage();
+            if("".equals(noticeuserss)) {
+                ibizProMessage.setCc("");
+            }else {
+                ibizProMessage.setCc(userHelper.ccUsers(noticeuserss));
+            }
+            if("".equals(touser)) {
+                ibizProMessage.setTo("");
+            }else {
+                ibizProMessage.setTo(userHelper.toUser(touser));
+            }
 
-        ibizProMessage.setFrom(AuthenticationUser.getAuthenticationUser().getUserid());
+            ibizProMessage.setFrom(AuthenticationUser.getAuthenticationUser().getUserid());
 
-        if("".equals(ibizProMessage.getCc()) && "".equals(ibizProMessage.getTo())) {
-            return;
+            if("".equals(ibizProMessage.getCc()) && "".equals(ibizProMessage.getTo())) {
+                return;
+            }
+            ibizProMessage.setType(StaticDict.Message__type.TODO.getValue());
+            ibizProMessage.setIbizpromessagename(name);
+            param.put("objectid", id);
+            param.put("objecttype", type);
+            param.put("objectsourcepath", path);
+            param.put("objecttextname", logicname);
+            ibizProMessage.setParam(param.toJSONString());
+            iibizProMessageService.send(ibizProMessage);
+            log.info("待办消息发送成功！");
+        }catch (RuntimeException e) {
+            log.error(e.getMessage());
+            log.error("待办消息发送失败！");
         }
-        ibizProMessage.setType(StaticDict.Message__type.TODO.getValue());
-        ibizProMessage.setIbizproMessagename(name);
-        param.put("objectid", id);
-        param.put("objecttype", type);
-        param.put("objectsourcepath", path);
-        param.put("objecttextname", logicname);
-        ibizProMessage.setParam(param.toJSONString());
-        iibizProMessageService.send(ibizProMessage);
     }
 
 
@@ -220,7 +232,7 @@ public class ActionHelper extends ZTBaseHelper<ActionMapper, Action> {
      * @return
      */
     @Override
-    @Transactional(rollbackFor = Exception.class)
+    @Transactional
     public boolean edit(Action et) {
         String noticeusers = et.getNoticeusers();
         this.internalUpdate(et);
@@ -242,7 +254,7 @@ public class ActionHelper extends ZTBaseHelper<ActionMapper, Action> {
      * @param autoDelete
      * @return
      */
-    @Transactional(rollbackFor = Exception.class)
+    @Transactional
     public Action create(String objectType, Long objectID, String actionType, String comment, String extra, String actor, boolean autoDelete) {
         Action et = new Action();
         if (actor == null) {
@@ -349,7 +361,7 @@ public class ActionHelper extends ZTBaseHelper<ActionMapper, Action> {
         return record;
     }
 
-    @Transactional(rollbackFor = Exception.class)
+    @Transactional
     public void logHistory(Long actionId, List<History> changes) {
         for (History change : changes) {
             change.setAction(actionId);
@@ -357,7 +369,7 @@ public class ActionHelper extends ZTBaseHelper<ActionMapper, Action> {
         }
     }
 
-    @Transactional(rollbackFor = Exception.class)
+    @Transactional
     public Action editComment(Action et) {
         et.setDate(ZTDateUtil.now());
         this.edit(et);
