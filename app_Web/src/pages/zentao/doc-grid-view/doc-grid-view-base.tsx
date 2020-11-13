@@ -91,8 +91,7 @@ export class DocGridViewBase extends GridViewBase {
     protected customViewParams: any = {
         'n_lib_eq': { isRawValue: false, value: 'srfroot' },
         'parent': { isRawValue: false, value: 'doclibmodule' },
-        'srfroot': { isRawValue: false, value: 'doclib' },
-        'docqtype': { isRawValue: false, value: 'docqtype' }
+        'srfroot': { isRawValue: false, value: 'doclib' }
     };
 
     /**
