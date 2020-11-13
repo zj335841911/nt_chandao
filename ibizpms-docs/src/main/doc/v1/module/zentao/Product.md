@@ -2661,6 +2661,7 @@ SELECT
 FROM
 	(
 SELECT
+        t1.MDEPTID,
         t1.orgid,
 	t1.`ACL`,
 	( SELECT COUNT( 1 ) FROM ZT_BUG WHERE PRODUCT = t1.`ID` AND `STATUS` = 'active' AND DELETED = '0' ) AS `ACTIVEBUGCNT`,
@@ -2712,6 +2713,7 @@ WHERE
 	t1.deleted = '0' 
 	AND (t1.acl = 'open' or  t1.CREATEDBY =  #{srf.sessioncontext.srfloginname} or t1.PO = #{srf.sessioncontext.srfloginname} or t1.RD = #{srf.sessioncontext.srfloginname} or t1.QD =  #{srf.sessioncontext.srfloginname} ) UNION
 SELECT
+       t1.MDEPTID,
         t1.orgid,
 	t1.`ACL`,
 	( SELECT COUNT( 1 ) FROM ZT_BUG WHERE PRODUCT = t1.`ID` AND `STATUS` = 'active' AND DELETED = '0' ) AS `ACTIVEBUGCNT`,

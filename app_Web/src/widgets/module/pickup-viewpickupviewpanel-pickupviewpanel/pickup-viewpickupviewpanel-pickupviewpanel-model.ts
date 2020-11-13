@@ -57,6 +57,12 @@ export default class PickupViewpickupviewpanelModel {
       {
         name: 'parent',
       },
+      {
+        name: 'mdeptid',
+      },
+      {
+        name: 'orgid',
+      },
     ]
   }
 

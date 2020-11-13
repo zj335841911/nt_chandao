@@ -152,6 +152,22 @@ public class Module extends EntityMP implements Serializable {
     @JSONField(name = "parent")
     @JsonProperty("parent")
     private Long parent;
+    /**
+     * 部门标识
+     */
+    @DEField(preType = DEPredefinedFieldType.ORGSECTORID)
+    @TableField(value = "`mdeptid`")
+    @JSONField(name = "mdeptid")
+    @JsonProperty("mdeptid")
+    private String mdeptid;
+    /**
+     * 组织标识
+     */
+    @DEField(preType = DEPredefinedFieldType.ORGID)
+    @TableField(value = "`orgid`")
+    @JSONField(name = "orgid")
+    @JsonProperty("orgid")
+    private String orgid;
 
     /**
      * 

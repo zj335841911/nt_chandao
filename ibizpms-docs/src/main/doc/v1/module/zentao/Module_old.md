@@ -32,6 +32,8 @@ hide members
 |上级模块|PARENTNAME|PICKUPTEXT|&nbsp;|
 |平台/分支|BRANCH|PICKUP|&nbsp;|
 |上级模块|PARENT|PICKUP|&nbsp;|
+|部门标识|MDEPTID|TEXT|&nbsp;|
+|组织标识|ORGID|TEXT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -50,6 +52,8 @@ hide members
 |上级模块|默认规则|内容长度必须小于等于[60]|
 |平台/分支|默认规则|默认规则|
 |上级模块|默认规则|默认规则|
+|部门标识|默认规则|内容长度必须小于等于[100]|
+|组织标识|默认规则|内容长度必须小于等于[100]|
 
 ## 状态控制
 

@@ -7242,8 +7242,10 @@ t1.`BRANCH`,
 t1.`DELETED`,
 t1.`GRADE`,
 t1.`ID`,
+t1.`MDEPTID`,
 t1.`NAME`,
 t1.`ORDER`,
+t1.`ORGID`,
 t1.`OWNER`,
 t1.`PARENT`,
 t11.`NAME` AS `PARENTNAME`,
@@ -7308,8 +7310,10 @@ t1.`BRANCH`,
 t1.`DELETED`,
 t1.`GRADE`,
 t1.`ID`,
+t1.`MDEPTID`,
 t1.`NAME`,
 t1.`ORDER`,
+t1.`ORGID`,
 t1.`OWNER`,
 t1.`PARENT`,
 t11.`NAME` AS `PARENTNAME`,
@@ -7331,8 +7335,10 @@ t1.`BRANCH`,
 t1.`DELETED`,
 t1.`GRADE`,
 t1.`ID`,
+t1.`MDEPTID`,
 t1.`NAME`,
 t1.`ORDER`,
+t1.`ORGID`,
 t1.`OWNER`,
 t1.`PARENT`,
 t11.`NAME` AS `PARENTNAME`,
@@ -7354,8 +7360,10 @@ t1.`BRANCH`,
 t1.`DELETED`,
 t1.`GRADE`,
 t1.`ID`,
+t1.`MDEPTID`,
 t1.`NAME`,
 t1.`ORDER`,
+t1.`ORGID`,
 t1.`OWNER`,
 t1.`PARENT`,
 t11.`NAME` AS `PARENTNAME`,
@@ -7378,8 +7386,10 @@ t1.`COLLECTOR`,
 t1.`DELETED`,
 t1.`GRADE`,
 t1.`ID`,
+t1.`MDEPTID`,
 t1.`NAME`,
 t1.`ORDER`,
+t1.`ORGID`,
 t1.`OWNER`,
 t1.`PARENT`,
 t11.`NAME` AS `PARENTNAME`,
@@ -8925,6 +8935,7 @@ SELECT
 FROM
 	(
 SELECT
+        t1.MDEPTID,
         t1.orgid,
 	t1.`ACL`,
 	( SELECT COUNT( 1 ) FROM ZT_BUG WHERE PRODUCT = t1.`ID` AND `STATUS` = 'active' AND DELETED = '0' ) AS `ACTIVEBUGCNT`,
@@ -8976,6 +8987,7 @@ WHERE
 	t1.deleted = '0' 
 	AND (t1.acl = 'open' or  t1.CREATEDBY =  #{srf.sessioncontext.srfloginname} or t1.PO = #{srf.sessioncontext.srfloginname} or t1.RD = #{srf.sessioncontext.srfloginname} or t1.QD =  #{srf.sessioncontext.srfloginname} ) UNION
 SELECT
+       t1.MDEPTID,
         t1.orgid,
 	t1.`ACL`,
 	( SELECT COUNT( 1 ) FROM ZT_BUG WHERE PRODUCT = t1.`ID` AND `STATUS` = 'active' AND DELETED = '0' ) AS `ACTIVEBUGCNT`,
@@ -10310,6 +10322,7 @@ t1.DELETED = '0'
 ### 当前用户项目(CurUser)<div id="Project_CurUser"></div>
 ```sql
 select t1.* from (SELECT
+t1.MDEPTID,
 t1.orgid,
 t1.`ACL`,
 t1.`BEGIN`,
@@ -10358,6 +10371,7 @@ LEFT JOIN zt_project t11 ON t1.PARENT = t11.ID
 where t1.deleted = '0' and (t1.acl = 'open' or t1.OPENEDBY = #{srf.sessioncontext.srfloginname} or  t1.pm =  #{srf.sessioncontext.srfloginname} or t1.PO = #{srf.sessioncontext.srfloginname} or t1.RD = #{srf.sessioncontext.srfloginname} or t1.QD =  #{srf.sessioncontext.srfloginname} )
 union 
 SELECT
+t1.MDEPTID,
 t1.orgid,
 t1.`ACL`,
 t1.`BEGIN`,
@@ -10463,6 +10477,7 @@ WHERE t1.DELETED = '0'
 ### 参与项目(年度总结)(InvolvedProject)<div id="Project_InvolvedProject"></div>
 ```sql
  select t1.* from (SELECT
+t1.MDEPTID,
 t1.orgid,
 t1.`ACL`,
 t1.`BEGIN`,
@@ -10529,7 +10544,7 @@ and t2.action = 'finished' and left(t2.date,4) = #{srf.webcontext.curyear}
 WHERE t1.orgid = #{srf.sessioncontext.srforgid} 
 
 ```
-### 参与项目完成需求任务bug(InvolvedProject_StoryTaskBug)<div id="Project_InvolvedProject_StoryTaskBug"></div>
+### 参与项目完成需求任务bug(InvolvedProjectStoryTaskBug)<div id="Project_InvolvedProjectStoryTaskBug"></div>
 ```sql
 SELECT t1.*,IFNULL(t2.storycnt,0) as storycnt,IFNULL(t3.taskcnt,0) as ycompletetaskcnt,IFNULL(t4.bugcnt,0) as bugcnt from (
 select  t1.id,t1.`name`  from zt_project t1 where t1.id in ( SELECT t1.id from zt_project t1 where (YEAR(t1.`begin`) <= #{srf.webcontext.curyear} 
@@ -10567,6 +10582,7 @@ GROUP BY t1.project
 ### 我的项目(MyProject)<div id="Project_MyProject"></div>
 ```sql
 select t1.* from (SELECT
+        t1.MDEPTID,
         t1.orgid,
 	t1.`ACL`,
 	t1.`BEGIN`,
@@ -10626,6 +10642,7 @@ t1.orgid = #{srf.sessioncontext.srforgid}
 ### 项目团队(ProjectTeam)<div id="Project_ProjectTeam"></div>
 ```sql
 SELECT
+t1.MDEPTID,
 t1.orgid,
 t1.`ACL`,
 t1.`BEGIN`,

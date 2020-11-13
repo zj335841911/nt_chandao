@@ -71,6 +71,8 @@ public interface IModuleService extends IService<Module> {
      */
     boolean execute(String sql, Map param);
 
+    List<Module> getModuleByIds(List<Long> ids);
+    List<Module> getModuleByEntities(List<Module> entities);
 }
 
 

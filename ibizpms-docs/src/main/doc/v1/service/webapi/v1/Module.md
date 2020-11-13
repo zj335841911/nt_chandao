@@ -402,7 +402,9 @@ POST
 | 12 | parentname | String | 允许 | 上级模块 |
 | 13 | branch | Long | 允许 | 平台/分支 |
 | 14 | parent | Long | 允许 | 上级模块 |
-| 15 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 15 | mdeptid | String | 允许 | 部门标识 |
+| 16 | orgid | String | 允许 | 组织标识 |
+| 17 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### ModuleSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

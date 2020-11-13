@@ -4128,7 +4128,7 @@ Save
 | 3 | [当前用户项目](#数据查询-当前用户项目（CurUser）) | CurUser | 否 |
 | 4 | [DEFAULT](#数据查询-DEFAULT（Default）) | Default | 否 |
 | 5 | [参与项目(年度总结)](#数据查询-参与项目(年度总结)（InvolvedProject）) | InvolvedProject | 否 |
-| 6 | [参与项目完成需求任务bug](#数据查询-参与项目完成需求任务bug（InvolvedProject_StoryTaskBug）) | InvolvedProject_StoryTaskBug | 否 |
+| 6 | [参与项目完成需求任务bug](#数据查询-参与项目完成需求任务bug（InvolvedProjectStoryTaskBug）) | InvolvedProjectStoryTaskBug | 否 |
 | 7 | [我的项目](#数据查询-我的项目（MyProject）) | MyProject | 否 |
 | 8 | [项目团队](#数据查询-项目团队（ProjectTeam）) | ProjectTeam | 否 |
 | 9 | [需求影响项目](#数据查询-需求影响项目（StoryProject）) | StoryProject | 否 |
@@ -4269,6 +4269,7 @@ LEFT JOIN zt_project t11 ON t1.PARENT = t11.ID
 - MYSQL5
 ```SQL
 select t1.* from (SELECT
+t1.MDEPTID,
 t1.orgid,
 t1.`ACL`,
 t1.`BEGIN`,
@@ -4317,6 +4318,7 @@ LEFT JOIN zt_project t11 ON t1.PARENT = t11.ID
 where t1.deleted = '0' and (t1.acl = 'open' or t1.OPENEDBY = #{srf.sessioncontext.srfloginname} or  t1.pm =  #{srf.sessioncontext.srfloginname} or t1.PO = #{srf.sessioncontext.srfloginname} or t1.RD = #{srf.sessioncontext.srfloginname} or t1.QD =  #{srf.sessioncontext.srfloginname} )
 union 
 SELECT
+t1.MDEPTID,
 t1.orgid,
 t1.`ACL`,
 t1.`BEGIN`,
@@ -4439,6 +4441,7 @@ LEFT JOIN zt_project t11 ON t1.PARENT = t11.ID
 - MYSQL5
 ```SQL
  select t1.* from (SELECT
+t1.MDEPTID,
 t1.orgid,
 t1.`ACL`,
 t1.`BEGIN`,
@@ -4503,7 +4506,7 @@ and t2.action = 'finished' and left(t2.date,4) = #{srf.webcontext.curyear}
 )
 ) t1
 ```
-### 数据查询-参与项目完成需求任务bug（InvolvedProject_StoryTaskBug）
+### 数据查询-参与项目完成需求任务bug（InvolvedProjectStoryTaskBug）
 #### 说明
 参与项目完成需求任务bug
 
@@ -4563,6 +4566,7 @@ GROUP BY t1.project
 - MYSQL5
 ```SQL
 select t1.* from (SELECT
+        t1.MDEPTID,
         t1.orgid,
 	t1.`ACL`,
 	t1.`BEGIN`,
@@ -4630,6 +4634,7 @@ FROM
 - MYSQL5
 ```SQL
 SELECT
+t1.MDEPTID,
 t1.orgid,
 t1.`ACL`,
 t1.`BEGIN`,
@@ -4849,7 +4854,7 @@ DEFAULT
 #### 关联的数据查询
 | 序号 | 数据查询 |
 | ---- | ---- |
-| 1 | [参与项目完成需求任务bug（InvolvedProject_StoryTaskBug）](#数据查询-参与项目完成需求任务bug（InvolvedProject_StoryTaskBug）) |
+| 1 | [参与项目完成需求任务bug（InvolvedProjectStoryTaskBug）](#数据查询-参与项目完成需求任务bug（InvolvedProjectStoryTaskBug）) |
 ### 数据集合-我的项目（MyProject）
 #### 说明
 我的项目

@@ -506,7 +506,7 @@ hide footbox
 |CurUser|当前用户项目([MYSQL5](../../appendix/query_MYSQL5.md#Project_CurUser))|否|&nbsp;|
 |DEFAULT|DEFAULT([MYSQL5](../../appendix/query_MYSQL5.md#Project_Default))|否|&nbsp;|
 |InvolvedProject|参与项目(年度总结)([MYSQL5](../../appendix/query_MYSQL5.md#Project_InvolvedProject))|否|&nbsp;|
-|InvolvedProject_StoryTaskBug|参与项目完成需求任务bug([MYSQL5](../../appendix/query_MYSQL5.md#Project_InvolvedProject_StoryTaskBug))|否|&nbsp;|
+|InvolvedProjectStoryTaskBug|参与项目完成需求任务bug([MYSQL5](../../appendix/query_MYSQL5.md#Project_InvolvedProjectStoryTaskBug))|否|&nbsp;|
 |MyProject|我的项目([MYSQL5](../../appendix/query_MYSQL5.md#Project_MyProject))|否|&nbsp;|
 |ProjectTeam|项目团队([MYSQL5](../../appendix/query_MYSQL5.md#Project_ProjectTeam))|否|&nbsp;|
 |StoryProject|需求影响项目([MYSQL5](../../appendix/query_MYSQL5.md#Project_StoryProject))|否|&nbsp;|
@@ -521,7 +521,7 @@ hide footbox
 |CurUser|当前用户项目|CurUser|否|&nbsp;|
 |DEFAULT|DEFAULT|DEFAULT|是|&nbsp;|
 |InvolvedProject|参与项目(年度总结)|InvolvedProject|否|&nbsp;|
-|InvolvedProject_StoryTaskBug|参与项目完成需求任务bug|InvolvedProject_StoryTaskBug|否|&nbsp;|
+|InvolvedProject_StoryTaskBug|参与项目完成需求任务bug|InvolvedProjectStoryTaskBug|否|&nbsp;|
 |MyProject|我的项目|MyProject|否|&nbsp;|
 |ProjectTeam|项目团队|ProjectTeam|否|&nbsp;|
 |StoryProject|需求影响项目|StoryProject|否|&nbsp;|

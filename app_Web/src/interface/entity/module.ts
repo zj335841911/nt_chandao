@@ -117,4 +117,20 @@ export interface Module {
      * @memberof Module
      */
     parent?: any;
+
+    /**
+     * 部门标识
+     *
+     * @returns {*}
+     * @memberof Module
+     */
+    mdeptid?: any;
+
+    /**
+     * 组织标识
+     *
+     * @returns {*}
+     * @memberof Module
+     */
+    orgid?: any;
 }

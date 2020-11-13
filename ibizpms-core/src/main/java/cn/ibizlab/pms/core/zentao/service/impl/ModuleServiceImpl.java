@@ -284,6 +284,27 @@ public class ModuleServiceImpl extends ServiceImpl<ModuleMapper, Module> impleme
         return true;
     }
 
+    @Override
+    public List<Module> getModuleByIds(List<Long> ids) {
+         return this.listByIds(ids);
+    }
+
+    @Override
+    public List<Module> getModuleByEntities(List<Module> entities) {
+        List ids =new ArrayList();
+        for(Module entity : entities){
+            Serializable id=entity.getId();
+            if (!ObjectUtils.isEmpty(id)) {
+                ids.add(id);
+            }
+        }
+        if (ids.size() > 0) {
+            return this.listByIds(ids);
+        }
+        else {
+            return entities;
+        }
+    }
 
 
 
