@@ -31,7 +31,7 @@ public interface SysEmployeeFeignClient {
 
 
     @RequestMapping(method = RequestMethod.PUT, value = "/sysemployees/{userid}")
-    SysEmployee update(@PathVariable("userid") String userid,@RequestBody SysEmployee sysemployee);
+    SysEmployee update(@PathVariable("userid") String userid, @RequestBody SysEmployee sysemployee);
 
     @RequestMapping(method = RequestMethod.PUT, value = "/sysemployees/batch")
     Boolean updateBatch(@RequestBody List<SysEmployee> sysemployees);

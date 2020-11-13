@@ -23,7 +23,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 /**
  * 实体[ImConference] 服务对象接口
  */
-public interface IImConferenceService extends IService<ImConference>{
+public interface IImConferenceService extends IService<ImConference> {
 
     /**
      * 业务实体显示文本名称
@@ -35,29 +35,29 @@ public interface IImConferenceService extends IService<ImConference>{
      */
     final static String OBJECT_SOURCE_PATH = "imconferences";
 
-    boolean create(ImConference et) ;
-    void createBatch(List<ImConference> list) ;
-    boolean update(ImConference et) ;
-    void updateBatch(List<ImConference> list) ;
-    boolean remove(Long key) ;
-    void removeBatch(Collection<Long> idList) ;
-    ImConference get(Long key) ;
-    ImConference getDraft(ImConference et) ;
-    boolean checkKey(ImConference et) ;
-    boolean save(ImConference et) ;
-    void saveBatch(List<ImConference> list) ;
-    Page<ImConference> searchDefault(ImConferenceSearchContext context) ;
+    boolean create(ImConference et);
+    void createBatch(List<ImConference> list);
+    boolean update(ImConference et);
+    void updateBatch(List<ImConference> list);
+    boolean remove(Long key);
+    void removeBatch(Collection<Long> idList);
+    ImConference get(Long key);
+    ImConference getDraft(ImConference et);
+    boolean checkKey(ImConference et);
+    boolean save(ImConference et);
+    void saveBatch(List<ImConference> list);
+    Page<ImConference> searchDefault(ImConferenceSearchContext context);
     /**
-     *自定义查询SQL
+     * 自定义查询SQL
      * @param sql  select * from table where id =#{et.param}
-     * @param param 参数列表  param.put("param","1");
+     * @param param 参数列表  param.put("param", "1");
      * @return select * from table where id = '1'
      */
     List<JSONObject> select(String sql, Map param);
     /**
-     *自定义SQL
+     * 自定义SQL
      * @param sql  update table  set name ='test' where id =#{et.param}
-     * @param param 参数列表  param.put("param","1");
+     * @param param 参数列表  param.put("param", "1");
      * @return     update table  set name ='test' where id = '1'
      */
     boolean execute(String sql, Map param);

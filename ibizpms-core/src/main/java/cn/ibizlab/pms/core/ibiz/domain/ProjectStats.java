@@ -38,7 +38,7 @@ import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 @Setter
 @NoArgsConstructor
 @JsonIgnoreProperties(value = "handler")
-@TableName(value = "zt_project",resultMap = "ProjectStatsResultMap")
+@TableName(value = "zt_project", resultMap = "ProjectStatsResultMap")
 public class ProjectStats extends EntityMP implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -47,7 +47,7 @@ public class ProjectStats extends EntityMP implements Serializable {
      * 项目编号
      */
     @DEField(isKeyField = true)
-    @TableId(value= "id",type=IdType.AUTO)
+    @TableId(value = "id", type = IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
     private Long id;
@@ -139,7 +139,7 @@ public class ProjectStats extends EntityMP implements Serializable {
      * 已删除
      */
     @DEField(defaultValue = "0", preType = DEPredefinedFieldType.LOGICVALID, logicval = "0", logicdelval = "1")
-    @TableLogic(value= "0", delval = "1")
+    @TableLogic(value = "0", delval = "1")
     @TableField(value = "`deleted`")
     @JSONField(name = "deleted")
     @JsonProperty("deleted")
@@ -211,7 +211,7 @@ public class ProjectStats extends EntityMP implements Serializable {
      * 截止日期
      */
     @TableField(value = "`end`")
-    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh" , timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "end", format = "yyyy-MM-dd")
     @JsonProperty("end")
     private Timestamp end;
@@ -243,16 +243,16 @@ public class ProjectStats extends EntityMP implements Serializable {
      * 设置 [项目名称]
      */
     public void setName(String name) {
-        this.name = name ;
-        this.modify("name",name);
+        this.name = name;
+        this.modify("name", name);
     }
 
     /**
      * 设置 [截止日期]
      */
     public void setEnd(Timestamp end) {
-        this.end = end ;
-        this.modify("end",end);
+        this.end = end;
+        this.modify("end", end);
     }
 
     /**
@@ -269,14 +269,14 @@ public class ProjectStats extends EntityMP implements Serializable {
      * 设置 [状态]
      */
     public void setStatus(String status) {
-        this.status = status ;
-        this.modify("status",status);
+        this.status = status;
+        this.modify("status", status);
     }
 
 
     @Override
     public Serializable getDefaultKey(boolean gen) {
-       return IdWorker.getId();
+        return IdWorker.getId();
     }
     /**
      * 复制当前对象数据到目标对象(粘贴重置)
@@ -288,7 +288,7 @@ public class ProjectStats extends EntityMP implements Serializable {
     @Override
     public <T> T copyTo(T targetEntity, boolean bIncEmpty) {
         this.reset("id");
-        return super.copyTo(targetEntity,bIncEmpty);
+        return super.copyTo(targetEntity, bIncEmpty);
     }
 }
 

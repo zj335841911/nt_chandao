@@ -23,7 +23,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 /**
  * 实体[SysUpdateLog] 服务对象接口
  */
-public interface ISysUpdateLogService extends IService<SysUpdateLog>{
+public interface ISysUpdateLogService extends IService<SysUpdateLog> {
 
     /**
      * 业务实体显示文本名称
@@ -35,36 +35,36 @@ public interface ISysUpdateLogService extends IService<SysUpdateLog>{
      */
     final static String OBJECT_SOURCE_PATH = "sysupdatelogs";
 
-    boolean create(SysUpdateLog et) ;
-    void createBatch(List<SysUpdateLog> list) ;
-    boolean update(SysUpdateLog et) ;
-    void updateBatch(List<SysUpdateLog> list) ;
-    boolean remove(String key) ;
-    void removeBatch(Collection<String> idList) ;
-    SysUpdateLog get(String key) ;
-    SysUpdateLog getDraft(SysUpdateLog et) ;
-    boolean checkKey(SysUpdateLog et) ;
-    SysUpdateLog getLastUpdateInfo(SysUpdateLog et) ;
-    boolean save(SysUpdateLog et) ;
-    void saveBatch(List<SysUpdateLog> list) ;
-    Page<SysUpdateLog> searchDefault(SysUpdateLogSearchContext context) ;
+    boolean create(SysUpdateLog et);
+    void createBatch(List<SysUpdateLog> list);
+    boolean update(SysUpdateLog et);
+    void updateBatch(List<SysUpdateLog> list);
+    boolean remove(String key);
+    void removeBatch(Collection<String> idList);
+    SysUpdateLog get(String key);
+    SysUpdateLog getDraft(SysUpdateLog et);
+    boolean checkKey(SysUpdateLog et);
+    SysUpdateLog getLastUpdateInfo(SysUpdateLog et);
+    boolean save(SysUpdateLog et);
+    void saveBatch(List<SysUpdateLog> list);
+    Page<SysUpdateLog> searchDefault(SysUpdateLogSearchContext context);
     /**
-     *自定义查询SQL
+     * 自定义查询SQL
      * @param sql  select * from table where id =#{et.param}
-     * @param param 参数列表  param.put("param","1");
+     * @param param 参数列表  param.put("param", "1");
      * @return select * from table where id = '1'
      */
     List<JSONObject> select(String sql, Map param);
     /**
-     *自定义SQL
+     * 自定义SQL
      * @param sql  update table  set name ='test' where id =#{et.param}
-     * @param param 参数列表  param.put("param","1");
+     * @param param 参数列表  param.put("param", "1");
      * @return     update table  set name ='test' where id = '1'
      */
     boolean execute(String sql, Map param);
 
-    List<SysUpdateLog> getSysupdatelogByIds(List<String> ids) ;
-    List<SysUpdateLog> getSysupdatelogByEntities(List<SysUpdateLog> entities) ;
+    List<SysUpdateLog> getSysupdatelogByIds(List<String> ids);
+    List<SysUpdateLog> getSysupdatelogByEntities(List<SysUpdateLog> entities);
 }
 
 

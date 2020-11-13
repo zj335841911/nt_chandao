@@ -23,7 +23,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 /**
  * 实体[ProductSum] 服务对象接口
  */
-public interface IProductSumService extends IService<ProductSum>{
+public interface IProductSumService extends IService<ProductSum> {
 
     /**
      * 业务实体显示文本名称
@@ -35,32 +35,32 @@ public interface IProductSumService extends IService<ProductSum>{
      */
     final static String OBJECT_SOURCE_PATH = "productsums";
 
-    boolean create(ProductSum et) ;
-    void createBatch(List<ProductSum> list) ;
-    boolean update(ProductSum et) ;
-    void updateBatch(List<ProductSum> list) ;
-    boolean remove(Long key) ;
-    void removeBatch(Collection<Long> idList) ;
-    ProductSum get(Long key) ;
-    ProductSum getDraft(ProductSum et) ;
-    boolean checkKey(ProductSum et) ;
-    boolean save(ProductSum et) ;
-    void saveBatch(List<ProductSum> list) ;
-    Page<ProductSum> searchDefault(ProductSumSearchContext context) ;
-    Page<ProductSum> searchProductBugcnt_QA(ProductSumSearchContext context) ;
-    Page<ProductSum> searchProductCreateStory(ProductSumSearchContext context) ;
-    Page<ProductSum> searchProductStorycntAndPlancnt(ProductSumSearchContext context) ;
+    boolean create(ProductSum et);
+    void createBatch(List<ProductSum> list);
+    boolean update(ProductSum et);
+    void updateBatch(List<ProductSum> list);
+    boolean remove(Long key);
+    void removeBatch(Collection<Long> idList);
+    ProductSum get(Long key);
+    ProductSum getDraft(ProductSum et);
+    boolean checkKey(ProductSum et);
+    boolean save(ProductSum et);
+    void saveBatch(List<ProductSum> list);
+    Page<ProductSum> searchDefault(ProductSumSearchContext context);
+    Page<ProductSum> searchProductBugcnt_QA(ProductSumSearchContext context);
+    Page<ProductSum> searchProductCreateStory(ProductSumSearchContext context);
+    Page<ProductSum> searchProductStorycntAndPlancnt(ProductSumSearchContext context);
     /**
-     *自定义查询SQL
+     * 自定义查询SQL
      * @param sql  select * from table where id =#{et.param}
-     * @param param 参数列表  param.put("param","1");
+     * @param param 参数列表  param.put("param", "1");
      * @return select * from table where id = '1'
      */
     List<JSONObject> select(String sql, Map param);
     /**
-     *自定义SQL
+     * 自定义SQL
      * @param sql  update table  set name ='test' where id =#{et.param}
-     * @param param 参数列表  param.put("param","1");
+     * @param param 参数列表  param.put("param", "1");
      * @return     update table  set name ='test' where id = '1'
      */
     boolean execute(String sql, Map param);

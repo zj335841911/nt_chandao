@@ -23,7 +23,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 /**
  * 实体[BugStats] 服务对象接口
  */
-public interface IBugStatsService extends IService<BugStats>{
+public interface IBugStatsService extends IService<BugStats> {
 
     /**
      * 业务实体显示文本名称
@@ -35,33 +35,33 @@ public interface IBugStatsService extends IService<BugStats>{
      */
     final static String OBJECT_SOURCE_PATH = "bugstats";
 
-    boolean create(BugStats et) ;
-    void createBatch(List<BugStats> list) ;
-    boolean update(BugStats et) ;
-    void updateBatch(List<BugStats> list) ;
-    boolean remove(Long key) ;
-    void removeBatch(Collection<Long> idList) ;
-    BugStats get(Long key) ;
-    BugStats getDraft(BugStats et) ;
-    boolean checkKey(BugStats et) ;
-    boolean save(BugStats et) ;
-    void saveBatch(List<BugStats> list) ;
-    Page<BugStats> searchBugassignedTo(BugStatsSearchContext context) ;
-    Page<BugStats> searchDefault(BugStatsSearchContext context) ;
-    Page<BugStats> searchProductCreateBug(BugStatsSearchContext context) ;
+    boolean create(BugStats et);
+    void createBatch(List<BugStats> list);
+    boolean update(BugStats et);
+    void updateBatch(List<BugStats> list);
+    boolean remove(Long key);
+    void removeBatch(Collection<Long> idList);
+    BugStats get(Long key);
+    BugStats getDraft(BugStats et);
+    boolean checkKey(BugStats et);
+    boolean save(BugStats et);
+    void saveBatch(List<BugStats> list);
+    Page<BugStats> searchBugassignedTo(BugStatsSearchContext context);
+    Page<BugStats> searchDefault(BugStatsSearchContext context);
+    Page<BugStats> searchProductCreateBug(BugStatsSearchContext context);
     List<BugStats> selectByProduct(Long id);
-    void removeByProduct(Long id) ;
+    void removeByProduct(Long id);
     /**
-     *自定义查询SQL
+     * 自定义查询SQL
      * @param sql  select * from table where id =#{et.param}
-     * @param param 参数列表  param.put("param","1");
+     * @param param 参数列表  param.put("param", "1");
      * @return select * from table where id = '1'
      */
     List<JSONObject> select(String sql, Map param);
     /**
-     *自定义SQL
+     * 自定义SQL
      * @param sql  update table  set name ='test' where id =#{et.param}
-     * @param param 参数列表  param.put("param","1");
+     * @param param 参数列表  param.put("param", "1");
      * @return     update table  set name ='test' where id = '1'
      */
     boolean execute(String sql, Map param);

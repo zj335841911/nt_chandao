@@ -38,7 +38,7 @@ import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 @Setter
 @NoArgsConstructor
 @JsonIgnoreProperties(value = "handler")
-@TableName(value = "zt_history",resultMap = "HistoryResultMap")
+@TableName(value = "zt_history", resultMap = "HistoryResultMap")
 public class History extends EntityMP implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -79,7 +79,7 @@ public class History extends EntityMP implements Serializable {
      * id
      */
     @DEField(isKeyField = true)
-    @TableId(value= "id",type=IdType.AUTO)
+    @TableId(value = "id", type = IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
     private Long id;
@@ -106,46 +106,46 @@ public class History extends EntityMP implements Serializable {
      * 设置 [不同]
      */
     public void setDiff(String diff) {
-        this.diff = diff ;
-        this.modify("diff",diff);
+        this.diff = diff;
+        this.modify("diff", diff);
     }
 
     /**
      * 设置 [字段]
      */
     public void setField(String field) {
-        this.field = field ;
-        this.modify("field",field);
+        this.field = field;
+        this.modify("field", field);
     }
 
     /**
      * 设置 [新值]
      */
     public void setIbiznew(String ibiznew) {
-        this.ibiznew = ibiznew ;
-        this.modify("new",ibiznew);
+        this.ibiznew = ibiznew;
+        this.modify("new", ibiznew);
     }
 
     /**
      * 设置 [旧值]
      */
     public void setOld(String old) {
-        this.old = old ;
-        this.modify("old",old);
+        this.old = old;
+        this.modify("old", old);
     }
 
     /**
      * 设置 [关联日志]
      */
     public void setAction(Long action) {
-        this.action = action ;
-        this.modify("action",action);
+        this.action = action;
+        this.modify("action", action);
     }
 
 
     @Override
     public Serializable getDefaultKey(boolean gen) {
-       return IdWorker.getId();
+        return IdWorker.getId();
     }
     /**
      * 复制当前对象数据到目标对象(粘贴重置)
@@ -157,7 +157,7 @@ public class History extends EntityMP implements Serializable {
     @Override
     public <T> T copyTo(T targetEntity, boolean bIncEmpty) {
         this.reset("id");
-        return super.copyTo(targetEntity,bIncEmpty);
+        return super.copyTo(targetEntity, bIncEmpty);
     }
 }
 

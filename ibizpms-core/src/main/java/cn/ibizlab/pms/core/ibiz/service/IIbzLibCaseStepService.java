@@ -23,7 +23,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 /**
  * 实体[IbzLibCaseStep] 服务对象接口
  */
-public interface IIbzLibCaseStepService extends IService<IbzLibCaseStep>{
+public interface IIbzLibCaseStepService extends IService<IbzLibCaseStep> {
 
     /**
      * 业务实体显示文本名称
@@ -35,29 +35,29 @@ public interface IIbzLibCaseStepService extends IService<IbzLibCaseStep>{
      */
     final static String OBJECT_SOURCE_PATH = "ibzlibcasesteps";
 
-    boolean create(IbzLibCaseStep et) ;
-    void createBatch(List<IbzLibCaseStep> list) ;
-    boolean update(IbzLibCaseStep et) ;
-    void updateBatch(List<IbzLibCaseStep> list) ;
-    boolean remove(Long key) ;
-    void removeBatch(Collection<Long> idList) ;
-    IbzLibCaseStep get(Long key) ;
-    IbzLibCaseStep getDraft(IbzLibCaseStep et) ;
-    boolean checkKey(IbzLibCaseStep et) ;
-    boolean save(IbzLibCaseStep et) ;
-    void saveBatch(List<IbzLibCaseStep> list) ;
-    Page<IbzLibCaseStep> searchDefault(IbzLibCaseStepSearchContext context) ;
+    boolean create(IbzLibCaseStep et);
+    void createBatch(List<IbzLibCaseStep> list);
+    boolean update(IbzLibCaseStep et);
+    void updateBatch(List<IbzLibCaseStep> list);
+    boolean remove(Long key);
+    void removeBatch(Collection<Long> idList);
+    IbzLibCaseStep get(Long key);
+    IbzLibCaseStep getDraft(IbzLibCaseStep et);
+    boolean checkKey(IbzLibCaseStep et);
+    boolean save(IbzLibCaseStep et);
+    void saveBatch(List<IbzLibCaseStep> list);
+    Page<IbzLibCaseStep> searchDefault(IbzLibCaseStepSearchContext context);
     /**
-     *自定义查询SQL
+     * 自定义查询SQL
      * @param sql  select * from table where id =#{et.param}
-     * @param param 参数列表  param.put("param","1");
+     * @param param 参数列表  param.put("param", "1");
      * @return select * from table where id = '1'
      */
     List<JSONObject> select(String sql, Map param);
     /**
-     *自定义SQL
+     * 自定义SQL
      * @param sql  update table  set name ='test' where id =#{et.param}
-     * @param param 参数列表  param.put("param","1");
+     * @param param 参数列表  param.put("param", "1");
      * @return     update table  set name ='test' where id = '1'
      */
     boolean execute(String sql, Map param);

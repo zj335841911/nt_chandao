@@ -36,7 +36,7 @@ public class SysPost extends EntityClient implements Serializable {
     /**
      * 岗位标识
      */
-    @DEField(defaultValue = "postcode" , defaultValueType = DEFieldDefaultValueType.PARAM , isKeyField = true)
+    @DEField(defaultValue = "postcode", defaultValueType = DEFieldDefaultValueType.PARAM , isKeyField = true)
     @JSONField(name = "postid")
     @JsonProperty("postid")
     private String postid;
@@ -78,7 +78,7 @@ public class SysPost extends EntityClient implements Serializable {
      */
     public void setPostcode(String postcode) {
         this.postcode = postcode ;
-        this.modify("postcode",postcode);
+        this.modify("postcode", postcode);
     }
 
     /**
@@ -86,7 +86,7 @@ public class SysPost extends EntityClient implements Serializable {
      */
     public void setPostname(String postname) {
         this.postname = postname ;
-        this.modify("postname",postname);
+        this.modify("postname", postname);
     }
 
     /**
@@ -94,7 +94,7 @@ public class SysPost extends EntityClient implements Serializable {
      */
     public void setDomains(String domains) {
         this.domains = domains ;
-        this.modify("domains",domains);
+        this.modify("domains", domains);
     }
 
     /**
@@ -102,7 +102,7 @@ public class SysPost extends EntityClient implements Serializable {
      */
     public void setMemo(String memo) {
         this.memo = memo ;
-        this.modify("memo",memo);
+        this.modify("memo", memo);
     }
 
     /**
@@ -115,7 +115,7 @@ public class SysPost extends EntityClient implements Serializable {
     @Override
     public <T> T copyTo(T targetEntity, boolean bIncEmpty) {
         this.reset("postid");
-        return super.copyTo(targetEntity,bIncEmpty);
+        return super.copyTo(targetEntity, bIncEmpty);
     }
 }
 

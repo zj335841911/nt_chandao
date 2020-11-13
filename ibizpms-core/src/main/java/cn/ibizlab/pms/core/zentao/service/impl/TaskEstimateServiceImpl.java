@@ -57,7 +57,7 @@ public class TaskEstimateServiceImpl extends ServiceImpl<TaskEstimateMapper, Tas
     @Override
     @Transactional
     public boolean create(TaskEstimate et) {
-        if(!this.retBool(this.baseMapper.insert(et))) {
+        if (!this.retBool(this.baseMapper.insert(et))) {
             return false;
         }
         CachedBeanCopier.copy(get(et.getId()), et);
@@ -98,7 +98,7 @@ public class TaskEstimateServiceImpl extends ServiceImpl<TaskEstimateMapper, Tas
     @Transactional
     public TaskEstimate get(Long key) {
         TaskEstimate et = getById(key);
-        if(et == null){
+        if (et == null) {
             et = new TaskEstimate();
             et.setId(key);
         }
@@ -138,41 +138,41 @@ public class TaskEstimateServiceImpl extends ServiceImpl<TaskEstimateMapper, Tas
     @Override
     @Transactional
     public boolean saveBatch(Collection<TaskEstimate> list) {
-        saveOrUpdateBatch(list,batchSize);
+        saveOrUpdateBatch(list, batchSize);
         return true;
     }
 
     @Override
     @Transactional
     public void saveBatch(List<TaskEstimate> list) {
-        saveOrUpdateBatch(list,batchSize);
+        saveOrUpdateBatch(list, batchSize);
     }
 
 
-	@Override
+    @Override
     public List<TaskEstimate> selectByTask(Long id) {
         return baseMapper.selectByTask(id);
     }
     @Override
     public void removeByTask(Long id) {
-        this.remove(new QueryWrapper<TaskEstimate>().eq("task",id));
+        this.remove(new QueryWrapper<TaskEstimate>().eq("task", id));
     }
 
     @Autowired
     @Lazy
     ITaskEstimateService proxyService;
-	@Override
-    public void saveByTask(Long id,List<TaskEstimate> list) {
+    @Override
+    public void saveByTask(Long id, List<TaskEstimate> list) {
         if (list == null) {
             return;
         }
         Set<Long> delIds=new HashSet<Long>();
         List<TaskEstimate> _update=new ArrayList<TaskEstimate>();
         List<TaskEstimate> _create=new ArrayList<TaskEstimate>();
-        for(TaskEstimate before:selectByTask(id)){
+        for (TaskEstimate before:selectByTask(id)){
             delIds.add(before.getId());
         }
-        for(TaskEstimate sub:list) {
+        for (TaskEstimate sub : list) {
             sub.setTask(id);
             if (ObjectUtils.isEmpty(sub.getId()))
                 sub.setId((Long)sub.getDefaultKey(true));
@@ -193,7 +193,7 @@ public class TaskEstimateServiceImpl extends ServiceImpl<TaskEstimateMapper, Tas
         if (delIds.size() > 0) {
             proxyService.removeBatch(delIds);
         }
-	}
+    }
 
 
     /**
@@ -201,7 +201,7 @@ public class TaskEstimateServiceImpl extends ServiceImpl<TaskEstimateMapper, Tas
      */
     @Override
     public Page<TaskEstimate> searchDefault(TaskEstimateSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<TaskEstimate> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<TaskEstimate> pages=baseMapper.searchDefault(context.getPages(), context, context.getSelectCond());
         return new PageImpl<TaskEstimate>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -210,7 +210,7 @@ public class TaskEstimateServiceImpl extends ServiceImpl<TaskEstimateMapper, Tas
      */
     @Override
     public Page<TaskEstimate> searchDefaults(TaskEstimateSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<TaskEstimate> pages=baseMapper.searchDefaults(context.getPages(),context,context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<TaskEstimate> pages=baseMapper.searchDefaults(context.getPages(), context, context.getSelectCond());
         return new PageImpl<TaskEstimate>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -221,24 +221,24 @@ public class TaskEstimateServiceImpl extends ServiceImpl<TaskEstimateMapper, Tas
 
 
     @Override
-    public List<JSONObject> select(String sql, Map param){
-        return this.baseMapper.selectBySQL(sql,param);
+    public List<JSONObject> select(String sql, Map param) {
+        return this.baseMapper.selectBySQL(sql, param);
     }
 
     @Override
     @Transactional
-    public boolean execute(String sql , Map param){
+    public boolean execute(String sql, Map param) {
         if (sql == null || sql.isEmpty()) {
             return false;
         }
         if (sql.toLowerCase().trim().startsWith("insert")) {
-            return this.baseMapper.insertBySQL(sql,param);
+            return this.baseMapper.insertBySQL(sql, param);
         }
         if (sql.toLowerCase().trim().startsWith("update")) {
-            return this.baseMapper.updateBySQL(sql,param);
+            return this.baseMapper.updateBySQL(sql, param);
         }
         if (sql.toLowerCase().trim().startsWith("delete")) {
-            return this.baseMapper.deleteBySQL(sql,param);
+            return this.baseMapper.deleteBySQL(sql, param);
         }
         log.warn("暂未支持的SQL语法");
         return true;

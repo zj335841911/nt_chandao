@@ -31,7 +31,7 @@ public interface PSModuleFeignClient {
 
 
     @RequestMapping(method = RequestMethod.PUT, value = "/psmodules/{psmoduleid}")
-    PSModule update(@PathVariable("psmoduleid") String psmoduleid,@RequestBody PSModule psmodule);
+    PSModule update(@PathVariable("psmoduleid") String psmoduleid, @RequestBody PSModule psmodule);
 
     @RequestMapping(method = RequestMethod.PUT, value = "/psmodules/batch")
     Boolean updateBatch(@RequestBody List<PSModule> psmodules);

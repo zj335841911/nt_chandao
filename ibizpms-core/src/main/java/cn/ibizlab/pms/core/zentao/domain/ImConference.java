@@ -38,7 +38,7 @@ import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 @Setter
 @NoArgsConstructor
 @JsonIgnoreProperties(value = "handler")
-@TableName(value = "zt_im_conference",resultMap = "ImConferenceResultMap")
+@TableName(value = "zt_im_conference", resultMap = "ImConferenceResultMap")
 public class ImConference extends EntityMP implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -70,7 +70,7 @@ public class ImConference extends EntityMP implements Serializable {
      */
     @DEField(defaultValue = "0000-00-00 00:00:00")
     @TableField(value = "`openeddate`")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "openeddate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("openeddate")
     private Timestamp openeddate;
@@ -78,7 +78,7 @@ public class ImConference extends EntityMP implements Serializable {
      * id
      */
     @DEField(isKeyField = true)
-    @TableId(value= "id",type=IdType.AUTO)
+    @TableId(value = "id", type = IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
     private Long id;
@@ -103,32 +103,32 @@ public class ImConference extends EntityMP implements Serializable {
      * 设置 [status]
      */
     public void setStatus(String status) {
-        this.status = status ;
-        this.modify("status",status);
+        this.status = status;
+        this.modify("status", status);
     }
 
     /**
      * 设置 [cgid]
      */
     public void setCgid(String cgid) {
-        this.cgid = cgid ;
-        this.modify("cgid",cgid);
+        this.cgid = cgid;
+        this.modify("cgid", cgid);
     }
 
     /**
      * 设置 [openedBy]
      */
     public void setOpenedby(Integer openedby) {
-        this.openedby = openedby ;
-        this.modify("openedby",openedby);
+        this.openedby = openedby;
+        this.modify("openedby", openedby);
     }
 
     /**
      * 设置 [openedDate]
      */
     public void setOpeneddate(Timestamp openeddate) {
-        this.openeddate = openeddate ;
-        this.modify("openeddate",openeddate);
+        this.openeddate = openeddate;
+        this.modify("openeddate", openeddate);
     }
 
     /**
@@ -145,22 +145,22 @@ public class ImConference extends EntityMP implements Serializable {
      * 设置 [rid]
      */
     public void setRid(String rid) {
-        this.rid = rid ;
-        this.modify("rid",rid);
+        this.rid = rid;
+        this.modify("rid", rid);
     }
 
     /**
      * 设置 [participants]
      */
     public void setParticipants(String participants) {
-        this.participants = participants ;
-        this.modify("participants",participants);
+        this.participants = participants;
+        this.modify("participants", participants);
     }
 
 
     @Override
     public Serializable getDefaultKey(boolean gen) {
-       return IdWorker.getId();
+        return IdWorker.getId();
     }
     /**
      * 复制当前对象数据到目标对象(粘贴重置)
@@ -172,7 +172,7 @@ public class ImConference extends EntityMP implements Serializable {
     @Override
     public <T> T copyTo(T targetEntity, boolean bIncEmpty) {
         this.reset("id");
-        return super.copyTo(targetEntity,bIncEmpty);
+        return super.copyTo(targetEntity, bIncEmpty);
     }
 }
 

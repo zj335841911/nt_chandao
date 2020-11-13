@@ -38,7 +38,7 @@ import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 @Setter
 @NoArgsConstructor
 @JsonIgnoreProperties(value = "handler")
-@TableName(value = "zt_doclib",resultMap = "DocLibResultMap")
+@TableName(value = "zt_doclib", resultMap = "DocLibResultMap")
 public class DocLib extends EntityMP implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -70,7 +70,7 @@ public class DocLib extends EntityMP implements Serializable {
      * 已删除
      */
     @DEField(defaultValue = "0", preType = DEPredefinedFieldType.LOGICVALID, logicval = "0", logicdelval = "1")
-    @TableLogic(value= "0", delval = "1")
+    @TableLogic(value = "0", delval = "1")
     @TableField(value = "`deleted`")
     @JSONField(name = "deleted")
     @JsonProperty("deleted")
@@ -87,7 +87,7 @@ public class DocLib extends EntityMP implements Serializable {
      * 编号
      */
     @DEField(isKeyField = true)
-    @TableId(value= "id",type=IdType.AUTO)
+    @TableId(value = "id", type = IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
     private Long id;
@@ -212,86 +212,86 @@ public class DocLib extends EntityMP implements Serializable {
      * 设置 [文档类型]
      */
     public void setType(String type) {
-        this.type = type ;
-        this.modify("type",type);
+        this.type = type;
+        this.modify("type", type);
     }
 
     /**
      * 设置 [收藏者]
      */
     public void setCollector(String collector) {
-        this.collector = collector ;
-        this.modify("collector",collector);
+        this.collector = collector;
+        this.modify("collector", collector);
     }
 
     /**
      * 设置 [权限]
      */
     public void setAcl(String acl) {
-        this.acl = acl ;
-        this.modify("acl",acl);
+        this.acl = acl;
+        this.modify("acl", acl);
     }
 
     /**
      * 设置 [分组]
      */
     public void setGroups(String groups) {
-        this.groups = groups ;
-        this.modify("groups",groups);
+        this.groups = groups;
+        this.modify("groups", groups);
     }
 
     /**
      * 设置 [用户]
      */
     public void setUsers(String users) {
-        this.users = users ;
-        this.modify("users",users);
+        this.users = users;
+        this.modify("users", users);
     }
 
     /**
      * 设置 [是否是主库]
      */
     public void setMain(String main) {
-        this.main = main ;
-        this.modify("main",main);
+        this.main = main;
+        this.modify("main", main);
     }
 
     /**
      * 设置 [文档库名称]
      */
     public void setName(String name) {
-        this.name = name ;
-        this.modify("name",name);
+        this.name = name;
+        this.modify("name", name);
     }
 
     /**
      * 设置 [排序]
      */
     public void setOrder(Integer order) {
-        this.order = order ;
-        this.modify("order",order);
+        this.order = order;
+        this.modify("order", order);
     }
 
     /**
      * 设置 [项目库]
      */
     public void setProject(Long project) {
-        this.project = project ;
-        this.modify("project",project);
+        this.project = project;
+        this.modify("project", project);
     }
 
     /**
      * 设置 [产品库]
      */
     public void setProduct(Long product) {
-        this.product = product ;
-        this.modify("product",product);
+        this.product = product;
+        this.modify("product", product);
     }
 
 
     @Override
     public Serializable getDefaultKey(boolean gen) {
-       return IdWorker.getId();
+        return IdWorker.getId();
     }
     /**
      * 复制当前对象数据到目标对象(粘贴重置)
@@ -303,7 +303,7 @@ public class DocLib extends EntityMP implements Serializable {
     @Override
     public <T> T copyTo(T targetEntity, boolean bIncEmpty) {
         this.reset("id");
-        return super.copyTo(targetEntity,bIncEmpty);
+        return super.copyTo(targetEntity, bIncEmpty);
     }
 }
 

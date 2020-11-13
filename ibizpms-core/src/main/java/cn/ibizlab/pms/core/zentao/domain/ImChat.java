@@ -38,7 +38,7 @@ import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 @Setter
 @NoArgsConstructor
 @JsonIgnoreProperties(value = "handler")
-@TableName(value = "zt_im_chat",resultMap = "ImChatResultMap")
+@TableName(value = "zt_im_chat", resultMap = "ImChatResultMap")
 public class ImChat extends EntityMP implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -62,7 +62,7 @@ public class ImChat extends EntityMP implements Serializable {
      */
     @DEField(defaultValue = "0000-00-00 00:00:00")
     @TableField(value = "`editeddate`")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "editeddate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("editeddate")
     private Timestamp editeddate;
@@ -71,7 +71,7 @@ public class ImChat extends EntityMP implements Serializable {
      */
     @DEField(defaultValue = "0000-00-00 00:00:00")
     @TableField(value = "`dismissdate`")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "dismissdate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("dismissdate")
     private Timestamp dismissdate;
@@ -80,7 +80,7 @@ public class ImChat extends EntityMP implements Serializable {
      */
     @DEField(defaultValue = "0000-00-00 00:00:00")
     @TableField(value = "`createddate`")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "createddate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("createddate")
     private Timestamp createddate;
@@ -103,7 +103,7 @@ public class ImChat extends EntityMP implements Serializable {
      * id
      */
     @DEField(isKeyField = true)
-    @TableId(value= "id",type=IdType.AUTO)
+    @TableId(value = "id", type = IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
     private Long id;
@@ -142,7 +142,7 @@ public class ImChat extends EntityMP implements Serializable {
      */
     @DEField(defaultValue = "0000-00-00 00:00:00")
     @TableField(value = "`lastactivetime`")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "lastactivetime", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("lastactivetime")
     private Timestamp lastactivetime;
@@ -160,24 +160,24 @@ public class ImChat extends EntityMP implements Serializable {
      * 设置 [admins]
      */
     public void setAdmins(String admins) {
-        this.admins = admins ;
-        this.modify("admins",admins);
+        this.admins = admins;
+        this.modify("admins", admins);
     }
 
     /**
      * 设置 [createdBy]
      */
     public void setCreatedby(String createdby) {
-        this.createdby = createdby ;
-        this.modify("createdby",createdby);
+        this.createdby = createdby;
+        this.modify("createdby", createdby);
     }
 
     /**
      * 设置 [editedDate]
      */
     public void setEditeddate(Timestamp editeddate) {
-        this.editeddate = editeddate ;
-        this.modify("editeddate",editeddate);
+        this.editeddate = editeddate;
+        this.modify("editeddate", editeddate);
     }
 
     /**
@@ -194,8 +194,8 @@ public class ImChat extends EntityMP implements Serializable {
      * 设置 [dismissDate]
      */
     public void setDismissdate(Timestamp dismissdate) {
-        this.dismissdate = dismissdate ;
-        this.modify("dismissdate",dismissdate);
+        this.dismissdate = dismissdate;
+        this.modify("dismissdate", dismissdate);
     }
 
     /**
@@ -212,8 +212,8 @@ public class ImChat extends EntityMP implements Serializable {
      * 设置 [createdDate]
      */
     public void setCreateddate(Timestamp createddate) {
-        this.createddate = createddate ;
-        this.modify("createddate",createddate);
+        this.createddate = createddate;
+        this.modify("createddate", createddate);
     }
 
     /**
@@ -230,56 +230,56 @@ public class ImChat extends EntityMP implements Serializable {
      * 设置 [committers]
      */
     public void setCommitters(String committers) {
-        this.committers = committers ;
-        this.modify("committers",committers);
+        this.committers = committers;
+        this.modify("committers", committers);
     }
 
     /**
      * 设置 [public]
      */
     public void setIbizpublic(String ibizpublic) {
-        this.ibizpublic = ibizpublic ;
-        this.modify("public",ibizpublic);
+        this.ibizpublic = ibizpublic;
+        this.modify("public", ibizpublic);
     }
 
     /**
      * 设置 [name]
      */
     public void setName(String name) {
-        this.name = name ;
-        this.modify("name",name);
+        this.name = name;
+        this.modify("name", name);
     }
 
     /**
      * 设置 [type]
      */
     public void setType(String type) {
-        this.type = type ;
-        this.modify("type",type);
+        this.type = type;
+        this.modify("type", type);
     }
 
     /**
      * 设置 [editedBy]
      */
     public void setEditedby(String editedby) {
-        this.editedby = editedby ;
-        this.modify("editedby",editedby);
+        this.editedby = editedby;
+        this.modify("editedby", editedby);
     }
 
     /**
      * 设置 [subject]
      */
     public void setSubject(Integer subject) {
-        this.subject = subject ;
-        this.modify("subject",subject);
+        this.subject = subject;
+        this.modify("subject", subject);
     }
 
     /**
      * 设置 [lastActiveTime]
      */
     public void setLastactivetime(Timestamp lastactivetime) {
-        this.lastactivetime = lastactivetime ;
-        this.modify("lastactivetime",lastactivetime);
+        this.lastactivetime = lastactivetime;
+        this.modify("lastactivetime", lastactivetime);
     }
 
     /**
@@ -296,14 +296,14 @@ public class ImChat extends EntityMP implements Serializable {
      * 设置 [gid]
      */
     public void setGid(String gid) {
-        this.gid = gid ;
-        this.modify("gid",gid);
+        this.gid = gid;
+        this.modify("gid", gid);
     }
 
 
     @Override
     public Serializable getDefaultKey(boolean gen) {
-       return IdWorker.getId();
+        return IdWorker.getId();
     }
     /**
      * 复制当前对象数据到目标对象(粘贴重置)
@@ -315,7 +315,7 @@ public class ImChat extends EntityMP implements Serializable {
     @Override
     public <T> T copyTo(T targetEntity, boolean bIncEmpty) {
         this.reset("id");
-        return super.copyTo(targetEntity,bIncEmpty);
+        return super.copyTo(targetEntity, bIncEmpty);
     }
 }
 

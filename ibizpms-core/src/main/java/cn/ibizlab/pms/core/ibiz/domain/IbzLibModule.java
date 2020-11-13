@@ -38,7 +38,7 @@ import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 @Setter
 @NoArgsConstructor
 @JsonIgnoreProperties(value = "handler")
-@TableName(value = "zt_module",resultMap = "IbzLibModuleResultMap")
+@TableName(value = "zt_module", resultMap = "IbzLibModuleResultMap")
 public class IbzLibModule extends EntityMP implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -95,7 +95,7 @@ public class IbzLibModule extends EntityMP implements Serializable {
      * id
      */
     @DEField(isKeyField = true)
-    @TableId(value= "id",type=IdType.AUTO)
+    @TableId(value = "id", type = IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
     private Long id;
@@ -181,94 +181,94 @@ public class IbzLibModule extends EntityMP implements Serializable {
      * 设置 [branch]
      */
     public void setBranch(Integer branch) {
-        this.branch = branch ;
-        this.modify("branch",branch);
+        this.branch = branch;
+        this.modify("branch", branch);
     }
 
     /**
      * 设置 [简称]
      */
     public void setIbizshort(String ibizshort) {
-        this.ibizshort = ibizshort ;
-        this.modify("short",ibizshort);
+        this.ibizshort = ibizshort;
+        this.modify("short", ibizshort);
     }
 
     /**
      * 设置 [grade]
      */
     public void setGrade(Integer grade) {
-        this.grade = grade ;
-        this.modify("grade",grade);
+        this.grade = grade;
+        this.modify("grade", grade);
     }
 
     /**
      * 设置 [排序值]
      */
     public void setOrder(Integer order) {
-        this.order = order ;
-        this.modify("order",order);
+        this.order = order;
+        this.modify("order", order);
     }
 
     /**
      * 设置 [类型（story）]
      */
     public void setType(String type) {
-        this.type = type ;
-        this.modify("type",type);
+        this.type = type;
+        this.modify("type", type);
     }
 
     /**
      * 设置 [collector]
      */
     public void setCollector(String collector) {
-        this.collector = collector ;
-        this.modify("collector",collector);
+        this.collector = collector;
+        this.modify("collector", collector);
     }
 
     /**
      * 设置 [owner]
      */
     public void setOwner(String owner) {
-        this.owner = owner ;
-        this.modify("owner",owner);
+        this.owner = owner;
+        this.modify("owner", owner);
     }
 
     /**
      * 设置 [名称]
      */
     public void setName(String name) {
-        this.name = name ;
-        this.modify("name",name);
+        this.name = name;
+        this.modify("name", name);
     }
 
     /**
      * 设置 [path]
      */
     public void setPath(String path) {
-        this.path = path ;
-        this.modify("path",path);
+        this.path = path;
+        this.modify("path", path);
     }
 
     /**
      * 设置 [id]
      */
     public void setParent(Long parent) {
-        this.parent = parent ;
-        this.modify("parent",parent);
+        this.parent = parent;
+        this.modify("parent", parent);
     }
 
     /**
      * 设置 [编号]
      */
     public void setRoot(Long root) {
-        this.root = root ;
-        this.modify("root",root);
+        this.root = root;
+        this.modify("root", root);
     }
 
 
     @Override
     public Serializable getDefaultKey(boolean gen) {
-       return IdWorker.getId();
+        return IdWorker.getId();
     }
     /**
      * 复制当前对象数据到目标对象(粘贴重置)
@@ -280,7 +280,7 @@ public class IbzLibModule extends EntityMP implements Serializable {
     @Override
     public <T> T copyTo(T targetEntity, boolean bIncEmpty) {
         this.reset("id");
-        return super.copyTo(targetEntity,bIncEmpty);
+        return super.copyTo(targetEntity, bIncEmpty);
     }
 }
 

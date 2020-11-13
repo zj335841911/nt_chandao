@@ -38,7 +38,7 @@ import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 @Setter
 @NoArgsConstructor
 @JsonIgnoreProperties(value = "handler")
-@TableName(value = "T_SYS_UPDATE_FEATURES",resultMap = "SysUpdateFeaturesResultMap")
+@TableName(value = "T_SYS_UPDATE_FEATURES", resultMap = "SysUpdateFeaturesResultMap")
 public class SysUpdateFeatures extends EntityMP implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -54,8 +54,8 @@ public class SysUpdateFeatures extends EntityMP implements Serializable {
     /**
      * 系统更新功能标识
      */
-    @DEField(name = "sys_update_featuresid" , isKeyField = true)
-    @TableId(value= "sys_update_featuresid",type=IdType.ASSIGN_UUID)
+    @DEField(name = "sys_update_featuresid", isKeyField = true)
+    @TableId(value = "sys_update_featuresid", type = IdType.ASSIGN_UUID)
     @JSONField(name = "sysupdatefeaturesid")
     @JsonProperty("sysupdatefeaturesid")
     private String sysupdatefeaturesid;
@@ -80,7 +80,7 @@ public class SysUpdateFeatures extends EntityMP implements Serializable {
      */
     @DEField(preType = DEPredefinedFieldType.CREATEDATE)
     @TableField(value = "`createdate`", fill = FieldFill.INSERT)
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "createdate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("createdate")
     private Timestamp createdate;
@@ -89,7 +89,7 @@ public class SysUpdateFeatures extends EntityMP implements Serializable {
      */
     @DEField(preType = DEPredefinedFieldType.UPDATEDATE)
     @TableField(value = "`updatedate`")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "updatedate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("updatedate")
     private Timestamp updatedate;
@@ -151,48 +151,48 @@ public class SysUpdateFeatures extends EntityMP implements Serializable {
      * 设置 [系统更新功能名称]
      */
     public void setSysupdatefeaturesname(String sysupdatefeaturesname) {
-        this.sysupdatefeaturesname = sysupdatefeaturesname ;
-        this.modify("sys_update_featuresname",sysupdatefeaturesname);
+        this.sysupdatefeaturesname = sysupdatefeaturesname;
+        this.modify("sys_update_featuresname", sysupdatefeaturesname);
     }
 
     /**
      * 设置 [系统更新日志标识]
      */
     public void setSysupdatelogid(String sysupdatelogid) {
-        this.sysupdatelogid = sysupdatelogid ;
-        this.modify("sys_update_logid",sysupdatelogid);
+        this.sysupdatelogid = sysupdatelogid;
+        this.modify("sys_update_logid", sysupdatelogid);
     }
 
     /**
      * 设置 [更新功能]
      */
     public void setUpfeatures(String upfeatures) {
-        this.upfeatures = upfeatures ;
-        this.modify("upfeatures",upfeatures);
+        this.upfeatures = upfeatures;
+        this.modify("upfeatures", upfeatures);
     }
 
     /**
      * 设置 [功能描述]
      */
     public void setFeaturesdesc(String featuresdesc) {
-        this.featuresdesc = featuresdesc ;
-        this.modify("featuresdesc",featuresdesc);
+        this.featuresdesc = featuresdesc;
+        this.modify("featuresdesc", featuresdesc);
     }
 
     /**
      * 设置 [更新类型]
      */
     public void setType(String type) {
-        this.type = type ;
-        this.modify("type",type);
+        this.type = type;
+        this.modify("type", type);
     }
 
     /**
      * 设置 [展示顺序]
      */
     public void setDisplayorder(Integer displayorder) {
-        this.displayorder = displayorder ;
-        this.modify("displayorder",displayorder);
+        this.displayorder = displayorder;
+        this.modify("displayorder", displayorder);
     }
 
 
@@ -206,7 +206,7 @@ public class SysUpdateFeatures extends EntityMP implements Serializable {
     @Override
     public <T> T copyTo(T targetEntity, boolean bIncEmpty) {
         this.reset("sys_update_featuresid");
-        return super.copyTo(targetEntity,bIncEmpty);
+        return super.copyTo(targetEntity, bIncEmpty);
     }
 }
 

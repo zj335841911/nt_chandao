@@ -138,7 +138,7 @@ public class SysDepartment extends EntityClient implements Serializable {
      * 建立时间
      */
     @DEField(preType = DEPredefinedFieldType.CREATEDATE)
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "createdate" , format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("createdate")
     private Timestamp createdate;
@@ -171,7 +171,7 @@ public class SysDepartment extends EntityClient implements Serializable {
      * 更新时间
      */
     @DEField(preType = DEPredefinedFieldType.UPDATEDATE)
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "updatedate" , format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("updatedate")
     private Timestamp updatedate;
@@ -199,7 +199,7 @@ public class SysDepartment extends EntityClient implements Serializable {
      */
     public void setDeptcode(String deptcode) {
         this.deptcode = deptcode ;
-        this.modify("deptcode",deptcode);
+        this.modify("deptcode", deptcode);
     }
 
     /**
@@ -207,7 +207,7 @@ public class SysDepartment extends EntityClient implements Serializable {
      */
     public void setDeptname(String deptname) {
         this.deptname = deptname ;
-        this.modify("deptname",deptname);
+        this.modify("deptname", deptname);
     }
 
     /**
@@ -215,7 +215,7 @@ public class SysDepartment extends EntityClient implements Serializable {
      */
     public void setParentdeptid(String parentdeptid) {
         this.parentdeptid = parentdeptid ;
-        this.modify("pdeptid",parentdeptid);
+        this.modify("pdeptid", parentdeptid);
     }
 
     /**
@@ -223,7 +223,7 @@ public class SysDepartment extends EntityClient implements Serializable {
      */
     public void setShortname(String shortname) {
         this.shortname = shortname ;
-        this.modify("shortname",shortname);
+        this.modify("shortname", shortname);
     }
 
     /**
@@ -231,7 +231,7 @@ public class SysDepartment extends EntityClient implements Serializable {
      */
     public void setDeptlevel(Integer deptlevel) {
         this.deptlevel = deptlevel ;
-        this.modify("deptlevel",deptlevel);
+        this.modify("deptlevel", deptlevel);
     }
 
     /**
@@ -239,7 +239,7 @@ public class SysDepartment extends EntityClient implements Serializable {
      */
     public void setDomains(String domains) {
         this.domains = domains ;
-        this.modify("domains",domains);
+        this.modify("domains", domains);
     }
 
     /**
@@ -247,7 +247,7 @@ public class SysDepartment extends EntityClient implements Serializable {
      */
     public void setShoworder(Integer showorder) {
         this.showorder = showorder ;
-        this.modify("showorder",showorder);
+        this.modify("showorder", showorder);
     }
 
     /**
@@ -255,7 +255,7 @@ public class SysDepartment extends EntityClient implements Serializable {
      */
     public void setBcode(String bcode) {
         this.bcode = bcode ;
-        this.modify("bcode",bcode);
+        this.modify("bcode", bcode);
     }
 
     /**
@@ -263,7 +263,7 @@ public class SysDepartment extends EntityClient implements Serializable {
      */
     public void setLeaderid(String leaderid) {
         this.leaderid = leaderid ;
-        this.modify("leaderid",leaderid);
+        this.modify("leaderid", leaderid);
     }
 
     /**
@@ -271,7 +271,7 @@ public class SysDepartment extends EntityClient implements Serializable {
      */
     public void setLeadername(String leadername) {
         this.leadername = leadername ;
-        this.modify("leadername",leadername);
+        this.modify("leadername", leadername);
     }
 
     /**
@@ -284,7 +284,7 @@ public class SysDepartment extends EntityClient implements Serializable {
     @Override
     public <T> T copyTo(T targetEntity, boolean bIncEmpty) {
         this.reset("deptid");
-        return super.copyTo(targetEntity,bIncEmpty);
+        return super.copyTo(targetEntity, bIncEmpty);
     }
 }
 

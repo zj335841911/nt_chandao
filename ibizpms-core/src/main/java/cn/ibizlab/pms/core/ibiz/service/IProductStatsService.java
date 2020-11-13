@@ -23,7 +23,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 /**
  * 实体[ProductStats] 服务对象接口
  */
-public interface IProductStatsService extends IService<ProductStats>{
+public interface IProductStatsService extends IService<ProductStats> {
 
     /**
      * 业务实体显示文本名称
@@ -35,31 +35,31 @@ public interface IProductStatsService extends IService<ProductStats>{
      */
     final static String OBJECT_SOURCE_PATH = "productstats";
 
-    boolean create(ProductStats et) ;
-    void createBatch(List<ProductStats> list) ;
-    boolean update(ProductStats et) ;
-    void updateBatch(List<ProductStats> list) ;
-    boolean remove(Long key) ;
-    void removeBatch(Collection<Long> idList) ;
-    ProductStats get(Long key) ;
-    ProductStats getDraft(ProductStats et) ;
-    boolean checkKey(ProductStats et) ;
-    ProductStats getTestStats(ProductStats et) ;
-    boolean save(ProductStats et) ;
-    void saveBatch(List<ProductStats> list) ;
-    Page<ProductStats> searchDefault(ProductStatsSearchContext context) ;
-    Page<ProductStats> searchNoOpenProduct(ProductStatsSearchContext context) ;
+    boolean create(ProductStats et);
+    void createBatch(List<ProductStats> list);
+    boolean update(ProductStats et);
+    void updateBatch(List<ProductStats> list);
+    boolean remove(Long key);
+    void removeBatch(Collection<Long> idList);
+    ProductStats get(Long key);
+    ProductStats getDraft(ProductStats et);
+    boolean checkKey(ProductStats et);
+    ProductStats getTestStats(ProductStats et);
+    boolean save(ProductStats et);
+    void saveBatch(List<ProductStats> list);
+    Page<ProductStats> searchDefault(ProductStatsSearchContext context);
+    Page<ProductStats> searchNoOpenProduct(ProductStatsSearchContext context);
     /**
-     *自定义查询SQL
+     * 自定义查询SQL
      * @param sql  select * from table where id =#{et.param}
-     * @param param 参数列表  param.put("param","1");
+     * @param param 参数列表  param.put("param", "1");
      * @return select * from table where id = '1'
      */
     List<JSONObject> select(String sql, Map param);
     /**
-     *自定义SQL
+     * 自定义SQL
      * @param sql  update table  set name ='test' where id =#{et.param}
-     * @param param 参数列表  param.put("param","1");
+     * @param param 参数列表  param.put("param", "1");
      * @return     update table  set name ='test' where id = '1'
      */
     boolean execute(String sql, Map param);

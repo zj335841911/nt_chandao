@@ -38,7 +38,7 @@ import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 @Setter
 @NoArgsConstructor
 @JsonIgnoreProperties(value = "handler")
-@TableName(value = "zt_case",resultMap = "CaseResultMap")
+@TableName(value = "zt_case", resultMap = "CaseResultMap")
 public class Case extends EntityMP implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -48,7 +48,7 @@ public class Case extends EntityMP implements Serializable {
      */
     @DEField(preType = DEPredefinedFieldType.UPDATEDATE)
     @TableField(value = "`lastediteddate`")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "lastediteddate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("lastediteddate")
     private Timestamp lastediteddate;
@@ -56,7 +56,7 @@ public class Case extends EntityMP implements Serializable {
      * scriptedDate
      */
     @TableField(value = "`scripteddate`")
-    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh" , timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "scripteddate", format = "yyyy-MM-dd")
     @JsonProperty("scripteddate")
     private Timestamp scripteddate;
@@ -81,7 +81,7 @@ public class Case extends EntityMP implements Serializable {
      */
     @DEField(preType = DEPredefinedFieldType.CREATEDATE)
     @TableField(value = "`openeddate`", fill = FieldFill.INSERT)
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "openeddate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("openeddate")
     private Timestamp openeddate;
@@ -200,7 +200,7 @@ public class Case extends EntityMP implements Serializable {
      * 已删除
      */
     @DEField(defaultValue = "0", preType = DEPredefinedFieldType.LOGICVALID, logicval = "0", logicdelval = "1")
-    @TableLogic(value= "0", delval = "1")
+    @TableLogic(value = "0", delval = "1")
     @TableField(value = "`deleted`")
     @JSONField(name = "deleted")
     @JsonProperty("deleted")
@@ -209,7 +209,7 @@ public class Case extends EntityMP implements Serializable {
      * 评审时间
      */
     @TableField(value = "`revieweddate`")
-    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh" , timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "revieweddate", format = "yyyy-MM-dd")
     @JsonProperty("revieweddate")
     private Timestamp revieweddate;
@@ -241,7 +241,7 @@ public class Case extends EntityMP implements Serializable {
      * 执行时间
      */
     @TableField(value = "`lastrundate`")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "lastrundate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("lastrundate")
     private Timestamp lastrundate;
@@ -281,7 +281,7 @@ public class Case extends EntityMP implements Serializable {
      * 用例编号
      */
     @DEField(isKeyField = true)
-    @TableId(value= "id",type=IdType.AUTO)
+    @TableId(value = "id", type = IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
     private Long id;
@@ -563,8 +563,8 @@ public class Case extends EntityMP implements Serializable {
      * 设置 [scriptedDate]
      */
     public void setScripteddate(Timestamp scripteddate) {
-        this.scripteddate = scripteddate ;
-        this.modify("scripteddate",scripteddate);
+        this.scripteddate = scripteddate;
+        this.modify("scripteddate", scripteddate);
     }
 
     /**
@@ -581,120 +581,120 @@ public class Case extends EntityMP implements Serializable {
      * 设置 [标题颜色]
      */
     public void setColor(String color) {
-        this.color = color ;
-        this.modify("color",color);
+        this.color = color;
+        this.modify("color", color);
     }
 
     /**
      * 设置 [path]
      */
     public void setPath(Integer path) {
-        this.path = path ;
-        this.modify("path",path);
+        this.path = path;
+        this.modify("path", path);
     }
 
     /**
      * 设置 [结果]
      */
     public void setLastrunresult(String lastrunresult) {
-        this.lastrunresult = lastrunresult ;
-        this.modify("lastrunresult",lastrunresult);
+        this.lastrunresult = lastrunresult;
+        this.modify("lastrunresult", lastrunresult);
     }
 
     /**
      * 设置 [相关用例]
      */
     public void setLinkcase(String linkcase) {
-        this.linkcase = linkcase ;
-        this.modify("linkcase",linkcase);
+        this.linkcase = linkcase;
+        this.modify("linkcase", linkcase);
     }
 
     /**
      * 设置 [排序]
      */
     public void setOrder(Integer order) {
-        this.order = order ;
-        this.modify("order",order);
+        this.order = order;
+        this.modify("order", order);
     }
 
     /**
      * 设置 [howRun]
      */
     public void setHowrun(String howrun) {
-        this.howrun = howrun ;
-        this.modify("howrun",howrun);
+        this.howrun = howrun;
+        this.modify("howrun", howrun);
     }
 
     /**
      * 设置 [用例版本]
      */
     public void setVersion(Integer version) {
-        this.version = version ;
-        this.modify("version",version);
+        this.version = version;
+        this.modify("version", version);
     }
 
     /**
      * 设置 [scriptedBy]
      */
     public void setScriptedby(String scriptedby) {
-        this.scriptedby = scriptedby ;
-        this.modify("scriptedby",scriptedby);
+        this.scriptedby = scriptedby;
+        this.modify("scriptedby", scriptedby);
     }
 
     /**
      * 设置 [用例类型]
      */
     public void setType(String type) {
-        this.type = type ;
-        this.modify("type",type);
+        this.type = type;
+        this.modify("type", type);
     }
 
     /**
      * 设置 [用例状态]
      */
     public void setStatus(String status) {
-        this.status = status ;
-        this.modify("status",status);
+        this.status = status;
+        this.modify("status", status);
     }
 
     /**
      * 设置 [auto]
      */
     public void setAuto(String auto) {
-        this.auto = auto ;
-        this.modify("auto",auto);
+        this.auto = auto;
+        this.modify("auto", auto);
     }
 
     /**
      * 设置 [frequency]
      */
     public void setFrequency(String frequency) {
-        this.frequency = frequency ;
-        this.modify("frequency",frequency);
+        this.frequency = frequency;
+        this.modify("frequency", frequency);
     }
 
     /**
      * 设置 [用例标题]
      */
     public void setTitle(String title) {
-        this.title = title ;
-        this.modify("title",title);
+        this.title = title;
+        this.modify("title", title);
     }
 
     /**
      * 设置 [由谁评审]
      */
     public void setReviewedby(String reviewedby) {
-        this.reviewedby = reviewedby ;
-        this.modify("reviewedby",reviewedby);
+        this.reviewedby = reviewedby;
+        this.modify("reviewedby", reviewedby);
     }
 
     /**
      * 设置 [评审时间]
      */
     public void setRevieweddate(Timestamp revieweddate) {
-        this.revieweddate = revieweddate ;
-        this.modify("revieweddate",revieweddate);
+        this.revieweddate = revieweddate;
+        this.modify("revieweddate", revieweddate);
     }
 
     /**
@@ -711,32 +711,32 @@ public class Case extends EntityMP implements Serializable {
      * 设置 [优先级]
      */
     public void setPri(Integer pri) {
-        this.pri = pri ;
-        this.modify("pri",pri);
+        this.pri = pri;
+        this.modify("pri", pri);
     }
 
     /**
      * 设置 [适用阶段]
      */
     public void setStage(String stage) {
-        this.stage = stage ;
-        this.modify("stage",stage);
+        this.stage = stage;
+        this.modify("stage", stage);
     }
 
     /**
      * 设置 [scriptLocation]
      */
     public void setScriptlocation(String scriptlocation) {
-        this.scriptlocation = scriptlocation ;
-        this.modify("scriptlocation",scriptlocation);
+        this.scriptlocation = scriptlocation;
+        this.modify("scriptlocation", scriptlocation);
     }
 
     /**
      * 设置 [执行时间]
      */
     public void setLastrundate(Timestamp lastrundate) {
-        this.lastrundate = lastrundate ;
-        this.modify("lastrundate",lastrundate);
+        this.lastrundate = lastrundate;
+        this.modify("lastrundate", lastrundate);
     }
 
     /**
@@ -753,126 +753,126 @@ public class Case extends EntityMP implements Serializable {
      * 设置 [关键词]
      */
     public void setKeywords(String keywords) {
-        this.keywords = keywords ;
-        this.modify("keywords",keywords);
+        this.keywords = keywords;
+        this.modify("keywords", keywords);
     }
 
     /**
      * 设置 [scriptStatus]
      */
     public void setScriptstatus(String scriptstatus) {
-        this.scriptstatus = scriptstatus ;
-        this.modify("scriptstatus",scriptstatus);
+        this.scriptstatus = scriptstatus;
+        this.modify("scriptstatus", scriptstatus);
     }
 
     /**
      * 设置 [工具/框架]
      */
     public void setFrame(String frame) {
-        this.frame = frame ;
-        this.modify("frame",frame);
+        this.frame = frame;
+        this.modify("frame", frame);
     }
 
     /**
      * 设置 [子状态]
      */
     public void setSubstatus(String substatus) {
-        this.substatus = substatus ;
-        this.modify("substatus",substatus);
+        this.substatus = substatus;
+        this.modify("substatus", substatus);
     }
 
     /**
      * 设置 [前置条件]
      */
     public void setPrecondition(String precondition) {
-        this.precondition = precondition ;
-        this.modify("precondition",precondition);
+        this.precondition = precondition;
+        this.modify("precondition", precondition);
     }
 
     /**
      * 设置 [执行人]
      */
     public void setLastrunner(String lastrunner) {
-        this.lastrunner = lastrunner ;
-        this.modify("lastrunner",lastrunner);
+        this.lastrunner = lastrunner;
+        this.modify("lastrunner", lastrunner);
     }
 
     /**
      * 设置 [来源用例版本]
      */
     public void setFromcaseversion(Integer fromcaseversion) {
-        this.fromcaseversion = fromcaseversion ;
-        this.modify("fromcaseversion",fromcaseversion);
+        this.fromcaseversion = fromcaseversion;
+        this.modify("fromcaseversion", fromcaseversion);
     }
 
     /**
      * 设置 [需求版本]
      */
     public void setStoryversion(Integer storyversion) {
-        this.storyversion = storyversion ;
-        this.modify("storyversion",storyversion);
+        this.storyversion = storyversion;
+        this.modify("storyversion", storyversion);
     }
 
     /**
      * 设置 [来源用例]
      */
     public void setFromcaseid(Long fromcaseid) {
-        this.fromcaseid = fromcaseid ;
-        this.modify("fromcaseid",fromcaseid);
+        this.fromcaseid = fromcaseid;
+        this.modify("fromcaseid", fromcaseid);
     }
 
     /**
      * 设置 [平台/分支]
      */
     public void setBranch(Long branch) {
-        this.branch = branch ;
-        this.modify("branch",branch);
+        this.branch = branch;
+        this.modify("branch", branch);
     }
 
     /**
      * 设置 [来源Bug]
      */
     public void setFrombug(Long frombug) {
-        this.frombug = frombug ;
-        this.modify("frombug",frombug);
+        this.frombug = frombug;
+        this.modify("frombug", frombug);
     }
 
     /**
      * 设置 [相关需求]
      */
     public void setStory(Long story) {
-        this.story = story ;
-        this.modify("story",story);
+        this.story = story;
+        this.modify("story", story);
     }
 
     /**
      * 设置 [所属产品]
      */
     public void setProduct(Long product) {
-        this.product = product ;
-        this.modify("product",product);
+        this.product = product;
+        this.modify("product", product);
     }
 
     /**
      * 设置 [所属库]
      */
     public void setLib(Long lib) {
-        this.lib = lib ;
-        this.modify("lib",lib);
+        this.lib = lib;
+        this.modify("lib", lib);
     }
 
     /**
      * 设置 [所属模块]
      */
     public void setModule(Long module) {
-        this.module = module ;
-        this.modify("module",module);
+        this.module = module;
+        this.modify("module", module);
     }
 
 
     @Override
     public Serializable getDefaultKey(boolean gen) {
-       return IdWorker.getId();
+        return IdWorker.getId();
     }
     /**
      * 复制当前对象数据到目标对象(粘贴重置)
@@ -884,7 +884,7 @@ public class Case extends EntityMP implements Serializable {
     @Override
     public <T> T copyTo(T targetEntity, boolean bIncEmpty) {
         this.reset("id");
-        return super.copyTo(targetEntity,bIncEmpty);
+        return super.copyTo(targetEntity, bIncEmpty);
     }
 }
 

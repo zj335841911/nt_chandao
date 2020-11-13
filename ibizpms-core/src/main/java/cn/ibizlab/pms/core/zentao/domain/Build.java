@@ -38,7 +38,7 @@ import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 @Setter
 @NoArgsConstructor
 @JsonIgnoreProperties(value = "handler")
-@TableName(value = "zt_build",resultMap = "BuildResultMap")
+@TableName(value = "zt_build", resultMap = "BuildResultMap")
 public class Build extends EntityMP implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -70,7 +70,7 @@ public class Build extends EntityMP implements Serializable {
      * id
      */
     @DEField(isKeyField = true)
-    @TableId(value= "id",type=IdType.AUTO)
+    @TableId(value = "id", type = IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
     private Long id;
@@ -78,7 +78,7 @@ public class Build extends EntityMP implements Serializable {
      * 已删除
      */
     @DEField(defaultValue = "0", preType = DEPredefinedFieldType.LOGICVALID, logicval = "0", logicdelval = "1")
-    @TableLogic(value= "0", delval = "1")
+    @TableLogic(value = "0", delval = "1")
     @TableField(value = "`deleted`")
     @JSONField(name = "deleted")
     @JsonProperty("deleted")
@@ -119,7 +119,7 @@ public class Build extends EntityMP implements Serializable {
      * 打包日期
      */
     @TableField(value = "`date`")
-    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh" , timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "date", format = "yyyy-MM-dd")
     @JsonProperty("date")
     private Timestamp date;
@@ -255,64 +255,64 @@ public class Build extends EntityMP implements Serializable {
      * 设置 [名称编号]
      */
     public void setName(String name) {
-        this.name = name ;
-        this.modify("name",name);
+        this.name = name;
+        this.modify("name", name);
     }
 
     /**
      * 设置 [构建者]
      */
     public void setBuilder(String builder) {
-        this.builder = builder ;
-        this.modify("builder",builder);
+        this.builder = builder;
+        this.modify("builder", builder);
     }
 
     /**
      * 设置 [描述]
      */
     public void setDesc(String desc) {
-        this.desc = desc ;
-        this.modify("desc",desc);
+        this.desc = desc;
+        this.modify("desc", desc);
     }
 
     /**
      * 设置 [源代码地址]
      */
     public void setScmpath(String scmpath) {
-        this.scmpath = scmpath ;
-        this.modify("scmpath",scmpath);
+        this.scmpath = scmpath;
+        this.modify("scmpath", scmpath);
     }
 
     /**
      * 设置 [下载地址]
      */
     public void setFilepath(String filepath) {
-        this.filepath = filepath ;
-        this.modify("filepath",filepath);
+        this.filepath = filepath;
+        this.modify("filepath", filepath);
     }
 
     /**
      * 设置 [完成的需求]
      */
     public void setStories(String stories) {
-        this.stories = stories ;
-        this.modify("stories",stories);
+        this.stories = stories;
+        this.modify("stories", stories);
     }
 
     /**
      * 设置 [解决的Bug]
      */
     public void setBugs(String bugs) {
-        this.bugs = bugs ;
-        this.modify("bugs",bugs);
+        this.bugs = bugs;
+        this.modify("bugs", bugs);
     }
 
     /**
      * 设置 [打包日期]
      */
     public void setDate(Timestamp date) {
-        this.date = date ;
-        this.modify("date",date);
+        this.date = date;
+        this.modify("date", date);
     }
 
     /**
@@ -329,30 +329,30 @@ public class Build extends EntityMP implements Serializable {
      * 设置 [产品]
      */
     public void setProduct(Long product) {
-        this.product = product ;
-        this.modify("product",product);
+        this.product = product;
+        this.modify("product", product);
     }
 
     /**
      * 设置 [平台/分支]
      */
     public void setBranch(Long branch) {
-        this.branch = branch ;
-        this.modify("branch",branch);
+        this.branch = branch;
+        this.modify("branch", branch);
     }
 
     /**
      * 设置 [所属项目]
      */
     public void setProject(Long project) {
-        this.project = project ;
-        this.modify("project",project);
+        this.project = project;
+        this.modify("project", project);
     }
 
 
     @Override
     public Serializable getDefaultKey(boolean gen) {
-       return IdWorker.getId();
+        return IdWorker.getId();
     }
     /**
      * 复制当前对象数据到目标对象(粘贴重置)
@@ -364,7 +364,7 @@ public class Build extends EntityMP implements Serializable {
     @Override
     public <T> T copyTo(T targetEntity, boolean bIncEmpty) {
         this.reset("id");
-        return super.copyTo(targetEntity,bIncEmpty);
+        return super.copyTo(targetEntity, bIncEmpty);
     }
 }
 

@@ -23,7 +23,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 /**
  * 实体[TestResult] 服务对象接口
  */
-public interface ITestResultService extends IService<TestResult>{
+public interface ITestResultService extends IService<TestResult> {
 
     /**
      * 业务实体显示文本名称
@@ -35,38 +35,38 @@ public interface ITestResultService extends IService<TestResult>{
      */
     final static String OBJECT_SOURCE_PATH = "testresults";
 
-    boolean create(TestResult et) ;
-    void createBatch(List<TestResult> list) ;
-    boolean update(TestResult et) ;
-    void updateBatch(List<TestResult> list) ;
-    boolean remove(Long key) ;
-    void removeBatch(Collection<Long> idList) ;
-    TestResult get(Long key) ;
-    TestResult getDraft(TestResult et) ;
-    boolean checkKey(TestResult et) ;
-    boolean save(TestResult et) ;
-    void saveBatch(List<TestResult> list) ;
-    Page<TestResult> searchCurTestRun(TestResultSearchContext context) ;
-    Page<TestResult> searchDefault(TestResultSearchContext context) ;
+    boolean create(TestResult et);
+    void createBatch(List<TestResult> list);
+    boolean update(TestResult et);
+    void updateBatch(List<TestResult> list);
+    boolean remove(Long key);
+    void removeBatch(Collection<Long> idList);
+    TestResult get(Long key);
+    TestResult getDraft(TestResult et);
+    boolean checkKey(TestResult et);
+    boolean save(TestResult et);
+    void saveBatch(List<TestResult> list);
+    Page<TestResult> searchCurTestRun(TestResultSearchContext context);
+    Page<TestResult> searchDefault(TestResultSearchContext context);
     List<TestResult> selectByIbizcase(Long id);
-    void removeByIbizcase(Long id) ;
+    void removeByIbizcase(Long id);
     List<TestResult> selectByCompile(Long id);
-    void removeByCompile(Long id) ;
+    void removeByCompile(Long id);
     List<TestResult> selectByJob(Long id);
-    void removeByJob(Long id) ;
+    void removeByJob(Long id);
     List<TestResult> selectByRun(Long id);
-    void removeByRun(Long id) ;
+    void removeByRun(Long id);
     /**
-     *自定义查询SQL
+     * 自定义查询SQL
      * @param sql  select * from table where id =#{et.param}
-     * @param param 参数列表  param.put("param","1");
+     * @param param 参数列表  param.put("param", "1");
      * @return select * from table where id = '1'
      */
     List<JSONObject> select(String sql, Map param);
     /**
-     *自定义SQL
+     * 自定义SQL
      * @param sql  update table  set name ='test' where id =#{et.param}
-     * @param param 参数列表  param.put("param","1");
+     * @param param 参数列表  param.put("param", "1");
      * @return     update table  set name ='test' where id = '1'
      */
     boolean execute(String sql, Map param);

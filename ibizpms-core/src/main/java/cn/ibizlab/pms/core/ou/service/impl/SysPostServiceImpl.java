@@ -62,13 +62,13 @@ public class SysPostServiceImpl implements ISysPostService {
 
 
     public void createBatch(List<SysPost> list){
-        sysPostFeignClient.createBatch(list) ;
+        sysPostFeignClient.createBatch(list);
     }
 
 
     @Override
     public boolean update(SysPost et) {
-        SysPost rt = sysPostFeignClient.update(et.getPostid(),et);
+        SysPost rt = sysPostFeignClient.update(et.getPostid(), et);
         if (rt == null) {
             return false;
         }
@@ -78,14 +78,14 @@ public class SysPostServiceImpl implements ISysPostService {
     }
 
 
-    public void updateBatch(List<SysPost> list){
-        sysPostFeignClient.updateBatch(list) ;
+    public void updateBatch(List<SysPost> list) {
+        sysPostFeignClient.updateBatch(list);
     }
 
 
     @Override
     public boolean remove(String postid) {
-        boolean result=sysPostFeignClient.remove(postid) ;
+        boolean result=sysPostFeignClient.remove(postid);
         return result;
     }
 
@@ -97,12 +97,12 @@ public class SysPostServiceImpl implements ISysPostService {
 
     @Override
     public SysPost get(String postid) {
-		SysPost et = sysPostFeignClient.get(postid);
-        if (et == null){
+        SysPost et = sysPostFeignClient.get(postid);
+        if (et == null) {
             et = new SysPost();
             et.setPostid(postid);
         }
-        else{
+        else {
         }
         return  et;
     }
@@ -136,7 +136,7 @@ public class SysPostServiceImpl implements ISysPostService {
 
     @Override
     public void saveBatch(List<SysPost> list) {
-        sysPostFeignClient.saveBatch(list) ;
+        sysPostFeignClient.saveBatch(list);
     }
 
 

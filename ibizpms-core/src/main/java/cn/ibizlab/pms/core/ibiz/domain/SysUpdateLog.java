@@ -38,7 +38,7 @@ import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 @Setter
 @NoArgsConstructor
 @JsonIgnoreProperties(value = "handler")
-@TableName(value = "T_SYS_UPDATE_LOG",resultMap = "SysUpdateLogResultMap")
+@TableName(value = "T_SYS_UPDATE_LOG", resultMap = "SysUpdateLogResultMap")
 public class SysUpdateLog extends EntityMP implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -46,8 +46,8 @@ public class SysUpdateLog extends EntityMP implements Serializable {
     /**
      * 系统更新日志标识
      */
-    @DEField(name = "sys_update_logid" , isKeyField = true)
-    @TableId(value= "sys_update_logid",type=IdType.ASSIGN_UUID)
+    @DEField(name = "sys_update_logid", isKeyField = true)
+    @TableId(value = "sys_update_logid", type = IdType.ASSIGN_UUID)
     @JSONField(name = "sysupdatelogid")
     @JsonProperty("sysupdatelogid")
     private String sysupdatelogid;
@@ -80,7 +80,7 @@ public class SysUpdateLog extends EntityMP implements Serializable {
      */
     @DEField(preType = DEPredefinedFieldType.CREATEDATE)
     @TableField(value = "`createdate`", fill = FieldFill.INSERT)
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "createdate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("createdate")
     private Timestamp createdate;
@@ -89,7 +89,7 @@ public class SysUpdateLog extends EntityMP implements Serializable {
      */
     @DEField(preType = DEPredefinedFieldType.UPDATEDATE)
     @TableField(value = "`updatedate`")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "updatedate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("updatedate")
     private Timestamp updatedate;
@@ -97,7 +97,7 @@ public class SysUpdateLog extends EntityMP implements Serializable {
      * 更新日期
      */
     @TableField(value = "`update`")
-    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh" , timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "update", format = "yyyy-MM-dd")
     @JsonProperty("update")
     private Timestamp update;
@@ -131,16 +131,16 @@ public class SysUpdateLog extends EntityMP implements Serializable {
      * 设置 [更新名称]
      */
     public void setSysupdatelogname(String sysupdatelogname) {
-        this.sysupdatelogname = sysupdatelogname ;
-        this.modify("sys_update_logname",sysupdatelogname);
+        this.sysupdatelogname = sysupdatelogname;
+        this.modify("sys_update_logname", sysupdatelogname);
     }
 
     /**
      * 设置 [更新日期]
      */
     public void setUpdate(Timestamp update) {
-        this.update = update ;
-        this.modify("update",update);
+        this.update = update;
+        this.modify("update", update);
     }
 
     /**
@@ -157,24 +157,24 @@ public class SysUpdateLog extends EntityMP implements Serializable {
      * 设置 [更新说明]
      */
     public void setUpdesc(String updesc) {
-        this.updesc = updesc ;
-        this.modify("updesc",updesc);
+        this.updesc = updesc;
+        this.modify("updesc", updesc);
     }
 
     /**
      * 设置 [最新更新]
      */
     public void setLatestupdate(Integer latestupdate) {
-        this.latestupdate = latestupdate ;
-        this.modify("latestupdate",latestupdate);
+        this.latestupdate = latestupdate;
+        this.modify("latestupdate", latestupdate);
     }
 
     /**
      * 设置 [更新平台]
      */
     public void setUpdatebranch(String updatebranch) {
-        this.updatebranch = updatebranch ;
-        this.modify("updatebranch",updatebranch);
+        this.updatebranch = updatebranch;
+        this.modify("updatebranch", updatebranch);
     }
 
 
@@ -188,7 +188,7 @@ public class SysUpdateLog extends EntityMP implements Serializable {
     @Override
     public <T> T copyTo(T targetEntity, boolean bIncEmpty) {
         this.reset("sys_update_logid");
-        return super.copyTo(targetEntity,bIncEmpty);
+        return super.copyTo(targetEntity, bIncEmpty);
     }
 }
 

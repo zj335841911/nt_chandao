@@ -17,65 +17,65 @@ import org.springframework.stereotype.Component;
  * 实体[PSSysServiceAPI] 服务对象接口
  */
 @Component
-public class PSSysServiceAPIFallback implements PSSysServiceAPIFeignClient{
+public class PSSysServiceAPIFallback implements PSSysServiceAPIFeignClient {
 
-    public Page<PSSysServiceAPI> select(){
-            return null;
-     }
+    public Page<PSSysServiceAPI> select() {
+        return null;
+    }
 
-    public PSSysServiceAPI create(PSSysServiceAPI pssysserviceapi){
-            return null;
-     }
-    public Boolean createBatch(List<PSSysServiceAPI> pssysserviceapis){
-            return false;
-     }
+    public PSSysServiceAPI create(PSSysServiceAPI pssysserviceapi) {
+        return null;
+    }
+    public Boolean createBatch(List<PSSysServiceAPI> pssysserviceapis) {
+        return false;
+    }
 
-    public PSSysServiceAPI update(String pssysserviceapiid, PSSysServiceAPI pssysserviceapi){
-            return null;
-     }
-    public Boolean updateBatch(List<PSSysServiceAPI> pssysserviceapis){
-            return false;
-     }
-
-
-    public Boolean remove(String pssysserviceapiid){
-            return false;
-     }
-    public Boolean removeBatch(Collection<String> idList){
-            return false;
-     }
-
-    public PSSysServiceAPI get(String pssysserviceapiid){
-            return null;
-     }
+    public PSSysServiceAPI update(String pssysserviceapiid, PSSysServiceAPI pssysserviceapi) {
+        return null;
+    }
+    public Boolean updateBatch(List<PSSysServiceAPI> pssysserviceapis) {
+        return false;
+    }
 
 
-    public String getByCodeName(String codeName){
+    public Boolean remove(String pssysserviceapiid) {
+        return false;
+    }
+    public Boolean removeBatch(Collection<String> idList) {
+        return false;
+    }
+
+    public PSSysServiceAPI get(String pssysserviceapiid) {
+        return null;
+    }
+
+
+    public String getByCodeName(String codeName) {
             return null;
     }
 
 
     public PSSysServiceAPI getDraft(){
-            return null;
+        return null;
     }
 
 
 
-    public Boolean checkKey(PSSysServiceAPI pssysserviceapi){
-            return false;
-     }
+    public Boolean checkKey(PSSysServiceAPI pssysserviceapi) {
+        return false;
+    }
 
 
-    public Boolean save(PSSysServiceAPI pssysserviceapi){
-            return false;
-     }
-    public Boolean saveBatch(List<PSSysServiceAPI> pssysserviceapis){
-            return false;
-     }
+    public Boolean save(PSSysServiceAPI pssysserviceapi) {
+        return false;
+    }
+    public Boolean saveBatch(List<PSSysServiceAPI> pssysserviceapis) {
+        return false;
+    }
 
-    public Page<PSSysServiceAPI> searchDefault(PSSysServiceAPISearchContext context){
-            return null;
-     }
+    public Page<PSSysServiceAPI> searchDefault(PSSysServiceAPISearchContext context) {
+        return null;
+    }
 
 
 }

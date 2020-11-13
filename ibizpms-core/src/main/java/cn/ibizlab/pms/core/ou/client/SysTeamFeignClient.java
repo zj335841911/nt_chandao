@@ -31,7 +31,7 @@ public interface SysTeamFeignClient {
 
 
     @RequestMapping(method = RequestMethod.PUT, value = "/systeams/{teamid}")
-    SysTeam update(@PathVariable("teamid") String teamid,@RequestBody SysTeam systeam);
+    SysTeam update(@PathVariable("teamid") String teamid, @RequestBody SysTeam systeam);
 
     @RequestMapping(method = RequestMethod.PUT, value = "/systeams/batch")
     Boolean updateBatch(@RequestBody List<SysTeam> systeams);

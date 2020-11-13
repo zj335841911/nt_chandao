@@ -54,7 +54,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
     @Override
     @Transactional
     public boolean create(User et) {
-        if(!this.retBool(this.baseMapper.insert(et))) {
+        if (!this.retBool(this.baseMapper.insert(et))) {
             return false;
         }
         CachedBeanCopier.copy(get(et.getId()), et);
@@ -70,7 +70,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
     @Override
     @Transactional
     public boolean update(User et) {
-        if(!update(et, (Wrapper) et.getUpdateWrapper(true).eq("id", et.getId()))) {
+        if (!update(et, (Wrapper) et.getUpdateWrapper(true).eq("id", et.getId()))) {
             return false;
         }
         CachedBeanCopier.copy(get(et.getId()), et);
@@ -87,7 +87,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
     @Transactional
     public boolean remove(Long key) {
         boolean result = removeById(key);
-        return result ;
+        return result;
     }
 
     @Override
@@ -100,7 +100,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
     @Transactional
     public User get(Long key) {
         User et = getById(key);
-        if(et == null){
+        if (et == null) {
             et = new User();
             et.setId(key);
         }
@@ -147,14 +147,14 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
     @Override
     @Transactional
     public boolean saveBatch(Collection<User> list) {
-        saveOrUpdateBatch(list,batchSize);
+        saveOrUpdateBatch(list, batchSize);
         return true;
     }
 
     @Override
     @Transactional
     public void saveBatch(List<User> list) {
-        saveOrUpdateBatch(list,batchSize);
+        saveOrUpdateBatch(list, batchSize);
     }
 
     @Override
@@ -171,7 +171,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
      */
     @Override
     public Page<User> searchBugUser(UserSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<User> pages=baseMapper.searchBugUser(context.getPages(),context,context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<User> pages=baseMapper.searchBugUser(context.getPages(), context, context.getSelectCond());
         return new PageImpl<User>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -180,7 +180,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
      */
     @Override
     public Page<User> searchDefault(UserSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<User> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<User> pages=baseMapper.searchDefault(context.getPages(), context, context.getSelectCond());
         return new PageImpl<User>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -189,7 +189,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
      */
     @Override
     public Page<User> searchGetByCommiter(UserSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<User> pages=baseMapper.searchGetByCommiter(context.getPages(),context,context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<User> pages=baseMapper.searchGetByCommiter(context.getPages(), context, context.getSelectCond());
         return new PageImpl<User>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -198,7 +198,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
      */
     @Override
     public Page<User> searchProjectTeamM(UserSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<User> pages=baseMapper.searchProjectTeamM(context.getPages(),context,context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<User> pages=baseMapper.searchProjectTeamM(context.getPages(), context, context.getSelectCond());
         return new PageImpl<User>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -207,7 +207,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
      */
     @Override
     public Page<User> searchProjectTeamUser(UserSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<User> pages=baseMapper.searchProjectTeamUser(context.getPages(),context,context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<User> pages=baseMapper.searchProjectTeamUser(context.getPages(), context, context.getSelectCond());
         return new PageImpl<User>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -216,7 +216,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
      */
     @Override
     public Page<User> searchProjectTeamUserTask(UserSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<User> pages=baseMapper.searchProjectTeamUserTask(context.getPages(),context,context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<User> pages=baseMapper.searchProjectTeamUserTask(context.getPages(), context, context.getSelectCond());
         return new PageImpl<User>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -225,7 +225,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
      */
     @Override
     public Page<User> searchTaskTeam(UserSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<User> pages=baseMapper.searchTaskTeam(context.getPages(),context,context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<User> pages=baseMapper.searchTaskTeam(context.getPages(), context, context.getSelectCond());
         return new PageImpl<User>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -236,24 +236,24 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
 
 
     @Override
-    public List<JSONObject> select(String sql, Map param){
-        return this.baseMapper.selectBySQL(sql,param);
+    public List<JSONObject> select(String sql, Map param) {
+        return this.baseMapper.selectBySQL(sql, param);
     }
 
     @Override
     @Transactional
-    public boolean execute(String sql , Map param){
+    public boolean execute(String sql, Map param) {
         if (sql == null || sql.isEmpty()) {
             return false;
         }
         if (sql.toLowerCase().trim().startsWith("insert")) {
-            return this.baseMapper.insertBySQL(sql,param);
+            return this.baseMapper.insertBySQL(sql, param);
         }
         if (sql.toLowerCase().trim().startsWith("update")) {
-            return this.baseMapper.updateBySQL(sql,param);
+            return this.baseMapper.updateBySQL(sql, param);
         }
         if (sql.toLowerCase().trim().startsWith("delete")) {
-            return this.baseMapper.deleteBySQL(sql,param);
+            return this.baseMapper.deleteBySQL(sql, param);
         }
         log.warn("暂未支持的SQL语法");
         return true;

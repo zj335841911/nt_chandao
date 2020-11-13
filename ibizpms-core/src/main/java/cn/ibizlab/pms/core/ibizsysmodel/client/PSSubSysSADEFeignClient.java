@@ -31,7 +31,7 @@ public interface PSSubSysSADEFeignClient {
 
 
     @RequestMapping(method = RequestMethod.PUT, value = "/pssubsyssades/{pssubsyssadeid}")
-    PSSubSysSADE update(@PathVariable("pssubsyssadeid") String pssubsyssadeid,@RequestBody PSSubSysSADE pssubsyssade);
+    PSSubSysSADE update(@PathVariable("pssubsyssadeid") String pssubsyssadeid, @RequestBody PSSubSysSADE pssubsyssade);
 
     @RequestMapping(method = RequestMethod.PUT, value = "/pssubsyssades/batch")
     Boolean updateBatch(@RequestBody List<PSSubSysSADE> pssubsyssades);

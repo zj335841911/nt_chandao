@@ -49,7 +49,7 @@ public class PSSysReqModule extends EntityClient implements Serializable {
      * 建立时间
      */
     @DEField(preType = DEPredefinedFieldType.CREATEDATE)
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "createdate" , format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("createdate")
     private Timestamp createdate;
@@ -82,7 +82,7 @@ public class PSSysReqModule extends EntityClient implements Serializable {
      * 更新时间
      */
     @DEField(preType = DEPredefinedFieldType.UPDATEDATE)
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "updatedate" , format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("updatedate")
     private Timestamp updatedate;
@@ -251,7 +251,7 @@ public class PSSysReqModule extends EntityClient implements Serializable {
      */
     public void setPssysreqmodulename(String pssysreqmodulename) {
         this.pssysreqmodulename = pssysreqmodulename ;
-        this.modify("pssysreqmodulename",pssysreqmodulename);
+        this.modify("pssysreqmodulename", pssysreqmodulename);
     }
 
     /**
@@ -259,7 +259,7 @@ public class PSSysReqModule extends EntityClient implements Serializable {
      */
     public void setContent(String content) {
         this.content = content ;
-        this.modify("content",content);
+        this.modify("content", content);
     }
 
     /**
@@ -267,7 +267,7 @@ public class PSSysReqModule extends EntityClient implements Serializable {
      */
     public void setCodename(String codename) {
         this.codename = codename ;
-        this.modify("codename",codename);
+        this.modify("codename", codename);
     }
 
     /**
@@ -275,7 +275,7 @@ public class PSSysReqModule extends EntityClient implements Serializable {
      */
     public void setMemo(String memo) {
         this.memo = memo ;
-        this.modify("memo",memo);
+        this.modify("memo", memo);
     }
 
     /**
@@ -283,7 +283,7 @@ public class PSSysReqModule extends EntityClient implements Serializable {
      */
     public void setModuletag(String moduletag) {
         this.moduletag = moduletag ;
-        this.modify("moduletag",moduletag);
+        this.modify("moduletag", moduletag);
     }
 
     /**
@@ -291,7 +291,7 @@ public class PSSysReqModule extends EntityClient implements Serializable {
      */
     public void setModulesn(String modulesn) {
         this.modulesn = modulesn ;
-        this.modify("modulesn",modulesn);
+        this.modify("modulesn", modulesn);
     }
 
     /**
@@ -299,7 +299,7 @@ public class PSSysReqModule extends EntityClient implements Serializable {
      */
     public void setModuletag2(String moduletag2) {
         this.moduletag2 = moduletag2 ;
-        this.modify("moduletag2",moduletag2);
+        this.modify("moduletag2", moduletag2);
     }
 
     /**
@@ -307,7 +307,7 @@ public class PSSysReqModule extends EntityClient implements Serializable {
      */
     public void setModuletag3(String moduletag3) {
         this.moduletag3 = moduletag3 ;
-        this.modify("moduletag3",moduletag3);
+        this.modify("moduletag3", moduletag3);
     }
 
     /**
@@ -315,7 +315,7 @@ public class PSSysReqModule extends EntityClient implements Serializable {
      */
     public void setModuletag4(String moduletag4) {
         this.moduletag4 = moduletag4 ;
-        this.modify("moduletag4",moduletag4);
+        this.modify("moduletag4", moduletag4);
     }
 
     /**
@@ -323,7 +323,7 @@ public class PSSysReqModule extends EntityClient implements Serializable {
      */
     public void setUsercat(String usercat) {
         this.usercat = usercat ;
-        this.modify("usercat",usercat);
+        this.modify("usercat", usercat);
     }
 
     /**
@@ -331,7 +331,7 @@ public class PSSysReqModule extends EntityClient implements Serializable {
      */
     public void setUsertag2(String usertag2) {
         this.usertag2 = usertag2 ;
-        this.modify("usertag2",usertag2);
+        this.modify("usertag2", usertag2);
     }
 
     /**
@@ -339,7 +339,7 @@ public class PSSysReqModule extends EntityClient implements Serializable {
      */
     public void setUsertag(String usertag) {
         this.usertag = usertag ;
-        this.modify("usertag",usertag);
+        this.modify("usertag", usertag);
     }
 
     /**
@@ -347,7 +347,7 @@ public class PSSysReqModule extends EntityClient implements Serializable {
      */
     public void setUsertag3(String usertag3) {
         this.usertag3 = usertag3 ;
-        this.modify("usertag3",usertag3);
+        this.modify("usertag3", usertag3);
     }
 
     /**
@@ -355,7 +355,7 @@ public class PSSysReqModule extends EntityClient implements Serializable {
      */
     public void setUsertag4(String usertag4) {
         this.usertag4 = usertag4 ;
-        this.modify("usertag4",usertag4);
+        this.modify("usertag4", usertag4);
     }
 
     /**
@@ -363,7 +363,7 @@ public class PSSysReqModule extends EntityClient implements Serializable {
      */
     public void setPssystemid(String pssystemid) {
         this.pssystemid = pssystemid ;
-        this.modify("pssystemid",pssystemid);
+        this.modify("pssystemid", pssystemid);
     }
 
     /**
@@ -371,7 +371,7 @@ public class PSSysReqModule extends EntityClient implements Serializable {
      */
     public void setPssystemname(String pssystemname) {
         this.pssystemname = pssystemname ;
-        this.modify("pssystemname",pssystemname);
+        this.modify("pssystemname", pssystemname);
     }
 
     /**
@@ -379,7 +379,7 @@ public class PSSysReqModule extends EntityClient implements Serializable {
      */
     public void setPpssysreqmoduleid(String ppssysreqmoduleid) {
         this.ppssysreqmoduleid = ppssysreqmoduleid ;
-        this.modify("ppssysreqmoduleid",ppssysreqmoduleid);
+        this.modify("ppssysreqmoduleid", ppssysreqmoduleid);
     }
 
     /**
@@ -387,7 +387,7 @@ public class PSSysReqModule extends EntityClient implements Serializable {
      */
     public void setPsmoduleid(String psmoduleid) {
         this.psmoduleid = psmoduleid ;
-        this.modify("psmoduleid",psmoduleid);
+        this.modify("psmoduleid", psmoduleid);
     }
 
     /**
@@ -400,7 +400,7 @@ public class PSSysReqModule extends EntityClient implements Serializable {
     @Override
     public <T> T copyTo(T targetEntity, boolean bIncEmpty) {
         this.reset("pssysreqmoduleid");
-        return super.copyTo(targetEntity,bIncEmpty);
+        return super.copyTo(targetEntity, bIncEmpty);
     }
 }
 

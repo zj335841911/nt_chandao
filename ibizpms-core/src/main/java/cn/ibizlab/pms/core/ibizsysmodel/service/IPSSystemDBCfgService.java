@@ -22,7 +22,7 @@ import cn.ibizlab.pms.core.ibizsysmodel.filter.PSSystemDBCfgSearchContext;
 /**
  * 实体[PSSystemDBCfg] 服务对象接口
  */
-public interface IPSSystemDBCfgService{
+public interface IPSSystemDBCfgService {
 
     /**
      * 业务实体显示文本名称
@@ -34,34 +34,34 @@ public interface IPSSystemDBCfgService{
      */
     final static String OBJECT_SOURCE_PATH = "pssystemdbcfgs";
 
-    boolean create(PSSystemDBCfg et) ;
-    void createBatch(List<PSSystemDBCfg> list) ;
-    boolean update(PSSystemDBCfg et) ;
-    void updateBatch(List<PSSystemDBCfg> list) ;
-    boolean remove(String key) ;
-    void removeBatch(Collection<String> idList) ;
-    PSSystemDBCfg get(String key) ;
-    PSSystemDBCfg getDraft(PSSystemDBCfg et) ;
-    boolean checkKey(PSSystemDBCfg et) ;
-    boolean save(PSSystemDBCfg et) ;
-    void saveBatch(List<PSSystemDBCfg> list) ;
-    Page<PSSystemDBCfg> searchBuild(PSSystemDBCfgSearchContext context) ;
-    Page<PSSystemDBCfg> searchDefault(PSSystemDBCfgSearchContext context) ;
+    boolean create(PSSystemDBCfg et);
+    void createBatch(List<PSSystemDBCfg> list);
+    boolean update(PSSystemDBCfg et);
+    void updateBatch(List<PSSystemDBCfg> list);
+    boolean remove(String key);
+    void removeBatch(Collection<String> idList);
+    PSSystemDBCfg get(String key);
+    PSSystemDBCfg getDraft(PSSystemDBCfg et);
+    boolean checkKey(PSSystemDBCfg et);
+    boolean save(PSSystemDBCfg et);
+    void saveBatch(List<PSSystemDBCfg> list);
+    Page<PSSystemDBCfg> searchBuild(PSSystemDBCfgSearchContext context);
+    Page<PSSystemDBCfg> searchDefault(PSSystemDBCfgSearchContext context);
 
     boolean create(String devSlnSysId , PSSystemDBCfg et) ;
-    void createBatch(String devSlnSysId , List<PSSystemDBCfg> list) ;
-    boolean update(String devSlnSysId , PSSystemDBCfg et) ;
-    void updateBatch(String devSlnSysId , List<PSSystemDBCfg> list) ;
-    boolean remove(String devSlnSysId , String key) ;
+    void createBatch(String devSlnSysId, List<PSSystemDBCfg> list);
+    boolean update(String devSlnSysId, PSSystemDBCfg et);
+    void updateBatch(String devSlnSysId, List<PSSystemDBCfg> list);
+    boolean remove(String devSlnSysId, String key);
     void removeBatch(String devSlnSysId , Collection<String> idList) ;
-    PSSystemDBCfg get(String devSlnSysId , String key) ;
-    String getByCodeName(String devSlnSysId , String codeName) ;
-    PSSystemDBCfg getDraft(String devSlnSysId , PSSystemDBCfg et) ;
-    boolean checkKey(String devSlnSysId , PSSystemDBCfg et) ;
-    boolean save(String devSlnSysId , PSSystemDBCfg et) ;
-    void saveBatch(String devSlnSysId , List<PSSystemDBCfg> list) ;
-    Page<PSSystemDBCfg> searchBuild(String devSlnSysId , PSSystemDBCfgSearchContext context) ;
-    Page<PSSystemDBCfg> searchDefault(String devSlnSysId , PSSystemDBCfgSearchContext context) ;
+    PSSystemDBCfg get(String devSlnSysId , String key);
+    String getByCodeName(String devSlnSysId , String codeName);
+    PSSystemDBCfg getDraft(String devSlnSysId, PSSystemDBCfg et);
+    boolean checkKey(String devSlnSysId, PSSystemDBCfg et);
+    boolean save(String devSlnSysId, PSSystemDBCfg et);
+    void saveBatch(String devSlnSysId, List<PSSystemDBCfg> list);
+    Page<PSSystemDBCfg> searchBuild(String devSlnSysId, PSSystemDBCfgSearchContext context);
+    Page<PSSystemDBCfg> searchDefault(String devSlnSysId, PSSystemDBCfgSearchContext context);
 
 }
 

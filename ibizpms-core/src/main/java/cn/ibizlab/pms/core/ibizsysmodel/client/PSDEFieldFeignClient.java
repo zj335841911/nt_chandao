@@ -31,7 +31,7 @@ public interface PSDEFieldFeignClient {
 
 
     @RequestMapping(method = RequestMethod.PUT, value = "/psdefields/{psdefieldid}")
-    PSDEField update(@PathVariable("psdefieldid") String psdefieldid,@RequestBody PSDEField psdefield);
+    PSDEField update(@PathVariable("psdefieldid") String psdefieldid, @RequestBody PSDEField psdefield);
 
     @RequestMapping(method = RequestMethod.PUT, value = "/psdefields/batch")
     Boolean updateBatch(@RequestBody List<PSDEField> psdefields);

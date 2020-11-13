@@ -62,13 +62,13 @@ public class IBIZProMessageServiceImpl implements IIBIZProMessageService {
 
 
     public void createBatch(List<IBIZProMessage> list){
-        iBIZPRO_MESSAGEFeignClient.createBatch(list) ;
+        iBIZPRO_MESSAGEFeignClient.createBatch(list);
     }
 
 
     @Override
     public boolean update(IBIZProMessage et) {
-        IBIZProMessage rt = iBIZPRO_MESSAGEFeignClient.update(et.getIbizproMessageid(),et);
+        IBIZProMessage rt = iBIZPRO_MESSAGEFeignClient.update(et.getIbizproMessageid(), et);
         if (rt == null) {
             return false;
         }
@@ -78,14 +78,14 @@ public class IBIZProMessageServiceImpl implements IIBIZProMessageService {
     }
 
 
-    public void updateBatch(List<IBIZProMessage> list){
-        iBIZPRO_MESSAGEFeignClient.updateBatch(list) ;
+    public void updateBatch(List<IBIZProMessage> list) {
+        iBIZPRO_MESSAGEFeignClient.updateBatch(list);
     }
 
 
     @Override
     public boolean remove(String ibizpro_messageid) {
-        boolean result=iBIZPRO_MESSAGEFeignClient.remove(ibizpro_messageid) ;
+        boolean result=iBIZPRO_MESSAGEFeignClient.remove(ibizpro_messageid);
         return result;
     }
 
@@ -97,12 +97,12 @@ public class IBIZProMessageServiceImpl implements IIBIZProMessageService {
 
     @Override
     public IBIZProMessage get(String ibizpro_messageid) {
-		IBIZProMessage et = iBIZPRO_MESSAGEFeignClient.get(ibizpro_messageid);
-        if (et == null){
+        IBIZProMessage et = iBIZPRO_MESSAGEFeignClient.get(ibizpro_messageid);
+        if (et == null) {
             et = new IBIZProMessage();
             et.setIbizproMessageid(ibizpro_messageid);
         }
-        else{
+        else {
         }
         return  et;
     }
@@ -152,7 +152,7 @@ public class IBIZProMessageServiceImpl implements IIBIZProMessageService {
 
     @Override
     public void saveBatch(List<IBIZProMessage> list) {
-        iBIZPRO_MESSAGEFeignClient.saveBatch(list) ;
+        iBIZPRO_MESSAGEFeignClient.saveBatch(list);
     }
 
 

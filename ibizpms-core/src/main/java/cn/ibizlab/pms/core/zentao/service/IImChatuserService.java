@@ -23,7 +23,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 /**
  * 实体[ImChatuser] 服务对象接口
  */
-public interface IImChatuserService extends IService<ImChatuser>{
+public interface IImChatuserService extends IService<ImChatuser> {
 
     /**
      * 业务实体显示文本名称
@@ -35,29 +35,29 @@ public interface IImChatuserService extends IService<ImChatuser>{
      */
     final static String OBJECT_SOURCE_PATH = "imchatusers";
 
-    boolean create(ImChatuser et) ;
-    void createBatch(List<ImChatuser> list) ;
-    boolean update(ImChatuser et) ;
-    void updateBatch(List<ImChatuser> list) ;
-    boolean remove(Long key) ;
-    void removeBatch(Collection<Long> idList) ;
-    ImChatuser get(Long key) ;
-    ImChatuser getDraft(ImChatuser et) ;
-    boolean checkKey(ImChatuser et) ;
-    boolean save(ImChatuser et) ;
-    void saveBatch(List<ImChatuser> list) ;
-    Page<ImChatuser> searchDefault(ImChatuserSearchContext context) ;
+    boolean create(ImChatuser et);
+    void createBatch(List<ImChatuser> list);
+    boolean update(ImChatuser et);
+    void updateBatch(List<ImChatuser> list);
+    boolean remove(Long key);
+    void removeBatch(Collection<Long> idList);
+    ImChatuser get(Long key);
+    ImChatuser getDraft(ImChatuser et);
+    boolean checkKey(ImChatuser et);
+    boolean save(ImChatuser et);
+    void saveBatch(List<ImChatuser> list);
+    Page<ImChatuser> searchDefault(ImChatuserSearchContext context);
     /**
-     *自定义查询SQL
+     * 自定义查询SQL
      * @param sql  select * from table where id =#{et.param}
-     * @param param 参数列表  param.put("param","1");
+     * @param param 参数列表  param.put("param", "1");
      * @return select * from table where id = '1'
      */
     List<JSONObject> select(String sql, Map param);
     /**
-     *自定义SQL
+     * 自定义SQL
      * @param sql  update table  set name ='test' where id =#{et.param}
-     * @param param 参数列表  param.put("param","1");
+     * @param param 参数列表  param.put("param", "1");
      * @return     update table  set name ='test' where id = '1'
      */
     boolean execute(String sql, Map param);

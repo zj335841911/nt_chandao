@@ -216,7 +216,7 @@ public class SysEmployee extends EntityClient implements Serializable {
      * 创建时间
      */
     @DEField(preType = DEPredefinedFieldType.CREATEDATE)
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "createdate" , format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("createdate")
     private Timestamp createdate;
@@ -241,7 +241,7 @@ public class SysEmployee extends EntityClient implements Serializable {
      * 更新时间
      */
     @DEField(preType = DEPredefinedFieldType.UPDATEDATE)
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "updatedate" , format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("updatedate")
     private Timestamp updatedate;
@@ -269,7 +269,7 @@ public class SysEmployee extends EntityClient implements Serializable {
      */
     public void setUsername(String username) {
         this.username = username ;
-        this.modify("username",username);
+        this.modify("username", username);
     }
 
     /**
@@ -277,7 +277,7 @@ public class SysEmployee extends EntityClient implements Serializable {
      */
     public void setPersonname(String personname) {
         this.personname = personname ;
-        this.modify("personname",personname);
+        this.modify("personname", personname);
     }
 
     /**
@@ -285,7 +285,7 @@ public class SysEmployee extends EntityClient implements Serializable {
      */
     public void setUsercode(String usercode) {
         this.usercode = usercode ;
-        this.modify("usercode",usercode);
+        this.modify("usercode", usercode);
     }
 
     /**
@@ -293,7 +293,7 @@ public class SysEmployee extends EntityClient implements Serializable {
      */
     public void setDomains(String domains) {
         this.domains = domains ;
-        this.modify("domains",domains);
+        this.modify("domains", domains);
     }
 
     /**
@@ -301,7 +301,7 @@ public class SysEmployee extends EntityClient implements Serializable {
      */
     public void setMdeptid(String mdeptid) {
         this.mdeptid = mdeptid ;
-        this.modify("mdeptid",mdeptid);
+        this.modify("mdeptid", mdeptid);
     }
 
     /**
@@ -309,7 +309,7 @@ public class SysEmployee extends EntityClient implements Serializable {
      */
     public void setMdeptcode(String mdeptcode) {
         this.mdeptcode = mdeptcode ;
-        this.modify("mdeptcode",mdeptcode);
+        this.modify("mdeptcode", mdeptcode);
     }
 
     /**
@@ -317,7 +317,7 @@ public class SysEmployee extends EntityClient implements Serializable {
      */
     public void setMdeptname(String mdeptname) {
         this.mdeptname = mdeptname ;
-        this.modify("mdeptname",mdeptname);
+        this.modify("mdeptname", mdeptname);
     }
 
     /**
@@ -325,7 +325,7 @@ public class SysEmployee extends EntityClient implements Serializable {
      */
     public void setBcode(String bcode) {
         this.bcode = bcode ;
-        this.modify("bcode",bcode);
+        this.modify("bcode", bcode);
     }
 
     /**
@@ -333,7 +333,7 @@ public class SysEmployee extends EntityClient implements Serializable {
      */
     public void setOrgcode(String orgcode) {
         this.orgcode = orgcode ;
-        this.modify("orgcode",orgcode);
+        this.modify("orgcode", orgcode);
     }
 
     /**
@@ -341,7 +341,7 @@ public class SysEmployee extends EntityClient implements Serializable {
      */
     public void setNickname(String nickname) {
         this.nickname = nickname ;
-        this.modify("nickname",nickname);
+        this.modify("nickname", nickname);
     }
 
     /**
@@ -349,7 +349,7 @@ public class SysEmployee extends EntityClient implements Serializable {
      */
     public void setSex(String sex) {
         this.sex = sex ;
-        this.modify("sex",sex);
+        this.modify("sex", sex);
     }
 
     /**
@@ -357,7 +357,7 @@ public class SysEmployee extends EntityClient implements Serializable {
      */
     public void setPhone(String phone) {
         this.phone = phone ;
-        this.modify("phone",phone);
+        this.modify("phone", phone);
     }
 
     /**
@@ -365,7 +365,7 @@ public class SysEmployee extends EntityClient implements Serializable {
      */
     public void setEmail(String email) {
         this.email = email ;
-        this.modify("email",email);
+        this.modify("email", email);
     }
 
     /**
@@ -373,7 +373,7 @@ public class SysEmployee extends EntityClient implements Serializable {
      */
     public void setAvatar(String avatar) {
         this.avatar = avatar ;
-        this.modify("avatar",avatar);
+        this.modify("avatar", avatar);
     }
 
     /**
@@ -381,7 +381,7 @@ public class SysEmployee extends EntityClient implements Serializable {
      */
     public void setAddr(String addr) {
         this.addr = addr ;
-        this.modify("addr",addr);
+        this.modify("addr", addr);
     }
 
     /**
@@ -389,7 +389,7 @@ public class SysEmployee extends EntityClient implements Serializable {
      */
     public void setUsericon(String usericon) {
         this.usericon = usericon ;
-        this.modify("usericon",usericon);
+        this.modify("usericon", usericon);
     }
 
     /**
@@ -397,7 +397,7 @@ public class SysEmployee extends EntityClient implements Serializable {
      */
     public void setIpaddr(String ipaddr) {
         this.ipaddr = ipaddr ;
-        this.modify("ipaddr",ipaddr);
+        this.modify("ipaddr", ipaddr);
     }
 
     /**
@@ -405,7 +405,7 @@ public class SysEmployee extends EntityClient implements Serializable {
      */
     public void setLang(String lang) {
         this.lang = lang ;
-        this.modify("lang",lang);
+        this.modify("lang", lang);
     }
 
     /**
@@ -413,7 +413,7 @@ public class SysEmployee extends EntityClient implements Serializable {
      */
     public void setMemo(String memo) {
         this.memo = memo ;
-        this.modify("memo",memo);
+        this.modify("memo", memo);
     }
 
     /**
@@ -421,7 +421,7 @@ public class SysEmployee extends EntityClient implements Serializable {
      */
     public void setReserver(String reserver) {
         this.reserver = reserver ;
-        this.modify("reserver",reserver);
+        this.modify("reserver", reserver);
     }
 
     /**
@@ -429,7 +429,7 @@ public class SysEmployee extends EntityClient implements Serializable {
      */
     public void setShoworder(Integer showorder) {
         this.showorder = showorder ;
-        this.modify("showorder",showorder);
+        this.modify("showorder", showorder);
     }
 
     /**
@@ -442,7 +442,7 @@ public class SysEmployee extends EntityClient implements Serializable {
     @Override
     public <T> T copyTo(T targetEntity, boolean bIncEmpty) {
         this.reset("userid");
-        return super.copyTo(targetEntity,bIncEmpty);
+        return super.copyTo(targetEntity, bIncEmpty);
     }
 }
 

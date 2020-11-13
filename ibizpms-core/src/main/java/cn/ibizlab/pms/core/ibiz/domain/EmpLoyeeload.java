@@ -38,7 +38,7 @@ import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 @Setter
 @NoArgsConstructor
 @JsonIgnoreProperties(value = "handler")
-@TableName(value = "ZT_TASK",resultMap = "EmpLoyeeloadResultMap")
+@TableName(value = "ZT_TASK", resultMap = "EmpLoyeeloadResultMap")
 public class EmpLoyeeload extends EntityMP implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -47,7 +47,7 @@ public class EmpLoyeeload extends EntityMP implements Serializable {
      * 主键
      */
     @DEField(isKeyField = true)
-    @TableId(value= "id",type=IdType.AUTO)
+    @TableId(value = "id", type = IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
     private Long id;
@@ -125,7 +125,7 @@ public class EmpLoyeeload extends EntityMP implements Serializable {
      * 属性
      */
     @TableField(exist = false)
-    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh" , timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "begin", format = "yyyy-MM-dd")
     @JsonProperty("begin")
     private Timestamp begin;
@@ -133,7 +133,7 @@ public class EmpLoyeeload extends EntityMP implements Serializable {
      * 结束
      */
     @TableField(exist = false)
-    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh" , timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "end", format = "yyyy-MM-dd")
     @JsonProperty("end")
     private Timestamp end;
@@ -166,38 +166,38 @@ public class EmpLoyeeload extends EntityMP implements Serializable {
      * 设置 [任务名]
      */
     public void setName(String name) {
-        this.name = name ;
-        this.modify("name",name);
+        this.name = name;
+        this.modify("name", name);
     }
 
     /**
      * 设置 [项目编号]
      */
     public void setProject(Long project) {
-        this.project = project ;
-        this.modify("project",project);
+        this.project = project;
+        this.modify("project", project);
     }
 
     /**
      * 设置 [指派给]
      */
     public void setAssignedto(String assignedto) {
-        this.assignedto = assignedto ;
-        this.modify("assignedto",assignedto);
+        this.assignedto = assignedto;
+        this.modify("assignedto", assignedto);
     }
 
     /**
      * 设置 [是否指派]
      */
     public void setAssign(String assign) {
-        this.assign = assign ;
-        this.modify("assign",assign);
+        this.assign = assign;
+        this.modify("assign", assign);
     }
 
 
     @Override
     public Serializable getDefaultKey(boolean gen) {
-       return IdWorker.getId();
+        return IdWorker.getId();
     }
     /**
      * 复制当前对象数据到目标对象(粘贴重置)
@@ -209,7 +209,7 @@ public class EmpLoyeeload extends EntityMP implements Serializable {
     @Override
     public <T> T copyTo(T targetEntity, boolean bIncEmpty) {
         this.reset("id");
-        return super.copyTo(targetEntity,bIncEmpty);
+        return super.copyTo(targetEntity, bIncEmpty);
     }
 }
 

@@ -22,7 +22,7 @@ import cn.ibizlab.pms.core.ibiz.filter.IBzDocSearchContext;
 /**
  * 实体[IBzDoc] 服务对象接口
  */
-public interface IIBzDocService{
+public interface IIBzDocService {
 
     /**
      * 业务实体显示文本名称
@@ -34,18 +34,18 @@ public interface IIBzDocService{
      */
     final static String OBJECT_SOURCE_PATH = "ibzdocs";
 
-    boolean create(IBzDoc et) ;
-    void createBatch(List<IBzDoc> list) ;
-    boolean update(IBzDoc et) ;
-    void updateBatch(List<IBzDoc> list) ;
-    boolean remove(String key) ;
-    void removeBatch(Collection<String> idList) ;
-    IBzDoc get(String key) ;
-    IBzDoc getDraft(IBzDoc et) ;
-    boolean checkKey(IBzDoc et) ;
-    boolean save(IBzDoc et) ;
-    void saveBatch(List<IBzDoc> list) ;
-    Page<IBzDoc> searchDefault(IBzDocSearchContext context) ;
+    boolean create(IBzDoc et);
+    void createBatch(List<IBzDoc> list);
+    boolean update(IBzDoc et);
+    void updateBatch(List<IBzDoc> list);
+    boolean remove(String key);
+    void removeBatch(Collection<String> idList);
+    IBzDoc get(String key);
+    IBzDoc getDraft(IBzDoc et);
+    boolean checkKey(IBzDoc et);
+    boolean save(IBzDoc et);
+    void saveBatch(List<IBzDoc> list);
+    Page<IBzDoc> searchDefault(IBzDocSearchContext context);
 
 }
 

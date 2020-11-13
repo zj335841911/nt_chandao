@@ -54,7 +54,7 @@ public class ProductLifeServiceImpl extends ServiceImpl<ProductLifeMapper, Produ
     @Override
     @Transactional
     public boolean create(ProductLife et) {
-        if(!this.retBool(this.baseMapper.insert(et))) {
+        if (!this.retBool(this.baseMapper.insert(et))) {
             return false;
         }
         CachedBeanCopier.copy(get(et.getProductlifeid()), et);
@@ -70,7 +70,7 @@ public class ProductLifeServiceImpl extends ServiceImpl<ProductLifeMapper, Produ
     @Override
     @Transactional
     public boolean update(ProductLife et) {
-        if(!update(et, (Wrapper) et.getUpdateWrapper(true).eq("ibz_productlifeid", et.getProductlifeid()))) {
+        if (!update(et, (Wrapper) et.getUpdateWrapper(true).eq("ibz_productlifeid", et.getProductlifeid()))) {
             return false;
         }
         CachedBeanCopier.copy(get(et.getProductlifeid()), et);
@@ -87,7 +87,7 @@ public class ProductLifeServiceImpl extends ServiceImpl<ProductLifeMapper, Produ
     @Transactional
     public boolean remove(String key) {
         boolean result = removeById(key);
-        return result ;
+        return result;
     }
 
     @Override
@@ -100,7 +100,7 @@ public class ProductLifeServiceImpl extends ServiceImpl<ProductLifeMapper, Produ
     @Transactional
     public ProductLife get(String key) {
         ProductLife et = getById(key);
-        if(et == null){
+        if (et == null) {
             et = new ProductLife();
             et.setProductlifeid(key);
         }
@@ -140,14 +140,14 @@ public class ProductLifeServiceImpl extends ServiceImpl<ProductLifeMapper, Produ
     @Override
     @Transactional
     public boolean saveBatch(Collection<ProductLife> list) {
-        saveOrUpdateBatch(list,batchSize);
+        saveOrUpdateBatch(list, batchSize);
         return true;
     }
 
     @Override
     @Transactional
     public void saveBatch(List<ProductLife> list) {
-        saveOrUpdateBatch(list,batchSize);
+        saveOrUpdateBatch(list, batchSize);
     }
 
 
@@ -157,7 +157,7 @@ public class ProductLifeServiceImpl extends ServiceImpl<ProductLifeMapper, Produ
      */
     @Override
     public Page<ProductLife> searchDefault(ProductLifeSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProductLife> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProductLife> pages=baseMapper.searchDefault(context.getPages(), context, context.getSelectCond());
         return new PageImpl<ProductLife>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -166,7 +166,7 @@ public class ProductLifeServiceImpl extends ServiceImpl<ProductLifeMapper, Produ
      */
     @Override
     public Page<ProductLife> searchGetRoadmap(ProductLifeSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProductLife> pages=baseMapper.searchGetRoadmap(context.getPages(),context,context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProductLife> pages=baseMapper.searchGetRoadmap(context.getPages(), context, context.getSelectCond());
         return new PageImpl<ProductLife>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -175,7 +175,7 @@ public class ProductLifeServiceImpl extends ServiceImpl<ProductLifeMapper, Produ
      */
     @Override
     public Page<ProductLife> searchGetRoadmapS(ProductLifeSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProductLife> pages=baseMapper.searchGetRoadmapS(context.getPages(),context,context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProductLife> pages=baseMapper.searchGetRoadmapS(context.getPages(), context, context.getSelectCond());
         return new PageImpl<ProductLife>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -184,7 +184,7 @@ public class ProductLifeServiceImpl extends ServiceImpl<ProductLifeMapper, Produ
      */
     @Override
     public Page<ProductLife> searchRoadMapYear(ProductLifeSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProductLife> pages=baseMapper.searchRoadMapYear(context.getPages(),context,context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProductLife> pages=baseMapper.searchRoadMapYear(context.getPages(), context, context.getSelectCond());
         return new PageImpl<ProductLife>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -195,24 +195,24 @@ public class ProductLifeServiceImpl extends ServiceImpl<ProductLifeMapper, Produ
 
 
     @Override
-    public List<JSONObject> select(String sql, Map param){
-        return this.baseMapper.selectBySQL(sql,param);
+    public List<JSONObject> select(String sql, Map param) {
+        return this.baseMapper.selectBySQL(sql, param);
     }
 
     @Override
     @Transactional
-    public boolean execute(String sql , Map param){
+    public boolean execute(String sql, Map param) {
         if (sql == null || sql.isEmpty()) {
             return false;
         }
         if (sql.toLowerCase().trim().startsWith("insert")) {
-            return this.baseMapper.insertBySQL(sql,param);
+            return this.baseMapper.insertBySQL(sql, param);
         }
         if (sql.toLowerCase().trim().startsWith("update")) {
-            return this.baseMapper.updateBySQL(sql,param);
+            return this.baseMapper.updateBySQL(sql, param);
         }
         if (sql.toLowerCase().trim().startsWith("delete")) {
-            return this.baseMapper.deleteBySQL(sql,param);
+            return this.baseMapper.deleteBySQL(sql, param);
         }
         log.warn("暂未支持的SQL语法");
         return true;

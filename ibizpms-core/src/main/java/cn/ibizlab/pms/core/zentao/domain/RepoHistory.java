@@ -38,7 +38,7 @@ import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 @Setter
 @NoArgsConstructor
 @JsonIgnoreProperties(value = "handler")
-@TableName(value = "zt_repohistory",resultMap = "RepoHistoryResultMap")
+@TableName(value = "zt_repohistory", resultMap = "RepoHistoryResultMap")
 public class RepoHistory extends EntityMP implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -61,7 +61,7 @@ public class RepoHistory extends EntityMP implements Serializable {
      * time
      */
     @TableField(value = "`time`")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "time", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("time")
     private Timestamp time;
@@ -90,7 +90,7 @@ public class RepoHistory extends EntityMP implements Serializable {
      * id
      */
     @DEField(isKeyField = true)
-    @TableId(value= "id",type=IdType.AUTO)
+    @TableId(value = "id", type = IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
     private Long id;
@@ -101,24 +101,24 @@ public class RepoHistory extends EntityMP implements Serializable {
      * 设置 [committer]
      */
     public void setCommitter(String committer) {
-        this.committer = committer ;
-        this.modify("committer",committer);
+        this.committer = committer;
+        this.modify("committer", committer);
     }
 
     /**
      * 设置 [revision]
      */
     public void setRevision(String revision) {
-        this.revision = revision ;
-        this.modify("revision",revision);
+        this.revision = revision;
+        this.modify("revision", revision);
     }
 
     /**
      * 设置 [time]
      */
     public void setTime(Timestamp time) {
-        this.time = time ;
-        this.modify("time",time);
+        this.time = time;
+        this.modify("time", time);
     }
 
     /**
@@ -135,30 +135,30 @@ public class RepoHistory extends EntityMP implements Serializable {
      * 设置 [repo]
      */
     public void setRepo(Integer repo) {
-        this.repo = repo ;
-        this.modify("repo",repo);
+        this.repo = repo;
+        this.modify("repo", repo);
     }
 
     /**
      * 设置 [comment]
      */
     public void setComment(String comment) {
-        this.comment = comment ;
-        this.modify("comment",comment);
+        this.comment = comment;
+        this.modify("comment", comment);
     }
 
     /**
      * 设置 [commit]
      */
     public void setCommit(Integer commit) {
-        this.commit = commit ;
-        this.modify("commit",commit);
+        this.commit = commit;
+        this.modify("commit", commit);
     }
 
 
     @Override
     public Serializable getDefaultKey(boolean gen) {
-       return IdWorker.getId();
+        return IdWorker.getId();
     }
     /**
      * 复制当前对象数据到目标对象(粘贴重置)
@@ -170,7 +170,7 @@ public class RepoHistory extends EntityMP implements Serializable {
     @Override
     public <T> T copyTo(T targetEntity, boolean bIncEmpty) {
         this.reset("id");
-        return super.copyTo(targetEntity,bIncEmpty);
+        return super.copyTo(targetEntity, bIncEmpty);
     }
 }
 

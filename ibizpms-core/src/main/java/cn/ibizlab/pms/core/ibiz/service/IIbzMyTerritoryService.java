@@ -23,7 +23,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 /**
  * 实体[IbzMyTerritory] 服务对象接口
  */
-public interface IIbzMyTerritoryService extends IService<IbzMyTerritory>{
+public interface IIbzMyTerritoryService extends IService<IbzMyTerritory> {
 
     /**
      * 业务实体显示文本名称
@@ -35,35 +35,35 @@ public interface IIbzMyTerritoryService extends IService<IbzMyTerritory>{
      */
     final static String OBJECT_SOURCE_PATH = "ibzmyterritories";
 
-    boolean create(IbzMyTerritory et) ;
-    void createBatch(List<IbzMyTerritory> list) ;
-    boolean update(IbzMyTerritory et) ;
-    void updateBatch(List<IbzMyTerritory> list) ;
-    boolean remove(Long key) ;
-    void removeBatch(Collection<Long> idList) ;
-    IbzMyTerritory get(Long key) ;
-    IbzMyTerritory getDraft(IbzMyTerritory et) ;
-    boolean checkKey(IbzMyTerritory et) ;
-    IbzMyTerritory mobMenuCount(IbzMyTerritory et) ;
-    IbzMyTerritory myFavoriteCount(IbzMyTerritory et) ;
-    IbzMyTerritory myTerritoryCount(IbzMyTerritory et) ;
-    boolean save(IbzMyTerritory et) ;
-    void saveBatch(List<IbzMyTerritory> list) ;
-    Page<IbzMyTerritory> searchDefault(IbzMyTerritorySearchContext context) ;
-    Page<IbzMyTerritory> searchMyWork(IbzMyTerritorySearchContext context) ;
-    Page<IbzMyTerritory> searchMyWorkMob(IbzMyTerritorySearchContext context) ;
-    Page<IbzMyTerritory> searchWelcome(IbzMyTerritorySearchContext context) ;
+    boolean create(IbzMyTerritory et);
+    void createBatch(List<IbzMyTerritory> list);
+    boolean update(IbzMyTerritory et);
+    void updateBatch(List<IbzMyTerritory> list);
+    boolean remove(Long key);
+    void removeBatch(Collection<Long> idList);
+    IbzMyTerritory get(Long key);
+    IbzMyTerritory getDraft(IbzMyTerritory et);
+    boolean checkKey(IbzMyTerritory et);
+    IbzMyTerritory mobMenuCount(IbzMyTerritory et);
+    IbzMyTerritory myFavoriteCount(IbzMyTerritory et);
+    IbzMyTerritory myTerritoryCount(IbzMyTerritory et);
+    boolean save(IbzMyTerritory et);
+    void saveBatch(List<IbzMyTerritory> list);
+    Page<IbzMyTerritory> searchDefault(IbzMyTerritorySearchContext context);
+    Page<IbzMyTerritory> searchMyWork(IbzMyTerritorySearchContext context);
+    Page<IbzMyTerritory> searchMyWorkMob(IbzMyTerritorySearchContext context);
+    Page<IbzMyTerritory> searchWelcome(IbzMyTerritorySearchContext context);
     /**
-     *自定义查询SQL
+     * 自定义查询SQL
      * @param sql  select * from table where id =#{et.param}
-     * @param param 参数列表  param.put("param","1");
+     * @param param 参数列表  param.put("param", "1");
      * @return select * from table where id = '1'
      */
     List<JSONObject> select(String sql, Map param);
     /**
-     *自定义SQL
+     * 自定义SQL
      * @param sql  update table  set name ='test' where id =#{et.param}
-     * @param param 参数列表  param.put("param","1");
+     * @param param 参数列表  param.put("param", "1");
      * @return     update table  set name ='test' where id = '1'
      */
     boolean execute(String sql, Map param);

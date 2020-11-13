@@ -23,7 +23,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 /**
  * 实体[StorySpec] 服务对象接口
  */
-public interface IStorySpecService extends IService<StorySpec>{
+public interface IStorySpecService extends IService<StorySpec> {
 
     /**
      * 业务实体显示文本名称
@@ -35,32 +35,32 @@ public interface IStorySpecService extends IService<StorySpec>{
      */
     final static String OBJECT_SOURCE_PATH = "storyspecs";
 
-    boolean create(StorySpec et) ;
-    void createBatch(List<StorySpec> list) ;
-    boolean update(StorySpec et) ;
-    void updateBatch(List<StorySpec> list) ;
-    boolean remove(String key) ;
-    void removeBatch(Collection<String> idList) ;
-    StorySpec get(String key) ;
-    StorySpec getDraft(StorySpec et) ;
-    boolean checkKey(StorySpec et) ;
-    boolean save(StorySpec et) ;
-    void saveBatch(List<StorySpec> list) ;
-    Page<StorySpec> searchDefault(StorySpecSearchContext context) ;
-    Page<StorySpec> searchVersion(StorySpecSearchContext context) ;
+    boolean create(StorySpec et);
+    void createBatch(List<StorySpec> list);
+    boolean update(StorySpec et);
+    void updateBatch(List<StorySpec> list);
+    boolean remove(String key);
+    void removeBatch(Collection<String> idList);
+    StorySpec get(String key);
+    StorySpec getDraft(StorySpec et);
+    boolean checkKey(StorySpec et);
+    boolean save(StorySpec et);
+    void saveBatch(List<StorySpec> list);
+    Page<StorySpec> searchDefault(StorySpecSearchContext context);
+    Page<StorySpec> searchVersion(StorySpecSearchContext context);
     List<StorySpec> selectByStory(Long id);
-    void removeByStory(Long id) ;
+    void removeByStory(Long id);
     /**
-     *自定义查询SQL
+     * 自定义查询SQL
      * @param sql  select * from table where id =#{et.param}
-     * @param param 参数列表  param.put("param","1");
+     * @param param 参数列表  param.put("param", "1");
      * @return select * from table where id = '1'
      */
     List<JSONObject> select(String sql, Map param);
     /**
-     *自定义SQL
+     * 自定义SQL
      * @param sql  update table  set name ='test' where id =#{et.param}
-     * @param param 参数列表  param.put("param","1");
+     * @param param 参数列表  param.put("param", "1");
      * @return     update table  set name ='test' where id = '1'
      */
     boolean execute(String sql, Map param);

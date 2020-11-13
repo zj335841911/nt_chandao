@@ -73,7 +73,7 @@ public class PSSysSFPub extends EntityClient implements Serializable {
      * 建立时间
      */
     @DEField(preType = DEPredefinedFieldType.CREATEDATE)
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "createdate" , format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("createdate")
     private Timestamp createdate;
@@ -82,7 +82,7 @@ public class PSSysSFPub extends EntityClient implements Serializable {
      * 更新时间
      */
     @DEField(preType = DEPredefinedFieldType.UPDATEDATE)
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "updatedate" , format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("updatedate")
     private Timestamp updatedate;
@@ -313,7 +313,7 @@ public class PSSysSFPub extends EntityClient implements Serializable {
      */
     public void setPssyssfpubname(String pssyssfpubname) {
         this.pssyssfpubname = pssyssfpubname ;
-        this.modify("pssyssfpubname",pssyssfpubname);
+        this.modify("pssyssfpubname", pssyssfpubname);
     }
 
     /**
@@ -321,7 +321,7 @@ public class PSSysSFPub extends EntityClient implements Serializable {
      */
     public void setCodename(String codename) {
         this.codename = codename ;
-        this.modify("codename",codename);
+        this.modify("codename", codename);
     }
 
     /**
@@ -329,7 +329,7 @@ public class PSSysSFPub extends EntityClient implements Serializable {
      */
     public void setBaseclspkgcodename(String baseclspkgcodename) {
         this.baseclspkgcodename = baseclspkgcodename ;
-        this.modify("baseclspkgcodename",baseclspkgcodename);
+        this.modify("baseclspkgcodename", baseclspkgcodename);
     }
 
     /**
@@ -337,7 +337,7 @@ public class PSSysSFPub extends EntityClient implements Serializable {
      */
     public void setContenttype(String contenttype) {
         this.contenttype = contenttype ;
-        this.modify("contenttype",contenttype);
+        this.modify("contenttype", contenttype);
     }
 
     /**
@@ -345,7 +345,7 @@ public class PSSysSFPub extends EntityClient implements Serializable {
      */
     public void setDefaultpub(Integer defaultpub) {
         this.defaultpub = defaultpub ;
-        this.modify("defaultpub",defaultpub);
+        this.modify("defaultpub", defaultpub);
     }
 
     /**
@@ -353,7 +353,7 @@ public class PSSysSFPub extends EntityClient implements Serializable {
      */
     public void setDocpssfstyleid(String docpssfstyleid) {
         this.docpssfstyleid = docpssfstyleid ;
-        this.modify("docpssfstyleid",docpssfstyleid);
+        this.modify("docpssfstyleid", docpssfstyleid);
     }
 
     /**
@@ -361,7 +361,7 @@ public class PSSysSFPub extends EntityClient implements Serializable {
      */
     public void setDocpssfstylename(String docpssfstylename) {
         this.docpssfstylename = docpssfstylename ;
-        this.modify("docpssfstylename",docpssfstylename);
+        this.modify("docpssfstylename", docpssfstylename);
     }
 
     /**
@@ -369,7 +369,7 @@ public class PSSysSFPub extends EntityClient implements Serializable {
      */
     public void setMemo(String memo) {
         this.memo = memo ;
-        this.modify("memo",memo);
+        this.modify("memo", memo);
     }
 
     /**
@@ -377,7 +377,7 @@ public class PSSysSFPub extends EntityClient implements Serializable {
      */
     public void setPssfstyleid(String pssfstyleid) {
         this.pssfstyleid = pssfstyleid ;
-        this.modify("pssfstyleid",pssfstyleid);
+        this.modify("pssfstyleid", pssfstyleid);
     }
 
     /**
@@ -385,7 +385,7 @@ public class PSSysSFPub extends EntityClient implements Serializable {
      */
     public void setPssfstyleparamid(String pssfstyleparamid) {
         this.pssfstyleparamid = pssfstyleparamid ;
-        this.modify("pssfstyleparamid",pssfstyleparamid);
+        this.modify("pssfstyleparamid", pssfstyleparamid);
     }
 
     /**
@@ -393,7 +393,7 @@ public class PSSysSFPub extends EntityClient implements Serializable {
      */
     public void setPkgcodename(String pkgcodename) {
         this.pkgcodename = pkgcodename ;
-        this.modify("pkgcodename",pkgcodename);
+        this.modify("pkgcodename", pkgcodename);
     }
 
     /**
@@ -401,7 +401,7 @@ public class PSSysSFPub extends EntityClient implements Serializable {
      */
     public void setPssfstyleverid(String pssfstyleverid) {
         this.pssfstyleverid = pssfstyleverid ;
-        this.modify("pssfstyleverid",pssfstyleverid);
+        this.modify("pssfstyleverid", pssfstyleverid);
     }
 
     /**
@@ -409,7 +409,7 @@ public class PSSysSFPub extends EntityClient implements Serializable {
      */
     public void setPssfstyleparamname(String pssfstyleparamname) {
         this.pssfstyleparamname = pssfstyleparamname ;
-        this.modify("pssfstyleparamname",pssfstyleparamname);
+        this.modify("pssfstyleparamname", pssfstyleparamname);
     }
 
     /**
@@ -417,7 +417,7 @@ public class PSSysSFPub extends EntityClient implements Serializable {
      */
     public void setPubfolder(String pubfolder) {
         this.pubfolder = pubfolder ;
-        this.modify("pubfolder",pubfolder);
+        this.modify("pubfolder", pubfolder);
     }
 
     /**
@@ -425,7 +425,7 @@ public class PSSysSFPub extends EntityClient implements Serializable {
      */
     public void setPubtag(String pubtag) {
         this.pubtag = pubtag ;
-        this.modify("pubtag",pubtag);
+        this.modify("pubtag", pubtag);
     }
 
     /**
@@ -433,7 +433,7 @@ public class PSSysSFPub extends EntityClient implements Serializable {
      */
     public void setPubtag3(String pubtag3) {
         this.pubtag3 = pubtag3 ;
-        this.modify("pubtag3",pubtag3);
+        this.modify("pubtag3", pubtag3);
     }
 
     /**
@@ -441,7 +441,7 @@ public class PSSysSFPub extends EntityClient implements Serializable {
      */
     public void setPubtag2(String pubtag2) {
         this.pubtag2 = pubtag2 ;
-        this.modify("pubtag2",pubtag2);
+        this.modify("pubtag2", pubtag2);
     }
 
     /**
@@ -449,7 +449,7 @@ public class PSSysSFPub extends EntityClient implements Serializable {
      */
     public void setPubtag4(String pubtag4) {
         this.pubtag4 = pubtag4 ;
-        this.modify("pubtag4",pubtag4);
+        this.modify("pubtag4", pubtag4);
     }
 
     /**
@@ -457,7 +457,7 @@ public class PSSysSFPub extends EntityClient implements Serializable {
      */
     public void setRemoveflag(Integer removeflag) {
         this.removeflag = removeflag ;
-        this.modify("removeflag",removeflag);
+        this.modify("removeflag", removeflag);
     }
 
     /**
@@ -465,7 +465,7 @@ public class PSSysSFPub extends EntityClient implements Serializable {
      */
     public void setStyleparams(String styleparams) {
         this.styleparams = styleparams ;
-        this.modify("styleparams",styleparams);
+        this.modify("styleparams", styleparams);
     }
 
     /**
@@ -473,7 +473,7 @@ public class PSSysSFPub extends EntityClient implements Serializable {
      */
     public void setSubsyspkgflag(Integer subsyspkgflag) {
         this.subsyspkgflag = subsyspkgflag ;
-        this.modify("subsyspkgflag",subsyspkgflag);
+        this.modify("subsyspkgflag", subsyspkgflag);
     }
 
     /**
@@ -481,7 +481,7 @@ public class PSSysSFPub extends EntityClient implements Serializable {
      */
     public void setUsercat(String usercat) {
         this.usercat = usercat ;
-        this.modify("usercat",usercat);
+        this.modify("usercat", usercat);
     }
 
     /**
@@ -489,7 +489,7 @@ public class PSSysSFPub extends EntityClient implements Serializable {
      */
     public void setUsertag(String usertag) {
         this.usertag = usertag ;
-        this.modify("usertag",usertag);
+        this.modify("usertag", usertag);
     }
 
     /**
@@ -497,7 +497,7 @@ public class PSSysSFPub extends EntityClient implements Serializable {
      */
     public void setUsertag2(String usertag2) {
         this.usertag2 = usertag2 ;
-        this.modify("usertag2",usertag2);
+        this.modify("usertag2", usertag2);
     }
 
     /**
@@ -505,7 +505,7 @@ public class PSSysSFPub extends EntityClient implements Serializable {
      */
     public void setUsertag4(String usertag4) {
         this.usertag4 = usertag4 ;
-        this.modify("usertag4",usertag4);
+        this.modify("usertag4", usertag4);
     }
 
     /**
@@ -513,7 +513,7 @@ public class PSSysSFPub extends EntityClient implements Serializable {
      */
     public void setUsertag3(String usertag3) {
         this.usertag3 = usertag3 ;
-        this.modify("usertag3",usertag3);
+        this.modify("usertag3", usertag3);
     }
 
     /**
@@ -521,7 +521,7 @@ public class PSSysSFPub extends EntityClient implements Serializable {
      */
     public void setVerstr(String verstr) {
         this.verstr = verstr ;
-        this.modify("verstr",verstr);
+        this.modify("verstr", verstr);
     }
 
     /**
@@ -529,7 +529,7 @@ public class PSSysSFPub extends EntityClient implements Serializable {
      */
     public void setPpssyssfpubid(String ppssyssfpubid) {
         this.ppssyssfpubid = ppssyssfpubid ;
-        this.modify("ppssyssfpubid",ppssyssfpubid);
+        this.modify("ppssyssfpubid", ppssyssfpubid);
     }
 
     /**
@@ -537,7 +537,7 @@ public class PSSysSFPub extends EntityClient implements Serializable {
      */
     public void setPssystemid(String pssystemid) {
         this.pssystemid = pssystemid ;
-        this.modify("pssystemid",pssystemid);
+        this.modify("pssystemid", pssystemid);
     }
 
     /**
@@ -545,7 +545,7 @@ public class PSSysSFPub extends EntityClient implements Serializable {
      */
     public void setPssystemname(String pssystemname) {
         this.pssystemname = pssystemname ;
-        this.modify("pssystemname",pssystemname);
+        this.modify("pssystemname", pssystemname);
     }
 
     /**
@@ -558,7 +558,7 @@ public class PSSysSFPub extends EntityClient implements Serializable {
     @Override
     public <T> T copyTo(T targetEntity, boolean bIncEmpty) {
         this.reset("pssyssfpubid");
-        return super.copyTo(targetEntity,bIncEmpty);
+        return super.copyTo(targetEntity, bIncEmpty);
     }
 }
 

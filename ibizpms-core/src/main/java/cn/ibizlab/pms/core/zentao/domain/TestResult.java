@@ -38,7 +38,7 @@ import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 @Setter
 @NoArgsConstructor
 @JsonIgnoreProperties(value = "handler")
-@TableName(value = "zt_testresult",resultMap = "TestResultResultMap")
+@TableName(value = "zt_testresult", resultMap = "TestResultResultMap")
 public class TestResult extends EntityMP implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -86,7 +86,7 @@ public class TestResult extends EntityMP implements Serializable {
      * 测试时间
      */
     @TableField(value = "`date`")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "date", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("date")
     private Timestamp date;
@@ -94,7 +94,7 @@ public class TestResult extends EntityMP implements Serializable {
      * 编号
      */
     @DEField(isKeyField = true)
-    @TableId(value= "id",type=IdType.AUTO)
+    @TableId(value = "id", type = IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
     private Long id;
@@ -218,48 +218,48 @@ public class TestResult extends EntityMP implements Serializable {
      * 设置 [最后执行人]
      */
     public void setLastrunner(String lastrunner) {
-        this.lastrunner = lastrunner ;
-        this.modify("lastrunner",lastrunner);
+        this.lastrunner = lastrunner;
+        this.modify("lastrunner", lastrunner);
     }
 
     /**
      * 设置 [步骤结果]
      */
     public void setStepresults(String stepresults) {
-        this.stepresults = stepresults ;
-        this.modify("stepresults",stepresults);
+        this.stepresults = stepresults;
+        this.modify("stepresults", stepresults);
     }
 
     /**
      * 设置 [测试结果]
      */
     public void setCaseresult(String caseresult) {
-        this.caseresult = caseresult ;
-        this.modify("caseresult",caseresult);
+        this.caseresult = caseresult;
+        this.modify("caseresult", caseresult);
     }
 
     /**
      * 设置 [结果文件]
      */
     public void setXml(String xml) {
-        this.xml = xml ;
-        this.modify("xml",xml);
+        this.xml = xml;
+        this.modify("xml", xml);
     }
 
     /**
      * 设置 [持续时间]
      */
     public void setDuration(Double duration) {
-        this.duration = duration ;
-        this.modify("duration",duration);
+        this.duration = duration;
+        this.modify("duration", duration);
     }
 
     /**
      * 设置 [测试时间]
      */
     public void setDate(Timestamp date) {
-        this.date = date ;
-        this.modify("date",date);
+        this.date = date;
+        this.modify("date", date);
     }
 
     /**
@@ -276,46 +276,46 @@ public class TestResult extends EntityMP implements Serializable {
      * 设置 [用例版本]
      */
     public void setVersion(Integer version) {
-        this.version = version ;
-        this.modify("version",version);
+        this.version = version;
+        this.modify("version", version);
     }
 
     /**
      * 设置 [构建任务]
      */
     public void setJob(Long job) {
-        this.job = job ;
-        this.modify("job",job);
+        this.job = job;
+        this.modify("job", job);
     }
 
     /**
      * 设置 [用例]
      */
     public void setIbizcase(Long ibizcase) {
-        this.ibizcase = ibizcase ;
-        this.modify("case",ibizcase);
+        this.ibizcase = ibizcase;
+        this.modify("case", ibizcase);
     }
 
     /**
      * 设置 [测试执行]
      */
     public void setRun(Long run) {
-        this.run = run ;
-        this.modify("run",run);
+        this.run = run;
+        this.modify("run", run);
     }
 
     /**
      * 设置 [代码编译]
      */
     public void setCompile(Long compile) {
-        this.compile = compile ;
-        this.modify("compile",compile);
+        this.compile = compile;
+        this.modify("compile", compile);
     }
 
 
     @Override
     public Serializable getDefaultKey(boolean gen) {
-       return IdWorker.getId();
+        return IdWorker.getId();
     }
     /**
      * 复制当前对象数据到目标对象(粘贴重置)
@@ -327,7 +327,7 @@ public class TestResult extends EntityMP implements Serializable {
     @Override
     public <T> T copyTo(T targetEntity, boolean bIncEmpty) {
         this.reset("id");
-        return super.copyTo(targetEntity,bIncEmpty);
+        return super.copyTo(targetEntity, bIncEmpty);
     }
 }
 

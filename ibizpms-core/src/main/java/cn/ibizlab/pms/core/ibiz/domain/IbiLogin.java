@@ -38,7 +38,7 @@ import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 @Setter
 @NoArgsConstructor
 @JsonIgnoreProperties(value = "handler")
-@TableName(value = "zt_user",resultMap = "IbiLoginResultMap")
+@TableName(value = "zt_user", resultMap = "IbiLoginResultMap")
 public class IbiLogin extends EntityMP implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -54,7 +54,7 @@ public class IbiLogin extends EntityMP implements Serializable {
      * ID
      */
     @DEField(isKeyField = true)
-    @TableId(value= "id",type=IdType.AUTO)
+    @TableId(value = "id", type = IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
     private Long id;
@@ -86,30 +86,30 @@ public class IbiLogin extends EntityMP implements Serializable {
      * 设置 [真实姓名]
      */
     public void setRealname(String realname) {
-        this.realname = realname ;
-        this.modify("realname",realname);
+        this.realname = realname;
+        this.modify("realname", realname);
     }
 
     /**
      * 设置 [账户]
      */
     public void setAccount(String account) {
-        this.account = account ;
-        this.modify("account",account);
+        this.account = account;
+        this.modify("account", account);
     }
 
     /**
      * 设置 [源代码账户]
      */
     public void setCommiter(String commiter) {
-        this.commiter = commiter ;
-        this.modify("commiter",commiter);
+        this.commiter = commiter;
+        this.modify("commiter", commiter);
     }
 
 
     @Override
     public Serializable getDefaultKey(boolean gen) {
-       return IdWorker.getId();
+        return IdWorker.getId();
     }
     /**
      * 复制当前对象数据到目标对象(粘贴重置)
@@ -121,7 +121,7 @@ public class IbiLogin extends EntityMP implements Serializable {
     @Override
     public <T> T copyTo(T targetEntity, boolean bIncEmpty) {
         this.reset("id");
-        return super.copyTo(targetEntity,bIncEmpty);
+        return super.copyTo(targetEntity, bIncEmpty);
     }
 }
 

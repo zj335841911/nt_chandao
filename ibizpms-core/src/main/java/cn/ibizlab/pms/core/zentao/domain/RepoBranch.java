@@ -38,7 +38,7 @@ import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 @Setter
 @NoArgsConstructor
 @JsonIgnoreProperties(value = "handler")
-@TableName(value = "zt_repobranch",resultMap = "RepoBranchResultMap")
+@TableName(value = "zt_repobranch", resultMap = "RepoBranchResultMap")
 public class RepoBranch extends EntityMP implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -79,24 +79,24 @@ public class RepoBranch extends EntityMP implements Serializable {
      * 设置 [revision]
      */
     public void setRevision(Integer revision) {
-        this.revision = revision ;
-        this.modify("revision",revision);
+        this.revision = revision;
+        this.modify("revision", revision);
     }
 
     /**
      * 设置 [repo]
      */
     public void setRepo(Integer repo) {
-        this.repo = repo ;
-        this.modify("repo",repo);
+        this.repo = repo;
+        this.modify("repo", repo);
     }
 
     /**
      * 设置 [branch]
      */
     public void setBranch(String branch) {
-        this.branch = branch ;
-        this.modify("branch",branch);
+        this.branch = branch;
+        this.modify("branch", branch);
     }
 
 
@@ -110,7 +110,7 @@ public class RepoBranch extends EntityMP implements Serializable {
     @Override
     public <T> T copyTo(T targetEntity, boolean bIncEmpty) {
         this.reset("id");
-        return super.copyTo(targetEntity,bIncEmpty);
+        return super.copyTo(targetEntity, bIncEmpty);
     }
 }
 

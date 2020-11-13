@@ -31,7 +31,7 @@ public interface SysPostFeignClient {
 
 
     @RequestMapping(method = RequestMethod.PUT, value = "/sysposts/{postid}")
-    SysPost update(@PathVariable("postid") String postid,@RequestBody SysPost syspost);
+    SysPost update(@PathVariable("postid") String postid, @RequestBody SysPost syspost);
 
     @RequestMapping(method = RequestMethod.PUT, value = "/sysposts/batch")
     Boolean updateBatch(@RequestBody List<SysPost> sysposts);

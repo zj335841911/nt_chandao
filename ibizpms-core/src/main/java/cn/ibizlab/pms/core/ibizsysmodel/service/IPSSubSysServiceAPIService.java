@@ -22,7 +22,7 @@ import cn.ibizlab.pms.core.ibizsysmodel.filter.PSSubSysServiceAPISearchContext;
 /**
  * 实体[PSSubSysServiceAPI] 服务对象接口
  */
-public interface IPSSubSysServiceAPIService{
+public interface IPSSubSysServiceAPIService {
 
     /**
      * 业务实体显示文本名称
@@ -34,42 +34,42 @@ public interface IPSSubSysServiceAPIService{
      */
     final static String OBJECT_SOURCE_PATH = "pssubsysserviceapis";
 
-    boolean create(PSSubSysServiceAPI et) ;
-    void createBatch(List<PSSubSysServiceAPI> list) ;
-    boolean update(PSSubSysServiceAPI et) ;
-    void updateBatch(List<PSSubSysServiceAPI> list) ;
-    boolean remove(String key) ;
-    void removeBatch(Collection<String> idList) ;
-    PSSubSysServiceAPI get(String key) ;
-    PSSubSysServiceAPI getDraft(PSSubSysServiceAPI et) ;
-    boolean checkKey(PSSubSysServiceAPI et) ;
-    boolean save(PSSubSysServiceAPI et) ;
-    void saveBatch(List<PSSubSysServiceAPI> list) ;
-    Page<PSSubSysServiceAPI> searchDefault(PSSubSysServiceAPISearchContext context) ;
+    boolean create(PSSubSysServiceAPI et);
+    void createBatch(List<PSSubSysServiceAPI> list);
+    boolean update(PSSubSysServiceAPI et);
+    void updateBatch(List<PSSubSysServiceAPI> list);
+    boolean remove(String key);
+    void removeBatch(Collection<String> idList);
+    PSSubSysServiceAPI get(String key);
+    PSSubSysServiceAPI getDraft(PSSubSysServiceAPI et);
+    boolean checkKey(PSSubSysServiceAPI et);
+    boolean save(PSSubSysServiceAPI et);
+    void saveBatch(List<PSSubSysServiceAPI> list);
+    Page<PSSubSysServiceAPI> searchDefault(PSSubSysServiceAPISearchContext context);
     List<PSSubSysServiceAPI> selectByPsmoduleid(String psmoduleid);
     List<PSSubSysServiceAPI> selectByPsmoduleid(Collection<String> ids);
-    void removeByPsmoduleid(String psmoduleid) ;
+    void removeByPsmoduleid(String psmoduleid);
     List<PSSubSysServiceAPI> selectByPssysserviceapiid(String pssysserviceapiid);
     List<PSSubSysServiceAPI> selectByPssysserviceapiid(Collection<String> ids);
-    void removeByPssysserviceapiid(String pssysserviceapiid) ;
+    void removeByPssysserviceapiid(String pssysserviceapiid);
 
     boolean create(String devSlnSysId , PSSubSysServiceAPI et) ;
-    void createBatch(String devSlnSysId , List<PSSubSysServiceAPI> list) ;
-    boolean update(String devSlnSysId , PSSubSysServiceAPI et) ;
-    void updateBatch(String devSlnSysId , List<PSSubSysServiceAPI> list) ;
-    boolean remove(String devSlnSysId , String key) ;
+    void createBatch(String devSlnSysId, List<PSSubSysServiceAPI> list);
+    boolean update(String devSlnSysId, PSSubSysServiceAPI et);
+    void updateBatch(String devSlnSysId, List<PSSubSysServiceAPI> list);
+    boolean remove(String devSlnSysId, String key);
     void removeBatch(String devSlnSysId , Collection<String> idList) ;
-    PSSubSysServiceAPI get(String devSlnSysId , String key) ;
-    String getByCodeName(String devSlnSysId , String codeName) ;
-    PSSubSysServiceAPI getDraft(String devSlnSysId , PSSubSysServiceAPI et) ;
-    boolean checkKey(String devSlnSysId , PSSubSysServiceAPI et) ;
-    boolean save(String devSlnSysId , PSSubSysServiceAPI et) ;
-    void saveBatch(String devSlnSysId , List<PSSubSysServiceAPI> list) ;
-    Page<PSSubSysServiceAPI> searchDefault(String devSlnSysId , PSSubSysServiceAPISearchContext context) ;
-    List<PSSubSysServiceAPI> selectByPsmoduleid(String devSlnSysId , String psmoduleid) ;
-    void removeByPsmoduleid(String devSlnSysId , String psmoduleid) ;
-    List<PSSubSysServiceAPI> selectByPssysserviceapiid(String devSlnSysId , String pssysserviceapiid) ;
-    void removeByPssysserviceapiid(String devSlnSysId , String pssysserviceapiid) ;
+    PSSubSysServiceAPI get(String devSlnSysId , String key);
+    String getByCodeName(String devSlnSysId , String codeName);
+    PSSubSysServiceAPI getDraft(String devSlnSysId, PSSubSysServiceAPI et);
+    boolean checkKey(String devSlnSysId, PSSubSysServiceAPI et);
+    boolean save(String devSlnSysId, PSSubSysServiceAPI et);
+    void saveBatch(String devSlnSysId, List<PSSubSysServiceAPI> list);
+    Page<PSSubSysServiceAPI> searchDefault(String devSlnSysId, PSSubSysServiceAPISearchContext context);
+    List<PSSubSysServiceAPI> selectByPsmoduleid(String devSlnSysId, String psmoduleid);
+    void removeByPsmoduleid(String devSlnSysId, String psmoduleid);
+    List<PSSubSysServiceAPI> selectByPssysserviceapiid(String devSlnSysId, String pssysserviceapiid);
+    void removeByPssysserviceapiid(String devSlnSysId, String pssysserviceapiid);
 
 }
 

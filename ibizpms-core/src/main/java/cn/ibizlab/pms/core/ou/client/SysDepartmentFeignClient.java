@@ -31,7 +31,7 @@ public interface SysDepartmentFeignClient {
 
 
     @RequestMapping(method = RequestMethod.PUT, value = "/sysdepartments/{deptid}")
-    SysDepartment update(@PathVariable("deptid") String deptid,@RequestBody SysDepartment sysdepartment);
+    SysDepartment update(@PathVariable("deptid") String deptid, @RequestBody SysDepartment sysdepartment);
 
     @RequestMapping(method = RequestMethod.PUT, value = "/sysdepartments/batch")
     Boolean updateBatch(@RequestBody List<SysDepartment> sysdepartments);

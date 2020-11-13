@@ -38,7 +38,7 @@ import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 @Setter
 @NoArgsConstructor
 @JsonIgnoreProperties(value = "handler")
-@TableName(value = "zt_projectstory",resultMap = "ProjectStoryResultMap")
+@TableName(value = "zt_projectstory", resultMap = "ProjectStoryResultMap")
 public class ProjectStory extends EntityMP implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -118,40 +118,40 @@ public class ProjectStory extends EntityMP implements Serializable {
      * 设置 [排序]
      */
     public void setOrder(Integer order) {
-        this.order = order ;
-        this.modify("order",order);
+        this.order = order;
+        this.modify("order", order);
     }
 
     /**
      * 设置 [需求版本]
      */
     public void setVersion(Integer version) {
-        this.version = version ;
-        this.modify("version",version);
+        this.version = version;
+        this.modify("version", version);
     }
 
     /**
      * 设置 [需求]
      */
     public void setStory(Long story) {
-        this.story = story ;
-        this.modify("story",story);
+        this.story = story;
+        this.modify("story", story);
     }
 
     /**
      * 设置 [项目]
      */
     public void setProject(Long project) {
-        this.project = project ;
-        this.modify("project",project);
+        this.project = project;
+        this.modify("project", project);
     }
 
     /**
      * 设置 [所属产品]
      */
     public void setProduct(Long product) {
-        this.product = product ;
-        this.modify("product",product);
+        this.product = product;
+        this.modify("product", product);
     }
 
 
@@ -165,7 +165,7 @@ public class ProjectStory extends EntityMP implements Serializable {
     @Override
     public <T> T copyTo(T targetEntity, boolean bIncEmpty) {
         this.reset("id");
-        return super.copyTo(targetEntity,bIncEmpty);
+        return super.copyTo(targetEntity, bIncEmpty);
     }
 }
 

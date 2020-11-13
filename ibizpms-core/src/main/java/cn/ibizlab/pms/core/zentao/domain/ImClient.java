@@ -38,7 +38,7 @@ import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 @Setter
 @NoArgsConstructor
 @JsonIgnoreProperties(value = "handler")
-@TableName(value = "zt_im_client",resultMap = "ImClientResultMap")
+@TableName(value = "zt_im_client", resultMap = "ImClientResultMap")
 public class ImClient extends EntityMP implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -47,7 +47,7 @@ public class ImClient extends EntityMP implements Serializable {
      * editedDate
      */
     @TableField(value = "`editeddate`")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "editeddate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("editeddate")
     private Timestamp editeddate;
@@ -62,7 +62,7 @@ public class ImClient extends EntityMP implements Serializable {
      * createdDate
      */
     @TableField(value = "`createddate`")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "createddate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("createddate")
     private Timestamp createddate;
@@ -105,7 +105,7 @@ public class ImClient extends EntityMP implements Serializable {
      * id
      */
     @DEField(isKeyField = true)
-    @TableId(value= "id",type=IdType.AUTO)
+    @TableId(value = "id", type = IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
     private Long id;
@@ -130,8 +130,8 @@ public class ImClient extends EntityMP implements Serializable {
      * 设置 [editedDate]
      */
     public void setEditeddate(Timestamp editeddate) {
-        this.editeddate = editeddate ;
-        this.modify("editeddate",editeddate);
+        this.editeddate = editeddate;
+        this.modify("editeddate", editeddate);
     }
 
     /**
@@ -148,16 +148,16 @@ public class ImClient extends EntityMP implements Serializable {
      * 设置 [strategy]
      */
     public void setStrategy(String strategy) {
-        this.strategy = strategy ;
-        this.modify("strategy",strategy);
+        this.strategy = strategy;
+        this.modify("strategy", strategy);
     }
 
     /**
      * 设置 [createdDate]
      */
     public void setCreateddate(Timestamp createddate) {
-        this.createddate = createddate ;
-        this.modify("createddate",createddate);
+        this.createddate = createddate;
+        this.modify("createddate", createddate);
     }
 
     /**
@@ -174,62 +174,62 @@ public class ImClient extends EntityMP implements Serializable {
      * 设置 [changeLog]
      */
     public void setChangelog(String changelog) {
-        this.changelog = changelog ;
-        this.modify("changelog",changelog);
+        this.changelog = changelog;
+        this.modify("changelog", changelog);
     }
 
     /**
      * 设置 [version]
      */
     public void setVersion(String version) {
-        this.version = version ;
-        this.modify("version",version);
+        this.version = version;
+        this.modify("version", version);
     }
 
     /**
      * 设置 [downloads]
      */
     public void setDownloads(String downloads) {
-        this.downloads = downloads ;
-        this.modify("downloads",downloads);
+        this.downloads = downloads;
+        this.modify("downloads", downloads);
     }
 
     /**
      * 设置 [status]
      */
     public void setStatus(String status) {
-        this.status = status ;
-        this.modify("status",status);
+        this.status = status;
+        this.modify("status", status);
     }
 
     /**
      * 设置 [desc]
      */
     public void setDesc(String desc) {
-        this.desc = desc ;
-        this.modify("desc",desc);
+        this.desc = desc;
+        this.modify("desc", desc);
     }
 
     /**
      * 设置 [createdBy]
      */
     public void setCreatedby(String createdby) {
-        this.createdby = createdby ;
-        this.modify("createdby",createdby);
+        this.createdby = createdby;
+        this.modify("createdby", createdby);
     }
 
     /**
      * 设置 [editedBy]
      */
     public void setEditedby(String editedby) {
-        this.editedby = editedby ;
-        this.modify("editedby",editedby);
+        this.editedby = editedby;
+        this.modify("editedby", editedby);
     }
 
 
     @Override
     public Serializable getDefaultKey(boolean gen) {
-       return IdWorker.getId();
+        return IdWorker.getId();
     }
     /**
      * 复制当前对象数据到目标对象(粘贴重置)
@@ -241,7 +241,7 @@ public class ImClient extends EntityMP implements Serializable {
     @Override
     public <T> T copyTo(T targetEntity, boolean bIncEmpty) {
         this.reset("id");
-        return super.copyTo(targetEntity,bIncEmpty);
+        return super.copyTo(targetEntity, bIncEmpty);
     }
 }
 

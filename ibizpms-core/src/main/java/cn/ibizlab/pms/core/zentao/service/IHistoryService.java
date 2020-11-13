@@ -23,7 +23,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 /**
  * 实体[History] 服务对象接口
  */
-public interface IHistoryService extends IService<History>{
+public interface IHistoryService extends IService<History> {
 
     /**
      * 业务实体显示文本名称
@@ -35,31 +35,31 @@ public interface IHistoryService extends IService<History>{
      */
     final static String OBJECT_SOURCE_PATH = "histories";
 
-    boolean create(History et) ;
-    void createBatch(List<History> list) ;
-    boolean update(History et) ;
-    void updateBatch(List<History> list) ;
-    boolean remove(Long key) ;
-    void removeBatch(Collection<Long> idList) ;
-    History get(Long key) ;
-    History getDraft(History et) ;
-    boolean checkKey(History et) ;
-    boolean save(History et) ;
-    void saveBatch(List<History> list) ;
-    Page<History> searchDefault(HistorySearchContext context) ;
+    boolean create(History et);
+    void createBatch(List<History> list);
+    boolean update(History et);
+    void updateBatch(List<History> list);
+    boolean remove(Long key);
+    void removeBatch(Collection<Long> idList);
+    History get(Long key);
+    History getDraft(History et);
+    boolean checkKey(History et);
+    boolean save(History et);
+    void saveBatch(List<History> list);
+    Page<History> searchDefault(HistorySearchContext context);
     List<History> selectByAction(Long id);
-    void removeByAction(Long id) ;
+    void removeByAction(Long id);
     /**
-     *自定义查询SQL
+     * 自定义查询SQL
      * @param sql  select * from table where id =#{et.param}
-     * @param param 参数列表  param.put("param","1");
+     * @param param 参数列表  param.put("param", "1");
      * @return select * from table where id = '1'
      */
     List<JSONObject> select(String sql, Map param);
     /**
-     *自定义SQL
+     * 自定义SQL
      * @param sql  update table  set name ='test' where id =#{et.param}
-     * @param param 参数列表  param.put("param","1");
+     * @param param 参数列表  param.put("param", "1");
      * @return     update table  set name ='test' where id = '1'
      */
     boolean execute(String sql, Map param);

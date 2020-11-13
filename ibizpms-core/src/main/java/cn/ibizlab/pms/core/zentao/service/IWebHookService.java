@@ -23,7 +23,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 /**
  * 实体[WebHook] 服务对象接口
  */
-public interface IWebHookService extends IService<WebHook>{
+public interface IWebHookService extends IService<WebHook> {
 
     /**
      * 业务实体显示文本名称
@@ -35,29 +35,29 @@ public interface IWebHookService extends IService<WebHook>{
      */
     final static String OBJECT_SOURCE_PATH = "webhooks";
 
-    boolean create(WebHook et) ;
-    void createBatch(List<WebHook> list) ;
-    boolean update(WebHook et) ;
-    void updateBatch(List<WebHook> list) ;
-    boolean remove(Long key) ;
-    void removeBatch(Collection<Long> idList) ;
-    WebHook get(Long key) ;
-    WebHook getDraft(WebHook et) ;
-    boolean checkKey(WebHook et) ;
-    boolean save(WebHook et) ;
-    void saveBatch(List<WebHook> list) ;
-    Page<WebHook> searchDefault(WebHookSearchContext context) ;
+    boolean create(WebHook et);
+    void createBatch(List<WebHook> list);
+    boolean update(WebHook et);
+    void updateBatch(List<WebHook> list);
+    boolean remove(Long key);
+    void removeBatch(Collection<Long> idList);
+    WebHook get(Long key);
+    WebHook getDraft(WebHook et);
+    boolean checkKey(WebHook et);
+    boolean save(WebHook et);
+    void saveBatch(List<WebHook> list);
+    Page<WebHook> searchDefault(WebHookSearchContext context);
     /**
-     *自定义查询SQL
+     * 自定义查询SQL
      * @param sql  select * from table where id =#{et.param}
-     * @param param 参数列表  param.put("param","1");
+     * @param param 参数列表  param.put("param", "1");
      * @return select * from table where id = '1'
      */
     List<JSONObject> select(String sql, Map param);
     /**
-     *自定义SQL
+     * 自定义SQL
      * @param sql  update table  set name ='test' where id =#{et.param}
-     * @param param 参数列表  param.put("param","1");
+     * @param param 参数列表  param.put("param", "1");
      * @return     update table  set name ='test' where id = '1'
      */
     boolean execute(String sql, Map param);

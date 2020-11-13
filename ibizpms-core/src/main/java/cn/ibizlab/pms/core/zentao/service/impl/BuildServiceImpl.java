@@ -108,7 +108,7 @@ public class BuildServiceImpl extends ServiceImpl<BuildMapper, Build> implements
     @Transactional
     public Build get(Long key) {
         Build et = getById(key);
-        if(et == null){
+        if (et == null) {
             et = new Build();
             et.setId(key);
         }
@@ -137,7 +137,7 @@ public class BuildServiceImpl extends ServiceImpl<BuildMapper, Build> implements
     @Transactional
     public Build mobProjectBuildCounter(Build et) {
         mobprojectbuildcounterLogic.execute(et);
-         return et ;
+         return et;
     }
 
     @Override
@@ -170,43 +170,43 @@ public class BuildServiceImpl extends ServiceImpl<BuildMapper, Build> implements
     @Transactional
     public boolean saveBatch(Collection<Build> list) {
         list.forEach(item->fillParentData(item));
-        saveOrUpdateBatch(list,batchSize);
+        saveOrUpdateBatch(list, batchSize);
         return true;
     }
 
     @Override
     @Transactional
     public void saveBatch(List<Build> list) {
-        list.forEach(item->fillParentData(item));
-        saveOrUpdateBatch(list,batchSize);
+        list.forEach(item -> fillParentData(item));
+        saveOrUpdateBatch(list, batchSize);
     }
 
 
-	@Override
+    @Override
     public List<Build> selectByBranch(Long id) {
         return baseMapper.selectByBranch(id);
     }
     @Override
     public void removeByBranch(Long id) {
-        this.remove(new QueryWrapper<Build>().eq("branch",id));
+        this.remove(new QueryWrapper<Build>().eq("branch", id));
     }
 
-	@Override
+    @Override
     public List<Build> selectByProduct(Long id) {
         return baseMapper.selectByProduct(id);
     }
     @Override
     public void removeByProduct(Long id) {
-        this.remove(new QueryWrapper<Build>().eq("product",id));
+        this.remove(new QueryWrapper<Build>().eq("product", id));
     }
 
-	@Override
+    @Override
     public List<Build> selectByProject(Long id) {
         return baseMapper.selectByProject(id);
     }
     @Override
     public void removeByProject(Long id) {
-        this.remove(new QueryWrapper<Build>().eq("project",id));
+        this.remove(new QueryWrapper<Build>().eq("project", id));
     }
 
 
@@ -215,7 +215,7 @@ public class BuildServiceImpl extends ServiceImpl<BuildMapper, Build> implements
      */
     @Override
     public Page<Build> searchBugProductBuild(BuildSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Build> pages=baseMapper.searchBugProductBuild(context.getPages(),context,context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Build> pages=baseMapper.searchBugProductBuild(context.getPages(), context, context.getSelectCond());
         return new PageImpl<Build>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -224,7 +224,7 @@ public class BuildServiceImpl extends ServiceImpl<BuildMapper, Build> implements
      */
     @Override
     public Page<Build> searchCurProduct(BuildSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Build> pages=baseMapper.searchCurProduct(context.getPages(),context,context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Build> pages=baseMapper.searchCurProduct(context.getPages(), context, context.getSelectCond());
         return new PageImpl<Build>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -233,7 +233,7 @@ public class BuildServiceImpl extends ServiceImpl<BuildMapper, Build> implements
      */
     @Override
     public Page<Build> searchDefault(BuildSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Build> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Build> pages=baseMapper.searchDefault(context.getPages(), context, context.getSelectCond());
         return new PageImpl<Build>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -242,7 +242,7 @@ public class BuildServiceImpl extends ServiceImpl<BuildMapper, Build> implements
      */
     @Override
     public Page<Build> searchTestBuild(BuildSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Build> pages=baseMapper.searchTestBuild(context.getPages(),context,context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Build> pages=baseMapper.searchTestBuild(context.getPages(), context, context.getSelectCond());
         return new PageImpl<Build>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -251,7 +251,7 @@ public class BuildServiceImpl extends ServiceImpl<BuildMapper, Build> implements
      */
     @Override
     public Page<Build> searchTestRounds(BuildSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Build> pages=baseMapper.searchTestRounds(context.getPages(),context,context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Build> pages=baseMapper.searchTestRounds(context.getPages(), context, context.getSelectCond());
         return new PageImpl<Build>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -260,7 +260,7 @@ public class BuildServiceImpl extends ServiceImpl<BuildMapper, Build> implements
      */
     @Override
     public Page<Build> searchUpdateLog(BuildSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Build> pages=baseMapper.searchUpdateLog(context.getPages(),context,context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Build> pages=baseMapper.searchUpdateLog(context.getPages(), context, context.getSelectCond());
         return new PageImpl<Build>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -287,24 +287,24 @@ public class BuildServiceImpl extends ServiceImpl<BuildMapper, Build> implements
 
 
     @Override
-    public List<JSONObject> select(String sql, Map param){
-        return this.baseMapper.selectBySQL(sql,param);
+    public List<JSONObject> select(String sql, Map param) {
+        return this.baseMapper.selectBySQL(sql, param);
     }
 
     @Override
     @Transactional
-    public boolean execute(String sql , Map param){
+    public boolean execute(String sql, Map param) {
         if (sql == null || sql.isEmpty()) {
             return false;
         }
         if (sql.toLowerCase().trim().startsWith("insert")) {
-            return this.baseMapper.insertBySQL(sql,param);
+            return this.baseMapper.insertBySQL(sql, param);
         }
         if (sql.toLowerCase().trim().startsWith("update")) {
-            return this.baseMapper.updateBySQL(sql,param);
+            return this.baseMapper.updateBySQL(sql, param);
         }
         if (sql.toLowerCase().trim().startsWith("delete")) {
-            return this.baseMapper.deleteBySQL(sql,param);
+            return this.baseMapper.deleteBySQL(sql, param);
         }
         log.warn("暂未支持的SQL语法");
         return true;

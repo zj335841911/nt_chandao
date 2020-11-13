@@ -31,7 +31,7 @@ public interface PSSystemDBCfgFeignClient {
 
 
     @RequestMapping(method = RequestMethod.PUT, value = "/pssystemdbcfgs/{pssystemdbcfgid}")
-    PSSystemDBCfg update(@PathVariable("pssystemdbcfgid") String pssystemdbcfgid,@RequestBody PSSystemDBCfg pssystemdbcfg);
+    PSSystemDBCfg update(@PathVariable("pssystemdbcfgid") String pssystemdbcfgid, @RequestBody PSSystemDBCfg pssystemdbcfg);
 
     @RequestMapping(method = RequestMethod.PUT, value = "/pssystemdbcfgs/batch")
     Boolean updateBatch(@RequestBody List<PSSystemDBCfg> pssystemdbcfgs);

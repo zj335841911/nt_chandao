@@ -38,7 +38,7 @@ import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 @Setter
 @NoArgsConstructor
 @JsonIgnoreProperties(value = "handler")
-@TableName(value = "zt_userview",resultMap = "UserViewResultMap")
+@TableName(value = "zt_userview", resultMap = "UserViewResultMap")
 public class UserView extends EntityMP implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -79,24 +79,24 @@ public class UserView extends EntityMP implements Serializable {
      * 设置 [products]
      */
     public void setProducts(String products) {
-        this.products = products ;
-        this.modify("products",products);
+        this.products = products;
+        this.modify("products", products);
     }
 
     /**
      * 设置 [account]
      */
     public void setAccount(String account) {
-        this.account = account ;
-        this.modify("account",account);
+        this.account = account;
+        this.modify("account", account);
     }
 
     /**
      * 设置 [projects]
      */
     public void setProjects(String projects) {
-        this.projects = projects ;
-        this.modify("projects",projects);
+        this.projects = projects;
+        this.modify("projects", projects);
     }
 
 
@@ -110,7 +110,7 @@ public class UserView extends EntityMP implements Serializable {
     @Override
     public <T> T copyTo(T targetEntity, boolean bIncEmpty) {
         this.reset("id");
-        return super.copyTo(targetEntity,bIncEmpty);
+        return super.copyTo(targetEntity, bIncEmpty);
     }
 }
 

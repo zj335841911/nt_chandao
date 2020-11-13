@@ -72,7 +72,7 @@ public class ModuleServiceImpl extends ServiceImpl<ModuleMapper, Module> impleme
     @Transactional
     public boolean create(Module et) {
         fillParentData(et);
-        if(!this.retBool(this.baseMapper.insert(et))) {
+        if (!this.retBool(this.baseMapper.insert(et))) {
             return false;
         }
         CachedBeanCopier.copy(get(et.getId()), et);
@@ -114,7 +114,7 @@ public class ModuleServiceImpl extends ServiceImpl<ModuleMapper, Module> impleme
     @Transactional
     public Module get(Long key) {
         Module et = getById(key);
-        if(et == null){
+        if (et == null) {
             et = new Module();
             et.setId(key);
         }
@@ -162,34 +162,34 @@ public class ModuleServiceImpl extends ServiceImpl<ModuleMapper, Module> impleme
     @Transactional
     public boolean saveBatch(Collection<Module> list) {
         list.forEach(item->fillParentData(item));
-        saveOrUpdateBatch(list,batchSize);
+        saveOrUpdateBatch(list, batchSize);
         return true;
     }
 
     @Override
     @Transactional
     public void saveBatch(List<Module> list) {
-        list.forEach(item->fillParentData(item));
-        saveOrUpdateBatch(list,batchSize);
+        list.forEach(item -> fillParentData(item));
+        saveOrUpdateBatch(list, batchSize);
     }
 
 
-	@Override
+    @Override
     public List<Module> selectByBranch(Long id) {
         return baseMapper.selectByBranch(id);
     }
     @Override
     public void removeByBranch(Long id) {
-        this.remove(new QueryWrapper<Module>().eq("branch",id));
+        this.remove(new QueryWrapper<Module>().eq("branch", id));
     }
 
-	@Override
+    @Override
     public List<Module> selectByParent(Long id) {
         return baseMapper.selectByParent(id);
     }
     @Override
     public void removeByParent(Long id) {
-        this.remove(new QueryWrapper<Module>().eq("parent",id));
+        this.remove(new QueryWrapper<Module>().eq("parent", id));
     }
 
 
@@ -198,7 +198,7 @@ public class ModuleServiceImpl extends ServiceImpl<ModuleMapper, Module> impleme
      */
     @Override
     public Page<Module> searchBugModule(ModuleSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Module> pages=baseMapper.searchBugModule(context.getPages(),context,context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Module> pages=baseMapper.searchBugModule(context.getPages(), context, context.getSelectCond());
         return new PageImpl<Module>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -207,7 +207,7 @@ public class ModuleServiceImpl extends ServiceImpl<ModuleMapper, Module> impleme
      */
     @Override
     public Page<Module> searchDefault(ModuleSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Module> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Module> pages=baseMapper.searchDefault(context.getPages(), context, context.getSelectCond());
         return new PageImpl<Module>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -216,7 +216,7 @@ public class ModuleServiceImpl extends ServiceImpl<ModuleMapper, Module> impleme
      */
     @Override
     public Page<Module> searchDocModule(ModuleSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Module> pages=baseMapper.searchDocModule(context.getPages(),context,context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Module> pages=baseMapper.searchDocModule(context.getPages(), context, context.getSelectCond());
         return new PageImpl<Module>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -225,7 +225,7 @@ public class ModuleServiceImpl extends ServiceImpl<ModuleMapper, Module> impleme
      */
     @Override
     public Page<Module> searchLine(ModuleSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Module> pages=baseMapper.searchLine(context.getPages(),context,context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Module> pages=baseMapper.searchLine(context.getPages(), context, context.getSelectCond());
         return new PageImpl<Module>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -234,7 +234,7 @@ public class ModuleServiceImpl extends ServiceImpl<ModuleMapper, Module> impleme
      */
     @Override
     public Page<Module> searchStoryModule(ModuleSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Module> pages=baseMapper.searchStoryModule(context.getPages(),context,context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Module> pages=baseMapper.searchStoryModule(context.getPages(), context, context.getSelectCond());
         return new PageImpl<Module>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -261,24 +261,24 @@ public class ModuleServiceImpl extends ServiceImpl<ModuleMapper, Module> impleme
 
 
     @Override
-    public List<JSONObject> select(String sql, Map param){
-        return this.baseMapper.selectBySQL(sql,param);
+    public List<JSONObject> select(String sql, Map param) {
+        return this.baseMapper.selectBySQL(sql, param);
     }
 
     @Override
     @Transactional
-    public boolean execute(String sql , Map param){
+    public boolean execute(String sql, Map param) {
         if (sql == null || sql.isEmpty()) {
             return false;
         }
         if (sql.toLowerCase().trim().startsWith("insert")) {
-            return this.baseMapper.insertBySQL(sql,param);
+            return this.baseMapper.insertBySQL(sql, param);
         }
         if (sql.toLowerCase().trim().startsWith("update")) {
-            return this.baseMapper.updateBySQL(sql,param);
+            return this.baseMapper.updateBySQL(sql, param);
         }
         if (sql.toLowerCase().trim().startsWith("delete")) {
-            return this.baseMapper.deleteBySQL(sql,param);
+            return this.baseMapper.deleteBySQL(sql, param);
         }
         log.warn("暂未支持的SQL语法");
         return true;

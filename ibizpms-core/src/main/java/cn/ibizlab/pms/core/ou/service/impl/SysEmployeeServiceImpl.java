@@ -62,13 +62,13 @@ public class SysEmployeeServiceImpl implements ISysEmployeeService {
 
 
     public void createBatch(List<SysEmployee> list){
-        sysEmployeeFeignClient.createBatch(list) ;
+        sysEmployeeFeignClient.createBatch(list);
     }
 
 
     @Override
     public boolean update(SysEmployee et) {
-        SysEmployee rt = sysEmployeeFeignClient.update(et.getUserid(),et);
+        SysEmployee rt = sysEmployeeFeignClient.update(et.getUserid(), et);
         if (rt == null) {
             return false;
         }
@@ -78,14 +78,14 @@ public class SysEmployeeServiceImpl implements ISysEmployeeService {
     }
 
 
-    public void updateBatch(List<SysEmployee> list){
-        sysEmployeeFeignClient.updateBatch(list) ;
+    public void updateBatch(List<SysEmployee> list) {
+        sysEmployeeFeignClient.updateBatch(list);
     }
 
 
     @Override
     public boolean remove(String userid) {
-        boolean result=sysEmployeeFeignClient.remove(userid) ;
+        boolean result=sysEmployeeFeignClient.remove(userid);
         return result;
     }
 
@@ -97,12 +97,12 @@ public class SysEmployeeServiceImpl implements ISysEmployeeService {
 
     @Override
     public SysEmployee get(String userid) {
-		SysEmployee et = sysEmployeeFeignClient.get(userid);
-        if (et == null){
+        SysEmployee et = sysEmployeeFeignClient.get(userid);
+        if (et == null) {
             et = new SysEmployee();
             et.setUserid(userid);
         }
-        else{
+        else {
         }
         return  et;
     }
@@ -136,13 +136,13 @@ public class SysEmployeeServiceImpl implements ISysEmployeeService {
 
     @Override
     public void saveBatch(List<SysEmployee> list) {
-        sysEmployeeFeignClient.saveBatch(list) ;
+        sysEmployeeFeignClient.saveBatch(list);
     }
 
 
 
 
-	@Override
+    @Override
     public List<SysEmployee> selectByMdeptid(String deptid) {
         SysEmployeeSearchContext context=new SysEmployeeSearchContext();
         context.setSize(Integer.MAX_VALUE);
@@ -172,7 +172,7 @@ public class SysEmployeeServiceImpl implements ISysEmployeeService {
     }
 
 
-	@Override
+    @Override
     public List<SysEmployee> selectByOrgid(String orgid) {
         SysEmployeeSearchContext context=new SysEmployeeSearchContext();
         context.setSize(Integer.MAX_VALUE);

@@ -65,7 +65,7 @@ public class PSSubSysServiceAPI extends EntityClient implements Serializable {
      * 建立时间
      */
     @DEField(preType = DEPredefinedFieldType.CREATEDATE)
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "createdate" , format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("createdate")
     private Timestamp createdate;
@@ -74,7 +74,7 @@ public class PSSubSysServiceAPI extends EntityClient implements Serializable {
      * 更新时间
      */
     @DEField(preType = DEPredefinedFieldType.UPDATEDATE)
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "updatedate" , format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("updatedate")
     private Timestamp updatedate;
@@ -152,7 +152,7 @@ public class PSSubSysServiceAPI extends EntityClient implements Serializable {
      */
     public void setPssubsysserviceapiname(String pssubsysserviceapiname) {
         this.pssubsysserviceapiname = pssubsysserviceapiname ;
-        this.modify("pssubsysserviceapiname",pssubsysserviceapiname);
+        this.modify("pssubsysserviceapiname", pssubsysserviceapiname);
     }
 
     /**
@@ -160,7 +160,7 @@ public class PSSubSysServiceAPI extends EntityClient implements Serializable {
      */
     public void setPsmoduleid(String psmoduleid) {
         this.psmoduleid = psmoduleid ;
-        this.modify("psmoduleid",psmoduleid);
+        this.modify("psmoduleid", psmoduleid);
     }
 
     /**
@@ -168,7 +168,7 @@ public class PSSubSysServiceAPI extends EntityClient implements Serializable {
      */
     public void setPssysserviceapiid(String pssysserviceapiid) {
         this.pssysserviceapiid = pssysserviceapiid ;
-        this.modify("pssysserviceapiid",pssysserviceapiid);
+        this.modify("pssysserviceapiid", pssysserviceapiid);
     }
 
     /**
@@ -176,7 +176,7 @@ public class PSSubSysServiceAPI extends EntityClient implements Serializable {
      */
     public void setPssystemid(String pssystemid) {
         this.pssystemid = pssystemid ;
-        this.modify("pssystemid",pssystemid);
+        this.modify("pssystemid", pssystemid);
     }
 
     /**
@@ -184,7 +184,7 @@ public class PSSubSysServiceAPI extends EntityClient implements Serializable {
      */
     public void setPssystemname(String pssystemname) {
         this.pssystemname = pssystemname ;
-        this.modify("pssystemname",pssystemname);
+        this.modify("pssystemname", pssystemname);
     }
 
     /**
@@ -197,7 +197,7 @@ public class PSSubSysServiceAPI extends EntityClient implements Serializable {
     @Override
     public <T> T copyTo(T targetEntity, boolean bIncEmpty) {
         this.reset("pssubsysserviceapiid");
-        return super.copyTo(targetEntity,bIncEmpty);
+        return super.copyTo(targetEntity, bIncEmpty);
     }
 }
 

@@ -177,7 +177,7 @@ public class IBIZProMessage extends EntityClient implements Serializable {
      */
     public void setRetrytimes(Integer retrytimes) {
         this.retrytimes = retrytimes ;
-        this.modify("retrytimes",retrytimes);
+        this.modify("retrytimes", retrytimes);
     }
 
     /**
@@ -185,7 +185,7 @@ public class IBIZProMessage extends EntityClient implements Serializable {
      */
     public void setFrom(String from) {
         this.from = from ;
-        this.modify("from",from);
+        this.modify("from", from);
     }
 
     /**
@@ -193,7 +193,7 @@ public class IBIZProMessage extends EntityClient implements Serializable {
      */
     public void setCc(String cc) {
         this.cc = cc ;
-        this.modify("cc",cc);
+        this.modify("cc", cc);
     }
 
     /**
@@ -201,7 +201,7 @@ public class IBIZProMessage extends EntityClient implements Serializable {
      */
     public void setTo(String to) {
         this.to = to ;
-        this.modify("to",to);
+        this.modify("to", to);
     }
 
     /**
@@ -209,7 +209,7 @@ public class IBIZProMessage extends EntityClient implements Serializable {
      */
     public void setContent(String content) {
         this.content = content ;
-        this.modify("content",content);
+        this.modify("content", content);
     }
 
     /**
@@ -217,7 +217,7 @@ public class IBIZProMessage extends EntityClient implements Serializable {
      */
     public void setBcc(String bcc) {
         this.bcc = bcc ;
-        this.modify("bcc",bcc);
+        this.modify("bcc", bcc);
     }
 
     /**
@@ -225,7 +225,7 @@ public class IBIZProMessage extends EntityClient implements Serializable {
      */
     public void setParam(String param) {
         this.param = param ;
-        this.modify("param",param);
+        this.modify("param", param);
     }
 
     /**
@@ -233,7 +233,7 @@ public class IBIZProMessage extends EntityClient implements Serializable {
      */
     public void setIbizproMessagename(String ibizproMessagename) {
         this.ibizproMessagename = ibizproMessagename ;
-        this.modify("ibizpro_messagename",ibizproMessagename);
+        this.modify("ibizpro_messagename", ibizproMessagename);
     }
 
     /**
@@ -241,7 +241,7 @@ public class IBIZProMessage extends EntityClient implements Serializable {
      */
     public void setSubject(String subject) {
         this.subject = subject ;
-        this.modify("subject",subject);
+        this.modify("subject", subject);
     }
 
     /**
@@ -249,7 +249,7 @@ public class IBIZProMessage extends EntityClient implements Serializable {
      */
     public void setRetryintervaltime(Integer retryintervaltime) {
         this.retryintervaltime = retryintervaltime ;
-        this.modify("retryintervaltime",retryintervaltime);
+        this.modify("retryintervaltime", retryintervaltime);
     }
 
     /**
@@ -257,7 +257,7 @@ public class IBIZProMessage extends EntityClient implements Serializable {
      */
     public void setType(String type) {
         this.type = type ;
-        this.modify("type",type);
+        this.modify("type", type);
     }
 
     /**
@@ -265,7 +265,7 @@ public class IBIZProMessage extends EntityClient implements Serializable {
      */
     public void setIssync(Integer issync) {
         this.issync = issync ;
-        this.modify("issync",issync);
+        this.modify("issync", issync);
     }
 
     /**
@@ -273,7 +273,7 @@ public class IBIZProMessage extends EntityClient implements Serializable {
      */
     public void setIsretry(Integer isretry) {
         this.isretry = isretry ;
-        this.modify("isretry",isretry);
+        this.modify("isretry", isretry);
     }
 
     /**
@@ -281,7 +281,7 @@ public class IBIZProMessage extends EntityClient implements Serializable {
      */
     public void setIslink(Integer islink) {
         this.islink = islink ;
-        this.modify("islink",islink);
+        this.modify("islink", islink);
     }
 
     /**
@@ -289,7 +289,7 @@ public class IBIZProMessage extends EntityClient implements Serializable {
      */
     public void setLinkurl(String linkurl) {
         this.linkurl = linkurl ;
-        this.modify("linkurl",linkurl);
+        this.modify("linkurl", linkurl);
     }
 
     /**
@@ -302,7 +302,7 @@ public class IBIZProMessage extends EntityClient implements Serializable {
     @Override
     public <T> T copyTo(T targetEntity, boolean bIncEmpty) {
         this.reset("ibizpro_messageid");
-        return super.copyTo(targetEntity,bIncEmpty);
+        return super.copyTo(targetEntity, bIncEmpty);
     }
 }
 

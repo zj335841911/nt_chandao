@@ -38,7 +38,7 @@ import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 @Setter
 @NoArgsConstructor
 @JsonIgnoreProperties(value = "handler")
-@TableName(value = "zt_im_chatuser",resultMap = "ImChatuserResultMap")
+@TableName(value = "zt_im_chatuser", resultMap = "ImChatuserResultMap")
 public class ImChatuser extends EntityMP implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -47,7 +47,7 @@ public class ImChatuser extends EntityMP implements Serializable {
      * id
      */
     @DEField(isKeyField = true)
-    @TableId(value= "id",type=IdType.AUTO)
+    @TableId(value = "id", type = IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
     private Long id;
@@ -85,7 +85,7 @@ public class ImChatuser extends EntityMP implements Serializable {
      */
     @DEField(defaultValue = "0000-00-00 00:00:00")
     @TableField(value = "`join`")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "join", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("join")
     private Timestamp join;
@@ -116,7 +116,7 @@ public class ImChatuser extends EntityMP implements Serializable {
      */
     @DEField(defaultValue = "0000-00-00 00:00:00")
     @TableField(value = "`quit`")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "quit", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("quit")
     private Timestamp quit;
@@ -134,40 +134,40 @@ public class ImChatuser extends EntityMP implements Serializable {
      * 设置 [order]
      */
     public void setOrder(Integer order) {
-        this.order = order ;
-        this.modify("order",order);
+        this.order = order;
+        this.modify("order", order);
     }
 
     /**
      * 设置 [freeze]
      */
     public void setFreeze(String freeze) {
-        this.freeze = freeze ;
-        this.modify("freeze",freeze);
+        this.freeze = freeze;
+        this.modify("freeze", freeze);
     }
 
     /**
      * 设置 [star]
      */
     public void setStar(String star) {
-        this.star = star ;
-        this.modify("star",star);
+        this.star = star;
+        this.modify("star", star);
     }
 
     /**
      * 设置 [hide]
      */
     public void setHide(String hide) {
-        this.hide = hide ;
-        this.modify("hide",hide);
+        this.hide = hide;
+        this.modify("hide", hide);
     }
 
     /**
      * 设置 [join]
      */
     public void setJoin(Timestamp join) {
-        this.join = join ;
-        this.modify("join",join);
+        this.join = join;
+        this.modify("join", join);
     }
 
     /**
@@ -184,32 +184,32 @@ public class ImChatuser extends EntityMP implements Serializable {
      * 设置 [user]
      */
     public void setUser(Integer user) {
-        this.user = user ;
-        this.modify("user",user);
+        this.user = user;
+        this.modify("user", user);
     }
 
     /**
      * 设置 [mute]
      */
     public void setMute(String mute) {
-        this.mute = mute ;
-        this.modify("mute",mute);
+        this.mute = mute;
+        this.modify("mute", mute);
     }
 
     /**
      * 设置 [cgid]
      */
     public void setCgid(String cgid) {
-        this.cgid = cgid ;
-        this.modify("cgid",cgid);
+        this.cgid = cgid;
+        this.modify("cgid", cgid);
     }
 
     /**
      * 设置 [quit]
      */
     public void setQuit(Timestamp quit) {
-        this.quit = quit ;
-        this.modify("quit",quit);
+        this.quit = quit;
+        this.modify("quit", quit);
     }
 
     /**
@@ -226,14 +226,14 @@ public class ImChatuser extends EntityMP implements Serializable {
      * 设置 [category]
      */
     public void setCategory(String category) {
-        this.category = category ;
-        this.modify("category",category);
+        this.category = category;
+        this.modify("category", category);
     }
 
 
     @Override
     public Serializable getDefaultKey(boolean gen) {
-       return IdWorker.getId();
+        return IdWorker.getId();
     }
     /**
      * 复制当前对象数据到目标对象(粘贴重置)
@@ -245,7 +245,7 @@ public class ImChatuser extends EntityMP implements Serializable {
     @Override
     public <T> T copyTo(T targetEntity, boolean bIncEmpty) {
         this.reset("id");
-        return super.copyTo(targetEntity,bIncEmpty);
+        return super.copyTo(targetEntity, bIncEmpty);
     }
 }
 

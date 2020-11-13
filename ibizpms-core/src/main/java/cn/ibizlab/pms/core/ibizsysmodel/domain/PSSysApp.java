@@ -50,7 +50,7 @@ public class PSSysApp extends EntityClient implements Serializable {
      * 建立时间
      */
     @DEField(preType = DEPredefinedFieldType.CREATEDATE)
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "createdate" , format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("createdate")
     private Timestamp createdate;
@@ -82,7 +82,7 @@ public class PSSysApp extends EntityClient implements Serializable {
      * 更新时间
      */
     @DEField(preType = DEPredefinedFieldType.UPDATEDATE)
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "updatedate" , format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("updatedate")
     private Timestamp updatedate;
@@ -489,7 +489,7 @@ public class PSSysApp extends EntityClient implements Serializable {
      */
     public void setPssysappname(String pssysappname) {
         this.pssysappname = pssysappname ;
-        this.modify("pssysappname",pssysappname);
+        this.modify("pssysappname", pssysappname);
     }
 
     /**
@@ -497,7 +497,7 @@ public class PSSysApp extends EntityClient implements Serializable {
      */
     public void setAppfolder(String appfolder) {
         this.appfolder = appfolder ;
-        this.modify("appfolder",appfolder);
+        this.modify("appfolder", appfolder);
     }
 
     /**
@@ -505,7 +505,7 @@ public class PSSysApp extends EntityClient implements Serializable {
      */
     public void setApppkgname(String apppkgname) {
         this.apppkgname = apppkgname ;
-        this.modify("apppkgname",apppkgname);
+        this.modify("apppkgname", apppkgname);
     }
 
     /**
@@ -513,7 +513,7 @@ public class PSSysApp extends EntityClient implements Serializable {
      */
     public void setAppmode(String appmode) {
         this.appmode = appmode ;
-        this.modify("appmode",appmode);
+        this.modify("appmode", appmode);
     }
 
     /**
@@ -521,7 +521,7 @@ public class PSSysApp extends EntityClient implements Serializable {
      */
     public void setApptag(String apptag) {
         this.apptag = apptag ;
-        this.modify("apptag",apptag);
+        this.modify("apptag", apptag);
     }
 
     /**
@@ -529,7 +529,7 @@ public class PSSysApp extends EntityClient implements Serializable {
      */
     public void setAppsn(String appsn) {
         this.appsn = appsn ;
-        this.modify("appsn",appsn);
+        this.modify("appsn", appsn);
     }
 
     /**
@@ -537,7 +537,7 @@ public class PSSysApp extends EntityClient implements Serializable {
      */
     public void setApptag2(String apptag2) {
         this.apptag2 = apptag2 ;
-        this.modify("apptag2",apptag2);
+        this.modify("apptag2", apptag2);
     }
 
     /**
@@ -545,7 +545,7 @@ public class PSSysApp extends EntityClient implements Serializable {
      */
     public void setApptag4(String apptag4) {
         this.apptag4 = apptag4 ;
-        this.modify("apptag4",apptag4);
+        this.modify("apptag4", apptag4);
     }
 
     /**
@@ -553,7 +553,7 @@ public class PSSysApp extends EntityClient implements Serializable {
      */
     public void setApptag3(String apptag3) {
         this.apptag3 = apptag3 ;
-        this.modify("apptag3",apptag3);
+        this.modify("apptag3", apptag3);
     }
 
     /**
@@ -561,7 +561,7 @@ public class PSSysApp extends EntityClient implements Serializable {
      */
     public void setAutoaddappview(Integer autoaddappview) {
         this.autoaddappview = autoaddappview ;
-        this.modify("autoaddappview",autoaddappview);
+        this.modify("autoaddappview", autoaddappview);
     }
 
     /**
@@ -569,7 +569,7 @@ public class PSSysApp extends EntityClient implements Serializable {
      */
     public void setBtnnoprivdm(Integer btnnoprivdm) {
         this.btnnoprivdm = btnnoprivdm ;
-        this.modify("btnnoprivdm",btnnoprivdm);
+        this.modify("btnnoprivdm", btnnoprivdm);
     }
 
     /**
@@ -577,7 +577,7 @@ public class PSSysApp extends EntityClient implements Serializable {
      */
     public void setCodefolder(String codefolder) {
         this.codefolder = codefolder ;
-        this.modify("codefolder",codefolder);
+        this.modify("codefolder", codefolder);
     }
 
     /**
@@ -585,7 +585,7 @@ public class PSSysApp extends EntityClient implements Serializable {
      */
     public void setDefaultpub(Integer defaultpub) {
         this.defaultpub = defaultpub ;
-        this.modify("defaultpub",defaultpub);
+        this.modify("defaultpub", defaultpub);
     }
 
     /**
@@ -593,7 +593,7 @@ public class PSSysApp extends EntityClient implements Serializable {
      */
     public void setEnabledynasys(Integer enabledynasys) {
         this.enabledynasys = enabledynasys ;
-        this.modify("enabledynasys",enabledynasys);
+        this.modify("enabledynasys", enabledynasys);
     }
 
     /**
@@ -601,7 +601,7 @@ public class PSSysApp extends EntityClient implements Serializable {
      */
     public void setEnablec12toc24(Integer enablec12toc24) {
         this.enablec12toc24 = enablec12toc24 ;
-        this.modify("enablec12toc24",enablec12toc24);
+        this.modify("enablec12toc24", enablec12toc24);
     }
 
     /**
@@ -609,7 +609,7 @@ public class PSSysApp extends EntityClient implements Serializable {
      */
     public void setEnalocalservice(Integer enalocalservice) {
         this.enalocalservice = enalocalservice ;
-        this.modify("enalocalservice",enalocalservice);
+        this.modify("enalocalservice", enalocalservice);
     }
 
     /**
@@ -617,7 +617,7 @@ public class PSSysApp extends EntityClient implements Serializable {
      */
     public void setFinoprivdm(Integer finoprivdm) {
         this.finoprivdm = finoprivdm ;
-        this.modify("finoprivdm",finoprivdm);
+        this.modify("finoprivdm", finoprivdm);
     }
 
     /**
@@ -625,7 +625,7 @@ public class PSSysApp extends EntityClient implements Serializable {
      */
     public void setEnablestoryboard(Integer enablestoryboard) {
         this.enablestoryboard = enablestoryboard ;
-        this.modify("enablestoryboard",enablestoryboard);
+        this.modify("enablestoryboard", enablestoryboard);
     }
 
     /**
@@ -633,7 +633,7 @@ public class PSSysApp extends EntityClient implements Serializable {
      */
     public void setGcnoprivdm(Integer gcnoprivdm) {
         this.gcnoprivdm = gcnoprivdm ;
-        this.modify("gcnoprivdm",gcnoprivdm);
+        this.modify("gcnoprivdm", gcnoprivdm);
     }
 
     /**
@@ -641,7 +641,7 @@ public class PSSysApp extends EntityClient implements Serializable {
      */
     public void setFiupdateprivtag(Integer fiupdateprivtag) {
         this.fiupdateprivtag = fiupdateprivtag ;
-        this.modify("fiupdateprivtag",fiupdateprivtag);
+        this.modify("fiupdateprivtag", fiupdateprivtag);
     }
 
     /**
@@ -649,7 +649,7 @@ public class PSSysApp extends EntityClient implements Serializable {
      */
     public void setGridforcefit(Integer gridforcefit) {
         this.gridforcefit = gridforcefit ;
-        this.modify("gridforcefit",gridforcefit);
+        this.modify("gridforcefit", gridforcefit);
     }
 
     /**
@@ -657,7 +657,7 @@ public class PSSysApp extends EntityClient implements Serializable {
      */
     public void setGridcolenablelink(Integer gridcolenablelink) {
         this.gridcolenablelink = gridcolenablelink ;
-        this.modify("gridcolenablelink",gridcolenablelink);
+        this.modify("gridcolenablelink", gridcolenablelink);
     }
 
     /**
@@ -665,7 +665,7 @@ public class PSSysApp extends EntityClient implements Serializable {
      */
     public void setIconfile(String iconfile) {
         this.iconfile = iconfile ;
-        this.modify("iconfile",iconfile);
+        this.modify("iconfile", iconfile);
     }
 
     /**
@@ -673,7 +673,7 @@ public class PSSysApp extends EntityClient implements Serializable {
      */
     public void setGridrowactivemode(Integer gridrowactivemode) {
         this.gridrowactivemode = gridrowactivemode ;
-        this.modify("gridrowactivemode",gridrowactivemode);
+        this.modify("gridrowactivemode", gridrowactivemode);
     }
 
     /**
@@ -681,7 +681,7 @@ public class PSSysApp extends EntityClient implements Serializable {
      */
     public void setMainmenuside(String mainmenuside) {
         this.mainmenuside = mainmenuside ;
-        this.modify("mainmenuside",mainmenuside);
+        this.modify("mainmenuside", mainmenuside);
     }
 
     /**
@@ -689,7 +689,7 @@ public class PSSysApp extends EntityClient implements Serializable {
      */
     public void setLogicname(String logicname) {
         this.logicname = logicname ;
-        this.modify("logicname",logicname);
+        this.modify("logicname", logicname);
     }
 
     /**
@@ -697,7 +697,7 @@ public class PSSysApp extends EntityClient implements Serializable {
      */
     public void setOrientationmode(String orientationmode) {
         this.orientationmode = orientationmode ;
-        this.modify("orientationmode",orientationmode);
+        this.modify("orientationmode", orientationmode);
     }
 
     /**
@@ -705,7 +705,7 @@ public class PSSysApp extends EntityClient implements Serializable {
      */
     public void setMemo(String memo) {
         this.memo = memo ;
-        this.modify("memo",memo);
+        this.modify("memo", memo);
     }
 
     /**
@@ -713,7 +713,7 @@ public class PSSysApp extends EntityClient implements Serializable {
      */
     public void setPfstyleparam(String pfstyleparam) {
         this.pfstyleparam = pfstyleparam ;
-        this.modify("pfstyleparam",pfstyleparam);
+        this.modify("pfstyleparam", pfstyleparam);
     }
 
     /**
@@ -721,7 +721,7 @@ public class PSSysApp extends EntityClient implements Serializable {
      */
     public void setPreventxss(Integer preventxss) {
         this.preventxss = preventxss ;
-        this.modify("preventxss",preventxss);
+        this.modify("preventxss", preventxss);
     }
 
     /**
@@ -729,7 +729,7 @@ public class PSSysApp extends EntityClient implements Serializable {
      */
     public void setPsapptypeid(String psapptypeid) {
         this.psapptypeid = psapptypeid ;
-        this.modify("psapptypeid",psapptypeid);
+        this.modify("psapptypeid", psapptypeid);
     }
 
     /**
@@ -737,7 +737,7 @@ public class PSSysApp extends EntityClient implements Serializable {
      */
     public void setPsapptypename(String psapptypename) {
         this.psapptypename = psapptypename ;
-        this.modify("psapptypename",psapptypename);
+        this.modify("psapptypename", psapptypename);
     }
 
     /**
@@ -745,7 +745,7 @@ public class PSSysApp extends EntityClient implements Serializable {
      */
     public void setPspfcdnid(String pspfcdnid) {
         this.pspfcdnid = pspfcdnid ;
-        this.modify("pspfcdnid",pspfcdnid);
+        this.modify("pspfcdnid", pspfcdnid);
     }
 
     /**
@@ -753,7 +753,7 @@ public class PSSysApp extends EntityClient implements Serializable {
      */
     public void setPspfcdnname(String pspfcdnname) {
         this.pspfcdnname = pspfcdnname ;
-        this.modify("pspfcdnname",pspfcdnname);
+        this.modify("pspfcdnname", pspfcdnname);
     }
 
     /**
@@ -761,7 +761,7 @@ public class PSSysApp extends EntityClient implements Serializable {
      */
     public void setPspfid(String pspfid) {
         this.pspfid = pspfid ;
-        this.modify("pspfid",pspfid);
+        this.modify("pspfid", pspfid);
     }
 
     /**
@@ -769,7 +769,7 @@ public class PSSysApp extends EntityClient implements Serializable {
      */
     public void setPspfstyleid(String pspfstyleid) {
         this.pspfstyleid = pspfstyleid ;
-        this.modify("pspfstyleid",pspfstyleid);
+        this.modify("pspfstyleid", pspfstyleid);
     }
 
     /**
@@ -777,7 +777,7 @@ public class PSSysApp extends EntityClient implements Serializable {
      */
     public void setPsstudiothemename(String psstudiothemename) {
         this.psstudiothemename = psstudiothemename ;
-        this.modify("psstudiothemename",psstudiothemename);
+        this.modify("psstudiothemename", psstudiothemename);
     }
 
     /**
@@ -785,7 +785,7 @@ public class PSSysApp extends EntityClient implements Serializable {
      */
     public void setPsstudiothemeid(String psstudiothemeid) {
         this.psstudiothemeid = psstudiothemeid ;
-        this.modify("psstudiothemeid",psstudiothemeid);
+        this.modify("psstudiothemeid", psstudiothemeid);
     }
 
     /**
@@ -793,7 +793,7 @@ public class PSSysApp extends EntityClient implements Serializable {
      */
     public void setPubrefviewonly(Integer pubrefviewonly) {
         this.pubrefviewonly = pubrefviewonly ;
-        this.modify("pubrefviewonly",pubrefviewonly);
+        this.modify("pubrefviewonly", pubrefviewonly);
     }
 
     /**
@@ -801,7 +801,7 @@ public class PSSysApp extends EntityClient implements Serializable {
      */
     public void setPubsysrefviewonly(Integer pubsysrefviewonly) {
         this.pubsysrefviewonly = pubsysrefviewonly ;
-        this.modify("pubsysrefviewonly",pubsysrefviewonly);
+        this.modify("pubsysrefviewonly", pubsysrefviewonly);
     }
 
     /**
@@ -809,7 +809,7 @@ public class PSSysApp extends EntityClient implements Serializable {
      */
     public void setRemoveflag(Integer removeflag) {
         this.removeflag = removeflag ;
-        this.modify("removeflag",removeflag);
+        this.modify("removeflag", removeflag);
     }
 
     /**
@@ -817,7 +817,7 @@ public class PSSysApp extends EntityClient implements Serializable {
      */
     public void setServicecodename(String servicecodename) {
         this.servicecodename = servicecodename ;
-        this.modify("servicecodename",servicecodename);
+        this.modify("servicecodename", servicecodename);
     }
 
     /**
@@ -825,7 +825,7 @@ public class PSSysApp extends EntityClient implements Serializable {
      */
     public void setStartpagefile(String startpagefile) {
         this.startpagefile = startpagefile ;
-        this.modify("startpagefile",startpagefile);
+        this.modify("startpagefile", startpagefile);
     }
 
     /**
@@ -833,7 +833,7 @@ public class PSSysApp extends EntityClient implements Serializable {
      */
     public void setUaclogin(Integer uaclogin) {
         this.uaclogin = uaclogin ;
-        this.modify("uaclogin",uaclogin);
+        this.modify("uaclogin", uaclogin);
     }
 
     /**
@@ -841,7 +841,7 @@ public class PSSysApp extends EntityClient implements Serializable {
      */
     public void setUistyle(String uistyle) {
         this.uistyle = uistyle ;
-        this.modify("uistyle",uistyle);
+        this.modify("uistyle", uistyle);
     }
 
     /**
@@ -849,7 +849,7 @@ public class PSSysApp extends EntityClient implements Serializable {
      */
     public void setPssysserviceapiid(String pssysserviceapiid) {
         this.pssysserviceapiid = pssysserviceapiid ;
-        this.modify("pssysserviceapiid",pssysserviceapiid);
+        this.modify("pssysserviceapiid", pssysserviceapiid);
     }
 
     /**
@@ -857,7 +857,7 @@ public class PSSysApp extends EntityClient implements Serializable {
      */
     public void setUsercat(String usercat) {
         this.usercat = usercat ;
-        this.modify("usercat",usercat);
+        this.modify("usercat", usercat);
     }
 
     /**
@@ -865,7 +865,7 @@ public class PSSysApp extends EntityClient implements Serializable {
      */
     public void setUsertag(String usertag) {
         this.usertag = usertag ;
-        this.modify("usertag",usertag);
+        this.modify("usertag", usertag);
     }
 
     /**
@@ -873,7 +873,7 @@ public class PSSysApp extends EntityClient implements Serializable {
      */
     public void setUserparams(String userparams) {
         this.userparams = userparams ;
-        this.modify("userparams",userparams);
+        this.modify("userparams", userparams);
     }
 
     /**
@@ -881,7 +881,7 @@ public class PSSysApp extends EntityClient implements Serializable {
      */
     public void setUsertag2(String usertag2) {
         this.usertag2 = usertag2 ;
-        this.modify("usertag2",usertag2);
+        this.modify("usertag2", usertag2);
     }
 
     /**
@@ -889,7 +889,7 @@ public class PSSysApp extends EntityClient implements Serializable {
      */
     public void setUsertag4(String usertag4) {
         this.usertag4 = usertag4 ;
-        this.modify("usertag4",usertag4);
+        this.modify("usertag4", usertag4);
     }
 
     /**
@@ -897,7 +897,7 @@ public class PSSysApp extends EntityClient implements Serializable {
      */
     public void setUsertag3(String usertag3) {
         this.usertag3 = usertag3 ;
-        this.modify("usertag3",usertag3);
+        this.modify("usertag3", usertag3);
     }
 
     /**
@@ -905,7 +905,7 @@ public class PSSysApp extends EntityClient implements Serializable {
      */
     public void setValidflag(Integer validflag) {
         this.validflag = validflag ;
-        this.modify("validflag",validflag);
+        this.modify("validflag", validflag);
     }
 
     /**
@@ -913,7 +913,7 @@ public class PSSysApp extends EntityClient implements Serializable {
      */
     public void setPssystemid(String pssystemid) {
         this.pssystemid = pssystemid ;
-        this.modify("pssystemid",pssystemid);
+        this.modify("pssystemid", pssystemid);
     }
 
     /**
@@ -921,7 +921,7 @@ public class PSSysApp extends EntityClient implements Serializable {
      */
     public void setPssystemname(String pssystemname) {
         this.pssystemname = pssystemname ;
-        this.modify("pssystemname",pssystemname);
+        this.modify("pssystemname", pssystemname);
     }
 
     /**
@@ -934,7 +934,7 @@ public class PSSysApp extends EntityClient implements Serializable {
     @Override
     public <T> T copyTo(T targetEntity, boolean bIncEmpty) {
         this.reset("pssysappid");
-        return super.copyTo(targetEntity,bIncEmpty);
+        return super.copyTo(targetEntity, bIncEmpty);
     }
 }
 

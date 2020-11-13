@@ -38,7 +38,7 @@ import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 @Setter
 @NoArgsConstructor
 @JsonIgnoreProperties(value = "handler")
-@TableName(value = "zt_usertpl",resultMap = "UserTplResultMap")
+@TableName(value = "zt_usertpl", resultMap = "UserTplResultMap")
 public class UserTpl extends EntityMP implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -54,7 +54,7 @@ public class UserTpl extends EntityMP implements Serializable {
      * id
      */
     @DEField(isKeyField = true)
-    @TableId(value= "id",type=IdType.AUTO)
+    @TableId(value = "id", type = IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
     private Long id;
@@ -94,46 +94,46 @@ public class UserTpl extends EntityMP implements Serializable {
      * 设置 [title]
      */
     public void setTitle(String title) {
-        this.title = title ;
-        this.modify("title",title);
+        this.title = title;
+        this.modify("title", title);
     }
 
     /**
      * 设置 [content]
      */
     public void setContent(String content) {
-        this.content = content ;
-        this.modify("content",content);
+        this.content = content;
+        this.modify("content", content);
     }
 
     /**
      * 设置 [type]
      */
     public void setType(String type) {
-        this.type = type ;
-        this.modify("type",type);
+        this.type = type;
+        this.modify("type", type);
     }
 
     /**
      * 设置 [account]
      */
     public void setAccount(String account) {
-        this.account = account ;
-        this.modify("account",account);
+        this.account = account;
+        this.modify("account", account);
     }
 
     /**
      * 设置 [public]
      */
     public void setIbizpublic(String ibizpublic) {
-        this.ibizpublic = ibizpublic ;
-        this.modify("public",ibizpublic);
+        this.ibizpublic = ibizpublic;
+        this.modify("public", ibizpublic);
     }
 
 
     @Override
     public Serializable getDefaultKey(boolean gen) {
-       return IdWorker.getId();
+        return IdWorker.getId();
     }
     /**
      * 复制当前对象数据到目标对象(粘贴重置)
@@ -145,7 +145,7 @@ public class UserTpl extends EntityMP implements Serializable {
     @Override
     public <T> T copyTo(T targetEntity, boolean bIncEmpty) {
         this.reset("id");
-        return super.copyTo(targetEntity,bIncEmpty);
+        return super.copyTo(targetEntity, bIncEmpty);
     }
 }
 

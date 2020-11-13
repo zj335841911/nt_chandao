@@ -22,7 +22,7 @@ import cn.ibizlab.pms.core.ibiz.filter.ProductLineSearchContext;
 /**
  * 实体[ProductLine] 服务对象接口
  */
-public interface IProductLineService{
+public interface IProductLineService {
 
     /**
      * 业务实体显示文本名称
@@ -34,18 +34,18 @@ public interface IProductLineService{
      */
     final static String OBJECT_SOURCE_PATH = "productlines";
 
-    boolean create(ProductLine et) ;
-    void createBatch(List<ProductLine> list) ;
-    boolean update(ProductLine et) ;
-    void updateBatch(List<ProductLine> list) ;
-    boolean remove(String key) ;
-    void removeBatch(Collection<String> idList) ;
-    ProductLine get(String key) ;
-    ProductLine getDraft(ProductLine et) ;
-    boolean checkKey(ProductLine et) ;
-    boolean save(ProductLine et) ;
-    void saveBatch(List<ProductLine> list) ;
-    Page<ProductLine> searchDefault(ProductLineSearchContext context) ;
+    boolean create(ProductLine et);
+    void createBatch(List<ProductLine> list);
+    boolean update(ProductLine et);
+    void updateBatch(List<ProductLine> list);
+    boolean remove(String key);
+    void removeBatch(Collection<String> idList);
+    ProductLine get(String key);
+    ProductLine getDraft(ProductLine et);
+    boolean checkKey(ProductLine et);
+    boolean save(ProductLine et);
+    void saveBatch(List<ProductLine> list);
+    Page<ProductLine> searchDefault(ProductLineSearchContext context);
 
 }
 

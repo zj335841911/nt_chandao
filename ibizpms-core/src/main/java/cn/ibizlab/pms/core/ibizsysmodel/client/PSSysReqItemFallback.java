@@ -17,65 +17,65 @@ import org.springframework.stereotype.Component;
  * 实体[PSSysReqItem] 服务对象接口
  */
 @Component
-public class PSSysReqItemFallback implements PSSysReqItemFeignClient{
+public class PSSysReqItemFallback implements PSSysReqItemFeignClient {
 
-    public Page<PSSysReqItem> select(){
-            return null;
-     }
+    public Page<PSSysReqItem> select() {
+        return null;
+    }
 
-    public PSSysReqItem create(PSSysReqItem pssysreqitem){
-            return null;
-     }
-    public Boolean createBatch(List<PSSysReqItem> pssysreqitems){
-            return false;
-     }
+    public PSSysReqItem create(PSSysReqItem pssysreqitem) {
+        return null;
+    }
+    public Boolean createBatch(List<PSSysReqItem> pssysreqitems) {
+        return false;
+    }
 
-    public PSSysReqItem update(String pssysreqitemid, PSSysReqItem pssysreqitem){
-            return null;
-     }
-    public Boolean updateBatch(List<PSSysReqItem> pssysreqitems){
-            return false;
-     }
-
-
-    public Boolean remove(String pssysreqitemid){
-            return false;
-     }
-    public Boolean removeBatch(Collection<String> idList){
-            return false;
-     }
-
-    public PSSysReqItem get(String pssysreqitemid){
-            return null;
-     }
+    public PSSysReqItem update(String pssysreqitemid, PSSysReqItem pssysreqitem) {
+        return null;
+    }
+    public Boolean updateBatch(List<PSSysReqItem> pssysreqitems) {
+        return false;
+    }
 
 
-    public String getByCodeName(String codeName){
+    public Boolean remove(String pssysreqitemid) {
+        return false;
+    }
+    public Boolean removeBatch(Collection<String> idList) {
+        return false;
+    }
+
+    public PSSysReqItem get(String pssysreqitemid) {
+        return null;
+    }
+
+
+    public String getByCodeName(String codeName) {
             return null;
     }
 
 
     public PSSysReqItem getDraft(){
-            return null;
+        return null;
     }
 
 
 
-    public Boolean checkKey(PSSysReqItem pssysreqitem){
-            return false;
-     }
+    public Boolean checkKey(PSSysReqItem pssysreqitem) {
+        return false;
+    }
 
 
-    public Boolean save(PSSysReqItem pssysreqitem){
-            return false;
-     }
-    public Boolean saveBatch(List<PSSysReqItem> pssysreqitems){
-            return false;
-     }
+    public Boolean save(PSSysReqItem pssysreqitem) {
+        return false;
+    }
+    public Boolean saveBatch(List<PSSysReqItem> pssysreqitems) {
+        return false;
+    }
 
-    public Page<PSSysReqItem> searchDefault(PSSysReqItemSearchContext context){
-            return null;
-     }
+    public Page<PSSysReqItem> searchDefault(PSSysReqItemSearchContext context) {
+        return null;
+    }
 
 
 }

@@ -38,7 +38,7 @@ import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 @Setter
 @NoArgsConstructor
 @JsonIgnoreProperties(value = "handler")
-@TableName(value = "zt_relation",resultMap = "RelationResultMap")
+@TableName(value = "zt_relation", resultMap = "RelationResultMap")
 public class Relation extends EntityMP implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -89,7 +89,7 @@ public class Relation extends EntityMP implements Serializable {
      * id
      */
     @DEField(isKeyField = true)
-    @TableId(value= "id",type=IdType.AUTO)
+    @TableId(value = "id", type = IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
     private Long id;
@@ -135,94 +135,94 @@ public class Relation extends EntityMP implements Serializable {
      * 设置 [BID]
      */
     public void setBid(Integer bid) {
-        this.bid = bid ;
-        this.modify("bid",bid);
+        this.bid = bid;
+        this.modify("bid", bid);
     }
 
     /**
      * 设置 [AVersion]
      */
     public void setAversion(String aversion) {
-        this.aversion = aversion ;
-        this.modify("aversion",aversion);
+        this.aversion = aversion;
+        this.modify("aversion", aversion);
     }
 
     /**
      * 设置 [BType]
      */
     public void setBtype(String btype) {
-        this.btype = btype ;
-        this.modify("btype",btype);
+        this.btype = btype;
+        this.modify("btype", btype);
     }
 
     /**
      * 设置 [project]
      */
     public void setProject(Integer project) {
-        this.project = project ;
-        this.modify("project",project);
+        this.project = project;
+        this.modify("project", project);
     }
 
     /**
      * 设置 [extra]
      */
     public void setExtra(String extra) {
-        this.extra = extra ;
-        this.modify("extra",extra);
+        this.extra = extra;
+        this.modify("extra", extra);
     }
 
     /**
      * 设置 [relation]
      */
     public void setRelation(String relation) {
-        this.relation = relation ;
-        this.modify("relation",relation);
+        this.relation = relation;
+        this.modify("relation", relation);
     }
 
     /**
      * 设置 [program]
      */
     public void setProgram(Integer program) {
-        this.program = program ;
-        this.modify("program",program);
+        this.program = program;
+        this.modify("program", program);
     }
 
     /**
      * 设置 [BVersion]
      */
     public void setBversion(String bversion) {
-        this.bversion = bversion ;
-        this.modify("bversion",bversion);
+        this.bversion = bversion;
+        this.modify("bversion", bversion);
     }
 
     /**
      * 设置 [AType]
      */
     public void setAtype(String atype) {
-        this.atype = atype ;
-        this.modify("atype",atype);
+        this.atype = atype;
+        this.modify("atype", atype);
     }
 
     /**
      * 设置 [product]
      */
     public void setProduct(Integer product) {
-        this.product = product ;
-        this.modify("product",product);
+        this.product = product;
+        this.modify("product", product);
     }
 
     /**
      * 设置 [AID]
      */
     public void setAid(Integer aid) {
-        this.aid = aid ;
-        this.modify("aid",aid);
+        this.aid = aid;
+        this.modify("aid", aid);
     }
 
 
     @Override
     public Serializable getDefaultKey(boolean gen) {
-       return IdWorker.getId();
+        return IdWorker.getId();
     }
     /**
      * 复制当前对象数据到目标对象(粘贴重置)
@@ -234,7 +234,7 @@ public class Relation extends EntityMP implements Serializable {
     @Override
     public <T> T copyTo(T targetEntity, boolean bIncEmpty) {
         this.reset("id");
-        return super.copyTo(targetEntity,bIncEmpty);
+        return super.copyTo(targetEntity, bIncEmpty);
     }
 }
 

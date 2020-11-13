@@ -38,7 +38,7 @@ import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 @Setter
 @NoArgsConstructor
 @JsonIgnoreProperties(value = "handler")
-@TableName(value = "zt_module",resultMap = "ModuleResultMap")
+@TableName(value = "zt_module", resultMap = "ModuleResultMap")
 public class Module extends EntityMP implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -93,7 +93,7 @@ public class Module extends EntityMP implements Serializable {
      * id
      */
     @DEField(isKeyField = true)
-    @TableId(value= "id",type=IdType.AUTO)
+    @TableId(value = "id", type = IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
     private Long id;
@@ -125,7 +125,7 @@ public class Module extends EntityMP implements Serializable {
      * 已删除
      */
     @DEField(defaultValue = "0", preType = DEPredefinedFieldType.LOGICVALID, logicval = "0", logicdelval = "1")
-    @TableLogic(value= "0", delval = "1")
+    @TableLogic(value = "0", delval = "1")
     @TableField(value = "`deleted`")
     @JSONField(name = "deleted")
     @JsonProperty("deleted")
@@ -175,94 +175,94 @@ public class Module extends EntityMP implements Serializable {
      * 设置 [所属根]
      */
     public void setRoot(String root) {
-        this.root = root ;
-        this.modify("root",root);
+        this.root = root;
+        this.modify("root", root);
     }
 
     /**
      * 设置 [级别]
      */
     public void setGrade(Integer grade) {
-        this.grade = grade ;
-        this.modify("grade",grade);
+        this.grade = grade;
+        this.modify("grade", grade);
     }
 
     /**
      * 设置 [类型]
      */
     public void setType(String type) {
-        this.type = type ;
-        this.modify("type",type);
+        this.type = type;
+        this.modify("type", type);
     }
 
     /**
      * 设置 [模块名称]
      */
     public void setName(String name) {
-        this.name = name ;
-        this.modify("name",name);
+        this.name = name;
+        this.modify("name", name);
     }
 
     /**
      * 设置 [排序]
      */
     public void setOrder(Integer order) {
-        this.order = order ;
-        this.modify("order",order);
+        this.order = order;
+        this.modify("order", order);
     }
 
     /**
      * 设置 [负责人]
      */
     public void setOwner(String owner) {
-        this.owner = owner ;
-        this.modify("owner",owner);
+        this.owner = owner;
+        this.modify("owner", owner);
     }
 
     /**
      * 设置 [收藏者]
      */
     public void setCollector(String collector) {
-        this.collector = collector ;
-        this.modify("collector",collector);
+        this.collector = collector;
+        this.modify("collector", collector);
     }
 
     /**
      * 设置 [简称]
      */
     public void setIbizshort(String ibizshort) {
-        this.ibizshort = ibizshort ;
-        this.modify("short",ibizshort);
+        this.ibizshort = ibizshort;
+        this.modify("short", ibizshort);
     }
 
     /**
      * 设置 [路径]
      */
     public void setPath(String path) {
-        this.path = path ;
-        this.modify("path",path);
+        this.path = path;
+        this.modify("path", path);
     }
 
     /**
      * 设置 [平台/分支]
      */
     public void setBranch(Long branch) {
-        this.branch = branch ;
-        this.modify("branch",branch);
+        this.branch = branch;
+        this.modify("branch", branch);
     }
 
     /**
      * 设置 [上级模块]
      */
     public void setParent(Long parent) {
-        this.parent = parent ;
-        this.modify("parent",parent);
+        this.parent = parent;
+        this.modify("parent", parent);
     }
 
 
     @Override
     public Serializable getDefaultKey(boolean gen) {
-       return IdWorker.getId();
+        return IdWorker.getId();
     }
     /**
      * 复制当前对象数据到目标对象(粘贴重置)
@@ -274,7 +274,7 @@ public class Module extends EntityMP implements Serializable {
     @Override
     public <T> T copyTo(T targetEntity, boolean bIncEmpty) {
         this.reset("id");
-        return super.copyTo(targetEntity,bIncEmpty);
+        return super.copyTo(targetEntity, bIncEmpty);
     }
 }
 

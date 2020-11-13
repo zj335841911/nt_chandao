@@ -62,13 +62,13 @@ public class SysTeamMemberServiceImpl implements ISysTeamMemberService {
 
 
     public void createBatch(List<SysTeamMember> list){
-        sysTeamMemberFeignClient.createBatch(list) ;
+        sysTeamMemberFeignClient.createBatch(list);
     }
 
 
     @Override
     public boolean update(SysTeamMember et) {
-        SysTeamMember rt = sysTeamMemberFeignClient.update(et.getTeammemberid(),et);
+        SysTeamMember rt = sysTeamMemberFeignClient.update(et.getTeammemberid(), et);
         if (rt == null) {
             return false;
         }
@@ -78,14 +78,14 @@ public class SysTeamMemberServiceImpl implements ISysTeamMemberService {
     }
 
 
-    public void updateBatch(List<SysTeamMember> list){
-        sysTeamMemberFeignClient.updateBatch(list) ;
+    public void updateBatch(List<SysTeamMember> list) {
+        sysTeamMemberFeignClient.updateBatch(list);
     }
 
 
     @Override
     public boolean remove(String teammemberid) {
-        boolean result=sysTeamMemberFeignClient.remove(teammemberid) ;
+        boolean result=sysTeamMemberFeignClient.remove(teammemberid);
         return result;
     }
 
@@ -97,12 +97,12 @@ public class SysTeamMemberServiceImpl implements ISysTeamMemberService {
 
     @Override
     public SysTeamMember get(String teammemberid) {
-		SysTeamMember et = sysTeamMemberFeignClient.get(teammemberid);
-        if (et == null){
+        SysTeamMember et = sysTeamMemberFeignClient.get(teammemberid);
+        if (et == null) {
             et = new SysTeamMember();
             et.setTeammemberid(teammemberid);
         }
-        else{
+        else {
         }
         return  et;
     }
@@ -136,13 +136,13 @@ public class SysTeamMemberServiceImpl implements ISysTeamMemberService {
 
     @Override
     public void saveBatch(List<SysTeamMember> list) {
-        sysTeamMemberFeignClient.saveBatch(list) ;
+        sysTeamMemberFeignClient.saveBatch(list);
     }
 
 
 
 
-	@Override
+    @Override
     public List<SysTeamMember> selectByUserid(String userid) {
         SysTeamMemberSearchContext context=new SysTeamMemberSearchContext();
         context.setSize(Integer.MAX_VALUE);
@@ -164,7 +164,7 @@ public class SysTeamMemberServiceImpl implements ISysTeamMemberService {
     }
 
 
-	@Override
+    @Override
     public List<SysTeamMember> selectByPostid(String postid) {
         SysTeamMemberSearchContext context=new SysTeamMemberSearchContext();
         context.setSize(Integer.MAX_VALUE);
@@ -186,7 +186,7 @@ public class SysTeamMemberServiceImpl implements ISysTeamMemberService {
     }
 
 
-	@Override
+    @Override
     public List<SysTeamMember> selectByTeamid(String teamid) {
         SysTeamMemberSearchContext context=new SysTeamMemberSearchContext();
         context.setSize(Integer.MAX_VALUE);

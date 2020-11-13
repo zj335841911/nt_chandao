@@ -127,7 +127,7 @@ public class SysTeamMember extends EntityClient implements Serializable {
      */
     public void setDomains(String domains) {
         this.domains = domains ;
-        this.modify("domains",domains);
+        this.modify("domains", domains);
     }
 
     /**
@@ -135,7 +135,7 @@ public class SysTeamMember extends EntityClient implements Serializable {
      */
     public void setUserid(String userid) {
         this.userid = userid ;
-        this.modify("userid",userid);
+        this.modify("userid", userid);
     }
 
     /**
@@ -143,7 +143,7 @@ public class SysTeamMember extends EntityClient implements Serializable {
      */
     public void setTeamid(String teamid) {
         this.teamid = teamid ;
-        this.modify("teamid",teamid);
+        this.modify("teamid", teamid);
     }
 
     /**
@@ -151,7 +151,7 @@ public class SysTeamMember extends EntityClient implements Serializable {
      */
     public void setPostid(String postid) {
         this.postid = postid ;
-        this.modify("postid",postid);
+        this.modify("postid", postid);
     }
 
     /**
@@ -164,7 +164,7 @@ public class SysTeamMember extends EntityClient implements Serializable {
     @Override
     public <T> T copyTo(T targetEntity, boolean bIncEmpty) {
         this.reset("teammemberid");
-        return super.copyTo(targetEntity,bIncEmpty);
+        return super.copyTo(targetEntity, bIncEmpty);
     }
 }
 

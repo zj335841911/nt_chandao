@@ -96,10 +96,10 @@ public class TodoServiceImpl extends ServiceImpl<TodoMapper, Todo> implements IT
     @Override
     @Transactional
     public Todo get(Long key) {
-        Todo tempET=new Todo();
-        tempET.set("id",key);
+        Todo tempET = new Todo();
+        tempET.set("id", key);
         Todo et = getById(key);
-        if(et == null){
+        if (et == null) {
             et = new Todo();
             et.setId(key);
         }
@@ -172,14 +172,14 @@ public class TodoServiceImpl extends ServiceImpl<TodoMapper, Todo> implements IT
     @Override
     @Transactional
     public boolean saveBatch(Collection<Todo> list) {
-        saveOrUpdateBatch(list,batchSize);
+        saveOrUpdateBatch(list, batchSize);
         return true;
     }
 
     @Override
     @Transactional
     public void saveBatch(List<Todo> list) {
-        saveOrUpdateBatch(list,batchSize);
+        saveOrUpdateBatch(list, batchSize);
     }
 
       /**
@@ -225,7 +225,7 @@ public class TodoServiceImpl extends ServiceImpl<TodoMapper, Todo> implements IT
      */
     @Override
     public Page<Todo> searchDefault(TodoSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Todo> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Todo> pages=baseMapper.searchDefault(context.getPages(), context, context.getSelectCond());
         return new PageImpl<Todo>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -234,7 +234,7 @@ public class TodoServiceImpl extends ServiceImpl<TodoMapper, Todo> implements IT
      */
     @Override
     public Page<Todo> searchMyTodo(TodoSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Todo> pages=baseMapper.searchMyTodo(context.getPages(),context,context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Todo> pages=baseMapper.searchMyTodo(context.getPages(), context, context.getSelectCond());
         return new PageImpl<Todo>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -243,7 +243,7 @@ public class TodoServiceImpl extends ServiceImpl<TodoMapper, Todo> implements IT
      */
     @Override
     public Page<Todo> searchMyTodoPc(TodoSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Todo> pages=baseMapper.searchMyTodoPc(context.getPages(),context,context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Todo> pages=baseMapper.searchMyTodoPc(context.getPages(), context, context.getSelectCond());
         return new PageImpl<Todo>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -252,7 +252,7 @@ public class TodoServiceImpl extends ServiceImpl<TodoMapper, Todo> implements IT
      */
     @Override
     public Page<Todo> searchMyUpcoming(TodoSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Todo> pages=baseMapper.searchMyUpcoming(context.getPages(),context,context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Todo> pages=baseMapper.searchMyUpcoming(context.getPages(), context, context.getSelectCond());
         return new PageImpl<Todo>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -263,24 +263,24 @@ public class TodoServiceImpl extends ServiceImpl<TodoMapper, Todo> implements IT
 
 
     @Override
-    public List<JSONObject> select(String sql, Map param){
-        return this.baseMapper.selectBySQL(sql,param);
+    public List<JSONObject> select(String sql, Map param) {
+        return this.baseMapper.selectBySQL(sql, param);
     }
 
     @Override
     @Transactional
-    public boolean execute(String sql , Map param){
+    public boolean execute(String sql, Map param) {
         if (sql == null || sql.isEmpty()) {
             return false;
         }
         if (sql.toLowerCase().trim().startsWith("insert")) {
-            return this.baseMapper.insertBySQL(sql,param);
+            return this.baseMapper.insertBySQL(sql, param);
         }
         if (sql.toLowerCase().trim().startsWith("update")) {
-            return this.baseMapper.updateBySQL(sql,param);
+            return this.baseMapper.updateBySQL(sql, param);
         }
         if (sql.toLowerCase().trim().startsWith("delete")) {
-            return this.baseMapper.deleteBySQL(sql,param);
+            return this.baseMapper.deleteBySQL(sql, param);
         }
         log.warn("暂未支持的SQL语法");
         return true;

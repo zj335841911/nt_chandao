@@ -112,7 +112,7 @@ public class TestTaskServiceImpl extends ServiceImpl<TestTaskMapper, TestTask> i
     @Transactional
     public TestTask get(Long key) {
         TestTask et = getById(key);
-        if(et == null){
+        if (et == null) {
             et = new TestTask();
             et.setId(key);
         }
@@ -160,7 +160,7 @@ public class TestTaskServiceImpl extends ServiceImpl<TestTaskMapper, TestTask> i
     @Transactional
     public TestTask mobTestTaskCounter(TestTask et) {
         mobtesttaskcounterLogic.execute(et);
-         return et ;
+         return et;
     }
 
     @Override
@@ -186,15 +186,15 @@ public class TestTaskServiceImpl extends ServiceImpl<TestTaskMapper, TestTask> i
     @Transactional
     public boolean saveBatch(Collection<TestTask> list) {
         list.forEach(item->fillParentData(item));
-        saveOrUpdateBatch(list,batchSize);
+        saveOrUpdateBatch(list, batchSize);
         return true;
     }
 
     @Override
     @Transactional
     public void saveBatch(List<TestTask> list) {
-        list.forEach(item->fillParentData(item));
-        saveOrUpdateBatch(list,batchSize);
+        list.forEach(item -> fillParentData(item));
+        saveOrUpdateBatch(list, batchSize);
     }
 
         @Override
@@ -210,31 +210,31 @@ public class TestTaskServiceImpl extends ServiceImpl<TestTaskMapper, TestTask> i
     }
 
 
-	@Override
+    @Override
     public List<TestTask> selectByBuild(Long id) {
         return baseMapper.selectByBuild(id);
     }
     @Override
     public void removeByBuild(Long id) {
-        this.remove(new QueryWrapper<TestTask>().eq("build",id));
+        this.remove(new QueryWrapper<TestTask>().eq("build", id));
     }
 
-	@Override
+    @Override
     public List<TestTask> selectByProduct(Long id) {
         return baseMapper.selectByProduct(id);
     }
     @Override
     public void removeByProduct(Long id) {
-        this.remove(new QueryWrapper<TestTask>().eq("product",id));
+        this.remove(new QueryWrapper<TestTask>().eq("product", id));
     }
 
-	@Override
+    @Override
     public List<TestTask> selectByProject(Long id) {
         return baseMapper.selectByProject(id);
     }
     @Override
     public void removeByProject(Long id) {
-        this.remove(new QueryWrapper<TestTask>().eq("project",id));
+        this.remove(new QueryWrapper<TestTask>().eq("project", id));
     }
 
 
@@ -243,7 +243,7 @@ public class TestTaskServiceImpl extends ServiceImpl<TestTaskMapper, TestTask> i
      */
     @Override
     public Page<TestTask> searchDefault(TestTaskSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<TestTask> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<TestTask> pages=baseMapper.searchDefault(context.getPages(), context, context.getSelectCond());
         return new PageImpl<TestTask>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -290,24 +290,24 @@ public class TestTaskServiceImpl extends ServiceImpl<TestTaskMapper, TestTask> i
 
 
     @Override
-    public List<JSONObject> select(String sql, Map param){
-        return this.baseMapper.selectBySQL(sql,param);
+    public List<JSONObject> select(String sql, Map param) {
+        return this.baseMapper.selectBySQL(sql, param);
     }
 
     @Override
     @Transactional
-    public boolean execute(String sql , Map param){
+    public boolean execute(String sql, Map param) {
         if (sql == null || sql.isEmpty()) {
             return false;
         }
         if (sql.toLowerCase().trim().startsWith("insert")) {
-            return this.baseMapper.insertBySQL(sql,param);
+            return this.baseMapper.insertBySQL(sql, param);
         }
         if (sql.toLowerCase().trim().startsWith("update")) {
-            return this.baseMapper.updateBySQL(sql,param);
+            return this.baseMapper.updateBySQL(sql, param);
         }
         if (sql.toLowerCase().trim().startsWith("delete")) {
-            return this.baseMapper.deleteBySQL(sql,param);
+            return this.baseMapper.deleteBySQL(sql, param);
         }
         log.warn("暂未支持的SQL语法");
         return true;
@@ -327,7 +327,7 @@ public class TestTaskServiceImpl extends ServiceImpl<TestTaskMapper, TestTask> i
      * @param isIgnoreError
      * @return
      */
-    private JSONObject testImportData(List<TestTask> entities,boolean isIgnoreError) {
+    private JSONObject testImportData(List<TestTask> entities, boolean isIgnoreError) {
         JSONObject rs = new JSONObject();
         Set ids = new HashSet<>();
         List<String> errorMsgs = new ArrayList<>();
@@ -379,7 +379,7 @@ public class TestTaskServiceImpl extends ServiceImpl<TestTaskMapper, TestTask> i
             if (!buildService.checkKey(fkEntity)) {
                 Integer lineNum = i + 1;
                 errorLines.add(lineNum);
-                errorMsgs.add(String.format("第" + lineNum + "行：[%s]父数据有误。",entity.getBuild()));
+                errorMsgs.add(String.format("第" + lineNum + "行：[%s]父数据有误。", entity.getBuild()));
                 if (isIgnoreError) {
                     entity.setBuild(null);
                     continue;
@@ -396,7 +396,7 @@ public class TestTaskServiceImpl extends ServiceImpl<TestTaskMapper, TestTask> i
             if (!productService.checkKey(fkEntity)) {
                 Integer lineNum = i + 1;
                 errorLines.add(lineNum);
-                errorMsgs.add(String.format("第" + lineNum + "行：[%s]父数据有误。",entity.getProduct()));
+                errorMsgs.add(String.format("第" + lineNum + "行：[%s]父数据有误。", entity.getProduct()));
                 if (isIgnoreError) {
                     entity.setProduct(null);
                     continue;
@@ -413,7 +413,7 @@ public class TestTaskServiceImpl extends ServiceImpl<TestTaskMapper, TestTask> i
             if (!projectService.checkKey(fkEntity)) {
                 Integer lineNum = i + 1;
                 errorLines.add(lineNum);
-                errorMsgs.add(String.format("第" + lineNum + "行：[%s]父数据有误。",entity.getProject()));
+                errorMsgs.add(String.format("第" + lineNum + "行：[%s]父数据有误。", entity.getProject()));
                 if (isIgnoreError) {
                     entity.setProject(null);
                     continue;
@@ -448,9 +448,9 @@ public class TestTaskServiceImpl extends ServiceImpl<TestTaskMapper, TestTask> i
      */
     @Override
     @Transactional
-    public JSONObject importData(List<TestTask> entities, int batchSize ,boolean isIgnoreError) {
+    public JSONObject importData(List<TestTask> entities, int batchSize, boolean isIgnoreError) {
         if (entities.size() > syncImportLimit) {
-            proxyService.asyncImportData(entities,batchSize,isIgnoreError);
+            proxyService.asyncImportData(entities, batchSize, isIgnoreError);
             JSONObject rs = new JSONObject();
             rs.put("rst", 0);
             rs.put("msg", String.format("当前导入数据已超过同步导入数量上限[%s]，系统正在进行异步导入，请稍后!", syncImportLimit));
@@ -458,19 +458,19 @@ public class TestTaskServiceImpl extends ServiceImpl<TestTaskMapper, TestTask> i
             return rs;
         }
         else {
-            return syncImportData(entities,batchSize,isIgnoreError);
+            return syncImportData(entities, batchSize, isIgnoreError);
         }
     }
 
     @Override
     @Transactional
     public void asyncImportData(List<TestTask> entities, int batchSize, boolean isIgnoreError){
-        executeImportData(entities,batchSize,isIgnoreError);
+        executeImportData(entities, batchSize, isIgnoreError);
     }
 
     @Transactional
     public JSONObject syncImportData(List<TestTask> entities, int batchSize, boolean isIgnoreError){
-        return executeImportData(entities,batchSize,isIgnoreError);
+        return executeImportData(entities, batchSize, isIgnoreError);
     }
 
     @Transactional
@@ -490,7 +490,7 @@ public class TestTaskServiceImpl extends ServiceImpl<TestTaskMapper, TestTask> i
                 tempIds.add(id);
             }
             if (tempDEList.size() >= batchSize || (tempDEList.size() < batchSize && i == entities.size() - 1)){
-                commit(tempDEList,tempIds);
+                commit(tempDEList, tempIds);
                 tempDEList.clear();
                 tempIds.clear();
             }

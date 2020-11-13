@@ -23,7 +23,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 /**
  * 实体[Product] 服务对象接口
  */
-public interface IProductService extends IService<Product>{
+public interface IProductService extends IService<Product> {
 
     /**
      * 业务实体显示文本名称
@@ -35,48 +35,48 @@ public interface IProductService extends IService<Product>{
      */
     final static String OBJECT_SOURCE_PATH = "products";
 
-    boolean create(Product et) ;
-    void createBatch(List<Product> list) ;
-    boolean update(Product et) ;
-    void updateBatch(List<Product> list) ;
-    boolean remove(Long key) ;
-    void removeBatch(Collection<Long> idList) ;
-    Product get(Long key) ;
-    Product getDraft(Product et) ;
-    Product cancelProductTop(Product et) ;
-    boolean checkKey(Product et) ;
-    Product close(Product et) ;
-    Product mobProductCounter(Product et) ;
-    Product mobProductTestCounter(Product et) ;
-    Product productTop(Product et) ;
-    boolean save(Product et) ;
-    void saveBatch(List<Product> list) ;
-    Page<Product> searchAllList(ProductSearchContext context) ;
-    Page<Product> searchCheckNameOrCode(ProductSearchContext context) ;
-    Page<Product> searchCurProject(ProductSearchContext context) ;
-    Page<Product> searchCurUer(ProductSearchContext context) ;
-    Page<Product> searchDefault(ProductSearchContext context) ;
-    Page<Product> searchProductPM(ProductSearchContext context) ;
-    Page<Product> searchStoryCurProject(ProductSearchContext context) ;
+    boolean create(Product et);
+    void createBatch(List<Product> list);
+    boolean update(Product et);
+    void updateBatch(List<Product> list);
+    boolean remove(Long key);
+    void removeBatch(Collection<Long> idList);
+    Product get(Long key);
+    Product getDraft(Product et);
+    Product cancelProductTop(Product et);
+    boolean checkKey(Product et);
+    Product close(Product et);
+    Product mobProductCounter(Product et);
+    Product mobProductTestCounter(Product et);
+    Product productTop(Product et);
+    boolean save(Product et);
+    void saveBatch(List<Product> list);
+    Page<Product> searchAllList(ProductSearchContext context);
+    Page<Product> searchCheckNameOrCode(ProductSearchContext context);
+    Page<Product> searchCurProject(ProductSearchContext context);
+    Page<Product> searchCurUer(ProductSearchContext context);
+    Page<Product> searchDefault(ProductSearchContext context);
+    Page<Product> searchProductPM(ProductSearchContext context);
+    Page<Product> searchStoryCurProject(ProductSearchContext context);
     List<Product> selectByLine(Long id);
-    void removeByLine(Long id) ;
+    void removeByLine(Long id);
     /**
-     *自定义查询SQL
+     * 自定义查询SQL
      * @param sql  select * from table where id =#{et.param}
-     * @param param 参数列表  param.put("param","1");
+     * @param param 参数列表  param.put("param", "1");
      * @return select * from table where id = '1'
      */
     List<JSONObject> select(String sql, Map param);
     /**
-     *自定义SQL
+     * 自定义SQL
      * @param sql  update table  set name ='test' where id =#{et.param}
-     * @param param 参数列表  param.put("param","1");
+     * @param param 参数列表  param.put("param", "1");
      * @return     update table  set name ='test' where id = '1'
      */
     boolean execute(String sql, Map param);
 
-    List<Product> getProductByIds(List<Long> ids) ;
-    List<Product> getProductByEntities(List<Product> entities) ;
+    List<Product> getProductByIds(List<Long> ids);
+    List<Product> getProductByEntities(List<Product> entities);
 }
 
 

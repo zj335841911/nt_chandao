@@ -82,26 +82,26 @@ public class PSSystemDBCfgServiceImpl implements IPSSystemDBCfgService {
     }
 
     @Override
-    public boolean create(String devSlnSysId,PSSystemDBCfg et) {
+    public boolean create(String devSlnSysId, PSSystemDBCfg et) {
         PSSystemDBCfg rt = getPSSystemDBCfgFeignClient(devSlnSysId).create(et);
         if (rt == null) {
             return false;
-	    }
+        }
         CachedBeanCopier.copy(rt, et);
         return true;
     }
 
     public void createBatch(List<PSSystemDBCfg> list){
-        pSSystemDBCfgFeignClient.createBatch(list) ;
+        pSSystemDBCfgFeignClient.createBatch(list);
     }
 
-    public void createBatch(String devSlnSysId,List<PSSystemDBCfg> list){
+    public void createBatch(String devSlnSysId, List<PSSystemDBCfg> list){
         getPSSystemDBCfgFeignClient(devSlnSysId).createBatch(list);
     }
 
     @Override
     public boolean update(PSSystemDBCfg et) {
-        PSSystemDBCfg rt = pSSystemDBCfgFeignClient.update(et.getPssystemdbcfgid(),et);
+        PSSystemDBCfg rt = pSSystemDBCfgFeignClient.update(et.getPssystemdbcfgid(), et);
         if (rt == null) {
             return false;
         }
@@ -115,27 +115,27 @@ public class PSSystemDBCfgServiceImpl implements IPSSystemDBCfgService {
         PSSystemDBCfg rt = getPSSystemDBCfgFeignClient(devSlnSysId).update(et.getPssystemdbcfgid(), et);
         if (rt == null) {
             return false;
-	    }
+        }
         CachedBeanCopier.copy(rt, et);
         return true;
     }
 
-    public void updateBatch(List<PSSystemDBCfg> list){
-        pSSystemDBCfgFeignClient.updateBatch(list) ;
+    public void updateBatch(List<PSSystemDBCfg> list) {
+        pSSystemDBCfgFeignClient.updateBatch(list);
     }
 
-    public void updateBatch(String devSlnSysId,List<PSSystemDBCfg> list){
+    public void updateBatch(String devSlnSysId, List<PSSystemDBCfg> list){
         getPSSystemDBCfgFeignClient(devSlnSysId).updateBatch(list);
     }
 
     @Override
     public boolean remove(String pssystemdbcfgid) {
-        boolean result=pSSystemDBCfgFeignClient.remove(pssystemdbcfgid) ;
+        boolean result=pSSystemDBCfgFeignClient.remove(pssystemdbcfgid);
         return result;
     }
 
     @Override
-    public boolean remove(String devSlnSysId,String pssystemdbcfgid) {
+    public boolean remove(String devSlnSysId, String pssystemdbcfgid) {
         boolean result = getPSSystemDBCfgFeignClient(devSlnSysId).remove(pssystemdbcfgid);
         return result;
     }
@@ -144,36 +144,36 @@ public class PSSystemDBCfgServiceImpl implements IPSSystemDBCfgService {
         pSSystemDBCfgFeignClient.removeBatch(idList);
     }
 
-    public void removeBatch(String devSlnSysId,Collection<String> idList){
+    public void removeBatch(String devSlnSysId, Collection<String> idList) {
         getPSSystemDBCfgFeignClient(devSlnSysId).removeBatch(idList);
     }
 
     @Override
     public PSSystemDBCfg get(String pssystemdbcfgid) {
-		PSSystemDBCfg et = pSSystemDBCfgFeignClient.get(pssystemdbcfgid);
-        if (et == null){
+        PSSystemDBCfg et = pSSystemDBCfgFeignClient.get(pssystemdbcfgid);
+        if (et == null) {
             et = new PSSystemDBCfg();
             et.setPssystemdbcfgid(pssystemdbcfgid);
         }
-        else{
+        else {
         }
         return  et;
     }
 
     @Override
-    public PSSystemDBCfg get(String devSlnSysId,String pssystemdbcfgid) {
-		PSSystemDBCfg et = getPSSystemDBCfgFeignClient(devSlnSysId).get(pssystemdbcfgid);
+    public PSSystemDBCfg get(String devSlnSysId, String pssystemdbcfgid) {
+        PSSystemDBCfg et = getPSSystemDBCfgFeignClient(devSlnSysId).get(pssystemdbcfgid);
         if (et == null) {
             et = new PSSystemDBCfg();
             et.setPssystemdbcfgid(pssystemdbcfgid);
         }
-        else{
+        else {
         }
         return et;
     }
 
     @Override
-    public String getByCodeName(String devSlnSysId,String codeName) {
+    public String getByCodeName(String devSlnSysId, String codeName) {
         return getPSSystemDBCfgFeignClient(devSlnSysId).getByCodeName(codeName);
     }
 
@@ -184,7 +184,7 @@ public class PSSystemDBCfgServiceImpl implements IPSSystemDBCfgService {
     }
 
     @Override
-    public PSSystemDBCfg getDraft(String devSlnSysId,PSSystemDBCfg et) {
+    public PSSystemDBCfg getDraft(String devSlnSysId, PSSystemDBCfg et) {
         et = getPSSystemDBCfgFeignClient(devSlnSysId).getDraft();
         return et;
     }
@@ -195,7 +195,7 @@ public class PSSystemDBCfgServiceImpl implements IPSSystemDBCfgService {
     }
 
     @Override
-    public boolean checkKey(String devSlnSysId,PSSystemDBCfg et) {
+    public boolean checkKey(String devSlnSysId, PSSystemDBCfg et) {
         return getPSSystemDBCfgFeignClient(devSlnSysId).checkKey(et);
     }
 
@@ -213,11 +213,11 @@ public class PSSystemDBCfgServiceImpl implements IPSSystemDBCfgService {
 
     @Override
     @Transactional
-    public boolean save(String devSlnSysId,PSSystemDBCfg et) {
+    public boolean save(String devSlnSysId, PSSystemDBCfg et) {
         if (et.getPssystemdbcfgid() == null) {
-	        et.setPssystemdbcfgid((String)et.getDefaultKey(true));
-	    }
-        if(!getPSSystemDBCfgFeignClient(devSlnSysId).save(et)) {
+            et.setPssystemdbcfgid((String)et.getDefaultKey(true));
+        }
+        if (!getPSSystemDBCfgFeignClient(devSlnSysId).save(et)) {
             return false;
         }
         return true;
@@ -225,11 +225,11 @@ public class PSSystemDBCfgServiceImpl implements IPSSystemDBCfgService {
 
     @Override
     public void saveBatch(List<PSSystemDBCfg> list) {
-        pSSystemDBCfgFeignClient.saveBatch(list) ;
+        pSSystemDBCfgFeignClient.saveBatch(list);
     }
 
     @Override
-    public void saveBatch(String devSlnSysId,List<PSSystemDBCfg> list) {
+    public void saveBatch(String devSlnSysId, List<PSSystemDBCfg> list) {
         getPSSystemDBCfgFeignClient(devSlnSysId).saveBatch(list);
     }
 
@@ -247,7 +247,7 @@ public class PSSystemDBCfgServiceImpl implements IPSSystemDBCfgService {
     }
 
     @Override
-    public Page<PSSystemDBCfg> searchBuild(String devSlnSysId,PSSystemDBCfgSearchContext context) {
+    public Page<PSSystemDBCfg> searchBuild(String devSlnSysId, PSSystemDBCfgSearchContext context) {
         Page<PSSystemDBCfg> pSSystemDBCfgs=getPSSystemDBCfgFeignClient(devSlnSysId).searchBuild(context);
         return pSSystemDBCfgs;
     }
@@ -262,7 +262,7 @@ public class PSSystemDBCfgServiceImpl implements IPSSystemDBCfgService {
     }
 
     @Override
-    public Page<PSSystemDBCfg> searchDefault(String devSlnSysId,PSSystemDBCfgSearchContext context) {
+    public Page<PSSystemDBCfg> searchDefault(String devSlnSysId, PSSystemDBCfgSearchContext context) {
         Page<PSSystemDBCfg> pSSystemDBCfgs=getPSSystemDBCfgFeignClient(devSlnSysId).searchDefault(context);
         return pSSystemDBCfgs;
     }

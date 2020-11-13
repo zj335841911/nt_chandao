@@ -62,13 +62,13 @@ public class SysDepartmentServiceImpl implements ISysDepartmentService {
 
 
     public void createBatch(List<SysDepartment> list){
-        sysDepartmentFeignClient.createBatch(list) ;
+        sysDepartmentFeignClient.createBatch(list);
     }
 
 
     @Override
     public boolean update(SysDepartment et) {
-        SysDepartment rt = sysDepartmentFeignClient.update(et.getDeptid(),et);
+        SysDepartment rt = sysDepartmentFeignClient.update(et.getDeptid(), et);
         if (rt == null) {
             return false;
         }
@@ -78,14 +78,14 @@ public class SysDepartmentServiceImpl implements ISysDepartmentService {
     }
 
 
-    public void updateBatch(List<SysDepartment> list){
-        sysDepartmentFeignClient.updateBatch(list) ;
+    public void updateBatch(List<SysDepartment> list) {
+        sysDepartmentFeignClient.updateBatch(list);
     }
 
 
     @Override
     public boolean remove(String deptid) {
-        boolean result=sysDepartmentFeignClient.remove(deptid) ;
+        boolean result=sysDepartmentFeignClient.remove(deptid);
         return result;
     }
 
@@ -97,12 +97,12 @@ public class SysDepartmentServiceImpl implements ISysDepartmentService {
 
     @Override
     public SysDepartment get(String deptid) {
-		SysDepartment et = sysDepartmentFeignClient.get(deptid);
-        if (et == null){
+        SysDepartment et = sysDepartmentFeignClient.get(deptid);
+        if (et == null) {
             et = new SysDepartment();
             et.setDeptid(deptid);
         }
-        else{
+        else {
         }
         return  et;
     }
@@ -136,13 +136,13 @@ public class SysDepartmentServiceImpl implements ISysDepartmentService {
 
     @Override
     public void saveBatch(List<SysDepartment> list) {
-        sysDepartmentFeignClient.saveBatch(list) ;
+        sysDepartmentFeignClient.saveBatch(list);
     }
 
 
 
 
-	@Override
+    @Override
     public List<SysDepartment> selectByParentdeptid(String deptid) {
         SysDepartmentSearchContext context=new SysDepartmentSearchContext();
         context.setSize(Integer.MAX_VALUE);
@@ -170,7 +170,7 @@ public class SysDepartmentServiceImpl implements ISysDepartmentService {
     }
 
 
-	@Override
+    @Override
     public List<SysDepartment> selectByOrgid(String orgid) {
         SysDepartmentSearchContext context=new SysDepartmentSearchContext();
         context.setSize(Integer.MAX_VALUE);
@@ -201,8 +201,8 @@ public class SysDepartmentServiceImpl implements ISysDepartmentService {
     @Autowired
     @Lazy
     ISysDepartmentService proxyService;
-	@Override
-    public void saveByOrgid(String orgid,List<SysDepartment> list) {
+    @Override
+    public void saveByOrgid(String orgid, List<SysDepartment> list) {
         if (list == null) {
             return;
         }
@@ -220,9 +220,9 @@ public class SysDepartmentServiceImpl implements ISysDepartmentService {
             if (delIds.contains(sub.getDeptid())) {
                 delIds.remove(sub.getDeptid());
                 _update.add(sub);
-            }
-            else
+            } else {
                 _create.add(sub);
+            }
         }
         if (_update.size() > 0) {
             proxyService.updateBatch(_update);
@@ -233,7 +233,7 @@ public class SysDepartmentServiceImpl implements ISysDepartmentService {
         if (delIds.size() > 0) {
             proxyService.removeBatch(delIds);
         }
-	}
+    }
 
 
 

@@ -22,7 +22,7 @@ import cn.ibizlab.pms.core.ou.filter.SysDepartmentSearchContext;
 /**
  * 实体[SysDepartment] 服务对象接口
  */
-public interface ISysDepartmentService{
+public interface ISysDepartmentService {
 
     /**
      * 业务实体显示文本名称
@@ -34,25 +34,25 @@ public interface ISysDepartmentService{
      */
     final static String OBJECT_SOURCE_PATH = "sysdepartments";
 
-    boolean create(SysDepartment et) ;
-    void createBatch(List<SysDepartment> list) ;
-    boolean update(SysDepartment et) ;
-    void updateBatch(List<SysDepartment> list) ;
-    boolean remove(String key) ;
-    void removeBatch(Collection<String> idList) ;
-    SysDepartment get(String key) ;
-    SysDepartment getDraft(SysDepartment et) ;
-    boolean checkKey(SysDepartment et) ;
-    boolean save(SysDepartment et) ;
-    void saveBatch(List<SysDepartment> list) ;
-    Page<SysDepartment> searchDefault(SysDepartmentSearchContext context) ;
+    boolean create(SysDepartment et);
+    void createBatch(List<SysDepartment> list);
+    boolean update(SysDepartment et);
+    void updateBatch(List<SysDepartment> list);
+    boolean remove(String key);
+    void removeBatch(Collection<String> idList);
+    SysDepartment get(String key);
+    SysDepartment getDraft(SysDepartment et);
+    boolean checkKey(SysDepartment et);
+    boolean save(SysDepartment et);
+    void saveBatch(List<SysDepartment> list);
+    Page<SysDepartment> searchDefault(SysDepartmentSearchContext context);
     List<SysDepartment> selectByParentdeptid(String deptid);
     List<SysDepartment> selectByParentdeptid(Collection<String> ids);
-    void removeByParentdeptid(String deptid) ;
+    void removeByParentdeptid(String deptid);
     List<SysDepartment> selectByOrgid(String orgid);
     List<SysDepartment> selectByOrgid(Collection<String> ids);
-    void removeByOrgid(String orgid) ;
-    void saveByOrgid(String orgid,List<SysDepartment> list) ;
+    void removeByOrgid(String orgid);
+    void saveByOrgid(String orgid, List<SysDepartment> list) ;
 
 
 }

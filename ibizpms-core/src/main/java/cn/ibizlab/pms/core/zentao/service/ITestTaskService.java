@@ -23,7 +23,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 /**
  * 实体[TestTask] 服务对象接口
  */
-public interface ITestTaskService extends IService<TestTask>{
+public interface ITestTaskService extends IService<TestTask> {
 
     /**
      * 业务实体显示文本名称
@@ -35,46 +35,46 @@ public interface ITestTaskService extends IService<TestTask>{
      */
     final static String OBJECT_SOURCE_PATH = "testtasks";
 
-    boolean create(TestTask et) ;
-    void createBatch(List<TestTask> list) ;
-    boolean update(TestTask et) ;
-    void updateBatch(List<TestTask> list) ;
-    boolean remove(Long key) ;
-    void removeBatch(Collection<Long> idList) ;
-    TestTask get(Long key) ;
-    TestTask getDraft(TestTask et) ;
-    TestTask activate(TestTask et) ;
-    TestTask block(TestTask et) ;
-    boolean checkKey(TestTask et) ;
-    TestTask close(TestTask et) ;
-    TestTask linkCase(TestTask et) ;
-    TestTask mobTestTaskCounter(TestTask et) ;
-    boolean save(TestTask et) ;
-    void saveBatch(List<TestTask> list) ;
-    TestTask start(TestTask et) ;
-    TestTask unlinkCase(TestTask et) ;
-    Page<TestTask> searchDefault(TestTaskSearchContext context) ;
+    boolean create(TestTask et);
+    void createBatch(List<TestTask> list);
+    boolean update(TestTask et);
+    void updateBatch(List<TestTask> list);
+    boolean remove(Long key);
+    void removeBatch(Collection<Long> idList);
+    TestTask get(Long key);
+    TestTask getDraft(TestTask et);
+    TestTask activate(TestTask et);
+    TestTask block(TestTask et);
+    boolean checkKey(TestTask et);
+    TestTask close(TestTask et);
+    TestTask linkCase(TestTask et);
+    TestTask mobTestTaskCounter(TestTask et);
+    boolean save(TestTask et);
+    void saveBatch(List<TestTask> list);
+    TestTask start(TestTask et);
+    TestTask unlinkCase(TestTask et);
+    Page<TestTask> searchDefault(TestTaskSearchContext context);
     List<TestTask> selectByBuild(Long id);
-    void removeByBuild(Long id) ;
+    void removeByBuild(Long id);
     List<TestTask> selectByProduct(Long id);
-    void removeByProduct(Long id) ;
+    void removeByProduct(Long id);
     List<TestTask> selectByProject(Long id);
-    void removeByProject(Long id) ;
-    JSONObject importData(List<TestTask> entities,int batchSize,boolean isIgnoreError);
+    void removeByProject(Long id);
+    JSONObject importData(List<TestTask> entities, int batchSize, boolean isIgnoreError);
 
     @Async("asyncExecutor")
-    void asyncImportData(List<TestTask> entities,int batchSize,boolean isIgnoreError);
+    void asyncImportData(List<TestTask> entities, int batchSize, boolean isIgnoreError);
     /**
-     *自定义查询SQL
+     * 自定义查询SQL
      * @param sql  select * from table where id =#{et.param}
-     * @param param 参数列表  param.put("param","1");
+     * @param param 参数列表  param.put("param", "1");
      * @return select * from table where id = '1'
      */
     List<JSONObject> select(String sql, Map param);
     /**
-     *自定义SQL
+     * 自定义SQL
      * @param sql  update table  set name ='test' where id =#{et.param}
-     * @param param 参数列表  param.put("param","1");
+     * @param param 参数列表  param.put("param", "1");
      * @return     update table  set name ='test' where id = '1'
      */
     boolean execute(String sql, Map param);

@@ -38,7 +38,7 @@ import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 @Setter
 @NoArgsConstructor
 @JsonIgnoreProperties(value = "handler")
-@TableName(value = "zt_block",resultMap = "BlockResultMap")
+@TableName(value = "zt_block", resultMap = "BlockResultMap")
 public class Block extends EntityMP implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -121,7 +121,7 @@ public class Block extends EntityMP implements Serializable {
      * id
      */
     @DEField(isKeyField = true)
-    @TableId(value= "id",type=IdType.AUTO)
+    @TableId(value = "id", type = IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
     private Long id;
@@ -132,86 +132,86 @@ public class Block extends EntityMP implements Serializable {
      * 设置 [高度]
      */
     public void setHeight(Integer height) {
-        this.height = height ;
-        this.modify("height",height);
+        this.height = height;
+        this.modify("height", height);
     }
 
     /**
      * 设置 [params]
      */
     public void setParams(String params) {
-        this.params = params ;
-        this.modify("params",params);
+        this.params = params;
+        this.modify("params", params);
     }
 
     /**
      * 设置 [区块名称]
      */
     public void setTitle(String title) {
-        this.title = title ;
-        this.modify("title",title);
+        this.title = title;
+        this.modify("title", title);
     }
 
     /**
      * 设置 [排序]
      */
     public void setOrder(Integer order) {
-        this.order = order ;
-        this.modify("order",order);
+        this.order = order;
+        this.modify("order", order);
     }
 
     /**
      * 设置 [来源区块]
      */
     public void setBlock(String block) {
-        this.block = block ;
-        this.modify("block",block);
+        this.block = block;
+        this.modify("block", block);
     }
 
     /**
      * 设置 [所属用户]
      */
     public void setAccount(String account) {
-        this.account = account ;
-        this.modify("account",account);
+        this.account = account;
+        this.modify("account", account);
     }
 
     /**
      * 设置 [位置]
      */
     public void setGrid(Integer grid) {
-        this.grid = grid ;
-        this.modify("grid",grid);
+        this.grid = grid;
+        this.modify("grid", grid);
     }
 
     /**
      * 设置 [所属模块]
      */
     public void setModule(String module) {
-        this.module = module ;
-        this.modify("module",module);
+        this.module = module;
+        this.modify("module", module);
     }
 
     /**
      * 设置 [隐藏]
      */
     public void setHidden(Integer hidden) {
-        this.hidden = hidden ;
-        this.modify("hidden",hidden);
+        this.hidden = hidden;
+        this.modify("hidden", hidden);
     }
 
     /**
      * 设置 [来源模块]
      */
     public void setSource(String source) {
-        this.source = source ;
-        this.modify("source",source);
+        this.source = source;
+        this.modify("source", source);
     }
 
 
     @Override
     public Serializable getDefaultKey(boolean gen) {
-       return IdWorker.getId();
+        return IdWorker.getId();
     }
     /**
      * 复制当前对象数据到目标对象(粘贴重置)
@@ -223,7 +223,7 @@ public class Block extends EntityMP implements Serializable {
     @Override
     public <T> T copyTo(T targetEntity, boolean bIncEmpty) {
         this.reset("id");
-        return super.copyTo(targetEntity,bIncEmpty);
+        return super.copyTo(targetEntity, bIncEmpty);
     }
 }
 

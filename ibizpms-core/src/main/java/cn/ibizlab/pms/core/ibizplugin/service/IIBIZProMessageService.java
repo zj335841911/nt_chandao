@@ -22,7 +22,7 @@ import cn.ibizlab.pms.core.ibizplugin.filter.IBIZProMessageSearchContext;
 /**
  * 实体[IBIZProMessage] 服务对象接口
  */
-public interface IIBIZProMessageService{
+public interface IIBIZProMessageService {
 
     /**
      * 业务实体显示文本名称
@@ -34,21 +34,21 @@ public interface IIBIZProMessageService{
      */
     final static String OBJECT_SOURCE_PATH = "ibizpromessages";
 
-    boolean create(IBIZProMessage et) ;
-    void createBatch(List<IBIZProMessage> list) ;
-    boolean update(IBIZProMessage et) ;
-    void updateBatch(List<IBIZProMessage> list) ;
-    boolean remove(String key) ;
-    void removeBatch(Collection<String> idList) ;
-    IBIZProMessage get(String key) ;
-    IBIZProMessage getDraft(IBIZProMessage et) ;
-    boolean checkKey(IBIZProMessage et) ;
-    IBIZProMessage markDone(IBIZProMessage et) ;
-    IBIZProMessage markRead(IBIZProMessage et) ;
-    boolean save(IBIZProMessage et) ;
-    void saveBatch(List<IBIZProMessage> list) ;
-    IBIZProMessage send(IBIZProMessage et) ;
-    Page<IBIZProMessage> searchDefault(IBIZProMessageSearchContext context) ;
+    boolean create(IBIZProMessage et);
+    void createBatch(List<IBIZProMessage> list);
+    boolean update(IBIZProMessage et);
+    void updateBatch(List<IBIZProMessage> list);
+    boolean remove(String key);
+    void removeBatch(Collection<String> idList);
+    IBIZProMessage get(String key);
+    IBIZProMessage getDraft(IBIZProMessage et);
+    boolean checkKey(IBIZProMessage et);
+    IBIZProMessage markDone(IBIZProMessage et);
+    IBIZProMessage markRead(IBIZProMessage et);
+    boolean save(IBIZProMessage et);
+    void saveBatch(List<IBIZProMessage> list);
+    IBIZProMessage send(IBIZProMessage et);
+    Page<IBIZProMessage> searchDefault(IBIZProMessageSearchContext context);
 
 
 }

@@ -38,7 +38,7 @@ import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 @Setter
 @NoArgsConstructor
 @JsonIgnoreProperties(value = "handler")
-@TableName(value = "zt_user",resultMap = "UserYearWorkStatsResultMap")
+@TableName(value = "zt_user", resultMap = "UserYearWorkStatsResultMap")
 public class UserYearWorkStats extends EntityMP implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -47,7 +47,7 @@ public class UserYearWorkStats extends EntityMP implements Serializable {
      * 用户编号
      */
     @DEField(isKeyField = true)
-    @TableId(value= "id",type=IdType.AUTO)
+    @TableId(value = "id", type = IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
     private Long id;
@@ -231,7 +231,7 @@ public class UserYearWorkStats extends EntityMP implements Serializable {
      * 入职日期
      */
     @TableField(value = "`join`")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "join", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("join")
     private Timestamp join;
@@ -309,7 +309,7 @@ public class UserYearWorkStats extends EntityMP implements Serializable {
      * birthday
      */
     @TableField(value = "`birthday`")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "birthday", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("birthday")
     private Timestamp birthday;
@@ -317,7 +317,7 @@ public class UserYearWorkStats extends EntityMP implements Serializable {
      * locked
      */
     @TableField(value = "`locked`")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "locked", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("locked")
     private Timestamp locked;
@@ -405,80 +405,80 @@ public class UserYearWorkStats extends EntityMP implements Serializable {
      * 设置 [真实用户名]
      */
     public void setRealname(String realname) {
-        this.realname = realname ;
-        this.modify("realname",realname);
+        this.realname = realname;
+        this.modify("realname", realname);
     }
 
     /**
      * 设置 [账号]
      */
     public void setAccount(String account) {
-        this.account = account ;
-        this.modify("account",account);
+        this.account = account;
+        this.modify("account", account);
     }
 
     /**
      * 设置 [角色]
      */
     public void setRole(String role) {
-        this.role = role ;
-        this.modify("role",role);
+        this.role = role;
+        this.modify("role", role);
     }
 
     /**
      * 设置 [部门编号]
      */
     public void setDept(String dept) {
-        this.dept = dept ;
-        this.modify("dept",dept);
+        this.dept = dept;
+        this.modify("dept", dept);
     }
 
     /**
      * 设置 [累计登录次数]
      */
     public void setVisits(Integer visits) {
-        this.visits = visits ;
-        this.modify("visits",visits);
+        this.visits = visits;
+        this.modify("visits", visits);
     }
 
     /**
      * 设置 [slack]
      */
     public void setSlack(String slack) {
-        this.slack = slack ;
-        this.modify("slack",slack);
+        this.slack = slack;
+        this.modify("slack", slack);
     }
 
     /**
      * 设置 [skype]
      */
     public void setSkype(String skype) {
-        this.skype = skype ;
-        this.modify("skype",skype);
+        this.skype = skype;
+        this.modify("skype", skype);
     }
 
     /**
      * 设置 [score]
      */
     public void setScore(Integer score) {
-        this.score = score ;
-        this.modify("score",score);
+        this.score = score;
+        this.modify("score", score);
     }
 
     /**
      * 设置 [微信]
      */
     public void setWeixin(String weixin) {
-        this.weixin = weixin ;
-        this.modify("weixin",weixin);
+        this.weixin = weixin;
+        this.modify("weixin", weixin);
     }
 
     /**
      * 设置 [入职日期]
      */
     public void setJoin(Timestamp join) {
-        this.join = join ;
-        this.modify("join",join);
+        this.join = join;
+        this.modify("join", join);
     }
 
     /**
@@ -495,88 +495,88 @@ public class UserYearWorkStats extends EntityMP implements Serializable {
      * 设置 [电话]
      */
     public void setPhone(String phone) {
-        this.phone = phone ;
-        this.modify("phone",phone);
+        this.phone = phone;
+        this.modify("phone", phone);
     }
 
     /**
      * 设置 [fails]
      */
     public void setFails(Integer fails) {
-        this.fails = fails ;
-        this.modify("fails",fails);
+        this.fails = fails;
+        this.modify("fails", fails);
     }
 
     /**
      * 设置 [邮箱]
      */
     public void setEmail(String email) {
-        this.email = email ;
-        this.modify("email",email);
+        this.email = email;
+        this.modify("email", email);
     }
 
     /**
      * 设置 [clientLang]
      */
     public void setClientlang(String clientlang) {
-        this.clientlang = clientlang ;
-        this.modify("clientlang",clientlang);
+        this.clientlang = clientlang;
+        this.modify("clientlang", clientlang);
     }
 
     /**
      * 设置 [逻辑删除标志]
      */
     public void setDeleted(String deleted) {
-        this.deleted = deleted ;
-        this.modify("deleted",deleted);
+        this.deleted = deleted;
+        this.modify("deleted", deleted);
     }
 
     /**
      * 设置 [ranzhi]
      */
     public void setRanzhi(String ranzhi) {
-        this.ranzhi = ranzhi ;
-        this.modify("ranzhi",ranzhi);
+        this.ranzhi = ranzhi;
+        this.modify("ranzhi", ranzhi);
     }
 
     /**
      * 设置 [avatar]
      */
     public void setAvatar(String avatar) {
-        this.avatar = avatar ;
-        this.modify("avatar",avatar);
+        this.avatar = avatar;
+        this.modify("avatar", avatar);
     }
 
     /**
      * 设置 [源代码账户]
      */
     public void setCommiter(String commiter) {
-        this.commiter = commiter ;
-        this.modify("commiter",commiter);
+        this.commiter = commiter;
+        this.modify("commiter", commiter);
     }
 
     /**
      * 设置 [性别]
      */
     public void setGender(String gender) {
-        this.gender = gender ;
-        this.modify("gender",gender);
+        this.gender = gender;
+        this.modify("gender", gender);
     }
 
     /**
      * 设置 [QQ]
      */
     public void setQq(String qq) {
-        this.qq = qq ;
-        this.modify("qq",qq);
+        this.qq = qq;
+        this.modify("qq", qq);
     }
 
     /**
      * 设置 [birthday]
      */
     public void setBirthday(Timestamp birthday) {
-        this.birthday = birthday ;
-        this.modify("birthday",birthday);
+        this.birthday = birthday;
+        this.modify("birthday", birthday);
     }
 
     /**
@@ -593,8 +593,8 @@ public class UserYearWorkStats extends EntityMP implements Serializable {
      * 设置 [locked]
      */
     public void setLocked(Timestamp locked) {
-        this.locked = locked ;
-        this.modify("locked",locked);
+        this.locked = locked;
+        this.modify("locked", locked);
     }
 
     /**
@@ -611,94 +611,94 @@ public class UserYearWorkStats extends EntityMP implements Serializable {
      * 设置 [钉钉]
      */
     public void setDingding(String dingding) {
-        this.dingding = dingding ;
-        this.modify("dingding",dingding);
+        this.dingding = dingding;
+        this.modify("dingding", dingding);
     }
 
     /**
      * 设置 [ip]
      */
     public void setIp(String ip) {
-        this.ip = ip ;
-        this.modify("ip",ip);
+        this.ip = ip;
+        this.modify("ip", ip);
     }
 
     /**
      * 设置 [whatsapp]
      */
     public void setWhatsapp(String whatsapp) {
-        this.whatsapp = whatsapp ;
-        this.modify("whatsapp",whatsapp);
+        this.whatsapp = whatsapp;
+        this.modify("whatsapp", whatsapp);
     }
 
     /**
      * 设置 [zipcode]
      */
     public void setZipcode(String zipcode) {
-        this.zipcode = zipcode ;
-        this.modify("zipcode",zipcode);
+        this.zipcode = zipcode;
+        this.modify("zipcode", zipcode);
     }
 
     /**
      * 设置 [密码]
      */
     public void setPassword(String password) {
-        this.password = password ;
-        this.modify("password",password);
+        this.password = password;
+        this.modify("password", password);
     }
 
     /**
      * 设置 [nickname]
      */
     public void setNickname(String nickname) {
-        this.nickname = nickname ;
-        this.modify("nickname",nickname);
+        this.nickname = nickname;
+        this.modify("nickname", nickname);
     }
 
     /**
      * 设置 [clientStatus]
      */
     public void setClientstatus(String clientstatus) {
-        this.clientstatus = clientstatus ;
-        this.modify("clientstatus",clientstatus);
+        this.clientstatus = clientstatus;
+        this.modify("clientstatus", clientstatus);
     }
 
     /**
      * 设置 [scoreLevel]
      */
     public void setScorelevel(Integer scorelevel) {
-        this.scorelevel = scorelevel ;
-        this.modify("scorelevel",scorelevel);
+        this.scorelevel = scorelevel;
+        this.modify("scorelevel", scorelevel);
     }
 
     /**
      * 设置 [手机]
      */
     public void setMobile(String mobile) {
-        this.mobile = mobile ;
-        this.modify("mobile",mobile);
+        this.mobile = mobile;
+        this.modify("mobile", mobile);
     }
 
     /**
      * 设置 [最后登录]
      */
     public void setLast(Integer last) {
-        this.last = last ;
-        this.modify("last",last);
+        this.last = last;
+        this.modify("last", last);
     }
 
     /**
      * 设置 [通讯地址]
      */
     public void setAddress(String address) {
-        this.address = address ;
-        this.modify("address",address);
+        this.address = address;
+        this.modify("address", address);
     }
 
 
     @Override
     public Serializable getDefaultKey(boolean gen) {
-       return IdWorker.getId();
+        return IdWorker.getId();
     }
     /**
      * 复制当前对象数据到目标对象(粘贴重置)
@@ -710,7 +710,7 @@ public class UserYearWorkStats extends EntityMP implements Serializable {
     @Override
     public <T> T copyTo(T targetEntity, boolean bIncEmpty) {
         this.reset("id");
-        return super.copyTo(targetEntity,bIncEmpty);
+        return super.copyTo(targetEntity, bIncEmpty);
     }
 }
 

@@ -98,7 +98,7 @@ public class IbzCaseServiceImpl extends ServiceImpl<IbzCaseMapper, IbzCase> impl
     @Transactional
     public IbzCase get(Long key) {
         IbzCase et = getById(key);
-        if(et == null){
+        if (et == null) {
             et = new IbzCase();
             et.setId(key);
         }
@@ -141,34 +141,34 @@ public class IbzCaseServiceImpl extends ServiceImpl<IbzCaseMapper, IbzCase> impl
     @Transactional
     public boolean saveBatch(Collection<IbzCase> list) {
         list.forEach(item->fillParentData(item));
-        saveOrUpdateBatch(list,batchSize);
+        saveOrUpdateBatch(list, batchSize);
         return true;
     }
 
     @Override
     @Transactional
     public void saveBatch(List<IbzCase> list) {
-        list.forEach(item->fillParentData(item));
-        saveOrUpdateBatch(list,batchSize);
+        list.forEach(item -> fillParentData(item));
+        saveOrUpdateBatch(list, batchSize);
     }
 
 
-	@Override
+    @Override
     public List<IbzCase> selectByModule(Long id) {
         return baseMapper.selectByModule(id);
     }
     @Override
     public void removeByModule(Long id) {
-        this.remove(new QueryWrapper<IbzCase>().eq("module",id));
+        this.remove(new QueryWrapper<IbzCase>().eq("module", id));
     }
 
-	@Override
+    @Override
     public List<IbzCase> selectByLib(Long id) {
         return baseMapper.selectByLib(id);
     }
     @Override
     public void removeByLib(Long id) {
-        this.remove(new QueryWrapper<IbzCase>().eq("lib",id));
+        this.remove(new QueryWrapper<IbzCase>().eq("lib", id));
     }
 
 
@@ -177,7 +177,7 @@ public class IbzCaseServiceImpl extends ServiceImpl<IbzCaseMapper, IbzCase> impl
      */
     @Override
     public Page<IbzCase> searchDefault(IbzCaseSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbzCase> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbzCase> pages=baseMapper.searchDefault(context.getPages(), context, context.getSelectCond());
         return new PageImpl<IbzCase>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -214,24 +214,24 @@ public class IbzCaseServiceImpl extends ServiceImpl<IbzCaseMapper, IbzCase> impl
 
 
     @Override
-    public List<JSONObject> select(String sql, Map param){
-        return this.baseMapper.selectBySQL(sql,param);
+    public List<JSONObject> select(String sql, Map param) {
+        return this.baseMapper.selectBySQL(sql, param);
     }
 
     @Override
     @Transactional
-    public boolean execute(String sql , Map param){
+    public boolean execute(String sql, Map param) {
         if (sql == null || sql.isEmpty()) {
             return false;
         }
         if (sql.toLowerCase().trim().startsWith("insert")) {
-            return this.baseMapper.insertBySQL(sql,param);
+            return this.baseMapper.insertBySQL(sql, param);
         }
         if (sql.toLowerCase().trim().startsWith("update")) {
-            return this.baseMapper.updateBySQL(sql,param);
+            return this.baseMapper.updateBySQL(sql, param);
         }
         if (sql.toLowerCase().trim().startsWith("delete")) {
-            return this.baseMapper.deleteBySQL(sql,param);
+            return this.baseMapper.deleteBySQL(sql, param);
         }
         log.warn("暂未支持的SQL语法");
         return true;

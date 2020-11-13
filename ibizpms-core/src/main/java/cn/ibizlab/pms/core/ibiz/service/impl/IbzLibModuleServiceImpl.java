@@ -67,7 +67,7 @@ public class IbzLibModuleServiceImpl extends ServiceImpl<IbzLibModuleMapper, Ibz
     @Transactional
     public boolean create(IbzLibModule et) {
         fillParentData(et);
-        if(!this.retBool(this.baseMapper.insert(et))) {
+        if (!this.retBool(this.baseMapper.insert(et))) {
             return false;
         }
         CachedBeanCopier.copy(get(et.getId()), et);
@@ -86,7 +86,7 @@ public class IbzLibModuleServiceImpl extends ServiceImpl<IbzLibModuleMapper, Ibz
     @Transactional
     public boolean update(IbzLibModule et) {
         fillParentData(et);
-        if(!update(et, (Wrapper) et.getUpdateWrapper(true).eq("id", et.getId()))) {
+        if (!update(et, (Wrapper) et.getUpdateWrapper(true).eq("id", et.getId()))) {
             return false;
         }
         CachedBeanCopier.copy(get(et.getId()), et);
@@ -105,7 +105,7 @@ public class IbzLibModuleServiceImpl extends ServiceImpl<IbzLibModuleMapper, Ibz
     @Transactional
     public boolean remove(Long key) {
         boolean result = removeById(key);
-        return result ;
+        return result;
     }
 
     @Override
@@ -118,7 +118,7 @@ public class IbzLibModuleServiceImpl extends ServiceImpl<IbzLibModuleMapper, Ibz
     @Transactional
     public IbzLibModule get(Long key) {
         IbzLibModule et = getById(key);
-        if(et == null){
+        if (et == null) {
             et = new IbzLibModule();
             et.setId(key);
         }
@@ -160,34 +160,34 @@ public class IbzLibModuleServiceImpl extends ServiceImpl<IbzLibModuleMapper, Ibz
     @Transactional
     public boolean saveBatch(Collection<IbzLibModule> list) {
         list.forEach(item->fillParentData(item));
-        saveOrUpdateBatch(list,batchSize);
+        saveOrUpdateBatch(list, batchSize);
         return true;
     }
 
     @Override
     @Transactional
     public void saveBatch(List<IbzLibModule> list) {
-        list.forEach(item->fillParentData(item));
-        saveOrUpdateBatch(list,batchSize);
+        list.forEach(item -> fillParentData(item));
+        saveOrUpdateBatch(list, batchSize);
     }
 
 
-	@Override
+    @Override
     public List<IbzLibModule> selectByParent(Long id) {
         return baseMapper.selectByParent(id);
     }
     @Override
     public void removeByParent(Long id) {
-        this.remove(new QueryWrapper<IbzLibModule>().eq("parent",id));
+        this.remove(new QueryWrapper<IbzLibModule>().eq("parent", id));
     }
 
-	@Override
+    @Override
     public List<IbzLibModule> selectByRoot(Long id) {
         return baseMapper.selectByRoot(id);
     }
     @Override
     public void removeByRoot(Long id) {
-        this.remove(new QueryWrapper<IbzLibModule>().eq("root",id));
+        this.remove(new QueryWrapper<IbzLibModule>().eq("root", id));
     }
 
 
@@ -196,7 +196,7 @@ public class IbzLibModuleServiceImpl extends ServiceImpl<IbzLibModuleMapper, Ibz
      */
     @Override
     public Page<IbzLibModule> searchDefault(IbzLibModuleSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbzLibModule> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbzLibModule> pages=baseMapper.searchDefault(context.getPages(), context, context.getSelectCond());
         return new PageImpl<IbzLibModule>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -205,7 +205,7 @@ public class IbzLibModuleServiceImpl extends ServiceImpl<IbzLibModuleMapper, Ibz
      */
     @Override
     public Page<IbzLibModule> searchRoot_NoBranch(IbzLibModuleSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbzLibModule> pages=baseMapper.searchRoot_NoBranch(context.getPages(),context,context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbzLibModule> pages=baseMapper.searchRoot_NoBranch(context.getPages(), context, context.getSelectCond());
         return new PageImpl<IbzLibModule>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -232,24 +232,24 @@ public class IbzLibModuleServiceImpl extends ServiceImpl<IbzLibModuleMapper, Ibz
 
 
     @Override
-    public List<JSONObject> select(String sql, Map param){
-        return this.baseMapper.selectBySQL(sql,param);
+    public List<JSONObject> select(String sql, Map param) {
+        return this.baseMapper.selectBySQL(sql, param);
     }
 
     @Override
     @Transactional
-    public boolean execute(String sql , Map param){
+    public boolean execute(String sql, Map param) {
         if (sql == null || sql.isEmpty()) {
             return false;
         }
         if (sql.toLowerCase().trim().startsWith("insert")) {
-            return this.baseMapper.insertBySQL(sql,param);
+            return this.baseMapper.insertBySQL(sql, param);
         }
         if (sql.toLowerCase().trim().startsWith("update")) {
-            return this.baseMapper.updateBySQL(sql,param);
+            return this.baseMapper.updateBySQL(sql, param);
         }
         if (sql.toLowerCase().trim().startsWith("delete")) {
-            return this.baseMapper.deleteBySQL(sql,param);
+            return this.baseMapper.deleteBySQL(sql, param);
         }
         log.warn("暂未支持的SQL语法");
         return true;

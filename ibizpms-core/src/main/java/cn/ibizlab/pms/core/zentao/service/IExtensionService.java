@@ -23,7 +23,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 /**
  * 实体[Extension] 服务对象接口
  */
-public interface IExtensionService extends IService<Extension>{
+public interface IExtensionService extends IService<Extension> {
 
     /**
      * 业务实体显示文本名称
@@ -35,29 +35,29 @@ public interface IExtensionService extends IService<Extension>{
      */
     final static String OBJECT_SOURCE_PATH = "extensions";
 
-    boolean create(Extension et) ;
-    void createBatch(List<Extension> list) ;
-    boolean update(Extension et) ;
-    void updateBatch(List<Extension> list) ;
-    boolean remove(Long key) ;
-    void removeBatch(Collection<Long> idList) ;
-    Extension get(Long key) ;
-    Extension getDraft(Extension et) ;
-    boolean checkKey(Extension et) ;
-    boolean save(Extension et) ;
-    void saveBatch(List<Extension> list) ;
-    Page<Extension> searchDefault(ExtensionSearchContext context) ;
+    boolean create(Extension et);
+    void createBatch(List<Extension> list);
+    boolean update(Extension et);
+    void updateBatch(List<Extension> list);
+    boolean remove(Long key);
+    void removeBatch(Collection<Long> idList);
+    Extension get(Long key);
+    Extension getDraft(Extension et);
+    boolean checkKey(Extension et);
+    boolean save(Extension et);
+    void saveBatch(List<Extension> list);
+    Page<Extension> searchDefault(ExtensionSearchContext context);
     /**
-     *自定义查询SQL
+     * 自定义查询SQL
      * @param sql  select * from table where id =#{et.param}
-     * @param param 参数列表  param.put("param","1");
+     * @param param 参数列表  param.put("param", "1");
      * @return select * from table where id = '1'
      */
     List<JSONObject> select(String sql, Map param);
     /**
-     *自定义SQL
+     * 自定义SQL
      * @param sql  update table  set name ='test' where id =#{et.param}
-     * @param param 参数列表  param.put("param","1");
+     * @param param 参数列表  param.put("param", "1");
      * @return     update table  set name ='test' where id = '1'
      */
     boolean execute(String sql, Map param);

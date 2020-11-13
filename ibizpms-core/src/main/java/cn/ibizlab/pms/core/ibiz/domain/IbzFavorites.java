@@ -38,7 +38,7 @@ import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 @Setter
 @NoArgsConstructor
 @JsonIgnoreProperties(value = "handler")
-@TableName(value = "T_IBZ_FAVORITES",resultMap = "IbzFavoritesResultMap")
+@TableName(value = "T_IBZ_FAVORITES", resultMap = "IbzFavoritesResultMap")
 public class IbzFavorites extends EntityMP implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -54,8 +54,8 @@ public class IbzFavorites extends EntityMP implements Serializable {
     /**
      * 收藏标识
      */
-    @DEField(name = "ibz_favoritesid" , isKeyField = true)
-    @TableId(value= "ibz_favoritesid",type=IdType.ASSIGN_UUID)
+    @DEField(name = "ibz_favoritesid", isKeyField = true)
+    @TableId(value = "ibz_favoritesid", type = IdType.ASSIGN_UUID)
     @JSONField(name = "ibzfavoritesid")
     @JsonProperty("ibzfavoritesid")
     private String ibzfavoritesid;
@@ -64,7 +64,7 @@ public class IbzFavorites extends EntityMP implements Serializable {
      */
     @DEField(preType = DEPredefinedFieldType.CREATEDATE)
     @TableField(value = "`createdate`", fill = FieldFill.INSERT)
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "createdate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("createdate")
     private Timestamp createdate;
@@ -89,7 +89,7 @@ public class IbzFavorites extends EntityMP implements Serializable {
      */
     @DEField(preType = DEPredefinedFieldType.UPDATEDATE)
     @TableField(value = "`updatedate`")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "updatedate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("updatedate")
     private Timestamp updatedate;
@@ -121,32 +121,32 @@ public class IbzFavorites extends EntityMP implements Serializable {
      * 设置 [收藏名称]
      */
     public void setIbzfavoritesname(String ibzfavoritesname) {
-        this.ibzfavoritesname = ibzfavoritesname ;
-        this.modify("ibz_favoritesname",ibzfavoritesname);
+        this.ibzfavoritesname = ibzfavoritesname;
+        this.modify("ibz_favoritesname", ibzfavoritesname);
     }
 
     /**
      * 设置 [数据对象标识]
      */
     public void setObjectid(Long objectid) {
-        this.objectid = objectid ;
-        this.modify("objectid",objectid);
+        this.objectid = objectid;
+        this.modify("objectid", objectid);
     }
 
     /**
      * 设置 [收藏用户]
      */
     public void setAccount(String account) {
-        this.account = account ;
-        this.modify("account",account);
+        this.account = account;
+        this.modify("account", account);
     }
 
     /**
      * 设置 [类型]
      */
     public void setType(String type) {
-        this.type = type ;
-        this.modify("type",type);
+        this.type = type;
+        this.modify("type", type);
     }
 
 
@@ -160,7 +160,7 @@ public class IbzFavorites extends EntityMP implements Serializable {
     @Override
     public <T> T copyTo(T targetEntity, boolean bIncEmpty) {
         this.reset("ibz_favoritesid");
-        return super.copyTo(targetEntity,bIncEmpty);
+        return super.copyTo(targetEntity, bIncEmpty);
     }
 }
 

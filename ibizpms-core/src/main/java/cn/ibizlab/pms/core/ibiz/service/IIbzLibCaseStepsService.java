@@ -23,7 +23,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 /**
  * 实体[IbzLibCaseSteps] 服务对象接口
  */
-public interface IIbzLibCaseStepsService extends IService<IbzLibCaseSteps>{
+public interface IIbzLibCaseStepsService extends IService<IbzLibCaseSteps> {
 
     /**
      * 业务实体显示文本名称
@@ -35,35 +35,35 @@ public interface IIbzLibCaseStepsService extends IService<IbzLibCaseSteps>{
      */
     final static String OBJECT_SOURCE_PATH = "ibzlibcasesteps";
 
-    boolean create(IbzLibCaseSteps et) ;
-    void createBatch(List<IbzLibCaseSteps> list) ;
-    boolean update(IbzLibCaseSteps et) ;
-    void updateBatch(List<IbzLibCaseSteps> list) ;
-    boolean remove(Long key) ;
-    void removeBatch(Collection<Long> idList) ;
-    IbzLibCaseSteps get(Long key) ;
-    IbzLibCaseSteps getDraft(IbzLibCaseSteps et) ;
-    boolean checkKey(IbzLibCaseSteps et) ;
-    boolean save(IbzLibCaseSteps et) ;
-    void saveBatch(List<IbzLibCaseSteps> list) ;
-    Page<IbzLibCaseSteps> searchDefault(IbzLibCaseStepsSearchContext context) ;
+    boolean create(IbzLibCaseSteps et);
+    void createBatch(List<IbzLibCaseSteps> list);
+    boolean update(IbzLibCaseSteps et);
+    void updateBatch(List<IbzLibCaseSteps> list);
+    boolean remove(Long key);
+    void removeBatch(Collection<Long> idList);
+    IbzLibCaseSteps get(Long key);
+    IbzLibCaseSteps getDraft(IbzLibCaseSteps et);
+    boolean checkKey(IbzLibCaseSteps et);
+    boolean save(IbzLibCaseSteps et);
+    void saveBatch(List<IbzLibCaseSteps> list);
+    Page<IbzLibCaseSteps> searchDefault(IbzLibCaseStepsSearchContext context);
     List<IbzLibCaseSteps> selectByIbizcase(Long id);
-    void removeByIbizcase(Long id) ;
-    void saveByIbizcase(Long id,List<IbzLibCaseSteps> list) ;
+    void removeByIbizcase(Long id);
+    void saveByIbizcase(Long id, List<IbzLibCaseSteps> list) ;
     List<IbzLibCaseSteps> selectByParent(Long id);
-    void removeByParent(Long id) ;
-    void saveByParent(Long id,List<IbzLibCaseSteps> list) ;
+    void removeByParent(Long id);
+    void saveByParent(Long id, List<IbzLibCaseSteps> list) ;
     /**
-     *自定义查询SQL
+     * 自定义查询SQL
      * @param sql  select * from table where id =#{et.param}
-     * @param param 参数列表  param.put("param","1");
+     * @param param 参数列表  param.put("param", "1");
      * @return select * from table where id = '1'
      */
     List<JSONObject> select(String sql, Map param);
     /**
-     *自定义SQL
+     * 自定义SQL
      * @param sql  update table  set name ='test' where id =#{et.param}
-     * @param param 参数列表  param.put("param","1");
+     * @param param 参数列表  param.put("param", "1");
      * @return     update table  set name ='test' where id = '1'
      */
     boolean execute(String sql, Map param);

@@ -54,7 +54,7 @@ public class ImQueueServiceImpl extends ServiceImpl<ImQueueMapper, ImQueue> impl
     @Override
     @Transactional
     public boolean create(ImQueue et) {
-        if(!this.retBool(this.baseMapper.insert(et))) {
+        if (!this.retBool(this.baseMapper.insert(et))) {
             return false;
         }
         CachedBeanCopier.copy(get(et.getId()), et);
@@ -70,7 +70,7 @@ public class ImQueueServiceImpl extends ServiceImpl<ImQueueMapper, ImQueue> impl
     @Override
     @Transactional
     public boolean update(ImQueue et) {
-        if(!update(et, (Wrapper) et.getUpdateWrapper(true).eq("id", et.getId()))) {
+        if (!update(et, (Wrapper) et.getUpdateWrapper(true).eq("id", et.getId()))) {
             return false;
         }
         CachedBeanCopier.copy(get(et.getId()), et);
@@ -87,7 +87,7 @@ public class ImQueueServiceImpl extends ServiceImpl<ImQueueMapper, ImQueue> impl
     @Transactional
     public boolean remove(Long key) {
         boolean result = removeById(key);
-        return result ;
+        return result;
     }
 
     @Override
@@ -100,7 +100,7 @@ public class ImQueueServiceImpl extends ServiceImpl<ImQueueMapper, ImQueue> impl
     @Transactional
     public ImQueue get(Long key) {
         ImQueue et = getById(key);
-        if(et == null){
+        if (et == null) {
             et = new ImQueue();
             et.setId(key);
         }
@@ -140,14 +140,14 @@ public class ImQueueServiceImpl extends ServiceImpl<ImQueueMapper, ImQueue> impl
     @Override
     @Transactional
     public boolean saveBatch(Collection<ImQueue> list) {
-        saveOrUpdateBatch(list,batchSize);
+        saveOrUpdateBatch(list, batchSize);
         return true;
     }
 
     @Override
     @Transactional
     public void saveBatch(List<ImQueue> list) {
-        saveOrUpdateBatch(list,batchSize);
+        saveOrUpdateBatch(list, batchSize);
     }
 
 
@@ -157,7 +157,7 @@ public class ImQueueServiceImpl extends ServiceImpl<ImQueueMapper, ImQueue> impl
      */
     @Override
     public Page<ImQueue> searchDefault(ImQueueSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ImQueue> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ImQueue> pages=baseMapper.searchDefault(context.getPages(), context, context.getSelectCond());
         return new PageImpl<ImQueue>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -168,24 +168,24 @@ public class ImQueueServiceImpl extends ServiceImpl<ImQueueMapper, ImQueue> impl
 
 
     @Override
-    public List<JSONObject> select(String sql, Map param){
-        return this.baseMapper.selectBySQL(sql,param);
+    public List<JSONObject> select(String sql, Map param) {
+        return this.baseMapper.selectBySQL(sql, param);
     }
 
     @Override
     @Transactional
-    public boolean execute(String sql , Map param){
+    public boolean execute(String sql, Map param) {
         if (sql == null || sql.isEmpty()) {
             return false;
         }
         if (sql.toLowerCase().trim().startsWith("insert")) {
-            return this.baseMapper.insertBySQL(sql,param);
+            return this.baseMapper.insertBySQL(sql, param);
         }
         if (sql.toLowerCase().trim().startsWith("update")) {
-            return this.baseMapper.updateBySQL(sql,param);
+            return this.baseMapper.updateBySQL(sql, param);
         }
         if (sql.toLowerCase().trim().startsWith("delete")) {
-            return this.baseMapper.deleteBySQL(sql,param);
+            return this.baseMapper.deleteBySQL(sql, param);
         }
         log.warn("暂未支持的SQL语法");
         return true;

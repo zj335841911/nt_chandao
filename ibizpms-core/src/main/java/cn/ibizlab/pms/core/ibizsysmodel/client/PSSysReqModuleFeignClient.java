@@ -31,7 +31,7 @@ public interface PSSysReqModuleFeignClient {
 
 
     @RequestMapping(method = RequestMethod.PUT, value = "/pssysreqmodules/{pssysreqmoduleid}")
-    PSSysReqModule update(@PathVariable("pssysreqmoduleid") String pssysreqmoduleid,@RequestBody PSSysReqModule pssysreqmodule);
+    PSSysReqModule update(@PathVariable("pssysreqmoduleid") String pssysreqmoduleid, @RequestBody PSSysReqModule pssysreqmodule);
 
     @RequestMapping(method = RequestMethod.PUT, value = "/pssysreqmodules/batch")
     Boolean updateBatch(@RequestBody List<PSSysReqModule> pssysreqmodules);

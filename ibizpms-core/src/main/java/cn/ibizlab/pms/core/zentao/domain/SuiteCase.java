@@ -38,7 +38,7 @@ import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 @Setter
 @NoArgsConstructor
 @JsonIgnoreProperties(value = "handler")
-@TableName(value = "zt_suitecase",resultMap = "SuiteCaseResultMap")
+@TableName(value = "zt_suitecase", resultMap = "SuiteCaseResultMap")
 public class SuiteCase extends EntityMP implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -113,32 +113,32 @@ public class SuiteCase extends EntityMP implements Serializable {
      * 设置 [用例版本]
      */
     public void setVersion(Integer version) {
-        this.version = version ;
-        this.modify("version",version);
+        this.version = version;
+        this.modify("version", version);
     }
 
     /**
      * 设置 [测试套件]
      */
     public void setSuite(Long suite) {
-        this.suite = suite ;
-        this.modify("suite",suite);
+        this.suite = suite;
+        this.modify("suite", suite);
     }
 
     /**
      * 设置 [用例]
      */
     public void setIbizcase(Long ibizcase) {
-        this.ibizcase = ibizcase ;
-        this.modify("case",ibizcase);
+        this.ibizcase = ibizcase;
+        this.modify("case", ibizcase);
     }
 
     /**
      * 设置 [所属产品]
      */
     public void setProduct(Long product) {
-        this.product = product ;
-        this.modify("product",product);
+        this.product = product;
+        this.modify("product", product);
     }
 
 
@@ -152,7 +152,7 @@ public class SuiteCase extends EntityMP implements Serializable {
     @Override
     public <T> T copyTo(T targetEntity, boolean bIncEmpty) {
         this.reset("id");
-        return super.copyTo(targetEntity,bIncEmpty);
+        return super.copyTo(targetEntity, bIncEmpty);
     }
 }
 

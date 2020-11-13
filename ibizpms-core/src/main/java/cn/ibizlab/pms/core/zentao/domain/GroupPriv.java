@@ -38,7 +38,7 @@ import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 @Setter
 @NoArgsConstructor
 @JsonIgnoreProperties(value = "handler")
-@TableName(value = "zt_grouppriv",resultMap = "GroupPrivResultMap")
+@TableName(value = "zt_grouppriv", resultMap = "GroupPrivResultMap")
 public class GroupPriv extends EntityMP implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -80,24 +80,24 @@ public class GroupPriv extends EntityMP implements Serializable {
      * 设置 [group]
      */
     public void setGroup(Integer group) {
-        this.group = group ;
-        this.modify("group",group);
+        this.group = group;
+        this.modify("group", group);
     }
 
     /**
      * 设置 [method]
      */
     public void setMethod(String method) {
-        this.method = method ;
-        this.modify("method",method);
+        this.method = method;
+        this.modify("method", method);
     }
 
     /**
      * 设置 [module]
      */
     public void setModule(String module) {
-        this.module = module ;
-        this.modify("module",module);
+        this.module = module;
+        this.modify("module", module);
     }
 
 
@@ -111,7 +111,7 @@ public class GroupPriv extends EntityMP implements Serializable {
     @Override
     public <T> T copyTo(T targetEntity, boolean bIncEmpty) {
         this.reset("id");
-        return super.copyTo(targetEntity,bIncEmpty);
+        return super.copyTo(targetEntity, bIncEmpty);
     }
 }
 

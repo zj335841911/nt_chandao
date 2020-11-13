@@ -38,7 +38,7 @@ import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 @Setter
 @NoArgsConstructor
 @JsonIgnoreProperties(value = "handler")
-@TableName(value = "zt_burn",resultMap = "BurnResultMap")
+@TableName(value = "zt_burn", resultMap = "BurnResultMap")
 public class Burn extends EntityMP implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -47,7 +47,7 @@ public class Burn extends EntityMP implements Serializable {
      * 日期
      */
     @TableField(value = "`date`")
-    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh" , timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "date", format = "yyyy-MM-dd")
     @JsonProperty("date")
     private Timestamp date;
@@ -124,8 +124,8 @@ public class Burn extends EntityMP implements Serializable {
      * 设置 [日期]
      */
     public void setDate(Timestamp date) {
-        this.date = date ;
-        this.modify("date",date);
+        this.date = date;
+        this.modify("date", date);
     }
 
     /**
@@ -142,40 +142,40 @@ public class Burn extends EntityMP implements Serializable {
      * 设置 [总计消耗]
      */
     public void setConsumed(Double consumed) {
-        this.consumed = consumed ;
-        this.modify("consumed",consumed);
+        this.consumed = consumed;
+        this.modify("consumed", consumed);
     }
 
     /**
      * 设置 [预计剩余]
      */
     public void setLeft(Double left) {
-        this.left = left ;
-        this.modify("left",left);
+        this.left = left;
+        this.modify("left", left);
     }
 
     /**
      * 设置 [最初预计]
      */
     public void setEstimate(Double estimate) {
-        this.estimate = estimate ;
-        this.modify("estimate",estimate);
+        this.estimate = estimate;
+        this.modify("estimate", estimate);
     }
 
     /**
      * 设置 [所属项目]
      */
     public void setProject(Long project) {
-        this.project = project ;
-        this.modify("project",project);
+        this.project = project;
+        this.modify("project", project);
     }
 
     /**
      * 设置 [任务]
      */
     public void setTask(Long task) {
-        this.task = task ;
-        this.modify("task",task);
+        this.task = task;
+        this.modify("task", task);
     }
 
 
@@ -189,7 +189,7 @@ public class Burn extends EntityMP implements Serializable {
     @Override
     public <T> T copyTo(T targetEntity, boolean bIncEmpty) {
         this.reset("id");
-        return super.copyTo(targetEntity,bIncEmpty);
+        return super.copyTo(targetEntity, bIncEmpty);
     }
 }
 

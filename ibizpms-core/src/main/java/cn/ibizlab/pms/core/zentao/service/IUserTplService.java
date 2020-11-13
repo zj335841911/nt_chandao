@@ -23,7 +23,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 /**
  * 实体[UserTpl] 服务对象接口
  */
-public interface IUserTplService extends IService<UserTpl>{
+public interface IUserTplService extends IService<UserTpl> {
 
     /**
      * 业务实体显示文本名称
@@ -35,29 +35,29 @@ public interface IUserTplService extends IService<UserTpl>{
      */
     final static String OBJECT_SOURCE_PATH = "usertpls";
 
-    boolean create(UserTpl et) ;
-    void createBatch(List<UserTpl> list) ;
-    boolean update(UserTpl et) ;
-    void updateBatch(List<UserTpl> list) ;
-    boolean remove(Long key) ;
-    void removeBatch(Collection<Long> idList) ;
-    UserTpl get(Long key) ;
-    UserTpl getDraft(UserTpl et) ;
-    boolean checkKey(UserTpl et) ;
-    boolean save(UserTpl et) ;
-    void saveBatch(List<UserTpl> list) ;
-    Page<UserTpl> searchDefault(UserTplSearchContext context) ;
+    boolean create(UserTpl et);
+    void createBatch(List<UserTpl> list);
+    boolean update(UserTpl et);
+    void updateBatch(List<UserTpl> list);
+    boolean remove(Long key);
+    void removeBatch(Collection<Long> idList);
+    UserTpl get(Long key);
+    UserTpl getDraft(UserTpl et);
+    boolean checkKey(UserTpl et);
+    boolean save(UserTpl et);
+    void saveBatch(List<UserTpl> list);
+    Page<UserTpl> searchDefault(UserTplSearchContext context);
     /**
-     *自定义查询SQL
+     * 自定义查询SQL
      * @param sql  select * from table where id =#{et.param}
-     * @param param 参数列表  param.put("param","1");
+     * @param param 参数列表  param.put("param", "1");
      * @return select * from table where id = '1'
      */
     List<JSONObject> select(String sql, Map param);
     /**
-     *自定义SQL
+     * 自定义SQL
      * @param sql  update table  set name ='test' where id =#{et.param}
-     * @param param 参数列表  param.put("param","1");
+     * @param param 参数列表  param.put("param", "1");
      * @return     update table  set name ='test' where id = '1'
      */
     boolean execute(String sql, Map param);

@@ -23,7 +23,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 /**
  * 实体[Config] 服务对象接口
  */
-public interface IConfigService extends IService<Config>{
+public interface IConfigService extends IService<Config> {
 
     /**
      * 业务实体显示文本名称
@@ -35,29 +35,29 @@ public interface IConfigService extends IService<Config>{
      */
     final static String OBJECT_SOURCE_PATH = "configs";
 
-    boolean create(Config et) ;
-    void createBatch(List<Config> list) ;
-    boolean update(Config et) ;
-    void updateBatch(List<Config> list) ;
-    boolean remove(Long key) ;
-    void removeBatch(Collection<Long> idList) ;
-    Config get(Long key) ;
-    Config getDraft(Config et) ;
-    boolean checkKey(Config et) ;
-    boolean save(Config et) ;
-    void saveBatch(List<Config> list) ;
-    Page<Config> searchDefault(ConfigSearchContext context) ;
+    boolean create(Config et);
+    void createBatch(List<Config> list);
+    boolean update(Config et);
+    void updateBatch(List<Config> list);
+    boolean remove(Long key);
+    void removeBatch(Collection<Long> idList);
+    Config get(Long key);
+    Config getDraft(Config et);
+    boolean checkKey(Config et);
+    boolean save(Config et);
+    void saveBatch(List<Config> list);
+    Page<Config> searchDefault(ConfigSearchContext context);
     /**
-     *自定义查询SQL
+     * 自定义查询SQL
      * @param sql  select * from table where id =#{et.param}
-     * @param param 参数列表  param.put("param","1");
+     * @param param 参数列表  param.put("param", "1");
      * @return select * from table where id = '1'
      */
     List<JSONObject> select(String sql, Map param);
     /**
-     *自定义SQL
+     * 自定义SQL
      * @param sql  update table  set name ='test' where id =#{et.param}
-     * @param param 参数列表  param.put("param","1");
+     * @param param 参数列表  param.put("param", "1");
      * @return     update table  set name ='test' where id = '1'
      */
     boolean execute(String sql, Map param);

@@ -23,7 +23,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 /**
  * 实体[ProductPlan] 服务对象接口
  */
-public interface IProductPlanService extends IService<ProductPlan>{
+public interface IProductPlanService extends IService<ProductPlan> {
 
     /**
      * 业务实体显示文本名称
@@ -35,46 +35,46 @@ public interface IProductPlanService extends IService<ProductPlan>{
      */
     final static String OBJECT_SOURCE_PATH = "productplans";
 
-    boolean create(ProductPlan et) ;
-    void createBatch(List<ProductPlan> list) ;
-    boolean update(ProductPlan et) ;
-    void updateBatch(List<ProductPlan> list) ;
-    boolean remove(Long key) ;
-    void removeBatch(Collection<Long> idList) ;
-    ProductPlan get(Long key) ;
-    ProductPlan getDraft(ProductPlan et) ;
-    ProductPlan batchUnlinkBug(ProductPlan et) ;
-    ProductPlan batchUnlinkStory(ProductPlan et) ;
-    boolean checkKey(ProductPlan et) ;
-    ProductPlan linkBug(ProductPlan et) ;
-    ProductPlan linkStory(ProductPlan et) ;
-    ProductPlan mobProductPlanCounter(ProductPlan et) ;
-    boolean save(ProductPlan et) ;
-    void saveBatch(List<ProductPlan> list) ;
-    ProductPlan unlinkBug(ProductPlan et) ;
-    ProductPlan unlinkStory(ProductPlan et) ;
-    Page<ProductPlan> searchCurProductPlan(ProductPlanSearchContext context) ;
-    Page<ProductPlan> searchDefault(ProductPlanSearchContext context) ;
-    Page<ProductPlan> searchDefaultParent(ProductPlanSearchContext context) ;
-    Page<ProductPlan> searchPlanCodeList(ProductPlanSearchContext context) ;
-    Page<ProductPlan> searchProjectPlan(ProductPlanSearchContext context) ;
+    boolean create(ProductPlan et);
+    void createBatch(List<ProductPlan> list);
+    boolean update(ProductPlan et);
+    void updateBatch(List<ProductPlan> list);
+    boolean remove(Long key);
+    void removeBatch(Collection<Long> idList);
+    ProductPlan get(Long key);
+    ProductPlan getDraft(ProductPlan et);
+    ProductPlan batchUnlinkBug(ProductPlan et);
+    ProductPlan batchUnlinkStory(ProductPlan et);
+    boolean checkKey(ProductPlan et);
+    ProductPlan linkBug(ProductPlan et);
+    ProductPlan linkStory(ProductPlan et);
+    ProductPlan mobProductPlanCounter(ProductPlan et);
+    boolean save(ProductPlan et);
+    void saveBatch(List<ProductPlan> list);
+    ProductPlan unlinkBug(ProductPlan et);
+    ProductPlan unlinkStory(ProductPlan et);
+    Page<ProductPlan> searchCurProductPlan(ProductPlanSearchContext context);
+    Page<ProductPlan> searchDefault(ProductPlanSearchContext context);
+    Page<ProductPlan> searchDefaultParent(ProductPlanSearchContext context);
+    Page<ProductPlan> searchPlanCodeList(ProductPlanSearchContext context);
+    Page<ProductPlan> searchProjectPlan(ProductPlanSearchContext context);
     List<ProductPlan> selectByBranch(Long id);
-    void removeByBranch(Long id) ;
+    void removeByBranch(Long id);
     List<ProductPlan> selectByProduct(Long id);
-    void removeByProduct(Long id) ;
+    void removeByProduct(Long id);
     List<ProductPlan> selectByParent(Long id);
-    void removeByParent(Long id) ;
+    void removeByParent(Long id);
     /**
-     *自定义查询SQL
+     * 自定义查询SQL
      * @param sql  select * from table where id =#{et.param}
-     * @param param 参数列表  param.put("param","1");
+     * @param param 参数列表  param.put("param", "1");
      * @return select * from table where id = '1'
      */
     List<JSONObject> select(String sql, Map param);
     /**
-     *自定义SQL
+     * 自定义SQL
      * @param sql  update table  set name ='test' where id =#{et.param}
-     * @param param 参数列表  param.put("param","1");
+     * @param param 参数列表  param.put("param", "1");
      * @return     update table  set name ='test' where id = '1'
      */
     boolean execute(String sql, Map param);

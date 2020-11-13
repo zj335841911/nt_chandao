@@ -38,7 +38,7 @@ import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 @Setter
 @NoArgsConstructor
 @JsonIgnoreProperties(value = "handler")
-@TableName(value = "zt_im_message",resultMap = "ImMessageResultMap")
+@TableName(value = "zt_im_message", resultMap = "ImMessageResultMap")
 public class ImMessage extends EntityMP implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -61,7 +61,7 @@ public class ImMessage extends EntityMP implements Serializable {
      * id
      */
     @DEField(isKeyField = true)
-    @TableId(value= "id",type=IdType.AUTO)
+    @TableId(value = "id", type = IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
     private Long id;
@@ -70,7 +70,7 @@ public class ImMessage extends EntityMP implements Serializable {
      */
     @DEField(defaultValue = "0000-00-00 00:00:00")
     @TableField(value = "`date`")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "date", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("date")
     private Timestamp date;
@@ -78,7 +78,7 @@ public class ImMessage extends EntityMP implements Serializable {
      * 逻辑删除标志
      */
     @DEField(defaultValue = "0", preType = DEPredefinedFieldType.LOGICVALID, logicval = "0", logicdelval = "1")
-    @TableLogic(value= "0", delval = "1")
+    @TableLogic(value = "0", delval = "1")
     @TableField(value = "`deleted`")
     @JSONField(name = "deleted")
     @JsonProperty("deleted")
@@ -132,24 +132,24 @@ public class ImMessage extends EntityMP implements Serializable {
      * 设置 [user]
      */
     public void setUser(String user) {
-        this.user = user ;
-        this.modify("user",user);
+        this.user = user;
+        this.modify("user", user);
     }
 
     /**
      * 设置 [gid]
      */
     public void setGid(String gid) {
-        this.gid = gid ;
-        this.modify("gid",gid);
+        this.gid = gid;
+        this.modify("gid", gid);
     }
 
     /**
      * 设置 [date]
      */
     public void setDate(Timestamp date) {
-        this.date = date ;
-        this.modify("date",date);
+        this.date = date;
+        this.modify("date", date);
     }
 
     /**
@@ -166,54 +166,54 @@ public class ImMessage extends EntityMP implements Serializable {
      * 设置 [data]
      */
     public void setData(String data) {
-        this.data = data ;
-        this.modify("data",data);
+        this.data = data;
+        this.modify("data", data);
     }
 
     /**
      * 设置 [type]
      */
     public void setType(String type) {
-        this.type = type ;
-        this.modify("type",type);
+        this.type = type;
+        this.modify("type", type);
     }
 
     /**
      * 设置 [content]
      */
     public void setContent(String content) {
-        this.content = content ;
-        this.modify("content",content);
+        this.content = content;
+        this.modify("content", content);
     }
 
     /**
      * 设置 [cgid]
      */
     public void setCgid(String cgid) {
-        this.cgid = cgid ;
-        this.modify("cgid",cgid);
+        this.cgid = cgid;
+        this.modify("cgid", cgid);
     }
 
     /**
      * 设置 [order]
      */
     public void setOrder(Long order) {
-        this.order = order ;
-        this.modify("order",order);
+        this.order = order;
+        this.modify("order", order);
     }
 
     /**
      * 设置 [contentType]
      */
     public void setContenttype(String contenttype) {
-        this.contenttype = contenttype ;
-        this.modify("contenttype",contenttype);
+        this.contenttype = contenttype;
+        this.modify("contenttype", contenttype);
     }
 
 
     @Override
     public Serializable getDefaultKey(boolean gen) {
-       return IdWorker.getId();
+        return IdWorker.getId();
     }
     /**
      * 复制当前对象数据到目标对象(粘贴重置)
@@ -225,7 +225,7 @@ public class ImMessage extends EntityMP implements Serializable {
     @Override
     public <T> T copyTo(T targetEntity, boolean bIncEmpty) {
         this.reset("id");
-        return super.copyTo(targetEntity,bIncEmpty);
+        return super.copyTo(targetEntity, bIncEmpty);
     }
 }
 

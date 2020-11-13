@@ -65,7 +65,7 @@ public class PSSubSysSADE extends EntityClient implements Serializable {
      * 建立时间
      */
     @DEField(preType = DEPredefinedFieldType.CREATEDATE)
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "createdate" , format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("createdate")
     private Timestamp createdate;
@@ -82,7 +82,7 @@ public class PSSubSysSADE extends EntityClient implements Serializable {
      * 更新时间
      */
     @DEField(preType = DEPredefinedFieldType.UPDATEDATE)
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "updatedate" , format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("updatedate")
     private Timestamp updatedate;
@@ -218,7 +218,7 @@ public class PSSubSysSADE extends EntityClient implements Serializable {
      */
     public void setPssubsyssadename(String pssubsyssadename) {
         this.pssubsyssadename = pssubsyssadename ;
-        this.modify("pssubsyssadename",pssubsyssadename);
+        this.modify("pssubsyssadename", pssubsyssadename);
     }
 
     /**
@@ -226,7 +226,7 @@ public class PSSubSysSADE extends EntityClient implements Serializable {
      */
     public void setCodename2(String codename2) {
         this.codename2 = codename2 ;
-        this.modify("codename2",codename2);
+        this.modify("codename2", codename2);
     }
 
     /**
@@ -234,7 +234,7 @@ public class PSSubSysSADE extends EntityClient implements Serializable {
      */
     public void setCodename(String codename) {
         this.codename = codename ;
-        this.modify("codename",codename);
+        this.modify("codename", codename);
     }
 
     /**
@@ -242,7 +242,7 @@ public class PSSubSysSADE extends EntityClient implements Serializable {
      */
     public void setDetag(String detag) {
         this.detag = detag ;
-        this.modify("detag",detag);
+        this.modify("detag", detag);
     }
 
     /**
@@ -250,7 +250,7 @@ public class PSSubSysSADE extends EntityClient implements Serializable {
      */
     public void setDetag2(String detag2) {
         this.detag2 = detag2 ;
-        this.modify("detag2",detag2);
+        this.modify("detag2", detag2);
     }
 
     /**
@@ -258,7 +258,7 @@ public class PSSubSysSADE extends EntityClient implements Serializable {
      */
     public void setMemo(String memo) {
         this.memo = memo ;
-        this.modify("memo",memo);
+        this.modify("memo", memo);
     }
 
     /**
@@ -266,7 +266,7 @@ public class PSSubSysSADE extends EntityClient implements Serializable {
      */
     public void setMajorflag(Integer majorflag) {
         this.majorflag = majorflag ;
-        this.modify("majorflag",majorflag);
+        this.modify("majorflag", majorflag);
     }
 
     /**
@@ -274,7 +274,7 @@ public class PSSubSysSADE extends EntityClient implements Serializable {
      */
     public void setLogicname(String logicname) {
         this.logicname = logicname ;
-        this.modify("logicname",logicname);
+        this.modify("logicname", logicname);
     }
 
     /**
@@ -282,7 +282,7 @@ public class PSSubSysSADE extends EntityClient implements Serializable {
      */
     public void setSyncmodelmode(String syncmodelmode) {
         this.syncmodelmode = syncmodelmode ;
-        this.modify("syncmodelmode",syncmodelmode);
+        this.modify("syncmodelmode", syncmodelmode);
     }
 
     /**
@@ -290,7 +290,7 @@ public class PSSubSysSADE extends EntityClient implements Serializable {
      */
     public void setUsercat(String usercat) {
         this.usercat = usercat ;
-        this.modify("usercat",usercat);
+        this.modify("usercat", usercat);
     }
 
     /**
@@ -298,7 +298,7 @@ public class PSSubSysSADE extends EntityClient implements Serializable {
      */
     public void setUsertag(String usertag) {
         this.usertag = usertag ;
-        this.modify("usertag",usertag);
+        this.modify("usertag", usertag);
     }
 
     /**
@@ -306,7 +306,7 @@ public class PSSubSysSADE extends EntityClient implements Serializable {
      */
     public void setUsertag2(String usertag2) {
         this.usertag2 = usertag2 ;
-        this.modify("usertag2",usertag2);
+        this.modify("usertag2", usertag2);
     }
 
     /**
@@ -314,7 +314,7 @@ public class PSSubSysSADE extends EntityClient implements Serializable {
      */
     public void setUsertag3(String usertag3) {
         this.usertag3 = usertag3 ;
-        this.modify("usertag3",usertag3);
+        this.modify("usertag3", usertag3);
     }
 
     /**
@@ -322,7 +322,7 @@ public class PSSubSysSADE extends EntityClient implements Serializable {
      */
     public void setUsertag4(String usertag4) {
         this.usertag4 = usertag4 ;
-        this.modify("usertag4",usertag4);
+        this.modify("usertag4", usertag4);
     }
 
     /**
@@ -330,7 +330,7 @@ public class PSSubSysSADE extends EntityClient implements Serializable {
      */
     public void setValidflag(Integer validflag) {
         this.validflag = validflag ;
-        this.modify("validflag",validflag);
+        this.modify("validflag", validflag);
     }
 
     /**
@@ -338,7 +338,7 @@ public class PSSubSysSADE extends EntityClient implements Serializable {
      */
     public void setPssubsysserviceapiid(String pssubsysserviceapiid) {
         this.pssubsysserviceapiid = pssubsysserviceapiid ;
-        this.modify("pssubsysserviceapiid",pssubsysserviceapiid);
+        this.modify("pssubsysserviceapiid", pssubsysserviceapiid);
     }
 
     /**
@@ -351,7 +351,7 @@ public class PSSubSysSADE extends EntityClient implements Serializable {
     @Override
     public <T> T copyTo(T targetEntity, boolean bIncEmpty) {
         this.reset("pssubsyssadeid");
-        return super.copyTo(targetEntity,bIncEmpty);
+        return super.copyTo(targetEntity, bIncEmpty);
     }
 }
 

@@ -23,7 +23,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 /**
  * 实体[ProductLife] 服务对象接口
  */
-public interface IProductLifeService extends IService<ProductLife>{
+public interface IProductLifeService extends IService<ProductLife> {
 
     /**
      * 业务实体显示文本名称
@@ -35,38 +35,38 @@ public interface IProductLifeService extends IService<ProductLife>{
      */
     final static String OBJECT_SOURCE_PATH = "productlives";
 
-    boolean create(ProductLife et) ;
-    void createBatch(List<ProductLife> list) ;
-    boolean update(ProductLife et) ;
-    void updateBatch(List<ProductLife> list) ;
-    boolean remove(String key) ;
-    void removeBatch(Collection<String> idList) ;
-    ProductLife get(String key) ;
-    ProductLife getDraft(ProductLife et) ;
-    boolean checkKey(ProductLife et) ;
-    boolean save(ProductLife et) ;
-    void saveBatch(List<ProductLife> list) ;
-    Page<ProductLife> searchDefault(ProductLifeSearchContext context) ;
-    Page<ProductLife> searchGetRoadmap(ProductLifeSearchContext context) ;
-    Page<ProductLife> searchGetRoadmapS(ProductLifeSearchContext context) ;
-    Page<ProductLife> searchRoadMapYear(ProductLifeSearchContext context) ;
+    boolean create(ProductLife et);
+    void createBatch(List<ProductLife> list);
+    boolean update(ProductLife et);
+    void updateBatch(List<ProductLife> list);
+    boolean remove(String key);
+    void removeBatch(Collection<String> idList);
+    ProductLife get(String key);
+    ProductLife getDraft(ProductLife et);
+    boolean checkKey(ProductLife et);
+    boolean save(ProductLife et);
+    void saveBatch(List<ProductLife> list);
+    Page<ProductLife> searchDefault(ProductLifeSearchContext context);
+    Page<ProductLife> searchGetRoadmap(ProductLifeSearchContext context);
+    Page<ProductLife> searchGetRoadmapS(ProductLifeSearchContext context);
+    Page<ProductLife> searchRoadMapYear(ProductLifeSearchContext context);
     /**
-     *自定义查询SQL
+     * 自定义查询SQL
      * @param sql  select * from table where id =#{et.param}
-     * @param param 参数列表  param.put("param","1");
+     * @param param 参数列表  param.put("param", "1");
      * @return select * from table where id = '1'
      */
     List<JSONObject> select(String sql, Map param);
     /**
-     *自定义SQL
+     * 自定义SQL
      * @param sql  update table  set name ='test' where id =#{et.param}
-     * @param param 参数列表  param.put("param","1");
+     * @param param 参数列表  param.put("param", "1");
      * @return     update table  set name ='test' where id = '1'
      */
     boolean execute(String sql, Map param);
 
-    List<ProductLife> getProductlifeByIds(List<String> ids) ;
-    List<ProductLife> getProductlifeByEntities(List<ProductLife> entities) ;
+    List<ProductLife> getProductlifeByIds(List<String> ids);
+    List<ProductLife> getProductlifeByEntities(List<ProductLife> entities);
 }
 
 

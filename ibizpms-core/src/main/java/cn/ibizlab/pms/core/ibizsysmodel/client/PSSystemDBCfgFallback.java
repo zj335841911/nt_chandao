@@ -17,70 +17,70 @@ import org.springframework.stereotype.Component;
  * 实体[PSSystemDBCfg] 服务对象接口
  */
 @Component
-public class PSSystemDBCfgFallback implements PSSystemDBCfgFeignClient{
+public class PSSystemDBCfgFallback implements PSSystemDBCfgFeignClient {
 
-    public Page<PSSystemDBCfg> select(){
-            return null;
-     }
+    public Page<PSSystemDBCfg> select() {
+        return null;
+    }
 
-    public PSSystemDBCfg create(PSSystemDBCfg pssystemdbcfg){
-            return null;
-     }
-    public Boolean createBatch(List<PSSystemDBCfg> pssystemdbcfgs){
-            return false;
-     }
+    public PSSystemDBCfg create(PSSystemDBCfg pssystemdbcfg) {
+        return null;
+    }
+    public Boolean createBatch(List<PSSystemDBCfg> pssystemdbcfgs) {
+        return false;
+    }
 
-    public PSSystemDBCfg update(String pssystemdbcfgid, PSSystemDBCfg pssystemdbcfg){
-            return null;
-     }
-    public Boolean updateBatch(List<PSSystemDBCfg> pssystemdbcfgs){
-            return false;
-     }
-
-
-    public Boolean remove(String pssystemdbcfgid){
-            return false;
-     }
-    public Boolean removeBatch(Collection<String> idList){
-            return false;
-     }
-
-    public PSSystemDBCfg get(String pssystemdbcfgid){
-            return null;
-     }
+    public PSSystemDBCfg update(String pssystemdbcfgid, PSSystemDBCfg pssystemdbcfg) {
+        return null;
+    }
+    public Boolean updateBatch(List<PSSystemDBCfg> pssystemdbcfgs) {
+        return false;
+    }
 
 
-    public String getByCodeName(String codeName){
+    public Boolean remove(String pssystemdbcfgid) {
+        return false;
+    }
+    public Boolean removeBatch(Collection<String> idList) {
+        return false;
+    }
+
+    public PSSystemDBCfg get(String pssystemdbcfgid) {
+        return null;
+    }
+
+
+    public String getByCodeName(String codeName) {
             return null;
     }
 
 
     public PSSystemDBCfg getDraft(){
-            return null;
+        return null;
     }
 
 
 
-    public Boolean checkKey(PSSystemDBCfg pssystemdbcfg){
-            return false;
-     }
+    public Boolean checkKey(PSSystemDBCfg pssystemdbcfg) {
+        return false;
+    }
 
 
-    public Boolean save(PSSystemDBCfg pssystemdbcfg){
-            return false;
-     }
-    public Boolean saveBatch(List<PSSystemDBCfg> pssystemdbcfgs){
-            return false;
-     }
+    public Boolean save(PSSystemDBCfg pssystemdbcfg) {
+        return false;
+    }
+    public Boolean saveBatch(List<PSSystemDBCfg> pssystemdbcfgs) {
+        return false;
+    }
 
-    public Page<PSSystemDBCfg> searchBuild(PSSystemDBCfgSearchContext context){
-            return null;
-     }
+    public Page<PSSystemDBCfg> searchBuild(PSSystemDBCfgSearchContext context) {
+        return null;
+    }
 
 
-    public Page<PSSystemDBCfg> searchDefault(PSSystemDBCfgSearchContext context){
-            return null;
-     }
+    public Page<PSSystemDBCfg> searchDefault(PSSystemDBCfgSearchContext context) {
+        return null;
+    }
 
 
 }

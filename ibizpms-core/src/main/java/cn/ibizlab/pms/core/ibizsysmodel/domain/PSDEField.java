@@ -65,7 +65,7 @@ public class PSDEField extends EntityClient implements Serializable {
      * 更新时间
      */
     @DEField(preType = DEPredefinedFieldType.UPDATEDATE)
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "updatedate" , format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("updatedate")
     private Timestamp updatedate;
@@ -82,7 +82,7 @@ public class PSDEField extends EntityClient implements Serializable {
      * 建立时间
      */
     @DEField(preType = DEPredefinedFieldType.CREATEDATE)
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "createdate" , format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("createdate")
     private Timestamp createdate;
@@ -715,7 +715,7 @@ public class PSDEField extends EntityClient implements Serializable {
      */
     public void setPsdefieldname(String psdefieldname) {
         this.psdefieldname = psdefieldname ;
-        this.modify("psdefieldname",psdefieldname);
+        this.modify("psdefieldname", psdefieldname);
     }
 
     /**
@@ -723,7 +723,7 @@ public class PSDEField extends EntityClient implements Serializable {
      */
     public void setBiztag(String biztag) {
         this.biztag = biztag ;
-        this.modify("biztag",biztag);
+        this.modify("biztag", biztag);
     }
 
     /**
@@ -731,7 +731,7 @@ public class PSDEField extends EntityClient implements Serializable {
      */
     public void setAllowempty(Integer allowempty) {
         this.allowempty = allowempty ;
-        this.modify("allowempty",allowempty);
+        this.modify("allowempty", allowempty);
     }
 
     /**
@@ -739,7 +739,7 @@ public class PSDEField extends EntityClient implements Serializable {
      */
     public void setAuditinfoformat(String auditinfoformat) {
         this.auditinfoformat = auditinfoformat ;
-        this.modify("auditinfoformat",auditinfoformat);
+        this.modify("auditinfoformat", auditinfoformat);
     }
 
     /**
@@ -747,7 +747,7 @@ public class PSDEField extends EntityClient implements Serializable {
      */
     public void setCheckrecursion(Integer checkrecursion) {
         this.checkrecursion = checkrecursion ;
-        this.modify("checkrecursion",checkrecursion);
+        this.modify("checkrecursion", checkrecursion);
     }
 
     /**
@@ -755,7 +755,7 @@ public class PSDEField extends EntityClient implements Serializable {
      */
     public void setCodename(String codename) {
         this.codename = codename ;
-        this.modify("codename",codename);
+        this.modify("codename", codename);
     }
 
     /**
@@ -763,7 +763,7 @@ public class PSDEField extends EntityClient implements Serializable {
      */
     public void setDbvaluemode(String dbvaluemode) {
         this.dbvaluemode = dbvaluemode ;
-        this.modify("dbvaluemode",dbvaluemode);
+        this.modify("dbvaluemode", dbvaluemode);
     }
 
     /**
@@ -771,7 +771,7 @@ public class PSDEField extends EntityClient implements Serializable {
      */
     public void setCustomexportscope(Integer customexportscope) {
         this.customexportscope = customexportscope ;
-        this.modify("customexportscope",customexportscope);
+        this.modify("customexportscope", customexportscope);
     }
 
     /**
@@ -779,7 +779,7 @@ public class PSDEField extends EntityClient implements Serializable {
      */
     public void setDbvaluemode2(String dbvaluemode2) {
         this.dbvaluemode2 = dbvaluemode2 ;
-        this.modify("dbvaluemode2",dbvaluemode2);
+        this.modify("dbvaluemode2", dbvaluemode2);
     }
 
     /**
@@ -787,7 +787,7 @@ public class PSDEField extends EntityClient implements Serializable {
      */
     public void setDeftype(Integer deftype) {
         this.deftype = deftype ;
-        this.modify("deftype",deftype);
+        this.modify("deftype", deftype);
     }
 
     /**
@@ -795,7 +795,7 @@ public class PSDEField extends EntityClient implements Serializable {
      */
     public void setDefaultvalue(String defaultvalue) {
         this.defaultvalue = defaultvalue ;
-        this.modify("defaultvalue",defaultvalue);
+        this.modify("defaultvalue", defaultvalue);
     }
 
     /**
@@ -803,7 +803,7 @@ public class PSDEField extends EntityClient implements Serializable {
      */
     public void setDupcheckmode(String dupcheckmode) {
         this.dupcheckmode = dupcheckmode ;
-        this.modify("dupcheckmode",dupcheckmode);
+        this.modify("dupcheckmode", dupcheckmode);
     }
 
     /**
@@ -811,7 +811,7 @@ public class PSDEField extends EntityClient implements Serializable {
      */
     public void setDupcheckvalues(String dupcheckvalues) {
         this.dupcheckvalues = dupcheckvalues ;
-        this.modify("dupcheckvalues",dupcheckvalues);
+        this.modify("dupcheckvalues", dupcheckvalues);
     }
 
     /**
@@ -819,7 +819,7 @@ public class PSDEField extends EntityClient implements Serializable {
      */
     public void setDefaultvaluetype(String defaultvaluetype) {
         this.defaultvaluetype = defaultvaluetype ;
-        this.modify("dvt",defaultvaluetype);
+        this.modify("dvt", defaultvaluetype);
     }
 
     /**
@@ -827,7 +827,7 @@ public class PSDEField extends EntityClient implements Serializable {
      */
     public void setEnableaudit(Integer enableaudit) {
         this.enableaudit = enableaudit ;
-        this.modify("enableaudit",enableaudit);
+        this.modify("enableaudit", enableaudit);
     }
 
     /**
@@ -835,7 +835,7 @@ public class PSDEField extends EntityClient implements Serializable {
      */
     public void setDynamodelflag(Integer dynamodelflag) {
         this.dynamodelflag = dynamodelflag ;
-        this.modify("dynamodelflag",dynamodelflag);
+        this.modify("dynamodelflag", dynamodelflag);
     }
 
     /**
@@ -843,7 +843,7 @@ public class PSDEField extends EntityClient implements Serializable {
      */
     public void setEnableqs(Integer enableqs) {
         this.enableqs = enableqs ;
-        this.modify("enableqs",enableqs);
+        this.modify("enableqs", enableqs);
     }
 
     /**
@@ -851,7 +851,7 @@ public class PSDEField extends EntityClient implements Serializable {
      */
     public void setEnablecolpriv(Integer enablecolpriv) {
         this.enablecolpriv = enablecolpriv ;
-        this.modify("enablecolpriv",enablecolpriv);
+        this.modify("enablecolpriv", enablecolpriv);
     }
 
     /**
@@ -859,7 +859,7 @@ public class PSDEField extends EntityClient implements Serializable {
      */
     public void setEnawriteback(Integer enawriteback) {
         this.enawriteback = enawriteback ;
-        this.modify("enawriteback",enawriteback);
+        this.modify("enawriteback", enawriteback);
     }
 
     /**
@@ -867,7 +867,7 @@ public class PSDEField extends EntityClient implements Serializable {
      */
     public void setEnableuserinput(Integer enableuserinput) {
         this.enableuserinput = enableuserinput ;
-        this.modify("enableuserinput",enableuserinput);
+        this.modify("enableuserinput", enableuserinput);
     }
 
     /**
@@ -875,7 +875,7 @@ public class PSDEField extends EntityClient implements Serializable {
      */
     public void setEnabletempdata(Integer enabletempdata) {
         this.enabletempdata = enabletempdata ;
-        this.modify("enabletempdata",enabletempdata);
+        this.modify("enabletempdata", enabletempdata);
     }
 
     /**
@@ -883,7 +883,7 @@ public class PSDEField extends EntityClient implements Serializable {
      */
     public void setExtendmode(Integer extendmode) {
         this.extendmode = extendmode ;
-        this.modify("extendmode",extendmode);
+        this.modify("extendmode", extendmode);
     }
 
     /**
@@ -891,7 +891,7 @@ public class PSDEField extends EntityClient implements Serializable {
      */
     public void setExportscope(Integer exportscope) {
         this.exportscope = exportscope ;
-        this.modify("exportscope",exportscope);
+        this.modify("exportscope", exportscope);
     }
 
     /**
@@ -899,7 +899,7 @@ public class PSDEField extends EntityClient implements Serializable {
      */
     public void setFormulafields(String formulafields) {
         this.formulafields = formulafields ;
-        this.modify("formulafields",formulafields);
+        this.modify("formulafields", formulafields);
     }
 
     /**
@@ -907,7 +907,7 @@ public class PSDEField extends EntityClient implements Serializable {
      */
     public void setFkey(Integer fkey) {
         this.fkey = fkey ;
-        this.modify("fkey",fkey);
+        this.modify("fkey", fkey);
     }
 
     /**
@@ -915,7 +915,7 @@ public class PSDEField extends EntityClient implements Serializable {
      */
     public void setFormulaformat(String formulaformat) {
         this.formulaformat = formulaformat ;
-        this.modify("formulaformat",formulaformat);
+        this.modify("formulaformat", formulaformat);
     }
 
     /**
@@ -923,7 +923,7 @@ public class PSDEField extends EntityClient implements Serializable {
      */
     public void setImportkey(Integer importkey) {
         this.importkey = importkey ;
-        this.modify("importkey",importkey);
+        this.modify("importkey", importkey);
     }
 
     /**
@@ -931,7 +931,7 @@ public class PSDEField extends EntityClient implements Serializable {
      */
     public void setImportorder(Integer importorder) {
         this.importorder = importorder ;
-        this.modify("importorder",importorder);
+        this.modify("importorder", importorder);
     }
 
     /**
@@ -939,7 +939,7 @@ public class PSDEField extends EntityClient implements Serializable {
      */
     public void setIndextype(Integer indextype) {
         this.indextype = indextype ;
-        this.modify("indextype",indextype);
+        this.modify("indextype", indextype);
     }
 
     /**
@@ -947,7 +947,7 @@ public class PSDEField extends EntityClient implements Serializable {
      */
     public void setLength(Integer length) {
         this.length = length ;
-        this.modify("length",length);
+        this.modify("length", length);
     }
 
     /**
@@ -955,7 +955,7 @@ public class PSDEField extends EntityClient implements Serializable {
      */
     public void setImporttag(String importtag) {
         this.importtag = importtag ;
-        this.modify("importtag",importtag);
+        this.modify("importtag", importtag);
     }
 
     /**
@@ -963,7 +963,7 @@ public class PSDEField extends EntityClient implements Serializable {
      */
     public void setLockflag(Integer lockflag) {
         this.lockflag = lockflag ;
-        this.modify("lockflag",lockflag);
+        this.modify("lockflag", lockflag);
     }
 
     /**
@@ -971,7 +971,7 @@ public class PSDEField extends EntityClient implements Serializable {
      */
     public void setLogicname(String logicname) {
         this.logicname = logicname ;
-        this.modify("logicname",logicname);
+        this.modify("logicname", logicname);
     }
 
     /**
@@ -979,7 +979,7 @@ public class PSDEField extends EntityClient implements Serializable {
      */
     public void setMultiformfield(Integer multiformfield) {
         this.multiformfield = multiformfield ;
-        this.modify("multiformfield",multiformfield);
+        this.modify("multiformfield", multiformfield);
     }
 
     /**
@@ -987,7 +987,7 @@ public class PSDEField extends EntityClient implements Serializable {
      */
     public void setMajorfield(Integer majorfield) {
         this.majorfield = majorfield ;
-        this.modify("majorfield",majorfield);
+        this.modify("majorfield", majorfield);
     }
 
     /**
@@ -995,7 +995,7 @@ public class PSDEField extends EntityClient implements Serializable {
      */
     public void setMemo(String memo) {
         this.memo = memo ;
-        this.modify("memo",memo);
+        this.modify("memo", memo);
     }
 
     /**
@@ -1003,7 +1003,7 @@ public class PSDEField extends EntityClient implements Serializable {
      */
     public void setNullvalorder(String nullvalorder) {
         this.nullvalorder = nullvalorder ;
-        this.modify("nullvalorder",nullvalorder);
+        this.modify("nullvalorder", nullvalorder);
     }
 
     /**
@@ -1011,7 +1011,7 @@ public class PSDEField extends EntityClient implements Serializable {
      */
     public void setPastereset(Integer pastereset) {
         this.pastereset = pastereset ;
-        this.modify("pastereset",pastereset);
+        this.modify("pastereset", pastereset);
     }
 
     /**
@@ -1019,7 +1019,7 @@ public class PSDEField extends EntityClient implements Serializable {
      */
     public void setPhysicalfield(Integer physicalfield) {
         this.physicalfield = physicalfield ;
-        this.modify("physicalfield",physicalfield);
+        this.modify("physicalfield", physicalfield);
     }
 
     /**
@@ -1027,7 +1027,7 @@ public class PSDEField extends EntityClient implements Serializable {
      */
     public void setPkey(Integer pkey) {
         this.pkey = pkey ;
-        this.modify("pkey",pkey);
+        this.modify("pkey", pkey);
     }
 
     /**
@@ -1035,7 +1035,7 @@ public class PSDEField extends EntityClient implements Serializable {
      */
     public void setPrecision2(Integer precision2) {
         this.precision2 = precision2 ;
-        this.modify("precision2",precision2);
+        this.modify("precision2", precision2);
     }
 
     /**
@@ -1043,7 +1043,7 @@ public class PSDEField extends EntityClient implements Serializable {
      */
     public void setPredefinetype(String predefinetype) {
         this.predefinetype = predefinetype ;
-        this.modify("predefinetype",predefinetype);
+        this.modify("predefinetype", predefinetype);
     }
 
     /**
@@ -1051,7 +1051,7 @@ public class PSDEField extends EntityClient implements Serializable {
      */
     public void setPsdatatypename(String psdatatypename) {
         this.psdatatypename = psdatatypename ;
-        this.modify("psdatatypename",psdatatypename);
+        this.modify("psdatatypename", psdatatypename);
     }
 
     /**
@@ -1059,7 +1059,7 @@ public class PSDEField extends EntityClient implements Serializable {
      */
     public void setQuerycolumn(Integer querycolumn) {
         this.querycolumn = querycolumn ;
-        this.modify("querycolumn",querycolumn);
+        this.modify("querycolumn", querycolumn);
     }
 
     /**
@@ -1067,7 +1067,7 @@ public class PSDEField extends EntityClient implements Serializable {
      */
     public void setPsdatatypeid(String psdatatypeid) {
         this.psdatatypeid = psdatatypeid ;
-        this.modify("psdatatypeid",psdatatypeid);
+        this.modify("psdatatypeid", psdatatypeid);
     }
 
     /**
@@ -1075,7 +1075,7 @@ public class PSDEField extends EntityClient implements Serializable {
      */
     public void setServicecodename(String servicecodename) {
         this.servicecodename = servicecodename ;
-        this.modify("servicecodename",servicecodename);
+        this.modify("servicecodename", servicecodename);
     }
 
     /**
@@ -1083,7 +1083,7 @@ public class PSDEField extends EntityClient implements Serializable {
      */
     public void setStatefield(String statefield) {
         this.statefield = statefield ;
-        this.modify("statefield",statefield);
+        this.modify("statefield", statefield);
     }
 
     /**
@@ -1091,7 +1091,7 @@ public class PSDEField extends EntityClient implements Serializable {
      */
     public void setQuerycs(String querycs) {
         this.querycs = querycs ;
-        this.modify("querycs",querycs);
+        this.modify("querycs", querycs);
     }
 
     /**
@@ -1099,7 +1099,7 @@ public class PSDEField extends EntityClient implements Serializable {
      */
     public void setStrlength(Integer strlength) {
         this.strlength = strlength ;
-        this.modify("strlength",strlength);
+        this.modify("strlength", strlength);
     }
 
     /**
@@ -1107,7 +1107,7 @@ public class PSDEField extends EntityClient implements Serializable {
      */
     public void setStringcase(String stringcase) {
         this.stringcase = stringcase ;
-        this.modify("stringcase",stringcase);
+        this.modify("stringcase", stringcase);
     }
 
     /**
@@ -1115,7 +1115,7 @@ public class PSDEField extends EntityClient implements Serializable {
      */
     public void setTestdata(String testdata) {
         this.testdata = testdata ;
-        this.modify("testdata",testdata);
+        this.modify("testdata", testdata);
     }
 
     /**
@@ -1123,7 +1123,7 @@ public class PSDEField extends EntityClient implements Serializable {
      */
     public void setTablename(String tablename) {
         this.tablename = tablename ;
-        this.modify("tablename",tablename);
+        this.modify("tablename", tablename);
     }
 
     /**
@@ -1131,7 +1131,7 @@ public class PSDEField extends EntityClient implements Serializable {
      */
     public void setUnicodechar(Integer unicodechar) {
         this.unicodechar = unicodechar ;
-        this.modify("unicodechar",unicodechar);
+        this.modify("unicodechar", unicodechar);
     }
 
     /**
@@ -1139,7 +1139,7 @@ public class PSDEField extends EntityClient implements Serializable {
      */
     public void setUnit(String unit) {
         this.unit = unit ;
-        this.modify("unit",unit);
+        this.modify("unit", unit);
     }
 
     /**
@@ -1147,7 +1147,7 @@ public class PSDEField extends EntityClient implements Serializable {
      */
     public void setUnionkeyvalue(String unionkeyvalue) {
         this.unionkeyvalue = unionkeyvalue ;
-        this.modify("unionkeyvalue",unionkeyvalue);
+        this.modify("unionkeyvalue", unionkeyvalue);
     }
 
     /**
@@ -1155,7 +1155,7 @@ public class PSDEField extends EntityClient implements Serializable {
      */
     public void setUpdateovmode(String updateovmode) {
         this.updateovmode = updateovmode ;
-        this.modify("updateovmode",updateovmode);
+        this.modify("updateovmode", updateovmode);
     }
 
     /**
@@ -1163,7 +1163,7 @@ public class PSDEField extends EntityClient implements Serializable {
      */
     public void setUnitwidth(Integer unitwidth) {
         this.unitwidth = unitwidth ;
-        this.modify("unitwidth",unitwidth);
+        this.modify("unitwidth", unitwidth);
     }
 
     /**
@@ -1171,7 +1171,7 @@ public class PSDEField extends EntityClient implements Serializable {
      */
     public void setUserparams(String userparams) {
         this.userparams = userparams ;
-        this.modify("userparams",userparams);
+        this.modify("userparams", userparams);
     }
 
     /**
@@ -1179,7 +1179,7 @@ public class PSDEField extends EntityClient implements Serializable {
      */
     public void setUsertag(String usertag) {
         this.usertag = usertag ;
-        this.modify("usertag",usertag);
+        this.modify("usertag", usertag);
     }
 
     /**
@@ -1187,7 +1187,7 @@ public class PSDEField extends EntityClient implements Serializable {
      */
     public void setUsercat(String usercat) {
         this.usercat = usercat ;
-        this.modify("usercat",usercat);
+        this.modify("usercat", usercat);
     }
 
     /**
@@ -1195,7 +1195,7 @@ public class PSDEField extends EntityClient implements Serializable {
      */
     public void setUsertag3(String usertag3) {
         this.usertag3 = usertag3 ;
-        this.modify("usertag3",usertag3);
+        this.modify("usertag3", usertag3);
     }
 
     /**
@@ -1203,7 +1203,7 @@ public class PSDEField extends EntityClient implements Serializable {
      */
     public void setUsertag4(String usertag4) {
         this.usertag4 = usertag4 ;
-        this.modify("usertag4",usertag4);
+        this.modify("usertag4", usertag4);
     }
 
     /**
@@ -1211,7 +1211,7 @@ public class PSDEField extends EntityClient implements Serializable {
      */
     public void setUsertag2(String usertag2) {
         this.usertag2 = usertag2 ;
-        this.modify("usertag2",usertag2);
+        this.modify("usertag2", usertag2);
     }
 
     /**
@@ -1219,7 +1219,7 @@ public class PSDEField extends EntityClient implements Serializable {
      */
     public void setValidflag(Integer validflag) {
         this.validflag = validflag ;
-        this.modify("validflag",validflag);
+        this.modify("validflag", validflag);
     }
 
     /**
@@ -1227,7 +1227,7 @@ public class PSDEField extends EntityClient implements Serializable {
      */
     public void setViewcollevel(Integer viewcollevel) {
         this.viewcollevel = viewcollevel ;
-        this.modify("viewcollevel",viewcollevel);
+        this.modify("viewcollevel", viewcollevel);
     }
 
     /**
@@ -1235,7 +1235,7 @@ public class PSDEField extends EntityClient implements Serializable {
      */
     public void setValueformat(String valueformat) {
         this.valueformat = valueformat ;
-        this.modify("valueformat",valueformat);
+        this.modify("valueformat", valueformat);
     }
 
     /**
@@ -1243,7 +1243,7 @@ public class PSDEField extends EntityClient implements Serializable {
      */
     public void setNo2dupchkpsdefname(String no2dupchkpsdefname) {
         this.no2dupchkpsdefname = no2dupchkpsdefname ;
-        this.modify("no2dupchkpsdefname",no2dupchkpsdefname);
+        this.modify("no2dupchkpsdefname", no2dupchkpsdefname);
     }
 
     /**
@@ -1251,7 +1251,7 @@ public class PSDEField extends EntityClient implements Serializable {
      */
     public void setNo2dupchkpsdefid(String no2dupchkpsdefid) {
         this.no2dupchkpsdefid = no2dupchkpsdefid ;
-        this.modify("no2dupchkpsdefid",no2dupchkpsdefid);
+        this.modify("no2dupchkpsdefid", no2dupchkpsdefid);
     }
 
     /**
@@ -1259,7 +1259,7 @@ public class PSDEField extends EntityClient implements Serializable {
      */
     public void setNo3dupchkpsdefname(String no3dupchkpsdefname) {
         this.no3dupchkpsdefname = no3dupchkpsdefname ;
-        this.modify("no3dupchkpsdefname",no3dupchkpsdefname);
+        this.modify("no3dupchkpsdefname", no3dupchkpsdefname);
     }
 
     /**
@@ -1267,7 +1267,7 @@ public class PSDEField extends EntityClient implements Serializable {
      */
     public void setNo3dupchkpsdefid(String no3dupchkpsdefid) {
         this.no3dupchkpsdefid = no3dupchkpsdefid ;
-        this.modify("no3dupchkpsdefid",no3dupchkpsdefid);
+        this.modify("no3dupchkpsdefid", no3dupchkpsdefid);
     }
 
     /**
@@ -1275,7 +1275,7 @@ public class PSDEField extends EntityClient implements Serializable {
      */
     public void setValuepsdefname(String valuepsdefname) {
         this.valuepsdefname = valuepsdefname ;
-        this.modify("valuepsdefname",valuepsdefname);
+        this.modify("valuepsdefname", valuepsdefname);
     }
 
     /**
@@ -1283,7 +1283,7 @@ public class PSDEField extends EntityClient implements Serializable {
      */
     public void setValuepsdefid(String valuepsdefid) {
         this.valuepsdefid = valuepsdefid ;
-        this.modify("valuepsdefid",valuepsdefid);
+        this.modify("valuepsdefid", valuepsdefid);
     }
 
     /**
@@ -1291,7 +1291,7 @@ public class PSDEField extends EntityClient implements Serializable {
      */
     public void setDerpsdefname(String derpsdefname) {
         this.derpsdefname = derpsdefname ;
-        this.modify("derpsdefname",derpsdefname);
+        this.modify("derpsdefname", derpsdefname);
     }
 
     /**
@@ -1299,7 +1299,7 @@ public class PSDEField extends EntityClient implements Serializable {
      */
     public void setDupcheckpsdefid(String dupcheckpsdefid) {
         this.dupcheckpsdefid = dupcheckpsdefid ;
-        this.modify("dupchkpsdefid",dupcheckpsdefid);
+        this.modify("dupchkpsdefid", dupcheckpsdefid);
     }
 
     /**
@@ -1307,7 +1307,7 @@ public class PSDEField extends EntityClient implements Serializable {
      */
     public void setDerpsdefid(String derpsdefid) {
         this.derpsdefid = derpsdefid ;
-        this.modify("derpsdefid",derpsdefid);
+        this.modify("derpsdefid", derpsdefid);
     }
 
     /**
@@ -1315,7 +1315,7 @@ public class PSDEField extends EntityClient implements Serializable {
      */
     public void setDupcheckpsdefname(String dupcheckpsdefname) {
         this.dupcheckpsdefname = dupcheckpsdefname ;
-        this.modify("dupchkpsdefname",dupcheckpsdefname);
+        this.modify("dupchkpsdefname", dupcheckpsdefname);
     }
 
     /**
@@ -1323,7 +1323,7 @@ public class PSDEField extends EntityClient implements Serializable {
      */
     public void setPsdename(String psdename) {
         this.psdename = psdename ;
-        this.modify("psdename",psdename);
+        this.modify("psdename", psdename);
     }
 
     /**
@@ -1331,7 +1331,7 @@ public class PSDEField extends EntityClient implements Serializable {
      */
     public void setPsdeid(String psdeid) {
         this.psdeid = psdeid ;
-        this.modify("psdeid",psdeid);
+        this.modify("psdeid", psdeid);
     }
 
     /**
@@ -1339,7 +1339,7 @@ public class PSDEField extends EntityClient implements Serializable {
      */
     public void setPssystemid(String pssystemid) {
         this.pssystemid = pssystemid ;
-        this.modify("pssystemid",pssystemid);
+        this.modify("pssystemid", pssystemid);
     }
 
     /**
@@ -1347,7 +1347,7 @@ public class PSDEField extends EntityClient implements Serializable {
      */
     public void setPssystemname(String pssystemname) {
         this.pssystemname = pssystemname ;
-        this.modify("pssystemname",pssystemname);
+        this.modify("pssystemname", pssystemname);
     }
 
     /**
@@ -1360,7 +1360,7 @@ public class PSDEField extends EntityClient implements Serializable {
     @Override
     public <T> T copyTo(T targetEntity, boolean bIncEmpty) {
         this.reset("psdefieldid");
-        return super.copyTo(targetEntity,bIncEmpty);
+        return super.copyTo(targetEntity, bIncEmpty);
     }
 }
 

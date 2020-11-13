@@ -31,7 +31,7 @@ public interface IBIZPRO_MESSAGEFeignClient {
 
 
     @RequestMapping(method = RequestMethod.PUT, value = "/ibizpro_messages/{ibizpro_messageid}")
-    IBIZProMessage update(@PathVariable("ibizpro_messageid") String ibizpro_messageid,@RequestBody IBIZProMessage ibizpromessage);
+    IBIZProMessage update(@PathVariable("ibizpro_messageid") String ibizpro_messageid, @RequestBody IBIZProMessage ibizpromessage);
 
     @RequestMapping(method = RequestMethod.PUT, value = "/ibizpro_messages/batch")
     Boolean updateBatch(@RequestBody List<IBIZProMessage> ibizpromessages);
@@ -60,11 +60,11 @@ public interface IBIZPRO_MESSAGEFeignClient {
 
 
     @RequestMapping(method = RequestMethod.POST, value = "/ibizpro_messages/{ibizpro_messageid}/markdone")
-    IBIZProMessage markDone(@PathVariable("ibizpro_messageid") String ibizpro_messageid,@RequestBody IBIZProMessage ibizpromessage);
+    IBIZProMessage markDone(@PathVariable("ibizpro_messageid") String ibizpro_messageid, @RequestBody IBIZProMessage ibizpromessage);
 
 
     @RequestMapping(method = RequestMethod.POST, value = "/ibizpro_messages/{ibizpro_messageid}/markread")
-    IBIZProMessage markRead(@PathVariable("ibizpro_messageid") String ibizpro_messageid,@RequestBody IBIZProMessage ibizpromessage);
+    IBIZProMessage markRead(@PathVariable("ibizpro_messageid") String ibizpro_messageid, @RequestBody IBIZProMessage ibizpromessage);
 
 
     @RequestMapping(method = RequestMethod.POST, value = "/ibizpro_messages/save")
@@ -75,7 +75,7 @@ public interface IBIZPRO_MESSAGEFeignClient {
 
 
     @RequestMapping(method = RequestMethod.POST, value = "/ibizpro_messages/{ibizpro_messageid}/send")
-    IBIZProMessage send(@PathVariable("ibizpro_messageid") String ibizpro_messageid,@RequestBody IBIZProMessage ibizpromessage);
+    IBIZProMessage send(@PathVariable("ibizpro_messageid") String ibizpro_messageid, @RequestBody IBIZProMessage ibizpromessage);
 
 
 

@@ -38,7 +38,7 @@ import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 @Setter
 @NoArgsConstructor
 @JsonIgnoreProperties(value = "handler")
-@TableName(value = "zt_config",resultMap = "ConfigResultMap")
+@TableName(value = "zt_config", resultMap = "ConfigResultMap")
 public class Config extends EntityMP implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -47,7 +47,7 @@ public class Config extends EntityMP implements Serializable {
      * id
      */
     @DEField(isKeyField = true)
-    @TableId(value= "id",type=IdType.AUTO)
+    @TableId(value = "id", type = IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
     private Long id;
@@ -93,46 +93,46 @@ public class Config extends EntityMP implements Serializable {
      * 设置 [模块]
      */
     public void setModule(String module) {
-        this.module = module ;
-        this.modify("module",module);
+        this.module = module;
+        this.modify("module", module);
     }
 
     /**
      * 设置 [附加部分]
      */
     public void setSection(String section) {
-        this.section = section ;
-        this.modify("section",section);
+        this.section = section;
+        this.modify("section", section);
     }
 
     /**
      * 设置 [值]
      */
     public void setValue(String value) {
-        this.value = value ;
-        this.modify("value",value);
+        this.value = value;
+        this.modify("value", value);
     }
 
     /**
      * 设置 [键]
      */
     public void setKey(String key) {
-        this.key = key ;
-        this.modify("key",key);
+        this.key = key;
+        this.modify("key", key);
     }
 
     /**
      * 设置 [所有者]
      */
     public void setOwner(String owner) {
-        this.owner = owner ;
-        this.modify("owner",owner);
+        this.owner = owner;
+        this.modify("owner", owner);
     }
 
 
     @Override
     public Serializable getDefaultKey(boolean gen) {
-       return IdWorker.getId();
+        return IdWorker.getId();
     }
     /**
      * 复制当前对象数据到目标对象(粘贴重置)
@@ -144,7 +144,7 @@ public class Config extends EntityMP implements Serializable {
     @Override
     public <T> T copyTo(T targetEntity, boolean bIncEmpty) {
         this.reset("id");
-        return super.copyTo(targetEntity,bIncEmpty);
+        return super.copyTo(targetEntity, bIncEmpty);
     }
 }
 

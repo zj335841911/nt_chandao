@@ -23,7 +23,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 /**
  * 实体[UserGroup] 服务对象接口
  */
-public interface IUserGroupService extends IService<UserGroup>{
+public interface IUserGroupService extends IService<UserGroup> {
 
     /**
      * 业务实体显示文本名称
@@ -35,29 +35,29 @@ public interface IUserGroupService extends IService<UserGroup>{
      */
     final static String OBJECT_SOURCE_PATH = "usergroups";
 
-    boolean create(UserGroup et) ;
-    void createBatch(List<UserGroup> list) ;
-    boolean update(UserGroup et) ;
-    void updateBatch(List<UserGroup> list) ;
-    boolean remove(String key) ;
-    void removeBatch(Collection<String> idList) ;
-    UserGroup get(String key) ;
-    UserGroup getDraft(UserGroup et) ;
-    boolean checkKey(UserGroup et) ;
-    boolean save(UserGroup et) ;
-    void saveBatch(List<UserGroup> list) ;
-    Page<UserGroup> searchDefault(UserGroupSearchContext context) ;
+    boolean create(UserGroup et);
+    void createBatch(List<UserGroup> list);
+    boolean update(UserGroup et);
+    void updateBatch(List<UserGroup> list);
+    boolean remove(String key);
+    void removeBatch(Collection<String> idList);
+    UserGroup get(String key);
+    UserGroup getDraft(UserGroup et);
+    boolean checkKey(UserGroup et);
+    boolean save(UserGroup et);
+    void saveBatch(List<UserGroup> list);
+    Page<UserGroup> searchDefault(UserGroupSearchContext context);
     /**
-     *自定义查询SQL
+     * 自定义查询SQL
      * @param sql  select * from table where id =#{et.param}
-     * @param param 参数列表  param.put("param","1");
+     * @param param 参数列表  param.put("param", "1");
      * @return select * from table where id = '1'
      */
     List<JSONObject> select(String sql, Map param);
     /**
-     *自定义SQL
+     * 自定义SQL
      * @param sql  update table  set name ='test' where id =#{et.param}
-     * @param param 参数列表  param.put("param","1");
+     * @param param 参数列表  param.put("param", "1");
      * @return     update table  set name ='test' where id = '1'
      */
     boolean execute(String sql, Map param);

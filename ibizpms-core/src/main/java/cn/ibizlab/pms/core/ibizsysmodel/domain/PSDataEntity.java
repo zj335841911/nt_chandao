@@ -57,7 +57,7 @@ public class PSDataEntity extends EntityClient implements Serializable {
      * 建立时间
      */
     @DEField(preType = DEPredefinedFieldType.CREATEDATE)
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "createdate" , format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("createdate")
     private Timestamp createdate;
@@ -82,7 +82,7 @@ public class PSDataEntity extends EntityClient implements Serializable {
      * 更新时间
      */
     @DEField(preType = DEPredefinedFieldType.UPDATEDATE)
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "updatedate" , format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("updatedate")
     private Timestamp updatedate;
@@ -737,7 +737,7 @@ public class PSDataEntity extends EntityClient implements Serializable {
      */
     public void setPsdataentityname(String psdataentityname) {
         this.psdataentityname = psdataentityname ;
-        this.modify("psdataentityname",psdataentityname);
+        this.modify("psdataentityname", psdataentityname);
     }
 
     /**
@@ -745,7 +745,7 @@ public class PSDataEntity extends EntityClient implements Serializable {
      */
     public void setVirtualflag(Integer virtualflag) {
         this.virtualflag = virtualflag ;
-        this.modify("virtualflag",virtualflag);
+        this.modify("virtualflag", virtualflag);
     }
 
     /**
@@ -753,7 +753,7 @@ public class PSDataEntity extends EntityClient implements Serializable {
      */
     public void setVkeyseparator(String vkeyseparator) {
         this.vkeyseparator = vkeyseparator ;
-        this.modify("vkeyseparator",vkeyseparator);
+        this.modify("vkeyseparator", vkeyseparator);
     }
 
     /**
@@ -761,7 +761,7 @@ public class PSDataEntity extends EntityClient implements Serializable {
      */
     public void setAccctrlarch(Integer accctrlarch) {
         this.accctrlarch = accctrlarch ;
-        this.modify("accctrlarch",accctrlarch);
+        this.modify("accctrlarch", accctrlarch);
     }
 
     /**
@@ -769,7 +769,7 @@ public class PSDataEntity extends EntityClient implements Serializable {
      */
     public void setAuditmode(Integer auditmode) {
         this.auditmode = auditmode ;
-        this.modify("auditmode",auditmode);
+        this.modify("auditmode", auditmode);
     }
 
     /**
@@ -777,7 +777,7 @@ public class PSDataEntity extends EntityClient implements Serializable {
      */
     public void setBiztag(String biztag) {
         this.biztag = biztag ;
-        this.modify("biztag",biztag);
+        this.modify("biztag", biztag);
     }
 
     /**
@@ -785,7 +785,7 @@ public class PSDataEntity extends EntityClient implements Serializable {
      */
     public void setBaseclsparams(String baseclsparams) {
         this.baseclsparams = baseclsparams ;
-        this.modify("baseclsparams",baseclsparams);
+        this.modify("baseclsparams", baseclsparams);
     }
 
     /**
@@ -793,7 +793,7 @@ public class PSDataEntity extends EntityClient implements Serializable {
      */
     public void setCodename(String codename) {
         this.codename = codename ;
-        this.modify("codename",codename);
+        this.modify("codename", codename);
     }
 
     /**
@@ -801,7 +801,7 @@ public class PSDataEntity extends EntityClient implements Serializable {
      */
     public void setColor(String color) {
         this.color = color ;
-        this.modify("color",color);
+        this.modify("color", color);
     }
 
     /**
@@ -809,7 +809,7 @@ public class PSDataEntity extends EntityClient implements Serializable {
      */
     public void setDataaccmode(Integer dataaccmode) {
         this.dataaccmode = dataaccmode ;
-        this.modify("dataaccmode",dataaccmode);
+        this.modify("dataaccmode", dataaccmode);
     }
 
     /**
@@ -817,7 +817,7 @@ public class PSDataEntity extends EntityClient implements Serializable {
      */
     public void setDataimpexpflag(Integer dataimpexpflag) {
         this.dataimpexpflag = dataimpexpflag ;
-        this.modify("dataimpexpflag",dataimpexpflag);
+        this.modify("dataimpexpflag", dataimpexpflag);
     }
 
     /**
@@ -825,7 +825,7 @@ public class PSDataEntity extends EntityClient implements Serializable {
      */
     public void setDatachglogmode(Integer datachglogmode) {
         this.datachglogmode = datachglogmode ;
-        this.modify("datachglogmode",datachglogmode);
+        this.modify("datachglogmode", datachglogmode);
     }
 
     /**
@@ -833,7 +833,7 @@ public class PSDataEntity extends EntityClient implements Serializable {
      */
     public void setDbtabspace(String dbtabspace) {
         this.dbtabspace = dbtabspace ;
-        this.modify("dbtabspace",dbtabspace);
+        this.modify("dbtabspace", dbtabspace);
     }
 
     /**
@@ -841,7 +841,7 @@ public class PSDataEntity extends EntityClient implements Serializable {
      */
     public void setDecat(String decat) {
         this.decat = decat ;
-        this.modify("decat",decat);
+        this.modify("decat", decat);
     }
 
     /**
@@ -849,7 +849,7 @@ public class PSDataEntity extends EntityClient implements Serializable {
      */
     public void setDelockflag(Integer delockflag) {
         this.delockflag = delockflag ;
-        this.modify("delockflag",delockflag);
+        this.modify("delockflag", delockflag);
     }
 
     /**
@@ -857,7 +857,7 @@ public class PSDataEntity extends EntityClient implements Serializable {
      */
     public void setDesn(String desn) {
         this.desn = desn ;
-        this.modify("desn",desn);
+        this.modify("desn", desn);
     }
 
     /**
@@ -865,7 +865,7 @@ public class PSDataEntity extends EntityClient implements Serializable {
      */
     public void setDetag2(String detag2) {
         this.detag2 = detag2 ;
-        this.modify("detag2",detag2);
+        this.modify("detag2", detag2);
     }
 
     /**
@@ -873,7 +873,7 @@ public class PSDataEntity extends EntityClient implements Serializable {
      */
     public void setDetype(Integer detype) {
         this.detype = detype ;
-        this.modify("detype",detype);
+        this.modify("detype", detype);
     }
 
     /**
@@ -881,7 +881,7 @@ public class PSDataEntity extends EntityClient implements Serializable {
      */
     public void setDetag(String detag) {
         this.detag = detag ;
-        this.modify("detag",detag);
+        this.modify("detag", detag);
     }
 
     /**
@@ -889,7 +889,7 @@ public class PSDataEntity extends EntityClient implements Serializable {
      */
     public void setDynamicmode(Integer dynamicmode) {
         this.dynamicmode = dynamicmode ;
-        this.modify("dynamicmode",dynamicmode);
+        this.modify("dynamicmode", dynamicmode);
     }
 
     /**
@@ -897,7 +897,7 @@ public class PSDataEntity extends EntityClient implements Serializable {
      */
     public void setDslink(String dslink) {
         this.dslink = dslink ;
-        this.modify("dslink",dslink);
+        this.modify("dslink", dslink);
     }
 
     /**
@@ -905,7 +905,7 @@ public class PSDataEntity extends EntityClient implements Serializable {
      */
     public void setEnableaudit(Integer enableaudit) {
         this.enableaudit = enableaudit ;
-        this.modify("enableaudit",enableaudit);
+        this.modify("enableaudit", enableaudit);
     }
 
     /**
@@ -913,7 +913,7 @@ public class PSDataEntity extends EntityClient implements Serializable {
      */
     public void setDynamodelflag(Integer dynamodelflag) {
         this.dynamodelflag = dynamodelflag ;
-        this.modify("dynamodelflag",dynamodelflag);
+        this.modify("dynamodelflag", dynamodelflag);
     }
 
     /**
@@ -921,7 +921,7 @@ public class PSDataEntity extends EntityClient implements Serializable {
      */
     public void setEnabledataver(Integer enabledataver) {
         this.enabledataver = enabledataver ;
-        this.modify("enabledataver",enabledataver);
+        this.modify("enabledataver", enabledataver);
     }
 
     /**
@@ -929,7 +929,7 @@ public class PSDataEntity extends EntityClient implements Serializable {
      */
     public void setEnabledalog(Integer enabledalog) {
         this.enabledalog = enabledalog ;
-        this.modify("enabledalog",enabledalog);
+        this.modify("enabledalog", enabledalog);
     }
 
     /**
@@ -937,7 +937,7 @@ public class PSDataEntity extends EntityClient implements Serializable {
      */
     public void setEnablededataset(Integer enablededataset) {
         this.enablededataset = enablededataset ;
-        this.modify("enablededataset",enablededataset);
+        this.modify("enablededataset", enablededataset);
     }
 
     /**
@@ -945,7 +945,7 @@ public class PSDataEntity extends EntityClient implements Serializable {
      */
     public void setEnableentitycache(Integer enableentitycache) {
         this.enableentitycache = enableentitycache ;
-        this.modify("enableentitycache",enableentitycache);
+        this.modify("enableentitycache", enableentitycache);
     }
 
     /**
@@ -953,7 +953,7 @@ public class PSDataEntity extends EntityClient implements Serializable {
      */
     public void setEnabledeaction(Integer enabledeaction) {
         this.enabledeaction = enabledeaction ;
-        this.modify("enabledeaction",enabledeaction);
+        this.modify("enabledeaction", enabledeaction);
     }
 
     /**
@@ -961,7 +961,7 @@ public class PSDataEntity extends EntityClient implements Serializable {
      */
     public void setEnablemultids(Integer enablemultids) {
         this.enablemultids = enablemultids ;
-        this.modify("enablemultids",enablemultids);
+        this.modify("enablemultids", enablemultids);
     }
 
     /**
@@ -969,7 +969,7 @@ public class PSDataEntity extends EntityClient implements Serializable {
      */
     public void setEnablemob(Integer enablemob) {
         this.enablemob = enablemob ;
-        this.modify("enablemob",enablemob);
+        this.modify("enablemob", enablemob);
     }
 
     /**
@@ -977,7 +977,7 @@ public class PSDataEntity extends EntityClient implements Serializable {
      */
     public void setEnableopnamemodel(Integer enableopnamemodel) {
         this.enableopnamemodel = enableopnamemodel ;
-        this.modify("enableopnamemodel",enableopnamemodel);
+        this.modify("enableopnamemodel", enableopnamemodel);
     }
 
     /**
@@ -985,7 +985,7 @@ public class PSDataEntity extends EntityClient implements Serializable {
      */
     public void setEnableorgmodel(Integer enableorgmodel) {
         this.enableorgmodel = enableorgmodel ;
-        this.modify("enableorgmodel",enableorgmodel);
+        this.modify("enableorgmodel", enableorgmodel);
     }
 
     /**
@@ -993,7 +993,7 @@ public class PSDataEntity extends EntityClient implements Serializable {
      */
     public void setEnamultiform(Integer enamultiform) {
         this.enamultiform = enamultiform ;
-        this.modify("enamultiform",enamultiform);
+        this.modify("enamultiform", enamultiform);
     }
 
     /**
@@ -1001,7 +1001,7 @@ public class PSDataEntity extends EntityClient implements Serializable {
      */
     public void setEnablewfmodel(Integer enablewfmodel) {
         this.enablewfmodel = enablewfmodel ;
-        this.modify("enablewfmodel",enablewfmodel);
+        this.modify("enablewfmodel", enablewfmodel);
     }
 
     /**
@@ -1009,7 +1009,7 @@ public class PSDataEntity extends EntityClient implements Serializable {
      */
     public void setEnableselect(Integer enableselect) {
         this.enableselect = enableselect ;
-        this.modify("enableselect",enableselect);
+        this.modify("enableselect", enableselect);
     }
 
     /**
@@ -1017,7 +1017,7 @@ public class PSDataEntity extends EntityClient implements Serializable {
      */
     public void setEnatempdata(Integer enatempdata) {
         this.enatempdata = enatempdata ;
-        this.modify("enatempdata",enatempdata);
+        this.modify("enatempdata", enatempdata);
     }
 
     /**
@@ -1025,7 +1025,7 @@ public class PSDataEntity extends EntityClient implements Serializable {
      */
     public void setEntitycachetimeout(Integer entitycachetimeout) {
         this.entitycachetimeout = entitycachetimeout ;
-        this.modify("entitycachetimeout",entitycachetimeout);
+        this.modify("entitycachetimeout", entitycachetimeout);
     }
 
     /**
@@ -1033,7 +1033,7 @@ public class PSDataEntity extends EntityClient implements Serializable {
      */
     public void setExistingmodel(Integer existingmodel) {
         this.existingmodel = existingmodel ;
-        this.modify("existingmodel",existingmodel);
+        this.modify("existingmodel", existingmodel);
     }
 
     /**
@@ -1041,7 +1041,7 @@ public class PSDataEntity extends EntityClient implements Serializable {
      */
     public void setExtablename(String extablename) {
         this.extablename = extablename ;
-        this.modify("extablename",extablename);
+        this.modify("extablename", extablename);
     }
 
     /**
@@ -1049,7 +1049,7 @@ public class PSDataEntity extends EntityClient implements Serializable {
      */
     public void setLockflag(Integer lockflag) {
         this.lockflag = lockflag ;
-        this.modify("lockflag",lockflag);
+        this.modify("lockflag", lockflag);
     }
 
     /**
@@ -1057,7 +1057,7 @@ public class PSDataEntity extends EntityClient implements Serializable {
      */
     public void setIndexdetype(String indexdetype) {
         this.indexdetype = indexdetype ;
-        this.modify("indexdetype",indexdetype);
+        this.modify("indexdetype", indexdetype);
     }
 
     /**
@@ -1065,7 +1065,7 @@ public class PSDataEntity extends EntityClient implements Serializable {
      */
     public void setKeyrule(String keyrule) {
         this.keyrule = keyrule ;
-        this.modify("keyrule",keyrule);
+        this.modify("keyrule", keyrule);
     }
 
     /**
@@ -1073,7 +1073,7 @@ public class PSDataEntity extends EntityClient implements Serializable {
      */
     public void setLogicinvalidvalue(String logicinvalidvalue) {
         this.logicinvalidvalue = logicinvalidvalue ;
-        this.modify("logicinvalidvalue",logicinvalidvalue);
+        this.modify("logicinvalidvalue", logicinvalidvalue);
     }
 
     /**
@@ -1081,7 +1081,7 @@ public class PSDataEntity extends EntityClient implements Serializable {
      */
     public void setLogicname(String logicname) {
         this.logicname = logicname ;
-        this.modify("logicname",logicname);
+        this.modify("logicname", logicname);
     }
 
     /**
@@ -1089,7 +1089,7 @@ public class PSDataEntity extends EntityClient implements Serializable {
      */
     public void setLogicvalid(Integer logicvalid) {
         this.logicvalid = logicvalid ;
-        this.modify("logicvalid",logicvalid);
+        this.modify("logicvalid", logicvalid);
     }
 
     /**
@@ -1097,7 +1097,7 @@ public class PSDataEntity extends EntityClient implements Serializable {
      */
     public void setLogicvalidvalue(String logicvalidvalue) {
         this.logicvalidvalue = logicvalidvalue ;
-        this.modify("logicvalidvalue",logicvalidvalue);
+        this.modify("logicvalidvalue", logicvalidvalue);
     }
 
     /**
@@ -1105,7 +1105,7 @@ public class PSDataEntity extends EntityClient implements Serializable {
      */
     public void setModelimpexpflag(Integer modelimpexpflag) {
         this.modelimpexpflag = modelimpexpflag ;
-        this.modify("modelimpexpflag",modelimpexpflag);
+        this.modify("modelimpexpflag", modelimpexpflag);
     }
 
     /**
@@ -1113,7 +1113,7 @@ public class PSDataEntity extends EntityClient implements Serializable {
      */
     public void setMemo(String memo) {
         this.memo = memo ;
-        this.modify("memo",memo);
+        this.modify("memo", memo);
     }
 
     /**
@@ -1121,7 +1121,7 @@ public class PSDataEntity extends EntityClient implements Serializable {
      */
     public void setMaxentitycachecnt(Integer maxentitycachecnt) {
         this.maxentitycachecnt = maxentitycachecnt ;
-        this.modify("maxentitycachecnt",maxentitycachecnt);
+        this.modify("maxentitycachecnt", maxentitycachecnt);
     }
 
     /**
@@ -1129,7 +1129,7 @@ public class PSDataEntity extends EntityClient implements Serializable {
      */
     public void setNoviewmode(Integer noviewmode) {
         this.noviewmode = noviewmode ;
-        this.modify("noviewmode",noviewmode);
+        this.modify("noviewmode", noviewmode);
     }
 
     /**
@@ -1137,7 +1137,7 @@ public class PSDataEntity extends EntityClient implements Serializable {
      */
     public void setModelstate(Integer modelstate) {
         this.modelstate = modelstate ;
-        this.modify("modelstate",modelstate);
+        this.modify("modelstate", modelstate);
     }
 
     /**
@@ -1145,7 +1145,7 @@ public class PSDataEntity extends EntityClient implements Serializable {
      */
     public void setSaasmode(Integer saasmode) {
         this.saasmode = saasmode ;
-        this.modify("saasmode",saasmode);
+        this.modify("saasmode", saasmode);
     }
 
     /**
@@ -1153,7 +1153,7 @@ public class PSDataEntity extends EntityClient implements Serializable {
      */
     public void setRemoveflag(Integer removeflag) {
         this.removeflag = removeflag ;
-        this.modify("removeflag",removeflag);
+        this.modify("removeflag", removeflag);
     }
 
     /**
@@ -1161,7 +1161,7 @@ public class PSDataEntity extends EntityClient implements Serializable {
      */
     public void setServiceapiflag(Integer serviceapiflag) {
         this.serviceapiflag = serviceapiflag ;
-        this.modify("serviceapiflag",serviceapiflag);
+        this.modify("serviceapiflag", serviceapiflag);
     }
 
     /**
@@ -1169,7 +1169,7 @@ public class PSDataEntity extends EntityClient implements Serializable {
      */
     public void setServicecodename(String servicecodename) {
         this.servicecodename = servicecodename ;
-        this.modify("servicecodename",servicecodename);
+        this.modify("servicecodename", servicecodename);
     }
 
     /**
@@ -1177,7 +1177,7 @@ public class PSDataEntity extends EntityClient implements Serializable {
      */
     public void setStoragemode(Integer storagemode) {
         this.storagemode = storagemode ;
-        this.modify("storagemode",storagemode);
+        this.modify("storagemode", storagemode);
     }
 
     /**
@@ -1185,7 +1185,7 @@ public class PSDataEntity extends EntityClient implements Serializable {
      */
     public void setSubsysde(Integer subsysde) {
         this.subsysde = subsysde ;
-        this.modify("subsysde",subsysde);
+        this.modify("subsysde", subsysde);
     }
 
     /**
@@ -1193,7 +1193,7 @@ public class PSDataEntity extends EntityClient implements Serializable {
      */
     public void setSvrpubmode(Integer svrpubmode) {
         this.svrpubmode = svrpubmode ;
-        this.modify("svrpubmode",svrpubmode);
+        this.modify("svrpubmode", svrpubmode);
     }
 
     /**
@@ -1201,7 +1201,7 @@ public class PSDataEntity extends EntityClient implements Serializable {
      */
     public void setSystemflag(Integer systemflag) {
         this.systemflag = systemflag ;
-        this.modify("systemflag",systemflag);
+        this.modify("systemflag", systemflag);
     }
 
     /**
@@ -1209,7 +1209,7 @@ public class PSDataEntity extends EntityClient implements Serializable {
      */
     public void setTablename(String tablename) {
         this.tablename = tablename ;
-        this.modify("tablename",tablename);
+        this.modify("tablename", tablename);
     }
 
     /**
@@ -1217,7 +1217,7 @@ public class PSDataEntity extends EntityClient implements Serializable {
      */
     public void setTestcaseflag(Integer testcaseflag) {
         this.testcaseflag = testcaseflag ;
-        this.modify("testcaseflag",testcaseflag);
+        this.modify("testcaseflag", testcaseflag);
     }
 
     /**
@@ -1225,7 +1225,7 @@ public class PSDataEntity extends EntityClient implements Serializable {
      */
     public void setTodotask(String todotask) {
         this.todotask = todotask ;
-        this.modify("todotask",todotask);
+        this.modify("todotask", todotask);
     }
 
     /**
@@ -1233,7 +1233,7 @@ public class PSDataEntity extends EntityClient implements Serializable {
      */
     public void setUserparams(String userparams) {
         this.userparams = userparams ;
-        this.modify("userparams",userparams);
+        this.modify("userparams", userparams);
     }
 
     /**
@@ -1241,7 +1241,7 @@ public class PSDataEntity extends EntityClient implements Serializable {
      */
     public void setUseraction(Integer useraction) {
         this.useraction = useraction ;
-        this.modify("useraction",useraction);
+        this.modify("useraction", useraction);
     }
 
     /**
@@ -1249,7 +1249,7 @@ public class PSDataEntity extends EntityClient implements Serializable {
      */
     public void setUsercat(String usercat) {
         this.usercat = usercat ;
-        this.modify("usercat",usercat);
+        this.modify("usercat", usercat);
     }
 
     /**
@@ -1257,7 +1257,7 @@ public class PSDataEntity extends EntityClient implements Serializable {
      */
     public void setUsertag2(String usertag2) {
         this.usertag2 = usertag2 ;
-        this.modify("usertag2",usertag2);
+        this.modify("usertag2", usertag2);
     }
 
     /**
@@ -1265,7 +1265,7 @@ public class PSDataEntity extends EntityClient implements Serializable {
      */
     public void setUsertag(String usertag) {
         this.usertag = usertag ;
-        this.modify("usertag",usertag);
+        this.modify("usertag", usertag);
     }
 
     /**
@@ -1273,7 +1273,7 @@ public class PSDataEntity extends EntityClient implements Serializable {
      */
     public void setUsertag3(String usertag3) {
         this.usertag3 = usertag3 ;
-        this.modify("usertag3",usertag3);
+        this.modify("usertag3", usertag3);
     }
 
     /**
@@ -1281,7 +1281,7 @@ public class PSDataEntity extends EntityClient implements Serializable {
      */
     public void setUsertag4(String usertag4) {
         this.usertag4 = usertag4 ;
-        this.modify("usertag4",usertag4);
+        this.modify("usertag4", usertag4);
     }
 
     /**
@@ -1289,7 +1289,7 @@ public class PSDataEntity extends EntityClient implements Serializable {
      */
     public void setValidflag(Integer validflag) {
         this.validflag = validflag ;
-        this.modify("validflag",validflag);
+        this.modify("validflag", validflag);
     }
 
     /**
@@ -1297,7 +1297,7 @@ public class PSDataEntity extends EntityClient implements Serializable {
      */
     public void setViewname(String viewname) {
         this.viewname = viewname ;
-        this.modify("viewname",viewname);
+        this.modify("viewname", viewname);
     }
 
     /**
@@ -1305,7 +1305,7 @@ public class PSDataEntity extends EntityClient implements Serializable {
      */
     public void setViewlevel(Integer viewlevel) {
         this.viewlevel = viewlevel ;
-        this.modify("viewlevel",viewlevel);
+        this.modify("viewlevel", viewlevel);
     }
 
     /**
@@ -1313,7 +1313,7 @@ public class PSDataEntity extends EntityClient implements Serializable {
      */
     public void setViewname3(String viewname3) {
         this.viewname3 = viewname3 ;
-        this.modify("viewname3",viewname3);
+        this.modify("viewname3", viewname3);
     }
 
     /**
@@ -1321,7 +1321,7 @@ public class PSDataEntity extends EntityClient implements Serializable {
      */
     public void setViewname2(String viewname2) {
         this.viewname2 = viewname2 ;
-        this.modify("viewname2",viewname2);
+        this.modify("viewname2", viewname2);
     }
 
     /**
@@ -1329,7 +1329,7 @@ public class PSDataEntity extends EntityClient implements Serializable {
      */
     public void setViewname4(String viewname4) {
         this.viewname4 = viewname4 ;
-        this.modify("viewname4",viewname4);
+        this.modify("viewname4", viewname4);
     }
 
     /**
@@ -1337,7 +1337,7 @@ public class PSDataEntity extends EntityClient implements Serializable {
      */
     public void setPssystemid(String pssystemid) {
         this.pssystemid = pssystemid ;
-        this.modify("pssystemid",pssystemid);
+        this.modify("pssystemid", pssystemid);
     }
 
     /**
@@ -1345,7 +1345,7 @@ public class PSDataEntity extends EntityClient implements Serializable {
      */
     public void setPssystemname(String pssystemname) {
         this.pssystemname = pssystemname ;
-        this.modify("pssystemname",pssystemname);
+        this.modify("pssystemname", pssystemname);
     }
 
     /**
@@ -1353,7 +1353,7 @@ public class PSDataEntity extends EntityClient implements Serializable {
      */
     public void setPsmoduleid(String psmoduleid) {
         this.psmoduleid = psmoduleid ;
-        this.modify("psmoduleid",psmoduleid);
+        this.modify("psmoduleid", psmoduleid);
     }
 
     /**
@@ -1361,7 +1361,7 @@ public class PSDataEntity extends EntityClient implements Serializable {
      */
     public void setPssubsyssadeid(String pssubsyssadeid) {
         this.pssubsyssadeid = pssubsyssadeid ;
-        this.modify("pssubsyssadeid",pssubsyssadeid);
+        this.modify("pssubsyssadeid", pssubsyssadeid);
     }
 
     /**
@@ -1369,7 +1369,7 @@ public class PSDataEntity extends EntityClient implements Serializable {
      */
     public void setPssubsysserviceapiid(String pssubsysserviceapiid) {
         this.pssubsysserviceapiid = pssubsysserviceapiid ;
-        this.modify("pssubsysserviceapiid",pssubsysserviceapiid);
+        this.modify("pssubsysserviceapiid", pssubsysserviceapiid);
     }
 
     /**
@@ -1377,7 +1377,7 @@ public class PSDataEntity extends EntityClient implements Serializable {
      */
     public void setPssysreqitemid(String pssysreqitemid) {
         this.pssysreqitemid = pssysreqitemid ;
-        this.modify("pssysreqitemid",pssysreqitemid);
+        this.modify("pssysreqitemid", pssysreqitemid);
     }
 
     /**
@@ -1390,7 +1390,7 @@ public class PSDataEntity extends EntityClient implements Serializable {
     @Override
     public <T> T copyTo(T targetEntity, boolean bIncEmpty) {
         this.reset("psdataentityid");
-        return super.copyTo(targetEntity,bIncEmpty);
+        return super.copyTo(targetEntity, bIncEmpty);
     }
 }
 

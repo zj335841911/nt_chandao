@@ -62,13 +62,13 @@ public class SysOrganizationServiceImpl implements ISysOrganizationService {
 
 
     public void createBatch(List<SysOrganization> list){
-        sysOrganizationFeignClient.createBatch(list) ;
+        sysOrganizationFeignClient.createBatch(list);
     }
 
 
     @Override
     public boolean update(SysOrganization et) {
-        SysOrganization rt = sysOrganizationFeignClient.update(et.getOrgid(),et);
+        SysOrganization rt = sysOrganizationFeignClient.update(et.getOrgid(), et);
         if (rt == null) {
             return false;
         }
@@ -78,14 +78,14 @@ public class SysOrganizationServiceImpl implements ISysOrganizationService {
     }
 
 
-    public void updateBatch(List<SysOrganization> list){
-        sysOrganizationFeignClient.updateBatch(list) ;
+    public void updateBatch(List<SysOrganization> list) {
+        sysOrganizationFeignClient.updateBatch(list);
     }
 
 
     @Override
     public boolean remove(String orgid) {
-        boolean result=sysOrganizationFeignClient.remove(orgid) ;
+        boolean result=sysOrganizationFeignClient.remove(orgid);
         return result;
     }
 
@@ -97,12 +97,12 @@ public class SysOrganizationServiceImpl implements ISysOrganizationService {
 
     @Override
     public SysOrganization get(String orgid) {
-		SysOrganization et = sysOrganizationFeignClient.get(orgid);
-        if (et == null){
+        SysOrganization et = sysOrganizationFeignClient.get(orgid);
+        if (et == null) {
             et = new SysOrganization();
             et.setOrgid(orgid);
         }
-        else{
+        else {
         }
         return  et;
     }
@@ -136,13 +136,13 @@ public class SysOrganizationServiceImpl implements ISysOrganizationService {
 
     @Override
     public void saveBatch(List<SysOrganization> list) {
-        sysOrganizationFeignClient.saveBatch(list) ;
+        sysOrganizationFeignClient.saveBatch(list);
     }
 
 
 
 
-	@Override
+    @Override
     public List<SysOrganization> selectByParentorgid(String orgid) {
         SysOrganizationSearchContext context=new SysOrganizationSearchContext();
         context.setSize(Integer.MAX_VALUE);

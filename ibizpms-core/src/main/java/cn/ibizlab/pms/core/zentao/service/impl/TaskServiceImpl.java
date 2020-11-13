@@ -159,10 +159,10 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
     @Override
     @Transactional
     public Task get(Long key) {
-        Task tempET=new Task();
-        tempET.set("id",key);
+        Task tempET = new Task();
+        tempET.set("id", key);
         Task et = getById(key);
-        if(et == null){
+        if (et == null) {
             et = new Task();
             et.setId(key);
         }
@@ -242,7 +242,7 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
     @Transactional
     public Task getUsernames(Task et) {
         getusernamesLogic.execute(et);
-         return et ;
+         return et;
     }
 
         @Override
@@ -292,15 +292,15 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
     @Transactional
     public boolean saveBatch(Collection<Task> list) {
         list.forEach(item->fillParentData(item));
-        saveOrUpdateBatch(list,batchSize);
+        saveOrUpdateBatch(list, batchSize);
         return true;
     }
 
     @Override
     @Transactional
     public void saveBatch(List<Task> list) {
-        list.forEach(item->fillParentData(item));
-        saveOrUpdateBatch(list,batchSize);
+        list.forEach(item -> fillParentData(item));
+        saveOrUpdateBatch(list, batchSize);
     }
 
       /**
@@ -349,7 +349,7 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
     @Transactional
     public Task taskFavorites(Task et) {
         taskfavoritesLogic.execute(et);
-         return et ;
+         return et;
     }
 
     @Override
@@ -363,60 +363,60 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
     @Transactional
     public Task taskNFavorites(Task et) {
         taskcanclefavoritesLogic.execute(et);
-         return et ;
+         return et;
     }
 
     @Override
     @Transactional
     public Task updateStoryVersion(Task et) {
         updatestoryversionLogic.execute(et);
-         return et ;
+         return et;
     }
 
 
-	@Override
+    @Override
     public List<Task> selectByModule(Long id) {
         return baseMapper.selectByModule(id);
     }
     @Override
     public void removeByModule(Long id) {
-        this.remove(new QueryWrapper<Task>().eq("module",id));
+        this.remove(new QueryWrapper<Task>().eq("module", id));
     }
 
-	@Override
+    @Override
     public List<Task> selectByFrombug(Long id) {
         return baseMapper.selectByFrombug(id);
     }
     @Override
     public void removeByFrombug(Long id) {
-        this.remove(new QueryWrapper<Task>().eq("frombug",id));
+        this.remove(new QueryWrapper<Task>().eq("frombug", id));
     }
 
-	@Override
+    @Override
     public List<Task> selectByProject(Long id) {
         return baseMapper.selectByProject(id);
     }
     @Override
     public void removeByProject(Long id) {
-        this.remove(new QueryWrapper<Task>().eq("project",id));
+        this.remove(new QueryWrapper<Task>().eq("project", id));
     }
 
-	@Override
+    @Override
     public List<Task> selectByStory(Long id) {
         return baseMapper.selectByStory(id);
     }
     @Override
     public void removeByStory(Long id) {
-        this.remove(new QueryWrapper<Task>().eq("story",id));
+        this.remove(new QueryWrapper<Task>().eq("story", id));
     }
 
-	@Override
+    @Override
     public List<Task> selectByParent(Long id) {
         return baseMapper.selectByParent(id);
     }
     @Override
     public void removeByParent(Long id) {
-        this.remove(new QueryWrapper<Task>().eq("parent",id));
+        this.remove(new QueryWrapper<Task>().eq("parent", id));
     }
 
 
@@ -425,7 +425,7 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
      */
     @Override
     public Page<Task> searchAssignedToMyTask(TaskSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchAssignedToMyTask(context.getPages(),context,context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchAssignedToMyTask(context.getPages(), context, context.getSelectCond());
         return new PageImpl<Task>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -434,7 +434,7 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
      */
     @Override
     public Page<Task> searchAssignedToMyTaskPc(TaskSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchAssignedToMyTaskPc(context.getPages(),context,context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchAssignedToMyTaskPc(context.getPages(), context, context.getSelectCond());
         return new PageImpl<Task>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -443,7 +443,7 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
      */
     @Override
     public Page<Task> searchBugTask(TaskSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchBugTask(context.getPages(),context,context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchBugTask(context.getPages(), context, context.getSelectCond());
         return new PageImpl<Task>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -452,7 +452,7 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
      */
     @Override
     public Page<Task> searchByModule(TaskSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchByModule(context.getPages(),context,context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchByModule(context.getPages(), context, context.getSelectCond());
         return new PageImpl<Task>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -461,7 +461,7 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
      */
     @Override
     public Page<Task> searchChildTask(TaskSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchChildTask(context.getPages(),context,context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchChildTask(context.getPages(), context, context.getSelectCond());
         return new PageImpl<Task>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -470,7 +470,7 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
      */
     @Override
     public Page<Task> searchChildTaskTree(TaskSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchChildTaskTree(context.getPages(),context,context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchChildTaskTree(context.getPages(), context, context.getSelectCond());
         return new PageImpl<Task>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -479,7 +479,7 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
      */
     @Override
     public Page<Task> searchCurFinishTask(TaskSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchCurFinishTask(context.getPages(),context,context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchCurFinishTask(context.getPages(), context, context.getSelectCond());
         return new PageImpl<Task>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -488,7 +488,7 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
      */
     @Override
     public Page<Task> searchDefault(TaskSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchDefault(context.getPages(), context, context.getSelectCond());
         return new PageImpl<Task>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -497,7 +497,7 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
      */
     @Override
     public Page<Task> searchDefaultRow(TaskSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchDefaultRow(context.getPages(),context,context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchDefaultRow(context.getPages(), context, context.getSelectCond());
         return new PageImpl<Task>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -506,7 +506,7 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
      */
     @Override
     public Page<Task> searchMyFavorites(TaskSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchMyFavorites(context.getPages(),context,context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchMyFavorites(context.getPages(), context, context.getSelectCond());
         return new PageImpl<Task>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -515,7 +515,7 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
      */
     @Override
     public Page<Task> searchProjectTask(TaskSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchProjectTask(context.getPages(),context,context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchProjectTask(context.getPages(), context, context.getSelectCond());
         return new PageImpl<Task>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -524,7 +524,7 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
      */
     @Override
     public Page<Task> searchRootTask(TaskSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchRootTask(context.getPages(),context,context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchRootTask(context.getPages(), context, context.getSelectCond());
         return new PageImpl<Task>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -533,7 +533,7 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
      */
     @Override
     public Page<Task> searchTodoListTask(TaskSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchTodoListTask(context.getPages(),context,context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchTodoListTask(context.getPages(), context, context.getSelectCond());
         return new PageImpl<Task>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -542,7 +542,7 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
      */
     @Override
     public Page<HashMap> searchTypeGroup(TaskSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<HashMap> pages=baseMapper.searchTypeGroup(context.getPages(),context,context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<HashMap> pages=baseMapper.searchTypeGroup(context.getPages(), context, context.getSelectCond());
         return new PageImpl<HashMap>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -603,24 +603,24 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
 
 
     @Override
-    public List<JSONObject> select(String sql, Map param){
-        return this.baseMapper.selectBySQL(sql,param);
+    public List<JSONObject> select(String sql, Map param) {
+        return this.baseMapper.selectBySQL(sql, param);
     }
 
     @Override
     @Transactional
-    public boolean execute(String sql , Map param){
+    public boolean execute(String sql, Map param) {
         if (sql == null || sql.isEmpty()) {
             return false;
         }
         if (sql.toLowerCase().trim().startsWith("insert")) {
-            return this.baseMapper.insertBySQL(sql,param);
+            return this.baseMapper.insertBySQL(sql, param);
         }
         if (sql.toLowerCase().trim().startsWith("update")) {
-            return this.baseMapper.updateBySQL(sql,param);
+            return this.baseMapper.updateBySQL(sql, param);
         }
         if (sql.toLowerCase().trim().startsWith("delete")) {
-            return this.baseMapper.deleteBySQL(sql,param);
+            return this.baseMapper.deleteBySQL(sql, param);
         }
         log.warn("暂未支持的SQL语法");
         return true;

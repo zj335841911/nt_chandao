@@ -22,7 +22,7 @@ import cn.ibizlab.pms.core.ibizsysmodel.filter.PSSubSysSADESearchContext;
 /**
  * 实体[PSSubSysSADE] 服务对象接口
  */
-public interface IPSSubSysSADEService{
+public interface IPSSubSysSADEService {
 
     /**
      * 业务实体显示文本名称
@@ -34,37 +34,37 @@ public interface IPSSubSysSADEService{
      */
     final static String OBJECT_SOURCE_PATH = "pssubsyssades";
 
-    boolean create(PSSubSysSADE et) ;
-    void createBatch(List<PSSubSysSADE> list) ;
-    boolean update(PSSubSysSADE et) ;
-    void updateBatch(List<PSSubSysSADE> list) ;
-    boolean remove(String key) ;
-    void removeBatch(Collection<String> idList) ;
-    PSSubSysSADE get(String key) ;
-    PSSubSysSADE getDraft(PSSubSysSADE et) ;
-    boolean checkKey(PSSubSysSADE et) ;
-    boolean save(PSSubSysSADE et) ;
-    void saveBatch(List<PSSubSysSADE> list) ;
-    Page<PSSubSysSADE> searchDefault(PSSubSysSADESearchContext context) ;
+    boolean create(PSSubSysSADE et);
+    void createBatch(List<PSSubSysSADE> list);
+    boolean update(PSSubSysSADE et);
+    void updateBatch(List<PSSubSysSADE> list);
+    boolean remove(String key);
+    void removeBatch(Collection<String> idList);
+    PSSubSysSADE get(String key);
+    PSSubSysSADE getDraft(PSSubSysSADE et);
+    boolean checkKey(PSSubSysSADE et);
+    boolean save(PSSubSysSADE et);
+    void saveBatch(List<PSSubSysSADE> list);
+    Page<PSSubSysSADE> searchDefault(PSSubSysSADESearchContext context);
     List<PSSubSysSADE> selectByPssubsysserviceapiid(String pssubsysserviceapiid);
     List<PSSubSysSADE> selectByPssubsysserviceapiid(Collection<String> ids);
-    void removeByPssubsysserviceapiid(String pssubsysserviceapiid) ;
+    void removeByPssubsysserviceapiid(String pssubsysserviceapiid);
 
     boolean create(String devSlnSysId , PSSubSysSADE et) ;
-    void createBatch(String devSlnSysId , List<PSSubSysSADE> list) ;
-    boolean update(String devSlnSysId , PSSubSysSADE et) ;
-    void updateBatch(String devSlnSysId , List<PSSubSysSADE> list) ;
-    boolean remove(String devSlnSysId , String key) ;
+    void createBatch(String devSlnSysId, List<PSSubSysSADE> list);
+    boolean update(String devSlnSysId, PSSubSysSADE et);
+    void updateBatch(String devSlnSysId, List<PSSubSysSADE> list);
+    boolean remove(String devSlnSysId, String key);
     void removeBatch(String devSlnSysId , Collection<String> idList) ;
-    PSSubSysSADE get(String devSlnSysId , String key) ;
-    String getByCodeName(String devSlnSysId , String codeName) ;
-    PSSubSysSADE getDraft(String devSlnSysId , PSSubSysSADE et) ;
-    boolean checkKey(String devSlnSysId , PSSubSysSADE et) ;
-    boolean save(String devSlnSysId , PSSubSysSADE et) ;
-    void saveBatch(String devSlnSysId , List<PSSubSysSADE> list) ;
-    Page<PSSubSysSADE> searchDefault(String devSlnSysId , PSSubSysSADESearchContext context) ;
-    List<PSSubSysSADE> selectByPssubsysserviceapiid(String devSlnSysId , String pssubsysserviceapiid) ;
-    void removeByPssubsysserviceapiid(String devSlnSysId , String pssubsysserviceapiid) ;
+    PSSubSysSADE get(String devSlnSysId , String key);
+    String getByCodeName(String devSlnSysId , String codeName);
+    PSSubSysSADE getDraft(String devSlnSysId, PSSubSysSADE et);
+    boolean checkKey(String devSlnSysId, PSSubSysSADE et);
+    boolean save(String devSlnSysId, PSSubSysSADE et);
+    void saveBatch(String devSlnSysId, List<PSSubSysSADE> list);
+    Page<PSSubSysSADE> searchDefault(String devSlnSysId, PSSubSysSADESearchContext context);
+    List<PSSubSysSADE> selectByPssubsysserviceapiid(String devSlnSysId, String pssubsysserviceapiid);
+    void removeByPssubsysserviceapiid(String devSlnSysId, String pssubsysserviceapiid);
 
 }
 

@@ -23,7 +23,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 /**
  * 实体[IBZProSysTpl] 服务对象接口
  */
-public interface IIBZProSysTplService extends IService<IBZProSysTpl>{
+public interface IIBZProSysTplService extends IService<IBZProSysTpl> {
 
     /**
      * 业务实体显示文本名称
@@ -35,37 +35,37 @@ public interface IIBZProSysTplService extends IService<IBZProSysTpl>{
      */
     final static String OBJECT_SOURCE_PATH = "ibzprosystpls";
 
-    boolean create(IBZProSysTpl et) ;
-    void createBatch(List<IBZProSysTpl> list) ;
-    boolean update(IBZProSysTpl et) ;
-    void updateBatch(List<IBZProSysTpl> list) ;
-    boolean remove(String key) ;
-    void removeBatch(Collection<String> idList) ;
-    IBZProSysTpl get(String key) ;
-    IBZProSysTpl getDraft(IBZProSysTpl et) ;
-    boolean checkKey(IBZProSysTpl et) ;
-    boolean save(IBZProSysTpl et) ;
-    void saveBatch(List<IBZProSysTpl> list) ;
-    Page<IBZProSysTpl> searchDefault(IBZProSysTplSearchContext context) ;
+    boolean create(IBZProSysTpl et);
+    void createBatch(List<IBZProSysTpl> list);
+    boolean update(IBZProSysTpl et);
+    void updateBatch(List<IBZProSysTpl> list);
+    boolean remove(String key);
+    void removeBatch(Collection<String> idList);
+    IBZProSysTpl get(String key);
+    IBZProSysTpl getDraft(IBZProSysTpl et);
+    boolean checkKey(IBZProSysTpl et);
+    boolean save(IBZProSysTpl et);
+    void saveBatch(List<IBZProSysTpl> list);
+    Page<IBZProSysTpl> searchDefault(IBZProSysTplSearchContext context);
     List<IBZProSysTpl> selectByFile(Long id);
-    void removeByFile(Long id) ;
+    void removeByFile(Long id);
     /**
-     *自定义查询SQL
+     * 自定义查询SQL
      * @param sql  select * from table where id =#{et.param}
-     * @param param 参数列表  param.put("param","1");
+     * @param param 参数列表  param.put("param", "1");
      * @return select * from table where id = '1'
      */
     List<JSONObject> select(String sql, Map param);
     /**
-     *自定义SQL
+     * 自定义SQL
      * @param sql  update table  set name ='test' where id =#{et.param}
-     * @param param 参数列表  param.put("param","1");
+     * @param param 参数列表  param.put("param", "1");
      * @return     update table  set name ='test' where id = '1'
      */
     boolean execute(String sql, Map param);
 
-    List<IBZProSysTpl> getIbzprosystplByIds(List<String> ids) ;
-    List<IBZProSysTpl> getIbzprosystplByEntities(List<IBZProSysTpl> entities) ;
+    List<IBZProSysTpl> getIbzprosystplByIds(List<String> ids);
+    List<IBZProSysTpl> getIbzprosystplByEntities(List<IBZProSysTpl> entities);
 }
 
 

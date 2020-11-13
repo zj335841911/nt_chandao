@@ -58,7 +58,7 @@ public class SysUpdateFeaturesServiceImpl extends ServiceImpl<SysUpdateFeaturesM
     @Transactional
     public boolean create(SysUpdateFeatures et) {
         fillParentData(et);
-        if(!this.retBool(this.baseMapper.insert(et))) {
+        if (!this.retBool(this.baseMapper.insert(et))) {
             return false;
         }
         CachedBeanCopier.copy(get(et.getSysupdatefeaturesid()), et);
@@ -76,7 +76,7 @@ public class SysUpdateFeaturesServiceImpl extends ServiceImpl<SysUpdateFeaturesM
     @Transactional
     public boolean update(SysUpdateFeatures et) {
         fillParentData(et);
-        if(!update(et, (Wrapper) et.getUpdateWrapper(true).eq("sys_update_featuresid", et.getSysupdatefeaturesid()))) {
+        if (!update(et, (Wrapper) et.getUpdateWrapper(true).eq("sys_update_featuresid", et.getSysupdatefeaturesid()))) {
             return false;
         }
         CachedBeanCopier.copy(get(et.getSysupdatefeaturesid()), et);
@@ -94,7 +94,7 @@ public class SysUpdateFeaturesServiceImpl extends ServiceImpl<SysUpdateFeaturesM
     @Transactional
     public boolean remove(String key) {
         boolean result = removeById(key);
-        return result ;
+        return result;
     }
 
     @Override
@@ -107,7 +107,7 @@ public class SysUpdateFeaturesServiceImpl extends ServiceImpl<SysUpdateFeaturesM
     @Transactional
     public SysUpdateFeatures get(String key) {
         SysUpdateFeatures et = getById(key);
-        if(et == null){
+        if (et == null) {
             et = new SysUpdateFeatures();
             et.setSysupdatefeaturesid(key);
         }
@@ -149,19 +149,19 @@ public class SysUpdateFeaturesServiceImpl extends ServiceImpl<SysUpdateFeaturesM
     @Transactional
     public boolean saveBatch(Collection<SysUpdateFeatures> list) {
         list.forEach(item->fillParentData(item));
-        saveOrUpdateBatch(list,batchSize);
+        saveOrUpdateBatch(list, batchSize);
         return true;
     }
 
     @Override
     @Transactional
     public void saveBatch(List<SysUpdateFeatures> list) {
-        list.forEach(item->fillParentData(item));
-        saveOrUpdateBatch(list,batchSize);
+        list.forEach(item -> fillParentData(item));
+        saveOrUpdateBatch(list, batchSize);
     }
 
 
-	@Override
+    @Override
     public List<SysUpdateFeatures> selectBySysupdatelogid(String sysupdatelogid) {
         return baseMapper.selectBySysupdatelogid(sysupdatelogid);
     }
@@ -172,7 +172,7 @@ public class SysUpdateFeaturesServiceImpl extends ServiceImpl<SysUpdateFeaturesM
 
     @Override
     public void removeBySysupdatelogid(String sysupdatelogid) {
-        this.remove(new QueryWrapper<SysUpdateFeatures>().eq("sys_update_logid",sysupdatelogid));
+        this.remove(new QueryWrapper<SysUpdateFeatures>().eq("sys_update_logid", sysupdatelogid));
     }
 
 
@@ -181,7 +181,7 @@ public class SysUpdateFeaturesServiceImpl extends ServiceImpl<SysUpdateFeaturesM
      */
     @Override
     public Page<SysUpdateFeatures> searchDefault(SysUpdateFeaturesSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<SysUpdateFeatures> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<SysUpdateFeatures> pages=baseMapper.searchDefault(context.getPages(), context, context.getSelectCond());
         return new PageImpl<SysUpdateFeatures>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -208,24 +208,24 @@ public class SysUpdateFeaturesServiceImpl extends ServiceImpl<SysUpdateFeaturesM
 
 
     @Override
-    public List<JSONObject> select(String sql, Map param){
-        return this.baseMapper.selectBySQL(sql,param);
+    public List<JSONObject> select(String sql, Map param) {
+        return this.baseMapper.selectBySQL(sql, param);
     }
 
     @Override
     @Transactional
-    public boolean execute(String sql , Map param){
+    public boolean execute(String sql, Map param) {
         if (sql == null || sql.isEmpty()) {
             return false;
         }
         if (sql.toLowerCase().trim().startsWith("insert")) {
-            return this.baseMapper.insertBySQL(sql,param);
+            return this.baseMapper.insertBySQL(sql, param);
         }
         if (sql.toLowerCase().trim().startsWith("update")) {
-            return this.baseMapper.updateBySQL(sql,param);
+            return this.baseMapper.updateBySQL(sql, param);
         }
         if (sql.toLowerCase().trim().startsWith("delete")) {
-            return this.baseMapper.deleteBySQL(sql,param);
+            return this.baseMapper.deleteBySQL(sql, param);
         }
         log.warn("暂未支持的SQL语法");
         return true;

@@ -23,7 +23,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 /**
  * 实体[Doc] 服务对象接口
  */
-public interface IDocService extends IService<Doc>{
+public interface IDocService extends IService<Doc> {
 
     /**
      * 业务实体显示文本名称
@@ -35,44 +35,44 @@ public interface IDocService extends IService<Doc>{
      */
     final static String OBJECT_SOURCE_PATH = "docs";
 
-    boolean create(Doc et) ;
-    void createBatch(List<Doc> list) ;
-    boolean update(Doc et) ;
-    void updateBatch(List<Doc> list) ;
-    boolean remove(Long key) ;
-    void removeBatch(Collection<Long> idList) ;
-    Doc get(Long key) ;
-    Doc getDraft(Doc et) ;
-    Doc byVersionUpdateContext(Doc et) ;
-    boolean checkKey(Doc et) ;
-    Doc collect(Doc et) ;
-    boolean save(Doc et) ;
-    void saveBatch(List<Doc> list) ;
-    Doc unCollect(Doc et) ;
-    Page<Doc> searchChildDocLibDoc(DocSearchContext context) ;
-    Page<Doc> searchDefault(DocSearchContext context) ;
-    Page<Doc> searchDocLibDoc(DocSearchContext context) ;
-    Page<Doc> searchDocModuleDoc(DocSearchContext context) ;
-    Page<Doc> searchMyFavourite(DocSearchContext context) ;
+    boolean create(Doc et);
+    void createBatch(List<Doc> list);
+    boolean update(Doc et);
+    void updateBatch(List<Doc> list);
+    boolean remove(Long key);
+    void removeBatch(Collection<Long> idList);
+    Doc get(Long key);
+    Doc getDraft(Doc et);
+    Doc byVersionUpdateContext(Doc et);
+    boolean checkKey(Doc et);
+    Doc collect(Doc et);
+    boolean save(Doc et);
+    void saveBatch(List<Doc> list);
+    Doc unCollect(Doc et);
+    Page<Doc> searchChildDocLibDoc(DocSearchContext context);
+    Page<Doc> searchDefault(DocSearchContext context);
+    Page<Doc> searchDocLibDoc(DocSearchContext context);
+    Page<Doc> searchDocModuleDoc(DocSearchContext context);
+    Page<Doc> searchMyFavourite(DocSearchContext context);
     List<Doc> selectByLib(Long id);
-    void removeByLib(Long id) ;
+    void removeByLib(Long id);
     List<Doc> selectByModule(Long id);
-    void removeByModule(Long id) ;
+    void removeByModule(Long id);
     List<Doc> selectByProduct(Long id);
-    void removeByProduct(Long id) ;
+    void removeByProduct(Long id);
     List<Doc> selectByProject(Long id);
-    void removeByProject(Long id) ;
+    void removeByProject(Long id);
     /**
-     *自定义查询SQL
+     * 自定义查询SQL
      * @param sql  select * from table where id =#{et.param}
-     * @param param 参数列表  param.put("param","1");
+     * @param param 参数列表  param.put("param", "1");
      * @return select * from table where id = '1'
      */
     List<JSONObject> select(String sql, Map param);
     /**
-     *自定义SQL
+     * 自定义SQL
      * @param sql  update table  set name ='test' where id =#{et.param}
-     * @param param 参数列表  param.put("param","1");
+     * @param param 参数列表  param.put("param", "1");
      * @return     update table  set name ='test' where id = '1'
      */
     boolean execute(String sql, Map param);

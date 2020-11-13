@@ -23,7 +23,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 /**
  * 实体[SysUpdateFeatures] 服务对象接口
  */
-public interface ISysUpdateFeaturesService extends IService<SysUpdateFeatures>{
+public interface ISysUpdateFeaturesService extends IService<SysUpdateFeatures> {
 
     /**
      * 业务实体显示文本名称
@@ -35,38 +35,38 @@ public interface ISysUpdateFeaturesService extends IService<SysUpdateFeatures>{
      */
     final static String OBJECT_SOURCE_PATH = "sysupdatefeatures";
 
-    boolean create(SysUpdateFeatures et) ;
-    void createBatch(List<SysUpdateFeatures> list) ;
-    boolean update(SysUpdateFeatures et) ;
-    void updateBatch(List<SysUpdateFeatures> list) ;
-    boolean remove(String key) ;
-    void removeBatch(Collection<String> idList) ;
-    SysUpdateFeatures get(String key) ;
-    SysUpdateFeatures getDraft(SysUpdateFeatures et) ;
-    boolean checkKey(SysUpdateFeatures et) ;
-    boolean save(SysUpdateFeatures et) ;
-    void saveBatch(List<SysUpdateFeatures> list) ;
-    Page<SysUpdateFeatures> searchDefault(SysUpdateFeaturesSearchContext context) ;
+    boolean create(SysUpdateFeatures et);
+    void createBatch(List<SysUpdateFeatures> list);
+    boolean update(SysUpdateFeatures et);
+    void updateBatch(List<SysUpdateFeatures> list);
+    boolean remove(String key);
+    void removeBatch(Collection<String> idList);
+    SysUpdateFeatures get(String key);
+    SysUpdateFeatures getDraft(SysUpdateFeatures et);
+    boolean checkKey(SysUpdateFeatures et);
+    boolean save(SysUpdateFeatures et);
+    void saveBatch(List<SysUpdateFeatures> list);
+    Page<SysUpdateFeatures> searchDefault(SysUpdateFeaturesSearchContext context);
     List<SysUpdateFeatures> selectBySysupdatelogid(String sysupdatelogid);
     void removeBySysupdatelogid(Collection<String> ids);
-    void removeBySysupdatelogid(String sysupdatelogid) ;
+    void removeBySysupdatelogid(String sysupdatelogid);
     /**
-     *自定义查询SQL
+     * 自定义查询SQL
      * @param sql  select * from table where id =#{et.param}
-     * @param param 参数列表  param.put("param","1");
+     * @param param 参数列表  param.put("param", "1");
      * @return select * from table where id = '1'
      */
     List<JSONObject> select(String sql, Map param);
     /**
-     *自定义SQL
+     * 自定义SQL
      * @param sql  update table  set name ='test' where id =#{et.param}
-     * @param param 参数列表  param.put("param","1");
+     * @param param 参数列表  param.put("param", "1");
      * @return     update table  set name ='test' where id = '1'
      */
     boolean execute(String sql, Map param);
 
-    List<SysUpdateFeatures> getSysupdatefeaturesByIds(List<String> ids) ;
-    List<SysUpdateFeatures> getSysupdatefeaturesByEntities(List<SysUpdateFeatures> entities) ;
+    List<SysUpdateFeatures> getSysupdatefeaturesByIds(List<String> ids);
+    List<SysUpdateFeatures> getSysupdatefeaturesByEntities(List<SysUpdateFeatures> entities);
 }
 
 

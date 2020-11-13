@@ -38,7 +38,7 @@ import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 @Setter
 @NoArgsConstructor
 @JsonIgnoreProperties(value = "handler")
-@TableName(value = "zt_im_messagestatus",resultMap = "ImMessagestatusResultMap")
+@TableName(value = "zt_im_messagestatus", resultMap = "ImMessagestatusResultMap")
 public class ImMessagestatus extends EntityMP implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -80,24 +80,24 @@ public class ImMessagestatus extends EntityMP implements Serializable {
      * 设置 [message]
      */
     public void setMessage(Integer message) {
-        this.message = message ;
-        this.modify("message",message);
+        this.message = message;
+        this.modify("message", message);
     }
 
     /**
      * 设置 [status]
      */
     public void setStatus(String status) {
-        this.status = status ;
-        this.modify("status",status);
+        this.status = status;
+        this.modify("status", status);
     }
 
     /**
      * 设置 [user]
      */
     public void setUser(Integer user) {
-        this.user = user ;
-        this.modify("user",user);
+        this.user = user;
+        this.modify("user", user);
     }
 
 
@@ -111,7 +111,7 @@ public class ImMessagestatus extends EntityMP implements Serializable {
     @Override
     public <T> T copyTo(T targetEntity, boolean bIncEmpty) {
         this.reset("id");
-        return super.copyTo(targetEntity,bIncEmpty);
+        return super.copyTo(targetEntity, bIncEmpty);
     }
 }
 

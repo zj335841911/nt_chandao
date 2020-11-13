@@ -31,7 +31,7 @@ public interface SysOrganizationFeignClient {
 
 
     @RequestMapping(method = RequestMethod.PUT, value = "/sysorganizations/{orgid}")
-    SysOrganization update(@PathVariable("orgid") String orgid,@RequestBody SysOrganization sysorganization);
+    SysOrganization update(@PathVariable("orgid") String orgid, @RequestBody SysOrganization sysorganization);
 
     @RequestMapping(method = RequestMethod.PUT, value = "/sysorganizations/batch")
     Boolean updateBatch(@RequestBody List<SysOrganization> sysorganizations);

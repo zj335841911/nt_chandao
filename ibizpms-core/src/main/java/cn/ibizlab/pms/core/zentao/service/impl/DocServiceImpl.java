@@ -90,7 +90,7 @@ public class DocServiceImpl extends ServiceImpl<DocMapper, Doc> implements IDocS
     @Transactional
     public boolean remove(Long key) {
         boolean result = removeById(key);
-        return result ;
+        return result;
     }
 
     @Override
@@ -103,7 +103,7 @@ public class DocServiceImpl extends ServiceImpl<DocMapper, Doc> implements IDocS
     @Transactional
     public Doc get(Long key) {
         Doc et = getById(key);
-        if(et == null){
+        if (et == null) {
             et = new Doc();
             et.setId(key);
         }
@@ -159,15 +159,15 @@ public class DocServiceImpl extends ServiceImpl<DocMapper, Doc> implements IDocS
     @Transactional
     public boolean saveBatch(Collection<Doc> list) {
         list.forEach(item->fillParentData(item));
-        saveOrUpdateBatch(list,batchSize);
+        saveOrUpdateBatch(list, batchSize);
         return true;
     }
 
     @Override
     @Transactional
     public void saveBatch(List<Doc> list) {
-        list.forEach(item->fillParentData(item));
-        saveOrUpdateBatch(list,batchSize);
+        list.forEach(item -> fillParentData(item));
+        saveOrUpdateBatch(list, batchSize);
     }
 
     @Override
@@ -178,40 +178,40 @@ public class DocServiceImpl extends ServiceImpl<DocMapper, Doc> implements IDocS
     }
 
 
-	@Override
+    @Override
     public List<Doc> selectByLib(Long id) {
         return baseMapper.selectByLib(id);
     }
     @Override
     public void removeByLib(Long id) {
-        this.remove(new QueryWrapper<Doc>().eq("lib",id));
+        this.remove(new QueryWrapper<Doc>().eq("lib", id));
     }
 
-	@Override
+    @Override
     public List<Doc> selectByModule(Long id) {
         return baseMapper.selectByModule(id);
     }
     @Override
     public void removeByModule(Long id) {
-        this.remove(new QueryWrapper<Doc>().eq("module",id));
+        this.remove(new QueryWrapper<Doc>().eq("module", id));
     }
 
-	@Override
+    @Override
     public List<Doc> selectByProduct(Long id) {
         return baseMapper.selectByProduct(id);
     }
     @Override
     public void removeByProduct(Long id) {
-        this.remove(new QueryWrapper<Doc>().eq("product",id));
+        this.remove(new QueryWrapper<Doc>().eq("product", id));
     }
 
-	@Override
+    @Override
     public List<Doc> selectByProject(Long id) {
         return baseMapper.selectByProject(id);
     }
     @Override
     public void removeByProject(Long id) {
-        this.remove(new QueryWrapper<Doc>().eq("project",id));
+        this.remove(new QueryWrapper<Doc>().eq("project", id));
     }
 
 
@@ -220,7 +220,7 @@ public class DocServiceImpl extends ServiceImpl<DocMapper, Doc> implements IDocS
      */
     @Override
     public Page<Doc> searchChildDocLibDoc(DocSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Doc> pages=baseMapper.searchChildDocLibDoc(context.getPages(),context,context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Doc> pages=baseMapper.searchChildDocLibDoc(context.getPages(), context, context.getSelectCond());
         return new PageImpl<Doc>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -229,7 +229,7 @@ public class DocServiceImpl extends ServiceImpl<DocMapper, Doc> implements IDocS
      */
     @Override
     public Page<Doc> searchDefault(DocSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Doc> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Doc> pages=baseMapper.searchDefault(context.getPages(), context, context.getSelectCond());
         return new PageImpl<Doc>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -238,7 +238,7 @@ public class DocServiceImpl extends ServiceImpl<DocMapper, Doc> implements IDocS
      */
     @Override
     public Page<Doc> searchDocLibDoc(DocSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Doc> pages=baseMapper.searchDocLibDoc(context.getPages(),context,context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Doc> pages=baseMapper.searchDocLibDoc(context.getPages(), context, context.getSelectCond());
         return new PageImpl<Doc>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -247,7 +247,7 @@ public class DocServiceImpl extends ServiceImpl<DocMapper, Doc> implements IDocS
      */
     @Override
     public Page<Doc> searchDocModuleDoc(DocSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Doc> pages=baseMapper.searchDocModuleDoc(context.getPages(),context,context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Doc> pages=baseMapper.searchDocModuleDoc(context.getPages(), context, context.getSelectCond());
         return new PageImpl<Doc>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -256,7 +256,7 @@ public class DocServiceImpl extends ServiceImpl<DocMapper, Doc> implements IDocS
      */
     @Override
     public Page<Doc> searchMyFavourite(DocSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Doc> pages=baseMapper.searchMyFavourite(context.getPages(),context,context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Doc> pages=baseMapper.searchMyFavourite(context.getPages(), context, context.getSelectCond());
         return new PageImpl<Doc>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -313,24 +313,24 @@ public class DocServiceImpl extends ServiceImpl<DocMapper, Doc> implements IDocS
 
 
     @Override
-    public List<JSONObject> select(String sql, Map param){
-        return this.baseMapper.selectBySQL(sql,param);
+    public List<JSONObject> select(String sql, Map param) {
+        return this.baseMapper.selectBySQL(sql, param);
     }
 
     @Override
     @Transactional
-    public boolean execute(String sql , Map param){
+    public boolean execute(String sql, Map param) {
         if (sql == null || sql.isEmpty()) {
             return false;
         }
         if (sql.toLowerCase().trim().startsWith("insert")) {
-            return this.baseMapper.insertBySQL(sql,param);
+            return this.baseMapper.insertBySQL(sql, param);
         }
         if (sql.toLowerCase().trim().startsWith("update")) {
-            return this.baseMapper.updateBySQL(sql,param);
+            return this.baseMapper.updateBySQL(sql, param);
         }
         if (sql.toLowerCase().trim().startsWith("delete")) {
-            return this.baseMapper.deleteBySQL(sql,param);
+            return this.baseMapper.deleteBySQL(sql, param);
         }
         log.warn("暂未支持的SQL语法");
         return true;

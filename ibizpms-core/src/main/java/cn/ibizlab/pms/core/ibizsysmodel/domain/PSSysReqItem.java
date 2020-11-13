@@ -65,7 +65,7 @@ public class PSSysReqItem extends EntityClient implements Serializable {
      * 建立时间
      */
     @DEField(preType = DEPredefinedFieldType.CREATEDATE)
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "createdate" , format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("createdate")
     private Timestamp createdate;
@@ -74,7 +74,7 @@ public class PSSysReqItem extends EntityClient implements Serializable {
      * 更新时间
      */
     @DEField(preType = DEPredefinedFieldType.UPDATEDATE)
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "updatedate" , format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("updatedate")
     private Timestamp updatedate;
@@ -274,7 +274,7 @@ public class PSSysReqItem extends EntityClient implements Serializable {
      */
     public void setPssysreqitemname(String pssysreqitemname) {
         this.pssysreqitemname = pssysreqitemname ;
-        this.modify("pssysreqitemname",pssysreqitemname);
+        this.modify("pssysreqitemname", pssysreqitemname);
     }
 
     /**
@@ -282,7 +282,7 @@ public class PSSysReqItem extends EntityClient implements Serializable {
      */
     public void setCodename(String codename) {
         this.codename = codename ;
-        this.modify("codename",codename);
+        this.modify("codename", codename);
     }
 
     /**
@@ -290,7 +290,7 @@ public class PSSysReqItem extends EntityClient implements Serializable {
      */
     public void setItemsn(String itemsn) {
         this.itemsn = itemsn ;
-        this.modify("itemsn",itemsn);
+        this.modify("itemsn", itemsn);
     }
 
     /**
@@ -298,7 +298,7 @@ public class PSSysReqItem extends EntityClient implements Serializable {
      */
     public void setItemtag(String itemtag) {
         this.itemtag = itemtag ;
-        this.modify("itemtag",itemtag);
+        this.modify("itemtag", itemtag);
     }
 
     /**
@@ -306,7 +306,7 @@ public class PSSysReqItem extends EntityClient implements Serializable {
      */
     public void setItemtag2(String itemtag2) {
         this.itemtag2 = itemtag2 ;
-        this.modify("itemtag2",itemtag2);
+        this.modify("itemtag2", itemtag2);
     }
 
     /**
@@ -314,7 +314,7 @@ public class PSSysReqItem extends EntityClient implements Serializable {
      */
     public void setItemtype(String itemtype) {
         this.itemtype = itemtype ;
-        this.modify("itemtype",itemtype);
+        this.modify("itemtype", itemtype);
     }
 
     /**
@@ -322,7 +322,7 @@ public class PSSysReqItem extends EntityClient implements Serializable {
      */
     public void setMemo(String memo) {
         this.memo = memo ;
-        this.modify("memo",memo);
+        this.modify("memo", memo);
     }
 
     /**
@@ -330,7 +330,7 @@ public class PSSysReqItem extends EntityClient implements Serializable {
      */
     public void setReqcontent(String reqcontent) {
         this.reqcontent = reqcontent ;
-        this.modify("reqcontent",reqcontent);
+        this.modify("reqcontent", reqcontent);
     }
 
     /**
@@ -338,7 +338,7 @@ public class PSSysReqItem extends EntityClient implements Serializable {
      */
     public void setUsertag2(String usertag2) {
         this.usertag2 = usertag2 ;
-        this.modify("usertag2",usertag2);
+        this.modify("usertag2", usertag2);
     }
 
     /**
@@ -346,7 +346,7 @@ public class PSSysReqItem extends EntityClient implements Serializable {
      */
     public void setUsertag(String usertag) {
         this.usertag = usertag ;
-        this.modify("usertag",usertag);
+        this.modify("usertag", usertag);
     }
 
     /**
@@ -354,7 +354,7 @@ public class PSSysReqItem extends EntityClient implements Serializable {
      */
     public void setUsercat(String usercat) {
         this.usercat = usercat ;
-        this.modify("usercat",usercat);
+        this.modify("usercat", usercat);
     }
 
     /**
@@ -362,7 +362,7 @@ public class PSSysReqItem extends EntityClient implements Serializable {
      */
     public void setUsertag3(String usertag3) {
         this.usertag3 = usertag3 ;
-        this.modify("usertag3",usertag3);
+        this.modify("usertag3", usertag3);
     }
 
     /**
@@ -370,7 +370,7 @@ public class PSSysReqItem extends EntityClient implements Serializable {
      */
     public void setUsertag4(String usertag4) {
         this.usertag4 = usertag4 ;
-        this.modify("usertag4",usertag4);
+        this.modify("usertag4", usertag4);
     }
 
     /**
@@ -378,7 +378,7 @@ public class PSSysReqItem extends EntityClient implements Serializable {
      */
     public void setVer(Integer ver) {
         this.ver = ver ;
-        this.modify("ver",ver);
+        this.modify("ver", ver);
     }
 
     /**
@@ -386,7 +386,7 @@ public class PSSysReqItem extends EntityClient implements Serializable {
      */
     public void setValidflag(Integer validflag) {
         this.validflag = validflag ;
-        this.modify("validflag",validflag);
+        this.modify("validflag", validflag);
     }
 
     /**
@@ -394,7 +394,7 @@ public class PSSysReqItem extends EntityClient implements Serializable {
      */
     public void setPpssysreqitemid(String ppssysreqitemid) {
         this.ppssysreqitemid = ppssysreqitemid ;
-        this.modify("ppssysreqitemid",ppssysreqitemid);
+        this.modify("ppssysreqitemid", ppssysreqitemid);
     }
 
     /**
@@ -402,7 +402,7 @@ public class PSSysReqItem extends EntityClient implements Serializable {
      */
     public void setPssysreqmoduleid(String pssysreqmoduleid) {
         this.pssysreqmoduleid = pssysreqmoduleid ;
-        this.modify("pssysreqmoduleid",pssysreqmoduleid);
+        this.modify("pssysreqmoduleid", pssysreqmoduleid);
     }
 
     /**
@@ -410,7 +410,7 @@ public class PSSysReqItem extends EntityClient implements Serializable {
      */
     public void setPssystemid(String pssystemid) {
         this.pssystemid = pssystemid ;
-        this.modify("pssystemid",pssystemid);
+        this.modify("pssystemid", pssystemid);
     }
 
     /**
@@ -418,7 +418,7 @@ public class PSSysReqItem extends EntityClient implements Serializable {
      */
     public void setPssystemname(String pssystemname) {
         this.pssystemname = pssystemname ;
-        this.modify("pssystemname",pssystemname);
+        this.modify("pssystemname", pssystemname);
     }
 
     /**
@@ -426,7 +426,7 @@ public class PSSysReqItem extends EntityClient implements Serializable {
      */
     public void setPssysusercaseid(String pssysusercaseid) {
         this.pssysusercaseid = pssysusercaseid ;
-        this.modify("pssysusercaseid",pssysusercaseid);
+        this.modify("pssysusercaseid", pssysusercaseid);
     }
 
     /**
@@ -434,7 +434,7 @@ public class PSSysReqItem extends EntityClient implements Serializable {
      */
     public void setPssysusercasename(String pssysusercasename) {
         this.pssysusercasename = pssysusercasename ;
-        this.modify("pssysusercasename",pssysusercasename);
+        this.modify("pssysusercasename", pssysusercasename);
     }
 
     /**
@@ -447,7 +447,7 @@ public class PSSysReqItem extends EntityClient implements Serializable {
     @Override
     public <T> T copyTo(T targetEntity, boolean bIncEmpty) {
         this.reset("pssysreqitemid");
-        return super.copyTo(targetEntity,bIncEmpty);
+        return super.copyTo(targetEntity, bIncEmpty);
     }
 }
 

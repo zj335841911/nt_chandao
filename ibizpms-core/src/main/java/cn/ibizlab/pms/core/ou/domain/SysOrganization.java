@@ -36,7 +36,7 @@ public class SysOrganization extends EntityClient implements Serializable {
     /**
      * 单位标识
      */
-    @DEField(defaultValue = "orgcode" , defaultValueType = DEFieldDefaultValueType.PARAM , isKeyField = true)
+    @DEField(defaultValue = "orgcode", defaultValueType = DEFieldDefaultValueType.PARAM , isKeyField = true)
     @JSONField(name = "orgid")
     @JsonProperty("orgid")
     private String orgid;
@@ -111,7 +111,7 @@ public class SysOrganization extends EntityClient implements Serializable {
      * 创建时间
      */
     @DEField(preType = DEPredefinedFieldType.CREATEDATE)
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "createdate" , format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("createdate")
     private Timestamp createdate;
@@ -120,7 +120,7 @@ public class SysOrganization extends EntityClient implements Serializable {
      * 最后修改时间
      */
     @DEField(preType = DEPredefinedFieldType.UPDATEDATE)
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "updatedate" , format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("updatedate")
     private Timestamp updatedate;
@@ -148,7 +148,7 @@ public class SysOrganization extends EntityClient implements Serializable {
      */
     public void setOrgcode(String orgcode) {
         this.orgcode = orgcode ;
-        this.modify("orgcode",orgcode);
+        this.modify("orgcode", orgcode);
     }
 
     /**
@@ -156,7 +156,7 @@ public class SysOrganization extends EntityClient implements Serializable {
      */
     public void setParentorgid(String parentorgid) {
         this.parentorgid = parentorgid ;
-        this.modify("porgid",parentorgid);
+        this.modify("porgid", parentorgid);
     }
 
     /**
@@ -164,7 +164,7 @@ public class SysOrganization extends EntityClient implements Serializable {
      */
     public void setShortname(String shortname) {
         this.shortname = shortname ;
-        this.modify("shortname",shortname);
+        this.modify("shortname", shortname);
     }
 
     /**
@@ -172,7 +172,7 @@ public class SysOrganization extends EntityClient implements Serializable {
      */
     public void setOrglevel(Integer orglevel) {
         this.orglevel = orglevel ;
-        this.modify("orglevel",orglevel);
+        this.modify("orglevel", orglevel);
     }
 
     /**
@@ -180,7 +180,7 @@ public class SysOrganization extends EntityClient implements Serializable {
      */
     public void setShoworder(Integer showorder) {
         this.showorder = showorder ;
-        this.modify("showorder",showorder);
+        this.modify("showorder", showorder);
     }
 
     /**
@@ -188,7 +188,7 @@ public class SysOrganization extends EntityClient implements Serializable {
      */
     public void setDomains(String domains) {
         this.domains = domains ;
-        this.modify("domains",domains);
+        this.modify("domains", domains);
     }
 
     /**
@@ -201,7 +201,7 @@ public class SysOrganization extends EntityClient implements Serializable {
     @Override
     public <T> T copyTo(T targetEntity, boolean bIncEmpty) {
         this.reset("orgid");
-        return super.copyTo(targetEntity,bIncEmpty);
+        return super.copyTo(targetEntity, bIncEmpty);
     }
 }
 

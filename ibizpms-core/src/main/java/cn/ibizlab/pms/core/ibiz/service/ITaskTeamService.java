@@ -23,7 +23,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 /**
  * 实体[TaskTeam] 服务对象接口
  */
-public interface ITaskTeamService extends IService<TaskTeam>{
+public interface ITaskTeamService extends IService<TaskTeam> {
 
     /**
      * 业务实体显示文本名称
@@ -35,32 +35,32 @@ public interface ITaskTeamService extends IService<TaskTeam>{
      */
     final static String OBJECT_SOURCE_PATH = "taskteams";
 
-    boolean create(TaskTeam et) ;
-    void createBatch(List<TaskTeam> list) ;
-    boolean update(TaskTeam et) ;
-    void updateBatch(List<TaskTeam> list) ;
-    boolean remove(Long key) ;
-    void removeBatch(Collection<Long> idList) ;
-    TaskTeam get(Long key) ;
-    TaskTeam getDraft(TaskTeam et) ;
-    boolean checkKey(TaskTeam et) ;
-    boolean save(TaskTeam et) ;
-    void saveBatch(List<TaskTeam> list) ;
-    Page<TaskTeam> searchDefault(TaskTeamSearchContext context) ;
+    boolean create(TaskTeam et);
+    void createBatch(List<TaskTeam> list);
+    boolean update(TaskTeam et);
+    void updateBatch(List<TaskTeam> list);
+    boolean remove(Long key);
+    void removeBatch(Collection<Long> idList);
+    TaskTeam get(Long key);
+    TaskTeam getDraft(TaskTeam et);
+    boolean checkKey(TaskTeam et);
+    boolean save(TaskTeam et);
+    void saveBatch(List<TaskTeam> list);
+    Page<TaskTeam> searchDefault(TaskTeamSearchContext context);
     List<TaskTeam> selectByRoot(Long id);
-    void removeByRoot(Long id) ;
-    void saveByRoot(Long id,List<TaskTeam> list) ;
+    void removeByRoot(Long id);
+    void saveByRoot(Long id, List<TaskTeam> list) ;
     /**
-     *自定义查询SQL
+     * 自定义查询SQL
      * @param sql  select * from table where id =#{et.param}
-     * @param param 参数列表  param.put("param","1");
+     * @param param 参数列表  param.put("param", "1");
      * @return select * from table where id = '1'
      */
     List<JSONObject> select(String sql, Map param);
     /**
-     *自定义SQL
+     * 自定义SQL
      * @param sql  update table  set name ='test' where id =#{et.param}
-     * @param param 参数列表  param.put("param","1");
+     * @param param 参数列表  param.put("param", "1");
      * @return     update table  set name ='test' where id = '1'
      */
     boolean execute(String sql, Map param);

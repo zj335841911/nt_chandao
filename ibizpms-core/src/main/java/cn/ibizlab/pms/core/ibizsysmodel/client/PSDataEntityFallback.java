@@ -17,65 +17,65 @@ import org.springframework.stereotype.Component;
  * 实体[PSDataEntity] 服务对象接口
  */
 @Component
-public class PSDataEntityFallback implements PSDataEntityFeignClient{
+public class PSDataEntityFallback implements PSDataEntityFeignClient {
 
-    public Page<PSDataEntity> select(){
-            return null;
-     }
+    public Page<PSDataEntity> select() {
+        return null;
+    }
 
-    public PSDataEntity create(PSDataEntity psdataentity){
-            return null;
-     }
-    public Boolean createBatch(List<PSDataEntity> psdataentities){
-            return false;
-     }
+    public PSDataEntity create(PSDataEntity psdataentity) {
+        return null;
+    }
+    public Boolean createBatch(List<PSDataEntity> psdataentities) {
+        return false;
+    }
 
-    public PSDataEntity update(String psdataentityid, PSDataEntity psdataentity){
-            return null;
-     }
-    public Boolean updateBatch(List<PSDataEntity> psdataentities){
-            return false;
-     }
-
-
-    public Boolean remove(String psdataentityid){
-            return false;
-     }
-    public Boolean removeBatch(Collection<String> idList){
-            return false;
-     }
-
-    public PSDataEntity get(String psdataentityid){
-            return null;
-     }
+    public PSDataEntity update(String psdataentityid, PSDataEntity psdataentity) {
+        return null;
+    }
+    public Boolean updateBatch(List<PSDataEntity> psdataentities) {
+        return false;
+    }
 
 
-    public String getByCodeName(String codeName){
+    public Boolean remove(String psdataentityid) {
+        return false;
+    }
+    public Boolean removeBatch(Collection<String> idList) {
+        return false;
+    }
+
+    public PSDataEntity get(String psdataentityid) {
+        return null;
+    }
+
+
+    public String getByCodeName(String codeName) {
             return null;
     }
 
 
     public PSDataEntity getDraft(){
-            return null;
+        return null;
     }
 
 
 
-    public Boolean checkKey(PSDataEntity psdataentity){
-            return false;
-     }
+    public Boolean checkKey(PSDataEntity psdataentity) {
+        return false;
+    }
 
 
-    public Boolean save(PSDataEntity psdataentity){
-            return false;
-     }
-    public Boolean saveBatch(List<PSDataEntity> psdataentities){
-            return false;
-     }
+    public Boolean save(PSDataEntity psdataentity) {
+        return false;
+    }
+    public Boolean saveBatch(List<PSDataEntity> psdataentities) {
+        return false;
+    }
 
-    public Page<PSDataEntity> searchDefault(PSDataEntitySearchContext context){
-            return null;
-     }
+    public Page<PSDataEntity> searchDefault(PSDataEntitySearchContext context) {
+        return null;
+    }
 
 
 }

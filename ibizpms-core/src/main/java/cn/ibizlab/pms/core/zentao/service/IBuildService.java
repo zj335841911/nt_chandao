@@ -23,7 +23,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 /**
  * 实体[Build] 服务对象接口
  */
-public interface IBuildService extends IService<Build>{
+public interface IBuildService extends IService<Build> {
 
     /**
      * 业务实体显示文本名称
@@ -35,43 +35,43 @@ public interface IBuildService extends IService<Build>{
      */
     final static String OBJECT_SOURCE_PATH = "builds";
 
-    boolean create(Build et) ;
-    void createBatch(List<Build> list) ;
-    boolean update(Build et) ;
-    void updateBatch(List<Build> list) ;
-    boolean remove(Long key) ;
-    void removeBatch(Collection<Long> idList) ;
-    Build get(Long key) ;
-    Build getDraft(Build et) ;
-    boolean checkKey(Build et) ;
-    Build linkStory(Build et) ;
-    Build mobProjectBuildCounter(Build et) ;
-    Build oneClickRelease(Build et) ;
-    boolean save(Build et) ;
-    void saveBatch(List<Build> list) ;
-    Page<Build> searchBugProductBuild(BuildSearchContext context) ;
-    Page<Build> searchCurProduct(BuildSearchContext context) ;
-    Page<Build> searchDefault(BuildSearchContext context) ;
-    Page<Build> searchTestBuild(BuildSearchContext context) ;
-    Page<Build> searchTestRounds(BuildSearchContext context) ;
-    Page<Build> searchUpdateLog(BuildSearchContext context) ;
+    boolean create(Build et);
+    void createBatch(List<Build> list);
+    boolean update(Build et);
+    void updateBatch(List<Build> list);
+    boolean remove(Long key);
+    void removeBatch(Collection<Long> idList);
+    Build get(Long key);
+    Build getDraft(Build et);
+    boolean checkKey(Build et);
+    Build linkStory(Build et);
+    Build mobProjectBuildCounter(Build et);
+    Build oneClickRelease(Build et);
+    boolean save(Build et);
+    void saveBatch(List<Build> list);
+    Page<Build> searchBugProductBuild(BuildSearchContext context);
+    Page<Build> searchCurProduct(BuildSearchContext context);
+    Page<Build> searchDefault(BuildSearchContext context);
+    Page<Build> searchTestBuild(BuildSearchContext context);
+    Page<Build> searchTestRounds(BuildSearchContext context);
+    Page<Build> searchUpdateLog(BuildSearchContext context);
     List<Build> selectByBranch(Long id);
-    void removeByBranch(Long id) ;
+    void removeByBranch(Long id);
     List<Build> selectByProduct(Long id);
-    void removeByProduct(Long id) ;
+    void removeByProduct(Long id);
     List<Build> selectByProject(Long id);
-    void removeByProject(Long id) ;
+    void removeByProject(Long id);
     /**
-     *自定义查询SQL
+     * 自定义查询SQL
      * @param sql  select * from table where id =#{et.param}
-     * @param param 参数列表  param.put("param","1");
+     * @param param 参数列表  param.put("param", "1");
      * @return select * from table where id = '1'
      */
     List<JSONObject> select(String sql, Map param);
     /**
-     *自定义SQL
+     * 自定义SQL
      * @param sql  update table  set name ='test' where id =#{et.param}
-     * @param param 参数列表  param.put("param","1");
+     * @param param 参数列表  param.put("param", "1");
      * @return     update table  set name ='test' where id = '1'
      */
     boolean execute(String sql, Map param);

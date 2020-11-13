@@ -38,7 +38,7 @@ import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 @Setter
 @NoArgsConstructor
 @JsonIgnoreProperties(value = "handler")
-@TableName(value = "zt_userquery",resultMap = "UserQueryResultMap")
+@TableName(value = "zt_userquery", resultMap = "UserQueryResultMap")
 public class UserQuery extends EntityMP implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -47,7 +47,7 @@ public class UserQuery extends EntityMP implements Serializable {
      * id
      */
     @DEField(isKeyField = true)
-    @TableId(value= "id",type=IdType.AUTO)
+    @TableId(value = "id", type = IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
     private Long id;
@@ -100,54 +100,54 @@ public class UserQuery extends EntityMP implements Serializable {
      * 设置 [shortcut]
      */
     public void setShortcut(String shortcut) {
-        this.shortcut = shortcut ;
-        this.modify("shortcut",shortcut);
+        this.shortcut = shortcut;
+        this.modify("shortcut", shortcut);
     }
 
     /**
      * 设置 [sql]
      */
     public void setSql(String sql) {
-        this.sql = sql ;
-        this.modify("sql",sql);
+        this.sql = sql;
+        this.modify("sql", sql);
     }
 
     /**
      * 设置 [title]
      */
     public void setTitle(String title) {
-        this.title = title ;
-        this.modify("title",title);
+        this.title = title;
+        this.modify("title", title);
     }
 
     /**
      * 设置 [module]
      */
     public void setModule(String module) {
-        this.module = module ;
-        this.modify("module",module);
+        this.module = module;
+        this.modify("module", module);
     }
 
     /**
      * 设置 [form]
      */
     public void setForm(String form) {
-        this.form = form ;
-        this.modify("form",form);
+        this.form = form;
+        this.modify("form", form);
     }
 
     /**
      * 设置 [account]
      */
     public void setAccount(String account) {
-        this.account = account ;
-        this.modify("account",account);
+        this.account = account;
+        this.modify("account", account);
     }
 
 
     @Override
     public Serializable getDefaultKey(boolean gen) {
-       return IdWorker.getId();
+        return IdWorker.getId();
     }
     /**
      * 复制当前对象数据到目标对象(粘贴重置)
@@ -159,7 +159,7 @@ public class UserQuery extends EntityMP implements Serializable {
     @Override
     public <T> T copyTo(T targetEntity, boolean bIncEmpty) {
         this.reset("id");
-        return super.copyTo(targetEntity,bIncEmpty);
+        return super.copyTo(targetEntity, bIncEmpty);
     }
 }
 

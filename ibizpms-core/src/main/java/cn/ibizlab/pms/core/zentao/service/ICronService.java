@@ -23,7 +23,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 /**
  * 实体[Cron] 服务对象接口
  */
-public interface ICronService extends IService<Cron>{
+public interface ICronService extends IService<Cron> {
 
     /**
      * 业务实体显示文本名称
@@ -35,29 +35,29 @@ public interface ICronService extends IService<Cron>{
      */
     final static String OBJECT_SOURCE_PATH = "crons";
 
-    boolean create(Cron et) ;
-    void createBatch(List<Cron> list) ;
-    boolean update(Cron et) ;
-    void updateBatch(List<Cron> list) ;
-    boolean remove(Long key) ;
-    void removeBatch(Collection<Long> idList) ;
-    Cron get(Long key) ;
-    Cron getDraft(Cron et) ;
-    boolean checkKey(Cron et) ;
-    boolean save(Cron et) ;
-    void saveBatch(List<Cron> list) ;
-    Page<Cron> searchDefault(CronSearchContext context) ;
+    boolean create(Cron et);
+    void createBatch(List<Cron> list);
+    boolean update(Cron et);
+    void updateBatch(List<Cron> list);
+    boolean remove(Long key);
+    void removeBatch(Collection<Long> idList);
+    Cron get(Long key);
+    Cron getDraft(Cron et);
+    boolean checkKey(Cron et);
+    boolean save(Cron et);
+    void saveBatch(List<Cron> list);
+    Page<Cron> searchDefault(CronSearchContext context);
     /**
-     *自定义查询SQL
+     * 自定义查询SQL
      * @param sql  select * from table where id =#{et.param}
-     * @param param 参数列表  param.put("param","1");
+     * @param param 参数列表  param.put("param", "1");
      * @return select * from table where id = '1'
      */
     List<JSONObject> select(String sql, Map param);
     /**
-     *自定义SQL
+     * 自定义SQL
      * @param sql  update table  set name ='test' where id =#{et.param}
-     * @param param 参数列表  param.put("param","1");
+     * @param param 参数列表  param.put("param", "1");
      * @return     update table  set name ='test' where id = '1'
      */
     boolean execute(String sql, Map param);

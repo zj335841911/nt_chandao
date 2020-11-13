@@ -103,7 +103,7 @@ public class ProductLineServiceImpl implements IProductLineService {
      */
     @Override
     public Page<ProductLine> searchDefault(ProductLineSearchContext context) {
-        return new PageImpl<ProductLine>(new ArrayList(),context.getPageable(),0);
+        return new PageImpl<ProductLine>(new ArrayList(), context.getPageable(), 0);
     }
 
 

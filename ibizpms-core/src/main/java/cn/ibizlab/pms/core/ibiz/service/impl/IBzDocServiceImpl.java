@@ -103,7 +103,7 @@ public class IBzDocServiceImpl implements IIBzDocService {
      */
     @Override
     public Page<IBzDoc> searchDefault(IBzDocSearchContext context) {
-        return new PageImpl<IBzDoc>(new ArrayList(),context.getPageable(),0);
+        return new PageImpl<IBzDoc>(new ArrayList(), context.getPageable(), 0);
     }
 
 

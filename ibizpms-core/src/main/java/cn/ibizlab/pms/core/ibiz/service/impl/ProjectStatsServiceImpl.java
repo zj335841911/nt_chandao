@@ -54,7 +54,7 @@ public class ProjectStatsServiceImpl extends ServiceImpl<ProjectStatsMapper, Pro
     @Override
     @Transactional
     public boolean create(ProjectStats et) {
-        if(!this.retBool(this.baseMapper.insert(et))) {
+        if (!this.retBool(this.baseMapper.insert(et))) {
             return false;
         }
         CachedBeanCopier.copy(get(et.getId()), et);
@@ -70,7 +70,7 @@ public class ProjectStatsServiceImpl extends ServiceImpl<ProjectStatsMapper, Pro
     @Override
     @Transactional
     public boolean update(ProjectStats et) {
-        if(!update(et, (Wrapper) et.getUpdateWrapper(true).eq("id", et.getId()))) {
+        if (!update(et, (Wrapper) et.getUpdateWrapper(true).eq("id", et.getId()))) {
             return false;
         }
         CachedBeanCopier.copy(get(et.getId()), et);
@@ -87,7 +87,7 @@ public class ProjectStatsServiceImpl extends ServiceImpl<ProjectStatsMapper, Pro
     @Transactional
     public boolean remove(Long key) {
         boolean result = removeById(key);
-        return result ;
+        return result;
     }
 
     @Override
@@ -100,7 +100,7 @@ public class ProjectStatsServiceImpl extends ServiceImpl<ProjectStatsMapper, Pro
     @Transactional
     public ProjectStats get(Long key) {
         ProjectStats et = getById(key);
-        if(et == null){
+        if (et == null) {
             et = new ProjectStats();
             et.setId(key);
         }
@@ -140,14 +140,14 @@ public class ProjectStatsServiceImpl extends ServiceImpl<ProjectStatsMapper, Pro
     @Override
     @Transactional
     public boolean saveBatch(Collection<ProjectStats> list) {
-        saveOrUpdateBatch(list,batchSize);
+        saveOrUpdateBatch(list, batchSize);
         return true;
     }
 
     @Override
     @Transactional
     public void saveBatch(List<ProjectStats> list) {
-        saveOrUpdateBatch(list,batchSize);
+        saveOrUpdateBatch(list, batchSize);
     }
 
 
@@ -157,7 +157,7 @@ public class ProjectStatsServiceImpl extends ServiceImpl<ProjectStatsMapper, Pro
      */
     @Override
     public Page<ProjectStats> searchDefault(ProjectStatsSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectStats> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectStats> pages=baseMapper.searchDefault(context.getPages(), context, context.getSelectCond());
         return new PageImpl<ProjectStats>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -166,7 +166,7 @@ public class ProjectStatsServiceImpl extends ServiceImpl<ProjectStatsMapper, Pro
      */
     @Override
     public Page<ProjectStats> searchNoOpenProduct(ProjectStatsSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectStats> pages=baseMapper.searchNoOpenProduct(context.getPages(),context,context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectStats> pages=baseMapper.searchNoOpenProduct(context.getPages(), context, context.getSelectCond());
         return new PageImpl<ProjectStats>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -175,7 +175,7 @@ public class ProjectStatsServiceImpl extends ServiceImpl<ProjectStatsMapper, Pro
      */
     @Override
     public Page<ProjectStats> searchTaskTime(ProjectStatsSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectStats> pages=baseMapper.searchTaskTime(context.getPages(),context,context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectStats> pages=baseMapper.searchTaskTime(context.getPages(), context, context.getSelectCond());
         return new PageImpl<ProjectStats>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -186,24 +186,24 @@ public class ProjectStatsServiceImpl extends ServiceImpl<ProjectStatsMapper, Pro
 
 
     @Override
-    public List<JSONObject> select(String sql, Map param){
-        return this.baseMapper.selectBySQL(sql,param);
+    public List<JSONObject> select(String sql, Map param) {
+        return this.baseMapper.selectBySQL(sql, param);
     }
 
     @Override
     @Transactional
-    public boolean execute(String sql , Map param){
+    public boolean execute(String sql, Map param) {
         if (sql == null || sql.isEmpty()) {
             return false;
         }
         if (sql.toLowerCase().trim().startsWith("insert")) {
-            return this.baseMapper.insertBySQL(sql,param);
+            return this.baseMapper.insertBySQL(sql, param);
         }
         if (sql.toLowerCase().trim().startsWith("update")) {
-            return this.baseMapper.updateBySQL(sql,param);
+            return this.baseMapper.updateBySQL(sql, param);
         }
         if (sql.toLowerCase().trim().startsWith("delete")) {
-            return this.baseMapper.deleteBySQL(sql,param);
+            return this.baseMapper.deleteBySQL(sql, param);
         }
         log.warn("暂未支持的SQL语法");
         return true;

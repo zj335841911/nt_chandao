@@ -38,7 +38,7 @@ import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 @Setter
 @NoArgsConstructor
 @JsonIgnoreProperties(value = "handler")
-@TableName(value = "T_IBZ_TOP",resultMap = "IbzTopResultMap")
+@TableName(value = "T_IBZ_TOP", resultMap = "IbzTopResultMap")
 public class IbzTop extends EntityMP implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -46,8 +46,8 @@ public class IbzTop extends EntityMP implements Serializable {
     /**
      * 标识
      */
-    @DEField(name = "ibz_topid" , isKeyField = true)
-    @TableId(value= "ibz_topid",type=IdType.ASSIGN_UUID)
+    @DEField(name = "ibz_topid", isKeyField = true)
+    @TableId(value = "ibz_topid", type = IdType.ASSIGN_UUID)
     @JSONField(name = "ibztopid")
     @JsonProperty("ibztopid")
     private String ibztopid;
@@ -56,7 +56,7 @@ public class IbzTop extends EntityMP implements Serializable {
      */
     @DEField(preType = DEPredefinedFieldType.CREATEDATE)
     @TableField(value = "`createdate`", fill = FieldFill.INSERT)
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "createdate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("createdate")
     private Timestamp createdate;
@@ -89,7 +89,7 @@ public class IbzTop extends EntityMP implements Serializable {
      */
     @DEField(preType = DEPredefinedFieldType.UPDATEDATE)
     @TableField(value = "`updatedate`")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "updatedate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("updatedate")
     private Timestamp updatedate;
@@ -128,40 +128,40 @@ public class IbzTop extends EntityMP implements Serializable {
      * 设置 [置顶名称]
      */
     public void setIbztopname(String ibztopname) {
-        this.ibztopname = ibztopname ;
-        this.modify("ibz_topname",ibztopname);
+        this.ibztopname = ibztopname;
+        this.modify("ibz_topname", ibztopname);
     }
 
     /**
      * 设置 [类型]
      */
     public void setType(String type) {
-        this.type = type ;
-        this.modify("type",type);
+        this.type = type;
+        this.modify("type", type);
     }
 
     /**
      * 设置 [数据对象标识]
      */
     public void setObjectid(Integer objectid) {
-        this.objectid = objectid ;
-        this.modify("objectid",objectid);
+        this.objectid = objectid;
+        this.modify("objectid", objectid);
     }
 
     /**
      * 设置 [排序]
      */
     public void setObjectorder(Integer objectorder) {
-        this.objectorder = objectorder ;
-        this.modify("objectorder",objectorder);
+        this.objectorder = objectorder;
+        this.modify("objectorder", objectorder);
     }
 
     /**
      * 设置 [置顶用户]
      */
     public void setAccount(String account) {
-        this.account = account ;
-        this.modify("account",account);
+        this.account = account;
+        this.modify("account", account);
     }
 
 
@@ -175,7 +175,7 @@ public class IbzTop extends EntityMP implements Serializable {
     @Override
     public <T> T copyTo(T targetEntity, boolean bIncEmpty) {
         this.reset("ibz_topid");
-        return super.copyTo(targetEntity,bIncEmpty);
+        return super.copyTo(targetEntity, bIncEmpty);
     }
 }
 

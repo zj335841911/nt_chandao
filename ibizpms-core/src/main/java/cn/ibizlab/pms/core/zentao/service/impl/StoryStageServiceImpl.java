@@ -61,7 +61,7 @@ public class StoryStageServiceImpl extends ServiceImpl<StoryStageMapper, StorySt
     @Transactional
     public boolean create(StoryStage et) {
         fillParentData(et);
-        if(!this.retBool(this.baseMapper.insert(et))) {
+        if (!this.retBool(this.baseMapper.insert(et))) {
             return false;
         }
         CachedBeanCopier.copy(get(et.getId()), et);
@@ -79,7 +79,7 @@ public class StoryStageServiceImpl extends ServiceImpl<StoryStageMapper, StorySt
     @Transactional
     public boolean update(StoryStage et) {
         fillParentData(et);
-        if(!update(et, (Wrapper) et.getUpdateWrapper(true).eq("id", et.getId()))) {
+        if (!update(et, (Wrapper) et.getUpdateWrapper(true).eq("id", et.getId()))) {
             return false;
         }
         CachedBeanCopier.copy(get(et.getId()), et);
@@ -97,7 +97,7 @@ public class StoryStageServiceImpl extends ServiceImpl<StoryStageMapper, StorySt
     @Transactional
     public boolean remove(String key) {
         boolean result = removeById(key);
-        return result ;
+        return result;
     }
 
     @Override
@@ -110,7 +110,7 @@ public class StoryStageServiceImpl extends ServiceImpl<StoryStageMapper, StorySt
     @Transactional
     public StoryStage get(String key) {
         StoryStage et = getById(key);
-        if(et == null){
+        if (et == null) {
             et = new StoryStage();
             et.setId(key);
         }
@@ -152,34 +152,34 @@ public class StoryStageServiceImpl extends ServiceImpl<StoryStageMapper, StorySt
     @Transactional
     public boolean saveBatch(Collection<StoryStage> list) {
         list.forEach(item->fillParentData(item));
-        saveOrUpdateBatch(list,batchSize);
+        saveOrUpdateBatch(list, batchSize);
         return true;
     }
 
     @Override
     @Transactional
     public void saveBatch(List<StoryStage> list) {
-        list.forEach(item->fillParentData(item));
-        saveOrUpdateBatch(list,batchSize);
+        list.forEach(item -> fillParentData(item));
+        saveOrUpdateBatch(list, batchSize);
     }
 
 
-	@Override
+    @Override
     public List<StoryStage> selectByBranch(Long id) {
         return baseMapper.selectByBranch(id);
     }
     @Override
     public void removeByBranch(Long id) {
-        this.remove(new QueryWrapper<StoryStage>().eq("branch",id));
+        this.remove(new QueryWrapper<StoryStage>().eq("branch", id));
     }
 
-	@Override
+    @Override
     public List<StoryStage> selectByStory(Long id) {
         return baseMapper.selectByStory(id);
     }
     @Override
     public void removeByStory(Long id) {
-        this.remove(new QueryWrapper<StoryStage>().eq("story",id));
+        this.remove(new QueryWrapper<StoryStage>().eq("story", id));
     }
 
 
@@ -188,7 +188,7 @@ public class StoryStageServiceImpl extends ServiceImpl<StoryStageMapper, StorySt
      */
     @Override
     public Page<StoryStage> searchDefault(StoryStageSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<StoryStage> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<StoryStage> pages=baseMapper.searchDefault(context.getPages(), context, context.getSelectCond());
         return new PageImpl<StoryStage>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -216,24 +216,24 @@ public class StoryStageServiceImpl extends ServiceImpl<StoryStageMapper, StorySt
 
 
     @Override
-    public List<JSONObject> select(String sql, Map param){
-        return this.baseMapper.selectBySQL(sql,param);
+    public List<JSONObject> select(String sql, Map param) {
+        return this.baseMapper.selectBySQL(sql, param);
     }
 
     @Override
     @Transactional
-    public boolean execute(String sql , Map param){
+    public boolean execute(String sql, Map param) {
         if (sql == null || sql.isEmpty()) {
             return false;
         }
         if (sql.toLowerCase().trim().startsWith("insert")) {
-            return this.baseMapper.insertBySQL(sql,param);
+            return this.baseMapper.insertBySQL(sql, param);
         }
         if (sql.toLowerCase().trim().startsWith("update")) {
-            return this.baseMapper.updateBySQL(sql,param);
+            return this.baseMapper.updateBySQL(sql, param);
         }
         if (sql.toLowerCase().trim().startsWith("delete")) {
-            return this.baseMapper.deleteBySQL(sql,param);
+            return this.baseMapper.deleteBySQL(sql, param);
         }
         log.warn("暂未支持的SQL语法");
         return true;

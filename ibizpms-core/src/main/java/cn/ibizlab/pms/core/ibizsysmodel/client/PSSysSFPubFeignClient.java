@@ -31,7 +31,7 @@ public interface PSSysSFPubFeignClient {
 
 
     @RequestMapping(method = RequestMethod.PUT, value = "/pssyssfpubs/{pssyssfpubid}")
-    PSSysSFPub update(@PathVariable("pssyssfpubid") String pssyssfpubid,@RequestBody PSSysSFPub pssyssfpub);
+    PSSysSFPub update(@PathVariable("pssyssfpubid") String pssyssfpubid, @RequestBody PSSysSFPub pssyssfpub);
 
     @RequestMapping(method = RequestMethod.PUT, value = "/pssyssfpubs/batch")
     Boolean updateBatch(@RequestBody List<PSSysSFPub> pssyssfpubs);

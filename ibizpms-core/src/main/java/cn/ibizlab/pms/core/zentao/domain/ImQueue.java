@@ -38,7 +38,7 @@ import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 @Setter
 @NoArgsConstructor
 @JsonIgnoreProperties(value = "handler")
-@TableName(value = "zt_im_queue",resultMap = "ImQueueResultMap")
+@TableName(value = "zt_im_queue", resultMap = "ImQueueResultMap")
 public class ImQueue extends EntityMP implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -47,7 +47,7 @@ public class ImQueue extends EntityMP implements Serializable {
      * processDate
      */
     @TableField(value = "`processdate`")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "processdate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("processdate")
     private Timestamp processdate;
@@ -55,7 +55,7 @@ public class ImQueue extends EntityMP implements Serializable {
      * addDate
      */
     @TableField(value = "`adddate`")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "adddate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("adddate")
     private Timestamp adddate;
@@ -77,7 +77,7 @@ public class ImQueue extends EntityMP implements Serializable {
      * id
      */
     @DEField(isKeyField = true)
-    @TableId(value= "id",type=IdType.AUTO)
+    @TableId(value = "id", type = IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
     private Long id;
@@ -102,8 +102,8 @@ public class ImQueue extends EntityMP implements Serializable {
      * 设置 [processDate]
      */
     public void setProcessdate(Timestamp processdate) {
-        this.processdate = processdate ;
-        this.modify("processdate",processdate);
+        this.processdate = processdate;
+        this.modify("processdate", processdate);
     }
 
     /**
@@ -120,8 +120,8 @@ public class ImQueue extends EntityMP implements Serializable {
      * 设置 [addDate]
      */
     public void setAdddate(Timestamp adddate) {
-        this.adddate = adddate ;
-        this.modify("adddate",adddate);
+        this.adddate = adddate;
+        this.modify("adddate", adddate);
     }
 
     /**
@@ -138,38 +138,38 @@ public class ImQueue extends EntityMP implements Serializable {
      * 设置 [content]
      */
     public void setContent(String content) {
-        this.content = content ;
-        this.modify("content",content);
+        this.content = content;
+        this.modify("content", content);
     }
 
     /**
      * 设置 [type]
      */
     public void setType(String type) {
-        this.type = type ;
-        this.modify("type",type);
+        this.type = type;
+        this.modify("type", type);
     }
 
     /**
      * 设置 [status]
      */
     public void setStatus(String status) {
-        this.status = status ;
-        this.modify("status",status);
+        this.status = status;
+        this.modify("status", status);
     }
 
     /**
      * 设置 [result]
      */
     public void setResult(String result) {
-        this.result = result ;
-        this.modify("result",result);
+        this.result = result;
+        this.modify("result", result);
     }
 
 
     @Override
     public Serializable getDefaultKey(boolean gen) {
-       return IdWorker.getId();
+        return IdWorker.getId();
     }
     /**
      * 复制当前对象数据到目标对象(粘贴重置)
@@ -181,7 +181,7 @@ public class ImQueue extends EntityMP implements Serializable {
     @Override
     public <T> T copyTo(T targetEntity, boolean bIncEmpty) {
         this.reset("id");
-        return super.copyTo(targetEntity,bIncEmpty);
+        return super.copyTo(targetEntity, bIncEmpty);
     }
 }
 

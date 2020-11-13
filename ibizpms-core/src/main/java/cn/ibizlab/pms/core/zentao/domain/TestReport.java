@@ -38,7 +38,7 @@ import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 @Setter
 @NoArgsConstructor
 @JsonIgnoreProperties(value = "handler")
-@TableName(value = "zt_testreport",resultMap = "TestReportResultMap")
+@TableName(value = "zt_testreport", resultMap = "TestReportResultMap")
 public class TestReport extends EntityMP implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -110,7 +110,7 @@ public class TestReport extends EntityMP implements Serializable {
      * 开始时间
      */
     @TableField(value = "`begin`")
-    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh" , timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "begin", format = "yyyy-MM-dd")
     @JsonProperty("begin")
     private Timestamp begin;
@@ -126,7 +126,7 @@ public class TestReport extends EntityMP implements Serializable {
      * 结束时间
      */
     @TableField(value = "`end`")
-    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh" , timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "end", format = "yyyy-MM-dd")
     @JsonProperty("end")
     private Timestamp end;
@@ -143,7 +143,7 @@ public class TestReport extends EntityMP implements Serializable {
      */
     @DEField(preType = DEPredefinedFieldType.CREATEDATE)
     @TableField(value = "`createddate`", fill = FieldFill.INSERT)
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "createddate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("createddate")
     private Timestamp createddate;
@@ -159,7 +159,7 @@ public class TestReport extends EntityMP implements Serializable {
      * 编号
      */
     @DEField(isKeyField = true)
-    @TableId(value= "id",type=IdType.AUTO)
+    @TableId(value = "id", type = IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
     private Long id;
@@ -175,7 +175,7 @@ public class TestReport extends EntityMP implements Serializable {
      * 已删除
      */
     @DEField(defaultValue = "0", preType = DEPredefinedFieldType.LOGICVALID, logicval = "0", logicdelval = "1")
-    @TableLogic(value= "0", delval = "1")
+    @TableLogic(value = "0", delval = "1")
     @TableField(value = "`deleted`")
     @JSONField(name = "deleted")
     @JsonProperty("deleted")
@@ -261,64 +261,64 @@ public class TestReport extends EntityMP implements Serializable {
      * 设置 [所属对象]
      */
     public void setObjectid(Integer objectid) {
-        this.objectid = objectid ;
-        this.modify("objectid",objectid);
+        this.objectid = objectid;
+        this.modify("objectid", objectid);
     }
 
     /**
      * 设置 [用例]
      */
     public void setCases(String cases) {
-        this.cases = cases ;
-        this.modify("cases",cases);
+        this.cases = cases;
+        this.modify("cases", cases);
     }
 
     /**
      * 设置 [参与人员]
      */
     public void setMembers(String members) {
-        this.members = members ;
-        this.modify("members",members);
+        this.members = members;
+        this.modify("members", members);
     }
 
     /**
      * 设置 [测试的Bug]
      */
     public void setBugs(String bugs) {
-        this.bugs = bugs ;
-        this.modify("bugs",bugs);
+        this.bugs = bugs;
+        this.modify("bugs", bugs);
     }
 
     /**
      * 设置 [测试的需求]
      */
     public void setStories(String stories) {
-        this.stories = stories ;
-        this.modify("stories",stories);
+        this.stories = stories;
+        this.modify("stories", stories);
     }
 
     /**
      * 设置 [测试单]
      */
     public void setTasks(String tasks) {
-        this.tasks = tasks ;
-        this.modify("tasks",tasks);
+        this.tasks = tasks;
+        this.modify("tasks", tasks);
     }
 
     /**
      * 设置 [标题]
      */
     public void setTitle(String title) {
-        this.title = title ;
-        this.modify("title",title);
+        this.title = title;
+        this.modify("title", title);
     }
 
     /**
      * 设置 [开始时间]
      */
     public void setBegin(Timestamp begin) {
-        this.begin = begin ;
-        this.modify("begin",begin);
+        this.begin = begin;
+        this.modify("begin", begin);
     }
 
     /**
@@ -335,16 +335,16 @@ public class TestReport extends EntityMP implements Serializable {
      * 设置 [对象类型]
      */
     public void setObjecttype(String objecttype) {
-        this.objecttype = objecttype ;
-        this.modify("objecttype",objecttype);
+        this.objecttype = objecttype;
+        this.modify("objecttype", objecttype);
     }
 
     /**
      * 设置 [结束时间]
      */
     public void setEnd(Timestamp end) {
-        this.end = end ;
-        this.modify("end",end);
+        this.end = end;
+        this.modify("end", end);
     }
 
     /**
@@ -361,46 +361,46 @@ public class TestReport extends EntityMP implements Serializable {
      * 设置 [版本信息]
      */
     public void setBuilds(String builds) {
-        this.builds = builds ;
-        this.modify("builds",builds);
+        this.builds = builds;
+        this.modify("builds", builds);
     }
 
     /**
      * 设置 [总结]
      */
     public void setReport(String report) {
-        this.report = report ;
-        this.modify("report",report);
+        this.report = report;
+        this.modify("report", report);
     }
 
     /**
      * 设置 [负责人]
      */
     public void setOwner(String owner) {
-        this.owner = owner ;
-        this.modify("owner",owner);
+        this.owner = owner;
+        this.modify("owner", owner);
     }
 
     /**
      * 设置 [所属产品]
      */
     public void setProduct(Long product) {
-        this.product = product ;
-        this.modify("product",product);
+        this.product = product;
+        this.modify("product", product);
     }
 
     /**
      * 设置 [所属项目]
      */
     public void setProject(Long project) {
-        this.project = project ;
-        this.modify("project",project);
+        this.project = project;
+        this.modify("project", project);
     }
 
 
     @Override
     public Serializable getDefaultKey(boolean gen) {
-       return IdWorker.getId();
+        return IdWorker.getId();
     }
     /**
      * 复制当前对象数据到目标对象(粘贴重置)
@@ -412,7 +412,7 @@ public class TestReport extends EntityMP implements Serializable {
     @Override
     public <T> T copyTo(T targetEntity, boolean bIncEmpty) {
         this.reset("id");
-        return super.copyTo(targetEntity,bIncEmpty);
+        return super.copyTo(targetEntity, bIncEmpty);
     }
 }
 

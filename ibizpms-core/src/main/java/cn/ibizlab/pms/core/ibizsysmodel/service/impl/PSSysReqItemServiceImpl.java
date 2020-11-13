@@ -82,26 +82,26 @@ public class PSSysReqItemServiceImpl implements IPSSysReqItemService {
     }
 
     @Override
-    public boolean create(String devSlnSysId,PSSysReqItem et) {
+    public boolean create(String devSlnSysId, PSSysReqItem et) {
         PSSysReqItem rt = getPSSysReqItemFeignClient(devSlnSysId).create(et);
         if (rt == null) {
             return false;
-	    }
+        }
         CachedBeanCopier.copy(rt, et);
         return true;
     }
 
     public void createBatch(List<PSSysReqItem> list){
-        pSSysReqItemFeignClient.createBatch(list) ;
+        pSSysReqItemFeignClient.createBatch(list);
     }
 
-    public void createBatch(String devSlnSysId,List<PSSysReqItem> list){
+    public void createBatch(String devSlnSysId, List<PSSysReqItem> list){
         getPSSysReqItemFeignClient(devSlnSysId).createBatch(list);
     }
 
     @Override
     public boolean update(PSSysReqItem et) {
-        PSSysReqItem rt = pSSysReqItemFeignClient.update(et.getPssysreqitemid(),et);
+        PSSysReqItem rt = pSSysReqItemFeignClient.update(et.getPssysreqitemid(), et);
         if (rt == null) {
             return false;
         }
@@ -115,27 +115,27 @@ public class PSSysReqItemServiceImpl implements IPSSysReqItemService {
         PSSysReqItem rt = getPSSysReqItemFeignClient(devSlnSysId).update(et.getPssysreqitemid(), et);
         if (rt == null) {
             return false;
-	    }
+        }
         CachedBeanCopier.copy(rt, et);
         return true;
     }
 
-    public void updateBatch(List<PSSysReqItem> list){
-        pSSysReqItemFeignClient.updateBatch(list) ;
+    public void updateBatch(List<PSSysReqItem> list) {
+        pSSysReqItemFeignClient.updateBatch(list);
     }
 
-    public void updateBatch(String devSlnSysId,List<PSSysReqItem> list){
+    public void updateBatch(String devSlnSysId, List<PSSysReqItem> list){
         getPSSysReqItemFeignClient(devSlnSysId).updateBatch(list);
     }
 
     @Override
     public boolean remove(String pssysreqitemid) {
-        boolean result=pSSysReqItemFeignClient.remove(pssysreqitemid) ;
+        boolean result=pSSysReqItemFeignClient.remove(pssysreqitemid);
         return result;
     }
 
     @Override
-    public boolean remove(String devSlnSysId,String pssysreqitemid) {
+    public boolean remove(String devSlnSysId, String pssysreqitemid) {
         boolean result = getPSSysReqItemFeignClient(devSlnSysId).remove(pssysreqitemid);
         return result;
     }
@@ -144,36 +144,36 @@ public class PSSysReqItemServiceImpl implements IPSSysReqItemService {
         pSSysReqItemFeignClient.removeBatch(idList);
     }
 
-    public void removeBatch(String devSlnSysId,Collection<String> idList){
+    public void removeBatch(String devSlnSysId, Collection<String> idList) {
         getPSSysReqItemFeignClient(devSlnSysId).removeBatch(idList);
     }
 
     @Override
     public PSSysReqItem get(String pssysreqitemid) {
-		PSSysReqItem et = pSSysReqItemFeignClient.get(pssysreqitemid);
-        if (et == null){
+        PSSysReqItem et = pSSysReqItemFeignClient.get(pssysreqitemid);
+        if (et == null) {
             et = new PSSysReqItem();
             et.setPssysreqitemid(pssysreqitemid);
         }
-        else{
+        else {
         }
         return  et;
     }
 
     @Override
-    public PSSysReqItem get(String devSlnSysId,String pssysreqitemid) {
-		PSSysReqItem et = getPSSysReqItemFeignClient(devSlnSysId).get(pssysreqitemid);
+    public PSSysReqItem get(String devSlnSysId, String pssysreqitemid) {
+        PSSysReqItem et = getPSSysReqItemFeignClient(devSlnSysId).get(pssysreqitemid);
         if (et == null) {
             et = new PSSysReqItem();
             et.setPssysreqitemid(pssysreqitemid);
         }
-        else{
+        else {
         }
         return et;
     }
 
     @Override
-    public String getByCodeName(String devSlnSysId,String codeName) {
+    public String getByCodeName(String devSlnSysId, String codeName) {
         return getPSSysReqItemFeignClient(devSlnSysId).getByCodeName(codeName);
     }
 
@@ -184,7 +184,7 @@ public class PSSysReqItemServiceImpl implements IPSSysReqItemService {
     }
 
     @Override
-    public PSSysReqItem getDraft(String devSlnSysId,PSSysReqItem et) {
+    public PSSysReqItem getDraft(String devSlnSysId, PSSysReqItem et) {
         et = getPSSysReqItemFeignClient(devSlnSysId).getDraft();
         return et;
     }
@@ -195,7 +195,7 @@ public class PSSysReqItemServiceImpl implements IPSSysReqItemService {
     }
 
     @Override
-    public boolean checkKey(String devSlnSysId,PSSysReqItem et) {
+    public boolean checkKey(String devSlnSysId, PSSysReqItem et) {
         return getPSSysReqItemFeignClient(devSlnSysId).checkKey(et);
     }
 
@@ -213,11 +213,11 @@ public class PSSysReqItemServiceImpl implements IPSSysReqItemService {
 
     @Override
     @Transactional
-    public boolean save(String devSlnSysId,PSSysReqItem et) {
+    public boolean save(String devSlnSysId, PSSysReqItem et) {
         if (et.getPssysreqitemid() == null) {
-	        et.setPssysreqitemid((String)et.getDefaultKey(true));
-	    }
-        if(!getPSSysReqItemFeignClient(devSlnSysId).save(et)) {
+            et.setPssysreqitemid((String)et.getDefaultKey(true));
+        }
+        if (!getPSSysReqItemFeignClient(devSlnSysId).save(et)) {
             return false;
         }
         return true;
@@ -225,17 +225,17 @@ public class PSSysReqItemServiceImpl implements IPSSysReqItemService {
 
     @Override
     public void saveBatch(List<PSSysReqItem> list) {
-        pSSysReqItemFeignClient.saveBatch(list) ;
+        pSSysReqItemFeignClient.saveBatch(list);
     }
 
     @Override
-    public void saveBatch(String devSlnSysId,List<PSSysReqItem> list) {
+    public void saveBatch(String devSlnSysId, List<PSSysReqItem> list) {
         getPSSysReqItemFeignClient(devSlnSysId).saveBatch(list);
     }
 
 
 
-	@Override
+    @Override
     public List<PSSysReqItem> selectByPpssysreqitemid(String pssysreqitemid) {
         PSSysReqItemSearchContext context=new PSSysReqItemSearchContext();
         context.setSize(Integer.MAX_VALUE);
@@ -275,10 +275,10 @@ public class PSSysReqItemServiceImpl implements IPSSysReqItemService {
         }
         if (delIds.size() > 0) {
             this.removeBatch(delIds);
-	    }
+        }
     }
 
-	@Override
+    @Override
     public List<PSSysReqItem> selectByPssysreqmoduleid(String pssysreqmoduleid) {
         PSSysReqItemSearchContext context=new PSSysReqItemSearchContext();
         context.setSize(Integer.MAX_VALUE);
@@ -320,7 +320,7 @@ public class PSSysReqItemServiceImpl implements IPSSysReqItemService {
         }
         if (delIds.size() > 0) {
             this.removeBatch(delIds);
-	    }
+        }
     }
 
 
@@ -335,7 +335,7 @@ public class PSSysReqItemServiceImpl implements IPSSysReqItemService {
     }
 
     @Override
-    public Page<PSSysReqItem> searchDefault(String devSlnSysId,PSSysReqItemSearchContext context) {
+    public Page<PSSysReqItem> searchDefault(String devSlnSysId, PSSysReqItemSearchContext context) {
         Page<PSSysReqItem> pSSysReqItems=getPSSysReqItemFeignClient(devSlnSysId).searchDefault(context);
         return pSSysReqItems;
     }

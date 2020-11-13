@@ -127,7 +127,7 @@ public class TestReportServiceImpl extends ServiceImpl<TestReportMapper, TestRep
     @Transactional
     public TestReport get(Long key) {
         TestReport et = getById(key);
-        if(et == null){
+        if (et == null) {
             et = new TestReport();
             et.setId(key);
         }
@@ -150,56 +150,56 @@ public class TestReportServiceImpl extends ServiceImpl<TestReportMapper, TestRep
     @Transactional
     public TestReport getInfoTaskOvByTime(TestReport et) {
         getinfotesttaskovbytimeLogic.execute(et);
-         return et ;
+         return et;
     }
 
     @Override
     @Transactional
     public TestReport getInfoTestTask(TestReport et) {
         getinfotesttaskLogic.execute(et);
-         return et ;
+         return et;
     }
 
     @Override
     @Transactional
     public TestReport getInfoTestTaskOvProject(TestReport et) {
         getinfotesttaskovprojectLogic.execute(et);
-         return et ;
+         return et;
     }
 
     @Override
     @Transactional
     public TestReport getInfoTestTaskProject(TestReport et) {
         getinfotesttaskprojectLogic.execute(et);
-         return et ;
+         return et;
     }
 
     @Override
     @Transactional
     public TestReport getInfoTestTaskR(TestReport et) {
         getinfotesttaskrLogic.execute(et);
-         return et ;
+         return et;
     }
 
     @Override
     @Transactional
     public TestReport getInfoTestTaskS(TestReport et) {
         getinfotesttasksLogic.execute(et);
-         return et ;
+         return et;
     }
 
     @Override
     @Transactional
     public TestReport getTestReportBasicInfo(TestReport et) {
         gettestreportbasicinfoLogic.execute(et);
-         return et ;
+         return et;
     }
 
     @Override
     @Transactional
     public TestReport getTestReportProject(TestReport et) {
         gettestreportprojectLogic.execute(et);
-         return et ;
+         return et;
     }
 
     @Override
@@ -225,34 +225,34 @@ public class TestReportServiceImpl extends ServiceImpl<TestReportMapper, TestRep
     @Transactional
     public boolean saveBatch(Collection<TestReport> list) {
         list.forEach(item->fillParentData(item));
-        saveOrUpdateBatch(list,batchSize);
+        saveOrUpdateBatch(list, batchSize);
         return true;
     }
 
     @Override
     @Transactional
     public void saveBatch(List<TestReport> list) {
-        list.forEach(item->fillParentData(item));
-        saveOrUpdateBatch(list,batchSize);
+        list.forEach(item -> fillParentData(item));
+        saveOrUpdateBatch(list, batchSize);
     }
 
 
-	@Override
+    @Override
     public List<TestReport> selectByProduct(Long id) {
         return baseMapper.selectByProduct(id);
     }
     @Override
     public void removeByProduct(Long id) {
-        this.remove(new QueryWrapper<TestReport>().eq("product",id));
+        this.remove(new QueryWrapper<TestReport>().eq("product", id));
     }
 
-	@Override
+    @Override
     public List<TestReport> selectByProject(Long id) {
         return baseMapper.selectByProject(id);
     }
     @Override
     public void removeByProject(Long id) {
-        this.remove(new QueryWrapper<TestReport>().eq("project",id));
+        this.remove(new QueryWrapper<TestReport>().eq("project", id));
     }
 
 
@@ -261,7 +261,7 @@ public class TestReportServiceImpl extends ServiceImpl<TestReportMapper, TestRep
      */
     @Override
     public Page<TestReport> searchDefault(TestReportSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<TestReport> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<TestReport> pages=baseMapper.searchDefault(context.getPages(), context, context.getSelectCond());
         return new PageImpl<TestReport>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -298,24 +298,24 @@ public class TestReportServiceImpl extends ServiceImpl<TestReportMapper, TestRep
 
 
     @Override
-    public List<JSONObject> select(String sql, Map param){
-        return this.baseMapper.selectBySQL(sql,param);
+    public List<JSONObject> select(String sql, Map param) {
+        return this.baseMapper.selectBySQL(sql, param);
     }
 
     @Override
     @Transactional
-    public boolean execute(String sql , Map param){
+    public boolean execute(String sql, Map param) {
         if (sql == null || sql.isEmpty()) {
             return false;
         }
         if (sql.toLowerCase().trim().startsWith("insert")) {
-            return this.baseMapper.insertBySQL(sql,param);
+            return this.baseMapper.insertBySQL(sql, param);
         }
         if (sql.toLowerCase().trim().startsWith("update")) {
-            return this.baseMapper.updateBySQL(sql,param);
+            return this.baseMapper.updateBySQL(sql, param);
         }
         if (sql.toLowerCase().trim().startsWith("delete")) {
-            return this.baseMapper.deleteBySQL(sql,param);
+            return this.baseMapper.deleteBySQL(sql, param);
         }
         log.warn("暂未支持的SQL语法");
         return true;

@@ -23,7 +23,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 /**
  * 实体[DocLibModule] 服务对象接口
  */
-public interface IDocLibModuleService extends IService<DocLibModule>{
+public interface IDocLibModuleService extends IService<DocLibModule> {
 
     /**
      * 业务实体显示文本名称
@@ -35,41 +35,41 @@ public interface IDocLibModuleService extends IService<DocLibModule>{
      */
     final static String OBJECT_SOURCE_PATH = "doclibmodules";
 
-    boolean create(DocLibModule et) ;
-    void createBatch(List<DocLibModule> list) ;
-    boolean update(DocLibModule et) ;
-    void updateBatch(List<DocLibModule> list) ;
-    boolean remove(Long key) ;
-    void removeBatch(Collection<Long> idList) ;
-    DocLibModule get(Long key) ;
-    DocLibModule getDraft(DocLibModule et) ;
-    boolean checkKey(DocLibModule et) ;
-    DocLibModule collect(DocLibModule et) ;
-    DocLibModule fix(DocLibModule et) ;
-    boolean save(DocLibModule et) ;
-    void saveBatch(List<DocLibModule> list) ;
-    DocLibModule unCollect(DocLibModule et) ;
-    Page<DocLibModule> searchAllDocLibModule_Custom(DocLibModuleSearchContext context) ;
-    Page<DocLibModule> searchAllDoclibModule(DocLibModuleSearchContext context) ;
-    Page<DocLibModule> searchDefault(DocLibModuleSearchContext context) ;
-    Page<DocLibModule> searchParentModule(DocLibModuleSearchContext context) ;
-    Page<DocLibModule> searchRootModuleMuLu(DocLibModuleSearchContext context) ;
-    Page<DocLibModule> searchRootModuleMuLuByRoot(DocLibModuleSearchContext context) ;
+    boolean create(DocLibModule et);
+    void createBatch(List<DocLibModule> list);
+    boolean update(DocLibModule et);
+    void updateBatch(List<DocLibModule> list);
+    boolean remove(Long key);
+    void removeBatch(Collection<Long> idList);
+    DocLibModule get(Long key);
+    DocLibModule getDraft(DocLibModule et);
+    boolean checkKey(DocLibModule et);
+    DocLibModule collect(DocLibModule et);
+    DocLibModule fix(DocLibModule et);
+    boolean save(DocLibModule et);
+    void saveBatch(List<DocLibModule> list);
+    DocLibModule unCollect(DocLibModule et);
+    Page<DocLibModule> searchAllDocLibModule_Custom(DocLibModuleSearchContext context);
+    Page<DocLibModule> searchAllDoclibModule(DocLibModuleSearchContext context);
+    Page<DocLibModule> searchDefault(DocLibModuleSearchContext context);
+    Page<DocLibModule> searchParentModule(DocLibModuleSearchContext context);
+    Page<DocLibModule> searchRootModuleMuLu(DocLibModuleSearchContext context);
+    Page<DocLibModule> searchRootModuleMuLuByRoot(DocLibModuleSearchContext context);
     List<DocLibModule> selectByParent(Long id);
-    void removeByParent(Long id) ;
+    void removeByParent(Long id);
     List<DocLibModule> selectByRoot(Long id);
-    void removeByRoot(Long id) ;
+    void removeByRoot(Long id);
     /**
-     *自定义查询SQL
+     * 自定义查询SQL
      * @param sql  select * from table where id =#{et.param}
-     * @param param 参数列表  param.put("param","1");
+     * @param param 参数列表  param.put("param", "1");
      * @return select * from table where id = '1'
      */
     List<JSONObject> select(String sql, Map param);
     /**
-     *自定义SQL
+     * 自定义SQL
      * @param sql  update table  set name ='test' where id =#{et.param}
-     * @param param 参数列表  param.put("param","1");
+     * @param param 参数列表  param.put("param", "1");
      * @return     update table  set name ='test' where id = '1'
      */
     boolean execute(String sql, Map param);

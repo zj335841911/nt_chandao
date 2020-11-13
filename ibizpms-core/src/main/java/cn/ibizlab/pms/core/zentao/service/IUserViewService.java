@@ -23,7 +23,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 /**
  * 实体[UserView] 服务对象接口
  */
-public interface IUserViewService extends IService<UserView>{
+public interface IUserViewService extends IService<UserView> {
 
     /**
      * 业务实体显示文本名称
@@ -35,29 +35,29 @@ public interface IUserViewService extends IService<UserView>{
      */
     final static String OBJECT_SOURCE_PATH = "userviews";
 
-    boolean create(UserView et) ;
-    void createBatch(List<UserView> list) ;
-    boolean update(UserView et) ;
-    void updateBatch(List<UserView> list) ;
-    boolean remove(String key) ;
-    void removeBatch(Collection<String> idList) ;
-    UserView get(String key) ;
-    UserView getDraft(UserView et) ;
-    boolean checkKey(UserView et) ;
-    boolean save(UserView et) ;
-    void saveBatch(List<UserView> list) ;
-    Page<UserView> searchDefault(UserViewSearchContext context) ;
+    boolean create(UserView et);
+    void createBatch(List<UserView> list);
+    boolean update(UserView et);
+    void updateBatch(List<UserView> list);
+    boolean remove(String key);
+    void removeBatch(Collection<String> idList);
+    UserView get(String key);
+    UserView getDraft(UserView et);
+    boolean checkKey(UserView et);
+    boolean save(UserView et);
+    void saveBatch(List<UserView> list);
+    Page<UserView> searchDefault(UserViewSearchContext context);
     /**
-     *自定义查询SQL
+     * 自定义查询SQL
      * @param sql  select * from table where id =#{et.param}
-     * @param param 参数列表  param.put("param","1");
+     * @param param 参数列表  param.put("param", "1");
      * @return select * from table where id = '1'
      */
     List<JSONObject> select(String sql, Map param);
     /**
-     *自定义SQL
+     * 自定义SQL
      * @param sql  update table  set name ='test' where id =#{et.param}
-     * @param param 参数列表  param.put("param","1");
+     * @param param 参数列表  param.put("param", "1");
      * @return     update table  set name ='test' where id = '1'
      */
     boolean execute(String sql, Map param);

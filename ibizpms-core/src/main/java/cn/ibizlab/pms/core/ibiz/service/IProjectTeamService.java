@@ -23,7 +23,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 /**
  * 实体[ProjectTeam] 服务对象接口
  */
-public interface IProjectTeamService extends IService<ProjectTeam>{
+public interface IProjectTeamService extends IService<ProjectTeam> {
 
     /**
      * 业务实体显示文本名称
@@ -35,34 +35,34 @@ public interface IProjectTeamService extends IService<ProjectTeam>{
      */
     final static String OBJECT_SOURCE_PATH = "projectteams";
 
-    boolean create(ProjectTeam et) ;
-    void createBatch(List<ProjectTeam> list) ;
-    boolean update(ProjectTeam et) ;
-    void updateBatch(List<ProjectTeam> list) ;
-    boolean remove(Long key) ;
-    void removeBatch(Collection<Long> idList) ;
-    ProjectTeam get(Long key) ;
-    ProjectTeam getDraft(ProjectTeam et) ;
-    boolean checkKey(ProjectTeam et) ;
-    ProjectTeam getUserRole(ProjectTeam et) ;
-    boolean save(ProjectTeam et) ;
-    void saveBatch(List<ProjectTeam> list) ;
-    Page<ProjectTeam> searchDefault(ProjectTeamSearchContext context) ;
-    Page<ProjectTeam> searchRowEditDefault(ProjectTeamSearchContext context) ;
+    boolean create(ProjectTeam et);
+    void createBatch(List<ProjectTeam> list);
+    boolean update(ProjectTeam et);
+    void updateBatch(List<ProjectTeam> list);
+    boolean remove(Long key);
+    void removeBatch(Collection<Long> idList);
+    ProjectTeam get(Long key);
+    ProjectTeam getDraft(ProjectTeam et);
+    boolean checkKey(ProjectTeam et);
+    ProjectTeam getUserRole(ProjectTeam et);
+    boolean save(ProjectTeam et);
+    void saveBatch(List<ProjectTeam> list);
+    Page<ProjectTeam> searchDefault(ProjectTeamSearchContext context);
+    Page<ProjectTeam> searchRowEditDefault(ProjectTeamSearchContext context);
     List<ProjectTeam> selectByRoot(Long id);
-    void removeByRoot(Long id) ;
-    void saveByRoot(Long id,List<ProjectTeam> list) ;
+    void removeByRoot(Long id);
+    void saveByRoot(Long id, List<ProjectTeam> list) ;
     /**
-     *自定义查询SQL
+     * 自定义查询SQL
      * @param sql  select * from table where id =#{et.param}
-     * @param param 参数列表  param.put("param","1");
+     * @param param 参数列表  param.put("param", "1");
      * @return select * from table where id = '1'
      */
     List<JSONObject> select(String sql, Map param);
     /**
-     *自定义SQL
+     * 自定义SQL
      * @param sql  update table  set name ='test' where id =#{et.param}
-     * @param param 参数列表  param.put("param","1");
+     * @param param 参数列表  param.put("param", "1");
      * @return     update table  set name ='test' where id = '1'
      */
     boolean execute(String sql, Map param);

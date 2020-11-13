@@ -23,7 +23,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 /**
  * 实体[RepoHistory] 服务对象接口
  */
-public interface IRepoHistoryService extends IService<RepoHistory>{
+public interface IRepoHistoryService extends IService<RepoHistory> {
 
     /**
      * 业务实体显示文本名称
@@ -35,29 +35,29 @@ public interface IRepoHistoryService extends IService<RepoHistory>{
      */
     final static String OBJECT_SOURCE_PATH = "repohistories";
 
-    boolean create(RepoHistory et) ;
-    void createBatch(List<RepoHistory> list) ;
-    boolean update(RepoHistory et) ;
-    void updateBatch(List<RepoHistory> list) ;
-    boolean remove(Long key) ;
-    void removeBatch(Collection<Long> idList) ;
-    RepoHistory get(Long key) ;
-    RepoHistory getDraft(RepoHistory et) ;
-    boolean checkKey(RepoHistory et) ;
-    boolean save(RepoHistory et) ;
-    void saveBatch(List<RepoHistory> list) ;
-    Page<RepoHistory> searchDefault(RepoHistorySearchContext context) ;
+    boolean create(RepoHistory et);
+    void createBatch(List<RepoHistory> list);
+    boolean update(RepoHistory et);
+    void updateBatch(List<RepoHistory> list);
+    boolean remove(Long key);
+    void removeBatch(Collection<Long> idList);
+    RepoHistory get(Long key);
+    RepoHistory getDraft(RepoHistory et);
+    boolean checkKey(RepoHistory et);
+    boolean save(RepoHistory et);
+    void saveBatch(List<RepoHistory> list);
+    Page<RepoHistory> searchDefault(RepoHistorySearchContext context);
     /**
-     *自定义查询SQL
+     * 自定义查询SQL
      * @param sql  select * from table where id =#{et.param}
-     * @param param 参数列表  param.put("param","1");
+     * @param param 参数列表  param.put("param", "1");
      * @return select * from table where id = '1'
      */
     List<JSONObject> select(String sql, Map param);
     /**
-     *自定义SQL
+     * 自定义SQL
      * @param sql  update table  set name ='test' where id =#{et.param}
-     * @param param 参数列表  param.put("param","1");
+     * @param param 参数列表  param.put("param", "1");
      * @return     update table  set name ='test' where id = '1'
      */
     boolean execute(String sql, Map param);

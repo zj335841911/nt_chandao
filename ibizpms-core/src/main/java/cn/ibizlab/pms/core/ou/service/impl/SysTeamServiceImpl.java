@@ -62,13 +62,13 @@ public class SysTeamServiceImpl implements ISysTeamService {
 
 
     public void createBatch(List<SysTeam> list){
-        sysTeamFeignClient.createBatch(list) ;
+        sysTeamFeignClient.createBatch(list);
     }
 
 
     @Override
     public boolean update(SysTeam et) {
-        SysTeam rt = sysTeamFeignClient.update(et.getTeamid(),et);
+        SysTeam rt = sysTeamFeignClient.update(et.getTeamid(), et);
         if (rt == null) {
             return false;
         }
@@ -78,14 +78,14 @@ public class SysTeamServiceImpl implements ISysTeamService {
     }
 
 
-    public void updateBatch(List<SysTeam> list){
-        sysTeamFeignClient.updateBatch(list) ;
+    public void updateBatch(List<SysTeam> list) {
+        sysTeamFeignClient.updateBatch(list);
     }
 
 
     @Override
     public boolean remove(String teamid) {
-        boolean result=sysTeamFeignClient.remove(teamid) ;
+        boolean result=sysTeamFeignClient.remove(teamid);
         return result;
     }
 
@@ -97,12 +97,12 @@ public class SysTeamServiceImpl implements ISysTeamService {
 
     @Override
     public SysTeam get(String teamid) {
-		SysTeam et = sysTeamFeignClient.get(teamid);
-        if (et == null){
+        SysTeam et = sysTeamFeignClient.get(teamid);
+        if (et == null) {
             et = new SysTeam();
             et.setTeamid(teamid);
         }
-        else{
+        else {
         }
         return  et;
     }
@@ -136,7 +136,7 @@ public class SysTeamServiceImpl implements ISysTeamService {
 
     @Override
     public void saveBatch(List<SysTeam> list) {
-        sysTeamFeignClient.saveBatch(list) ;
+        sysTeamFeignClient.saveBatch(list);
     }
 
 

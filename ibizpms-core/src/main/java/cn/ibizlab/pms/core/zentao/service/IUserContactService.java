@@ -23,7 +23,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 /**
  * 实体[UserContact] 服务对象接口
  */
-public interface IUserContactService extends IService<UserContact>{
+public interface IUserContactService extends IService<UserContact> {
 
     /**
      * 业务实体显示文本名称
@@ -35,31 +35,31 @@ public interface IUserContactService extends IService<UserContact>{
      */
     final static String OBJECT_SOURCE_PATH = "usercontacts";
 
-    boolean create(UserContact et) ;
-    void createBatch(List<UserContact> list) ;
-    boolean update(UserContact et) ;
-    void updateBatch(List<UserContact> list) ;
-    boolean remove(Long key) ;
-    void removeBatch(Collection<Long> idList) ;
-    UserContact get(Long key) ;
-    UserContact getDraft(UserContact et) ;
-    boolean checkKey(UserContact et) ;
-    boolean save(UserContact et) ;
-    void saveBatch(List<UserContact> list) ;
-    Page<UserContact> searchCurUSERCONTACT(UserContactSearchContext context) ;
-    Page<UserContact> searchDefault(UserContactSearchContext context) ;
-    Page<UserContact> searchMyUSERCONTACT(UserContactSearchContext context) ;
+    boolean create(UserContact et);
+    void createBatch(List<UserContact> list);
+    boolean update(UserContact et);
+    void updateBatch(List<UserContact> list);
+    boolean remove(Long key);
+    void removeBatch(Collection<Long> idList);
+    UserContact get(Long key);
+    UserContact getDraft(UserContact et);
+    boolean checkKey(UserContact et);
+    boolean save(UserContact et);
+    void saveBatch(List<UserContact> list);
+    Page<UserContact> searchCurUSERCONTACT(UserContactSearchContext context);
+    Page<UserContact> searchDefault(UserContactSearchContext context);
+    Page<UserContact> searchMyUSERCONTACT(UserContactSearchContext context);
     /**
-     *自定义查询SQL
+     * 自定义查询SQL
      * @param sql  select * from table where id =#{et.param}
-     * @param param 参数列表  param.put("param","1");
+     * @param param 参数列表  param.put("param", "1");
      * @return select * from table where id = '1'
      */
     List<JSONObject> select(String sql, Map param);
     /**
-     *自定义SQL
+     * 自定义SQL
      * @param sql  update table  set name ='test' where id =#{et.param}
-     * @param param 参数列表  param.put("param","1");
+     * @param param 参数列表  param.put("param", "1");
      * @return     update table  set name ='test' where id = '1'
      */
     boolean execute(String sql, Map param);

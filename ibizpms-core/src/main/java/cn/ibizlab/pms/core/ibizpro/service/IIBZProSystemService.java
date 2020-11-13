@@ -23,7 +23,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 /**
  * 实体[IBZProSystem] 服务对象接口
  */
-public interface IIBZProSystemService extends IService<IBZProSystem>{
+public interface IIBZProSystemService extends IService<IBZProSystem> {
 
     /**
      * 业务实体显示文本名称
@@ -35,35 +35,35 @@ public interface IIBZProSystemService extends IService<IBZProSystem>{
      */
     final static String OBJECT_SOURCE_PATH = "ibzprosystems";
 
-    boolean create(IBZProSystem et) ;
-    void createBatch(List<IBZProSystem> list) ;
-    boolean update(IBZProSystem et) ;
-    void updateBatch(List<IBZProSystem> list) ;
-    boolean remove(String key) ;
-    void removeBatch(Collection<String> idList) ;
-    IBZProSystem get(String key) ;
-    IBZProSystem getDraft(IBZProSystem et) ;
-    boolean checkKey(IBZProSystem et) ;
-    boolean save(IBZProSystem et) ;
-    void saveBatch(List<IBZProSystem> list) ;
-    Page<IBZProSystem> searchDefault(IBZProSystemSearchContext context) ;
+    boolean create(IBZProSystem et);
+    void createBatch(List<IBZProSystem> list);
+    boolean update(IBZProSystem et);
+    void updateBatch(List<IBZProSystem> list);
+    boolean remove(String key);
+    void removeBatch(Collection<String> idList);
+    IBZProSystem get(String key);
+    IBZProSystem getDraft(IBZProSystem et);
+    boolean checkKey(IBZProSystem et);
+    boolean save(IBZProSystem et);
+    void saveBatch(List<IBZProSystem> list);
+    Page<IBZProSystem> searchDefault(IBZProSystemSearchContext context);
     /**
-     *自定义查询SQL
+     * 自定义查询SQL
      * @param sql  select * from table where id =#{et.param}
-     * @param param 参数列表  param.put("param","1");
+     * @param param 参数列表  param.put("param", "1");
      * @return select * from table where id = '1'
      */
     List<JSONObject> select(String sql, Map param);
     /**
-     *自定义SQL
+     * 自定义SQL
      * @param sql  update table  set name ='test' where id =#{et.param}
-     * @param param 参数列表  param.put("param","1");
+     * @param param 参数列表  param.put("param", "1");
      * @return     update table  set name ='test' where id = '1'
      */
     boolean execute(String sql, Map param);
 
-    List<IBZProSystem> getIbzprosystemByIds(List<String> ids) ;
-    List<IBZProSystem> getIbzprosystemByEntities(List<IBZProSystem> entities) ;
+    List<IBZProSystem> getIbzprosystemByIds(List<String> ids);
+    List<IBZProSystem> getIbzprosystemByEntities(List<IBZProSystem> entities);
 }
 
 

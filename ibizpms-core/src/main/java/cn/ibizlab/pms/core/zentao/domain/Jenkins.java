@@ -38,7 +38,7 @@ import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 @Setter
 @NoArgsConstructor
 @JsonIgnoreProperties(value = "handler")
-@TableName(value = "zt_jenkins",resultMap = "JenkinsResultMap")
+@TableName(value = "zt_jenkins", resultMap = "JenkinsResultMap")
 public class Jenkins extends EntityMP implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -61,7 +61,7 @@ public class Jenkins extends EntityMP implements Serializable {
      * 逻辑删除标志
      */
     @DEField(defaultValue = "0", preType = DEPredefinedFieldType.LOGICVALID, logicval = "0", logicdelval = "1")
-    @TableLogic(value= "0", delval = "1")
+    @TableLogic(value = "0", delval = "1")
     @TableField(value = "`deleted`")
     @JSONField(name = "deleted")
     @JsonProperty("deleted")
@@ -84,7 +84,7 @@ public class Jenkins extends EntityMP implements Serializable {
      * editedDate
      */
     @TableField(value = "`editeddate`")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "editeddate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("editeddate")
     private Timestamp editeddate;
@@ -113,7 +113,7 @@ public class Jenkins extends EntityMP implements Serializable {
      * createdDate
      */
     @TableField(value = "`createddate`")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "createddate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("createddate")
     private Timestamp createddate;
@@ -121,7 +121,7 @@ public class Jenkins extends EntityMP implements Serializable {
      * id
      */
     @DEField(isKeyField = true)
-    @TableId(value= "id",type=IdType.AUTO)
+    @TableId(value = "id", type = IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
     private Long id;
@@ -132,40 +132,40 @@ public class Jenkins extends EntityMP implements Serializable {
      * 设置 [name]
      */
     public void setName(String name) {
-        this.name = name ;
-        this.modify("name",name);
+        this.name = name;
+        this.modify("name", name);
     }
 
     /**
      * 设置 [password]
      */
     public void setPassword(String password) {
-        this.password = password ;
-        this.modify("password",password);
+        this.password = password;
+        this.modify("password", password);
     }
 
     /**
      * 设置 [account]
      */
     public void setAccount(String account) {
-        this.account = account ;
-        this.modify("account",account);
+        this.account = account;
+        this.modify("account", account);
     }
 
     /**
      * 设置 [url]
      */
     public void setUrl(String url) {
-        this.url = url ;
-        this.modify("url",url);
+        this.url = url;
+        this.modify("url", url);
     }
 
     /**
      * 设置 [editedDate]
      */
     public void setEditeddate(Timestamp editeddate) {
-        this.editeddate = editeddate ;
-        this.modify("editeddate",editeddate);
+        this.editeddate = editeddate;
+        this.modify("editeddate", editeddate);
     }
 
     /**
@@ -182,32 +182,32 @@ public class Jenkins extends EntityMP implements Serializable {
      * 设置 [token]
      */
     public void setToken(String token) {
-        this.token = token ;
-        this.modify("token",token);
+        this.token = token;
+        this.modify("token", token);
     }
 
     /**
      * 设置 [createdBy]
      */
     public void setCreatedby(String createdby) {
-        this.createdby = createdby ;
-        this.modify("createdby",createdby);
+        this.createdby = createdby;
+        this.modify("createdby", createdby);
     }
 
     /**
      * 设置 [editedBy]
      */
     public void setEditedby(String editedby) {
-        this.editedby = editedby ;
-        this.modify("editedby",editedby);
+        this.editedby = editedby;
+        this.modify("editedby", editedby);
     }
 
     /**
      * 设置 [createdDate]
      */
     public void setCreateddate(Timestamp createddate) {
-        this.createddate = createddate ;
-        this.modify("createddate",createddate);
+        this.createddate = createddate;
+        this.modify("createddate", createddate);
     }
 
     /**
@@ -223,7 +223,7 @@ public class Jenkins extends EntityMP implements Serializable {
 
     @Override
     public Serializable getDefaultKey(boolean gen) {
-       return IdWorker.getId();
+        return IdWorker.getId();
     }
     /**
      * 复制当前对象数据到目标对象(粘贴重置)
@@ -235,7 +235,7 @@ public class Jenkins extends EntityMP implements Serializable {
     @Override
     public <T> T copyTo(T targetEntity, boolean bIncEmpty) {
         this.reset("id");
-        return super.copyTo(targetEntity,bIncEmpty);
+        return super.copyTo(targetEntity, bIncEmpty);
     }
 }
 

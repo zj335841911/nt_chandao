@@ -38,7 +38,7 @@ import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 @Setter
 @NoArgsConstructor
 @JsonIgnoreProperties(value = "handler")
-@TableName(value = "zt_score",resultMap = "ScoreResultMap")
+@TableName(value = "zt_score", resultMap = "ScoreResultMap")
 public class Score extends EntityMP implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -62,7 +62,7 @@ public class Score extends EntityMP implements Serializable {
      * time
      */
     @TableField(value = "`time`")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "time", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("time")
     private Timestamp time;
@@ -92,7 +92,7 @@ public class Score extends EntityMP implements Serializable {
      * id
      */
     @DEField(isKeyField = true)
-    @TableId(value= "id",type=IdType.AUTO)
+    @TableId(value = "id", type = IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
     private Long id;
@@ -118,24 +118,24 @@ public class Score extends EntityMP implements Serializable {
      * 设置 [method]
      */
     public void setMethod(String method) {
-        this.method = method ;
-        this.modify("method",method);
+        this.method = method;
+        this.modify("method", method);
     }
 
     /**
      * 设置 [score]
      */
     public void setScore(Integer score) {
-        this.score = score ;
-        this.modify("score",score);
+        this.score = score;
+        this.modify("score", score);
     }
 
     /**
      * 设置 [time]
      */
     public void setTime(Timestamp time) {
-        this.time = time ;
-        this.modify("time",time);
+        this.time = time;
+        this.modify("time", time);
     }
 
     /**
@@ -152,46 +152,46 @@ public class Score extends EntityMP implements Serializable {
      * 设置 [account]
      */
     public void setAccount(String account) {
-        this.account = account ;
-        this.modify("account",account);
+        this.account = account;
+        this.modify("account", account);
     }
 
     /**
      * 设置 [before]
      */
     public void setBefore(Integer before) {
-        this.before = before ;
-        this.modify("before",before);
+        this.before = before;
+        this.modify("before", before);
     }
 
     /**
      * 设置 [desc]
      */
     public void setDesc(String desc) {
-        this.desc = desc ;
-        this.modify("desc",desc);
+        this.desc = desc;
+        this.modify("desc", desc);
     }
 
     /**
      * 设置 [after]
      */
     public void setAfter(Integer after) {
-        this.after = after ;
-        this.modify("after",after);
+        this.after = after;
+        this.modify("after", after);
     }
 
     /**
      * 设置 [module]
      */
     public void setModule(String module) {
-        this.module = module ;
-        this.modify("module",module);
+        this.module = module;
+        this.modify("module", module);
     }
 
 
     @Override
     public Serializable getDefaultKey(boolean gen) {
-       return IdWorker.getId();
+        return IdWorker.getId();
     }
     /**
      * 复制当前对象数据到目标对象(粘贴重置)
@@ -203,7 +203,7 @@ public class Score extends EntityMP implements Serializable {
     @Override
     public <T> T copyTo(T targetEntity, boolean bIncEmpty) {
         this.reset("id");
-        return super.copyTo(targetEntity,bIncEmpty);
+        return super.copyTo(targetEntity, bIncEmpty);
     }
 }
 

@@ -38,7 +38,7 @@ import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 @Setter
 @NoArgsConstructor
 @JsonIgnoreProperties(value = "handler")
-@TableName(value = "zt_casestep",resultMap = "IbzLibCaseStepsResultMap")
+@TableName(value = "zt_casestep", resultMap = "IbzLibCaseStepsResultMap")
 public class IbzLibCaseSteps extends EntityMP implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -76,7 +76,7 @@ public class IbzLibCaseSteps extends EntityMP implements Serializable {
      * 编号
      */
     @DEField(isKeyField = true)
-    @TableId(value= "id",type=IdType.AUTO)
+    @TableId(value = "id", type = IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
     private Long id;
@@ -139,46 +139,46 @@ public class IbzLibCaseSteps extends EntityMP implements Serializable {
      * 设置 [用例编号]
      */
     public void setIbizcase(Long ibizcase) {
-        this.ibizcase = ibizcase ;
-        this.modify("case",ibizcase);
+        this.ibizcase = ibizcase;
+        this.modify("case", ibizcase);
     }
 
     /**
      * 设置 [预期]
      */
     public void setExpect(String expect) {
-        this.expect = expect ;
-        this.modify("expect",expect);
+        this.expect = expect;
+        this.modify("expect", expect);
     }
 
     /**
      * 设置 [步骤]
      */
     public void setDesc(String desc) {
-        this.desc = desc ;
-        this.modify("desc",desc);
+        this.desc = desc;
+        this.modify("desc", desc);
     }
 
     /**
      * 设置 [编号]
      */
     public void setParent(Long parent) {
-        this.parent = parent ;
-        this.modify("parent",parent);
+        this.parent = parent;
+        this.modify("parent", parent);
     }
 
     /**
      * 设置 [类型]
      */
     public void setType(String type) {
-        this.type = type ;
-        this.modify("type",type);
+        this.type = type;
+        this.modify("type", type);
     }
 
 
     @Override
     public Serializable getDefaultKey(boolean gen) {
-       return IdWorker.getId();
+        return IdWorker.getId();
     }
     /**
      * 复制当前对象数据到目标对象(粘贴重置)
@@ -190,7 +190,7 @@ public class IbzLibCaseSteps extends EntityMP implements Serializable {
     @Override
     public <T> T copyTo(T targetEntity, boolean bIncEmpty) {
         this.reset("id");
-        return super.copyTo(targetEntity,bIncEmpty);
+        return super.copyTo(targetEntity, bIncEmpty);
     }
 }
 

@@ -38,7 +38,7 @@ import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 @Setter
 @NoArgsConstructor
 @JsonIgnoreProperties(value = "handler")
-@TableName(value = "zt_file",resultMap = "FileResultMap")
+@TableName(value = "zt_file", resultMap = "FileResultMap")
 public class File extends EntityMP implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -61,7 +61,7 @@ public class File extends EntityMP implements Serializable {
      * 已删除
      */
     @DEField(defaultValue = "0", preType = DEPredefinedFieldType.LOGICVALID, logicval = "0", logicdelval = "1")
-    @TableLogic(value= "0", delval = "1")
+    @TableLogic(value = "0", delval = "1")
     @TableField(value = "`deleted`")
     @JSONField(name = "deleted")
     @JsonProperty("deleted")
@@ -100,7 +100,7 @@ public class File extends EntityMP implements Serializable {
      */
     @DEField(preType = DEPredefinedFieldType.CREATEDATE)
     @TableField(value = "`addeddate`", fill = FieldFill.INSERT)
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "addeddate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("addeddate")
     private Timestamp addeddate;
@@ -124,7 +124,7 @@ public class File extends EntityMP implements Serializable {
      * id
      */
     @DEField(isKeyField = true)
-    @TableId(value= "id",type=IdType.AUTO)
+    @TableId(value = "id", type = IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
     private Long id;
@@ -149,70 +149,70 @@ public class File extends EntityMP implements Serializable {
      * 设置 [路径]
      */
     public void setPathname(String pathname) {
-        this.pathname = pathname ;
-        this.modify("pathname",pathname);
+        this.pathname = pathname;
+        this.modify("pathname", pathname);
     }
 
     /**
      * 设置 [对象ID]
      */
     public void setObjectid(Long objectid) {
-        this.objectid = objectid ;
-        this.modify("objectid",objectid);
+        this.objectid = objectid;
+        this.modify("objectid", objectid);
     }
 
     /**
      * 设置 [文件类型]
      */
     public void setExtension(String extension) {
-        this.extension = extension ;
-        this.modify("extension",extension);
+        this.extension = extension;
+        this.modify("extension", extension);
     }
 
     /**
      * 设置 [对象类型]
      */
     public void setObjecttype(String objecttype) {
-        this.objecttype = objecttype ;
-        this.modify("objecttype",objecttype);
+        this.objecttype = objecttype;
+        this.modify("objecttype", objecttype);
     }
 
     /**
      * 设置 [标题]
      */
     public void setTitle(String title) {
-        this.title = title ;
-        this.modify("title",title);
+        this.title = title;
+        this.modify("title", title);
     }
 
     /**
      * 设置 [下载次数]
      */
     public void setDownloads(Integer downloads) {
-        this.downloads = downloads ;
-        this.modify("downloads",downloads);
+        this.downloads = downloads;
+        this.modify("downloads", downloads);
     }
 
     /**
      * 设置 [大小]
      */
     public void setSize(Integer size) {
-        this.size = size ;
-        this.modify("size",size);
+        this.size = size;
+        this.modify("size", size);
     }
 
     /**
      * 设置 [备注]
      */
     public void setExtra(String extra) {
-        this.extra = extra ;
-        this.modify("extra",extra);
+        this.extra = extra;
+        this.modify("extra", extra);
     }
 
 
     @Override
     public Serializable getDefaultKey(boolean gen) {
-       return IdWorker.getId();
+        return IdWorker.getId();
     }
     /**
      * 复制当前对象数据到目标对象(粘贴重置)
@@ -224,7 +224,7 @@ public class File extends EntityMP implements Serializable {
     @Override
     public <T> T copyTo(T targetEntity, boolean bIncEmpty) {
         this.reset("id");
-        return super.copyTo(targetEntity,bIncEmpty);
+        return super.copyTo(targetEntity, bIncEmpty);
     }
 }
 

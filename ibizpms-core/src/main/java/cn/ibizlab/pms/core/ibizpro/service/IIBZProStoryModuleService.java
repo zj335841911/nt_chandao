@@ -23,7 +23,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 /**
  * 实体[IBZProStoryModule] 服务对象接口
  */
-public interface IIBZProStoryModuleService extends IService<IBZProStoryModule>{
+public interface IIBZProStoryModuleService extends IService<IBZProStoryModule> {
 
     /**
      * 业务实体显示文本名称
@@ -35,34 +35,34 @@ public interface IIBZProStoryModuleService extends IService<IBZProStoryModule>{
      */
     final static String OBJECT_SOURCE_PATH = "ibzprostorymodules";
 
-    boolean create(IBZProStoryModule et) ;
-    void createBatch(List<IBZProStoryModule> list) ;
-    boolean update(IBZProStoryModule et) ;
-    void updateBatch(List<IBZProStoryModule> list) ;
-    boolean remove(Long key) ;
-    void removeBatch(Collection<Long> idList) ;
-    IBZProStoryModule get(Long key) ;
-    IBZProStoryModule getDraft(IBZProStoryModule et) ;
-    boolean checkKey(IBZProStoryModule et) ;
-    boolean save(IBZProStoryModule et) ;
-    void saveBatch(List<IBZProStoryModule> list) ;
-    IBZProStoryModule syncFromIBIZ(IBZProStoryModule et) ;
-    Page<IBZProStoryModule> searchDefault(IBZProStoryModuleSearchContext context) ;
+    boolean create(IBZProStoryModule et);
+    void createBatch(List<IBZProStoryModule> list);
+    boolean update(IBZProStoryModule et);
+    void updateBatch(List<IBZProStoryModule> list);
+    boolean remove(Long key);
+    void removeBatch(Collection<Long> idList);
+    IBZProStoryModule get(Long key);
+    IBZProStoryModule getDraft(IBZProStoryModule et);
+    boolean checkKey(IBZProStoryModule et);
+    boolean save(IBZProStoryModule et);
+    void saveBatch(List<IBZProStoryModule> list);
+    IBZProStoryModule syncFromIBIZ(IBZProStoryModule et);
+    Page<IBZProStoryModule> searchDefault(IBZProStoryModuleSearchContext context);
     List<IBZProStoryModule> selectByRoot(Long id);
-    void removeByRoot(Long id) ;
+    void removeByRoot(Long id);
     List<IBZProStoryModule> selectByParent(Long id);
-    void removeByParent(Long id) ;
+    void removeByParent(Long id);
     /**
-     *自定义查询SQL
+     * 自定义查询SQL
      * @param sql  select * from table where id =#{et.param}
-     * @param param 参数列表  param.put("param","1");
+     * @param param 参数列表  param.put("param", "1");
      * @return select * from table where id = '1'
      */
     List<JSONObject> select(String sql, Map param);
     /**
-     *自定义SQL
+     * 自定义SQL
      * @param sql  update table  set name ='test' where id =#{et.param}
-     * @param param 参数列表  param.put("param","1");
+     * @param param 参数列表  param.put("param", "1");
      * @return     update table  set name ='test' where id = '1'
      */
     boolean execute(String sql, Map param);

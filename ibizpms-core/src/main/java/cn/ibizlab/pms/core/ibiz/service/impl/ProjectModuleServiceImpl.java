@@ -71,7 +71,7 @@ public class ProjectModuleServiceImpl extends ServiceImpl<ProjectModuleMapper, P
     @Transactional
     public boolean create(ProjectModule et) {
         fillParentData(et);
-        if(!this.retBool(this.baseMapper.insert(et))) {
+        if (!this.retBool(this.baseMapper.insert(et))) {
             return false;
         }
         CachedBeanCopier.copy(get(et.getId()), et);
@@ -90,7 +90,7 @@ public class ProjectModuleServiceImpl extends ServiceImpl<ProjectModuleMapper, P
     @Transactional
     public boolean update(ProjectModule et) {
         fillParentData(et);
-        if(!update(et, (Wrapper) et.getUpdateWrapper(true).eq("id", et.getId()))) {
+        if (!update(et, (Wrapper) et.getUpdateWrapper(true).eq("id", et.getId()))) {
             return false;
         }
         CachedBeanCopier.copy(get(et.getId()), et);
@@ -109,7 +109,7 @@ public class ProjectModuleServiceImpl extends ServiceImpl<ProjectModuleMapper, P
     @Transactional
     public boolean remove(Long key) {
         boolean result = removeById(key);
-        return result ;
+        return result;
     }
 
     @Override
@@ -122,7 +122,7 @@ public class ProjectModuleServiceImpl extends ServiceImpl<ProjectModuleMapper, P
     @Transactional
     public ProjectModule get(Long key) {
         ProjectModule et = getById(key);
-        if(et == null){
+        if (et == null) {
             et = new ProjectModule();
             et.setId(key);
         }
@@ -145,14 +145,14 @@ public class ProjectModuleServiceImpl extends ServiceImpl<ProjectModuleMapper, P
     @Transactional
     public ProjectModule fix(ProjectModule et) {
         fixpathLogic.execute(et);
-         return et ;
+         return et;
     }
 
     @Override
     @Transactional
     public ProjectModule removeModule(ProjectModule et) {
         removemoduleLogic.execute(et);
-         return et ;
+         return et;
     }
 
     @Override
@@ -178,34 +178,34 @@ public class ProjectModuleServiceImpl extends ServiceImpl<ProjectModuleMapper, P
     @Transactional
     public boolean saveBatch(Collection<ProjectModule> list) {
         list.forEach(item->fillParentData(item));
-        saveOrUpdateBatch(list,batchSize);
+        saveOrUpdateBatch(list, batchSize);
         return true;
     }
 
     @Override
     @Transactional
     public void saveBatch(List<ProjectModule> list) {
-        list.forEach(item->fillParentData(item));
-        saveOrUpdateBatch(list,batchSize);
+        list.forEach(item -> fillParentData(item));
+        saveOrUpdateBatch(list, batchSize);
     }
 
 
-	@Override
+    @Override
     public List<ProjectModule> selectByParent(Long id) {
         return baseMapper.selectByParent(id);
     }
     @Override
     public void removeByParent(Long id) {
-        this.remove(new QueryWrapper<ProjectModule>().eq("parent",id));
+        this.remove(new QueryWrapper<ProjectModule>().eq("parent", id));
     }
 
-	@Override
+    @Override
     public List<ProjectModule> selectByRoot(Long id) {
         return baseMapper.selectByRoot(id);
     }
     @Override
     public void removeByRoot(Long id) {
-        this.remove(new QueryWrapper<ProjectModule>().eq("root",id));
+        this.remove(new QueryWrapper<ProjectModule>().eq("root", id));
     }
 
 
@@ -214,7 +214,7 @@ public class ProjectModuleServiceImpl extends ServiceImpl<ProjectModuleMapper, P
      */
     @Override
     public Page<ProjectModule> searchByPath(ProjectModuleSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectModule> pages=baseMapper.searchByPath(context.getPages(),context,context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectModule> pages=baseMapper.searchByPath(context.getPages(), context, context.getSelectCond());
         return new PageImpl<ProjectModule>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -223,7 +223,7 @@ public class ProjectModuleServiceImpl extends ServiceImpl<ProjectModuleMapper, P
      */
     @Override
     public Page<ProjectModule> searchDefault(ProjectModuleSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectModule> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectModule> pages=baseMapper.searchDefault(context.getPages(), context, context.getSelectCond());
         return new PageImpl<ProjectModule>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -232,7 +232,7 @@ public class ProjectModuleServiceImpl extends ServiceImpl<ProjectModuleMapper, P
      */
     @Override
     public Page<ProjectModule> searchParentModule(ProjectModuleSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectModule> pages=baseMapper.searchParentModule(context.getPages(),context,context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectModule> pages=baseMapper.searchParentModule(context.getPages(), context, context.getSelectCond());
         return new PageImpl<ProjectModule>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -241,7 +241,7 @@ public class ProjectModuleServiceImpl extends ServiceImpl<ProjectModuleMapper, P
      */
     @Override
     public Page<ProjectModule> searchRoot(ProjectModuleSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectModule> pages=baseMapper.searchRoot(context.getPages(),context,context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectModule> pages=baseMapper.searchRoot(context.getPages(), context, context.getSelectCond());
         return new PageImpl<ProjectModule>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -250,7 +250,7 @@ public class ProjectModuleServiceImpl extends ServiceImpl<ProjectModuleMapper, P
      */
     @Override
     public Page<ProjectModule> searchRoot_NoBranch(ProjectModuleSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectModule> pages=baseMapper.searchRoot_NoBranch(context.getPages(),context,context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectModule> pages=baseMapper.searchRoot_NoBranch(context.getPages(), context, context.getSelectCond());
         return new PageImpl<ProjectModule>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -259,7 +259,7 @@ public class ProjectModuleServiceImpl extends ServiceImpl<ProjectModuleMapper, P
      */
     @Override
     public Page<ProjectModule> searchRoot_Task(ProjectModuleSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectModule> pages=baseMapper.searchRoot_Task(context.getPages(),context,context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectModule> pages=baseMapper.searchRoot_Task(context.getPages(), context, context.getSelectCond());
         return new PageImpl<ProjectModule>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -268,7 +268,7 @@ public class ProjectModuleServiceImpl extends ServiceImpl<ProjectModuleMapper, P
      */
     @Override
     public Page<ProjectModule> searchTaskModules(ProjectModuleSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectModule> pages=baseMapper.searchTaskModules(context.getPages(),context,context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectModule> pages=baseMapper.searchTaskModules(context.getPages(), context, context.getSelectCond());
         return new PageImpl<ProjectModule>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -305,24 +305,24 @@ public class ProjectModuleServiceImpl extends ServiceImpl<ProjectModuleMapper, P
 
 
     @Override
-    public List<JSONObject> select(String sql, Map param){
-        return this.baseMapper.selectBySQL(sql,param);
+    public List<JSONObject> select(String sql, Map param) {
+        return this.baseMapper.selectBySQL(sql, param);
     }
 
     @Override
     @Transactional
-    public boolean execute(String sql , Map param){
+    public boolean execute(String sql, Map param) {
         if (sql == null || sql.isEmpty()) {
             return false;
         }
         if (sql.toLowerCase().trim().startsWith("insert")) {
-            return this.baseMapper.insertBySQL(sql,param);
+            return this.baseMapper.insertBySQL(sql, param);
         }
         if (sql.toLowerCase().trim().startsWith("update")) {
-            return this.baseMapper.updateBySQL(sql,param);
+            return this.baseMapper.updateBySQL(sql, param);
         }
         if (sql.toLowerCase().trim().startsWith("delete")) {
-            return this.baseMapper.deleteBySQL(sql,param);
+            return this.baseMapper.deleteBySQL(sql, param);
         }
         log.warn("暂未支持的SQL语法");
         return true;

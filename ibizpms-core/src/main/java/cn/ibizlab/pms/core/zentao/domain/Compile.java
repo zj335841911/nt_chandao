@@ -38,7 +38,7 @@ import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 @Setter
 @NoArgsConstructor
 @JsonIgnoreProperties(value = "handler")
-@TableName(value = "zt_compile",resultMap = "CompileResultMap")
+@TableName(value = "zt_compile", resultMap = "CompileResultMap")
 public class Compile extends EntityMP implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -54,7 +54,7 @@ public class Compile extends EntityMP implements Serializable {
      * createdDate
      */
     @TableField(value = "`createddate`")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "createddate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("createddate")
     private Timestamp createddate;
@@ -70,7 +70,7 @@ public class Compile extends EntityMP implements Serializable {
      */
     @DEField(preType = DEPredefinedFieldType.UPDATEDATE)
     @TableField(value = "`updatedate`")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "updatedate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("updatedate")
     private Timestamp updatedate;
@@ -78,7 +78,7 @@ public class Compile extends EntityMP implements Serializable {
      * id
      */
     @DEField(isKeyField = true)
-    @TableId(value= "id",type=IdType.AUTO)
+    @TableId(value = "id", type = IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
     private Long id;
@@ -128,7 +128,7 @@ public class Compile extends EntityMP implements Serializable {
      * 逻辑删除标志
      */
     @DEField(defaultValue = "0", preType = DEPredefinedFieldType.LOGICVALID, logicval = "0", logicdelval = "1")
-    @TableLogic(value= "0", delval = "1")
+    @TableLogic(value = "0", delval = "1")
     @TableField(value = "`deleted`")
     @JSONField(name = "deleted")
     @JsonProperty("deleted")
@@ -147,16 +147,16 @@ public class Compile extends EntityMP implements Serializable {
      * 设置 [queue]
      */
     public void setQueue(Integer queue) {
-        this.queue = queue ;
-        this.modify("queue",queue);
+        this.queue = queue;
+        this.modify("queue", queue);
     }
 
     /**
      * 设置 [createdDate]
      */
     public void setCreateddate(Timestamp createddate) {
-        this.createddate = createddate ;
-        this.modify("createddate",createddate);
+        this.createddate = createddate;
+        this.modify("createddate", createddate);
     }
 
     /**
@@ -173,70 +173,70 @@ public class Compile extends EntityMP implements Serializable {
      * 设置 [atTime]
      */
     public void setAttime(String attime) {
-        this.attime = attime ;
-        this.modify("attime",attime);
+        this.attime = attime;
+        this.modify("attime", attime);
     }
 
     /**
      * 设置 [tag]
      */
     public void setTag(String tag) {
-        this.tag = tag ;
-        this.modify("tag",tag);
+        this.tag = tag;
+        this.modify("tag", tag);
     }
 
     /**
      * 设置 [testtask]
      */
     public void setTesttask(Integer testtask) {
-        this.testtask = testtask ;
-        this.modify("testtask",testtask);
+        this.testtask = testtask;
+        this.modify("testtask", testtask);
     }
 
     /**
      * 设置 [job]
      */
     public void setJob(Integer job) {
-        this.job = job ;
-        this.modify("job",job);
+        this.job = job;
+        this.modify("job", job);
     }
 
     /**
      * 设置 [name]
      */
     public void setName(String name) {
-        this.name = name ;
-        this.modify("name",name);
+        this.name = name;
+        this.modify("name", name);
     }
 
     /**
      * 设置 [logs]
      */
     public void setLogs(String logs) {
-        this.logs = logs ;
-        this.modify("logs",logs);
+        this.logs = logs;
+        this.modify("logs", logs);
     }
 
     /**
      * 设置 [status]
      */
     public void setStatus(String status) {
-        this.status = status ;
-        this.modify("status",status);
+        this.status = status;
+        this.modify("status", status);
     }
 
     /**
      * 设置 [createdBy]
      */
     public void setCreatedby(String createdby) {
-        this.createdby = createdby ;
-        this.modify("createdby",createdby);
+        this.createdby = createdby;
+        this.modify("createdby", createdby);
     }
 
 
     @Override
     public Serializable getDefaultKey(boolean gen) {
-       return IdWorker.getId();
+        return IdWorker.getId();
     }
     /**
      * 复制当前对象数据到目标对象(粘贴重置)
@@ -248,7 +248,7 @@ public class Compile extends EntityMP implements Serializable {
     @Override
     public <T> T copyTo(T targetEntity, boolean bIncEmpty) {
         this.reset("id");
-        return super.copyTo(targetEntity,bIncEmpty);
+        return super.copyTo(targetEntity, bIncEmpty);
     }
 }
 
