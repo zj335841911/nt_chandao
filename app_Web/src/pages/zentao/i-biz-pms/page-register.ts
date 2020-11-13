@@ -131,6 +131,7 @@ export const PageComponents = {
         Vue.component('product-sum-qa-chart-view9', () => import('@pages/ibiz/product-sum-qa-chart-view9/product-sum-qa-chart-view9.vue'));
         Vue.component('doc-basic-edit-view9', () => import('@pages/zentao/doc-basic-edit-view9/doc-basic-edit-view9.vue'));
         Vue.component('action-edit-view', () => import('@pages/zentao/action-edit-view/action-edit-view.vue'));
+        Vue.component('doc-doc-status-edit-view', () => import('@pages/zentao/doc-doc-status-edit-view/doc-doc-status-edit-view.vue'));
         Vue.component('task-main-my-grid-view', () => import('@pages/zentao/task-main-my-grid-view/task-main-my-grid-view.vue'));
         Vue.component('doc-lib-project-tree-exp-view', () => import('@pages/zentao/doc-lib-project-tree-exp-view/doc-lib-project-tree-exp-view.vue'));
         Vue.component('task-activation-task-view', () => import('@pages/zentao/task-activation-task-view/task-activation-task-view.vue'));

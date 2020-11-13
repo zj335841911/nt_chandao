@@ -70,6 +70,7 @@ import DocBasic from '@/widgets/doc/basic-portlet/basic-portlet.vue';
 import DocMyDoc from '@/widgets/doc/my-doc-portlet/my-doc-portlet.vue';
 import DocDocAction from '@/widgets/doc/doc-action-portlet/doc-action-portlet.vue';
 import DocDocSum from '@/widgets/doc/doc-sum-portlet/doc-sum-portlet.vue';
+import DocDOCSTATUS from '@/widgets/doc/docstatus-portlet/docstatus-portlet.vue';
 import DocRecentUpdate from '@/widgets/doc/recent-update-portlet/recent-update-portlet.vue';
 import DocMainBody from '@/widgets/doc/main-body-portlet/main-body-portlet.vue';
 import BugBugSeverity from '@/widgets/bug/bug-severity-portlet/bug-severity-portlet.vue';
@@ -197,6 +198,7 @@ export const  PortletComponent = {
         v.component('app-bug-bug-module-project-portlet', BugBugModule_Project);
         v.component('app-bug-bug-resolved-by-project-portlet', BugBugResolvedBy_Project);
         v.component('app-doc-recent-update-portlet', DocRecentUpdate);
+        v.component('app-doc-docstatus-portlet', DocDOCSTATUS);
         v.component('app-project-undone-project-portlet', ProjectUndoneProject);
         v.component('app-doc-my-doc-portlet', DocMyDoc);
         v.component('case-test-main-detail-portlet', CaseTestMainDetail);
@@ -261,6 +263,7 @@ export const  PortletComponent = {
         v.component('doc-my-doc-portlet', DocMyDoc);
         v.component('doc-doc-action-portlet', DocDocAction);
         v.component('doc-doc-sum-portlet', DocDocSum);
+        v.component('doc-docstatus-portlet', DocDOCSTATUS);
         v.component('doc-recent-update-portlet', DocRecentUpdate);
         v.component('doc-main-body-portlet', DocMainBody);
         v.component('bug-bug-severity-portlet', BugBugSeverity);

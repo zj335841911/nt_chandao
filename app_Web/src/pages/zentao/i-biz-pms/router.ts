@@ -5298,6 +5298,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/action-edit-view/action-edit-view.vue'),
                 },
                 {
+                    path: 'docs/:doc?/docstatuseditview/:docstatuseditview?',
+                    meta: {
+                        caption: 'entities.doc.views.docstatuseditview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'docs', parameterName: 'doc' },
+                            { pathName: 'docstatuseditview', parameterName: 'docstatuseditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/doc-doc-status-edit-view/doc-doc-status-edit-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/tasks/:task?/mainmygridview/:mainmygridview?',
                     meta: {
                         caption: 'entities.task.views.mainmygridview.caption',

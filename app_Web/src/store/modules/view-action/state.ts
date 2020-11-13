@@ -1684,6 +1684,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '603f4478afd3bcccb330888c3ac880bd',
+            viewmodule: 'zentao',
+            viewname: 'DocDocStatusEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '61f32b2b422e8f1a9825e1f704464a8c',
             viewmodule: 'zentao',
             viewname: 'StoryMainView9_StorySpec',
@@ -4277,6 +4286,7 @@ export const viewstate: any = {
                 'b593c09602d9483d53b1f725395030a6',
                 'd695dac99ccf0ddd077eb13916241bd0',
                 '7c188c576f1fd59114ac2940d8e92c15',
+                '603f4478afd3bcccb330888c3ac880bd',
             ],
         },
         {
