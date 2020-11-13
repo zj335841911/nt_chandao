@@ -144,7 +144,7 @@ public class DocResource {
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Doc-GetDocStatus-all')")
     @ApiOperation(value = "行为", tags = {"文档" },  notes = "行为")
-	@RequestMapping(method = RequestMethod.GET, value = "/docs/{doc_id}/getdocstatus")
+	@RequestMapping(method = RequestMethod.PUT, value = "/docs/{doc_id}/getdocstatus")
     public ResponseEntity<DocDTO> getDocStatus(@PathVariable("doc_id") Long doc_id, @RequestBody DocDTO docdto) {
         Doc domain = docMapping.toDomain(docdto);
         domain.setId(doc_id);

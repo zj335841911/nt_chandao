@@ -193,8 +193,7 @@ export default class DocServiceBase extends EntityService {
      * @memberof DocServiceBase
      */
     public async GetDocStatus(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = await Http.getInstance().get(`/docs/${context.doc}/getdocstatus`,isloading);
-            
+            let res:any = Http.getInstance().put(`/docs/${context.doc}/getdocstatus`,data,isloading);
             return res;
     }
 
