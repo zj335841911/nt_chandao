@@ -151,6 +151,11 @@ export default class MainProjectNewModel {
         dataType: 'SMCODELIST',
       },
       {
+        name: 'mailtoconact',
+        prop: 'mailtoconact',
+        dataType: 'TEXT',
+      },
+      {
         name: 'keywords',
         prop: 'keywords',
         dataType: 'TEXT',
@@ -159,6 +164,11 @@ export default class MainProjectNewModel {
         name: 'id',
         prop: 'id',
         dataType: 'ACID',
+      },
+      {
+        name: 'mailtopk',
+        prop: 'mailtopk',
+        dataType: 'SMCODELIST',
       },
       {
         name: 'story',

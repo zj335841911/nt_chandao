@@ -102,8 +102,10 @@ export class MainProjectNewEditFormBase extends EditFormControlBase {
         verify: null,
         files: null,
         mailto: null,
+        mailtoconact: null,
         keywords: null,
         id: null,
+        mailtopk: null,
         story:null,
     };
 
@@ -204,9 +206,13 @@ export class MainProjectNewEditFormBase extends EditFormControlBase {
 
         mailto: new FormItemModel({ caption: '抄送给', detailType: 'FORMITEM', name: 'mailto', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 
+        mailtoconact: new FormItemModel({ caption: '联系人', detailType: 'FORMITEM', name: 'mailtoconact', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+
         keywords: new FormItemModel({ caption: '关键词', detailType: 'FORMITEM', name: 'keywords', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 
         id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 0 }),
+
+        mailtopk: new FormItemModel({ caption: '抄送给', detailType: 'FORMITEM', name: 'mailtopk', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 
     };
 
@@ -270,6 +276,12 @@ export class MainProjectNewEditFormBase extends EditFormControlBase {
 
 
 
+
+
+        if (Object.is(name, 'mailtoconact')) {
+            const details: string[] = ['mailto'];
+            this.updateFormItems('GetUserConcat', this.data, details, true);
+        }
     }
 
     /**

@@ -711,8 +711,10 @@ export default {
 			verify: "验收标准", 
 			files: "附件", 
 			mailto: "抄送给", 
+			mailtoconact: "联系人", 
 			keywords: "关键词", 
 			id: "编号", 
+			mailtopk: "抄送给", 
 		},
 		uiactions: {
 		},
