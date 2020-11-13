@@ -7796,7 +7796,7 @@
     },
     {
     "fieldname":"IBIZPRO_MESSAGEID" ,
-    "codename":"Ibizpro_messageid",
+    "codename":"IBIZProMessageId",
     "field_logic_name":"消息标识",
     "entity_name":"IBIZProMessage",
     "field_type":"TEXT",

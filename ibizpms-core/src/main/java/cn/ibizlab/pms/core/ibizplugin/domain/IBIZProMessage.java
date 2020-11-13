@@ -136,9 +136,9 @@ public class IBIZProMessage extends EntityClient implements Serializable {
      * 消息标识
      */
     @DEField(name = "ibizpro_messageid" , isKeyField = true)
-    @JSONField(name = "ibizpro_messageid")
-    @JsonProperty("ibizpro_messageid")
-    private String ibizproMessageid;
+    @JSONField(name = "ibizpromessageid")
+    @JsonProperty("ibizpromessageid")
+    private String ibizpromessageid;
 
     /**
      * 链接地址

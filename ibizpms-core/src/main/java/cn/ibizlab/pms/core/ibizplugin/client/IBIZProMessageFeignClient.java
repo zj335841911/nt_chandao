@@ -30,25 +30,25 @@ public interface IBIZProMessageFeignClient {
     Boolean createBatch(@RequestBody List<IBIZProMessage> ibizpromessages);
 
 
-    @RequestMapping(method = RequestMethod.PUT, value = "/ibizpromessages/{ibizpro_messageid}")
-    IBIZProMessage update(@PathVariable("ibizpro_messageid") String ibizpro_messageid, @RequestBody IBIZProMessage ibizpromessage);
+    @RequestMapping(method = RequestMethod.PUT, value = "/ibizpromessages/{ibizpromessageid}")
+    IBIZProMessage update(@PathVariable("ibizpromessageid") String ibizpromessageid, @RequestBody IBIZProMessage ibizpromessage);
 
     @RequestMapping(method = RequestMethod.PUT, value = "/ibizpromessages/batch")
     Boolean updateBatch(@RequestBody List<IBIZProMessage> ibizpromessages);
 
 
-    @RequestMapping(method = RequestMethod.DELETE, value = "/ibizpromessages/{ibizpro_messageid}")
-    Boolean remove(@PathVariable("ibizpro_messageid") String ibizpro_messageid);
+    @RequestMapping(method = RequestMethod.DELETE, value = "/ibizpromessages/{ibizpromessageid}")
+    Boolean remove(@PathVariable("ibizpromessageid") String ibizpromessageid);
 
     @RequestMapping(method = RequestMethod.DELETE, value = "/ibizpromessages/batch}")
     Boolean removeBatch(@RequestBody Collection<String> idList);
 
 
-    @RequestMapping(method = RequestMethod.GET, value = "/ibizpromessages/{ibizpro_messageid}")
-    IBIZProMessage get(@PathVariable("ibizpro_messageid") String ibizpro_messageid);
+    @RequestMapping(method = RequestMethod.GET, value = "/ibizpromessages/{ibizpromessageid}")
+    IBIZProMessage get(@PathVariable("ibizpromessageid") String ibizpromessageid);
 
-    @RequestMapping(method = RequestMethod.GET, value = "/ibizpromessages/getbycodename/{ibizpro_messageid}")
-    String getByCodeName(@PathVariable("ibizpro_messageid") String codeName);
+    @RequestMapping(method = RequestMethod.GET, value = "/ibizpromessages/getbycodename/{ibizpromessageid}")
+    String getByCodeName(@PathVariable("ibizpromessageid") String codeName);
 
 
     @RequestMapping(method = RequestMethod.GET, value = "/ibizpromessages/getdraft")
@@ -59,12 +59,12 @@ public interface IBIZProMessageFeignClient {
     Boolean checkKey(@RequestBody IBIZProMessage ibizpromessage);
 
 
-    @RequestMapping(method = RequestMethod.POST, value = "/ibizpromessages/{ibizpro_messageid}/markdone")
-    IBIZProMessage markDone(@PathVariable("ibizpro_messageid") String ibizpro_messageid, @RequestBody IBIZProMessage ibizpromessage);
+    @RequestMapping(method = RequestMethod.POST, value = "/ibizpromessages/{ibizpromessageid}/markdone")
+    IBIZProMessage markDone(@PathVariable("ibizpromessageid") String ibizpromessageid, @RequestBody IBIZProMessage ibizpromessage);
 
 
-    @RequestMapping(method = RequestMethod.POST, value = "/ibizpromessages/{ibizpro_messageid}/markread")
-    IBIZProMessage markRead(@PathVariable("ibizpro_messageid") String ibizpro_messageid, @RequestBody IBIZProMessage ibizpromessage);
+    @RequestMapping(method = RequestMethod.POST, value = "/ibizpromessages/{ibizpromessageid}/markread")
+    IBIZProMessage markRead(@PathVariable("ibizpromessageid") String ibizpromessageid, @RequestBody IBIZProMessage ibizpromessage);
 
 
     @RequestMapping(method = RequestMethod.POST, value = "/ibizpromessages/save")
@@ -74,8 +74,8 @@ public interface IBIZProMessageFeignClient {
     Boolean saveBatch(@RequestBody List<IBIZProMessage> ibizpromessages);
 
 
-    @RequestMapping(method = RequestMethod.POST, value = "/ibizpromessages/{ibizpro_messageid}/send")
-    IBIZProMessage send(@PathVariable("ibizpro_messageid") String ibizpro_messageid, @RequestBody IBIZProMessage ibizpromessage);
+    @RequestMapping(method = RequestMethod.POST, value = "/ibizpromessages/{ibizpromessageid}/send")
+    IBIZProMessage send(@PathVariable("ibizpromessageid") String ibizpromessageid, @RequestBody IBIZProMessage ibizpromessage);
 
 
 

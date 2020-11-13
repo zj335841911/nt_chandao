@@ -296,7 +296,7 @@ POST
 | 12 | issync | Integer | 允许 | 是否同步 |
 | 13 | isretry | Integer | 允许 | 是否重发 |
 | 14 | islink | Integer | 允许 | 是否是链接消息 |
-| 15 | ibizpro_messageid | String | 允许 | 消息标识 |
+| 15 | ibizpromessageid | String | 允许 | 消息标识 |
 | 16 | linkurl | String | 允许 | 链接地址 |
 | 17 | isdone | Integer | 允许 | 是否完成 |
 | 18 | isread | Integer | 允许 | 是否已读 |

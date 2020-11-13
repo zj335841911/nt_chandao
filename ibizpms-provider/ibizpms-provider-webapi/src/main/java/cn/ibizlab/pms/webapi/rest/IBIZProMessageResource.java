@@ -67,7 +67,7 @@ public class IBIZProMessageResource {
 	@RequestMapping(method = RequestMethod.PUT, value = "/ibizpromessages/{ibizpromessage_id}")
     public ResponseEntity<IBIZProMessageDTO> update(@PathVariable("ibizpromessage_id") String ibizpromessage_id, @RequestBody IBIZProMessageDTO ibizpromessagedto) {
 		IBIZProMessage domain  = ibizpromessageMapping.toDomain(ibizpromessagedto);
-        domain .setIbizproMessageid(ibizpromessage_id);
+        domain .setIbizpromessageid(ibizpromessage_id);
 		ibizpromessageService.update(domain );
 		IBIZProMessageDTO dto = ibizpromessageMapping.toDto(domain );
         return ResponseEntity.status(HttpStatus.OK).body(dto);
@@ -117,7 +117,7 @@ public class IBIZProMessageResource {
 	@RequestMapping(method = RequestMethod.POST, value = "/ibizpromessages/{ibizpromessage_id}/markdone")
     public ResponseEntity<IBIZProMessageDTO> markDone(@PathVariable("ibizpromessage_id") String ibizpromessage_id, @RequestBody IBIZProMessageDTO ibizpromessagedto) {
         IBIZProMessage domain = ibizpromessageMapping.toDomain(ibizpromessagedto);
-        domain.setIbizproMessageid(ibizpromessage_id);
+        domain.setIbizpromessageid(ibizpromessage_id);
         domain = ibizpromessageService.markDone(domain);
         ibizpromessagedto = ibizpromessageMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(ibizpromessagedto);
@@ -127,7 +127,7 @@ public class IBIZProMessageResource {
 	@RequestMapping(method = RequestMethod.POST, value = "/ibizpromessages/{ibizpromessage_id}/markread")
     public ResponseEntity<IBIZProMessageDTO> markRead(@PathVariable("ibizpromessage_id") String ibizpromessage_id, @RequestBody IBIZProMessageDTO ibizpromessagedto) {
         IBIZProMessage domain = ibizpromessageMapping.toDomain(ibizpromessagedto);
-        domain.setIbizproMessageid(ibizpromessage_id);
+        domain.setIbizpromessageid(ibizpromessage_id);
         domain = ibizpromessageService.markRead(domain);
         ibizpromessagedto = ibizpromessageMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(ibizpromessagedto);
@@ -150,7 +150,7 @@ public class IBIZProMessageResource {
 	@RequestMapping(method = RequestMethod.POST, value = "/ibizpromessages/{ibizpromessage_id}/send")
     public ResponseEntity<IBIZProMessageDTO> send(@PathVariable("ibizpromessage_id") String ibizpromessage_id, @RequestBody IBIZProMessageDTO ibizpromessagedto) {
         IBIZProMessage domain = ibizpromessageMapping.toDomain(ibizpromessagedto);
-        domain.setIbizproMessageid(ibizpromessage_id);
+        domain.setIbizpromessageid(ibizpromessage_id);
         domain = ibizpromessageService.send(domain);
         ibizpromessagedto = ibizpromessageMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(ibizpromessagedto);

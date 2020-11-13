@@ -30,7 +30,7 @@ public class IBIZProMessageFallback implements IBIZProMessageFeignClient {
         return false;
     }
 
-    public IBIZProMessage update(String ibizpro_messageid, IBIZProMessage ibizpromessage) {
+    public IBIZProMessage update(String ibizpromessageid, IBIZProMessage ibizpromessage) {
         return null;
     }
     public Boolean updateBatch(List<IBIZProMessage> ibizpromessages) {
@@ -38,14 +38,14 @@ public class IBIZProMessageFallback implements IBIZProMessageFeignClient {
     }
 
 
-    public Boolean remove(String ibizpro_messageid) {
+    public Boolean remove(String ibizpromessageid) {
         return false;
     }
     public Boolean removeBatch(Collection<String> idList) {
         return false;
     }
 
-    public IBIZProMessage get(String ibizpro_messageid) {
+    public IBIZProMessage get(String ibizpromessageid) {
         return null;
     }
 
@@ -66,11 +66,11 @@ public class IBIZProMessageFallback implements IBIZProMessageFeignClient {
     }
 
 
-    public IBIZProMessage markDone( String ibizpro_messageid, IBIZProMessage ibizpromessage) {
+    public IBIZProMessage markDone( String ibizpromessageid, IBIZProMessage ibizpromessage) {
         return null;
     }
 
-    public IBIZProMessage markRead( String ibizpro_messageid, IBIZProMessage ibizpromessage) {
+    public IBIZProMessage markRead( String ibizpromessageid, IBIZProMessage ibizpromessage) {
         return null;
     }
 
@@ -81,7 +81,7 @@ public class IBIZProMessageFallback implements IBIZProMessageFeignClient {
         return false;
     }
 
-    public IBIZProMessage send( String ibizpro_messageid, IBIZProMessage ibizpromessage) {
+    public IBIZProMessage send( String ibizpromessageid, IBIZProMessage ibizpromessage) {
         return null;
     }
 

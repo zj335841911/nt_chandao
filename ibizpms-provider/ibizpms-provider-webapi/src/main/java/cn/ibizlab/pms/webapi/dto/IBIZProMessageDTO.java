@@ -154,10 +154,10 @@ public class IBIZProMessageDTO extends DTOBase implements Serializable {
      * 属性 [IBIZPRO_MESSAGEID]
      *
      */
-    @JSONField(name = "ibizpro_messageid")
-    @JsonProperty("ibizpro_messageid")
+    @JSONField(name = "ibizpromessageid")
+    @JsonProperty("ibizpromessageid")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String ibizproMessageid;
+    private String ibizpromessageid;
 
     /**
      * 属性 [LINKURL]

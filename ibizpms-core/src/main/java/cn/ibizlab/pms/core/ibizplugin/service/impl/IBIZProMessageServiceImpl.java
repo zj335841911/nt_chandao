@@ -68,7 +68,7 @@ public class IBIZProMessageServiceImpl implements IIBIZProMessageService {
 
     @Override
     public boolean update(IBIZProMessage et) {
-        IBIZProMessage rt = iBIZProMessageFeignClient.update(et.getIbizproMessageid(), et);
+        IBIZProMessage rt = iBIZProMessageFeignClient.update(et.getIbizpromessageid(), et);
         if (rt == null) {
             return false;
         }
@@ -84,8 +84,8 @@ public class IBIZProMessageServiceImpl implements IIBIZProMessageService {
 
 
     @Override
-    public boolean remove(String ibizpro_messageid) {
-        boolean result=iBIZProMessageFeignClient.remove(ibizpro_messageid);
+    public boolean remove(String ibizpromessageid) {
+        boolean result=iBIZProMessageFeignClient.remove(ibizpromessageid);
         return result;
     }
 
@@ -96,11 +96,11 @@ public class IBIZProMessageServiceImpl implements IIBIZProMessageService {
 
 
     @Override
-    public IBIZProMessage get(String ibizpro_messageid) {
-        IBIZProMessage et = iBIZProMessageFeignClient.get(ibizpro_messageid);
+    public IBIZProMessage get(String ibizpromessageid) {
+        IBIZProMessage et = iBIZProMessageFeignClient.get(ibizpromessageid);
         if (et == null) {
             et = new IBIZProMessage();
-            et.setIbizproMessageid(ibizpro_messageid);
+            et.setIbizpromessageid(ibizpromessageid);
         }
         else {
         }
@@ -140,8 +140,8 @@ public class IBIZProMessageServiceImpl implements IIBIZProMessageService {
     @Override
     @Transactional
     public boolean save(IBIZProMessage et) {
-        if (et.getIbizproMessageid() == null) {
-            et.setIbizproMessageid((String)et.getDefaultKey(true));
+        if (et.getIbizpromessageid() == null) {
+            et.setIbizpromessageid((String)et.getDefaultKey(true));
         }
         if (!iBIZProMessageFeignClient.save(et)) {
             return false;
