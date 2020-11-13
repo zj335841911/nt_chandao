@@ -210,6 +210,12 @@ export class MyFavoriteTaskModel {
       {
         name: 'delay',
       },
+      {
+        name: 'mailtopk',
+      },
+      {
+        name: 'mailtoconact',
+      },
     ]
   }
 

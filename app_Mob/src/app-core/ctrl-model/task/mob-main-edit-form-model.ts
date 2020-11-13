@@ -138,7 +138,7 @@ export class MobMainEditModel {
             {
                 name: 'mailto',
                 prop: 'mailto',
-                dataType: 'LONGTEXT',
+                dataType: 'SMCODELIST',
             },
             {
                 name: 'eststarted',

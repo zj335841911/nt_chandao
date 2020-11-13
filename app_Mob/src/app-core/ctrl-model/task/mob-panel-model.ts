@@ -210,6 +210,12 @@ export class MobModel {
       {
         name: 'delay',
       },
+      {
+        name: 'mailtopk',
+      },
+      {
+        name: 'mailtoconact',
+      },
     ]
   }
 

@@ -210,6 +210,12 @@ export class MobPickupViewpickupviewpanelModel {
       {
         name: 'delay',
       },
+      {
+        name: 'mailtopk',
+      },
+      {
+        name: 'mailtoconact',
+      },
     ]
   }
 

@@ -59,6 +59,13 @@ export default {
     mailtopk: "抄送给",
     assignedtopk: "指派给（选择）",
     noticeusers: "消息通知用户",
+    ibiz_sourceobject: "来源对象",
+    sourceobject: "来源对象",
+    ibiz_id: "IBIZ标识",
+    sourcename: "来源对象名称",
+    sourceid: "来源对象标识",
+    ibiz_sourceid: "来源对象标识",
+    ibiz_sourcename: "来源对象名称",
   },
 	views: {
 		newmobeditview: {
