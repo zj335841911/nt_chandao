@@ -229,4 +229,12 @@ export interface Doc {
      * @memberof Doc
      */
     isfavourites?: any;
+
+    /**
+     * 所有文档数量
+     *
+     * @returns {*}
+     * @memberof Doc
+     */
+    alldoccnt?: any;
 }

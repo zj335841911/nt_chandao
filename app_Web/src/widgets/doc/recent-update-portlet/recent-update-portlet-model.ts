@@ -99,6 +99,9 @@ export default class RecentUpdateModel {
       {
         name: 'isfavourites',
       },
+      {
+        name: 'alldoccnt',
+      },
     ]
   }
 

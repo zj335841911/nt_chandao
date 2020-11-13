@@ -38,7 +38,7 @@
 | 14 | [文件库类型](#属性-文件库类型（DOCLIBTYPE）) | DOCLIBTYPE | 单项选择(文本值) | 否 | 是 | 是 |
 | 15 | [所属项目](#属性-所属项目（PROJECTNAME）) | PROJECTNAME | 外键值文本 | 否 | 是 | 是 |
 | 16 | [所属产品](#属性-所属产品（PRODUCTNAME）) | PRODUCTNAME | 外键值文本 | 否 | 是 | 是 |
-| 17 | [是否收藏](#属性-是否收藏（ISFAVOURITES）) | ISFAVOURITES | 整型 | 否 | 是 | 是 |
+| 17 | [是否收藏](#属性-是否收藏（ISFAVOURITES）) | ISFAVOURITES | 文本，可指定长度 | 否 | 是 | 是 |
 | 18 | [组织标识](#属性-组织标识（ORGID）) | ORGID | 文本，可指定长度 | 否 | 是 | 是 |
 | 19 | [部门标识](#属性-部门标识（MDEPTID）) | MDEPTID | 文本，可指定长度 | 否 | 是 | 是 |
 
@@ -756,10 +756,10 @@ String
 逻辑字段[来自计算式]
 
 - 数据类型
-整型
+文本，可指定长度
 
 - Java类型
-Integer
+String
 
 - 是否允许为空
 是
@@ -769,7 +769,7 @@ Integer
 
 - 取值范围/公式
 ```SQL
-0
+'0'
 ```
 
 - 数据格式
@@ -1249,7 +1249,7 @@ t1.`DELETED`,
 'doc' AS `DOCLIBTYPE`,
 t1.`GROUPS`,
 t1.`ID`,
-0 AS `ISFAVOURITES`,
+'0' AS `ISFAVOURITES`,
 t1.`MAIN`,
 t1.`MDEPTID`,
 t1.`NAME`,
@@ -1417,7 +1417,7 @@ t1.`DELETED`,
 'doc' AS `DOCLIBTYPE`,
 t1.`GROUPS`,
 t1.`ID`,
-0 AS `ISFAVOURITES`,
+'0' AS `ISFAVOURITES`,
 t1.`MAIN`,
 t1.`MDEPTID`,
 t1.`NAME`,
@@ -1453,7 +1453,7 @@ t1.`DELETED`,
 'doc' AS `DOCLIBTYPE`,
 t1.`GROUPS`,
 t1.`ID`,
-0 AS `ISFAVOURITES`,
+'0' AS `ISFAVOURITES`,
 t1.`MAIN`,
 t1.`MDEPTID`,
 t1.`NAME`,

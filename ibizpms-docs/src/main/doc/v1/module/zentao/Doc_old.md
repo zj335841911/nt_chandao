@@ -44,6 +44,7 @@ hide members
 |文档链接|URL|TEXT|&nbsp;|
 |文档查询类型|DOCQTYPE|TEXT|&nbsp;|
 |是否收藏|ISFAVOURITES|INT|&nbsp;|
+|所有文档数量|ALLDOCCNT|INT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -76,6 +77,7 @@ hide members
 |文档链接|默认规则|内容长度必须小于等于[100]|
 |文档查询类型|默认规则|内容长度必须小于等于[200]|
 |是否收藏|默认规则|默认规则|
+|所有文档数量|默认规则|默认规则|
 
 ## 状态控制
 

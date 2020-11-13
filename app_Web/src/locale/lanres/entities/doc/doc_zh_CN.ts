@@ -28,6 +28,7 @@ export default {
     url: "文档链接",
     docqtype: "文档查询类型",
     isfavourites: "是否收藏",
+    alldoccnt: "所有文档数量",
   },
 	views: {
 		basiceditview9: {

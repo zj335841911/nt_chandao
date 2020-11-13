@@ -5,7 +5,6 @@
             <tns:import name="java.util.Map" />
             <tns:import name="org.springframework.util.StringUtils"/>
             <tns:import name="cn.ibizlab.pms.util.helper.RuleUtils"/>
-        <tns:global identifier="storygetcuruserconcatuserconcat" type="cn.ibizlab.pms.core.zentao.domain.UserContact" />
         <tns:global identifier="storygetcuruserconcatdefault" type="cn.ibizlab.pms.core.zentao.domain.Story" />
         </extensionElements>
      <startEvent id="begin" isInterrupting="true"/>

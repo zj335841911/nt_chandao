@@ -99,6 +99,9 @@ export default class DocSumModel {
       {
         name: 'isfavourites',
       },
+      {
+        name: 'alldoccnt',
+      },
     ]
   }
 

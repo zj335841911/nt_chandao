@@ -5263,6 +5263,19 @@
     "key_field":0,
     "show_order":1000,
     "major_field":0
+    },
+    {
+    "fieldname":"ALLDOCCNT" ,
+    "codename":"Alldoccnt",
+    "field_logic_name":"所有文档数量",
+    "entity_name":"Doc",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
     }
     ],
     "subEntitys":[
@@ -5695,11 +5708,12 @@
     "codename":"Isfavourites",
     "field_logic_name":"是否收藏",
     "entity_name":"DocLib",
-    "field_type":"INT",
+    "field_type":"TEXT",
     "nullable":1,
     "physical_field":0,
-    "data_type":"INT",
-    "expression":"0",
+    "data_type":"VARCHAR",
+    "data_length":200,
+    "expression":"'0'",
     "key_field":0,
     "show_order":1000,
     "major_field":0

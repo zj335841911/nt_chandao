@@ -99,6 +99,9 @@ export default class MainModel {
       {
         name: 'isfavourites',
       },
+      {
+        name: 'alldoccnt',
+      },
     ]
   }
 

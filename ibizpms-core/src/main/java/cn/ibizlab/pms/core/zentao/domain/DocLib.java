@@ -172,7 +172,7 @@ public class DocLib extends EntityMP implements Serializable {
     @TableField(exist = false)
     @JSONField(name = "isfavourites")
     @JsonProperty("isfavourites")
-    private Integer isfavourites;
+    private String isfavourites;
     /**
      * 组织标识
      */

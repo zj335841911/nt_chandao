@@ -99,6 +99,9 @@ export default class MainBodyModel {
       {
         name: 'isfavourites',
       },
+      {
+        name: 'alldoccnt',
+      },
     ]
   }
 

@@ -54,7 +54,7 @@ export default class ProductMainModel {
         {
           name: 'isfavourites',
           prop: 'isfavourites',
-          dataType: 'INT',
+          dataType: 'TEXT',
         },
         {
           name: 'srfmstag',

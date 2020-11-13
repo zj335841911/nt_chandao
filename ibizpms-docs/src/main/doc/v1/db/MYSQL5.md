@@ -17847,7 +17847,7 @@ CREATE TABLE `zt_doccontent`(
 | PROJECTNAME        | 所属项目  | VARCHAR      |   90   | &nbsp; |
 | DOCLIBTYPE        | 文件库类型  | VARCHAR      |   200   | &nbsp; |
 | ACL        | 权限  | VARCHAR      |   10   | &nbsp; |
-| ISFAVOURITES        | 是否收藏  | INTEGER      |   -1   | &nbsp; |
+| ISFAVOURITES        | 是否收藏  | VARCHAR      |   200   | &nbsp; |
 
 
 

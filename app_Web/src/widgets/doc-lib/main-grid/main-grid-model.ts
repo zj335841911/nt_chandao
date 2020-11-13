@@ -54,7 +54,7 @@ export default class MainModel {
         {
           name: 'isfavourites',
           prop: 'isfavourites',
-          dataType: 'INT',
+          dataType: 'TEXT',
         },
         {
           name: 'srfmstag',

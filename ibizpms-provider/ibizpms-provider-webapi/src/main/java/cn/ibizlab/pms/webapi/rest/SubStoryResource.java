@@ -343,7 +343,7 @@ public class SubStoryResource {
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-GetUserConcat-all')")
     @ApiOperation(value = "获取联系人", tags = {"需求" },  notes = "获取联系人")
-	@RequestMapping(method = RequestMethod.POST, value = "/substories/{substory_id}/getuserconcat")
+	@RequestMapping(method = RequestMethod.GET, value = "/substories/{substory_id}/getuserconcat")
     public ResponseEntity<SubStoryDTO> getUserConcat(@PathVariable("substory_id") Long substory_id, @RequestBody SubStoryDTO substorydto) {
         Story domain = substoryMapping.toDomain(substorydto);
         domain.setId(substory_id);
@@ -1402,7 +1402,7 @@ public class SubStoryResource {
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-GetUserConcat-all')")
     @ApiOperation(value = "根据需求需求", tags = {"需求" },  notes = "根据需求需求")
-	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/substories/{substory_id}/getuserconcat")
+	@RequestMapping(method = RequestMethod.GET, value = "/stories/{story_id}/substories/{substory_id}/getuserconcat")
     public ResponseEntity<SubStoryDTO> getUserConcatByStory(@PathVariable("story_id") Long story_id, @PathVariable("substory_id") Long substory_id, @RequestBody SubStoryDTO substorydto) {
         Story domain = substoryMapping.toDomain(substorydto);
         domain.setParent(story_id);
@@ -2490,7 +2490,7 @@ public class SubStoryResource {
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-GetUserConcat-all')")
     @ApiOperation(value = "根据产品需求需求", tags = {"需求" },  notes = "根据产品需求需求")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/substories/{substory_id}/getuserconcat")
+	@RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}/stories/{story_id}/substories/{substory_id}/getuserconcat")
     public ResponseEntity<SubStoryDTO> getUserConcatByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("substory_id") Long substory_id, @RequestBody SubStoryDTO substorydto) {
         Story domain = substoryMapping.toDomain(substorydto);
         domain.setParent(story_id);

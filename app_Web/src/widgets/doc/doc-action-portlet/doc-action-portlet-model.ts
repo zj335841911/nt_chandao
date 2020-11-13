@@ -99,6 +99,9 @@ export default class DocActionModel {
       {
         name: 'isfavourites',
       },
+      {
+        name: 'alldoccnt',
+      },
     ]
   }
 

@@ -1600,7 +1600,7 @@ mock.onPost(new RegExp(/^\/stories\/?([a-zA-Z0-9\-\;]{0,35})\/getstoryspec$/)).r
 
     
 // GetUserConcat
-mock.onPost(new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/stories\/([a-zA-Z0-9\-\;]{1,35})\/getuserconcat$/)).reply((config: any) => {
+mock.onGet(new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/stories\/([a-zA-Z0-9\-\;]{1,35})\/getuserconcat$/)).reply((config: any) => {
     console.groupCollapsed("实体:story 方法: GetUserConcat");
     console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
@@ -1626,7 +1626,7 @@ mock.onPost(new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/stories\/([a-zA-Z0
 });
         
 // GetUserConcat
-mock.onPost(new RegExp(/^\/stories\/?([a-zA-Z0-9\-\;]{0,35})\/getuserconcat$/)).reply((config: any) => {
+mock.onGet(new RegExp(/^\/stories\/?([a-zA-Z0-9\-\;]{0,35})\/getuserconcat$/)).reply((config: any) => {
     console.groupCollapsed("实体:story 方法: GetUserConcat");
     console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);

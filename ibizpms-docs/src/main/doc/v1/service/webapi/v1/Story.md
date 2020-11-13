@@ -533,7 +533,7 @@ GET
 /stories/{story_id}/getuserconcat
 
 #### 请求方法
-POST
+GET
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -2347,7 +2347,7 @@ GET
 /products/{product_id}/stories/{story_id}/getuserconcat
 
 #### 请求方法
-POST
+GET
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |

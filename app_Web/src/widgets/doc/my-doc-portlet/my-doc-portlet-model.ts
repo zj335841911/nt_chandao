@@ -99,6 +99,9 @@ export default class MyDocModel {
       {
         name: 'isfavourites',
       },
+      {
+        name: 'alldoccnt',
+      },
     ]
   }
 

@@ -31,7 +31,7 @@ hide members
 |文件库类型|DOCLIBTYPE|SSCODELIST|&nbsp;|
 |所属项目|PROJECTNAME|PICKUPTEXT|&nbsp;|
 |所属产品|PRODUCTNAME|PICKUPTEXT|&nbsp;|
-|是否收藏|ISFAVOURITES|INT|&nbsp;|
+|是否收藏|ISFAVOURITES|TEXT|&nbsp;|
 |组织标识|ORGID|TEXT|&nbsp;|
 |部门标识|MDEPTID|TEXT|&nbsp;|
 
@@ -54,7 +54,7 @@ hide members
 |文件库类型|默认规则|内容长度必须小于等于[200]|
 |所属项目|默认规则|内容长度必须小于等于[90]|
 |所属产品|默认规则|内容长度必须小于等于[90]|
-|是否收藏|默认规则|默认规则|
+|是否收藏|默认规则|内容长度必须小于等于[200]|
 |组织标识|默认规则|内容长度必须小于等于[100]|
 |部门标识|默认规则|内容长度必须小于等于[100]|
 
