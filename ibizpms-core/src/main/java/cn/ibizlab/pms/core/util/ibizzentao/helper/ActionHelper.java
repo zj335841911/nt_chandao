@@ -99,7 +99,7 @@ public class ActionHelper extends ZTBaseHelper<ActionMapper, Action> {
     public boolean create(Action et) {
         et.setComment(et.getComment() == null ? "" : et.getComment());
         String noticeusers = et.getNoticeusers();
-        super.create(et);
+        this.create(et.getObjecttype(),et.getObjectid(),StaticDict.Action__type.COMMENTED.getValue(), et.getComment(),"",null,true);
         if(StaticDict.Action__object_type.TASK.getValue().equals(et.getObjecttype())) {
             Task task = taskHelper.get(et.getObjectid());
             sendToread(task.getId(),task.getName(),noticeusers,task.getAssignedto(),task.getMailto(), ITaskService.OBJECT_TEXT_NAME,StaticDict.Action__object_type.TASK.getValue(),ITaskService.OBJECT_SOURCE_PATH);

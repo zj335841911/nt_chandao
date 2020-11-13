@@ -50,8 +50,13 @@ public class IBIZProMessageExService extends IBIZProMessageServiceImpl {
     @Override
     @Transactional(readOnly = true)
     public IBIZProMessage send(IBIZProMessage et) {
-
-        return ibizproMessageFeignClient.send("pms", et);
+        try {
+            ibizproMessageFeignClient.send("pms", et);
+        }catch (RuntimeException e) {
+            log.error(e.getMessage());
+            log.error("待阅消息发送失败！");
+        }
+        return et;
     }
 }
 
