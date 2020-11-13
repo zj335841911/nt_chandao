@@ -539,6 +539,7 @@ export default class RichTextEditor extends Vue {
                             content = newContent;
                         });
                     }
+                    richtexteditor.$emit('formitemvaluechange',{name: 'noticeusers',value: richtexteditor.jointSelectPersonId()});
                     richtexteditor.$emit('change', content);
                 });  
 
@@ -731,6 +732,24 @@ export default class RichTextEditor extends Vue {
             }
         })
         this.atNumber = id;
+    }
+    
+    /**
+     * 拼接 @ 人员的id
+     * 
+     * @memberof RichTextEditor
+     */
+    public jointSelectPersonId(){
+        const atSymbol:any = this.editor.dom.select('span');
+        let noticeusers:string = "";
+        atSymbol.forEach((item:any)=>{
+            if(Object.is(item.className,'at-text')){
+                console.log(item);
+                noticeusers += item.getAttribute('noticeusers')+',';
+            }
+        })
+        noticeusers = noticeusers.substring(0,noticeusers.length-1);
+        return noticeusers
     }
 
     /**
