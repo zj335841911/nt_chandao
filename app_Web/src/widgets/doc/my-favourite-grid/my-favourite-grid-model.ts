@@ -98,7 +98,7 @@ export default class MyFavouriteModel {
         {
           name: 'isfavourites',
           prop: 'isfavourites',
-          dataType: 'INT',
+          dataType: 'TEXT',
         },
         {
           name: 'docqtype',

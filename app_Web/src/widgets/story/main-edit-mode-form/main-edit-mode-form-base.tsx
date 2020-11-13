@@ -498,7 +498,7 @@ export class Main_EditModeEditFormBase extends EditFormControlBase {
 
 
 
-        if (Object.is(name, 'mailto')) {
+        if (Object.is(name, 'mailtoconact')) {
             const details: string[] = ['mailto'];
             this.updateFormItems('GetUserConcat', this.data, details, true);
         }

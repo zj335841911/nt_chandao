@@ -43,8 +43,12 @@ hide members
 |附件|FILES|TEXT|&nbsp;|
 |文档链接|URL|TEXT|&nbsp;|
 |文档查询类型|DOCQTYPE|TEXT|&nbsp;|
-|是否收藏|ISFAVOURITES|INT|&nbsp;|
+|是否收藏|ISFAVOURITES|TEXT|&nbsp;|
 |所有文档数量|ALLDOCCNT|INT|&nbsp;|
+|最近更新数量|RECENTUPDATECNT|INT|&nbsp;|
+|今日更新数量|TODAYUPDATECNT|INT|&nbsp;|
+|最近添加数量|RECENTADDCNT|INT|&nbsp;|
+|我的文档数量|MYDOCCNT|INT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -76,8 +80,12 @@ hide members
 |附件|默认规则|内容长度必须小于等于[1000]|
 |文档链接|默认规则|内容长度必须小于等于[100]|
 |文档查询类型|默认规则|内容长度必须小于等于[200]|
-|是否收藏|默认规则|默认规则|
+|是否收藏|默认规则|内容长度必须小于等于[200]|
 |所有文档数量|默认规则|默认规则|
+|最近更新数量|默认规则|默认规则|
+|今日更新数量|默认规则|默认规则|
+|最近添加数量|默认规则|默认规则|
+|我的文档数量|默认规则|默认规则|
 
 ## 状态控制
 

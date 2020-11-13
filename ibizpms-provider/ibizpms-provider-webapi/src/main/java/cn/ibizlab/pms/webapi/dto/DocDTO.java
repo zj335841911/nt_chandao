@@ -277,7 +277,8 @@ public class DocDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "isfavourites")
     @JsonProperty("isfavourites")
-    private Integer isfavourites;
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String isfavourites;
 
     /**
      * 属性 [ALLDOCCNT]
@@ -286,6 +287,38 @@ public class DocDTO extends DTOBase implements Serializable {
     @JSONField(name = "alldoccnt")
     @JsonProperty("alldoccnt")
     private Integer alldoccnt;
+
+    /**
+     * 属性 [RECENTUPDATECNT]
+     *
+     */
+    @JSONField(name = "recentupdatecnt")
+    @JsonProperty("recentupdatecnt")
+    private Integer recentupdatecnt;
+
+    /**
+     * 属性 [TODAYUPDATECNT]
+     *
+     */
+    @JSONField(name = "todayupdatecnt")
+    @JsonProperty("todayupdatecnt")
+    private Integer todayupdatecnt;
+
+    /**
+     * 属性 [RECENTADDCNT]
+     *
+     */
+    @JSONField(name = "recentaddcnt")
+    @JsonProperty("recentaddcnt")
+    private Integer recentaddcnt;
+
+    /**
+     * 属性 [MYDOCCNT]
+     *
+     */
+    @JSONField(name = "mydoccnt")
+    @JsonProperty("mydoccnt")
+    private Integer mydoccnt;
 
 
     /**

@@ -29,6 +29,11 @@ export default {
     docqtype: "文档查询类型",
     isfavourites: "是否收藏",
     alldoccnt: "所有文档数量",
+    recentupdatecnt: "最近更新数量",
+    todayupdatecnt: "今日更新数量",
+    recentaddcnt: "最近添加数量",
+    mydoccnt: "我的文档数量",
+    myfavouritecnt: "我的收藏数量",
   },
 	views: {
 		basiceditview9: {

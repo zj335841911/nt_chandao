@@ -102,6 +102,18 @@ export default class DocSumModel {
       {
         name: 'alldoccnt',
       },
+      {
+        name: 'recentupdatecnt',
+      },
+      {
+        name: 'todayupdatecnt',
+      },
+      {
+        name: 'recentaddcnt',
+      },
+      {
+        name: 'mydoccnt',
+      },
     ]
   }
 

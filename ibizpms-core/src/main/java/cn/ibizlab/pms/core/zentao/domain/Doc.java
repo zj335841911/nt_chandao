@@ -250,7 +250,7 @@ public class Doc extends EntityMP implements Serializable {
     @TableField(exist = false)
     @JSONField(name = "isfavourites")
     @JsonProperty("isfavourites")
-    private Integer isfavourites;
+    private String isfavourites;
     /**
      * 所有文档数量
      */
@@ -258,6 +258,34 @@ public class Doc extends EntityMP implements Serializable {
     @JSONField(name = "alldoccnt")
     @JsonProperty("alldoccnt")
     private Integer alldoccnt;
+    /**
+     * 最近更新数量
+     */
+    @TableField(exist = false)
+    @JSONField(name = "recentupdatecnt")
+    @JsonProperty("recentupdatecnt")
+    private Integer recentupdatecnt;
+    /**
+     * 今日更新数量
+     */
+    @TableField(exist = false)
+    @JSONField(name = "todayupdatecnt")
+    @JsonProperty("todayupdatecnt")
+    private Integer todayupdatecnt;
+    /**
+     * 最近添加数量
+     */
+    @TableField(exist = false)
+    @JSONField(name = "recentaddcnt")
+    @JsonProperty("recentaddcnt")
+    private Integer recentaddcnt;
+    /**
+     * 我的文档数量
+     */
+    @TableField(exist = false)
+    @JSONField(name = "mydoccnt")
+    @JsonProperty("mydoccnt")
+    private Integer mydoccnt;
 
     /**
      * 

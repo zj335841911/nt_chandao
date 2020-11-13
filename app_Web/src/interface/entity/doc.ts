@@ -237,4 +237,44 @@ export interface Doc {
      * @memberof Doc
      */
     alldoccnt?: any;
+
+    /**
+     * 最近更新数量
+     *
+     * @returns {*}
+     * @memberof Doc
+     */
+    recentupdatecnt?: any;
+
+    /**
+     * 今日更新数量
+     *
+     * @returns {*}
+     * @memberof Doc
+     */
+    todayupdatecnt?: any;
+
+    /**
+     * 最近添加数量
+     *
+     * @returns {*}
+     * @memberof Doc
+     */
+    recentaddcnt?: any;
+
+    /**
+     * 我的文档数量
+     *
+     * @returns {*}
+     * @memberof Doc
+     */
+    mydoccnt?: any;
+
+    /**
+     * 我的收藏数量
+     *
+     * @returns {*}
+     * @memberof Doc
+     */
+    myfavouritecnt?: any;
 }
