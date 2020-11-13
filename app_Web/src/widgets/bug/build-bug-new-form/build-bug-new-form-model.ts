@@ -156,6 +156,11 @@ export default class BuildBugNewModel {
         dataType: 'SMCODELIST',
       },
       {
+        name: 'mailtoconact',
+        prop: 'mailtoconact',
+        dataType: 'TEXT',
+      },
+      {
         name: 'keywords',
         prop: 'keywords',
         dataType: 'TEXT',
@@ -164,6 +169,11 @@ export default class BuildBugNewModel {
         name: 'files',
         prop: 'files',
         dataType: 'TEXT',
+      },
+      {
+        name: 'mailtopk',
+        prop: 'mailtopk',
+        dataType: 'SMCODELIST',
       },
       {
         name: 'id',

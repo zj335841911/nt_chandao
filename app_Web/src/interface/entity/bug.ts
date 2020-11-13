@@ -589,4 +589,20 @@ export interface Bug {
      * @memberof Bug
      */
     noticeusers?: any;
+
+    /**
+     * 抄送给
+     *
+     * @returns {*}
+     * @memberof Bug
+     */
+    mailtopk?: any;
+
+    /**
+     * 联系人
+     *
+     * @returns {*}
+     * @memberof Bug
+     */
+    mailtoconact?: any;
 }

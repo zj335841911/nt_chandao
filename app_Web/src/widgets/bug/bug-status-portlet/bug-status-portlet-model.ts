@@ -234,6 +234,12 @@ export default class BugStatusModel {
       {
         name: 'noticeusers',
       },
+      {
+        name: 'mailtopk',
+      },
+      {
+        name: 'mailtoconact',
+      },
     ]
   }
 

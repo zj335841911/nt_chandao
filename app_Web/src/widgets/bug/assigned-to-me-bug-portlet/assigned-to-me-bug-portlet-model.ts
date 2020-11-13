@@ -234,6 +234,12 @@ export default class AssignedToMeBugModel {
       {
         name: 'noticeusers',
       },
+      {
+        name: 'mailtopk',
+      },
+      {
+        name: 'mailtoconact',
+      },
     ]
   }
 

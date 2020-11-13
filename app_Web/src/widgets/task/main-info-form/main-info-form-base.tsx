@@ -102,6 +102,8 @@ export class MainInfoEditFormBase extends EditFormControlBase {
         progressrate: null,
         pri: null,
         mailto: null,
+        mailtoconact: null,
+        mailtopk: null,
         openedby: null,
         openeddate: null,
         finishedby: null,
@@ -213,6 +215,10 @@ export class MainInfoEditFormBase extends EditFormControlBase {
 
         mailto: new FormItemModel({ caption: '抄送给', detailType: 'FORMITEM', name: 'mailto', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 0 }),
 
+        mailtoconact: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'mailtoconact', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+
+        mailtopk: new FormItemModel({ caption: '属性', detailType: 'FORMITEM', name: 'mailtopk', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+
         openedby: new FormItemModel({ caption: '由谁创建', detailType: 'FORMITEM', name: 'openedby', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 
         openeddate: new FormItemModel({ caption: '于', detailType: 'FORMITEM', name: 'openeddate', visible: false, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
@@ -293,6 +299,8 @@ export class MainInfoEditFormBase extends EditFormControlBase {
 
 
 
+
+
         if (Object.is(name, '') || Object.is(name, 'openeddate')) {
             let ret = false;
             const _openeddate = this.data.openeddate;
@@ -347,5 +355,9 @@ export class MainInfoEditFormBase extends EditFormControlBase {
 
 
 
+        if (Object.is(name, 'mailtoconact')) {
+            const details: string[] = ['mailto'];
+            this.updateFormItems('GetUserConcat', this.data, details, true);
+        }
     }
 }

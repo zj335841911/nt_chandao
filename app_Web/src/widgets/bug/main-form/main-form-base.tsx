@@ -103,7 +103,9 @@ export class MainEditFormBase extends EditFormControlBase {
         storyname: null,
         taskname: null,
         mailto: null,
+        mailtoconact: null,
         keywords: null,
+        mailtopk: null,
         files: null,
         id: null,
         story: null,
@@ -218,7 +220,11 @@ export class MainEditFormBase extends EditFormControlBase {
 
         mailto: new FormItemModel({ caption: '抄送给', detailType: 'FORMITEM', name: 'mailto', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 
+        mailtoconact: new FormItemModel({ caption: '联系人', detailType: 'FORMITEM', name: 'mailtoconact', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+
         keywords: new FormItemModel({ caption: '关键词', detailType: 'FORMITEM', name: 'keywords', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+
+        mailtopk: new FormItemModel({ caption: '抄送给', detailType: 'FORMITEM', name: 'mailtopk', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 
         files: new FormItemModel({ caption: '附件', detailType: 'FORMITEM', name: 'files', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 
@@ -258,6 +264,60 @@ export class MainEditFormBase extends EditFormControlBase {
         }
         if (Object.is(name, 'project')) {
             this.onFormItemValueChange({ name: 'task', value: null });
+        }
+    }
+
+    /**
+     * 表单项逻辑
+     *
+     * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
+     * @returns {Promise<void>}
+     * @memberof MainEditFormBase
+     */
+    public async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): Promise<void> {
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        if (Object.is(name, 'mailtoconact')) {
+            const details: string[] = ['mailto'];
+            this.updateFormItems('GetUserConcat', this.data, details, true);
         }
     }
 

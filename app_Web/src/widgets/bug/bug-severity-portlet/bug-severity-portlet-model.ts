@@ -234,6 +234,12 @@ export default class BugSeverityModel {
       {
         name: 'noticeusers',
       },
+      {
+        name: 'mailtopk',
+      },
+      {
+        name: 'mailtoconact',
+      },
     ]
   }
 

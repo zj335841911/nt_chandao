@@ -81,6 +81,12 @@ export default class MainTabExpViewtabviewpanelModel {
       {
         name: 'ownerpk',
       },
+      {
+        name: 'mailtoconact',
+      },
+      {
+        name: 'mailtopk',
+      },
     ]
   }
 

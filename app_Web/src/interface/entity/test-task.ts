@@ -181,4 +181,20 @@ export interface TestTask {
      * @memberof TestTask
      */
     ownerpk?: any;
+
+    /**
+     * 联系人
+     *
+     * @returns {*}
+     * @memberof TestTask
+     */
+    mailtoconact?: any;
+
+    /**
+     * 抄送给
+     *
+     * @returns {*}
+     * @memberof TestTask
+     */
+    mailtopk?: any;
 }

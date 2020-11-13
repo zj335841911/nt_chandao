@@ -234,6 +234,12 @@ export default class BugResolution_ProjectModel {
       {
         name: 'noticeusers',
       },
+      {
+        name: 'mailtopk',
+      },
+      {
+        name: 'mailtoconact',
+      },
     ]
   }
 

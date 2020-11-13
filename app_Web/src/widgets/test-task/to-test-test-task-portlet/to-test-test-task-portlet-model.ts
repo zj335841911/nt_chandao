@@ -81,6 +81,12 @@ export default class ToTestTestTaskModel {
       {
         name: 'ownerpk',
       },
+      {
+        name: 'mailtoconact',
+      },
+      {
+        name: 'mailtopk',
+      },
     ]
   }
 

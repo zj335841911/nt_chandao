@@ -7,6 +7,7 @@ import ProductService from '@/service/product/product-service';
 import ProjectService from '@/service/project/project-service';
 import StoryService from '@/service/story/story-service';
 import TaskService from '@/service/task/task-service';
+import UserContactService from '@/service/user-contact/user-contact-service';
 
 
 /**
@@ -79,6 +80,14 @@ export default class BuildBugNewService extends ControlService {
     public taskService: TaskService = new TaskService();
 
     /**
+     * 用户联系方式服务对象
+     *
+     * @type {UserContactService}
+     * @memberof BuildBugNewService
+     */
+    public usercontactService: UserContactService = new UserContactService();
+
+    /**
      * 远端数据
      *
      * @type {*}
@@ -138,6 +147,9 @@ export default class BuildBugNewService extends ControlService {
         }
         if (Object.is(serviceName, 'TaskService') && Object.is(interfaceName, 'FetchBugTask')) {
             return this.doItems(this.taskService.FetchBugTask(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'task');
+        }
+        if (Object.is(serviceName, 'UserContactService') && Object.is(interfaceName, 'FetchCurUSERCONTACT')) {
+            return this.doItems(this.usercontactService.FetchCurUSERCONTACT(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'usercontact');
         }
 
         return Promise.reject([])

@@ -171,7 +171,7 @@
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.mailto.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col class="form-layout-container" v-show="detailsModel.mailto.visible" :style="{}"  :lg="{ span: 15, offset: 0 }" :xl="{ span: 15, offset: 0 }">
     <app-form-item name='mailto' :itemRules="this.rules().mailto" class='' :caption="$t('entities.testtask.main_form.details.mailto')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.mailto.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <dropdown-list-mpicker 
@@ -187,6 +187,30 @@
   valueSeparator=","
   placeholder='请选择...' style="">
 </dropdown-list-mpicker>
+
+</app-form-item>
+
+</i-col>
+<i-col class="form-layout-container" v-show="detailsModel.mailtoconact.visible" :style="{}"  :lg="{ span: 9, offset: 0 }" :xl="{ span: 9, offset: 0 }">
+    <app-form-item name='mailtoconact' :itemRules="this.rules().mailtoconact" class='' :caption="$t('entities.testtask.main_form.details.mailtoconact')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.mailtoconact.error" :isEmptyCaption="true" labelPos="LEFT">
+    <input-box 
+    v-model="data.mailtoconact"  
+    @enter="onEnter($event)"  
+     unit=""  
+    :disabled="detailsModel.mailtoconact.disabled" 
+    type='text' 
+    style="">
+</input-box>
+
+</app-form-item>
+
+</i-col>
+<i-col class="form-layout-container" v-show="detailsModel.mailtopk.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='mailtopk' :itemRules="this.rules().mailtopk" class='' :caption="$t('entities.testtask.main_form.details.mailtopk')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.mailtopk.error" :isEmptyCaption="false" labelPos="LEFT">
+    
+<app-span name='mailtopk' :value="data.mailtopk" dataType="SMCODELIST"     :precision="0"
+tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
+</app-span>
 
 </app-form-item>
 

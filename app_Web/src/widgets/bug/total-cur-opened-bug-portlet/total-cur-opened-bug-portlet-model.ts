@@ -234,6 +234,12 @@ export default class TotalCurOpenedBugModel {
       {
         name: 'noticeusers',
       },
+      {
+        name: 'mailtopk',
+      },
+      {
+        name: 'mailtoconact',
+      },
     ]
   }
 

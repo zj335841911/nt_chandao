@@ -213,6 +213,20 @@ public class TestTask extends EntityMP implements Serializable {
     @JSONField(name = "ownerpk")
     @JsonProperty("ownerpk")
     private String ownerpk;
+    /**
+     * 联系人
+     */
+    @TableField(exist = false)
+    @JSONField(name = "mailtoconact")
+    @JsonProperty("mailtoconact")
+    private String mailtoconact;
+    /**
+     * 抄送给
+     */
+    @TableField(exist = false)
+    @JSONField(name = "mailtopk")
+    @JsonProperty("mailtopk")
+    private String mailtopk;
 
     /**
      * 

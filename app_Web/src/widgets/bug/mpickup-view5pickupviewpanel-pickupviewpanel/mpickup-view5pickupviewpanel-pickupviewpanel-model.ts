@@ -234,6 +234,12 @@ export default class MPickupView5pickupviewpanelModel {
       {
         name: 'noticeusers',
       },
+      {
+        name: 'mailtopk',
+      },
+      {
+        name: 'mailtoconact',
+      },
     ]
   }
 

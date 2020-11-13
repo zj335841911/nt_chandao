@@ -22,6 +22,8 @@ export default {
     comment: "备注",
     casecnt: "用例数",
     ownerpk: "负责人（选择）",
+    mailtoconact: "联系人",
+    mailtopk: "抄送给",
   },
 	views: {
 		myygridview: {
@@ -120,6 +122,8 @@ export default {
 			name: "名称", 
 			desc: "描述", 
 			mailto: "抄送给", 
+			mailtoconact: "", 
+			mailtopk: "抄送给", 
 			id: "编号", 
 		},
 		uiactions: {
@@ -197,6 +201,8 @@ export default {
 			name: "", 
 			comment: "备注", 
 			mailto: "抄送给", 
+			mailtoconact: "", 
+			mailtopk: "抄送给", 
 		},
 		uiactions: {
 		},
@@ -270,6 +276,8 @@ export default {
 			desc: "描述", 
 			comment: "备注", 
 			mailto: "抄送给", 
+			mailtoconact: "", 
+			mailtopk: "抄送给", 
 			id: "编号", 
 			project: "所属项目", 
 			build: "版本", 
@@ -304,6 +312,8 @@ export default {
 			name: "名称", 
 			desc: "描述", 
 			mailto: "抄送给", 
+			mailtoconact: "", 
+			mailtopk: "抄送给", 
 			id: "编号", 
 		},
 		uiactions: {
@@ -335,6 +345,8 @@ export default {
 			name: "名称", 
 			desc: "描述", 
 			mailto: "抄送给", 
+			mailtoconact: "", 
+			mailtopk: "抄送给", 
 			id: "编号", 
 		},
 		uiactions: {

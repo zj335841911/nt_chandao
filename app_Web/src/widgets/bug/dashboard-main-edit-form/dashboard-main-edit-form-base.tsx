@@ -118,6 +118,8 @@ export class DashboardMainEditEditFormBase extends EditFormControlBase {
         browser: null,
         keywords: null,
         mailto: null,
+        mailtoconact: null,
+        mailtopk: null,
         project: null,
         story: null,
         projectname: null,
@@ -263,6 +265,10 @@ export class DashboardMainEditEditFormBase extends EditFormControlBase {
 
         mailto: new FormItemModel({ caption: '抄送给', detailType: 'FORMITEM', name: 'mailto', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 
+        mailtoconact: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'mailtoconact', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+
+        mailtopk: new FormItemModel({ caption: '抄送给', detailType: 'FORMITEM', name: 'mailtopk', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+
         project: new FormItemModel({ caption: '所属项目', detailType: 'FORMITEM', name: 'project', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 
         story: new FormItemModel({ caption: '相关需求', detailType: 'FORMITEM', name: 'story', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
@@ -393,6 +399,12 @@ export class DashboardMainEditEditFormBase extends EditFormControlBase {
 
 
 
+
+
+        if (Object.is(name, 'mailtoconact')) {
+            const details: string[] = ['mailto'];
+            this.updateFormItems('GetUserConcat', this.data, details, true);
+        }
         if (Object.is(name, 'storyname')) {
             const details: string[] = ['storyversion'];
             this.updateFormItems('UpdateStoryVersion', this.data, details, true);

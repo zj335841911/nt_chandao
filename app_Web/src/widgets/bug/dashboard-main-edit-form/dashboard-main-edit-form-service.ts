@@ -5,6 +5,7 @@ import BugService from '@/service/bug/bug-service';
 import DashboardMainEditModel from './dashboard-main-edit-form-model';
 import ProductService from '@/service/product/product-service';
 import ModuleService from '@/service/module/module-service';
+import UserContactService from '@/service/user-contact/user-contact-service';
 import ProjectService from '@/service/project/project-service';
 import StoryService from '@/service/story/story-service';
 import TaskService from '@/service/task/task-service';
@@ -62,6 +63,14 @@ export default class DashboardMainEditService extends ControlService {
      * @memberof DashboardMainEditService
      */
     public moduleService: ModuleService = new ModuleService();
+
+    /**
+     * 用户联系方式服务对象
+     *
+     * @type {UserContactService}
+     * @memberof DashboardMainEditService
+     */
+    public usercontactService: UserContactService = new UserContactService();
 
     /**
      * 项目服务对象
@@ -141,6 +150,9 @@ export default class DashboardMainEditService extends ControlService {
         }
         if (Object.is(serviceName, 'ModuleService') && Object.is(interfaceName, 'FetchBugModule')) {
             return this.doItems(this.moduleService.FetchBugModule(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'module');
+        }
+        if (Object.is(serviceName, 'UserContactService') && Object.is(interfaceName, 'FetchCurUSERCONTACT')) {
+            return this.doItems(this.usercontactService.FetchCurUSERCONTACT(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'usercontact');
         }
         if (Object.is(serviceName, 'ProjectService') && Object.is(interfaceName, 'FetchBugProject')) {
             return this.doItems(this.projectService.FetchBugProject(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'project');

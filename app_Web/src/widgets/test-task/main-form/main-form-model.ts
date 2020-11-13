@@ -116,6 +116,16 @@ export default class MainModel {
         dataType: 'LONGTEXT',
       },
       {
+        name: 'mailtoconact',
+        prop: 'mailtoconact',
+        dataType: 'TEXT',
+      },
+      {
+        name: 'mailtopk',
+        prop: 'mailtopk',
+        dataType: 'SMCODELIST',
+      },
+      {
         name: 'id',
         prop: 'id',
         dataType: 'ACID',

@@ -1118,7 +1118,9 @@ POST
 | 20 | comment | String | 允许 | 备注 |
 | 21 | casecnt | Integer | 允许 | 用例数 |
 | 22 | ownerpk | String | 允许 | 负责人（选择） |
-| 23 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 23 | mailtoconact | String | 允许 | 联系人 |
+| 24 | mailtopk | String | 允许 | 抄送给 |
+| 25 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### TestTaskSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

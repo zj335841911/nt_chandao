@@ -71,6 +71,16 @@ export default class CloseModel {
         dataType: 'LONGTEXT',
       },
       {
+        name: 'mailtoconact',
+        prop: 'mailtoconact',
+        dataType: 'TEXT',
+      },
+      {
+        name: 'mailtopk',
+        prop: 'mailtopk',
+        dataType: 'SMCODELIST',
+      },
+      {
         name: 'testtask',
         prop: 'id',
         dataType: 'FONTKEY',

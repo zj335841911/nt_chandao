@@ -125066,6 +125066,7 @@ CREATE TABLE `zt_testsuite`(
 | OWNER        | 负责人  | VARCHAR      |   30   | &nbsp; |
 | PROJECTTNAME        | 项目  | VARCHAR      |   90   | &nbsp; |
 | PROJECT        | 所属项目  |       |   8   | &nbsp; |
+| MAILTOPK        | 抄送给  | VARCHAR      |   65,535   | &nbsp; |
 | MAILTO        | 抄送给  | CLOB      |   65,535   | &nbsp; |
 | STATUS        | 当前状态  | VARCHAR      |   7   | &nbsp; |
 | NAME        | 名称  | VARCHAR      |   90   | &nbsp; |

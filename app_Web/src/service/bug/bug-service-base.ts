@@ -1,6 +1,7 @@
 import { Http } from '@/utils';
 import { Util } from '@/utils';
 import EntityService from '../entity-service';
+import GetCurUserConcatLogic from '@/service/bug/get-cur-user-concat-logic';
 
 
 
@@ -2328,5 +2329,20 @@ export default class BugServiceBase extends EntityService {
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/bugs/fetchreportbugs`,tempData,isloading);
         return res;
+    }
+
+    /**
+     * GetUserConcat接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof BugServiceBase
+     */
+    public async GetUserConcat(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let appLogic:GetCurUserConcatLogic = new GetCurUserConcatLogic({context:JSON.parse(JSON.stringify(context)),data:JSON.parse(JSON.stringify(data))});
+        const res = await appLogic.onExecute(context,data,isloading?true:false);
+        return {status:200,data:res};
     }
 }
