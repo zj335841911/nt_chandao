@@ -375,15 +375,20 @@
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.mailtoconact.visible" :style="{}"  :lg="{ span: 8, offset: 0 }" :xl="{ span: 8, offset: 0 }">
     <app-form-item name='mailtoconact' :itemRules="this.rules().mailtoconact" class='' :caption="$t('entities.task.mainedit_form.details.mailtoconact')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.mailtoconact.error" :isEmptyCaption="true" labelPos="LEFT">
-    <input-box 
-    v-model="data.mailtoconact"  
-    @enter="onEnter($event)"  
-     unit=""  
-    :disabled="detailsModel.mailtoconact.disabled" 
-    type='text' 
-    style="">
-</input-box>
-
+    
+<dropdown-list 
+    v-model="data.mailtoconact"
+    :data="data"
+    :context="context"
+    :formState="formState"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.mailtoconact.disabled"
+    valueType="string"
+    placeholder='请选择...'
+    
+/>
 </app-form-item>
 
 </i-col>
