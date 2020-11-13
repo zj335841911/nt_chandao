@@ -3,7 +3,7 @@
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { EMPLOYEELOADEditViewBase } from './employeeloadedit-view-base';
-import view_form from '@widgets/employ-eeload/main-form/main-form.vue';
+import view_form from '@widgets/emp-loyeeload/main-form/main-form.vue';
 
 /**
  * 员工负载表编辑视图视图

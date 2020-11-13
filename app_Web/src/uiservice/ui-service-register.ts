@@ -54,7 +54,7 @@ export class UIServiceRegister {
         this.allUIService.set('burn', () => import('@/uiservice/burn/burn-ui-service'));
         this.allUIService.set('substory', () => import('@/uiservice/sub-story/sub-story-ui-service'));
         this.allUIService.set('subproductplan', () => import('@/uiservice/sub-product-plan/sub-product-plan-ui-service'));
-        this.allUIService.set('employeeload', () => import('@/uiservice/employ-eeload/employ-eeload-ui-service'));
+        this.allUIService.set('employeeload', () => import('@/uiservice/emp-loyeeload/emp-loyeeload-ui-service'));
         this.allUIService.set('doccontent', () => import('@/uiservice/doc-content/doc-content-ui-service'));
         this.allUIService.set('storyspec', () => import('@/uiservice/story-spec/story-spec-ui-service'));
         this.allUIService.set('usertpl', () => import('@/uiservice/user-tpl/user-tpl-ui-service'));

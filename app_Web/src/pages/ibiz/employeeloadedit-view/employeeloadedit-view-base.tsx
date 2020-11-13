@@ -1,10 +1,10 @@
 import { Subject } from 'rxjs';
 import { UIActionTool, ViewTool } from '@/utils';
 import { EditViewBase } from '@/studio-core';
-import EmployEeloadService from '@/service/employ-eeload/employ-eeload-service';
-import EmployEeloadAuthService from '@/authservice/employ-eeload/employ-eeload-auth-service';
+import EmpLoyeeloadService from '@/service/emp-loyeeload/emp-loyeeload-service';
+import EmpLoyeeloadAuthService from '@/authservice/emp-loyeeload/emp-loyeeload-auth-service';
 import EditViewEngine from '@engine/view/edit-view-engine';
-import EmployEeloadUIService from '@/uiservice/employ-eeload/employ-eeload-ui-service';
+import EmpLoyeeloadUIService from '@/uiservice/emp-loyeeload/emp-loyeeload-ui-service';
 
 /**
  * 员工负载表编辑视图视图基类
@@ -53,18 +53,18 @@ export class EMPLOYEELOADEditViewBase extends EditViewBase {
     /**
      * 实体服务对象
      *
-     * @type {EmployEeloadService}
+     * @type {EmpLoyeeloadService}
      * @memberof EMPLOYEELOADEditViewBase
      */
-    protected appEntityService: EmployEeloadService = new EmployEeloadService;
+    protected appEntityService: EmpLoyeeloadService = new EmpLoyeeloadService;
 
     /**
      * 实体权限服务对象
      *
-     * @type EmployEeloadUIService
+     * @type EmpLoyeeloadUIService
      * @memberof EMPLOYEELOADEditViewBase
      */
-    public appUIService: EmployEeloadUIService = new EmployEeloadUIService(this.$store);
+    public appUIService: EmpLoyeeloadUIService = new EmpLoyeeloadUIService(this.$store);
 
     /**
      * 是否显示信息栏
@@ -258,7 +258,7 @@ export class EMPLOYEELOADEditViewBase extends EditViewBase {
           datas = [params];
         }
         // 界面行为
-        this.Save(datas, contextJO,paramJO,  $event, xData,this,"EmployEeload");
+        this.Save(datas, contextJO,paramJO,  $event, xData,this,"EmpLoyeeload");
     }
 
     /**
@@ -286,7 +286,7 @@ export class EMPLOYEELOADEditViewBase extends EditViewBase {
           datas = [params];
         }
         // 界面行为
-        this.SaveAndNew(datas, contextJO,paramJO,  $event, xData,this,"EmployEeload");
+        this.SaveAndNew(datas, contextJO,paramJO,  $event, xData,this,"EmpLoyeeload");
     }
 
     /**
@@ -314,7 +314,7 @@ export class EMPLOYEELOADEditViewBase extends EditViewBase {
           datas = [params];
         }
         // 界面行为
-        this.SaveAndExit(datas, contextJO,paramJO,  $event, xData,this,"EmployEeload");
+        this.SaveAndExit(datas, contextJO,paramJO,  $event, xData,this,"EmpLoyeeload");
     }
 
     /**
@@ -342,7 +342,7 @@ export class EMPLOYEELOADEditViewBase extends EditViewBase {
           datas = [params];
         }
         // 界面行为
-        this.RemoveAndExit(datas, contextJO,paramJO,  $event, xData,this,"EmployEeload");
+        this.RemoveAndExit(datas, contextJO,paramJO,  $event, xData,this,"EmpLoyeeload");
     }
 
     /**
@@ -370,7 +370,7 @@ export class EMPLOYEELOADEditViewBase extends EditViewBase {
           datas = [params];
         }
         // 界面行为
-        this.SaveAndStart(datas, contextJO,paramJO,  $event, xData,this,"EmployEeload");
+        this.SaveAndStart(datas, contextJO,paramJO,  $event, xData,this,"EmpLoyeeload");
     }
 
     /**
@@ -398,7 +398,7 @@ export class EMPLOYEELOADEditViewBase extends EditViewBase {
           datas = [params];
         }
         // 界面行为
-        this.ViewWFStep(datas, contextJO,paramJO,  $event, xData,this,"EmployEeload");
+        this.ViewWFStep(datas, contextJO,paramJO,  $event, xData,this,"EmpLoyeeload");
     }
 
     /**

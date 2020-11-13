@@ -3,8 +3,8 @@
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { EMPLOYEELOADGridViewBase } from './employeeloadgrid-view-base';
-import view_grid from '@widgets/employ-eeload/main-grid/main-grid.vue';
-import view_searchform from '@widgets/employ-eeload/workload-searchform/workload-searchform.vue';
+import view_grid from '@widgets/emp-loyeeload/main-grid/main-grid.vue';
+import view_searchform from '@widgets/emp-loyeeload/workload-searchform/workload-searchform.vue';
 
 /**
  * 员工负载表表格视图视图

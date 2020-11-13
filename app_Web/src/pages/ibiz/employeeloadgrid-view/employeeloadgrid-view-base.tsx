@@ -2,10 +2,10 @@
 import { Subject } from 'rxjs';
 import { UIActionTool, ViewTool } from '@/utils';
 import { GridViewBase } from '@/studio-core';
-import EmployEeloadService from '@/service/employ-eeload/employ-eeload-service';
-import EmployEeloadAuthService from '@/authservice/employ-eeload/employ-eeload-auth-service';
+import EmpLoyeeloadService from '@/service/emp-loyeeload/emp-loyeeload-service';
+import EmpLoyeeloadAuthService from '@/authservice/emp-loyeeload/emp-loyeeload-auth-service';
 import GridViewEngine from '@engine/view/grid-view-engine';
-import EmployEeloadUIService from '@/uiservice/employ-eeload/employ-eeload-ui-service';
+import EmpLoyeeloadUIService from '@/uiservice/emp-loyeeload/emp-loyeeload-ui-service';
 import CodeListService from "@service/app/codelist-service";
 
 
@@ -56,18 +56,18 @@ export class EMPLOYEELOADGridViewBase extends GridViewBase {
     /**
      * 实体服务对象
      *
-     * @type {EmployEeloadService}
+     * @type {EmpLoyeeloadService}
      * @memberof EMPLOYEELOADGridViewBase
      */
-    protected appEntityService: EmployEeloadService = new EmployEeloadService;
+    protected appEntityService: EmpLoyeeloadService = new EmpLoyeeloadService;
 
     /**
      * 实体权限服务对象
      *
-     * @type EmployEeloadUIService
+     * @type EmpLoyeeloadUIService
      * @memberof EMPLOYEELOADGridViewBase
      */
-    public appUIService: EmployEeloadUIService = new EmployEeloadUIService(this.$store);
+    public appUIService: EmpLoyeeloadUIService = new EmpLoyeeloadUIService(this.$store);
 
     /**
      * 视图模型数据

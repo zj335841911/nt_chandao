@@ -74,7 +74,7 @@ pms-webapi
 | 60 | [测试模块](1/TestModule) | testmodule |  |
 | 61 | [动态数据看板](1/DynaDashboard) | dynadashboard |  |
 | 62 | [任务模块](1/ProjectModule) | projectmodule |  |
-| 63 | [员工负载表](1/EmployEeload) | employeeload |  |
+| 63 | [员工负载表](1/EmpLoyeeload) | employeeload |  |
 | 64 | [项目产品](1/ProjectProduct) | projectproduct |  |
 | 65 | [项目相关成员](1/IbzProjectMember) | ibzprojectmember |  |
 | 66 | [组成员](1/SysTeamMember) | systeammember |  |
