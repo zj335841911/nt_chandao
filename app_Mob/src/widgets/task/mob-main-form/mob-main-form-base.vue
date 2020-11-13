@@ -599,10 +599,9 @@
     :caption="$t('task.mobmain_form.details.desc')"  
     :labelWidth="100"  
     :isShowCaption="true"
-    :disabled="detailsModel.desc.disabled"
     :error="detailsModel.desc.error" 
     :isEmptyCaption="false">
-        <app-mob-rich-text-editor :formState="formState" :value="data.desc" @change="(val) =>{this.data.desc =val}" :disabled="detailsModel.desc.disabled" :data="JSON.stringify(this.data)"  name="desc" :uploadparams='{}' :exportparams='{}'  style=""/>
+        <app-mob-rich-text-editor-pms :formState="formState" :isInfoFormMode="true"  :value="data.desc" @change="(val) =>{this.data.desc =val}" :disabled="detailsModel.desc.disabled" :data="JSON.stringify(this.data)"  name="desc" :uploadparams='{}' :exportparams='{}'  style=""/>
 
 </app-form-item>
 
