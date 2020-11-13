@@ -6,6 +6,8 @@ import cn.ibizlab.pms.core.util.ibizzentao.helper.DocLibHelper;
 import cn.ibizlab.pms.core.util.ibizzentao.helper.DocLibModuleHelper;
 import cn.ibizlab.pms.core.zentao.domain.DocContent;
 import cn.ibizlab.pms.core.zentao.domain.DocLib;
+import cn.ibizlab.pms.core.zentao.filter.DocSearchContext;
+import cn.ibizlab.pms.core.zentao.mapper.DocMapper;
 import cn.ibizlab.pms.core.zentao.service.IDocContentService;
 import cn.ibizlab.pms.core.zentao.service.impl.DocServiceImpl;
 import cn.ibizlab.pms.util.dict.StaticDict;
@@ -150,6 +152,13 @@ public class DocExService extends DocServiceImpl {
         }
 
         return super.unCollect(et);
+    }
+
+    @Override
+    public Doc getDocStatus(Doc et) {
+        DocSearchContext docSearchContext = new DocSearchContext();
+
+        return this.searchDocStatus(docSearchContext).getContent().get(0);
     }
 }
 
