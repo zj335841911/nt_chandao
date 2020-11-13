@@ -83,8 +83,8 @@ public class SysEmployeeExService extends SysEmployeeServiceImpl {
     }
 
     @Override
-    public Page<SysEmployee> searchProjectTeamUser_Task(SysEmployeeSearchContext context) {
-        log.info("SysEmployeeExService：searchProjectTeamUser_Task");
+    public Page<SysEmployee> searchProjectTeamUserTask(SysEmployeeSearchContext context) {
+        log.info("SysEmployeeExService：searchProjectTeamUserTask");
         Map<String,Object> params = context.getParams();
         if(params.get("srfparentkey") != null && !"0".equals(params.get("srfparentkey"))) {
             // 项目团队
