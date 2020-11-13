@@ -5348,7 +5348,6 @@ WHERE t1.DELETED = '0'
 ### 数据查询(AllDoclibModule)<div id="DocLibModule_DefaultDoclib"></div>
 ```sql
 SELECT
-( CASE WHEN FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t1.collector ) > 0 THEN 1 ELSE 0 END ) AS `ISFAVOURITES`,
 t1.`BRANCH`,
 t1.`DELETED`,
 t11.`NAME` AS `DOCLIBNAME`,

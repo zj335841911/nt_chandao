@@ -748,10 +748,8 @@ String
 | 4 | [Get](#实体行为-Get（Get）) | Get | 内置方法 | 后台及前台 |
 | 5 | [GetDraft](#实体行为-GetDraft（GetDraft）) | GetDraft | 内置方法 | 后台及前台 |
 | 6 | [CheckKey](#实体行为-CheckKey（CheckKey）) | CheckKey | 内置方法 | 后台及前台 |
-| 7 | [收藏](#实体行为-收藏（Collect）) | Collect | 用户自定义 | 后台及前台 |
-| 8 | [重建模块路径](#实体行为-重建模块路径（Fix）) | Fix | 实体处理逻辑 | 后台 |
-| 9 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
-| 10 | [取消收藏](#实体行为-取消收藏（UnCollect）) | UnCollect | 用户自定义 | 后台及前台 |
+| 7 | [重建模块路径](#实体行为-重建模块路径（Fix）) | Fix | 实体处理逻辑 | 后台 |
+| 8 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
 
 ### 实体行为-Create（Create）
 #### 说明
@@ -829,18 +827,6 @@ CheckKey
 
 #### 逻辑附加
 无
-### 实体行为-收藏（Collect）
-#### 说明
-收藏
-
-- 行为类型
-用户自定义
-
-- 行为持有者
-后台及前台
-
-#### 逻辑附加
-无
 ### 实体行为-重建模块路径（Fix）
 #### 说明
 重建模块路径
@@ -859,18 +845,6 @@ Save
 
 - 行为类型
 内置方法
-
-- 行为持有者
-后台及前台
-
-#### 逻辑附加
-无
-### 实体行为-取消收藏（UnCollect）
-#### 说明
-取消收藏
-
-- 行为类型
-用户自定义
 
 - 行为持有者
 后台及前台
@@ -1007,7 +981,6 @@ LEFT JOIN zt_module t21 ON t1.PARENT = t21.ID
 - MYSQL5
 ```SQL
 SELECT
-( CASE WHEN FIND_IN_SET( #{srf.sessioncontext.srfloginname}, t1.collector ) > 0 THEN 1 ELSE 0 END ) AS `ISFAVOURITES`,
 t1.`BRANCH`,
 t1.`DELETED`,
 t11.`NAME` AS `DOCLIBNAME`,
