@@ -779,6 +779,7 @@ export default class DocLibUIServiceBase extends UIService {
         let parentViewParam:any = {};
         const _this: any = actionContext;
         Object.assign(context,{DOCLIBTYPE:"%doclibtype%"});
+        Object.assign(params,{project:"%project%"});
         const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(context, { doclib: '%doclib%' });
