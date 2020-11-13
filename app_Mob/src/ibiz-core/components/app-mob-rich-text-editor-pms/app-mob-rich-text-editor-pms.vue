@@ -175,6 +175,9 @@ export default class AppRichTextEditor extends Vue {
         const result: any = await this.$appmodal.openModal(view, context, param);
         if (result || Object.is(result.ret, 'OK')) {
             this.$emit("change", result.datas[0].backEnd);
+            if(result.datas[0].noticeusers){
+              this.$emit("noticeusers_change", result.datas[0].noticeusers);
+            }
         }
     }
 

@@ -174,10 +174,9 @@ export default class AppRichTextEditor extends Vue {
         // node.setAttribute('width', '100%');
         //   设置自定义html
         node.innerHTML = this.transformValue(value);
-        node.setAttribute("title", value2);
+        node.setAttribute("noticeusers", value2);
         return node;
       }
-
       static transformValue(value: any) {
         let handleArr = value.split("\n");
         handleArr = handleArr.map((e: any) =>
@@ -245,11 +244,11 @@ export default class AppRichTextEditor extends Vue {
         "{" + this.resFile.id + this.resFile.ext + "}"
       );
       this.$emit("close", [
-        { frontEnd: this.resloutValue, backEnd: this.backEndValue },
+        { frontEnd: this.resloutValue, backEnd: this.backEndValue, noticeusers:this.account },
       ]);
     } else {
       this.$emit("close", [
-        { frontEnd: this.resloutValue, backEnd: this.resloutValue },
+        { frontEnd: this.resloutValue, backEnd: this.resloutValue, noticeusers:this.account },
       ]);
     }
   }
@@ -357,6 +356,8 @@ export default class AppRichTextEditor extends Vue {
     }
   }
 
+  public account = "";
+
   /**
    * @功能
    *
@@ -370,6 +371,11 @@ export default class AppRichTextEditor extends Vue {
       {}
     );
     if (result || Object.is(result.ret, "OK")) {
+      if(this.account.length > 0){
+        this.account += ','+result.datas[0].account
+      }else{
+         this.account = result.datas[0].account
+      }
       this.putContent("AppPanelEmbed",`@${result.datas[0].srfmajortext}***${result.datas[0].account}`);
     }
   }
