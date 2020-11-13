@@ -19,10 +19,6 @@ import org.springframework.stereotype.Component;
 @Component
 public class IBIZPRO_MESSAGEFallback implements IBIZPRO_MESSAGEFeignClient{
 
-    public IBIZProMessage send( String ibizpro_messageid, IBIZProMessage ibizpromessage){
-            return null;
-     }
-
     public Page<IBIZProMessage> select(){
             return null;
      }
