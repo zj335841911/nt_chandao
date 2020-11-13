@@ -727,7 +727,7 @@ export const viewstate: any = {
         {
             viewtag: '2d522dfacc8d37f56c2d684791a39d5d',
             viewmodule: 'zentao',
-            viewname: 'Todosmaindashboardview_link',
+            viewname: 'Todomaindashboardview_link',
             viewaction: '',
             viewdatachange: false,
             refviews: [
@@ -1351,7 +1351,7 @@ export const viewstate: any = {
         {
             viewtag: '4fcd2a15ff88a97425e1ab1cadc5eb9f',
             viewmodule: 'zentao',
-            viewname: 'Tasksmaindashboardview_link',
+            viewname: 'Taskmaindashboardview_link',
             viewaction: '',
             viewdatachange: false,
             refviews: [
@@ -2438,7 +2438,7 @@ export const viewstate: any = {
         {
             viewtag: '8c8adbf0a7db27078e01a8b32716fa71',
             viewmodule: 'zentao',
-            viewname: 'Bugsmaindashboardview_link',
+            viewname: 'Bugmaindashboardview_link',
             viewaction: '',
             viewdatachange: false,
             refviews: [
@@ -3710,7 +3710,7 @@ export const viewstate: any = {
         {
             viewtag: 'cfc7781789f7706e02b2d2504339de69',
             viewmodule: 'zentao',
-            viewname: 'Storysmaindashboardview_link',
+            viewname: 'Storymaindashboardview_link',
             viewaction: '',
             viewdatachange: false,
             refviews: [

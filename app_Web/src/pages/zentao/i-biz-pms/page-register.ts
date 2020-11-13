@@ -393,15 +393,15 @@ export const PageComponents = {
         Vue.component('case-project-report-link-grid-view', () => import('@pages/zentao/case-project-report-link-grid-view/case-project-report-link-grid-view.vue'));
         Vue.component('ibz-case-grid-view', () => import('@pages/zentao/ibz-case-grid-view/ibz-case-grid-view.vue'));
         Vue.component('project-edit-view-putoff', () => import('@pages/zentao/project-edit-view-putoff/project-edit-view-putoff.vue'));
-        Vue.component('todosmaindashboardview-link', () => import('@pages/zentao/todosmaindashboardview-link/todosmaindashboardview-link.vue'));
+        Vue.component('todomaindashboardview-link', () => import('@pages/zentao/todomaindashboardview-link/todomaindashboardview-link.vue'));
         Vue.component('project-edit-view-activate', () => import('@pages/zentao/project-edit-view-activate/project-edit-view-activate.vue'));
-        Vue.component('tasksmaindashboardview-link', () => import('@pages/zentao/tasksmaindashboardview-link/tasksmaindashboardview-link.vue'));
+        Vue.component('taskmaindashboardview-link', () => import('@pages/zentao/taskmaindashboardview-link/taskmaindashboardview-link.vue'));
         Vue.component('product-grid-view-un-closed', () => import('@pages/zentao/product-grid-view-un-closed/product-grid-view-un-closed.vue'));
         Vue.component('task-main-dashboard-view', () => import('@pages/zentao/task-main-dashboard-view/task-main-dashboard-view.vue'));
         Vue.component('project-main-view-edit', () => import('@pages/zentao/project-main-view-edit/project-main-view-edit.vue'));
-        Vue.component('bugsmaindashboardview-link', () => import('@pages/zentao/bugsmaindashboardview-link/bugsmaindashboardview-link.vue'));
+        Vue.component('bugmaindashboardview-link', () => import('@pages/zentao/bugmaindashboardview-link/bugmaindashboardview-link.vue'));
         Vue.component('project-edit-view-close', () => import('@pages/zentao/project-edit-view-close/project-edit-view-close.vue'));
-        Vue.component('storysmaindashboardview-link', () => import('@pages/zentao/storysmaindashboardview-link/storysmaindashboardview-link.vue'));
+        Vue.component('storymaindashboardview-link', () => import('@pages/zentao/storymaindashboardview-link/storymaindashboardview-link.vue'));
         Vue.component('project-edit-view-suspend', () => import('@pages/zentao/project-edit-view-suspend/project-edit-view-suspend.vue'));
     }
 };

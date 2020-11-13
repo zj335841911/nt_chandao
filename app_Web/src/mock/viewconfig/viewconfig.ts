@@ -695,12 +695,12 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProductStatsTestEditView9",
             "viewtag": "2ae3586b0dd0f70c261ba6f24adb99df"
         },
-        "todosmaindashboardview_link": {
+        "todomaindashboardview_link": {
             "title": "待办事宜表数据看板视图",
             "caption": "待办",
             "viewtype": "DEPORTALVIEW",
             "viewmodule": "zentao",
-            "viewname": "Todosmaindashboardview_link",
+            "viewname": "Todomaindashboardview_link",
             "viewtag": "2d522dfacc8d37f56c2d684791a39d5d"
         },
         "doclibcustomtreeexpview": {
@@ -1231,12 +1231,12 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TestTaskEditView_commitTest",
             "viewtag": "4d32793fc57ec1ae930a18608526d00e"
         },
-        "tasksmaindashboardview_link": {
+        "taskmaindashboardview_link": {
             "title": "任务主数据看板视图",
             "caption": "任务",
             "viewtype": "DEPORTALVIEW",
             "viewmodule": "zentao",
-            "viewname": "Tasksmaindashboardview_link",
+            "viewname": "Taskmaindashboardview_link",
             "viewtag": "4fcd2a15ff88a97425e1ab1cadc5eb9f"
         },
         "productplansubplangridview": {
@@ -2167,12 +2167,12 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProductStatsGridView9",
             "viewtag": "8c3d000c53ed0d5490a133f568d98097"
         },
-        "bugsmaindashboardview_link": {
+        "bugmaindashboardview_link": {
             "title": "Bug数据看板视图",
             "caption": "Bug",
             "viewtype": "DEPORTALVIEW",
             "viewmodule": "zentao",
-            "viewname": "Bugsmaindashboardview_link",
+            "viewname": "Bugmaindashboardview_link",
             "viewtag": "8c8adbf0a7db27078e01a8b32716fa71"
         },
         "sysupdatefeatureslastgridview": {
@@ -3263,12 +3263,12 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "IbzMyTerritoryEmployTreeExpView",
             "viewtag": "cef6e71f89bb0007d341328d455f6da0"
         },
-        "storysmaindashboardview_link": {
+        "storymaindashboardview_link": {
             "title": "需求数据看板视图",
             "caption": "需求",
             "viewtype": "DEPORTALVIEW",
             "viewmodule": "zentao",
-            "viewname": "Storysmaindashboardview_link",
+            "viewname": "Storymaindashboardview_link",
             "viewtag": "cfc7781789f7706e02b2d2504339de69"
         },
         "testresulteditview9": {

@@ -56,9 +56,9 @@
 |测试|[查看功能](func/ProductTestLeftSidebarListView.md)|
 |底部导航区|-|
 |底部中间菜单|-|
-|bug菜单项|[查看功能](func/Bugsmaindashboardview_link.md)|
-|菜单项|[查看功能](func/Bugsmaindashboardview_link.md)|
-|菜单项|[查看功能](func/Tasksmaindashboardview_link.md)|
-|菜单项|[查看功能](func/Todosmaindashboardview_link.md)|
-|菜单项|[查看功能](func/Storysmaindashboardview_link.md)|
+|bug菜单项|[查看功能](func/Bugmaindashboardview_link.md)|
+|菜单项|[查看功能](func/Bugmaindashboardview_link.md)|
+|菜单项|[查看功能](func/Taskmaindashboardview_link.md)|
+|菜单项|[查看功能](func/Todomaindashboardview_link.md)|
+|菜单项|[查看功能](func/Storymaindashboardview_link.md)|
 

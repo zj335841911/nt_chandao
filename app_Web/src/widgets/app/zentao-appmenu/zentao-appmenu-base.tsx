@@ -177,7 +177,7 @@ export class ZentaoBase extends Vue {
         const deResParameters: any[] = [];
         const parameters: any[] = [
             { pathName: 'todos', parameterName: 'todo' },
-            { pathName: 'smaindashboardview_link', parameterName: 'smaindashboardview_link' },
+            { pathName: 'maindashboardview_link', parameterName: 'maindashboardview_link' },
         ];
         const path: string = this.$viewTool.buildUpRoutePath(this.$route, {}, deResParameters, parameters, [], viewparam);
         if(Object.is(this.$route.fullPath,path)){
@@ -245,7 +245,7 @@ export class ZentaoBase extends Vue {
         const deResParameters: any[] = [];
         const parameters: any[] = [
             { pathName: 'tasks', parameterName: 'task' },
-            { pathName: 'smaindashboardview_link', parameterName: 'smaindashboardview_link' },
+            { pathName: 'maindashboardview_link', parameterName: 'maindashboardview_link' },
         ];
         const path: string = this.$viewTool.buildUpRoutePath(this.$route, {}, deResParameters, parameters, [], viewparam);
         if(Object.is(this.$route.fullPath,path)){
@@ -442,7 +442,7 @@ export class ZentaoBase extends Vue {
         const deResParameters: any[] = [];
         const parameters: any[] = [
             { pathName: 'stories', parameterName: 'story' },
-            { pathName: 'smaindashboardview_link', parameterName: 'smaindashboardview_link' },
+            { pathName: 'maindashboardview_link', parameterName: 'maindashboardview_link' },
         ];
         const path: string = this.$viewTool.buildUpRoutePath(this.$route, {}, deResParameters, parameters, [], viewparam);
         if(Object.is(this.$route.fullPath,path)){
@@ -487,7 +487,7 @@ export class ZentaoBase extends Vue {
         const deResParameters: any[] = [];
         const parameters: any[] = [
             { pathName: 'bugs', parameterName: 'bug' },
-            { pathName: 'smaindashboardview_link', parameterName: 'smaindashboardview_link' },
+            { pathName: 'maindashboardview_link', parameterName: 'maindashboardview_link' },
         ];
         const path: string = this.$viewTool.buildUpRoutePath(this.$route, {}, deResParameters, parameters, [], viewparam);
         if(Object.is(this.$route.fullPath,path)){
