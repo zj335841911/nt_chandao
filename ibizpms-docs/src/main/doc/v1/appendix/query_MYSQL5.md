@@ -7325,7 +7325,7 @@ FROM `zt_module` t1
 LEFT JOIN zt_module t11 ON t1.PARENT = t11.ID 
 
 WHERE t1.DELETED = '0' 
-( t1.`TYPE` = 'line' ) 
+( t1.`TYPE` = 'line'  AND  t1.`ORGID` =  ${srfsessioncontext('SRFORGID','{"defname":"ORGID","dename":"ZT_MODULE"}')} ) 
 
 ```
 ### 需求模块(StoryModule)<div id="Module_StoryModule"></div>
