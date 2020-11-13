@@ -67,6 +67,17 @@ export class DocDocStatusEditViewBase extends EditView9Base {
     public appUIService: DocUIService = new DocUIService(this.$store);
 
 	/**
+	 * 自定义视图导航上下文集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof DocDocStatusEditViewBase
+	 */
+    protected customViewNavContexts: any = {
+        'DOC': { isRawValue: true, value: '0' }
+    };
+
+	/**
 	 * 自定义视图导航参数集合
 	 *
      * @protected
