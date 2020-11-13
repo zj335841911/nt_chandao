@@ -21,7 +21,7 @@ import cn.ibizlab.pms.core.zentao.domain.Case;
  */
 @Slf4j
 @Service
-public class CaseCaseNFavoriteLogicImpl implements ICaseCaseNFavoriteLogic{
+public class CaseCaseNFavoriteLogicImpl implements ICaseCaseNFavoriteLogic {
 
     @Autowired
     private KieContainer kieContainer;
@@ -35,21 +35,21 @@ public class CaseCaseNFavoriteLogicImpl implements ICaseCaseNFavoriteLogic{
     }
 
     @Override
-    public void execute(Case et){
+    public void execute(Case et) {
 
           KieSession kieSession = null;
         try{
-           kieSession=kieContainer.newKieSession();
-           cn.ibizlab.pms.core.ibiz.domain.IbzFavorites  casecasenfavoriteibzfavorite =new cn.ibizlab.pms.core.ibiz.domain.IbzFavorites();
+           kieSession = kieContainer.newKieSession();
+           cn.ibizlab.pms.core.ibiz.domain.IbzFavorites casecasenfavoriteibzfavorite = new cn.ibizlab.pms.core.ibiz.domain.IbzFavorites();
            kieSession.insert(casecasenfavoriteibzfavorite); 
-           kieSession.setGlobal("casecasenfavoriteibzfavorite",casecasenfavoriteibzfavorite);
+           kieSession.setGlobal("casecasenfavoriteibzfavorite", casecasenfavoriteibzfavorite);
            kieSession.insert(et); 
-           kieSession.setGlobal("casecasenfavoritedefault",et);
-           kieSession.setGlobal("iBzSysCaseDefaultService",iBzSysDefaultService);
+           kieSession.setGlobal("casecasenfavoritedefault", et);
+           kieSession.setGlobal("iBzSysCaseDefaultService", iBzSysDefaultService);
            kieSession.setGlobal("curuser", cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser());
            kieSession.startProcess("cn.ibizlab.pms.core.zentao.service.logic.casecasenfavorite");
 
-        }catch(Exception e){
+        }catch(Exception e) {
             throw new RuntimeException("执行[用例取消收藏]处理逻辑发生异常"+e);
         }finally {
             if(kieSession!=null) {

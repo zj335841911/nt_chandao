@@ -17,13 +17,13 @@ import java.io.Serializable;
 import com.baomidou.mybatisplus.core.toolkit.Constants;
 import com.alibaba.fastjson.JSONObject;
 
-public interface DocMapper extends BaseMapper<Doc>{
+public interface DocMapper extends BaseMapper<Doc> {
 
-    Page<Doc> searchChildDocLibDoc(IPage page, @Param("srf") DocSearchContext context, @Param("ew") Wrapper<Doc> wrapper) ;
-    Page<Doc> searchDefault(IPage page, @Param("srf") DocSearchContext context, @Param("ew") Wrapper<Doc> wrapper) ;
-    Page<Doc> searchDocLibDoc(IPage page, @Param("srf") DocSearchContext context, @Param("ew") Wrapper<Doc> wrapper) ;
-    Page<Doc> searchDocModuleDoc(IPage page, @Param("srf") DocSearchContext context, @Param("ew") Wrapper<Doc> wrapper) ;
-    Page<Doc> searchMyFavourite(IPage page, @Param("srf") DocSearchContext context, @Param("ew") Wrapper<Doc> wrapper) ;
+    Page<Doc> searchChildDocLibDoc(IPage page, @Param("srf") DocSearchContext context, @Param("ew") Wrapper<Doc> wrapper);
+    Page<Doc> searchDefault(IPage page, @Param("srf") DocSearchContext context, @Param("ew") Wrapper<Doc> wrapper);
+    Page<Doc> searchDocLibDoc(IPage page, @Param("srf") DocSearchContext context, @Param("ew") Wrapper<Doc> wrapper);
+    Page<Doc> searchDocModuleDoc(IPage page, @Param("srf") DocSearchContext context, @Param("ew") Wrapper<Doc> wrapper);
+    Page<Doc> searchMyFavourite(IPage page, @Param("srf") DocSearchContext context, @Param("ew") Wrapper<Doc> wrapper);
     @Override
     Doc selectById(Serializable id);
     @Override
@@ -34,13 +34,13 @@ public interface DocMapper extends BaseMapper<Doc>{
     int update(@Param(Constants.ENTITY) Doc entity, @Param("ew") Wrapper<Doc> updateWrapper);
     @Override
     int deleteById(Serializable id);
-     /**
-      * 自定义查询SQL
-      * @param sql
-      * @return
-      */
-     @Select("${sql}")
-     List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
+    /**
+    * 自定义查询SQL
+    * @param sql
+    * @return
+    */
+    @Select("${sql}")
+    List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
 
     /**
     * 自定义更新SQL
@@ -66,12 +66,12 @@ public interface DocMapper extends BaseMapper<Doc>{
     @Delete("${sql}")
     boolean deleteBySQL(@Param("sql") String sql, @Param("et")Map param);
 
-    List<Doc> selectByLib(@Param("id") Serializable id) ;
+    List<Doc> selectByLib(@Param("id") Serializable id);
 
-    List<Doc> selectByModule(@Param("id") Serializable id) ;
+    List<Doc> selectByModule(@Param("id") Serializable id);
 
-    List<Doc> selectByProduct(@Param("id") Serializable id) ;
+    List<Doc> selectByProduct(@Param("id") Serializable id);
 
-    List<Doc> selectByProject(@Param("id") Serializable id) ;
+    List<Doc> selectByProject(@Param("id") Serializable id);
 
 }

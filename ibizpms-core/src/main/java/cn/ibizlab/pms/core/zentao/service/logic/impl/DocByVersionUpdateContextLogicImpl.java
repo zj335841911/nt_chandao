@@ -21,7 +21,7 @@ import cn.ibizlab.pms.core.zentao.domain.Doc;
  */
 @Slf4j
 @Service
-public class DocByVersionUpdateContextLogicImpl implements IDocByVersionUpdateContextLogic{
+public class DocByVersionUpdateContextLogicImpl implements IDocByVersionUpdateContextLogic {
 
     @Autowired
     private KieContainer kieContainer;
@@ -35,18 +35,18 @@ public class DocByVersionUpdateContextLogicImpl implements IDocByVersionUpdateCo
     }
 
     @Override
-    public void execute(Doc et){
+    public void execute(Doc et) {
 
           KieSession kieSession = null;
         try{
-           kieSession=kieContainer.newKieSession();
+           kieSession = kieContainer.newKieSession();
            kieSession.insert(et); 
-           kieSession.setGlobal("docbyversionupdatecontextdefault",et);
-           kieSession.setGlobal("iBzSysDocDefaultService",iBzSysDefaultService);
+           kieSession.setGlobal("docbyversionupdatecontextdefault", et);
+           kieSession.setGlobal("iBzSysDocDefaultService", iBzSysDefaultService);
            kieSession.setGlobal("curuser", cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser());
            kieSession.startProcess("cn.ibizlab.pms.core.zentao.service.logic.docbyversionupdatecontext");
 
-        }catch(Exception e){
+        }catch(Exception e) {
             throw new RuntimeException("执行[根据版本更新正文信息]处理逻辑发生异常"+e);
         }finally {
             if(kieSession!=null) {

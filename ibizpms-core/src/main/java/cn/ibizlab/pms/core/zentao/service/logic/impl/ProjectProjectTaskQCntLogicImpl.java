@@ -21,7 +21,7 @@ import cn.ibizlab.pms.core.zentao.domain.Project;
  */
 @Slf4j
 @Service
-public class ProjectProjectTaskQCntLogicImpl implements IProjectProjectTaskQCntLogic{
+public class ProjectProjectTaskQCntLogicImpl implements IProjectProjectTaskQCntLogic {
 
     @Autowired
     private KieContainer kieContainer;
@@ -35,18 +35,18 @@ public class ProjectProjectTaskQCntLogicImpl implements IProjectProjectTaskQCntL
     }
 
     @Override
-    public void execute(Project et){
+    public void execute(Project et) {
 
           KieSession kieSession = null;
         try{
-           kieSession=kieContainer.newKieSession();
+           kieSession = kieContainer.newKieSession();
            kieSession.insert(et); 
-           kieSession.setGlobal("projectprojecttaskqcntdefault",et);
-           kieSession.setGlobal("iBzSysProjectDefaultService",iBzSysDefaultService);
+           kieSession.setGlobal("projectprojecttaskqcntdefault", et);
+           kieSession.setGlobal("iBzSysProjectDefaultService", iBzSysDefaultService);
            kieSession.setGlobal("curuser", cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser());
            kieSession.startProcess("cn.ibizlab.pms.core.zentao.service.logic.projectprojecttaskqcnt");
 
-        }catch(Exception e){
+        }catch(Exception e) {
             throw new RuntimeException("执行[项目任务快速分组计数器]处理逻辑发生异常"+e);
         }finally {
             if(kieSession!=null) {

@@ -17,10 +17,10 @@ import java.io.Serializable;
 import com.baomidou.mybatisplus.core.toolkit.Constants;
 import com.alibaba.fastjson.JSONObject;
 
-public interface TaskEstimateMapper extends BaseMapper<TaskEstimate>{
+public interface TaskEstimateMapper extends BaseMapper<TaskEstimate> {
 
-    Page<TaskEstimate> searchDefault(IPage page, @Param("srf") TaskEstimateSearchContext context, @Param("ew") Wrapper<TaskEstimate> wrapper) ;
-    Page<TaskEstimate> searchDefaults(IPage page, @Param("srf") TaskEstimateSearchContext context, @Param("ew") Wrapper<TaskEstimate> wrapper) ;
+    Page<TaskEstimate> searchDefault(IPage page, @Param("srf") TaskEstimateSearchContext context, @Param("ew") Wrapper<TaskEstimate> wrapper);
+    Page<TaskEstimate> searchDefaults(IPage page, @Param("srf") TaskEstimateSearchContext context, @Param("ew") Wrapper<TaskEstimate> wrapper);
     @Override
     TaskEstimate selectById(Serializable id);
     @Override
@@ -31,13 +31,13 @@ public interface TaskEstimateMapper extends BaseMapper<TaskEstimate>{
     int update(@Param(Constants.ENTITY) TaskEstimate entity, @Param("ew") Wrapper<TaskEstimate> updateWrapper);
     @Override
     int deleteById(Serializable id);
-     /**
-      * 自定义查询SQL
-      * @param sql
-      * @return
-      */
-     @Select("${sql}")
-     List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
+    /**
+    * 自定义查询SQL
+    * @param sql
+    * @return
+    */
+    @Select("${sql}")
+    List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
 
     /**
     * 自定义更新SQL
@@ -63,6 +63,6 @@ public interface TaskEstimateMapper extends BaseMapper<TaskEstimate>{
     @Delete("${sql}")
     boolean deleteBySQL(@Param("sql") String sql, @Param("et")Map param);
 
-    List<TaskEstimate> selectByTask(@Param("id") Serializable id) ;
+    List<TaskEstimate> selectByTask(@Param("id") Serializable id);
 
 }

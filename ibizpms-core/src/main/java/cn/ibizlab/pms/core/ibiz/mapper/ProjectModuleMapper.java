@@ -17,15 +17,15 @@ import java.io.Serializable;
 import com.baomidou.mybatisplus.core.toolkit.Constants;
 import com.alibaba.fastjson.JSONObject;
 
-public interface ProjectModuleMapper extends BaseMapper<ProjectModule>{
+public interface ProjectModuleMapper extends BaseMapper<ProjectModule> {
 
-    Page<ProjectModule> searchByPath(IPage page, @Param("srf") ProjectModuleSearchContext context, @Param("ew") Wrapper<ProjectModule> wrapper) ;
-    Page<ProjectModule> searchDefault(IPage page, @Param("srf") ProjectModuleSearchContext context, @Param("ew") Wrapper<ProjectModule> wrapper) ;
-    Page<ProjectModule> searchParentModule(IPage page, @Param("srf") ProjectModuleSearchContext context, @Param("ew") Wrapper<ProjectModule> wrapper) ;
-    Page<ProjectModule> searchRoot(IPage page, @Param("srf") ProjectModuleSearchContext context, @Param("ew") Wrapper<ProjectModule> wrapper) ;
-    Page<ProjectModule> searchRoot_NoBranch(IPage page, @Param("srf") ProjectModuleSearchContext context, @Param("ew") Wrapper<ProjectModule> wrapper) ;
-    Page<ProjectModule> searchRoot_Task(IPage page, @Param("srf") ProjectModuleSearchContext context, @Param("ew") Wrapper<ProjectModule> wrapper) ;
-    Page<ProjectModule> searchTaskModules(IPage page, @Param("srf") ProjectModuleSearchContext context, @Param("ew") Wrapper<ProjectModule> wrapper) ;
+    Page<ProjectModule> searchByPath(IPage page, @Param("srf") ProjectModuleSearchContext context, @Param("ew") Wrapper<ProjectModule> wrapper);
+    Page<ProjectModule> searchDefault(IPage page, @Param("srf") ProjectModuleSearchContext context, @Param("ew") Wrapper<ProjectModule> wrapper);
+    Page<ProjectModule> searchParentModule(IPage page, @Param("srf") ProjectModuleSearchContext context, @Param("ew") Wrapper<ProjectModule> wrapper);
+    Page<ProjectModule> searchRoot(IPage page, @Param("srf") ProjectModuleSearchContext context, @Param("ew") Wrapper<ProjectModule> wrapper);
+    Page<ProjectModule> searchRoot_NoBranch(IPage page, @Param("srf") ProjectModuleSearchContext context, @Param("ew") Wrapper<ProjectModule> wrapper);
+    Page<ProjectModule> searchRoot_Task(IPage page, @Param("srf") ProjectModuleSearchContext context, @Param("ew") Wrapper<ProjectModule> wrapper);
+    Page<ProjectModule> searchTaskModules(IPage page, @Param("srf") ProjectModuleSearchContext context, @Param("ew") Wrapper<ProjectModule> wrapper);
     @Override
     ProjectModule selectById(Serializable id);
     @Override
@@ -36,13 +36,13 @@ public interface ProjectModuleMapper extends BaseMapper<ProjectModule>{
     int update(@Param(Constants.ENTITY) ProjectModule entity, @Param("ew") Wrapper<ProjectModule> updateWrapper);
     @Override
     int deleteById(Serializable id);
-     /**
-      * 自定义查询SQL
-      * @param sql
-      * @return
-      */
-     @Select("${sql}")
-     List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
+    /**
+    * 自定义查询SQL
+    * @param sql
+    * @return
+    */
+    @Select("${sql}")
+    List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
 
     /**
     * 自定义更新SQL
@@ -68,8 +68,8 @@ public interface ProjectModuleMapper extends BaseMapper<ProjectModule>{
     @Delete("${sql}")
     boolean deleteBySQL(@Param("sql") String sql, @Param("et")Map param);
 
-    List<ProjectModule> selectByParent(@Param("id") Serializable id) ;
+    List<ProjectModule> selectByParent(@Param("id") Serializable id);
 
-    List<ProjectModule> selectByRoot(@Param("id") Serializable id) ;
+    List<ProjectModule> selectByRoot(@Param("id") Serializable id);
 
 }

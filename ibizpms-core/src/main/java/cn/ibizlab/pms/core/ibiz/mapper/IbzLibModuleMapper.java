@@ -17,10 +17,10 @@ import java.io.Serializable;
 import com.baomidou.mybatisplus.core.toolkit.Constants;
 import com.alibaba.fastjson.JSONObject;
 
-public interface IbzLibModuleMapper extends BaseMapper<IbzLibModule>{
+public interface IbzLibModuleMapper extends BaseMapper<IbzLibModule> {
 
-    Page<IbzLibModule> searchDefault(IPage page, @Param("srf") IbzLibModuleSearchContext context, @Param("ew") Wrapper<IbzLibModule> wrapper) ;
-    Page<IbzLibModule> searchRoot_NoBranch(IPage page, @Param("srf") IbzLibModuleSearchContext context, @Param("ew") Wrapper<IbzLibModule> wrapper) ;
+    Page<IbzLibModule> searchDefault(IPage page, @Param("srf") IbzLibModuleSearchContext context, @Param("ew") Wrapper<IbzLibModule> wrapper);
+    Page<IbzLibModule> searchRoot_NoBranch(IPage page, @Param("srf") IbzLibModuleSearchContext context, @Param("ew") Wrapper<IbzLibModule> wrapper);
     @Override
     IbzLibModule selectById(Serializable id);
     @Override
@@ -31,13 +31,13 @@ public interface IbzLibModuleMapper extends BaseMapper<IbzLibModule>{
     int update(@Param(Constants.ENTITY) IbzLibModule entity, @Param("ew") Wrapper<IbzLibModule> updateWrapper);
     @Override
     int deleteById(Serializable id);
-     /**
-      * 自定义查询SQL
-      * @param sql
-      * @return
-      */
-     @Select("${sql}")
-     List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
+    /**
+    * 自定义查询SQL
+    * @param sql
+    * @return
+    */
+    @Select("${sql}")
+    List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
 
     /**
     * 自定义更新SQL
@@ -63,8 +63,8 @@ public interface IbzLibModuleMapper extends BaseMapper<IbzLibModule>{
     @Delete("${sql}")
     boolean deleteBySQL(@Param("sql") String sql, @Param("et")Map param);
 
-    List<IbzLibModule> selectByParent(@Param("id") Serializable id) ;
+    List<IbzLibModule> selectByParent(@Param("id") Serializable id);
 
-    List<IbzLibModule> selectByRoot(@Param("id") Serializable id) ;
+    List<IbzLibModule> selectByRoot(@Param("id") Serializable id);
 
 }

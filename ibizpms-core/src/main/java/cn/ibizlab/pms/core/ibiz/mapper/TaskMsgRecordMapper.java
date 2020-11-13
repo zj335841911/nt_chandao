@@ -17,9 +17,9 @@ import java.io.Serializable;
 import com.baomidou.mybatisplus.core.toolkit.Constants;
 import com.alibaba.fastjson.JSONObject;
 
-public interface TaskMsgRecordMapper extends BaseMapper<TaskMsgRecord>{
+public interface TaskMsgRecordMapper extends BaseMapper<TaskMsgRecord> {
 
-    Page<TaskMsgRecord> searchDefault(IPage page, @Param("srf") TaskMsgRecordSearchContext context, @Param("ew") Wrapper<TaskMsgRecord> wrapper) ;
+    Page<TaskMsgRecord> searchDefault(IPage page, @Param("srf") TaskMsgRecordSearchContext context, @Param("ew") Wrapper<TaskMsgRecord> wrapper);
     @Override
     TaskMsgRecord selectById(Serializable id);
     @Override
@@ -30,13 +30,13 @@ public interface TaskMsgRecordMapper extends BaseMapper<TaskMsgRecord>{
     int update(@Param(Constants.ENTITY) TaskMsgRecord entity, @Param("ew") Wrapper<TaskMsgRecord> updateWrapper);
     @Override
     int deleteById(Serializable id);
-     /**
-      * 自定义查询SQL
-      * @param sql
-      * @return
-      */
-     @Select("${sql}")
-     List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
+    /**
+    * 自定义查询SQL
+    * @param sql
+    * @return
+    */
+    @Select("${sql}")
+    List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
 
     /**
     * 自定义更新SQL

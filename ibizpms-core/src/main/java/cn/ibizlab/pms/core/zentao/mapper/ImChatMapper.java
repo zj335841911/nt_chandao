@@ -17,9 +17,9 @@ import java.io.Serializable;
 import com.baomidou.mybatisplus.core.toolkit.Constants;
 import com.alibaba.fastjson.JSONObject;
 
-public interface ImChatMapper extends BaseMapper<ImChat>{
+public interface ImChatMapper extends BaseMapper<ImChat> {
 
-    Page<ImChat> searchDefault(IPage page, @Param("srf") ImChatSearchContext context, @Param("ew") Wrapper<ImChat> wrapper) ;
+    Page<ImChat> searchDefault(IPage page, @Param("srf") ImChatSearchContext context, @Param("ew") Wrapper<ImChat> wrapper);
     @Override
     ImChat selectById(Serializable id);
     @Override
@@ -30,13 +30,13 @@ public interface ImChatMapper extends BaseMapper<ImChat>{
     int update(@Param(Constants.ENTITY) ImChat entity, @Param("ew") Wrapper<ImChat> updateWrapper);
     @Override
     int deleteById(Serializable id);
-     /**
-      * 自定义查询SQL
-      * @param sql
-      * @return
-      */
-     @Select("${sql}")
-     List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
+    /**
+    * 自定义查询SQL
+    * @param sql
+    * @return
+    */
+    @Select("${sql}")
+    List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
 
     /**
     * 自定义更新SQL

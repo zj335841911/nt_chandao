@@ -21,7 +21,7 @@ import cn.ibizlab.pms.core.zentao.domain.Story;
  */
 @Slf4j
 @Service
-public class StoryStoryFavoritesLogicImpl implements IStoryStoryFavoritesLogic{
+public class StoryStoryFavoritesLogicImpl implements IStoryStoryFavoritesLogic {
 
     @Autowired
     private KieContainer kieContainer;
@@ -42,22 +42,22 @@ public class StoryStoryFavoritesLogicImpl implements IStoryStoryFavoritesLogic{
     }
 
     @Override
-    public void execute(Story et){
+    public void execute(Story et) {
 
           KieSession kieSession = null;
         try{
-           kieSession=kieContainer.newKieSession();
-           cn.ibizlab.pms.core.ibiz.domain.IbzFavorites  storystoryfavoritesibzfavorites =new cn.ibizlab.pms.core.ibiz.domain.IbzFavorites();
+           kieSession = kieContainer.newKieSession();
+           cn.ibizlab.pms.core.ibiz.domain.IbzFavorites storystoryfavoritesibzfavorites = new cn.ibizlab.pms.core.ibiz.domain.IbzFavorites();
            kieSession.insert(storystoryfavoritesibzfavorites); 
-           kieSession.setGlobal("storystoryfavoritesibzfavorites",storystoryfavoritesibzfavorites);
+           kieSession.setGlobal("storystoryfavoritesibzfavorites", storystoryfavoritesibzfavorites);
            kieSession.insert(et); 
-           kieSession.setGlobal("storystoryfavoritesdefault",et);
-           kieSession.setGlobal("ibzfavoritesservice",ibzfavoritesservice);
-           kieSession.setGlobal("iBzSysStoryDefaultService",iBzSysDefaultService);
+           kieSession.setGlobal("storystoryfavoritesdefault", et);
+           kieSession.setGlobal("ibzfavoritesservice", ibzfavoritesservice);
+           kieSession.setGlobal("iBzSysStoryDefaultService", iBzSysDefaultService);
            kieSession.setGlobal("curuser", cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser());
            kieSession.startProcess("cn.ibizlab.pms.core.zentao.service.logic.storystoryfavorites");
 
-        }catch(Exception e){
+        }catch(Exception e) {
             throw new RuntimeException("执行[需求收藏]处理逻辑发生异常"+e);
         }finally {
             if(kieSession!=null) {

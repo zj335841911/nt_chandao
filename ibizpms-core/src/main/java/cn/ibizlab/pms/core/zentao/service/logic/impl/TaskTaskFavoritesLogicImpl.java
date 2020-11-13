@@ -21,7 +21,7 @@ import cn.ibizlab.pms.core.zentao.domain.Task;
  */
 @Slf4j
 @Service
-public class TaskTaskFavoritesLogicImpl implements ITaskTaskFavoritesLogic{
+public class TaskTaskFavoritesLogicImpl implements ITaskTaskFavoritesLogic {
 
     @Autowired
     private KieContainer kieContainer;
@@ -42,22 +42,22 @@ public class TaskTaskFavoritesLogicImpl implements ITaskTaskFavoritesLogic{
     }
 
     @Override
-    public void execute(Task et){
+    public void execute(Task et) {
 
           KieSession kieSession = null;
         try{
-           kieSession=kieContainer.newKieSession();
-           cn.ibizlab.pms.core.ibiz.domain.IbzFavorites  tasktaskfavoritesibzfavorites =new cn.ibizlab.pms.core.ibiz.domain.IbzFavorites();
+           kieSession = kieContainer.newKieSession();
+           cn.ibizlab.pms.core.ibiz.domain.IbzFavorites tasktaskfavoritesibzfavorites = new cn.ibizlab.pms.core.ibiz.domain.IbzFavorites();
            kieSession.insert(tasktaskfavoritesibzfavorites); 
-           kieSession.setGlobal("tasktaskfavoritesibzfavorites",tasktaskfavoritesibzfavorites);
+           kieSession.setGlobal("tasktaskfavoritesibzfavorites", tasktaskfavoritesibzfavorites);
            kieSession.insert(et); 
-           kieSession.setGlobal("tasktaskfavoritesdefault",et);
-           kieSession.setGlobal("ibzfavoritesservice",ibzfavoritesservice);
-           kieSession.setGlobal("iBzSysTaskDefaultService",iBzSysDefaultService);
+           kieSession.setGlobal("tasktaskfavoritesdefault", et);
+           kieSession.setGlobal("ibzfavoritesservice", ibzfavoritesservice);
+           kieSession.setGlobal("iBzSysTaskDefaultService", iBzSysDefaultService);
            kieSession.setGlobal("curuser", cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser());
            kieSession.startProcess("cn.ibizlab.pms.core.zentao.service.logic.tasktaskfavorites");
 
-        }catch(Exception e){
+        }catch(Exception e) {
             throw new RuntimeException("执行[任务收藏]处理逻辑发生异常"+e);
         }finally {
             if(kieSession!=null) {

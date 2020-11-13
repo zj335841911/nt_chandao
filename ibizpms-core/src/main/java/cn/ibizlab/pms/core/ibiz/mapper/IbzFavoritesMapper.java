@@ -17,9 +17,9 @@ import java.io.Serializable;
 import com.baomidou.mybatisplus.core.toolkit.Constants;
 import com.alibaba.fastjson.JSONObject;
 
-public interface IbzFavoritesMapper extends BaseMapper<IbzFavorites>{
+public interface IbzFavoritesMapper extends BaseMapper<IbzFavorites> {
 
-    Page<IbzFavorites> searchDefault(IPage page, @Param("srf") IbzFavoritesSearchContext context, @Param("ew") Wrapper<IbzFavorites> wrapper) ;
+    Page<IbzFavorites> searchDefault(IPage page, @Param("srf") IbzFavoritesSearchContext context, @Param("ew") Wrapper<IbzFavorites> wrapper);
     @Override
     IbzFavorites selectById(Serializable id);
     @Override
@@ -30,13 +30,13 @@ public interface IbzFavoritesMapper extends BaseMapper<IbzFavorites>{
     int update(@Param(Constants.ENTITY) IbzFavorites entity, @Param("ew") Wrapper<IbzFavorites> updateWrapper);
     @Override
     int deleteById(Serializable id);
-     /**
-      * 自定义查询SQL
-      * @param sql
-      * @return
-      */
-     @Select("${sql}")
-     List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
+    /**
+    * 自定义查询SQL
+    * @param sql
+    * @return
+    */
+    @Select("${sql}")
+    List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
 
     /**
     * 自定义更新SQL

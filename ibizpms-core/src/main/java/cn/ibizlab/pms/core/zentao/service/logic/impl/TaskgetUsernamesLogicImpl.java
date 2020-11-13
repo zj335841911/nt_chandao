@@ -21,7 +21,7 @@ import cn.ibizlab.pms.core.zentao.domain.Task;
  */
 @Slf4j
 @Service
-public class TaskgetUsernamesLogicImpl implements ITaskgetUsernamesLogic{
+public class TaskgetUsernamesLogicImpl implements ITaskgetUsernamesLogic {
 
     @Autowired
     private KieContainer kieContainer;
@@ -35,18 +35,18 @@ public class TaskgetUsernamesLogicImpl implements ITaskgetUsernamesLogic{
     }
 
     @Override
-    public void execute(Task et){
+    public void execute(Task et) {
 
           KieSession kieSession = null;
         try{
-           kieSession=kieContainer.newKieSession();
+           kieSession = kieContainer.newKieSession();
            kieSession.insert(et); 
-           kieSession.setGlobal("taskgetusernamesdefault",et);
-           kieSession.setGlobal("iBzSysTaskDefaultService",iBzSysDefaultService);
+           kieSession.setGlobal("taskgetusernamesdefault", et);
+           kieSession.setGlobal("iBzSysTaskDefaultService", iBzSysDefaultService);
            kieSession.setGlobal("curuser", cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser());
            kieSession.startProcess("cn.ibizlab.pms.core.zentao.service.logic.taskgetusernames");
 
-        }catch(Exception e){
+        }catch(Exception e) {
             throw new RuntimeException("执行[获取团队成员]处理逻辑发生异常"+e);
         }finally {
             if(kieSession!=null) {

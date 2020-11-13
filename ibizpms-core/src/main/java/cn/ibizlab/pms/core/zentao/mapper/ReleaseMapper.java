@@ -17,10 +17,10 @@ import java.io.Serializable;
 import com.baomidou.mybatisplus.core.toolkit.Constants;
 import com.alibaba.fastjson.JSONObject;
 
-public interface ReleaseMapper extends BaseMapper<Release>{
+public interface ReleaseMapper extends BaseMapper<Release> {
 
-    Page<Release> searchDefault(IPage page, @Param("srf") ReleaseSearchContext context, @Param("ew") Wrapper<Release> wrapper) ;
-    Page<Release> searchReportRelease(IPage page, @Param("srf") ReleaseSearchContext context, @Param("ew") Wrapper<Release> wrapper) ;
+    Page<Release> searchDefault(IPage page, @Param("srf") ReleaseSearchContext context, @Param("ew") Wrapper<Release> wrapper);
+    Page<Release> searchReportRelease(IPage page, @Param("srf") ReleaseSearchContext context, @Param("ew") Wrapper<Release> wrapper);
     @Override
     Release selectById(Serializable id);
     @Override
@@ -31,13 +31,13 @@ public interface ReleaseMapper extends BaseMapper<Release>{
     int update(@Param(Constants.ENTITY) Release entity, @Param("ew") Wrapper<Release> updateWrapper);
     @Override
     int deleteById(Serializable id);
-     /**
-      * 自定义查询SQL
-      * @param sql
-      * @return
-      */
-     @Select("${sql}")
-     List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
+    /**
+    * 自定义查询SQL
+    * @param sql
+    * @return
+    */
+    @Select("${sql}")
+    List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
 
     /**
     * 自定义更新SQL
@@ -63,10 +63,10 @@ public interface ReleaseMapper extends BaseMapper<Release>{
     @Delete("${sql}")
     boolean deleteBySQL(@Param("sql") String sql, @Param("et")Map param);
 
-    List<Release> selectByBranch(@Param("id") Serializable id) ;
+    List<Release> selectByBranch(@Param("id") Serializable id);
 
-    List<Release> selectByBuild(@Param("id") Serializable id) ;
+    List<Release> selectByBuild(@Param("id") Serializable id);
 
-    List<Release> selectByProduct(@Param("id") Serializable id) ;
+    List<Release> selectByProduct(@Param("id") Serializable id);
 
 }

@@ -21,7 +21,7 @@ import cn.ibizlab.pms.core.zentao.domain.Release;
  */
 @Slf4j
 @Service
-public class ReleaseMobReleaseCounterLogicImpl implements IReleaseMobReleaseCounterLogic{
+public class ReleaseMobReleaseCounterLogicImpl implements IReleaseMobReleaseCounterLogic {
 
     @Autowired
     private KieContainer kieContainer;
@@ -35,18 +35,18 @@ public class ReleaseMobReleaseCounterLogicImpl implements IReleaseMobReleaseCoun
     }
 
     @Override
-    public void execute(Release et){
+    public void execute(Release et) {
 
           KieSession kieSession = null;
         try{
-           kieSession=kieContainer.newKieSession();
+           kieSession = kieContainer.newKieSession();
            kieSession.insert(et); 
-           kieSession.setGlobal("releasemobreleasecounterdefault",et);
-           kieSession.setGlobal("iBzSysReleaseDefaultService",iBzSysDefaultService);
+           kieSession.setGlobal("releasemobreleasecounterdefault", et);
+           kieSession.setGlobal("iBzSysReleaseDefaultService", iBzSysDefaultService);
            kieSession.setGlobal("curuser", cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser());
            kieSession.startProcess("cn.ibizlab.pms.core.zentao.service.logic.releasemobreleasecounter");
 
-        }catch(Exception e){
+        }catch(Exception e) {
             throw new RuntimeException("执行[移动端产品发布计数器]处理逻辑发生异常"+e);
         }finally {
             if(kieSession!=null) {

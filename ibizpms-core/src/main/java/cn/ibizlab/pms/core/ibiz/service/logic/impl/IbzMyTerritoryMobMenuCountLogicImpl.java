@@ -21,7 +21,7 @@ import cn.ibizlab.pms.core.ibiz.domain.IbzMyTerritory;
  */
 @Slf4j
 @Service
-public class IbzMyTerritoryMobMenuCountLogicImpl implements IIbzMyTerritoryMobMenuCountLogic{
+public class IbzMyTerritoryMobMenuCountLogicImpl implements IIbzMyTerritoryMobMenuCountLogic {
 
     @Autowired
     private KieContainer kieContainer;
@@ -42,19 +42,19 @@ public class IbzMyTerritoryMobMenuCountLogicImpl implements IIbzMyTerritoryMobMe
     }
 
     @Override
-    public void execute(IbzMyTerritory et){
+    public void execute(IbzMyTerritory et) {
 
           KieSession kieSession = null;
         try{
-           kieSession=kieContainer.newKieSession();
+           kieSession = kieContainer.newKieSession();
            kieSession.insert(et); 
-           kieSession.setGlobal("ibzmyterritorymobmenucountdefault",et);
-           kieSession.setGlobal("ibzmyterritoryservice",ibzmyterritoryservice);
-           kieSession.setGlobal("iBzSysIbzmyterritoryDefaultService",iBzSysDefaultService);
+           kieSession.setGlobal("ibzmyterritorymobmenucountdefault", et);
+           kieSession.setGlobal("ibzmyterritoryservice", ibzmyterritoryservice);
+           kieSession.setGlobal("iBzSysIbzmyterritoryDefaultService", iBzSysDefaultService);
            kieSession.setGlobal("curuser", cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser());
            kieSession.startProcess("cn.ibizlab.pms.core.ibiz.service.logic.ibzmyterritorymobmenucount");
 
-        }catch(Exception e){
+        }catch(Exception e) {
             throw new RuntimeException("执行[移动端菜单计数器]处理逻辑发生异常"+e);
         }finally {
             if(kieSession!=null) {

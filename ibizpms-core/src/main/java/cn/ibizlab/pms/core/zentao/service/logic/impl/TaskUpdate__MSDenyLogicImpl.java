@@ -21,7 +21,7 @@ import cn.ibizlab.pms.core.zentao.domain.Task;
  */
 @Slf4j
 @Service
-public class TaskUpdate__MSDenyLogicImpl implements ITaskUpdate__MSDenyLogic{
+public class TaskUpdate__MSDenyLogicImpl implements ITaskUpdate__MSDenyLogic {
 
     @Autowired
     private KieContainer kieContainer;
@@ -42,22 +42,22 @@ public class TaskUpdate__MSDenyLogicImpl implements ITaskUpdate__MSDenyLogic{
     }
 
     @Override
-    public void execute(Task et){
+    public void execute(Task et) {
 
           KieSession kieSession = null;
         try{
-           kieSession=kieContainer.newKieSession();
-           cn.ibizlab.pms.core.zentao.domain.Task  taskupdate__msdenytemp =new cn.ibizlab.pms.core.zentao.domain.Task();
+           kieSession = kieContainer.newKieSession();
+           cn.ibizlab.pms.core.zentao.domain.Task taskupdate__msdenytemp = new cn.ibizlab.pms.core.zentao.domain.Task();
            kieSession.insert(taskupdate__msdenytemp); 
-           kieSession.setGlobal("taskupdate__msdenytemp",taskupdate__msdenytemp);
+           kieSession.setGlobal("taskupdate__msdenytemp", taskupdate__msdenytemp);
            kieSession.insert(et); 
-           kieSession.setGlobal("taskupdate__msdenydefault",et);
-           kieSession.setGlobal("taskservice",taskservice);
-           kieSession.setGlobal("iBzSysTaskDefaultService",iBzSysDefaultService);
+           kieSession.setGlobal("taskupdate__msdenydefault", et);
+           kieSession.setGlobal("taskservice", taskservice);
+           kieSession.setGlobal("iBzSysTaskDefaultService", iBzSysDefaultService);
            kieSession.setGlobal("curuser", cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser());
            kieSession.startProcess("cn.ibizlab.pms.core.zentao.service.logic.taskupdate__msdeny");
 
-        }catch(Exception e){
+        }catch(Exception e) {
             throw new RuntimeException("执行[行为[Update]主状态拒绝逻辑]处理逻辑发生异常"+e);
         }finally {
             if(kieSession!=null) {

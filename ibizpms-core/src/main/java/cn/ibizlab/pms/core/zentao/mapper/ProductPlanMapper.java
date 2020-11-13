@@ -17,13 +17,13 @@ import java.io.Serializable;
 import com.baomidou.mybatisplus.core.toolkit.Constants;
 import com.alibaba.fastjson.JSONObject;
 
-public interface ProductPlanMapper extends BaseMapper<ProductPlan>{
+public interface ProductPlanMapper extends BaseMapper<ProductPlan> {
 
-    Page<ProductPlan> searchCurProductPlan(IPage page, @Param("srf") ProductPlanSearchContext context, @Param("ew") Wrapper<ProductPlan> wrapper) ;
-    Page<ProductPlan> searchDefault(IPage page, @Param("srf") ProductPlanSearchContext context, @Param("ew") Wrapper<ProductPlan> wrapper) ;
-    Page<ProductPlan> searchDefaultParent(IPage page, @Param("srf") ProductPlanSearchContext context, @Param("ew") Wrapper<ProductPlan> wrapper) ;
-    Page<ProductPlan> searchPlanCodeList(IPage page, @Param("srf") ProductPlanSearchContext context, @Param("ew") Wrapper<ProductPlan> wrapper) ;
-    Page<ProductPlan> searchProjectPlan(IPage page, @Param("srf") ProductPlanSearchContext context, @Param("ew") Wrapper<ProductPlan> wrapper) ;
+    Page<ProductPlan> searchCurProductPlan(IPage page, @Param("srf") ProductPlanSearchContext context, @Param("ew") Wrapper<ProductPlan> wrapper);
+    Page<ProductPlan> searchDefault(IPage page, @Param("srf") ProductPlanSearchContext context, @Param("ew") Wrapper<ProductPlan> wrapper);
+    Page<ProductPlan> searchDefaultParent(IPage page, @Param("srf") ProductPlanSearchContext context, @Param("ew") Wrapper<ProductPlan> wrapper);
+    Page<ProductPlan> searchPlanCodeList(IPage page, @Param("srf") ProductPlanSearchContext context, @Param("ew") Wrapper<ProductPlan> wrapper);
+    Page<ProductPlan> searchProjectPlan(IPage page, @Param("srf") ProductPlanSearchContext context, @Param("ew") Wrapper<ProductPlan> wrapper);
     @Override
     ProductPlan selectById(Serializable id);
     @Override
@@ -34,13 +34,13 @@ public interface ProductPlanMapper extends BaseMapper<ProductPlan>{
     int update(@Param(Constants.ENTITY) ProductPlan entity, @Param("ew") Wrapper<ProductPlan> updateWrapper);
     @Override
     int deleteById(Serializable id);
-     /**
-      * 自定义查询SQL
-      * @param sql
-      * @return
-      */
-     @Select("${sql}")
-     List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
+    /**
+    * 自定义查询SQL
+    * @param sql
+    * @return
+    */
+    @Select("${sql}")
+    List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
 
     /**
     * 自定义更新SQL
@@ -66,10 +66,10 @@ public interface ProductPlanMapper extends BaseMapper<ProductPlan>{
     @Delete("${sql}")
     boolean deleteBySQL(@Param("sql") String sql, @Param("et")Map param);
 
-    List<ProductPlan> selectByBranch(@Param("id") Serializable id) ;
+    List<ProductPlan> selectByBranch(@Param("id") Serializable id);
 
-    List<ProductPlan> selectByProduct(@Param("id") Serializable id) ;
+    List<ProductPlan> selectByProduct(@Param("id") Serializable id);
 
-    List<ProductPlan> selectByParent(@Param("id") Serializable id) ;
+    List<ProductPlan> selectByParent(@Param("id") Serializable id);
 
 }

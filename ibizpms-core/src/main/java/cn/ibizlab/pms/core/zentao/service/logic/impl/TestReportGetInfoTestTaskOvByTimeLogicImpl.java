@@ -21,7 +21,7 @@ import cn.ibizlab.pms.core.zentao.domain.TestReport;
  */
 @Slf4j
 @Service
-public class TestReportGetInfoTestTaskOvByTimeLogicImpl implements ITestReportGetInfoTestTaskOvByTimeLogic{
+public class TestReportGetInfoTestTaskOvByTimeLogicImpl implements ITestReportGetInfoTestTaskOvByTimeLogic {
 
     @Autowired
     private KieContainer kieContainer;
@@ -35,18 +35,18 @@ public class TestReportGetInfoTestTaskOvByTimeLogicImpl implements ITestReportGe
     }
 
     @Override
-    public void execute(TestReport et){
+    public void execute(TestReport et) {
 
           KieSession kieSession = null;
         try{
-           kieSession=kieContainer.newKieSession();
+           kieSession = kieContainer.newKieSession();
            kieSession.insert(et); 
-           kieSession.setGlobal("testreportgetinfotesttaskovbytimedefault",et);
-           kieSession.setGlobal("iBzSysTestreportDefaultService",iBzSysDefaultService);
+           kieSession.setGlobal("testreportgetinfotesttaskovbytimedefault", et);
+           kieSession.setGlobal("iBzSysTestreportDefaultService", iBzSysDefaultService);
            kieSession.setGlobal("curuser", cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser());
            kieSession.startProcess("cn.ibizlab.pms.core.zentao.service.logic.testreportgetinfotesttaskovbytime");
 
-        }catch(Exception e){
+        }catch(Exception e) {
             throw new RuntimeException("执行[根据报告起始时间更新概况信息]处理逻辑发生异常"+e);
         }finally {
             if(kieSession!=null) {

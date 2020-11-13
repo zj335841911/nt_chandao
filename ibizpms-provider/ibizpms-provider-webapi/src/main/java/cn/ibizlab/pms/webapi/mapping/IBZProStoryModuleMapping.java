@@ -4,11 +4,10 @@ import org.mapstruct.*;
 import cn.ibizlab.pms.core.ibizpro.domain.IBZProStoryModule;
 import cn.ibizlab.pms.webapi.dto.IBZProStoryModuleDTO;
 import cn.ibizlab.pms.util.domain.MappingBase;
-import org.mapstruct.factory.Mappers;
 
-@Mapper(componentModel = "spring", uses = {},implementationName="WebApiIBZProStoryModuleMapping",
-    nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE,
-    nullValueCheckStrategy = NullValueCheckStrategy.ALWAYS)
+@Mapper(componentModel = "spring", uses = {}, implementationName = "WebApiIBZProStoryModuleMapping",
+        nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE,
+        nullValueCheckStrategy = NullValueCheckStrategy.ALWAYS)
 public interface IBZProStoryModuleMapping extends MappingBase<IBZProStoryModuleDTO, IBZProStoryModule> {
 
 

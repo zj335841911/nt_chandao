@@ -21,7 +21,7 @@ import cn.ibizlab.pms.core.zentao.domain.Case;
  */
 @Slf4j
 @Service
-public class CasecaseFavoriteLogicImpl implements ICasecaseFavoriteLogic{
+public class CasecaseFavoriteLogicImpl implements ICasecaseFavoriteLogic {
 
     @Autowired
     private KieContainer kieContainer;
@@ -42,22 +42,22 @@ public class CasecaseFavoriteLogicImpl implements ICasecaseFavoriteLogic{
     }
 
     @Override
-    public void execute(Case et){
+    public void execute(Case et) {
 
           KieSession kieSession = null;
         try{
-           kieSession=kieContainer.newKieSession();
+           kieSession = kieContainer.newKieSession();
            kieSession.insert(et); 
-           kieSession.setGlobal("casecasefavoritedefault",et);
-           cn.ibizlab.pms.core.ibiz.domain.IbzFavorites  casecasefavoriteibzfavorite =new cn.ibizlab.pms.core.ibiz.domain.IbzFavorites();
+           kieSession.setGlobal("casecasefavoritedefault", et);
+           cn.ibizlab.pms.core.ibiz.domain.IbzFavorites casecasefavoriteibzfavorite = new cn.ibizlab.pms.core.ibiz.domain.IbzFavorites();
            kieSession.insert(casecasefavoriteibzfavorite); 
-           kieSession.setGlobal("casecasefavoriteibzfavorite",casecasefavoriteibzfavorite);
-           kieSession.setGlobal("ibzfavoritesservice",ibzfavoritesservice);
-           kieSession.setGlobal("iBzSysCaseDefaultService",iBzSysDefaultService);
+           kieSession.setGlobal("casecasefavoriteibzfavorite", casecasefavoriteibzfavorite);
+           kieSession.setGlobal("ibzfavoritesservice", ibzfavoritesservice);
+           kieSession.setGlobal("iBzSysCaseDefaultService", iBzSysDefaultService);
            kieSession.setGlobal("curuser", cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser());
            kieSession.startProcess("cn.ibizlab.pms.core.zentao.service.logic.casecasefavorite");
 
-        }catch(Exception e){
+        }catch(Exception e) {
             throw new RuntimeException("执行[用例收藏]处理逻辑发生异常"+e);
         }finally {
             if(kieSession!=null) {

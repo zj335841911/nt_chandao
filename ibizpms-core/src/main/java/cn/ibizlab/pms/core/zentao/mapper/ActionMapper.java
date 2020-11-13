@@ -17,15 +17,15 @@ import java.io.Serializable;
 import com.baomidou.mybatisplus.core.toolkit.Constants;
 import com.alibaba.fastjson.JSONObject;
 
-public interface ActionMapper extends BaseMapper<Action>{
+public interface ActionMapper extends BaseMapper<Action> {
 
-    Page<Action> searchDefault(IPage page, @Param("srf") ActionSearchContext context, @Param("ew") Wrapper<Action> wrapper) ;
-    Page<Action> searchMobType(IPage page, @Param("srf") ActionSearchContext context, @Param("ew") Wrapper<Action> wrapper) ;
-    Page<Action> searchMyTrends(IPage page, @Param("srf") ActionSearchContext context, @Param("ew") Wrapper<Action> wrapper) ;
-    Page<Action> searchProductTrends(IPage page, @Param("srf") ActionSearchContext context, @Param("ew") Wrapper<Action> wrapper) ;
-    Page<Action> searchProjectTrends(IPage page, @Param("srf") ActionSearchContext context, @Param("ew") Wrapper<Action> wrapper) ;
-    Page<Action> searchQueryUserYEAR(IPage page, @Param("srf") ActionSearchContext context, @Param("ew") Wrapper<Action> wrapper) ;
-    Page<Action> searchType(IPage page, @Param("srf") ActionSearchContext context, @Param("ew") Wrapper<Action> wrapper) ;
+    Page<Action> searchDefault(IPage page, @Param("srf") ActionSearchContext context, @Param("ew") Wrapper<Action> wrapper);
+    Page<Action> searchMobType(IPage page, @Param("srf") ActionSearchContext context, @Param("ew") Wrapper<Action> wrapper);
+    Page<Action> searchMyTrends(IPage page, @Param("srf") ActionSearchContext context, @Param("ew") Wrapper<Action> wrapper);
+    Page<Action> searchProductTrends(IPage page, @Param("srf") ActionSearchContext context, @Param("ew") Wrapper<Action> wrapper);
+    Page<Action> searchProjectTrends(IPage page, @Param("srf") ActionSearchContext context, @Param("ew") Wrapper<Action> wrapper);
+    Page<Action> searchQueryUserYEAR(IPage page, @Param("srf") ActionSearchContext context, @Param("ew") Wrapper<Action> wrapper);
+    Page<Action> searchType(IPage page, @Param("srf") ActionSearchContext context, @Param("ew") Wrapper<Action> wrapper);
     @Override
     Action selectById(Serializable id);
     @Override
@@ -36,13 +36,13 @@ public interface ActionMapper extends BaseMapper<Action>{
     int update(@Param(Constants.ENTITY) Action entity, @Param("ew") Wrapper<Action> updateWrapper);
     @Override
     int deleteById(Serializable id);
-     /**
-      * 自定义查询SQL
-      * @param sql
-      * @return
-      */
-     @Select("${sql}")
-     List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
+    /**
+    * 自定义查询SQL
+    * @param sql
+    * @return
+    */
+    @Select("${sql}")
+    List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
 
     /**
     * 自定义更新SQL
@@ -68,6 +68,6 @@ public interface ActionMapper extends BaseMapper<Action>{
     @Delete("${sql}")
     boolean deleteBySQL(@Param("sql") String sql, @Param("et")Map param);
 
-    List<Action> selectByProject(@Param("id") Serializable id) ;
+    List<Action> selectByProject(@Param("id") Serializable id);
 
 }

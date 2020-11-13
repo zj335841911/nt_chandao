@@ -21,7 +21,7 @@ import cn.ibizlab.pms.core.ibiz.domain.ProjectTeam;
  */
 @Slf4j
 @Service
-public class ProjectTeamGetUserRoleLogicImpl implements IProjectTeamGetUserRoleLogic{
+public class ProjectTeamGetUserRoleLogicImpl implements IProjectTeamGetUserRoleLogic {
 
     @Autowired
     private KieContainer kieContainer;
@@ -35,18 +35,18 @@ public class ProjectTeamGetUserRoleLogicImpl implements IProjectTeamGetUserRoleL
     }
 
     @Override
-    public void execute(ProjectTeam et){
+    public void execute(ProjectTeam et) {
 
           KieSession kieSession = null;
         try{
-           kieSession=kieContainer.newKieSession();
+           kieSession = kieContainer.newKieSession();
            kieSession.insert(et); 
-           kieSession.setGlobal("projectteamgetuserroledefault",et);
-           kieSession.setGlobal("iBzSysProjectteamDefaultService",iBzSysDefaultService);
+           kieSession.setGlobal("projectteamgetuserroledefault", et);
+           kieSession.setGlobal("iBzSysProjectteamDefaultService", iBzSysDefaultService);
            kieSession.setGlobal("curuser", cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser());
            kieSession.startProcess("cn.ibizlab.pms.core.ibiz.service.logic.projectteamgetuserrole");
 
-        }catch(Exception e){
+        }catch(Exception e) {
             throw new RuntimeException("执行[获取成员角色]处理逻辑发生异常"+e);
         }finally {
             if(kieSession!=null) {

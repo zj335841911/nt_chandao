@@ -17,12 +17,12 @@ import java.io.Serializable;
 import com.baomidou.mybatisplus.core.toolkit.Constants;
 import com.alibaba.fastjson.JSONObject;
 
-public interface TodoMapper extends BaseMapper<Todo>{
+public interface TodoMapper extends BaseMapper<Todo> {
 
-    Page<Todo> searchDefault(IPage page, @Param("srf") TodoSearchContext context, @Param("ew") Wrapper<Todo> wrapper) ;
-    Page<Todo> searchMyTodo(IPage page, @Param("srf") TodoSearchContext context, @Param("ew") Wrapper<Todo> wrapper) ;
-    Page<Todo> searchMyTodoPc(IPage page, @Param("srf") TodoSearchContext context, @Param("ew") Wrapper<Todo> wrapper) ;
-    Page<Todo> searchMyUpcoming(IPage page, @Param("srf") TodoSearchContext context, @Param("ew") Wrapper<Todo> wrapper) ;
+    Page<Todo> searchDefault(IPage page, @Param("srf") TodoSearchContext context, @Param("ew") Wrapper<Todo> wrapper);
+    Page<Todo> searchMyTodo(IPage page, @Param("srf") TodoSearchContext context, @Param("ew") Wrapper<Todo> wrapper);
+    Page<Todo> searchMyTodoPc(IPage page, @Param("srf") TodoSearchContext context, @Param("ew") Wrapper<Todo> wrapper);
+    Page<Todo> searchMyUpcoming(IPage page, @Param("srf") TodoSearchContext context, @Param("ew") Wrapper<Todo> wrapper);
     @Override
     Todo selectById(Serializable id);
     @Override
@@ -33,13 +33,13 @@ public interface TodoMapper extends BaseMapper<Todo>{
     int update(@Param(Constants.ENTITY) Todo entity, @Param("ew") Wrapper<Todo> updateWrapper);
     @Override
     int deleteById(Serializable id);
-     /**
-      * 自定义查询SQL
-      * @param sql
-      * @return
-      */
-     @Select("${sql}")
-     List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
+    /**
+    * 自定义查询SQL
+    * @param sql
+    * @return
+    */
+    @Select("${sql}")
+    List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
 
     /**
     * 自定义更新SQL

@@ -21,7 +21,7 @@ import cn.ibizlab.pms.core.ibiz.domain.SysUpdateLog;
  */
 @Slf4j
 @Service
-public class SysUpdateLogUpdateLastedLogicImpl implements ISysUpdateLogUpdateLastedLogic{
+public class SysUpdateLogUpdateLastedLogicImpl implements ISysUpdateLogUpdateLastedLogic {
 
     @Autowired
     private KieContainer kieContainer;
@@ -35,18 +35,18 @@ public class SysUpdateLogUpdateLastedLogicImpl implements ISysUpdateLogUpdateLas
     }
 
     @Override
-    public void execute(SysUpdateLog et){
+    public void execute(SysUpdateLog et) {
 
           KieSession kieSession = null;
         try{
-           kieSession=kieContainer.newKieSession();
+           kieSession = kieContainer.newKieSession();
            kieSession.insert(et); 
-           kieSession.setGlobal("sysupdatelogupdatelasteddefault",et);
-           kieSession.setGlobal("iBzSysSysupdatelogDefaultService",iBzSysDefaultService);
+           kieSession.setGlobal("sysupdatelogupdatelasteddefault", et);
+           kieSession.setGlobal("iBzSysSysupdatelogDefaultService", iBzSysDefaultService);
            kieSession.setGlobal("curuser", cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser());
            kieSession.startProcess("cn.ibizlab.pms.core.ibiz.service.logic.sysupdatelogupdatelasted");
 
-        }catch(Exception e){
+        }catch(Exception e) {
             throw new RuntimeException("执行[更新最新更新标识]处理逻辑发生异常"+e);
         }finally {
             if(kieSession!=null) {

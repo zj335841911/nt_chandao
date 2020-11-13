@@ -21,7 +21,7 @@ import cn.ibizlab.pms.core.zentao.domain.ProductPlan;
  */
 @Slf4j
 @Service
-public class ProductPlanGetBedinANDEndLogicImpl implements IProductPlanGetBedinANDEndLogic{
+public class ProductPlanGetBedinANDEndLogicImpl implements IProductPlanGetBedinANDEndLogic {
 
     @Autowired
     private KieContainer kieContainer;
@@ -35,18 +35,18 @@ public class ProductPlanGetBedinANDEndLogicImpl implements IProductPlanGetBedinA
     }
 
     @Override
-    public void execute(ProductPlan et){
+    public void execute(ProductPlan et) {
 
           KieSession kieSession = null;
         try{
-           kieSession=kieContainer.newKieSession();
+           kieSession = kieContainer.newKieSession();
            kieSession.insert(et); 
-           kieSession.setGlobal("productplangetbedinandenddefault",et);
-           kieSession.setGlobal("iBzSysProductplanDefaultService",iBzSysDefaultService);
+           kieSession.setGlobal("productplangetbedinandenddefault", et);
+           kieSession.setGlobal("iBzSysProductplanDefaultService", iBzSysDefaultService);
            kieSession.setGlobal("curuser", cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser());
            kieSession.startProcess("cn.ibizlab.pms.core.zentao.service.logic.productplangetbedinandend");
 
-        }catch(Exception e){
+        }catch(Exception e) {
             throw new RuntimeException("执行[获取开始日期和结束日期]处理逻辑发生异常"+e);
         }finally {
             if(kieSession!=null) {

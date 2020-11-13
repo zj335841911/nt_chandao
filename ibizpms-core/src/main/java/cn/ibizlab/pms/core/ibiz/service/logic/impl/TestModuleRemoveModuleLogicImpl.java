@@ -21,7 +21,7 @@ import cn.ibizlab.pms.core.ibiz.domain.TestModule;
  */
 @Slf4j
 @Service
-public class TestModuleRemoveModuleLogicImpl implements ITestModuleRemoveModuleLogic{
+public class TestModuleRemoveModuleLogicImpl implements ITestModuleRemoveModuleLogic {
 
     @Autowired
     private KieContainer kieContainer;
@@ -42,22 +42,22 @@ public class TestModuleRemoveModuleLogicImpl implements ITestModuleRemoveModuleL
     }
 
     @Override
-    public void execute(TestModule et){
+    public void execute(TestModule et) {
 
           KieSession kieSession = null;
         try{
-           kieSession=kieContainer.newKieSession();
+           kieSession = kieContainer.newKieSession();
            kieSession.insert(et); 
-           kieSession.setGlobal("testmoduleremovemoduledefault",et);
-           cn.ibizlab.pms.core.zentao.domain.Module  testmoduleremovemodulemodule =new cn.ibizlab.pms.core.zentao.domain.Module();
+           kieSession.setGlobal("testmoduleremovemoduledefault", et);
+           cn.ibizlab.pms.core.zentao.domain.Module testmoduleremovemodulemodule = new cn.ibizlab.pms.core.zentao.domain.Module();
            kieSession.insert(testmoduleremovemodulemodule); 
-           kieSession.setGlobal("testmoduleremovemodulemodule",testmoduleremovemodulemodule);
-           kieSession.setGlobal("moduleservice",moduleservice);
-           kieSession.setGlobal("iBzSysTestmoduleDefaultService",iBzSysDefaultService);
+           kieSession.setGlobal("testmoduleremovemodulemodule", testmoduleremovemodulemodule);
+           kieSession.setGlobal("moduleservice", moduleservice);
+           kieSession.setGlobal("iBzSysTestmoduleDefaultService", iBzSysDefaultService);
            kieSession.setGlobal("curuser", cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser());
            kieSession.startProcess("cn.ibizlab.pms.core.ibiz.service.logic.testmoduleremovemodule");
 
-        }catch(Exception e){
+        }catch(Exception e) {
             throw new RuntimeException("执行[删除模块]处理逻辑发生异常"+e);
         }finally {
             if(kieSession!=null) {

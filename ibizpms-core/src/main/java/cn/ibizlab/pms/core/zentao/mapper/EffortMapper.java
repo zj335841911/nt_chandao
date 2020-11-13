@@ -17,9 +17,9 @@ import java.io.Serializable;
 import com.baomidou.mybatisplus.core.toolkit.Constants;
 import com.alibaba.fastjson.JSONObject;
 
-public interface EffortMapper extends BaseMapper<Effort>{
+public interface EffortMapper extends BaseMapper<Effort> {
 
-    Page<Effort> searchDefault(IPage page, @Param("srf") EffortSearchContext context, @Param("ew") Wrapper<Effort> wrapper) ;
+    Page<Effort> searchDefault(IPage page, @Param("srf") EffortSearchContext context, @Param("ew") Wrapper<Effort> wrapper);
     @Override
     Effort selectById(Serializable id);
     @Override
@@ -30,13 +30,13 @@ public interface EffortMapper extends BaseMapper<Effort>{
     int update(@Param(Constants.ENTITY) Effort entity, @Param("ew") Wrapper<Effort> updateWrapper);
     @Override
     int deleteById(Serializable id);
-     /**
-      * 自定义查询SQL
-      * @param sql
-      * @return
-      */
-     @Select("${sql}")
-     List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
+    /**
+    * 自定义查询SQL
+    * @param sql
+    * @return
+    */
+    @Select("${sql}")
+    List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
 
     /**
     * 自定义更新SQL

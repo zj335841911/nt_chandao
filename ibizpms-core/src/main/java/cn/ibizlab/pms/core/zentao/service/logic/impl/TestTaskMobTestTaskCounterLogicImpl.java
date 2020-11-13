@@ -21,7 +21,7 @@ import cn.ibizlab.pms.core.zentao.domain.TestTask;
  */
 @Slf4j
 @Service
-public class TestTaskMobTestTaskCounterLogicImpl implements ITestTaskMobTestTaskCounterLogic{
+public class TestTaskMobTestTaskCounterLogicImpl implements ITestTaskMobTestTaskCounterLogic {
 
     @Autowired
     private KieContainer kieContainer;
@@ -35,18 +35,18 @@ public class TestTaskMobTestTaskCounterLogicImpl implements ITestTaskMobTestTask
     }
 
     @Override
-    public void execute(TestTask et){
+    public void execute(TestTask et) {
 
           KieSession kieSession = null;
         try{
-           kieSession=kieContainer.newKieSession();
+           kieSession = kieContainer.newKieSession();
            kieSession.insert(et); 
-           kieSession.setGlobal("testtaskmobtesttaskcounterdefault",et);
-           kieSession.setGlobal("iBzSysTesttaskDefaultService",iBzSysDefaultService);
+           kieSession.setGlobal("testtaskmobtesttaskcounterdefault", et);
+           kieSession.setGlobal("iBzSysTesttaskDefaultService", iBzSysDefaultService);
            kieSession.setGlobal("curuser", cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser());
            kieSession.startProcess("cn.ibizlab.pms.core.zentao.service.logic.testtaskmobtesttaskcounter");
 
-        }catch(Exception e){
+        }catch(Exception e) {
             throw new RuntimeException("执行[移动端测试版本计数器]处理逻辑发生异常"+e);
         }finally {
             if(kieSession!=null) {

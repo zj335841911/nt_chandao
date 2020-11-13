@@ -17,14 +17,14 @@ import java.io.Serializable;
 import com.baomidou.mybatisplus.core.toolkit.Constants;
 import com.alibaba.fastjson.JSONObject;
 
-public interface ProductModuleMapper extends BaseMapper<ProductModule>{
+public interface ProductModuleMapper extends BaseMapper<ProductModule> {
 
-    Page<ProductModule> searchByPath(IPage page, @Param("srf") ProductModuleSearchContext context, @Param("ew") Wrapper<ProductModule> wrapper) ;
-    Page<ProductModule> searchDefault(IPage page, @Param("srf") ProductModuleSearchContext context, @Param("ew") Wrapper<ProductModule> wrapper) ;
-    Page<ProductModule> searchParentModule(IPage page, @Param("srf") ProductModuleSearchContext context, @Param("ew") Wrapper<ProductModule> wrapper) ;
-    Page<ProductModule> searchRoot(IPage page, @Param("srf") ProductModuleSearchContext context, @Param("ew") Wrapper<ProductModule> wrapper) ;
-    Page<ProductModule> searchRoot_NoBranch(IPage page, @Param("srf") ProductModuleSearchContext context, @Param("ew") Wrapper<ProductModule> wrapper) ;
-    Page<ProductModule> searchStoryModule(IPage page, @Param("srf") ProductModuleSearchContext context, @Param("ew") Wrapper<ProductModule> wrapper) ;
+    Page<ProductModule> searchByPath(IPage page, @Param("srf") ProductModuleSearchContext context, @Param("ew") Wrapper<ProductModule> wrapper);
+    Page<ProductModule> searchDefault(IPage page, @Param("srf") ProductModuleSearchContext context, @Param("ew") Wrapper<ProductModule> wrapper);
+    Page<ProductModule> searchParentModule(IPage page, @Param("srf") ProductModuleSearchContext context, @Param("ew") Wrapper<ProductModule> wrapper);
+    Page<ProductModule> searchRoot(IPage page, @Param("srf") ProductModuleSearchContext context, @Param("ew") Wrapper<ProductModule> wrapper);
+    Page<ProductModule> searchRoot_NoBranch(IPage page, @Param("srf") ProductModuleSearchContext context, @Param("ew") Wrapper<ProductModule> wrapper);
+    Page<ProductModule> searchStoryModule(IPage page, @Param("srf") ProductModuleSearchContext context, @Param("ew") Wrapper<ProductModule> wrapper);
     @Override
     ProductModule selectById(Serializable id);
     @Override
@@ -35,13 +35,13 @@ public interface ProductModuleMapper extends BaseMapper<ProductModule>{
     int update(@Param(Constants.ENTITY) ProductModule entity, @Param("ew") Wrapper<ProductModule> updateWrapper);
     @Override
     int deleteById(Serializable id);
-     /**
-      * 自定义查询SQL
-      * @param sql
-      * @return
-      */
-     @Select("${sql}")
-     List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
+    /**
+    * 自定义查询SQL
+    * @param sql
+    * @return
+    */
+    @Select("${sql}")
+    List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
 
     /**
     * 自定义更新SQL
@@ -67,8 +67,8 @@ public interface ProductModuleMapper extends BaseMapper<ProductModule>{
     @Delete("${sql}")
     boolean deleteBySQL(@Param("sql") String sql, @Param("et")Map param);
 
-    List<ProductModule> selectByParent(@Param("id") Serializable id) ;
+    List<ProductModule> selectByParent(@Param("id") Serializable id);
 
-    List<ProductModule> selectByRoot(@Param("id") Serializable id) ;
+    List<ProductModule> selectByRoot(@Param("id") Serializable id);
 
 }

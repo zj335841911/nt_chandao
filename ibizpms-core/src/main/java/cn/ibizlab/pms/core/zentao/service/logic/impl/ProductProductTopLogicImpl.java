@@ -21,7 +21,7 @@ import cn.ibizlab.pms.core.zentao.domain.Product;
  */
 @Slf4j
 @Service
-public class ProductProductTopLogicImpl implements IProductProductTopLogic{
+public class ProductProductTopLogicImpl implements IProductProductTopLogic {
 
     @Autowired
     private KieContainer kieContainer;
@@ -42,22 +42,22 @@ public class ProductProductTopLogicImpl implements IProductProductTopLogic{
     }
 
     @Override
-    public void execute(Product et){
+    public void execute(Product et) {
 
           KieSession kieSession = null;
         try{
-           kieSession=kieContainer.newKieSession();
-           cn.ibizlab.pms.core.ibiz.domain.IbzTop  productproducttopibztop =new cn.ibizlab.pms.core.ibiz.domain.IbzTop();
+           kieSession = kieContainer.newKieSession();
+           cn.ibizlab.pms.core.ibiz.domain.IbzTop productproducttopibztop = new cn.ibizlab.pms.core.ibiz.domain.IbzTop();
            kieSession.insert(productproducttopibztop); 
-           kieSession.setGlobal("productproducttopibztop",productproducttopibztop);
+           kieSession.setGlobal("productproducttopibztop", productproducttopibztop);
            kieSession.insert(et); 
-           kieSession.setGlobal("productproducttopdefault",et);
-           kieSession.setGlobal("ibztopservice",ibztopservice);
-           kieSession.setGlobal("iBzSysProductDefaultService",iBzSysDefaultService);
+           kieSession.setGlobal("productproducttopdefault", et);
+           kieSession.setGlobal("ibztopservice", ibztopservice);
+           kieSession.setGlobal("iBzSysProductDefaultService", iBzSysDefaultService);
            kieSession.setGlobal("curuser", cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser());
            kieSession.startProcess("cn.ibizlab.pms.core.zentao.service.logic.productproducttop");
 
-        }catch(Exception e){
+        }catch(Exception e) {
             throw new RuntimeException("执行[置顶]处理逻辑发生异常"+e);
         }finally {
             if(kieSession!=null) {

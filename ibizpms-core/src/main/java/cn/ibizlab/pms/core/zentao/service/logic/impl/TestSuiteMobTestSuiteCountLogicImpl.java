@@ -21,7 +21,7 @@ import cn.ibizlab.pms.core.zentao.domain.TestSuite;
  */
 @Slf4j
 @Service
-public class TestSuiteMobTestSuiteCountLogicImpl implements ITestSuiteMobTestSuiteCountLogic{
+public class TestSuiteMobTestSuiteCountLogicImpl implements ITestSuiteMobTestSuiteCountLogic {
 
     @Autowired
     private KieContainer kieContainer;
@@ -35,18 +35,18 @@ public class TestSuiteMobTestSuiteCountLogicImpl implements ITestSuiteMobTestSui
     }
 
     @Override
-    public void execute(TestSuite et){
+    public void execute(TestSuite et) {
 
           KieSession kieSession = null;
         try{
-           kieSession=kieContainer.newKieSession();
+           kieSession = kieContainer.newKieSession();
            kieSession.insert(et); 
-           kieSession.setGlobal("testsuitemobtestsuitecountdefault",et);
-           kieSession.setGlobal("iBzSysTestsuiteDefaultService",iBzSysDefaultService);
+           kieSession.setGlobal("testsuitemobtestsuitecountdefault", et);
+           kieSession.setGlobal("iBzSysTestsuiteDefaultService", iBzSysDefaultService);
            kieSession.setGlobal("curuser", cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser());
            kieSession.startProcess("cn.ibizlab.pms.core.zentao.service.logic.testsuitemobtestsuitecount");
 
-        }catch(Exception e){
+        }catch(Exception e) {
             throw new RuntimeException("执行[移动端测试套件计数器]处理逻辑发生异常"+e);
         }finally {
             if(kieSession!=null) {

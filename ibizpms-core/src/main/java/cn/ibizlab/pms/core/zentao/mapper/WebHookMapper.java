@@ -17,9 +17,9 @@ import java.io.Serializable;
 import com.baomidou.mybatisplus.core.toolkit.Constants;
 import com.alibaba.fastjson.JSONObject;
 
-public interface WebHookMapper extends BaseMapper<WebHook>{
+public interface WebHookMapper extends BaseMapper<WebHook> {
 
-    Page<WebHook> searchDefault(IPage page, @Param("srf") WebHookSearchContext context, @Param("ew") Wrapper<WebHook> wrapper) ;
+    Page<WebHook> searchDefault(IPage page, @Param("srf") WebHookSearchContext context, @Param("ew") Wrapper<WebHook> wrapper);
     @Override
     WebHook selectById(Serializable id);
     @Override
@@ -30,13 +30,13 @@ public interface WebHookMapper extends BaseMapper<WebHook>{
     int update(@Param(Constants.ENTITY) WebHook entity, @Param("ew") Wrapper<WebHook> updateWrapper);
     @Override
     int deleteById(Serializable id);
-     /**
-      * 自定义查询SQL
-      * @param sql
-      * @return
-      */
-     @Select("${sql}")
-     List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
+    /**
+    * 自定义查询SQL
+    * @param sql
+    * @return
+    */
+    @Select("${sql}")
+    List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
 
     /**
     * 自定义更新SQL

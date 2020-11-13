@@ -17,10 +17,10 @@ import java.io.Serializable;
 import com.baomidou.mybatisplus.core.toolkit.Constants;
 import com.alibaba.fastjson.JSONObject;
 
-public interface TestResultMapper extends BaseMapper<TestResult>{
+public interface TestResultMapper extends BaseMapper<TestResult> {
 
-    Page<TestResult> searchCurTestRun(IPage page, @Param("srf") TestResultSearchContext context, @Param("ew") Wrapper<TestResult> wrapper) ;
-    Page<TestResult> searchDefault(IPage page, @Param("srf") TestResultSearchContext context, @Param("ew") Wrapper<TestResult> wrapper) ;
+    Page<TestResult> searchCurTestRun(IPage page, @Param("srf") TestResultSearchContext context, @Param("ew") Wrapper<TestResult> wrapper);
+    Page<TestResult> searchDefault(IPage page, @Param("srf") TestResultSearchContext context, @Param("ew") Wrapper<TestResult> wrapper);
     @Override
     TestResult selectById(Serializable id);
     @Override
@@ -31,13 +31,13 @@ public interface TestResultMapper extends BaseMapper<TestResult>{
     int update(@Param(Constants.ENTITY) TestResult entity, @Param("ew") Wrapper<TestResult> updateWrapper);
     @Override
     int deleteById(Serializable id);
-     /**
-      * 自定义查询SQL
-      * @param sql
-      * @return
-      */
-     @Select("${sql}")
-     List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
+    /**
+    * 自定义查询SQL
+    * @param sql
+    * @return
+    */
+    @Select("${sql}")
+    List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
 
     /**
     * 自定义更新SQL
@@ -63,12 +63,12 @@ public interface TestResultMapper extends BaseMapper<TestResult>{
     @Delete("${sql}")
     boolean deleteBySQL(@Param("sql") String sql, @Param("et")Map param);
 
-    List<TestResult> selectByIbizcase(@Param("id") Serializable id) ;
+    List<TestResult> selectByIbizcase(@Param("id") Serializable id);
 
-    List<TestResult> selectByCompile(@Param("id") Serializable id) ;
+    List<TestResult> selectByCompile(@Param("id") Serializable id);
 
-    List<TestResult> selectByJob(@Param("id") Serializable id) ;
+    List<TestResult> selectByJob(@Param("id") Serializable id);
 
-    List<TestResult> selectByRun(@Param("id") Serializable id) ;
+    List<TestResult> selectByRun(@Param("id") Serializable id);
 
 }

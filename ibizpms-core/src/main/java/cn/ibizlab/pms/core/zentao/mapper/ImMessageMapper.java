@@ -17,9 +17,9 @@ import java.io.Serializable;
 import com.baomidou.mybatisplus.core.toolkit.Constants;
 import com.alibaba.fastjson.JSONObject;
 
-public interface ImMessageMapper extends BaseMapper<ImMessage>{
+public interface ImMessageMapper extends BaseMapper<ImMessage> {
 
-    Page<ImMessage> searchDefault(IPage page, @Param("srf") ImMessageSearchContext context, @Param("ew") Wrapper<ImMessage> wrapper) ;
+    Page<ImMessage> searchDefault(IPage page, @Param("srf") ImMessageSearchContext context, @Param("ew") Wrapper<ImMessage> wrapper);
     @Override
     ImMessage selectById(Serializable id);
     @Override
@@ -30,13 +30,13 @@ public interface ImMessageMapper extends BaseMapper<ImMessage>{
     int update(@Param(Constants.ENTITY) ImMessage entity, @Param("ew") Wrapper<ImMessage> updateWrapper);
     @Override
     int deleteById(Serializable id);
-     /**
-      * 自定义查询SQL
-      * @param sql
-      * @return
-      */
-     @Select("${sql}")
-     List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
+    /**
+    * 自定义查询SQL
+    * @param sql
+    * @return
+    */
+    @Select("${sql}")
+    List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
 
     /**
     * 自定义更新SQL

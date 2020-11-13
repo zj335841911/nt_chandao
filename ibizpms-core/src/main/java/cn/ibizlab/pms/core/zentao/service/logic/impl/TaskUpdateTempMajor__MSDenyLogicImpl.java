@@ -21,7 +21,7 @@ import cn.ibizlab.pms.core.zentao.domain.Task;
  */
 @Slf4j
 @Service
-public class TaskUpdateTempMajor__MSDenyLogicImpl implements ITaskUpdateTempMajor__MSDenyLogic{
+public class TaskUpdateTempMajor__MSDenyLogicImpl implements ITaskUpdateTempMajor__MSDenyLogic {
 
     @Autowired
     private KieContainer kieContainer;
@@ -42,22 +42,22 @@ public class TaskUpdateTempMajor__MSDenyLogicImpl implements ITaskUpdateTempMajo
     }
 
     @Override
-    public void execute(Task et){
+    public void execute(Task et) {
 
           KieSession kieSession = null;
         try{
-           kieSession=kieContainer.newKieSession();
+           kieSession = kieContainer.newKieSession();
            kieSession.insert(et); 
-           kieSession.setGlobal("taskupdatetempmajor__msdenydefault",et);
-           cn.ibizlab.pms.core.zentao.domain.Task  taskupdatetempmajor__msdenytemp =new cn.ibizlab.pms.core.zentao.domain.Task();
+           kieSession.setGlobal("taskupdatetempmajor__msdenydefault", et);
+           cn.ibizlab.pms.core.zentao.domain.Task taskupdatetempmajor__msdenytemp = new cn.ibizlab.pms.core.zentao.domain.Task();
            kieSession.insert(taskupdatetempmajor__msdenytemp); 
-           kieSession.setGlobal("taskupdatetempmajor__msdenytemp",taskupdatetempmajor__msdenytemp);
-           kieSession.setGlobal("taskservice",taskservice);
-           kieSession.setGlobal("iBzSysTaskDefaultService",iBzSysDefaultService);
+           kieSession.setGlobal("taskupdatetempmajor__msdenytemp", taskupdatetempmajor__msdenytemp);
+           kieSession.setGlobal("taskservice", taskservice);
+           kieSession.setGlobal("iBzSysTaskDefaultService", iBzSysDefaultService);
            kieSession.setGlobal("curuser", cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser());
            kieSession.startProcess("cn.ibizlab.pms.core.zentao.service.logic.taskupdatetempmajor__msdeny");
 
-        }catch(Exception e){
+        }catch(Exception e) {
             throw new RuntimeException("执行[行为[UpdateTempMajor]主状态拒绝逻辑]处理逻辑发生异常"+e);
         }finally {
             if(kieSession!=null) {

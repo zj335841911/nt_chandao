@@ -17,14 +17,14 @@ import java.io.Serializable;
 import com.baomidou.mybatisplus.core.toolkit.Constants;
 import com.alibaba.fastjson.JSONObject;
 
-public interface DocLibModuleMapper extends BaseMapper<DocLibModule>{
+public interface DocLibModuleMapper extends BaseMapper<DocLibModule> {
 
-    Page<DocLibModule> searchAllDocLibModule_Custom(IPage page, @Param("srf") DocLibModuleSearchContext context, @Param("ew") Wrapper<DocLibModule> wrapper) ;
-    Page<DocLibModule> searchAllDoclibModule(IPage page, @Param("srf") DocLibModuleSearchContext context, @Param("ew") Wrapper<DocLibModule> wrapper) ;
-    Page<DocLibModule> searchDefault(IPage page, @Param("srf") DocLibModuleSearchContext context, @Param("ew") Wrapper<DocLibModule> wrapper) ;
-    Page<DocLibModule> searchParentModule(IPage page, @Param("srf") DocLibModuleSearchContext context, @Param("ew") Wrapper<DocLibModule> wrapper) ;
-    Page<DocLibModule> searchRootModuleMuLu(IPage page, @Param("srf") DocLibModuleSearchContext context, @Param("ew") Wrapper<DocLibModule> wrapper) ;
-    Page<DocLibModule> searchRootModuleMuLuByRoot(IPage page, @Param("srf") DocLibModuleSearchContext context, @Param("ew") Wrapper<DocLibModule> wrapper) ;
+    Page<DocLibModule> searchAllDocLibModule_Custom(IPage page, @Param("srf") DocLibModuleSearchContext context, @Param("ew") Wrapper<DocLibModule> wrapper);
+    Page<DocLibModule> searchAllDoclibModule(IPage page, @Param("srf") DocLibModuleSearchContext context, @Param("ew") Wrapper<DocLibModule> wrapper);
+    Page<DocLibModule> searchDefault(IPage page, @Param("srf") DocLibModuleSearchContext context, @Param("ew") Wrapper<DocLibModule> wrapper);
+    Page<DocLibModule> searchParentModule(IPage page, @Param("srf") DocLibModuleSearchContext context, @Param("ew") Wrapper<DocLibModule> wrapper);
+    Page<DocLibModule> searchRootModuleMuLu(IPage page, @Param("srf") DocLibModuleSearchContext context, @Param("ew") Wrapper<DocLibModule> wrapper);
+    Page<DocLibModule> searchRootModuleMuLuByRoot(IPage page, @Param("srf") DocLibModuleSearchContext context, @Param("ew") Wrapper<DocLibModule> wrapper);
     @Override
     DocLibModule selectById(Serializable id);
     @Override
@@ -35,13 +35,13 @@ public interface DocLibModuleMapper extends BaseMapper<DocLibModule>{
     int update(@Param(Constants.ENTITY) DocLibModule entity, @Param("ew") Wrapper<DocLibModule> updateWrapper);
     @Override
     int deleteById(Serializable id);
-     /**
-      * 自定义查询SQL
-      * @param sql
-      * @return
-      */
-     @Select("${sql}")
-     List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
+    /**
+    * 自定义查询SQL
+    * @param sql
+    * @return
+    */
+    @Select("${sql}")
+    List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
 
     /**
     * 自定义更新SQL
@@ -67,8 +67,8 @@ public interface DocLibModuleMapper extends BaseMapper<DocLibModule>{
     @Delete("${sql}")
     boolean deleteBySQL(@Param("sql") String sql, @Param("et")Map param);
 
-    List<DocLibModule> selectByParent(@Param("id") Serializable id) ;
+    List<DocLibModule> selectByParent(@Param("id") Serializable id);
 
-    List<DocLibModule> selectByRoot(@Param("id") Serializable id) ;
+    List<DocLibModule> selectByRoot(@Param("id") Serializable id);
 
 }

@@ -17,11 +17,11 @@ import java.io.Serializable;
 import com.baomidou.mybatisplus.core.toolkit.Constants;
 import com.alibaba.fastjson.JSONObject;
 
-public interface UserContactMapper extends BaseMapper<UserContact>{
+public interface UserContactMapper extends BaseMapper<UserContact> {
 
-    Page<UserContact> searchCurUSERCONTACT(IPage page, @Param("srf") UserContactSearchContext context, @Param("ew") Wrapper<UserContact> wrapper) ;
-    Page<UserContact> searchDefault(IPage page, @Param("srf") UserContactSearchContext context, @Param("ew") Wrapper<UserContact> wrapper) ;
-    Page<UserContact> searchMyUSERCONTACT(IPage page, @Param("srf") UserContactSearchContext context, @Param("ew") Wrapper<UserContact> wrapper) ;
+    Page<UserContact> searchCurUSERCONTACT(IPage page, @Param("srf") UserContactSearchContext context, @Param("ew") Wrapper<UserContact> wrapper);
+    Page<UserContact> searchDefault(IPage page, @Param("srf") UserContactSearchContext context, @Param("ew") Wrapper<UserContact> wrapper);
+    Page<UserContact> searchMyUSERCONTACT(IPage page, @Param("srf") UserContactSearchContext context, @Param("ew") Wrapper<UserContact> wrapper);
     @Override
     UserContact selectById(Serializable id);
     @Override
@@ -32,13 +32,13 @@ public interface UserContactMapper extends BaseMapper<UserContact>{
     int update(@Param(Constants.ENTITY) UserContact entity, @Param("ew") Wrapper<UserContact> updateWrapper);
     @Override
     int deleteById(Serializable id);
-     /**
-      * 自定义查询SQL
-      * @param sql
-      * @return
-      */
-     @Select("${sql}")
-     List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
+    /**
+    * 自定义查询SQL
+    * @param sql
+    * @return
+    */
+    @Select("${sql}")
+    List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
 
     /**
     * 自定义更新SQL

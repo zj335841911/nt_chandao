@@ -21,7 +21,7 @@ import cn.ibizlab.pms.core.zentao.domain.Story;
  */
 @Slf4j
 @Service
-public class StorybuildUnlinkStorysLogicImpl implements IStorybuildUnlinkStorysLogic{
+public class StorybuildUnlinkStorysLogicImpl implements IStorybuildUnlinkStorysLogic {
 
     @Autowired
     private KieContainer kieContainer;
@@ -42,19 +42,19 @@ public class StorybuildUnlinkStorysLogicImpl implements IStorybuildUnlinkStorysL
     }
 
     @Override
-    public void execute(Story et){
+    public void execute(Story et) {
 
           KieSession kieSession = null;
         try{
-           kieSession=kieContainer.newKieSession();
+           kieSession = kieContainer.newKieSession();
            kieSession.insert(et); 
-           kieSession.setGlobal("storybuildunlinkstorysdefault",et);
-           kieSession.setGlobal("storyservice",storyservice);
-           kieSession.setGlobal("iBzSysStoryDefaultService",iBzSysDefaultService);
+           kieSession.setGlobal("storybuildunlinkstorysdefault", et);
+           kieSession.setGlobal("storyservice", storyservice);
+           kieSession.setGlobal("iBzSysStoryDefaultService", iBzSysDefaultService);
            kieSession.setGlobal("curuser", cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser());
            kieSession.startProcess("cn.ibizlab.pms.core.zentao.service.logic.storybuildunlinkstorys");
 
-        }catch(Exception e){
+        }catch(Exception e) {
             throw new RuntimeException("执行[buildUnlinkStorys]处理逻辑发生异常"+e);
         }finally {
             if(kieSession!=null) {

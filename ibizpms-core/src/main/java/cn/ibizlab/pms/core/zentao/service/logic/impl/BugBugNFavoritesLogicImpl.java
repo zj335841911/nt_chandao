@@ -21,7 +21,7 @@ import cn.ibizlab.pms.core.zentao.domain.Bug;
  */
 @Slf4j
 @Service
-public class BugBugNFavoritesLogicImpl implements IBugBugNFavoritesLogic{
+public class BugBugNFavoritesLogicImpl implements IBugBugNFavoritesLogic {
 
     @Autowired
     private KieContainer kieContainer;
@@ -35,18 +35,18 @@ public class BugBugNFavoritesLogicImpl implements IBugBugNFavoritesLogic{
     }
 
     @Override
-    public void execute(Bug et){
+    public void execute(Bug et) {
 
           KieSession kieSession = null;
         try{
-           kieSession=kieContainer.newKieSession();
+           kieSession = kieContainer.newKieSession();
            kieSession.insert(et); 
-           kieSession.setGlobal("bugbugnfavoritesdefault",et);
-           kieSession.setGlobal("iBzSysBugDefaultService",iBzSysDefaultService);
+           kieSession.setGlobal("bugbugnfavoritesdefault", et);
+           kieSession.setGlobal("iBzSysBugDefaultService", iBzSysDefaultService);
            kieSession.setGlobal("curuser", cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser());
            kieSession.startProcess("cn.ibizlab.pms.core.zentao.service.logic.bugbugnfavorites");
 
-        }catch(Exception e){
+        }catch(Exception e) {
             throw new RuntimeException("执行[Bug取消收藏]处理逻辑发生异常"+e);
         }finally {
             if(kieSession!=null) {

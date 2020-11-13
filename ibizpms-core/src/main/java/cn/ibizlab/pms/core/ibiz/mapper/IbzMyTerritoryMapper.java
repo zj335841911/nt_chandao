@@ -17,12 +17,12 @@ import java.io.Serializable;
 import com.baomidou.mybatisplus.core.toolkit.Constants;
 import com.alibaba.fastjson.JSONObject;
 
-public interface IbzMyTerritoryMapper extends BaseMapper<IbzMyTerritory>{
+public interface IbzMyTerritoryMapper extends BaseMapper<IbzMyTerritory> {
 
-    Page<IbzMyTerritory> searchDefault(IPage page, @Param("srf") IbzMyTerritorySearchContext context, @Param("ew") Wrapper<IbzMyTerritory> wrapper) ;
-    Page<IbzMyTerritory> searchMyWork(IPage page, @Param("srf") IbzMyTerritorySearchContext context, @Param("ew") Wrapper<IbzMyTerritory> wrapper) ;
-    Page<IbzMyTerritory> searchMyWorkMob(IPage page, @Param("srf") IbzMyTerritorySearchContext context, @Param("ew") Wrapper<IbzMyTerritory> wrapper) ;
-    Page<IbzMyTerritory> searchWelcome(IPage page, @Param("srf") IbzMyTerritorySearchContext context, @Param("ew") Wrapper<IbzMyTerritory> wrapper) ;
+    Page<IbzMyTerritory> searchDefault(IPage page, @Param("srf") IbzMyTerritorySearchContext context, @Param("ew") Wrapper<IbzMyTerritory> wrapper);
+    Page<IbzMyTerritory> searchMyWork(IPage page, @Param("srf") IbzMyTerritorySearchContext context, @Param("ew") Wrapper<IbzMyTerritory> wrapper);
+    Page<IbzMyTerritory> searchMyWorkMob(IPage page, @Param("srf") IbzMyTerritorySearchContext context, @Param("ew") Wrapper<IbzMyTerritory> wrapper);
+    Page<IbzMyTerritory> searchWelcome(IPage page, @Param("srf") IbzMyTerritorySearchContext context, @Param("ew") Wrapper<IbzMyTerritory> wrapper);
     @Override
     IbzMyTerritory selectById(Serializable id);
     @Override
@@ -33,13 +33,13 @@ public interface IbzMyTerritoryMapper extends BaseMapper<IbzMyTerritory>{
     int update(@Param(Constants.ENTITY) IbzMyTerritory entity, @Param("ew") Wrapper<IbzMyTerritory> updateWrapper);
     @Override
     int deleteById(Serializable id);
-     /**
-      * 自定义查询SQL
-      * @param sql
-      * @return
-      */
-     @Select("${sql}")
-     List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
+    /**
+    * 自定义查询SQL
+    * @param sql
+    * @return
+    */
+    @Select("${sql}")
+    List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
 
     /**
     * 自定义更新SQL

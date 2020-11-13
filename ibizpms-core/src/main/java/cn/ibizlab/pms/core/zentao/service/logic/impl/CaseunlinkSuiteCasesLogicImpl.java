@@ -21,7 +21,7 @@ import cn.ibizlab.pms.core.zentao.domain.Case;
  */
 @Slf4j
 @Service
-public class CaseunlinkSuiteCasesLogicImpl implements ICaseunlinkSuiteCasesLogic{
+public class CaseunlinkSuiteCasesLogicImpl implements ICaseunlinkSuiteCasesLogic {
 
     @Autowired
     private KieContainer kieContainer;
@@ -42,19 +42,19 @@ public class CaseunlinkSuiteCasesLogicImpl implements ICaseunlinkSuiteCasesLogic
     }
 
     @Override
-    public void execute(Case et){
+    public void execute(Case et) {
 
           KieSession kieSession = null;
         try{
-           kieSession=kieContainer.newKieSession();
+           kieSession = kieContainer.newKieSession();
            kieSession.insert(et); 
-           kieSession.setGlobal("caseunlinksuitecasesdefault",et);
-           kieSession.setGlobal("caseservice",caseservice);
-           kieSession.setGlobal("iBzSysCaseDefaultService",iBzSysDefaultService);
+           kieSession.setGlobal("caseunlinksuitecasesdefault", et);
+           kieSession.setGlobal("caseservice", caseservice);
+           kieSession.setGlobal("iBzSysCaseDefaultService", iBzSysDefaultService);
            kieSession.setGlobal("curuser", cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser());
            kieSession.startProcess("cn.ibizlab.pms.core.zentao.service.logic.caseunlinksuitecases");
 
-        }catch(Exception e){
+        }catch(Exception e) {
             throw new RuntimeException("执行[unlinkSuiteCases]处理逻辑发生异常"+e);
         }finally {
             if(kieSession!=null) {

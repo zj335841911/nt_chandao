@@ -17,13 +17,13 @@ import java.io.Serializable;
 import com.baomidou.mybatisplus.core.toolkit.Constants;
 import com.alibaba.fastjson.JSONObject;
 
-public interface ModuleMapper extends BaseMapper<Module>{
+public interface ModuleMapper extends BaseMapper<Module> {
 
-    Page<Module> searchBugModule(IPage page, @Param("srf") ModuleSearchContext context, @Param("ew") Wrapper<Module> wrapper) ;
-    Page<Module> searchDefault(IPage page, @Param("srf") ModuleSearchContext context, @Param("ew") Wrapper<Module> wrapper) ;
-    Page<Module> searchDocModule(IPage page, @Param("srf") ModuleSearchContext context, @Param("ew") Wrapper<Module> wrapper) ;
-    Page<Module> searchLine(IPage page, @Param("srf") ModuleSearchContext context, @Param("ew") Wrapper<Module> wrapper) ;
-    Page<Module> searchStoryModule(IPage page, @Param("srf") ModuleSearchContext context, @Param("ew") Wrapper<Module> wrapper) ;
+    Page<Module> searchBugModule(IPage page, @Param("srf") ModuleSearchContext context, @Param("ew") Wrapper<Module> wrapper);
+    Page<Module> searchDefault(IPage page, @Param("srf") ModuleSearchContext context, @Param("ew") Wrapper<Module> wrapper);
+    Page<Module> searchDocModule(IPage page, @Param("srf") ModuleSearchContext context, @Param("ew") Wrapper<Module> wrapper);
+    Page<Module> searchLine(IPage page, @Param("srf") ModuleSearchContext context, @Param("ew") Wrapper<Module> wrapper);
+    Page<Module> searchStoryModule(IPage page, @Param("srf") ModuleSearchContext context, @Param("ew") Wrapper<Module> wrapper);
     @Override
     Module selectById(Serializable id);
     @Override
@@ -34,13 +34,13 @@ public interface ModuleMapper extends BaseMapper<Module>{
     int update(@Param(Constants.ENTITY) Module entity, @Param("ew") Wrapper<Module> updateWrapper);
     @Override
     int deleteById(Serializable id);
-     /**
-      * 自定义查询SQL
-      * @param sql
-      * @return
-      */
-     @Select("${sql}")
-     List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
+    /**
+    * 自定义查询SQL
+    * @param sql
+    * @return
+    */
+    @Select("${sql}")
+    List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
 
     /**
     * 自定义更新SQL
@@ -66,8 +66,8 @@ public interface ModuleMapper extends BaseMapper<Module>{
     @Delete("${sql}")
     boolean deleteBySQL(@Param("sql") String sql, @Param("et")Map param);
 
-    List<Module> selectByBranch(@Param("id") Serializable id) ;
+    List<Module> selectByBranch(@Param("id") Serializable id);
 
-    List<Module> selectByParent(@Param("id") Serializable id) ;
+    List<Module> selectByParent(@Param("id") Serializable id);
 
 }

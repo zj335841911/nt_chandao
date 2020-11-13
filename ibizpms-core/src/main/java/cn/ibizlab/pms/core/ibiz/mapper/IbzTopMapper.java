@@ -17,9 +17,9 @@ import java.io.Serializable;
 import com.baomidou.mybatisplus.core.toolkit.Constants;
 import com.alibaba.fastjson.JSONObject;
 
-public interface IbzTopMapper extends BaseMapper<IbzTop>{
+public interface IbzTopMapper extends BaseMapper<IbzTop> {
 
-    Page<IbzTop> searchDefault(IPage page, @Param("srf") IbzTopSearchContext context, @Param("ew") Wrapper<IbzTop> wrapper) ;
+    Page<IbzTop> searchDefault(IPage page, @Param("srf") IbzTopSearchContext context, @Param("ew") Wrapper<IbzTop> wrapper);
     @Override
     IbzTop selectById(Serializable id);
     @Override
@@ -30,13 +30,13 @@ public interface IbzTopMapper extends BaseMapper<IbzTop>{
     int update(@Param(Constants.ENTITY) IbzTop entity, @Param("ew") Wrapper<IbzTop> updateWrapper);
     @Override
     int deleteById(Serializable id);
-     /**
-      * 自定义查询SQL
-      * @param sql
-      * @return
-      */
-     @Select("${sql}")
-     List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
+    /**
+    * 自定义查询SQL
+    * @param sql
+    * @return
+    */
+    @Select("${sql}")
+    List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
 
     /**
     * 自定义更新SQL

@@ -17,9 +17,9 @@ import java.io.Serializable;
 import com.baomidou.mybatisplus.core.toolkit.Constants;
 import com.alibaba.fastjson.JSONObject;
 
-public interface TestReportMapper extends BaseMapper<TestReport>{
+public interface TestReportMapper extends BaseMapper<TestReport> {
 
-    Page<TestReport> searchDefault(IPage page, @Param("srf") TestReportSearchContext context, @Param("ew") Wrapper<TestReport> wrapper) ;
+    Page<TestReport> searchDefault(IPage page, @Param("srf") TestReportSearchContext context, @Param("ew") Wrapper<TestReport> wrapper);
     @Override
     TestReport selectById(Serializable id);
     @Override
@@ -30,13 +30,13 @@ public interface TestReportMapper extends BaseMapper<TestReport>{
     int update(@Param(Constants.ENTITY) TestReport entity, @Param("ew") Wrapper<TestReport> updateWrapper);
     @Override
     int deleteById(Serializable id);
-     /**
-      * 自定义查询SQL
-      * @param sql
-      * @return
-      */
-     @Select("${sql}")
-     List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
+    /**
+    * 自定义查询SQL
+    * @param sql
+    * @return
+    */
+    @Select("${sql}")
+    List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
 
     /**
     * 自定义更新SQL
@@ -62,8 +62,8 @@ public interface TestReportMapper extends BaseMapper<TestReport>{
     @Delete("${sql}")
     boolean deleteBySQL(@Param("sql") String sql, @Param("et")Map param);
 
-    List<TestReport> selectByProduct(@Param("id") Serializable id) ;
+    List<TestReport> selectByProduct(@Param("id") Serializable id);
 
-    List<TestReport> selectByProject(@Param("id") Serializable id) ;
+    List<TestReport> selectByProject(@Param("id") Serializable id);
 
 }

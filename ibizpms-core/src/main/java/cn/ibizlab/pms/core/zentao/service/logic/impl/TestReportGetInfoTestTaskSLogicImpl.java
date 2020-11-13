@@ -21,7 +21,7 @@ import cn.ibizlab.pms.core.zentao.domain.TestReport;
  */
 @Slf4j
 @Service
-public class TestReportGetInfoTestTaskSLogicImpl implements ITestReportGetInfoTestTaskSLogic{
+public class TestReportGetInfoTestTaskSLogicImpl implements ITestReportGetInfoTestTaskSLogic {
 
     @Autowired
     private KieContainer kieContainer;
@@ -42,22 +42,22 @@ public class TestReportGetInfoTestTaskSLogicImpl implements ITestReportGetInfoTe
     }
 
     @Override
-    public void execute(TestReport et){
+    public void execute(TestReport et) {
 
           KieSession kieSession = null;
         try{
-           kieSession=kieContainer.newKieSession();
+           kieSession = kieContainer.newKieSession();
            kieSession.insert(et); 
-           kieSession.setGlobal("testreportgetinfotesttasksdefault",et);
-           cn.ibizlab.pms.core.zentao.domain.TestTask  testreportgetinfotesttaskstesttask =new cn.ibizlab.pms.core.zentao.domain.TestTask();
+           kieSession.setGlobal("testreportgetinfotesttasksdefault", et);
+           cn.ibizlab.pms.core.zentao.domain.TestTask testreportgetinfotesttaskstesttask = new cn.ibizlab.pms.core.zentao.domain.TestTask();
            kieSession.insert(testreportgetinfotesttaskstesttask); 
-           kieSession.setGlobal("testreportgetinfotesttaskstesttask",testreportgetinfotesttaskstesttask);
-           kieSession.setGlobal("testreportservice",testreportservice);
-           kieSession.setGlobal("iBzSysTestreportDefaultService",iBzSysDefaultService);
+           kieSession.setGlobal("testreportgetinfotesttaskstesttask", testreportgetinfotesttaskstesttask);
+           kieSession.setGlobal("testreportservice", testreportservice);
+           kieSession.setGlobal("iBzSysTestreportDefaultService", iBzSysDefaultService);
            kieSession.setGlobal("curuser", cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser());
            kieSession.startProcess("cn.ibizlab.pms.core.zentao.service.logic.testreportgetinfotesttasks");
 
-        }catch(Exception e){
+        }catch(Exception e) {
             throw new RuntimeException("执行[根据测试单获取相应信息（项目报告）（多测试）]处理逻辑发生异常"+e);
         }finally {
             if(kieSession!=null) {

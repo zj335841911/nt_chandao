@@ -21,7 +21,7 @@ import cn.ibizlab.pms.core.ibiz.domain.TestModule;
  */
 @Slf4j
 @Service
-public class TestModuleFixPathLogicImpl implements ITestModuleFixPathLogic{
+public class TestModuleFixPathLogicImpl implements ITestModuleFixPathLogic {
 
     @Autowired
     private KieContainer kieContainer;
@@ -42,22 +42,22 @@ public class TestModuleFixPathLogicImpl implements ITestModuleFixPathLogic{
     }
 
     @Override
-    public void execute(TestModule et){
+    public void execute(TestModule et) {
 
           KieSession kieSession = null;
         try{
-           kieSession=kieContainer.newKieSession();
+           kieSession = kieContainer.newKieSession();
            kieSession.insert(et); 
-           kieSession.setGlobal("testmodulefixpathdefault",et);
-           cn.ibizlab.pms.core.zentao.domain.Module  testmodulefixpathzt_module =new cn.ibizlab.pms.core.zentao.domain.Module();
+           kieSession.setGlobal("testmodulefixpathdefault", et);
+           cn.ibizlab.pms.core.zentao.domain.Module testmodulefixpathzt_module = new cn.ibizlab.pms.core.zentao.domain.Module();
            kieSession.insert(testmodulefixpathzt_module); 
-           kieSession.setGlobal("testmodulefixpathzt_module",testmodulefixpathzt_module);
-           kieSession.setGlobal("moduleservice",moduleservice);
-           kieSession.setGlobal("iBzSysTestmoduleDefaultService",iBzSysDefaultService);
+           kieSession.setGlobal("testmodulefixpathzt_module", testmodulefixpathzt_module);
+           kieSession.setGlobal("moduleservice", moduleservice);
+           kieSession.setGlobal("iBzSysTestmoduleDefaultService", iBzSysDefaultService);
            kieSession.setGlobal("curuser", cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser());
            kieSession.startProcess("cn.ibizlab.pms.core.ibiz.service.logic.testmodulefixpath");
 
-        }catch(Exception e){
+        }catch(Exception e) {
             throw new RuntimeException("执行[重建模块路径]处理逻辑发生异常"+e);
         }finally {
             if(kieSession!=null) {

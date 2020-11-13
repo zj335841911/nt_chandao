@@ -17,9 +17,9 @@ import java.io.Serializable;
 import com.baomidou.mybatisplus.core.toolkit.Constants;
 import com.alibaba.fastjson.JSONObject;
 
-public interface GroupMapper extends BaseMapper<Group>{
+public interface GroupMapper extends BaseMapper<Group> {
 
-    Page<Group> searchDefault(IPage page, @Param("srf") GroupSearchContext context, @Param("ew") Wrapper<Group> wrapper) ;
+    Page<Group> searchDefault(IPage page, @Param("srf") GroupSearchContext context, @Param("ew") Wrapper<Group> wrapper);
     @Override
     Group selectById(Serializable id);
     @Override
@@ -30,13 +30,13 @@ public interface GroupMapper extends BaseMapper<Group>{
     int update(@Param(Constants.ENTITY) Group entity, @Param("ew") Wrapper<Group> updateWrapper);
     @Override
     int deleteById(Serializable id);
-     /**
-      * 自定义查询SQL
-      * @param sql
-      * @return
-      */
-     @Select("${sql}")
-     List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
+    /**
+    * 自定义查询SQL
+    * @param sql
+    * @return
+    */
+    @Select("${sql}")
+    List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
 
     /**
     * 自定义更新SQL

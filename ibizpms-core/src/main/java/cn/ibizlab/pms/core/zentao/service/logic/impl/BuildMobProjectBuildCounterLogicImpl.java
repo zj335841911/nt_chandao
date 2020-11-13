@@ -21,7 +21,7 @@ import cn.ibizlab.pms.core.zentao.domain.Build;
  */
 @Slf4j
 @Service
-public class BuildMobProjectBuildCounterLogicImpl implements IBuildMobProjectBuildCounterLogic{
+public class BuildMobProjectBuildCounterLogicImpl implements IBuildMobProjectBuildCounterLogic {
 
     @Autowired
     private KieContainer kieContainer;
@@ -35,18 +35,18 @@ public class BuildMobProjectBuildCounterLogicImpl implements IBuildMobProjectBui
     }
 
     @Override
-    public void execute(Build et){
+    public void execute(Build et) {
 
           KieSession kieSession = null;
         try{
-           kieSession=kieContainer.newKieSession();
+           kieSession = kieContainer.newKieSession();
            kieSession.insert(et); 
-           kieSession.setGlobal("buildmobprojectbuildcounterdefault",et);
-           kieSession.setGlobal("iBzSysBuildDefaultService",iBzSysDefaultService);
+           kieSession.setGlobal("buildmobprojectbuildcounterdefault", et);
+           kieSession.setGlobal("iBzSysBuildDefaultService", iBzSysDefaultService);
            kieSession.setGlobal("curuser", cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser());
            kieSession.startProcess("cn.ibizlab.pms.core.zentao.service.logic.buildmobprojectbuildcounter");
 
-        }catch(Exception e){
+        }catch(Exception e) {
             throw new RuntimeException("执行[移动端项目版本计数器]处理逻辑发生异常"+e);
         }finally {
             if(kieSession!=null) {

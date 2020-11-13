@@ -17,12 +17,12 @@ import java.io.Serializable;
 import com.baomidou.mybatisplus.core.toolkit.Constants;
 import com.alibaba.fastjson.JSONObject;
 
-public interface UserYearWorkStatsMapper extends BaseMapper<UserYearWorkStats>{
+public interface UserYearWorkStatsMapper extends BaseMapper<UserYearWorkStats> {
 
-    Page<UserYearWorkStats> searchDefault(IPage page, @Param("srf") UserYearWorkStatsSearchContext context, @Param("ew") Wrapper<UserYearWorkStats> wrapper) ;
-    Page<UserYearWorkStats> searchMonthFinishTaskAndBug(IPage page, @Param("srf") UserYearWorkStatsSearchContext context, @Param("ew") Wrapper<UserYearWorkStats> wrapper) ;
-    Page<UserYearWorkStats> searchMonthOpenedBugAndCase(IPage page, @Param("srf") UserYearWorkStatsSearchContext context, @Param("ew") Wrapper<UserYearWorkStats> wrapper) ;
-    Page<UserYearWorkStats> searchMonthOpenedStory(IPage page, @Param("srf") UserYearWorkStatsSearchContext context, @Param("ew") Wrapper<UserYearWorkStats> wrapper) ;
+    Page<UserYearWorkStats> searchDefault(IPage page, @Param("srf") UserYearWorkStatsSearchContext context, @Param("ew") Wrapper<UserYearWorkStats> wrapper);
+    Page<UserYearWorkStats> searchMonthFinishTaskAndBug(IPage page, @Param("srf") UserYearWorkStatsSearchContext context, @Param("ew") Wrapper<UserYearWorkStats> wrapper);
+    Page<UserYearWorkStats> searchMonthOpenedBugAndCase(IPage page, @Param("srf") UserYearWorkStatsSearchContext context, @Param("ew") Wrapper<UserYearWorkStats> wrapper);
+    Page<UserYearWorkStats> searchMonthOpenedStory(IPage page, @Param("srf") UserYearWorkStatsSearchContext context, @Param("ew") Wrapper<UserYearWorkStats> wrapper);
     @Override
     UserYearWorkStats selectById(Serializable id);
     @Override
@@ -33,13 +33,13 @@ public interface UserYearWorkStatsMapper extends BaseMapper<UserYearWorkStats>{
     int update(@Param(Constants.ENTITY) UserYearWorkStats entity, @Param("ew") Wrapper<UserYearWorkStats> updateWrapper);
     @Override
     int deleteById(Serializable id);
-     /**
-      * 自定义查询SQL
-      * @param sql
-      * @return
-      */
-     @Select("${sql}")
-     List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
+    /**
+    * 自定义查询SQL
+    * @param sql
+    * @return
+    */
+    @Select("${sql}")
+    List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
 
     /**
     * 自定义更新SQL

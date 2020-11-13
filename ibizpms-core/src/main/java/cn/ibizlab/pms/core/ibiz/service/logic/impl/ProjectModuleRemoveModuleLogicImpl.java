@@ -21,7 +21,7 @@ import cn.ibizlab.pms.core.ibiz.domain.ProjectModule;
  */
 @Slf4j
 @Service
-public class ProjectModuleRemoveModuleLogicImpl implements IProjectModuleRemoveModuleLogic{
+public class ProjectModuleRemoveModuleLogicImpl implements IProjectModuleRemoveModuleLogic {
 
     @Autowired
     private KieContainer kieContainer;
@@ -42,22 +42,22 @@ public class ProjectModuleRemoveModuleLogicImpl implements IProjectModuleRemoveM
     }
 
     @Override
-    public void execute(ProjectModule et){
+    public void execute(ProjectModule et) {
 
           KieSession kieSession = null;
         try{
-           kieSession=kieContainer.newKieSession();
-           cn.ibizlab.pms.core.zentao.domain.Module  projectmoduleremovemodulemodule =new cn.ibizlab.pms.core.zentao.domain.Module();
+           kieSession = kieContainer.newKieSession();
+           cn.ibizlab.pms.core.zentao.domain.Module projectmoduleremovemodulemodule = new cn.ibizlab.pms.core.zentao.domain.Module();
            kieSession.insert(projectmoduleremovemodulemodule); 
-           kieSession.setGlobal("projectmoduleremovemodulemodule",projectmoduleremovemodulemodule);
+           kieSession.setGlobal("projectmoduleremovemodulemodule", projectmoduleremovemodulemodule);
            kieSession.insert(et); 
-           kieSession.setGlobal("projectmoduleremovemoduledefault",et);
-           kieSession.setGlobal("moduleservice",moduleservice);
-           kieSession.setGlobal("iBzSysProjectmoduleDefaultService",iBzSysDefaultService);
+           kieSession.setGlobal("projectmoduleremovemoduledefault", et);
+           kieSession.setGlobal("moduleservice", moduleservice);
+           kieSession.setGlobal("iBzSysProjectmoduleDefaultService", iBzSysDefaultService);
            kieSession.setGlobal("curuser", cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser());
            kieSession.startProcess("cn.ibizlab.pms.core.ibiz.service.logic.projectmoduleremovemodule");
 
-        }catch(Exception e){
+        }catch(Exception e) {
             throw new RuntimeException("执行[删除模块]处理逻辑发生异常"+e);
         }finally {
             if(kieSession!=null) {

@@ -21,7 +21,7 @@ import cn.ibizlab.pms.core.ibiz.domain.DocLibModule;
  */
 @Slf4j
 @Service
-public class DocLibModuleFixPathLogicImpl implements IDocLibModuleFixPathLogic{
+public class DocLibModuleFixPathLogicImpl implements IDocLibModuleFixPathLogic {
 
     @Autowired
     private KieContainer kieContainer;
@@ -42,22 +42,22 @@ public class DocLibModuleFixPathLogicImpl implements IDocLibModuleFixPathLogic{
     }
 
     @Override
-    public void execute(DocLibModule et){
+    public void execute(DocLibModule et) {
 
           KieSession kieSession = null;
         try{
-           kieSession=kieContainer.newKieSession();
-           cn.ibizlab.pms.core.zentao.domain.Module  doclibmodulefixpathzt_module =new cn.ibizlab.pms.core.zentao.domain.Module();
+           kieSession = kieContainer.newKieSession();
+           cn.ibizlab.pms.core.zentao.domain.Module doclibmodulefixpathzt_module = new cn.ibizlab.pms.core.zentao.domain.Module();
            kieSession.insert(doclibmodulefixpathzt_module); 
-           kieSession.setGlobal("doclibmodulefixpathzt_module",doclibmodulefixpathzt_module);
+           kieSession.setGlobal("doclibmodulefixpathzt_module", doclibmodulefixpathzt_module);
            kieSession.insert(et); 
-           kieSession.setGlobal("doclibmodulefixpathdefault",et);
-           kieSession.setGlobal("moduleservice",moduleservice);
-           kieSession.setGlobal("iBzSysDoclibmoduleDefaultService",iBzSysDefaultService);
+           kieSession.setGlobal("doclibmodulefixpathdefault", et);
+           kieSession.setGlobal("moduleservice", moduleservice);
+           kieSession.setGlobal("iBzSysDoclibmoduleDefaultService", iBzSysDefaultService);
            kieSession.setGlobal("curuser", cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser());
            kieSession.startProcess("cn.ibizlab.pms.core.ibiz.service.logic.doclibmodulefixpath");
 
-        }catch(Exception e){
+        }catch(Exception e) {
             throw new RuntimeException("执行[重建模块路径]处理逻辑发生异常"+e);
         }finally {
             if(kieSession!=null) {

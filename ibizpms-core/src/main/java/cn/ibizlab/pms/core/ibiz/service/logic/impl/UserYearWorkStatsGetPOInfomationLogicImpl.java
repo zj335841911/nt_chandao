@@ -21,7 +21,7 @@ import cn.ibizlab.pms.core.ibiz.domain.UserYearWorkStats;
  */
 @Slf4j
 @Service
-public class UserYearWorkStatsGetPOInfomationLogicImpl implements IUserYearWorkStatsGetPOInfomationLogic{
+public class UserYearWorkStatsGetPOInfomationLogicImpl implements IUserYearWorkStatsGetPOInfomationLogic {
 
     @Autowired
     private KieContainer kieContainer;
@@ -35,18 +35,18 @@ public class UserYearWorkStatsGetPOInfomationLogicImpl implements IUserYearWorkS
     }
 
     @Override
-    public void execute(UserYearWorkStats et){
+    public void execute(UserYearWorkStats et) {
 
           KieSession kieSession = null;
         try{
-           kieSession=kieContainer.newKieSession();
+           kieSession = kieContainer.newKieSession();
            kieSession.insert(et); 
-           kieSession.setGlobal("useryearworkstatsgetpoinfomationdefault",et);
-           kieSession.setGlobal("iBzSysUseryearworkstatsDefaultService",iBzSysDefaultService);
+           kieSession.setGlobal("useryearworkstatsgetpoinfomationdefault", et);
+           kieSession.setGlobal("iBzSysUseryearworkstatsDefaultService", iBzSysDefaultService);
            kieSession.setGlobal("curuser", cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser());
            kieSession.startProcess("cn.ibizlab.pms.core.ibiz.service.logic.useryearworkstatsgetpoinfomation");
 
-        }catch(Exception e){
+        }catch(Exception e) {
             throw new RuntimeException("执行[获取产品经理相关数据]处理逻辑发生异常"+e);
         }finally {
             if(kieSession!=null) {

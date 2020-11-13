@@ -21,7 +21,7 @@ import cn.ibizlab.pms.core.zentao.domain.Bug;
  */
 @Slf4j
 @Service
-public class BugBugFavoritesLogicImpl implements IBugBugFavoritesLogic{
+public class BugBugFavoritesLogicImpl implements IBugBugFavoritesLogic {
 
     @Autowired
     private KieContainer kieContainer;
@@ -42,22 +42,22 @@ public class BugBugFavoritesLogicImpl implements IBugBugFavoritesLogic{
     }
 
     @Override
-    public void execute(Bug et){
+    public void execute(Bug et) {
 
           KieSession kieSession = null;
         try{
-           kieSession=kieContainer.newKieSession();
-           cn.ibizlab.pms.core.ibiz.domain.IbzFavorites  bugbugfavoritesibzfavorites =new cn.ibizlab.pms.core.ibiz.domain.IbzFavorites();
+           kieSession = kieContainer.newKieSession();
+           cn.ibizlab.pms.core.ibiz.domain.IbzFavorites bugbugfavoritesibzfavorites = new cn.ibizlab.pms.core.ibiz.domain.IbzFavorites();
            kieSession.insert(bugbugfavoritesibzfavorites); 
-           kieSession.setGlobal("bugbugfavoritesibzfavorites",bugbugfavoritesibzfavorites);
+           kieSession.setGlobal("bugbugfavoritesibzfavorites", bugbugfavoritesibzfavorites);
            kieSession.insert(et); 
-           kieSession.setGlobal("bugbugfavoritesdefault",et);
-           kieSession.setGlobal("ibzfavoritesservice",ibzfavoritesservice);
-           kieSession.setGlobal("iBzSysBugDefaultService",iBzSysDefaultService);
+           kieSession.setGlobal("bugbugfavoritesdefault", et);
+           kieSession.setGlobal("ibzfavoritesservice", ibzfavoritesservice);
+           kieSession.setGlobal("iBzSysBugDefaultService", iBzSysDefaultService);
            kieSession.setGlobal("curuser", cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser());
            kieSession.startProcess("cn.ibizlab.pms.core.zentao.service.logic.bugbugfavorites");
 
-        }catch(Exception e){
+        }catch(Exception e) {
             throw new RuntimeException("执行[Bug收藏]处理逻辑发生异常"+e);
         }finally {
             if(kieSession!=null) {

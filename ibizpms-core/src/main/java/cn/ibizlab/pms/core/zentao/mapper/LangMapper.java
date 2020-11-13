@@ -17,9 +17,9 @@ import java.io.Serializable;
 import com.baomidou.mybatisplus.core.toolkit.Constants;
 import com.alibaba.fastjson.JSONObject;
 
-public interface LangMapper extends BaseMapper<Lang>{
+public interface LangMapper extends BaseMapper<Lang> {
 
-    Page<Lang> searchDefault(IPage page, @Param("srf") LangSearchContext context, @Param("ew") Wrapper<Lang> wrapper) ;
+    Page<Lang> searchDefault(IPage page, @Param("srf") LangSearchContext context, @Param("ew") Wrapper<Lang> wrapper);
     @Override
     Lang selectById(Serializable id);
     @Override
@@ -30,13 +30,13 @@ public interface LangMapper extends BaseMapper<Lang>{
     int update(@Param(Constants.ENTITY) Lang entity, @Param("ew") Wrapper<Lang> updateWrapper);
     @Override
     int deleteById(Serializable id);
-     /**
-      * 自定义查询SQL
-      * @param sql
-      * @return
-      */
-     @Select("${sql}")
-     List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
+    /**
+    * 自定义查询SQL
+    * @param sql
+    * @return
+    */
+    @Select("${sql}")
+    List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
 
     /**
     * 自定义更新SQL

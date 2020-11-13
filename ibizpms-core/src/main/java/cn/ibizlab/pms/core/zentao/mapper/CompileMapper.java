@@ -17,9 +17,9 @@ import java.io.Serializable;
 import com.baomidou.mybatisplus.core.toolkit.Constants;
 import com.alibaba.fastjson.JSONObject;
 
-public interface CompileMapper extends BaseMapper<Compile>{
+public interface CompileMapper extends BaseMapper<Compile> {
 
-    Page<Compile> searchDefault(IPage page, @Param("srf") CompileSearchContext context, @Param("ew") Wrapper<Compile> wrapper) ;
+    Page<Compile> searchDefault(IPage page, @Param("srf") CompileSearchContext context, @Param("ew") Wrapper<Compile> wrapper);
     @Override
     Compile selectById(Serializable id);
     @Override
@@ -30,13 +30,13 @@ public interface CompileMapper extends BaseMapper<Compile>{
     int update(@Param(Constants.ENTITY) Compile entity, @Param("ew") Wrapper<Compile> updateWrapper);
     @Override
     int deleteById(Serializable id);
-     /**
-      * 自定义查询SQL
-      * @param sql
-      * @return
-      */
-     @Select("${sql}")
-     List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
+    /**
+    * 自定义查询SQL
+    * @param sql
+    * @return
+    */
+    @Select("${sql}")
+    List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
 
     /**
     * 自定义更新SQL

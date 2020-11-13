@@ -17,9 +17,9 @@ import java.io.Serializable;
 import com.baomidou.mybatisplus.core.toolkit.Constants;
 import com.alibaba.fastjson.JSONObject;
 
-public interface SysUpdateLogMapper extends BaseMapper<SysUpdateLog>{
+public interface SysUpdateLogMapper extends BaseMapper<SysUpdateLog> {
 
-    Page<SysUpdateLog> searchDefault(IPage page, @Param("srf") SysUpdateLogSearchContext context, @Param("ew") Wrapper<SysUpdateLog> wrapper) ;
+    Page<SysUpdateLog> searchDefault(IPage page, @Param("srf") SysUpdateLogSearchContext context, @Param("ew") Wrapper<SysUpdateLog> wrapper);
     @Override
     SysUpdateLog selectById(Serializable id);
     @Override
@@ -30,13 +30,13 @@ public interface SysUpdateLogMapper extends BaseMapper<SysUpdateLog>{
     int update(@Param(Constants.ENTITY) SysUpdateLog entity, @Param("ew") Wrapper<SysUpdateLog> updateWrapper);
     @Override
     int deleteById(Serializable id);
-     /**
-      * 自定义查询SQL
-      * @param sql
-      * @return
-      */
-     @Select("${sql}")
-     List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
+    /**
+    * 自定义查询SQL
+    * @param sql
+    * @return
+    */
+    @Select("${sql}")
+    List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
 
     /**
     * 自定义更新SQL

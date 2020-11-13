@@ -17,10 +17,10 @@ import java.io.Serializable;
 import com.baomidou.mybatisplus.core.toolkit.Constants;
 import com.alibaba.fastjson.JSONObject;
 
-public interface BranchMapper extends BaseMapper<Branch>{
+public interface BranchMapper extends BaseMapper<Branch> {
 
-    Page<Branch> searchCurProduct(IPage page, @Param("srf") BranchSearchContext context, @Param("ew") Wrapper<Branch> wrapper) ;
-    Page<Branch> searchDefault(IPage page, @Param("srf") BranchSearchContext context, @Param("ew") Wrapper<Branch> wrapper) ;
+    Page<Branch> searchCurProduct(IPage page, @Param("srf") BranchSearchContext context, @Param("ew") Wrapper<Branch> wrapper);
+    Page<Branch> searchDefault(IPage page, @Param("srf") BranchSearchContext context, @Param("ew") Wrapper<Branch> wrapper);
     @Override
     Branch selectById(Serializable id);
     @Override
@@ -31,13 +31,13 @@ public interface BranchMapper extends BaseMapper<Branch>{
     int update(@Param(Constants.ENTITY) Branch entity, @Param("ew") Wrapper<Branch> updateWrapper);
     @Override
     int deleteById(Serializable id);
-     /**
-      * 自定义查询SQL
-      * @param sql
-      * @return
-      */
-     @Select("${sql}")
-     List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
+    /**
+    * 自定义查询SQL
+    * @param sql
+    * @return
+    */
+    @Select("${sql}")
+    List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
 
     /**
     * 自定义更新SQL
@@ -63,6 +63,6 @@ public interface BranchMapper extends BaseMapper<Branch>{
     @Delete("${sql}")
     boolean deleteBySQL(@Param("sql") String sql, @Param("et")Map param);
 
-    List<Branch> selectByProduct(@Param("id") Serializable id) ;
+    List<Branch> selectByProduct(@Param("id") Serializable id);
 
 }

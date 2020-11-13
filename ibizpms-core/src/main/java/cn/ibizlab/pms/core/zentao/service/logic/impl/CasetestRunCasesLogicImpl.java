@@ -21,7 +21,7 @@ import cn.ibizlab.pms.core.zentao.domain.Case;
  */
 @Slf4j
 @Service
-public class CasetestRunCasesLogicImpl implements ICasetestRunCasesLogic{
+public class CasetestRunCasesLogicImpl implements ICasetestRunCasesLogic {
 
     @Autowired
     private KieContainer kieContainer;
@@ -42,22 +42,22 @@ public class CasetestRunCasesLogicImpl implements ICasetestRunCasesLogic{
     }
 
     @Override
-    public void execute(Case et){
+    public void execute(Case et) {
 
           KieSession kieSession = null;
         try{
-           kieSession=kieContainer.newKieSession();
-           cn.ibizlab.pms.core.zentao.domain.TestRun  casetestruncasestestrun =new cn.ibizlab.pms.core.zentao.domain.TestRun();
+           kieSession = kieContainer.newKieSession();
+           cn.ibizlab.pms.core.zentao.domain.TestRun casetestruncasestestrun = new cn.ibizlab.pms.core.zentao.domain.TestRun();
            kieSession.insert(casetestruncasestestrun); 
-           kieSession.setGlobal("casetestruncasestestrun",casetestruncasestestrun);
+           kieSession.setGlobal("casetestruncasestestrun", casetestruncasestestrun);
            kieSession.insert(et); 
-           kieSession.setGlobal("casetestruncasesdefault",et);
-           kieSession.setGlobal("caseservice",caseservice);
-           kieSession.setGlobal("iBzSysCaseDefaultService",iBzSysDefaultService);
+           kieSession.setGlobal("casetestruncasesdefault", et);
+           kieSession.setGlobal("caseservice", caseservice);
+           kieSession.setGlobal("iBzSysCaseDefaultService", iBzSysDefaultService);
            kieSession.setGlobal("curuser", cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser());
            kieSession.startProcess("cn.ibizlab.pms.core.zentao.service.logic.casetestruncases");
 
-        }catch(Exception e){
+        }catch(Exception e) {
             throw new RuntimeException("执行[testRunCases]处理逻辑发生异常"+e);
         }finally {
             if(kieSession!=null) {

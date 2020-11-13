@@ -17,10 +17,10 @@ import java.io.Serializable;
 import com.baomidou.mybatisplus.core.toolkit.Constants;
 import com.alibaba.fastjson.JSONObject;
 
-public interface EmpLoyeeloadMapper extends BaseMapper<EmpLoyeeload>{
+public interface EmpLoyeeloadMapper extends BaseMapper<EmpLoyeeload> {
 
-    Page<EmpLoyeeload> searchDefault(IPage page, @Param("srf") EmpLoyeeloadSearchContext context, @Param("ew") Wrapper<EmpLoyeeload> wrapper) ;
-    Page<EmpLoyeeload> searchGETWOERKLOAD(IPage page, @Param("srf") EmpLoyeeloadSearchContext context, @Param("ew") Wrapper<EmpLoyeeload> wrapper) ;
+    Page<EmpLoyeeload> searchDefault(IPage page, @Param("srf") EmpLoyeeloadSearchContext context, @Param("ew") Wrapper<EmpLoyeeload> wrapper);
+    Page<EmpLoyeeload> searchGETWOERKLOAD(IPage page, @Param("srf") EmpLoyeeloadSearchContext context, @Param("ew") Wrapper<EmpLoyeeload> wrapper);
     @Override
     EmpLoyeeload selectById(Serializable id);
     @Override
@@ -31,13 +31,13 @@ public interface EmpLoyeeloadMapper extends BaseMapper<EmpLoyeeload>{
     int update(@Param(Constants.ENTITY) EmpLoyeeload entity, @Param("ew") Wrapper<EmpLoyeeload> updateWrapper);
     @Override
     int deleteById(Serializable id);
-     /**
-      * 自定义查询SQL
-      * @param sql
-      * @return
-      */
-     @Select("${sql}")
-     List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
+    /**
+    * 自定义查询SQL
+    * @param sql
+    * @return
+    */
+    @Select("${sql}")
+    List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
 
     /**
     * 自定义更新SQL
@@ -63,6 +63,6 @@ public interface EmpLoyeeloadMapper extends BaseMapper<EmpLoyeeload>{
     @Delete("${sql}")
     boolean deleteBySQL(@Param("sql") String sql, @Param("et")Map param);
 
-    List<EmpLoyeeload> selectByProject(@Param("id") Serializable id) ;
+    List<EmpLoyeeload> selectByProject(@Param("id") Serializable id);
 
 }

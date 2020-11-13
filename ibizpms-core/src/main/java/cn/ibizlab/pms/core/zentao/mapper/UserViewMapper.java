@@ -17,9 +17,9 @@ import java.io.Serializable;
 import com.baomidou.mybatisplus.core.toolkit.Constants;
 import com.alibaba.fastjson.JSONObject;
 
-public interface UserViewMapper extends BaseMapper<UserView>{
+public interface UserViewMapper extends BaseMapper<UserView> {
 
-    Page<UserView> searchDefault(IPage page, @Param("srf") UserViewSearchContext context, @Param("ew") Wrapper<UserView> wrapper) ;
+    Page<UserView> searchDefault(IPage page, @Param("srf") UserViewSearchContext context, @Param("ew") Wrapper<UserView> wrapper);
     @Override
     UserView selectById(Serializable id);
     @Override
@@ -30,13 +30,13 @@ public interface UserViewMapper extends BaseMapper<UserView>{
     int update(@Param(Constants.ENTITY) UserView entity, @Param("ew") Wrapper<UserView> updateWrapper);
     @Override
     int deleteById(Serializable id);
-     /**
-      * 自定义查询SQL
-      * @param sql
-      * @return
-      */
-     @Select("${sql}")
-     List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
+    /**
+    * 自定义查询SQL
+    * @param sql
+    * @return
+    */
+    @Select("${sql}")
+    List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
 
     /**
     * 自定义更新SQL

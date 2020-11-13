@@ -21,7 +21,7 @@ import cn.ibizlab.pms.core.ibiz.domain.IbzMyTerritory;
  */
 @Slf4j
 @Service
-public class IbzMyTerritoryMyFavoriteCountLogicImpl implements IIbzMyTerritoryMyFavoriteCountLogic{
+public class IbzMyTerritoryMyFavoriteCountLogicImpl implements IIbzMyTerritoryMyFavoriteCountLogic {
 
     @Autowired
     private KieContainer kieContainer;
@@ -35,18 +35,18 @@ public class IbzMyTerritoryMyFavoriteCountLogicImpl implements IIbzMyTerritoryMy
     }
 
     @Override
-    public void execute(IbzMyTerritory et){
+    public void execute(IbzMyTerritory et) {
 
           KieSession kieSession = null;
         try{
-           kieSession=kieContainer.newKieSession();
+           kieSession = kieContainer.newKieSession();
            kieSession.insert(et); 
-           kieSession.setGlobal("ibzmyterritorymyfavoritecountdefault",et);
-           kieSession.setGlobal("iBzSysIbzmyterritoryDefaultService",iBzSysDefaultService);
+           kieSession.setGlobal("ibzmyterritorymyfavoritecountdefault", et);
+           kieSession.setGlobal("iBzSysIbzmyterritoryDefaultService", iBzSysDefaultService);
            kieSession.setGlobal("curuser", cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser());
            kieSession.startProcess("cn.ibizlab.pms.core.ibiz.service.logic.ibzmyterritorymyfavoritecount");
 
-        }catch(Exception e){
+        }catch(Exception e) {
             throw new RuntimeException("执行[我的收藏计数器]处理逻辑发生异常"+e);
         }finally {
             if(kieSession!=null) {

@@ -17,9 +17,9 @@ import java.io.Serializable;
 import com.baomidou.mybatisplus.core.toolkit.Constants;
 import com.alibaba.fastjson.JSONObject;
 
-public interface SysUpdateFeaturesMapper extends BaseMapper<SysUpdateFeatures>{
+public interface SysUpdateFeaturesMapper extends BaseMapper<SysUpdateFeatures> {
 
-    Page<SysUpdateFeatures> searchDefault(IPage page, @Param("srf") SysUpdateFeaturesSearchContext context, @Param("ew") Wrapper<SysUpdateFeatures> wrapper) ;
+    Page<SysUpdateFeatures> searchDefault(IPage page, @Param("srf") SysUpdateFeaturesSearchContext context, @Param("ew") Wrapper<SysUpdateFeatures> wrapper);
     @Override
     SysUpdateFeatures selectById(Serializable id);
     @Override
@@ -30,13 +30,13 @@ public interface SysUpdateFeaturesMapper extends BaseMapper<SysUpdateFeatures>{
     int update(@Param(Constants.ENTITY) SysUpdateFeatures entity, @Param("ew") Wrapper<SysUpdateFeatures> updateWrapper);
     @Override
     int deleteById(Serializable id);
-     /**
-      * 自定义查询SQL
-      * @param sql
-      * @return
-      */
-     @Select("${sql}")
-     List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
+    /**
+    * 自定义查询SQL
+    * @param sql
+    * @return
+    */
+    @Select("${sql}")
+    List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
 
     /**
     * 自定义更新SQL
@@ -62,6 +62,6 @@ public interface SysUpdateFeaturesMapper extends BaseMapper<SysUpdateFeatures>{
     @Delete("${sql}")
     boolean deleteBySQL(@Param("sql") String sql, @Param("et")Map param);
 
-    List<SysUpdateFeatures> selectBySysupdatelogid(@Param("sysupdatelogid") Serializable sysupdatelogid) ;
+    List<SysUpdateFeatures> selectBySysupdatelogid(@Param("sysupdatelogid") Serializable sysupdatelogid);
 
 }

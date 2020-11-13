@@ -21,7 +21,7 @@ import cn.ibizlab.pms.core.zentao.domain.Action;
  */
 @Slf4j
 @Service
-public class ActionCommentLogicImpl implements IActionCommentLogic{
+public class ActionCommentLogicImpl implements IActionCommentLogic {
 
     @Autowired
     private KieContainer kieContainer;
@@ -35,18 +35,18 @@ public class ActionCommentLogicImpl implements IActionCommentLogic{
     }
 
     @Override
-    public void execute(Action et){
+    public void execute(Action et) {
 
           KieSession kieSession = null;
         try{
-           kieSession=kieContainer.newKieSession();
+           kieSession = kieContainer.newKieSession();
            kieSession.insert(et); 
-           kieSession.setGlobal("actioncommentdefault",et);
-           kieSession.setGlobal("iBzSysActionDefaultService",iBzSysDefaultService);
+           kieSession.setGlobal("actioncommentdefault", et);
+           kieSession.setGlobal("iBzSysActionDefaultService", iBzSysDefaultService);
            kieSession.setGlobal("curuser", cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser());
            kieSession.startProcess("cn.ibizlab.pms.core.zentao.service.logic.actioncomment");
 
-        }catch(Exception e){
+        }catch(Exception e) {
             throw new RuntimeException("执行[Comment]处理逻辑发生异常"+e);
         }finally {
             if(kieSession!=null) {

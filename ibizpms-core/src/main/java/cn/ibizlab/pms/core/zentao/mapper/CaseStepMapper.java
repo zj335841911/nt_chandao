@@ -17,14 +17,14 @@ import java.io.Serializable;
 import com.baomidou.mybatisplus.core.toolkit.Constants;
 import com.alibaba.fastjson.JSONObject;
 
-public interface CaseStepMapper extends BaseMapper<CaseStep>{
+public interface CaseStepMapper extends BaseMapper<CaseStep> {
 
-    Page<CaseStep> searchCurTest(IPage page, @Param("srf") CaseStepSearchContext context, @Param("ew") Wrapper<CaseStep> wrapper) ;
-    Page<CaseStep> searchDefault(IPage page, @Param("srf") CaseStepSearchContext context, @Param("ew") Wrapper<CaseStep> wrapper) ;
-    Page<CaseStep> searchDefault1(IPage page, @Param("srf") CaseStepSearchContext context, @Param("ew") Wrapper<CaseStep> wrapper) ;
-    Page<CaseStep> searchMob(IPage page, @Param("srf") CaseStepSearchContext context, @Param("ew") Wrapper<CaseStep> wrapper) ;
-    Page<CaseStep> searchVersion(IPage page, @Param("srf") CaseStepSearchContext context, @Param("ew") Wrapper<CaseStep> wrapper) ;
-    Page<CaseStep> searchVersions(IPage page, @Param("srf") CaseStepSearchContext context, @Param("ew") Wrapper<CaseStep> wrapper) ;
+    Page<CaseStep> searchCurTest(IPage page, @Param("srf") CaseStepSearchContext context, @Param("ew") Wrapper<CaseStep> wrapper);
+    Page<CaseStep> searchDefault(IPage page, @Param("srf") CaseStepSearchContext context, @Param("ew") Wrapper<CaseStep> wrapper);
+    Page<CaseStep> searchDefault1(IPage page, @Param("srf") CaseStepSearchContext context, @Param("ew") Wrapper<CaseStep> wrapper);
+    Page<CaseStep> searchMob(IPage page, @Param("srf") CaseStepSearchContext context, @Param("ew") Wrapper<CaseStep> wrapper);
+    Page<CaseStep> searchVersion(IPage page, @Param("srf") CaseStepSearchContext context, @Param("ew") Wrapper<CaseStep> wrapper);
+    Page<CaseStep> searchVersions(IPage page, @Param("srf") CaseStepSearchContext context, @Param("ew") Wrapper<CaseStep> wrapper);
     @Override
     CaseStep selectById(Serializable id);
     @Override
@@ -35,13 +35,13 @@ public interface CaseStepMapper extends BaseMapper<CaseStep>{
     int update(@Param(Constants.ENTITY) CaseStep entity, @Param("ew") Wrapper<CaseStep> updateWrapper);
     @Override
     int deleteById(Serializable id);
-     /**
-      * 自定义查询SQL
-      * @param sql
-      * @return
-      */
-     @Select("${sql}")
-     List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
+    /**
+    * 自定义查询SQL
+    * @param sql
+    * @return
+    */
+    @Select("${sql}")
+    List<JSONObject> selectBySQL(@Param("sql") String sql, @Param("et")Map param);
 
     /**
     * 自定义更新SQL
@@ -67,8 +67,8 @@ public interface CaseStepMapper extends BaseMapper<CaseStep>{
     @Delete("${sql}")
     boolean deleteBySQL(@Param("sql") String sql, @Param("et")Map param);
 
-    List<CaseStep> selectByIbizcase(@Param("id") Serializable id) ;
+    List<CaseStep> selectByIbizcase(@Param("id") Serializable id);
 
-    List<CaseStep> selectByParent(@Param("id") Serializable id) ;
+    List<CaseStep> selectByParent(@Param("id") Serializable id);
 
 }

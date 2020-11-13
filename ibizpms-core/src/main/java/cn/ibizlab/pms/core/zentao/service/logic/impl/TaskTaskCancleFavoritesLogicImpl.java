@@ -21,7 +21,7 @@ import cn.ibizlab.pms.core.zentao.domain.Task;
  */
 @Slf4j
 @Service
-public class TaskTaskCancleFavoritesLogicImpl implements ITaskTaskCancleFavoritesLogic{
+public class TaskTaskCancleFavoritesLogicImpl implements ITaskTaskCancleFavoritesLogic {
 
     @Autowired
     private KieContainer kieContainer;
@@ -35,18 +35,18 @@ public class TaskTaskCancleFavoritesLogicImpl implements ITaskTaskCancleFavorite
     }
 
     @Override
-    public void execute(Task et){
+    public void execute(Task et) {
 
           KieSession kieSession = null;
         try{
-           kieSession=kieContainer.newKieSession();
+           kieSession = kieContainer.newKieSession();
            kieSession.insert(et); 
-           kieSession.setGlobal("tasktaskcanclefavoritesdefault",et);
-           kieSession.setGlobal("iBzSysTaskDefaultService",iBzSysDefaultService);
+           kieSession.setGlobal("tasktaskcanclefavoritesdefault", et);
+           kieSession.setGlobal("iBzSysTaskDefaultService", iBzSysDefaultService);
            kieSession.setGlobal("curuser", cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser());
            kieSession.startProcess("cn.ibizlab.pms.core.zentao.service.logic.tasktaskcanclefavorites");
 
-        }catch(Exception e){
+        }catch(Exception e) {
             throw new RuntimeException("执行[任务取消收藏]处理逻辑发生异常"+e);
         }finally {
             if(kieSession!=null) {
