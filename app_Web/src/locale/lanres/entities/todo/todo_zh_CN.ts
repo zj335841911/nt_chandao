@@ -40,7 +40,7 @@ export default {
 			caption: "基本信息",
       		title: "待办事宜表编辑视图",
 		},
-		dashboardview_link: {
+		smaindashboardview_link: {
 			caption: "待办",
       		title: "待办事宜表数据看板视图",
 		},

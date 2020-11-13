@@ -169,7 +169,7 @@ export default {
 			caption: "Bug",
       		title: "Bug表格视图",
 		},
-		maindashboardview_link: {
+		smaindashboardview_link: {
 			caption: "Bug",
       		title: "Bug数据看板视图",
 		},

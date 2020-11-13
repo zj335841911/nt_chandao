@@ -428,7 +428,7 @@ export default class ZentaoModel {
         	textcls: '',
         	appfunctag: '_5',
         	appfuncyype: 'APPVIEW',
-        	viewname: 'bug-main-dashboard-view-link',
+        	viewname: 'bugsmaindashboardview-link',
         	authtag:'Web-zentao-menuitem13',
         }
         ,
@@ -449,7 +449,7 @@ export default class ZentaoModel {
         	textcls: '',
         	appfunctag: '_5',
         	appfuncyype: 'APPVIEW',
-        	viewname: 'bug-main-dashboard-view-link',
+        	viewname: 'bugsmaindashboardview-link',
         	authtag:'Web-zentao-menuitem14',
         }
         ,
@@ -470,7 +470,7 @@ export default class ZentaoModel {
         	textcls: '',
         	appfunctag: '_6',
         	appfuncyype: 'APPVIEW',
-        	viewname: 'task-main-dashboard-view-link',
+        	viewname: 'tasksmaindashboardview-link',
         	authtag:'Web-zentao-menuitem15',
         }
         ,
@@ -491,7 +491,7 @@ export default class ZentaoModel {
         	textcls: '',
         	appfunctag: '_7',
         	appfuncyype: 'APPVIEW',
-        	viewname: 'todo-dashboard-view-link',
+        	viewname: 'todosmaindashboardview-link',
         	authtag:'Web-zentao-menuitem18',
         }
         ,
@@ -512,7 +512,7 @@ export default class ZentaoModel {
         	textcls: '',
         	appfunctag: '_9',
         	appfuncyype: 'APPVIEW',
-        	viewname: 'story-main-view-link',
+        	viewname: 'storysmaindashboardview-link',
         	authtag:'Web-zentao-menuitem20',
         }
         ,
@@ -578,12 +578,12 @@ export default class ZentaoModel {
             appfunctag: '_7',
             appfuncyype: 'APPVIEW',
             openmode: 'INDEXVIEWTAB',
-            codename: 'tododashboardview_link',
+            codename: 'todosmaindashboardview_link',
             deResParameters: [],
-            routepath: '/ibizpms/:ibizpms?/todos/:todo?/dashboardview_link/:dashboardview_link?',
+            routepath: '/ibizpms/:ibizpms?/todos/:todo?/smaindashboardview_link/:smaindashboardview_link?',
             parameters: [
                 { pathName: 'todos', parameterName: 'todo' },
-                { pathName: 'dashboardview_link', parameterName: 'dashboardview_link' },
+                { pathName: 'smaindashboardview_link', parameterName: 'smaindashboardview_link' },
             ],
         },
         {
@@ -613,12 +613,12 @@ export default class ZentaoModel {
             appfunctag: '_6',
             appfuncyype: 'APPVIEW',
             openmode: 'INDEXVIEWTAB',
-            codename: 'taskmaindashboardview_link',
+            codename: 'tasksmaindashboardview_link',
             deResParameters: [],
-            routepath: '/ibizpms/:ibizpms?/tasks/:task?/maindashboardview_link/:maindashboardview_link?',
+            routepath: '/ibizpms/:ibizpms?/tasks/:task?/smaindashboardview_link/:smaindashboardview_link?',
             parameters: [
                 { pathName: 'tasks', parameterName: 'task' },
-                { pathName: 'maindashboardview_link', parameterName: 'maindashboardview_link' },
+                { pathName: 'smaindashboardview_link', parameterName: 'smaindashboardview_link' },
             ],
         },
         {
@@ -712,12 +712,12 @@ export default class ZentaoModel {
             appfunctag: '_9',
             appfuncyype: 'APPVIEW',
             openmode: 'INDEXVIEWTAB',
-            codename: 'storymainview_link',
+            codename: 'storysmaindashboardview_link',
             deResParameters: [],
-            routepath: '/ibizpms/:ibizpms?/stories/:story?/mainview_link/:mainview_link?',
+            routepath: '/ibizpms/:ibizpms?/stories/:story?/smaindashboardview_link/:smaindashboardview_link?',
             parameters: [
                 { pathName: 'stories', parameterName: 'story' },
-                { pathName: 'mainview_link', parameterName: 'mainview_link' },
+                { pathName: 'smaindashboardview_link', parameterName: 'smaindashboardview_link' },
             ],
         },
         {
@@ -735,12 +735,12 @@ export default class ZentaoModel {
             appfunctag: '_5',
             appfuncyype: 'APPVIEW',
             openmode: 'INDEXVIEWTAB',
-            codename: 'bugmaindashboardview_link',
+            codename: 'bugsmaindashboardview_link',
             deResParameters: [],
-            routepath: '/ibizpms/:ibizpms?/bugs/:bug?/maindashboardview_link/:maindashboardview_link?',
+            routepath: '/ibizpms/:ibizpms?/bugs/:bug?/smaindashboardview_link/:smaindashboardview_link?',
             parameters: [
                 { pathName: 'bugs', parameterName: 'bug' },
-                { pathName: 'maindashboardview_link', parameterName: 'maindashboardview_link' },
+                { pathName: 'smaindashboardview_link', parameterName: 'smaindashboardview_link' },
             ],
         },
 	];

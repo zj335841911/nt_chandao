@@ -240,7 +240,7 @@ export default {
 			caption: "需求",
       		title: "需求",
 		},
-		mainview_link: {
+		smaindashboardview_link: {
 			caption: "需求",
       		title: "需求数据看板视图",
 		},
