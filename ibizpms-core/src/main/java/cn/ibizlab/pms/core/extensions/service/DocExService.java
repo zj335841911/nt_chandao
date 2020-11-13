@@ -1,8 +1,15 @@
 package cn.ibizlab.pms.core.extensions.service;
 
+import cn.ibizlab.pms.core.ibiz.domain.DocLibModule;
+import cn.ibizlab.pms.core.util.ibizzentao.helper.DocHelper;
+import cn.ibizlab.pms.core.util.ibizzentao.helper.DocLibHelper;
+import cn.ibizlab.pms.core.util.ibizzentao.helper.DocLibModuleHelper;
 import cn.ibizlab.pms.core.zentao.domain.DocContent;
+import cn.ibizlab.pms.core.zentao.domain.DocLib;
 import cn.ibizlab.pms.core.zentao.service.IDocContentService;
 import cn.ibizlab.pms.core.zentao.service.impl.DocServiceImpl;
+import cn.ibizlab.pms.util.dict.StaticDict;
+import cn.ibizlab.pms.util.security.AuthenticationUser;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import lombok.extern.slf4j.Slf4j;
 import cn.ibizlab.pms.core.zentao.domain.Doc;
@@ -23,6 +30,15 @@ public class DocExService extends DocServiceImpl {
 
     @Autowired
     IDocContentService docContentService;
+
+    @Autowired
+    DocHelper docHelper;
+
+    @Autowired
+    DocLibModuleHelper docLibModuleHelper;
+
+    @Autowired
+    DocLibHelper docLibHelper;
 
     @Override
     protected Class currentModelClass() {
@@ -58,6 +74,82 @@ public class DocExService extends DocServiceImpl {
             byVersionUpdateContext(et);
         }
         return et;
+    }
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public Doc collect(Doc et) {
+        if (StaticDict.DOCQTYPE.DOC.getValue().equals(et.getDocqtype())) {
+            String collector = docHelper.get(et.getId()).getCollector();
+            if ("".equals(collector) || "/".equals(collector)) {
+                collector += ",";
+            }
+            collector += AuthenticationUser.getAuthenticationUser().getUsername() + ",";
+            et.setCollector(collector);
+            docHelper.updateById(et);
+        }
+        if (StaticDict.DOCQTYPE.MODULE.getValue().equals(et.getDocqtype())) {
+            String collector = docLibModuleHelper.get(et.getId()).getCollector();
+            if ("".equals(collector) || "/".equals(collector)) {
+                collector += ",";
+            }
+            collector += AuthenticationUser.getAuthenticationUser().getUsername() + ",";
+            DocLibModule docLibModule = new DocLibModule();
+            docLibModule.setId(et.getId());
+            docLibModule.setCollector(collector);
+            docLibModuleHelper.updateById(docLibModule);
+        }
+        if (StaticDict.DOCQTYPE.DOCLIB.getValue().equals(et.getDocqtype())) {
+            String collector = docLibHelper.get(et.getId()).getCollector();
+            if ("".equals(collector) || "/".equals(collector)) {
+                collector += ",";
+            }
+            collector += AuthenticationUser.getAuthenticationUser().getUsername() + ",";
+            DocLib docLib = new DocLib();
+            docLib.setId(et.getId());
+            docLib.setCollector(collector);
+            docLibHelper.updateById(docLib);
+        }
+
+        return super.collect(et);
+    }
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public Doc unCollect(Doc et) {
+        if (StaticDict.DOCQTYPE.DOC.getValue().equals(et.getDocqtype())) {
+            String collector = docHelper.get(et.getId()).getCollector();
+            collector = collector.replaceFirst(AuthenticationUser.getAuthenticationUser().getUsername() + ",", "");
+            if (",".equals(collector)) {
+                collector = "";
+            }
+            et.setCollector(collector);
+            docHelper.updateById(et);
+        }
+        if (StaticDict.DOCQTYPE.MODULE.getValue().equals(et.getDocqtype())) {
+            String collector = docLibModuleHelper.get(et.getId()).getCollector();
+            collector = collector.replaceFirst(AuthenticationUser.getAuthenticationUser().getUsername() + ",", "");
+            if (",".equals(collector)) {
+                collector = "";
+            }
+            DocLibModule docLibModule = new DocLibModule();
+            docLibModule.setId(et.getId());
+            docLibModule.setCollector(collector);
+            docLibModuleHelper.updateById(docLibModule);
+        }
+        if (StaticDict.DOCQTYPE.DOCLIB.getValue().equals(et.getDocqtype())) {
+            String collector = docLibHelper.get(et.getId()).getCollector();
+            collector = collector.replaceFirst(AuthenticationUser.getAuthenticationUser().getUsername() + ",", "");
+            if (",".equals(collector)) {
+                collector = "";
+            }
+            DocLib docLib = new DocLib();
+            docLib.setId(et.getId());
+            docLib.setCollector(collector);
+            docLibHelper.updateById(docLib);
+        }
+
+        return super.unCollect(et);
     }
 }
 
