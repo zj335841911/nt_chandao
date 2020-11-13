@@ -37,6 +37,11 @@ export default class StoryKanBanModel {
         prop: 'id'
       },
       {
+        name: 'stage',
+        codelist: {tag: 'Story__stage',codelistType: 'STATIC'},
+        prop: 'stage'
+      },
+      {
         name: 'story',
         prop: 'story'
       }
