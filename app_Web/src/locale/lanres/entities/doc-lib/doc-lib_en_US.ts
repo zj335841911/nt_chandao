@@ -110,6 +110,7 @@ export default {
 			uagridcolumn1: "操作",
 		},
 		uiactions: {
+        doclib_lookmainproductdoclib: "查看",
         doclib_collect: "收藏",
         doclib_uncollect: "取消收藏",
         doclib_productlookdoc: "查看",

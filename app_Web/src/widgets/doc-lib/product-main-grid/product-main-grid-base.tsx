@@ -76,6 +76,34 @@ export class ProductMainGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
+    public grid_name_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:DocLibUIService  = new DocLibUIService();
+        curUIService.DocLib_LookMainProductDocLib(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
     public grid_uagridcolumn1_u52fb8be_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
@@ -244,6 +272,7 @@ export class ProductMainGridBase extends GridControlBase {
      * @memberof ProductMainBase
      */  
     public ActionModel: any = {
+        LookMainProductDocLib: { name: 'LookMainProductDocLib',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: 'SINGLEKEY'},
         Collect: { name: 'Collect',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__DOCLIB_FAVOUR_BUT', actiontarget: 'SINGLEKEY'},
         UnCollect: { name: 'UnCollect',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__DOCLIB_NFAVOUR_BUT', actiontarget: 'SINGLEKEY'},
         ProductLookDoc: { name: 'ProductLookDoc',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'DOC', actiontarget: 'SINGLEKEY'},
@@ -491,6 +520,9 @@ export class ProductMainGridBase extends GridControlBase {
      */
 	public uiAction(row: any, tag: any, $event: any): void {
         $event.stopPropagation();
+        if(Object.is('LookMainProductDocLib', tag)) {
+            this.grid_name_click(row, tag, $event);
+        }
         if(Object.is('Collect', tag)) {
             this.grid_uagridcolumn1_u52fb8be_click(row, tag, $event);
         }
@@ -606,6 +638,9 @@ export class ProductMainGridBase extends GridControlBase {
             const tree: any ={
                 groupById: Number((i+1)*100),
                 group: group.label,
+                LookMainProductDocLib:{
+                    visible: false
+                },
                 name:'',
                 doccnt:'',
                 Collect:{
@@ -648,6 +683,9 @@ export class ProductMainGridBase extends GridControlBase {
         const Tree: any = {
             groupById: Number((allGroup.length+1)*100),
             group: '其他',
+            LookMainProductDocLib:{
+                visible: false
+            },
             name:'',
             doccnt:'',
             Collect:{
@@ -728,6 +766,9 @@ export class ProductMainGridBase extends GridControlBase {
             const tree: any ={
                 groupById: Number((groupIndex+1)*100),
                 group: group,
+                LookMainProductDocLib:{
+                    visible: false
+                },
                 name:'',
                 doccnt:'',
                 Collect:{
