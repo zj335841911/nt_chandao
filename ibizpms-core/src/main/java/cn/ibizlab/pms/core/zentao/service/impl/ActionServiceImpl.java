@@ -61,39 +61,26 @@ public class ActionServiceImpl extends ServiceImpl<ActionMapper, Action> impleme
 
     protected int batchSize = 500;
 
-    @Override
+        @Override
     @Transactional
     public boolean create(Action et) {
-        commentLogic.execute(et);
-        if (!this.retBool(this.baseMapper.insert(et))) {
-            return false;
-        }
-        CachedBeanCopier.copy(get(et.getId()), et);
-        return true;
+  			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.ActionHelper.class).create(et);
     }
 
     @Override
-    @Transactional
     public void createBatch(List<Action> list) {
-        this.saveBatch(list, batchSize);
-    }
 
-    @Override
+    }
+        @Override
     @Transactional
     public boolean update(Action et) {
-        if (!update(et, (Wrapper) et.getUpdateWrapper(true).eq("id", et.getId()))) {
-            return false;
-        }
-        CachedBeanCopier.copy(get(et.getId()), et);
-        return true;
+  			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.ActionHelper.class).edit(et);
     }
 
     @Override
-    @Transactional
     public void updateBatch(List<Action> list) {
-        updateBatchById(list, batchSize);
-    }
 
+    }
     @Override
     @Transactional
     public boolean remove(Long key) {
