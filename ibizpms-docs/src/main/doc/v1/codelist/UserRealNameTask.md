@@ -16,5 +16,5 @@
 | 项目 | 说明 |
 | ---- | ---- |
 | 实体 | [人员](../module/ou/SysEmployee) |
-| 结果集合 | [项目团队成员（ProjectTeamUser_Task）](../module/ou/SysEmployee/#数据集合-项目团队成员（ProjectTeamUser_Task）) |
+| 结果集合 | [项目团队成员（ProjectTeamUserTask）](../module/ou/SysEmployee/#数据集合-项目团队成员（ProjectTeamUserTask）) |
 

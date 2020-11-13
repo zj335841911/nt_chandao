@@ -1392,7 +1392,7 @@ Save
 | 3 | [数据查询](#数据查询-数据查询（Default）) | Default | 否 |
 | 4 | [项目团队管理](#数据查询-项目团队管理（ProjectTeamM）) | ProjectTeamM | 否 |
 | 5 | [项目团队成员](#数据查询-项目团队成员（ProjectTeamUser）) | ProjectTeamUser | 否 |
-| 6 | [项目团队成员](#数据查询-项目团队成员（ProjectTeamUser_Task）) | ProjectTeamUser_Task | 否 |
+| 6 | [项目团队成员](#数据查询-项目团队成员（ProjectTeamUserTask）) | ProjectTeamUserTask | 否 |
 | 7 | [项目团队成员选择](#数据查询-项目团队成员选择（ProjectteamPk）) | ProjectteamPk | 否 |
 | 8 | [任务多人团队](#数据查询-任务多人团队（TaskMTeam）) | TaskMTeam | 否 |
 | 9 | [任务团队](#数据查询-任务团队（TaskTeam）) | TaskTeam | 否 |
@@ -1566,7 +1566,7 @@ FROM `T_IBZEMP` t1
 ```SQL
 
 ```
-### 数据查询-项目团队成员（ProjectTeamUser_Task）
+### 数据查询-项目团队成员（ProjectTeamUserTask）
 #### 说明
 项目团队成员
 
@@ -1712,7 +1712,7 @@ FROM `T_IBZEMP` t1
 | 3 | [数据集](#数据集合-数据集（Default）) | Default | 是 |
 | 4 | [项目团队管理](#数据集合-项目团队管理（ProjectTeamM）) | ProjectTeamM | 否 |
 | 5 | [项目团队成员](#数据集合-项目团队成员（ProjectTeamUser）) | ProjectTeamUser | 否 |
-| 6 | [项目团队成员](#数据集合-项目团队成员（ProjectTeamUser_Task）) | ProjectTeamUser_Task | 否 |
+| 6 | [项目团队成员](#数据集合-项目团队成员（ProjectTeamUserTask）) | ProjectTeamUserTask | 否 |
 | 7 | [项目团队成员选择](#数据集合-项目团队成员选择（ProjectteamPk）) | ProjectteamPk | 否 |
 | 8 | [任务多人团队](#数据集合-任务多人团队（TaskMTeam）) | TaskMTeam | 否 |
 | 9 | [数据查询2](#数据集合-数据查询2（TaskTeam）) | TaskTeam | 否 |
@@ -1787,7 +1787,7 @@ Bug用户
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [项目团队成员（ProjectTeamUser）](#数据查询-项目团队成员（ProjectTeamUser）) |
-### 数据集合-项目团队成员（ProjectTeamUser_Task）
+### 数据集合-项目团队成员（ProjectTeamUserTask）
 #### 说明
 项目团队成员
 
@@ -1800,7 +1800,7 @@ Bug用户
 #### 关联的数据查询
 | 序号 | 数据查询 |
 | ---- | ---- |
-| 1 | [项目团队成员（ProjectTeamUser_Task）](#数据查询-项目团队成员（ProjectTeamUser_Task）) |
+| 1 | [项目团队成员（ProjectTeamUserTask）](#数据查询-项目团队成员（ProjectTeamUserTask）) |
 ### 数据集合-项目团队成员选择（ProjectteamPk）
 #### 说明
 项目团队成员选择

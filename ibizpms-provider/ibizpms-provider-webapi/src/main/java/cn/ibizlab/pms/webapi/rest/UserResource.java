@@ -267,11 +267,11 @@ public class UserResource {
                 .body(new PageImpl(userMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-User-searchProjectTeamUser_Task-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-User-searchProjectTeamUserTask-all')")
 	@ApiOperation(value = "获取项目团队成员", tags = {"用户" } ,notes = "获取项目团队成员")
-    @RequestMapping(method= RequestMethod.GET , value="/users/fetchprojectteamuser_task")
-	public ResponseEntity<List<UserDTO>> fetchProjectTeamUser_Task(UserSearchContext context) {
-        Page<User> domains = userService.searchProjectTeamUser_Task(context) ;
+    @RequestMapping(method= RequestMethod.GET , value="/users/fetchprojectteamusertask")
+	public ResponseEntity<List<UserDTO>> fetchProjectTeamUserTask(UserSearchContext context) {
+        Page<User> domains = userService.searchProjectTeamUserTask(context) ;
         List<UserDTO> list = userMapping.toDto(domains.getContent());
         return ResponseEntity.status(HttpStatus.OK)
                 .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
@@ -280,11 +280,11 @@ public class UserResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-User-searchProjectTeamUser_Task-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-User-searchProjectTeamUserTask-all')")
 	@ApiOperation(value = "查询项目团队成员", tags = {"用户" } ,notes = "查询项目团队成员")
-    @RequestMapping(method= RequestMethod.POST , value="/users/searchprojectteamuser_task")
-	public ResponseEntity<Page<UserDTO>> searchProjectTeamUser_Task(@RequestBody UserSearchContext context) {
-        Page<User> domains = userService.searchProjectTeamUser_Task(context) ;
+    @RequestMapping(method= RequestMethod.POST , value="/users/searchprojectteamusertask")
+	public ResponseEntity<Page<UserDTO>> searchProjectTeamUserTask(@RequestBody UserSearchContext context) {
+        Page<User> domains = userService.searchProjectTeamUserTask(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(userMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}

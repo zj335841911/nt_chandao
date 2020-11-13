@@ -92,8 +92,8 @@ public interface SysEmployeeFeignClient {
 
 
 
-    @RequestMapping(method = RequestMethod.POST, value = "/sysemployees/searchprojectteamuser_task")
-    Page<SysEmployee> searchProjectTeamUser_Task(@RequestBody SysEmployeeSearchContext context);
+    @RequestMapping(method = RequestMethod.POST, value = "/sysemployees/searchprojectteamusertask")
+    Page<SysEmployee> searchProjectTeamUserTask(@RequestBody SysEmployeeSearchContext context);
 
 
 

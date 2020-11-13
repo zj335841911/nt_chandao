@@ -50,7 +50,7 @@ public interface ISysEmployeeService{
     Page<SysEmployee> searchDefault(SysEmployeeSearchContext context) ;
     Page<SysEmployee> searchProjectTeamM(SysEmployeeSearchContext context) ;
     Page<SysEmployee> searchProjectTeamUser(SysEmployeeSearchContext context) ;
-    Page<SysEmployee> searchProjectTeamUser_Task(SysEmployeeSearchContext context) ;
+    Page<SysEmployee> searchProjectTeamUserTask(SysEmployeeSearchContext context) ;
     Page<SysEmployee> searchProjectteamPk(SysEmployeeSearchContext context) ;
     Page<SysEmployee> searchTaskMTeam(SysEmployeeSearchContext context) ;
     Page<SysEmployee> searchTaskTeam(SysEmployeeSearchContext context) ;

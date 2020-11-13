@@ -114,7 +114,7 @@
 |getByLogin|账户获取登录名([MYSQL5](../../appendix/query_MYSQL5.md#User_GetByLogin))|否|&nbsp;根据ZT账户标识（account、邮箱、手机号、源代码账户）获取登录名，用于关联UAA登录与ZT登录|
 |ProjectTeamM|项目团队管理([MYSQL5](../../appendix/query_MYSQL5.md#User_ProjectTeamM))|否|&nbsp;排除当前项目已经选择的用户|
 |ProjectTeamUser|项目团队成员([MYSQL5](../../appendix/query_MYSQL5.md#User_ProjectTeamUser))|否|&nbsp;|
-|ProjectTeamUser_Task|项目团队成员([MYSQL5](../../appendix/query_MYSQL5.md#User_ProjectTeamUser_Task))|否|&nbsp;|
+|ProjectTeamUserTask|项目团队成员([MYSQL5](../../appendix/query_MYSQL5.md#User_ProjectTeamUserTask))|否|&nbsp;|
 |TASKTEAM|TASKTEAM([MYSQL5](../../appendix/query_MYSQL5.md#User_TaskTeam))|否|&nbsp;|
 |VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#User_View))|否|&nbsp;|
 
@@ -127,7 +127,7 @@
 |getByCommiter|根据源代码账户获取登录名|getByLogin|否|&nbsp;|
 |ProjectTeamM|项目团队管理|ProjectTeamM|否|&nbsp;|
 |ProjectTeamUser|项目团队成员|ProjectTeamUser|否|&nbsp;|
-|ProjectTeamUser_Task|项目团队成员|ProjectTeamUser_Task|否|&nbsp;|
+|ProjectTeamUserTask|项目团队成员|ProjectTeamUserTask|否|&nbsp;|
 |TASKTEAM|TASKTEAM|TASKTEAM|否|&nbsp;|
 
 ## 查询模式

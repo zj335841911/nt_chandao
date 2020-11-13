@@ -529,9 +529,9 @@ mock.onGet(new RegExp(/^\/users\/fetchprojectteamuser(\?[\w-./?%&=,]*)*$/)).repl
     return [status, records ?  records : []];
 });
     
-// FetchProjectTeamUser_Task
-mock.onGet(new RegExp(/^\/users\/fetchprojectteamuser_task$/)).reply((config: any) => {
-    console.groupCollapsed("实体:user 方法: FetchProjectTeamUser_Task");
+// FetchProjectTeamUserTask
+mock.onGet(new RegExp(/^\/users\/fetchprojectteamusertask$/)).reply((config: any) => {
+    console.groupCollapsed("实体:user 方法: FetchProjectTeamUserTask");
     console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
     if (status !== 200) {
@@ -544,9 +544,9 @@ mock.onGet(new RegExp(/^\/users\/fetchprojectteamuser_task$/)).reply((config: an
     return [status, mockDatas ? mockDatas : []];
 });
 
-// FetchProjectTeamUser_Task
-mock.onGet(new RegExp(/^\/users\/fetchprojectteamuser_task(\?[\w-./?%&=,]*)*$/)).reply((config: any) => {
-    console.groupCollapsed("实体:user 方法: FetchProjectTeamUser_Task");
+// FetchProjectTeamUserTask
+mock.onGet(new RegExp(/^\/users\/fetchprojectteamusertask(\?[\w-./?%&=,]*)*$/)).reply((config: any) => {
+    console.groupCollapsed("实体:user 方法: FetchProjectTeamUserTask");
     console.table({url:config.url, method: config.method, data:config.data});
     if(config.url.includes('page')){
         let url = config.url.split('?')[1];

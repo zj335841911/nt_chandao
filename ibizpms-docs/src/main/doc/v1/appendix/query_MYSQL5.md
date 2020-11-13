@@ -13598,7 +13598,7 @@ WHERE ( (t1.account = ${srfwebcontext('account','{"defname":"ACCOUNT","dename":"
 ```sql
 
 ```
-### 项目团队成员(ProjectTeamUser_Task)<div id="SysEmployee_ProjectTeamUser_Task"></div>
+### 项目团队成员(ProjectTeamUserTask)<div id="SysEmployee_ProjectTeamUserTask"></div>
 ```sql
 
 ```
@@ -15822,7 +15822,7 @@ t1.`account` in (select t.`account` from zt_team t where t.`type` = 'project' an
 t1.`account` not in(select t2.`account` from zt_user t2 where FIND_IN_SET(t2.`account`, ${srfdatacontext('account','{"defname":"ID","dename":"ZT_RELEASE"}')})) 
 
 ```
-### 项目团队成员(ProjectTeamUser_Task)<div id="User_ProjectTeamUser_Task"></div>
+### 项目团队成员(ProjectTeamUserTask)<div id="User_ProjectTeamUserTask"></div>
 ```sql
 SELECT
 t1.`ACCOUNT`,

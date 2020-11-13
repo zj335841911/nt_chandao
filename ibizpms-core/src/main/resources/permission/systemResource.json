@@ -744,7 +744,7 @@
     "dename":"User",
     "delogicname":"用户",
     "sysmoudle":{"id":"ZENTAO","name":"基础管理模块"},
-    "dedataset":[{"id":"BugUser" , "name":"Bug用户"},{"id":"Default" , "name":"DEFAULT"},{"id":"GetByCommiter" , "name":"根据源代码账户获取登录名"},{"id":"ProjectTeamM" , "name":"项目团队管理"},{"id":"ProjectTeamUser" , "name":"项目团队成员"},{"id":"ProjectTeamUser_Task" , "name":"项目团队成员"},{"id":"TaskTeam" , "name":"TASKTEAM"}],
+    "dedataset":[{"id":"BugUser" , "name":"Bug用户"},{"id":"Default" , "name":"DEFAULT"},{"id":"GetByCommiter" , "name":"根据源代码账户获取登录名"},{"id":"ProjectTeamM" , "name":"项目团队管理"},{"id":"ProjectTeamUser" , "name":"项目团队成员"},{"id":"ProjectTeamUserTask" , "name":"项目团队成员"},{"id":"TaskTeam" , "name":"TASKTEAM"}],
     "deaction":[{"id":"Create" , "name":"Create" , "type":"BUILTIN" },{"id":"Update" , "name":"Update" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" },{"id":"Get" , "name":"Get" , "type":"BUILTIN" },{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" },{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"GetByCommiter" , "name":"根据代码账户查询用户信息" , "type":"BUILTIN" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" },{"id":"SyncAccount" , "name":"同步账号" , "type":"USERCUSTOM" }],
     "datascope":[{"id":"all","name":"全部数据"}]
      }
@@ -968,7 +968,7 @@
     "dename":"SysEmployee",
     "delogicname":"人员",
     "sysmoudle":{"id":"OU","name":"ou组织用户管理模块"},
-    "dedataset":[{"id":"BugUser" , "name":"Bug用户"},{"id":"ContActList" , "name":"联系人用户"},{"id":"Default" , "name":"数据集"},{"id":"ProjectTeamM" , "name":"项目团队管理"},{"id":"ProjectTeamUser" , "name":"项目团队成员"},{"id":"ProjectTeamUser_Task" , "name":"项目团队成员"},{"id":"ProjectteamPk" , "name":"项目团队成员选择"},{"id":"TaskMTeam" , "name":"任务多人团队"},{"id":"TaskTeam" , "name":"数据查询2"}],
+    "dedataset":[{"id":"BugUser" , "name":"Bug用户"},{"id":"ContActList" , "name":"联系人用户"},{"id":"Default" , "name":"数据集"},{"id":"ProjectTeamM" , "name":"项目团队管理"},{"id":"ProjectTeamUser" , "name":"项目团队成员"},{"id":"ProjectTeamUserTask" , "name":"项目团队成员"},{"id":"ProjectteamPk" , "name":"项目团队成员选择"},{"id":"TaskMTeam" , "name":"任务多人团队"},{"id":"TaskTeam" , "name":"数据查询2"}],
     "deaction":[{"id":"Create" , "name":"Create" , "type":"BUILTIN" },{"id":"Update" , "name":"Update" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" },{"id":"Get" , "name":"Get" , "type":"BUILTIN" },{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" },{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" }],
     "datascope":[{"id":"all","name":"全部数据"}, {"id":"curorg","name":"当前单位"},{"id":"porg","name":"上级单位"},{"id":"sorg","name":"下级单位"} , {"id":"createman","name":"创建人"}]
      }

@@ -258,8 +258,8 @@ public class SysEmployeeServiceImpl implements ISysEmployeeService {
      * 查询集合 项目团队成员
      */
     @Override
-    public Page<SysEmployee> searchProjectTeamUser_Task(SysEmployeeSearchContext context) {
-        Page<SysEmployee> sysEmployees=sysEmployeeFeignClient.searchProjectTeamUser_Task(context);
+    public Page<SysEmployee> searchProjectTeamUserTask(SysEmployeeSearchContext context) {
+        Page<SysEmployee> sysEmployees=sysEmployeeFeignClient.searchProjectTeamUserTask(context);
         return sysEmployees;
     }
 

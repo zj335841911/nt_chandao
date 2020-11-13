@@ -1504,7 +1504,7 @@ Save
 | 3 | [账户获取登录名](#数据查询-账户获取登录名（GetByLogin）) | GetByLogin | 否 |
 | 4 | [项目团队管理](#数据查询-项目团队管理（ProjectTeamM）) | ProjectTeamM | 否 |
 | 5 | [项目团队成员](#数据查询-项目团队成员（ProjectTeamUser）) | ProjectTeamUser | 否 |
-| 6 | [项目团队成员](#数据查询-项目团队成员（ProjectTeamUser_Task）) | ProjectTeamUser_Task | 否 |
+| 6 | [项目团队成员](#数据查询-项目团队成员（ProjectTeamUserTask）) | ProjectTeamUserTask | 否 |
 | 7 | [TASKTEAM](#数据查询-TASKTEAM（TaskTeam）) | TaskTeam | 否 |
 | 8 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
@@ -1763,7 +1763,7 @@ t1.`ZIPCODE`
 FROM `zt_user` t1 
 
 ```
-### 数据查询-项目团队成员（ProjectTeamUser_Task）
+### 数据查询-项目团队成员（ProjectTeamUserTask）
 #### 说明
 项目团队成员
 
@@ -1889,7 +1889,7 @@ FROM `zt_user` t1
 | 3 | [根据源代码账户获取登录名](#数据集合-根据源代码账户获取登录名（GetByCommiter）) | GetByCommiter | 否 |
 | 4 | [项目团队管理](#数据集合-项目团队管理（ProjectTeamM）) | ProjectTeamM | 否 |
 | 5 | [项目团队成员](#数据集合-项目团队成员（ProjectTeamUser）) | ProjectTeamUser | 否 |
-| 6 | [项目团队成员](#数据集合-项目团队成员（ProjectTeamUser_Task）) | ProjectTeamUser_Task | 否 |
+| 6 | [项目团队成员](#数据集合-项目团队成员（ProjectTeamUserTask）) | ProjectTeamUserTask | 否 |
 | 7 | [TASKTEAM](#数据集合-TASKTEAM（TaskTeam）) | TaskTeam | 否 |
 
 ### 数据集合-Bug用户（BugUser）
@@ -1962,7 +1962,7 @@ DEFAULT
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [项目团队成员（ProjectTeamUser）](#数据查询-项目团队成员（ProjectTeamUser）) |
-### 数据集合-项目团队成员（ProjectTeamUser_Task）
+### 数据集合-项目团队成员（ProjectTeamUserTask）
 #### 说明
 项目团队成员
 
@@ -1975,7 +1975,7 @@ DEFAULT
 #### 关联的数据查询
 | 序号 | 数据查询 |
 | ---- | ---- |
-| 1 | [项目团队成员（ProjectTeamUser_Task）](#数据查询-项目团队成员（ProjectTeamUser_Task）) |
+| 1 | [项目团队成员（ProjectTeamUserTask）](#数据查询-项目团队成员（ProjectTeamUserTask）) |
 ### 数据集合-TASKTEAM（TaskTeam）
 #### 说明
 TASKTEAM

@@ -228,9 +228,9 @@ public class SysEmployeeResource {
 	}
 
 	@ApiOperation(value = "获取项目团队成员", tags = {"人员" } ,notes = "获取项目团队成员")
-    @RequestMapping(method= RequestMethod.GET , value="/sysemployees/fetchprojectteamuser_task")
-	public ResponseEntity<List<SysEmployeeDTO>> fetchProjectTeamUser_Task(SysEmployeeSearchContext context) {
-        Page<SysEmployee> domains = sysemployeeService.searchProjectTeamUser_Task(context) ;
+    @RequestMapping(method= RequestMethod.GET , value="/sysemployees/fetchprojectteamusertask")
+	public ResponseEntity<List<SysEmployeeDTO>> fetchProjectTeamUserTask(SysEmployeeSearchContext context) {
+        Page<SysEmployee> domains = sysemployeeService.searchProjectTeamUserTask(context) ;
         List<SysEmployeeDTO> list = sysemployeeMapping.toDto(domains.getContent());
         return ResponseEntity.status(HttpStatus.OK)
                 .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
@@ -240,9 +240,9 @@ public class SysEmployeeResource {
 	}
 
 	@ApiOperation(value = "查询项目团队成员", tags = {"人员" } ,notes = "查询项目团队成员")
-    @RequestMapping(method= RequestMethod.POST , value="/sysemployees/searchprojectteamuser_task")
-	public ResponseEntity<Page<SysEmployeeDTO>> searchProjectTeamUser_Task(@RequestBody SysEmployeeSearchContext context) {
-        Page<SysEmployee> domains = sysemployeeService.searchProjectTeamUser_Task(context) ;
+    @RequestMapping(method= RequestMethod.POST , value="/sysemployees/searchprojectteamusertask")
+	public ResponseEntity<Page<SysEmployeeDTO>> searchProjectTeamUserTask(@RequestBody SysEmployeeSearchContext context) {
+        Page<SysEmployee> domains = sysemployeeService.searchProjectTeamUserTask(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(sysemployeeMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}

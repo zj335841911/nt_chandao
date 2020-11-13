@@ -366,7 +366,7 @@ POST
 
 ### 获取项目团队成员
 #### 访问路径
-/sysemployees/fetchprojectteamuser_task
+/sysemployees/fetchprojectteamusertask
 
 #### 请求方法
 GET
@@ -384,7 +384,7 @@ GET
 
 ### 查询项目团队成员
 #### 访问路径
-/sysemployees/searchprojectteamuser_task
+/sysemployees/searchprojectteamusertask
 
 #### 请求方法
 POST

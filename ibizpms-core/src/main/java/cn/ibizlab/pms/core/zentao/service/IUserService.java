@@ -53,7 +53,7 @@ public interface IUserService extends IService<User>{
     Page<User> searchGetByCommiter(UserSearchContext context) ;
     Page<User> searchProjectTeamM(UserSearchContext context) ;
     Page<User> searchProjectTeamUser(UserSearchContext context) ;
-    Page<User> searchProjectTeamUser_Task(UserSearchContext context) ;
+    Page<User> searchProjectTeamUserTask(UserSearchContext context) ;
     Page<User> searchTaskTeam(UserSearchContext context) ;
     /**
      *自定义查询SQL

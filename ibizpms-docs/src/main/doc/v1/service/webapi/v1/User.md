@@ -404,7 +404,7 @@ POST
 
 ### 获取项目团队成员
 #### 访问路径
-/users/fetchprojectteamuser_task
+/users/fetchprojectteamusertask
 
 #### 请求方法
 GET
@@ -422,7 +422,7 @@ GET
 
 ### 查询项目团队成员
 #### 访问路径
-/users/searchprojectteamuser_task
+/users/searchprojectteamusertask
 
 #### 请求方法
 POST
