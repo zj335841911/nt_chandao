@@ -85,9 +85,10 @@
     :caption="$t('sysupdatelog.mobmain_form.details.updesc')"  
     :labelWidth="0"  
     :isShowCaption="false"
+    :disabled="detailsModel.updesc.disabled"
     :error="detailsModel.updesc.error" 
     :isEmptyCaption="true">
-        <app-mob-rich-text-editor-pms :formState="formState" :isInfoFormMode="true"  :value="data.updesc" @change="(val) =>{this.data.updesc =val}" :disabled="detailsModel.updesc.disabled" :data="JSON.stringify(this.data)"  name="updesc" :uploadparams='{}' :exportparams='{}'  style=""/>
+        <app-mob-rich-text-editor-pms :formState="formState" :isInfoFormMode="true"  :value="data.updesc" @change="(val) =>{this.data.updesc =val}" :disabled="detailsModel.updesc.disabled" :data="JSON.stringify(this.data)"  name="updesc" :uploadparams='{}' :exportparams='{}'  style=""  @noticeusers_change="(val)=>{this.data.noticeusers =val}"/>
 
 </app-form-item>
 
