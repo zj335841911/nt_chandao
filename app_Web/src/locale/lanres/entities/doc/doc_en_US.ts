@@ -241,6 +241,8 @@ export default {
 			mydoccnt: "我的文档数量", 
 			formitemex3: "", 
 			formitem2: "我的收藏", 
+			alldoccnt4: "所有文档数量", 
+			myfavouritecnt: "我的收藏数量", 
 			formitemex4: "", 
 			id: "文档编号", 
 		},

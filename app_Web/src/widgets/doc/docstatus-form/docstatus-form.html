@@ -124,7 +124,7 @@
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.formitemex4.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 12, offset: 0 }">
     <app-form-item name='formitemex4' :itemRules="this.rules().formitemex4" class='' :caption="$t('entities.doc.docstatus_form.details.formitemex4')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="false" :error="detailsModel.formitemex4.error" :isEmptyCaption="false" labelPos="NONE">
-    <ibiz-studio-progress-vue caption="" stroke-color="var(--form-editor-active-color)" :stroke-width="16" mode="circle" style="min-width: 244px;"/>
+    <ibiz-studio-progress-vue caption="" stroke-color="var(--form-editor-active-color)" :stroke-width="16" mode="circle" :total="this.data.alldoccnt4" :progress="this.data.myfavouritecnt" style="min-width: 244px;"/>
 </app-form-item>
 
 </i-col>

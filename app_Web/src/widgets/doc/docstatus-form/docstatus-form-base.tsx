@@ -96,6 +96,8 @@ export class DOCSTATUSEditFormBase extends EditFormControlBase {
         mydoccnt: null,
         formitemex3: null,
         formitem2: null,
+        alldoccnt4: null,
+        myfavouritecnt: null,
         formitemex4: null,
         id: null,
         doc:null,
@@ -193,6 +195,10 @@ export class DOCSTATUSEditFormBase extends EditFormControlBase {
         formitemex3: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'formitemex3', visible: true, isShowCaption: false, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 
         formitem2: new FormItemModel({ caption: '我的收藏', detailType: 'FORMITEM', name: 'formitem2', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+
+        alldoccnt4: new FormItemModel({ caption: '所有文档数量', detailType: 'FORMITEM', name: 'alldoccnt4', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+
+        myfavouritecnt: new FormItemModel({ caption: '我的收藏数量', detailType: 'FORMITEM', name: 'myfavouritecnt', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 
         formitemex4: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'formitemex4', visible: true, isShowCaption: false, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 
