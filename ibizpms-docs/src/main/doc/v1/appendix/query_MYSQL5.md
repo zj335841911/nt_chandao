@@ -4980,7 +4980,15 @@ t1.module = ${srfdatacontext('id','{"defname":"ROOT","dename":"ZT_MODULE"}')}
 ```
 ### 文档统计(DocStatus)<div id="Doc_DocStatus"></div>
 ```sql
-
+select 
+count(1) as `ALLDOCCNT`,
+(select count(1) from zt_doc where TO_DAYS(DATE_FORMAT(NOW(),'%Y-%m-%d')) - TO_DAYS(DATE_FORMAT(editedDate,'%Y-%m-%d')) < 5 and deleted = '0') as `RECENTUPDATECNT`,
+(select count(1) from zt_doc where DATE_FORMAT(NOW(),'%Y-%m-%d') = DATE_FORMAT(editedDate,'%Y-%m-%d') and deleted = '0') as `TODAYUPDATECNT`,
+(select count(1) from zt_doc where TO_DAYS(DATE_FORMAT(NOW(),'%Y-%m-%d')) - TO_DAYS(DATE_FORMAT(addedDate,'%Y-%m-%d')) < 5 and deleted = '0') as `RECENTADDCNT`,
+(select count(1) from zt_doc where addedBy = 'admin' and deleted = '0') as `MYDOCCNT`,
+(select count(1) from zt_doc where FIND_IN_SET('admin',collector) > 0) as `MYFAVOURRTECNT`
+from zt_doc
+where deleted = '0'
 ```
 ### 我的收藏(MYFAVOURITE)<div id="Doc_MyFavourite"></div>
 ```sql

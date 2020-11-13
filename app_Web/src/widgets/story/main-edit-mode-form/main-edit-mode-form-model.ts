@@ -156,6 +156,11 @@ export default class Main_EditModeModel {
         dataType: 'PICKUP',
       },
       {
+        name: 'mailtopk',
+        prop: 'mailtopk',
+        dataType: 'SMCODELIST',
+      },
+      {
         name: 'openedby',
         prop: 'openedby',
         dataType: 'SSCODELIST',

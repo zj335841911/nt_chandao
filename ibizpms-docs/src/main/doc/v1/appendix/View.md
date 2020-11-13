@@ -397,6 +397,7 @@ SRFNAVPARAM.project=%project%|
 |-|产品统计编辑视图|DEEDITVIEW9|&nbsp;|
 |-|任务甘特视图|DEGANTTVIEW|&nbsp;|
 |-|工时|DEOPTVIEW|&nbsp;|
+|-|文档编辑视图|DEEDITVIEW9|&nbsp;|
 |-|需求编辑视图|DEEDITVIEW9|&nbsp;|
 |-|系统更新日志分页导航视图|DETABEXPVIEW|&nbsp;|
 |-|产品需求导航视图|DETREEEXPVIEW|&nbsp;|

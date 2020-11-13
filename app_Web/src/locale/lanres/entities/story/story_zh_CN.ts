@@ -446,6 +446,7 @@ export default {
 			mailto: "抄送给", 
 			mailtoconact: "", 
 			product: "所属产品", 
+			mailtopk: "抄送给", 
 			openedby: "由谁创建", 
 			openeddate: "于", 
 			assignedto: "指派给", 
@@ -492,6 +493,7 @@ export default {
 			mailtoconact: "", 
 			keywords: "关键词", 
 			id: "编号", 
+			mailtopk: "抄送给", 
 		},
 		uiactions: {
 		},

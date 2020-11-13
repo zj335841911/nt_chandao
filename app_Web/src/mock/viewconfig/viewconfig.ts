@@ -1519,6 +1519,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TaskWorkHoursView",
             "viewtag": "5f063c226812206f8262566387a0b6a5"
         },
+        "docdocstatuseditview": {
+            "title": "文档编辑视图",
+            "caption": "嵌入文档库主页",
+            "viewtype": "DEEDITVIEW9",
+            "viewmodule": "zentao",
+            "viewname": "DocDocStatusEditView",
+            "viewtag": "603f4478afd3bcccb330888c3ac880bd"
+        },
         "storymainview9_storyspec": {
             "title": "需求编辑视图",
             "caption": "需求",

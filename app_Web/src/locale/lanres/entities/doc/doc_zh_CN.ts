@@ -56,6 +56,10 @@ export default {
 			caption: "文档",
       		title: "doc表格视图",
 		},
+		docstatuseditview: {
+			caption: "嵌入文档库主页",
+      		title: "文档编辑视图",
+		},
 		myfavouritegridview: {
 			caption: "我的收藏",
       		title: "doc表格视图",
@@ -202,6 +206,28 @@ export default {
 			id: "文档编号", 
 			product: "所属产品", 
 			project: "所属项目", 
+		},
+		uiactions: {
+		},
+	},
+	docstatus_form: {
+		details: {
+			grouppanel3: "分组面板", 
+			grouppanel4: "分组面板", 
+			grouppanel1: "分组面板", 
+			grouppanel2: "分组面板", 
+			formpage1: "基本信息", 
+			srforikey: "", 
+			srfkey: "文档编号", 
+			srfmajortext: "文档标题", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			alldoccnt: "所有文档数量", 
+			recentupdatecnt: "最近更新数量", 
+			formitemex1: "最近更新", 
+			id: "文档编号", 
 		},
 		uiactions: {
 		},

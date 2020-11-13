@@ -161,6 +161,11 @@ export default class Main_NewModeModel {
         dataType: 'ACID',
       },
       {
+        name: 'mailtopk',
+        prop: 'mailtopk',
+        dataType: 'SMCODELIST',
+      },
+      {
         name: 'story',
         prop: 'id',
         dataType: 'FONTKEY',

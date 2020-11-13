@@ -104,6 +104,7 @@ export class Main_NewModeEditFormBase extends EditFormControlBase {
         mailtoconact: null,
         keywords: null,
         id: null,
+        mailtopk: null,
         story:null,
     };
 
@@ -210,6 +211,8 @@ export class Main_NewModeEditFormBase extends EditFormControlBase {
 
         id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 0 }),
 
+        mailtopk: new FormItemModel({ caption: '抄送给', detailType: 'FORMITEM', name: 'mailtopk', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+
     };
 
     /**
@@ -271,6 +274,7 @@ export class Main_NewModeEditFormBase extends EditFormControlBase {
             }
             this.detailsModel.assignedto.setDisabled(!ret);
         }
+
 
 
 

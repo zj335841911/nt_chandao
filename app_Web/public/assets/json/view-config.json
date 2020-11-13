@@ -1889,6 +1889,16 @@
         "viewtag": "5f063c226812206f8262566387a0b6a5",
         "memo": ""
     },
+    "docdocstatuseditview": {
+        "title": "文档编辑视图",
+        "caption": "嵌入文档库主页",
+        "viewtype": "DEEDITVIEW9",
+        "viewmodule": "zentao",
+        "viewname": "DocDocStatusEditView",
+        "viewfilename": "doc-doc-status-edit-view",
+        "viewtag": "603f4478afd3bcccb330888c3ac880bd",
+        "memo": ""
+    },
     "storymainview9_storyspec": {
         "title": "需求编辑视图",
         "caption": "需求",
