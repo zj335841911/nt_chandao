@@ -86,6 +86,13 @@ hide members
 |抄送给|MAILTOPK|SMCODELIST|&nbsp;|
 |指派给（选择）|ASSIGNEDTOPK|TEXT|&nbsp;|
 |消息通知用户|NOTICEUSERS|TEXT|&nbsp;|
+|来源对象|IBIZ_SOURCEOBJECT|TEXT|&nbsp;|
+|来源对象|SOURCEOBJECT|TEXT|&nbsp;|
+|IBIZ标识|IBIZ_ID|TEXT|&nbsp;|
+|来源对象名称|SOURCENAME|TEXT|&nbsp;|
+|来源对象标识|SOURCEID|TEXT|&nbsp;|
+|来源对象标识|IBIZ_SOURCEID|TEXT|&nbsp;|
+|来源对象名称|IBIZ_SOURCENAME|TEXT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -149,6 +156,13 @@ hide members
 |抄送给|默认规则|内容长度必须小于等于[65535]|
 |指派给（选择）|默认规则|内容长度必须小于等于[200]|
 |消息通知用户|默认规则|内容长度必须小于等于[100]|
+|来源对象|默认规则|内容长度必须小于等于[100]|
+|来源对象|默认规则|内容长度必须小于等于[100]|
+|IBIZ标识|默认规则|内容长度必须小于等于[100]|
+|来源对象名称|默认规则|内容长度必须小于等于[100]|
+|来源对象标识|默认规则|内容长度必须小于等于[100]|
+|来源对象标识|默认规则|内容长度必须小于等于[100]|
+|来源对象名称|默认规则|内容长度必须小于等于[100]|
 
 ## 状态控制
 
@@ -252,13 +266,13 @@ hide members
 {% plantuml %}
 hide footbox
 
-需求 -> 需求: 获取联系人
+需求 -> 需求: 获取参数
 {% endplantuml %}
 
 | 步骤       | 操作        |
 | --------   | --------   |
 |0|开始 | 
-|1|获取联系人 |
+|1|获取参数 |
 <center>获取联系人</center>
 * GetStorySpecs (GetStorySpecs)
   

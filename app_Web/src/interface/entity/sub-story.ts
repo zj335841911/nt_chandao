@@ -477,4 +477,60 @@ export interface SubStory {
      * @memberof SubStory
      */
     noticeusers?: any;
+
+    /**
+     * 来源对象
+     *
+     * @returns {*}
+     * @memberof SubStory
+     */
+    ibiz_sourceobject?: any;
+
+    /**
+     * 来源对象
+     *
+     * @returns {*}
+     * @memberof SubStory
+     */
+    sourceobject?: any;
+
+    /**
+     * IBIZ标识
+     *
+     * @returns {*}
+     * @memberof SubStory
+     */
+    ibiz_id?: any;
+
+    /**
+     * 来源对象名称
+     *
+     * @returns {*}
+     * @memberof SubStory
+     */
+    sourcename?: any;
+
+    /**
+     * 来源对象标识
+     *
+     * @returns {*}
+     * @memberof SubStory
+     */
+    sourceid?: any;
+
+    /**
+     * 来源对象标识
+     *
+     * @returns {*}
+     * @memberof SubStory
+     */
+    ibiz_sourceid?: any;
+
+    /**
+     * 来源对象名称
+     *
+     * @returns {*}
+     * @memberof SubStory
+     */
+    ibiz_sourcename?: any;
 }

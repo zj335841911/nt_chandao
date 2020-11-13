@@ -341,17 +341,6 @@ public class StoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(storydto);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-GetUserConcat-all')")
-    @ApiOperation(value = "获取联系人", tags = {"需求" },  notes = "获取联系人")
-	@RequestMapping(method = RequestMethod.PUT, value = "/stories/{story_id}/getuserconcat")
-    public ResponseEntity<StoryDTO> getUserConcat(@PathVariable("story_id") Long story_id, @RequestBody StoryDTO storydto) {
-        Story domain = storyMapping.toDomain(storydto);
-        domain.setId(story_id);
-        domain = storyService.getUserConcat(domain);
-        storydto = storyMapping.toDto(domain);
-        return ResponseEntity.status(HttpStatus.OK).body(storydto);
-    }
-
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-ImportPlanStories-all')")
     @ApiOperation(value = "项目关联需求-按计划关联", tags = {"需求" },  notes = "项目关联需求-按计划关联")
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/importplanstories")
@@ -1396,17 +1385,6 @@ public class StoryResource {
         Story domain = storyMapping.toDomain(storydto);
         domain.setProduct(product_id);
         domain = storyService.getStorySpecs(domain) ;
-        storydto = storyMapping.toDto(domain);
-        return ResponseEntity.status(HttpStatus.OK).body(storydto);
-    }
-
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-GetUserConcat-all')")
-    @ApiOperation(value = "根据产品需求", tags = {"需求" },  notes = "根据产品需求")
-	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/stories/{story_id}/getuserconcat")
-    public ResponseEntity<StoryDTO> getUserConcatByProduct(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody StoryDTO storydto) {
-        Story domain = storyMapping.toDomain(storydto);
-        domain.setProduct(product_id);
-        domain = storyService.getUserConcat(domain) ;
         storydto = storyMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(storydto);
     }

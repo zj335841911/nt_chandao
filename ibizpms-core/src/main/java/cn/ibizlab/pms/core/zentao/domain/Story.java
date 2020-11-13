@@ -492,6 +492,59 @@ public class Story extends EntityMP implements Serializable {
     @JSONField(name = "noticeusers")
     @JsonProperty("noticeusers")
     private String noticeusers;
+    /**
+     * 来源对象
+     */
+    @DEField(name = "ibiz_sourceobject")
+    @TableField(value = "`ibiz_sourceobject`")
+    @JSONField(name = "ibiz_sourceobject")
+    @JsonProperty("ibiz_sourceobject")
+    private String ibizSourceobject;
+    /**
+     * 来源对象
+     */
+    @TableField(value = "`sourceobject`")
+    @JSONField(name = "sourceobject")
+    @JsonProperty("sourceobject")
+    private String sourceobject;
+    /**
+     * IBIZ标识
+     */
+    @DEField(name = "ibiz_id")
+    @TableField(value = "`ibiz_id`")
+    @JSONField(name = "ibiz_id")
+    @JsonProperty("ibiz_id")
+    private String ibizId;
+    /**
+     * 来源对象名称
+     */
+    @TableField(value = "`sourcename`")
+    @JSONField(name = "sourcename")
+    @JsonProperty("sourcename")
+    private String sourcename;
+    /**
+     * 来源对象标识
+     */
+    @TableField(value = "`sourceid`")
+    @JSONField(name = "sourceid")
+    @JsonProperty("sourceid")
+    private String sourceid;
+    /**
+     * 来源对象标识
+     */
+    @DEField(name = "ibiz_sourceid")
+    @TableField(value = "`ibiz_sourceid`")
+    @JSONField(name = "ibiz_sourceid")
+    @JsonProperty("ibiz_sourceid")
+    private String ibizSourceid;
+    /**
+     * 来源对象名称
+     */
+    @DEField(name = "ibiz_sourcename")
+    @TableField(value = "`ibiz_sourcename`")
+    @JSONField(name = "ibiz_sourcename")
+    @JsonProperty("ibiz_sourcename")
+    private String ibizSourcename;
 
     /**
      * 
@@ -827,6 +880,62 @@ public class Story extends EntityMP implements Serializable {
     public void setTobug(Long tobug) {
         this.tobug = tobug;
         this.modify("tobug", tobug);
+    }
+
+    /**
+     * 设置 [来源对象]
+     */
+    public void setIbizSourceobject(String ibizSourceobject) {
+        this.ibizSourceobject = ibizSourceobject;
+        this.modify("ibiz_sourceobject", ibizSourceobject);
+    }
+
+    /**
+     * 设置 [来源对象]
+     */
+    public void setSourceobject(String sourceobject) {
+        this.sourceobject = sourceobject;
+        this.modify("sourceobject", sourceobject);
+    }
+
+    /**
+     * 设置 [IBIZ标识]
+     */
+    public void setIbizId(String ibizId) {
+        this.ibizId = ibizId;
+        this.modify("ibiz_id", ibizId);
+    }
+
+    /**
+     * 设置 [来源对象名称]
+     */
+    public void setSourcename(String sourcename) {
+        this.sourcename = sourcename;
+        this.modify("sourcename", sourcename);
+    }
+
+    /**
+     * 设置 [来源对象标识]
+     */
+    public void setSourceid(String sourceid) {
+        this.sourceid = sourceid;
+        this.modify("sourceid", sourceid);
+    }
+
+    /**
+     * 设置 [来源对象标识]
+     */
+    public void setIbizSourceid(String ibizSourceid) {
+        this.ibizSourceid = ibizSourceid;
+        this.modify("ibiz_sourceid", ibizSourceid);
+    }
+
+    /**
+     * 设置 [来源对象名称]
+     */
+    public void setIbizSourcename(String ibizSourcename) {
+        this.ibizSourcename = ibizSourcename;
+        this.modify("ibiz_sourcename", ibizSourcename);
     }
 
 

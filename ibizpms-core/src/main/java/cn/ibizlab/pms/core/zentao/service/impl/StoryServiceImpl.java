@@ -295,13 +295,6 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
          return et;
     }
 
-    @Override
-    @Transactional
-    public Story getUserConcat(Story et) {
-        getcuruserconcatLogic.execute(et);
-         return et;
-    }
-
         @Override
     @Transactional
     public Story importPlanStories(Story et) {

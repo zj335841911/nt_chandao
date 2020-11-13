@@ -1,6 +1,7 @@
 import { Http } from '@/utils';
 import { Util } from '@/utils';
 import EntityService from '../entity-service';
+import GetCurUserConcatLogic from '@/service/sub-story/get-cur-user-concat-logic';
 
 
 
@@ -805,21 +806,6 @@ export default class SubStoryServiceBase extends EntityService {
             let res:any = await Http.getInstance().get(`/substories/${context.substory}/getstoryspecs`,isloading);
             
             return res;
-    }
-
-    /**
-     * GetUserConcat接口方法
-     *
-     * @param {*} [context={}]
-     * @param {*} [data={}]
-     * @param {boolean} [isloading]
-     * @returns {Promise<any>}
-     * @memberof SubStoryServiceBase
-     */
-    public async GetUserConcat(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let appLogic:GetCurUserConcatLogic = new GetCurUserConcatLogic({context:JSON.parse(JSON.stringify(context)),data:JSON.parse(JSON.stringify(data))});
-        const res = await appLogic.onExecute(context,data,isloading?true:false);
-        return {status:200,data:res};
     }
 
     /**
@@ -1967,6 +1953,21 @@ export default class SubStoryServiceBase extends EntityService {
      * @memberof SubStoryServiceBase
      */
     public async GetTaskReStory(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+    }
+
+    /**
+     * GetUserConcat接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubStoryServiceBase
+     */
+    public async GetUserConcat(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let appLogic:GetCurUserConcatLogic = new GetCurUserConcatLogic({context:JSON.parse(JSON.stringify(context)),data:JSON.parse(JSON.stringify(data))});
+        const res = await appLogic.onExecute(context,data,isloading?true:false);
+        return {status:200,data:res};
     }
 
     /**

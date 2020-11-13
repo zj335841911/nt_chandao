@@ -528,25 +528,6 @@ GET
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | [SubStoryDTO](#SubStoryDTO)：需求实体传输对象 |
 
-### 获取联系人
-#### 访问路径
-/substories/{substory_id}/getuserconcat
-
-#### 请求方法
-PUT
-
-#### 参数说明
-| 序号 | 参数名 | 参数类型 | 说明 |
-| ---- | ---- | ---- | ---- |
-| 1 | substory_id | Long | 需求主键ID |
-| 2 | substorydto | [SubStoryDTO](#SubStoryDTO) | 需求实体传输对象 |
-
-#### 返回说明
-| 项目 | 说明 |
-| ---- | ---- |
-| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
-| 返回类型 | [SubStoryDTO](#SubStoryDTO)：需求实体传输对象 |
-
 ### 项目关联需求-按计划关联
 #### 访问路径
 /substories/{substory_id}/importplanstories
@@ -2328,26 +2309,6 @@ POST
 
 #### 请求方法
 GET
-
-#### 参数说明
-| 序号 | 参数名 | 参数类型 | 说明 |
-| ---- | ---- | ---- | ---- |
-| 1 | story_id | Long | 需求主键ID |
-| 2 | substory_id | Long | 需求主键ID |
-| 3 | substorydto | [SubStoryDTO](#SubStoryDTO) | 需求实体传输对象 |
-
-#### 返回说明
-| 项目 | 说明 |
-| ---- | ---- |
-| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
-| 返回类型 | [SubStoryDTO](#SubStoryDTO)：需求实体传输对象 |
-
-### 获取联系人
-#### 访问路径
-/stories/{story_id}/substories/{substory_id}/getuserconcat
-
-#### 请求方法
-PUT
 
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
@@ -4225,26 +4186,6 @@ GET
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | [SubStoryDTO](#SubStoryDTO)：需求实体传输对象 |
 
-### 获取联系人
-#### 访问路径
-/products/{product_id}/stories/{story_id}/substories/{substory_id}/getuserconcat
-
-#### 请求方法
-PUT
-
-#### 参数说明
-| 序号 | 参数名 | 参数类型 | 说明 |
-| ---- | ---- | ---- | ---- |
-| 1 | product_id | Long | 产品主键ID |/r/n| 2 | story_id | Long | 需求主键ID |
-| 3 | substory_id | Long | 需求主键ID |
-| 4 | substorydto | [SubStoryDTO](#SubStoryDTO) | 需求实体传输对象 |
-
-#### 返回说明
-| 项目 | 说明 |
-| ---- | ---- |
-| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
-| 返回类型 | [SubStoryDTO](#SubStoryDTO)：需求实体传输对象 |
-
 ### 项目关联需求-按计划关联
 #### 访问路径
 /products/{product_id}/stories/{story_id}/substories/{substory_id}/importplanstories
@@ -5619,7 +5560,14 @@ POST
 | 57 | mailtopk | String | 允许 | 抄送给 |
 | 58 | assignedtopk | String | 允许 | 指派给（选择） |
 | 59 | noticeusers | String | 允许 | 消息通知用户 |
-| 60 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 60 | ibiz_sourceobject | String | 允许 | 来源对象 |
+| 61 | sourceobject | String | 允许 | 来源对象 |
+| 62 | ibiz_id | String | 允许 | IBIZ标识 |
+| 63 | sourcename | String | 允许 | 来源对象名称 |
+| 64 | sourceid | String | 允许 | 来源对象标识 |
+| 65 | ibiz_sourceid | String | 允许 | 来源对象标识 |
+| 66 | ibiz_sourcename | String | 允许 | 来源对象名称 |
+| 67 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### StorySearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

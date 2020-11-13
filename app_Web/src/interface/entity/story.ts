@@ -477,4 +477,60 @@ export interface Story {
      * @memberof Story
      */
     noticeusers?: any;
+
+    /**
+     * 来源对象
+     *
+     * @returns {*}
+     * @memberof Story
+     */
+    ibiz_sourceobject?: any;
+
+    /**
+     * 来源对象
+     *
+     * @returns {*}
+     * @memberof Story
+     */
+    sourceobject?: any;
+
+    /**
+     * IBIZ标识
+     *
+     * @returns {*}
+     * @memberof Story
+     */
+    ibiz_id?: any;
+
+    /**
+     * 来源对象名称
+     *
+     * @returns {*}
+     * @memberof Story
+     */
+    sourcename?: any;
+
+    /**
+     * 来源对象标识
+     *
+     * @returns {*}
+     * @memberof Story
+     */
+    sourceid?: any;
+
+    /**
+     * 来源对象标识
+     *
+     * @returns {*}
+     * @memberof Story
+     */
+    ibiz_sourceid?: any;
+
+    /**
+     * 来源对象名称
+     *
+     * @returns {*}
+     * @memberof Story
+     */
+    ibiz_sourcename?: any;
 }
