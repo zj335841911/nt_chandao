@@ -17609,6 +17609,7 @@ CREATE TABLE `zt_doclib`(
 | DOCLIBNAME        | 所属文档库  | VARCHAR      |   60   | &nbsp; |
 | SHORT        | 简称  | VARCHAR      |   30   | &nbsp; |
 | COLLECTOR        | collector  | CLOB      |   65,535   | &nbsp; |
+| ISFAVOURITES        | 是否收藏  | INTEGER      |   -1   | &nbsp; |
 | GRADE        | grade  | INTEGER      |   -1   | &nbsp; |
 | BRANCH        | branch  | INTEGER      |   -1   | &nbsp; |
 | PARENT        | id  |       |   20   | &nbsp; |
