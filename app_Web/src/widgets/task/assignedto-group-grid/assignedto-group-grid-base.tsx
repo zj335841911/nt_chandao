@@ -540,7 +540,7 @@ export class AssignedtoGroupGridBase extends GridControlBase {
      * @type {string}
      * @memberof AssignedtoGroupBase
      */
-    public groupMode:string ="AUTO";
+    public groupMode:string ="CODELIST";
 
     /**
      * 分组代码表标识
@@ -548,7 +548,7 @@ export class AssignedtoGroupGridBase extends GridControlBase {
      * @type {string}
      * @memberof AssignedtoGroupBase
      */
-    public codelistTag: string = "UserRealNameW";
+    public codelistTag: string = "UserRealNameProject";
 
     /**
      * 分组代码表类型
