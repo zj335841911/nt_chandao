@@ -120,6 +120,14 @@ export default {
         doclib_uncollect: "取消收藏",
 		},
 	},
+	expproductmain_grid: {
+		nodata: "",
+		columns: {
+			name: "文档库名称",
+		},
+		uiactions: {
+		},
+	},
 	default_searchform: {
 		details: {
 			formpage1: "常规条件", 
