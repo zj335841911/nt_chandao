@@ -112,16 +112,6 @@
                     </template>
                     <template slot-scope="scope">
                         <div style="text-align: center;">
-                          <a v-show="scope.row.Collect.visible" :disabled="scope.row.Collect.disabled" @click="uiAction(scope.row, 'Collect', $event)" :title="$t('entities.doc.morerecentupdate_grid.uiactions.doc_collect')">
-                            <i class='fa fa-star-o'></i>
-                            
-                          </a>
-                          <divider v-show="scope.row.UnCollect.visible" type='vertical'></divider>
-                          <a v-show="scope.row.UnCollect.visible" :disabled="scope.row.UnCollect.disabled" @click="uiAction(scope.row, 'UnCollect', $event)" :title="$t('entities.doc.morerecentupdate_grid.uiactions.doc_uncollect')">
-                            <i class='fa fa-star'></i>
-                            
-                          </a>
-                          <divider v-show="scope.row.Edit.visible" type='vertical'></divider>
                           <a v-show="scope.row.Edit.visible" :disabled="scope.row.Edit.disabled" @click="uiAction(scope.row, 'Edit', $event)" :title="$t('entities.doc.morerecentupdate_grid.uiactions.doc_edit')">
                             <i class='fa fa-edit'></i>
                             
@@ -129,6 +119,16 @@
                           <divider v-show="scope.row.Delete.visible" type='vertical'></divider>
                           <a v-show="scope.row.Delete.visible" :disabled="scope.row.Delete.disabled" @click="uiAction(scope.row, 'Delete', $event)" :title="$t('entities.doc.morerecentupdate_grid.uiactions.doc_delete')">
                             <i class='fa fa-remove'></i>
+                            
+                          </a>
+                          <divider v-show="scope.row.Collect.visible" type='vertical'></divider>
+                          <a v-show="scope.row.Collect.visible" :disabled="scope.row.Collect.disabled" @click="uiAction(scope.row, 'Collect', $event)" :title="$t('entities.doc.morerecentupdate_grid.uiactions.doc_collect')">
+                            <i class='fa fa-star-o'></i>
+                            
+                          </a>
+                          <divider v-show="scope.row.UnCollect.visible" type='vertical'></divider>
+                          <a v-show="scope.row.UnCollect.visible" :disabled="scope.row.UnCollect.disabled" @click="uiAction(scope.row, 'UnCollect', $event)" :title="$t('entities.doc.morerecentupdate_grid.uiactions.doc_uncollect')">
+                            <i class='fa fa-star'></i>
                             
                           </a>
                         </div>

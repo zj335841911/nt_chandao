@@ -36,7 +36,6 @@ part [shape=none, margin=0, label=<
 我的收藏<BR/>
 创建文档库<BR/>
 创建文档<BR/>
-我的收藏<BR/>
 <BR/></TD>
 </TR>
 </TABLE>
@@ -108,19 +107,6 @@ CreateFile [shape=none, margin=0, label=<
 
 
 
-MyFavouriteQuickAccess [shape=none, margin=0, label=<
-<TABLE WIDTH="150" BORDER="1" CELLBORDER="1" >
-<TR>
-<TD WIDTH="115" BORDER="0" COLSPAN="3"></TD><TD WIDTH="35" BORDER="0">V</TD>
-</TR>
-<TR>
-<TD BORDER="0" COLSPAN="4" CELLPADDING="10">我的收藏<BR/><BR/></TD>
-</TR>
-</TABLE>
->];
-
-
-
 start -> own ;
 own -> part [style=dashed,arrowhead=diamond,label="<包含>"] ;
 
@@ -152,12 +138,6 @@ Create -> end ;
 part -> CreateFile [style=dashed,label=<创建文档<BR/>(迁移/popup)>];
 
 CreateFile -> end ;
-
-
-
-part -> MyFavouriteQuickAccess [style=dashed,label=<我的收藏<BR/>(迁移/popup)>];
-
-MyFavouriteQuickAccess -> end ;
 
 
 

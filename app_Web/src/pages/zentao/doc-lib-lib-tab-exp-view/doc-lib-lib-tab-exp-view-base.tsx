@@ -111,8 +111,6 @@ export class DocLibLibTabExpViewBase extends TabExpViewBase {
 
         deuiaction6: { name: 'deuiaction6', caption: '创建文档', 'isShowCaption': true, 'isShowIcon': true, tooltip: '创建文档', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'CreateFile', target: 'NONE', class: '' } },
 
-        deuiaction5: { name: 'deuiaction5', caption: '我的收藏', 'isShowCaption': true, 'isShowIcon': false, tooltip: '我的收藏', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'MyFavouriteQuickAccess', target: 'NONE', class: '' } },
-
     };
 
 
@@ -191,9 +189,6 @@ export class DocLibLibTabExpViewBase extends TabExpViewBase {
         }
         if (Object.is($event.tag, 'deuiaction6')) {
             this.toolbar_deuiaction6_click(null, '', $event2);
-        }
-        if (Object.is($event.tag, 'deuiaction5')) {
-            this.toolbar_deuiaction5_click(null, '', $event2);
         }
     }
 
@@ -335,34 +330,6 @@ export class DocLibLibTabExpViewBase extends TabExpViewBase {
         // 界面行为
         const curUIService:DocLibUIService  = new DocLibUIService();
         curUIService.DocLib_CreateFile(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public toolbar_deuiaction5_click(params: any = {}, tag?: any, $event?: any) {
-        // 参数
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        let contextJO:any = {};
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        const curUIService:DocLibUIService  = new DocLibUIService();
-        curUIService.DocLib_MyFavouriteQuickAccess(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
     }
 
 

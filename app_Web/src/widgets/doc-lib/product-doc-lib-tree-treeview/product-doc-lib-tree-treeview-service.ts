@@ -424,7 +424,7 @@ export default class ProductDocLibTreeService extends ControlService {
                         Object.assign(treeNode, { iconcls: 'fa fa-cube' });
                         Object.assign(treeNode, { expanded: filter.isautoexpand });
                         Object.assign(treeNode, { leaf: false });
-                        Object.assign(treeNode, { navfilter: "product" });
+                        Object.assign(treeNode, { navfilter: "n_product_eq" });
                         Object.assign(treeNode, { curData: entity });
                         Object.assign(treeNode, { nodeid: treeNode.srfkey });
                         Object.assign(treeNode, { nodeid2: filter.strRealNodeId });

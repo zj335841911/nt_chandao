@@ -267,10 +267,10 @@ export default {
 		},
 		uiactions: {
         doc_look: "查看",
-        doc_collect: "收藏",
-        doc_uncollect: "取消收藏",
         doc_edit: "编辑",
         doc_delete: "删除",
+        doc_collect: "收藏",
+        doc_uncollect: "取消收藏",
 		},
 	},
 	mydoc_grid: {
@@ -306,10 +306,10 @@ export default {
 		},
 		uiactions: {
         doc_look: "查看",
-        doc_collect: "收藏",
-        doc_uncollect: "取消收藏",
         doc_edit: "编辑",
         doc_delete: "删除",
+        doc_collect: "收藏",
+        doc_uncollect: "取消收藏",
 		},
 	},
 	myfavourite_grid: {
@@ -335,10 +335,10 @@ export default {
 		},
 		uiactions: {
         doc_look: "查看",
-        doc_collect: "收藏",
-        doc_uncollect: "取消收藏",
         doc_edit: "编辑",
         doc_delete: "删除",
+        doc_collect: "收藏",
+        doc_uncollect: "取消收藏",
 		},
 	},
 	default_searchform: {

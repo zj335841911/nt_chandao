@@ -170,10 +170,6 @@ export default {
 			caption: "创建文档",
 			tip: "创建文档",
 		},
-		deuiaction5: {
-			caption: "我的收藏",
-			tip: "我的收藏",
-		},
 	},
 	projectdoclibtree_treeview: {
 		nodes: {

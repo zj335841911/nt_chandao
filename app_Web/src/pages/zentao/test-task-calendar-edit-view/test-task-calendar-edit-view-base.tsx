@@ -74,8 +74,8 @@ export class TestTaskCalendarEditViewBase extends EditViewBase {
 	 * @memberof TestTaskCalendarEditViewBase
 	 */
     protected customViewNavContexts: any = {
-        'OBJECTTYPE': { isRawValue: true, value: 'task' },
-        'SRFPARENTKEY': { isRawValue: false, value: 'task' }
+        'OBJECTTYPE': { isRawValue: true, value: 'testtask' },
+        'SRFPARENTKEY': { isRawValue: false, value: 'testtask' }
     };
 
     /**
