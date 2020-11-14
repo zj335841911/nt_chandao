@@ -146,7 +146,7 @@ export class DOCSTATUSPortletBase extends MainControlBase {
                 return this.height+'px';
             }
         } else {
-            return '500px';
+            return '400px';
         }
     }
 

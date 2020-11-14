@@ -146,7 +146,7 @@ export class MyFavouritePortletBase extends MainControlBase {
                 return this.height+'px';
             }
         } else {
-            return '220px';
+            return '235px';
         }
     }
 
