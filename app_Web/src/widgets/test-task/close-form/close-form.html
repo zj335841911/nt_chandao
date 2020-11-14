@@ -54,15 +54,26 @@
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.mailtoconact.visible" :style="{}"  :lg="{ span: 4, offset: 0 }" :xl="{ span: 4, offset: 0 }">
     <app-form-item name='mailtoconact' :itemRules="this.rules().mailtoconact" class='' :caption="$t('entities.testtask.close_form.details.mailtoconact')" uiStyle="DEFAULT" :labelWidth="5" :isShowCaption="true" :error="detailsModel.mailtoconact.error" :isEmptyCaption="true" labelPos="LEFT">
-    <input-box 
-    v-model="data.mailtoconact"  
-    @enter="onEnter($event)"  
-     unit=""  
-    :disabled="detailsModel.mailtoconact.disabled" 
-    type='text' 
-    style="">
-</input-box>
-
+    
+<app-picker  
+  :formState="formState"
+  :data="data"
+  :context="context"
+  :viewparams="viewparams"
+  :localContext ='{ }' 
+  :localParam ='{ }' 
+  :disabled="detailsModel.mailtoconact.disabled"
+  name='mailtoconact'
+  deMajorField='listname'
+  deKeyField='userlist'
+  :service="service"
+  :acParams="{ serviceName: 'UserContactService', interfaceName: 'FetchCurUSERCONTACT'}"
+  valueitem='mailtopk'
+  :value="data.mailtoconact"
+  editortype="dropdown"
+  style=""
+  @formitemvaluechange="onFormItemValueChange($event)">
+</app-picker>
 </app-form-item>
 
 </i-col>
