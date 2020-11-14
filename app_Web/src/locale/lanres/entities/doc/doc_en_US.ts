@@ -215,6 +215,7 @@ export default {
 			grouppanel3: "分组面板", 
 			grouppanel4: "分组面板", 
 			grouppanel1: "分组面板", 
+			rawitem1: "", 
 			grouppanel5: "分组面板", 
 			grouppanel6: "分组面板", 
 			grouppanel7: "分组面板", 
@@ -232,7 +233,6 @@ export default {
 			formitemex1: "所有", 
 			formitem3: "今日更新", 
 			formitem4: "最近更新", 
-			formitem: "最近添加", 
 			alldoccnt2: "所有文档数量", 
 			recentaddcnt: "最近添加数量", 
 			formitemex2: "", 
@@ -244,6 +244,7 @@ export default {
 			alldoccnt4: "所有文档数量", 
 			myfavouritecnt: "我的收藏数量", 
 			formitemex4: "", 
+			formitem: "最近添加", 
 			id: "文档编号", 
 		},
 		uiactions: {

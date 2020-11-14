@@ -87,7 +87,6 @@ export class DOCSTATUSEditFormBase extends EditFormControlBase {
         formitemex1: null,
         formitem3: null,
         formitem4: null,
-        formitem: null,
         alldoccnt2: null,
         recentaddcnt: null,
         formitemex2: null,
@@ -99,6 +98,7 @@ export class DOCSTATUSEditFormBase extends EditFormControlBase {
         alldoccnt4: null,
         myfavouritecnt: null,
         formitemex4: null,
+        formitem: null,
         id: null,
         doc:null,
     };
@@ -144,6 +144,8 @@ export class DOCSTATUSEditFormBase extends EditFormControlBase {
 
         grouppanel1: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.doc.docstatus_form', extractMode: 'ITEM', details: [] } }),
 
+        rawitem1: new FormRowItemModel({ caption: '', detailType: 'RAWITEM', name: 'rawitem1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
+
         grouppanel5: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel5', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.doc.docstatus_form', extractMode: 'ITEM', details: [] } }),
 
         grouppanel6: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel6', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.doc.docstatus_form', extractMode: 'ITEM', details: [] } }),
@@ -178,8 +180,6 @@ export class DOCSTATUSEditFormBase extends EditFormControlBase {
 
         formitem4: new FormItemModel({ caption: '最近更新', detailType: 'FORMITEM', name: 'formitem4', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 
-        formitem: new FormItemModel({ caption: '最近添加', detailType: 'FORMITEM', name: 'formitem', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
-
         alldoccnt2: new FormItemModel({ caption: '所有文档数量', detailType: 'FORMITEM', name: 'alldoccnt2', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 
         recentaddcnt: new FormItemModel({ caption: '最近添加数量', detailType: 'FORMITEM', name: 'recentaddcnt', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
@@ -201,6 +201,8 @@ export class DOCSTATUSEditFormBase extends EditFormControlBase {
         myfavouritecnt: new FormItemModel({ caption: '我的收藏数量', detailType: 'FORMITEM', name: 'myfavouritecnt', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 
         formitemex4: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'formitemex4', visible: true, isShowCaption: false, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
+
+        formitem: new FormItemModel({ caption: '最近添加', detailType: 'FORMITEM', name: 'formitem', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 3 }),
 
         id: new FormItemModel({ caption: '文档编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, showMoreMode: 0, required:false, disabled: false, enableCond: 0 }),
 
