@@ -178,7 +178,7 @@
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.mailto.visible" :style="{}"  :lg="{ span: 15, offset: 0 }" :xl="{ span: 15, offset: 0 }">
+<i-col class="form-layout-container" v-show="detailsModel.mailto.visible" :style="{}"  :lg="{ span: 20, offset: 0 }" :xl="{ span: 20, offset: 0 }">
     <app-form-item name='mailto' :itemRules="this.rules().mailto" class='' :caption="$t('entities.testtask.mainedit_form.details.mailto')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.mailto.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <dropdown-list-mpicker 
@@ -198,8 +198,8 @@
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.mailtoconact.visible" :style="{}"  :lg="{ span: 9, offset: 0 }" :xl="{ span: 9, offset: 0 }">
-    <app-form-item name='mailtoconact' :itemRules="this.rules().mailtoconact" class='' :caption="$t('entities.testtask.mainedit_form.details.mailtoconact')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.mailtoconact.error" :isEmptyCaption="true" labelPos="LEFT">
+<i-col class="form-layout-container" v-show="detailsModel.mailtoconact.visible" :style="{}"  :lg="{ span: 4, offset: 0 }" :xl="{ span: 4, offset: 0 }">
+    <app-form-item name='mailtoconact' :itemRules="this.rules().mailtoconact" class='' :caption="$t('entities.testtask.mainedit_form.details.mailtoconact')" uiStyle="DEFAULT" :labelWidth="5" :isShowCaption="true" :error="detailsModel.mailtoconact.error" :isEmptyCaption="true" labelPos="LEFT">
     <input-box 
     v-model="data.mailtoconact"  
     @enter="onEnter($event)"  

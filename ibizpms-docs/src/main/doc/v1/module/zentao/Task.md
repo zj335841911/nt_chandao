@@ -2948,7 +2948,9 @@ String
 无
 
 - 取值范围/公式
-参照数据字典【[用户真实名称（动态）（UserRealName）](../../codelist/UserRealName)】
+```SQL
+''
+```
 
 - 数据格式
 无
@@ -6699,7 +6701,7 @@ t1.`LASTEDITEDBY`,
 t1.`LASTEDITEDDATE`,
 t1.`LEFT`,
 t1.`MAILTO`,
-t1.mailto AS `MAILTOPK`,
+'' AS `MAILTOPK`,
 t1.`MODULE`,
 t11.`NAME` AS `MODULENAME`,
 (case when t1.module = '0' then '/' else (SELECT case when tt.type = 'task' then GROUP_CONCAT( tt.NAME SEPARATOR '>' ) else CONCAT_WS('',t2.`name`,'>',GROUP_CONCAT( tt.NAME SEPARATOR '>' )) end as `name` FROM zt_module tt left join zt_product t2 on tt.root = t2.id WHERE FIND_IN_SET( tt.id, t11.path ) GROUP BY tt.root limit 0,1) end) AS `MODULENAME1`,
@@ -6839,7 +6841,7 @@ t1.`LASTEDITEDBY`,
 t1.`LASTEDITEDDATE`,
 t1.`LEFT`,
 t1.`MAILTO`,
-t1.mailto AS `MAILTOPK`,
+'' AS `MAILTOPK`,
 t1.`MODULE`,
 t11.`NAME` AS `MODULENAME`,
 (case when t1.module = '0' then '/' else (SELECT case when tt.type = 'task' then GROUP_CONCAT( tt.NAME SEPARATOR '>' ) else CONCAT_WS('',t2.`name`,'>',GROUP_CONCAT( tt.NAME SEPARATOR '>' )) end as `name` FROM zt_module tt left join zt_product t2 on tt.root = t2.id WHERE FIND_IN_SET( tt.id, t11.path ) GROUP BY tt.root limit 0,1) end) AS `MODULENAME1`,
@@ -7382,7 +7384,7 @@ t1.`LASTEDITEDBY`,
 t1.`LASTEDITEDDATE`,
 t1.`LEFT`,
 t1.`MAILTO`,
-t1.mailto AS `MAILTOPK`,
+'' AS `MAILTOPK`,
 t1.`MODULE`,
 t11.`NAME` AS `MODULENAME`,
 (case when t1.module = '0' then '/' else (SELECT case when tt.type = 'task' then GROUP_CONCAT( tt.NAME SEPARATOR '>' ) else CONCAT_WS('',t2.`name`,'>',GROUP_CONCAT( tt.NAME SEPARATOR '>' )) end as `name` FROM zt_module tt left join zt_product t2 on tt.root = t2.id WHERE FIND_IN_SET( tt.id, t11.path ) GROUP BY tt.root limit 0,1) end) AS `MODULENAME1`,
