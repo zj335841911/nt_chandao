@@ -105,7 +105,7 @@ export class ProductGridExpViewgridexpbarGridexpbarBase extends GridExpBarContro
      * @type {string}
      * @memberof ProductGridExpViewgridexpbarBase
      */
-    public navFilter: string = 'n_lib_eq';
+    public navFilter: string = 'srfroot';
 
     /**
      * 导航关系
@@ -121,7 +121,7 @@ export class ProductGridExpViewgridexpbarGridexpbarBase extends GridExpBarContro
      * @type {*}
      * @memberof ProductGridExpViewgridexpbarBase
      */
-    public navigateContext: any = {DOCLIBTYPE:"%doclibtype%",PARENT:"0",SRFROOT:"%doclib%",PRODUCT:"%product%"};
+    public navigateContext: any = {DOCLIBTYPE:"%doclibtype%",PARENT:"0",PRODUCT:"%product%"};
 
     /**
      * 导航视图参数
@@ -129,7 +129,7 @@ export class ProductGridExpViewgridexpbarGridexpbarBase extends GridExpBarContro
      * @type {*}
      * @memberof ProductGridExpViewgridexpbarBase
      */
-    public navigateParams:any = {product:"%product%",parent:"0",srfroot:"%doclib%"};
+    public navigateParams:any = {product:"%product%",parent:"0"};
 
     /**
     * 刷新
