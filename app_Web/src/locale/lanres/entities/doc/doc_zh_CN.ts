@@ -221,6 +221,7 @@ export default {
 			rawitem5: "", 
 			grouppanel4: "分组面板", 
 			grouppanel1: "分组面板", 
+			rawitem6: "", 
 			rawitem1: "", 
 			grouppanel5: "分组面板", 
 			rawitem2: "", 
