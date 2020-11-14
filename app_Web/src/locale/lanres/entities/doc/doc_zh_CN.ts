@@ -372,8 +372,6 @@ export default {
 			tip: "导出",
 		},
 	},
-	myfavouritepartgridviewtoolbar_toolbar: {
-	},
 	createeditviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "保存并关闭",

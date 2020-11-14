@@ -372,8 +372,6 @@ export default {
 			tip: "Export {0} Data To Excel",
 		},
 	},
-	myfavouritepartgridviewtoolbar_toolbar: {
-	},
 	createeditviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "Save And Close",

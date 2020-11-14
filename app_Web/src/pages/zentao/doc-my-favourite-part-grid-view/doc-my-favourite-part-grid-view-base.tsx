@@ -102,19 +102,8 @@ export class DocMyFavouritePartGridViewBase extends GridView9Base {
      * @memberof DocMyFavouritePartGridViewBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
         view_grid: { name: 'grid', type: 'GRID' },
     };
-
-    /**
-     * 工具栏模型
-     *
-     * @type {*}
-     * @memberof DocMyFavouritePartGridView
-     */
-    public toolBarModels: any = {
-    };
-
 
 
 	/**
