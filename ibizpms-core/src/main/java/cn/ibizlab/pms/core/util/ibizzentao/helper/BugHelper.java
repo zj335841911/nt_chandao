@@ -4,6 +4,8 @@ import cn.ibizlab.pms.core.util.ibizzentao.common.ChangeUtil;
 import cn.ibizlab.pms.core.util.ibizzentao.common.ZTDateUtil;
 import cn.ibizlab.pms.core.zentao.domain.*;
 import cn.ibizlab.pms.core.zentao.mapper.BugMapper;
+import cn.ibizlab.pms.core.zentao.service.IBugService;
+import cn.ibizlab.pms.core.zentao.service.IStoryService;
 import cn.ibizlab.pms.util.dict.StaticDict;
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
 import cn.ibizlab.pms.util.security.AuthenticationUser;
@@ -54,13 +56,13 @@ public class BugHelper extends ZTBaseHelper<BugMapper, Bug> {
         et.setStoryversion(et.getStory() != null && et.getStory() != 0 ? storyHelper.get(et.getStory()).getVersion() : 1);
         et.setCaseversion(et.getIbizcase() != null && et.getIbizcase() != 0 ? caseHelper.get(et.getIbizcase()).getVersion() : 1);
         String files = et.getFiles();
-        boolean bOk = super.create(et);
-        if (!bOk) {
+        String noticeusers = et.getNoticeusers();
+        if (!super.create(et)) {
             return false;
         }
         fileHelper.updateObjectID(et.getId(), StaticDict.File__object_type.BUG.getValue(), files, "");
         actionHelper.create(StaticDict.Action__object_type.BUG.getValue(), et.getId(), StaticDict.Action__type.OPENED.getValue(), "", "", null, true);
-
+        actionHelper.sendTodo(et.getId(),et.getTitle(),noticeusers,et.getAssignedto(),et.getMailto(), IBugService.OBJECT_TEXT_NAME,StaticDict.Action__object_type.BUG.getValue(), IBugService.OBJECT_SOURCE_PATH);
         return true;
     }
     /**
@@ -78,10 +80,12 @@ public class BugHelper extends ZTBaseHelper<BugMapper, Bug> {
 
         fileHelper.processImgURL(et, null, null);
         String files = et.getFiles();
+        String noticeusers = et.getNoticeusers();
         this.internalUpdate(et);
         fileHelper.updateObjectID(et.getId(), StaticDict.File__object_type.BUG.getValue(), files, "");
         List<History> changes = ChangeUtil.diff(old, et,null,null,diffAttrs);
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
+            actionHelper.sendToread(et.getId(),et.getTitle(),noticeusers,et.getAssignedto(),et.getMailto(), IBugService.OBJECT_TEXT_NAME,StaticDict.Action__object_type.BUG.getValue(), IBugService.OBJECT_SOURCE_PATH);
             String strAction = StaticDict.Action__type.EDITED.getValue();
             if (changes.size() == 0) {
                 strAction = StaticDict.Action__type.COMMENTED.getValue();
@@ -104,9 +108,11 @@ public class BugHelper extends ZTBaseHelper<BugMapper, Bug> {
             et.setAssignedto(AuthenticationUser.getAuthenticationUser().getUsername());
         }
         String files = et.getFiles();
+        String noticeusers = et.getNoticeusers();
         this.internalUpdate(et);
         fileHelper.updateObjectID(et.getId(), StaticDict.File__object_type.BUG.getValue(), files, "");
         List<History> changes = ChangeUtil.diff(old, et);
+        actionHelper.sendTodo(et.getId(),et.getTitle(),noticeusers,et.getAssignedto(),et.getMailto(), IBugService.OBJECT_TEXT_NAME,StaticDict.Action__object_type.BUG.getValue(), IBugService.OBJECT_SOURCE_PATH);
         Action action = actionHelper.create(StaticDict.Action__object_type.BUG.getValue(), et.getId(), StaticDict.Action__type.ASSIGNED.getValue(),
                 comment, et.getAssignedto(), null, true);
         if (changes.size() > 0) {
@@ -139,9 +145,10 @@ public class BugHelper extends ZTBaseHelper<BugMapper, Bug> {
         et.setTostory(0L);
 
         String files = et.getFiles();
+        String noticeusers = et.getNoticeusers();
         internalUpdate(et);
         fileHelper.updateObjectID(et.getId(), StaticDict.File__object_type.BUG.getValue(), files, "");
-
+        actionHelper.sendTodo(et.getId(),et.getTitle(),noticeusers,et.getAssignedto(),et.getMailto(), IBugService.OBJECT_TEXT_NAME,StaticDict.Action__object_type.BUG.getValue(), IBugService.OBJECT_SOURCE_PATH);
         List<History> changes = ChangeUtil.diff(old, et);
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
             Action action = actionHelper.create(StaticDict.Action__object_type.BUG.getValue(), et.getId(), StaticDict.Action__type.ACTIVATED.getValue(),
@@ -164,9 +171,9 @@ public class BugHelper extends ZTBaseHelper<BugMapper, Bug> {
             et.setAssignedto(AuthenticationUser.getAuthenticationUser().getUsername());
         }
         et.setAssigneddate(ZTDateUtil.now());
-
+        String noticeusers = et.getNoticeusers();
         this.internalUpdate(et);
-
+        actionHelper.sendToread(et.getId(),et.getTitle(),noticeusers,et.getAssignedto(),et.getMailto(), IBugService.OBJECT_TEXT_NAME,StaticDict.Action__object_type.BUG.getValue(), IBugService.OBJECT_SOURCE_PATH);
         List<History> changes = ChangeUtil.diff(old, et, null, new String[]{"confirmed", "assignedto"}, null);
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
             Action action = actionHelper.create(StaticDict.Action__object_type.BUG.getValue(), et.getId(), StaticDict.Action__type.BUGCONFIRMED.getValue(),
@@ -210,9 +217,10 @@ public class BugHelper extends ZTBaseHelper<BugMapper, Bug> {
         }
 
         String files = et.getFiles();
+        String noticeusers = et.getNoticeusers();
         internalUpdate(et);
         fileHelper.updateObjectID(et.getId(), StaticDict.File__object_type.BUG.getValue(), files, "");
-
+        actionHelper.sendTodo(et.getId(),et.getTitle(),noticeusers,et.getAssignedto(),et.getMailto(), IBugService.OBJECT_TEXT_NAME,StaticDict.Action__object_type.BUG.getValue(), IBugService.OBJECT_SOURCE_PATH);
         //关联
         et.set("builds", et.getResolvedbuild());
         et.set("ids", et.getId());
@@ -249,9 +257,9 @@ public class BugHelper extends ZTBaseHelper<BugMapper, Bug> {
         et.setCloseddate(ZTDateUtil.now());
         et.setStatus(StaticDict.Bug__status.CLOSED.getValue());
         et.setConfirmed(1);
-
+        String noticeusers = et.getNoticeusers();
         internalUpdate(et);
-
+        actionHelper.sendToread(et.getId(),et.getTitle(),noticeusers,et.getAssignedto(),et.getMailto(), IBugService.OBJECT_TEXT_NAME,StaticDict.Action__object_type.BUG.getValue(), IBugService.OBJECT_SOURCE_PATH);
         List<History> changes = ChangeUtil.diff(old, et);
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
             Action action = actionHelper.create(StaticDict.Action__object_type.BUG.getValue(), et.getId(), StaticDict.Action__type.CLOSED.getValue(),

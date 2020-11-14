@@ -4,13 +4,12 @@ import cn.ibizlab.pms.core.ibizplugin.domain.IBIZProMessage;
 import cn.ibizlab.pms.core.ibizplugin.service.IIBIZProMessageService;
 import cn.ibizlab.pms.core.util.ibizzentao.common.Fixer;
 import cn.ibizlab.pms.core.util.ibizzentao.common.ZTDateUtil;
-import cn.ibizlab.pms.core.zentao.domain.Action;
-import cn.ibizlab.pms.core.zentao.domain.History;
-import cn.ibizlab.pms.core.zentao.domain.ProjectProduct;
-import cn.ibizlab.pms.core.zentao.domain.Task;
+import cn.ibizlab.pms.core.zentao.domain.*;
 import cn.ibizlab.pms.core.zentao.filter.ProjectProductSearchContext;
 import cn.ibizlab.pms.core.zentao.mapper.ActionMapper;
+import cn.ibizlab.pms.core.zentao.service.IBugService;
 import cn.ibizlab.pms.core.zentao.service.IProjectProductService;
+import cn.ibizlab.pms.core.zentao.service.IStoryService;
 import cn.ibizlab.pms.core.zentao.service.ITaskService;
 import cn.ibizlab.pms.util.dict.StaticDict;
 import cn.ibizlab.pms.util.security.AuthenticationUser;
@@ -62,6 +61,12 @@ public class ActionHelper extends ZTBaseHelper<ActionMapper, Action> {
     @Autowired
     TaskHelper taskHelper;
 
+    @Autowired
+    StoryHelper storyHelper;
+
+    @Autowired
+    BugHelper bugHelper;
+
     private static String MULTIPLE_CHOICE = ",";
 
     /**
@@ -79,31 +84,14 @@ public class ActionHelper extends ZTBaseHelper<ActionMapper, Action> {
             MULTIPLE_CHOICE + StaticDict.Action__object_type.DOC.getValue() +
             MULTIPLE_CHOICE + StaticDict.Action__object_type.TESTTASK.getValue();
 
-    String[] sendAction = {StaticDict.Action__type.OPENED.getValue(),
-            StaticDict.Action__type.EDITED.getValue(),
-            StaticDict.Action__type.CLOSED.getValue(),
-            StaticDict.Action__type.ACTIVATED.getValue(),
-            StaticDict.Action__type.COMMENTED.getValue(),
-            StaticDict.Action__type.FINISHED.getValue(),
-            StaticDict.Action__type.ASSIGNED.getValue(),
-            StaticDict.Action__type.STARTED.getValue(),
-            StaticDict.Action__type.CANCELED.getValue(),
-            StaticDict.Action__type.PAUSED.getValue(),
-            StaticDict.Action__type.RESTARTED.getValue(),
-            StaticDict.Action__type.CHANGED.getValue(),
-            StaticDict.Action__type.RESOLVED.getValue(),
-            StaticDict.Action__type.REVIEWED.getValue()};
 
     @Override
-    @Transactional
+    @Transactional(rollbackFor = RuntimeException.class)
     public boolean create(Action et) {
         et.setComment(et.getComment() == null ? "" : et.getComment());
         String noticeusers = et.getNoticeusers();
         this.create(et.getObjecttype(),et.getObjectid(),StaticDict.Action__type.COMMENTED.getValue(), et.getComment(),"",null,true);
-        if(StaticDict.Action__object_type.TASK.getValue().equals(et.getObjecttype())) {
-            Task task = taskHelper.get(et.getObjectid());
-            sendToread(task.getId(),task.getName(),noticeusers,task.getAssignedto(),task.getMailto(), ITaskService.OBJECT_TEXT_NAME,StaticDict.Action__object_type.TASK.getValue(),ITaskService.OBJECT_SOURCE_PATH);
-        }
+        send(noticeusers, et);
         return true;
     }
 
@@ -232,15 +220,30 @@ public class ActionHelper extends ZTBaseHelper<ActionMapper, Action> {
      * @return
      */
     @Override
-    @Transactional
+    @Transactional(rollbackFor = RuntimeException.class)
     public boolean edit(Action et) {
         String noticeusers = et.getNoticeusers();
         this.internalUpdate(et);
+        send(noticeusers, et);
+        return true;
+    }
+
+    /**
+     *
+     * @param noticeusers
+     * @param et
+     */
+    public void send(String noticeusers, Action et) {
         if(StaticDict.Action__object_type.TASK.getValue().equals(et.getObjecttype())) {
             Task task = taskHelper.get(et.getObjectid());
             sendToread(task.getId(),task.getName(),noticeusers,task.getAssignedto(),task.getMailto(), ITaskService.OBJECT_TEXT_NAME,StaticDict.Action__object_type.TASK.getValue(),ITaskService.OBJECT_SOURCE_PATH);
+        }else if(StaticDict.Action__object_type.STORY.getValue().equals(et.getObjecttype())) {
+            Story story = storyHelper.get(et.getObjectid());
+            sendToread(story.getId(),story.getTitle(),noticeusers,story.getAssignedto(),story.getMailto(), IStoryService.OBJECT_TEXT_NAME,StaticDict.Action__object_type.STORY.getValue(),IStoryService.OBJECT_SOURCE_PATH);
+        } else if(StaticDict.Action__object_type.BUG.getValue().equals(et.getObjecttype())) {
+            Bug bug = bugHelper.get(et.getObjectid());
+            sendToread(bug.getId(),bug.getTitle(),noticeusers,bug.getAssignedto(),bug.getMailto(), IBugService.OBJECT_TEXT_NAME,StaticDict.Action__object_type.TASK.getValue(), IBugService.OBJECT_SOURCE_PATH);
         }
-        return true;
     }
 
     /**
@@ -254,7 +257,7 @@ public class ActionHelper extends ZTBaseHelper<ActionMapper, Action> {
      * @param autoDelete
      * @return
      */
-    @Transactional
+    @Transactional(rollbackFor = RuntimeException.class)
     public Action create(String objectType, Long objectID, String actionType, String comment, String extra, String actor, boolean autoDelete) {
         Action et = new Action();
         if (actor == null) {
@@ -361,7 +364,7 @@ public class ActionHelper extends ZTBaseHelper<ActionMapper, Action> {
         return record;
     }
 
-    @Transactional
+    @Transactional(rollbackFor = RuntimeException.class)
     public void logHistory(Long actionId, List<History> changes) {
         for (History change : changes) {
             change.setAction(actionId);
@@ -369,7 +372,7 @@ public class ActionHelper extends ZTBaseHelper<ActionMapper, Action> {
         }
     }
 
-    @Transactional
+    @Transactional(rollbackFor = RuntimeException.class)
     public Action editComment(Action et) {
         et.setDate(ZTDateUtil.now());
         this.edit(et);
