@@ -87,11 +87,6 @@ export default class DOCSTATUSModel {
         name: 'formitemex2',
       },
       {
-        name: 'formitem1',
-        prop: 'mydoccnt',
-        dataType: 'INT',
-      },
-      {
         name: 'alldoccnt3',
         prop: 'alldoccnt',
         dataType: 'INT',
@@ -103,11 +98,6 @@ export default class DOCSTATUSModel {
       },
       {
         name: 'formitemex3',
-      },
-      {
-        name: 'formitem2',
-        prop: 'myfavouritecnt',
-        dataType: 'INT',
       },
       {
         name: 'alldoccnt4',
@@ -125,6 +115,16 @@ export default class DOCSTATUSModel {
       {
         name: 'formitem',
         prop: 'recentaddcnt',
+        dataType: 'INT',
+      },
+      {
+        name: 'formitem1',
+        prop: 'mydoccnt',
+        dataType: 'INT',
+      },
+      {
+        name: 'formitem2',
+        prop: 'myfavouritecnt',
         dataType: 'INT',
       },
       {
