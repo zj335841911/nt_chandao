@@ -257,6 +257,10 @@ export default class TestTaskUIServiceBase extends UIService {
                         return;
                     }
                     const _this: any = actionContext;
+                    if (xData && xData.refresh && xData.refresh instanceof Function) {
+                        xData.refresh(args);
+                    }
+                    _this.closeView(null);
                     return result.datas;
                 });
             }
