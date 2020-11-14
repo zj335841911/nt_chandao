@@ -119,7 +119,7 @@ export default class MyWorkPCModel {
                   },
                   {
                     name:'end',
-                    prop:'begin'
+                    prop:'end'
                   },
               ];
               break;

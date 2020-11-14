@@ -216,16 +216,6 @@
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.mailtopk.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='mailtopk' :itemRules="this.rules().mailtopk" class='' :caption="$t('entities.testtask.main_form.details.mailtopk')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.mailtopk.error" :isEmptyCaption="false" labelPos="LEFT">
-    
-<app-span name='mailtopk' :value="data.mailtopk" dataType="SMCODELIST"     :precision="0"
-:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
-</app-span>
-
-</app-form-item>
-
-</i-col>
     
     </row>
 </app-form-group>
