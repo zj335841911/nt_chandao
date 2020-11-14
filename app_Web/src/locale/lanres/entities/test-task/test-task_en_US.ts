@@ -358,11 +358,11 @@ export default {
 	},
 	calendarmain_form: {
 		details: {
-			button1: "关联用例", 
-			button2: "测试报告", 
-			button3: "概况", 
+			button1: "开始", 
+			button2: "关闭", 
+			button3: "阻塞", 
 			button4: "编辑", 
-			button5: "删除", 
+			button5: "查看", 
 			grouppanel2: "分组面板", 
 			grouppanel3: "描述", 
 			druipart1: "", 
@@ -385,11 +385,11 @@ export default {
 			desc: "", 
 		},
 		uiactions: {
-        testtask_linkcase: "关联用例",
-        testtask_testreportr: "测试报告",
-        testtask_openinfoview: "概况",
+        testtask_startdash: "开始",
+        testtask_closedash: "关闭",
+        testtask_blockdash: "阻塞",
         testtask_editedit: "编辑",
-        testtask_delete: "删除",
+        testtask_look: "查看",
 		},
 	},
 	main_grid: {

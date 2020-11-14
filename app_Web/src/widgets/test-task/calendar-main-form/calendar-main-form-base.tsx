@@ -93,7 +93,7 @@ export class CalendarMainEditFormBase extends EditFormControlBase {
         }
         // 界面行为
         const curUIService:TestTaskUIService  = new TestTaskUIService();
-        curUIService.TestTask_LinkCase(datas,contextJO, paramJO,  $event, xData,this,"TestTask");
+        curUIService.TestTask_StartDash(datas,contextJO, paramJO,  $event, xData,this,"TestTask");
     }
 
     /**
@@ -121,7 +121,7 @@ export class CalendarMainEditFormBase extends EditFormControlBase {
         }
         // 界面行为
         const curUIService:TestTaskUIService  = new TestTaskUIService();
-        curUIService.TestTask_TestReportR(datas,contextJO, paramJO,  $event, xData,this,"TestTask");
+        curUIService.TestTask_CloseDash(datas,contextJO, paramJO,  $event, xData,this,"TestTask");
     }
 
     /**
@@ -149,7 +149,7 @@ export class CalendarMainEditFormBase extends EditFormControlBase {
         }
         // 界面行为
         const curUIService:TestTaskUIService  = new TestTaskUIService();
-        curUIService.TestTask_OpenInfoView(datas,contextJO, paramJO,  $event, xData,this,"TestTask");
+        curUIService.TestTask_BlockDash(datas,contextJO, paramJO,  $event, xData,this,"TestTask");
     }
 
     /**
@@ -205,7 +205,7 @@ export class CalendarMainEditFormBase extends EditFormControlBase {
         }
         // 界面行为
         const curUIService:TestTaskUIService  = new TestTaskUIService();
-        curUIService.TestTask_Delete(datas,contextJO, paramJO,  $event, xData,this,"TestTask");
+        curUIService.TestTask_Look(datas,contextJO, paramJO,  $event, xData,this,"TestTask");
     }
 
 
@@ -285,20 +285,20 @@ export class CalendarMainEditFormBase extends EditFormControlBase {
      * @memberof CalendarMainEditFormBase
      */
     public detailsModel: any = {
-        button1: new FormButtonModel({ caption: '关联用例', detailType: 'BUTTON', name: 'button1', visible: true, isShowCaption: false, form: this, showMoreMode: 0,disabled: false, uiaction: { type: 'DEUIACTION', 
- tag: 'LinkCase',actiontarget: 'SINGLEKEY',noprivdisplaymode:1,dataaccaction:'SRFUR__TESTT_LCASE_BUT',visible: true,disabled: false} }),
+        button1: new FormButtonModel({ caption: '开始', detailType: 'BUTTON', name: 'button1', visible: true, isShowCaption: false, form: this, showMoreMode: 0,disabled: false, uiaction: { type: 'DEUIACTION', 
+ tag: 'StartDash',actiontarget: 'SINGLEKEY',noprivdisplaymode:2,dataaccaction:'SRFUR__TESTT_START_BUT',visible: true,disabled: false} }),
 
-        button2: new FormButtonModel({ caption: '测试报告', detailType: 'BUTTON', name: 'button2', visible: true, isShowCaption: false, form: this, showMoreMode: 0,disabled: false, uiaction: { type: 'DEUIACTION', 
- tag: 'TestReportR',actiontarget: 'MULTIKEY',noprivdisplaymode:1,dataaccaction:'SRFUR__REPORT_CREATE_BUT',visible: true,disabled: false} }),
+        button2: new FormButtonModel({ caption: '关闭', detailType: 'BUTTON', name: 'button2', visible: true, isShowCaption: false, form: this, showMoreMode: 0,disabled: false, uiaction: { type: 'DEUIACTION', 
+ tag: 'CloseDash',actiontarget: 'SINGLEKEY',noprivdisplaymode:2,dataaccaction:'SRFUR__TESTT_CLOSED_BUT',visible: true,disabled: false} }),
 
-        button3: new FormButtonModel({ caption: '概况', detailType: 'BUTTON', name: 'button3', visible: true, isShowCaption: false, form: this, showMoreMode: 0,disabled: false, uiaction: { type: 'DEUIACTION', 
- tag: 'OpenInfoView',actiontarget: 'SINGLEKEY',noprivdisplaymode:1,dataaccaction:'SRFUR__TESTT_OPEN_BUT',visible: true,disabled: false} }),
+        button3: new FormButtonModel({ caption: '阻塞', detailType: 'BUTTON', name: 'button3', visible: true, isShowCaption: false, form: this, showMoreMode: 0,disabled: false, uiaction: { type: 'DEUIACTION', 
+ tag: 'BlockDash',actiontarget: 'SINGLEKEY',noprivdisplaymode:2,dataaccaction:'SRFUR__TESTT_BLOCK_BUT',visible: true,disabled: false} }),
 
         button4: new FormButtonModel({ caption: '编辑', detailType: 'BUTTON', name: 'button4', visible: true, isShowCaption: false, form: this, showMoreMode: 0,disabled: false, uiaction: { type: 'DEUIACTION', 
  tag: 'EditEdit',actiontarget: 'SINGLEKEY',noprivdisplaymode:1,dataaccaction:'SRFUR__TESTT_EDIT_BUT',visible: true,disabled: false} }),
 
-        button5: new FormButtonModel({ caption: '删除', detailType: 'BUTTON', name: 'button5', visible: true, isShowCaption: false, form: this, showMoreMode: 0,disabled: false, uiaction: { type: 'DEUIACTION', 
- tag: 'Delete',actiontarget: 'SINGLEKEY',noprivdisplaymode:1,dataaccaction:'SRFUR__TESTT_DELETE_BUT',visible: true,disabled: false} }),
+        button5: new FormButtonModel({ caption: '查看', detailType: 'BUTTON', name: 'button5', visible: true, isShowCaption: false, form: this, showMoreMode: 0,disabled: false, uiaction: { type: 'DEUIACTION', 
+ tag: 'Look',actiontarget: 'SINGLEKEY',noprivdisplaymode:2,visible: true,disabled: false} }),
 
         grouppanel2: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel2', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.testtask.calendarmain_form', extractMode: 'ITEM', details: [] } }),
 
@@ -343,7 +343,7 @@ export class CalendarMainEditFormBase extends EditFormControlBase {
     };
 
 	/**
-	 * 表单 关联用例 事件
+	 * 表单 开始 事件
 	 *
 	 * @memberof @memberof CalendarMainEditFormBase
 	 */
@@ -353,7 +353,7 @@ export class CalendarMainEditFormBase extends EditFormControlBase {
     }
 
 	/**
-	 * 表单 测试报告 事件
+	 * 表单 关闭 事件
 	 *
 	 * @memberof @memberof CalendarMainEditFormBase
 	 */
@@ -363,7 +363,7 @@ export class CalendarMainEditFormBase extends EditFormControlBase {
     }
 
 	/**
-	 * 表单 概况 事件
+	 * 表单 阻塞 事件
 	 *
 	 * @memberof @memberof CalendarMainEditFormBase
 	 */
@@ -383,7 +383,7 @@ export class CalendarMainEditFormBase extends EditFormControlBase {
     }
 
 	/**
-	 * 表单 删除 事件
+	 * 表单 查看 事件
 	 *
 	 * @memberof @memberof CalendarMainEditFormBase
 	 */

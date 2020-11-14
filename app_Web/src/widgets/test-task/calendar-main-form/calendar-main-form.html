@@ -72,8 +72,8 @@ tag='Testtask__pri' codelistType='STATIC' :data="data" :context="context" :viewp
         <i-col class="form-layout-container" v-show="detailsModel.button1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 2, offset: 0 }">
         <i-button type="primary" @click="button1_click($event)"
          style=""
-         :title="$t('entities.testtask.calendarmain_form.uiactions.testtask_linkcase')">
-              <menu-icon :item="{iconcls: 'fa fa-link'}" />
+         :title="$t('entities.testtask.calendarmain_form.uiactions.testtask_startdash')">
+              <menu-icon :item="{iconcls: 'fa fa-play'}" />
         
     </i-button>
 
@@ -81,8 +81,8 @@ tag='Testtask__pri' codelistType='STATIC' :data="data" :context="context" :viewp
 <i-col class="form-layout-container" v-show="detailsModel.button2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 2, offset: 0 }">
         <i-button type="primary" @click="button2_click($event)"
          style=""
-         :title="$t('entities.testtask.calendarmain_form.uiactions.testtask_testreportr')">
-              <menu-icon :item="{iconcls: 'fa fa-flag'}" />
+         :title="$t('entities.testtask.calendarmain_form.uiactions.testtask_closedash')">
+              <menu-icon :item="{iconcls: 'fa fa-close'}" />
         
     </i-button>
 
@@ -90,8 +90,8 @@ tag='Testtask__pri' codelistType='STATIC' :data="data" :context="context" :viewp
 <i-col class="form-layout-container" v-show="detailsModel.button3.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 2, offset: 0 }">
         <i-button type="primary" @click="button3_click($event)"
          style=""
-         :title="$t('entities.testtask.calendarmain_form.uiactions.testtask_openinfoview')">
-              <menu-icon :item="{iconcls: 'fa fa-stack-exchange'}" />
+         :title="$t('entities.testtask.calendarmain_form.uiactions.testtask_blockdash')">
+              <menu-icon :item="{iconcls: 'fa fa-pause'}" />
         
     </i-button>
 
@@ -108,8 +108,7 @@ tag='Testtask__pri' codelistType='STATIC' :data="data" :context="context" :viewp
 <i-col class="form-layout-container" v-show="detailsModel.button5.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 2, offset: 0 }">
         <i-button type="primary" @click="button5_click($event)"
          style=""
-         :title="$t('entities.testtask.calendarmain_form.uiactions.testtask_delete')">
-              <menu-icon :item="{iconcls: 'fa fa-remove'}" />
+         :title="$t('entities.testtask.calendarmain_form.uiactions.testtask_look')">
         
     </i-button>
 
@@ -156,7 +155,7 @@ tag='Testtask__pri' codelistType='STATIC' :data="data" :context="context" :viewp
     refviewtype='DELISTVIEW' 
     refreshitems='' 
     :ignorefieldvaluechange="ignorefieldvaluechange"
-    viewname='action-history-list-view' 
+    viewname='action-add-comment-history-list-view' 
     :data="JSON.stringify(this.data)" 
     @drdatasaved="drdatasaved.apply(_self, arguments)"
     style="overflow: auto;">
