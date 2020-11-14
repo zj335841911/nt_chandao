@@ -49,6 +49,16 @@
         "viewtag": "0174d3383dadc0878991e5c90bd5eaa3",
         "memo": ""
     },
+    "tasktypetaskgroupgridview": {
+        "title": "任务表格视图（类型分组）",
+        "caption": "类型分组",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "zentao",
+        "viewname": "TaskTypeTaskGroupGridView",
+        "viewfilename": "task-type-task-group-grid-view",
+        "viewtag": "02099c395e73d3d63cad28a5c4ce148b",
+        "memo": ""
+    },
     "companydepttreeexpview": {
         "title": "组织部门树导航视图",
         "caption": "公司",
@@ -1779,6 +1789,16 @@
         "viewtag": "58a943454a652d4f4ce2702d6447c079",
         "memo": ""
     },
+    "taskassignedtotaskgroupgridview": {
+        "title": "任务表格视图（指派分组）",
+        "caption": "指派分组",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "zentao",
+        "viewname": "TaskAssignedtoTaskGroupGridView",
+        "viewfilename": "task-assignedto-task-group-grid-view",
+        "viewtag": "597fe6135598c0a14cf60c15aa1b217d",
+        "memo": ""
+    },
     "doclibgridview": {
         "title": "doclib表格视图",
         "caption": "文档库",
@@ -2447,6 +2467,16 @@
         "viewname": "TaskWHEditView",
         "viewfilename": "task-whedit-view",
         "viewtag": "7f425ca5154c34294ce6c0817d6cb875",
+        "memo": ""
+    },
+    "testtaskcalendareditview": {
+        "title": "测试版本编辑视图（日历导航）",
+        "caption": "日历导航",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "zentao",
+        "viewname": "TestTaskCalendarEditView",
+        "viewfilename": "test-task-calendar-edit-view",
+        "viewtag": "7f46287768fb888f84467e285f960323",
         "memo": ""
     },
     "casegridview9": {
@@ -3227,6 +3257,16 @@
         "viewname": "DocGridViewLookDoc",
         "viewfilename": "doc-grid-view-look-doc",
         "viewtag": "a501a42f3adfa826e382e4cbc134a4fc",
+        "memo": ""
+    },
+    "taskgrouptreeexpview": {
+        "title": "任务树导航视图（分组树）",
+        "caption": "分组视图",
+        "viewtype": "DETREEEXPVIEW",
+        "viewmodule": "zentao",
+        "viewname": "TaskGroupTreeExpView",
+        "viewfilename": "task-group-tree-exp-view",
+        "viewtag": "a50dac41ffda9770f8d903de986ca47a",
         "memo": ""
     },
     "deptinfoeditview": {
@@ -4207,6 +4247,16 @@
         "viewname": "UserMainGridView",
         "viewfilename": "user-main-grid-view",
         "viewtag": "d364bfbf7092ee45cd0acae49fac77ab",
+        "memo": ""
+    },
+    "taskpritaskgroupgridview": {
+        "title": "任务表格视图（优先级分组）",
+        "caption": "优先级分组",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "zentao",
+        "viewname": "TaskPriTaskGroupGridView",
+        "viewfilename": "task-pri-task-group-grid-view",
+        "viewtag": "d36b5df6585da6d78a0a5aeaf3b58bf9",
         "memo": ""
     },
     "branchpmeditview": {

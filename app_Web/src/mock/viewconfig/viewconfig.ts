@@ -47,6 +47,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "BugStatsEditView",
             "viewtag": "0174d3383dadc0878991e5c90bd5eaa3"
         },
+        "tasktypetaskgroupgridview": {
+            "title": "任务表格视图（类型分组）",
+            "caption": "类型分组",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "TaskTypeTaskGroupGridView",
+            "viewtag": "02099c395e73d3d63cad28a5c4ce148b"
+        },
         "companydepttreeexpview": {
             "title": "组织部门树导航视图",
             "caption": "公司",
@@ -1431,6 +1439,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProductStoryTreeExpView",
             "viewtag": "58a943454a652d4f4ce2702d6447c079"
         },
+        "taskassignedtotaskgroupgridview": {
+            "title": "任务表格视图（指派分组）",
+            "caption": "指派分组",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "TaskAssignedtoTaskGroupGridView",
+            "viewtag": "597fe6135598c0a14cf60c15aa1b217d"
+        },
         "doclibgridview": {
             "title": "doclib表格视图",
             "caption": "文档库",
@@ -1966,6 +1982,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "TaskWHEditView",
             "viewtag": "7f425ca5154c34294ce6c0817d6cb875"
+        },
+        "testtaskcalendareditview": {
+            "title": "测试版本编辑视图（日历导航）",
+            "caption": "日历导航",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "zentao",
+            "viewname": "TestTaskCalendarEditView",
+            "viewtag": "7f46287768fb888f84467e285f960323"
         },
         "casegridview9": {
             "title": "测试用例表格视图",
@@ -2590,6 +2614,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "ibiz",
             "viewname": "DocGridViewLookDoc",
             "viewtag": "a501a42f3adfa826e382e4cbc134a4fc"
+        },
+        "taskgrouptreeexpview": {
+            "title": "任务树导航视图（分组树）",
+            "caption": "分组视图",
+            "viewtype": "DETREEEXPVIEW",
+            "viewmodule": "zentao",
+            "viewname": "TaskGroupTreeExpView",
+            "viewtag": "a50dac41ffda9770f8d903de986ca47a"
         },
         "deptinfoeditview": {
             "title": "部门编辑视图",
@@ -3374,6 +3406,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "UserMainGridView",
             "viewtag": "d364bfbf7092ee45cd0acae49fac77ab"
+        },
+        "taskpritaskgroupgridview": {
+            "title": "任务表格视图（优先级分组）",
+            "caption": "优先级分组",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "TaskPriTaskGroupGridView",
+            "viewtag": "d36b5df6585da6d78a0a5aeaf3b58bf9"
         },
         "branchpmeditview": {
             "title": "平台管理",

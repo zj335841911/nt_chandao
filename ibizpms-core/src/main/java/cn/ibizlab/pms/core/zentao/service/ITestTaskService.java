@@ -54,6 +54,7 @@ public interface ITestTaskService extends IService<TestTask> {
     TestTask start(TestTask et);
     TestTask unlinkCase(TestTask et);
     Page<TestTask> searchDefault(TestTaskSearchContext context);
+    Page<TestTask> searchMyTestTaskPc(TestTaskSearchContext context);
     List<TestTask> selectByBuild(Long id);
     void removeByBuild(Long id);
     List<TestTask> selectByProduct(Long id);

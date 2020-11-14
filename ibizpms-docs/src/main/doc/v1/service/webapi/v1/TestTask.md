@@ -353,6 +353,42 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | Page<[TestTaskDTO](#TestTaskDTO)>：测试版本实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
 
+### 获取我的测试单
+#### 访问路径
+/testtasks/fetchmytesttaskpc
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [TestTaskSearchContext](#TestTaskSearchContext) | 测试版本查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[TestTaskDTO](#TestTaskDTO)>：测试版本实体传输对象列表 |
+
+### 查询我的测试单
+#### 访问路径
+/testtasks/searchmytesttaskpc
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [TestTaskSearchContext](#TestTaskSearchContext) | 测试版本查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[TestTaskDTO](#TestTaskDTO)>：测试版本实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
 ### 根据建立测试版本
 #### 访问路径
 /products/{product_id}/testtasks
@@ -722,6 +758,44 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | Page<[TestTaskDTO](#TestTaskDTO)>：测试版本实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
 
+### 根据获取我的测试单
+#### 访问路径
+/products/{product_id}/testtasks/fetchmytesttaskpc
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |
+| 2 | context | [TestTaskSearchContext](#TestTaskSearchContext) | 测试版本查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[TestTaskDTO](#TestTaskDTO)>：测试版本实体传输对象列表 |
+
+### 根据查询我的测试单
+#### 访问路径
+/products/{product_id}/testtasks/searchmytesttaskpc
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |
+| 2 | context | [TestTaskSearchContext](#TestTaskSearchContext) | 测试版本查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[TestTaskDTO](#TestTaskDTO)>：测试版本实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
 ### 根据建立测试版本
 #### 访问路径
 /projects/{project_id}/testtasks
@@ -1075,6 +1149,44 @@ GET
 ### 根据查询DEFAULT
 #### 访问路径
 /projects/{project_id}/testtasks/searchdefault
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | project_id | Long | 项目主键ID |
+| 2 | context | [TestTaskSearchContext](#TestTaskSearchContext) | 测试版本查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[TestTaskDTO](#TestTaskDTO)>：测试版本实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 根据获取我的测试单
+#### 访问路径
+/projects/{project_id}/testtasks/fetchmytesttaskpc
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | project_id | Long | 项目主键ID |
+| 2 | context | [TestTaskSearchContext](#TestTaskSearchContext) | 测试版本查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[TestTaskDTO](#TestTaskDTO)>：测试版本实体传输对象列表 |
+
+### 根据查询我的测试单
+#### 访问路径
+/projects/{project_id}/testtasks/searchmytesttaskpc
 
 #### 请求方法
 POST

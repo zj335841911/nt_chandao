@@ -74,6 +74,10 @@ export default {
 			caption: "测试版本",
       		title: "测试版本数据看板视图",
 		},
+		calendareditview: {
+			caption: "日历导航",
+      		title: "测试版本编辑视图（日历导航）",
+		},
 		activiteoptionview: {
 			caption: "激活",
       		title: "激活",
@@ -352,6 +356,42 @@ export default {
 		uiactions: {
 		},
 	},
+	calendarmain_form: {
+		details: {
+			button1: "关联用例", 
+			button2: "测试报告", 
+			button3: "概况", 
+			button4: "编辑", 
+			button5: "删除", 
+			grouppanel2: "分组面板", 
+			grouppanel3: "描述", 
+			druipart1: "", 
+			grouppanel4: "历史记录", 
+			grouppanel1: "分组面板", 
+			formpage1: "基本信息", 
+			srforikey: "", 
+			srfkey: "编号", 
+			srfmajortext: "名称", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			id: "编号", 
+			status: "", 
+			name: "", 
+			pri: "优先级", 
+			begin: "开始日期", 
+			end: "结束日期", 
+			desc: "", 
+		},
+		uiactions: {
+			testtask_linkcase: "关联用例",
+			testtask_testreportr: "测试报告",
+			testtask_openinfoview: "概况",
+			testtask_editedit: "编辑",
+			testtask_delete: "删除",
+		},
+	},
 	main_grid: {
 		nodata: "",
 		columns: {
@@ -461,5 +501,7 @@ export default {
 			caption: "导出",
 			tip: "导出",
 		},
+	},
+	calendareditviewtoolbar_toolbar: {
 	},
 };

@@ -211,6 +211,7 @@
 |-|产品编辑视图|DEEDITVIEW|&nbsp;|
 |-|产品模块表格视图|DEGRIDVIEW|&nbsp;|
 |-|Bug统计编辑视图|DEEDITVIEW|&nbsp;|
+|-|任务表格视图（类型分组）|DEGRIDVIEW|&nbsp;|
 |-|组织部门树导航视图|DETREEEXPVIEW|&nbsp;|
 |-|功能测试编辑视图|DEEDITVIEW|&nbsp;|
 |-|用例库用例编辑视图（创建编辑）|DEEDITVIEW9|&nbsp;|
@@ -386,6 +387,7 @@ SRFNAVPARAM.project=%project%|
 |-|功能测试|DEEDITVIEW|&nbsp;|
 |-|任务表格视图|DEGRIDVIEW9|&nbsp;|
 |-|产品需求导航视图|DETREEEXPVIEW|&nbsp;|
+|-|任务表格视图（指派分组）|DEGRIDVIEW|&nbsp;|
 |-|doclib表格视图|DEGRIDVIEW|&nbsp;|
 |-|项目数据选择视图|DEPICKUPVIEW|&nbsp;|
 |-|story表格视图|DEGRIDVIEW|&nbsp;|
@@ -453,6 +455,7 @@ SRFNAVPARAM.project=%project%|
 |-|产品计划数和需求数实体表格视图|DEGRIDVIEW|&nbsp;|
 |-|文档库分页导航视图（文档）|DETABEXPVIEW|&nbsp;|
 |-|工时|DEEDITVIEW|&nbsp;|
+|-|测试版本编辑视图（日历导航）|DEEDITVIEW|&nbsp;|
 |-|测试用例表格视图|DEGRIDVIEW9|&nbsp;|
 |-|完成|DEOPTVIEW|&nbsp;|
 |-|用例库用例步骤表格视图（主数据）|DEGRIDVIEW9|&nbsp;|
@@ -531,6 +534,7 @@ SRFNAVPARAM.project=%project%|
 |-|测试模块树导航视图|DETREEEXPVIEW|&nbsp;|
 |-|需求|DEPICKUPGRIDVIEW|&nbsp;用于【项目】关联【需求】，显示项目下的所有需求。|
 |-|doc表格视图|DEGRIDVIEW|&nbsp;|
+|-|任务树导航视图（分组树）|DETREEEXPVIEW|&nbsp;|
 |-|部门编辑视图|DEEDITVIEW|&nbsp;|
 |-|用例步骤|DEGRIDVIEW9|&nbsp;|
 |-|bug表格视图（项目）|DEGRIDVIEW|&nbsp;|
@@ -629,6 +633,7 @@ SRFNAVPARAM.project=%project%|
 |-|群组编辑视图|DEEDITVIEW|&nbsp;|
 |-|需求模块|DEOPTVIEW|&nbsp;|
 |-|用户表格视图|DEGRIDVIEW|&nbsp;|
+|-|任务表格视图（优先级分组）|DEGRIDVIEW|&nbsp;|
 |-|平台管理|DEEDITVIEW|&nbsp;|
 |-|Bug|DEEDITVIEW|&nbsp;临时充当主信息展示页面|
 |-|项目表格视图|DEGRIDVIEW|&nbsp;|

@@ -20,6 +20,7 @@ import com.alibaba.fastjson.JSONObject;
 public interface TestTaskMapper extends BaseMapper<TestTask> {
 
     Page<TestTask> searchDefault(IPage page, @Param("srf") TestTaskSearchContext context, @Param("ew") Wrapper<TestTask> wrapper);
+    Page<TestTask> searchMyTestTaskPc(IPage page, @Param("srf") TestTaskSearchContext context, @Param("ew") Wrapper<TestTask> wrapper);
     @Override
     TestTask selectById(Serializable id);
     @Override

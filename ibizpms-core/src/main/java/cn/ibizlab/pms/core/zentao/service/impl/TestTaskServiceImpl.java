@@ -247,6 +247,15 @@ public class TestTaskServiceImpl extends ServiceImpl<TestTaskMapper, TestTask> i
         return new PageImpl<TestTask>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
+    /**
+     * 查询集合 我的测试单
+     */
+    @Override
+    public Page<TestTask> searchMyTestTaskPc(TestTaskSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<TestTask> pages=baseMapper.searchMyTestTaskPc(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<TestTask>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
 
 
     /**

@@ -55,10 +55,25 @@
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
      </select>
 
+    <!--数据集合[MyTestTaskPc]-->
+	 <select id="searchMyTestTaskPc"  parameterType="cn.ibizlab.pms.core.zentao.filter.TestTaskSearchContext"  resultMap="TestTaskResultMap">
+         select t1.* from (
+                <include refid="MyTestTaskPc" />
+         )t1
+         <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
+         <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
+     </select>
+
     <!--数据查询[Default]-->
     <sql id="Default" databaseId="mysql">
 		<![CDATA[ SELECT t1.`AUTO`, t1.`BEGIN`, t1.`BUILD`, t31.`NAME` AS `BUILDNAME`, 0 AS `CASECNT`, t1.`DELETED`, t1.`END`, t1.`ID`, '' AS `MAILTOPK`, t1.`NAME`, t1.`OWNER`, t1.OWNER AS `OWNERPK`, t1.`PRI`, t1.`PRODUCT`, t11.`NAME` AS `PRODUCTNAME`, t1.`PROJECT`, t21.`NAME` AS `PROJECTTNAME`, t1.`STATUS`, t1.`SUBSTATUS` FROM `zt_testtask` t1  LEFT JOIN zt_product t11 ON t1.PRODUCT = t11.ID  LEFT JOIN zt_project t21 ON t1.PROJECT = t21.ID  LEFT JOIN zt_build t31 ON t1.BUILD = t31.ID  
 					 WHERE 	t1.DELETED = '0'
+			]]>
+    </sql>
+    <!--数据查询[MyTestTaskPc]-->
+    <sql id="MyTestTaskPc" databaseId="mysql">
+		<![CDATA[ SELECT 	t1.`id`, 	t1.`name`, 	t1.`product`, 	t1.`project`, 	t1.`build`, 	t1.`owner`, 	t1.`pri`, 	t1.`begin`, 	t1.`end`, 	t1.`mailto`, 	t1.`desc`, 	t1.`report`, 	t1.`status`, 	t1.`auto`, 	t1.`subStatus`, 	t1.`deleted`, FROM 	zt_testtask t1  WHERE 	OWNER = #{srf.sessioncontext.srfloginname};
+					 WHERE 	t1.`deleted`='0'
 			]]>
     </sql>
     <!--数据查询[View]-->

@@ -69,6 +69,10 @@ export default {
     mailtoconact: "联系人",
   },
 	views: {
+		typetaskgroupgridview: {
+			caption: "类型分组",
+      		title: "任务表格视图（类型分组）",
+		},
 		assigntaskview: {
 			caption: "指派任务",
       		title: "指派任务",
@@ -124,6 +128,10 @@ export default {
 		gridview9_storyrelated: {
 			caption: "相关任务",
       		title: "任务表格视图",
+		},
+		assignedtotaskgroupgridview: {
+			caption: "指派分组",
+      		title: "任务表格视图（指派分组）",
 		},
 		tasktypeganttview: {
 			caption: "任务",
@@ -181,6 +189,10 @@ export default {
 			caption: "任务",
       		title: "task表格视图",
 		},
+		grouptreeexpview: {
+			caption: "分组视图",
+      		title: "任务树导航视图（分组树）",
+		},
 		canceltaskview: {
 			caption: "取消任务",
       		title: "取消任务",
@@ -200,6 +212,10 @@ export default {
 		donetaskview: {
 			caption: "完成任务",
       		title: "完成任务",
+		},
+		pritaskgroupgridview: {
+			caption: "优先级分组",
+      		title: "任务表格视图（优先级分组）",
 		},
 		editview: {
 			caption: "任务",
@@ -860,6 +876,65 @@ export default {
 		uiactions: {
 		},
 	},
+	assignedtogroup_grid: {
+		nodata: "",
+		columns: {
+			id: "ID",
+			pri: "P",
+			name: "任务名称",
+			status1: "任务状态",
+			assignedto: "指派给",
+			finishedby: "完成者",
+			estimate: "预计",
+			consumed: "消耗",
+			left: "剩余",
+			deadline: "截止日期",
+			uagridcolumn1: "操作",
+		},
+		uiactions: {
+			task_assigntask: "指派",
+			task_confirmstorychange: "确认",
+			task_mstarttaskdash1: "开始",
+			task_starttask: "开始",
+			task_closetask: "关闭",
+			task_done: "完成",
+			task_donetask: "完成",
+			task_mainedit: "编辑",
+			task_newsubtask: "子任务",
+			task_taskfavorites: "收藏",
+			task_tasknfavorites: "取消收藏",
+		},
+	},
+	typetaskgroup_grid: {
+		nodata: "",
+		columns: {
+			type: "任务类型",
+			id: "ID",
+			pri: "P",
+			name: "任务名称",
+			status1: "任务状态",
+			assignedto: "指派给",
+			finishedby: "完成者",
+			estimate: "预计",
+			consumed: "消耗",
+			left: "剩余",
+			deadline: "截止日期",
+			uagridcolumn1: "操作",
+		},
+		uiactions: {
+			task_assigntask: "指派",
+			task_confirmstorychange: "确认",
+			task_mstarttaskdash1: "开始",
+			task_starttask: "开始",
+			task_closetask: "关闭",
+			task_done: "完成",
+			task_donetask: "完成",
+			task_mainedit: "编辑",
+			task_newsubtask: "子任务",
+			task_taskfavorites: "收藏",
+			task_tasknfavorites: "取消收藏",
+		},
+	},
 	taskgroup_grid: {
 		nodata: "",
 		columns: {
@@ -867,6 +942,35 @@ export default {
 			id: "ID",
 			pri: "P",
 			name: "任务名称",
+			assignedto: "指派给",
+			finishedby: "完成者",
+			estimate: "预计",
+			consumed: "消耗",
+			left: "剩余",
+			deadline: "截止日期",
+			uagridcolumn1: "操作",
+		},
+		uiactions: {
+			task_assigntask: "指派",
+			task_confirmstorychange: "确认",
+			task_mstarttaskdash1: "开始",
+			task_starttask: "开始",
+			task_closetask: "关闭",
+			task_done: "完成",
+			task_donetask: "完成",
+			task_mainedit: "编辑",
+			task_newsubtask: "子任务",
+			task_taskfavorites: "收藏",
+			task_tasknfavorites: "取消收藏",
+		},
+	},
+	pritaskgroup_grid: {
+		nodata: "",
+		columns: {
+			pri: "P",
+			id: "ID",
+			name: "任务名称",
+			status1: "任务状态",
 			assignedto: "指派给",
 			finishedby: "完成者",
 			estimate: "预计",
@@ -1108,7 +1212,73 @@ export default {
 			tip: "刷新",
 		},
 	},
+	assignedtotaskgroupgridviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "新建",
+			tip: "新建",
+		},
+		seperator1: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction2: {
+			caption: "刷新",
+			tip: "刷新",
+		},
+		seperator3: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction4: {
+			caption: "导出",
+			tip: "导出",
+		},
+	},
+	typetaskgroupgridviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "新建",
+			tip: "新建",
+		},
+		seperator1: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction2: {
+			caption: "刷新",
+			tip: "刷新",
+		},
+		seperator3: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction4: {
+			caption: "导出",
+			tip: "导出",
+		},
+	},
 	taskgroupgridviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "新建",
+			tip: "新建",
+		},
+		seperator1: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction2: {
+			caption: "刷新",
+			tip: "刷新",
+		},
+		seperator3: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction4: {
+			caption: "导出",
+			tip: "导出",
+		},
+	},
+	pritaskgroupgridviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "新建",
 			tip: "新建",
@@ -1160,6 +1330,17 @@ export default {
 		deuiaction1: {
 			caption: "保存并关闭",
 			tip: "保存并关闭",
+		},
+	},
+	taskgrouptree_treeview: {
+		nodes: {
+			assignedtogroup: "指派分组",
+			typegroup: "类型分组",
+			statusgroup: "状态分组",
+			root: "默认根节点",
+			prigroup: "优先级分组",
+		},
+		uiactions: {
 		},
 	},
 	tasktree_treeview: {
