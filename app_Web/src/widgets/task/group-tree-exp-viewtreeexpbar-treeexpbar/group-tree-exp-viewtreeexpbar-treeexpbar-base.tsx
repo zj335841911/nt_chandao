@@ -131,6 +131,13 @@ export class GroupTreeExpViewtreeexpbarTreeExpBarBase extends TreeExpBarControlB
                 deKeyField:'task'
 			};
         }
+        if (Object.is(expmode, 'STORYGROUP')) {
+            return {  
+                viewname: 'task-story-task-group-grid-view', 
+                parentdata: {},
+                deKeyField:'task'
+			};
+        }
         if (Object.is(expmode, 'STATUSGROUP')) {
             return {  
                 viewname: 'task-task-group-grid-view', 

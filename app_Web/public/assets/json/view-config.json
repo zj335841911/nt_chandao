@@ -2329,6 +2329,16 @@
         "viewtag": "7b1cc190cbffe1cd122d87a9d03b2d21",
         "memo": ""
     },
+    "taskstorytaskgroupgridview": {
+        "title": "任务表格视图（需求分组）",
+        "caption": "需求分组",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "zentao",
+        "viewname": "TaskStoryTaskGroupGridView",
+        "viewfilename": "task-story-task-group-grid-view",
+        "viewtag": "7b755840dbda75f7a6cf8394aa447ca0",
+        "memo": ""
+    },
     "doccreateeditview": {
         "title": "创建文档",
         "caption": "文档",

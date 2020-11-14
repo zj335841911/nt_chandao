@@ -2132,6 +2132,22 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '7b755840dbda75f7a6cf8394aa447ca0',
+            viewmodule: 'zentao',
+            viewname: 'TaskStoryTaskGroupGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '21e00a7239d9737bbfda5c1608b4129c',
+                'c9c256aef78723e1bf9ddc1d38667c3f',
+                '12661bdb476cd339554799b417c6ea48',
+                'abca63015fc84466991c6479f955f6d0',
+                'ea141fddc78fd1af4d06e494baf12cc1',
+                '35ba93bac795e0deb7297d2d471b7180',
+                '507c506d62dc910a814332e6ae242266',
+            ],
+        },
+        {
             viewtag: '7b8d03598e32aa0f535758927a17b98e',
             viewmodule: 'ibiz',
             viewname: 'DocCreateEditView',
@@ -2992,6 +3008,7 @@ export const viewstate: any = {
             refviews: [
                 'd36b5df6585da6d78a0a5aeaf3b58bf9',
                 '830a2a271daa744fc0f50410bcd8a711',
+                '7b755840dbda75f7a6cf8394aa447ca0',
                 '597fe6135598c0a14cf60c15aa1b217d',
                 '02099c395e73d3d63cad28a5c4ce148b',
             ],

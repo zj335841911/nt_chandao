@@ -153,6 +153,10 @@ export default {
 			caption: "任务",
       		title: "任务表格视图",
 		},
+		storytaskgroupgridview: {
+			caption: "需求分组",
+      		title: "任务表格视图（需求分组）",
+		},
 		wheditview: {
 			caption: "工时",
       		title: "工时",
@@ -993,6 +997,35 @@ export default {
         task_tasknfavorites: "取消收藏",
 		},
 	},
+	storytaskgroup_grid: {
+		nodata: "",
+		columns: {
+			id: "ID",
+			pri: "P",
+			name: "任务名称",
+			status1: "任务状态",
+			assignedto: "指派给",
+			finishedby: "完成者",
+			estimate: "预计",
+			consumed: "消耗",
+			left: "剩余",
+			deadline: "截止日期",
+			uagridcolumn1: "操作",
+		},
+		uiactions: {
+        task_assigntask: "指派",
+        task_confirmstorychange: "确认",
+        task_mstarttaskdash1: "开始",
+        task_starttask: "开始",
+        task_closetask: "关闭",
+        task_done: "完成",
+        task_donetask: "完成",
+        task_mainedit: "编辑",
+        task_newsubtask: "子任务",
+        task_taskfavorites: "收藏",
+        task_tasknfavorites: "取消收藏",
+		},
+	},
 	storyrelated_grid: {
 		nodata: "",
 		columns: {
@@ -1300,6 +1333,28 @@ export default {
 			tip: "Export {0} Data To Excel",
 		},
 	},
+	storytaskgroupgridviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "New",
+			tip: "New",
+		},
+		seperator1: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction2: {
+			caption: "刷新",
+			tip: "刷新",
+		},
+		seperator3: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction4: {
+			caption: "Export",
+			tip: "Export {0} Data To Excel",
+		},
+	},
 	myfavoritegridviewtoolbar_toolbar: {
 		deuiaction2: {
 			caption: "刷新",
@@ -1339,6 +1394,7 @@ export default {
 			statusgroup: "状态分组",
 			root: "默认根节点",
 			prigroup: "优先级分组",
+			storygroup: "需求分组",
 		},
 		uiactions: {
 		},

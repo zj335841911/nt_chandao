@@ -1871,6 +1871,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "StoryCurProjectGridView",
             "viewtag": "7b1cc190cbffe1cd122d87a9d03b2d21"
         },
+        "taskstorytaskgroupgridview": {
+            "title": "任务表格视图（需求分组）",
+            "caption": "需求分组",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "TaskStoryTaskGroupGridView",
+            "viewtag": "7b755840dbda75f7a6cf8394aa447ca0"
+        },
         "doccreateeditview": {
             "title": "创建文档",
             "caption": "文档",
