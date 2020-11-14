@@ -69,16 +69,6 @@
                             <i class='fa fa-star'></i>
                             
                           </a>
-                          <divider v-show="scope.row.ProductLookDoc.visible" type='vertical'></divider>
-                          <a v-show="scope.row.ProductLookDoc.visible" :disabled="scope.row.ProductLookDoc.disabled" @click="uiAction(scope.row, 'ProductLookDoc', $event)" :title="$t('entities.doclib.productmain_grid.uiactions.doclib_productlookdoc')">
-                            <i class='fa fa-file-word-o'></i>
-                            
-                          </a>
-                          <divider v-show="scope.row.ProductLookFile.visible" type='vertical'></divider>
-                          <a v-show="scope.row.ProductLookFile.visible" :disabled="scope.row.ProductLookFile.disabled" @click="uiAction(scope.row, 'ProductLookFile', $event)" :title="$t('entities.doclib.productmain_grid.uiactions.doclib_productlookfile')">
-                            <i class='fa fa-file-zip-o'></i>
-                            
-                          </a>
                           <divider v-show="scope.row.EditDocLib.visible" type='vertical'></divider>
                           <a v-show="scope.row.EditDocLib.visible" :disabled="scope.row.EditDocLib.disabled" @click="uiAction(scope.row, 'EditDocLib', $event)" :title="$t('entities.doclib.productmain_grid.uiactions.doclib_editdoclib')">
                             <i class='fa fa-edit'></i>

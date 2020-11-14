@@ -160,62 +160,6 @@ export class ProductMainGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_uee97c3f_click(params: any = {}, tag?: any, $event?: any) {
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        let contextJO:any = {};
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        const curUIService:DocLibUIService  = new DocLibUIService();
-        curUIService.DocLib_ProductLookDoc(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public grid_uagridcolumn1_u0686a9d_click(params: any = {}, tag?: any, $event?: any) {
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        let contextJO:any = {};
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        const curUIService:DocLibUIService  = new DocLibUIService();
-        curUIService.DocLib_ProductLookFile(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
     public grid_uagridcolumn1_ue97bc0a_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
@@ -275,9 +219,7 @@ export class ProductMainGridBase extends GridControlBase {
         LookMainProductDocLib: { name: 'LookMainProductDocLib',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: 'SINGLEKEY'},
         Collect: { name: 'Collect',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__DOCLIB_FAVOUR_BUT', actiontarget: 'SINGLEKEY'},
         UnCollect: { name: 'UnCollect',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__DOCLIB_NFAVOUR_BUT', actiontarget: 'SINGLEKEY'},
-        ProductLookDoc: { name: 'ProductLookDoc',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'DOC', actiontarget: 'SINGLEKEY'},
-        ProductLookFile: { name: 'ProductLookFile',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'FILE', actiontarget: 'SINGLEKEY'},
-        EditDocLib: { name: 'EditDocLib',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: 'SINGLEKEY'},
+        EditDocLib: { name: 'EditDocLib',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'DOC', actiontarget: 'SINGLEKEY'},
         WeiHuFenLei: { name: 'WeiHuFenLei',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'DOC', actiontarget: 'SINGLEKEY'}
     };
 
@@ -529,12 +471,6 @@ export class ProductMainGridBase extends GridControlBase {
         if(Object.is('UnCollect', tag)) {
             this.grid_uagridcolumn1_u668e37a_click(row, tag, $event);
         }
-        if(Object.is('ProductLookDoc', tag)) {
-            this.grid_uagridcolumn1_uee97c3f_click(row, tag, $event);
-        }
-        if(Object.is('ProductLookFile', tag)) {
-            this.grid_uagridcolumn1_u0686a9d_click(row, tag, $event);
-        }
         if(Object.is('EditDocLib', tag)) {
             this.grid_uagridcolumn1_ue97bc0a_click(row, tag, $event);
         }
@@ -649,12 +585,6 @@ export class ProductMainGridBase extends GridControlBase {
                 UnCollect:{
                     visible: false
                 },
-                ProductLookDoc:{
-                    visible: false
-                },
-                ProductLookFile:{
-                    visible: false
-                },
                 EditDocLib:{
                     visible: false
                 },
@@ -692,12 +622,6 @@ export class ProductMainGridBase extends GridControlBase {
                 visible: false
             },
             UnCollect:{
-                visible: false
-            },
-            ProductLookDoc:{
-                visible: false
-            },
-            ProductLookFile:{
                 visible: false
             },
             EditDocLib:{
@@ -775,12 +699,6 @@ export class ProductMainGridBase extends GridControlBase {
                     visible: false
                 },
                 UnCollect:{
-                    visible: false
-                },
-                ProductLookDoc:{
-                    visible: false
-                },
-                ProductLookFile:{
                     visible: false
                 },
                 EditDocLib:{

@@ -37,6 +37,10 @@ export default {
 			caption: "文档库",
       		title: "创建文档库",
 		},
+		productgridexpview: {
+			caption: "产品文档库导航视图",
+      		title: "文档库表格导航视图（产品文档库导航视图）",
+		},
 		gridview: {
 			caption: "文档库",
       		title: "doclib表格视图",
@@ -112,8 +116,6 @@ export default {
 			doclib_lookmainproductdoclib: "查看",
 			doclib_collect: "收藏",
 			doclib_uncollect: "取消收藏",
-			doclib_productlookdoc: "查看",
-			doclib_productlookfile: "查看",
 			doclib_editdoclib: "编辑",
 			doclib_weihufenlei: "维护分类",
 		},

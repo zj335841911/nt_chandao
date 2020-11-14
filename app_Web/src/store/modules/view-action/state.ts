@@ -616,7 +616,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'bfdd5a8d625f1be3f009084fbc16c909',
-                '6a667f9ae1a5096ceac93a16d1586978',
+                '5034f8d22b6f5d194e13e2ccd5c1712c',
                 '4503911318e1f1f26599b68a6c6e681d',
             ],
         },
@@ -1409,6 +1409,18 @@ export const viewstate: any = {
             refviews: [
                 'b9a10eb0b5a55e40c69c61387de5894a',
                 '170c1d558f26cf37236390b28f8aca82',
+            ],
+        },
+        {
+            viewtag: '5034f8d22b6f5d194e13e2ccd5c1712c',
+            viewmodule: 'zentao',
+            viewname: 'DocLibProductGridExpView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'a501a42f3adfa826e382e4cbc134a4fc',
+                'f7e64f3828c862a4bce56437e1e51069',
+                '73fbcf0e3685096f63587bcff234f958',
             ],
         },
         {

@@ -366,6 +366,7 @@ SRFNAVPARAM.project=%project%|
 |-|任务主数据看板视图|DEPORTALVIEW|&nbsp;|
 |-|子计划|DEGRIDVIEW|&nbsp;|
 |-|需求模块编辑视图|DEEDITVIEW|&nbsp;|
+|-|文档库表格导航视图（产品文档库导航视图）|DEGRIDEXPVIEW|&nbsp;|
 |-|关闭任务|DEOPTVIEW|&nbsp;|
 |-|测试用例编辑视图|DEEDITVIEW9|&nbsp;|
 |-|Bug|DEEDITVIEW|&nbsp;临时充当主信息展示页面|

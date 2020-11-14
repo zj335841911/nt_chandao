@@ -1699,6 +1699,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/story-build-sub-grid-view/story-build-sub-grid-view.vue'),
                 },
                 {
+                    path: 'doclibs/:doclib?/productgridexpview/:productgridexpview?',
+                    meta: {
+                        caption: 'entities.doclib.views.productgridexpview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'doclibs', parameterName: 'doclib' },
+                            { pathName: 'productgridexpview', parameterName: 'productgridexpview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/doc-lib-product-grid-exp-view/doc-lib-product-grid-exp-view.vue'),
+                },
+                {
                     path: 'ibzmyterritories/:ibzmyterritory?/listview9/:listview9?',
                     meta: {
                         caption: 'entities.ibzmyterritory.views.listview9.caption',

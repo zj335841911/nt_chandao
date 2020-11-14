@@ -1271,6 +1271,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "IBZProStoryModuleEditView",
             "viewtag": "500a15957867996d6e20e7a37db8b004"
         },
+        "doclibproductgridexpview": {
+            "title": "文档库表格导航视图（产品文档库导航视图）",
+            "caption": "产品文档库导航视图",
+            "viewtype": "DEGRIDEXPVIEW",
+            "viewmodule": "zentao",
+            "viewname": "DocLibProductGridExpView",
+            "viewtag": "5034f8d22b6f5d194e13e2ccd5c1712c"
+        },
         "taskclosetaskview": {
             "title": "关闭任务",
             "caption": "关闭任务",

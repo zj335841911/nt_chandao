@@ -119,7 +119,7 @@ export class ProductTreeExpViewtreeexpbarTreeExpBarBase extends TreeExpBarContro
         }
         if (Object.is(expmode, 'PRODUCT')) {
             return {  
-                viewname: 'doc-lib-product-grid-view', 
+                viewname: 'doc-lib-product-grid-exp-view', 
                 parentdata: {"srfparentdefname":"product"},
                 deKeyField:'doclib'
 			};
