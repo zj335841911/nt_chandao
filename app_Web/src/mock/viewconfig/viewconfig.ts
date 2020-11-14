@@ -1231,6 +1231,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TestTaskEditView_commitTest",
             "viewtag": "4d32793fc57ec1ae930a18608526d00e"
         },
+        "docmyfavouritepartgridview": {
+            "title": "文档表格视图",
+            "caption": "我的收藏",
+            "viewtype": "DEGRIDVIEW9",
+            "viewmodule": "zentao",
+            "viewname": "DocMyFavouritePartGridView",
+            "viewtag": "4dad74488a4fd446ed9ef787e05206bc"
+        },
         "taskmaindashboardview_link": {
             "title": "任务主数据看板视图",
             "caption": "任务",

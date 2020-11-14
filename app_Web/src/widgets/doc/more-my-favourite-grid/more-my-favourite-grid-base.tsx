@@ -3,7 +3,7 @@ import { Subject, Subscription } from 'rxjs';
 import { UIActionTool,Util,ViewTool } from '@/utils';
 import { Watch, GridControlBase } from '@/studio-core';
 import DocService from '@/service/doc/doc-service';
-import MyFavouriteService from './my-favourite-grid-service';
+import MoreMyFavouriteService from './more-my-favourite-grid-service';
 import DocUIService from '@/uiservice/doc/doc-ui-service';
 import { FormItemModel } from '@/model/form-detail';
 
@@ -13,32 +13,32 @@ import { FormItemModel } from '@/model/form-detail';
  *
  * @export
  * @class GridControlBase
- * @extends {MyFavouriteGridBase}
+ * @extends {MoreMyFavouriteGridBase}
  */
-export class MyFavouriteGridBase extends GridControlBase {
+export class MoreMyFavouriteGridBase extends GridControlBase {
 
     /**
      * 获取部件类型
      *
      * @protected
      * @type {string}
-     * @memberof MyFavouriteGridBase
+     * @memberof MoreMyFavouriteGridBase
      */
     protected controlType: string = 'GRID';
 
     /**
      * 建构部件服务对象
      *
-     * @type {MyFavouriteService}
-     * @memberof MyFavouriteGridBase
+     * @type {MoreMyFavouriteService}
+     * @memberof MoreMyFavouriteGridBase
      */
-    public service: MyFavouriteService = new MyFavouriteService({ $store: this.$store });
+    public service: MoreMyFavouriteService = new MoreMyFavouriteService({ $store: this.$store });
 
     /**
      * 实体服务对象
      *
      * @type {DocService}
-     * @memberof MyFavouriteGridBase
+     * @memberof MoreMyFavouriteGridBase
      */
     public appEntityService: DocService = new DocService({ $store: this.$store });
 
@@ -47,7 +47,7 @@ export class MyFavouriteGridBase extends GridControlBase {
      *
      * @protected
      * @type {string}
-     * @memberof MyFavouriteGridBase
+     * @memberof MoreMyFavouriteGridBase
      */
     protected appDeName: string = 'doc';
 
@@ -56,7 +56,7 @@ export class MyFavouriteGridBase extends GridControlBase {
      *
      * @protected
      * @type {string}
-     * @memberof MyFavouriteGridBase
+     * @memberof MoreMyFavouriteGridBase
      */
     protected appDeLogicName: string = '文档';
 
@@ -64,81 +64,210 @@ export class MyFavouriteGridBase extends GridControlBase {
      * 界面UI服务对象
      *
      * @type {DocUIService}
-     * @memberof MyFavouriteBase
+     * @memberof MoreMyFavouriteBase
      */  
     public appUIService:DocUIService = new DocUIService(this.$store);
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public grid_title_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:DocUIService  = new DocUIService();
+        curUIService.Doc_Look(datas,contextJO, paramJO,  $event, xData,this,"Doc");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public grid_uagridcolumn1_u4dfe94d_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:DocUIService  = new DocUIService();
+        curUIService.Doc_Collect(datas,contextJO, paramJO,  $event, xData,this,"Doc");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public grid_uagridcolumn1_ud4fc77d_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:DocUIService  = new DocUIService();
+        curUIService.Doc_UnCollect(datas,contextJO, paramJO,  $event, xData,this,"Doc");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public grid_uagridcolumn1_u83c9087_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:DocUIService  = new DocUIService();
+        curUIService.Doc_Edit(datas,contextJO, paramJO,  $event, xData,this,"Doc");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public grid_uagridcolumn1_u8cfb23b_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:DocUIService  = new DocUIService();
+        curUIService.Doc_Delete(datas,contextJO, paramJO,  $event, xData,this,"Doc");
+    }
 
 
     /**
      * 界面行为模型
      *
      * @type {*}
-     * @memberof MyFavouriteBase
+     * @memberof MoreMyFavouriteBase
      */  
     public ActionModel: any = {
+        Look: { name: 'Look',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: 'SINGLEKEY'},
+        Collect: { name: 'Collect',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__DOC_FAVOUR_BUT', actiontarget: 'SINGLEKEY'},
+        UnCollect: { name: 'UnCollect',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__DOC_NFAVOUR_BUT', actiontarget: 'SINGLEKEY'},
+        Edit: { name: 'Edit',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'DOC', actiontarget: 'SINGLEKEY'},
+        Delete: { name: 'Delete',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'DOC', actiontarget: 'SINGLEKEY'}
     };
 
     /**
      * 主信息表格列
      *
      * @type {string}
-     * @memberof MyFavouriteBase
+     * @memberof MoreMyFavouriteBase
      */  
     public majorInfoColName:string = "title";
 
+    /**
+     * 列主键属性名称
+     *
+     * @type {string}
+     * @memberof MoreMyFavouriteGridBase
+     */
+    public columnKeyName: string = "id";
 
     /**
      * 本地缓存标识
      *
      * @protected
      * @type {string}
-     * @memberof MyFavouriteBase
+     * @memberof MoreMyFavouriteBase
      */
-    protected localStorageTag: string = 'zt_doc_myfavourite_grid';
-
-    /**
-     * 是否支持分页
-     *
-     * @type {boolean}
-     * @memberof MyFavouriteGridBase
-     */
-    public isEnablePagingBar: boolean = false;
-
-    /**
-     * 排序方向
-     *
-     * @type {string}
-     * @memberof MyFavouriteGridBase
-     */
-    public minorSortDir: string = 'DESC';
-
-    /**
-     * 排序字段
-     *
-     * @type {string}
-     * @memberof MyFavouriteGridBase
-     */
-    public minorSortPSDEF: string = 'editeddate';
-
-    /**
-     * 分页条数
-     *
-     * @type {number}
-     * @memberof MyFavouriteGridBase
-     */
-    public limit: number = 10;
+    protected localStorageTag: string = 'zt_doc_moremyfavourite_grid';
 
     /**
      * 所有列成员
      *
      * @type {any[]}
-     * @memberof MyFavouriteGridBase
+     * @memberof MoreMyFavouriteGridBase
      */
     public allColumns: any[] = [
         {
+            name: 'id',
+            label: '文档编号',
+            langtag: 'entities.doc.moremyfavourite_grid.columns.id',
+            show: true,
+            unit: 'PX',
+            isEnableRowEdit: false,
+            enableCond: 3 ,
+        },
+        {
             name: 'title',
             label: '文档标题',
-            langtag: 'entities.doc.myfavourite_grid.columns.title',
+            langtag: 'entities.doc.moremyfavourite_grid.columns.title',
             show: true,
             unit: 'STAR',
             isEnableRowEdit: false,
@@ -147,7 +276,25 @@ export class MyFavouriteGridBase extends GridControlBase {
         {
             name: 'addedby',
             label: '由谁添加',
-            langtag: 'entities.doc.myfavourite_grid.columns.addedby',
+            langtag: 'entities.doc.moremyfavourite_grid.columns.addedby',
+            show: true,
+            unit: 'PX',
+            isEnableRowEdit: false,
+            enableCond: 3 ,
+        },
+        {
+            name: 'addeddate',
+            label: '添加时间',
+            langtag: 'entities.doc.moremyfavourite_grid.columns.addeddate',
+            show: true,
+            unit: 'PX',
+            isEnableRowEdit: false,
+            enableCond: 3 ,
+        },
+        {
+            name: 'editedby',
+            label: '由谁更新',
+            langtag: 'entities.doc.moremyfavourite_grid.columns.editedby',
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
@@ -156,7 +303,16 @@ export class MyFavouriteGridBase extends GridControlBase {
         {
             name: 'editeddate',
             label: '更新时间',
-            langtag: 'entities.doc.myfavourite_grid.columns.editeddate',
+            langtag: 'entities.doc.moremyfavourite_grid.columns.editeddate',
+            show: true,
+            unit: 'PX',
+            isEnableRowEdit: false,
+            enableCond: 3 ,
+        },
+        {
+            name: 'uagridcolumn1',
+            label: '操作',
+            langtag: 'entities.doc.moremyfavourite_grid.columns.uagridcolumn1',
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
@@ -168,7 +324,7 @@ export class MyFavouriteGridBase extends GridControlBase {
      * 获取表格行模型
      *
      * @type {*}
-     * @memberof MyFavouriteGridBase
+     * @memberof MoreMyFavouriteGridBase
      */
     public getGridRowModel(){
         return {
@@ -180,7 +336,7 @@ export class MyFavouriteGridBase extends GridControlBase {
      * 是否启用分组
      *
      * @type {boolean}
-     * @memberof MyFavouriteBase
+     * @memberof MoreMyFavouriteBase
      */
     public isEnableGroup:boolean = false;
 
@@ -188,7 +344,7 @@ export class MyFavouriteGridBase extends GridControlBase {
      * 分组属性
      *
      * @type {string}
-     * @memberof MyFavouriteBase
+     * @memberof MoreMyFavouriteBase
      */
     public groupAppField:string ="";
 
@@ -196,7 +352,7 @@ export class MyFavouriteGridBase extends GridControlBase {
      * 分组属性代码表标识
      *
      * @type {string}
-     * @memberof MyFavouriteBase
+     * @memberof MoreMyFavouriteBase
      */
     public groupAppFieldCodelistTag:string ="";
 
@@ -204,7 +360,7 @@ export class MyFavouriteGridBase extends GridControlBase {
      * 分组属性代码表类型
      * 
      * @type {string}
-     * @memberof MyFavouriteBase
+     * @memberof MoreMyFavouriteBase
      */
     public groupAppFieldCodelistType: string = "";
 
@@ -212,7 +368,7 @@ export class MyFavouriteGridBase extends GridControlBase {
      * 分组模式
      *
      * @type {string}
-     * @memberof MyFavouriteBase
+     * @memberof MoreMyFavouriteBase
      */
     public groupMode:string ="NONE";
 
@@ -220,7 +376,7 @@ export class MyFavouriteGridBase extends GridControlBase {
      * 分组代码表标识
      * 
      * @type {string}
-     * @memberof MyFavouriteBase
+     * @memberof MoreMyFavouriteBase
      */
     public codelistTag: string = "";
 
@@ -228,7 +384,7 @@ export class MyFavouriteGridBase extends GridControlBase {
      * 分组代码表类型
      * 
      * @type {string}
-     * @memberof MyFavouriteBase
+     * @memberof MoreMyFavouriteBase
      */
     public codelistType: string = "";
 
@@ -236,7 +392,7 @@ export class MyFavouriteGridBase extends GridControlBase {
      * 属性值规则
      *
      * @type {*}
-     * @memberof MyFavouriteGridBase
+     * @memberof MoreMyFavouriteGridBase
      */
     public rules() {
         return {
@@ -251,7 +407,7 @@ export class MyFavouriteGridBase extends GridControlBase {
      * 属性值规则
      *
      * @type {*}
-     * @memberof MyFavouriteBase
+     * @memberof MoreMyFavouriteBase
      */
     public deRules:any = {
     };
@@ -260,12 +416,16 @@ export class MyFavouriteGridBase extends GridControlBase {
      * 获取对应列class
      *
      * @type {*}
-     * @memberof MyFavouriteBase
+     * @memberof MoreMyFavouriteBase
      */
     public hasRowEdit: any = {
+        'id':false,
         'title':false,
         'addedby':false,
+        'addeddate':false,
+        'editedby':false,
         'editeddate':false,
+        'uagridcolumn1':false,
     };
 
     /**
@@ -273,7 +433,7 @@ export class MyFavouriteGridBase extends GridControlBase {
      *
      * @param {*} $args row 行数据，column 列数据，rowIndex 行索引，列索引
      * @returns {void}
-     * @memberof MyFavouriteBase
+     * @memberof MoreMyFavouriteBase
      */
     public getCellClassName(args: {row: any, column: any, rowIndex: number, columnIndex: number}): any {
         let className: string = '';
@@ -331,7 +491,7 @@ export class MyFavouriteGridBase extends GridControlBase {
      * @param {*} jsonData
      * @param {any[]} [codelistColumns=[]]
      * @returns {Promise<any>}
-     * @memberof MyFavouriteGridBase
+     * @memberof MoreMyFavouriteGridBase
      */
     public async formatExcelData(filterVal: any, jsonData: any, codelistColumns?: any[]): Promise<any> {
         return super.formatExcelData(filterVal, jsonData, [
@@ -343,14 +503,49 @@ export class MyFavouriteGridBase extends GridControlBase {
                 renderMode: 'string',
                 valueSeparator: ",",
             },
+            {
+                name: 'editedby',
+                srfkey: 'UserRealName',
+                codelistType : 'DYNAMIC',
+                textSeparator: ',',
+                renderMode: 'string',
+                valueSeparator: ",",
+            },
         ]);
     }
 
 
     /**
+     * 界面行为
+     *
+     * @param {*} row
+     * @param {*} tag
+     * @param {*} $event
+     * @memberof MoreMyFavouriteGridBase
+     */
+	public uiAction(row: any, tag: any, $event: any): void {
+        $event.stopPropagation();
+        if(Object.is('Look', tag)) {
+            this.grid_title_click(row, tag, $event);
+        }
+        if(Object.is('Collect', tag)) {
+            this.grid_uagridcolumn1_u4dfe94d_click(row, tag, $event);
+        }
+        if(Object.is('UnCollect', tag)) {
+            this.grid_uagridcolumn1_ud4fc77d_click(row, tag, $event);
+        }
+        if(Object.is('Edit', tag)) {
+            this.grid_uagridcolumn1_u83c9087_click(row, tag, $event);
+        }
+        if(Object.is('Delete', tag)) {
+            this.grid_uagridcolumn1_u8cfb23b_click(row, tag, $event);
+        }
+    }
+
+    /**
      * 更新默认值
      * @param {*}  row 行数据
-     * @memberof MyFavouriteBase
+     * @memberof MoreMyFavouriteBase
      */
     public updateDefault(row: any){                    
     }
@@ -358,10 +553,10 @@ export class MyFavouriteGridBase extends GridControlBase {
     /**
     * 合并分组行
     * 
-    * @memberof MyFavouriteBase
+    * @memberof MoreMyFavouriteBase
     */
     public arraySpanMethod({row, column, rowIndex, columnIndex} : any) {
-        let allColumns:Array<any> = ['title','addedby','editeddate'];
+        let allColumns:Array<any> = ['id','title','addedby','addeddate','editedby','editeddate','uagridcolumn1'];
         if(row && row.children) {
             if(columnIndex == (this.isSingleSelect ? 0:1)) {
                 return [1, allColumns.length+1];
@@ -374,7 +569,7 @@ export class MyFavouriteGridBase extends GridControlBase {
 	/**
      * 分组方法
      * 
-     * @memberof MyFavouriteBase
+     * @memberof MoreMyFavouriteBase
      */
     public group(){
         if(Object.is(this.groupMode,"AUTO")){
@@ -389,7 +584,7 @@ export class MyFavouriteGridBase extends GridControlBase {
      * 
      * @param {string}  codelistType 代码表类型
      * @param {string}  codelistTag 代码表标识
-     * @memberof MyFavouriteBase
+     * @memberof MoreMyFavouriteBase
      */
     public getGroupCodelist(codelistType: string,codelistTag:string){
         let codelist: Array<any> = [];
@@ -410,7 +605,7 @@ export class MyFavouriteGridBase extends GridControlBase {
     /**
      * 根据分组代码表绘制分组列表
      * 
-     * @memberof MyFavouriteBase
+     * @memberof MoreMyFavouriteBase
      */
     public drawCodelistGroup(){
         if(!this.isEnableGroup) return;
@@ -442,9 +637,27 @@ export class MyFavouriteGridBase extends GridControlBase {
             const tree: any ={
                 groupById: Number((i+1)*100),
                 group: group.label,
+                id:'',
+                Look:{
+                    visible: false
+                },
                 title:'',
                 addedby:'',
+                addeddate:'',
+                editedby:'',
                 editeddate:'',
+                Collect:{
+                    visible: false
+                },
+                UnCollect:{
+                    visible: false
+                },
+                Edit:{
+                    visible: false
+                },
+                Delete:{
+                    visible: false
+                },
                 children: children
             }
             groupTree.push(tree);
@@ -467,9 +680,27 @@ export class MyFavouriteGridBase extends GridControlBase {
         const Tree: any = {
             groupById: Number((allGroup.length+1)*100),
             group: '其他',
+            id:'',
+            Look:{
+                visible: false
+            },
             title:'',
             addedby:'',
+            addeddate:'',
+            editedby:'',
             editeddate:'',
+            Collect:{
+                visible: false
+            },
+            UnCollect:{
+                visible: false
+            },
+            Edit:{
+                visible: false
+            },
+            Delete:{
+                visible: false
+            },
             children: child
         }
         if(child && child.length > 0){
@@ -486,7 +717,7 @@ export class MyFavouriteGridBase extends GridControlBase {
     /**
      * 绘制分组
      * 
-     * @memberof MyFavouriteBase
+     * @memberof MoreMyFavouriteBase
      */
     public drawGroup(){
         if(!this.isEnableGroup) return;
@@ -530,9 +761,27 @@ export class MyFavouriteGridBase extends GridControlBase {
             const tree: any ={
                 groupById: Number((groupIndex+1)*100),
                 group: group,
+                id:'',
+                Look:{
+                    visible: false
+                },
                 title:'',
                 addedby:'',
+                addeddate:'',
+                editedby:'',
                 editeddate:'',
+                Collect:{
+                    visible: false
+                },
+                UnCollect:{
+                    visible: false
+                },
+                Edit:{
+                    visible: false
+                },
+                Delete:{
+                    visible: false
+                },
                 children: children,
             }
             groupTree.push(tree);
@@ -550,7 +799,7 @@ export class MyFavouriteGridBase extends GridControlBase {
      * @param {string}  action 行为
      * @param {string}  param 默认值参数
      * @param {*}  data 当前行数据
-     * @memberof MyFavouriteBase
+     * @memberof MoreMyFavouriteBase
      */
     public computeDefaultValueWithParam(action:string,param:string,data:any){
         if(Object.is(action,"UPDATE")){

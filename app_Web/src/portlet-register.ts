@@ -67,6 +67,7 @@ import TestTaskMainDetail from '@/widgets/test-task/main-detail-portlet/main-det
 import SysUpdateLogLastUpdate from '@/widgets/sys-update-log/last-update-portlet/last-update-portlet.vue';
 import DocKeywords from '@/widgets/doc/keywords-portlet/keywords-portlet.vue';
 import DocBasic from '@/widgets/doc/basic-portlet/basic-portlet.vue';
+import DocMyFavourite from '@/widgets/doc/my-favourite-portlet/my-favourite-portlet.vue';
 import DocMyDoc from '@/widgets/doc/my-doc-portlet/my-doc-portlet.vue';
 import DocDocAction from '@/widgets/doc/doc-action-portlet/doc-action-portlet.vue';
 import DocDocSum from '@/widgets/doc/doc-sum-portlet/doc-sum-portlet.vue';
@@ -198,9 +199,10 @@ export const  PortletComponent = {
         v.component('app-bug-bug-module-project-portlet', BugBugModule_Project);
         v.component('app-bug-bug-resolved-by-project-portlet', BugBugResolvedBy_Project);
         v.component('app-doc-recent-update-portlet', DocRecentUpdate);
+        v.component('app-doc-my-doc-portlet', DocMyDoc);
+        v.component('app-doc-my-favourite-portlet', DocMyFavourite);
         v.component('app-doc-docstatus-portlet', DocDOCSTATUS);
         v.component('app-project-undone-project-portlet', ProjectUndoneProject);
-        v.component('app-doc-my-doc-portlet', DocMyDoc);
         v.component('case-test-main-detail-portlet', CaseTestMainDetail);
         v.component('case-main-detail-portlet', CaseMainDetail);
         v.component('case-case-lastrunner-portlet', CaseCaseLastrunner);
@@ -260,6 +262,7 @@ export const  PortletComponent = {
         v.component('sys-update-log-last-update-portlet', SysUpdateLogLastUpdate);
         v.component('doc-keywords-portlet', DocKeywords);
         v.component('doc-basic-portlet', DocBasic);
+        v.component('doc-my-favourite-portlet', DocMyFavourite);
         v.component('doc-my-doc-portlet', DocMyDoc);
         v.component('doc-doc-action-portlet', DocDocAction);
         v.component('doc-doc-sum-portlet', DocDocSum);

@@ -56,6 +56,10 @@ export default {
 			caption: "文档",
       		title: "doc表格视图",
 		},
+		myfavouritepartgridview: {
+			caption: "我的收藏",
+      		title: "文档表格视图",
+		},
 		docstatuseditview: {
 			caption: "嵌入文档库主页",
       		title: "文档编辑视图",
@@ -310,6 +314,16 @@ export default {
 	myfavourite_grid: {
 		nodata: "",
 		columns: {
+			title: "文档标题",
+			addedby: "由谁添加",
+			editeddate: "更新时间",
+		},
+		uiactions: {
+		},
+	},
+	moremyfavourite_grid: {
+		nodata: "",
+		columns: {
 			id: "文档编号",
 			title: "文档标题",
 			addedby: "由谁添加",
@@ -356,6 +370,8 @@ export default {
 			caption: "Export",
 			tip: "Export {0} Data To Excel",
 		},
+	},
+	myfavouritepartgridviewtoolbar_toolbar: {
 	},
 	createeditviewtoolbar_toolbar: {
 		deuiaction1: {

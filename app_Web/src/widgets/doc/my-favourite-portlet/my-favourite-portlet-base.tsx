@@ -3,43 +3,43 @@ import { Subject, Subscription } from 'rxjs';
 import { UIActionTool,Util,ViewTool } from '@/utils';
 import { Watch, MainControlBase } from '@/studio-core';
 import DocService from '@/service/doc/doc-service';
-import RecentUpdateService from './recent-update-portlet-service';
+import MyFavouriteService from './my-favourite-portlet-service';
 import DocUIService from '@/uiservice/doc/doc-ui-service';
 import { Environment } from '@/environments/environment';
 import UIService from '@/uiservice/ui-service';
 
 
 /**
- * dashboard_sysportlet1部件基类
+ * dashboard_sysportlet5部件基类
  *
  * @export
  * @class MainControlBase
- * @extends {RecentUpdatePortletBase}
+ * @extends {MyFavouritePortletBase}
  */
-export class RecentUpdatePortletBase extends MainControlBase {
+export class MyFavouritePortletBase extends MainControlBase {
 
     /**
      * 获取部件类型
      *
      * @protected
      * @type {string}
-     * @memberof RecentUpdatePortletBase
+     * @memberof MyFavouritePortletBase
      */
     protected controlType: string = 'PORTLET';
 
     /**
      * 建构部件服务对象
      *
-     * @type {RecentUpdateService}
-     * @memberof RecentUpdatePortletBase
+     * @type {MyFavouriteService}
+     * @memberof MyFavouritePortletBase
      */
-    public service: RecentUpdateService = new RecentUpdateService({ $store: this.$store });
+    public service: MyFavouriteService = new MyFavouriteService({ $store: this.$store });
 
     /**
      * 实体服务对象
      *
      * @type {DocService}
-     * @memberof RecentUpdatePortletBase
+     * @memberof MyFavouritePortletBase
      */
     public appEntityService: DocService = new DocService({ $store: this.$store });
 
@@ -48,7 +48,7 @@ export class RecentUpdatePortletBase extends MainControlBase {
      *
      * @protected
      * @type {string}
-     * @memberof RecentUpdatePortletBase
+     * @memberof MyFavouritePortletBase
      */
     protected appDeName: string = 'doc';
 
@@ -57,7 +57,7 @@ export class RecentUpdatePortletBase extends MainControlBase {
      *
      * @protected
      * @type {string}
-     * @memberof RecentUpdatePortletBase
+     * @memberof MyFavouritePortletBase
      */
     protected appDeLogicName: string = '文档';
 
@@ -65,44 +65,16 @@ export class RecentUpdatePortletBase extends MainControlBase {
      * 界面UI服务对象
      *
      * @type {DocUIService}
-     * @memberof RecentUpdateBase
+     * @memberof MyFavouriteBase
      */  
     public appUIService:DocUIService = new DocUIService(this.$store);
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public dashboard_sysportlet1_u6ab12f4_click(params: any = {}, tag?: any, $event?: any) {
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        let contextJO:any = {};
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        const curUIService:DocUIService  = new DocUIService();
-        curUIService.Doc_MoreRecentUpdate(datas,contextJO, paramJO,  $event, xData,this,"Doc");
-    }
 
 
     /**
      * 长度
      *
      * @type {number}
-     * @memberof RecentUpdate
+     * @memberof MyFavourite
      */
     @Prop() public height?: number;
 
@@ -110,7 +82,7 @@ export class RecentUpdatePortletBase extends MainControlBase {
      * 宽度
      *
      * @type {number}
-     * @memberof RecentUpdate
+     * @memberof MyFavourite
      */
     @Prop() public width?: number;
 
@@ -118,17 +90,16 @@ export class RecentUpdatePortletBase extends MainControlBase {
      * 门户部件类型
      *
      * @type {number}
-     * @memberof RecentUpdateBase
+     * @memberof MyFavouriteBase
      */
     public portletType: string = 'view';
 
     /**
      * 界面行为模型数据
      *
-     * @memberof RecentUpdateBase
+     * @memberof MyFavouriteBase
      */
     public uiactionModel: any = {
-        morerecentupdate: {name: 'morerecentupdate', actiontarget: 'NONE', caption: '', disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: '', uiaction: { tag: 'MoreRecentUpdate', target: 'NONE' } },
     }
 
 
@@ -137,7 +108,7 @@ export class RecentUpdatePortletBase extends MainControlBase {
      * 是否自适应大小
      *
      * @returns {boolean}
-     * @memberof RecentUpdateBase
+     * @memberof MyFavouriteBase
      */
     @Prop({default: false})public isAdaptiveSize!: boolean;
 
@@ -145,7 +116,7 @@ export class RecentUpdatePortletBase extends MainControlBase {
      * 获取多项数据
      *
      * @returns {any[]}
-     * @memberof RecentUpdateBase
+     * @memberof MyFavouriteBase
      */
     public getDatas(): any[] {
         return [];
@@ -155,7 +126,7 @@ export class RecentUpdatePortletBase extends MainControlBase {
      * 获取单项树
      *
      * @returns {*}
-     * @memberof RecentUpdateBase
+     * @memberof MyFavouriteBase
      */
     public getData(): any {
         return {};
@@ -165,7 +136,7 @@ export class RecentUpdatePortletBase extends MainControlBase {
      * 获取高度
      *
      * @returns {any[]}
-     * @memberof RecentUpdateBase
+     * @memberof MyFavouriteBase
      */
     get getHeight(): any{
         if(!this.$util.isEmpty(this.height) && !this.$util.isNumberNaN(this.height)){
@@ -182,7 +153,7 @@ export class RecentUpdatePortletBase extends MainControlBase {
     /**
      * vue 生命周期
      *
-     * @memberof RecentUpdateBase
+     * @memberof MyFavouriteBase
      */
     public created() {
         this.afterCreated();
@@ -191,7 +162,7 @@ export class RecentUpdatePortletBase extends MainControlBase {
     /**
      * 执行created后的逻辑
      *
-     *  @memberof RecentUpdateBase
+     *  @memberof MyFavouriteBase
      */    
     public afterCreated(){
         if (this.viewState) {
@@ -213,7 +184,7 @@ export class RecentUpdatePortletBase extends MainControlBase {
     /**
      * vue 生命周期
      *
-     * @memberof RecentUpdateBase
+     * @memberof MyFavouriteBase
      */
     public destroyed() {
         this.afterDestroy();
@@ -222,7 +193,7 @@ export class RecentUpdatePortletBase extends MainControlBase {
     /**
      * 执行destroyed后的逻辑
      *
-     * @memberof RecentUpdateBase
+     * @memberof MyFavouriteBase
      */
     public afterDestroy() {
         if (this.viewStateEvent) {
@@ -233,7 +204,7 @@ export class RecentUpdatePortletBase extends MainControlBase {
     /**
      * 计算界面行为权限
      *
-     * @memberof RecentUpdateBase
+     * @memberof MyFavouriteBase
      */
     public calcUIActionAuthState(data:any = {}) {
         //  如果是操作栏，不计算权限
@@ -247,24 +218,14 @@ export class RecentUpdatePortletBase extends MainControlBase {
         }
     }
 
-    /**
-     * 执行界面行为
-     *
-     * @memberof RecentUpdateBase
-     */
-    public uiAction(tag:string,event:any){
-        if(Object.is(tag,'u6ab12f4')){
-            this.dashboard_sysportlet1_u6ab12f4_click(null,tag,event);
-        }
-    }
 
     /**
      * 刷新
      *
-     * @memberof RecentUpdateBase
+     * @memberof MyFavouriteBase
      */
     public refresh(args?: any) {
-      this.viewState.next({ tag: 'DocGridView9', action: 'refresh', data: args });
+      this.viewState.next({ tag: 'DocMyFavouritePartGridView', action: 'refresh', data: args });
     }
 
 }

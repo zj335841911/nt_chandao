@@ -361,6 +361,7 @@ SRFNAVPARAM.project=%project%|
 |-|项目|DEEDITVIEW|&nbsp;|
 |-|组织部门人员树导航视图|DETREEEXPVIEW|&nbsp;|
 |-|提交测试|DEEDITVIEW|&nbsp;|
+|-|文档表格视图|DEGRIDVIEW9|&nbsp;|
 |-|任务主数据看板视图|DEPORTALVIEW|&nbsp;|
 |-|子计划|DEGRIDVIEW|&nbsp;|
 |-|需求模块编辑视图|DEEDITVIEW|&nbsp;|

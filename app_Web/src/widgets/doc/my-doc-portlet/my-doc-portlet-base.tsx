@@ -175,7 +175,7 @@ export class MyDocPortletBase extends MainControlBase {
                 return this.height+'px';
             }
         } else {
-            return '300px';
+            return '220px';
         }
     }
 

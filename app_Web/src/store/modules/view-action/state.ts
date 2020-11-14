@@ -1349,6 +1349,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '4dad74488a4fd446ed9ef787e05206bc',
+            viewmodule: 'zentao',
+            viewname: 'DocMyFavouritePartGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'b6e02216d1e5c69d79b32342d8b67c7a',
+            ],
+        },
+        {
             viewtag: '4fcd2a15ff88a97425e1ab1cadc5eb9f',
             viewmodule: 'zentao',
             viewname: 'Taskmaindashboardview_link',
@@ -4280,6 +4290,7 @@ export const viewstate: any = {
             refviews: [
                 'b79b6d8cb0dcb2ac867f3ea1aa6d4cb2',
                 'd290709d6a36e20e79d60e873047ec0d',
+                '4dad74488a4fd446ed9ef787e05206bc',
                 '13f17793cbc4fc2b36473a74d1bad4b2',
                 'b593c09602d9483d53b1f725395030a6',
                 'd695dac99ccf0ddd077eb13916241bd0',

@@ -1,16 +1,16 @@
 /**
- * MyFavourite 部件模型
+ * MoreMyFavourite 部件模型
  *
  * @export
- * @class MyFavouriteModel
+ * @class MoreMyFavouriteModel
  */
-export default class MyFavouriteModel {
+export default class MoreMyFavouriteModel {
 
 	/**
 	 * 是否是实体数据导出
 	 *
 	 * @returns {any[]}
-	 * @memberof MyFavouriteGridMode
+	 * @memberof MoreMyFavouriteGridMode
 	 */
 	public isDEExport: boolean = false;
 
@@ -18,7 +18,7 @@ export default class MyFavouriteModel {
 	 * 获取数据项集合
 	 *
 	 * @returns {any[]}
-	 * @memberof MyFavouriteGridMode
+	 * @memberof MoreMyFavouriteGridMode
 	 */
 	public getDataItems(): any[] {
     if(this.isDEExport){
@@ -26,6 +26,11 @@ export default class MyFavouriteModel {
       ]
     }else{
 		  return [
+        {
+          name: 'id',
+          prop: 'id',
+          dataType: 'ACID',
+        },
         {
           name: 'title',
           prop: 'title',
@@ -37,9 +42,43 @@ export default class MyFavouriteModel {
           dataType: 'TEXT',
         },
         {
+          name: 'addeddate',
+          prop: 'addeddate',
+          dataType: 'DATETIME',
+        },
+        {
+          name: 'editedby',
+          prop: 'editedby',
+          dataType: 'TEXT',
+        },
+        {
           name: 'editeddate',
           prop: 'editeddate',
           dataType: 'DATETIME',
+        },
+        {
+          name: 'module',
+          prop: 'module',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'srfmstag',
+        },
+        {
+          name: 'srfmajortext',
+          prop: 'title',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'srfkey',
+          prop: 'id',
+          dataType: 'ACID',
+          isEditable:true
+        },
+        {
+          name: 'srfdataaccaction',
+          prop: 'id',
+          dataType: 'ACID',
         },
         {
           name: 'product',
@@ -52,38 +91,25 @@ export default class MyFavouriteModel {
           dataType: 'PICKUP',
         },
         {
-          name: 'module',
-          prop: 'module',
-          dataType: 'PICKUP',
-        },
-        {
           name: 'lib',
           prop: 'lib',
           dataType: 'PICKUP',
         },
         {
-          name: 'srfmstag',
-        },
-        {
-          name: 'srfmajortext',
-          prop: 'title',
+          name: 'isfavourites',
+          prop: 'isfavourites',
           dataType: 'TEXT',
         },
         {
-          name: 'srfdataaccaction',
-          prop: 'id',
-          dataType: 'ACID',
-        },
-        {
-          name: 'srfkey',
-          prop: 'id',
-          dataType: 'ACID',
-          isEditable:true
+          name: 'docqtype',
+          prop: 'docqtype',
+          dataType: 'TEXT',
         },
         {
           name: 'doc',
           prop: 'id',
         },
+
         {
           name:'size',
           prop:'size'
