@@ -69,6 +69,34 @@ export class MyFavouritePortletBase extends MainControlBase {
      */  
     public appUIService:DocUIService = new DocUIService(this.$store);
 
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public dashboard_sysportlet5_ufc4fae3_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:DocUIService  = new DocUIService();
+        curUIService.Doc_MoreMyFavourite(datas,contextJO, paramJO,  $event, xData,this,"Doc");
+    }
+
 
     /**
      * 长度
@@ -100,6 +128,7 @@ export class MyFavouritePortletBase extends MainControlBase {
      * @memberof MyFavouriteBase
      */
     public uiactionModel: any = {
+        moremyfavourite: {name: 'moremyfavourite', actiontarget: 'NONE', caption: '', disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: '', uiaction: { tag: 'MoreMyFavourite', target: 'NONE' } },
     }
 
 
@@ -218,6 +247,16 @@ export class MyFavouritePortletBase extends MainControlBase {
         }
     }
 
+    /**
+     * 执行界面行为
+     *
+     * @memberof MyFavouriteBase
+     */
+    public uiAction(tag:string,event:any){
+        if(Object.is(tag,'ufc4fae3')){
+            this.dashboard_sysportlet5_ufc4fae3_click(null,tag,event);
+        }
+    }
 
     /**
      * 刷新

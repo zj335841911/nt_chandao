@@ -4,6 +4,11 @@
             
             我的收藏
             </span>
+            <span class="portlet-action">
+                <a @click="uiAction('ufc4fae3', $event)" v-show="uiactionModel['moremyfavourite'].visible" :disabled="uiactionModel['moremyfavourite'].disabled">
+                  <span>MORE</span>
+                </a>
+            </span>
         </p>
         <div class="portlet-with-title">
         <doc-my-favourite-part-grid-view :portletState="viewState" :viewUsage="4" :viewdata="JSON.stringify(context)" :viewDefaultUsage="false" ></doc-my-favourite-part-grid-view>
