@@ -2487,6 +2487,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "IBZProProductEditView",
             "viewtag": "9bcbf0cd15b37b97657fec9a157595fe"
         },
+        "taskmoretabexpview": {
+            "title": "任务分页导航视图（更多）",
+            "caption": "更多",
+            "viewtype": "DETABEXPVIEW",
+            "viewmodule": "zentao",
+            "viewname": "TaskMoreTabExpView",
+            "viewtag": "9c96a98b291c9cbe420f7a519091212f"
+        },
         "productmoduleeditview": {
             "title": "产品模块编辑视图",
             "caption": "需求模块",

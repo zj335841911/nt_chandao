@@ -185,6 +185,10 @@ export default {
 			caption: "任务",
       		title: "task表格视图",
 		},
+		moretabexpview: {
+			caption: "更多",
+      		title: "任务分页导航视图（更多）",
+		},
 		chartview9: {
 			caption: "任务",
       		title: "任务图表视图",
