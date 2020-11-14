@@ -213,6 +213,8 @@ export default {
 	docstatus_form: {
 		details: {
 			grouppanel3: "分组面板", 
+			rawitem4: "", 
+			rawitem5: "", 
 			grouppanel4: "分组面板", 
 			grouppanel1: "分组面板", 
 			rawitem1: "", 
@@ -233,8 +235,6 @@ export default {
 			alldoccnt1: "所有文档数量", 
 			recentupdatecnt: "最近更新数量", 
 			formitemex1: "所有", 
-			formitem3: "今日更新", 
-			formitem4: "最近更新", 
 			alldoccnt2: "所有文档数量", 
 			recentaddcnt: "最近添加数量", 
 			formitemex2: "", 
@@ -244,9 +244,8 @@ export default {
 			alldoccnt4: "所有文档数量", 
 			myfavouritecnt: "我的收藏数量", 
 			formitemex4: "", 
-			formitem: "最近添加", 
-			formitem1: "我的文档", 
-			formitem2: "我的收藏", 
+			formitem3: "今日更新", 
+			formitem4: "最近更新", 
 			id: "文档编号", 
 		},
 		uiactions: {
