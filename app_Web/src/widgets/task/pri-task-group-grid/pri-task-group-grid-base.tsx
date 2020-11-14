@@ -704,6 +704,44 @@ export class PriTaskGroupGridBase extends GridControlBase {
         ]);
     }
 
+    /**
+     * 合计行绘制
+     *
+     * @param {any} param
+     * @memberof PriTaskGroupGridBase
+     */
+    public getSummaries(param:any){
+        const { columns, data } = param;
+        const sums:Array<any> = [];
+        columns.forEach((column:any, index:number) => {
+          if (index === 0) {
+            sums[index] = (this.$t('app.gridpage.sum') as string);
+            return;
+          }
+          if(index === (columns.length - 1)){
+            sums[index] = '';
+            return;
+          }
+          const values = data.map((item:any) => Number(item[column.property]));
+          if (!values.every((value:any) => isNaN(value))) {
+                if(Object.is(column.property,'pri')){
+                    let tempData = values.reduce((prev:any, curr:any) => {
+                        const value = Number(curr);
+                        if (!isNaN(value)) {
+                            return prev + curr;
+                        } else {
+                            return prev;
+                        }
+                    }, 0);
+                    sums[index] = tempData;
+                }
+          } else {
+            sums[index] = 'N/A';
+          }
+        });
+        return sums;
+      }
+
 
     /**
      * 界面行为

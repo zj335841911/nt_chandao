@@ -2065,7 +2065,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
         },
         "tasktaskgroupgridview": {
             "title": "任务表格视图（任务分组）",
-            "caption": "任务分组",
+            "caption": "状态分组",
             "viewtype": "DEGRIDVIEW",
             "viewmodule": "zentao",
             "viewname": "TaskTaskGroupGridView",

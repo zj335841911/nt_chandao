@@ -166,7 +166,7 @@ export default {
       		title: "task表格视图",
 		},
 		taskgroupgridview: {
-			caption: "任务分组",
+			caption: "状态分组",
       		title: "任务表格视图（任务分组）",
 		},
 		activationtaskview: {
