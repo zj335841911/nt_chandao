@@ -110,7 +110,9 @@
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
-            <codelist :value="row.assignedto" tag='UserRealNameW' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
+                            <a v-show="row.AssignTo.visible" :disabled="row.AssignTo.disabled" :style="{'display': 'block'}" @click="uiAction(row, 'AssignTo', $event)">
+                                <codelist :value="row.assignedto" tag='UserRealNameW' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
+                             </a>
                         </template>
                     </template>
                 </el-table-column>
