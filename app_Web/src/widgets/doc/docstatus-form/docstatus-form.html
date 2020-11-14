@@ -90,13 +90,13 @@
     contentType="RAW"
     :htmlContent='``'
 >
-        <div style="margin-top: 40px;padding-left: 69px;text-align: center;">&nbsp;最近添加&nbsp;<br/><b>{{data.recentaddcnt ? data.recentaddcnt : 0}}</b></div>
+        <div style="margin-top: 40px;padding-left: 69px;text-align: center;">&nbsp;最近添加&nbsp;&nbsp;<b>{{data.recentaddcnt ? data.recentaddcnt : 0}}</b></div>
 </app-rawitem>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.formitemex2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 14, offset: 0 }">
+<i-col class="form-layout-container" v-show="detailsModel.formitemex2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 16, offset: 0 }">
     <app-form-item name='formitemex2' :itemRules="this.rules().formitemex2" class='' :caption="$t('entities.doc.docstatus_form.details.formitemex2')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="false" :error="detailsModel.formitemex2.error" :isEmptyCaption="false" labelPos="NONE">
-    <ibiz-studio-progress-vue caption="" stroke-color="var(--form-editor-active-color)" :stroke-width="16" mode="circle" :total="this.data.alldoccnt2" :progress="this.data.recentaddcnt" style="min-width: 244px;"/>
+    <ibiz-studio-progress-vue stroke-color="var(--form-editor-active-color)" :stroke-width="16" mode="line" :total="this.data.alldoccnt2" :progress="this.data.recentaddcnt"/>
 </app-form-item>
 
 </i-col>
@@ -118,13 +118,13 @@
     contentType="RAW"
     :htmlContent='``'
 >
-        <div style="margin-top: 40px;padding-left: 69px;text-align: center;">&nbsp;我的文档&nbsp;<br/><b>{{data.mydoccnt ? data.mydoccnt : 0}}</b></div>
+        <div style="margin-top: 40px;padding-left: 69px;text-align: center;">&nbsp;我的文档&nbsp;&nbsp;<b>{{data.mydoccnt ? data.mydoccnt : 0}}</b></div>
 </app-rawitem>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.formitemex3.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 14, offset: 0 }">
+<i-col class="form-layout-container" v-show="detailsModel.formitemex3.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 16, offset: 0 }">
     <app-form-item name='formitemex3' :itemRules="this.rules().formitemex3" class='' :caption="$t('entities.doc.docstatus_form.details.formitemex3')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="false" :error="detailsModel.formitemex3.error" :isEmptyCaption="false" labelPos="NONE">
-    <ibiz-studio-progress-vue caption="" stroke-color="var(--form-editor-active-color)" :stroke-width="16" mode="circle" :total="this.data.alldoccnt3" :progress="this.data.mydoccnt" style="min-width: 244px;"/>
+    <ibiz-studio-progress-vue stroke-color="var(--form-editor-active-color)" :stroke-width="16" mode="line" :total="this.data.alldoccnt3" :progress="this.data.mydoccnt"/>
 </app-form-item>
 
 </i-col>
@@ -146,13 +146,13 @@
     contentType="RAW"
     :htmlContent='``'
 >
-        <div style="margin-top: 40px;padding-left: 69px;text-align: center;">&nbsp;我的收藏&nbsp;<br/><b>{{data.myfavouritecnt ? data.myfavouritecnt : 0}}</b></div>
+        <div style="margin-top: 40px;padding-left: 69px;text-align: center;">&nbsp;我的收藏&nbsp;&nbsp;<b>{{data.myfavouritecnt ? data.myfavouritecnt : 0}}</b></div>
 </app-rawitem>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.formitemex4.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 14, offset: 0 }">
+<i-col class="form-layout-container" v-show="detailsModel.formitemex4.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 16, offset: 0 }">
     <app-form-item name='formitemex4' :itemRules="this.rules().formitemex4" class='' :caption="$t('entities.doc.docstatus_form.details.formitemex4')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="false" :error="detailsModel.formitemex4.error" :isEmptyCaption="false" labelPos="NONE">
-    <ibiz-studio-progress-vue caption="" stroke-color="var(--form-editor-active-color)" :stroke-width="16" mode="circle" :total="this.data.alldoccnt4" :progress="this.data.myfavouritecnt" style="min-width: 244px;"/>
+    <ibiz-studio-progress-vue stroke-color="var(--form-editor-active-color)" :stroke-width="16" mode="line" :total="this.data.alldoccnt4" :progress="this.data.myfavouritecnt"/>
 </app-form-item>
 
 </i-col>
