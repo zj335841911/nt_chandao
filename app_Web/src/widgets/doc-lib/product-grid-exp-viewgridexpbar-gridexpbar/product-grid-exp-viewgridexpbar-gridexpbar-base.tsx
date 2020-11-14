@@ -105,7 +105,7 @@ export class ProductGridExpViewgridexpbarGridexpbarBase extends GridExpBarContro
      * @type {*}
      * @memberof ProductGridExpViewgridexpbarBase
      */
-    public navigateContext: any = {DOCLIBTYPE:"%doclibtype%",PRODUCT:"%product%"};
+    public navigateContext: any = {DOCLIBTYPE:"%doclibtype%",PARENT:"0",SRFROOT:"%srfparentkey%",PRODUCT:"%product%"};
 
     /**
      * 导航视图参数
@@ -113,7 +113,7 @@ export class ProductGridExpViewgridexpbarGridexpbarBase extends GridExpBarContro
      * @type {*}
      * @memberof ProductGridExpViewgridexpbarBase
      */
-    public navigateParams:any = {product:"%product%"};
+    public navigateParams:any = {product:"%product%",parent:"0",srfroot:"%srfparentkey%"};
 
     /**
     * 刷新
