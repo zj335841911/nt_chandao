@@ -103,16 +103,6 @@ export default class DOCSTATUSModel {
         name: 'formitemex4',
       },
       {
-        name: 'formitem3',
-        prop: 'todayupdatecnt',
-        dataType: 'INT',
-      },
-      {
-        name: 'formitem4',
-        prop: 'recentupdatecnt',
-        dataType: 'INT',
-      },
-      {
         name: 'id',
         prop: 'id',
         dataType: 'ACID',

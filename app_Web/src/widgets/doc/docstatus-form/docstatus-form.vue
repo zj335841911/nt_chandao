@@ -20,6 +20,3 @@ import { DOCSTATUSEditFormBase } from './docstatus-form-base';
 @VueLifeCycleProcessing()
 export default class DOCSTATUSEditForm extends DOCSTATUSEditFormBase { }
 </script>
-<style lang='less'>
-@import './docstatus-form.less';
-</style>

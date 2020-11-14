@@ -33,7 +33,7 @@
     contentType="RAW"
     :htmlContent='``'
 >
-        <div style="margin-top: 40px;padding-left: 69px;text-align: center;">&nbsp;今日更新&nbsp;&nbsp;<b>{{data.todayupdatecnt ? data.todayupdatecnt : 0}}</b></div>
+        <div style="margin-top: 5x;padding-left: 30px;text-align: center;">&nbsp;今日更新&nbsp;&nbsp;<b>{{data.todayupdatecnt ? data.todayupdatecnt : 0}}</b></div>
 </app-rawitem>
 
 </i-col>
@@ -46,7 +46,7 @@
     contentType="RAW"
     :htmlContent='``'
 >
-        <div style="margin-top: 40px;padding-left: 69px;text-align: center;">&nbsp;最近更新&nbsp;&nbsp;<b>{{data.recentupdatecnt ? data.recentupdatecnt : 0}}</b></div>
+        <div style="margin-top: 5px;padding-left: 30px;text-align: center;">&nbsp;最近更新&nbsp;&nbsp;<b>{{data.recentupdatecnt ? data.recentupdatecnt : 0}}</b></div>
 </app-rawitem>
 
 </i-col>
@@ -151,26 +151,6 @@
     
     </row>
 </app-form-group>
-
-</i-col>
-<i-col class="form-layout-container" v-show="detailsModel.formitem3.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 12, offset: 0 }">
-    <app-form-item name='formitem3' :itemRules="this.rules().formitem3" class='text-center' :caption="$t('entities.doc.docstatus_form.details.formitem3')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.formitem3.error" :isEmptyCaption="false" labelPos="LEFT">
-    
-<app-span name='formitem3' :value="data.formitem3" dataType="INT"     :precision="0"
-:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
-</app-span>
-
-</app-form-item>
-
-</i-col>
-<i-col class="form-layout-container" v-show="detailsModel.formitem4.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 12, offset: 0 }">
-    <app-form-item name='formitem4' :itemRules="this.rules().formitem4" class='text-center' :caption="$t('entities.doc.docstatus_form.details.formitem4')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.formitem4.error" :isEmptyCaption="false" labelPos="LEFT">
-    
-<app-span name='formitem4' :value="data.formitem4" dataType="INT"     :precision="0"
-:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
-</app-span>
-
-</app-form-item>
 
 </i-col>
 

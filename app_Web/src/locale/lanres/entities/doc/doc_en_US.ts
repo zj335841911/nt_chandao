@@ -244,8 +244,6 @@ export default {
 			alldoccnt4: "所有文档数量", 
 			myfavouritecnt: "我的收藏数量", 
 			formitemex4: "", 
-			formitem3: "今日更新", 
-			formitem4: "最近更新", 
 			id: "文档编号", 
 		},
 		uiactions: {
