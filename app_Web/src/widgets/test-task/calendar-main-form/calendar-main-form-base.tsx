@@ -298,7 +298,7 @@ export class CalendarMainEditFormBase extends EditFormControlBase {
  tag: 'EditEdit',actiontarget: 'SINGLEKEY',noprivdisplaymode:1,dataaccaction:'SRFUR__TESTT_EDIT_BUT',visible: true,disabled: false} }),
 
         button5: new FormButtonModel({ caption: '查看', detailType: 'BUTTON', name: 'button5', visible: true, isShowCaption: false, form: this, showMoreMode: 0,disabled: false, uiaction: { type: 'DEUIACTION', 
- tag: 'Look',actiontarget: 'SINGLEKEY',noprivdisplaymode:2,visible: true,disabled: false} }),
+ tag: 'Look',actiontarget: 'SINGLEKEY',noprivdisplaymode:2,dataaccaction:'SRFUR__TESTT_OPEN_BUT',visible: true,disabled: false} }),
 
         grouppanel2: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel2', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.testtask.calendarmain_form', extractMode: 'ITEM', details: [] } }),
 
