@@ -104,62 +104,6 @@ export class ProductMainGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_u52fb8be_click(params: any = {}, tag?: any, $event?: any) {
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        let contextJO:any = {};
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        const curUIService:DocLibUIService  = new DocLibUIService();
-        curUIService.DocLib_Collect(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public grid_uagridcolumn1_u668e37a_click(params: any = {}, tag?: any, $event?: any) {
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        let contextJO:any = {};
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        const curUIService:DocLibUIService  = new DocLibUIService();
-        curUIService.DocLib_UnCollect(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
     public grid_uagridcolumn1_ue97bc0a_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
@@ -208,6 +152,62 @@ export class ProductMainGridBase extends GridControlBase {
         curUIService.DocLib_WeiHuFenLei(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
     }
 
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public grid_uagridcolumn1_u52fb8be_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:DocLibUIService  = new DocLibUIService();
+        curUIService.DocLib_Collect(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public grid_uagridcolumn1_u668e37a_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:DocLibUIService  = new DocLibUIService();
+        curUIService.DocLib_UnCollect(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
+    }
+
 
     /**
      * 界面行为模型
@@ -217,10 +217,10 @@ export class ProductMainGridBase extends GridControlBase {
      */  
     public ActionModel: any = {
         LookMainProductDocLib: { name: 'LookMainProductDocLib',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: 'SINGLEKEY'},
-        Collect: { name: 'Collect',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__DOCLIB_FAVOUR_BUT', actiontarget: 'SINGLEKEY'},
-        UnCollect: { name: 'UnCollect',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__DOCLIB_NFAVOUR_BUT', actiontarget: 'SINGLEKEY'},
         EditDocLib: { name: 'EditDocLib',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'DOC', actiontarget: 'SINGLEKEY'},
-        WeiHuFenLei: { name: 'WeiHuFenLei',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'DOC', actiontarget: 'SINGLEKEY'}
+        WeiHuFenLei: { name: 'WeiHuFenLei',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'DOC', actiontarget: 'SINGLEKEY'},
+        Collect: { name: 'Collect',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__DOCLIB_FAVOUR_BUT', actiontarget: 'SINGLEKEY'},
+        UnCollect: { name: 'UnCollect',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__DOCLIB_NFAVOUR_BUT', actiontarget: 'SINGLEKEY'}
     };
 
     /**
@@ -465,17 +465,17 @@ export class ProductMainGridBase extends GridControlBase {
         if(Object.is('LookMainProductDocLib', tag)) {
             this.grid_name_click(row, tag, $event);
         }
-        if(Object.is('Collect', tag)) {
-            this.grid_uagridcolumn1_u52fb8be_click(row, tag, $event);
-        }
-        if(Object.is('UnCollect', tag)) {
-            this.grid_uagridcolumn1_u668e37a_click(row, tag, $event);
-        }
         if(Object.is('EditDocLib', tag)) {
             this.grid_uagridcolumn1_ue97bc0a_click(row, tag, $event);
         }
         if(Object.is('WeiHuFenLei', tag)) {
             this.grid_uagridcolumn1_ucb33f4a_click(row, tag, $event);
+        }
+        if(Object.is('Collect', tag)) {
+            this.grid_uagridcolumn1_u52fb8be_click(row, tag, $event);
+        }
+        if(Object.is('UnCollect', tag)) {
+            this.grid_uagridcolumn1_u668e37a_click(row, tag, $event);
         }
     }
 
@@ -579,16 +579,16 @@ export class ProductMainGridBase extends GridControlBase {
                 },
                 name:'',
                 doccnt:'',
-                Collect:{
-                    visible: false
-                },
-                UnCollect:{
-                    visible: false
-                },
                 EditDocLib:{
                     visible: false
                 },
                 WeiHuFenLei:{
+                    visible: false
+                },
+                Collect:{
+                    visible: false
+                },
+                UnCollect:{
                     visible: false
                 },
                 children: children
@@ -618,16 +618,16 @@ export class ProductMainGridBase extends GridControlBase {
             },
             name:'',
             doccnt:'',
-            Collect:{
-                visible: false
-            },
-            UnCollect:{
-                visible: false
-            },
             EditDocLib:{
                 visible: false
             },
             WeiHuFenLei:{
+                visible: false
+            },
+            Collect:{
+                visible: false
+            },
+            UnCollect:{
                 visible: false
             },
             children: child
@@ -695,16 +695,16 @@ export class ProductMainGridBase extends GridControlBase {
                 },
                 name:'',
                 doccnt:'',
-                Collect:{
-                    visible: false
-                },
-                UnCollect:{
-                    visible: false
-                },
                 EditDocLib:{
                     visible: false
                 },
                 WeiHuFenLei:{
+                    visible: false
+                },
+                Collect:{
+                    visible: false
+                },
+                UnCollect:{
                     visible: false
                 },
                 children: children,

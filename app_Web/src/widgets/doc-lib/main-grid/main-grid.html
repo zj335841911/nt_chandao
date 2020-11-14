@@ -60,16 +60,6 @@
                     </template>
                     <template slot-scope="scope">
                         <div style="text-align: center;">
-                          <a v-show="scope.row.Collect.visible" :disabled="scope.row.Collect.disabled" @click="uiAction(scope.row, 'Collect', $event)" :title="$t('entities.doclib.main_grid.uiactions.doclib_collect')">
-                            <i class='fa fa-star-o'></i>
-                            
-                          </a>
-                          <divider v-show="scope.row.UnCollect.visible" type='vertical'></divider>
-                          <a v-show="scope.row.UnCollect.visible" :disabled="scope.row.UnCollect.disabled" @click="uiAction(scope.row, 'UnCollect', $event)" :title="$t('entities.doclib.main_grid.uiactions.doclib_uncollect')">
-                            <i class='fa fa-star'></i>
-                            
-                          </a>
-                          <divider v-show="scope.row.EditProjectDoclib.visible" type='vertical'></divider>
                           <a v-show="scope.row.EditProjectDoclib.visible" :disabled="scope.row.EditProjectDoclib.disabled" @click="uiAction(scope.row, 'EditProjectDoclib', $event)" :title="$t('entities.doclib.main_grid.uiactions.doclib_editprojectdoclib')">
                             <i class='fa fa-edit'></i>
                             
@@ -77,6 +67,16 @@
                           <divider v-show="scope.row.WeiHuFenLei.visible" type='vertical'></divider>
                           <a v-show="scope.row.WeiHuFenLei.visible" :disabled="scope.row.WeiHuFenLei.disabled" @click="uiAction(scope.row, 'WeiHuFenLei', $event)" :title="$t('entities.doclib.main_grid.uiactions.doclib_weihufenlei')">
                             <i class='fa fa-lock'></i>
+                            
+                          </a>
+                          <divider v-show="scope.row.Collect.visible" type='vertical'></divider>
+                          <a v-show="scope.row.Collect.visible" :disabled="scope.row.Collect.disabled" @click="uiAction(scope.row, 'Collect', $event)" :title="$t('entities.doclib.main_grid.uiactions.doclib_collect')">
+                            <i class='fa fa-star-o'></i>
+                            
+                          </a>
+                          <divider v-show="scope.row.UnCollect.visible" type='vertical'></divider>
+                          <a v-show="scope.row.UnCollect.visible" :disabled="scope.row.UnCollect.disabled" @click="uiAction(scope.row, 'UnCollect', $event)" :title="$t('entities.doclib.main_grid.uiactions.doclib_uncollect')">
+                            <i class='fa fa-star'></i>
                             
                           </a>
                         </div>

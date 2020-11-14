@@ -99,10 +99,10 @@ export default {
 		},
 		uiactions: {
         doclib_lookmainprojectdoclib: "查看",
-        doclib_collect: "收藏",
-        doclib_uncollect: "取消收藏",
         doclib_editprojectdoclib: "编辑",
         doclib_weihufenlei: "维护分类",
+        doclib_collect: "收藏",
+        doclib_uncollect: "取消收藏",
 		},
 	},
 	productmain_grid: {
@@ -114,10 +114,10 @@ export default {
 		},
 		uiactions: {
         doclib_lookmainproductdoclib: "查看",
-        doclib_collect: "收藏",
-        doclib_uncollect: "取消收藏",
         doclib_editdoclib: "编辑",
         doclib_weihufenlei: "维护分类",
+        doclib_collect: "收藏",
+        doclib_uncollect: "取消收藏",
 		},
 	},
 	default_searchform: {
