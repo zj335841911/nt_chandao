@@ -15532,11 +15532,11 @@ SELECT
 	t1.`status`,
 	t1.`auto`,
 	t1.`subStatus`,
-	t1.`deleted`,
+	t1.`deleted`
 FROM
 	zt_testtask t1 
 WHERE
-	OWNER = #{srf.sessioncontext.srfloginname};
+	t1.`owner` = #{srf.sessioncontext.srfloginname}
 WHERE t1.`deleted`='0' 
 
 ```
