@@ -100,6 +100,22 @@ export class ProductGridExpViewgridexpbarGridexpbarBase extends GridExpBarContro
     public navViewName: string = 'doc-grid-view-look-doc';
 
     /**
+     * 导航过滤项
+     *
+     * @type {string}
+     * @memberof ProductGridExpViewgridexpbarBase
+     */
+    public navFilter: string = 'n_lib_eq';
+
+    /**
+     * 导航关系
+     *
+     * @type {string}
+     * @memberof ProductGridExpViewgridexpbarBase
+     */
+    public navPSDer: string = 'n_lib_eq';
+
+    /**
      * 导航上下文参数
      *
      * @type {*}
