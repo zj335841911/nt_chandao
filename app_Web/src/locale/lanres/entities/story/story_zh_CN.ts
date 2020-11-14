@@ -1030,6 +1030,7 @@ export default {
 			ischild: "是否可以细分",
     },
 		uiactions: {
+			story_assignto: "指派",
 			story_changestorydetail: "变更",
 			story_reviewstory: "评审",
 			story_closestory: "关闭",
