@@ -3623,9 +3623,10 @@ String
 | 1 | [计划关联bug](#操作权限-计划关联bug（SRFUR__PROP_LBUG_BUT）)<br>（SRFUR__PROP_LBUG_BUT） |
 | 2 | [Bug确认](#操作权限-Bug确认（SRFUR__BUG_CONFIRM_BUT）)<br>（SRFUR__BUG_CONFIRM_BUT） |
 | 3 | [Bug解决](#操作权限-Bug解决（SRFUR__BUG_RESOLVE_BUT）)<br>（SRFUR__BUG_RESOLVE_BUT） |
-| 4 | [Bug关闭](#操作权限-Bug关闭（SRFUR__BUG_CLOSE_BUT）)<br>（SRFUR__BUG_CLOSE_BUT） |
-| 5 | [Bug提需求](#操作权限-Bug提需求（SRFUR__BUG_TOSTORY_BUT）)<br>（SRFUR__BUG_TOSTORY_BUT） |
-| 6 | [Bug已收藏](#操作权限-Bug已收藏（SRFUR__BUG_FAVOR_BUT）)<br>（SRFUR__BUG_FAVOR_BUT） |
+| 4 | [Bug指派](#操作权限-Bug指派（SRFUR__BUG_ASSIGNTO_BUT）)<br>（SRFUR__BUG_ASSIGNTO_BUT） |
+| 5 | [Bug关闭](#操作权限-Bug关闭（SRFUR__BUG_CLOSE_BUT）)<br>（SRFUR__BUG_CLOSE_BUT） |
+| 6 | [Bug提需求](#操作权限-Bug提需求（SRFUR__BUG_TOSTORY_BUT）)<br>（SRFUR__BUG_TOSTORY_BUT） |
+| 7 | [Bug已收藏](#操作权限-Bug已收藏（SRFUR__BUG_FAVOR_BUT）)<br>（SRFUR__BUG_FAVOR_BUT） |
 ### 业务状态-已关闭_未收藏_已确认（closed_0_1）
 #### 状态说明
 已关闭_未收藏_已确认
@@ -3652,12 +3653,13 @@ String
 拒绝提示信息：无
 | 序号 | 操作权限 |
 | ---- | ---- |
-| 1 | [计划关联bug](#操作权限-计划关联bug（SRFUR__PROP_LBUG_BUT）)<br>（SRFUR__PROP_LBUG_BUT） |
-| 2 | [Bug解决](#操作权限-Bug解决（SRFUR__BUG_RESOLVE_BUT）)<br>（SRFUR__BUG_RESOLVE_BUT） |
-| 3 | [Bug已收藏](#操作权限-Bug已收藏（SRFUR__BUG_FAVOR_BUT）)<br>（SRFUR__BUG_FAVOR_BUT） |
-| 4 | [Bug关闭](#操作权限-Bug关闭（SRFUR__BUG_CLOSE_BUT）)<br>（SRFUR__BUG_CLOSE_BUT） |
-| 5 | [Bug确认](#操作权限-Bug确认（SRFUR__BUG_CONFIRM_BUT）)<br>（SRFUR__BUG_CONFIRM_BUT） |
-| 6 | [Bug提需求](#操作权限-Bug提需求（SRFUR__BUG_TOSTORY_BUT）)<br>（SRFUR__BUG_TOSTORY_BUT） |
+| 1 | [Bug指派](#操作权限-Bug指派（SRFUR__BUG_ASSIGNTO_BUT）)<br>（SRFUR__BUG_ASSIGNTO_BUT） |
+| 2 | [计划关联bug](#操作权限-计划关联bug（SRFUR__PROP_LBUG_BUT）)<br>（SRFUR__PROP_LBUG_BUT） |
+| 3 | [Bug解决](#操作权限-Bug解决（SRFUR__BUG_RESOLVE_BUT）)<br>（SRFUR__BUG_RESOLVE_BUT） |
+| 4 | [Bug已收藏](#操作权限-Bug已收藏（SRFUR__BUG_FAVOR_BUT）)<br>（SRFUR__BUG_FAVOR_BUT） |
+| 5 | [Bug关闭](#操作权限-Bug关闭（SRFUR__BUG_CLOSE_BUT）)<br>（SRFUR__BUG_CLOSE_BUT） |
+| 6 | [Bug确认](#操作权限-Bug确认（SRFUR__BUG_CONFIRM_BUT）)<br>（SRFUR__BUG_CONFIRM_BUT） |
+| 7 | [Bug提需求](#操作权限-Bug提需求（SRFUR__BUG_TOSTORY_BUT）)<br>（SRFUR__BUG_TOSTORY_BUT） |
 ### 业务状态-已关闭_已收藏_未确认（closed_1_0）
 #### 状态说明
 已关闭_已收藏_未确认
@@ -3687,9 +3689,10 @@ String
 | 1 | [Bug确认](#操作权限-Bug确认（SRFUR__BUG_CONFIRM_BUT）)<br>（SRFUR__BUG_CONFIRM_BUT） |
 | 2 | [Bug解决](#操作权限-Bug解决（SRFUR__BUG_RESOLVE_BUT）)<br>（SRFUR__BUG_RESOLVE_BUT） |
 | 3 | [Bug关闭](#操作权限-Bug关闭（SRFUR__BUG_CLOSE_BUT）)<br>（SRFUR__BUG_CLOSE_BUT） |
-| 4 | [Bug提需求](#操作权限-Bug提需求（SRFUR__BUG_TOSTORY_BUT）)<br>（SRFUR__BUG_TOSTORY_BUT） |
-| 5 | [计划关联bug](#操作权限-计划关联bug（SRFUR__PROP_LBUG_BUT）)<br>（SRFUR__PROP_LBUG_BUT） |
-| 6 | [Bug待收藏](#操作权限-Bug待收藏（SRFUR__BUG_NFAVOR_BUT）)<br>（SRFUR__BUG_NFAVOR_BUT） |
+| 4 | [Bug指派](#操作权限-Bug指派（SRFUR__BUG_ASSIGNTO_BUT）)<br>（SRFUR__BUG_ASSIGNTO_BUT） |
+| 5 | [Bug提需求](#操作权限-Bug提需求（SRFUR__BUG_TOSTORY_BUT）)<br>（SRFUR__BUG_TOSTORY_BUT） |
+| 6 | [计划关联bug](#操作权限-计划关联bug（SRFUR__PROP_LBUG_BUT）)<br>（SRFUR__PROP_LBUG_BUT） |
+| 7 | [Bug待收藏](#操作权限-Bug待收藏（SRFUR__BUG_NFAVOR_BUT）)<br>（SRFUR__BUG_NFAVOR_BUT） |
 ### 业务状态-已关闭_已收藏_已确认（closed_1_1）
 #### 状态说明
 已关闭_已收藏_已确认
@@ -3718,10 +3721,11 @@ String
 | ---- | ---- |
 | 1 | [Bug关闭](#操作权限-Bug关闭（SRFUR__BUG_CLOSE_BUT）)<br>（SRFUR__BUG_CLOSE_BUT） |
 | 2 | [Bug解决](#操作权限-Bug解决（SRFUR__BUG_RESOLVE_BUT）)<br>（SRFUR__BUG_RESOLVE_BUT） |
-| 3 | [Bug提需求](#操作权限-Bug提需求（SRFUR__BUG_TOSTORY_BUT）)<br>（SRFUR__BUG_TOSTORY_BUT） |
-| 4 | [Bug待收藏](#操作权限-Bug待收藏（SRFUR__BUG_NFAVOR_BUT）)<br>（SRFUR__BUG_NFAVOR_BUT） |
-| 5 | [Bug确认](#操作权限-Bug确认（SRFUR__BUG_CONFIRM_BUT）)<br>（SRFUR__BUG_CONFIRM_BUT） |
-| 6 | [计划关联bug](#操作权限-计划关联bug（SRFUR__PROP_LBUG_BUT）)<br>（SRFUR__PROP_LBUG_BUT） |
+| 3 | [Bug指派](#操作权限-Bug指派（SRFUR__BUG_ASSIGNTO_BUT）)<br>（SRFUR__BUG_ASSIGNTO_BUT） |
+| 4 | [Bug提需求](#操作权限-Bug提需求（SRFUR__BUG_TOSTORY_BUT）)<br>（SRFUR__BUG_TOSTORY_BUT） |
+| 5 | [Bug待收藏](#操作权限-Bug待收藏（SRFUR__BUG_NFAVOR_BUT）)<br>（SRFUR__BUG_NFAVOR_BUT） |
+| 6 | [Bug确认](#操作权限-Bug确认（SRFUR__BUG_CONFIRM_BUT）)<br>（SRFUR__BUG_CONFIRM_BUT） |
+| 7 | [计划关联bug](#操作权限-计划关联bug（SRFUR__PROP_LBUG_BUT）)<br>（SRFUR__PROP_LBUG_BUT） |
 ### 业务状态-已解决_未收藏_未确认（resolved_0_0）
 #### 状态说明
 已解决_未收藏_未确认
