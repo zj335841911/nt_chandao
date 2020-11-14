@@ -15536,9 +15536,8 @@ SELECT
 FROM
 	zt_testtask t1 
 WHERE
-	t1.`owner` = #{srf.sessioncontext.srfloginname}
-WHERE t1.`deleted`='0' 
-
+	t1.`owner` = #{srf.sessioncontext.srfloginname} 
+	and t1.`deleted` = '0'
 ```
 ### 默认（全部数据）(VIEW)<div id="TestTask_View"></div>
 ```sql
