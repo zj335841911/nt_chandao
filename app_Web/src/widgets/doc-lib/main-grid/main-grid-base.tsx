@@ -220,7 +220,7 @@ export class MainGridBase extends GridControlBase {
         Collect: { name: 'Collect',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__DOCLIB_FAVOUR_BUT', actiontarget: 'SINGLEKEY'},
         UnCollect: { name: 'UnCollect',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__DOCLIB_NFAVOUR_BUT', actiontarget: 'SINGLEKEY'},
         EditProjectDoclib: { name: 'EditProjectDoclib',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'DOC', actiontarget: 'SINGLEKEY'},
-        WeiHuFenLei: { name: 'WeiHuFenLei',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'DOC', actiontarget: 'SINGLEKEY'}
+        WeiHuFenLei: { name: 'WeiHuFenLei',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'DOC', actiontarget: 'SINGLEKEY'}
     };
 
     /**
