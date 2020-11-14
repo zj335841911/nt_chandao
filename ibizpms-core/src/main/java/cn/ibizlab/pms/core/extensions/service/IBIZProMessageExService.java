@@ -30,7 +30,13 @@ public class IBIZProMessageExService extends IBIZProMessageServiceImpl {
     @Override
     @Transactional(readOnly = true)
     public IBIZProMessage markDone(IBIZProMessage et) {
-        return super.markDone(et);
+        try {
+            ibizproMessageFeignClient.markDone(et.getIbizpromessageid(), et);
+        }catch (RuntimeException e) {
+            log.error(e.getMessage());
+            log.error("待办操作失败！");
+        }
+        return et;
     }
     /**
      * 自定义行为[MarkRead]用户扩展
@@ -40,7 +46,13 @@ public class IBIZProMessageExService extends IBIZProMessageServiceImpl {
     @Override
     @Transactional(readOnly = true)
     public IBIZProMessage markRead(IBIZProMessage et) {
-        return super.markRead(et);
+        try {
+            ibizproMessageFeignClient.markRead(et.getIbizpromessageid(), et);
+        }catch (RuntimeException e) {
+            log.error(e.getMessage());
+            log.error("待阅已读操作失败！");
+        }
+        return et;
     }
     /**
      * 自定义行为[Send]用户扩展
