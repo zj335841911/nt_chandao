@@ -502,6 +502,4 @@ export default {
 			tip: "导出",
 		},
 	},
-	calendareditviewtoolbar_toolbar: {
-	},
 };

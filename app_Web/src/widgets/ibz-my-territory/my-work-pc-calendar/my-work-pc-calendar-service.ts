@@ -6,6 +6,7 @@ import MyWorkPCModel from './my-work-pc-calendar-model';
 import BugService from '@/service/bug/bug-service';
 import TaskService from '@/service/task/task-service';
 import TodoService from '@/service/todo/todo-service';
+import TestTaskService from '@/service/test-task/test-task-service';
 import StoryService from '@/service/story/story-service';
 
 
@@ -68,6 +69,13 @@ export default class MyWorkPCService extends ControlService {
      */
     public todoService: TodoService = new TodoService();
     /**
+     * 测试版本服务对象
+     *
+     * @type {TestTaskService}
+     * @memberof MyWorkPCService
+     */
+    public testtaskService: TestTaskService = new TestTaskService();
+    /**
      * 需求服务对象
      *
      * @type {StoryService}
@@ -102,6 +110,12 @@ export default class MyWorkPCService extends ControlService {
           textColor : '',
         },
         {
+          itemName : '测试单',
+          itemType : 'testtask',
+          color : 'rgba(95, 132, 245, 1)',
+          textColor : '',
+        },
+        {
           itemName : '需求',
           itemType : 'Story',
           color : 'rgba(85, 0, 255, 0.95)',
@@ -131,6 +145,8 @@ export default class MyWorkPCService extends ControlService {
             promises.push(this.taskService.FetchAssignedToMyTaskPc(tempRequest.context, tempRequest.data, isloading));
             tempRequest = this.handleRequestData(action,context,data,true,"todo");
             promises.push(this.todoService.FetchMyTodoPc(tempRequest.context, tempRequest.data, isloading));
+            tempRequest = this.handleRequestData(action,context,data,true,"testtask");
+            promises.push(this.testtaskService.FetchMyTestTaskPc(tempRequest.context, tempRequest.data, isloading));
             tempRequest = this.handleRequestData(action,context,data,true,"Story");
             promises.push(this.storyService.FetchAssignedToMyStoryCalendar(tempRequest.context, tempRequest.data, isloading));
             Promise.all(promises).then((resArray: any) => {
@@ -190,6 +206,10 @@ export default class MyWorkPCService extends ControlService {
                 case "todo":
                     tempRequest = this.handleRequestData("",context,data,false,"todo");
                     result = this.todoService.Update(tempRequest.context, tempRequest.data, isloading);
+                    break;
+                case "testtask":
+                    tempRequest = this.handleRequestData("",context,data,false,"testtask");
+                    result = this.testtaskService.Update(tempRequest.context, tempRequest.data, isloading);
                     break;
                 case "Story":
                     tempRequest = this.handleRequestData("",context,data,false,"Story");

@@ -318,6 +318,7 @@ export class MyWorkPCCalendarBase extends MainControlBase {
         Bug:true,
         task:true,
         todo:true,
+        testtask:true,
         Story:true,
     };
 
@@ -441,6 +442,17 @@ export class MyWorkPCCalendarBase extends MainControlBase {
     public getEditView(deName: string) {
         let view: any = {};
         switch(deName){
+            case "testtask": 
+                view = {
+                    viewname: 'test-task-calendar-edit-view', 
+                    height: 0, 
+                    width: 0,
+                    title: this.$t('entities.testtask.views.calendareditview.title'),
+                    placement: '',
+                    deResParameters: [{ pathName: 'products', parameterName: 'product' }, ],
+                    parameters: [{ pathName: 'testtasks', parameterName: 'testtask' }, { pathName: 'calendareditview', parameterName: 'calendareditview' } ],
+                };
+                break;
             case "todo": 
                 view = {
                     viewname: 'todo-calendar-edit-view', 
@@ -537,6 +549,10 @@ export class MyWorkPCCalendarBase extends MainControlBase {
                 _context.todo = event.todo;
                 view = this.getEditView("todo");
                 break;
+            case "testtask":
+                _context.testtask = event.testtask;
+                view = this.getEditView("testtask");
+                break;
             case "Story":
                 _context.story = event.story;
                 view = this.getEditView("story");
@@ -614,6 +630,10 @@ export class MyWorkPCCalendarBase extends MainControlBase {
             case "todo":
                 arg.todo = $event.event._def.extendedProps.todo;
                 _context.todo = $event.event._def.extendedProps.todo;
+                break;
+            case "testtask":
+                arg.testtask = $event.event._def.extendedProps.testtask;
+                _context.testtask = $event.event._def.extendedProps.testtask;
                 break;
             case "Story":
                 arg.story = $event.event._def.extendedProps.story;
@@ -802,7 +822,7 @@ export class MyWorkPCCalendarBase extends MainControlBase {
             if(Object.keys(that.copyActionModel).length === 0){
                 return;
             }
-            let dataMapping:any ={'Bug':'bug','task':'task','todo':'todo','Story':'story'};
+            let dataMapping:any ={'Bug':'bug','task':'task','todo':'todo','testtask':'testtask','Story':'story'};
             that.computeNodeState(data,dataMapping[data.itemType]).then((result:any) => {
                 let flag:boolean = false;
                 if(Object.values(result).length>0){

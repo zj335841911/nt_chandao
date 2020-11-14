@@ -13882,6 +13882,56 @@ const router = new Router({
                     component: () => import('@pages/zentao/test-report-edit-view-test-tasks/test-report-edit-view-test-tasks.vue'),
                 },
                 {
+                    path: 'projects/:project?/testtasks/:testtask?/calendareditview/:calendareditview?',
+                    meta: {
+                        caption: 'entities.testtask.views.calendareditview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-clipboard',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'testtasks', parameterName: 'testtask' },
+                            { pathName: 'calendareditview', parameterName: 'calendareditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/test-task-calendar-edit-view/test-task-calendar-edit-view.vue'),
+                },
+                {
+                    path: 'products/:product?/testtasks/:testtask?/calendareditview/:calendareditview?',
+                    meta: {
+                        caption: 'entities.testtask.views.calendareditview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-clipboard',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'testtasks', parameterName: 'testtask' },
+                            { pathName: 'calendareditview', parameterName: 'calendareditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/test-task-calendar-edit-view/test-task-calendar-edit-view.vue'),
+                },
+                {
+                    path: 'testtasks/:testtask?/calendareditview/:calendareditview?',
+                    meta: {
+                        caption: 'entities.testtask.views.calendareditview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-clipboard',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'testtasks', parameterName: 'testtask' },
+                            { pathName: 'calendareditview', parameterName: 'calendareditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/test-task-calendar-edit-view/test-task-calendar-edit-view.vue'),
+                },
+                {
                     path: 'modules/:module?/editview/:editview?',
                     meta: {
                         caption: 'entities.module.views.editview.caption',

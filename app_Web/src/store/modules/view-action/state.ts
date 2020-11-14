@@ -1164,6 +1164,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '7f46287768fb888f84467e285f960323',
                 'eb90b28adca9e482854d0d6bf05e1303',
                 'bad9ebb60029d8c0854e22a02600cbc7',
                 'e527490443d54f3791d9497938aaf332',
@@ -2244,6 +2245,20 @@ export const viewstate: any = {
                 '73647c564ed468885ee3c18bccce5a90',
                 '7c188c576f1fd59114ac2940d8e92c15',
                 '7b8d03598e32aa0f535758927a17b98e',
+            ],
+        },
+        {
+            viewtag: '7f46287768fb888f84467e285f960323',
+            viewmodule: 'zentao',
+            viewname: 'TestTaskCalendarEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'e8763999350c7bd92e884e0381d7ac6b',
+                '88b0a618836437a54b879dfb94ee0f3c',
+                '14d95e9a02db631c2b9af47641fcec4e',
+                '770a170098d148e438a7666b248e6519',
+                '7cba1f165fc6b4948ce752d3c3b68a34',
             ],
         },
         {

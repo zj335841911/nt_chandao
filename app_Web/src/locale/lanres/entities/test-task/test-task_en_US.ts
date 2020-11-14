@@ -502,6 +502,4 @@ export default {
 			tip: "Export {0} Data To Excel",
 		},
 	},
-	calendareditviewtoolbar_toolbar: {
-	},
 };

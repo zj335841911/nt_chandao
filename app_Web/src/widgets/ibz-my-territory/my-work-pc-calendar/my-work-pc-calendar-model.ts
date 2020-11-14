@@ -103,6 +103,26 @@ export default class MyWorkPCModel {
                   },
               ];
               break;
+          case "testtask":
+              dataItems = [...dataItems,
+                  {
+                    name: 'testtask',
+                    prop: 'id'
+                  },
+                  {
+                    name: 'title',
+                    prop: 'name'
+                  },
+                  {
+                    name:'start',
+                    prop:'begin'
+                  },
+                  {
+                    name:'end',
+                    prop:'begin'
+                  },
+              ];
+              break;
           case "Story":
               dataItems = [...dataItems,
                   {

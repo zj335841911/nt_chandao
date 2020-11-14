@@ -341,6 +341,7 @@ export const PageComponents = {
         Vue.component('test-task-activite-option-view', () => import('@pages/zentao/test-task-activite-option-view/test-task-activite-option-view.vue'));
         Vue.component('bug-project-grid-view', () => import('@pages/zentao/bug-project-grid-view/bug-project-grid-view.vue'));
         Vue.component('test-report-edit-view-test-tasks', () => import('@pages/zentao/test-report-edit-view-test-tasks/test-report-edit-view-test-tasks.vue'));
+        Vue.component('test-task-calendar-edit-view', () => import('@pages/zentao/test-task-calendar-edit-view/test-task-calendar-edit-view.vue'));
         Vue.component('module-edit-view', () => import('@pages/zentao/module-edit-view/module-edit-view.vue'));
         Vue.component('project-module-quick-cfg-view', () => import('@pages/ibiz/project-module-quick-cfg-view/project-module-quick-cfg-view.vue'));
         Vue.component('test-module-grid-view-main', () => import('@pages/ibiz/test-module-grid-view-main/test-module-grid-view-main.vue'));

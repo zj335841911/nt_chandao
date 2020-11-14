@@ -103,6 +103,7 @@ export class CalendarExpViewcalendarexpbarCalendarexpbarBase extends CalendarVie
         Bug: "bug-calendar-edit-view",
         task: "task-calendar-edit-view",
         todo: "todo-calendar-edit-view",
+        testtask: "test-task-calendar-edit-view",
         Story: "story-calendar-edit-view"
     };
 
@@ -125,6 +126,10 @@ export class CalendarExpViewcalendarexpbarCalendarexpbarBase extends CalendarVie
             navigateContext:null,
             navigateParams:null
         },
+        testtask: {
+            navigateContext:null,
+            navigateParams:null
+        },
         Story: {
             navigateContext:null,
             navigateParams:null
@@ -141,6 +146,7 @@ export class CalendarExpViewcalendarexpbarCalendarexpbarBase extends CalendarVie
         Bug: "",
         task: "",
         todo: "",
+        testtask: "",
         Story: ""
     };
 
@@ -154,6 +160,7 @@ export class CalendarExpViewcalendarexpbarCalendarexpbarBase extends CalendarVie
         Bug: "",
         task: "",
         todo: "",
+        testtask: "",
         Story: ""
     };
 
@@ -253,6 +260,24 @@ export class CalendarExpViewcalendarexpbarCalendarexpbarBase extends CalendarVie
                 }
                 if(this.navParam && this.navParam['todo'] && this.navParam['todo'].navigateParams && Object.keys(this.navParam['todo'].navigateParams).length >0){
                     let _params:any = this.$util.computedNavData(arg,tempContext,tempViewParam,this.navParam['todo'].navigateParams);
+                    Object.assign(tempViewParam,_params);
+                }
+                break;
+            case "testtask":
+                Object.assign(tempContext,{ testtask : arg.testtask});
+                Object.assign(tempContext,{srfparentdename:'TestTask',srfparentkey:arg['testtask']});
+                if(this.navFilter && this.navFilter['testtask'] && !Object.is(this.navFilter['testtask'],"")){
+                    Object.assign(tempViewParam,{[this.navFilter['testtask']]:arg['testtask']});
+                }
+                if(this.navPSDer && this.navFilter['testtask'] && !Object.is(this.navPSDer['testtask'],"")){
+                    Object.assign(tempViewParam,{[this.navPSDer['testtask']]:arg['testtask']});
+                }
+                if(this.navParam && this.navParam['testtask'] && this.navParam['testtask'].navigateContext && Object.keys(this.navParam['testtask'].navigateContext).length >0){
+                    let _context:any = this.$util.computedNavData(arg,tempContext,tempViewParam,this.navParam['testtask'].navigateContext);
+                    Object.assign(tempContext,_context);
+                }
+                if(this.navParam && this.navParam['testtask'] && this.navParam['testtask'].navigateParams && Object.keys(this.navParam['testtask'].navigateParams).length >0){
+                    let _params:any = this.$util.computedNavData(arg,tempContext,tempViewParam,this.navParam['testtask'].navigateParams);
                     Object.assign(tempViewParam,_params);
                 }
                 break;
