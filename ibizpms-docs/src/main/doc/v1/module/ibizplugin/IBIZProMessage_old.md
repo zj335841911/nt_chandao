@@ -90,6 +90,8 @@
 | 集合编号 | 集合名称   |  包含查询  | 默认集合 |   备注|
 | --------  | --------   | -------- | --------   | ----- |
 |DEFAULT|数据集|DEFAULT|是|&nbsp;|
+|UserAllMessages|用户全部消息|UserAllMessages|否|&nbsp;|
+|UserUnreadMessages|用户未读信息|UserUnreadMessages|否|&nbsp;|
 
 ## 查询模式
 | 属性      |    搜索模式     |

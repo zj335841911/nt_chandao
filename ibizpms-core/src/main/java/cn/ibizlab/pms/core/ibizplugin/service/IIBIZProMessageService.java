@@ -49,6 +49,8 @@ public interface IIBIZProMessageService {
     void saveBatch(List<IBIZProMessage> list);
     IBIZProMessage send(IBIZProMessage et);
     Page<IBIZProMessage> searchDefault(IBIZProMessageSearchContext context);
+    Page<IBIZProMessage> searchUserAllMessages(IBIZProMessageSearchContext context);
+    Page<IBIZProMessage> searchUserUnreadMessages(IBIZProMessageSearchContext context);
 
 
 }

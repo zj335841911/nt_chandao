@@ -90,4 +90,14 @@ public class IBIZProMessageFallback implements IBIZProMessageFeignClient {
     }
 
 
+    public Page<IBIZProMessage> searchUserAllMessages(IBIZProMessageSearchContext context) {
+        return null;
+    }
+
+
+    public Page<IBIZProMessage> searchUserUnreadMessages(IBIZProMessageSearchContext context) {
+        return null;
+    }
+
+
 }

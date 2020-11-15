@@ -178,6 +178,26 @@ public class IBIZProMessageServiceImpl implements IIBIZProMessageService {
     }
 
 
+    /**
+     * 查询集合 用户全部消息
+     */
+    @Override
+    public Page<IBIZProMessage> searchUserAllMessages(IBIZProMessageSearchContext context) {
+        Page<IBIZProMessage> iBIZProMessages=iBIZProMessageFeignClient.searchUserAllMessages(context);
+        return iBIZProMessages;
+    }
+
+
+    /**
+     * 查询集合 用户未读信息
+     */
+    @Override
+    public Page<IBIZProMessage> searchUserUnreadMessages(IBIZProMessageSearchContext context) {
+        Page<IBIZProMessage> iBIZProMessages=iBIZProMessageFeignClient.searchUserUnreadMessages(context);
+        return iBIZProMessages;
+    }
+
+
 
 
 

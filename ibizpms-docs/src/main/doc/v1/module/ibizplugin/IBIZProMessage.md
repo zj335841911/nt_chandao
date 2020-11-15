@@ -1015,6 +1015,8 @@ FROM `T_IBIZPRO_MESSAGE` t1
 | 序号 | 集合 | 集合名 | 默认 |
 | ---- | ---- | ---- | ---- |
 | 1 | [数据集](#数据集合-数据集（Default）) | Default | 是 |
+| 2 | [用户全部消息](#数据集合-用户全部消息（UserAllMessages）) | UserAllMessages | 否 |
+| 3 | [用户未读信息](#数据集合-用户未读信息（UserUnreadMessages）) | UserUnreadMessages | 否 |
 
 ### 数据集合-数据集（Default）
 #### 说明
@@ -1030,6 +1032,34 @@ FROM `T_IBIZPRO_MESSAGE` t1
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [数据查询（Default）](#数据查询-数据查询（Default）) |
+### 数据集合-用户全部消息（UserAllMessages）
+#### 说明
+用户全部消息
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [用户全部消息（UserAllMessages）](#数据查询-用户全部消息（UserAllMessages）) |
+### 数据集合-用户未读信息（UserUnreadMessages）
+#### 说明
+用户未读信息
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [用户未读信息（UserUnreadMessages）](#数据查询-用户未读信息（UserUnreadMessages）) |
 
 ## 数据导入
 无

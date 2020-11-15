@@ -83,4 +83,14 @@ public interface IBIZProMessageFeignClient {
     Page<IBIZProMessage> searchDefault(@RequestBody IBIZProMessageSearchContext context);
 
 
+
+    @RequestMapping(method = RequestMethod.POST, value = "/ibizpromessages/searchuserallmessages")
+    Page<IBIZProMessage> searchUserAllMessages(@RequestBody IBIZProMessageSearchContext context);
+
+
+
+    @RequestMapping(method = RequestMethod.POST, value = "/ibizpromessages/searchuserunreadmessages")
+    Page<IBIZProMessage> searchUserUnreadMessages(@RequestBody IBIZProMessageSearchContext context);
+
+
 }
