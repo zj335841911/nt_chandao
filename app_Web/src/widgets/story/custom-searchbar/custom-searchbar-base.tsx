@@ -146,6 +146,7 @@ export class CustomSearchbarBase extends MainControlBase {
             label: '关键词',
             name: 'keywords',
             prop: 'keywords',
+            mode: 'LIKE',
             disabled: false
         },
     };

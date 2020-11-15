@@ -467,6 +467,7 @@ hide footbox
 |需求来源(SOURCE)|EQ|
 |关闭原因(CLOSEDREASON)|EQ|
 |标题颜色(COLOR)|EQ|
+|关键词(KEYWORDS)|LIKE|
 |最后修改(LASTEDITEDBY)|EQ|
 |所处阶段(STAGE)|EQ|
 |所处阶段(STAGE)|NOTEQ|
