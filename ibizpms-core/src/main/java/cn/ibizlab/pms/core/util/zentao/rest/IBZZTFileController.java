@@ -25,7 +25,7 @@ public class IBZZTFileController {
 	@Autowired
 	private IIBZZTFileService fileService;
 
-	@PostMapping(value = "${zentao.file.uploadpath:ibizutil/ztupload}")
+	@PostMapping(value = "${zentao.file.uploadpath:ibizutilpms/ztupload}")
 	public ResponseEntity<ZTFileItem> upload(@RequestParam("file") MultipartFile multipartFile, ZTUploadFile file){
 		JSONObject params = new JSONObject();
 		params.put("objecttype", file.getObjecttype());
@@ -35,7 +35,7 @@ public class IBZZTFileController {
         return ResponseEntity.ok().body(fileService.saveFile(multipartFile, params));
 	}
 
-    @GetMapping(value = "${zentao.file.downloadpath:ibizutil/ztdownload/" + "{id}" + "}")
+    @GetMapping(value = "${zentao.file.downloadpath:ibizutilpms/ztdownload/" + "{id}" + "}")
     @ResponseStatus(HttpStatus.OK)
     public void download(@PathVariable String id, HttpServletResponse response){
         ZTDownloadFile file = fileService.getFile(id);

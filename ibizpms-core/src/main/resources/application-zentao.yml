@@ -3,7 +3,7 @@ zentao:
   needretry: false
   retrycount: 0
   file:
-    uploadpath: ibizutil/ztupload
+    uploadpath: ibizutilpms/ztupload
 #    downloadpath: ibizutil/ztdownload/{id}
 
 environment:

@@ -142,7 +142,7 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
         }
 
         setStage(et);
-        actionHelper.sendTodo(et.getId(),et.getTitle(),noticeusers,et.getAssignedto(),et.getMailto(),IStoryService.OBJECT_TEXT_NAME,StaticDict.Action__object_type.STORY.getValue(),IStoryService.OBJECT_SOURCE_PATH);
+        actionHelper.sendTodo(et.getId(), et.getTitle(), noticeusers, et.getAssignedto(), et.getMailto(), IStoryService.OBJECT_TEXT_NAME, StaticDict.Action__object_type.STORY.getValue(), IStoryService.OBJECT_SOURCE_PATH, action);
         actionHelper.create(StaticDict.Action__object_type.STORY.getValue(), et.getId(), action, "", extra, AuthenticationUser.getAuthenticationUser().getUsername(), true);
 
         return true;
@@ -330,7 +330,7 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
             String strAction = changes.size() > 0 ? StaticDict.Action__type.EDITED.getValue() : StaticDict.Action__type.COMMENTED.getValue();
             Action action = actionHelper.create(StaticDict.Action__object_type.STORY.getValue(), et.getId(), strAction,
                     StringUtils.isNotBlank(et.getComment()) ? et.getComment() : "", "", AuthenticationUser.getAuthenticationUser().getUsername(), true);
-            actionHelper.sendToread(et.getId(),et.getTitle(),"",et.getAssignedto(),et.getMailto(),IStoryService.OBJECT_TEXT_NAME,StaticDict.Action__object_type.STORY.getValue(),IStoryService.OBJECT_SOURCE_PATH);
+            actionHelper.sendToread(et.getId(), et.getTitle(),"", et.getAssignedto(), et.getMailto(), IStoryService.OBJECT_TEXT_NAME, StaticDict.Action__object_type.STORY.getValue(), IStoryService.OBJECT_SOURCE_PATH, strAction);
             actionHelper.logHistory(action.getId(), changes);
         }
         return true;
@@ -373,7 +373,7 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
         List<History> changes = ChangeUtil.diff(old, et, null, new String[]{"status", "stage", "assignedto", "closedby", "closedreason", "closeddate"}, null);
         if (changes.size() > 0) {
             Action action = actionHelper.create(StaticDict.Action__object_type.STORY.getValue(), et.getId(), StaticDict.Action__type.ACTIVATED.getValue(), StringUtils.isNotBlank(et.getComment()) ? et.getComment() : "", String.valueOf(et.getParent()), AuthenticationUser.getAuthenticationUser().getUsername(), false);
-            actionHelper.sendTodo(et.getId(),et.getTitle(),noticeusers,et.getAssignedto(),et.getMailto(),IStoryService.OBJECT_TEXT_NAME,StaticDict.Action__object_type.STORY.getValue(),IStoryService.OBJECT_SOURCE_PATH);
+            actionHelper.sendTodo(et.getId(), et.getTitle(), noticeusers, et.getAssignedto(), et.getMailto(), IStoryService.OBJECT_TEXT_NAME, StaticDict.Action__object_type.STORY.getValue(), IStoryService.OBJECT_SOURCE_PATH, StaticDict.Action__type.ACTIVATED.getValue());
             actionHelper.logHistory(action.getId(), changes);
         }
         return et;
@@ -422,7 +422,7 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
             String strAction = changes.size() > 0 ? StaticDict.Action__type.CHANGED.getValue() : StaticDict.Action__type.COMMENTED.getValue();
             Action action = actionHelper.create(StaticDict.Action__object_type.STORY.getValue(), et.getId(), strAction,
                     comment, "", AuthenticationUser.getAuthenticationUser().getUsername(), true);
-            actionHelper.sendTodo(et.getId(),et.getTitle(),noticeusers,et.getReviewedby(),et.getMailto(),IStoryService.OBJECT_TEXT_NAME,StaticDict.Action__object_type.STORY.getValue(),IStoryService.OBJECT_SOURCE_PATH);
+            actionHelper.sendTodo(et.getId(), et.getTitle(), noticeusers, et.getReviewedby(), et.getMailto(), IStoryService.OBJECT_TEXT_NAME, StaticDict.Action__object_type.STORY.getValue(), IStoryService.OBJECT_SOURCE_PATH, strAction);
             actionHelper.logHistory(action.getId(), changes);
         }
         return et;
@@ -449,7 +449,7 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
             Action action = actionHelper.create(StaticDict.Action__object_type.STORY.getValue(), et.getId(), StaticDict.Action__type.CLOSED.getValue(),
                     comment, et.getClosedreason(), null, true);
-            actionHelper.sendToread(et.getId(),et.getTitle(),noticeusers,et.getAssignedto(),et.getMailto(),IStoryService.OBJECT_TEXT_NAME,StaticDict.Action__object_type.STORY.getValue(),IStoryService.OBJECT_SOURCE_PATH);
+            actionHelper.sendToread(et.getId(), et.getTitle(), noticeusers, et.getAssignedto(), et.getMailto(), IStoryService.OBJECT_TEXT_NAME, StaticDict.Action__object_type.STORY.getValue(), IStoryService.OBJECT_SOURCE_PATH, StaticDict.Action__type.CLOSED.getValue());
             if (changes.size() > 0) {
                 actionHelper.logHistory(action.getId(), changes);
             }
@@ -470,7 +470,7 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
         et.setAssigneddate(ZTDateUtil.now());
         String noticeusers = et.getNoticeusers();
         internalUpdate(et);
-        actionHelper.sendTodo(et.getId(),et.getTitle(),noticeusers,et.getAssignedto(),et.getMailto(),IStoryService.OBJECT_TEXT_NAME,StaticDict.Action__object_type.STORY.getValue(),IStoryService.OBJECT_SOURCE_PATH);
+        actionHelper.sendTodo(et.getId(), et.getTitle(), noticeusers, et.getAssignedto(), et.getMailto(), IStoryService.OBJECT_TEXT_NAME, StaticDict.Action__object_type.STORY.getValue(), IStoryService.OBJECT_SOURCE_PATH, StaticDict.Action__type.ASSIGNED.getValue());
         List<History> changes = ChangeUtil.diff(old, et, new String[]{"lasteditedby", "assigneddate", "lastediteddate", "spec", "verify"});
         if (changes.size() > 0) {
             Action action = actionHelper.create(StaticDict.Action__object_type.STORY.getValue(), et.getId(), StaticDict.Action__type.ASSIGNED.getValue(),
@@ -513,7 +513,7 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
         internalUpdate(et);
 
         List<History> changes = ChangeUtil.diff(old, et, new String[]{"lasteditedby", "lastediteddate"});
-        actionHelper.sendTodo(et.getId(),et.getTitle(),noticeusers,et.getAssignedto(),et.getMailto(),IStoryService.OBJECT_TEXT_NAME,StaticDict.Action__object_type.STORY.getValue(),IStoryService.OBJECT_SOURCE_PATH);
+        actionHelper.sendTodo(et.getId(), et.getTitle(), noticeusers, et.getAssignedto(), et.getMailto(), IStoryService.OBJECT_TEXT_NAME, StaticDict.Action__object_type.STORY.getValue(), IStoryService.OBJECT_SOURCE_PATH, StaticDict.Action__type.REVIEWED.getValue());
         if (changes.size() > 0) {
             Action action = actionHelper.create(StaticDict.Action__object_type.STORY.getValue(), et.getId(), StaticDict.Action__type.REVIEWED.getValue(),
                     comment, result, null, true);
@@ -548,7 +548,7 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
         }
         productPlan.set("stories", stories);
 
-        cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.ProductPlanHelper.class).linkStory(productPlan);
+        cn.ibizlab.pms.util.security.SpringContextHolder.getBean(ProductPlanHelper.class).linkStory(productPlan);
         return et;
     }
 
@@ -599,7 +599,7 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
         }
         project.set("stories", stories);
 
-        cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.ProjectHelper.class).linkStory(project);
+        cn.ibizlab.pms.util.security.SpringContextHolder.getBean(ProjectHelper.class).linkStory(project);
         return et;
     }
 
@@ -608,7 +608,7 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
         Project project = new Project();
         project.setId(et.getProject());
         project.set("story", et.getId());
-        cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.ProjectHelper.class).unlinkStory(project);
+        cn.ibizlab.pms.util.security.SpringContextHolder.getBean(ProjectHelper.class).unlinkStory(project);
         return et;
     }
 
@@ -625,7 +625,7 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
         Release release = new Release();
         release.setId(Long.parseLong(et.get("release").toString()));
         release.set("srfactionparam",et.get("srfactionparam"));
-        cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.ReleaseHelper.class).linkStory(release);
+        cn.ibizlab.pms.util.security.SpringContextHolder.getBean(ReleaseHelper.class).linkStory(release);
         return et;
     }
 
@@ -700,7 +700,7 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
         Project project = new Project();
         project.setId(et.getProject());
         project.setPlans(et.getPlan());
-        cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.ProjectHelper.class).importPlanStories(project);
+        cn.ibizlab.pms.util.security.SpringContextHolder.getBean(ProjectHelper.class).importPlanStories(project);
         return et;
     }
 

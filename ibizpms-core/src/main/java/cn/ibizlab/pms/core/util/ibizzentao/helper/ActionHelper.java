@@ -105,8 +105,9 @@ public class ActionHelper extends ZTBaseHelper<ActionMapper, Action> {
      * @param logicname
      * @param type
      * @param path
+     * @param actiontextname
      */
-    public void sendToread(Long id, String name,String noticeusers,String touser,String ccuser,String logicname, String type, String path) {
+    public void sendToread(Long id, String name,String noticeusers,String touser,String ccuser,String logicname, String type, String path, String actiontextname) {
         try {
             String noticeuserss = "";
             if(touser!= null && !"".equals(touser)) {
@@ -144,6 +145,7 @@ public class ActionHelper extends ZTBaseHelper<ActionMapper, Action> {
             param.put("objecttype", type);
             param.put("objectsourcepath", path);
             param.put("objecttextname", logicname);
+            param.put("actiontextname", actiontextname);
             ibizProMessage.setParam(param.toJSONString());
             iibizProMessageService.send(ibizProMessage);
             log.info("待办消息发送成功！");
@@ -163,8 +165,9 @@ public class ActionHelper extends ZTBaseHelper<ActionMapper, Action> {
      * @param logicname
      * @param type
      * @param path
+     * @param actiontextname
      */
-    public void sendTodo(Long id, String name,String noticeusers,String touser,String ccuser,String logicname, String type, String path) {
+    public void sendTodo(Long id, String name,String noticeusers,String touser,String ccuser,String logicname, String type, String path, String actiontextname) {
         try {
             String noticeuserss = "";
             JSONObject param = new JSONObject();
@@ -204,6 +207,7 @@ public class ActionHelper extends ZTBaseHelper<ActionMapper, Action> {
             param.put("objecttype", type);
             param.put("objectsourcepath", path);
             param.put("objecttextname", logicname);
+            param.put("actiontextname", actiontextname);
             ibizProMessage.setParam(param.toJSONString());
             iibizProMessageService.send(ibizProMessage);
             log.info("待办消息发送成功！");
@@ -236,13 +240,15 @@ public class ActionHelper extends ZTBaseHelper<ActionMapper, Action> {
     public void send(String noticeusers, Action et) {
         if(StaticDict.Action__object_type.TASK.getValue().equals(et.getObjecttype())) {
             Task task = taskHelper.get(et.getObjectid());
-            sendToread(task.getId(),task.getName(),noticeusers,task.getAssignedto(),task.getMailto(), ITaskService.OBJECT_TEXT_NAME,StaticDict.Action__object_type.TASK.getValue(),ITaskService.OBJECT_SOURCE_PATH);
+            sendToread(task.getId(),task.getName(),noticeusers,task.getAssignedto(),task.getMailto(), ITaskService.OBJECT_TEXT_NAME,StaticDict.Action__object_type.TASK.getValue(),ITaskService.OBJECT_SOURCE_PATH, et.getAction());
         }else if(StaticDict.Action__object_type.STORY.getValue().equals(et.getObjecttype())) {
             Story story = storyHelper.get(et.getObjectid());
-            sendToread(story.getId(),story.getTitle(),noticeusers,story.getAssignedto(),story.getMailto(), IStoryService.OBJECT_TEXT_NAME,StaticDict.Action__object_type.STORY.getValue(),IStoryService.OBJECT_SOURCE_PATH);
+            sendToread(story.getId(),story.getTitle(),noticeusers,story.getAssignedto(),story.getMailto(), IStoryService.OBJECT_TEXT_NAME,StaticDict.Action__object_type.STORY.getValue(),IStoryService.OBJECT_SOURCE_PATH, et.getAction());
         } else if(StaticDict.Action__object_type.BUG.getValue().equals(et.getObjecttype())) {
             Bug bug = bugHelper.get(et.getObjectid());
-            sendToread(bug.getId(),bug.getTitle(),noticeusers,bug.getAssignedto(),bug.getMailto(), IBugService.OBJECT_TEXT_NAME,StaticDict.Action__object_type.TASK.getValue(), IBugService.OBJECT_SOURCE_PATH);
+            sendToread(bug.getId(),bug.getTitle(),noticeusers,bug.getAssignedto(),bug.getMailto(), IBugService.OBJECT_TEXT_NAME,StaticDict.Action__object_type.TASK.getValue(), IBugService.OBJECT_SOURCE_PATH, et.getAction());
+        }else {
+            log.info("其他暂不支持！");
         }
     }
 
