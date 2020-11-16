@@ -3,6 +3,18 @@
     <template slot="quickGroupSearch">
         <app-quick-group :items="quickGroupModel" @valuechange="quickGroupValueChange($event)"></app-quick-group>
     </template>
+    <template slot="searchBar">
+                <view_searchbar 
+            :viewState="viewState"  
+            :viewparams="viewparams" 
+            :context="context" 
+            v-show="isExpandSearchForm"
+            @search="onSearch($event)"
+            name="searchbar"  
+            ref='searchbar' 
+            @closeview="closeView($event)">
+        </view_searchbar>
+    </template>
         <view_grid 
         :viewState="viewState"  
         :viewparams="viewparams" 

@@ -115,6 +115,7 @@ export class StoryBuildSubGridViewBase extends GridViewBase {
      * @memberof StoryBuildSubGridViewBase
      */
     protected containerModel: any = {
+        view_searchbar: { name: 'searchbar', type: 'SEARCHBAR' },
         view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
         view_grid: { name: 'grid', type: 'GRID' },
     };

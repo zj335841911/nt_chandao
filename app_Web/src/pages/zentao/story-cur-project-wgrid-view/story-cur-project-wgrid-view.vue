@@ -3,6 +3,7 @@
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { StoryCurProjectWGridViewBase } from './story-cur-project-wgrid-view-base';
+import view_searchbar from '@widgets/story/custom-searchbar/custom-searchbar.vue';
 import view_grid from '@widgets/story/project-story-grid/project-story-grid.vue';
 
 /**
@@ -14,6 +15,7 @@ import view_grid from '@widgets/story/project-story-grid/project-story-grid.vue'
  */
 @Component({
     components: {
+        view_searchbar, 
         view_grid, 
     }
 })

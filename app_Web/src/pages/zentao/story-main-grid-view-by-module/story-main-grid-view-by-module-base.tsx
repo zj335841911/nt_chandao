@@ -102,6 +102,7 @@ export class StoryMainGridView_ByModuleBase extends GridViewBase {
      * @memberof StoryMainGridView_ByModuleBase
      */
     protected containerModel: any = {
+        view_searchbar: { name: 'searchbar', type: 'SEARCHBAR' },
         view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
         view_grid: { name: 'grid', type: 'GRID' },
     };

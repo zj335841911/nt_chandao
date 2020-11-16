@@ -91,6 +91,7 @@ export class StoryReportSubGridViewBase extends GridViewBase {
      * @memberof StoryReportSubGridViewBase
      */
     protected containerModel: any = {
+        view_searchbar: { name: 'searchbar', type: 'SEARCHBAR' },
         view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
         view_grid: { name: 'grid', type: 'GRID' },
     };

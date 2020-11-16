@@ -102,6 +102,7 @@ export class StoryMainMyGridViewBase extends GridViewBase {
      * @memberof StoryMainMyGridViewBase
      */
     protected containerModel: any = {
+        view_searchbar: { name: 'searchbar', type: 'SEARCHBAR' },
         view_grid: { name: 'grid', type: 'GRID' },
     };
 
