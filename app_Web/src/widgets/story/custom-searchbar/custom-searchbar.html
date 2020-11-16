@@ -175,15 +175,22 @@
 
                 </template>
                 <template v-if="Object.is(data.editor, 'assignedtoeq')">
-                    <input-box 
-    v-model="data.assignedtoeq"  
-    @enter="onEnter($event)"  
-      
-    :disabled="detailsModel.assignedtoeq.disabled" 
-    type='text' 
-    style="width:100px;">
-</input-box>
-
+                    
+<dropdown-list 
+    v-model="data.assignedtoeq"
+    :data="data"
+    :context="context"
+    :formState="formState"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.assignedtoeq.disabled"
+    valueType="string"
+    tag='UserRealName'
+    codelistType='DYNAMIC'
+    placeholder='请选择...'
+    
+/>
                 </template>
                 <template v-if="Object.is(data.editor, 'brancheq')">
                     
