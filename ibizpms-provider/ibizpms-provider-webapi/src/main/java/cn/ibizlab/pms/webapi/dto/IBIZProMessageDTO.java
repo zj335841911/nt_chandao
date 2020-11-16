@@ -193,6 +193,15 @@ public class IBIZProMessageDTO extends DTOBase implements Serializable {
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
     private String sendproxyid;
 
+    /**
+     * 属性 [LASTSENDDATETIME]
+     *
+     */
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "lastsenddatetime" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonProperty("lastsenddatetime")
+    private Timestamp lastsenddatetime;
+
 
     /**
      * 设置 [RETRYTIMES]

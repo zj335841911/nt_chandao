@@ -195,24 +195,6 @@
     style="width:100px;"
 />
                 </template>
-                <template v-if="Object.is(data.editor, 'confirmedeq')">
-                    
-<dropdown-list 
-    v-model="data.confirmedeq"
-    :data="data"
-    :context="context"
-    :formState="formState"
-    :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
-    :disabled="detailsModel.confirmedeq.disabled"
-    valueType="number"
-    tag='YesNo2'
-    codelistType='STATIC'
-    placeholder='请选择...'
-    style="width:100px;"
-/>
-                </template>
                 <template v-if="Object.is(data.editor, 'tasknameeq')">
                     
 <app-picker  
@@ -234,6 +216,24 @@
   style=""
   @formitemvaluechange="onFormItemValueChange($event)">
 </app-picker>
+                </template>
+                <template v-if="Object.is(data.editor, 'confirmedeq')">
+                    
+<dropdown-list 
+    v-model="data.confirmedeq"
+    :data="data"
+    :context="context"
+    :formState="formState"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.confirmedeq.disabled"
+    valueType="number"
+    tag='YesNo2'
+    codelistType='STATIC'
+    placeholder='请选择...'
+    style="width:100px;"
+/>
                 </template>
                 <template v-if="Object.is(data.editor, 'deadlinegteq')">
                     <date-picker type="date" :transfer="true" format="yyyy-MM-dd" placeholder="请选择时间..." :value="data.deadlinegteq" :disabled="detailsModel.deadlinegteq.disabled" style="min-width: 150px; width:100px;" @on-change="(val1, val2) => { this.data.deadlinegteq = val1 }"></date-picker>

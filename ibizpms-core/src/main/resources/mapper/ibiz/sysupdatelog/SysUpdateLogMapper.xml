@@ -19,11 +19,14 @@
 
     <!--数据集合[Default]-->
 	 <select id="searchDefault"  parameterType="cn.ibizlab.pms.core.ibiz.filter.SysUpdateLogSearchContext"  resultMap="SysUpdateLogResultMap">
+	 	select * from (
          select t1.* from (
                 <include refid="Default" />
          )t1
          <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
+		 )t1
+		 order by update  desc  
      </select>
 
     <!--数据查询[Default]-->

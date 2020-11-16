@@ -163,17 +163,17 @@ export class CustomSearchbarBase extends MainControlBase {
             mode: 'EQ',
             disabled: false
         },
-        'confirmedeq': {
-            label: '是否确认',
-            name: 'confirmedeq',
-            prop: 'confirmed',
-            mode: 'EQ',
-            disabled: false
-        },
         'tasknameeq': {
             label: '相关任务',
             name: 'tasknameeq',
             prop: 'taskname',
+            mode: 'EQ',
+            disabled: false
+        },
+        'confirmedeq': {
+            label: '是否确认',
+            name: 'confirmedeq',
+            prop: 'confirmed',
             mode: 'EQ',
             disabled: false
         },
