@@ -1294,6 +1294,10 @@ export default {
 			caption: "Export",
 			tip: "Export {0} Data To Excel",
 		},
+		deuiaction4: {
+			caption: "Filter",
+			tip: "Filter",
+		},
 	},
 	plansubeditviewtoolbar_toolbar: {
 		deuiaction1: {
@@ -1328,6 +1332,10 @@ export default {
 			caption: "刷新",
 			tip: "刷新",
 		},
+		deuiaction6: {
+			caption: "Filter",
+			tip: "Filter",
+		},
 	},
 	curprojectwgridviewtoolbar_toolbar: {
 		deuiaction1: {
@@ -1349,6 +1357,10 @@ export default {
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",
+		},
+		deuiaction6: {
+			caption: "Filter",
+			tip: "Filter",
 		},
 	},
 	kanbanviewtoolbar_toolbar: {
@@ -1374,6 +1386,10 @@ export default {
 			caption: "关联需求",
 			tip: "关联需求",
 		},
+		deuiaction2: {
+			caption: "Filter",
+			tip: "Filter",
+		},
 	},
 	releasesubeditviewtoolbar_toolbar: {
 		deuiaction1: {
@@ -1389,6 +1405,10 @@ export default {
 		deuiaction1: {
 			caption: "Export",
 			tip: "Export {0} Data To Excel",
+		},
+		deuiaction4: {
+			caption: "Filter",
+			tip: "Filter",
 		},
 	},
 	maingridviewtoolbar_toolbar: {
@@ -1418,6 +1438,14 @@ export default {
 			caption: "Edit",
 			tip: "Edit {0}",
 		},
+		seperator2: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction3: {
+			caption: "Filter",
+			tip: "Filter",
+		},
 	},
 	releasesubgridviewtoolbar_toolbar: {
 		deuiaction1: {
@@ -1427,6 +1455,10 @@ export default {
 		deuiaction2: {
 			caption: "Export",
 			tip: "Export {0} Data To Excel",
+		},
+		deuiaction3: {
+			caption: "Filter",
+			tip: "Filter",
 		},
 	},
 	myfavoritesgridviewtoolbar_toolbar: {
@@ -1438,11 +1470,33 @@ export default {
 			caption: "Export",
 			tip: "Export {0} Data To Excel",
 		},
+		deuiaction4: {
+			caption: "Filter",
+			tip: "Filter",
+		},
+	},
+	mainmygridviewtoolbar_toolbar: {
+		deuiaction2: {
+			caption: "刷新",
+			tip: "刷新",
+		},
+		deuiaction1: {
+			caption: "Export",
+			tip: "Export {0} Data To Excel",
+		},
+		deuiaction4: {
+			caption: "Filter",
+			tip: "Filter",
+		},
 	},
 	main2gridviewtoolbar_toolbar: {
 		tbitem13: {
 			caption: "Export",
 			tip: "Export {0} Data To Excel",
+		},
+		deuiaction1: {
+			caption: "Filter",
+			tip: "Filter",
 		},
 	},
 	myopenedstory_chart: {

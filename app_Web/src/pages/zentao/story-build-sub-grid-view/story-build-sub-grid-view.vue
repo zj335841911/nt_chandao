@@ -4,6 +4,7 @@ import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { StoryBuildSubGridViewBase } from './story-build-sub-grid-view-base';
 import view_grid from '@widgets/story/main-build-sub-grid/main-build-sub-grid.vue';
+import view_searchbar from '@widgets/story/custom-searchbar/custom-searchbar.vue';
 
 /**
  * story表格视图视图
@@ -15,6 +16,7 @@ import view_grid from '@widgets/story/main-build-sub-grid/main-build-sub-grid.vu
 @Component({
     components: {
         view_grid, 
+        view_searchbar, 
     }
 })
 @VueLifeCycleProcessing()
