@@ -114,9 +114,9 @@ export class StoryPlanSubGridViewBase extends GridViewBase {
      * @memberof StoryPlanSubGridViewBase
      */
     protected containerModel: any = {
-        view_searchbar: { name: 'searchbar', type: 'SEARCHBAR' },
         view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
         view_grid: { name: 'grid', type: 'GRID' },
+        view_searchbar: { name: 'searchbar', type: 'SEARCHBAR' },
     };
 
     /**

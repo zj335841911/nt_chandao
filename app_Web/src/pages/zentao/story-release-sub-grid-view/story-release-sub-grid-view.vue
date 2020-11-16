@@ -3,8 +3,8 @@
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { StoryReleaseSubGridViewBase } from './story-release-sub-grid-view-base';
-import view_searchbar from '@widgets/story/custom-searchbar/custom-searchbar.vue';
 import view_grid from '@widgets/story/main-release-sub-grid/main-release-sub-grid.vue';
+import view_searchbar from '@widgets/story/custom-searchbar/custom-searchbar.vue';
 
 /**
  * story表格视图视图
@@ -15,8 +15,8 @@ import view_grid from '@widgets/story/main-release-sub-grid/main-release-sub-gri
  */
 @Component({
     components: {
-        view_searchbar, 
         view_grid, 
+        view_searchbar, 
     }
 })
 @VueLifeCycleProcessing()

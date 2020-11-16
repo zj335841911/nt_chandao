@@ -1332,6 +1332,10 @@ export default {
 			caption: "刷新",
 			tip: "刷新",
 		},
+		deuiaction6: {
+			caption: "过滤",
+			tip: "过滤",
+		},
 	},
 	curprojectwgridviewtoolbar_toolbar: {
 		deuiaction1: {
@@ -1353,6 +1357,10 @@ export default {
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",
+		},
+		deuiaction6: {
+			caption: "过滤",
+			tip: "过滤",
 		},
 	},
 	kanbanviewtoolbar_toolbar: {
@@ -1377,6 +1385,10 @@ export default {
 		deuiaction1: {
 			caption: "关联需求",
 			tip: "关联需求",
+		},
+		deuiaction2: {
+			caption: "过滤",
+			tip: "过滤",
 		},
 	},
 	releasesubeditviewtoolbar_toolbar: {
@@ -1426,6 +1438,14 @@ export default {
 			caption: "编辑",
 			tip: "编辑",
 		},
+		seperator2: {
+			caption: "",
+			tip: "",
+		},
+		deuiaction3: {
+			caption: "过滤",
+			tip: "过滤",
+		},
 	},
 	releasesubgridviewtoolbar_toolbar: {
 		deuiaction1: {
@@ -1436,8 +1456,26 @@ export default {
 			caption: "导出",
 			tip: "导出",
 		},
+		deuiaction3: {
+			caption: "过滤",
+			tip: "过滤",
+		},
 	},
 	myfavoritesgridviewtoolbar_toolbar: {
+		deuiaction2: {
+			caption: "刷新",
+			tip: "刷新",
+		},
+		deuiaction1: {
+			caption: "导出",
+			tip: "导出",
+		},
+		deuiaction4: {
+			caption: "过滤",
+			tip: "过滤",
+		},
+	},
+	mainmygridviewtoolbar_toolbar: {
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",
@@ -1455,6 +1493,10 @@ export default {
 		tbitem13: {
 			caption: "导出",
 			tip: "导出",
+		},
+		deuiaction1: {
+			caption: "过滤",
+			tip: "过滤",
 		},
 	},
 	myopenedstory_chart: {
