@@ -849,6 +849,10 @@ export default {
 			caption: "Export",
 			tip: "Export {0} Data To Excel",
 		},
+		deuiaction4: {
+			caption: "Filter",
+			tip: "Filter",
+		},
 	},
 	gridviewtoolbar_toolbar: {
 		deuiaction3_batchnew: {

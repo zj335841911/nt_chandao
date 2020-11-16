@@ -1294,6 +1294,10 @@ export default {
 			caption: "导出",
 			tip: "导出",
 		},
+		deuiaction4: {
+			caption: "过滤",
+			tip: "过滤",
+		},
 	},
 	plansubeditviewtoolbar_toolbar: {
 		deuiaction1: {
@@ -1390,6 +1394,10 @@ export default {
 			caption: "导出",
 			tip: "导出",
 		},
+		deuiaction4: {
+			caption: "过滤",
+			tip: "过滤",
+		},
 	},
 	maingridviewtoolbar_toolbar: {
 		deuiaction1_create: {
@@ -1437,6 +1445,10 @@ export default {
 		deuiaction1: {
 			caption: "导出",
 			tip: "导出",
+		},
+		deuiaction4: {
+			caption: "过滤",
+			tip: "过滤",
 		},
 	},
 	main2gridviewtoolbar_toolbar: {

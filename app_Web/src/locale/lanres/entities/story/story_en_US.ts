@@ -1294,6 +1294,10 @@ export default {
 			caption: "Export",
 			tip: "Export {0} Data To Excel",
 		},
+		deuiaction4: {
+			caption: "Filter",
+			tip: "Filter",
+		},
 	},
 	plansubeditviewtoolbar_toolbar: {
 		deuiaction1: {
@@ -1390,6 +1394,10 @@ export default {
 			caption: "Export",
 			tip: "Export {0} Data To Excel",
 		},
+		deuiaction4: {
+			caption: "Filter",
+			tip: "Filter",
+		},
 	},
 	maingridviewtoolbar_toolbar: {
 		deuiaction1_create: {
@@ -1437,6 +1445,10 @@ export default {
 		deuiaction1: {
 			caption: "Export",
 			tip: "Export {0} Data To Excel",
+		},
+		deuiaction4: {
+			caption: "Filter",
+			tip: "Filter",
 		},
 	},
 	main2gridviewtoolbar_toolbar: {
