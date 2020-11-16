@@ -52,6 +52,7 @@ public interface IProductService extends IService<Product> {
     boolean save(Product et);
     void saveBatch(List<Product> list);
     Page<Product> searchAllList(ProductSearchContext context);
+    Page<Product> searchAllProduct(ProductSearchContext context);
     Page<Product> searchCheckNameOrCode(ProductSearchContext context);
     Page<Product> searchCurProject(ProductSearchContext context);
     Page<Product> searchCurUer(ProductSearchContext context);

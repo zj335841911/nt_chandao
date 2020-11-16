@@ -212,6 +212,28 @@ public class ProductResource {
                 .body(new PageImpl(productMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-searchAllProduct-all') and hasPermission(#context,'pms-Product-Get')")
+	@ApiOperation(value = "获取所有产品", tags = {"产品" } ,notes = "获取所有产品")
+    @RequestMapping(method= RequestMethod.GET , value="/products/fetchallproduct")
+	public ResponseEntity<List<ProductDTO>> fetchAllProduct(ProductSearchContext context) {
+        Page<Product> domains = productService.searchAllProduct(context) ;
+        List<ProductDTO> list = productMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-searchAllProduct-all') and hasPermission(#context,'pms-Product-Get')")
+	@ApiOperation(value = "查询所有产品", tags = {"产品" } ,notes = "查询所有产品")
+    @RequestMapping(method= RequestMethod.POST , value="/products/searchallproduct")
+	public ResponseEntity<Page<ProductDTO>> searchAllProduct(@RequestBody ProductSearchContext context) {
+        Page<Product> domains = productService.searchAllProduct(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(productMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-searchCheckNameOrCode-all') and hasPermission(#context,'pms-Product-Get')")
 	@ApiOperation(value = "获取校验产品名称或产品代号是否已经存在", tags = {"产品" } ,notes = "获取校验产品名称或产品代号是否已经存在")
     @RequestMapping(method= RequestMethod.GET , value="/products/fetchchecknameorcode")

@@ -8899,7 +8899,7 @@ WHERE t1.DELETED = '0'
 ( ( t1.`STATUS` <> 'closed'  OR  (#{srf.datacontext.products} is not null and t1.id = #{srf.datacontext.products}) )  AND  t1.`ORGID` =  ${srfsessioncontext('SRFORGID','{"defname":"ORGID","dename":"ZT_PRODUCT"}')} ) 
 
 ```
-### 数据查询(AllProduct)<div id="Product_AllProduct"></div>
+### 所有产品(AllProduct)<div id="Product_AllProduct"></div>
 ```sql
 SELECT
 	id,

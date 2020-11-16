@@ -292,7 +292,7 @@ hide footbox
 | 查询编号 | 查询名称       | 默认查询 |   备注|
 | --------  | --------   | --------   | ----- |
 |AllList|全部产品([MYSQL5](../../appendix/query_MYSQL5.md#Product_AllList))|否|&nbsp;用户（非管理员）相关的全部产品|
-|AllProduct|数据查询([MYSQL5](../../appendix/query_MYSQL5.md#Product_AllProduct))|否|&nbsp;|
+|AllProduct|所有产品([MYSQL5](../../appendix/query_MYSQL5.md#Product_AllProduct))|否|&nbsp;|
 |CheckNameOrCode|校验产品名称或产品代号是否已经存在([MYSQL5](../../appendix/query_MYSQL5.md#Product_CheckNameOrCode))|否|&nbsp;|
 |CURPROJECT|当前项目([MYSQL5](../../appendix/query_MYSQL5.md#Product_CurProject))|否|&nbsp;|
 |CurUer|当前用户([MYSQL5](../../appendix/query_MYSQL5.md#Product_CurUer))|否|&nbsp;|
@@ -306,6 +306,7 @@ hide footbox
 | 集合编号 | 集合名称   |  包含查询  | 默认集合 |   备注|
 | --------  | --------   | -------- | --------   | ----- |
 |AllList|全部产品|AllList|否|&nbsp;|
+|AllProduct|所有产品|AllProduct|否|&nbsp;|
 |CheckNameOrCode|校验产品名称或产品代号是否已经存在|CheckNameOrCode|否|&nbsp;|
 |CURPROJECT|当前项目|CURPROJECT|否|&nbsp;|
 |CurUer|当前用户|CurUer|否|&nbsp;|
