@@ -84,7 +84,7 @@
 }
 .mpvue-calendar td {
   margin: 2px !important;
-  padding: 0px 0;
+  padding: 0 0;
   width: 14.28571429%;
   height: 88rpx;
   text-align: center;
@@ -112,7 +112,7 @@
   width: 76rpx;
   font-size: 28rpx;
   line-height: 76rpx;
-  margin: 0px auto;
+  margin: 0 auto;
   position: relative;
   z-index: 3;
 }
@@ -264,7 +264,7 @@
 }
 .mpvue-calendar-change .calendar-week-switch-months span {
   margin-bottom: 20rpx;
-  margin-top: 0px;
+  margin-top: 0;
   font-size: 26rpx;
   line-height: 40rpx;
 }
@@ -331,7 +331,7 @@
   left: 5px;
 }
 .mpvue-calendar .mc-range-row-first.mc-range-end.month-first-date .mc-range-bg {
-  margin-left: 0px;
+  margin-left: 0;
 }
 .mc-range-mode .mc-range-row-last.mc-range-begin .mc-range-bg {
   display: block;
@@ -363,11 +363,11 @@
   .month-last-date.mc-range-begin
   .mc-range-bg {
   width: 130%;
-  border-radius: 0px 20% 20% 0px;
+  border-radius: 0 20% 20% 0;
 }
 .mpvue-calendar .mc-range-mode.week-switch .mc-range-month-last .mc-range-bg {
   background-color: #01a1ed;
-  border-radius: 0px 20% 20% 0px;
+  border-radius: 0 20% 20% 0;
 }
 /*month range*/
 .mpvue-calendar .month-range-mode {
@@ -378,13 +378,13 @@
   box-shadow: 0 4px 8px rgba(25, 47, 89, 0.1);
   padding: 15rpx 0rpx;
   position: sticky;
-  top: 0px;
+  top: 0;
   background-color: #fff;
   z-index: 9;
 }
 .month-range-mode .month-rang-head {
   text-align: left;
-  margin: 20rpx 0px;
+  margin: 20rpx 0;
   padding-left: 40rpx;
   font-size: 28rpx;
 }
