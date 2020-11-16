@@ -1244,7 +1244,24 @@ div::-webkit-scrollbar-thumb {
     height: 100%;
     display: flex;
     overflow: auto;
-
+    .dataview-group-folading-kanban{
+        border: 1px solid #ddd;
+        text-align: center;
+        border-left: 0;
+        height: 100%;
+        width: 40px;
+        background-color: #d8d8d8;
+        color: #a5a5a5;
+        .dataview-group-icon{
+            padding: 6px 0;
+        }
+        .dataview-group-folding{
+            height: calc(100% - 39px);
+            writing-mode: tb;
+            width: 31px;
+            font-size: 17px;
+        }
+    }
     .dataview-group-content {
         border: 1px solid #ddd;
         border-left: 0;

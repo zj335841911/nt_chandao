@@ -56,37 +56,47 @@
                 </template>
                 <template v-if="Object.is(data.editor, 'branchnameeq')">
                     
-  <app-picker 
-    :formState="formState"
-    :data="data"
-    :context="context"
-    :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
-    :disabled="detailsModel.branchnameeq.disabled"
-    name='branchnameeq'
-    deMajorField='name'
-    deKeyField='branch'
-    :service="service"
-    :acParams="{ serviceName: 'BranchService', interfaceName: 'FetchDefault'}"
-    valueitem='' 
-    :value="data.branchnameeq"
-    :pickupView="{ viewname: 'branch-pickup-view', title: $t('entities.branch.views.pickupview.title'), deResParameters: [{ pathName: 'products', parameterName: 'product' }, ], parameters: [{ pathName: 'branches', parameterName: 'branch' }, { pathName: 'pickupview', parameterName: 'pickupview' } ], placement:'' }"
-    style="width:100px;"  
-    @formitemvaluechange="onFormItemValueChange($event)">
-  </app-picker>
-
+<app-picker  
+  :formState="formState"
+  :data="data"
+  :context="context"
+  :viewparams="viewparams"
+  :localContext ='{ }' 
+  :localParam ='{ }' 
+  :disabled="detailsModel.branchnameeq.disabled"
+  name='branchnameeq'
+  deMajorField='name'
+  deKeyField='branch'
+  :service="service"
+  :acParams="{ serviceName: 'BranchService', interfaceName: 'FetchDefault'}"
+  valueitem=''
+  :value="data.branchnameeq"
+  editortype="dropdown"
+  style=""
+  @formitemvaluechange="onFormItemValueChange($event)">
+</app-picker>
                 </template>
                 <template v-if="Object.is(data.editor, 'branchnamelike')">
-                    <input-box 
-    v-model="data.branchnamelike"  
-    @enter="onEnter($event)"  
-      
-    :disabled="detailsModel.branchnamelike.disabled" 
-    type='text' 
-    style="width:100px;">
-</input-box>
-
+                    
+<app-picker  
+  :formState="formState"
+  :data="data"
+  :context="context"
+  :viewparams="viewparams"
+  :localContext ='{ }' 
+  :localParam ='{ }' 
+  :disabled="detailsModel.branchnamelike.disabled"
+  name='branchnamelike'
+  deMajorField='name'
+  deKeyField='branch'
+  :service="service"
+  :acParams="{ serviceName: 'BranchService', interfaceName: 'FetchDefault'}"
+  valueitem=''
+  :value="data.branchnamelike"
+  editortype="dropdown"
+  style=""
+  @formitemvaluechange="onFormItemValueChange($event)">
+</app-picker>
                 </template>
                 <template v-if="Object.is(data.editor, 'browsereq')">
                     
@@ -126,25 +136,19 @@
                 </template>
                 <template v-if="Object.is(data.editor, 'caseeq')">
                     
-<app-picker  
-  :formState="formState"
-  :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :localContext ='{ }' 
-  :localParam ='{ }' 
-  :disabled="detailsModel.caseeq.disabled"
-  name='caseeq'
-  deMajorField='title'
-  deKeyField='case'
-  :service="service"
-  :acParams="{ serviceName: 'CaseService', interfaceName: 'FetchDefault'}"
-  valueitem=''
-  :value="data.caseeq"
-  editortype="dropdown"
-  style=""
-  @formitemvaluechange="onFormItemValueChange($event)">
-</app-picker>
+<dropdown-list 
+    v-model="data.caseeq"
+    :data="data"
+    :context="context"
+    :formState="formState"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.caseeq.disabled"
+    valueType="number"
+    placeholder='请选择...'
+    
+/>
                 </template>
                 <template v-if="Object.is(data.editor, 'closedbyeq')">
                     
@@ -236,45 +240,35 @@
                 </template>
                 <template v-if="Object.is(data.editor, 'duplicatebugeq')">
                     
-<app-picker  
-  :formState="formState"
-  :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :localContext ='{ }' 
-  :localParam ='{ }' 
-  :disabled="detailsModel.duplicatebugeq.disabled"
-  name='duplicatebugeq'
-  deMajorField='title'
-  deKeyField='bug'
-  :service="service"
-  :acParams="{ serviceName: 'BugService', interfaceName: 'FetchDefault'}"
-  valueitem=''
-  :value="data.duplicatebugeq"
-  editortype="dropdown"
-  style=""
-  @formitemvaluechange="onFormItemValueChange($event)">
-</app-picker>
+<dropdown-list 
+    v-model="data.duplicatebugeq"
+    :data="data"
+    :context="context"
+    :formState="formState"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.duplicatebugeq.disabled"
+    valueType="number"
+    placeholder='请选择...'
+    
+/>
                 </template>
                 <template v-if="Object.is(data.editor, 'entryeq')">
                     
-<app-picker  
-  :formState="formState"
-  :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :localContext ='{ }' 
-  :localParam ='{ }' 
-  :disabled="detailsModel.entryeq.disabled"
-  name='entryeq'
-  :service="service"
-  :acParams="{ }"
-  valueitem=''
-  :value="data.entryeq"
-  editortype="dropdown"
-  style=""
-  @formitemvaluechange="onFormItemValueChange($event)">
-</app-picker>
+<dropdown-list 
+    v-model="data.entryeq"
+    :data="data"
+    :context="context"
+    :formState="formState"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.entryeq.disabled"
+    valueType="number"
+    placeholder='请选择...'
+    
+/>
                 </template>
                 <template v-if="Object.is(data.editor, 'lasteditedbyeq')">
                     
@@ -296,25 +290,21 @@
                 </template>
                 <template v-if="Object.is(data.editor, 'moduleeq')">
                     
-<app-picker  
-  :formState="formState"
-  :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :localContext ='{ }' 
-  :localParam ='{ }' 
-  :disabled="detailsModel.moduleeq.disabled"
-  name='moduleeq'
-  deMajorField='name'
-  deKeyField='module'
-  :service="service"
-  :acParams="{ serviceName: 'ModuleService', interfaceName: 'FetchDefault'}"
-  valueitem=''
-  :value="data.moduleeq"
-  editortype="dropdown"
-  style=""
-  @formitemvaluechange="onFormItemValueChange($event)">
-</app-picker>
+<dropdown-list 
+    v-model="data.moduleeq"
+    :data="data"
+    :context="context"
+    :formState="formState"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.moduleeq.disabled"
+    valueType="number"
+    tag='BugModule'
+    codelistType='DYNAMIC'
+    placeholder='请选择...'
+    
+/>
                 </template>
                 <template v-if="Object.is(data.editor, 'modulenameeq')">
                     
@@ -408,25 +398,19 @@ FTL stack trace ("~" means nesting-related):
                 </template>
                 <template v-if="Object.is(data.editor, 'planeq')">
                     
-<app-picker  
-  :formState="formState"
-  :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :localContext ='{ }' 
-  :localParam ='{ }' 
-  :disabled="detailsModel.planeq.disabled"
-  name='planeq'
-  deMajorField='title'
-  deKeyField='productplan'
-  :service="service"
-  :acParams="{ serviceName: 'ProductPlanService', interfaceName: 'FetchDefault'}"
-  valueitem=''
-  :value="data.planeq"
-  editortype="dropdown"
-  style=""
-  @formitemvaluechange="onFormItemValueChange($event)">
-</app-picker>
+<dropdown-list 
+    v-model="data.planeq"
+    :data="data"
+    :context="context"
+    :formState="formState"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.planeq.disabled"
+    valueType="number"
+    placeholder='请选择...'
+    
+/>
                 </template>
                 <template v-if="Object.is(data.editor, 'prieq')">
                     
@@ -448,25 +432,19 @@ FTL stack trace ("~" means nesting-related):
                 </template>
                 <template v-if="Object.is(data.editor, 'producteq')">
                     
-<app-picker  
-  :formState="formState"
-  :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :localContext ='{ }' 
-  :localParam ='{ }' 
-  :disabled="detailsModel.producteq.disabled"
-  name='producteq'
-  deMajorField='name'
-  deKeyField='product'
-  :service="service"
-  :acParams="{ serviceName: 'ProductService', interfaceName: 'FetchDefault'}"
-  valueitem=''
-  :value="data.producteq"
-  editortype="dropdown"
-  style=""
-  @formitemvaluechange="onFormItemValueChange($event)">
-</app-picker>
+<dropdown-list 
+    v-model="data.producteq"
+    :data="data"
+    :context="context"
+    :formState="formState"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.producteq.disabled"
+    valueType="number"
+    placeholder='请选择...'
+    
+/>
                 </template>
                 <template v-if="Object.is(data.editor, 'productnameeq')">
                     
@@ -514,25 +492,19 @@ FTL stack trace ("~" means nesting-related):
                 </template>
                 <template v-if="Object.is(data.editor, 'projecteq')">
                     
-<app-picker  
-  :formState="formState"
-  :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :localContext ='{ }' 
-  :localParam ='{ }' 
-  :disabled="detailsModel.projecteq.disabled"
-  name='projecteq'
-  deMajorField='name'
-  deKeyField='project'
-  :service="service"
-  :acParams="{ serviceName: 'ProjectService', interfaceName: 'FetchDefault'}"
-  valueitem=''
-  :value="data.projecteq"
-  editortype="dropdown"
-  style=""
-  @formitemvaluechange="onFormItemValueChange($event)">
-</app-picker>
+<dropdown-list 
+    v-model="data.projecteq"
+    :data="data"
+    :context="context"
+    :formState="formState"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.projecteq.disabled"
+    valueType="number"
+    placeholder='请选择...'
+    
+/>
                 </template>
                 <template v-if="Object.is(data.editor, 'projectnameeq')">
                     
@@ -580,23 +552,19 @@ FTL stack trace ("~" means nesting-related):
                 </template>
                 <template v-if="Object.is(data.editor, 'repoeq')">
                     
-<app-picker  
-  :formState="formState"
-  :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :localContext ='{ }' 
-  :localParam ='{ }' 
-  :disabled="detailsModel.repoeq.disabled"
-  name='repoeq'
-  :service="service"
-  :acParams="{ }"
-  valueitem=''
-  :value="data.repoeq"
-  editortype="dropdown"
-  style=""
-  @formitemvaluechange="onFormItemValueChange($event)">
-</app-picker>
+<dropdown-list 
+    v-model="data.repoeq"
+    :data="data"
+    :context="context"
+    :formState="formState"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.repoeq.disabled"
+    valueType="number"
+    placeholder='请选择...'
+    
+/>
                 </template>
                 <template v-if="Object.is(data.editor, 'resolutioneq')">
                     
@@ -712,25 +680,21 @@ FTL stack trace ("~" means nesting-related):
                 </template>
                 <template v-if="Object.is(data.editor, 'storyeq')">
                     
-<app-picker  
-  :formState="formState"
-  :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :localContext ='{ }' 
-  :localParam ='{ }' 
-  :disabled="detailsModel.storyeq.disabled"
-  name='storyeq'
-  deMajorField='title'
-  deKeyField='story'
-  :service="service"
-  :acParams="{ serviceName: 'StoryService', interfaceName: 'FetchDefault'}"
-  valueitem=''
-  :value="data.storyeq"
-  editortype="dropdown"
-  style=""
-  @formitemvaluechange="onFormItemValueChange($event)">
-</app-picker>
+<dropdown-list 
+    v-model="data.storyeq"
+    :data="data"
+    :context="context"
+    :formState="formState"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.storyeq.disabled"
+    valueType="number"
+    tag='RelatedStory'
+    codelistType='DYNAMIC'
+    placeholder='请选择...'
+    
+/>
                 </template>
                 <template v-if="Object.is(data.editor, 'storynameeq')">
                     
@@ -778,25 +742,19 @@ FTL stack trace ("~" means nesting-related):
                 </template>
                 <template v-if="Object.is(data.editor, 'taskeq')">
                     
-<app-picker  
-  :formState="formState"
-  :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :localContext ='{ }' 
-  :localParam ='{ }' 
-  :disabled="detailsModel.taskeq.disabled"
-  name='taskeq'
-  deMajorField='name'
-  deKeyField='task'
-  :service="service"
-  :acParams="{ serviceName: 'TaskService', interfaceName: 'FetchDefault'}"
-  valueitem=''
-  :value="data.taskeq"
-  editortype="dropdown"
-  style=""
-  @formitemvaluechange="onFormItemValueChange($event)">
-</app-picker>
+<dropdown-list 
+    v-model="data.taskeq"
+    :data="data"
+    :context="context"
+    :formState="formState"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.taskeq.disabled"
+    valueType="number"
+    placeholder='请选择...'
+    
+/>
                 </template>
                 <template v-if="Object.is(data.editor, 'tasknamelike')">
                     
@@ -855,47 +813,35 @@ FTL stack trace ("~" means nesting-related):
                 </template>
                 <template v-if="Object.is(data.editor, 'tostoryeq')">
                     
-<app-picker  
-  :formState="formState"
-  :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :localContext ='{ }' 
-  :localParam ='{ }' 
-  :disabled="detailsModel.tostoryeq.disabled"
-  name='tostoryeq'
-  deMajorField='title'
-  deKeyField='story'
-  :service="service"
-  :acParams="{ serviceName: 'StoryService', interfaceName: 'FetchDefault'}"
-  valueitem=''
-  :value="data.tostoryeq"
-  editortype="dropdown"
-  style=""
-  @formitemvaluechange="onFormItemValueChange($event)">
-</app-picker>
+<dropdown-list 
+    v-model="data.tostoryeq"
+    :data="data"
+    :context="context"
+    :formState="formState"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.tostoryeq.disabled"
+    valueType="number"
+    placeholder='请选择...'
+    
+/>
                 </template>
                 <template v-if="Object.is(data.editor, 'totaskeq')">
                     
-<app-picker  
-  :formState="formState"
-  :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :localContext ='{ }' 
-  :localParam ='{ }' 
-  :disabled="detailsModel.totaskeq.disabled"
-  name='totaskeq'
-  deMajorField='name'
-  deKeyField='task'
-  :service="service"
-  :acParams="{ serviceName: 'TaskService', interfaceName: 'FetchDefault'}"
-  valueitem=''
-  :value="data.totaskeq"
-  editortype="dropdown"
-  style=""
-  @formitemvaluechange="onFormItemValueChange($event)">
-</app-picker>
+<dropdown-list 
+    v-model="data.totaskeq"
+    :data="data"
+    :context="context"
+    :formState="formState"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.totaskeq.disabled"
+    valueType="number"
+    placeholder='请选择...'
+    
+/>
                 </template>
                 <template v-if="Object.is(data.editor, 'typeeq')">
                     
