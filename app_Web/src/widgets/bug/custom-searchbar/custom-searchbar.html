@@ -36,24 +36,6 @@
     
 />
                 </template>
-                <template v-if="Object.is(data.editor, 'brancheq')">
-                    
-<dropdown-list 
-    v-model="data.brancheq"
-    :data="data"
-    :context="context"
-    :formState="formState"
-    :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
-    :disabled="detailsModel.brancheq.disabled"
-    valueType="number"
-    tag='ProductBranch'
-    codelistType='DYNAMIC'
-    placeholder='请选择...'
-    
-/>
-                </template>
                 <template v-if="Object.is(data.editor, 'branchnameeq')">
                     
 <app-picker  
@@ -186,28 +168,6 @@
     style="width:100px;"
 />
                 </template>
-                <template v-if="Object.is(data.editor, 'tasknameeq')">
-                    
-<app-picker  
-  :formState="formState"
-  :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :localContext ='{ }' 
-  :localParam ='{ }' 
-  :disabled="detailsModel.tasknameeq.disabled"
-  name='tasknameeq'
-  deMajorField='name'
-  deKeyField='task'
-  :service="service"
-  :acParams="{ serviceName: 'TaskService', interfaceName: 'FetchBugTask'}"
-  valueitem=''
-  :value="data.tasknameeq"
-  editortype="dropdown"
-  style=""
-  @formitemvaluechange="onFormItemValueChange($event)">
-</app-picker>
-                </template>
                 <template v-if="Object.is(data.editor, 'confirmedeq')">
                     
 <dropdown-list 
@@ -286,24 +246,6 @@
     codelistType='DYNAMIC'
     placeholder='请选择...'
     style="width:100px;"
-/>
-                </template>
-                <template v-if="Object.is(data.editor, 'moduleeq')">
-                    
-<dropdown-list 
-    v-model="data.moduleeq"
-    :data="data"
-    :context="context"
-    :formState="formState"
-    :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
-    :disabled="detailsModel.moduleeq.disabled"
-    valueType="number"
-    tag='BugModule'
-    codelistType='DYNAMIC'
-    placeholder='请选择...'
-    
 />
                 </template>
                 <template v-if="Object.is(data.editor, 'modulenameeq')">
@@ -432,22 +374,6 @@
     style="width:100px;"
 />
                 </template>
-                <template v-if="Object.is(data.editor, 'producteq')">
-                    
-<dropdown-list 
-    v-model="data.producteq"
-    :data="data"
-    :context="context"
-    :formState="formState"
-    :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
-    :disabled="detailsModel.producteq.disabled"
-    valueType="number"
-    placeholder='请选择...'
-    
-/>
-                </template>
                 <template v-if="Object.is(data.editor, 'productnameeq')">
                     
 <app-picker  
@@ -491,22 +417,6 @@
   style=""
   @formitemvaluechange="onFormItemValueChange($event)">
 </app-picker>
-                </template>
-                <template v-if="Object.is(data.editor, 'projecteq')">
-                    
-<dropdown-list 
-    v-model="data.projecteq"
-    :data="data"
-    :context="context"
-    :formState="formState"
-    :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
-    :disabled="detailsModel.projecteq.disabled"
-    valueType="number"
-    placeholder='请选择...'
-    
-/>
                 </template>
                 <template v-if="Object.is(data.editor, 'projectnameeq')">
                     
@@ -553,20 +463,16 @@
 </app-picker>
                 </template>
                 <template v-if="Object.is(data.editor, 'repoeq')">
-                    
-<dropdown-list 
-    v-model="data.repoeq"
-    :data="data"
-    :context="context"
-    :formState="formState"
-    :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
-    :disabled="detailsModel.repoeq.disabled"
-    valueType="number"
-    placeholder='请选择...'
-    
-/>
+                    <input-box 
+  v-model="data.repoeq"  
+  @enter="onEnter($event)"  
+  
+  :disabled="detailsModel.repoeq.disabled" 
+  type='number' 
+   
+  style="">
+</input-box>
+
                 </template>
                 <template v-if="Object.is(data.editor, 'resolutioneq')">
                     
@@ -680,24 +586,6 @@
     style="width:100px;"
 />
                 </template>
-                <template v-if="Object.is(data.editor, 'storyeq')">
-                    
-<dropdown-list 
-    v-model="data.storyeq"
-    :data="data"
-    :context="context"
-    :formState="formState"
-    :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
-    :disabled="detailsModel.storyeq.disabled"
-    valueType="number"
-    tag='RelatedStory'
-    codelistType='DYNAMIC'
-    placeholder='请选择...'
-    
-/>
-                </template>
                 <template v-if="Object.is(data.editor, 'storynameeq')">
                     
 <app-picker  
@@ -742,21 +630,27 @@
   @formitemvaluechange="onFormItemValueChange($event)">
 </app-picker>
                 </template>
-                <template v-if="Object.is(data.editor, 'taskeq')">
+                <template v-if="Object.is(data.editor, 'tasknameeq')">
                     
-<dropdown-list 
-    v-model="data.taskeq"
-    :data="data"
-    :context="context"
-    :formState="formState"
-    :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
-    :disabled="detailsModel.taskeq.disabled"
-    valueType="number"
-    placeholder='请选择...'
-    
-/>
+<app-picker  
+  :formState="formState"
+  :data="data"
+  :context="context"
+  :viewparams="viewparams"
+  :localContext ='{ }' 
+  :localParam ='{ }' 
+  :disabled="detailsModel.tasknameeq.disabled"
+  name='tasknameeq'
+  deMajorField='name'
+  deKeyField='task'
+  :service="service"
+  :acParams="{ serviceName: 'TaskService', interfaceName: 'FetchBugTask'}"
+  valueitem=''
+  :value="data.tasknameeq"
+  editortype="dropdown"
+  style=""
+  @formitemvaluechange="onFormItemValueChange($event)">
+</app-picker>
                 </template>
                 <template v-if="Object.is(data.editor, 'tasknamelike')">
                     
@@ -781,26 +675,16 @@
 </app-picker>
                 </template>
                 <template v-if="Object.is(data.editor, 'testtaskeq')">
-                    
-<app-picker  
-  :formState="formState"
-  :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :localContext ='{ }' 
-  :localParam ='{ }' 
-  :disabled="detailsModel.testtaskeq.disabled"
-  name='testtaskeq'
-  deMajorField='name'
-  deKeyField='testtask'
-  :service="service"
-  :acParams="{ serviceName: 'TestTaskService', interfaceName: 'FetchDefault'}"
-  valueitem=''
-  :value="data.testtaskeq"
-  editortype="dropdown"
-  style=""
-  @formitemvaluechange="onFormItemValueChange($event)">
-</app-picker>
+                    <input-box 
+  v-model="data.testtaskeq"  
+  @enter="onEnter($event)"  
+  
+  :disabled="detailsModel.testtaskeq.disabled" 
+  type='number' 
+   
+  style="">
+</input-box>
+
                 </template>
                 <template v-if="Object.is(data.editor, 'titlelike')">
                     <input-box 
@@ -814,36 +698,28 @@
 
                 </template>
                 <template v-if="Object.is(data.editor, 'tostoryeq')">
-                    
-<dropdown-list 
-    v-model="data.tostoryeq"
-    :data="data"
-    :context="context"
-    :formState="formState"
-    :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
-    :disabled="detailsModel.tostoryeq.disabled"
-    valueType="number"
-    placeholder='请选择...'
-    
-/>
+                    <input-box 
+  v-model="data.tostoryeq"  
+  @enter="onEnter($event)"  
+  
+  :disabled="detailsModel.tostoryeq.disabled" 
+  type='number' 
+   
+  style="">
+</input-box>
+
                 </template>
                 <template v-if="Object.is(data.editor, 'totaskeq')">
-                    
-<dropdown-list 
-    v-model="data.totaskeq"
-    :data="data"
-    :context="context"
-    :formState="formState"
-    :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
-    :disabled="detailsModel.totaskeq.disabled"
-    valueType="number"
-    placeholder='请选择...'
-    
-/>
+                    <input-box 
+  v-model="data.totaskeq"  
+  @enter="onEnter($event)"  
+  
+  :disabled="detailsModel.totaskeq.disabled" 
+  type='number' 
+   
+  style="">
+</input-box>
+
                 </template>
                 <template v-if="Object.is(data.editor, 'typeeq')">
                     

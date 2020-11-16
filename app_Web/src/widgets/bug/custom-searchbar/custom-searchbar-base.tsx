@@ -107,13 +107,6 @@ export class CustomSearchbarBase extends MainControlBase {
             mode: 'EQ',
             disabled: false
         },
-        'brancheq': {
-            label: '平台/分支',
-            name: 'brancheq',
-            prop: 'branch',
-            mode: 'EQ',
-            disabled: false
-        },
         'branchnameeq': {
             label: '平台/分支',
             name: 'branchnameeq',
@@ -160,13 +153,6 @@ export class CustomSearchbarBase extends MainControlBase {
             label: '标题颜色',
             name: 'coloreq',
             prop: 'color',
-            mode: 'EQ',
-            disabled: false
-        },
-        'tasknameeq': {
-            label: '相关任务',
-            name: 'tasknameeq',
-            prop: 'taskname',
             mode: 'EQ',
             disabled: false
         },
@@ -219,13 +205,6 @@ export class CustomSearchbarBase extends MainControlBase {
             mode: 'EQ',
             disabled: false
         },
-        'moduleeq': {
-            label: '所属模块',
-            name: 'moduleeq',
-            prop: 'module',
-            mode: 'EQ',
-            disabled: false
-        },
         'modulenameeq': {
             label: '模块名称',
             name: 'modulenameeq',
@@ -275,13 +254,6 @@ export class CustomSearchbarBase extends MainControlBase {
             mode: 'EQ',
             disabled: false
         },
-        'producteq': {
-            label: '所属产品',
-            name: 'producteq',
-            prop: 'product',
-            mode: 'EQ',
-            disabled: false
-        },
         'productnameeq': {
             label: '产品',
             name: 'productnameeq',
@@ -294,13 +266,6 @@ export class CustomSearchbarBase extends MainControlBase {
             name: 'productnamelike',
             prop: 'productname',
             mode: 'LIKE',
-            disabled: false
-        },
-        'projecteq': {
-            label: '所属项目',
-            name: 'projecteq',
-            prop: 'project',
-            mode: 'EQ',
             disabled: false
         },
         'projectnameeq': {
@@ -373,13 +338,6 @@ export class CustomSearchbarBase extends MainControlBase {
             mode: 'NOTEQ',
             disabled: false
         },
-        'storyeq': {
-            label: '相关需求',
-            name: 'storyeq',
-            prop: 'story',
-            mode: 'EQ',
-            disabled: false
-        },
         'storynameeq': {
             label: '相关需求',
             name: 'storynameeq',
@@ -394,10 +352,10 @@ export class CustomSearchbarBase extends MainControlBase {
             mode: 'LIKE',
             disabled: false
         },
-        'taskeq': {
+        'tasknameeq': {
             label: '相关任务',
-            name: 'taskeq',
-            prop: 'task',
+            name: 'tasknameeq',
+            prop: 'taskname',
             mode: 'EQ',
             disabled: false
         },

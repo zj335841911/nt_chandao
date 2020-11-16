@@ -332,18 +332,6 @@
     style="width:100px;"
 />
                 </template>
-                <template v-if="Object.is(data.editor, 'moduleeq')">
-                    <input-box 
-  v-model="data.moduleeq"  
-  @enter="onEnter($event)"  
-  
-  :disabled="detailsModel.moduleeq.disabled" 
-  type='number' 
-   
-  style="">
-</input-box>
-
-                </template>
                 <template v-if="Object.is(data.editor, 'modulenameeq')">
                     
 <app-picker  
@@ -509,18 +497,6 @@
   @enter="onEnter($event)"  
   
   :disabled="detailsModel.preversioneq.disabled" 
-  type='number' 
-   
-  style="">
-</input-box>
-
-                </template>
-                <template v-if="Object.is(data.editor, 'producteq')">
-                    <input-box 
-  v-model="data.producteq"  
-  @enter="onEnter($event)"  
-  
-  :disabled="detailsModel.producteq.disabled" 
   type='number' 
    
   style="">

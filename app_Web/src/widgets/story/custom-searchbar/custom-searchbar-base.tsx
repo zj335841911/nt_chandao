@@ -226,13 +226,6 @@ export class CustomSearchbarBase extends MainControlBase {
             mode: 'EQ',
             disabled: false
         },
-        'moduleeq': {
-            label: '所属模块',
-            name: 'moduleeq',
-            prop: 'module',
-            mode: 'EQ',
-            disabled: false
-        },
         'modulenameeq': {
             label: '所属模块名称',
             name: 'modulenameeq',
@@ -300,13 +293,6 @@ export class CustomSearchbarBase extends MainControlBase {
             label: '之前的版本',
             name: 'preversioneq',
             prop: 'preversion',
-            mode: 'EQ',
-            disabled: false
-        },
-        'producteq': {
-            label: '所属产品',
-            name: 'producteq',
-            prop: 'product',
             mode: 'EQ',
             disabled: false
         },
