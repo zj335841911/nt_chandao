@@ -399,6 +399,7 @@ export const viewstate: any = {
                 '46517a803b2470cd0bef27aeda0dbcaf',
                 'c1e9611b6972b1877b75fa5d2c67aad6',
                 '122af527bf38b47ddc53c882847b490e',
+                'd0851a0acfe0e92a6a5ba34b1552bc66',
             ],
         },
         {
@@ -3838,6 +3839,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'd0851a0acfe0e92a6a5ba34b1552bc66',
+            viewmodule: 'zentao',
+            viewname: 'BranchPickupView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'fa64e271c22e6aaa89873d2556edf529',
+            ],
+        },
+        {
             viewtag: 'D1283E46-401A-4CFD-A7A1-BF5B90197463',
             viewmodule: 'Ungroup',
             viewname: 'TestPortalView',
@@ -4607,6 +4618,15 @@ export const viewstate: any = {
                 '1540523a668e920d831510cfbec2c5e2',
                 '46517a803b2470cd0bef27aeda0dbcaf',
                 '8af65044ab1633eb5b68d99478e9350f',
+            ],
+        },
+        {
+            viewtag: 'fa64e271c22e6aaa89873d2556edf529',
+            viewmodule: 'zentao',
+            viewname: 'BranchPickupGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
             ],
         },
         {

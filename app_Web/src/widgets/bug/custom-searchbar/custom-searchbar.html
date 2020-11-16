@@ -56,47 +56,37 @@
                 </template>
                 <template v-if="Object.is(data.editor, 'branchnameeq')">
                     
-<app-picker  
-  :formState="formState"
-  :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :localContext ='{ }' 
-  :localParam ='{ }' 
-  :disabled="detailsModel.branchnameeq.disabled"
-  name='branchnameeq'
-  deMajorField='name'
-  deKeyField='branch'
-  :service="service"
-  :acParams="{ serviceName: 'BranchService', interfaceName: 'FetchDefault'}"
-  valueitem=''
-  :value="data.branchnameeq"
-  editortype="dropdown"
-  style=""
-  @formitemvaluechange="onFormItemValueChange($event)">
-</app-picker>
+  <app-picker 
+    :formState="formState"
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.branchnameeq.disabled"
+    name='branchnameeq'
+    deMajorField='name'
+    deKeyField='branch'
+    :service="service"
+    :acParams="{ serviceName: 'BranchService', interfaceName: 'FetchDefault'}"
+    valueitem='' 
+    :value="data.branchnameeq"
+    :pickupView="{ viewname: 'branch-pickup-view', title: $t('entities.branch.views.pickupview.title'), deResParameters: [{ pathName: 'products', parameterName: 'product' }, ], parameters: [{ pathName: 'branches', parameterName: 'branch' }, { pathName: 'pickupview', parameterName: 'pickupview' } ], placement:'' }"
+    style="width:100px;"  
+    @formitemvaluechange="onFormItemValueChange($event)">
+  </app-picker>
+
                 </template>
                 <template v-if="Object.is(data.editor, 'branchnamelike')">
-                    
-<app-picker  
-  :formState="formState"
-  :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :localContext ='{ }' 
-  :localParam ='{ }' 
-  :disabled="detailsModel.branchnamelike.disabled"
-  name='branchnamelike'
-  deMajorField='name'
-  deKeyField='branch'
-  :service="service"
-  :acParams="{ serviceName: 'BranchService', interfaceName: 'FetchDefault'}"
-  valueitem=''
-  :value="data.branchnamelike"
-  editortype="dropdown"
-  style=""
-  @formitemvaluechange="onFormItemValueChange($event)">
-</app-picker>
+                    <input-box 
+    v-model="data.branchnamelike"  
+    @enter="onEnter($event)"  
+      
+    :disabled="detailsModel.branchnamelike.disabled" 
+    type='text' 
+    style="width:100px;">
+</input-box>
+
                 </template>
                 <template v-if="Object.is(data.editor, 'browsereq')">
                     
