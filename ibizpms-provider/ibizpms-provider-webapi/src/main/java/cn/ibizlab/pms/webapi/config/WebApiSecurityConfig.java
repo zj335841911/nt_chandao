@@ -129,15 +129,15 @@ public class WebApiSecurityConfig extends WebSecurityConfigurerAdapter {
                         "/v2/**"
                 ).permitAll()
                 // 放行登录请求
-                .antMatchers( HttpMethod.POST,"/"+loginPath).permitAll()
+                .antMatchers( HttpMethod.POST, "/" + loginPath).permitAll()
                 // 放行注销请求
-                .antMatchers( HttpMethod.GET,"/"+logoutPath).permitAll()
+                .antMatchers( HttpMethod.GET, "/" + logoutPath).permitAll()
                 // 文件操作
-                .antMatchers("/"+downloadpath+"/**").permitAll()
-                .antMatchers("/"+ztdownloadpath+"/**").permitAll()
-                .antMatchers("/"+uploadpath).permitAll()
-                .antMatchers("/"+ztuploadpath).permitAll()
-                .antMatchers("/"+previewpath+"/**").permitAll()
+                .antMatchers("/" + downloadpath + "/**").permitAll()
+                .antMatchers("/" + ztdownloadpath + "/**").permitAll()
+                .antMatchers("/" + uploadpath).permitAll()
+                .antMatchers("/" + ztuploadpath).permitAll()
+                .antMatchers("/" + previewpath + "/**").permitAll()
                //开放ZT API登录接口
                .antMatchers("/ztlogin").permitAll()
                //开放账号名查询接口
