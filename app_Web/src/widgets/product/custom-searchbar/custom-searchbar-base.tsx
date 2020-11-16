@@ -93,11 +93,60 @@ export class CustomSearchbarBase extends MainControlBase {
             mode: 'EQ',
             disabled: false
         },
+        'nameeq': {
+            label: '产品名称',
+            name: 'nameeq',
+            prop: 'name',
+            mode: 'LIKE',
+            disabled: false
+        },
         'typeeq': {
             label: '产品类型',
             name: 'typeeq',
             prop: 'type',
             mode: 'EQ',
+            disabled: false
+        },
+        'acleq': {
+            label: '访问控制',
+            name: 'acleq',
+            prop: 'acl',
+            mode: 'EQ',
+            disabled: false
+        },
+        'statuseq': {
+            label: '状态',
+            name: 'statuseq',
+            prop: 'status',
+            mode: 'EQ',
+            disabled: false
+        },
+        'statusisnotnull': {
+            label: '状态',
+            name: 'statusisnotnull',
+            prop: 'status',
+            mode: 'ISNOTNULL',
+            disabled: false
+        },
+        'lineeq': {
+            label: '产品线',
+            name: 'lineeq',
+            prop: 'line',
+            mode: 'EQ',
+            disabled: false
+        },
+        'linenameeq': {
+            label: '产品线',
+            name: 'linenameeq',
+            prop: 'linename',
+            mode: 'EQ',
+            disabled: false
+        },
+        'linenamelike': {
+            label: '产品线',
+            name: 'linenamelike',
+            prop: 'linename',
+            mode: 'LIKE',
             disabled: false
         },
     };

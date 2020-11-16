@@ -14,6 +14,17 @@
 </input-box>
 
                 </template>
+                <template v-if="Object.is(data.editor, 'nameeq')">
+                    <input-box 
+    v-model="data.nameeq"  
+    @enter="onEnter($event)"  
+      
+    :disabled="detailsModel.nameeq.disabled" 
+    type='text' 
+    style="width:100px;">
+</input-box>
+
+                </template>
                 <template v-if="Object.is(data.editor, 'typeeq')">
                     
 <dropdown-list 
@@ -31,6 +42,120 @@
     placeholder='请选择...'
     style="width:100px;"
 />
+                </template>
+                <template v-if="Object.is(data.editor, 'acleq')">
+                    
+<dropdown-list 
+    v-model="data.acleq"
+    :data="data"
+    :context="context"
+    :formState="formState"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.acleq.disabled"
+    valueType="string"
+    tag='Product__acl'
+    codelistType='STATIC'
+    placeholder='请选择...'
+    style="width:100px;"
+/>
+                </template>
+                <template v-if="Object.is(data.editor, 'statuseq')">
+                    
+<dropdown-list 
+    v-model="data.statuseq"
+    :data="data"
+    :context="context"
+    :formState="formState"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.statuseq.disabled"
+    valueType="string"
+    tag='Product__status'
+    codelistType='STATIC'
+    placeholder='请选择...'
+    style="width:100px;"
+/>
+                </template>
+                <template v-if="Object.is(data.editor, 'statusisnotnull')">
+                    
+<dropdown-list 
+    v-model="data.statusisnotnull"
+    :data="data"
+    :context="context"
+    :formState="formState"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.statusisnotnull.disabled"
+    valueType="string"
+    tag='Product__status'
+    codelistType='STATIC'
+    placeholder='请选择...'
+    style="width:100px;"
+/>
+                </template>
+                <template v-if="Object.is(data.editor, 'lineeq')">
+                    
+<dropdown-list 
+    v-model="data.lineeq"
+    :data="data"
+    :context="context"
+    :formState="formState"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.lineeq.disabled"
+    valueType="number"
+    placeholder='请选择...'
+    
+/>
+                </template>
+                <template v-if="Object.is(data.editor, 'linenameeq')">
+                    
+<app-picker  
+  :formState="formState"
+  :data="data"
+  :context="context"
+  :viewparams="viewparams"
+  :localContext ='{ }' 
+  :localParam ='{ }' 
+  :disabled="detailsModel.linenameeq.disabled"
+  name='linenameeq'
+  deMajorField='name'
+  deKeyField='module'
+  :service="service"
+  :acParams="{ serviceName: 'ModuleService', interfaceName: 'FetchLine'}"
+  valueitem=''
+  :value="data.linenameeq"
+  editortype="dropdown"
+  style=""
+  @formitemvaluechange="onFormItemValueChange($event)">
+</app-picker>
+                </template>
+                <template v-if="Object.is(data.editor, 'linenamelike')">
+                    
+<app-picker  
+  :formState="formState"
+  :data="data"
+  :context="context"
+  :viewparams="viewparams"
+  :localContext ='{ }' 
+  :localParam ='{ }' 
+  :disabled="detailsModel.linenamelike.disabled"
+  name='linenamelike'
+  deMajorField='name'
+  deKeyField='module'
+  :service="service"
+  :acParams="{ serviceName: 'ModuleService', interfaceName: 'FetchLine'}"
+  valueitem=''
+  :value="data.linenamelike"
+  editortype="dropdown"
+  style=""
+  @formitemvaluechange="onFormItemValueChange($event)">
+</app-picker>
                 </template>
             </template>
         </filter-tree>
