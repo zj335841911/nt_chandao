@@ -19,14 +19,20 @@
 
                 </template>
                 <template v-if="Object.is(data.editor, 'assignedtoeq')">
-                    <input-box 
-    v-model="data.assignedtoeq"  
-    @enter="onEnter($event)"  
-      
-    :disabled="detailsModel.assignedtoeq.disabled" 
-    type='text' 
-    style="width:100px;">
-</input-box>
+                    
+<app-radio-group 
+  v-model="data.assignedtoeq"
+  :data="data" 
+  :context="context"
+  :viewparams="viewparams"   
+  :disabled="detailsModel.assignedtoeq.disabled"  
+  name="assignedtoeq" 
+  :localContext ='{ }' 
+  :localParam ='{ }' 
+  tag='BugUserRealName' 
+  codelistType='DYNAMIC' 
+  style="">
+</app-radio-group>
 
                 </template>
                 <template v-if="Object.is(data.editor, 'brancheq')">
